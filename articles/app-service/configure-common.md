@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ---
 # Configure an App Service app
 
-This article explains how to configure common settings for web apps, mobile back end, or API app.
+This article explains how to configure common settings for web apps, mobile back end, or API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
 
 ## Configure app settings
 
@@ -44,7 +44,7 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
     ![Application Settings](./media/configure-common/open-ui.png)
 
-    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show value** button.
+    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show values** button.
 
 1. To add a new app setting, click **New application setting**. To edit a setting, click the **Edit** button on the right side.
 
@@ -203,7 +203,7 @@ For ASP.NET and ASP.NET Core developers, setting connection strings in App Servi
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
 
 > [!NOTE]
-> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure a connection string for the database in your App Service app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
+> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -213,7 +213,7 @@ At runtime, connection strings are available as environment variables, prefixed 
 * Custom: `CUSTOMCONNSTR_`
 * PostgreSQL: `POSTGRESQLCONNSTR_`  
 
-For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
+For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
@@ -421,13 +421,13 @@ Here, you can configure some common settings for the app. Some settings require 
 
 - **Stack settings**: The software stack to run the app, including the language and SDK versions.
 
-    For Linux apps and custom containers, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+    For Linux apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
 
     ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **FTP state**: Allow only FTPS or disable FTP altogether.
-    - **Bitness**: 32-bit or 64-bit. (Defaults to 32-bit for App Service created in the portal.)
+    - **Bitness**: 32-bit or 64-bit. For Windows apps only. 
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
     - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
     

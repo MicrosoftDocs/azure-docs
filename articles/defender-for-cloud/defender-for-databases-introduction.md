@@ -7,9 +7,7 @@ ms.author: benmansheim
 author: bmansheim
 ---
 
-# Introduction to Microsoft Defender for open-source relational databases
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+# Overview of Microsoft Defender for open-source relational databases
 
 This plan brings threat protections for the following open-source relational databases:
 

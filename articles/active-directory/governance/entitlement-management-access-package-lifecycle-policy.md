@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # Change lifecycle settings for an access package in Azure AD entitlement management
 
-As an access package manager, you can change the lifecycle settings for an access package at any time by editing an existing policy. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
+As an access package manager, you can change the lifecycle settings for assignments in an access package at any time by editing an existing policy. If you change the expiration date for assignments on a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
 
 This article describes how to change the lifecycle settings for an existing access package.
 

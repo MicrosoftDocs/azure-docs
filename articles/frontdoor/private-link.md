@@ -36,7 +36,7 @@ Once your request is approved, a private IP address gets assigned from the Azure
 
 ## Region availability
 
-Azure Front Door private endpoints are available in the following regions:
+Azure Front Door private link is available in the following regions:
 
 | Americas | Europe | Asia Pacific |
 |--|--|--|
@@ -46,14 +46,13 @@ Azure Front Door private endpoints are available in the following regions:
 | East US | Sweden Central | Japan East |
 | East US 2 | UK South | Korea Central |
 | South Central US | West Europe |  |
-| West US 2 |  |  |
 | West US 3 |  |  |
 
 ## Limitations
 
 Origin support for direct private end point connectivity is limited to Storage (Azure Blobs), App Services and internal load balancers.
 
-For the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door private link endpoint.
+The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
 
 ## Next steps
 

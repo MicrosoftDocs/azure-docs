@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, event-tier1-build-2022
 
-author: mx-iao
-ms.author: minxia
+author: blackmist
+ms.author: larryfr
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
 ---
@@ -22,7 +22,7 @@ Every Azure Machine Learning entity has a schematized YAML representation. You c
 
 This article provides an overview of core syntax concepts you will encounter while configuring these YAML files.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Referencing an Azure ML entity
 
@@ -49,7 +49,7 @@ To reference an Azure ML resource (such as compute), you can use either of the f
 * Shorthand syntax: `azureml:<resource_name>`
 * Longhand syntax, which includes the ARM resource ID of the resource:
 ```
-azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/compute/<compute-name>
+azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/computes/<compute-name>
 ```
 
 ## Azure ML data reference URI

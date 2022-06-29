@@ -33,6 +33,8 @@ The following roles have the required permissions:
 - Reports Reader
 - Security Reader
 - Global Reader
+- Application Administrator
+- Cloud Application Administrator
 - Security Operator
 - Security Administrator
 - Global Administrator

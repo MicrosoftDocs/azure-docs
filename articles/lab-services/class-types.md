@@ -2,12 +2,12 @@
 title: Example class types on Azure Lab Services | Microsoft Docs
 description: Provides some types of classes for which you can set up labs using Azure Lab Services. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 04/04/2022
 ---
 
 # Class types overview - Azure Lab Services
 
-Azure Lab Services enables you to quickly set up classroom lab environments in the cloud. Articles in this section provide guidance on how to set up several types of labs using Azure Lab Services.
+Azure Lab Services enables you to quickly set up lab environments in the cloud. Articles in this section provide guidance on how to set up several types of labs using Azure Lab Services.
 
 ## Adobe Creative Cloud
 
@@ -17,7 +17,7 @@ For detailed information on how to set up this type of lab, see [Setup a lab for
 
 ## ArcGIS
 
-[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) is a type of geographic information system (GIS).  You can set up a lab that uses ArcGIS Desktop's various applications, such as [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) to make, edit, and analyze 2D maps.
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) is a type of geographic information system (GIS).  You can set up a lab that uses ArcGIS Desktop's various applications. For example, [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) can make, edit, and analyze 2D maps.
 
 For detailed information on how to set up this type of lab, see [Setup a lab for ArcMap\ArcGIS Desktop](class-type-arcgis.md).
 
@@ -25,11 +25,11 @@ For detailed information on how to set up this type of lab, see [Setup a lab for
 
 [Autodesk](https://www.autodesk.com/) offers software solutions in architecture, engineering, construction, design, manufacturing, and more.  These solutions are commonly used in engineering classes and in the [Project Lead the Way](class-type-pltw.md) curriculum.
 
-For detailed information on how to set up this type of lab, see [Autodesk](class-type-autodesk.md).
+For detailed information on how to set up this type of lab, see [Set up a lab for Autodesk](class-type-autodesk.md).
 
 ## Big data analytics
 
-You can set up a GPU lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package that provides tools for storing, managing, and processing big data. 
+You can set up a GPU lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key goal for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package that provides tools for storing, managing, and processing big data.
 
 For detailed information on how to set up this type of lab, see [Set up a lab for big data analytics using Docker deployment of HortonWorks Data Platform](class-type-big-data-analytics.md).
 
@@ -61,7 +61,7 @@ For detailed information on how to set up this type of lab, see [Setup a lab to 
 
 ## Networking with GNS3
 
-You can set up a lab for a class that focuses on allowing students to emulate, configure, test, and troubleshoot virtual and real networks using [GNS3](https://www.gns3.com/) software. 
+You can set up a lab for a class that focuses on allowing students to emulate, configure, test, and troubleshoot virtual and real networks using [GNS3](https://www.gns3.com/) software.
 
 For detailed information on how to set up this type of lab, see [Setup a lab to teach a networking class](class-type-networking-gns3.md).
 
@@ -81,11 +81,11 @@ For detailed information on how to set up this type of lab, see [Set up a lab to
 
 [React](https://reactjs.org/) is a popular JavaScript library for building user interfaces (UI). React is a declarative way to create reusable components for your website.  There are many popular libraries for JavaScript-based front-end development.  We'll use a few of these libraries while creating our lab.  [Redux](https://redux.js.org/) is a library that provides predictable state container for JavaScript apps and is often used in compliment with React. [JSX](https://reactjs.org/docs/introducing-jsx.html) is a library syntax extension to JavaScript often used with React to describe what the UI should look like.  [NodeJS](https://nodejs.org/) is a convenient way to run a webserver for your React application.
 
-For detailed information on how to set up this type of lab on Linux using [Visual Studio Code](https://code.visualstudio.com/) for your development environment, see [Set up lab for React on Windows](class-type-react-linux.md).  For detailed information on how to set up this type of lab on Windows using [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) for your development environment, see [Set up lab for React on Windows](class-type-react-windows.md).
+For detailed information on how to set up this type of lab on Linux using [Visual Studio Code](https://code.visualstudio.com/) for your development environment, see [Set up lab for React on Linux](class-type-react-linux.md).  For detailed information on how to set up this type of lab on Windows using [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) for your development environment, see [Set up lab for React on Windows](class-type-react-windows.md).
 
 ## RStudio
 
-[R](https://www.r-project.org/about.html) is an open-source language used for statistical computing and graphics.  It's used in the statistical analysis of genetics, natural language processing, analyzing financial data, and more.  R provides an [interactive command line](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R-from-the-command-line) experience.  [RStudio](https://www.rstudio.com/products/rstudio/) is an interactive development environment (IDE) available for the R language.  The free version provides code editing tools, an integrated debugging experience, and package development tools.  This class type will focus on solely RStudio and R as a building block for a class that requires the use of statistical computing.
+[R](https://www.r-project.org/about.html) is an open-source language used for statistical computing and graphics.  It's used in the statistical analysis of genetics, natural language processing, analyzing financial data, and more.  R provides an [interactive command line](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R-from-the-command-line) experience.  [RStudio](https://www.rstudio.com/products/rstudio/) is an interactive development environment (IDE) available for the R language.  The free version provides code-editing tools, an integrated debugging experience, and package development tools.  This class type will focus on solely RStudio and R as a building block for a class that requires the use of statistical computing.
 
 For detailed information on how to set up this type of lab, see [Set up a lab to teach R on Linux](class-type-rstudio-linux.md) or [Set up a lab to teach R on Windows](class-type-rstudio-windows.md).
 
@@ -95,11 +95,11 @@ You can set up a lab to teach shell scripting on Linux. Scripting is a useful pa
 
 Students taking these scripting classes get a Linux virtual machine to learn the basics of Linux, and also get familiar with the bash shell scripting. The Linux virtual machine comes with remote desktop access enabled and with [Gedit](https://help.gnome.org/users/gedit/stable/) and [Visual Studio Code](https://code.visualstudio.com/) text editors installed.
 
-For detailed information on how to set up this type of lab, see [Shell scripting on Linux](class-type-shell-scripting-linux.md).
+For detailed information on how to set up this type of lab, see [Set up a lab  for Shell scripting on Linux](class-type-shell-scripting-linux.md).
 
 ## SolidWorks computer-aided design (CAD)
 
-You can set up a GPU lab that gives engineering students access to [SolidWorks](https://www.solidworks.com/).  SolidWorks provides a 3D CAD environment for modeling solid objects.  With SolidWorks, engineers can easily create, visualize, simulate and document their designs.
+You can set up a GPU lab that gives engineering students access to [SolidWorks](https://www.solidworks.com/).  SolidWorks provides a 3D CAD environment for modeling solid objects.  With SolidWorks, engineers can easily create, visualize, simulate, and document their designs.
 
 For detailed information on how to set up this type of lab, see [Set up a lab for engineering classes using SolidWorks](class-type-solidworks.md).
 

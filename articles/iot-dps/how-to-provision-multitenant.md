@@ -108,7 +108,7 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
 8. Repeat Steps 5 through 7 for the second IoT hub that you created for the *westgus* location.
 
-9. Select the two IoT Hubs you created in the **Select the IoT hubs this group c an be assigned to** drop down.
+9. Select the two IoT Hubs you created in the **Select the IoT hubs this group can be assigned to** drop down.
 
     :::image type="content" source="./media/how-to-provision-multitenant/enrollment-regional-hub-group.png" alt-text="Select the linked IoT hubs.":::
 

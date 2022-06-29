@@ -79,15 +79,15 @@ Azure Private 5G Core instantiates a single private mobile network distributed a
 
 You can also deploy packet core instances in 4G mode to support Private Long-Term Evolution (LTE) use cases. For example, you can use the 4G Citizens Broadband Radio Service (CBRS) spectrum. 4G mode uses the same cloud-native components as 5G mode (such as the UPF). This is in contrast to other solutions that need to revert to a legacy 4G stack.
 
-The following diagram shows the network functions supported by a packet core instance. It also shows the interfaces these network functions use to interoperate with third-party components. Note that when running in 4G mode, the Unified Data Repository (UDR) performs the role that would usually be performed by a Home Subscriber Store (HSS).
+The following diagram shows the network functions supported by a packet core instance. It also shows the interfaces these network functions use to interoperate with third-party components.
 
-:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Packet core architecture diagram displaying each of the supported network functions and their interfaces.":::
-   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M, and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. When operating in 4G mode, the packet core includes S 11 I W F and M M E network functions. The S 11 I W F communicates with the M M E over the S 11 interface. An E Node B provided by a Microsoft partner communicates with the M M E over the S 1 C interface. 
+:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Diagram of the packet core architecture displaying each of the supported network functions and their interfaces.":::
+   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M, and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. When operating in 4G mode, the packet core includes M M E Proxy and M M E network functions. The M M E Proxy communicates with the M M E over the S 11 interface. An E Node B provided by a Microsoft partner communicates with the M M E over the S 1 M M E interface. 
 :::image-end:::
 
 Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity. Alternatively, you can provide multiple routes to the cloud, internet, or other enterprise data centers running IoT and automation applications.
 
-## Support for 5GC features
+## Feature support
 
 ### Supported 5G network functions
 
@@ -100,16 +100,30 @@ Each packet core instance is connected to the local RAN network to provide cover
 - Unified Data Repository (UDR)
 - Network Repository Function (NRF)
 
-### Supported 5G procedures
+### Supported 4G network functions
 
-For information on Azure Private 5G Core's support for standards-based 5G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).
+Azure Private 5G Core uses the following network functions when supporting 4G UEs, in addition to the 5G network functions listed above.
+
+- Mobile Management Entity (MME)
+- MME-Proxy - The MME-Proxy works to allow 4G UEs to be served by 5G network functions.
+
+The following 5G network functions perform specific roles when supporting 4G UEs.
+
+- The UDR operates as a Home Subscriber Store (HSS).
+- The UPF operates as a System Architecture Evolution Gateway (SAEGW-U).
+
+### Supported 5G and 4G procedures
+
+For information on Azure Private 5G Core's support for standards-based 5G and 4G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).
 
 ### User equipment (UE) authentication and security context management
 
 Azure Private 5G Core supports the following authentication methods:
 
-- Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI).
-- 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.
+- Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI) for 5G user equipment (UEs).
+- Authentication using International Mobile Subscriber Identities (IMSI) and Globally Unique Temporary Identities (GUTI) for 4G UEs.
+- 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between 5G UEs and the network.
+- Evolved Packet System based Authentication and Key Agreement (EPS-AKA) for mutual authentication between 4G UEs and the network.
 
 The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.
 

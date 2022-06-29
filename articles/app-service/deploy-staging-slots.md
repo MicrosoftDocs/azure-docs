@@ -47,6 +47,10 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
     ![Configuration source](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     You can clone a configuration from any existing slot. Settings that can be cloned include app settings, connection strings, language framework versions, web sockets, HTTP version, and platform bitness.
+    
+  > [!NOTE]
+  > Currently, VNET and the Private Endpoint are not cloned across slots.
+  > 
 
 4. After the slot is added, select **Close** to close the dialog box. The new slot is now shown on the **Deployment slots** page. By default, **Traffic %** is set to 0 for the new slot, with all customer traffic routed to the production slot.
 

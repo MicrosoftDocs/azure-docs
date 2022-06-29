@@ -169,7 +169,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 For more information, see the following resources:
 
 * [Azure for Java Developers](/azure/java)
-* [Working with Azure DevOps and Java](/azure/devops/java)
+* [Working with Azure DevOps and Java](/azure/devops/pipelines/ecosystems/java)
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
 * [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux#configure-maven-to-build-image-to-your-azure-container-registry)

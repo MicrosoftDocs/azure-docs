@@ -492,6 +492,10 @@ For example:
 mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
 ```
 
+After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
+
+![Screenshot of a snap link python](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample-python.png)
+
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline. 
 
@@ -574,6 +578,11 @@ For example:
 ```scala
 mssparkutils.notebook.run("folder/Sample1", 90, Map("input" -> 20))
 ```
+
+After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
+
+![Screenshot of a snap link scala](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample.png)
+
 
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline. 
@@ -1122,5 +1131,5 @@ mssparkutils.runtime.context
 - [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Azure Synapse Analytics](../index.yml)
-- [How to play with file mount/unmount API in Synapse](./synapse-file-mount-api.md)
+- [How to use file mount/unmount API in Synapse](./synapse-file-mount-api.md)
 

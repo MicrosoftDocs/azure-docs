@@ -160,6 +160,9 @@ In this example the *log file* name is `azacsnap-backup-bootVol.log` (see [Log f
 
 The log file name is constructed from the following "(command name)-(the `-c` option)-(the config filename)".  For example, if running the command `azacsnap -c backup --configfile h80.json --retention 5 --prefix one-off` then the log file will be called `azacsnap-backup-h80.log`.  Or if using the `-c test` option with the same configuration file (e.g. `azacsnap -c test --configfile h80.json`) then the log file will be called `azacsnap-test-h80.log`.
 
+> [!NOTE]
+> Log files can be automatically maintained using [this guide](azacsnap-tips.md#manage-azacsnap-log-files).
+
 ## Next steps
 
 - [Get snapshot details](azacsnap-cmd-ref-details.md)

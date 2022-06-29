@@ -61,8 +61,9 @@ When you create a VM and add it to a Flexible scale set, you have full control o
 The preferred method is to use Azure Resource Graph to query for all VMs in a Virtual Machine Scale Set. Azure Resource Graph provides efficient query capabilities for Azure resources at scale across subscriptions.
 
 ```
+resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
-| where properties.virtualMachineScaleSet contains "demo"
+| where properties.virtualMachineScaleSet.id contains "demo"
 | extend powerState = properties.extended.instanceView.powerState.code
 | project name, resourceGroup, location, powerState
 | order by resourceGroup desc, name desc
@@ -100,19 +101,22 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported | All SKUs  | All SKUs |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with virtual machine scale sets VM API  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network | Compute VMSS Write  | N/A |
+| Cross tenant shared image gallery | No | Yes | Yes |
 | Accelerated networking  | Yes  | Yes  | Yes |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only |
-| Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same Flexible scale set |
+| Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same availability set |
 | Disk Types  | Managed disks only, all storage types  | Managed and unmanaged disks, all storage types  | Managed and unmanaged disks, Ultradisk not supported |
+| Disk Server Side Encryption with Customer Managed Keys | Yes | Yes | Yes |
 | Write Accelerator   | No  | Yes  | Yes |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
 | Azure Dedicated Hosts   | No  | Yes  | Yes |
-| Managed Identity  | User Assigned Identity Only  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
+| Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
 | Add/remove existing VM to the group  | No  | No  | No |
 | Service Fabric  | No  | Yes  | No |
 | Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No |
-| UserData  | Partial, UserData can be specified for individual VMs | Yes  | UserData can be specified for individual VMs |
+| UserData  | Yes | Yes  | UserData can be specified for individual VMs |
 
+<sup>1</sup> For Uniform scale sets, the `GET VMSS` response will have a reference to the *identity*, *clientID*, and *principalID*. For Flexible scale sets, the response will only get a reference the *identity*. You can make a call to `Identity` to get the *clientID* and *PrincipalID*. 
 
 ### Autoscaling and instance orchestration
 | Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
@@ -129,7 +133,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) | Yes | No |
 | Scale In Policy | No | Yes | No |
 | VMSS Get Instance View | No | Yes | N/A |
-| VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) | Yes | No |
+| VM Batch Operations (Start all, Stop all, delete subset, etc.) | Partial, Batch delete is supported. Other operations can be triggered on each instance using VM API) | Yes | No |
 
 ### High availability 
 

@@ -9,6 +9,7 @@ ms.author: deeikele
 author: denniseik
 ms.date: 01/05/2022
 ms.topic: how-to
+ms.tool: terraform
 ---
 
 # Manage Azure Machine Learning workspaces using Terraform

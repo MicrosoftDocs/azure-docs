@@ -4,7 +4,7 @@ description: Learn how to create an Azure Service Fabric cluster across Availabi
 author: peterpogorski
 
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 05/13/2022
 ms.author: ashank
 ---
 
@@ -16,7 +16,10 @@ To support clusters that span across Availability Zones, Azure Service Fabric pr
 
 Sample templates are available at [Service Fabric cross-Availability Zone templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).
 
-## Recommended topology for spanning a primary node type across Availability Zones
+## Topology for spanning a primary node type across Availability Zones
+
+>[!NOTE]
+>The benefit of spanning the primary node type across availability zones is really only seen for three zones and not just two.
 
 * The cluster reliability level set to `Platinum`
 * A single public IP resource using Standard SKU
@@ -166,12 +169,9 @@ The Standard SKU load balancer and public IP introduce new abilities and differe
 > Each node type in a Service Fabric cluster that uses a Standard SKU load balancer requires a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup. Any deployment without this rule will fail.
 
 
-## 1. (Preview) Enable multiple Availability Zones in single virtual machine scale set
+## 1. Enable multiple Availability Zones in single virtual machine scale set
 
 This solution allows users to span three Availability Zones in the same node type. This is the recommended deployment topology as it enables you to deploy across availability zones while maintaining a single virtual machine scale set..
-
-> [!NOTE]
-> Because this feature is currently in preview, it's not currently supported for production scenarios.
 
 A full sample template is available on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 
@@ -206,9 +206,9 @@ You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 >[!NOTE]
 >
 > * Service Fabric clusters should have at least one primary node type. The durability level of primary node types should be Silver or higher.
-> * The Availability Zone that spans virtual machine scale sets should be configured with at least three Availability Zones, no matter the durability level.
-> * Availability Zones that span virtual machine scale sets with Silver or higher durability should have at least 15 VMs.
-> * Availability Zones that span virtual machine scale sets with Bronze durability should have at least six VMs.
+> * An Availability Zone spanning virtual machine scale set should be configured with at least three Availability Zones, no matter the durability level.
+> * An Availability Zone spanning virtual machine scale set with Silver or higher durability should have at least 15 VMs.
+> * An Availaibility Zone spanning virtual machine scale set with Bronze durability should have at least six VMs.
 
 ### Enable support for multiple zones in the Service Fabric node type
 

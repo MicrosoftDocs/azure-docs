@@ -89,7 +89,7 @@ The following private cloud environments and their versions are officially suppo
 
 * To onboard the Arc resource bridge, you are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
-* To read, modify, and delete the resource bridge, you are a member of the **Name of role** role in the resource group.
+* To read, modify, and delete the resource bridge, you are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
 ### Networking
 

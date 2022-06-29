@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: tamram
 
 ms.author: tamram
-ms.date: 03/29/2022
+ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -278,7 +278,7 @@ The following example shows a change event record in JSON format that uses event
         "sequencer": "00000000000000010000000000000002000000000000001d",
         "previousInfo": {
             "SoftDeleteSnapshot": "2022-02-17T13:08:42.4825913Z",
-            "WasBlobSoftDeleted": true,
+            "WasBlobSoftDeleted": "true",
             "BlobVersion": "2024-02-17T16:11:52.0781797Z",
             "LastVersion" : "2022-02-17T16:11:52.0781797Z",
             "PreviousTier": "Hot"
@@ -356,7 +356,7 @@ The following example shows a change event record in JSON format that uses event
         "sequencer": "00000000000000010000000000000002000000000000001d",
         "previousInfo": {
             "SoftDeleteSnapshot": "2022-02-17T13:08:42.4825913Z",
-            "WasBlobSoftDeleted": true,
+            "WasBlobSoftDeleted": "true",
             "BlobVersion": "2024-02-17T16:11:52.0781797Z",
             "LastVersion" : "2022-02-17T16:11:52.0781797Z",
             "PreviousTier": "Hot"
@@ -438,7 +438,7 @@ The following example shows a change event record in JSON format that uses event
         "sequencer": "00000000000000010000000000000002000000000000001d",
         "previousInfo": {
             "SoftDeleteSnapshot": "2022-02-17T13:12:11.5726507Z",
-            "WasBlobSoftDeleted": true,
+            "WasBlobSoftDeleted": "true",
             "BlobVersion": "2024-02-17T16:11:52.0781797Z",
             "LastVersion" : "2022-02-17T16:11:52.0781797Z",
             "PreviousTier": "Hot"
@@ -544,7 +544,6 @@ The following example shows a change event record in JSON format that uses event
 
 This section describes known issues and conditions in the current release of the change feed.
 
-- Change event records for any single change might appear more than once in your change feed.
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.

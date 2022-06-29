@@ -8,11 +8,6 @@ ms.custom: mode-other
 
 # Quickstart: Security agent reference architecture
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Agent portfolio overview and OS support (Preview)](concept-agent-portfolio-overview-os-support.md).
->
-
-
 Microsoft Defender for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT Hub.
 
 Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
@@ -47,7 +42,7 @@ Defender for IoT offers different installer agents for 32 bit and 64-bit Windows
 
 ## Next steps
 
-In this article, you got a high-level overview about Defender for IoT Defender-IoT-micro-agent architecture, and the available installers.To continue getting started with Defender for IoT deployment, review the security agent authentication methods that are available.
+In this article, you got a high-level overview about Defender for IoT Defender-IoT-micro-agent architecture, and the available installers. To continue getting started with Defender for IoT deployment, review the security agent authentication methods that are available.
 
 > [!div class="nextstepaction"]
 > [Security agent authentication methods](concept-security-agent-authentication-methods.md)

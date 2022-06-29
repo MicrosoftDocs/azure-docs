@@ -3,7 +3,7 @@ title: Automate threat response with playbooks in Microsoft Sentinel | Microsoft
 description: This article explains automation in Microsoft Sentinel, and shows how to use playbooks to automate threat prevention and response.
 author: yelevin
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 04/10/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -73,6 +73,31 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
 - **Dynamic fields:** Temporary fields, determined by the output schema of triggers and actions and populated by their actual output, that can be used in the actions that follow.
+
+#### Two types of Logic Apps
+
+Microsoft Sentinel now supports two Logic Apps resource types:
+
+- **Logic App (Consumption)**, based on the classic, original Logic Apps engine, and
+- **Logic App (Standard)**, based on the new Logic Apps engine.
+
+**Logic Apps Standard** features a single-tenant, containerized environment that provides higher performance, fixed pricing, single apps containing multiple workflows, easier API connections management, native network capabilities such as virtual networking (VNet) and private endpoints support, built-in CI/CD features, better Visual Studio integration, a new version of the Logic Apps Designer, and more.
+
+You can leverage this powerful new version of Logic Apps by creating new Standard playbooks in Microsoft Sentinel, and you can use them the same ways you use the classic Logic App Consumption playbooks:
+- Attach them to automation rules and/or analytics rules.
+- Run them on demand, from both incidents and alerts.
+- Manage them in the Active Playbooks tab.
+
+There are many differences between these two resource types, some of which affect some of the ways they can be used in playbooks in Microsoft Sentinel. In such cases, the documentation will point out what you need to know.
+
+See [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-type-and-host-environment-differences) in the Logic Apps documentation for a detailed summary of the two resource types.
+
+> [!IMPORTANT]
+> - While the **Logic App (Standard)** resource type is generally available, Microsoft Sentinel's support for this resource type is in **Preview**.
+
+> [!NOTE]
+> - You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*. Microsoft Sentinel does not support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
+> - Logic Apps Standard does not currently support Playbook templates. This means that you can't create a Standard workflow from within Microsoft Sentinel. Rather, you must create it in Logic Apps, and once it's created, you'll see it in Microsoft Sentinel.
 
 ### Permissions required
 
@@ -189,9 +214,10 @@ Two examples:
 
 Playbooks can be run either **manually** or **automatically**.
 
-Running them manually means that when you get an alert, you can choose to run a playbook on-demand as a response to the selected alert. Currently this feature is generally available for alerts, and in preview for incidents.
+They are designed to be run automatically, and ideally that is how they should be run in the normal course of operations. You [run a playbook automatically](tutorial-respond-threats-playbook.md#automate-threat-responses) by defining it as an [automated response in an analytics rule](detect-threats-custom.md#set-automated-responses-and-create-the-rule) (for alerts), or as an [action in an automation rule](automate-incident-handling-with-automation-rules.md) (for incidents).
 
-Running them automatically means to set them as an automated response in an analytics rule (for alerts), or as an action in an automation rule (for incidents). [Learn more about automation rules](automate-incident-handling-with-automation-rules.md).
+There are circumstances, though, that call for running playbooks manually. For example, when creating a new playbook, you'll want to test it before putting it in production. Or, there may be situations where you'll want to have more control and human input into when and whether a certain playbook runs. You [run a playbook manually](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand) by opening an incident or alert and selecting and running the associated playbook displayed there. Currently this feature is generally available for alerts, and in preview for incidents.
+
 
 ### Set an automated response
 
@@ -203,7 +229,7 @@ If the alert creates an incident, the incident will trigger an automation rule w
 
 #### Alert creation automated response
 
-For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “When a Microsoft Sentinel Alert is triggered”), attach the playbook to an analytics rule:
+For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “Microsoft Sentinel alert"), attach the playbook to an analytics rule:
 
 1. Edit the [analytics rule](detect-threats-custom.md) that generates the alert you want to define an automated response for.
 
@@ -211,9 +237,9 @@ For playbooks that are triggered by alert creation and receive alerts as their i
 
 #### Incident creation automated response
 
-For playbooks that are triggered by incident creation and receive incidents as their inputs (their first step is “When a Microsoft Sentinel Incident is triggered”), create an automation rule and define a **Run playbook** action in it. This can be done in 2 ways:
+For playbooks that are triggered by incident creation and receive incidents as their inputs (their first step is “Microsoft Sentinel incident"), create an automation rule and define a **Run playbook** action in it. This can be done in 2 ways:
 
-- Edit the analytics rule that generates the incident you want to define an automated response for. Under **Incident automation** in the **Automated response** tab, create an automation rule. This will create a automated response only for this analytics rule.
+- Edit the analytics rule that generates the incident you want to define an automated response for. Under **Incident automation** in the **Automated response** tab, create an automation rule. This will create an automated response only for this analytics rule.
 
 - From the **Automation rules** tab in the **Automation** blade, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
 
@@ -251,9 +277,11 @@ If you want to run an incident-trigger playbook that you don't see in the list, 
 
 ## Manage your playbooks
 
-In the **Playbooks** tab, there appears a list of all the playbooks which you have access to, filtered by the subscriptions which are currently displayed in Azure. The subscriptions filter is available from the **Directory + subscription** menu in the global page header.
+In the **Active playbooks** tab, there appears a list of all the playbooks which you have access to, filtered by the subscriptions which are currently displayed in Azure. The subscriptions filter is available from the **Directory + subscription** menu in the global page header.
 
 Clicking on a playbook name directs you to the playbook's main page in Logic Apps. The **Status** column indicates if it is enabled or disabled.
+
+The **Plan** column indicates whether the playbook uses the **Standard** or **Consumption** resource type in Azure Logic Apps. You can filter the list by plan type to see only one type of playbook. You'll notice that playbooks of the Standard type use the `LogicApp/Workflow` naming convention. This convention reflects the fact that a Standard playbook represents a workflow that exists *alongside other workflows* in a single Logic App.
 
 **Trigger kind** represents the Logic Apps trigger that starts this playbook.
 
@@ -294,8 +322,8 @@ The following recommended playbooks, and other similar playbooks are available t
 - **Blocking playbooks** are triggered when an alert or incident is created, gather entity information like the account, IP address, and host, and blocks them from further actions:
 
     - [Prompt to block an IP address](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-IPs-on-MDATP-Using-GraphSecurity).
-    - [Block an AAD user](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUser)
-    - [Reset an AAD user password](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
+    - [Block an Azure AD user](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUser)
+    - [Reset an Azure AD user password](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
     - [Prompt to isolate a machine](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
 
 - **Create, update, or close playbooks** can create, update, or close incidents in Microsoft Sentinel, Microsoft 365 security services, or other ticketing systems:

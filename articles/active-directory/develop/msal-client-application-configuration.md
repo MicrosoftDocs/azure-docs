@@ -1,6 +1,5 @@
 ---
-title: Client application configuration (MSAL) | Azure
-titleSuffix: Microsoft identity platform
+title: Client application configuration (MSAL)
 description: Learn about configuration options for public client and confidential client applications using the Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy

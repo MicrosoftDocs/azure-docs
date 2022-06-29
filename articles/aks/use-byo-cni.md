@@ -156,6 +156,8 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2022-02-02-previ
 }
 ```
 
+---
+
 ### Deploy a CNI plugin
 
 When AKS provisioning completes, the cluster will be online, but all of the nodes will be in a `NotReady` state:
@@ -172,7 +174,6 @@ aks-nodepool1-23902496-vmss000000   container runtime network not ready: Network
 
 At this point, the cluster is ready for installation of a CNI plugin.
 
----
 ## Next steps
 
 Learn more about networking in AKS in the following articles:
@@ -212,3 +213,4 @@ Learn more about networking in AKS in the following articles:
 [network-comparisons]: concepts-network.md#compare-network-models
 [system-node-pools]: use-system-pools.md
 [prerequisites]: configure-azure-cni.md#prerequisites
+[deploy-bicep-template]: ../azure-resource-manager/bicep/deploy-cli.md

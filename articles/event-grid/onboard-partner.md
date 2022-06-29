@@ -31,7 +31,7 @@ For step #5, you should decide what kind of user experience you want to provide.
 This article shows you how to **onboard as an Azure Event Grid partner** using the **Azure portal**. 
 
 ## Communicate your interest in becoming a partner
-Fill out [this form](https://aka.ms/gridpartnerform) and contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com). We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
+Contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com) communicating your interest in becoming a partner. We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
 
 ## Prerequisites
 To complete the remaining steps, make sure you have:
@@ -46,7 +46,7 @@ To complete the remaining steps, make sure you have:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** from the left navigation pane, then type in **Event Grid Partner Registrations** in the search bar, and select it. 
-1. On the **Event Grid Partner Registrations** page, select **+ Add** on the toolbar. 
+1. On the **Event Grid Partner Registrations** page, select **+ Create** on the command bar or **Create Event Grid partner registrations** link on the page. 
 
     :::image type="content" source="./media/onboard-partner/add-partner-registration-link.png" alt-text="Add partner registration link":::
 1. On the **Create Partner Topic Type Registrations - Basics** page, enter the following information: 
@@ -200,7 +200,11 @@ Before your users can subscribe to partner topics you create in their Azure subs
 Similarly, before your user can use the partner destinations you create in their subscriptions, they'll have to activate partner destinations first. For details, see [Activate a partner destination](deliver-events-to-partner-destinations.md#activate-a-partner-destination).
    
 ## Next steps
-- [Partner topics overview](./partner-events-overview.md)
-- [Partner topics onboarding page](https://aka.ms/gridpartnerform)
-- [Auth0 partner topic](auth0-overview.md)
-- [How to use the Auth0 partner topic](auth0-how-to.md)
+
+See the following articles for more details about the Partner Events feature:
+
+- [Partner Events overview for customers](partner-events-overview.md)
+- [Partner Events overview for partners](partner-events-overview-for-partners.md)
+- [Subscribe to partner events](subscribe-to-partner-events.md)
+- [Subscribe to Auth0 events](auth0-how-to.md)
+- [Deliver events to partner destinations](deliver-events-to-partner-destinations.md)

@@ -2,14 +2,13 @@
 title: Azure Peering Service onboarding model
 description: Learn about on how to onboard Azure Peering Service
 services: peering-service
-documentationcenter: na
-author: derekolo
+author: halkazwini
 ms.service: peering-service
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
-ms.author: derekol
+ms.author: halkazwini
 ---
 
 # Onboarding Peering Service model

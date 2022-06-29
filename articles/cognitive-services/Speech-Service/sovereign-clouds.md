@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 11/09/2021
+ms.date: 05/10/2022
 ms.author: alexeyo
 ---
 
@@ -50,8 +50,8 @@ Speech Services REST API endpoints in Azure Government have the following format
 |  REST API type / operation | Endpoint format |
 |--|--|
 | Access token | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/sts/v1.0/issueToken`
-| [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/<URL_PATH>` |
-| [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) | `https://<REGION_IDENTIFIER>.stt.speech.azure.us/<URL_PATH>` |
+| [Speech-to-text REST API v3.0](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/<URL_PATH>` |
+| [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) | `https://<REGION_IDENTIFIER>.stt.speech.azure.us/<URL_PATH>` |
 | [Text-to-speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.us/<URL_PATH>` |
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
@@ -121,6 +121,7 @@ Available to organizations with a business presence in China. See more informati
   - Speech-to-text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.cn/)
+    - [Pronunciation assessment](how-to-pronunciation-assessment.md)
   - Text-to-speech
     - Standard voice
     - Neural voice
@@ -141,8 +142,8 @@ Speech Services REST API endpoints in Azure China have the following format:
 |  REST API type / operation | Endpoint format |
 |--|--|
 | Access token | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/sts/v1.0/issueToken`
-| [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/<URL_PATH>` |
-| [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) | `https://<REGION_IDENTIFIER>.stt.speech.azure.cn/<URL_PATH>` |
+| [Speech-to-text REST API v3.0](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/<URL_PATH>` |
+| [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) | `https://<REGION_IDENTIFIER>.stt.speech.azure.cn/<URL_PATH>` |
 | [Text-to-speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.cn/<URL_PATH>` |
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:

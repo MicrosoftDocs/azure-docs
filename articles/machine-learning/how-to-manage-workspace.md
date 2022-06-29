@@ -9,15 +9,14 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 03/08/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-
+ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
 
-As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
+As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](v1/reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -37,6 +36,8 @@ As your needs change or requirements for automation increase you can also manage
 ## Create a workspace
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
@@ -264,6 +265,8 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 ## Connect to a workspace
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
 
 ```python
@@ -284,6 +287,8 @@ ws = Workspace.from_config()
 
 * **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
+   [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
     from azureml.core import Workspace
@@ -299,6 +304,8 @@ If you have problems in accessing your subscription, see [Set up authentication 
 See a list of all the workspaces you can use.
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
 
@@ -328,12 +335,19 @@ The Workspace.list(..) method does not return the full workspace object. It incl
 
 ## Search for assets across a workspace (preview)
 
-With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and datasets across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and data across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+
+1. Start from [Azure Machine Learning studio](https://ml.azure.com).  
+1. If a workspace is open, select either the **Microsoft** menu item or the **Microsoft** link in the breadcrumb at the top of the page.
+
+:::image type="content" source="media/how-to-manage-workspace/back-to-main-page.png" alt-text="Screenshot shows two ways to get to the home page - menu item or breadcrumb link.":::
 
 ### Free text search
 
-Type search text into the global search bar on the top of portal and hit enter to trigger a 'contains' search.
+Type search text into the global search bar on the top of the studio **Microsoft** page and hit enter to trigger a 'contains' search.
 A contains search scans across all metadata fields for the given asset and sorts results relevance.
+
+:::image type="content" source="media/how-to-manage-workspace/start-search.png" alt-text="Screenshot shows the top search bar.":::
 
 You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
 
@@ -364,12 +378,14 @@ If an asset filter (job, model, component, environment, dataset) is present, res
 
 ### View search results
 
-You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Datasets** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
+You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
 
 :::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
 
 If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
 
+> [!IMPORTANT]	
+> Search results may be unexpected for multiword terms in other languages (ex. Chinese characters). 	
 
 ## Delete a workspace
 
@@ -380,6 +396,8 @@ When you no longer need a workspace, delete it.
 If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Delete the workspace `ws`:
 

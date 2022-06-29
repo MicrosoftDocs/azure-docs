@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-ms.author: sacartac
+ms.author: larryfr
 ms.reviewer: nibaccam
-author: cartacioS
+author: blackmist
 ms.date: 10/21/2021
 ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
@@ -194,11 +194,11 @@ For this experiment, deployment to a web service means that the bike share compa
 
 Once the run is complete, navigate back to parent run page by selecting **Run 1** at the top of your screen.
 
-In the **Best model summary** section, **StackEnsemble** is considered the best model in the context of this experiment, based on the **Normalized root mean squared error** metric.  
+In the **Best model summary** section, the best model in the context of this experiment, is selected based on the **Normalized root mean squared error metric.** 
 
 We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. Select **StackEnsemble** to open the model-specific page.
+1. Select **the best model** to open the model-specific page.
 
 1. Select the **Deploy** button located in the top-left area of the screen.
 

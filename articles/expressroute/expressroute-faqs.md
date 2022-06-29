@@ -440,6 +440,9 @@ Your existing circuit will continue advertising the prefixes for Microsoft 365. 
 
 * Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. You will see no prefixes by default.
 
+### If I have multiple Virtual Networks (Vnets) connected to the same ExpressRoute circuit, can I use ExpressRoute for Vnet-to-Vnet connectivity?
+Vnet-to-Vnet connectivity over ExpressRoute is not recommended. To acheive this, configure [Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md?msclkid=b64a7b6ac19e11eca60d5e3e5d0764f5).
+
 ## <a name="expressRouteDirect"></a>ExpressRoute Direct
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]

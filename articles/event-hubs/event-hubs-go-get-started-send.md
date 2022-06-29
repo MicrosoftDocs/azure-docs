@@ -13,7 +13,7 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service, c
 This tutorial describes how to write Go applications to send events to or receive events from an event hub. 
 
 > [!NOTE]
-> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/eventhubs), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
@@ -125,7 +125,7 @@ Congratulations! You have now sent messages to an event hub.
 
 State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
 
-Samples for creating Storage artifacts with the Go SDK are available in the [Go samples repo](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) and in the sample corresponding to this tutorial.
+Samples for creating Storage artifacts with the Go SDK are available in the [Go samples repo](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/storage) and in the sample corresponding to this tutorial.
 
 ### Go packages
 

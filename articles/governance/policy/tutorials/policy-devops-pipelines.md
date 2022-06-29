@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Implement Azure Policy with Azure DevOps"
 description: In this tutorial, you implement an Azure Policy with an Azure DevOps release pipeline.
-ms.date: 03/24/2022
+ms.date: 04/27/2022
 ms.topic: tutorial
 ms.author: jukullam
 ms.custom: devops-pipelines-deploy
@@ -19,13 +19,13 @@ For more information, see [What is Azure Pipelines?](/azure/devops/pipelines/get
 and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline). 
 ## Prepare
 
-1. Create an [Azure Policy](/azure/governance/policy/tutorials/create-and-manage) in the Azure portal.
-   There are several [predefined sample policies](/azure/governance/policy/samples/)
+1. Create an [Azure Policy](./create-and-manage.md) in the Azure portal.
+   There are several [predefined sample policies](../samples/index.md)
    that can be applied to a management group, subscription, and resource group.
 
 1. In Azure DevOps, create a release pipeline that contains at least one stage, or open an existing release pipeline.
 
-1. Add a pre- or post-deployment condition that includes the **Security and compliance assessment** task as a gate.
+1. Add a pre- or post-deployment condition that includes the **Check Azure Policy compliance** task as a gate.
    [More details](/azure/devops/pipelines/release/deploy-using-approvals#set-up-gates).
 
    ![Screenshot of Azure Policy Gate.](../media/devops-policy/azure-policy-gate.png)

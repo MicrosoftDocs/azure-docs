@@ -4,15 +4,17 @@ description: Learn foundational information to plan and design your verification
 documentationCenter: ''
 author: barbaraselden
 manager: martinco
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 07/20/2021
+ms.date: 06/02/2022
 ms.author: baselden
 ms.custom: references_regions
 ---
 
 # Plan your Azure Active Directory Verifiable Credentials  verification solution (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 >[!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -27,7 +29,7 @@ This content covers the technical aspects of planning for a verifiable credentia
 
 Supporting technologies that aren't specific to verification solutions are out of scope. For example, websites are used in a verifiable credential verification solution but planning a website deployment isn't covered in detail.
 
-As you plan your verification solution, you must consider what business capability is being added or modified. You must also consider what IT capabilities can be reused, and what capabilities must be added to create the solution. Also consider what training is needed for the people involved in the business process and the people that support the end users and staff of the solution. These topics aren't covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) for information covering these topics.
+As you plan your verification solution, you must consider what business capability is being added or modified. You must also consider what IT capabilities can be reused, and what capabilities must be added to create the solution. Also consider what training is needed for the people involved in the business process and the people that support the end users and staff of the solution. These articles aren't covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) for information covering these articles.
 
 ## Components of the solution
 
@@ -60,13 +62,14 @@ Application programming interfaces (APIs) provide developers a method to abstrac
 
 ![Azure AD VC ION](./media/plan-verification-solution/plan-verification-solution-ion.png)
 
-Verifiable credential solutions use a decentralized ledger system to record transactions. Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin as its blockchain-styled ledger for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and used by parties to the transaction to perform cryptographic signature checks.
+As one alternative for the tenants trust system, Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/)that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction. The other alternative for trust system is Web, where the DID document is hosted on the issuers webserver.
+
 
 ### Microsoft Authenticator application
 
 ![Microsoft Authenticator application](media/plan-verification-solution/plan-verification-solution-authenticator.png)
 
-Microsoft Authenticator is the mobile application that orchestrates the interactions between the relying party, the user, the Azure AD Verifiable Credentials issuance service, and dependencies described in the contract used to issue VCs. Microsoft Authenticator acts as a digital wallet in which the holder of the VC stores the VC. It is also the mechanism used to present VCs for verification.
+Microsoft Authenticator is the mobile application that orchestrates the interactions between the relying party, the user, the Azure AD Verifiable Credentials issuance service, and dependencies described in the contract used to issue VCs. Microsoft Authenticator acts as a digital wallet in which the holder of the VC stores the VC. It's also the mechanism used to present VCs for verification.
 
 ### Relying party (RP) 
 
@@ -142,7 +145,7 @@ Verifiable credentials can be used as other proof to access to sensitive applica
 
 * **Goal**: The goal of the scenario determines what kind of credential and issuer is needed. Typical scenarios include:
 
-   * **Authorization**: In this scenario the user presents the VC to make an authorization decision. VCs designed for proof of completion of a training or holding a specific certification, are a good fit for this scenario. The VC attributes should contain fine-grained information conducive to authorization decisions and auditing. For example, if the VC is used to certify the individual is trained and can access sensitive financial apps, the app logic can check the department claim for fine-grained authorization, and use the employee ID for audit purposes. 
+   * **Authorization**: In this scenario, the user presents the VC to make an authorization decision. VCs designed for proof of completion of a training or holding a specific certification, are a good fit for this scenario. The VC attributes should contain fine-grained information conducive to authorization decisions and auditing. For example, if the VC is used to certify the individual is trained and can access sensitive financial apps, the app logic can check the department claim for fine-grained authorization, and use the employee ID for audit purposes. 
 
    * **Confirmation of identity verification**: In this scenario, the goal is to confirm that the same person who initially onboarded is indeed the one attempting to access the high-value application. A credential from an identity verification issuer would be a good fit and the application logic should validate that the attributes from the VC align with the user who logged in the application. 
 
@@ -174,7 +177,7 @@ The decentralized nature of verifiable credentials enables this scenario without
 
 * **Goal**: The goal of the scenario determines what kind of credential and issuer is needed. Typical scenarios include:
 
-   * **Authentication**: In this scenario a user must have possession of VC to prove employment or relationship to a particular organization(s). In this case, the RP should be configured to accept VCs issued by the target organizations. 
+   * **Authentication**: In this scenario, a user must have possession of VC to prove employment or relationship to a particular organization(s). In this case, the RP should be configured to accept VCs issued by the target organizations. 
 
    * **Authorization**: Based on the application requirements, the applications might consume the VC attributes for fine-grained authorization decisions and auditing. For example, if an e-commerce website offers discounts to employees of the organizations in a particular location, they can validate this based on the country claim in the VC (if present).
 
@@ -205,7 +208,7 @@ Note: While the scenario we describe in this section is specific to recover Azur
 
 **VC Attribute correlation with Azure AD**: When defining the attributes of the VC in collaboration with the issuer, establish a mechanism to correlate information with internal systems based on the claims in the VC and user input. For example, if you have an identity verification provider (IDV) verify identity prior to onboarding employees, ensure that the issued VC includes claims that would also be present in an internal system such as a human resources system for correlation. This might be a phone number, address, or date of birth. In addition to claims in the VC, the RP can ask for some information such as the last four digits of their social security number (SSN) as part of this process.
 
-**Role of VCs with Existing Azure AD Credential Reset Capabilities**: Azure AD has a built-in self-service password reset (SSPR) capability. Verifiable Credentials can be used to provide an other way to recover, particularly in cases where users do not have access to or lost control of the SSPR method, for example they’ve lost both computer and mobile device. In this scenario, the user can reobtain a VC from an identity proof issuer and present it to recover their account. 
+**Role of VCs with Existing Azure AD Credential Reset Capabilities**: Azure AD has a built-in self-service password reset (SSPR) capability. Verifiable Credentials can be used to provide another way to recover, particularly in cases where users do not have access to or lost control of the SSPR method, for example they’ve lost both computer and mobile device. In this scenario, the user can reobtain a VC from an identity proof issuer and present it to recover their account. 
 
 Similarly, you can use a VC to generate a temporary access pass that will allow users to reset their MFA authentication methods without a password. 
 
@@ -259,7 +262,7 @@ You can use information in presented VCs to build a user profile. If you want to
 
 ## Plan for performance
 
-As with any solution, you must plan for performance. Focus areas include latency, throughput, storage, and scalability. During initial phases of a release cycle, performance should not be a concern. However, when adoption of your issuance solution results in many verifiable credentials being issued, performance planning might become a critical part of your solution.
+As with any solution, you must plan for performance. Focus areas include latency, throughput, and scalability. During initial phases of a release cycle, performance should not be a concern. However, when adoption of your solution results in many verifiable credentials being verified, performance planning might become a critical part of your solution.
 
 The following provides areas to consider when planning for performance:
 
@@ -273,7 +276,7 @@ The following provides areas to consider when planning for performance:
 
    * Maximum signing performance of a Key Vault is 2000 signings/~10 seconds. This means your solution can support up to 12,000 VC validation requests per minute.
 
-   * You cannot control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md) so that you understand how throttling might impact performance. 
+   * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md) so that you understand how throttling might impact performance. 
 
 ## Plan for reliability
 
@@ -293,7 +296,7 @@ As you are designing for security, consider the following:
 
 * Only the Azure AD Verifiable Credentials service and the website service principals should have permissions to use Key Vault to sign messages with the private key. 
 
-* Do not assign any human identity administrative permissions to the Key Vault. For more information on Key Vault best practices, refer to [Azure Security Baseline for Key Vault](../../key-vault/general/security-baseline.md).
+* Don't assign any human identity administrative permissions to the Key Vault. For more information on Key Vault best practices, see [Azure Security Baseline for Key Vault](../../key-vault/general/security-baseline.md).
 
 * Review [Securing Azure environments with Azure Active Directory](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/) for best practices for managing the supporting services for your solution. 
 

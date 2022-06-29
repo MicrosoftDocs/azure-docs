@@ -2,11 +2,11 @@
 title: 'Quickstart: Create and configure Route Server using Azure CLI'
 description: In this quickstart, you learn how to create and configure a Route Server using Azure CLI.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
-ms.author: duau
+ms.author: halkazwini
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -17,8 +17,7 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." border="false":::
 
-> [!IMPORTANT]
-> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
+[!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
 ##  Prerequisites 
 
@@ -74,7 +73,7 @@ az network vnet create \
 
 Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
-1. Run the follow command to add the *RouteServerSubnet* to your virtual network.
+1. Run the following command to add the *RouteServerSubnet* to your virtual network.
 
     ```azurecli-interactive 
     az network vnet subnet create \
@@ -170,7 +169,7 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
 > For greenfield deployments make sure to create the Azure VPN gateway before creating Azure Route Server; otherwise the deployment of Azure VPN Gateway will fail.
 > 
 
-1. To enable route exchange between Azure Route Server and the gateway(s) use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
+1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
 
     ```azurecli-interactive 
     az network routeserver update \

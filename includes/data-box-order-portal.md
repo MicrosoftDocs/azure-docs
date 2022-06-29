@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
-ms.date: 03/22/2022
+ms.date: 06/06/2022
 ms.author: alkohli
 ms.custom: contperf-fy22q3
 ---
@@ -83,7 +83,7 @@ Do the following steps in the Azure portal to order a device:
 
     - If you are using a **General Purpose v1**, **General Purpose v2**, or **Blob** storage account, you will also see the **Enable copy to archive** option in addition to the **Enable large file shares** option. Enabling copy to archive will allow you to send your blobs to the archive tier directly. Any data that is uploaded to the archive tier is offline and will need to be rehydrated before reading or modifying. 
     
-        When copy to archive is enabled, you will see an extra archive share on the data box during the copy process.The extra share is available for [SMB, NFS, REST, and data copy service](/azure/databox/data-box-deploy-copy-data) methods. 
+        When copy to archive is enabled, you will see an extra archive share on the data box during the copy process.The extra share is available for [SMB, NFS, REST, and data copy service](../articles/databox/data-box-deploy-copy-data.md) methods. 
 
          :::image type="content" source="media/data-box-order-portal/enable-copy-to-archive.png" alt-text="Screenshot of Enable copy to archive option.":::
 
@@ -266,8 +266,9 @@ Do the following steps in the Azure portal to order a device:
     1. Check the box corresponding to the agreement to privacy terms. When you select the checkbox, the order information is validated.
 
     1. Once the order is validated, select **Order**.
+    
+        :::image type="content" source="media/data-box-order-portal/data-box-import-10.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
 
-    [Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.](media/data-box-order-portal/data-box-import-10.png)
 
     The order takes a few minutes to be created. Your completed order will look similar to this one. You can select **Go to resource** to open the order.
 

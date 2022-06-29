@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 02/18/2022
+ms.date: 04/15/2022
 ---
 
 # Plan a virtual machine offer
@@ -63,12 +63,43 @@ A preview audience can access your offer prior to it being published live in the
 
 ## Plans, pricing, and trials
 
-VM offers require at least one plan. A plan defines the solution scope and limits, and the associated pricing. You can create multiple plans for your offer to give your customers different technical and licensing options, as well as trial opportunities. For VM offers with more than one plan, you can change the order that your plans are shown to customers. The first plan listed will become the default plan that customers will see. For info about how to reorder plans, see [Reorder plans](azure-vm-plan-reorder-plans.md). For general guidance about plans, including pricing models, free trials, and private plans, see [Plans and pricing for commercial marketplace offers](plans-pricing.md).
+VM offers require at least one plan. A plan defines the solution scope and limits, and the associated pricing. You can create multiple plans for your offer to give your customers different technical and pricing options, as well as trial opportunities. For VM offers with more than one plan, you can change the order that your plans are shown to customers. The first plan listed will become the default plan that customers will see. For info about how to reorder plans, see [Reorder plans](azure-vm-plan-reorder-plans.md). For general guidance about plans, including pricing models, free trials, and private plans, see [Plans and pricing for commercial marketplace offers](plans-pricing.md).
 
 VMs are fully commerce-enabled, using usage-based pay-as-you-go or bring-your-own-license (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements. For more information, see [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
 > The Azure Prepayment (previously called monetary commitment) associated with an Enterprise Agreement can be used against the Azure usage of your VM, but not against your software licensing fees.
+
+### Reservation pricing (optional)
+
+You can offer savings to customers who commit to an annual or three-year agreement through **VM software reservations**. This is called _Reservation pricing_.
+
+Reservation pricing applies to usage-based monthly billed plans with the following price options:
+
+- Flat rate
+- Per core
+- Per core size
+
+Reservation pricing doesn’t apply to _Bring your own license_ plans or to plans with the following price options:
+
+- Free
+- Per market and core size price
+
+#### How prices are calculated
+
+The 1-year and 3-year prices are calculated based on the per hour usage-based price and the percentage savings you configure for a plan.
+
+In this example, we’ll configure a plan with the “Per core” price option as follows:
+
+- Hourly price per core: $1.
+- 1-year savings: 30% discount
+- 3-year savings: 50% discount
+
+All calculations are based on 8,760 hours per year. Without VM software reservation pricing, the yearly cost of a 1 core VM would be $8,760.00. If the customer purchases a VM software reservation, the price would be as follows:
+
+1-year price with 30% discount = $6,132.00
+
+3-year price with 50% discount = $13,140.00
 
 ### Private plans
 
@@ -86,7 +117,6 @@ These are the available licensing options for VM offers:
 | --- | --- |
 | Usage-based | Also known as pay-as-you-go. This licensing model lets you bill your customers per hour through various pricing options. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure. * |
-|
 
 `*` As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -102,7 +132,6 @@ The following are types of trials that can be configured to help identify custom
 | ------------ | ------------- |
 | Free trial | Offer your customers a one-, three- or six-month free trial. |
 | Test drive | This option lets your customers evaluate your solution at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. Learn more about [test drives](#test-drive). |
-|
 
 > [!NOTE]
 > The licensing model along with any trial opportunities you select will determine the additional information you'll need to provide when you create the offer in Partner Center.

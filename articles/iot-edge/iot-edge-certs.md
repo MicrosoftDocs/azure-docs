@@ -5,7 +5,7 @@ author: stevebus
 
 ms.author: stevebus
 ms.reviewer: kgremban
-ms.date: 10/25/2021
+ms.date: 03/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -176,6 +176,6 @@ You can see the hierarchy of certificate depth represented in the screenshot:
 
 ## Next steps
 
-[Understand Azure IoT Edge modules](iot-edge-modules.md)
-
-[Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md)
+* For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
+* [Understand Azure IoT Edge modules](iot-edge-modules.md)
+* [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md)

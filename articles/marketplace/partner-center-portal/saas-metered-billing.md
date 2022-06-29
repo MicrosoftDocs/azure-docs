@@ -1,10 +1,10 @@
 ---
-title: Metered billing for SaaS offers using the Microsoft commercial marketplace metering service
-description: Learn about flexible billing models for SaaS offers using the commercial marketplace metering service. 
+title: Metered billing for SaaS offers in Partner Center
+description: Learn about flexible billing models using a metering service for SaaS offers in Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/16/2021
+ms.date: 03/29/2022
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -140,7 +140,6 @@ Once an offer is published with a dimension, the offer-level details for that di
 
 Once a plan is published, the plan-level details can no longer be changed:
 
-- Price per unit in USD
 - Monthly quantity included in base
 - Annual quantity included in base
 - Whether the dimension is enabled for the plan or not
@@ -162,3 +161,8 @@ To understand publisher support options and open a support ticket with Microsoft
 ## Next steps
 
 - [Marketplace metered billing APIs](../marketplace-metering-service-apis.md)
+
+**Video tutorials**
+
+- [SaaS Metered Billing Overview](https://go.microsoft.com/fwlink/?linkid=2196314)
+- [The SaaS Metered Billing API with REST](https://go.microsoft.com/fwlink/?linkid=2196418)

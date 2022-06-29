@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Integrate security solutions in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This document helps you to manage security solutions already connected to Microsoft Defender for Cloud and add new ones.
 
 ## Integrated Azure security solutions
@@ -27,7 +25,7 @@ To learn more about the integration of vulnerability scanning tools from Qualys,
 Defender for Cloud also offers vulnerability analysis for your:
 
 - SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
-* Azure Container Registry images - see [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md)
+* Azure Container Registry images - see [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-containers-usage.md)
 
 ## How security solutions are integrated
 Azure security solutions that are deployed from Defender for Cloud are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.

@@ -74,7 +74,7 @@ landingContent:
           - text: REST
             url: /rest/api/hybridcompute/
           - text: Java
-            url: /java/api/overview/azure/compute/resourcemanagement
+            url: /java/api/com.azure.resourcemanager.compute
           - text: JavaScript
             url: /javascript/api/@azure/arm-hybridcompute/
 
@@ -100,4 +100,4 @@ landingContent:
           - text: Microsoft Sentinel
             url: scenario-onboard-azure-sentinel.md
           - text: Microsoft Defender for Cloud
-            url: /azure/defender-for-cloud/quickstart-onboard-machines?toc=%2Fazure%2Fazure-arc%2Fservers%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fservers%2Fbreadcrumb%2Ftoc.json&pivots=azure-arc    
+            url: ../../defender-for-cloud/quickstart-onboard-machines.md?bc=%2fazure%2fazure-arc%2fservers%2fbreadcrumb%2ftoc.json&pivots=azure-arc&toc=%2fazure%2fazure-arc%2fservers%2ftoc.json

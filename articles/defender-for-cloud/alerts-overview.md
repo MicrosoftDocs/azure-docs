@@ -8,8 +8,6 @@ ms.date: 11/09/2021
 ---
 # Security alerts and incidents in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Defender for Cloud generates alerts for resources deployed on your Azure, on-premises, and hybrid cloud environments.
 
 Security alerts are triggered by advanced detections and are available only with enhanced security features enabled. You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).

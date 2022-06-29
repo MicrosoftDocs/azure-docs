@@ -53,7 +53,7 @@ Learn about Azure and DevTest Labs by using the following resources:
 
 ### Enroll all users in Azure AD
 
-For management, such as adding users or adding lab owners, all lab users must belong to the [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) tenant for the Azure subscription the pilot uses. Many enterprises set up [hybrid identity](/azure/active-directory/hybrid/whatis-hybrid-identity) to enable users to use their on-premises identities in the cloud. You don't need a hybrid identity for a DevTest Labs proof of concept.
+For management, such as adding users or adding lab owners, all lab users must belong to the [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) tenant for the Azure subscription the pilot uses. Many enterprises set up [hybrid identity](../active-directory/hybrid/whatis-hybrid-identity.md) to enable users to use their on-premises identities in the cloud. You don't need a hybrid identity for a DevTest Labs proof of concept.
 
 ## Scope the proof of concept
 
@@ -79,17 +79,17 @@ A full DevTest Labs solution includes some important planning and design decisio
 
 ### Subscription topology
 
-The enterprise-level requirements for resources in Azure can extend beyond the [available quotas within a single subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits). You might need several Azure subscriptions, or you might need to make service requests to increase initial subscription limits. For more information, see [Scalability considerations](devtest-lab-reference-architecture.md#scalability-considerations).
+The enterprise-level requirements for resources in Azure can extend beyond the [available quotas within a single subscription](../azure-resource-manager/management/azure-subscription-service-limits.md). You might need several Azure subscriptions, or you might need to make service requests to increase initial subscription limits. For more information, see [Scalability considerations](devtest-lab-reference-architecture.md#scalability-considerations).
 
 It's important to decide how to distribute resources across subscriptions before final, full-scale rollout, because it's difficult to move resources to another subscription later. For example, you can't move a lab to another subscription after it's created. The [Subscription decision guide](/azure/architecture/cloud-adoption/decision-guides/subscriptions) is a valuable planning resource.
 
 ### Network topology
 
-The [default network infrastructure](/azure/app-service/networking-features) that DevTest Labs automatically creates might not meet requirements and constraints for enterprise users. For example, enterprises often use:
+The [default network infrastructure](../app-service/networking-features.md) that DevTest Labs automatically creates might not meet requirements and constraints for enterprise users. For example, enterprises often use:
 
 - [Azure ExpressRoute-connected virtual networks](/azure/architecture/reference-architectures/hybrid-networking) for connecting on-premises networks to Azure.
-- [Peered virtual networks](/azure/virtual-network/virtual-network-peering-overview) in a [hub-spoke configuration](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) for connecting virtual networks across subscriptions.
-- [Forced tunneling](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) to limit traffic to on-premises networks.
+- [Peered virtual networks](../virtual-network/virtual-network-peering-overview.md) in a [hub-spoke configuration](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) for connecting virtual networks across subscriptions.
+- [Forced tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) to limit traffic to on-premises networks.
 
 For more information, see [Networking components](devtest-lab-reference-architecture.md#networking-components).
 

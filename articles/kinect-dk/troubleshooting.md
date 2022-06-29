@@ -187,7 +187,7 @@ The Body Tracking SDK C# documentation is located [here](https://microsoft.githu
 
 ## Changes to contents of Body Tracking packages
 
-Both the MSI and NuGet packages no longer include the Microsoft Visual C++ Redistributable Package files. Download the latest package [here](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist).
+Both the MSI and NuGet packages no longer include the Microsoft Visual C++ Redistributable Package files. Download the latest package [here](/cpp/windows/latest-supported-vc-redist).
 
 The NuGet package is back however it no longer includes Microsoft DirectML, or NVIDIA CUDA and TensorRT files.
 

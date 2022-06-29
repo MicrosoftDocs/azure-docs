@@ -4,7 +4,8 @@ description: Monitor your web and worker roles effectively with Application Insi
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 09/05/2018
+ms.date: 06/02/2022
+ms.reviewer: abinetabate
 ---
 
 # Application Insights for Azure cloud services
@@ -177,12 +178,10 @@ If there is no data, do the following:
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
 
-For more information, see [Troubleshooting](https://docs.microsoft.com/azure/azure-monitor/faq#application-insights).
-
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) information in Application Insights in the following locations:
 
-* Performance counters are displayed as custom metrics. 
+* Performance counters are displayed as custom metrics.   
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 
@@ -267,7 +266,7 @@ If you have a client mobile app, use [App Center](../app/mobile-center-quickstar
 [The example](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
 
 ## Exception "method not found" on running in Azure cloud services
-Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure cloud services roles. [Install .NET 4.6 on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
+Did you build for .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)? Earlier versions aren't automatically supported in Azure cloud services roles. [Install .NET LTS on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
 
 ## Next steps
 * [Configure sending Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md)

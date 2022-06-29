@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to create an Azure Red Hat OpenShift 
 author: rahulm23
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: mode-arm
 ms.author: rahulmehta
 ms.date: 03/17/2022
 keywords: azure, openshift, aro, red hat, arm, bicep
@@ -607,7 +607,7 @@ The following sections provide instructions using PowerShell or Azure CLI.
 
 ## PowerShell steps 
 
-Perform the following steps if you are using PowerShell.
+Perform the following steps if you're using PowerShell.
 
 ### Before you begin - PowerShell
 
@@ -710,7 +710,7 @@ Remove-AzResourceGroup -Name $resourceGroup -Force
 ```
 ## Azure CLI steps 
 
-Perform the following steps if you are using Azure CLI.
+Perform the following steps if you're using Azure CLI.
 
 ### Before you begin - Azure CLI
 

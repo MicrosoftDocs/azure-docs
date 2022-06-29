@@ -373,7 +373,7 @@ az storage account encryption-scope update \
 
 Next, call the **az storage account encryption-scope update** command, pass in the `--key-uri` parameter, and pass in the `--key-source` parameter with the value `Microsoft.KeyVault`:
 
-```powershell
+```azurecli
 az storage account encryption-scope update \
     --resource-group <resource-group> \
     --account-name <storage-account> \

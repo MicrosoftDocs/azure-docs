@@ -84,6 +84,31 @@
   items:
   - name: Zero Trust
     href: ../fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Design for zero trust model
+    href: /azure/architecture/framework/mission-critical/mission-critical-security.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+- name: Detect and mitigate threats
+  items:
+  - name: Protect against ransomware and extortion 
+    items:
+      - name: Ransomware protection in Azure
+        href: ../fundamentals/ransomware-protection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Prepare for an attack
+        href: ../fundamentals/ransomware-prepare.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Detect and respond to an attack
+        href: ../fundamentals/ransomware-detect-respond.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Azure features & resources that help you protect, detect, and respond
+        href: ../fundamentals/ransomware-features-resources.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Back up and restore plan for ransomware
+        href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Ransomware protection with Azure Firewall Premium
+        href: ../fundamentals/ransomware-protection-with-azure-firewall.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Recovering from systemic identity compromise
+        href: ../fundamentals/recover-from-identity-compromise.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Threat protection
+    href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Threat analysis 
+    href: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: Secure and protect
   items:
@@ -157,9 +182,9 @@
     - name: Database security
       items:
       - name: Overview
-        href: ../../azure-sql/database/security-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/azure-sql/database/security-overview?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Best practices
-        href: ../../azure-sql/database/security-best-practice.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/azure-sql/database/security-best-practice?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Security checklist
         href: ../fundamentals/database-security-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Storage security guide
@@ -224,15 +249,6 @@
           href: ../fundamentals/operational-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
         - name: Security checklist
           href: ../fundamentals/operational-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-
-- name: Detect and mitigate threats
-  items:
-  - name: Backup and restore plan for ransomware
-    href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Threat protection
-    href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Threat analysis 
-    href: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: Investigate suspicious activity
   items:

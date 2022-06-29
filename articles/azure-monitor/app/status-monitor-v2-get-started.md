@@ -4,6 +4,7 @@ description: A quickstart guide for Application Insights Agent. Monitor website 
 ms.topic: conceptual
 ms.date: 01/22/2021 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: abinetabate
 ---
 
 # Get started with Azure Monitor Application Insights Agent for on-premises servers

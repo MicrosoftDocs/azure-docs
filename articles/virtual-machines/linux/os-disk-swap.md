@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 
 If you have an existing VM, but you want to swap the disk for a backup disk or another OS disk, you can use the Azure CLI to swap the OS disks. You don't have to delete and recreate the VM. You can even use a managed disk in another resource group, as long as it isn't already in use.
 
-The VM does need to be stopped\deallocated, then the resource ID of the managed disk can be replaced with the resource ID of a different managed disk. 
+The VM does not need to be stopped\deallocated. The resource ID of the managed disk can be replaced with the resource ID of a different managed disk. 
 
 Make sure that the VM size and storage type are compatible with the disk you want to attach. For example, if the disk you want to use is in Premium Storage, then the VM needs to be capable of Premium Storage (like a DS-series size).
 
@@ -33,7 +33,7 @@ az disk list \
 ```
 
 
-Use [az vm stop](/cli/azure/vm) to stop\deallocate the VM before swapping the disks.
+(Optional) Use [az vm stop](/cli/azure/vm) to stop\deallocate the VM before swapping the disks.
 
 ```azurecli-interactive
 az vm stop \

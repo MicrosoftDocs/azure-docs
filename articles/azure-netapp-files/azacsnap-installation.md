@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/05/2022
+ms.date: 06/01/2022
 ms.author: phjensen
 ---
 
@@ -110,7 +110,7 @@ Create RBAC Service Principal
 1. Create a service principal using Azure CLI per the following example:
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
+    az ad sp create-for-rbac --name "AzAcSnap" --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
     ```
 
     1. This should generate an output like the following example:
@@ -214,6 +214,9 @@ example steps are to provide guidance on setup of SSH for this communication.
 This section explains how to enable communication with storage. Ensure the storage back-end you're using is correctly selected.
 
 # [SAP HANA](#tab/sap-hana)
+
+> [!IMPORTANT]
+> If deploying to a centralized virtual machine, then it will need to have the SAP HANA client installed and set up so the AzAcSnap user can run `hdbsql` and `hdbuserstore` commands. The SAP HANA Client can downloaded from https://tools.hana.ondemand.com/#hanatools.
 
 The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to
 initiate and release the database save-point. The following example shows the setup of the SAP

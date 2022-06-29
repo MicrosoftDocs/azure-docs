@@ -12,6 +12,9 @@
     href: quickstart-create-traffic-manager-profile-powershell.md
   - name: Create a Traffic Manager profile - Azure CLI
     href: quickstart-create-traffic-manager-profile-cli.md
+  - name: Create a Traffic Manager profile - Bicep
+    displayName: ARM , Resource Manager, Template
+    href: quickstart-create-traffic-manager-profile-bicep.md
   - name: Create a Traffic Manager profile - ARM Template
     displayName: Resource Manager
     href: quickstart-create-traffic-manager-profile-template.md
@@ -76,7 +79,11 @@
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md
   - name: Configure multivalue routing in Traffic Manager
-    href: traffic-manager-configure-multivalue-routing-method.md
+    items: 
+    - name: Portal
+      href: traffic-manager-configure-multivalue-routing-method.md
+    - name: ARM template
+      href: configure-multivalue-routing-method-template.md
   - name: Configure subnet routing in Traffic Manager
     href: traffic-manager-configure-subnet-routing-method.md
   - name: Send Real User Measurements to Traffic Manager

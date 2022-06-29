@@ -256,7 +256,7 @@ for the same definitions using the same parameter values as machines in the prim
 
 Guest configuration stores/processes customer data. By default, customer data is replicated to the
 [paired region.](../../../availability-zones/cross-region-replication-azure.md)
-For single resident region all customer data is stored and processed in the region.
+For the regions: Singapore, Brazil South, and East Asia all customer data is stored and processed in the region.
 
 ## Troubleshooting guest configuration
 
@@ -280,7 +280,10 @@ Management Groups.
 
 The guest configuration extension writes log files to the following locations:
 
-Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Windows
+
+- Azure VM: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+- Arc-enabled server: `C:\ProgramData\GuestConfig\arc_policy_logs\gc_agent.log`
 
 Linux
 

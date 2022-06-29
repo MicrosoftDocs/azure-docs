@@ -3,7 +3,7 @@ title: Quickstart - Enroll individual device to Azure Device Provisioning Servic
 description: Quickstart - Enroll an individual device to Azure IoT Hub Device Provisioning Service (DPS) using TPM attestation.
 author: kgremban
 ms.author: kgremban
-ms.date: 08/20/2021
+ms.date: 04/28/2022
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -46,17 +46,6 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 :::zone-end
 
-:::zone pivot="programming-language-python"
-
-* Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. 
-
-* Install [Pip](https://pip.pypa.io/en/stable/installing/), if not included with your distribution of Python.
-
-> [!IMPORTANT]
-> This article only applies to the deprecated V1 Python SDK. Device and service clients for the IoT Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
-
-:::zone-end
-
 :::zone pivot="programming-language-java"
 
 * Install the [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). This quickstart installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) below. It works on both Windows and Linux. This quickstart uses Windows.
@@ -70,56 +59,6 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 > [!NOTE]
 > Don't follow the steps to create an individual enrollment by using the Azure portal.
-
-
-:::zone pivot="programming-language-python"
-
-<a id="prepareenvironment"></a>
-
-## Prepare the development environment
-
-* To download and install the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client), choose one of the following options:
-    
-    - Build and compile the **Azure IoT Python SDK**. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) to build the Python packages. If you're' using Windows OS, then also install [Visual C++ redistributable package](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) to allow the use of native DLLs from Python.
-    
-    - [Install or upgrade *pip*, the Python package management system](https://pip.pypa.io/en/stable/installing/) and install the package via the following command:
-        
-        ```cmd/sh
-        pip install azure-iothub-provisioningserviceclient
-        ```
-
-### Copy symmetric and TPM enrollment keys
-
-This quickstart demonstrates both symmetric key and TPM enrollments. You'll need to either create your own or use the provided test keys:
- 
-# [Symmetric key](#tab/symmetrickey)
-
-For simulated symmetric key device enrollments, you need a primary and secondary key for your device. If you don't have a valid symmetric key, you can use the following test keys for this example:
-
-*Primary Symmetric key*
-
-```
-UmorGiEVPNIQuaWGXXbe8v9gWayS7XtOZmNMo6DEaEXP65GvhuK3OeRf8RVZ9BymBCHxNg3oRTey0pUHUwwYKQ==
-```
-
-*Secondary Symmetric key*
-
-```
-Zx8/eE7PUBmnouB1qlNQxI7fcQ2HbJX+y96F1uCVQvDj88jFL+q6L9YWLLi4jqTmkRPOulHlSbSv2uFgj4vKtw==
-```
-
-# [TPM](#tab/tpm)
-
-For TPM enrollments, you need the endorsement key for your device. If you have followed the [Create and provision a simulated device](quick-create-simulated-device-tpm.md) quickstart to create a simulated TPM device, use the key created for that device. Otherwise, you can use the following endorsement key supplied with the SDK:
-
-```
-AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAtW6MOyCu/Nih47atIIoZtlYkhLeCTiSrtRN3q6hqgOllA979No4BOcDWF90OyzJvjQknMfXS/Dx/IJIBnORgCg1YX/j4EEtO7Ase29Xd63HjvG8M94+u2XINu79rkTxeueqW7gPeRZQPnl1xYmqawYcyzJS6GKWKdoIdS+UWu6bJr58V3xwvOQI4NibXKD7htvz07jLItWTFhsWnTdZbJ7PnmfCa2vbRH/9pZIow+CcAL9mNTNNN4FdzYwapNVO+6SY/W4XU0Q+dLMCKYarqVNH5GzAWDfKT8nKzg69yQejJM8oeUWag/8odWOfbszA+iFjw3wVNrA5n8grUieRkPQ==
-```
-
----
-
-:::zone-end
-
 
 :::zone pivot="programming-language-java"
 
@@ -328,87 +267,6 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
 :::zone-end
 
-:::zone pivot="programming-language-python"
-
-1. Using a text editor, create a new *Enrollment.py* file.
-
-2. Add the following `import` statements and variables at the start of the *Enrollment.py* file(replace `{dpsConnectionString}` with the connection string you copied earlier, the certificate placeholder with the certificate created in 
-[Copy symmetric and TPM enrollment keys](#copy-symmetric-and-tpm-enrollment-keys), and `{registrationid}` with a unique `registrationid` that consists only of lower-case alphanumerics and hyphens):
-
-
-    # [Symmetric key](#tab/symmetrickey)
-
-    ```python
-    from provisioningserviceclient import ProvisioningServiceClient
-    from provisioningserviceclient.models import IndividualEnrollment, AttestationMechanism
-    from provisioningserviceclient.protocol.models import SymmetricKeyAttestation
-
-    CONNECTION_STRING = "Enter your DPS connection string"
-    PRIMARY_KEY = "Add a valid key"
-    SECONDARY_KEY = "Add a valid key"
-    REGISTRATION_ID = "Enter a registration ID"
-    ```
-
-    # [TPM](#tab/tpm)
-   
-    ```python
-    from provisioningserviceclient import ProvisioningServiceClient
-    from provisioningserviceclient.models import IndividualEnrollment, AttestationMechanism
-
-    CONNECTION_STRING = "Enter your DPS connection string"
-    ENDORSEMENT_KEY = "Enter the endorsement key for your device"
-    REGISTRATION_ID = "Enter a registration ID"
-    ```
-
-    ---
-
-3. Add the following Python code to implement the creation of the individual enrollment:
-
-     # [Symmetric key](#tab/symmetrickey)
-
-    ```python
-    def main():
-        print ( "Starting individual enrollment..." )
-    
-        psc = ProvisioningServiceClient.create_from_connection_string(CONNECTION_STRING)
-    
-        symAtt = SymmetricKeyAttestation(primary_key=PRIMARY_KEY, secondary_key=SECONDARY_KEY)
-        att = AttestationMechanism(type="symmetricKey", symmetric_key=symAtt)
-        ie = IndividualEnrollment.create(REGISTRATION_ID, att)
-    
-        ie = psc.create_or_update(ie)
-    
-        print ( "Individual enrollment successful." )
-    
-    if __name__ == '__main__':
-        main()
-    ```
-
-    # [TPM](#tab/tpm)
-
-    ```python
-    def main():
-        print ( "Starting individual enrollment..." )
-    
-        psc = ProvisioningServiceClient.create_from_connection_string(CONNECTION_STRING)
-    
-        att = AttestationMechanism.create_with_tpm(ENDORSEMENT_KEY)
-        ie = IndividualEnrollment.create(REGISTRATION_ID, att)
-    
-        ie = psc.create_or_update(ie)
-    
-        print ( "Individual enrollment successful." )
-    
-    if __name__ == '__main__':
-        main()
-    ```
-
-    ---
-
-4. Save and close the *Enrollment.py* file.
-
-:::zone-end
-
 :::zone pivot="programming-language-java"
 
 1. In the downloaded source code, navigate to the sample folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_*. Open the file *_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_*.
@@ -491,18 +349,6 @@ AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEA
 
 :::zone-end
 
-:::zone pivot="programming-language-python"
-
-1. Open a command prompt, and run the following script.
-
-    ```cmd/sh
-    python Enrollment.py
-    ```
-
-2. Upon successful creation, the command window displays the properties of the new enrollment.
-
-:::zone-end
-
 :::zone pivot="programming-language-java"
 
 1. Open a command window in Administrator mode, and go to the folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
@@ -547,22 +393,15 @@ To verify that the enrollment group has been created:
 
 :::zone-end
 
-:::zone pivot="programming-language-python"
-
-:::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-python.png" alt-text="Verify enrollment for Python individual device in the portal.":::
-
-:::zone-end
-
 :::zone pivot="programming-language-java"
 
 :::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-java.png" alt-text="Verify enrollment for Java individual device in the portal.":::
 
 :::zone-end
 
-
 ## Clean up resources
 
-If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md), don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
+If you plan to explore the DPS tutorials, don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
 
 1. Close the sample output window on your computer.
 
@@ -598,7 +437,7 @@ If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials]
 
 ## Next steps
 
-In this quickstart, you’ve programmatically created an individual enrollment entry for a TPM device. Optionally, you created a TPM simulated device on your computer and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal.
+In this quickstart, you’ve programmatically created an individual enrollment entry for a TPM device. Optionally, you created a TPM simulated device on your computer and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about provisioning multiple devices, continue to the tutorials for the Device Provisioning Service.
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
+> [How to provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md)

@@ -12,6 +12,16 @@ ms.date: 03/31/2022
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
 
 
+## REST API version 2021-12
+This release corresponds to REST API version 2021-12-01, which includes the following features:
+
+- [Enable managed identities for system topics](enable-identity-system-topics.md)
+- [Enabled managed identities for custom topics and domains](enable-identity-custom-topics-domains.md)
+- [Use managed identities to deliver events to destinations](add-identity-roles.md)
+- [Support for delivery attributes](delivery-properties.md)
+- [Storage queue - message time-to-live (TTL)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)- 
+- [Azure Active Directory authentication for topics and domains, and partner namespaces](authenticate-with-active-directory.md)
+
 ## REST API version 2021-10
 This release corresponds to REST API version 2021-10-15-preview, which includes the following features:
 
@@ -33,9 +43,9 @@ This release corresponds to REST API version 2021-10-15-preview, which includes 
 This release corresponds to REST API version 2021-06-01-preview, which includes the following new features:
 
 - [Azure Active Directory authentication for topics and domains, and partner namespaces](authenticate-with-active-directory.md)
-- [Private link support for partner namespaces](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/create-or-update#privateendpoint). Azure portal doesn't support it yet. 
-- [IP Filtering for partner namespaces](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/create-or-update#inboundiprule). Azure portal doesn't support it yet. 
-- [System Identity for partner topics](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-topics/update#request-body). Azure portal doesn't support it yet.
+- [Private link support for partner namespaces](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/create-or-update#privateendpoint). Azure portal doesn't support it yet. 
+- [IP Filtering for partner namespaces](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/create-or-update#inboundiprule). Azure portal doesn't support it yet. 
+- [System Identity for partner topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/update#request-body). Azure portal doesn't support it yet.
 - [User Identity for system topics, custom topics and domains](enable-identity-custom-topics-domains.md)
 
 ## 6.1.0-preview (2020-10)
@@ -108,14 +118,14 @@ This release corresponds to REST API version 2021-06-01-preview, which includes 
 - This release corresponds to the `2019-06-01` API version.
 - It adds support to the following new functionalities:
 	* [Domains](event-domains.md)
-	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/list-by-subscription).
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/list-by-subscription).
 	* [Service Bus queue as destination](handler-service-bus.md)
 	* [Advanced filtering](event-filtering.md#advanced-filtering)
 
 ## 4.1.0-preview (2019-03)
 - This release corresponds to the 2019-02-01-preview API version.
 - It adds support to the following new functionalities:
-	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/list-by-subscription).
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces/list-by-subscription).
 	* [Manual create/delete of domain topics](how-to-event-domains.md)
 	* [Service Bus Queue as destination](handler-service-bus.md)
 

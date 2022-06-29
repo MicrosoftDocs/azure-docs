@@ -1,7 +1,7 @@
 ---
 title: Allow the Azure portal URLs on your firewall or proxy server
 description: To optimize connectivity between your network and the Azure portal and its services, we recommend you add these URLs to your allowlist.
-ms.date: 03/09/2022
+ms.date: 05/24/2022
 ms.topic: conceptual
 ---
 
@@ -58,6 +58,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 *.usgovcloudapi.net
 *.usgovtrafficmanager.net
 *.windowsazure.us
+graph.microsoftazure.us
 ```
 
 #### [China Government Cloud](#tab/china-government-cloud)

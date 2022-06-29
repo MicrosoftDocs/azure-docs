@@ -37,6 +37,8 @@ This article describes how to create one or more access reviews for group member
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
+If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
+
 ## Create a single-stage access review
 
 ### Scope
@@ -63,16 +65,17 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
 
-   > [!NOTE]
-   > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
+> [!NOTE]
+> Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
-1. Now you can select a scope for the review. Your options are:
-
+7. Now you can select a scope for the review. Your options are:
     - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
     > [!NOTE]  
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
+
+1. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group (preview). In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
 
 1. Select **Next: Reviews**.
 
@@ -213,9 +216,9 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 - User administrator 
 - Identity Governance Administrator
 
-Ue the following instructions to create an access review on a team with shared channels:
+Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the Azure Portal as a Global Admin, User Admin or Identity Governance Admin.
+1. Sign in to the Azure portal as a Global Admin, User Admin or Identity Governance Admin.
   
 1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 

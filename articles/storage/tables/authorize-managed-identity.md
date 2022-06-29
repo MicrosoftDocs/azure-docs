@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/11/2021
+ms.date: 04/15/2022
 ms.author: tamram
-ms.reviewer: santoshc
+ms.reviewer: nachakra
 ms.subservice: common
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -20,9 +20,6 @@ ms.custom: devx-track-csharp
 Azure Table Storage supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to table data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
 
 This article shows how to authorize access to table data from an Azure VM using managed identities for Azure Resources.
-
-> [!IMPORTANT]
-> Authorization with Azure AD for tables is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Enable managed identities on a VM
 

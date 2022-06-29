@@ -5,6 +5,7 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/30/2022
+ms.reviewer: harelbr
 ---
 # Create a classic metric alert rule with a Resource Manager template
 

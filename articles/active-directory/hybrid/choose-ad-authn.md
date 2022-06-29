@@ -1,6 +1,5 @@
 ---
 title: Authentication for Azure AD hybrid identity solutions
-titleSuffix: Active Directory
 description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing an authentication method for their Azure AD hybrid identity solution in medium to large organizations.
 keywords:
 author: billmath

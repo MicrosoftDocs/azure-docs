@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 ---
 # Video Analyzer quotas and limitations
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 This article describes Azure Video Analyzer quotas and limitations.
 
 ## Quotas and limitations - Edge module

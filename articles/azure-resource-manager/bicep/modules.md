@@ -2,14 +2,14 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 02/01/2022
+ms.date: 05/10/2022
 ---
 
 # Bicep modules
 
-Bicep enables you to organize deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
+Bicep enables you to organize deployments into modules. A module is a Bicep file (or an ARM JSON template) that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-To share modules with other people in your organization, create a [template spec](../templates/template-specs.md) or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
+To share modules with other people in your organization, create a [template spec](../bicep/template-specs.md), [public registry](https://github.com/Azure/bicep-registry-modules), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
 
 > [!TIP]
 > The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
@@ -41,9 +41,13 @@ So, a simple, real-world example would look like:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
 
+You can also use an ARM JSON template as a module:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition-json.bicep" :::
+
 Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module. The symbolic name may contain a-z, A-Z, 0-9, and underscore (`_`). The name can't start with a number. A module can't have the same name as a parameter, variable, or resource.
 
-The path can be either a local file or a file in a registry. For more information, see [Path to module](#path-to-module).
+The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM JSON template. For more information, see [Path to module](#path-to-module).
 
 The **name** property is required. It becomes the name of the nested deployment resource in the generated template.
 
@@ -77,6 +81,41 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 ### File in registry
 
+#### Public module registry
+
+The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The [README file](https://github.com/azure/bicep-registry-modules#readme) in the GitHub repo lists the available modules and their latest versions:
+
+![Bicep public module registry modules](./media/modules/bicep-public-module-registry-modules.png)
+
+Select the versions to see the available versions. You can also select **Code** to see the module source code, and open the Readme files.
+
+There are only a few published modules currently. More modules are coming. If you like to contribute to the registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
+
+To link to a public registry module, specify the module path with the following syntax:
+
+```bicep
+module <symbolic-name> 'br/public:<file-path>:<tag>' = {}
+```
+
+- **br/public** is the alias for the public module registry.
+- **file path** can contain segments that can be separated by the `/` character.
+- **tag** is used for specifying a version for the module.
+
+For example:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition-public.bicep" highlight="1" :::
+
+> [!NOTE]
+> **br/public** is the alias for the public registry. It can also be written as
+>
+> ```bicep
+> module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {}
+> ```
+>
+> For more information see aliases and configuring aliases later in this section.
+
+#### Private module registry
+
 If you've [published a module to a registry](bicep-cli.md#publish), you can link to that module. Provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
 
 ```bicep
@@ -96,6 +135,12 @@ When you reference a module in a registry, the Bicep extension in Visual Studio 
 The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config-modules.md#aliases-for-modules). The aliases make it easier to reference the module. For example, with an alias, you can shorten the path to:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
+
+An alias for the public module registry has been predefined:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition-public.bicep" highlight="1" :::
+
+You can override the public alias in the bicepconfig.json file.
 
 ### File in template spec
 
