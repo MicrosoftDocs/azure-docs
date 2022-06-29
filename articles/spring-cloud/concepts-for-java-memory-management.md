@@ -30,14 +30,13 @@ Spring-boot actuator can observe the value of heap memory, it takes heap value a
 Heap memory is divided into young generation and old generation.
 
 - Young Generation: all new objects are allocated and aged in young generation.
-- 
+-
   - Eden Space: new objects are allocated in Eden Space.
   - Survivor Space: objects will be moved from Eden to Survivor Space after surviving one garbage collection cycle. Survivor Space can be divided to two parts, s1 and s2.
 
-
 - Old Generation: also called Tenured Space. Objects that have remained in the survivor spaces for a long time will be moved to Old Generation.
 
-Before Java 8, another section called permanent generation was also part of heap. It was majorly replaced by metaspace in non-heap memory, starting from Java 8. 
+Before Java 8, another section called permanent generation was also part of heap. It was majorly replaced by metaspace in non-heap memory, starting from Java 8.
 
 ### 2. Non-heap memory
 
@@ -57,14 +56,13 @@ Here we divide non-heap memory into two parts:
 
 ### 3. Direct Memory
 
-Direct Memory is native memory allocated by `java.nio.DirectByteBuffer`. 
-It is used in third party libraries like nio, gzip.
+Direct Memory is native memory allocated by `java.nio.DirectByteBuffer`. It is used in third party libraries like nio, gzip.
 
 Spring-boot actuator doesn't observe the value of direct memory.
 
 In conclusion, Java memory model is like following layout.
 
-![java memory model](./media/memory-oom/java-memory-model.PNG)
+![java memory model](media/concepts-for-java-memory-management/java-memory-model.png)
 
 ## Java Garbage Collection
 
@@ -76,8 +74,7 @@ There are 3 terms regarding of Java Garbage Collection: "Minor GC", "Major GC", 
 
 - Full GC/Major GC
 
-  Full GC does garbage collection in the entire Heap. 
-  Parts like metaspace and direct memory can also be collected by Full GC, and they can only be cleaned by Full GC.
+  Full GC does garbage collection in the entire Heap. Parts like metaspace and direct memory can also be collected by Full GC, and they can only be cleaned by Full GC.
 
 Max heap size influences the frequency of minor GC and full GC. Max metaspace and max direct memory size influence full GC.
 
@@ -131,7 +128,7 @@ Direct memory size depends on your use of third party libraries like nio, gzip, 
 
 Here is a typical memory layout sample for 2 GB apps. Numbers in grey are reference values of daily memory usage. You can refer to this to configure your memory size settings.
 
-![2G-sample](./media/memory-oom/2G-sample.PNG)
+![2G-sample](media/concepts-for-java-memory-management/2-gb-sample.png)
 
 Overall, when configuring max memory sizes, you should consider the usage of each part in memory, and the sum of all max sizes shouldn't exceed total available memory.
 

@@ -31,7 +31,7 @@ JVM OOM means the amount of used memory reaches the max size set in JVM options.
 This will not cause app restart. Normally it is from bad code, and it can be found from "java.lang.OutOfMemoryError" exception in application log. It will make the application unhealthy
 and the Java Profiling tools(such as Java Flight Recorder).
 
-![memory 3](./media/memory-oom/heap%20out%20exception.png)
+![memory 3](media/how-to-fix-app-restart-issues-caused-by-out-of-memory/heap-out-exception.png)
 
 This doc focuses on how to fix container OOM. To fix JVM OOM please check tools like [heap dump, thread dump and Java Flight Recorder](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-capture-dumps).
 
@@ -41,7 +41,7 @@ This doc focuses on how to fix container OOM. To fix JVM OOM please check tools 
 
 Resource health shows app restart events due to container OOM.
 
-![memory 5](./media/memory-oom/oom%20alert%20in%20resource%20health.png) 
+![memory 5](media/how-to-fix-app-restart-issues-caused-by-out-of-memory/out-of-memory-alert-resource-health.png)
 
 ### 2. How to fix container OOM
 
