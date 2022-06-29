@@ -1169,7 +1169,7 @@ groups:
   prompt: How will you connect the GCP account?
   pivots:
   - id: env-settings
-    title: Environment settings
+    title: Native connector
   - id: classic-connector
     title: Classic connector
 - id: manage-asc-initiatives
