@@ -36,6 +36,7 @@ Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/
 > If you're upgrading from 3.2.x to 3.3.0:
 > 
 >    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
 > If you're upgrading from 3.1.x:
 > 
@@ -122,6 +123,7 @@ Java 3.x includes the following instrumentation libraries.
 * JMS consumers
 * Kafka consumers
 * Netty/WebFlux
+* Quartz
 * Servlets
 * Spring scheduling
 
@@ -516,7 +518,7 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 ## Troubleshooting
 
-See the dedicated [troubleshooting article](https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/java-standalone-troubleshoot).
+See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
 
 ## Release notes
 

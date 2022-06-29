@@ -11,6 +11,9 @@
   items:
   - name: Set up disaster recovery to a secondary Azure region
     href: azure-to-azure-quickstart.md
+  - name: Create a vault - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-vault-bicep.md
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
