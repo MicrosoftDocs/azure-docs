@@ -24,7 +24,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 If you are running the sample code locally, you will need:
 
-* [Install Ruby 2.7 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller")
+* [Install Ruby 2.7 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller)
 * [Install Git](https://git-scm.com/)
 
 You will not need to install these if you are using the Cloud Shell.
