@@ -49,7 +49,6 @@ If your workloads are backed up by the old vault and you want to re-assign them 
     
     1. [SQL Server database in Azure VM](../backup/manage-monitor-sql-database-backup.md#stop-protection-for-a-sql-server-database). 
     
-        1. After successfully completing this operation move the SQL on Azure VM to another resource group to completely break the association with the old recovery vault.
     
     1. [Storage Files](../backup/manage-afs-backup.md#stop-protection-on-a-file-share).
     
