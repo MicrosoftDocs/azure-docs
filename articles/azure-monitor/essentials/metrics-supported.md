@@ -6,6 +6,7 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 06/01/2022
 ms.author: robb
+ms.reviewer: priyamishra
 ---
 
 # Supported metrics with Azure Monitor
