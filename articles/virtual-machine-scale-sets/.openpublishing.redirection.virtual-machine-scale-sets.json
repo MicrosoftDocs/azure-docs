@@ -161,6 +161,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-generalized-image-version-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/instance-generalized-image-version",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-specialized-image-version-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/instance-specialized-image-version",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-specialized-image-version-powershell.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/instance-specialized-image-version",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-generalized-image-version-powershell.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/instance-generalized-image-version",
+            "redirect_document_id": false
+        }, 
+        {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/orchestration-modes.md",
             "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/orchestration-modes",
             "redirect_document_id": false

@@ -6,7 +6,7 @@ ms.topic: troubleshooting
 author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
-ms.date: 05/05/2020
+ms.date: 05/10/2022
 ---
 
 # Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide

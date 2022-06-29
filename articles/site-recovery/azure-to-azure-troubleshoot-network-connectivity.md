@@ -46,7 +46,7 @@ Try to access the DNS server from the virtual machine. If the DNS server isn't a
 ### Issue 2: Site Recovery configuration failed (151196)
 
 > [!NOTE]
-> If the VMs are behind a **Standard** internal load balancer, by default, it wouldn't have access to the Microsoft 365 IPs such as `login.microsoftonline.com`. For outbound access create an Azure NAT gateway. For more information see [Tutorial: Create a NAT gateway - Azure CLI](../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md).
+> If the VMs are behind a **Standard** internal load balancer, by default, it wouldn't have access to the Microsoft 365 IPs such as `login.microsoftonline.com`. For outbound access create an Azure NAT gateway. For more information see [Quickstart: Create a NAT gateway - Azure CLI](../virtual-network/nat-gateway/quickstart-create-nat-gateway-cli.md).
 
 #### Possible cause
 

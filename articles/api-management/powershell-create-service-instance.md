@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurepowershell, mode-api
-ms.date: 09/14/2020
+ms.custom: mvc, devx-track-azurepowershell, mode-api, devdivchpfy22
+ms.date: 03/30/2022
 ms.author: danlep
 ---
 
 # Quickstart: Create a new Azure API Management service instance by using PowerShell
 
-Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM  enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
+Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM lets you create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
 
 This quickstart describes the steps for creating a new API Management instance by using Azure PowerShell cmdlets.
 
@@ -39,19 +39,19 @@ New-AzResourceGroup -Name myResourceGroup -Location WestUS
 
 Now that you have a resource group, you can create an API Management service instance. Create one by using [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) and provide a service name and publisher details. The service name must be unique within Azure.
 
-In the following example, *myapim* is used for the service name. Update the name to a unique value. Also update the organization name of the API publisher and the admin email address to receive notifications.
+In the following example, *myapim* is used for the service name. Update the name to a unique value. Also, update the organization name of the API publisher and the admin email address to receive notifications.
 
 By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
 
 > [!NOTE]
-> This is a long-running operation. It can take between 30 and 40 minutes to create and activate an API Management service in this tier.
+> This is a long-running action. It can take between 30 and 40 minutes to create and activate an API Management service in this tier.
 
 ```azurepowershell-interactive
 New-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" `
   -Location "West US" -Organization "Contoso" -AdminEmail "admin@contoso.com" 
 ```
 
-When the command returns, run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to view the properties of the Azure API Management service. After activation, the provisioning status is Succeeded and the service instance has several associated URLs. For example:
+When the command returns, run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to view the properties of the Azure API Management service. After activation, the setting up status is Succeeded and the service instance has several associated URLs. For example:
 
 ```azurepowershell-interactive
 Get-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" 

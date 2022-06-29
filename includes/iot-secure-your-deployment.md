@@ -38,7 +38,7 @@ IoT Hub uses security tokens to authenticate devices and services to avoid sendi
 
 More details on the structure of the security token and its usage can be found in the following articles:
 
-* [Security token structure](../articles/iot-hub/iot-hub-dev-guide-sas.md#security-token-structure)
+* [Security token structure](../articles/iot-hub/iot-hub-dev-guide-sas.md#sas-token-structure)
 
 * [Using SAS tokens as a device](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device)
 
@@ -88,7 +88,7 @@ Azure IoT Hub allows definition of [access control policies](../articles/iot-hub
 
 There are two ways to obtain **DeviceConnect** permissions with IoT Hub with [security tokens](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device): using a device identity key, or a shared access key. Moreover, it is important to note that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
 
-[Service components can only generate security tokens](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-security-tokens-from-service-components) using shared access policies granting the appropriate permissions.
+[Services can only generate security tokens](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-from-services) using shared access policies granting the appropriate permissions.
 
 Azure IoT Hub and other services that may be part of the solution allow management of users using the Azure Active Directory.
 

@@ -29,7 +29,7 @@ There are two Azure VM Image Builder (AIB) DevOps Tasks:
 ## Prerequisites
 
 > [!NOTE]
-> The AIB task does not currently support Windows Restarts, running elevated commands as Administrator, which means it is not suitable for Windows Virtual Desktop scenarios or Windows customizations that require the above. If you wish to use DevOps with Image Builder, you should nest the template into an Azure Resource Manager task, use AZ CLI or PowerShell tasks.
+> The AIB task does not currently support Windows Restarts, running elevated commands as Administrator, which means it is not suitable for Azure Virtual Desktop scenarios or Windows customizations that require the above. If you wish to use DevOps with Image Builder, you should nest the template into an Azure Resource Manager task, use AZ CLI or PowerShell tasks.
 
 * Install the [Stable DevOps Task from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * You must have a VSTS DevOps account, and a Build Pipeline created
@@ -48,7 +48,7 @@ There are two Azure VM Image Builder (AIB) DevOps Tasks:
     New-AzStorageAccount -ResourceGroupName $strResourceGroup -Name $storageAccName -Location $location -SkuName Standard_LRS
     ```
 
-    ```bash
+    ```azurecli
     # Az CLI
     location=westus
     scriptStorageAcc=aibstordot$(date +'%s')
@@ -81,7 +81,9 @@ Image Builder requires a Managed Identity, which it uses to read source custom i
 
 ### VNET Support
 
-Currently the DevOps task does not support specifying an existing Subnet, this is on the roadmap, but if you want to utilize an existing VNET, you can use an ARM template, with an Image Builder template nested inside, please see the Windows Image Builder template examples on how this is achieved, or alternatively use [AZ AIB PowerShell](../windows/image-builder-powershell.md).
+The VM that is created can be configured to be in a specific VNET.
+Provide the resource id of a pre-existing subnet in the 'VNet Configuration (Optional)' input field when configuring the task.
+Omit if no specific virtual network needs to be used. Review https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking for more information.
 
 ### Source
 

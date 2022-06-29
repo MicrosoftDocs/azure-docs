@@ -3,7 +3,7 @@ title: Apache Hive connections to Apache Zookeeper - Azure HDInsight
 description: Apache Hive View inaccessible due to Apache Zookeeper issues in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/30/2019
+ms.date: 04/07/2022
 ---
 
 # Scenario: Apache Hive fails to establish a connection to Apache Zookeeper in Azure HDInsight

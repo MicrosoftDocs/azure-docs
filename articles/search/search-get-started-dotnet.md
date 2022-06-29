@@ -18,7 +18,7 @@ Use the new [Azure.Search.Documents (version 11) client library](/dotnet/api/ove
 You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
 
 > [!NOTE]
-> Looking for an earlier version? See [Create a search index using Microsoft.Azure.Search v10](search-get-started-dotnet-v10.md) instead.
+> Looking for an earlier version? See [Create a search index using Microsoft.Azure.Search v10](/previous-versions/azure/search/search-get-started-dotnet-v10) instead.
 
 ## Prerequisites
 

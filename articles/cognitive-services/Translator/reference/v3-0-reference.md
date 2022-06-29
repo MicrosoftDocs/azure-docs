@@ -50,7 +50,7 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 
 ## Authentication
 
-Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate.
+Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your key (available in the Azure portal) to authenticate.
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
@@ -113,7 +113,7 @@ When you use a multi-service secret key, you must include two authentication hea
 |Ocp-Apim-Subscription-Key| The value is the Azure secret key for your multi-service resource.|
 |Ocp-Apim-Subscription-Region| The value is the region of the multi-service resource. |
 
-Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
+Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
 
 If you pass the secret key in the query string with the parameter `Subscription-Key`, then you must specify the region with query parameter `Subscription-Region`.
 

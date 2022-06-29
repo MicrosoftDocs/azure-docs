@@ -194,7 +194,7 @@ Export alert information to a .csv file. You can export information of all alert
 
 1. Select **Save**.
 
-You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about[Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).
+You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about [Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).
 
 ## Create alert exclusion rules
 

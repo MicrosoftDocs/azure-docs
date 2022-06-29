@@ -441,7 +441,7 @@ See the [Image resize with Event Grid](../event-grid/resize-images-on-storage-bl
 
 #### Storage Extension 5.x and higher
 
-When using the preview storage extension, there is built-in support for Event Grid in the Blob trigger, which requires setting the `source` parameter to Event Grid in your existing Blob trigger. 
+When using the storage extension, there is built-in support for Event Grid in the Blob trigger, which requires setting the `source` parameter to Event Grid in your existing Blob trigger. 
 
 For more information on how to use the Blob Trigger based on Event Grid, refer to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md).
 

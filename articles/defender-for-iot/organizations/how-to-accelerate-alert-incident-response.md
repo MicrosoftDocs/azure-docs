@@ -8,7 +8,7 @@ ms.topic: how-to
 
 # Accelerate alert workflows
 
-This article describes how to accelerate alert workflows by using alert comments, alert groups, and custom alert rules for standard protocols and proprietary protocols in Microsoft Defender for IoT.  These tools help you:
+This article describes how to accelerate alert workflows using alert comments, alert groups, and custom alert rules for standard protocols and proprietary protocols in Microsoft Defender for IoT. These tools help you
 
 - Analyze and manage the large volume of alert events detected in your network.
 
@@ -16,7 +16,7 @@ This article describes how to accelerate alert workflows by using alert comments
 
 ## Accelerate incident workflows by using alert comments
 
-Work with alert comments to improve communication between individuals and teams during the investigation of an alert event.
+Work with alert comments to improve communication between individuals and teams while investigating an alert event.
 
 Use alert comments to improve:
 
@@ -26,7 +26,7 @@ Use alert comments to improve:
 
 - **Workflow guidance**: Provide recommendations, insights, or warnings about the event.
 
-The list of available options appears in each alert. Users can select one or several messages.
+The list of available options appears in each alert, and users can select one or several messages. 
 
 **To add alert comments:**
 
@@ -37,7 +37,7 @@ The list of available options appears in each alert. Users can select one or sev
 
 ## Accelerate incident workflows by using alert groups
 
-Alert groups let SOC teams view and filter alerts in their SIEM solutions and then manage these alerts based on enterprise security policies and business priorities. For example, alerts about new detections are organized in a discovery group. This group includes alerts that deal with the detection of new devices, new VLANs, new user accounts, new MAC addresses, and more.
+Alert groups let SOC teams view and filter alerts in their SIEM solutions and then manage these alerts based on enterprise security policies and business priorities. For example, alerts about new detections are organized in a discovery group. This group includes alerts that deal with detecting new devices, new VLANs, new user accounts, new MAC addresses, and more.
 
 Alert groups are applied when you create forwarding rules for the following partner solutions:
 
@@ -60,7 +60,7 @@ The alert group will appear in supported partner solutions with the following pr
 
 - **alert_group** for Syslog objects
 
-These fields should be configured in the partner solution to display the alert group name. If there is no alert associated with an alert group, the field in the partner solution will display **NA**.
+These fields should be configured in the partner solution to display the alert group name. If there's no alert associated with an alert group, the field in the partner solution will display **NA**.
 
 ### Default alert groups
 
@@ -93,11 +93,11 @@ Alert groups are predefined. For details about alerts associated with alert grou
 
 ## Customize alert rules
 
-Add custom alert rule to pinpoint specific activity as needed for your organization such as for specific protocols, source or destination addresses, or a combination of parameters.
+Add custom alert rule to pinpoint specific activity needed for your organization such as for particular protocols, source or destination addresses, or a combination of parameters.
 
-For example, you might want to define an alert for an environment running MODBUS to detect any write commands to a memory register, on a specific IP address and ethernet destination. Another example would be an alert for any access to a specific IP address.
+For example, you might want to define an alert for an environment running MODBUS to detect any written commands to a memory register on a specific IP address and ethernet destination. Another example would be an alert for any access to a particular IP address.
 
-Use custom alert rule actions to instruct Defender for IT to take specific action when the alert is triggered, such as allowing users to access PCAP files from the alert, assigning alert severity, or generating an event that shows in the event timeline. Alert messages indicate that the alert was generated from a custom alert rule.
+Use custom alert rule actions to instruct Defender for IT to take specific action when the alert is triggered, such as allowing users to access PCAP files from the alert, assigning alert severity, or generating an event that shows in the event timeline. Alert messages indicate that the alert was generated from a custom alert rule. 
 
 **To create a custom alert rule**:
 

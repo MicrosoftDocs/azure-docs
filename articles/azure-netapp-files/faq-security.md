@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/11/2021
+ms.date: 04/08/2021
 ms.custom: references_regions
 ---
 # Security FAQs for Azure NetApp Files
@@ -59,6 +59,9 @@ However, you cannot create Azure policies (custom naming policies) on the Azure 
 
 Deletion of an Azure NetApp Files volume is performed programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
 
+## How are the Active Directory Connector credentials stored on the Azure NetApp Files service?
+
+The AD Connector credentials are stored in the Azure NetApp Files control plane database in an encrypted format. The encryption algorithm used is AES-256 (one-way).
 
 ## Next steps  
 

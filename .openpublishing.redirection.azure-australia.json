@@ -1,0 +1,84 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-australia/australia-overview.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/azure-key-vault.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/azure-policy.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/gateway-egress-traffic.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/gateway-ingress-traffic.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/gateway-log-audit-visibility.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/gateway-secure-remote-administration.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/identity-federation.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/index.yml",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/recovery-backup.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/reference-library.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/role-privileged.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/secure-your-data.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/security-explained.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/system-monitor.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-australia/vpn-gateway.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/global-infrastructure/geographies/",
+            "redirect_document_id": false
+        }
+    ]
+}

@@ -18,9 +18,9 @@ This article shows you how to create a static public IP address and assign it to
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 This article covers using a *Standard* SKU IP with a *Standard* SKU load balancer. For more information, see [IP address types and allocation methods in Azure][ip-sku].
 
@@ -101,7 +101,7 @@ kubectl apply -f load-balancer-service.yaml
 
 If your service is using a dynamic or static public IP address, you can use the service annotation `service.beta.kubernetes.io/azure-dns-label-name` to set a public-facing DNS label. This publishes a fully qualified domain name for your service using Azure's public DNS servers and top-level domain. The annotation value must be unique within the Azure location, so it's recommended to use a sufficiently qualified label.   
 
-Azure will then automatically append a default subnet, such as `<location>.cloudapp.azure.com` (where location is the region you selected), to the name you provide, to create the fully qualified DNS name. For example:
+Azure will then automatically append a default suffix, such as `<location>.cloudapp.azure.com` (where location is the region you selected), to the name you provide, to create the fully qualified DNS name. For example:
 
 ```yaml
 apiVersion: v1
@@ -169,7 +169,8 @@ For additional control over the network traffic to your applications, you may wa
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [aks-ingress-basic]: ingress-basic.md
 [aks-static-ingress]: ingress-static-ip.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [ip-sku]: ../virtual-network/ip-services/public-ip-addresses.md#sku

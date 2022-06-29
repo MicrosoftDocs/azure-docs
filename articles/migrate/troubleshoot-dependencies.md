@@ -28,7 +28,7 @@ If your Azure Migrate project has private endpoint connectivity, the request to 
 
 ## Common agentless dependency analysis errors
 
-Azure Migrate supports agentless dependency analysis by using Azure Migrate: Discovery and assessment.[Learn more](how-to-create-group-machine-dependencies-agentless.md) about how to perform agentless dependency analysis.
+Azure Migrate supports agentless dependency analysis by using Azure Migrate: Discovery and assessment. [Learn more](how-to-create-group-machine-dependencies-agentless.md) about how to perform agentless dependency analysis.
 
 For VMware VMs, agentless dependency analysis is performed by connecting to the servers via the vCenter Server using the VMware APIs. For Hyper-V VMs and physical servers, agentless dependency analysis is performed by directly connecting to Windows servers using PowerShell remoting on port 5985 (HTTP) and to Linux servers using SSH connectivity on port 22 (TCP).
 

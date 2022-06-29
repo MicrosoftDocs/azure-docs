@@ -1,11 +1,11 @@
 ---
 title: Prerequisites and requirements for Azure Network Function Manager
 description: Learn about the requirements and prerequisites for Network Function Manager.
-author: prmitt
+author: polarapfel
 ms.service: network-function-manager
 ms.topic: article
 ms.date: 11/02/2021
-ms.author: prmitt
+ms.author: tobiaw
 ms.custom: ignite-fall-2021
 ---
 
@@ -32,7 +32,7 @@ Customers can choose from one or more Network Function Manager [partners](partne
 Each partner has networking requirements for deployment of their network function to an Azure Stack Edge device. Refer to the product documentation from the network function partners to complete the following configuration tasks:
 
 * [Configure network on different ports](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
-* [Enable compute network on your Azure Stack Edge device](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches-and-compute-ips).
+* [Enable compute network on your Azure Stack Edge device](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches).
 
 ## <a name="account"></a>Azure account
 

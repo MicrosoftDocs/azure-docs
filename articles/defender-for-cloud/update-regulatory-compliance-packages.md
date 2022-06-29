@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Customize the set of standards in your regulatory compliance dashboard
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
 > [!TIP]

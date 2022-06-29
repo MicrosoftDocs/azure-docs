@@ -4,7 +4,7 @@ description: Learn how to do Apache Kafka operations using a Kafka REST proxy on
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.date: 04/03/2020
+ms.date: 04/01/2022
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
@@ -149,6 +149,8 @@ get_topic_api = 'metadata/topics'
 topic_api_format = 'topics/{topic_name}'
 producer_api_format = 'producer/topics/{topic_name}'
 consumer_api_format = 'consumer/topics/{topic_name}/partitions/{partition_id}/offsets/{offset}?count={count}'  # by default count = 1
+partitions_api_format = 'topics/{topic_name}/partitions'
+partition_api_format = 'topics/{topic_name}/partitions/{partition_id}'
 
 # Request header
 headers = {

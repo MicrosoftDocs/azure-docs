@@ -7,8 +7,8 @@ author: DerekLegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 08/03/2021
+ms.topic: how-to
+ms.date: 06/08/2022
 ---
 
 # Manage your Azure Cognitive Search service with the Azure CLI
@@ -16,7 +16,7 @@ ms.date: 08/03/2021
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
-> * [REST API](/rest/api/searchmanagement/)
+> * [REST API](search-manage-rest.md)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
@@ -32,9 +32,13 @@ You can run Azure CLI commands and scripts on Windows, macOS, Linux, or in [Azur
 > * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
 > * [Create a shared private link resource](#create-a-shared-private-link-resource)
 
-Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **az search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
+Occasionally, questions are asked about tasks *not* on the above list.
 
-Within a service, content creation and management are through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write scripts that call REST or .NET APIs to create and load indexes.
+You cannot change a server name, region, or tier programmatically or in the portal. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. 
+
+You cannot use tools or APIs to transfer content, such as an index, from one service to another. Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or an SDK such as [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated commands for content migration, you can write script that calls REST API or a client library to create and load indexes on a new service.
+
+Preview administration features are typically not available in the **az search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version. 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -98,7 +102,7 @@ az search service create --help
 
 ## Get search service information
 
-If you know the resource group containing your search service, run [**az search service show**](/cli/azure/search/service#az_search_service_show) to return the service definition, including name, region, tier, and replica and partition counts. For this command, provide the resource group that contains the search service.
+If you know the resource group containing your search service, run [**az search service show**](/cli/azure/search/service#az-search-service-show) to return the service definition, including name, region, tier, and replica and partition counts. For this command, provide the resource group that contains the search service.
 
 ```azurecli-interactive
 az search service show --name <service-name> --resource-group <search-service-resource-group-name>
@@ -106,7 +110,7 @@ az search service show --name <service-name> --resource-group <search-service-re
 
 ## Create or delete a service
 
-To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_create) command.
+To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az-search-service-create) command.
 
 ```azurecli-interactive
 az search service create \
@@ -256,13 +260,13 @@ az network private-endpoint dns-zone-group create \
    --zone-name "searchServiceZone"
 ```
 
-For more information on creating private endpoints in PowerShell, see this [Private Link Quickstart](../private-link/create-private-endpoint-cli.md)
+For more information on creating private endpoints in Azure CLI, see this [Private Link Quickstart](../private-link/create-private-endpoint-cli.md)
 
 ### Manage private endpoint connections
 
 In addition to creating a private endpoint connection, you can also `show`, `update`, and `delete` the connection.
 
-To retrieve a private endpoint connection and to see its status, use [**az search private-endpoint-connection show**](/cli/azure/search/private-endpoint-connection#az_search_private_endpoint_connection_show).
+To retrieve a private endpoint connection and to see its status, use [**az search private-endpoint-connection show**](/cli/azure/search/private-endpoint-connection#az-search-private-endpoint-connection-show).
 
 ```azurecli-interactive
 az search private-endpoint-connection show \
@@ -271,7 +275,7 @@ az search private-endpoint-connection show \
     --resource-group <search-service-resource-group-name> 
 ```
 
-To update the connection, use [**az search private-endpoint-connection update**](/cli/azure/search/private-endpoint-connection#az_search_private_endpoint_connection_update). The following example sets a private endpoint connection to rejected:
+To update the connection, use [**az search private-endpoint-connection update**](/cli/azure/search/private-endpoint-connection#az-search-private-endpoint-connection-update). The following example sets a private endpoint connection to rejected:
 
 ```azurecli-interactive
 az search private-endpoint-connection show \
@@ -283,7 +287,7 @@ az search private-endpoint-connection show \
     --actions-required "Please fix XYZ"
 ```
 
-To delete the private endpoint connection, use [**az search private-endpoint-connection delete**](/cli/azure/search/private-endpoint-connection#az_search_private_endpoint_connection_delete).
+To delete the private endpoint connection, use [**az search private-endpoint-connection delete**](/cli/azure/search/private-endpoint-connection#az-search-private-endpoint-connection-delete).
 
 ```azurecli-interactive
 az search private-endpoint-connection delete \
@@ -294,7 +298,7 @@ az search private-endpoint-connection delete \
 
 ## Regenerate admin keys
 
-To roll over admin [API keys](search-security-api-keys.md), use [**az search admin-key renew**](/cli/azure/search/admin-key#az_search_admin_key_renew). Two admin keys are created with each service for authenticated access. Keys are required on every request. Both admin keys are functionally equivalent, granting full write access to a search service with the ability to retrieve any information, or create and delete any object. Two keys exist so that you can use one while replacing the other. 
+To roll over admin [API keys](search-security-api-keys.md), use [**az search admin-key renew**](/cli/azure/search/admin-key#az-search-admin-key-renew). Two admin keys are created with each service for authenticated access. Keys are required on every request. Both admin keys are functionally equivalent, granting full write access to a search service with the ability to retrieve any information, or create and delete any object. Two keys exist so that you can use one while replacing the other. 
 
 You can only regenerate one at a time, specified as either the `primary` or `secondary` key. For uninterrupted service, remember to update all client code to use a secondary key while rolling over the primary key. Avoid changing the keys while operations are in flight.
 
@@ -320,7 +324,7 @@ Results should look similar to the following output. Both keys are returned even
 
 ## Create or delete query keys
 
-To create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure Cognitive Search index, use [**az search query-key create**](/cli/azure/search/query-key#az_search_query_key_create). Query keys are used to authenticate to a specific index for the purpose of retrieving search results. Query keys do not grant read-only access to other items on the service, such as an index, data source, or indexer.
+To create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure Cognitive Search index, use [**az search query-key create**](/cli/azure/search/query-key#az-search-query-key-create). Query keys are used to authenticate to a specific index for the purpose of retrieving search results. Query keys do not grant read-only access to other items on the service, such as an index, data source, or indexer.
 
 You cannot provide a key for Azure Cognitive Search to use. API keys are generated by the service.
 
@@ -333,7 +337,7 @@ az search query-key create \
 
 ## Scale replicas and partitions
 
-To [increase or decrease replicas and partitions](search-capacity-planning.md) use [**az search service update**](/cli/azure/search/service#az_search_service_update). Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for additional processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
+To [increase or decrease replicas and partitions](search-capacity-planning.md) use [**az search service update**](/cli/azure/search/service#az-search-service-update). Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for additional processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
 
 It can take a while to add or remove resourcing. Adjustments to capacity occur in the background, allowing existing workloads to continue. Additional capacity is used for incoming requests as soon as it's ready, with no additional configuration required. 
 
@@ -359,7 +363,7 @@ If you're using an indexer to index data in Azure Cognitive Search, and your dat
 
 A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#group-ids) along with the related **Group ID** values.
 
-To create the shared private link resource, use [**az search shared-private-link-resource create**](/cli/azure/search/shared-private-link-resource#az_search_shared_private_link_resource_list). Keep in mind that some configuration may be required for the data source before running this command.
+To create the shared private link resource, use [**az search shared-private-link-resource create**](/cli/azure/search/shared-private-link-resource#az-search-shared-private-link-resource-list). Keep in mind that some configuration may be required for the data source before running this command.
 
 ```azurecli-interactive
 az search shared-private-link-resource create \
@@ -372,7 +376,7 @@ az search shared-private-link-resource create \
 ```
 
 
-To retrieve the shared private link resources and view their status, use [**az search shared-private-link-resource list**](/cli/azure/search/shared-private-link-resource#az_search_shared_private_link_resource_list).
+To retrieve the shared private link resources and view their status, use [**az search shared-private-link-resource list**](/cli/azure/search/shared-private-link-resource#az-search-shared-private-link-resource-list).
 
 ```azurecli-interactive
 az search shared-private-link-resource list \
@@ -388,7 +392,7 @@ id = (az storage account show -n myBlobStorage --query "privateEndpointConnectio
 az network private-endpoint-connection approve --id $id
 ```
 
-To delete the shared private link resource, use [**az search shared-private-link-resource delete**](/cli/azure/search/shared-private-link-resource#az_search_shared_private_link_resource_delete).
+To delete the shared private link resource, use [**az search shared-private-link-resource delete**](/cli/azure/search/shared-private-link-resource#az-search-shared-private-link-resource-delete).
 
 ```azurecli-interactive
 az search shared-private-link-resource delete \

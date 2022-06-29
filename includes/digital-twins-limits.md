@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins limits
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/20/2021
+ms.date: 4/4/2022
 ms.author: baanders
 ---
 
@@ -30,7 +30,7 @@ The following table lists the functional limits of Azure Digital Twins.
 | Models | Number of models that can be uploaded in a single API call | 250 | No |
 | Models | Maximum size (of JSON body in a PUT or PATCH request) of a single model | 1 MB | No |
 | Models | Number of items returned in a single page | 100 | No |
-| Query | Number of items returned in a single page | 100 | Yes |
+| Query | Number of items returned in a single page | 1000 | Yes |
 | Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
 | Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
 | Query | Number of characters in a query | 8,000 | Yes |
@@ -47,6 +47,7 @@ The following table reflects the rate limits of different APIs.
 | Digital Twins API | Number of patch requests per second | 1,000 | Yes |
 | Digital Twins API | Number of create/delete operations per second across all twins and relationships | 50 | Yes |
 | Digital Twins API | Number of create/update/delete operations per second on a single twin or its incoming/outgoing relationships | 10 | No |
+| Digital Twins API | Number of outstanding operations on a single twin or its incoming/outgoing relationships | 500 | No |
 | Query API | Number of requests per second | 500 | Yes |
 | Query API | [Query Units](../articles/digital-twins/concepts-query-units.md) per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |

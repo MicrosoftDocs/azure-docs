@@ -90,7 +90,7 @@ landingContent:
           - text: Encryption at rest
             url: encryption-atrest.md
           - text: Data protection
-            url: ../../azure-sql/database/security-overview.md
+            url: /azure/azure-sql/database/security-overview
           - text: Network security
             url: network-overview.md
           - text: Virtual machines security

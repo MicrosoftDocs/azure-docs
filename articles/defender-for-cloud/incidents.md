@@ -8,8 +8,6 @@ ms.date: 11/09/2021
 ---
 # Manage security incidents in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Triaging and investigating security alerts can be time consuming for even the most skilled security analysts. For many, it's hard to know where to begin. 
 
 Defender for Cloud uses [analytics](./alerts-overview.md) to connect the information between distinct [security alerts](managing-and-responding-alerts.md). Using these connections, Defender for Cloud can provide a single view of an attack campaign and its related alerts to help you understand the attacker's actions and the affected resources.

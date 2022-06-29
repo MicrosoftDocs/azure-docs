@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 03/14/2022
+ms.date: 05/24/2022
 ms.topic: conceptual 
 ---
 
@@ -21,18 +21,23 @@ Azure Arc-enabled servers does not support installing the agent on virtual machi
 
 ## Supported operating systems
 
-The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
+The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent. Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, are not supported operating environments.
 
 * Windows Server 2008 R2 SP1, 2012 R2, 2016, 2019, and 2022
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported when running as a virtual machine on Azure Stack HCI
+* Windows IoT Enterprise
 * Azure Stack HCI
-* Ubuntu 16.04, 18.04, and 20.04 LTS (x64)
-* CentOS Linux 7 and 8  (x64)
-* SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
-* Red Hat Enterprise Linux (RHEL) 7 and 8 (x64)
-* Amazon Linux 2 (x64)
-* Oracle Linux 7 and 8 (x64)
+* Ubuntu 16.04, 18.04, and 20.04 LTS
+* CentOS Linux 7 and 8
+* SUSE Linux Enterprise Server (SLES) 12 and 15
+* Red Hat Enterprise Linux (RHEL) 7 and 8
+* Amazon Linux 2
+* Oracle Linux 7 and 8
+
+> [!NOTE] 
+> On Linux, Azure Arc-enabled servers installs several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers is not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
+
 
 > [!WARNING]
 > If the Linux hostname or Windows computer name uses a reserved word or trademark, attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
@@ -45,8 +50,15 @@ The following versions of the Windows and Linux operating system are officially 
 
 ## Software requirements
 
+Windows operating systems:
+
 * NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
 * Windows PowerShell 5.1 is required. [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
+
+Linux operating systems:
+
+* systemd
+* wget (to download the installation script)
 
 ## Required permissions
 

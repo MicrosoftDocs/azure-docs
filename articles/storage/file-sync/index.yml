@@ -58,3 +58,13 @@ landingContent:
             url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
           - text: Azure File Sync troubleshooting
             url: file-sync-troubleshoot.md
+
+  # Card
+  - title: Migrate
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migration overview
+            url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json
+          - text: Migration guides
+            url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json#migration-guides

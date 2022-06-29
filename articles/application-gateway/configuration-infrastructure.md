@@ -2,7 +2,7 @@
 title: Azure Application Gateway infrastructure configuration
 description: This article describes how to configure the Azure Application Gateway infrastructure.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/14/2021
@@ -15,7 +15,7 @@ The application gateway infrastructure includes the virtual network, subnets, ne
 
 ## Virtual network and dedicated subnet
 
-An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet. You can't mix Standard_v2 and Standard Azure Application Gateway on the same subnet.
+An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet. You can't mix v1 and v2 Azure Application Gateway SKUs on the same subnet.
 
 > [!NOTE]
 > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
@@ -61,7 +61,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 1. Allow incoming traffic from a source IP or IP range with the destination as the entire Application Gateway subnet address range and destination port as your inbound access port, for example, port 80 for HTTP access.
 2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [back-end health status communication](./application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
 3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) on the [network security group](../virtual-network/network-security-groups-overview.md).
-4. Allow inbound virtual network traffic (*VirtualNetwork* tag) on the [network security group](../virtual-network/network-security-groups-overview.md).
+4. Allow expected inbound traffic to match your listener configuration (i.e. if you have listeners configured for port 80, you will want an allow inbound rule for port 80)
 5. Block all other incoming traffic by using a deny-all rule.
 6. Allow outbound traffic to the Internet for all destinations.
 

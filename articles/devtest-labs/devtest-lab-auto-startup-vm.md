@@ -1,62 +1,55 @@
 ---
-title: Configure auto start settings for a VM
-description: Learn how to configure auto start settings for VMs in a lab. This setting allows VMs in the lab to be automatically started on a schedule. 
+title: Configure auto-start settings for a VM
+description: Learn how to configure auto-start settings for VMs in a lab. This setting allows VMs in the lab to be automatically started on a schedule. 
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 03/29/2022
 ---
 
-# Start up lab virtual machines automatically
+# Automatically start lab VMs with auto-start in Azure DevTest Labs
 
-Auto start allows you to automatically start virtual machines (VMs) in a lab at a scheduled time each day. You first need to create an auto start policy. Then you must select which VMs to follow the policy. The extra step of affirmatively selecting VMs to auto start is meant to prevent the unintentional starting of VMs that result in increased costs.
+This article shows how to configure and apply an auto-start policy for Azure DevTest Labs virtual machines (VMs). Auto-start automatically starts up lab VMs at specified times and days.
 
-This article shows you how to configure an auto start policy for a lab. For information on configuring auto shutdown settings, see [Manage auto shutdown policies for a lab in Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
+To implement auto-start, you configure an auto-start policy for the lab first. Then, you can enable the policy for individual lab VMs. Requiring individual VMs to enable auto-start helps prevent unnecessary startups that could increase costs.
 
-## Configure auto start settings for a lab 
+You can also configure auto-shutdown policies for lab VMs. For more information, see [Manage auto shutdown policies for a lab in Azure DevTest Labs](devtest-lab-auto-shutdown.md).
 
-The policy doesn't automatically apply auto start to any VMs in the lab. After configuring the policy, follow the steps from [Enable auto start for a VM in the lab](#enable-auto-start-for-a-vm-in-the-lab).
+## Configure auto-start for the lab
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+To configure auto-start policy for a lab, follow these steps. After configuring the policy, [enable auto-start](#add-vms-to-the-auto-start-schedule) for each VM that you want to auto-start.
 
-1. Navigate to your lab in **DevTest Labs**.
+1. On your lab **Overview** page, select **Configuration and policies** under **Settings** in the left navigation.
 
-1. Under **Settings**, select **Configuration and policies**. 
+   :::image type="content" source="./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png" alt-text="Screenshot that shows selecting Configuration and policies in the left navigation menu.":::
 
-   :::image type="content" source="./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png" alt-text="Screenshot that shows the 'Configuration and policies' menu in the DevTest Labs.":::
+1. On the **Configuration and policies** page, select **Auto-start** under **Schedules** in the left navigation.
 
-1. On the **Configuration and policies** page, under **Schedules**, select **Auto-start**.
-
-1. For **Allow auto-start**, select **Yes**. Scheduling information will then appear.
+1. Select **Yes** for **Allow auto-start**.
 
     :::image type="content" source="./media/devtest-lab-auto-startup-vm/portal-lab-auto-start.png" alt-text="Screenshot of Auto-start option under Schedules.":::
  
-1. Provide the following scheduling information:
+1. Enter a **Scheduled start** time, select a **Time zone**, and select the checkboxes next to the **Days of the week** that you want to apply the schedule.
 
-    |Property | Description |
-    |---|---|
-    |Scheduled start| Enter a start time.|
-    |Time zone| Select a time zone from the drop-down list.|
-    |Days of the week| Select each box next to the day you want the schedule to be applied.|
+1. Select **Save**.
 
-    :::image type="content" source="./media/devtest-lab-auto-startup-vm/auto-start-configuration.png" alt-text="Screenshot of Autostart schedule settings.":::
+   :::image type="content" source="./media/devtest-lab-auto-startup-vm/auto-start-configuration.png" alt-text="Screenshot of auto-start schedule settings.":::
 
-1. Select **Save**. 
+## Add VMs to the auto-start schedule
 
-## Enable auto start for a VM in the lab
+After you configure the auto-start policy, follow these steps for each VM that you want to auto-start.
 
-These steps continue from the prior section. Now that an auto start policy has been created, select the VMs to apply the policy against.
+1. On your lab **Overview** page, select the VM under **My virtual machines**.
 
-1. Close the **Configuration and policies** page to return to the **DevTest Labs** page.
+   :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-vm.png" alt-text="Screenshot of selecting a VM from the list under My virtual machines.":::
 
-1. Under **My virtual machines**, select a VM.
+1. On the VM's **Overview** page, select **Auto-start** under **Operations** in the left navigation.
 
-    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-vm.png" alt-text="Screenshot of Select VM from list under My virtual machines.":::
+1. On the **Auto-start** page, select **Yes** for **Allow this virtual machine to be scheduled for automatic start**, and then select **Save**.
 
-1. On the **virtual machine** page, under **Operations**, select **Auto-start**. 
-
-1. On the **Auto-start** page, select **Yes**, and then **Save**.
-
-    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-auto-start.png" alt-text="Screenshot of Select autostart menu.":::
+   :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-auto-start.png" alt-text="Screenshot of selecting Yes on the Auto-start page.":::
 
 ## Next steps
 
 - [Manage auto shutdown policies for a lab in Azure DevTest Labs](devtest-lab-auto-shutdown.md)
+- [Use command lines to start and stop DevTest Labs virtual machines](use-command-line-start-stop-virtual-machines.md)

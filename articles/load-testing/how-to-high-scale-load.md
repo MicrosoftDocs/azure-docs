@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 06/20/2022
 ms.topic: how-to
 
 ---
@@ -74,5 +74,5 @@ In this section, you configure the scaling settings of your load test.
 ## Next steps
 
 - For more information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
-
 - To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- More information about [service limits and quotas in Azure Load Testing](./resource-limits-quotas-capacity.md).

@@ -2,15 +2,12 @@
 title: Understanding security policies, initiatives, and recommendations in Microsoft Defender for Cloud
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 06/06/2022
 ---
 
 # What are security policies, initiatives, and recommendations?
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Cloud applies security initiatives to your subscriptions. These initiatives contain one or more security policies. Each of those policies results in a security recommendation for improving your security posture. This page explains each of these ideas in detail.
-
 
 ## What is a security policy?
 
@@ -42,7 +39,7 @@ Defender for Cloud offers the following options for working with security initia
 
 Using the policies, Defender for Cloud periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations are the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
 
-Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant it is presented as a recommendation in Defender for Cloud.
+Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it is presented as a recommendation in Defender for Cloud.
 
 Recommendations are actions for you to take to secure and harden your resources. Each recommendation provides you with the following information:
 
@@ -56,15 +53,59 @@ In practice, it works like this:
 
     For example, Azure Storage accounts must restrict network access to reduce their attack surface.
 
-1. The initiative includes multiple ***policies***, each with a requirement of a specific resource type. These policies enforce the requirements in the initiative. 
+1. The initiative includes multiple ***policies***, each with a requirement of a specific resource type. These policies enforce the requirements in the initiative.
 
     To continue the example, the storage requirement is enforced with the policy "Storage accounts should restrict network access using virtual network rules".
 
 1. Microsoft Defender for Cloud continually assesses your connected subscriptions. If it finds a resource that doesn't satisfy a policy, it displays a ***recommendation*** to fix that situation and harden the security of resources that aren't meeting your security requirements.
 
-    So, for example, if an Azure Storage account on any of your protected subscriptions isn't protected with virtual network rules, you'll see the recommendation to harden those resources. 
+    So, for example, if an Azure Storage account on any of your protected subscriptions isn't protected with virtual network rules, you'll see the recommendation to harden those resources.
 
 So, (1) an initiative includes (2) policies that generate (3) environment-specific recommendations.
+
+### Security recommendation details
+
+Security recommendations contain details that help you understand its significance and how to handle it.
+
+:::image type="content" source="./media/security-policy-concept/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page with labels for each element." lightbox="./media/security-policy-concept/recommendation-details-page.png":::
+
+The recommendation details shown are:
+
+1. For supported recommendations, the top toolbar shows any or all of the following buttons:
+    - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
+    - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
+    - **Open query** - You can view the detailed information about the affected resources using Azure Resource Graph Explorer.
+1. **Severity indicator**
+1. **Freshness interval**
+1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
+1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. This applies only to Azure scored recommendations.
+
+    :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
+
+1. **Description** - A short description of the security issue.
+1. When relevant, the details page also includes a table of **related recommendations**:
+
+    The relationship types are:
+
+    - **Prerequisite** - A recommendation that must be completed before the selected recommendation
+    - **Alternative** - A different recommendation, which provides another way of achieving the goals of the selected recommendation
+    - **Dependent** - A recommendation for which the selected recommendation is a prerequisite
+
+    For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
+
+    > [!TIP]
+    > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
+
+1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select**View remediation logic** before applying the suggested fix to your resources.
+
+1. **Affected resources** - Your resources are grouped into tabs:
+    - **Healthy resources** – Relevant resources, which either aren't impacted or on which you've already  remediated the issue.
+    - **Unhealthy resources** – Resources that are still impacted by the identified issue.
+    - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
+
+    :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Screenshot of resources for which the recommendation can't give a definitive answer.":::
+
+1. Action buttons to remediate the recommendation or trigger a logic app.
 
 ## Viewing the relationship between a recommendation and a policy
 
@@ -74,12 +115,11 @@ When you're reviewing the details of a recommendation, it's often helpful to be 
 
 :::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link to Azure Policy page for the specific policy supporting a recommendation.":::
 
-Use this link to view the policy definition and review the evaluation logic. 
+Use this link to view the policy definition and review the evaluation logic.
 
 If you're reviewing the list of recommendations on our [Security recommendations reference guide](recommendations-reference.md), you'll also see links to the policy definition pages:
 
 :::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accessing the Azure Policy page for a specific policy directly from the Microsoft Defender for Cloud recommendations reference page.":::
-
 
 ## Next steps
 

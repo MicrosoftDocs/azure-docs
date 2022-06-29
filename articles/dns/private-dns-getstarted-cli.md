@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/20/2020
+ms.date: 05/23/2022
 ms.author: rohink
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
@@ -87,7 +87,9 @@ az vm create \
  --nsg NSG01 \
  --nsg-rule RDP \
  --image win2016datacenter
+```
 
+```azurecli
 az vm create \
  -n myVM02 \
  --admin-username AzureAdmin \
@@ -100,7 +102,7 @@ az vm create \
  --image win2016datacenter
 ```
 
-This will take a few minutes to complete.
+Creating a virtual machine will take a few minutes to complete.
 
 ## Create an additional DNS record
 
@@ -151,7 +153,7 @@ Repeat for myVM02.
    ping myVM01.private.contoso.com
    ```
 
-   You should see output that looks similar to this:
+   You should see an output that looks similar to what is shown below:
 
    ```output
    PS C:\> ping myvm01.private.contoso.com
@@ -175,7 +177,7 @@ Repeat for myVM02.
    ping db.private.contoso.com
    ```
 
-   You should see output that looks similar to this:
+   You should see an output that looks similar to what is shown below:
 
    ```output
    PS C:\> ping db.private.contoso.com

@@ -1,12 +1,13 @@
 ---
 title: Create and manage Azure Cosmos DB Gremlin API with Bicep
 description: Use Bicep to create and configure Azure Cosmos DB Gremlin API. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 9/13/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Manage Azure Cosmos DB Gremlin API resources using Bicep

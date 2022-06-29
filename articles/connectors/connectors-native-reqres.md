@@ -26,8 +26,12 @@ This article shows how to use the Request trigger and Response action so that yo
 For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 > [!NOTE]
-> For the **Logic App (Standard)** resource type in single-tenant Azure Logic Apps, Azure AD OAuth is currently 
-> unavailable for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
+>
+> In a Standard logic app workflow that starts with the Request trigger (but not a webhook trigger), you can 
+> use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger 
+> by using a managed identity. This provision is also known as "**Easy Auth**". For more information, review 
+> [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
+
 
 ## Prerequisites
 

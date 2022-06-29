@@ -523,7 +523,7 @@ The following example shows how to add a second IP Configuration to your NIC.
 
 In order to enhance default network security, [virtual machine scale sets with Flexible orchestration](..\virtual-machines\flexible-virtual-machine-scale-sets.md) will require that instances created implicitly via the autoscaling profile have outbound connectivity defined explicitly through one of the following methods: 
 
-- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
+- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md).
 - For scenarios with high security requirements or when using Azure Firewall or Network Virtual Appliance (NVA), you can specify a custom User Defined Route as next hop through firewall. 
 - Instances are in the backend pool of a Standard SKU Azure Load Balancer. 
 - Attach a Public IP Address to the instance network interface. 

@@ -64,7 +64,7 @@ The same Azure sandbox and Hybrid Runbook Worker can execute **PowerShell 5.1** 
  
 Ensure that you select the right Runtime Version for modules.
 
-For example : if you are executing a runbook for a Sharepoint automation scenario in **Runtime version** *7.1 (preview)*, then import the module in **Runtime version** **7.1 (preview)**; if you are executing a runbook for a Sharepoint automation scenario in **Runtime version** **5.1**, then import the module in **Runtime version** *5.1*. In this case, you would see two entries for the module, one for **Runtime Version** **7.1(preview)** and other for **5.1**.
+For example : if you are executing a runbook for a SharePoint automation scenario in **Runtime version** *7.1 (preview)*, then import the module in **Runtime version** **7.1 (preview)**; if you are executing a runbook for a SharePoint automation scenario in **Runtime version** **5.1**, then import the module in **Runtime version** *5.1*. In this case, you would see two entries for the module, one for **Runtime Version** **7.1(preview)** and other for **5.1**.
 
 :::image type="content" source="./media/automation-runbook-types/runbook-types.png" alt-text="runbook Types.":::
 
@@ -166,6 +166,7 @@ Python 3 runbooks are supported in the following Azure global infrastructures:
 * To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
 * Using **Start-AutomationRunbook** cmdlet in PowerShell/PowerShell Workflow to start a Python 3 runbook (preview) doesn't work. You can use **Start-AzAutomationRunbook** cmdlet from Az.Automation module or **Start-AzureRmAutomationRunbook** cmdlet from AzureRm.Automation module to work around this limitation.  
 * Azure Automation doesn't support **sys.stderr**.
+* The Python **automationassets** package is not available on pypi.org, so it's not available for import onto a Windows machine.
 
 ### Multiple Python versions
 

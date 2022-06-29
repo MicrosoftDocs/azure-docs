@@ -12,17 +12,19 @@ items:
   - name: Get started with the FHIR service
     href: get-started-with-fhir.md
   - name: Deploy FHIR service
-    expanded: true
+    expanded: false
     items:
     - name: Using Portal
       href: fhir-portal-quickstart.md
+    - name: Using Bicep
+      href: fhir-service-bicep.md
     - name: Using ARM template
       href: fhir-service-resource-manager-template.md
 - name: Tutorials
   expanded: true
   items:
   - name: Interoperability and Patient Access
-    expanded: true
+    expanded: false
     items:
     - name: CMS Interoperability and Patient Access rule introduction
       href: centers-for-medicare-tutorial-introduction.md
@@ -38,28 +40,26 @@ items:
   expanded: true
   items:
   - name: Access FHIR service
-    expanded: true
+    expanded: false
     items:
     - name: Access using Postman
       href: use-postman.md  
     - name: Access using cURL
       href: using-curl.md
     - name: Access using REST Client
-      href: using-rest-client.md
-    - name: Bulk import data into the FHIR service
-      href: bulk-importing-fhir-data.md  
+      href: using-rest-client.md 
   - name: Configure settings
-    expanded: true
+    expanded: false
     items:
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
   - name: Diagnostic logging
-    expanded: true
+    expanded: false
     items:
     - name: Enable diagnostic settings in the FHIR service
       href: fhir-service-diagnostic-logs.md
   - name: Search
-    expanded: true
+    expanded: false
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
@@ -69,36 +69,42 @@ items:
       href: how-to-run-a-reindex.md
     - name: Search examples
       href: search-samples.md
-  - name: Operations
-    expanded: true
+  - name: FHIR operations
+    expanded: false
     items:
+    - name: $convert-data
+      href: convert-data.md
+    - name: $export
+      expanded: false
+      items:
+      - name: Configure settings for export
+        href: configure-export-data.md
+      - name: Export FHIR data
+        href: export-data.md
+      - name: De-identified export
+        href: de-identified-export.md
+    - name: $import
+      expanded: false
+      items:
+      - name: Configure settings for bulk-import  
+        href: configure-import-data.md
+      - name: Use bulk-import
+        href: import-data.md 
+    - name: $member-match
+      href: tutorial-member-match.md
+    - name: Patient/$everything
+      href: patient-everything.md
+    - name: $purge-history operation
+      href: purge-history.md  
     - name: $validate
       expanded: false
       items:
       - name: Store profiles
         href: store-profiles-in-fhir.md
       - name: Use $validate
-        href: validation-against-profiles.md
-    - name: Patient-everything in FHIR
-      href: patient-everything.md
-    - name: $member-match operation
-      href: tutorial-member-match.md
-  - name: Export data
-    expanded: true
-    items:
-    - name: Configure settings for export
-      href: configure-export-data.md
-    - name: Export FHIR data
-      href: export-data.md
-    - name: De-identified export
-      href: de-identified-export.md
-    - name: Copy data to Synapse
-      href: copy-to-synapse.md
-  - name: Convert data
-    expanded: true
-    items:
-    - name: Convert data
-      href: convert-data.md
+        href: validation-against-profiles.md  
+  - name: Copy data to Synapse
+    href: copy-to-synapse.md
 - name: Concepts
   expanded: true
   items:
@@ -106,6 +112,8 @@ items:
     href: fhir-service-autoscale.md
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
+  - name: Versioning policy and history management
+    href: fhir-versioning-policy-and-history-management.md
 - name: Resources
   expanded: true
   items:

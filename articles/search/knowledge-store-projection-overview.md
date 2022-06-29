@@ -138,7 +138,7 @@ Projections have a lifecycle that is tied to the source data in your data source
 
 After the indexer is run, connect to projections and consume the data in other apps and workloads.
 
-+ Use [Storage Browser](knowledge-store-view-storage-explorer.md) to verify object creation and content.
++ Use Azure portal to verify object creation and content in Azure Storage.
 
 + Use [Power BI for data exploration](knowledge-store-connect-power-bi.md). This tool works best when the data is in Azure Table Storage. Within Power BI, you can manipulate data into new tables that are easier to query and analyze.
 

@@ -11,6 +11,8 @@ ms.date: 01/13/2022
 
 # Hyperscale (Citus) server group
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## Nodes
 
 The Azure Database for PostgreSQL - Hyperscale (Citus) deployment option allows

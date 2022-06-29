@@ -18,7 +18,7 @@ For example, when getting or inserting multiple rows, your logic app can iterate
 
 ## Timeout limit on stored procedure execution
 
-The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). Some stored procedures might take longer than this limit to complete, causing a `504 Timeout` error. Sometimes these long-running processes are coded as stored procedures explicitly for this purpose. Due to the timeout limit, calling these procedures from Azure Logic Apps might create problems. Although the SQL connector doesn't natively support an asynchronous mode, you can work around this problem and simulate this mode by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs. For this task, you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
+The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). Some stored procedures might take longer than this limit to complete, causing a `504 Timeout` error. Sometimes these long-running processes are coded as stored procedures explicitly for this purpose. Due to the timeout limit, calling these procedures from Azure Logic Apps might create problems. Although the SQL connector doesn't natively support an asynchronous mode, you can work around this problem and simulate this mode by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs. For this task, you can use the [Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview) for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). For [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
 For example, suppose that you have the following long-running stored procedure, which takes longer than the timeout limit to finish running. If you run this stored procedure from a logic app by using the SQL connector, you get an `HTTP 504 Gateway Timeout` error as the result.
 
@@ -39,7 +39,7 @@ Rather than directly call the stored procedure, you can asynchronously run the p
 > which means that they can run multiple times without affecting the results. 
 > If the asynchronous processing fails or times out, the job agent might retry the step, 
 > and thus your stored procedure, multiple times. To avoid duplicating output, 
-> before you create any objects, review these [best practices and approaches](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
+> before you create any objects, review these [best practices and approaches](/azure/azure-sql/database/elastic-jobs-overview#idempotent-scripts).
 
 The next section describes how you can use the Azure Elastic Job Agent for Azure SQL Database. For SQL Server and Azure SQL Managed Instance, you can use the SQL Server Agent. Some management details will differ, but the fundamental steps remain the same as setting up a job agent for Azure SQL Database.
 
@@ -47,9 +47,9 @@ The next section describes how you can use the Azure Elastic Job Agent for Azure
 
 ## Job agent for Azure SQL Database
 
-To create a job that can run the stored procedure for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md). Create your job agent in the Azure portal. This approach will add several stored procedures to the database that's used by the agent, also known as the *agent database*. You can then create a job that runs your stored procedure in the target database and captures the output when finished.
+To create a job that can run the stored procedure for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), use the [Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview). Create your job agent in the Azure portal. This approach will add several stored procedures to the database that's used by the agent, also known as the *agent database*. You can then create a job that runs your stored procedure in the target database and captures the output when finished.
 
-Before you can create the job, you need to set up permissions, groups, and targets as described by the [full documentation for the Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md). You also need to create a supporting table in the target database as described in the following sections.
+Before you can create the job, you need to set up permissions, groups, and targets as described by the [full documentation for the Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview). You also need to create a supporting table in the target database as described in the following sections.
 
 <a name="create-state-table"></a>
 
@@ -165,7 +165,7 @@ When the job completes, the job updates the `LongRunningState` table so that you
 
 ## Job agent for SQL Server or Azure SQL Managed Instance
 
-For the same scenario, you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent) for [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). Although some management details differ, the fundamental steps remain the same as the setting up a job agent for Azure SQL Database.
+For the same scenario, you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent) for [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview). Although some management details differ, the fundamental steps remain the same as the setting up a job agent for Azure SQL Database.
 
 ## Next steps
 

@@ -21,11 +21,6 @@ In Azure Front Door Standard/Premium tier, you can configure URL redirect using 
 
 :::image type="content" source="./media/front-door-url-redirect/front-door-url-redirect-rule-set.png" alt-text="Screenshot of creating url redirect with Rule Set." lightbox="./media/front-door-url-redirect/front-door-url-redirect-expanded.png":::
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ::: zone-end
 
 ::: zone pivot="front-door-classic"

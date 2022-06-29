@@ -3,8 +3,8 @@ metadata:
   title: Microsoft Defender for Cloud FAQ - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: memildin
-  ms.author: memildin
+  author: elkrieger
+  ms.author: elkrieger
   manager: raynew
   ms.topic: faq
   ms.date: 01/02/2022
@@ -268,7 +268,7 @@ sections:
           
           The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Defender for Cloud's detection services. For more information on the details recorded for each new process, see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
           
-          The agent also enables data collection for [Adaptive Application Controls](adaptive-application-controls.md), Defender for Cloud configures a local AppLocker policy in Audit mode to allow all applications. This policy will cause AppLocker to generate events, which are then collected and leveraged by Defender for Cloud. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
+          The agent also enables data collection for [Adaptive application controls](adaptive-application-controls.md), Defender for Cloud configures a local AppLocker policy in Audit mode to allow all applications. This policy will cause AppLocker to generate events, which are then collected and leveraged by Defender for Cloud. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
           
           When Defender for Cloud detects suspicious activity on the VM, the customer is notified by email if [security contact information](configure-email-notifications.md) has been provided. An alert is also visible in Defender for Cloud's security alerts dashboard.
           

@@ -4,7 +4,6 @@ description: Describes how Application Gateway integrates with Azure App Service
 services: app-service
 documentationcenter: ''
 author: madsd
-manager: ccompy
 editor: ''
 
 ms.assetid: 073eb49c-efa1-4760-9f0c-1fecd5c251cc
@@ -20,7 +19,7 @@ ms.devlang: azurecli
 ---
 
 # Application Gateway integration
-There are three variations of App Service that require slightly different configuration of the integration with Azure Application Gateway. The variations include regular App Service - also known as multi-tenant, Internal Load Balancer (ILB) App Service Environment (ASE) and External ASE. This article will walk through how to configure it with App Service (multi-tenant) using service endpoint to secure traffic. The article will also discuss considerations around using private endpoint and integrating with ILB, and External ASE. Finally the article has considerations on scm/kudu site.
+There are three variations of App Service that require slightly different configuration of the integration with Azure Application Gateway. The variations include regular App Service - also known as multi-tenant, Internal Load Balancer (ILB) App Service Environment and External App Service Environment. This article will walk through how to configure it with App Service (multi-tenant) using service endpoint to secure traffic. The article will also discuss considerations around using private endpoint and integrating with ILB, and External App Service Environment. Finally the article has considerations on scm/kudu site.
 
 ## Integration with App Service (multi-tenant)
 App Service (multi-tenant) has a public internet facing endpoint. Using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) you can allow traffic only from a specific subnet within an Azure Virtual Network and block everything else. In the following scenario, we'll use this functionality to ensure that an App Service instance can only receive traffic from a specific Application Gateway instance.
@@ -33,7 +32,7 @@ There are two parts to this configuration besides creating the App Service and t
 With Azure portal, you follow four steps to provision and configure the setup. If you have existing resources, you can skip the first steps.
 1. Create an App Service using one of the Quickstarts in the App Service documentation, for example [.NET Core Quickstart](../quickstart-dotnetcore.md)
 2. Create an Application Gateway using the [portal Quickstart](../../application-gateway/quick-create-portal.md), but skip the Add backend targets section.
-3. Configure [App Service as a backend in Application Gateway](../../application-gateway/configure-web-app-portal.md), but skip the Restrict access section.
+3. Configure [App Service as a backend in Application Gateway](../../application-gateway/configure-web-app.md), but skip the Restrict access section.
 4. Finally create the [access restriction using service endpoints](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
 You can now access the App Service through Application Gateway, but if you try to access the App Service directly, you should receive a 403 HTTP error indicating that the web site is stopped.
@@ -60,15 +59,22 @@ As an alternative to service endpoint, you can use private endpoint to secure tr
 
 :::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram shows the traffic flowing to an Application Gateway in an Azure Virtual Network and flowing from there through a private endpoint to instances of apps in App Service.":::
 
-## Considerations for ILB ASE
-ILB ASE isn't exposed to the internet and traffic between the instance and an Application Gateway is therefore already isolated to the Virtual Network. The following [how-to guide](../environment/integrate-with-application-gateway.md) configures an ILB ASE and integrates it with an Application Gateway using Azure portal.
+Application Gateway will cache the DNS lookup results, so if you use FQDNs and rely on DNS lookup to get the private IP address, then you may need to restart the Application Gateway if the DNS update or link to Azure private DNS zone was done after configuring the backend pool. To restart the Application Gateway, you must start and stop the instance. You can do this with Azure CLI:
 
-If you want to ensure that only traffic from the Application Gateway subnet is reaching the ASE, you can configure a Network security group (NSG) which affect all web apps in the ASE. For the NSG, you are able to specify the subnet IP range and optionally the ports (80/443). Make sure you don't override the [required NSG rules](../environment/network-info.md#network-security-groups) for ASE to function correctly.
+```azurecli-interactive
+az network application-gateway stop --resource-group myRG --name myAppGw
+az network application-gateway start --resource-group myRG --name myAppGw
+```
+
+## Considerations for ILB ASE
+ILB App Service Environment isn't exposed to the internet and traffic between the instance and an Application Gateway is therefore already isolated to the Virtual Network. The following [how-to guide](../environment/integrate-with-application-gateway.md) configures an ILB App Service Environment and integrates it with an Application Gateway using Azure portal.
+
+If you want to ensure that only traffic from the Application Gateway subnet is reaching the App Service Environment, you can configure a Network security group (NSG) which affect all web apps in the App Service Environment. For the NSG, you are able to specify the subnet IP range and optionally the ports (80/443). Make sure you don't override the [required NSG rules](../environment/network-info.md#network-security-groups) for App Service Environment to function correctly.
 
 To isolate traffic to an individual web app you'll need to use ip-based access restrictions as service endpoints will not work for ASE. The IP address should be the private IP of the Application Gateway instance.
 
 ## Considerations for External ASE
-External ASE has a public facing load balancer like multi-tenant App Service. Service endpoints don't work for ASE, and that's why you'll have to use ip-based access restrictions using the public IP of the Application Gateway instance. To create an External ASE using the Azure portal, you can follow this [Quickstart](../environment/create-external-ase.md)
+External App Service Environment has a public facing load balancer like multi-tenant App Service. Service endpoints don't work for App Service Environment, and that's why you'll have to use ip-based access restrictions using the public IP of the Application Gateway instance. To create an External App Service Environment using the Azure portal, you can follow this [Quickstart](../environment/create-external-ase.md)
 
 [template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "Azure Resource Manager template for complete scenario"
 

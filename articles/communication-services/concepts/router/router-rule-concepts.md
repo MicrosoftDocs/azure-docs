@@ -95,4 +95,4 @@ await client.upsertClassificationPolicy({
 
 ## Next steps
 
-- [Azure Function Rule](azure-function-rule-engine.md)
+- [Azure Function Rule How To](../../how-tos/router-sdk/azure-function.md)

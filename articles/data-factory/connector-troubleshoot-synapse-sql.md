@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 06/29/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -24,12 +24,12 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
     | Cause analysis                                               | Recommendation                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | For Azure SQL, if the error message contains the string "SqlErrorNumber=47073", it means that public network access is denied in the connectivity setting. | On the Azure SQL firewall, set the **Deny public network access** option to *No*. For more information, see [Azure SQL connectivity settings](../azure-sql/database/connectivity-settings.md#deny-public-network-access). |
-    | For Azure SQL, if the error message contains an SQL error code such as "SqlErrorNumber=[errorcode]", see the Azure SQL troubleshooting guide. | For a recommendation, see [Troubleshoot connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](../azure-sql/database/troubleshoot-common-errors-issues.md). |
+    | For Azure SQL, if the error message contains the string "SqlErrorNumber=47073", it means that public network access is denied in the connectivity setting. | On the Azure SQL firewall, set the **Deny public network access** option to *No*. For more information, see [Azure SQL connectivity settings](/azure/azure-sql/database/connectivity-settings#deny-public-network-access). |
+    | For Azure SQL, if the error message contains an SQL error code such as "SqlErrorNumber=[errorcode]", see the Azure SQL troubleshooting guide. | For a recommendation, see [Troubleshoot connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/troubleshoot-common-errors-issues). |
     | Check to see whether port 1433 is in the firewall allowlist. | For more information, see [Ports used by SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
     | If the error message contains the string "SqlException", SQL Database the error indicates that some specific operation failed. | For more information, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
     | If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate. | For more information, see [Pipelines and activities](./concepts-pipelines-activities.md#activity-policy). |
-    | If the error message contains the string "Client with IP address '...' is not allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](../azure-sql/database/firewall-configure.md). |
+    | If the error message contains the string "Client with IP address '...' is not allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](/azure/azure-sql/database/firewall-configure). |
     
 ## Error code: SqlOperationFailed
 
@@ -42,6 +42,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     | If the error message contains the string "SqlException", SQL Database throws an error indicating some specific operation failed. | If the SQL error is not clear, try to alter the database to the latest compatibility level '150'. It can throw the latest version SQL errors. For more information, see the [documentation](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> For more information about troubleshooting SQL issues, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
     | If the error message contains the string "PdwManagedToNativeInteropException", it's usually caused by a mismatch between the source and sink column sizes. | Check the size of both the source and sink columns. For further help, contact Azure SQL support. |
     | If the error message contains the string "InvalidOperationException", it's usually caused by invalid input data. | To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity, which can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity](./copy-activity-fault-tolerance.md). |
+    | If the error message contains "Execution Timeout Expired", it's usually caused by query timeout. | Configure **Query timeout** in the source and **Write batch timeout** in the sink to increase timeout. |
 
 
 ## Error code: SqlUnauthorizedAccess

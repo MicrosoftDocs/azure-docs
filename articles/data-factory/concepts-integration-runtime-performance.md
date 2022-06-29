@@ -54,7 +54,7 @@ By default, every data flow activity spins up a new Spark cluster based upon the
 However, if most of your data flows execute in parallel, it is not recommended that you enable TTL for the IR that you use for those activities. Only one job can run on a single cluster at a time. If there is an available cluster, but two data flows start, only one will use the live cluster. The second job will spin up its own isolated cluster.
 
 > [!NOTE]
-> Time to live is not available when using the auto-resolve integration runtime
+> Time to live is not available when using the auto-resolve integration runtime (default).
 
 ## Next steps
 

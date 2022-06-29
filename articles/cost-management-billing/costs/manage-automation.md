@@ -3,7 +3,7 @@ title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/10/2021
+ms.date: 04/05/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -99,6 +99,9 @@ For modern customers with a Microsoft Customer Agreement, use the following call
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=2020-08-05&$top=1000&api-version=2019-10-01
 ```
+
+> [!NOTE]
+> The `$filter` parameter isn't supported by Microsoft Customer Agreements.
 
 ### Get amortized cost details
 

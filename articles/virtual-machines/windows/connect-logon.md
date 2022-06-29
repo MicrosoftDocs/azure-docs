@@ -1,11 +1,11 @@
 ---
-title: Connect to a Windows Server VM 
+title: Connect to an Azure VM running Windows 
 description: Learn how to connect and sign on to a Windows VM using the Azure portal and the Resource Manager deployment model.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/26/2018
+ms.date: 02/24/2022
 ms.author: cynthn 
 ms.custom: devx-track-azurepowershell
 
@@ -14,12 +14,27 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-
-You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from a Windows desktop. First you connect to the virtual machine, and then you sign on.
+You can create a remote desktop connection to a virtual machine (VM) running Windows in Azure if you have port 3389 open on the VM.
 
 To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
+## Prerequisites
+- In order to connect to a Windows Virtual Machine via RDP you need port 3389 open. You can validate an appropriate port is open for RDP using the troubleshooter or by checking manually in your VM settings. To check if port 3389 is open: 
+
+    1.	On the page for the VM, select **Networking** from the left menu.
+    1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 3389 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
+    1. If there isn't a rule, add one by selecting **Add Inbound port rule**.
+    1. From the **Service** dropdown select **RDP**.
+    1. Edit **Priority** and **Source** if necessary
+    1. For **Name**, type *Port_3389*
+    1. When finished, select **Add**
+    1. You should now have an RDP rule in the table of inbound port rules.
+
+- Your VM must have a public IP address. To check if your VM has a public IP address, select **Overview** from the left menu and look at the **Networking** section. If you see an IP address next to **Public IP address**, then your VM has a public IP. To learn more about adding a public IP address to an existing VM, see  [Associate a public IP address to a virtual machine](../../virtual-network/ip-services/associate-public-ip-address-vm.md)
+
+- Verify your VM is running. On the Overview tab, in the essentials section, verify the status of the VM is Running. To start the VM, select **Start** at the top of the page.
 ## Connect to the virtual machine
+
 1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
 2. Select the virtual machine from the list.
 3. At the beginning of the virtual machine page, select **Connect**.

@@ -18,7 +18,7 @@ Any Azure Synapse Analytics use deducts from the prepurchased SCUs automatically
 
 ## Determine the right size to buy
 
-A synapse prepurchase applies to all Synapse workloads and tiers. You can think of the Pre-Purchase Plan as a pool of prepaid Synapse commit units. Usage is deducted from the pool, regardless of the workload or tier. Other charges such as compute, storage, and networking are charged separately.
+A synapse prepurchase applies to all Synapse workloads and tiers. You can think of the Pre-Purchase Plan as a pool of prepaid Synapse commit units. Usage is deducted from the pool, regardless of the workload or tier. Integrated services such as VMs for SHIR, Azure Storage accounts, and networking components are charged separately.
 
 The Synapse prepurchase discount applies to usage from the following products:
 
