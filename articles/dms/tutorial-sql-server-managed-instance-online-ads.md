@@ -3,8 +3,8 @@ title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance online using 
 titleSuffix: Azure Database Migration Service(DMS)
 description: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with Azure Database Migration Service
 services: dms
-author: mokabiru
-ms.author: mokabiru
+author: dbamaster
+ms.author: roblescarlos
 manager: 
 ms.reviewer: cawrites
 ms.service: dms
