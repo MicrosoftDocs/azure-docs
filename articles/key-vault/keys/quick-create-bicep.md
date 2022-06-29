@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: jgao
-ms.date: 06/28/2022
+ms.date: 06/29/2022
 
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 
@@ -18,7 +18,7 @@ ms.date: 06/28/2022
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificate. This quickstart focuses on the process of deploying a Bicep file to create a key vault and a key.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
