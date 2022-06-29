@@ -6303,7 +6303,17 @@
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-client-side-encryption.md",
-      "redirect_url": "/azure/storage/blobs/client-side-encryption-dotnet",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-python.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-java.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
       "redirect_document_id": false
     },
     {
