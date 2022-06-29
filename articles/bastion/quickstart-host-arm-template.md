@@ -6,7 +6,7 @@ author: abell
 ms.author: abell
 ms.service: bastion
 ms.topic: quickstart 
-ms.date: 06/20/2022
+ms.date: 06/27/2022
 ms.custom: template-quickstart 
 Customer intent: As someone with a networking background, I want to deploy Azure Bastion to a virtual machine using a Bastion ARM Template.
 ---
@@ -21,6 +21,7 @@ An ARM template is a JavaScript Object Notation (JSON) file that defines the inf
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the Deploy to Azure button. The template will open in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json)
+
 ## Prerequisites
 
 * **An Azure account with an active subscription**. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -29,7 +30,16 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 > The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
 >
 ## Review the template
-This template deploys an Azure Bastion service to your virtual network. The template that this quickstart uses is from [Azure Quickstart Templates: Azure Bastion as a Service](https://azure.microsoft.com/resources/templates/azure-bastion-nsg/).
+
+To view the entire template used for this quickstart, see [Azure Quickstart Templates: Azure Bastion as a Service](https://azure.microsoft.com/resources/templates/azure-bastion-nsg/).
+
+This template by default, creates an Azure Bastion deployment with a resource group, a virtual network, network security group settings, an AzureBastionSubnet subnet, a bastion host, and a public IP address resource that's used for the bastion host.
+
+* [Microsoft.Network/bastionHosts](/azure/templates/microsoft.network/bastionhosts) creates the bastion host.
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks) creates a virtual network.
+* [Microsoft.Network/virtualNetworks/subnets](azure/templates/microsoft.network/virtualnetworks/subnets) creates the subnet.
+* [Microsoft Network/networkSecurityGroups](azure/templates/microsoft.network/virtualnetworks/subnets) controls the network security group settings.
+* [Microsoft.Network/publicIpAddresses](azure/templates/microsoft.network/publicIpAddresses) specifies the public IP address value used for the bastion host.
 
 ### Parameters
 
@@ -43,37 +53,39 @@ This template deploys an Azure Bastion service to your virtual network. The temp
 | bastion-host-name        | Name of Azure Bastion resource.                                                      |
 
 > [!NOTE]
->To find more templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+> To find more templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 >
+
 ## Deploy the template
 
 In this section, you'll deploy Bastion using the **Deploy to Azure** button below or in the Azure portal. You don't connect and sign in to your virtual machine or deploy Bastion from your VM directly.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select the **Deploy to Azure** button below.
+1. Select the **Deploy to Azure** button below.
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json)
 
-3. In the **Azure Bastion as a Service: Azure Quickstart Template**, enter or select the following information.
+1. In the **Azure Bastion as a Service: Azure Quickstart Template**, enter or select the following information.
+
+   * If you're using the template for a test environment, you can use the example values specified.
+   * To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
+   * If you decide to create your bastion host in an existing VNet, make sure to fill in the values for the template as they are in your deployed environment, or the template will fail.
+
     :::image type="content" source="./media/quickstart-host-arm-template/bastion-template-values.png" alt-text="Screenshot Bastion ARM template example values." lightbox="./media/quickstart-host-arm-template/bastion-template-values.png":::
 
-| Setting                  | Value                          |
-|--------------------------|--------------------------------|
-| Subscription             | Select your Azure subscription |
-| Resource Group           |Select **Create new** enter **TestRG1**, and select **OK**             |
-| Region                   | Enter **East US**              |
-| vnet-name                | Enter **VNet1**                |
-| vnet-ip-prefix           | Enter **10.1.0.0/16**          |
-| vnet-new-or-existing     | Select **new**          |
-| bastion-subnet-ip-prefix | Enter **10.1.1.0/24**          |
-| bastion-host-name        | Enter **TestBastionHost**      |
+   | Setting                  | Example value             |
+   |--------------------------|--------------------------------|
+   | Subscription             | Select your Azure subscription |
+   | Resource Group           |Select **Create new** enter **TestRG1**, and select **OK**             |
+   | Region                   | Enter **East US**              |
+   | vnet-name                | Enter **VNet1**                |
+   | vnet-ip-prefix           | Enter **10.1.0.0/16**          |
+   | vnet-new-or-existing     | Select **new**          |
+   | bastion-subnet-ip-prefix | Enter **10.1.1.0/24**          |
+   | bastion-host-name        | Enter **TestBastionHost**      |
 
-4. Select the **Review + create** tab or select the **Review + create** button. Select **Create**.
-5. The deployment will complete within 10 minutes. You can view the progress on the template **Overview** page. If you close the portal, deployment will continue.
-
-> [!NOTE]
-> To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
->
+1. Select the **Review + create** tab or select the **Review + create** button. Select **Create**.
+1. The deployment will complete within 10 minutes. You can view the progress on the template **Overview** page. If you close the portal, deployment will continue.
 
 ## Validate the deployment
 
@@ -84,15 +96,12 @@ In this section, you'll validate the deployment of Azure Bastion.
 1. From the Overview page of the resource group, scroll down to **Resources** in the middle pane. Validate the Bastion resource.
  :::image type="content" source="./media/quickstart-host-arm-template/bastion-validate-deployment-full.png" alt-text="Screenshot shows the Azure Bastion resource." lightbox="./media/quickstart-host-arm-template/bastion-validate-deployment.png":::
 
-
 ## Clean up resources
 
 When you're done using the virtual network and the virtual machines, delete the resource group and all of the resources it contains:
 
 1. Enter the name of your resource group in the **Search** box at the top of the portal and select it from the search results.
-
 1. Select **Delete resource group**.
-
 1. Enter your resource group for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
