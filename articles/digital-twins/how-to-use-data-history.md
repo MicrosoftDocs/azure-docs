@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 03/23/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: event-tier1-build-2022
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -27,7 +28,7 @@ This article shows how to set up a working data history connection between Azure
 It also contains a sample twin graph that you can use to see the historized twin property updates in Azure Data Explorer. 
 
 >[!TIP]
->Although this article uses the Azure portal, you can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs. 
+>Although this article uses the Azure portal, you can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs.
 
 ## Prerequisites
 
@@ -154,7 +155,7 @@ Next, create the Kusto cluster. The command below requires 5-10 minutes to execu
 az kusto cluster create --cluster-name $clustername --sku name="Dev(No SLA)_Standard_E2a_v4" tier="Basic" --resource-group $resourcegroup --location $location --type SystemAssigned
 ```
 
-Create a database in your new Kusto cluster (using the cluster name from above and in the same location). This database will be used to store contextualized Azure Digital Twins data. The command below creates a database with a soft delete period of 365 days, and a hot cache period of 31 days. For more information about the options available for this command, see [az kusto database create](/cli/azure/kusto/database?view=azure-cli-latest&preserve-view=true#az_kusto_database_create).
+Create a database in your new Kusto cluster (using the cluster name from above and in the same location). This database will be used to store contextualized Azure Digital Twins data. The command below creates a database with a soft delete period of 365 days, and a hot cache period of 31 days. For more information about the options available for this command, see [az kusto database create](/cli/azure/kusto/database?view=azure-cli-latest&preserve-view=true#az-kusto-database-create).
 
 ```azurecli-interactive
 az kusto database create --cluster-name $clustername --database-name $databasename --resource-group $resourcegroup --read-write-database soft-delete-period=P365D hot-cache-period=P31D location=$location

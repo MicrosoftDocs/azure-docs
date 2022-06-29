@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/19/2021
+ms.date: 06/06/2022
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
 ---
@@ -36,6 +36,9 @@ To call the API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Personally Identifying Information (PII) detection
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
@@ -46,6 +49,10 @@ curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1/enti
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "Call our office at 312-555-1234, or send an email to support@contoso.com"}]}'
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=PII-detection" target="_target">I ran into an issue</a>
+
 
 ### JSON response
 

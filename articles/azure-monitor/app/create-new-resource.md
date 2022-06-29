@@ -4,6 +4,7 @@ description: Manually set up Application Insights monitoring for a new live appl
 ms.topic: conceptual
 ms.date: 02/10/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: dalek
 ---
 
 # Create an Application Insights resource

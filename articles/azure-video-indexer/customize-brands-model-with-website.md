@@ -1,6 +1,6 @@
 ---
-title: Customize a Brands model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) website
-description: Learn how to customize a Brands model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) website.
+title: Customize a Brands model with the Azure Video Indexer website
+description: Learn how to customize a Brands model with the Azure Video Indexer website.
 services: azure-video-analyzer
 author: anikaz
 manager: johndeu
@@ -11,7 +11,7 @@ ms.author: kumud
 
 # Customize a Brands model with the Azure Video Indexer website
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Azure Video Indexer detects it as a brand in the content.
+Azure Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Azure Video Indexer detects it as a brand in the content.
 
 A custom Brands model allows you to:
 

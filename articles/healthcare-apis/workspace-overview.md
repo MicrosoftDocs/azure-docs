@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/28/2022
+ms.date: 06/06/2022
 ms.author: ginle
 ---
 
@@ -76,3 +76,5 @@ To start working with Azure Health Data Services, follow the 5-minute quick star
 
 >[!div class="nextstepaction"]
 >[Deploy workspace in the Azure portal](healthcare-apis-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

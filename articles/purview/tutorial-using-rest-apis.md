@@ -104,6 +104,12 @@ Sample response token:
     }
 ```
 
+> [!TIP]
+> If you get an error message that reads: *Cross-origin token redemption is permitted only for the 'Single-Page Application' client-type.*
+> * Check your request headers and confirm that your request **doesn't** contain the 'origin' header.
+> * Confirm that your redirect URI is set to **web** in your service principal.
+> * If you are using an application like Postman, make sure your software is up to date.
+
 Use the access token above to call the Data plane APIs.
 
 ## Next steps

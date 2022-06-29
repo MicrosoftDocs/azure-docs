@@ -123,7 +123,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ### Confirm data written to Kafka topic
 
-1. Open Kafka Topic UI on `<http://localhost:9000>`.
+1. Open Kafka Topic UI on `http://localhost:9000`.
 1. Select the Kafka "apparels" topic you created.
 1. Verify that the document you inserted into Azure Cosmos DB earlier appears in the Kafka topic.
 

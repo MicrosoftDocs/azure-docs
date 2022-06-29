@@ -8,7 +8,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 05/04/2022
-ms.author: alzam
+ms.author: cherylmc
 
 ---
 # Transition to OpenVPN protocol or IKEv2 from SSTP
@@ -53,9 +53,9 @@ You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based
 
 :::image type="content" source="./media/ikev2-openvpn-from-sstp/change-tunnel-type.png" alt-text="Screenshot that shows the Point-to-site configuration page with Open VPN selected." lightbox="./media/ikev2-openvpn-from-sstp/change-tunnel-type.png":::
 
-Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](./vpn-gateway-howto-openvpn-clients.md).
+Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-cert-windows.md#view-openvpn).
 
-If you're using Windows 10, you can also use the [Azure VPN Client for Windows](./openvpn-azure-ad-client.md#download)
+If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-cert-windows.md#azurevpn).
 
 ## <a name="faq"></a>Frequently asked questions
 
@@ -158,6 +158,6 @@ A P2S configuration requires quite a few specific steps. The following articles 
 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
-* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - Azure certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

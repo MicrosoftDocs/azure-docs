@@ -103,7 +103,7 @@ This section describes how to register a SAP HANA in Microsoft Purview by using 
 
 ## Scan
 
-Use the following steps to scan SAP HANA databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
+Use the following steps to scan SAP HANA databases to automatically identify assets. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
 
 ### Authentication for a scan
 

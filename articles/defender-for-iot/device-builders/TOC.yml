@@ -26,9 +26,6 @@
   - name: Install the Microsoft Defender for IoT micro agent (Preview)
     displayName: package, authentication, methods, certificate, authenticate, version
     href: tutorial-standalone-agent-binary-installation.md
-  - name: Configure Microsoft Defender for IoT agent-based solution
-    displayName: data, collection, geolocation, log analytics, raw events
-    href: tutorial-configure-agent-based-solution.md
   - name: Investigate security recommendations
     href: tutorial-investigate-security-recommendations.md
   - name: Investigate security alerts

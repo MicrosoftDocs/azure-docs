@@ -36,7 +36,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     * Reader role on the NIC with private IP of the virtual machine.
 
 * **Required inbound ports:**
-    * For Windows VMS - RDP (3389)
+    * For Windows VMs - RDP (3389)
     * For Linux VMs - SSH (22)
 
  > [!NOTE]

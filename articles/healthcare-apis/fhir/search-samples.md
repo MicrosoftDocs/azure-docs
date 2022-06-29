@@ -5,13 +5,13 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ---
 
 # FHIR search examples
 
-Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
+Below are some examples of using Fast Healthcare Interoperability Resources (FHIR&#174;) search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
    
 ## Search result parameters
 
@@ -220,3 +220,5 @@ In this article, you learned about how to search using different search paramete
 
 >[!div class="nextstepaction"]
 >[Overview of FHIR Search](overview-of-search.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

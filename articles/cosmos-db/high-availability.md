@@ -1,13 +1,12 @@
 ---
 title: High availability in Azure Cosmos DB 
 description: This article describes how to build a highly available solution using Cosmos DB
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/24/2022
-ms.author: mjbrown
-ms.reviewer: sngun
-
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Achieve high availability with Cosmos DB

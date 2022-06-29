@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 This tutorial will help you learn how to configure the Microsoft Defender for IoT agent-based solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Enable data collection
@@ -71,7 +71,7 @@ You can choose to add storage of an additional information type as `raw events`.
 
 1. Select a subscription from the drop-down menu.
 
-1. Select a workspace from the drop-down menu. If you do not already have an existing Log Analytics workspace, you can select **Create New Workspace** to create a new one.
+1. Select a workspace from the drop-down menu. If you don't already have an existing Log Analytics workspace, you can select **Create New Workspace** to create a new one.
 
 1. Verify that the **Access to raw security data** option is selected.  
 
