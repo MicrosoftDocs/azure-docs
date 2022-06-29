@@ -60,11 +60,11 @@ Once implemented, you can call this Azure Function inside the `uploadHandler` fu
 
 ### Securing your Azure Blob Storage Container
 
-Please note that the tutorial above assumes that your azure blob storage container allows public access to the files you upload. Making your Azure Storage Containers public is not recommended for real world production applications.
+Note that the tutorial above assumes that your Azure blob storage container allows public access to the files you upload. Making your Azure storage cntainers public isn't recommended for real world production applications.
 
-For downloading the files you upload to Azure Blob Storage, you can leverage shared access signatures (SAS). A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data.
+For downloading the files you upload to Azure blob storage, you can use shared access signatures (SAS). A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data.
 
-The downloadable Github sample above showcases the use of SAS for creating SAS URL's to Azure Storage contents. Additionally, you can [read more about SAS](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview). 
+The downloadable GitHub sample above showcases the use of SAS for creating SAS URLs to Azure Storage contents. Additionally, you can [read more about SAS](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview). 
 
 UI Library requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
 
