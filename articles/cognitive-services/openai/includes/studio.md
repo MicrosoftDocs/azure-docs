@@ -44,7 +44,7 @@ Once this is complete, select the 'Playground' button on the left nav to start e
 
 The best way to start exploring completions is through our Playground. It's simply a text box where you can submit a prompt to generate a completion. From this page you can easily iterate and experiment with the capabilities. The following is an overview of the features available to you on this page:
 
-:::image type="content" source="../media/quickstarts/playground-summarize.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/playground.png":::
+:::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/playground.png":::
 
 - Choose from a few pre-loaded examples to get started
 - Select a deployment to use
@@ -65,7 +65,7 @@ The best way to start exploring completions is through our Playground. It's simp
     Tl;dr A neutron star is the collapsed core of a massive supergiant star. These ultra-dense objects are incredibly fascinating due to their strange properties and their potential for phenomena such as extreme gravitational forces and a strong magnetic field.
     ```
 
-Keep in mind the accuracy of the response will vary depending on what model you have selected under **Deplyoments**. The response above was generated from a davinci based model which is well-suited to this type of summarization whereas a Codex based model would not perform as well at this particular task.
+Keep in mind the accuracy of the response will vary depending on what model you've selected under **Deployments**. The response above was generated from a davinci based model, which is well-suited to this type of summarization whereas a Codex based model wouldn't perform as well at this particular task.
 
 ## Clean up resources
 
