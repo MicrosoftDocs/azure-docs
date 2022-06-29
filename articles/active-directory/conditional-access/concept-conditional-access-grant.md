@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Within a Conditional Access policy, an administrator can make use of access controls to either grant or block access to resources.
 
-:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Conditional Access policy with a grant control requiring multifactor authentication" lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
+:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Screenshot of Conditional Access policy with a grant control requiring multifactor authentication." lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
 
 ## Block access
 
