@@ -24,8 +24,8 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 If you are running the sample code locally, you will need:
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.7 or higher</a>
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* [Install Ruby 2.7 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller")
+* [Install Git](https://git-scm.com/)
 
 You will not need to install these if you are using the Cloud Shell.
 
@@ -35,8 +35,8 @@ You will not need to install these if you are using the Cloud Shell.
 
 To complete this quickstart you need:
 
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-1. A GitHub account to fork a repository.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+* A GitHub account to fork a repository.
 
 ---
 
