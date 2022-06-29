@@ -149,6 +149,8 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Firewall - Availability Zones
       href: ../../firewall/deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall Manager
+      href: ../../firewall-manager/quick-secure-virtual-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Load Balancer - internal
