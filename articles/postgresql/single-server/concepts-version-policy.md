@@ -17,7 +17,7 @@ This page describes the Azure Database for PostgreSQL versioning policy, and is 
 
 * Single Server
 * Flexible Server
-* Hyperscale (Citus)
+* Hyperscale (Citus) 
 
 ## Supported  PostgreSQL versions
 
