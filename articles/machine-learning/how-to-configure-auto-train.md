@@ -65,10 +65,10 @@ try:
     ml_client = MLClient.from_config(credential)
 except Exception as ex:
     print(ex)
-    # Enter details of your AML workspace
+    # Enter details of your AzureML workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
-    workspace = "<AML_WORKSPACE_NAME>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
     ml_client = MLClient(credential, subscription_id, resource_group, workspace)
 
 ```
