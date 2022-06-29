@@ -157,7 +157,7 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
   GO
   ```
 
-- `NULL` values: a `NULL` value in Oracle is an empty string, represented by a `CHAR` or `VARCHAR` string type of length `0`. In Azure Synapse and most other databases, `NULL` means something [else]](/sql/t-sql/language-elements/null-and-unknown-transact-sql). Be careful when migrating data, or when migrating processes that handle or store data, to ensure that `NULL` values are handled consistently.
+- `NULL` values: a `NULL` value in Oracle is an empty string, represented by a `CHAR` or `VARCHAR` string type of length `0`. In Azure Synapse and most other databases, `NULL` means something [else](/sql/t-sql/language-elements/null-and-unknown-transact-sql). Be careful when migrating data, or when migrating processes that handle or store data, to ensure that `NULL` values are handled consistently.
 
 - Oracle outer join syntax: although more recent versions of Oracle support ANSI outer join syntax, older Oracle systems use a proprietary syntax for outer joins that uses a plus sign (`+`) within the SQL statement. If you're migrating an older Oracle environment, you might encounter the older syntax. For example:
 

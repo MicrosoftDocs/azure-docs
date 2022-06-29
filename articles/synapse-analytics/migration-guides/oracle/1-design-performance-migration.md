@@ -67,7 +67,7 @@ When you're preparing to migrate from an Oracle environment, consider the follow
 
 Typically, legacy Oracle environments have evolved over time to encompass multiple subject areas and mixed workloads. When you're deciding where to start on a migration project, choose an area where you'll be able to:
 
-- Prove the viability of migration to Azure Synapse by quickly delivering the benefits of the new environment.
+- Prove the viability of migrating to Azure Synapse by quickly delivering the benefits of the new environment.
 
 - Allow your in-house technical staff to gain relevant experience with the processes and tools that they'll use when they migrate other areas.
 
@@ -125,7 +125,7 @@ When you're planning to use Azure facilities to manage the migration process, cr
 
 As mentioned earlier, there are some basic differences in approach between Oracle and Azure Synapse Analytics databases.
 
-#### Multiple databases vs single database and schemas
+#### Multiple databases vs. single database and schemas
 
 The Oracle environment often contains multiple separate databases. For instance, there could be separate databases for: data ingestion and staging tables, core warehouse tables, and data marts&mdash;sometimes called a semantic layer. Processing, such as ETL or ELT pipelines, might implement cross-database joins and move data between the separate databases.
 

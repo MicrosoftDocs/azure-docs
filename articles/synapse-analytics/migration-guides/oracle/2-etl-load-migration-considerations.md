@@ -131,7 +131,7 @@ SELECT
 FROM dual
 ```
 
-The database size equals the size of `data files + temp files + online/offline redo log files + control files`. Overall database size includes used space and free space.
+The database size equals the size of `(data files + temp files + online/offline redo log files + control files)`. Overall database size includes used space and free space.
 
 The following example query gives a breakdown of the disk space used by table data and indexes:
 
@@ -217,7 +217,7 @@ In the flowchart, decision 1 depends on whether you're migrating to a completely
 
 In the Oracle environment, some or all of the ETL processing may be performed by custom scripts using Oracle-specific utilities such as SQL\*Developer, SQL\*Loader, or Data Pump. The approach in this case is to re-engineer using Azure Data Factory.
 
-If a [third-party](../../partner/data-integration.md) ETL tool is already in use, and especially if there’s a large investment in skills or several existing workflows and schedules use that tool, then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include native connectors that can use Azure facilities like [PolyBase](/en-us/azure/synapse-analytics/sql/load-data-overview) or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql) for the most efficient data loading. But even without native connectors, there's generally a way that you can call external processes, such as PolyBase or `COPY INTO`, and pass in applicable parameters. In this case, use existing skills and workflows, with Azure Synapse as the new target environment.
+If a [third-party](../../partner/data-integration.md) ETL tool is already in use, and especially if there's a large investment in skills or several existing workflows and schedules use that tool, then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include native connectors that can use Azure facilities like [PolyBase](/en-us/azure/synapse-analytics/sql/load-data-overview) or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql) for the most efficient data loading. But even without native connectors, there's generally a way that you can call external processes, such as PolyBase or `COPY INTO`, and pass in applicable parameters. In this case, use existing skills and workflows, with Azure Synapse as the new target environment.
 
 If you're using ODI for ELT processing, then ODI Knowledge Modules would be needed for Azure Synapse. If these modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files. Those flat files can then be moved to Azure and ingested into [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) for loading into Azure Synapse.
 
@@ -235,8 +235,7 @@ Some elements of the ETL process are easy to migrate, for example, by simple bul
 >[!TIP]
 >The inventory of ETL tasks to be migrated should include scripts and stored procedures.
 
-One way of testing Oracle SQL for compatibility with Azure Synapse is to capture some representative SQL statements from a join of 
-Oracle `v$active_session_history` and `v$sql` to get `sql_text`, then prefix those queries with `EXPLAIN`. Assuming a like-for-like migrated data model in Azure Synapse, run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will give an error. You can use this information to determine the scale of the recoding task.
+One way of testing Oracle SQL for compatibility with Azure Synapse is to capture some representative SQL statements from a join of Oracle `v$active_session_history` and `v$sql` to get `sql_text`, then prefix those queries with `EXPLAIN`. Assuming a like-for-like migrated data model in Azure Synapse, run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will give an error. You can use this information to determine the scale of the recoding task.
 
 >[!TIP]
 >Use `EXPLAIN` to find SQL incompatibilities.
@@ -300,7 +299,7 @@ There's also a hybrid approach that uses both methods. For example, you can use 
 
 #### Orchestrate from Oracle or Azure?
 
-The recommended approach when moving to Azure Synapse is to orchestrate data extraction and loading from the Azure environment using SSMA or Data Factory](../../../data-factory/concepts-pipelines-activities.md). Use the associated utilities, such as PolyBase or `COPY INTO`, for the most efficient data loading. This approach benefits from built-in Azure capabilities and reduces the effort to build reusable data load pipelines. You can use metadata-driven data load pipelines to automate the migration process. 
+The recommended approach when moving to Azure Synapse is to orchestrate data extraction and loading from the Azure environment using SSMA or [Data Factory](../../../data-factory/concepts-pipelines-activities.md). Use the associated utilities, such as PolyBase or `COPY INTO`, for the most efficient data loading. This approach benefits from built-in Azure capabilities and reduces the effort to build reusable data load pipelines. You can use metadata-driven data load pipelines to automate the migration process.
 
 The recommended approach also minimizes the performance hit on the existing Oracle environment during the data load process, because the management and load process runs in Azure.
 
