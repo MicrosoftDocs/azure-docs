@@ -1,6 +1,6 @@
 ---
-title: Create a Windows VM with Azure Image Builder by using an existing virtual network 
-description: Use Azure Image Builder to create a basic, customized Windows image that has access to existing resources on a virtual network.
+title: Create a Windows VM with Azure VM Image Builder by using an existing virtual network 
+description: Use Azure VM Image Builder to create a basic, customized Windows image that has access to existing resources on a virtual network.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -11,11 +11,11 @@ ms.subservice: image-builder
 ms.collection: windows
 ms.custom: devx-track-azurepowershell
 ---
-# Use Azure Image Builder to access an existing Azure virtual network
+# Use Azure VM Image Builder to access an existing Azure virtual network
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article shows you how to use Azure Image Builder to create a basic, customized Windows image that has access to existing resources on a virtual network. The build virtual machine (VM) you create is deployed to a new or existing virtual network that you specify in your subscription. When you use an existing Azure virtual network, Azure Image Builder doesn't require public network connectivity.
+This article shows you how to use Azure VM Image Builder to create a basic, customized Windows image that has access to existing resources on a virtual network. The build virtual machine (VM) you create is deployed to a new or existing virtual network that you specify in your subscription. When you use an existing Azure virtual network, VM Image Builder doesn't require public network connectivity.
 
 ## Set variables and permissions
 
@@ -60,7 +60,7 @@ $subnetName="subnet01"
 $vnetRgName="existingVnetRG"
 # Existing Subnet NSG Name or the demo will create it
 $nsgName="aibdemoNsg"
-# NOTE! The virtual network must always be in the same region as the Azure Image Builder service region.
+# NOTE! The virtual network must always be in the same region as the VM Image Builder service region.
 ```
 
 Create the resource group.
@@ -85,12 +85,12 @@ $subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.
 
 New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $subnet
 
-## NOTE! The virtual network must always be in the same region as the Azure Image Builder service region.
+## NOTE! The virtual network must always be in the same region as the VM Image Builder service region.
 ```
 
 ### Add an NSG rule
 
-This rule allows connectivity from the Azure Image Builder load balancer to the proxy VM. Port 60001 is for Linux, and port 60000 is for Windows. The proxy VM connects to the build VM by using port 22 for Linux, or port 5986 for Windows.
+This rule allows connectivity from the VM Image Builder load balancer to the proxy VM. Port 60001 is for Linux, and port 60000 is for Windows. The proxy VM connects to the build VM by using port 22 for Linux, or port 5986 for Windows.
 
 ```powershell-interactive
 Get-AzNetworkSecurityGroup -Name $nsgName -ResourceGroupName $vnetRgName  | Add-AzNetworkSecurityRuleConfig -Name AzureImageBuilderAccess -Description "Allow Image Builder Private Link Access to Proxy VM" -Access Allow -Protocol Tcp -Direction Inbound -Priority 400 -SourceAddressPrefix AzureLoadBalancer -SourcePortRange * -DestinationAddressPrefix VirtualNetwork -DestinationPortRange 60000-60001 | Set-AzNetworkSecurityGroup
@@ -108,7 +108,7 @@ $virtualNetwork= Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRg
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-For more information, see [Azure Image Builder networking options](../linux/image-builder-networking.md).
+For more information, see [Azure VM Image Builder networking options](../linux/image-builder-networking.md).
 
 ## Modify the example template and create role
 
@@ -187,11 +187,11 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $networkRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$vnetRgName"
 ```
 
-For more information, see [Configure Azure Image Builder permissions by using the Azure CLI](../linux/image-builder-permissions-cli.md) or [Configure Azure Image Builder permissions by using PowerShell](../linux/image-builder-permissions-powershell.md).
+For more information, see [Configure Azure VM Image Builder permissions by using the Azure CLI](../linux/image-builder-permissions-cli.md) or [Configure Azure VM Image Builder permissions by using PowerShell](../linux/image-builder-permissions-powershell.md).
 
 ## Create the image
 
-Submit the image configuration to Azure Image Builder.
+Submit the image configuration to Azure VM Image Builder.
 
 ```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2020-02-14" -imageTemplateName $imageTemplateName -svclocation $location

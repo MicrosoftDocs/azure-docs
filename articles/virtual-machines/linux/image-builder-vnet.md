@@ -1,6 +1,6 @@
 ---
-title: Use Azure Image Builder for Linux VMs to access an existing Azure virtual network
-description: Use Azure Image Builder to create a basic, customized Linux image that has access to existing resources on a virtual network.
+title: Use Azure VM Image Builder for Linux VMs to access an existing Azure virtual network
+description: Use Azure VM Image Builder to create a basic, customized Linux image that has access to existing resources on a virtual network.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -11,11 +11,11 @@ ms.subservice: image-builder
 
 ---
 
-# Use Azure Image Builder for Linux VMs to access an existing Azure virtual network
+# Use Azure VM Image Builder for Linux VMs to access an existing Azure virtual network
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-This article shows you how to use Azure Image Builder to create a basic, customized Linux image that has access to existing resources on a virtual network. The build virtual machine (VM) you create is deployed to a new or existing virtual network that you specify in your subscription. When you use an existing Azure virtual network, Azure Image Builder doesn't require public network connectivity.
+This article shows you how to use Azure VM Image Builder to create a basic, customized Linux image that has access to existing resources on a virtual network. The build virtual machine (VM) you create is deployed to a new or existing virtual network that you specify in your subscription. When you use an existing Azure virtual network, VM Image Builder doesn't require public network connectivity.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -93,7 +93,7 @@ az network vnet subnet update \
 
 ### Add an NSG rule
 
-This rule allows connectivity from the Azure Image Builder load balancer to the proxy VM. Port 60001 is for Linux, and port 60000 is for Windows. The proxy VM connects to the build VM by using port 22 for Linux, or port 5986 for Windows.
+This rule allows connectivity from the VM Image Builder load balancer to the proxy VM. Port 60001 is for Linux, and port 60000 is for Windows. The proxy VM connects to the build VM by using port 22 for Linux, or port 5986 for Windows.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -120,7 +120,7 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true 
 ```
 
-For more information, see [Azure Image Builder networking options](image-builder-networking.md).
+For more information, see [Azure VM Image Builder networking options](image-builder-networking.md).
 
 ## Modify the example template and create role
 
@@ -153,7 +153,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ## Set permissions on the resource group
 
-Azure Image Builder uses the [user identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into Azure Compute Gallery. In this example, you create an Azure role definition that can distribute the image to the gallery. The role definition is then assigned to the user identity.
+VM Image Builder uses the [user identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into Azure Compute Gallery. In this example, you create an Azure role definition that can distribute the image to the gallery. The role definition is then assigned to the user identity.
 
 ```azurecli
 # create user assigned identity for image builder
@@ -178,7 +178,7 @@ sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g
 sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibRoleNetworking.json
 ```
 
-Instead of granting Azure Image Builder lower granularity and increased privilege, you can create two roles. One role gives the builder permissions to create an image, and the other allows it to connect the build VM and load balancer to your virtual network.
+Instead of granting VM Image Builder lower granularity and increased privilege, you can create two roles. One role gives the builder permissions to create an image, and the other allows it to connect the build VM and load balancer to your virtual network.
 
 ```azurecli
 # create role definitions
@@ -197,11 +197,11 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$vnetRgName
 ```
 
-For more information, see [Configure Azure Image Builder permissions by using the Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder permissions by using PowerShell](image-builder-permissions-powershell.md).
+For more information, see [Configure Azure VM Image Builder permissions by using the Azure CLI](image-builder-permissions-cli.md) or [Configure Azure VM Image Builder permissions by using PowerShell](image-builder-permissions-powershell.md).
 
 ## Create the image
 
-Submit the image configuration to Azure Image Builder.
+Submit the image configuration to VM Image Builder.
 
 ```azurecli-interactive
 az resource create \
@@ -230,7 +230,7 @@ It can take a while to create the image and replicate it to both regions. Wait u
 
 ## Create a VM
 
-Create a VM from the image version that was created by Azure Image Builder.
+Create a VM from the image version that was created by VM Image Builder.
 
 ```azurecli-interactive
 az vm create \
@@ -260,13 +260,13 @@ You should see the image was customized with a *Message of the Day* as soon as y
 
 ## Clean up resources
 
-If you want to recustomize the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
+If you want to recustomize the image version to create a new version of the same image, skip the next steps and go on to [Use Azure VM Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
 The following deletes the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
 When you delete gallery resources, you need to delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
-Delete the image builder template:
+Delete the VM Image Builder template:
 
 ```azurecli
 az resource delete \
