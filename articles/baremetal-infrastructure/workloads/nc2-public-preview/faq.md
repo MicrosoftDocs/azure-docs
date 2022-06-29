@@ -8,7 +8,7 @@ ms.date: 07/01/2022
 
 # Frequently asked questions about NC2 on Azure
 
-This article addresses questions most frequently asked about NC2 on Azure. 
+This article addresses questions most frequently asked about NC2 on Azure.
 
 ## What is Hyperconverged Infrastructure (HCI)?
 

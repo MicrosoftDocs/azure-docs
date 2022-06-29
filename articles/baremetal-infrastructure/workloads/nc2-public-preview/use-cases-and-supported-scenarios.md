@@ -21,7 +21,7 @@ Customers can update capacity, monitor alerts, replace hosts, monitor usage, and
 Disaster recovery is critical to cloud functionality.
 A disaster can be any of the following:
 
-- Cyberattack
+- Cyber attack
 - Data breach
 - Equipment failure
 - Natural disaster

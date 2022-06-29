@@ -36,7 +36,6 @@ This public preview release supports the following Azure regions:
 |West Europe (Amsterdam)No|Yes|
 |Southeast Asia (Singapore)|No|Yes|
 
-
 ## Next steps
 
 Learn more:
