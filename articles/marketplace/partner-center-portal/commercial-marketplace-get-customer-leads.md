@@ -38,9 +38,18 @@ Here are places where a lead is generated:
 
     ![Dynamics 365 Free Trial button](./media/commercial-marketplace-get-customer-leads/dynamics-365-free-trial.png)
 
+## Receive customer leads
+
+When you publish an offer to the commercial marketplace with Partner Center, you will receive leads with customer contact information as soon as someone expresses interest in or uses your product.
+
+These leads are available on the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. See [Manage leads](/partner-center/manage-leads).
+
 ## Connect to your CRM system
 
-[!INCLUDE [Connect lead management](../includes/customer-leads.md)]
+In addition to Partner Center, you can have your offer’s leads sent to your Customer Relationship Management (CRM) system and manage them there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
 
 ## Understand lead data
 
