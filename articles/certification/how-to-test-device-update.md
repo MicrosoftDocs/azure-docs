@@ -1,6 +1,6 @@
 ---
 title: How to test Device Update for IoT Hub
-description: A guide describing how to test Device Update for IoT Hub on a Linux host in preperation for Edge Secured-core certification.
+description: A guide describing how to test Device Update for IoT Hub on a Linux host in preparation for Edge Secured-core certification.
 author: cbroad
 ms.author: cbroad
 ms.service: certification
@@ -21,10 +21,11 @@ The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-updat
 
 ## Testing the device
 1.	On the Connect + test page, select **"Yes"** for the **"Are you able to test Device Update for IoT Hub?"** question.
- ![Connect + test](.\media\how-to-adu\connect-test.png)
-
 > [!Note]
 > If you are not able to test Device Update and select No, you will still be able to run all other Secured-core tests, but your product will not be eligible for certification.
+
+![Connect + test](.\media\how-to-adu\connect-test.png)
+
 
 2.	Proceed with connecting your device to the test infrastructure.
 
