@@ -19,7 +19,7 @@ By using standardized virtual machine (VM) images, your organization can more ea
 
 With VM Image Builder, you can migrate your existing image customization pipeline to Azure as you continue to use existing scripts, commands, and processes. You can integrate your core applications into a VM image, so that your VMs can take on workloads after the images are created. You can even add configurations to build images for Azure Virtual Desktop, as virtual hard discs (VHDs) for use in Azure Stack, or for ease of exporting.
 
-VM Image Builder lets you start with Windows or Linux images either from the Azure Marketplace or as existing custom images, and then add your own customizations. You can also specify where you want your resulting images to be hosted in [Azure Compute Gallery](shared-image-galleries.md) (formerly Shared Image Gallery), as managed images or as VHDs.
+VM Image Builder lets you start with Windows or Linux images either from Azure Marketplace or as existing custom images, and then add your own customizations. You can also specify where you want your resulting images to be hosted in [Azure Compute Gallery](shared-image-galleries.md) (formerly Shared Image Gallery), as managed images or as VHDs.
 
 ## Features
 
@@ -181,7 +181,7 @@ az vm image list --publisher MicrosoftWindowsDesktop --sku g2 --output table --a
 az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
-For more information about Azure VM images that support Gen2, see [Gen2 VM images in Azure Marketplace](./generation-2.md)
+For more information about Azure VM images that support Gen2, see [Gen2 VM images in Azure Marketplace](./generation-2.md).
 
 ## Next steps 
  
