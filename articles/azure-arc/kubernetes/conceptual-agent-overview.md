@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: conceptual
-author: shashankbarsin
-ms.author: shasb
 description: "This article provides an architectural overview of Azure Arc-enabled Kubernetes agents"
 keywords: "Kubernetes, Arc, Azure, containers"
 ---

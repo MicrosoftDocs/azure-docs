@@ -64,7 +64,7 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
     >[!NOTE]
     >There is currently a known issue in Cloud Shell affecting these command groups: `az dt route`, `az dt model`, `az dt twin`.
     >
-    >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](/cli/azure/install-azure-cli) instead of Cloud Shell. For more detail on this, see [Troubleshoot known issues](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](/cli/azure/install-azure-cli) instead of Cloud Shell. For more detail on this, see [Azure Digital Twins known issues](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
     az dt route create --dt-name <your-Azure-Digital-Twins-instance-hostname-or-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
