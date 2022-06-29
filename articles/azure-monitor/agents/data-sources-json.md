@@ -14,7 +14,7 @@ Custom JSON data sources can be collected into [Azure Monitor](../data-platform.
 
 
 > [!NOTE]
-> Log Analytics agent for Linux v1.1.0-217+ is required for Custom JSON Data
+> Log Analytics agent for Linux v1.1.0-217+ is required for Custom JSON Data.
 
 ## Configuration
 
