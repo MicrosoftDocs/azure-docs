@@ -15,7 +15,7 @@ Defender for IoT can discover all devices, of all types, across all environments
 
 Defender for IoT identifies any of the following as single and unique committed network devices:
 
-- **Managed or un-managed, standalone IT/OT/IoT devices, with one or more NICs**. 
+- **Managed or un-managed, standalone IT/OT/IoT devices, with one or more NICs**.
 
     If you are a Microsoft Defender for Endpoint customer, devices (seats) that are managed by Defender for Endpoint are not included.
 
