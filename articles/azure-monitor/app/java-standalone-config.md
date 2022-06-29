@@ -580,7 +580,7 @@ When sending telemetry to the Application Insights service fails, Application In
 to disk and continue retrying from disk.
 
 The default limit for disk persistence is 50 Mb. If you have high telemetry volume, or need to be able to recover from
-longer network or ingestion service outages, you can increase this limit:
+longer network or ingestion service outages, you can increase this limit starting from 3.3.0:
 
 ```json
 {
