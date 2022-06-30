@@ -16,22 +16,21 @@ keywords:
 The service provides access to many different models. Models describe a family of models and are broken out as follows:
 
 |Modes | Description|
-|--| -- |
+|--|--|
 | GPT-3 series | A set of GPT-3 models that can understand and generate natural language |
 | Codex Series | A set of models that can understand and generate code, including translating natural language to code |
 | Embeddings Series | An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently we offer three families of embedding models for different functionalities: text search, text similarity and code search |
 
 ## Naming convention
 
-Azure OpenAI's models follow a standard naming convention: `{task}-{model name}-{version #}`. For example our most powerful natural language model is called `text-davinci-001` and a codex series model would look like `code-cushman-001`.
+Azure OpenAI's models follow a standard naming convention: `{task}-{model name}-{version #}`. For example, our most powerful natural language model is called `text-davinci-001` and a codex series model would look like `code-cushman-001`.
 
 > Older versions of the GPT-3 models are available as `ada`, `babbage`, `curie`, `davinci` and do not follow these conventions. These models are primarily intended to be used for fine-tuning and search.
 
-<!--TODO:Uncomment and link to correct doc once created.
 ## Finding what models are available
 
-You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](../Reference/RESTAPI.md#models).
--->
+You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](../reference.md#models).
+
 
 ## GPT-3 Series
 
@@ -54,7 +53,7 @@ Another area where Davinci excels is in understanding the intent of text. Davinc
 
 ### Curie
 
-Curie is extremely powerful, yet very fast. While Davinci is stronger when it comes to analyzing complicated text, Curie is quite capable for many nuanced tasks like sentiment classification and summarization. Curie is also quite good at answering questions and performing Q&A and as a general service chatbot.
+Curie is extremely powerful, yet very fast. While Davinci is stronger when it comes to analyzing complicated text, Curie is quite capable for many nuanced tasks like sentiment classification and summarization. Curie is also good at answering questions and performing Q&A and as a general service chatbot.
 
 **Use for**: Language translation, complex classification, text sentiment, summarization
 
