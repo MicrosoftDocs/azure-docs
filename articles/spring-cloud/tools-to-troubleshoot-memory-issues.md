@@ -25,7 +25,7 @@ This doc provides a list of tools for troubleshooting Java memory issues. These 
 
 For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](monitor-app-lifecycle-events.md).
 
-Resource health sends alerts about app restart events due to [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#1-out-of-available-app-memory).
+Resource health sends alerts about app restart events due to [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#how-to-fix-app-restart-issues-due-to-oom).
 
 For more information, see [How to fix app restart issues caused by out of memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
 
@@ -112,7 +112,7 @@ Heap dump records the state of the Java heap memory. Thread dump records the sta
 
 ### Configure memory settings in JVM options
 
-If you identify issues including [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#1-out-of-available-app-memory), heap memory too large, garbage collection abnormal, you may need to configure max memory size in JVM options.
+If you identify issues including [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#how-to-fix-app-restart-issues-due-to-oom), heap memory too large, garbage collection abnormal, you may need to configure max memory size in JVM options.
 
 You can refer to [related JVM Options](concepts-for-java-memory-management.md#1-important-jvm-options).
 

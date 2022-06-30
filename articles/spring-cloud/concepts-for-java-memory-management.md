@@ -88,7 +88,7 @@ Metaspace and direct memory can only be collected by full GC, when metaspace or 
 
 ### 1. Important JVM Options
 
-Max size of each part of memory can be configured in JVM options. It can be set through Azure CLI or on portal (refer to [the doc for configuring memory settings in JVM options](tools-to-troubleshoot-memory-issues.md#5-configure-memory-settings-in-jvm-options))
+Max size of each part of memory can be configured in JVM options. It can be set through Azure CLI or on portal (refer to [the doc for configuring memory settings in JVM options](tools-to-troubleshoot-memory-issues.md#configure-memory-settings-in-jvm-options))
 
 - Heap size configurations
 

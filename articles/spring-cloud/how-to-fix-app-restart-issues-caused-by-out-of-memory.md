@@ -48,7 +48,7 @@ Resource health shows app restart events due to container OOM.
 
 ### 2. How to fix container OOM
 
-Metrics "App memory Usage", "jvm.memory.used", "jvm.memory.committed" can provide a view of memory using situation [refer to the doc](tools-to-troubleshoot-memory-issues.md#2-metrics-related-doc). More important, you need to configure max memory sizes in JVM options to control memory under limit.
+Metrics "App memory Usage", "jvm.memory.used", "jvm.memory.committed" can provide a view of memory using situation [refer to the doc](tools-to-troubleshoot-memory-issues.md#metrics). More important, you need to configure max memory sizes in JVM options to control memory under limit.
 
 The sum of max memory sizes of [all parts in java memory model](concepts-for-java-memory-management.md#java-memory-model), should be less than real available app memory. You can refer to [typical memory layout](concepts-for-java-memory-management.md#3-memory-usage-layout) to set your max memory sizes.
 
