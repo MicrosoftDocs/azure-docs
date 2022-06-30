@@ -30,6 +30,7 @@ To download the global profile:
 1. Select **Download virtual WAN user VPN profile**.
 
    :::image type="content" source="./media/global-hub-profile/global.png" alt-text="Screenshot that shows selections for downloading a global profile." lightbox="./media/global-hub-profile/global.png":::
+1. On the download page, select **EAPTLS**, then **Generate and download profile**. A profile package (zip file) containing the client configuration settings is generated and downloads to your computer. The contents of the package depend on the authentication and tunnel type choices for your configuration.
 
 ### Include or exclude a hub from a global profile
 
@@ -67,8 +68,7 @@ The profile points to a single hub. The user can connect to only the particular 
 
    :::image type="content" source="./media/global-hub-profile/hub-profile.png" alt-text="Screenshot that shows how to download a hub profile." lightbox="./media/global-hub-profile/hub-profile.png":::
 
-1. On the **Download virtual WAN user VPN**, select **EAPTLS** as the authentication type.
-1. Select **Generate and download profile**.
+1. On the download page, select **EAPTLS**, then **Generate and download profile**. A profile package (zip file) containing the client configuration settings is generated and downloads to your computer. The contents of the package depend on the authentication and tunnel type choices for your configuration.
 
 ## Next steps
 
