@@ -36,3 +36,10 @@ landingContent:
         links:
           - text: Identify issues with end-to-end web tests
             url: tutorial-identify-issues-with-end-to-end-web-tests.md
+
+  - title: Run tests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Test private endpoints
+            url: how-to-test-private-endpoints.md

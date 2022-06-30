@@ -17,3 +17,8 @@ items:
   items: 
     - name: Identify issues with end-to-end web tests
       href: tutorial-identify-issues-with-end-to-end-web-tests.md
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Test private endpoints
+      href: how-to-test-private-endpoints.md
