@@ -386,7 +386,7 @@
       - name: Direct share
         href: share-gallery-direct.md
       - name: Community gallery
-        href: share-gallery-community
+        href: share-gallery-community.md
     - name: Images
       items:
       - name: Images in a gallery

@@ -1,6 +1,6 @@
 ---
-title: Share resources in an Azure Compute Gallery
-description: Learn how to share resources explicitly or to all Azure users using role-based access control or community galleries.
+title: Share Azure Compute Gallery resources directly with subscriptions and tenants
+description: Learn how to share Azure Compute Gallery resources explicitly with subscriptions and tenants.
 author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery

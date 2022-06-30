@@ -342,7 +342,6 @@ Update-AzGalleryImageVersion `
 
 
 
-
 ## Delete resources
 
 You have to delete resources in reverse order, by deleting the image version first. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery. 
@@ -406,9 +405,7 @@ Remove-AzGallery `
 
 Remove-AzResourceGroup -Name $resourceGroup
 ```
-
 ---
-
 ## Community galleries
 
 > [!IMPORTANT]
@@ -447,7 +444,7 @@ az sig image-version list-community \
    -o table
 ```
 
-
+---
 ## Direct shared galleries
 
 > [!IMPORTANT]

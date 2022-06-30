@@ -89,8 +89,8 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](#rbac) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](#direct-sharing) | Direct sharing lets you share to everyone in a subscription or tenant. |
-| [Everyone](#community) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
+| [Subscriptions or tenants](#direct-sharing-to-a-tenant-or-subscription) | Direct sharing (preview) lets you share to everyone in a subscription or tenant. |
+| [Everyone](#community) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
 
 ### RBAC
 
@@ -103,7 +103,7 @@ As the Azure Compute Gallery, definition, and version are all resources, they ca
 
 We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
-### Community gallery (preview)
+### Community gallery 
 
 To share a gallery with all Azure users, you can create a community gallery (preview). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
@@ -200,6 +200,13 @@ There are some limitations for sharing your gallery to the community:
 ### Direct sharing to a tenant or subscription
 
 Give specific subscriptions or tenants access to an Azure Compute Gallery using direct sharing.
+
+> [!IMPORTANT]
+> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+>
+> You can't currently create a Flexible virtual machine scale set from an image shared to you by another tenant.
 
 #### Limitations
 
