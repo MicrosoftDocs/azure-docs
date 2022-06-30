@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: faq
-  ms.date: 05/06/2022
+  ms.date: 06/30/2022
   ms.author: mimart
   author: msmimart
   manager: celestedg
@@ -58,7 +58,13 @@ sections:
       - question: |
           What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication?
         answer: |
-          [Cross-tenant access settings](cross-tenant-access-overview.md) (preview) let you trust multifactor authentication and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
+          [Cross-tenant access settings](cross-tenant-access-overview.md) let you trust multifactor authentication and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
+
+      - question: |
+          How many organizations can I add in cross-tenant access settings?
+        answer: |
+          Cross-tenant access settings are a policy in the directory that stores your settings for how you collaborate with other organizations. This policy file has a 25kb size limit and once it is maxed out, no additional organizations or changes can be made that would further increase the file size. Due to how we store the content in this policy, there is no defined limit of organizations you can add in cross-tenant access settings. If you need to apply settings to a large number of organizations, we recommend implementing those settings as your default settings. Follow the steps to [calculate the current size of your policy](troubleshoot.md#an-error-similar-to-failure-to-update-policy-due-to-object-limit-appears-while-configuring-cross-tenant-access-settings) and determine whether you are close to hitting the 25kb file size limit.
+
       - question: |
           How can I use delayed invitations?
         answer: |
