@@ -464,8 +464,8 @@ Here's an example of how an OAuth2 configuration might look:
 
 The `request` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name                               | Type    | Description                                        |
+| ---------------------------------- | ------- | -------------------------------------------------- |
 | **apiEndpoint**                    | String  | Mandatory. Defines the endpoint to pull data from. |
 | **httpMethod**                     | String  | Mandatory. Defines the API method: `GET` or `POST` |
 | **queryTimeFormat**                | String, or *UnixTimestamp* or *UnixTimestampInMills* | Mandatory.  Defines the format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp. |
