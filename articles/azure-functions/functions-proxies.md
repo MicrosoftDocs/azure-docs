@@ -47,7 +47,7 @@ Back-end requests can be modified in the portal by expanding the *request overri
 
 By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Back-end requests can be modified in the portal by expanding the *response override* section of the proxy detail page. 
+Back-end responses can be modified in the portal by expanding the *response override* section of the proxy detail page. 
 
 ## <a name="using-variables"></a>Use variables
 
