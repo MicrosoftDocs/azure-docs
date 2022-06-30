@@ -236,7 +236,7 @@ Collecting statistics is a potentially time-consuming task that's required after
 
 Oracle introduced a feature called the Optimizer Statistics Advisor that works through a list of Oracle rules that represent best practices for optimizer statistics. The advisor checks each rule and, where necessary, generates findings, recommendations, and actions that involve calls to the `DBMS_STATS` package to take corrective measures. Users can see the list of rules in the `V$STATS_ADVISOR_RULES` view, as shown in the following screenshot.
 
-:::image type="content" source="../media/3-security-access-operations/optimizer-statistics-advisor-rules.png" border="true" alt-text="Screenshot showing how to display a list of rules by using the Optimizer Statistics Advisor.":::
+:::image type="content" source="../media/3-security-access-operations/optimizer-statistics-advisor-rules.png" border="true" alt-text="Screenshot showing how to display a list of rules by using the Optimizer Statistics Advisor." lightbox="../media/3-security-access-operations/optimizer-statistics-advisor-rules-lrg.png":::
 
 An Oracle database contains many log tables in the data dictionary, which accumulate data, either automatically or after certain features are enabled. Because log data grows over time, purge older information to avoid using up permanent space. Oracle provides options to automate log maintenance.
 
