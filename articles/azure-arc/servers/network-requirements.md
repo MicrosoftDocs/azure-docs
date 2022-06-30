@@ -75,28 +75,6 @@ The table below lists the URLs that must be available in order to install and us
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional| Public |
 
-
-<!-->
-# [Azure China](#tab/azure-china)
-
-| Agent resource | Description | When required| Endpoint used with private link |
-|---------|---------|--------|---------|
-|`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
-|`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
-|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
-|`login.chinacloudapi.cn`|Azure Active Directory|Always| Public |
-|`login.partner.chinacloudapi.cn`|Azure Active Directory|Always| Public |
-|`pas.chinacloudapi.cn`|Azure Active Directory|Always| Public |
-|`management.chinacloudapi.cn`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
-|`*.his.arc.azure.cn`|Metadata and hybrid identity services|Always| Private |
-|`*.guestconfiguration.azure.cn`| Extension management and guest configuration services |Always| Private |
-|`guestnotificationservice.azure.cn`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Private |
-|`azgn*.servicebus.chinacloudapi.cn`|Notification service for extension and connectivity scenarios|Always| Public |
-|`*.servicebus.windows.net`|For Windows Admin Center and SSH scenarios|If using SSH or Windows Admin Center from Azure|Public|
-|`*.blob.core.chinacloudapi.cn`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
-|`dc.applicationinsights.azure.cn`|Agent telemetry|Optional| Public |
-<-->
-
 ## Transport Layer Security 1.2 protocol
 
 To ensure the security of data in transit to Azure, we strongly encourage you to configure machine to use Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.
