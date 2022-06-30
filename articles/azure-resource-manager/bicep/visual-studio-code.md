@@ -30,7 +30,7 @@ These commands include:
 - [Insert Resource](#insert-resource)
 - [Open Bicep Visualizer](#open-bicep-visualizer)
 - [Open Bicep Visualizer to the side](#open-bicep-visualizer)
-- [Restore Bicep File (Force)](#resource-bicep-file)
+- [Restore Bicep File (Force)](#restore-bicep-file)
 
 These commands are also shown in the context menu when you right-click a Bicep file:
 
