@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 06/01/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -224,6 +224,84 @@ To create the VM from community gallery image, you must accept the license agree
 
 
 ---
+
+## Create a VM from a gallery shared with your subscription or tenant
+
+> [!IMPORTANT]
+> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+>
+> You can't currently create a Flexible virtual machine scale set from an image shared to you by another tenant.
+
+
+### [CLI](#tab/cli2)
+
+To create a VM using an image shared to your subscription or tenant, you need the unique ID of the image in the following format:
+
+```
+/SharedGalleries/<uniqueID>/Images/<image name>/Versions/latest
+```
+
+To find the `uniqueID` of a gallery that is shared with you, use [az sig list-shared](/cli/azure/sig/image-definition#az-sig-image-definition-list-shared). In this example, we are looking for galleries in the West US region.
+
+```azurecli-interactive
+region=westus
+az sig list-shared --location $region --query "[].name" -o tsv
+```
+
+Use the gallery name to find the images that are available. In this example, we list all of the images in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
+
+```azurecli-interactive 
+galleryName="1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-myDirectShared"
+ az sig image-definition list-shared \
+   --gallery-unique-name $galleryName \
+   --location $region \
+   --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
+```
+
+Make sure the state of the image is `Specialized`. If you want to use an image with the `Generalized` state, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
+
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the `--specialized` parameter to indicate that the image is a specialized image.
+
+Use the `Id` from the output, appended with `/Versions/latest` to use the latest version, as the value for `--image`` to create a VM. 
+
+In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+
+```azurecli
+imgDef="/SharedGalleries/1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-MYDIRECTSHARED/Images/myDirectDefinition/Versions/latest"
+vmResourceGroup=myResourceGroup
+location=westus
+vmName=myVM
+
+az group create --name $vmResourceGroup --location $location
+
+az vm create\
+   --resource-group $vmResourceGroup \
+   --name $vmName \
+   --image $imgDef \
+   --specialized
+```
+
+### [Portal](#tab/portal2)
+
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+1. Under **Instance details**, type a name for the **Virtual machine name**.
+1. For **Security type**, make sure *Standard* is selected.
+1. For your **Image**, select **See all images**. The **Select an image** page will open.
+   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
+1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
+   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
+1. Select an image from the list. Make sure that the **OS state** is *Specialized*. If you want to use a specialized image, see [Create a VM using a generalized image version](vm-generalized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
+1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
+
+---
+
 
 **Next steps**
 

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/26/2022
+ms.date: 06/01/2022
 ms.author: saraic
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -529,7 +529,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 
 ### [CLI](#tab/cli2)
 
-To create a VM using an image shared to your subscription or tenant, use the unique ID of the image for the `--image` which will be in the following format:
+To create a VM using an image shared to your subscription or tenant, you need the unique ID of the image in the following format:
 
 ```
 /SharedGalleries/<uniqueID>/Images/<image name>/Versions/latest
@@ -539,15 +539,27 @@ To find the `uniqueID` of a gallery that is shared with you, use [az sig list-sh
 
 ```azurecli-interactive
 region=westus
-az sig list-shared --location $region --query "[].uniqueId" -o tsv
+az sig list-shared --location $region --query "[].name" -o tsv
 ```
 
-In this example, we are creating a VM from a Linux image and creating SSH keys for authentication.
+Use the gallery name to find the images that are available. In this example, we list all of the images in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
+
+```azurecli-interactive 
+galleryName="1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-myDirectShared"
+ az sig image-definition list-shared \
+   --gallery-unique-name $galleryName \
+   --location $region \
+   --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
+```
+
+Make sure the state of the image is `Specialized`. If you want to use an image with the `Generalized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
+
+Use the `Id` from the output, appended with `/Versions/latest` to use the latest version, as the value for `--image`` to create a VM. In this example, we are creating a VM from a Linux image that is directly shared to us, and creating SSH keys for authentication.
 
 ```azurecli-interactive
-imgDef="/CommunityGalleries/ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/myLinuxImage/Versions/latest"
+imgDef="/SharedGalleries/1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-MYDIRECTSHARED/Images/myDirectDefinition/Versions/latest"
 vmResourceGroup=myResourceGroup
-location=eastus
+location=westus
 vmName=myVM
 adminUsername=azureuser
 
@@ -561,11 +573,6 @@ az vm create\
    --generate-ssh-keys
 ```
 
-When using a community image, you'll be prompted to accept the legal terms. The message will look like this: 
-
-```output
-To create the VM from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
-```
 
 ### [Portal](#tab/portal2)
 

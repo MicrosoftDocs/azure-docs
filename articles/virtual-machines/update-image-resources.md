@@ -453,25 +453,33 @@ az sig image-version list-community \
 > [!IMPORTANT]
 > Direct sharing galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+To find the `uniqueID` of a gallery that is shared with you, use [az sig list-shared](/cli/azure/sig/image-definition#az-sig-image-definition-list-shared). In this example, we are looking for galleries in the West US region.
+
+```azurecli-interactive
+region=westus
+az sig list-shared --location $region --query "[].uniqueId" -o tsv
+```
 
 List all of the image definitions that are shared directly with you, use [az sig image-definition list-shared](/cli/azure/sig/image-definition#az-sig-image-definition-list-shared). 
 
-In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
+In this example, we list all of the images in the gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
 
 ```azurecli-interactive 
+name="1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-myDirectShared"
  az sig image-definition list-shared \
-   --gallery-unique-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
-   --location westus \
+   --gallery-unique-name $name
+   --location $region \
    --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
 ```
 
-List image versions shared in a community gallery using [az sig image-version list-community](/cli/azure/sig/image-version#az-sig-image-version-list-community):
+List image versions directly shared to you using [az sig image-version list-community](/cli/azure/sig/image-version#az-sig-image-version-list-community):
 
 ```azurecli-interactive
+imgDef="myImageDefinition"
 az sig image-version list-shared \
-   --location westus \
-   --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
-   --gallery-image-definition myImageDefinition \
+   --location $region \
+   --public-gallery-name $name \
+   --gallery-image-definition $imgDef \
    --query [*]."{Name:name,UniqueId:uniqueId}" \
    -o table
 ```
