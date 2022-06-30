@@ -114,10 +114,12 @@ To learn more about extension bundles, see [Extension bundles](functions-binding
 
 ## <a name="migrating-from-3x-to-4x"></a>Migrating from 3.x to 4.x
 
-Azure Functions version 4.x is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. During the upgrade, you set the `FUNCTIONS_EXTENSION_VERSION` app setting to a value of `~4`. Before upgrading your app to version 4.x of the Functions runtime, you should do the following:
+Azure Functions version 4.x is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. An upgrade is initiated when you set the `FUNCTIONS_EXTENSION_VERSION` app setting to a value of `~4`. For function apps running on Windows, you also need to set the `netFrameworkVersion` site setting to target .NET 6. 
+
+Before upgrading your app to version 4.x of the Functions runtime, you should do the following:
 
 * Review the list of [breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x).
-* If applicable, [upgrade your local project environment to version 4.x](#upgrade-your-local-project). Fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). When you use Visual Studio to publish a version 4.x project to a existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#migrate-without-slots).
+* When possible, [upgrade your local project environment to version 4.x](#upgrade-your-local-project). Fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). When you use Visual Studio to publish a version 4.x project to a existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#migrate-without-slots).
 * [Run the pre-upgrade validator](#run-the-pre-upgrade-validator).
 * Consider using a [staging slot](functions-deployment-slots.md) to test and verify your app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#migrate-using-slots).  
 
@@ -131,43 +133,42 @@ Azure Functions provides a pre-upgrade validator to help you identify potential 
 
 1. In *Search for common problems or tools*, enter and select **Functions 4.x Pre-Upgrade Validator**.
 
-After you've validated that the app can be upgraded, you can start your migration. Keep in mind that the instructions.
-
-> [!NOTE]
-> If you are using a slot to manage the migration, you need to set the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` application setting to "0" on _both_ slots. This allows the version changes you make to be included in the slot swap operation. You can then upgrade your staging (non-production) slot, and then you can perform the swap.
-
-To migrate an app from 3.x to 4.x, you will:
-
-- Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4`
-- **For Windows function apps only**, enable .NET 6.0 through the `netFrameworkVersion` setting
+After you've validated that your app can be upgraded, you can start the migration. 
 
 ### Migrate without slots
 
-You can use the following Azure CLI or Azure PowerShell commands to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on a site without slots. When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
-
-::: zone pivot="programming-language-csharp"  
-For Windows function apps only, also enable 
-::: zone-end   
+The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4`. When running on Windows, you also need to update the `netFrameworkVersion` site setting. You must follow a [different procedure](#migrate-using-slots) on a site with slots. 
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
-
-# Required only by function apps running on Windows.
-az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -Force
-
-# Required only by function apps running on Windows.
-Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
 ```
 
 ---
+
+When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+---
+
+In these examples, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group.
 
 ### Migrate using slots
 
@@ -186,21 +187,28 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     ```azurecli
     az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0  -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> 
     ```
+    This command causes the app running in the production slot to restart. 
+
 1. Use the following command to also set `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` in the staging slot:
 
     ```azurecli
     az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
+
 1. Use the following command to change `FUNCTIONS_EXTENSION_VERSION` and upgrade the staging slot to the new runtime version:
 
     ```azurecli
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
+
 1. (Windows only) For function apps running on Windows, use the following command to run on .NET 6:
    
     ```azurecli
     az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
+
+    Version 4.x of the Functions runtime requires .NET 6 when running on Windows. 
+
 1. Confirm that your function app runs correctly in the upgraded staging environment before swapping.
 
 1. Use the following command to swap the upgraded staging slot to production:
@@ -227,21 +235,26 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
 
     You may see errors from the staging slot during the time between the swap and the runtime version being restored on staging. This can happen because having `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` in staging removes the `FUNCTIONS_EXTENSION_VERSION` setting in staging. Without the version setting, your slot is in a bad state. Updating the version in the staging slot right after the swap lets you to roll back your changes if necessary. However, this rollback would require you to directly update settings in production to remove `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` before the swap back. This change in the production setting  would then initiate a restart. 
 
-1. Use the following command to again set `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` in the staging slot:
+1. Use the following command to again set `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` in the staging slot:
 
     ```azurecli
     az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
+
 1. Use the following command to change `FUNCTIONS_EXTENSION_VERSION` and upgrade the staging slot to the new runtime version:
 
     ```azurecli
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
+
 1. (Windows only) For function apps running on Windows, use the following command to run on .NET 6:
    
     ```azurecli
     az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
+
+    Version 4.x of the Functions runtime requires .NET 6 when running on Windows. 
+
 1. Confirm that your function app runs correctly in the upgraded staging environment before swapping.
 
 1. Use the following command to swap the upgraded and prewarmed staging slot to production:
