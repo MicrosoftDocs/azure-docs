@@ -156,8 +156,6 @@
       href: reference-server-sdk-python.md
   - name: Control plane
     href: /rest/api/webpubsub/
-  - name: Web PubSub Client Spec
-    href: reference-client-feature-spec.md
 
 - name: Resources
   items:
