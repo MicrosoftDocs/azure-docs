@@ -717,7 +717,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 2. Launch Visual Studio and open the new solution file that was created in the `cmake` directory you created in the root of the azure-iot-sdk-c git repository. The solution file is named `azure_iot_sdks.sln`.
 
-3. In Solution Explorer for Visual Studio, navigate to **Provisioning_Samples > prov_dev_client_sample > Source Files** and open *prov_dev_client_sample.c*.
+3. In Solution Explorer for Visual Studio, navigate to **Provision_Samples > prov_dev_client_sample > Source Files** and open *prov_dev_client_sample.c*.
 
 4. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier. 
 
@@ -746,7 +746,7 @@ While HSM hardware isn't required, it is recommended to protect sensitive inform
 
 To update the custom HSM stub code to simulate the identity of the device with ID `device-01`, perform the following steps:
 
-1. In Solution Explorer for Visual Studio, navigate to **Provisioning_Samples > custom_hsm_example > Source Files** and open *custom_hsm_example.c*.
+1. In Solution Explorer for Visual Studio, navigate to **Provision_Samples > custom_hsm_example > Source Files** and open *custom_hsm_example.c*.
 
 2. Update the string value of the `COMMON_NAME` string constant using the common name you used when generating the device certificate.
 
