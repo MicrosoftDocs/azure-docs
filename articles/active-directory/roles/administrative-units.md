@@ -40,24 +40,23 @@ Here are some of the constraints for administrative units.
 
 - Administrative units can't be nested.
 - Administrative unit-scoped user account administrators can't create or delete users.
-- A scoped role assignment doesn't apply to members of groups added to an administrative unit, unless the group members are directly added to the administrative unit. For more information, see [Add members to an administrative unit](admin-units-members-add.md).
 - Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
 
 ## Groups
 
-Adding a group to an administrative unit brings the group itself into the management scope of any group administrator who is also scoped to that administrative unit. Group administrators include the [Groups Administrator](permissions-reference.md#groups-administrator) or [User Administrator](permissions-reference.md#user-administrator) roles.
+Adding a group to an administrative unit brings the group itself into the management scope of any user administrator who is also scoped to that administrative unit. User administrators can include the [User Administrator](permissions-reference.md#user-administrator) or [Groups Administrator](permissions-reference.md#groups-administrator) roles.
 
-For example, group administrators scoped to an administrative unit that has a group can and can't do the following:
+For example, a user administrator scoped to an administrative unit that has a group can and can't do the following:
 
 | Permissions | Can do |
 | --- | --- |
 | Manage the name of the group | :heavy_check_mark: |
 | Manage the membership of the group | :heavy_check_mark: |
-| Manage the user properties for individual members of the group | :x: |
-| Manage the user authentication methods of individual members of the group | :x: |
-| Reset the passwords of individual members of the group | :x: |
+| Manage the user properties for individual **members** of the group | :x: |
+| Manage the user authentication methods of individual **members** of the group | :x: |
+| Reset the passwords of individual **members** of the group | :x: |
 
-To manage the user properties or user authentication methods of individual members of a group that is added to an administrative unit, the individual group members must be added directly as users of the administrative unit, and the group administrator must also be assigned a role that can manage user properties or user authentication methods.
+To manage the user properties or user authentication methods of individual members of a group that is added to an administrative unit, the individual group members must be added directly as users of the administrative unit, and the user administrator must also be assigned a role that can manage user properties or user authentication methods.
 
 ## License requirements
 
