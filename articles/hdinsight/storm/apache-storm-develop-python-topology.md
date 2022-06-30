@@ -4,7 +4,7 @@ description: Learn how to create an Apache Storm topology that uses Python compo
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
-ms.date: 12/16/2019
+ms.date: 06/22/2022
 ---
 
 # Develop Apache Storm topologies using Python on HDInsight

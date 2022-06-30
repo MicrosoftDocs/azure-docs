@@ -125,9 +125,9 @@ You can use the maintenance console to restore a specific backup of the MySQL da
     The selected backup MySQL database will be restored to its original location.
 
 If you need to change the MySQL database backup configuration, you can modify:
-* The backup location
-* The number of backups kept
-* The time of day the backup is recorded
+* The backup location (the default is: `/opt/netapp/protectionservice/mysqldumps`)
+* The number of backups kept (the default value is three)
+* The time of day the backup is recorded (the default value is 12:39 a.m.)
 
 1. Open a maintenance console window.
 1. From the main menu, enter option **1) Application Configuration**.
@@ -136,4 +136,3 @@ If you need to change the MySQL database backup configuration, you can modify:
 
 
     :::image type="content" source="./media/cloud-backup/mysql-backup-configuration.png" alt-text="The maintenance window shows menu options: 1. Configure MySql Backup. 2. List MySQL backups. 3. Create MySQL backup. 4. Restore MySQL backup. b. Back. x. Exit. A prompt reads Enter your choice. The user has entered the number one. There are then options to enter backup location, the number of backups to keep, and the time of backup, which can be entered in the format of hh:mm (am/pm)." lightbox="./media/cloud-backup/mysql-backup-configuration.png":::
-

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use the Face client library'
+title: 'Quickstart: Use the Face service'
 titleSuffix: Azure Cognitive Services
-description: The Face API offers client libraries that makes it easy to detect, find similar, identify, verify and more.
+description: The Face API offers client libraries that make it easy to detect, find similar, identify, verify and more.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,7 +16,7 @@ ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 keywords: face search by image, facial recognition search, facial recognition, face recognition app
 ---
 
-# Quickstart: Use the Face client library
+# Quickstart: Use the Face service
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
@@ -41,5 +41,11 @@ keywords: face search by image, facial recognition search, facial recognition, f
 ::: zone pivot="programming-language-rest-api"
 
 [!INCLUDE [cURL quickstart](../includes/identity-curl-quickstart.md)]
+
+::: zone-end
+
+::: zone pivot="vision-studio"
+
+[!INCLUDE [Vision Studio quickstart](../includes/identity-studio-quickstart.md)]
 
 ::: zone-end

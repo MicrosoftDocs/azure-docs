@@ -69,7 +69,7 @@ You can add or remove resources from a resource group at any time.
     Although it's possible to create a resource group without a backup policy, you can only perform scheduled data protection operations when at least one policy is attached to the resource group. You can use an existing policy, or you can create a new policy while creating a resource group.
 * Compatibility checks
     Cloud Backup for VMs performs compatibility checks when you create a resource group. Reasons for incompatibility might be:
-    * VM disks (VMDKs) are on unsupported storage.
+    * Virtual machine disks (VMDKs) are on unsupported storage.
     * A shared PCI device is attached to a VM.
     * You have not added the Azure subscription account.
 
@@ -92,6 +92,7 @@ You can add or remove resources from a resource group at any time.
     
     >[!IMPORTANT]
     >If you receive the message `selected <resource-name> is not Cloud Backup for Virtual Machines compatible` then a selected resource is not compatible with Cloud Backup for Virtual Machines. 
+
 1. On the **Spanning disks** page, select an option for VMs with multiple VMDKs across multiple datastores:
     * Always exclude all spanning datastores 
         (This is the default option for datastores)

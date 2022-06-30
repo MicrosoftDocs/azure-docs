@@ -437,7 +437,7 @@
     {
       "path_to_root": "media-services-video-indexer",
       "url": "https://github.com/Azure-Samples/media-services-video-indexer",
-      "branch": "main",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
