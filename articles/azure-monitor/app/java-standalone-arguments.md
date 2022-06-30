@@ -94,7 +94,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.3.0.jar` to the existing `jv
 ...
 ```
 
-If you're running multiple managed servers on a single host, you will need to add `applicationinsights.agent.id` to the `system-properties` for each `server`:
+If you're running multiple managed servers on a single host, you'll need to add `applicationinsights.agent.id` to the `system-properties` for each `server`:
 
 ```xml
 ...
