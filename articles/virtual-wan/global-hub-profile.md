@@ -4,7 +4,7 @@ description: Learn how Azure Virtual WAN offers two types of connectivity for re
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2022
+ms.date: 06/30/2022
 ms.author: cherylmc
 
 ---
@@ -61,7 +61,7 @@ To include or exclude a specific hub from the global VPN profile:
 
 The profile points to a single hub. The user can connect to only the particular hub by using this profile. To download the hub-based profile:
 
-1. Go to the virtual hub.
+1. Go to the **virtual hub**.
 1. In the left pane, select **User VPN (Point to site)**.
 1. Select **Download virtual Hub User VPN profile**.
 
