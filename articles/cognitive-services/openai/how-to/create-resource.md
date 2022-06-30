@@ -9,6 +9,8 @@ ms.subservice: openai
 ms.topic: how-to
 ms.date: 06/30/2022
 zone_pivot_groups: openai-create-resource
+author: ChrisHMSFT
+ms.author: chrhoder
 recommendations: false
 ---
 
