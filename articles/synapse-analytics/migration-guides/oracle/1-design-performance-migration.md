@@ -113,7 +113,7 @@ You can automate and orchestrate the migration process by using the capabilities
 
 [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
 
-:::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process.":::
+:::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1-lrg.png":::
 
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as [Azure HDInsight Hadoop](/azure/hdinsight/hadoop/apache-hadoop-introduction), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
@@ -157,7 +157,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   - Querying system catalog tables and views, such as `ALL_INDEXES`, `DBA_INDEXES`, `USER_INDEXES`, and `DBA_IND_COL`. You can use the built-in queries in [Oracle SQL Developer](https://www.oracle.com/database/technologies/appdev/sqldeveloper-landing.html), as shown in the following screenshot.
   
-    :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-queries-1.png" border="true" alt-text="Screenshot showing how to query system catalog tables and views in Oracle SQL Developer.":::
+    :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-queries-1.png" border="true" alt-text="Screenshot showing how to query system catalog tables and views in Oracle SQL Developer." lightbox="../media/1-design-performance-migration/oracle-sql-developer-queries-1-lrg.png":::
 
     Or, run the following query to find all indexes of a given type:
 
@@ -167,13 +167,13 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   - Querying the `dba_index_usage` or `v$object_usage` views when monitoring is enabled. You can query those views in Oracle SQL Developer, as shown in the following screenshot.
 
-    :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-queries-2.png" border="true" alt-text="Screenshot showing how to find out which indexes are used in Oracle SQL Developer.":::
+    :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-queries-2.png" border="true" alt-text="Screenshot showing how to find out which indexes are used in Oracle SQL Developer." lightbox="../media/1-design-performance-migration/oracle-sql-developer-queries-2-lrg.png":::
 
   Function-based indexes, where the index contains the result of a function on the underlying data columns, have no direct equivalent in Azure Synapse. We recommend that you first migrate the data, then in Azure Synapse run the Oracle queries that use function-based indexes to gauge performance. If the performance of those queries in Azure Synapse isn't acceptable, consider creating a column that contains the pre-calculated value and then index that column.
 
   When you configure the Azure Synapse environment, it makes sense to only implement in-use indexes. Azure Synapse currently supports the index types shown here:
 
-  :::image type="content" source="../media/1-design-performance-migration/azure-synapse-analytics-index-types.png" border="true" alt-text="Screenshot showing the index types that Azure Synapse supports.":::
+  :::image type="content" source="../media/1-design-performance-migration/azure-synapse-analytics-index-types.png" border="true" alt-text="Screenshot showing the index types that Azure Synapse supports." lightbox="../media/1-design-performance-migration/azure-synapse-analytics-index-types-lrg.png":::
 
   Azure Synapse features, such as parallel query processing and in-memory caching of data and results, make it likely that fewer indexes are required for data warehouse applications to achieve performance goals. We recommend that you use the following index types in Azure Synapse:
 
@@ -207,7 +207,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   You can get a list of the triggers defined in an Oracle database by querying the `ALL_TRIGGERS`, `DBA_TRIGGERS`, or `USER_TRIGGERS` views. The following screenshot shows a `DBA_TRIGGERS` query in Oracle SQL Developer.
 
-  :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-triggers.png" border="true" alt-text="Screenshot showing how to query for a list of triggers in Oracle SQL Developer.":::
+  :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-triggers.png" border="true" alt-text="Screenshot showing how to query for a list of triggers in Oracle SQL Developer." lightbox="../media/1-design-performance-migration/oracle-sql-developer-triggers-lrg.png":::
 
   Azure Synapse doesn't support Oracle database triggers. However, you can add equivalent functionality by using Data Factory, although doing so will require you to refactor the processes that use triggers.
 
@@ -285,7 +285,7 @@ The following sections further discuss the migration of functions, stored proced
 
 As with most database products, Oracle supports system and user-defined functions within a SQL implementation. When you migrate a legacy database platform to Azure Synapse, common system functions can usually be migrated without change. Some system functions might have a slightly different syntax, but any required changes can be automated. You can get a list of functions within an Oracle database by querying the `ALL_OBJECTS` view with the appropriate `WHERE` clause. You can use Oracle SQL Developer to get a list of functions, as shown in the following screenshot.
 
-:::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-functions.png" border="true" alt-text="Screenshot showing how to query for a list of functions in Oracle SQL Developer.":::
+:::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-functions.png" border="true" alt-text="Screenshot showing how to query for a list of functions in Oracle SQL Developer." lightbox="../media/1-design-performance-migration/oracle-sql-developer-functions-lrg.png":::
 
 For Oracle system functions or arbitrary user-defined functions that have no equivalent in Azure Synapse, recode those functions using a target environment language. Oracle user-defined functions are coded in PL/SQL, Java, or C. Azure Synapse uses the Transact-SQL language to implement user-defined functions.
 
@@ -293,7 +293,7 @@ For Oracle system functions or arbitrary user-defined functions that have no equ
 
 Most modern database products support storing procedures within the database. Oracle provides the PL/SQL language for this purpose. A stored procedure typically contains both SQL statements and procedural logic, and returns data or a status. You can get a list of stored procedures within an Oracle database by querying the `ALL_OBJECTS` view with the appropriate `WHERE` clause. You can use Oracle SQL Developer to get a list of stored procedures, as shown in the next screenshot.
 
-:::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-procedures.png" border="true" alt-text="Screenshot showing how to query for a list of stored procedures in Oracle SQL Developer.":::
+:::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-procedures.png" border="true" alt-text="Screenshot showing how to query for a list of stored procedures in Oracle SQL Developer." lightbox="../media/1-design-performance-migration/oracle-sql-developer-procedures-lrg.png":::
 
 Azure Synapse supports stored procedures using T-SQL, so you'll need to recode any migrated stored procedures in that language.
 
@@ -313,7 +313,7 @@ Within the Oracle environment, system catalog tables specify the current table a
 
 Or, you can use SSMA for Oracle to migrate tables from an existing Oracle environment to Azure Synapse. SSMA for Oracle will apply the appropriate data type mappings and recommended table and distribution types, as shown in the following screenshot.
 
-:::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-2.png" border="true" alt-text="Screenshot showing how to migrate tables from and existing Oracle environment to Azure Synapse using SQL Server Migration Assistant for Oracle.":::
+:::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-2.png" border="true" alt-text="Screenshot showing how to migrate tables from and existing Oracle environment to Azure Synapse using SQL Server Migration Assistant for Oracle." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-2-lrg.png":::
 
 You can also use third-party migration and ETL tools that process system catalog information to achieve similar results.
 
