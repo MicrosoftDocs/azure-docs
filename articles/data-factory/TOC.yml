@@ -725,6 +725,8 @@ items:
       displayName: upsert, update, insert, delete
     - name: Assert
       href: data-flow-assert.md
+    - name: Cast
+      href: data-flow-cast.md      
     - name: Conditional split
       href: data-flow-conditional-split.md
       displayName: split
