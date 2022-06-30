@@ -194,7 +194,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 ## Share data between tenants
 
-Until now all tables have been distributed by `company_id`, but
+Until now all tables have been distributed by `company_id`. However,
 some data doesn't naturally "belong" to any tenant in particular,
 and can be shared. For instance, all companies in the example ad
 platform might want to get geographical information for their
@@ -290,7 +290,7 @@ SELECT id
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Select the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and select the final *Delete* button.
 
 ## Next steps
 
