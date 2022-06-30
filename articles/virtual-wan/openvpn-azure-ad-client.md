@@ -187,7 +187,38 @@ You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnss
 
 ### <a name="multi-cert"></a>Can I specify multiple certificates for the VPN client?
 
-If you have 2 hubs for your virtual WAN that are each configured for P2S User VPN and use the same VPN configuration, and that configuration is configured to use multiple certificates, you can now configure the VPN clients for multiple certificates. This means that if one certificate can't be used for any reason, the other certificate can still be used for authentication. Previously, you couldn't configure the client with the settings for both certificates. Go to the Virtual WAN -> User VPN configurations page, select the User VPN configuration used by both hubs, then select **Download virtual WAN user VPN profile** to download the global user VPN profile (rather than the hub profile). The files you download contain the root end certificates. You can configure multiple certificate support on the client side by either using the Azure VPN Client interface (version 2.1963.44.0 or higher), or by using a multiple certificate tag in the xml profile.
+If you have 2 hubs for your virtual WAN that are each configured for P2S User VPN and use the same VPN configuration, and that configuration is configured to use multiple certificates, you can now configure the VPN clients for multiple certificates. This means that if one certificate can't be used for any reason, the other certificate can still be used for authentication. Previously, you couldn't configure the client with the settings for both certificates. Go to the Virtual WAN -> User VPN configurations page, select the User VPN configuration used by both hubs, then select **Download virtual WAN user VPN profile** to download the global user VPN profile (rather than the hub profile). The files you download contain the root end certificates.
+
+You can configure multiple certificate support on the client side by either using the Azure VPN Client interface (version 2.1963.44.0 or higher), or by using multiple certificate tags in the xml profile.
+
+Example:
+
+```xml
+  </protocolconfig>
+  <serverlist>
+    <ServerEntry>
+      <displayname
+        i:nil="true" />
+      <fqdn>wan.kycyz81dpw483xnf3fg62v24f.vpn.azure.com</fqdn>
+    </ServerEntry>
+  </serverlist>
+  <servervalidation>
+    <cert>
+      <hash>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436</hash>
+      <issuer
+        i:nil="true" />
+    </cert>
+    <cert>
+      <hash>59470697201baejC4B2D7D66D40C6DD2FB19C5436</hash>
+      <issuer
+        i:nil="true" />
+    </cert>
+    <cert>
+      <hash>cab20a7f63f00f2bae76202gdfe36db3a03a9cb9</hash>
+      <issuer
+        i:nil="true" />
+    </cert>
+```
 
 ### <a name="custom-routes"></a>How do I add custom routes to the VPN client?
 
