@@ -99,7 +99,7 @@ This workstream will reduce your on-premises footprint by moving the HR provisio
 
 * For new employees who need access to applications that have dependency on AD, you can provision hybrid accounts
 
-Azure AD Cloud HR provisioning can also manage AD accounts for existing employees. For more information, see: [Plan cloud HR application to Azure Active Directory user provisioning](../../app-provisioning/plan-cloud-hr-provision.md) and, specifically, [Plan the deployment project](../../app-provisioning/plan-the-deployment-project.md).
+Azure AD Cloud HR provisioning can also manage AD accounts for existing employees. For more information, see: [Plan cloud HR application to Azure Active Directory user provisioning](../../app-provisioning/plan-cloud-hr-provision.md) and, specifically, [Plan the deployment project](../app-provisioning/plan-auto-user-provisioning.md).
 
 ### Move external identity management
 
