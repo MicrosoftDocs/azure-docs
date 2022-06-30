@@ -29,13 +29,13 @@ Group writeback is a valuable tool for administrators of Azure Active Directory 
 
 From the **All groups** overview page, you can add the group writeback columns **Target writeback type** and **Writeback enabled** to the view.  The **Target writeback type** and **Writeback enabled** columns are available for the view whether or not you have writeback enabled in Azure AD Connect.
 
-​:::image type="content" source="./media/groups-write-back-portal/all-groups-columns.png" alt-text="Selecting columns for writeback in the All groups list.":::
+​:::image type="content" source="./media/groups-write-back-portal/all-groups-columns.png" alt-text="Screenshot of selecting columns for writeback in the All groups list." lightbox="media/groups-write-back-portal/all-groups-columns.png":::
 
 ## Writeback column settings
 
 The **Writeback enabled** column allows you to turn off the writeback capability for individual groups. The **Target writeback type** column allows you to specify to which group type you want this cloud group written back in your on-premises Active Directory. For an Azure AD Microsoft 365 group, you can write it back as a security group, a distribution group, or a mail-enabled security group. For an Azure AD security group, you can write it back only as a security group.
 
-:::image type="content" source="./media/groups-write-back-portal/all-groups-view.png" alt-text="Writeback settings columns are visible in the All groups page.":::
+:::image type="content" source="./media/groups-write-back-portal/all-groups-view.png" alt-text="Screenshot of writeback settings columns that are visible in the All groups page." lightbox="media/groups-write-back-portal/all-groups-view.png":::
 
 ## Writeback settings in group properties
 
@@ -44,7 +44,7 @@ You can also configure writeback settings for a group on the property page for t
 - Enabled the group for writeback
 - Targeted the writeback type as a security group
 
-:::image type="content" source="./media/groups-write-back-portal/groups-properties-view.png" alt-text="Changing writeback settings in the group properties.":::
+:::image type="content" source="./media/groups-write-back-portal/groups-properties-view.png" alt-text="Screenshot of changing writeback settings in the group properties." lightbox="media/groups-write-back-portal/groups-properties-view.png":::
  
 ## Next steps
 
