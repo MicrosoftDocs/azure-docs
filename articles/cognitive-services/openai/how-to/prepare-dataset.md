@@ -8,6 +8,8 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
 ms.date: 06/24/2022
+author: ChrisHMSFT
+ms.author: chrhoder
 recommendations: false
 keywords: 
 
