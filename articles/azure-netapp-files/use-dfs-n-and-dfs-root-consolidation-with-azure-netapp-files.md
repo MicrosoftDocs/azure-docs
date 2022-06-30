@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 06/30/2022
 ms.author: anfdocs
 ---
 
@@ -127,7 +127,7 @@ The basic unit of management for DFS Namespaces is the namespace. The namespace 
 
 5. The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namespace**. Select a domain-based namespace. Refer to [namespace types](#namespace-types) above for more information on choosing between namespace types.  
 
-![A screenshot of selecting between a domain-based namespace and a standalone namespace in the **New Namespace Wizard**.](../media/azure-netapp-files/azure-netapp-files-dfs-domain-namespace-type.png)
+![A screenshot of selecting domain-based namespace **New Namespace Wizard**.](../media/azure-netapp-files/azure-netapp-files-dfs-domain-namespace-type.png)
 
 6. Select **Create** to create the namespace and **Close** when the dialog completes.
 
@@ -169,7 +169,7 @@ You can think of DFS Namespaces folders as analogous to file shares.
 
 1. In the DFS Management console, select the namespace you just created and select **New Folder**. The resulting **New Folder** dialog will allow you to create both the folder and its targets.
 
-![A screenshot of the **New Folder** dialog.](../media/azure-netapp-files/azure-netapp-files-dfs-domain-folder-targets.png)
+![A screenshot of the **New Folder** domain-based dialog.](../media/azure-netapp-files/azure-netapp-files-dfs-domain-folder-targets.png)
 
 2. In the textbox labeled **Name** provide the name of the share. 
 
@@ -291,7 +291,7 @@ To take over an existing server name with root consolidation, the name of the na
 
 6. Select the desired namespace type for your environment and select **Next**. The wizard will then summarize the namespace to be created.  
 
-![A screenshot of selecting between a domain-based namespace and a standalone namespace in the **New Namespace Wizard**.](../media/azure-netapp-files/azure-netapp-files-dfs-namespace-type.png)
+![A screenshot of selecting standalone namespace in the **New Namespace Wizard**.](../media/azure-netapp-files/azure-netapp-files-dfs-namespace-type.png)
 
 7. Select **Create** to create the namespace and **Close** when the dialog completes.
 
