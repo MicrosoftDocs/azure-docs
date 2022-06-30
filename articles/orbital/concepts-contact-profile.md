@@ -37,6 +37,8 @@ You can modify the contact profile via the Portal or through the API.
 
 You can delete the contact profile via the Portal or through the API.
 
+https://docs.microsoft.com/en-us/rest/api/orbital/earthobservation/contact-profiles
+
 ## Next steps
 
 - [Quickstart: Schedule a contact](schedule-contact.md)
