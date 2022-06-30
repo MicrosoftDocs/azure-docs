@@ -19,15 +19,15 @@ adobe-target-content: ./quickstart-java-uiex
 # Quickstart: Create a Java app on Azure App Service
 
 
-::: zone pivot="platform-linux-development-environment-cli"
+::: zone pivot="platform-linux-development-environment-maven"
 
-[!INCLUDE [quickstart-java-azure-cli-pivot.md](./includes/quickstart-java/quickstart-java-linux-azure-cli-pivot.md)]
+[!INCLUDE [quickstart-java-linux-maven-pivot.md](./includes/quickstart-java/quickstart-java-linux-maven-pivot.md)]
 
 ::: zone-end
 
-::: zone pivot="platform-windows-development-environment-cli"
+::: zone pivot="platform-windows-development-environment-maven"
 
-[!INCLUDE [quickstart-java-azure-cli-pivot.md](./includes/quickstart-java/quickstart-java-windows-azure-cli-pivot.md)]
+[!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-windows-maven-pivot.md)]
 
 ::: zone-end
 

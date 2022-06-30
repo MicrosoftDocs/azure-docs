@@ -824,15 +824,15 @@ groups:
   - id: platform-windows
     title: Windows
 - id: app-service-platform-environment
-  title: App Service platform and development environment
-  prompt: Choose a hosting platform and development environment
+  title: App Service platform and development tool
+  prompt: Choose a hosting platform and development tool
   pivots:
-  - id: platform-linux-development-environment-cli
-    title: Linux with Azure CLI
+  - id: platform-linux-development-environment-maven
+    title: Linux with Maven
   - id: platform-linux-development-environment-azure-portal
     title: Linux with Azure Portal
-  - id: platform-windows-development-environment-cli
-    title: Windows with Azure CLI
+  - id: platform-windows-development-environment-maven
+    title: Windows with Maven
   - id: platform-windows-development-environment-azure-portal
     title: Windows with Azure Portal
 - id: app-service-containers-windows-linux
