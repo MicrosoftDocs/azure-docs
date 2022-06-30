@@ -2,7 +2,7 @@
 title: Configure customer-managed key encryption at rest in Azure VMware Solution
 description: Learn how to encrypt data in Azure VMware Solution with customer-managed keys using Azure Key Vault.
 ms.topic: how-to 
-ms.date: 5/09/2022
+ms.date: 6/30/2022
 
 ---
 
@@ -12,7 +12,7 @@ ms.date: 5/09/2022
 
 This article illustrates how to encrypt VMware vSAN Key Encryption Keys (KEKs) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault.
 
-When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your Key Vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Key Vault don't need to be in the same subscription.
+When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Azure Key Vault don't need to be in the same subscription.
 
 When managing your own encryption keys, you can do the following actions:
 
@@ -27,7 +27,7 @@ The Customer-managed keys (CMKs) feature supports the following key types. See t
 
 ## Topology
 
-The following diagram shows how Azure VMware Solution uses Azure Active Directory (Azure AD) and a Key Vault to deliver the customer-managed key.
+The following diagram shows how Azure VMware Solution uses Azure Active Directory (Azure AD) and a key vault to deliver the customer-managed key.
 
 :::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-diagram-topology.png" alt-text="Diagram showing the customer-managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-diagram-topology.png":::
 
@@ -35,9 +35,12 @@ The following diagram shows how Azure VMware Solution uses Azure Active Director
 
 Before you begin to enable customer-managed key (CMK) functionality, ensure the following listed requirements are met:
 
-1. You'll need an Azure Key Vault to use CMK functionality. If you don't have an Azure Key Vault, you can create one using [Quickstart: Create a Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
-2. If you enabled restricted access to Key Vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
-3. Enable **System Assigned identity** on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
+1. You'll need an Azure Key Vault to use CMK functionality. If you don't have an Azure Key Vault, you can create one using [Quickstart: Create a key vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
+2. If you enabled restricted access to key vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
+    >[!NOTE]
+    >After firewall rules are in effect, users can only perform Key Vault [data plane](https://docs.microsoft.com/azure/key-vault/general/security-features#privileged-access) operations when their requests originate from allowed VMs or IPv4 address ranges. This also applies to accessing key vault from the Azure portal. This also affects the key vault Picker by Azure VMware Solution. Users may be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine or user does not have list permission in key vault.
+
+1. Enable **System Assigned identity** on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
 
     # [Azure Portal](#tab/azure-portal)
     
@@ -67,15 +70,14 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     ```azurecli-interactive
     az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"
     ```
-
 ---
 
-4. Configure the Key Vault access policy to grant permissions to the managed identity. It will be used to authorize access to the Key Vault.
+4. Configure the key vault access policy to grant permissions to the managed identity. It will be used to authorize access to the key vault.
     
     # [Azure Portal](#tab/azure-portal)
 
     1. Sign in to Azure portal.
-    1. Navigate to **Key vaults** and locate the Key Vault you want to use.
+    1. Navigate to **Key vaults** and locate the key vault you want to use.
     1. From the left navigation, under **Settings**, select **Access policies**.
     1. In **Access policies**, select **Add Access Policy**.
         1. From the Key Permissions drop-down, check **Select all**, **Unwrap Key**, and **Wrap key**.
@@ -87,13 +89,13 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
     # [Azure CLI](#tab/azure-cli)
 
-   Get the principal ID for the system-assigned managed identity and save it to a variable. You'll need this value in the next step to create the Key Vault access policy.
+   Get the principal ID for the system-assigned managed identity and save it to a variable. You'll need this value in the next step to create the key vault access policy.
     
     ```azurecli-interactive
     principalId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query identity.principalId | tr -d '"')
     ```
     
-    To configure the Key Vault access policy with Azure CLI, call [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) and provide the variable for the principal ID that you previously retrieved for the managed identity.
+    To configure the key vault access policy with Azure CLI, call [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) and provide the variable for the principal ID that you previously retrieved for the managed identity.
 
     ```azurecli-interactive
     az keyvault set-policy --name $keyVault --resource-group $resourceGroupName --object-id $principalId --key-permissions get unwrapKey wrapKey
@@ -103,12 +105,29 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
 ---
 
+## Customer-managed key version lifecycle
+
+You can change the customer-managed key (CMK) by creating a new version of the key. The creation of a new version won't interrupt the virtual machine (VM) workflow.
+
+In Azure VMware Solution, CMK key version rotation will depend on the key selection setting you've chosen during CMK setup.
+
+**Key selection setting 1**
+
+A customer enables CMK encryption without supplying a specific key version for CMK. Azure VMware Solution selects the latest key version for CMK from the customer's key vault to encrypt the vSAN Key Encryption Keys (KEKs). Azure VMware Solution tracks the CMK for version rotation. When a new version of the CMK key in Azure Key Vault is created, it's captured by Azure VMware Solution automatically to encrypt vSAN KEKs.
+
+>[!NOTE]
+>Azure VMware Solution can take up to ten minutes to detect a new auto-rotated key version.
+
+**Key selection setting 2**
+
+A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. When the customer's current key expires, they'll need to extend the CMK key expiration or disable CMK.
+
 ## Enable CMK with system-assigned identity
 
 System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource. You can grant permissions to the managed identity on Azure resource. The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
 
 >[!IMPORTANT]
-> Ensure that Key Vault is in the same region as the Azure VMware Solution private cloud.
+> Ensure that key vault is in the same region as the Azure VMware Solution private cloud.
 
 # [Azure Portal](#tab/azure-portal)
 
@@ -135,7 +154,7 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). Get the Key Vault URL and save it to a variable. You will need this value in the next step to enable CMK.
+To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). Get the key vault URL and save it to a variable. You'll need this value in the next step to enable CMK.
     
 ```azurecli-interactive
 keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)
@@ -158,25 +177,7 @@ Supply key version as argument to use customer-managed keys with a specific key 
 ```azurecli-interactive
 az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>
 ```
-
 ---
-
-## Customer-managed key version lifecycle
-
-You can change the customer-managed key (CMK) by creating a new version of the key. The creation of a new version won't interrupt the virtual machine (VM) workflow.
-
-In Azure VMware Solution, CMK key version rotation will depend on the key selection setting you've chosen during CMK setup.
-
-**Key selection setting 1**
-
-A customer enables CMK encryption without supplying a specific key version for CMK. Azure VMware Solution selects the latest key version for CMK from the customer's Key Vault to encrypt the vSAN Key Encryption Keys (KEKs). Azure VMware Solution tracks the CMK for version rotation. When a new version of the CMK key in Azure Key Vault is created, it's captured by Azure VMware Solution automatically to encrypt vSAN KEKs.
-
->[!NOTE]
->Azure VMware Solution can take up to ten minutes to detect a new auto-rotated key version.
-
-**Key selection setting 2**
-
-A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. When the customer's current key expires, they'll need to extend the CMK key expiration or disable CMK.
 
 ## Change from customer-managed key to Microsoft managed key
 
@@ -199,19 +200,19 @@ Updating CMK settings won't work if the key is expired or the Azure VMware Solut
 
 **Accidental deletion of a key**
 
-If you accidentally delete your key in the Azure Key Vault, private cloud won't be able to perform some cluster modification operations. To avoid this scenario, we recommend that you keep soft deletes enabled on Key Vault. This option ensures that, if a key is deleted, it can be recovered within a 90-day period as part of the default soft-delete retention. If you are within the 90-day period, you can restore the key in order to resolve the issue.
+If you accidentally delete your key in the Azure Key Vault, private cloud won't be able to perform some cluster modification operations. To avoid this scenario, we recommend that you keep soft deletes enabled on key vault. This option ensures that, if a key is deleted, it can be recovered within a 90-day period as part of the default soft-delete retention. If you are within the 90-day period, you can restore the key in order to resolve the issue.
 
-**Restore Key Vault permission**
+**Restore key vault permission**
 
-If you have a private cloud that lost access to the customer managed key, check if Managed System Identity (MSI) requires permissions in Key Vault. The error notification returned from Azure may not correctly indicate MSI requiring permissions in Key Vault as the root cause. Remember, the required permissions are: get, wrapKey, and unwrapKey. See step 4 in [Prerequisites](#prerequisites).
+If you have a private cloud that lost access to the customer managed key, check if Managed System Identity (MSI) requires permissions in key vault. The error notification returned from Azure may not correctly indicate MSI requiring permissions in key vault as the root cause. Remember, the required permissions are: get, wrapKey, and unwrapKey. See step 4 in [Prerequisites](#prerequisites).
 
 **Fix expired key**
 
-If you aren't using the auto-rotate function and the Customer Managed Key has expired in Key Vault, you can change the expiration date on key.  
+If you aren't using the auto-rotate function and the Customer Managed Key has expired in key vault, you can change the expiration date on key.  
 
-**Restore Key Vault access**
+**Restore key vault access**
 
-Ensure Managed System Identity (MSI) is used for providing private cloud access to Key Vault.
+Ensure Managed System Identity (MSI) is used for providing private cloud access to key vault.
 
 **Deletion of MSI**
 
