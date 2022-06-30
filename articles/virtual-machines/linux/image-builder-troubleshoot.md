@@ -612,7 +612,7 @@ Making these observations is especially important in build failures, where these
 ### Troubleshoot the task
 The task fails only if an error occurs during customization. When this happens, the task reports the failure and leaves the staging resource group, with the logs, so that you can identify the issue. 
 
-To locate the log, you need to know the template name. Go into pipeline > failed build, and then drill down into the VM Image Builder DevOps task. 
+To locate the log, you need to know the template name. Go to **pipeline** > **failed build**, and then drill down into the VM Image Builder DevOps task. 
 
 You'll see the log and a template name:
 
@@ -682,7 +682,8 @@ You can host your own DevOps agents or look to reduce the time of your build. Fo
 ### Slow Windows logon
 
 #### Error
-When you create a Windows 10 image by using VM Image Builder, create a VM from the image, and use Remote Desktop Protocol (RDP), you then have to wait minutes at the first logon, which displays a blue screen with the message:
+
+This error might occur when you create a Windows 10 image by using VM Image Builder, create a VM from the image, and then use Remote Desktop Protocol (RDP). You wait several minutes at the first logon screen, and then a blue screen displays the following message:
 
 ```text
 Please wait for the Windows Modules Installer
@@ -695,7 +696,7 @@ Please wait for the Windows Modules Installer
    * There are no outstanding reboots required by adding a Windows Restart customizer as the last customization.
    * All software installation is complete. 
    
-1. Add the [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default `Sysprep` that VM Image Builder uses. For more information, see [Override the commands](#override-the-commands) section under "VMs created from VM Image Builder images aren't created successfully".  
+1. Add the [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default `Sysprep` that VM Image Builder uses. For more information, go to the ["Override the commands"](#override-the-commands) section under "VMs created from VM Image Builder images aren't created successfully."  
 
  
 ## VMs created from VM Image Builder images aren't created successfully
