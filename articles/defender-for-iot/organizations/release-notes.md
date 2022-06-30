@@ -81,7 +81,6 @@ Now, for locally-managed sensors, you can upload that diagnostic log directly on
 > [!TIP]
 > For cloud-connected sensors, starting from sensor version [22.1.3](#march-2022), the diagnostic log is automatically available to support when you open the ticket.
 >
-
 For more information, see:
 
 - [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
