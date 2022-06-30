@@ -42,7 +42,7 @@ There are two primary ways to navigate to the contained activities in a nested a
 Your pipeline canvas will then switch to the context of the inner activity container that you selected. There will also be a breadcrumb trail at the top you can select to navigate back to the parent pipeline.
 :::image type="content" source="media/concepts-pipelines-activities/nested-activity-breadcrumb.png" alt-text="Screenshot showing an example If activity inside the true branch with a highlight on the breadcrumb to navigate back to the parent pipeline.":::
 2. From the activity on the pipeline canvas, you can select the pencil icon to drill down into the inner activities panel. As above, you'll have a breadcrumb to navigate back to the parent pipeline. Additionally, the ForEach and Until activities support double-clicking on the activity to drill down to the inner activities panel.
-:::image type="content" source="media/concepts-pipelines-activities/nested-activity-canvas-navigation.png" alt-text="Screenshot showing an example If activity inside the true branch with a highlight on the breadcrumb to navigate back to the parent pipeline.":::
+:::image type="content" source="media/concepts-pipelines-activities/nested-activity-canvas-navigation.png" alt-text="Screenshot showing an example If activity on the pipeline canvas highlighting the pencil icon.":::
  
 
 ## Nested activity embedding limitations
