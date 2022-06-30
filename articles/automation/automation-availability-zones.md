@@ -36,7 +36,7 @@ Automation Accounts currently supports the following regions in preview:
 - China North 3
 - Qatar Central
 
-## Create a Zone redundant Automation account
+## Create a zone redundant Automation account
 You can create a zone redundant Automation account using:
 - [Azure portal](/azure/automation/automation-create-standalone-account?tabs=azureportal)
 - [Azure Resource Manager (ARM) template](/azure/automation/quickstart-create-automation-account-template)
