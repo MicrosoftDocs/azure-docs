@@ -14,7 +14,7 @@ recommendations: false
 
 # Create a resource and deploy a model using Azure OpenAI
 
-Use this article to get started creating your first Azure OpenAI resource and deploying a model.
+Use this article to get started with Azure OpenAI with step-by-step instructions to create a resource and deploy a model. While the steps for resource creation and model deployment can be completed in a few minutes, the actual deployment process itself can take more than hour. It is recommended to create your resource, start your deployment, and then check back in on your deployment later rather than actively waiting for the deployment to complete.
 
 ::: zone pivot="web-portal"
 
