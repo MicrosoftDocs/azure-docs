@@ -43,7 +43,7 @@ To minimize issues related to throttling, it's a good idea to use the following 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
 - Test different load increase patterns.
-- Create another OpenAI service resources in the same or different regions, and distribute the workload among them.
+- Create another OpenAI service resource in the same or different regions, and distribute the workload among them.
 
 The next sections describe specific cases of adjusting quotas.
 
@@ -59,7 +59,7 @@ Increasing the limit of concurrent requests doesn't directly affect your costs. 
   
 How to get this information:
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select the Azure OpenAI resource for which you would like to increase the request limit.
 1. From the **Resource Management** group, select **Properties**.
 1. Copy and save the values of the following fields:
@@ -73,7 +73,7 @@ How to get this information:
 Initiate the increase of the limit for concurrent requests for your resource, or if necessary check the current limit, by submitting a support request. Here's how:
 
 1. Ensure you have the required information listed in the previous section.
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select the OpenAI service resource for which you would like to increase (or to check) the concurrency request limit.
 1. In the **Support + troubleshooting** group, select **New support request**. A new window will appear, with auto-populated information about your Azure subscription and Azure resource.
 1. In **Summary**, describe what you want (for example, "Increase OpenAI request limit").
