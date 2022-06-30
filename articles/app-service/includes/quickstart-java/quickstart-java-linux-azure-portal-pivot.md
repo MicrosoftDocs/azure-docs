@@ -1,3 +1,12 @@
+---
+author: cephalin
+ms.service: app-service
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 06/30/2022
+ms.author: cephalin
+---
+
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Linux using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
@@ -30,7 +39,7 @@ To complete this quickstart you need:
 
 ## 2 - Deploy to Azure
 
-1. Sign into the Azure portal.
+1. Log in to the Azure portal.
 
 1. Type **app services** in the search. Under **Services**, select **App Services**.
 
