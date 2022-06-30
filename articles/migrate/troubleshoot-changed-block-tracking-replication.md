@@ -5,7 +5,7 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
-ms.date: 08/17/2020
+ms.date: 06/30/2022
 ---
 
 # Troubleshooting replication issues in agentless VMware VM migration
@@ -313,15 +313,11 @@ This error occurs when the size of the snapshot file created is larger than the 
 
 **Possible Causes:**
 
-Possible reasons are:
-1. Path of one or more included disks changed due to Storage VMotion.
-2. One or more included disks is no longer attached to the VM.
+- One or more included disks is no longer attached to the VM.
       
 **Recommendation:**
 
-Following recommendations are provided
-1. Restore the included disks to original path using storage vMotion and then disable storage vmotion.
-2. Disable Storage VMotion, if enabled, stop replication on the virtual machine, and replicate the virtual machine again. If the issue persists, contact support.
+- Restore the included disks to the original path using storage vMotion and try replication again.
 
 ## Next Steps
 
