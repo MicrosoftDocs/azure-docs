@@ -1,6 +1,6 @@
 ---
-title: Azure Hybrid Benefit for Linux VM scale sets 
-description: Learn how Azure Hybrid Benefit can apply to virtual machine scale sets and save you money on Linux VMs in Azure.
+title: Azure Hybrid Benefit for Linux Virtual Machine scale sets 
+description: Learn how Azure Hybrid Benefit can apply to virtual machine scale sets and save you money on Linux Virtual Machines in Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mathapli
@@ -19,7 +19,7 @@ ms.custom: kr2b-contr-experiment
 
 # Explore Azure Hybrid Benefit for Linux virtual machine scale sets
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Linux Virtual Machines :heavy_check_mark: Uniform scale sets
 
 **Azure Hybrid Benefit for Linux virtual machine scale set is in general availability at this time**. *Azure Hybrid Benefit (AHB)* can reduce the cost of running your *Red Hat Enterprise Linux (RHEL)* and *SUSE Linux Enterprise Server (SLES)* [virtual machine scale sets](./overview.md). AHB is available for all RHEL and SLES Marketplace pay-as-you-go (PAYG) images. 
 
@@ -27,19 +27,19 @@ When you enable AHB, the only fee that you incur is the cost of your scale set i
 
 
 >[!NOTE]
-> This article explores AHB for Linux *virtual machine scale sets (VMSS)*. A separate article discusses [AHB for Linux VMs](../virtual-machines/linux/azure-hybrid-benefit-linux.md), a service available to Azure customers since November 2020.
+> This article explores AHB for Linux *virtual machine scale sets (VMSS)*. A separate article discusses [AHB for Linux Virtual Machines](../virtual-machines/linux/azure-hybrid-benefit-linux.md), a service available to Azure customers since November 2020.
 
 ## What is AHB for Linux virtual machine scale sets?
 AHB allows you to switch your virtual machine scale sets to *bring-your-own-subscription (BYOS)* billing. You can use your cloud access licenses from Red Hat or SUSE for this. You can also switch PAYG instances to BYOS without the need to redeploy.
 
 A VMSS deployed from PAYG marketplace images is charged both infrastructure and software fees when AHB is enabled.
 
-:::image type="content" source="./media/azure-hybrid-benefit-linux/azure-hybrid-benefit-linux-cost.png" alt-text="A screenshot that shows AHB costs for Linux VMs.":::
+:::image type="content" source="./media/azure-hybrid-benefit-linux/azure-hybrid-benefit-linux-cost.png" alt-text="A screenshot that shows AHB costs for Linux Virtual Machines.":::
 
-## Which Linux VMs can use AHB?
+## Which Linux Virtual Machines can use AHB?
 AHB can be used on all RHEL and SLES PAYG images from Azure Marketplace. AHB isn't yet available for RHEL or SLES BYOS images or custom images from Azure Marketplace.
 
-Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for AHB if you're already using AHB with Linux VMs.
+Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for AHB if you're already using AHB with Linux Virtual Machines.
 
 ## Get started
 
@@ -59,7 +59,7 @@ To start using AHB for Red Hat:
 
    The Azure subscriptions that you provide during the Red Hat Cloud Access enablement process are permitted to use AHB.
 1. Apply AHB to any of your new or existing RHEL PAYG VMSSs. You can use Azure portal or Azure *command-line interface (CLI)* to enable AHB.
-1. Configure update sources for your RHEL VMs and RHEL subscription compliance guidelines with the following, recommended [next steps](https://access.redhat.com/articles/5419341).
+1. Configure update sources for your RHEL Virtual Machines and RHEL subscription compliance guidelines with the following, recommended [next steps](https://access.redhat.com/articles/5419341).
 
 
 ### How to enable AHB for SUSE VMSS
@@ -68,7 +68,7 @@ To start using AHB for SUSE:
 
 1. Register with the SUSE Public Cloud Program.
 1. Apply AHB to your newly created or existing virtual machine scale set via Azure portal or Azure CLI.
-1. Register your VMs that are receiving AHB with a separate source of updates.
+1. Register your Virtual Machines that are receiving AHB with a separate source of updates.
 
 
 ## How to enable and disable AHB in Azure portal 
@@ -92,7 +92,7 @@ To start using AHB for SUSE:
 
 ## How to enable and disable AHB using Azure CLI
 
-You can use the `az vmss update` command to update VMs. For RHEL VMs, run the command with a `--license-type` parameter of `RHEL_BYOS`. For SLES VMs, run the command with a `--license-type` parameter of `SLES_BYOS`.
+You can use the `az vmss update` command to update Virtual Machines. For RHEL Virtual Machines, run the command with a `--license-type` parameter of `RHEL_BYOS`. For SLES Virtual Machines, run the command with a `--license-type` parameter of `SLES_BYOS`.
 
 ### How to enable AHB using a CLI
 ```azurecli
@@ -106,15 +106,15 @@ az vmss update --resource-group myResourceGroup --name myVmName --license-type S
 To disable AHB, use a `--license-type` value of `None`:
 
 ```azurecli
-# This will disable AHB on a VM
+# This will disable AHB on a Virtual Machine
 az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Scale sets have an ["upgrade policy"](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) that determine how VMs are brought up-to-date with the latest scale set model. 
-Hence, if your VMSS have 'Automatic' upgrade policy, AHB will be applied automatically as VM instances get updated. 
+> Scale sets have an ["upgrade policy"](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) that determine how Virtual Machines are brought up-to-date with the latest scale set model. 
+Hence, if your VMSS have 'Automatic' upgrade policy, AHB will be applied automatically as Virtual Machine instances get updated. 
 If VMSS have 'Rolling' upgrade policy, based on the scheduled updates, AHB will be applied.
-In case of 'Manual' upgrade policy, you will have to perform a "manual upgrade" of your VMs.  
+In case of 'Manual' upgrade policy, you will have to perform a "manual upgrade" of your Virtual Machines.  
 
 ### How to upgrade virtual machine scale set instances in case of "Manual Upgrade" policy using a CLI 
 ```azurecli
@@ -138,4 +138,4 @@ az vmss create --name myVmName --resource-group myResourceGroup --vnet-name myVn
 ```
 
 ## Next steps
-* [Learn how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for AHB by using the Azure CLI](/cli/azure/vmss)
+* [Learn how to create and update Virtual Machines and add license types (RHEL_BYOS, SLES_BYOS) for AHB by using the Azure CLI](/cli/azure/vmss)
