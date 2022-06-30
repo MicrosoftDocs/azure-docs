@@ -94,7 +94,7 @@ az acr update --name myContainerRegistry --sku Premium
 
 ### Azure PowerShell
 
-To move between service tiers in the Azure PowerShell, use the [Update-AzContainerRegistry][update-azcontainerregistry] cmdlet. For example, to switch to Premium:
+To move between service tiers in Azure PowerShell, use the [Update-AzContainerRegistry][update-azcontainerregistry] cmdlet. For example, to switch to Premium:
 
 ```azurepowershell
 Update-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myContainerRegistry -Sku Premium
