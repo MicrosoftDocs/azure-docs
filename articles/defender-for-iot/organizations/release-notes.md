@@ -51,8 +51,6 @@ To update to version 22.2.3:
 - From version 22.1.x, update directly to version 22.2.3
 - From version 10.x, first update to version 22.1.6, and then update again to 22.2.3
 
-For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
-
 ## June 2022
 
 **Sensor software version**: 22.1.5
