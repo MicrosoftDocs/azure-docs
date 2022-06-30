@@ -69,11 +69,11 @@ Select **Add** to create a new builder. The image below shows the resources you 
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-create.png" alt-text="Screenshot of 'Add Builder' pane." lightbox="media/enterprise/how-to-enterprise-build-service/builder-create.png":::
 
-You can also edit a custom builder when the builder is not used in the a deployment. You can update the buildpacks or the [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html), but the builder name is read only.
+You can also edit a custom builder when the builder isn't used in a deployment. You can update the buildpacks or the [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html), but the builder name is read only.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-edit.png" alt-text="Screenshot of Azure portal showing Build Service page with builders list and context menu showing 'Edit Builder' command." lightbox="media/enterprise/how-to-enterprise-build-service/builder-edit.png":::
 
-You can delete any custom builder when the builder is not used in a deployment, but the `default` builder is read only.
+You can delete any custom builder when the builder isn't used in a deployment, but the `default` builder is read only.
 
 When you deploy an app, you can build the app by specifying a specific builder in the command:
 
@@ -84,11 +84,7 @@ az spring app deploy \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-If the builder isn't specified, the `default` builder will be used.
-The builder is a resource that continuously contributes to your deployments. It provides the latest runtime images and latest buildpacks(including the latest APM agents and so on).
-When you used a builder to deploy the app, this builder and the bindings under this builder is not allowed to edit and delete.
-To apply the changes of the builder please save the configuration as a new builder.
-To delete the builder please remove the deployments used this builder first.
+If the builder isn't specified, the `default` builder will be used. The builder is a resource that continuously contributes to your deployments. The builder provides the latest runtime images and latest buildpacks, including the latest APM agents and so on. When you use a builder to deploy the app, the builder and the bindings under the builder aren't allowed to edit and delete. To apply changes to a builder, save the configuration as a new builder. To delete a builder, remove the deployments that use the builder first.
 
 You can also configure the build environment and build resources by using the following command:
 
@@ -229,7 +225,8 @@ az spring build-service builder buildpack-binding delete \
     --builder-name <your-builder-name>
 ```
 
-**Note: The bindings are not allowed to create, edit and delete when the parent builder is used in a deployment.**
+> [!NOTE]
+> The bindings aren't allowed to create, edit, or delete when the parent builder is used in a deployment.
 
 ---
 
