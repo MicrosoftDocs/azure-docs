@@ -82,8 +82,10 @@
       href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
     - name: Keywords extraction
       href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
-    - name: Transcription, Translation, Language Identification
+    - name: Transcription, Translation, Language
       href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Labels identification
+      href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
   - name: Connect an existing account to ARM (Preview)
