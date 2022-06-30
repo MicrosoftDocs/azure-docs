@@ -4,8 +4,8 @@ description: Azure Virtual Machine Agent Overview
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: amjads
-author: amjads1
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 07/20/2019 
 ms.custom: devx-track-azurepowershell
@@ -54,7 +54,7 @@ To boot a VM you must have the PA installed on the VM, however the WinGA does no
 If you do not have the Agents installed, you cannot use some Azure services, such as Azure Backup or Azure Security. These services require an extension to be installed. If you have deployed a VM without the WinGA, you can install the latest version of the agent later.
 
 ### Manual installation
-The Windows VM agent can be manually installed with a Windows installer package. Manual installation may be necessary when you create a custom VM image that is deployed to Azure. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
+The Windows VM agent can be manually installed with a Windows installer package. Manual installation may be necessary when you create a custom VM image that is deployed to Azure. To manually install the Windows VM Agent, [download the VM Agent installer](https://github.com/Azure/WindowsVMAgent) and select the latest release. You can also search a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
 
 > [!NOTE]
 > It is important to update the AllowExtensionOperations option after manually installing the VMAgent on a VM that was deployed from image without ProvisionVMAgent enable.
@@ -122,7 +122,7 @@ When logged in to a Windows VM, Task Manager can be used to examine running proc
 
 
 ## Upgrade the VM Agent
-The Azure VM Agent for Windows is automatically upgraded on images deployed from the Azure Marketplace. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. If you have installed the agent manually or are deploying custom VM images you will need to manually update to include the new VM agent at image creation time.
+The Azure VM Agent for Windows is automatically upgraded on images deployed from the Azure Marketplace. The new versions are stored in Azure Storage, so please ensure you don't have firewalls blocking access. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. If you have installed the agent manually or are deploying custom VM images you will need to manually update to include the new VM agent at image creation time.
 
 ## Windows Guest Agent Automatic Logs Collection
 Windows Guest Agent has a feature to automatically collect some logs. This feature is controller by the CollectGuestLogs.exe process. 

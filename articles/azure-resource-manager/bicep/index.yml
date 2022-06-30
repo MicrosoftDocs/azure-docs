@@ -37,6 +37,8 @@ landingContent:
         links:
           - text: Create Bicep files - VS Code
             url: quickstart-create-bicep-use-visual-studio-code.md
+          - text: Create and deploy template specs
+            url: quickstart-create-template-specs.md
       - linkListType: learn
         links:
           - text: Introduction to Bicep
@@ -128,4 +130,3 @@ landingContent:
           url: /powershell/module/az.resources
         - text: Azure CLI
           url: /cli/azure/resource
-  

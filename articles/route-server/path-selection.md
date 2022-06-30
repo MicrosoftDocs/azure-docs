@@ -2,11 +2,11 @@
 title: 'Path selection with Azure Route Server'
 description: Learn about how Azure Route Server enables path selection for your network virtual appliance.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: duau
+ms.author: halkazwini
 #Customer intent: As a network administrator, I want to control how traffic is routed from Azure to my on-premises network.
 ---
 

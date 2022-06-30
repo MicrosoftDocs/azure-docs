@@ -3,12 +3,12 @@ title: Provision a user on demand by using Azure Active Directory
 description: Learn how to provision users on demand in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 03/09/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -30,7 +30,7 @@ Use on-demand provisioning to provision a user into an application in seconds. A
 1. Search for a user by first name, last name, display name, user principal name, or email address.
    > [!NOTE]
    > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
-   > For Workday scenario, please provide "WID" of the user in Workday. 
+   > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
    > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
  
 1. Select **Provision** at the bottom of the page.
@@ -147,6 +147,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 * Amazon Web Services (AWS) application does not support on-demand provisioning. 
 * On-demand provisioning of groups and roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
+* Provisioning multiple roles on a user isn't supported by on-demand provisioning. 
 
 ## Next steps
 

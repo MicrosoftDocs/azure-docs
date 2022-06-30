@@ -52,19 +52,77 @@ LUIS uses two kinds of keys:
 
 For this guide, you need the prediction key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, LUIS automatically generates a authoring key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
+When you create a LUIS app, LUIS automatically generates an authoring key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
 
 After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Azure Resources** in the sidebar.
 
-:::image type="content" source="media/sdk/luis-keys-endpoints-page.png" alt-text="A screenshot of the LUIS portal keys and endpoint settings." lightbox="media/sdk/luis-keys-endpoints-page.png":::
+:::image type="content" source="media/sdk/luis-keys-endpoints-page.png" alt-text="Shows a screenshot of the LUIS portal keys and endpoint settings." lightbox="media/sdk/luis-keys-endpoints-page.png":::
 
 On the **Azure Resources** page:
 
 Select the icon next to a key to copy it to the clipboard. (You may use either key.)
 
-## Create a speech project in Visual Studio
+## Create the project and add the workload
 
-[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+To create a Visual Studio project for Windows development, you need to create the project, set up Visual Studio for .NET desktop development, install the Speech SDK, and choose the target architecture.
+
+To start, create the project in Visual Studio, and make sure that Visual Studio is set up for .NET desktop development:
+
+1. Open Visual Studio 2019.
+
+1. In the Start window, select **Create a new project**. 
+
+1. In the **Create a new project** window, choose **Console App (.NET Framework)**, and then select **Next**.
+
+1. In the **Configure your new project** window, enter *helloworld* in **Project name**, choose or create the directory path in **Location**, and then select **Create**.
+
+1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features**, which opens Visual Studio Installer and displays the **Modifying** dialog box.
+
+1. Check whether the **.NET desktop development** workload is available. If the workload hasn't been installed, select the check box next to it, and then select **Modify** to start the installation. It may take a few minutes to download and install.
+
+   If the check box next to **.NET desktop development** is already selected, select **Close** to exit the dialog box.
+
+   ![Enable .NET desktop development](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+
+1. Close Visual Studio Installer.
+
+### Install the Speech SDK
+
+The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), so you can reference it in the code.
+
+1. In the Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
+
+   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+
+1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **nuget.org** is selected.
+
+1. In the upper-left corner, select **Browse**.
+
+1. In the search box, type *Microsoft.CognitiveServices.Speech* and select **Enter**.
+
+1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
+
+   ![Install Microsoft.CognitiveServices.Speech NuGet package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+
+1. Accept all agreements and licenses to start the installation.
+
+   After the package is installed, a confirmation appears in the **Package Manager Console** window.
+
+### Choose the target architecture
+
+Now, to build and run the console application, create a platform configuration matching your computer's architecture.
+
+1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog box appears.
+
+   ![Configuration Manager dialog box](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+
+1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog box appears.
+
+1. In the **Type or select the new platform** drop-down box:
+   - If you're running 64-bit Windows, select **x64**.
+   - If you're running 32-bit Windows, select **x86**.
+
+1. Select **OK** and then **Close**.
 
 ## Add the code
 
@@ -142,14 +200,14 @@ Instead of adding individual intents, you can also use the `AddAllIntents` metho
 
 ## Start recognition
 
-With the recognizer created and the intents added, recognition can begin. The Speech SDK supports both at-start and continuous recognition.
+With the recognizer created and the intents added, recognition can begin. The Speech SDK supports both single-shot and continuous recognition.
 
 | Recognition mode | Methods to call | Result |
 | ---------------- | --------------- | ------ |
-| At-start | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
+| Single-shot | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
 | Continuous | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Recognizes multiple utterances; emits events (for example, `IntermediateResultReceived`) when results are available. |
 
-The application uses at-start mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
+The application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
@@ -179,8 +237,7 @@ For example, if you say "Turn off the lights", pause, and then say "Turn on the 
 
 ![Audio file LUIS recognition results](media/sdk/luis-results-2.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
+The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure Cognitive Services Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
 
 ## Next steps
 

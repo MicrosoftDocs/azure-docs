@@ -2,19 +2,11 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/14/2019
+ms.date: 04/14/2022
 ms.author: glenga
 ---
 
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[3.3.0, 4.0.0)"
-    }
-}
-```
+[!INCLUDE [functions-extension-bundles-json-v3](./functions-extension-bundles-json-v3.md)]
 
 The following properties are available in `extensionBundle`:
 

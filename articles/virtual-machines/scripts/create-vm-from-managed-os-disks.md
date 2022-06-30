@@ -9,7 +9,7 @@ editor: ramankum
 tags: azure-service-management
 
 ms.assetid:
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
@@ -37,7 +37,7 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-attach-existing-managed-os-disk/create-vm-attach-existing-managed-os-disk.sh" range="3-26":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-attach-existing-managed-os-disk/create-vm-attach-existing-managed-os-disk.sh" id="FullScript":::
 
 ## Clean up resources
 

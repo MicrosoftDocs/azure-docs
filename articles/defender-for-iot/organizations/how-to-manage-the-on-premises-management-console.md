@@ -11,6 +11,20 @@ This article covers on-premises management console options like backup and resto
 
 You onboard the on-premises management console from the Azure portal.
 
+## Download software for the on-premises management console
+
+This procedure describes how to use the Azure portal to download software for you to install on your own appliances for an on-premises management console.
+
+1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console**.
+
+1. Make sure that you have a supported appliance available. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+
+1. Under **Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+
+1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
+
+1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
+
 ## Upload an activation file
 
 When you first sign in, an activation file for the on-premises management console is downloaded. This file contains the aggregate committed devices that are defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
@@ -56,8 +70,7 @@ If the upload fails, contact your security or IT administrator, or review the in
 
 1. Select **Save**.
 
-For more information about first-time certificate upload see,
-[First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
+For more information about first-time certificate upload, see [First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist).
 
 ## Define backup and restore settings
 
@@ -213,7 +226,7 @@ If you are working with an on-premises management console and managed sensors, *
 
 1. Select **Download** and save the file.
 
-1. Log into on-premises management console and select **System Settings** from the side menu.
+1. Sign into the on-premises management console and select **System Settings** from the side menu.
 
 1. On the **Version Update** pane, select **Update**.
 
@@ -233,8 +246,10 @@ To define:
    `mail.sender=`
 1. Enter the SMTP server name  and sender and select enter.
 
-## See also
+## Next steps
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+For more information, see:
 
-[Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+
+- [Manage individual sensors](how-to-manage-individual-sensors.md)

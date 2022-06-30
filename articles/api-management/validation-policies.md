@@ -1,22 +1,22 @@
 ---
 title: Azure API Management validation policies | Microsoft Docs
-description: Learn about policies you can use in Azure API Management to validate requests and responses.
+description: Reference for Azure API Management policies to validate API requests and responses. Provides policy usage, settings, and examples.
 services: api-management
 documentationcenter: ''
 author: dlepow
 ms.service: api-management
-ms.topic: article
-ms.date: 02/22/2022
+ms.topic: reference
+ms.date: 06/07/2022
 ms.author: danlep
 ---
 
 # API Management policies to validate requests and responses
 
-This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management policies to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data. Learn more about common [API vulnerabilites](mitigate-owasp-api-threats.md).
 
-Use validation policies to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data.
+While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules. 
 
-While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules.
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## Validation policies
 
@@ -64,13 +64,27 @@ We recommend performing load tests with your expected production workloads to as
 
 The `validate-content` policy validates the size or content of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
 
-The following table shows the schema formats and request or response content types that the policy supports. Content type values are case insensitive.
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
+The following table shows the schema formats and request or response content types that the policy supports. Content type values are case insensitive. 
 
 | Format  | Content types | 
 |---------|---------|
 |JSON     |  Examples: `application/json`<br/>`application/hal+json` | 
 |XML     |  Example: `application/xml`  | 
 |SOAP     |  Allowed values: `application/soap+xml` for SOAP 1.2 APIs<br/>`text/xml` for SOAP 1.1 APIs|
+
+### What content is validated
+
+The policy validates the following content in the request or response against the schema:
+
+* Presence of all required properties. 
+* Absence of additional properties, if the schema has the `additionalProperties` field set to `false`.
+* Types of all properties. For example, if a schema specifies a property as an integer, the request (or response) must include an integer and not another type, such as a string.
+* The format of the properties, if specified in the schema - for example, regex (if the `pattern` keyword is specified), `minimum` for integers, and so on.
+
+> [!TIP]
+> For examples of regex pattern constraints that can be used in schemas, see [OWASP Validation Regex Repository](https://owasp.org/www-community/OWASP_Validation_Regex_Repository).
 
 ### Policy statement
 
@@ -164,7 +178,6 @@ After the schema is created, it appears in the list on the **Schemas** page. Sel
 > * A schema may cross-reference another schema that is added to the API Management instance. 
 > * Open-source tools to resolve WSDL and XSD schema references and to batch-import generated schemas to API Management are available on [GitHub](https://github.com/Azure-Samples/api-management-schema-import).
 
-
 ### Usage
 
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
@@ -179,6 +192,8 @@ The `validate-parameters` policy validates the header, query, or path parameters
 
 > [!IMPORTANT]
 > If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to [reimport your API](/rest/api/apimanagement/current-ga/apis/create-or-update) using management API version `2021-01-01-preview` or later.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 
 ### Policy statement
@@ -247,6 +262,9 @@ The `validate-headers` policy validates the response headers against the API sch
 > [!IMPORTANT]
 > If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-headers` policy might not work. You may need to reimport your API using management API version `2021-01-01-preview` or later.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -287,7 +305,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## Validate status code
 
-The `validate-status-code` policy validates the HTTP status codes in responses against the API schema. This policy may be used to prevent leakage of backend errors, which can contain stack traces. 
+The `validate-status-code` policy validates the HTTP status codes in responses against the API schema. This policy may be used to prevent leakage of backend errors, which can contain stack traces.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)] 
 
 ### Policy statement
 
@@ -395,12 +415,4 @@ The following table lists all the possible Reason values of a validation error a
 
 
 
-## Next steps
-
-For more information about working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Transform APIs](transform-api.md)
--   [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
--   [Error handling](./api-management-error-handling-policies.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

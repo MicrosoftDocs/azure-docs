@@ -67,7 +67,7 @@ with security best practices on Azure:
     application attacks.
 
   - [Secure DevOps Kit for
-    Azure](https://azsk.azurewebsites.net/index.html) is a collection of
+    Azure](https://github.com/azsk/AzTS-docs/#readme) is a collection of
     scripts, tools, extensions, and automations that caters to the
     comprehensive Azure subscription and resource security needs of
     DevOps teams that use extensive automation. The Secure DevOps Kit

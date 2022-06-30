@@ -15,6 +15,7 @@ ms.subservice: pstn
 # Telephony concepts
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
 
 Azure Communication Services Calling SDKs can be used to add telephony and Public Switched Telephone Network access to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn more about specific SDK languages and capabilities.
 

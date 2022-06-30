@@ -1,10 +1,8 @@
 ---
 title: Azure Tables output bindings for Azure Functions
 description: Understand how to use Azure Tables output bindings in Azure Functions.
-author: craigshoemaker
 ms.topic: reference
-ms.date: 01/23/2022
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -485,7 +483,7 @@ The following types are supported for `out` parameters and return types:
 
 You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
-# [Table API extension (preview)](#tab/table-api/in-process)
+# [Table API extension](#tab/table-api/in-process)
 
 The following types are supported for `out` parameters and return types:
 

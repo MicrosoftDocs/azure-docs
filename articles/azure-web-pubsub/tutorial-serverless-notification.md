@@ -347,19 +347,19 @@ Use the following commands to create these item.
 
 1. If you haven't done so already, sign in to Azure:
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Create a resource group or you can skip by re-using the one of Azure Web PubSub service:
 
-    ```bash
+    ```azurecli
     az group create -n WebPubSubFunction -l <REGION>
     ```
 
 1. Create a general-purpose storage account in your resource group and region:
 
-    ```bash
+    ```azurecli
     az storage account create -n <STORAGE_NAME> -l <REGION> -g WebPubSubFunction
     ```
 
@@ -367,7 +367,7 @@ Use the following commands to create these item.
 
     # [JavaScript](#tab/javascript)
 
-    ```bash
+    ```azurecli
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
     > [!NOTE]
@@ -375,7 +375,7 @@ Use the following commands to create these item.
 
     # [C#](#tab/csharp)
 
-    ```bash
+    ```azurecli
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 
@@ -407,10 +407,10 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+> [Tutorial: Create a simple chatroom with Azure Web PubSub](/azure/azure-web-pubsub/tutorial-build-chat)
 
 > [!div class="nextstepaction"]
-> [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+> [Azure Web PubSub bindings for Azure Functions](/azure/azure-web-pubsub/reference-functions-bindings)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)

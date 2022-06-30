@@ -109,7 +109,7 @@ To remove the virtual machine and associated dashboard that you created, delete 
 az group delete --name myResourceGroup
 ```
 
-To remove only the dashboard, use the [az portal dashboard delete](/cli/azure/portal/dashboard#az_portal_dashboard_delete) command:
+To remove only the dashboard, use the [az portal dashboard delete](/cli/azure/portal/dashboard#az-portal-dashboard-delete) command:
 
 ```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"

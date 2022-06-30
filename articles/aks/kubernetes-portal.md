@@ -14,7 +14,7 @@ The Kubernetes resource view from the Azure portal replaces the AKS dashboard ad
 
 ## Prerequisites
 
-To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][portal-cluster] to create a new AKS cluster.
+To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][aks-quickstart-portal] to create a new AKS cluster.
 
 ## View Kubernetes resources
 
@@ -30,11 +30,11 @@ To see the Kubernetes resources, navigate to your AKS cluster in the Azure porta
 
 ### Deploy an application
 
-In this example, we'll use our sample AKS cluster to deploy the Azure Vote application from the [AKS quickstart][portal-quickstart].
+In this example, we'll use our sample AKS cluster to deploy the Azure Vote application from the [AKS quickstart][aks-quickstart-portal].
 
 1. Select **Add** from any of the resource views (Namespace, Workloads, Services and ingresses, Storage, or Configuration).
-1. Paste the YAML for the Azure Vote application from the [AKS quickstart][portal-quickstart].
-1. Select **Add** at the bottom of the YAML editor to deploy the application. 
+1. Paste the YAML for the Azure Vote application from the [AKS quickstart][aks-quickstart-portal].
+1. Select **Add** at the bottom of the YAML editor to deploy the application.
 
 Once the YAML file is added, the resource viewer shows both Kubernetes services that were created: the internal service (azure-vote-back), and the external service (azure-vote-front) to access the Azure Vote application. The external service includes a linked external IP address so you can easily view the application in your browser.
 
@@ -42,7 +42,7 @@ Once the YAML file is added, the resource viewer shows both Kubernetes services 
 
 ### Monitor deployment insights
 
-AKS clusters with [Azure Monitor for containers][enable-monitor] enabled can quickly view deployment and other insights. From the Kubernetes resources view, users can see the live status of individual deployments, including CPU and memory usage, as well as transition to Azure monitor for more in-depth information about specific nodes and containers. Here's an example of deployment insights from a sample AKS cluster:
+AKS clusters with [Container insights][enable-monitor] enabled can quickly view deployment and other insights. From the Kubernetes resources view, users can see the live status of individual deployments, including CPU and memory usage, as well as transition to Azure monitor for more in-depth information about specific nodes and containers. Here's an example of deployment insights from a sample AKS cluster:
 
 :::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Deployment insights displayed in the Azure portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
@@ -72,6 +72,8 @@ To access the Kubernetes resources, you must have access to the AKS cluster, the
 
 For existing clusters, you may need to enable the Kubernetes resource view. To enable the resource view, follow the prompts in the portal for your cluster.
 
+### [Azure CLI](#tab/azure-cli)
+
 > [!TIP]
 > The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. Another option for such clusters is updating `--api-server-authorized-ip-ranges` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with below command or by searching "what is my IP address" in an internet browser.
 
@@ -85,15 +87,30 @@ CURRENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
+### [Azure PowerShell](#tab/azure-powershell) 
+
+> [!TIP]
+> The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. Another option for such clusters is updating `-ApiServerAccessAuthorizedIpRange` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with below command or by searching "what is my IP address" in an internet browser.
+
+```azurepowershell
+# Retrieve your IP address
+$CURRENT_IP = (Invoke-RestMethod -Uri http://ipinfo.io/json).ip
+
+# Add to AKS approved list
+Set-AzAksCluster -ResourceGroupName $RG -Name $AKSNAME -ApiServerAccessAuthorizedIpRange $CURRENT_IP/32
+```
+
+---
+
 ## Next steps
 
 This article showed you how to access Kubernetes resources for your AKS cluster. See [Deployments and YAML manifests][deployments] for a deeper understanding of cluster resources and the YAML files that are accessed with the Kubernetes resource viewer.
 
 <!-- LINKS - internal -->
 [concepts-identity]: concepts-identity.md
-[portal-quickstart]: kubernetes-walkthrough-portal.md#run-the-application
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-managed-aad]: managed-aad.md
 [cli-aad-upgrade]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
 [enable-monitor]: ../azure-monitor/containers/container-insights-enable-existing-clusters.md
-[portal-cluster]: kubernetes-walkthrough-portal.md

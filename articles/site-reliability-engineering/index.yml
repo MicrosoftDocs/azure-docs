@@ -149,7 +149,7 @@ conceptualContent:
           itemType: get-started
           text: Logs with Azure Monitor
 
-        - url: ../azure-monitor/azure-monitor-app-hub.yml
+        - url: ../azure-monitor/app/app-insights-overview.md
           itemType: get-started
           text: Application Performance Management with Application Insights
 

@@ -1,8 +1,8 @@
 ---
 title: Limits and limitations – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Current limits for Hyperscale (Citus) server groups
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 02/25/2022
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 The following section describes capacity and functional limits in the
 Hyperscale (Citus) service.

@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 04/28/2022
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
@@ -28,7 +28,7 @@ The two available connectivity modes are:
 
   * Direct mode
 
-    Direct mode supports connectivity through TCP protocol and offers better performance because there are fewer network hops. The application connects directly to the backend replicas. Direct mode is currently only supported on .NET and Java SDK platforms.
+    Direct mode supports connectivity through TCP protocol, using TLS for initial authentication and encrypting traffic, and offers better performance because there are fewer network hops. The application connects directly to the backend replicas. Direct mode is currently only supported on .NET and Java SDK platforms.
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="The Azure Cosmos DB connectivity modes" border="false":::
 
@@ -43,7 +43,46 @@ The following table shows a summary of the connectivity modes available for vari
 |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
 |---------|---------|---------|---------|
 |Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> The port 10250 maps to a default Azure Cosmos DB API for MongoDB instance without geo-replication. Whereas the ports 10255 and 10256 map to the instance that has geo-replication.   |
-|Direct    |     TCP    |  .NET SDK Java SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
+|Direct    |     TCP (Encrypted via TLS)    |  .NET SDK Java SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
+
+## <a id="direct-mode"></a> Direct mode connection architecture
+
+As detailed in the [introduction](#available-connectivity-modes), Direct mode clients will directly connect to the backend nodes through TCP protocol. Each backend node represents a replica in a [replica set](../partitioning-overview.md#replica-sets) belonging to a [physical partition](../partitioning-overview.md#physical-partitions).
+
+### Routing
+
+When an Azure Cosmos DB SDK on Direct mode is performing an operation, it needs to resolve which backend replica to connect to. The first step is knowing which physical partition should the operation go to, and for that, the SDK obtains the container information that includes the [partition key definition](../partitioning-overview.md#choose-partitionkey) from a Gateway node and considered [metadata](../concepts-limits.md#metadata-request-limits). It also needs the routing information that contains the replicas' TCP addresses. The routing information is available also from Gateway nodes. Once the SDK obtains the routing information, it can proceed to open the TCP connections to the replicas belonging to the target physical partition and execute the operations.
+
+Each replica set contains one primary replica and three secondaries. Write operations are always routed to primary replica nodes while read operations can be served from primary or secondary nodes.
+
+:::image type="content" source="./media/performance-tips/sdk-direct-mode.png" alt-text="Diagram that shows how S D Ks in direct mode fetch the container and routing information from Gateway before opening the T C P connections to the backend nodes" border="false":::
+
+Because the container and routing information don't change often, it's cached locally on the SDKs so subsequent operations can benefit from this information. The TCP connections already established are also reused across operations. Unless otherwise configured through the SDKs options, connections are permanently maintained during the lifetime of the SDK instance.
+
+As with any distributed architecture, the machines holding replicas might undergo upgrades or maintenance. The service will ensure the replica set maintains consistency but any replica movement would cause existing TCP addresses to change. In these cases, the SDKs need to refresh the routing information and re-connect to the new addresses through new Gateway requests. These events should not affect the overall P99 SLA.
+
+### Volume of connections
+
+Each physical partition has a replica set of four replicas, in order to provide the best possible performance, SDKs will end up opening connections to all replicas for workloads that mix write and read operations. Concurrent operations are load balanced across existing connections to take advantage of the throughput each replica provides.
+
+There are two factors that dictate the number of TCP connections the SDK will open:
+
+* Number of physical partitions
+
+    In a steady state, the SDK will have one connection per replica per physical partition. The larger the number of physical partitions in a container, the larger the number of open connections will be. As operations are routed across different partitions, connections are established on demand. The average number of connections would then be the number of physical partitions times four.
+
+* Volume of concurrent requests
+
+    Each established connection can serve a configurable number of concurrent operations. If the volume of concurrent operations exceeds this threshold, new connections will be open to serve them, and it's possible that for a physical partition, the number of open connections exceeds the steady state number. This behavior is expected for workloads that might have spikes in their operational volume. For the .NET SDK this configuration is set by [CosmosClientOptions.MaxRequestsPerTcpConnection](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxrequestspertcpconnection), and for the Java SDK you can customize using [DirectConnectionConfig.setMaxRequestsPerConnection](/java/api/com.azure.cosmos.directconnectionconfig.setmaxrequestsperconnection).
+
+By default, connections are permanently maintained to benefit the performance of future operations (opening a connection has computational overhead). There might be some scenarios where you might want to close connections that are unused for some time understanding that this might affect future operations slightly. For the .NET SDK this configuration is set by [CosmosClientOptions.IdleTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout), and for the Java SDK you can customize using [DirectConnectionConfig.setIdleConnectionTimeout](/java/api/com.azure.cosmos.directconnectionconfig.setidleconnectiontimeout). It isn't recommended to set these configurations to low values as it might cause connections to be frequently closed and affect overall performance.
+
+### Language specific implementation details
+
+For further implementation details regarding a language see:
+
+* [.NET SDK implementation information](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/docs/SdkDesign.md)
+* [Java SDK direct mode information](performance-tips-java-sdk-v4-sql.md#direct-connection)
 
 ## Next steps
 

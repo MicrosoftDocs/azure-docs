@@ -67,7 +67,7 @@ The **Volume** tab under the **Voice and video** modality displays the number of
 
 :::image type="content" source="media\workbooks\voice-and-video-volume.png" alt-text="Voice and video volume":::
 
-The **Volume** tab contains a **Grouping** parameter, which helps visualize the number of calls and participants segmented by either Call type (P2P vs. Group calls) and Interop Calls (pure Azure Communication Services (ACS) vs. Teams Interop):
+The **Volume** tab contains a **Grouping** parameter, which helps visualize the number of calls and participants segmented by either Call type (P2P vs. Group calls) and Interop Calls (pure Azure Communication Services vs. Teams Interop):
 
 :::image type="content" source="media\workbooks\voice-and-video-volume-grouping.png" alt-text="Voice and video volume grouping":::
 
@@ -112,7 +112,7 @@ The **Chat** tab displays the data for all chat-related operations and their res
 
 :::image type="content" source="media\workbooks\chat.png" alt-text="Chat tab":::
 
-The **SMS** tab displays the operations and results for SMS usage through an ACS resource (we currently don’t have any data for this modality):
+The **SMS** tab displays the operations and results for SMS usage through an Azure Communication Services resource (we currently don’t have any data for this modality):
 
 :::image type="content" source="media\workbooks\sms.png" alt-text="SMS tab":::
 

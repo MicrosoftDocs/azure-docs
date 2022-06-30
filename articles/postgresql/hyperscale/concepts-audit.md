@@ -1,8 +1,8 @@
 ---
 title: Audit logging - Azure Database for PostgreSQL - Hyperscale (Citus)
 description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 08/03/2021
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 > [!IMPORTANT]
 > The pgAudit extension in Hyperscale (Citus) is currently in preview. This

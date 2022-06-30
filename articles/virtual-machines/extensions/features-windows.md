@@ -4,8 +4,8 @@ description: Learn what extensions are available for Azure virtual machines on W
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 03/30/2018 
 ms.custom: devx-track-azurepowershell
@@ -246,6 +246,7 @@ When an update is available and automatic updates are enabled, the update is ins
 
 - Data disks
 - Extensions
+- Extension Tags
 - Boot diagnostics container
 - Guest OS secrets
 - VM size

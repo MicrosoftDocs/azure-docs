@@ -22,13 +22,13 @@ Before you use the migration module, make sure you have the following things rea
 
 - At least Remote Desktop Services (RDS) Contributor permissions on an RDS tenant or the specific host pools you're migrating.
 
-- The latest version of the Microsoft.RdInfra.RDPowershell PowerShell module 
+- The latest version of the Microsoft.RdInfra.RDPowershell PowerShell module.
 
-- The latest version of the Az.DesktopVirtualization PowerShell module 
+- The latest version of the Az.DesktopVirtualization PowerShell module.
 
-- The latest version of the Az.Resources PowerShell module 
+- The latest version of the Az.Resources PowerShell module.
 
-- Install the migration module in your computer
+- Install the migration module on your computer.
 
 - PowerShell or PowerShell ISE to run the scripts you'll see in this article. The Microsoft.RdInfra.RDPowershell module doesn't work in PowerShell Core.
 
@@ -50,7 +50,7 @@ To prepare your PowerShell environment:
     https://www.powershellgallery.com/packages/Az.Resources/
     ```
 
-    If you don't, then install and import the modules by running these cmdlets:
+    If you don't, then you'll have to install and import the modules by running these cmdlets:
 
     ```powershell
     Install-module Az.Resources
@@ -88,7 +88,7 @@ To prepare your PowerShell environment:
     Import-Module <Full path to the location of the migration module>\Microsoft.RdInfra.RDPowershell.Migration.psd1
     ```
 
-6. Once you're done, sign into Windows Virtual Desktop (classic) in your PowerShell window:
+6. Once you're done, sign into Azure Virtual Desktop (classic) in your PowerShell window:
 
     ```powershell
     Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
@@ -172,7 +172,7 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
 
    After the **Start-RdsHostPoolMigration** cmdlet is done, you should see the following things:
 
-      - Azure service objects for the tenant or host pool you specified
+      - Azure service objects for the tenant or host pool you specified.
 
       - Two new resource groups:
 

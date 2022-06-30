@@ -3,12 +3,12 @@ title: Optimize costs for Azure Files with reserved capacity
 titleSuffix: Azure Files 
 description: Learn how to save costs on Azure file share deployments by using Azure Files reserved capacity.
 services: storage
-author: roygara
+author: khdownie
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 

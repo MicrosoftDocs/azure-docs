@@ -26,7 +26,7 @@ This script creates a virtual machine scale set and attaches and prepares data d
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/use-data-disks/use-data-disks.sh" range="4-42":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/use-data-disks/use-data-disks.sh" id="FullScript":::
 
 ## Clean up resources
 

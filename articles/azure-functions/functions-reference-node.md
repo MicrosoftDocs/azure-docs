@@ -527,7 +527,7 @@ The following table shows current supported Node.js versions for each major vers
 
 | Functions version | Node version (Windows) | Node Version (Linux) |
 |---|---| --- |
-| 4.x (recommended) | `~16` (preview)<br/>`~14` (recommended) | `node|16` (preview)<br/>`node|14` (recommended) |
+| 4.x (recommended) | `~16`<br/>`~14` | `node|16`<br/>`node|14` |
 | 3.x | `~14`<br/>`~12`<br/>`~10` | `node|14`<br/>`node|12`<br/>`node|10` |
 | 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2 (locked by the runtime) | n/a |
@@ -544,7 +544,7 @@ For Windows function apps, target the version in Azure by setting the `WEBSITE_N
 
 For Linux function apps, run the following Azure CLI command to update the Node version.
 
-```bash
+```azurecli
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 

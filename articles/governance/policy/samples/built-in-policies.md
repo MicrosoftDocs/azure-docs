@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 02/15/2022
+ms.date: 06/29/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -87,6 +87,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-cache](../../../../includes/policy/reference/bycat/policies-cache.md)]
 
+## CDN
+
+[!INCLUDE [azure-policy-reference-policies-cdn](../../../../includes/policy/reference/bycat/policies-cdn.md)]
+
 ## Cognitive Services
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
@@ -94,6 +98,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Compute
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
+
+## Container App
+
+[!INCLUDE [azure-policy-reference-policies-container-app](../../../../includes/policy/reference/bycat/policies-container-app.md)]
 
 ## Container Instance
 
@@ -159,6 +167,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-kubernetes](../../../../includes/policy/reference/bycat/policies-kubernetes.md)]
 
+## Lab Services
+
+[!INCLUDE [azure-policy-reference-policies-lab-services](../../../../includes/policy/reference/bycat/policies-lab-services.md)]
+
 ## Lighthouse
 
 [!INCLUDE [azure-policy-reference-policies-lighthouse](../../../../includes/policy/reference/bycat/policies-lighthouse.md)]
@@ -174,6 +186,18 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Managed Application
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
+
+## Managed Identity
+
+[!INCLUDE [azure-policy-reference-policies-managed-identity](../../../../includes/policy/reference/bycat/policies-managed-identity.md)]
+
+## Managed Labs
+
+[!INCLUDE [azure-policy-reference-policies-managed-labs](../../../../includes/policy/reference/bycat/policies-managed-labs.md)]
+
+## Maps
+
+[!INCLUDE [azure-policy-reference-policies-maps](../../../../includes/policy/reference/bycat/policies-maps.md)]
 
 ## Media Services
 

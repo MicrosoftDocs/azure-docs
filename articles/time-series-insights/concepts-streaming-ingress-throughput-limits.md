@@ -16,6 +16,8 @@ ms.custom: seodec18
 
 # Streaming Ingestion Throughput Limits
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Azure Time Series Insights Gen2 streaming data ingress limitations are described below.
 
 > [!TIP]

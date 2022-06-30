@@ -149,8 +149,8 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 
 ### 5. Use an External Load Balancer (ELB) to access your RHEL VM/virtual machine scale sets
 
-1. [Create a Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources) to access the ports of the RHEL VM. Provide the required details to deploy the external Load Balancer and leave other configurations as default. Leave the SKU as Basic for the ELB configuration.
-2. Add Load Balancer rules - once the Load balancer has been created successfully, [create Load Balancer resources](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources), then add Load Balancer rules to access ports 8080 and 9990 of the RHEL VM.
+1. [Create a Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md#create-load-balancer) to access the ports of the RHEL VM. Provide the required details to deploy the external Load Balancer and leave other configurations as default. Leave the SKU as Basic for the ELB configuration.
+2. Add Load Balancer rules - once the Load balancer has been created successfully, [create Load Balancer resources](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md#create-load-balancer), then add Load Balancer rules to access ports 8080 and 9990 of the RHEL VM.
 3. Add the RHEL VM to the backend pool of the Load Balancer - click on *Backend pools* under settings section and then select the backend pool you created in the step above. Select the VM corresponding to the option *Associated to* and then add the RHEL VM.
 4. To obtain the Public IP of the Load Balancer - go to the Load Balancer overview page and copy the Public IP of the Load Balancer.
 5. To view the JBoss EAP on Azure web page - open a web browser then go to *http://<PUBLIC_IP_LoadBalancer>:8080/* and you should see the default EAP welcome page.

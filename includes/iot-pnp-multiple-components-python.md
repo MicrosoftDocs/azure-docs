@@ -33,7 +33,7 @@ You can download the latest recommended version for multiple platforms from [pyt
 
 The **azure-iot-device** package is published as a PIP.
 
-In your local python environment install the package as follows:
+In your local Python environment install the package as follows:
 
 ```cmd/sh
 pip install azure-iot-device

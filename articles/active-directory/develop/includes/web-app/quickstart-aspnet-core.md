@@ -1,7 +1,6 @@
 ---
-title: "Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph | Azure"
-titleSuffix: Microsoft identity platform
-description: In this quickstart, you learn how an app leverages Microsoft.Identity.Web to implement Microsoft sign-in in an ASP.NET Core web app using OpenID Connect and calls Microsoft Graph
+title: "Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph"
+description: Learn how an ASP.NET Core web app leverages Microsoft.Identity.Web to implement Microsoft sign-in using OpenID Connect and call Microsoft Graph
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -22,7 +21,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 * [.NET Core SDK 3.1+](https://dotnet.microsoft.com/download)
 
 ## Register and download your quickstart application
@@ -33,7 +32,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. For **Name**, enter a name for your application. For example, enter **AspNetCore-Quickstart**. Users of your app will see this name, and you can change it later.
-1. For **Redirect URI**, enter **https://localhost:44321/signin-oidc**.
+1. Set the **Redirect URI** type to **Web** and value to `https://localhost:44321/signin-oidc`.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication**.
 1. For **Front-channel logout URL**, enter **https://localhost:44321/signout-oidc**.
@@ -46,7 +45,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 #### Step 2: Download the ASP.NET Core project
 
-[Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
+[Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
@@ -83,6 +82,7 @@ You're prompted for your credentials, and then asked to consent to the permissio
 After consenting to the requested permissions, the app displays that you've successfully logged in using your Azure Active Directory credentials, and you'll see your email address in the "Api result" section of the page. This was extracted using Microsoft Graph.
 
 :::image type="content" source="../../media/quickstart-v2-aspnet-core-webapp-calls-graph/webapp-02-signed-in.png" alt-text="Web browser displaying the running web app and the user signed in":::
+
 
 ## More information
 

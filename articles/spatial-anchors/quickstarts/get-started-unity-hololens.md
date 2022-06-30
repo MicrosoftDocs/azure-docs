@@ -11,9 +11,9 @@ ms.service: azure-spatial-anchors
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---
-# Quickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors
+# Run the sample app: HoloLens - Unity (C#)
 
-In this quickstart, you'll create a Unity HoloLens app that uses [Azure Spatial Anchors](../overview.md). Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences with objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app built with Unity that can save and recall a spatial anchor.
+In this quickstart, you'll run the [Azure Spatial Anchors](../overview.md) sample app for HoloLens using Unity (C#). Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences with objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app built with Unity that can save and recall a spatial anchor.
 
 You'll learn how to:
 
@@ -32,11 +32,12 @@ To complete this quickstart:
 - You need a HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 May 2020 Update or later](/windows/mixed-reality/whats-new/release-notes-may-2020) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 - You need a Windows computer with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
 - You need to have Unity installed. For supported versions and required capabilities, visit the [Unity project setup page](../how-tos/setup-unity-project.md).
-- On your app, you need to enable **Virtual Reality Supported** with **Windows Mixed Reality SDK**. This setting is in **Build Settings** > **Player Settings** > **XR Settings**.
+
+## Create a Spatial Anchors resource
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## Download and open the Unity sample project
+## Download sample project and import SDK
 
 ### Clone Samples Repository
 
@@ -46,20 +47,13 @@ To complete this quickstart:
 
 Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the HoloLens platform.
 
-### Configure Unity
+## Configure Unity
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
-Open **Build Settings** by selecting **File** > **Build Settings**.
+[!INCLUDE [HoloLens Unity Build Settings](../../../includes/spatial-anchors-unity-hololens-build-settings.md)]
 
-In the **Platform** section, select **Universal Windows Platform**. Change the **Target Device** to **HoloLens**.
-
-Select **Switch Platform** to change the platform to **Universal Windows Platform**. Unity might prompt you to install UWP support components if they're missing.
-
-![Unity Build Settings window](./media/get-started-unity-hololens/unity-build-settings.png)
-
-Close the **Build Settings** window.
-
+## Configure the account information
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the HoloLens Visual Studio project

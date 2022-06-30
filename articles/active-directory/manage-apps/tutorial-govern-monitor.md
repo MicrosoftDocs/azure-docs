@@ -1,6 +1,5 @@
 ---
 title: "Tutorial: Govern and monitor applications"
-titleSuffix: Azure AD
 description: In this tutorial, you learn how to govern and monitor an application in Azure Active Directory.
 author: omondiatieno
 manager: CelesteDG

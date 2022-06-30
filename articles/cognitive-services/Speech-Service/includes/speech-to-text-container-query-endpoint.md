@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 The container provides websocket-based query endpoint APIs that are accessed through the [Speech SDK](../index.yml). By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method.
 
 > [!TIP]
-> When you use the Speech SDK with containers, you don't need to provide the Azure Speech resource [subscription key or an authentication bearer token](../rest-speech-to-text.md#authentication).
+> When you use the Speech SDK with containers, you don't need to provide the Azure Speech resource [subscription key or an authentication bearer token](../rest-speech-to-text-short.md#authentication).
 
 See the following examples.
 

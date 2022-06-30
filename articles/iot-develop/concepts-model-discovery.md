@@ -1,7 +1,7 @@
 ---
 title: Use IoT Plug and Play models in a solution | Microsoft Docs
 description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
-author: arunmannengal
+author: arunmannengal-zz
 ms.author: arunmann
 ms.date: 07/23/2020
 ms.topic: conceptual

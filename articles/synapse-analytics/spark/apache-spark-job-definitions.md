@@ -48,7 +48,7 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
 3. Select **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.py** and **shakespeare.txt** into your ADLS Gen2 filesystem. 
 
-     ![upload python file](./media/apache-spark-job-definitions/upload-python-file.png)
+     ![upload Python file](./media/apache-spark-job-definitions/upload-python-file.png)
 
 4. Select **Develop** hub, select the '+' icon and select **Spark job definition** to create a new Spark job definition. 
 
@@ -71,6 +71,7 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
      |Executors| Number of executors to be given in the specified Apache Spark pool for the job.|
      |Executor size| Number of cores and memory to be used for executors given in the specified Apache Spark pool for the job.|  
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
+     |Apache Spark configuration| Customize configurations by adding properties below. If you do not add a property, Azure Synapse will use the default value when applicable.|
 
      ![Set the value of the Spark job definition for Python](./media/apache-spark-job-definitions/create-py-definition.png)
 
@@ -112,8 +113,10 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
      |Executors| Number of executors to be given in the specified Apache Spark pool for the job.|  
      |Executor size| Number of cores and memory to be used for executors given in the specified Apache Spark pool for the job.|
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
+     |Apache Spark configuration| Customize configurations by adding properties below. If you do not add a property, Azure Synapse will use the default value when applicable.|
 
      ![Set the value of the Spark job definition for scala](./media/apache-spark-job-definitions/create-scala-definition.png)
+     
 
  7. Select **Publish** to save the Apache Spark job definition.
 
@@ -152,12 +155,21 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
      |Executors| Number of executors to be given in the specified Apache Spark pool for the job.|  
      |Executor size| Number of cores and memory to be used for executors given in the specified Apache Spark pool for the job.|
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
-
+     |Apache Spark configuration| Customize configurations by adding properties below. If you do not add a property, Azure Synapse will use the default value when applicable.|
+     
      ![Set the value of the Spark job definition for dotnet](./media/apache-spark-job-definitions/create-dotnet-definition.png)
 
  7. Select **Publish** to save the Apache Spark job definition.
 
       ![publish dotnet definition](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
+
+
+> [!NOTE] 
+>
+> For Apache Spark configuration, if the Apache Spark configuration Apache Spark job definition does not do anything special, the default configuration will be used when running the job.
+
+
+
 
 ## Create Apache Spark job definition by importing a JSON file
 

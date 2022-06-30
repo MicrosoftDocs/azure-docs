@@ -3,7 +3,8 @@ title: Configure DHCP on L2 stretched VMware HCX networks
 description: Learn how to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server.
 ms.topic: how-to
 ms.custom: contperf-fy22q1
-ms.date: 05/28/2021
+ms.service: azure-vmware
+ms.date: 04/11/2022
 
 # Customer intent: As an Azure service administrator, I want to configure DHCP on L2 stretched VMware HCX networks to send DHCP requests from my Azure VMware Solution VMs to a non-NSX-T DHCP server. 
 
@@ -11,11 +12,11 @@ ms.date: 05/28/2021
 
 # Configure DHCP on L2 stretched VMware HCX networks
 
-DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter. This is because NSX, by default, blocks all DHCP requests from traversing the L2 stretch. Therefore, to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, you'll need to configure DHCP on L2 stretched VMware HCX networks.
+DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises data center. This is because NSX-T Data Center, by default, blocks all DHCP requests from traversing the L2 stretch. Therefore, to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T Data Center DHCP server, you'll need to configure DHCP on L2 stretched VMware HCX networks.
 
 1. (Optional) If you need to locate the segment name of the L2 extension:
 
-   1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
+   1. Sign in to your on-premises vCenter Server, and under **Home**, select **HCX**.
 
    1. Select **Network Extension** under **Services**.
 
@@ -29,7 +30,7 @@ DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch netwo
 
 1. Select **Add Segment Profile** and then **Segment Security**.
 
-   :::image type="content" source="media/manage-dhcp/add-segment-profile.png" alt-text="Screenshot of how to add a segment profile in NSX-T." lightbox="media/manage-dhcp/add-segment-profile.png":::
+   :::image type="content" source="media/manage-dhcp/add-segment-profile.png" alt-text="Screenshot of how to add a segment profile in NSX-T Data Center." lightbox="media/manage-dhcp/add-segment-profile.png":::
 
 1. Provide a name and a tag, and then set the **BPDU Filter** toggle to ON and all the DHCP toggles to OFF.
 

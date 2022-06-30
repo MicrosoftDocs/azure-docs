@@ -122,7 +122,7 @@ In Azure AD B2C, you can delete a user's TOTP authenticator app enrollment. Then
 1. In the left menu, select **Users**.
 1. Search for and select the user for which you want to delete TOTP authenticator app enrollment.
 1. In the left menu, select **Authentication methods**.
-1. Under **Usable authentication methods**, find **Software OATH token (Preview)**, and then select the 3-dot menu next to it. If you don't see this interface, select **Switch to the new user authentication methods experience! Click here to use it now** to switch to the new authentication methods experience.
+1. Under **Usable authentication methods**, find **Software OATH token (Preview)**, and then select the ellipsis menu next to it. If you don't see this interface, select the option to **"Switch to the new user authentication methods experience! Click here to use it now"** to switch to the new authentication methods experience.
 1. Select **Delete**, and then select **Yes** to confirm. 
 
 :::image type="content" source="media/multi-factor-authentication/authentication-methods.png" alt-text="User authentication methods":::

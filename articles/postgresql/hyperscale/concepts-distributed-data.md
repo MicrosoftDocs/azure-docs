@@ -1,8 +1,8 @@
 ---
 title: Distributed data – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn about distributed tables, reference tables, local tables, and shards in Azure Database for PostgreSQL.
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 05/06/2019
 ---
 
 # Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 This article outlines the three table types in Azure Database for PostgreSQL – Hyperscale (Citus).
 It shows how distributed tables are stored as shards, and the way that shards are placed on nodes.
@@ -40,9 +42,12 @@ Making the right choice is important for performance and functionality.
 
 ### Type 2: Reference tables
 
-A reference table is a type of distributed table whose entire
-contents are concentrated into a single shard. The shard is replicated on every worker. Queries on any worker can access the reference information locally, without the network overhead of requesting rows from another node. Reference tables have no distribution column
-because there's no need to distinguish separate shards per row.
+A reference table is a type of distributed table whose entire contents are
+concentrated into a single shard. The shard is replicated on every worker and
+the coordinator.  Queries on any worker can access the reference information
+locally, without the network overhead of requesting rows from another node.
+Reference tables have no distribution column because there's no need to
+distinguish separate shards per row.
 
 Reference tables are typically small and are used to store data that's
 relevant to queries running on any worker node. An example is enumerated

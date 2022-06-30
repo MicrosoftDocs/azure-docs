@@ -1,16 +1,15 @@
 ---
 title: 'Configure enterprise application properties'
-titleSuffix: Azure AD
 description: Configure the properties of an enterprise application in Azure Active Directory.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 09/22/2021
-ms.author: davidmu
+ms.author: jomondi
 ms.reviewer: ergreenl
 #Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
 ---

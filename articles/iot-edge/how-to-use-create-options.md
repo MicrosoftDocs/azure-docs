@@ -2,9 +2,9 @@
 title: Write createOptions for modules  - Azure IoT Edge | Microsoft Docs 
 description: How to use createOptions in the deployment manifest to configure modules at runtime
 keywords: 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
@@ -103,8 +103,8 @@ Once stringified for the deployment manifest, the same configuration would look 
 You can declare how much of the host resources a module can use. This control is helpful to ensure that one module can't consume too much memory or CPU usage and prevent other processes from running on the device. You can manage these settings with [Docker container create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) in the **HostConfig** group, including:
 
 * **Memory**: Memory limit in bytes. For example, 268435456 bytes = 256 MB.
-* **MemorySwap**: Total memory limit (memory + swap). For example, 536870912 bytes = 512 MB
-* **CpuPeriod**: The length of a CPU period in microseconds. The default value is 100000 so, for example, a value of 25000 limits a container to 25% of the CPU resources.
+* **MemorySwap**: Total memory limit (memory + swap). For example, 536870912 bytes = 512 MB.
+* **NanoCpus**: CPU quota in units of 10<sup>-9</sup> (1 billionth) CPUs. For example, 250000000 nanocpus = 0.25 CPU.
 
 In the template.json format, these values would look like the following example:
 
@@ -113,7 +113,7 @@ In the template.json format, these values would look like the following example:
   "HostConfig": {
     "Memory": 268435456,
     "MemorySwap": 536870912,
-    "CpuPeriod": 25000
+    "NanoCpus": 250000000
   }
 }
 ```

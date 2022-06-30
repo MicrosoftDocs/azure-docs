@@ -40,7 +40,7 @@ Access key authentication is suitable for service applications running in a trus
 
 Since the access key is part of the connection string of your resource, authentication with a connection string is equivalent to authentication with an access key.
 
-If you wish to call ACS' APIs manually using an access key, then you will need to sign the request. Signing the request is explained, in detail, within a [tutorial](../tutorials/hmac-header-tutorial.md).
+If you wish to call Azure Communication Services' APIs manually using an access key, then you will need to sign the request. Signing the request is explained, in detail, within a [tutorial](../tutorials/hmac-header-tutorial.md).
 
 ### Azure AD authentication
 

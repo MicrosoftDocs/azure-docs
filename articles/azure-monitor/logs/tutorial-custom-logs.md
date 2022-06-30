@@ -8,6 +8,8 @@ ms.date: 01/19/2022
 # Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)
 [Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send external data to a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor.
 
+[!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
+
 > [!NOTE]
 > This tutorial uses the Azure portal. See [Tutorial: Send custom logs to Azure Monitor Logs using resource manager templates (preview)](tutorial-custom-logs-api.md) for a similar tutorial using resource manager templates.
 
@@ -23,16 +25,16 @@ In this tutorial, you learn to:
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
-- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac) .
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
 
 ## Overview of tutorial
-In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the table will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
+In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the data will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
 
 
 ## Configure application
-Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
+Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
 
 1. From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -177,13 +179,13 @@ The following PowerShell script both generates sample data to configure the cust
     }
     ```
 
-3. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called *sample_access.log*. 
+3. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called `sample_access.log`. 
+
+4. To read the data in the file and create a JSON file called `data_sample.json` that you can send to the custom logs API, run:
 
     ```PowerShell
     .\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
     ```
-
-4. Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
  
 ## Add custom log table
 Before you can send data to the workspace, you need to create the custom table that the data will be sent to.
@@ -232,7 +234,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData.value with 
+    | parse RawData with 
     ClientIP:string
     ' ' *
     ' ' *
@@ -253,7 +255,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData.value with 
+    | parse RawData with 
     ClientIP:string
     ' ' *
     ' ' *

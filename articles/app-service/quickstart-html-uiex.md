@@ -64,7 +64,7 @@ The command may take a few minutes to complete.
 <ul>
 <li>Create a default resource group.</li>
 <li>Create a default App Service plan.</li>
-<li><a href="/cli/azure/webapp#az_webapp_create">Create an App Service app</a> with the specified name.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Create an App Service app</a> with the specified name.</li>
 <li><a href="/azure/app-service/deploy-zip">Zip deploy</a> files from the current working directory to the app.</li>
 <li>While running, it provides messages about resource creation, logging, and ZIP deployment.</li>
 </ul>

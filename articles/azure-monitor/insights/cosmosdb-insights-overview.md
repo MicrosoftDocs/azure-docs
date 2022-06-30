@@ -3,6 +3,7 @@ title: Monitor Azure Cosmos DB with Azure Monitor Cosmos DB insights| Microsoft 
 description: This article describes the Cosmos DB insights feature of Azure Monitor that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their Cosmos DB accounts.
 ms.topic: conceptual
 ms.date: 05/11/2020
+ms.reviewer: shijain
 
 ---
 

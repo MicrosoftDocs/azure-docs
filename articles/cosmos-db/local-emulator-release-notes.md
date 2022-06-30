@@ -22,6 +22,18 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ## Release notes
 
+### 2.14.7 (May 9, 2022)
+
+ - This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. In addition to this update there are couple issues that were addressed in this release:
+ * Update Data Explorer to the latest content and fix a broken link for the quick start sample documentation.
+ * Add option to enable the Mongo API version for the Linux Cosmos DB emulator by setting the environment variable: "AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT" in the Docker container setting. Valid setting are: "3.2", "3.6", "4.0" and "4.2"
+
+### 2.14.6 (March 7, 2022)
+
+ - This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. In addition to this update there are couple issues that were addressed in this release:
+ * Fix for an issue related to high CPU usage when the emulator is running.
+ * Add PowerShell option to set the Mongo API version: "-MongoApiVersion". Valid setting are: "3.2", "3.6" and "4.0"
+
 ### 2.14.5 (January 18, 2022)
 
  - This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. One other important update with this release is to reduce the number of services executed in the background and start them as needed.
