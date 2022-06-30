@@ -91,10 +91,9 @@ def validatePassword(password: str) -> bool:
             zeroCounter += 1
 
     # if counter is greater than 1, return False
-    print(charSetCounter)
     if zeroCounter > 1:
         return False
-    print(charSetCounter)
+   
     return True
 ```
 
