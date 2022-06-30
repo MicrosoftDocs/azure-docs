@@ -98,5 +98,4 @@ Keep in mind that encrypting your storage data results in additional performance
 ## Next steps
 
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
-- [Azure.Storage.Queues 12.10.0](https://www.nuget.org/packages/Azure.Storage.Queues/) package
 - [Azure Key Vault documentation](../../key-vault/general/overview.md)
