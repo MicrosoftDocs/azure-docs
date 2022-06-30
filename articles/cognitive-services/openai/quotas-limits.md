@@ -48,7 +48,7 @@ The next sections describe specific cases of adjusting quotas.
 
 ### Request an increase to a limit on transactions-per-second or number of fine-tuned models deployed
 
-The limit of concurrent requests defines how high the service can scale before it starts throttle your requests.
+The limit of concurrent requests defines how high the service can scale before it starts to throttle your requests.
 
 #### Have the required information ready
 
