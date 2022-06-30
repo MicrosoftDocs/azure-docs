@@ -25,6 +25,8 @@ The following table lists the platform metrics collected for AKS.  Follow each l
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
+In addition to the above platform metrics, Azure Monitor container insights collects [these custom metrics](../azure-monitor/containers/container-insights-metric-alerts#metrics-collected) for nodes, pods, containers and persistent volumes.
+
 ## Metric dimensions
 
 The following table lists [dimensions](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics) for AKS metrics. 
