@@ -166,7 +166,7 @@ HAVING SUM(bytes)/1024/1024 > 10  /* Ignore really small tables */
 ORDER BY SUM(bytes) desc;
 ```
 
-In addition, the Microsoft database migration team provides many resources, including an asset called [Oracle Inventory Script Artifacts](https://datamigration.microsoft.com/scenario/oracle-to-sqldw?step=1) that can be found on [GitHub](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts). This tool includes a PL/SQL query that accesses Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format. An included calculator spreadsheet takes the CSV as input and provides sizing data.
+In addition, the Microsoft database migration team provides many resources, including an asset called *Oracle inventory script artifacts* that can be found on GitHub. The asset includes a PL/SQL query that accesses Oracle system tables and provides a count of objects by schema type, object type, and status. The asset also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format. An included calculator spreadsheet takes the CSV as input and provides sizing data.
 
 For any table, you can accurately estimate the volume of data that needs to be migrated by extracting a representative sample of the data, such as one million rows, to an uncompressed delimited flat ASCII data file. Then, use the size of that file to get an average raw data size per row. Finally, multiply that average size by the total number of rows in the full table to give a raw data size for the table. Use that raw data size in your planning.
 
@@ -339,11 +339,11 @@ You can use several techniques to extract Oracle data when migrating from Oracle
 
 You can use the Oracle SQL Developer UI to export table data to many formats, including CSV:
 
-:::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-1.png" border="true" alt-text="Screenshot of the SQL Developer export wizard UI." lightbox="../media/1-design-performance-migration/oracle-sql-developer-export-option-1-lrg.png":::
+:::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-1.png" border="true" alt-text="Screenshot of the SQL Developer export wizard UI." lightbox="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-1-lrg.png":::
 
 Other export options include JSON and XML. You can use the UI to add a set of table names to a "cart", then apply the export to the entire set in the cart:
 
-:::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-2.png" border="true" alt-text="Screenshot of the SQL Developer cart option UI." lightbox="../media/1-design-performance-migration/oracle-sql-developer-export-option-2-lrg.png":::
+:::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-2.png" border="true" alt-text="Screenshot of the SQL Developer cart option UI." lightbox="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-2-lrg.png":::
 
 You can also use Oracle SQL Developer command line option to export Oracle data. This option supports automation using a shell script.
 
