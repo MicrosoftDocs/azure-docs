@@ -1,6 +1,6 @@
 ---
-title: Migrate an Azure Monitor Application Insights classic resource to a workspace-based resource | Microsoft Docs
-description: Learn about the steps required to upgrade your Azure Monitor Application Insights classic resource to the new workspace-based model. 
+title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
+description: Learn about the steps required to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
 ms.date: 09/23/2020 
 ms.custom: devx-track-azurepowershell
@@ -504,8 +504,10 @@ Legacy table: customMetrics
 |valueCount|int|ValueCount|int|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
-|valueStdDev|real|ValueStdDev|real|
 |valueSum|real|ValueSum|real|
+
+> [!Caution]
+> ValueStdDev metric values are no longer supported by AppMetrics! If app data sent to Log Analytics includes ValueStdDev, it will get dropped during ingestion.
 
 #### AppPageViews
 
