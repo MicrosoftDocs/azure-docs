@@ -80,45 +80,11 @@ Get-AzRoleAssignment -ResourceGroupName exampleRG
 
 ---
 
-For reference, the output will look something like this in PowerShell:
-
-### PowerShell
-
-```azurepowershell-interactive
-RoleAssignmentName : {RoleAssignmentName}
-RoleAssignmentId   : /subscriptions/{Subscription}/resourcegroups/exampleRG/providers/Microsoft.Authorization/roleAssignments {RoleAssignmentId}
-Scope              : /subscriptions/{Subscription}/resourcegroups/exampleRG
-DisplayName        : User
-SignInName         : user@contoso.com
-RoleDefinitionName : Virtual Machine Contributor
-RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
-ObjectId           : {ObjectId}
-ObjectType         : User
-CanDelegate        : False
-Description        :
-ConditionVersion   :
-Condition          :
-```
-
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-az role assignment delete --assignee 
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-Remove-AzRoleAssignment 
-```
-
----
-
-If you no longer need the resource group, use the Azure portal, Azure CLI, or Azure PowerShell to delete it.
+Use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group.
 
 # [CLI](#tab/CLI)
 
