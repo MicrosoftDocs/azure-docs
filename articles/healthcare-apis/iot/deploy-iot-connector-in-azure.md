@@ -22,7 +22,7 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
  * An Azure event hub sender role (the sender role is named: **devicedatasender**).
  * An Azure Health Data Services workspace.
  * An Azure Health Data Services FHIR service.
- * An Azure Health Data Services MedTech service including the necessary system [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) permissions to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
+ * An Azure Health Data Services MedTech service including the necessary system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) permissions to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
 
 When the Azure portal launches, the following fields must be filled out:
  * **Subscription** - Choose the Azure subscription you would like to use for the deployment.
