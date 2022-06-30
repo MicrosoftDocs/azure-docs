@@ -1,8 +1,8 @@
 ---
-title: Configure Azure Application Gateway Private Link
+title: Configure Azure Application Gateway Private Link (preview)
 description: This article shows you how to configure Application Gateway Private Link.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/09/2022
@@ -10,12 +10,14 @@ ms.author: greglin
 
 ---
 
-# Configure Azure Application Gateway Private Link
+# Configure Azure Application Gateway Private Link (preview)
 
 Application Gateway Private Link allows you to connect your workloads over a private connection spanning across VNets and subscriptions. For more information, see [Application Gateway Private Link](private-link.md).
 
 :::image type="content" source="media/private-link/private-link.png" alt-text="Diagram showing Application Gateway Private Link":::
 
+> [!IMPORTANT]
+> Azure Application Gateway Private Link is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Configuration options
 
@@ -58,7 +60,7 @@ A private endpoint is a network interface that uses a private IP address from th
 1. Select **Create**.
 1. On the **Basics** tab, configure a resource group, name, and region for the Private Endpoint.  Select **Next**.
 1. On the **Resource** tab, select **Next**.
-1. On the **Virtual Network** tab, configure a virtual network and subnet where the private endpoint network interface should be provisioned to. Configure whether the private endpoint should have a dynamic or static IP address.  Last, configure if you want a new private link zone to be created to automatically manage IP addressing.  Select **Next**.
+1. On the **Virtual Network** tab, configure a virtual network and subnet where the private endpoint network interface should be provisioned to. Configure whether the private endpoint should have a dynamic or static IP address. Select **Next**.
 1. On the **Tags** tab, optionally configure resource tags. Select **Next**.
 1. Select **Create**.
 

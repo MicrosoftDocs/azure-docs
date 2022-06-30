@@ -39,7 +39,7 @@ Egress lockdown is enabled by default for new cluster creation. However, to enab
 To verify whether egress lockdown is enabled on a cluster, sign in to your Azure cluster and run the following command:
 
   ```azurecli
-  $ oc get cluster.aro.openshift.io cluster -o go-template='{{ if .spec.gatewayDomains }}{{ "Egress Lockdown Feature Enabled" }}{{ else }}{{ "Egress Lockdown Feature Disabled" }}{{ end }}{{ "\n" }}
+  $ oc get cluster.aro.openshift.io cluster -o go-template='{{ if .spec.gatewayDomains }}{{ "Egress Lockdown Feature Enabled" }}{{ else }}{{ "Egress Lockdown Feature Disabled" }}{{ end }}{{ "\n" }}'
   ```
 Depending on whether egress lockdown is enabled or disabled, you'll see one of the following messages:
 

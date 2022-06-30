@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2022
+ms.date: 06/29/2022
 ---
 
 # Plan a virtual machine offer
@@ -117,7 +117,6 @@ These are the available licensing options for VM offers:
 | --- | --- |
 | Usage-based | Also known as pay-as-you-go. This licensing model lets you bill your customers per hour through various pricing options. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure. * |
-|
 
 `*` As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -133,7 +132,6 @@ The following are types of trials that can be configured to help identify custom
 | ------------ | ------------- |
 | Free trial | Offer your customers a one-, three- or six-month free trial. |
 | Test drive | This option lets your customers evaluate your solution at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. Learn more about [test drives](#test-drive). |
-|
 
 > [!NOTE]
 > The licensing model along with any trial opportunities you select will determine the additional information you'll need to provide when you create the offer in Partner Center.
@@ -144,7 +142,9 @@ You can enable a test drive that lets customers try your offer prior to purchase
 
 ## Customer leads
 
-When you're publishing an offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Legal contracts
 

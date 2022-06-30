@@ -1,6 +1,6 @@
 ---
-title: Use Azure Video Indexer (formerly Azure Video Analyzer for Media) to auto identify spoken languages  - Azure
-description: This article describes how the Azure Video Indexer (formerly Azure Video Analyzer for Media) language identification model is used to automatically identifying the spoken language in a video.
+title: Use Azure Video Indexer to auto identify spoken languages  - Azure
+description: This article describes how the Azure Video Indexer language identification model is used to automatically identifying the spoken language in a video.
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: ellbe
@@ -8,7 +8,7 @@ ms.author: ellbe
 
 # Automatically identify the spoken language with language identification model
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
+Azure Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
 
 Currently LID supports: English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese (Brazilian). 
 

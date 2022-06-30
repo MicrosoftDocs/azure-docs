@@ -1,9 +1,10 @@
 ---
-title: Securing a custom VNET in Azure Container Apps Preview
-description: Firewall settings to secure a custom VNET in Azure Container Apps Preview
+title: Securing a custom VNET in Azure Container Apps
+description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
 author: JennyLawrance
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic:  reference
 ms.date: 4/15/2022
 ms.author: jennylaw
@@ -13,7 +14,7 @@ ms.author: jennylaw
 
 Firewall settings Network Security Groups (NSGs) needed to configure virtual networks closely resemble the settings required by Kubernetes.
 
-Some outbound dependencies of Azure Kubernetes Service (AKS) clusters rely exclusively on fully qualified domain names (FQDN), therefore securing an AKS cluster purely with NSGs isn't possible. Refer to [Control egress traffic for cluster nodes in Azure Kubernetes Service](/azure/aks/limit-egress-traffic) for details.
+Some outbound dependencies of Azure Kubernetes Service (AKS) clusters rely exclusively on fully qualified domain names (FQDN), therefore securing an AKS cluster purely with NSGs isn't possible. Refer to [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md) for details.
 
 * You can lock down a network via NSGs with more restrictive rules than the default NSG rules.
 * To fully secure a cluster, use a combination of NSGs and a firewall.

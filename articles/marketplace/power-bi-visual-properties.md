@@ -34,7 +34,6 @@ Select up to three **[Categories](./categories.md)** for grouping your offer int
 | Filters | Narrow down the data within a report by using filters. |
 | Narratives | Use narratives to tell a story with text and data. |
 | Other | More specialized visuals to discover. |
-|||
 
 ## Industries
 

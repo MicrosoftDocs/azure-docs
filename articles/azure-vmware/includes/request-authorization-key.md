@@ -2,10 +2,10 @@
 title: Request authorization key for ExpressRoute
 description: Steps to request an authorization key for ExpressRoute.
 ms.topic: include
+ms.service: azure-vmware
 ms.date: 03/15/2021
 author: suzizuber
 ms.author: v-szuber
-ms.service: azure-vmware
 ---
 
 <!-- used in tutorial-expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->

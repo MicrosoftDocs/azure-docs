@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Get started with Application Insights in a Java web project
@@ -283,8 +284,9 @@ Application Insights can test your website at regular intervals to check that it
 
 [Learn more about how to set up availability web tests.][availability]
 
-## Questions? Problems?
-[Troubleshooting Java](java-2x-troubleshoot.md)
+## Troubleshooting
+
+See the dedicated [troubleshooting article](https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/java-2x-troubleshoot).
 
 ## Next steps
 * [Monitor dependency calls](java-2x-agent.md)

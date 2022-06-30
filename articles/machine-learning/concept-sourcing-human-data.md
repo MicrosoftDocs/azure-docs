@@ -121,11 +121,11 @@ We suggest the following best practices for manually collecting human data direc
 
 :::row:::
     :::column span="":::
-        **Communicate expectations clearly in the Statement of Work (SOW) with suppliers.**
+        **Communicate expectations clearly in the Statement of Work (SOW) (contracts or agreements) with suppliers.**
     :::column-end:::
 
     :::column span="":::
-        - An SOW which lacks requirements for responsible data collection work may result in low-quality or poorly collected data.     
+        - A contract which lacks requirements for responsible data collection work may result in low-quality or poorly collected data.     
     :::column-end:::
 
 :::row-end:::
@@ -161,6 +161,9 @@ We suggest the following best practices for manually collecting human data direc
 
 >[!NOTE]
 >This article focuses on recommendations for human data, including personal data and sensitive data such as biometric data, health data, racial or ethnic data, data collected manually from the general public or company employees, as well as metadata relating to human characteristics, such as age, ancestry, and gender identity, that may be created via annotation or labeling. 
+
+[Download the full recommendations here](https://bit.ly/3FK8m8A)
+
 
 
 ## Best practices for collecting age, ancestry, and gender identity
@@ -221,6 +224,7 @@ To enable people to self-identify, consider using the following survey questions
 >[!CAUTION] 
 >In some parts of the world, there are laws that criminalize specific gender categories, so it may be dangerous for data contributors to answer this question honestly. Always give people a way to opt out. And work with regional experts and attorneys to conduct a careful review of the laws and cultural norms of each place where you plan to collect data, and if needed, avoid asking this question entirely. 
 
+[Download the full guidance here.](https://bit.ly/3woCOAz)
 
 ## Next steps
 For more information on how to work with your data: 

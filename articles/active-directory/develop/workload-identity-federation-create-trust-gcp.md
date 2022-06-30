@@ -1,6 +1,5 @@
 ---
 title: Access Azure resources from Google Cloud without credentials
-titleSuffix: Microsoft identity platform
 description: Access Azure AD protected resources from a service running in Google Cloud without using secrets or certificates.  Use workload identity federation to set up a trust relationship between an app in Azure AD and an identity in Google Cloud. The workload running in Google Cloud can get an access token from Microsoft identity platform and access Azure AD protected resources.
 services: active-directory
 author: rwike77

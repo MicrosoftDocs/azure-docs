@@ -4,7 +4,7 @@ description: You can scale compute for dedicated SQL pool (formerly SQL DW) usin
 author: kedodd
 ms.author: kedodd
 manager: craigg
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.date: 03/09/2022
 ms.topic: quickstart
 ms.service: synapse-analytics

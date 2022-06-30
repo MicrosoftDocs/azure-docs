@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: machine-learning 
 ms.date: 07/15/2020
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 tag: azure-Synapse
 ---

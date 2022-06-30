@@ -42,7 +42,7 @@ landingContent:
             url: tutorial-blazor-webassembly.md
           - text: Node.js with Express
             url: tutorial-v2-nodejs-webapp-msal.md
-  - title: "Scenarios in depth"
+  - title: "Web apps in depth"
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -50,6 +50,12 @@ landingContent:
             url: scenario-web-app-sign-user-overview.md
           - text: Web app that calls a web API
             url: scenario-web-app-call-api-overview.md
+  - title: "Scenarios in depth"
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Secure web app accesses storage and Microsoft Graph
+            url: multi-service-web-app-overview.md          
 ## ROW  ################################################### ROW 2 ##
   # - title: $CARD_TITLE
   #   linkLists:

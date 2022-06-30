@@ -1,11 +1,13 @@
 ---
-title: Manage labs in Azure Lab Services (deprecated) | Microsoft Docs
-description: Learn how to create and configure a lab, view all the labs, share the registration link with a lab user, or delete a lab. (deprecated)
+title: Manage labs in Azure Lab Services when using lab accounts| Microsoft Docs
+description: Learn how to create and configure a lab, view all the labs, share the registration link with a lab user, or delete a lab. 
 ms.topic: how-to
 ms.date: 11/12/2021
 ---
 
-# Manage labs in Azure Lab Services (deprecated)
+# Manage labs in Azure Lab Services when using lab accounts
+
+[!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article describes how to create and delete a lab. It also shows you how to view all the labs in a lab account.
 

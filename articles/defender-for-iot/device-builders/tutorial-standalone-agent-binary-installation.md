@@ -11,7 +11,7 @@ ms.custom: mode-other
 
 This tutorial will help you learn how to install and authenticate the Defender for IoT micro agent.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Download and install the micro agent
@@ -26,7 +26,7 @@ In this tutorial you will learn how to:
 
 - An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
-- Verify you are running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md#agent-portfolio-overview-and-os-support-preview).
+- Verify you're running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md#agent-portfolio-overview-and-os-support-preview).
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
@@ -73,7 +73,7 @@ Depending on your setup, the appropriate Microsoft package will need to be insta
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-1. Ensure that you have updated the apt using the following command:
+1. Ensure that you've updated the apt using the following command:
 
     ```bash
     sudo apt-get update
@@ -161,7 +161,7 @@ You will need to copy the module identity connection string from the DefenderIoT
     systemctl status defender-iot-micro-agent.service
     ```
 
-1. Ensure that the service is stable by making sure it is `active`, and that the uptime of the process is appropriate.
+1. Ensure that the service is stable by making sure it's `active`, and that the uptime of the process is appropriate.
 
     :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your service is stable and active.":::
 
