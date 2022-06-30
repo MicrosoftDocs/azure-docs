@@ -11,8 +11,6 @@ ms.date: 06/30/2022
 keywords: 
 ---
 
-Use this article to get started with Azure OpenAI with step-by-step instructions to create a resource and deploy a model. While the steps for resource creation and model deployment can be completed in a few minutes, the actual deployment process itself can take more than hour. It is recommended to create your resource, start your deployment, and then check back in on your deployment later rather than actively waiting for the deployment to complete.
-
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
