@@ -1,11 +1,11 @@
 ---
 title: Azure HPC Cache usage models
 description: Describes the different cache usage models and how to choose among them to set read-only or read/write caching and control other caching settings
-author: femila
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
-ms.author: femila
+ms.date: 06/29/2022
+ms.author: v-erinkelly
 ---
 <!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
 
@@ -73,6 +73,9 @@ This table summarizes the usage model differences:
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
 If you have questions about the best usage model for your Azure HPC Cache workflow, talk to your Azure representative or open a support request for help.
+
+> [!TIP]
+> A utility is available to write specific individual files back to a storage target without writing the entire cache contents. Learn more about the flush_file.py script in [Customize file write-back in Azure HPC Cache](custom-flush-script.md).
 
 ## Change usage models
 
