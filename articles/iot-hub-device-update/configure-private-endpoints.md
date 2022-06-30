@@ -36,28 +36,28 @@ A connection can be auto-approved only if the user creating a connection also ha
 6. On the **Virtual Network** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
-        :::image type="content" source="./media/configure-private-endpoints/device-update-pec-create-03.png" alt-text="Screenshot showing the Virtual Network page of the Creating a private endpoint wizard":::
-7. On the **DNS** page, unless you are using your own custom DNS, use the pre-populated values.
-        :::image type="content" source="./media/configure-private-endpoints/device-update-pec-create-04.png" alt-text="Screenshot showing the DNS page of the Creating a private endpoint wizard":::
+        :::image type="content" source="./media/configure-private-endpoints/device-update-pec-create-03.png" alt-text="Screenshot showing the Virtual Network page of the Creating a private endpoint wizard.":::
+7. On the **DNS** page, unless you're using your own custom DNS, use the pre-populated values.
+        :::image type="content" source="./media/configure-private-endpoints/device-update-pec-create-04.png" alt-text="Screenshot showing the DNS page of the Creating a private endpoint wizard.":::
 8. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
 9. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint. 
 
 ### Manually approved Private Endpoints
 
-In the case that the user creating the connection does not have a power to also approve it, the connection will be created in the pending state.  
+In the case that the user creating the connection doesn't have the power to also approve it, the connection will be created in the pending state.  
 
 1. Go to Home -> Private Link Center -> Private Endpoints -> +Create
     :::image type="content" source="./media/configure-private-endpoints/private-link-center.png" alt-text="Screenshot showing the Private Endpoints tab in Private Link Center.":::
 2. On the **Basics** page, follow these steps (same as in **Networking** tab in the Device Update account above): 
     1. Select an **Azure subscription** in which you want to create the private endpoint. 
     2. Select an **Azure resource group** for the private endpoint. 
-    3. Enter a **name** for the endpoint (this will auto-generate NIC name). 
+    3. Enter a **name** for the endpoint. 
     4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, a Device Update account). 
     5. Then, select **Next: Resource >** button at the bottom of the page. 
 3. Fill all the required fields on the **Resources** tab
     1. Select **Connect by Resource ID**. 
     2. Enter the Resource ID of the Device Update account.
-    3. Target sub-resource value must be **Device Update** 
+    3. Target sub-resource value must be **DeviceUpdate** 
     4. Optionally, add a request message
         :::image type="content" source="./media/configure-private-endpoints/private-endpoint-manual-create.png" alt-text="Screenshot showing the Resource page of the Create a private endpoint tab in Private Link Center.":::
 4. Complete the rest of the steps like in steps 6-9 above

@@ -29,7 +29,7 @@ You can use service tags to define network access controls on [network security
 ## Private endpoints
 You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow traffic from your virtual network to your Device Update accounts securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. A private endpoint is a special network interface for an Azure service in your VNet. When you create a private endpoint for your Device Update account, it provides secure connectivity between clients on your VNet and your Device Update account. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Device Update services uses a secure private link.
 
-![Architecture diagram](./media/network-security/architecture-diagram.png)
+![Diagram that shows the Device Update for IoT Hub architecture when private endpoint is created.](./media/network-security/architecture-diagram.png)
 
 Using private endpoints for your Device Update resource enables you to:
 
