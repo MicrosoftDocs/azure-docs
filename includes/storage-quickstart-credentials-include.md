@@ -10,13 +10,19 @@ ms.author: twooley
 ms.custom: include file
 ---
 
-When an application makes a request to Azure Storage, it must be authorized. Managed Identity is the recommended approach for authentication between Azure services, including Blob Storage. You can read more about the features and benefits of Managed Identity in the [Managed Identity overview]("/dotnet/azure/sdk/authentication-azure-hosted-apps").
+When an application makes a request to Azure Storage, it must be authorized. `DefaultAzureCredential` is the recommended approach for implementing authentication in your code between Azure services, including Blob Storage. 
 
-Azure Blob Storage also provides the option to authenticate using Connection Strings, but this approach should be used with caution. Managed Identity offers improved management and security benefits over connection strings. Both options are outlined in the following example.
+Azure Blob Storage also provides the option to authenticate using Connection Strings, but this approach should be used with caution. `DefaultAzureCredential` offers improved management and security benefits over connection strings. Both options are demonstrated in the following example.
 
-## [Managed Identity](#tab/managed-identity)
+## [DefaultAzureCredential](#tab/managed-identity)
 
-The following steps describe how to authenticate to Azure Blob Storage during local development using Managed Identity. The same process can be also expanded to handle authentication in hosted production environments. You can learn more about authentication between hosted services in the [Auth between Azure-hosted](/dotnet/azure/sdk/authentication-azure-hosted-apps) apps tutorial.
+`DefaultAzureCredential` is a class provided by the Azure SDK for .NET, which you can learn more about on the [Managed Identity Overview](/en-us/dotnet/azure/sdk/authentication). `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. This enables your app to use different authentication methods in different environments (local vs production) without implementing environment specific code.
+
+The order and locations in which `DefaultAzureCredential` looks for credentials is shown in the diagram and table below.
+
+:::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/authentication-defaultazurecredential.png" alt-text="A diagram of the DefaultAzureCredential order.":::
+
+For example, your app can authenticate using your Visual Studio login when developing locally, but then use Managed Identity once it has been deployed to Azure. No code changes are required for this transition.
 
 ### Create an Azure AD group for local development
 
@@ -59,17 +65,11 @@ Creating an Azure AD group for local development provides a repeatable process a
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
-7. In the **Select managed identities** dialog, choose the Azure AD security group you created and then choose **Select** at the bottom of the dialog. 
+7. In the dialog, locate the Azure AD security group you created and then choose **Select** at the bottom of the dialog. 
 
 8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
 ### Connect your app code using DefaultAzureCredential
-
-`DefaultAzureCredential` is a class provided by the Azure SDK for .NET, which you can learn more about on the [Managed Identity Overview](/en-us/dotnet/azure/sdk/authentication). `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. This enables your app to use different authentication methods in different environments (local vs production) without implementing environment specific code.
-
- The order and locations in which `DefaultAzureCredential` looks for credentials is shown in the diagram and table below.
-
-:::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/authentication-defaultazurecredential.png" alt-text="A diagram of the DefaultAzureCredential order.":::
 
 You can authenticate your local app to your Blob Storage account using the following steps:
 
