@@ -12,8 +12,7 @@ ms.custom: devx-track-azurecli
 
 Use the Azure CLI commands described here to manage your log analytics workspace in Azure Monitor.
 
-> [!NOTE]
-> On August 31, 2024, Microsoft will retire the Log Analytics agent. You can use the Azure Monitor agent after that time. For more information, see [Overview of Azure Monitor agents](../agents/agents-overview.md).
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 [!INCLUDE [Prepare your Azure CLI environment](../../../includes/azure-cli-prepare-your-environment.md)]
 

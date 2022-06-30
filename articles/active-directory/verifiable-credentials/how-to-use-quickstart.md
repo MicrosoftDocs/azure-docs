@@ -1,6 +1,6 @@
 ---
-title: How to create credentials using the QuickStart
-description: Learn how to use the QuickStart to create custom credentials
+title: How to create verifiable credentials for ID token hint
+description: Learn how to use the QuickStart to create custom verifiable credential for ID token hint
 documentationCenter: ''
 author: barclayn
 manager: rkarlin
@@ -10,21 +10,21 @@ ms.subservice: verifiable-credentials
 ms.date: 06/16/2022
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am looking for information to help me disable 
+#Customer intent: As a verifiable credentials Administrator, I want to create a verifiable credential for the ID token hint scenario 
 ---
 
-# How to create credentials using the Quickstart
+# How to create verifiable credentials for ID token hint
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview.
+> Microsoft Entra Verified ID is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-To use the Azure Active Directory Verifiable Credentials QuickStart, you only need to complete verifiable credentials onboarding.
+To use the Microsoft Entra Verified ID QuickStart, you only need to complete verifiable credentials onboarding.
 
 ## What is the QuickStart?
 
@@ -129,3 +129,4 @@ After switching to custom issue, you have access to a textbox with a JSON payloa
 ## Next steps
 
 - Reference for [Rules and Display definitions model](rules-and-display-definitions-model.md)
+- Reference for creating a credential using the [idToken] attestation (idtoken-reference.md)
