@@ -43,9 +43,8 @@ Unless you are embedding code, we suggest replacing newlines (\n) in your input 
 
 ## Limitations & risks
 
-Our embedding models may be unreliable or pose social risks in certain cases, and may cause harm in the absence of mitigations. Please review our transparency note <!--TODO[Transparency Note](../Responsible%20Use%20of%20AI/1_Transparency%20Note.md)--> for more information on how to approach their use responsibly.
+Our embedding models may be unreliable or pose social risks in certain cases, and may cause harm in the absence of mitigations. Please review our Responsible AI content for more information on how to approach their use responsibly.
 
 ## Next steps
 
 Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
-<!--TODO: Get started with making Embeddings using our [Get_Embeddings](../Samples/Embeddings/Get_Embeddings.ipynb) sample notebook.-->
