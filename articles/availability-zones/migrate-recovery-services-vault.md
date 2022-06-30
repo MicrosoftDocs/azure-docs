@@ -76,7 +76,7 @@ If your workloads are backed-up by the old vault and you want to re-assign them 
 
 # [Azure Site Recovery](#tab/site-recovery)
 
-If you've any workloads in the old vault that are currently protected by Azure Site Recovery, see the following sections.
+If you have any workloads in the old vault that are currently protected by Azure Site Recovery, see the following sections.
 
 ## Azure to Azure replication
 
