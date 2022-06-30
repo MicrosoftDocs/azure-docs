@@ -113,7 +113,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Silverback SSO
 
-1. In a different web browser, login to your Silverback Server as an Administrator.
+1. In a different web browser, log in to your Silverback Server as an Administrator.
 
 2. Navigate to **Admin** > **Authentication Provider**.
 
@@ -145,7 +145,7 @@ To enable Azure AD users to log in to Silverback, they must be provisioned into 
 
 **To provision a user account, perform the following steps:**
 
-1. Login to your Silverback Server as an Administrator.
+1. Log in to your Silverback Server as an Administrator.
 
 2. Navigate to **Users** and **add a new device user**.
 
@@ -163,7 +163,7 @@ To enable Azure AD users to log in to Silverback, they must be provisioned into 
 
 	e. In the **Password** text box, enter your password.
 
-	f. In the **Confirm Password** text box, Re-enter your password and confirm.
+	f. In the **Confirm Password** text box, Reenter your password and confirm.
 
 	g. Click **Save**.
 
@@ -174,11 +174,11 @@ To enable Azure AD users to log in to Silverback, they must be provisioned into 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Silverback Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Silverback Sign on URL where you can initiate the login flow. 
 
-* Go to Silverback Sign-on URL directly and initiate the login flow from there.
+* Go to Silverback Sign on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Silverback tile in the My Apps, this will redirect to Silverback Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Silverback tile in the My Apps, this will redirect to Silverback Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

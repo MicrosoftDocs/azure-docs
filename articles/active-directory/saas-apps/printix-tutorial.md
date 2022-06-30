@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Save** button.
 
-1. Sign-on to your Printix tenant as an administrator.
+1. Sign on to your Printix tenant as an administrator.
 
 1. In the menu on the top, click the icon at the upper right corner and select "**Authentication**".
    
@@ -105,7 +105,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Azure** tab, input federation metadata URL to the textbox of "**Federation metadata document**". 
 
-    Attach the metadata xml file which you downloaded from Azure AD to [Printix support team](mailto:support@printix.net). Then they upload the xml file and provide a federation metadata URL.
+    Attach the metadata xml file, which you downloaded from Azure AD to [Printix support team](mailto:support@printix.net). Then they upload the xml file and provide a federation metadata URL.
    
     ![Screenshot shows the Printix.net page where you can specify a Federation metadata document.](./media/printix-tutorial/metadata.png "Federation")
    

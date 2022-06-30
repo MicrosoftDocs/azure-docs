@@ -120,7 +120,7 @@ To configure single sign-on on **Wikispaces** side, you need to send the downloa
 
 In order to enable Azure AD users to sign in to Wikispaces, they must be provisioned into Wikispaces. In the case of Wikispaces, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+### To provision a user account, perform the following steps:
 
 1. Sign in to your **Wikispaces** company site as an administrator.
 
