@@ -16,7 +16,7 @@ Configure [App Services](../../app-service/configure-language-java.md#set-java-r
 
 ## Spring Boot
 
-Please read the Spring Boot documentation [here](../app/java-in-process-agent.md).
+Read the Spring Boot documentation [here](../app/java-in-process-agent.md).
 
 ## Tomcat 8 (Linux)
 
@@ -94,7 +94,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.3.0.jar` to the existing `jv
 ...
 ```
 
-If you are running multiple managed servers on a single host, you will need to add `applicationinsights.agent.id` to the `system-properties` for each `server`:
+If you're running multiple managed servers on a single host, you will need to add `applicationinsights.agent.id` to the `system-properties` for each `server`:
 
 ```xml
 ...
@@ -116,7 +116,7 @@ If you are running multiple managed servers on a single host, you will need to a
 ...
 ```
 
-The specified `applicationinsights.agent.id` value must be unique. It is used to create a subdirectory under the applicationinsights directory, as each JVM process needs its own local applicationinsights config and local applicationinsights log file. Also, if reporting to the central collector, the `applicationinsights.properties` file is shared by the multiple managed servers, and so the specified `applicationinsights.agent.id` is needed to override the `agent.id` setting in that shared file. `applicationinsights.agent.rollup.id` can be similarly specified in the server's `system-properties` if you need to override the `agent.rollup.id` setting per managed server.
+The specified `applicationinsights.agent.id` value must be unique. It's used to create a subdirectory under the application insights directory, as each JVM process needs its own local application insights config and local application insights log file. Also, if reporting to the central collector, the `applicationinsights.properties` file is shared by the multiple managed servers, and so the specified `applicationinsights.agent.id` is needed to override the `agent.id` setting in that shared file. `applicationinsights.agent.rollup.id` can be similarly specified in the server's `system-properties` if you need to override the `agent.rollup.id` setting per managed server.
 
 
 ## Jetty 9
@@ -153,7 +153,7 @@ Go to **servers > WebSphere application servers > Application servers**, choose 
 ```
 Java and Process Management > Process definition >  Java Virtual Machine
 ```
-In "Generic JVM arguments" add the following:
+In "Generic JVM arguments" add the following JVM argument:
 ```
 -javaagent:path/to/applicationinsights-agent-3.3.0.jar
 ```
@@ -169,4 +169,4 @@ Create a new file `jvm.options` in the server directory (for example `<openliber
 
 ## Others
 
-Please see your application server documentation on how to add JVM args.
+See your application server documentation on how to add JVM args.
