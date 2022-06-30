@@ -80,7 +80,7 @@ The name property is the name of the metric that's being reported. Usually, the 
 
 A dimension is a key/value pair that helps describe other characteristics about the metric that's being collected. By using the other characteristics, you can collect more information about the metric, which allows for deeper insights.
 
-For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory-specific processes use or to identify the top five processes by memory usage.
+For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
 
 Dimensions are optional, and not all metrics have dimensions. A custom metric can have up to 10 dimensions.
 
