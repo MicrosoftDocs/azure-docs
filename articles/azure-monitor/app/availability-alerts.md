@@ -28,13 +28,18 @@ Alerts are now automatically enabled by default, but in order to fully configure
 
    ![Screenshot shows the Rules management page where you can edit the rule.](./media/availability-alerts/set-action-group.png)
 
-> [!NOTE]
-> Availability alerts created through this experience are state-based. This means that when the alert criteria is met, a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated within the same aggregation period, it won't generate a new alert. For example, if your site was down for an hour and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
+### Alert frequency
 
-> [!TIP]
-> If you don't want to receive constant notifications when your website is down, e.g. during maintenance, you can either temporarily deactivate the alert, or select the condition to configure the signal logic and change the aggregation period to a higher value than the expected downtime.
+Availability alerts created through this experience are state-based. This means that when the alert criteria is met, a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated within the same aggregation period, it won't generate a new alert.
+
+For example, if your site was down for an hour within a two hour aggreation period and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
+
+To change the aggregation period, select the condition of your alert rule to configure the signal logic.
 
 ![Configure signal logic](./media/availability-alerts/configure-signal-logic.png)
+
+> [!TIP]
+> If you don't want to receive constant notifications when your website is down, e.g. during maintenance, you can either temporarily deactivate the alert, or change the aggregation period to a higher value than the expected downtime.
 
 ### Custom alert rule
 
