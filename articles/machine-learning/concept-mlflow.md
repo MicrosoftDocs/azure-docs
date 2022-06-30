@@ -24,7 +24,7 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
 
 > [!TIP]
 > Azure Machine Learning workspaces are MLflow compatible, meaning that you can use Azure Machine Learning workspaces in the same way you use an MLflow Tracking Server. Such compatibility has the following advantages:
-> * You can use Azure Machine Learning workspaces as you tracking server for any experiment you are running with MLflow, regardless if they run on Azure Machine Learning or not. You only need to configure MLflow to point to the workspace where the tracking should happen.
+> * You can use Azure Machine Learning workspaces as your tracking server for any experiment you are running with MLflow, regardless if they run on Azure Machine Learning or not. You only need to configure MLflow to point to the workspace where the tracking should happen.
 > * You can run any training routine that uses MLflow in Azure Machine Learning without changes. Model mangagement and model deployment capabilities are also supported.
 
 MLflow can manage the complete machine learning lifecycle using four core capabilities:
