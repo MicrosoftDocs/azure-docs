@@ -66,7 +66,6 @@ The `--save` option lists the library as a dependency in your *package.json* fil
     })
     ```
 
-1. Save the new file as *issue-access-token.js* in the project directory.
 
 ## Authenticate the client
 
