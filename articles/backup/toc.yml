@@ -58,6 +58,10 @@
     href: multi-user-authorization-tutorial.md
 - name: Concepts
   items:
+  - name: Resiliency
+    items:
+    - name: Migrate to availability zone support
+      href: ../availability-zones/migrate-recovery-services-vault.md
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
