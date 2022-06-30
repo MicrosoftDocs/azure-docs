@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am looking for information to help me create verifiable credentials for ID tokens. 
 ---
 
-# How to create verifiable credentials for ID tokens
+# Create verifiable credentials for ID tokens
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
