@@ -232,7 +232,8 @@ Invoke-AzResourceAction `
 
 Creating the image and replicating it to both regions can take a few moments. Before you begin creating a VM, wait until this part is finished.
 
-For information on options for automating getting the image build status, see the [Readme]
+For information about options for automating getting the image build status, see the [Readme].
+
 ```powershell
 Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup |
   Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState
@@ -240,9 +241,9 @@ Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupN
 
 ## Create the VM
 
-Create a VM from the image version that was created by VM Image Builder.
+Create a VM from the image version that you created with VM Image Builder.
 
-1. Get the image version you created:
+1. Get the image version that you created:
 
    ```powershell
    $imageVersion = Get-AzGalleryImageVersion `
@@ -289,7 +290,7 @@ Create a VM from the image version that was created by VM Image Builder.
 
 ## Verify the customization
 
-Create a Remote Desktop connection to the VM by using the username and password that you set when you created the VM. Inside the VM, open a cmd prompt and type:
+Create a Remote Desktop connection to the VM by using the username and password that you set when you created the VM. In the VM, open a Command Prompt window and run the following command:
 
 ```console
 dir c:\
@@ -303,11 +304,11 @@ You should see a directory named `buildActions` that was created during image cu
 > [!NOTE]
 > If you now want to try to recustomize the image version to create a new version of the same image, *skip the step outlined here* and go to [Use VM Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
-If you no longer need the resources that were created as you followed the process in this article, you can delete them by doing the following.
+If you no longer need the resources that you created as you followed the process in this article, you can delete them.
 
-This process deletes both the image that you created and all the other resource files. Make sure that you've finished this deployment before you delete the resources.
+The following process deletes both the image that you created and all the other resource files. Make sure that you've finished this deployment before you delete the resources.
 
-Delete the resource group template first. Otherwise the staging resource group (*IT_*) that's used by VM Image Builder won't be cleaned up.
+Delete the resource group template first. Otherwise, the staging resource group (*IT_*) that VM Image Builder uses won't be cleaned up.
 
 1. Get the ResourceID of the image template. 
 
