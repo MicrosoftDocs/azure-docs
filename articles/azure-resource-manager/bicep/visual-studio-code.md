@@ -90,7 +90,7 @@ When your Bicep file uses modules that are published to a registry, the restore 
 
 ## View type document
 
-From Visual Studio Code, you can easily open the template reference for the resource type your are working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
+From Visual Studio Code, you can easily open the template reference for the resource type you are working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
 
