@@ -132,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. Select **Save SAML2 settings**.
 
-### Create a ThirdLight test user
+### Create ThirdLight test user
 
 To enable Azure AD users to sign in to ThirdLight, you need to add them to ThirdLight. You need to add them manually.
 
