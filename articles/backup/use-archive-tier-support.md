@@ -29,63 +29,6 @@ You can now view all the recovery points that are moved to archive.
 
 :::image type="content" source="./media/use-archive-tier-support/view-recovery-points-list-inline.png" alt-text="Screenshot showing the list of recovery points." lightbox="./media/use-archive-tier-support/view-recovery-points-list-expanded.png":::
 
-## Move archivable recovery points
-
-### Move archivable recovery points for a particular SQL/SAP HANA database
-
-You can move all recovery points for a particular SQL/SAP HANA database at one go.
-
-Follow these steps:
-
-1. Select the backup item (database in SQL Server or SAP HANA in Azure VM) whose recovery points you want to move to the Vault-archive tier.
-
-1. Select **click here** to view the list of all eligible achievable recovery points.
-
-   :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-recovery-points-expanded.png":::
-
-1. Click **Move recovery points to archive** to move all recovery points to the Vault-archive tier.
-
-   :::image type="content" source="./media/use-archive-tier-support/move-all-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-recovery-points-to-vault-expanded.png":::
-
-   >[!Note]
-   >This option moves all the archivable recovery points to the Vault-archive tier.
-
-You can monitor the progress in backup jobs.
-
-### Move recommended recovery points for a particular Azure Virtual Machine
-
-You can move all recommended recovery points for selected Azure Virtual Machines to the Vault-archive tier. [Learn](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendation set for Azure Virtual Machine.
-
-Follow these steps:
-
-1. Select the Virtual Machine whose recovery points you want to move to the Vault-archive tier.
-
-1. Select **click here** to view recommended recovery points.
-
-   :::image type="content" source="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points for virtual machines that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-expanded.png":::
-
-1. Click **Move recovery points to archive** to move all the recommended recovery points to Archive tier.
-
-   :::image type="content" source="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points for virtual machines to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-expanded.png":::
-
->[!Note]
->To ensure cost savings, you need to move all the recommended recovery points to the Vault-archive tier. To verify, follow steps 1 and 2. If the list of recovery points is empty in step 3, all the recommended recovery points are moved to the Vault-archive tier.
-## Restore
-
-To restore the recovery points that are moved to archive, you need to add the required parameters for rehydration duration and rehydration priority.
-
-:::image type="content" source="./media/use-archive-tier-support/restore-in-portal.png" alt-text="Screenshot showing the process to restore recovery points in the portal.":::
-
-## View jobs
-
-:::image type="content" source="./media/use-archive-tier-support/view-jobs-portal.png" alt-text="Screenshot showing the process to view jobs in the portal.":::
-
-## View Archive Usage in Vault Dashboard
-
-You can also view the archive usage in the vault dashboard.
-
-:::image type="content" source="./media/use-archive-tier-support/view-archive-usage-in-vault-dashboard.png" alt-text="Screenshot showing the archive usage in the vault dashboard.":::
-
 ## Enable Smart Tiering to Vault-archive using a backup policy (preview)
 
 You can automatically move all eligible/recommended recovery points to vault-archive by configuring the required settings in the Backup policy.
@@ -158,10 +101,62 @@ To enable Smart Tiering for Azure SAP HANA/SQL servers in Azure VM backup polici
 
 Once Smart Tiering is enabled, all the eligible recovery points are moved to the Vault-archive tier.
 
-### Move all/eligible recovery points for a backup item
+## Move archivable recovery points
 
- To move recovery points for a backup item at one go, see [Move archivable recovery points](?pivots=client-portaltier#view-archived-recovery-points).
+### Move archivable recovery points for a particular SQL/SAP HANA database
 
+You can move all recovery points for a particular SQL/SAP HANA database at one go.
+
+Follow these steps:
+
+1. Select the backup item (database in SQL Server or SAP HANA in Azure VM) whose recovery points you want to move to the Vault-archive tier.
+
+1. Select **click here** to view the list of all eligible achievable recovery points.
+
+   :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-recovery-points-expanded.png":::
+
+1. Click **Move recovery points to archive** to move all recovery points to the Vault-archive tier.
+
+   :::image type="content" source="./media/use-archive-tier-support/move-all-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-recovery-points-to-vault-expanded.png":::
+
+   >[!Note]
+   >This option moves all the archivable recovery points to the Vault-archive tier.
+
+You can monitor the progress in backup jobs.
+
+### Move recommended recovery points for a particular Azure Virtual Machine
+
+You can move all recommended recovery points for selected Azure Virtual Machines to the Vault-archive tier. [Learn](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendation set for Azure Virtual Machine.
+
+Follow these steps:
+
+1. Select the Virtual Machine whose recovery points you want to move to the Vault-archive tier.
+
+1. Select **click here** to view recommended recovery points.
+
+   :::image type="content" source="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points for virtual machines that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-expanded.png":::
+
+1. Click **Move recovery points to archive** to move all the recommended recovery points to Archive tier.
+
+   :::image type="content" source="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points for virtual machines to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-expanded.png":::
+
+>[!Note]
+>To ensure cost savings, you need to move all the recommended recovery points to the Vault-archive tier. To verify, follow steps 1 and 2. If the list of recovery points is empty in step 3, all the recommended recovery points are moved to the Vault-archive tier.
+## Restore
+
+To restore the recovery points that are moved to archive, you need to add the required parameters for rehydration duration and rehydration priority.
+
+:::image type="content" source="./media/use-archive-tier-support/restore-in-portal.png" alt-text="Screenshot showing the process to restore recovery points in the portal.":::
+
+## View jobs
+
+:::image type="content" source="./media/use-archive-tier-support/view-jobs-portal.png" alt-text="Screenshot showing the process to view jobs in the portal.":::
+
+## View Archive Usage in Vault Dashboard
+
+You can also view the archive usage in the vault dashboard.
+
+:::image type="content" source="./media/use-archive-tier-support/view-archive-usage-in-vault-dashboard.png" alt-text="Screenshot showing the archive usage in the vault dashboard.":::
 
 ## Next steps
 
