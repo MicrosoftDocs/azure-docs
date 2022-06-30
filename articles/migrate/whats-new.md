@@ -13,10 +13,6 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
-
-## Update (May 2022)
-- Support for Storage vMotion during replication for agentless VMware VM migrations.
-
 ## Update (June 2022)
 
 - Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-migrate-webapps.md)
@@ -26,6 +22,7 @@ ms.custom: mvc
    - We recommended migrating instances to *SQL Server on Azure VM* as per the Azure best practices.
    - *Right sized Lift and Shift* - Server to *SQL Server on Azure VM*. We recommend this when SQL Server credentials are not available. 
    - Enhanced user-experience that covers readiness and cost estimates for multiple migration targets for SQL deployments in one assessment.
+- Support for Storage vMotion during replication for agentless VMware VM migrations.
 
 ## Update (March 2022)
 - Perform agentless VMware VM discovery, assessments, and migrations over a private network using Azure Private Link. [Learn more.](how-to-use-azure-migrate-with-private-endpoints.md)
