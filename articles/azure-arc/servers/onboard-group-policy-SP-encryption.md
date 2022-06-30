@@ -27,8 +27,8 @@ The Group Policy to onboard Azure Arc-enabled servers requires a remote share wi
     * Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone.
     * Make a note of the Service Principal Secret; you'll need this value later.
 
-1. Download the following scripts to your local network share:
-    * `EnableAzureArc.ps1`
+1. For each of the scripts below, click to go to its Github directory and download the raw script to your local share using your browser's **Save as** function:
+    * [`EnableAzureArc.ps1`](https://raw.githubusercontent.com/Azure-Samples/azure-files-samples/master/ScanUnsupportedChars/ScanUnsupportedChars.ps1)
     * `DeployGPO.ps1`
     * `AzureArcDeployment.psm1`
 
