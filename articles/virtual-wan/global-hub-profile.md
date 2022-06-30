@@ -24,7 +24,7 @@ For example, you can associate a VPN configuration with two Virtual WAN hubs, on
 
 To download the global profile:
 
-1. Go to the virtual WAN.
+1. Go to the **Virtual WAN**.
 1. In the left pane, select **User VPN configurations**.
 1. Select the configuration for which you want to download the profile.
 1. Select **Download virtual WAN user VPN profile**.
@@ -37,8 +37,10 @@ By default, every hub that uses a specific User VPN configuration is included in
 
 To check whether or not the hub is included in the global VPN profile:
 
-1. Go to the hub.
-1. In the left pane, select **User VPN (Point to site)**.
+1. Go to the **Virtual WAN**.
+1. On the **Overview** page, select **Hubs**.
+1. On the **Hubs** page, click the hub.
+1. On the page for the virtual hub, in the left pane, select **User VPN (Point to site)**.
 1. On the **User VPN (Point-to-site)** page, see **Gateway attachment state** to determine if this hub is included in the global VPN profile. If the state is **attached**, the hub is included. If the state is **detached**, the hub isn't included.
 
    :::image type="content" source="./media/global-hub-profile/attachment-state.png" alt-text="Screenshot that shows the attachment state of a gateway."lightbox="./media/global-hub-profile/attachment-state.png":::
@@ -59,10 +61,8 @@ To include or exclude a specific hub from the global VPN profile:
 
 The profile points to a single hub. The user can connect to only the particular hub by using this profile. To download the hub-based profile:
 
-1. Go to the virtual WAN.
-1. On the **Overview** page, select **Hubs**.
-1. On the **Hubs** page, click the hub.
-1. On the page for the hub, in the left pane, go to **User VPN (Point to site)**.
+1. Go to the virtual hub.
+1. In the left pane, select **User VPN (Point to site)**.
 1. Select **Download virtual Hub User VPN profile**.
 
    :::image type="content" source="./media/global-hub-profile/hub-profile.png" alt-text="Screenshot that shows how to download a hub profile." lightbox="./media/global-hub-profile/hub-profile.png":::
@@ -72,4 +72,4 @@ The profile points to a single hub. The user can connect to only the particular 
 
 ## Next steps
 
-To learn more about Virtual WAN, see the [Virtual WAN overview](virtual-wan-about.md) article.
+For more information about User VPNs, see [Create User VPN point-to-site connections](virtual-wan-point-to-site-portal.md).
