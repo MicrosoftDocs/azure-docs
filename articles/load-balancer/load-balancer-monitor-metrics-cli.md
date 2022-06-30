@@ -46,10 +46,6 @@ For metric definitions and further details, refer to [Monitoring load balancer d
 
 The [az monitor metrics](/cli/azure/monitor/metrics) command is used to view Azure resource metrics. To see the metric definitions available for a Standard Load Balancer, you run the `az monitor metrics list-definitions` command. 
 
-[az monitor metrics](/cli/azure/monitor/metrics#az-monitor-metrics-list-examples)
-
-[az monitor metrics](/cli/azure/monitor/metrics#az-monitor-metrics-list)
-
 ```azurecli
 # Display available metric definitions for a Standard Load Balancer resource
 
@@ -58,7 +54,7 @@ az monitor metrics list-definitions --resource <resource_id>
 >[!NOTE]
 >In the all the following examples, replace **<resource_id>** with the unique resource id of your Standard Load Balancer. 
 
-To retrieve Standard Load Balancer metrics for a resource, you can use the `az monitor metrics list` command.
+To retrieve Standard Load Balancer metrics for a resource, you can use the [az monitor metrics](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
 
 For example, use the `--metric DipAvailability` option to collect the Health Probe Status metric from a Standard Load Balancer. 
 
