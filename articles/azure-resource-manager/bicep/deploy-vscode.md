@@ -11,44 +11,17 @@ ms.date: 06/30/2022
 
 You can use [Visual Studio Code with the Bicep extension](./visual-studio-code.md#deploy-bicep-file) to deploy a Bicep file. You can deploy to any scope. This article shows deploying to a resource group.
 
-## Deploy local Bicep file
+From an opened Bicep file in VSCode, there are two ways you can find the command:
 
-To deploy a local Bicep file, you must first upload your Bicep file to your Cloud Shell session.
+- Right-click anywhere inside the Bicep file, and then select **Deploy Bicep File**.
+- Select **Command Palette** from the **View** menu, and then select **Bicep: Deploy Bicep File**.
 
-1. Sign in to the [Cloud Shell](https://shell.azure.com).
-1. Select either **PowerShell** or **Bash**.
+After you select the command, you follow the wizard to enter the values:
 
-    :::image type="content" source="./media/deploy-cloud-shell/bicep-cloud-shell-bash-powershell.png" alt-text="Select Bash or PowerShell":::
+- Select or create a resource group.
+- Select a parameter file or select **None** to enter the parameter values. After you enter the parameter values, you have the options to create a parameter file or overwrite the existing parameter file.
 
-1. Select **Upload/Download files**, and then select **Upload**.
-
-    :::image type="content" source="./media/deploy-cloud-shell/bicep-cloud-shell-upload.png" alt-text="Upload file":::
-
-1. Select the Bicep file you want to upload, and then select **Open**.
-1. To deploy the Bicep file, use the following commands:
-
-   # [Azure CLI](#tab/azure-cli)
-
-   ```azurecli-interactive
-   az group create --name ExampleGroup --location "South Central US"
-   az deployment group create \
-     --resource-group ExampleGroup \
-     --template-file azuredeploy.bicep \
-     --parameters storageAccountType=Standard_GRS
-   ```
-
-   # [PowerShell](#tab/azure-powershell)
-
-   ```azurepowershell-interactive
-   New-AzResourceGroup -Name ExampleGroup -Location "Central US"
-   New-AzResourceGroupDeployment `
-     -DeploymentName ExampleDeployment `
-     -ResourceGroupName ExampleGroup `
-     -TemplateFile azuredeploy.bicep `
-     -storageAccountType Standard_GRS
-   ```
-
-   ---
+For more information about VSCode commands, see [Visual Studio Code](./visual-studio-code.md).
 
 ## Next steps
 
