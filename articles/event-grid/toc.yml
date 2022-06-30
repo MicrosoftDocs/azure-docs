@@ -218,10 +218,12 @@ items:
         href: webhook-event-delivery.md
       - name: Custom delivery properties
         href: delivery-properties.md
-    - name: Disaster recovery
+    - name: Availability and disaster recovery
       items:
+      - name: Resiliency
+        href: availability-zone-resiliency.md      
       - name: Geo disaster recovery
-        href: geo-disaster-recovery.md      
+        href: geo-disaster-recovery.md
     - name: Security 
       items: 
       - name: Security baseline
@@ -297,8 +299,12 @@ items:
       href: cloudevents-schema.md
     - name: Manage topics with Event Domains
       href: how-to-event-domains.md
-    - name: Implement client-side failover
-      href: custom-disaster-recovery.md
+    - name: Disaster recovery
+      items:      
+      - name: Build your own disaster recovery plan
+        href: custom-disaster-recovery.md
+      - name: Build your own client-side disaster recovery
+        href: custom-disaster-recovery-client-side.md
     - name: Track asynchronous REST operations
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Move

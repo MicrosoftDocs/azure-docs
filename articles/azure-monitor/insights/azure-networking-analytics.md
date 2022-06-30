@@ -6,6 +6,7 @@ author: bwren
 ms.author: bwren
 ms.date: 06/21/2018 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: shijain
 
 ---
 
@@ -58,7 +59,7 @@ The following table shows data collection methods and other details about how da
 
    ![Screenshot of the Diagnostics Settings config for Application Gateway resource.](media/azure-networking-analytics/diagnostic-settings-1.png)
 
-   [ ![Screenshot of the page for configuring Diagnostics settings.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
+   [![Screenshot of the page for configuring Diagnostics settings.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
 
 5. Click the checkbox for *Send to Log Analytics*.
 6. Select an existing Log Analytics workspace, or create a workspace.
@@ -81,12 +82,11 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 
 Application insights can be accessed via the insights tab within your Application Gateway resource.
 
-![Screenshot of Application Gateway insights ](media/azure-networking-analytics/azure-appgw-insights.png
-)
+![Screenshot of Application Gateway insights](media/azure-networking-analytics/azure-appgw-insights.png)
 
 The "view detailed metrics" tab will open up the pre-populated workbook summarizing the data from your Application Gateway.
 
-[ ![Screenshot of Application Gateway workbook ](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
+[![Screenshot of Application Gateway workbook](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
 ### New capabilities with Azure Monitor Network Insights workbook
 
@@ -99,7 +99,7 @@ The Network Insights workbook allows you to take advantage of the latest capabil
 
 * Flexible canvas to support creation of custom rich [visualizations](../visualize/workbooks-overview.md#visualizations).
 
-* Ability to consume and [share workbook templates](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) with wider community.
+* Ability to consume and [share workbook templates](../visualize/workbooks-templates.md) with wider community.
 
 To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../visualize/workbooks-overview.md)
 
@@ -113,11 +113,11 @@ To find more information about the capabilities of the new workbook solution che
 > [!NOTE]
 > All past data is already available within the workbook from the point diagnostic settings were originally enabled. There is no data transfer required.
 
-2. Access the [default insights workbook](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) for your Application Gateway resource. All existing insights supported by the Application Gateway analytics solution will be already present in the workbook. You can extend this by adding custom [visualizations](../visualize/workbooks-overview.md#visualizations) based on metric & log data.
+2. Access the [default insights workbook](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) for your Application Gateway resource. All existing insights supported by the Application Gateway analytics solution will be already present in the workbook. You can extend this by adding custom [visualizations](../visualize/workbooks-overview.md#visualizations) based on metric and log data.
 
 3. After you are able to see all your metric and log insights, to clean up the Azure Gateway analytics solution from your workspace, you can delete the solution from the solution resource page.
 
-[ ![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+[![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
 
 ## Troubleshooting

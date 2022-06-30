@@ -654,7 +654,7 @@
   - name: Azure Data Protection - PowerShell
     href: /powershell/module/az.dataprotection/
   - name: PowerShell – Azure Backup agent
-    href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+    href: /powershell/module/msonlinebackup/
   - name: REST - Azure Data Protection
     href: /rest/api/dataprotection/
   - name: REST - Backup
