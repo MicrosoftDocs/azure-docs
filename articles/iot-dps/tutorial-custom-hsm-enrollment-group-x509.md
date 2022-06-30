@@ -695,7 +695,7 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
 1. From your DPS in Azure portal, select the **Manage enrollments** tab. then select the **Add enrollment group** button at the top.
 
-1. In the **Add Enrollment Group** panel, enter the following information, then se;ect **Save**.
+1. In the **Add Enrollment Group** panel, enter the following information, then select **Save**.
 
     :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/custom-hsm-enrollment-group-x509.png" alt-text="Screenshot that shows adding an enrollment group in the portal.":::
 
