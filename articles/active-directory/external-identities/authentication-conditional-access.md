@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 06/30/2022
 
 ms.author: mimart
 author: msmimart
@@ -76,7 +76,7 @@ Organizations can enforce Conditional Access policies for external B2B collabora
 
 In an Azure AD cross-tenant scenario, the resource organization can create Conditional Access policies that require MFA or device compliance for all guest and external users. Generally, a B2B collaboration user accessing a resource is then required to set up their Azure AD MFA with the resource tenant. However, Azure AD now offers the ability to trust MFA claims from other Azure AD tenants. Enabling MFA trust with another tenant streamlines the sign-in process for B2B collaboration users and enables access for B2B direct connect users.
 
-If you've configured your inbound trust settings to accept MFA claims from a B2B collaboration or B2B direct connect user's home tenant, Azure AD checks the user's credentials during authentication. If the credentials contain a claim indicating that MFA policies have already been met in the user's home tenant, the user is granted seamless sign-on to your shared resource.
+If you've configured your inbound trust settings to accept MFA claims from a B2B collaboration or B2B direct connect user's home tenant, Azure AD checks the user's authentication session. If the session contains a claim indicating that MFA policies have already been met in the user's home tenant, the user is granted seamless sign-on to your shared resource.
 
 If MFA trust isn't enabled, the user experience is different for B2B collaboration users and B2B direct connect users:
 
@@ -138,7 +138,7 @@ Organizations can use Conditional Access policies to require users' devices to b
 
 However, you can use device trust settings to unblock external users while still requiring managed devices. In your cross-tenant access settings, you can choose to trust claims from an external user's home tenant about whether the user's device meets their device compliance policies or is [hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md). You can set device trust settings for all Azure AD organizations or individual organizations.
 
-When device trust settings are enabled, Azure AD checks a user's credentials during authentication for a device ID to determine if the policies have already been met in the user's home tenant. If so, the external user is granted seamless sign-on to your shared resource.
+When device trust settings are enabled, Azure AD checks a user's authentication session for a device claim. If the session contains a device claim indicating that the policies have already been met in the user's home tenant, the external user is granted seamless sign-on to your shared resource.
 
 >[!Important]
 >
