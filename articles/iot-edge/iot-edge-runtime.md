@@ -117,15 +117,7 @@ The solution developer is responsible for specifying the rules that determine ho
 
 ### Local communication
 
-IoT Edge hub facilitates local communication. It enables device-to-module, module-to-module, device-to-device communications by brokering messages to keep devices and modules independent from each other.
-
->[!NOTE]
-> The MQTT broker feature is in public preview with IoT Edge version 1.2. It must be explicitly enabled.
-
-The IoT Edge hub supports two brokering mechanisms:
-
-1. The [message routing features supported by IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md) and,
-2. A general-purpose MQTT broker that meets the [MQTT standard v3.1.1](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)
+IoT Edge hub facilitates local communication. It enables device-to-module and module-to-module communications by brokering messages to keep devices and modules independent from each other. The IoT Edge hub supports the [message routing features supported by IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 #### Using routing
 
@@ -133,42 +125,25 @@ The first brokering mechanism leverages the same routing features as IoT Hub to 
 
 ![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-routing.png)
 
-Routing can be used by devices or modules built with the Azure IoT Device SDKs either via the AMQP or the MQTT protocol. All messaging IoT Hub primitives, e.g. telemetry, direct methods, C2D, twins, are supported but communication over user-defined topics is not supported.
+Routing can be used by devices or modules built with the Azure IoT Device SDKs using the AMQP protocol. All messaging IoT Hub primitives, e.g. telemetry, direct methods, C2D, twins, are supported but communication over user-defined topics is not supported.
 
-For more information about routes, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md)
+For more information about routes, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
-#### Using the MQTT broker
+Here are the brokering mechanism features available:
 
-The second brokering mechanism is based on a standard MQTT broker. MQTT is a lightweight message transfer protocol that guarantees optimal performances on resource constrained devices and is a popular publish and subscribe standard. Devices or modules subscribe to topics to receive messages published by other devices or modules. IoT Edge hub implements its own MQTT broker that follows [the specifications of MQTT version 3.1.1](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html).
-
-The MQTT broker enables two additional communication patterns compared to routing: local broadcasting and point-to-point communication. Local broadcasting is useful when one device or module needs to locally alert multiple other devices or modules. Point-to-point communication enables two IoT Edge devices or two IoT devices to communicate locally without round-trip to the cloud.
-
-![Publish and subscribe locally with IoT Edge hub](./media/iot-edge-runtime/local-communnication-mqtt-broker.png)
-
-The MQTT broker can be used by devices or modules built with either the Azure IoT Device SDKs that communicate via the MQTT protocol or any general-purpose MQTT clients. With the exception of C2D all messaging IoT Hub primitives, e.g. telemetry, direct methods, twins are supported. IoT Hub special topics used by IoT Hub primitives are supported and so are user-defined topics.
-This topic could be an IoT Hub special topic or a user-defined topic.
-
-Unlike with the routing mechanism, ordering of messages is only best-effort and not guaranteed and filtering of messages is not supported by the broker. The lack of these features however enables the MQTT broker to be faster than routing.
-
-For more information about the MQTT broker, see [Publish and subscribe with IoT Edge](how-to-publish-subscribe.md)
-
-#### Comparison between brokering mechanisms
-
-Here are the features available with each brokering mechanism:
-
-|Features  | Routing  | MQTT broker  |
-|---------|---------|---------|
-|D2C telemetry    |     &#10004;    |         |
-|Local telemetry     |     &#10004;    |    &#10004;     |
-|DirectMethods     |    &#10004;     |    &#10004;     |
-|Twin     |    &#10004;     |    &#10004;     |
-|C2D for devices     |   &#10004;      |         |
-|Ordering     |    &#10004;     |         |
-|Filtering     |     &#10004;    |         |
-|User-defined topics     |         |    &#10004;     |
-|Device-to-Device     |         |    &#10004;     |
-|Local broadcasting     |         |    &#10004;     |
-|Performance     |         |    &#10004;     |
+|Features  | Routing  |
+|---------|---------|
+|D2C telemetry    |     &#10004;    |
+|Local telemetry     |     &#10004;    |
+|DirectMethods     |    &#10004;     |
+|Twin     |    &#10004;     |
+|C2D for devices     |   &#10004;      |
+|Ordering     |    &#10004;     |
+|Filtering     |     &#10004;    |
+|User-defined topics     |         |
+|Device-to-Device     |         |
+|Local broadcasting     |         |
+|Performance     |         |
 
 ### Connecting to the IoT Edge hub
 
