@@ -265,7 +265,7 @@ Groups in workbooks are useful for several things:
     - Select **Add**, and **Add group** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add group**.
 
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-add-group.png" alt-text="Sscreenshot showing selecting adding a group to a workbook. ":::
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-add-group.png" alt-text="Screenshot showing selecting adding a group to a workbook. ":::
 1. Select items for your group.
 1. Select **Done editing.**
 
