@@ -65,6 +65,10 @@ In the case of **Temp disk placement** as Ephemeral OS disk is placed on temp di
 Basic Linux and Windows Server images in the Marketplace that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 Ephemeral disks also require that the VM size supports **Premium storage**. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
 
+> [!NOTE]
+> 
+> Ephemeral disk will not be accessible through the portal. You will receive a "Resource not Found" or "404" error when accessing the ephemeral disk which is expected.
+> 
 
 ## Unsupported features 
 - Capturing VM images
@@ -75,24 +79,19 @@ Ephemeral disks also require that the VM size supports **Premium storage**. The 
 - OS Disk Swap 
 
  ## Trusted Launch for Ephemeral OS disks
-Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [limitations of trusted launch](trusted-launch.md#limitations) for supported sizes and regions.
-VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
+Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Check [limitations of trusted launch](trusted-launch.md#limitations) for supported sizes and regions.
+VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. When using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) using temp disk placement you would get an error as 
 **"OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."**
 This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
-For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
+For the same example above, if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
 
 > [!Important]
 > 
 > While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after VM creation may not be persisted for operations like reimaging and platform events like service healing.
 > 
 For more information on [how to deploy a trusted launch VM](trusted-launch-portal.md)
-
-> [!NOTE]
-> 
-> Ephemeral disk will not be accessible through the portal. You will receive a "Resource not Found" or "404" error when accessing the ephemeral disk which is expected.
-> 
  
 ## Next steps
 Create a VM with ephemeral OS disk using [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-deploy.md).

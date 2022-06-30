@@ -434,6 +434,8 @@
       href: episode-twelve.md
     - name: Defender for Storage
       href: episode-thirteen.md
+    - name: Defender for Servers deployment in AWS and GCP
+      href: episode-fourteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

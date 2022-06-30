@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 06/30/2022
 ms.author: v-eschaffer
 #Customer intent: As a new user, I want to see how to grant access to resources using Bicep so that I can start automating role assignment processes.
 ---
@@ -79,6 +79,26 @@ Get-AzRoleAssignment -ResourceGroupName exampleRG
 ```
 
 ---
+
+For reference, the output will look something like this in PowerShell:
+
+### PowerShell
+
+```azurepowershell-interactive
+RoleAssignmentName : {RoleAssignmentName}
+RoleAssignmentId   : /subscriptions/{Subscription}/resourcegroups/exampleRG/providers/Microsoft.Authorization/roleAssignments {RoleAssignmentId}
+Scope              : /subscriptions/{Subscription}/resourcegroups/exampleRG
+DisplayName        : User
+SignInName         : user@contoso.com
+RoleDefinitionName : Virtual Machine Contributor
+RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+ObjectId           : {ObjectId}
+ObjectType         : User
+CanDelegate        : False
+Description        :
+ConditionVersion   :
+Condition          :
+```
 
 ## Clean up resources
 
