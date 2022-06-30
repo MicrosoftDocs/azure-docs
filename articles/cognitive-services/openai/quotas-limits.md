@@ -30,7 +30,6 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Max simultaneous running training jobs per resource | 1 |
 | Max training jobs queued | 20 | 
 | Max Files per resource | 50 |
-| Max individual training file size | | 
 | Total size of all files per resource | 1 GB| 
 | Max training job time (job will fail if exceeded) | 120 hours |
 | Max training job size (tokens in training file * # of epochs) | **Ada**: 4-M tokens <br> **Babbage**: 4-M tokens <br> **Curie**: 4-M tokens <br> **Cushman**: 4-M tokens <br> **DaVinci**: 500 K |
@@ -49,7 +48,7 @@ The next sections describe specific cases of adjusting quotas.
 
 ### Request an increase to a limit on transactions-per-second or number of fine-tuned models deployed
 
-Increasing the limit of concurrent requests doesn't directly affect your costs. Azure OpenAI uses a payment model that requires that you pay only for what you use. The limit defines how high the service can scale before it starts throttle your requests.
+The limit of concurrent requests defines how high the service can scale before it starts to throttle your requests.
 
 #### Have the required information ready
 
