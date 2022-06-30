@@ -122,7 +122,7 @@ The following table provides a list of high-level features and capabilities comp
 | Microsoft Defender for Cloud | Yes | No |
 | Resource health | Yes | Yes |
 | Service health | Yes | Yes |
-| Performance insights (iPerf) | Yes | Yes |
+| Performance insights (iPerf) | Yes | Yes. Not available in portal |
 | Major version upgrades support | No | No |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 
