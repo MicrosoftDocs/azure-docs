@@ -60,7 +60,7 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 3. Select **Validate**.
 
-    :::image type="content" source="media/quickstart-setup-config-server/portal-config.png" alt-text="Screenshot of Azure portal showing Config Server page.":::
+    :::image type="content" source="media/quickstart-setup-config-server/portal-config.png" alt-text="Screenshot of Azure portal showing Config Server page." lightbox="media/quickstart-setup-config-server/portal-config.png":::
 
 4. When validation is complete, select **Apply** to save your changes.
 
