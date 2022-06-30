@@ -53,7 +53,42 @@ Azure Synapse provides best-of-breed relational database performance by using te
 
 To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, migration includes moving an existing data warehouse from a legacy on-premises platform, such as Oracle, to Azure Synapse. At a high level, the migration process includes these steps:
 
-:::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
+:::row:::
+   :::column span="":::
+    **Preparation** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#8680;
+
+     - Define scope&mdash;what is to be migrated
+     - Build inventory of data and processes for migration
+     - Define data model changes (if any)
+     - Define source data extract mechanism
+     - Identify the appropriate Azure and third-party tools and features to be used
+     - Train staff early on the new platform
+     - Set up the Azure target platform
+
+   :::column-end:::
+   :::column span="":::
+    **Migration** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#10140;
+
+     - Start small and simple
+     - Automate wherever possible
+     - Leverage Azure built-in tools and features to reduce migration effort
+     - Migrate metadata for tables and views
+     - Migrate historical data to be maintained
+     - Migrate or refactor stored procedures and business processes
+     - Migrate or refactor ETL/ELT incremental load processes
+
+   :::column-end:::
+   :::column span="":::
+    **Post migration** &#129094;
+
+    - Monitor and document all stages of the process
+    - Use the experience gained to build a template for future migrations
+    - Re-engineer the data model if required (using new platform performance and scalability)
+    - Test applications and query tools
+    - Benchmark and optimize query performance
+
+   :::column-end:::
+:::row-end:::
 
 This article provides general information and guidelines for performance optimization when migrating a data warehouse from an existing Oracle environment to Azure Synapse. The goal of performance optimization is to achieve the same or better data warehouse performance in Azure Synapse after the migration.
 
