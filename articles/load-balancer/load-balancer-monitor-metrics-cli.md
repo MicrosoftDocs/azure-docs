@@ -49,10 +49,10 @@ The [az monitor metrics](cli/azure/monitor/metrics) command is used to view Azur
 ```azurecli
 # Display available metric definitions for a Standard Load Balancer resource
 
-az monitor metrics list-definitions --resource <ResourceName>
+az monitor metrics list-definitions --resource <resource_id>
 ```
-
-In the above example and the following examples, replace **<ResourceName>** with the value of your Standard Load Balancer resource in the format of  */subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/Microsoft.Network/networkSecurityGroups/{resourceName}*. 
+>[!NOTE]
+>In the all the following examples, replace **<resource_id>** with the unique resource id of your Standard Load Balancer. 
 
 To retrieve Standard Load Balancer metrics for a resource, you can use the `az monitor metrics list` command.
 
@@ -62,12 +62,12 @@ For example, use the `--metric DipAvailability` option to collect the Health Pro
 
 # List the Health Probe Status metric from a Standard Load Balancer
 
-az monitor metrics list --resource <ResourceName> --metric DipAvailability 
+az monitor metrics list --resource <resource_id> --metric DipAvailability 
 ```
 
 When you run the above command, the output for Health Probe status will be like to the following output:
 ```output
-user@Azure:~$ az monitor metrics list --resource <ResourceName> --metric DipAvailability
+user@Azure:~$ az monitor metrics list --resource <resource_id> --metric DipAvailability
 {
   "cost": 59,
   "interval": "0:01:00",
@@ -99,7 +99,7 @@ You can specify the aggregation type for a metric with the `–-aggregation` par
 
 # List the average Health Probe Status metric from a Standard Load Balancer
 
-az monitor metrics list --resource <ResourceName> --metric DipAvailability --aggregation Average 
+az monitor metrics list --resource <resource_id> --metric DipAvailability --aggregation Average 
 ```
 To specify the interval to metrics, use the `--interval` parameter and specify a value in ##h##m format. The default interval is 1m.
 
@@ -107,14 +107,14 @@ To specify the interval to metrics, use the `--interval` parameter and specify a
 
 # List the average List the average Health Probe Status metric from a Standard Load Balancer in 5 minute intervals
 
-az monitor metrics list --resource <ResourceName> --metric DipAvailability --aggregation Average --interval 5m
+az monitor metrics list --resource <resource_id> --metric DipAvailability --aggregation Average --interval 5m
 ```
 By default, az monitor metrics list returns the resource’s aggregate metrics from the last hour. You can query metric data over a period of time using `--start-time` and `--end-time` with the format of date (yyyy-mm-dd) time (hh:mm:ss.xxxxx) timezone (+/-hh:mm). To list the average Health Probe Status aggregated per day from May 5, 2022 and May 10, 2022, use the following command:
 
 ```azurecli
 # List average Health Probe Status metric aggregated per day from May 5, 2022 and May 10, 2022. 
 
-az monitor metrics list --resource <ResourceName> --metric DipAvailability --start-time 2022-05-01T00:00:00Z --end-time 2022-05-10T00:00:00Z --interval PT24H --aggregation Average
+az monitor metrics list --resource <resource_id> --metric DipAvailability --start-time 2022-05-01T00:00:00Z --end-time 2022-05-10T00:00:00Z --interval PT24H --aggregation Average
 ```
 >[!Note]
 >Start and end times are represented using a format of yyyy-mm-dd format. For example, every day between May 5, 2022 and May 10, 2022 would be represented as `2022-05-01` and `2022-05-10`. 
@@ -133,7 +133,7 @@ You can also specify a specific dimension value.
 ```azurecli
 # List average Health Probe Status metric and filter for the 10.1.0.4 BackendIPAddress dimension
 
-az monitor metrics list --resource <ResourceName> --metric DipAvailability --filter "BackendIPAddress eq '10.1.0.4'" --aggregation Average 
+az monitor metrics list --resource <resource_id> --metric DipAvailability --filter "BackendIPAddress eq '10.1.0.4'" --aggregation Average 
 ```
 
 In cases where you need to filter on multiple dimension values, specify the `--filter` value using `and` between the values.
@@ -141,7 +141,7 @@ In cases where you need to filter on multiple dimension values, specify the `--f
 ```azurecli
 # List average Health Probe Status metric and filter for all BackendIPAddress and BackendPort dimensions
 
-az monitor metrics list --resource <ResourceName> --metric DipAvailability --filter "BackendIPAddress eq '*' and BackendPort eq '*'" --aggregation Average 
+az monitor metrics list --resource <resource_id> --metric DipAvailability --filter "BackendIPAddress eq '*' and BackendPort eq '*'" --aggregation Average 
 ```
 
 ## Next steps
