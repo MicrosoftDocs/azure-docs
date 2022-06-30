@@ -30,9 +30,7 @@ The following aren't specific nor mandatory to transforming from AD to Azure AD 
 
 In addition to the security benefits of [passwordless credentials](../authentication/concept-authentication-passwordless.md), this simplifies your environment because the management and registration experience is already native to the cloud. Azure AD provides different passwordless credentials that align with different use cases. Use the information in this document to plan your deployment: [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md)
 
-Once you roll out passwordless credentials to your users, consider reducing the usage of password credentials. Approaches include:
-
-* Using the [reporting and Insights dashboard](../authentication/howto-authentication-methods-activity.md) to continue to drive usage of passwordless credentials and reduce usage of passwords in Azure AD
+Once you roll out passwordless credentials to your users, consider reducing the usage of password credentials. You can use the [reporting and Insights dashboard](../authentication/howto-authentication-methods-activity.md) to continue to drive usage of passwordless credentials and reduce usage of passwords in Azure AD
 
 >[!IMPORTANT]
 >During your application discovery, you might find applications that have a dependency or assumptions around passwords. Users of these applications need to have access to their passwords until those applications are updated or migrated.
