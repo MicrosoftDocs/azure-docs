@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 06/29/2022
 ms.author: jianleishen
 ms.custom: synapse
 ---
@@ -236,6 +236,16 @@ The errors below are general to the copy activity and could occur with any conne
 - **Cause**: Invalid download links or transient connectivity issues.
 
 - **Recommendation**: Retry if the message shows that it's a transient issue. If the problem persists, contact the support team.
+
+## General connector errors
+
+### Error code: UserErrorOdbcInvalidQueryString
+
+- **Message**: `The following ODBC Query is not valid: '%'.`
+ 
+- **Cause**: In ODBC connectors, you provide a wrong or invalid query in Lookup activity. Lookup activity expects data/schemas to be returned, otherwise this exception will be thrown.
+
+- **Recommendation**: Verify your query is valid and can return data. Use [Script activity](transform-data-using-script.md) if you want to execute non-query scripts and your data store is supported by this activity. If not, think about using stored procedure that returns a dummy result to execute your non-query scripts.
 
 ## Next steps
 
