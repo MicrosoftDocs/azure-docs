@@ -101,7 +101,7 @@ Confidential VMs using Ephemeral OS disks by default **1 GiB** from the **OS cac
 
 > [!Important]
 > 
-> When choosing a confidential VM with full OS disk encryption before VM deployment that uses a customer-managed key (CMK). [Updating a CMK key version](../storage/common/customer-managed-keys-overview.md#update-the-key-version) or [key rotation](../key-vault/keys/how-to-configure-key-rotation) is not supported with Ephemeral OS disk. Confidential VMs using Ephemeral OS disks need to be deleted before updating or rotating the keys and can be re-created subsequently.
+> When choosing a confidential VM with full OS disk encryption before VM deployment that uses a customer-managed key (CMK). [Updating a CMK key version](../storage/common/customer-managed-keys-overview.md#update-the-key-version) or [key rotation](../key-vault/keys/how-to-configure-key-rotation.md) is not supported with Ephemeral OS disk. Confidential VMs using Ephemeral OS disks need to be deleted before updating or rotating the keys and can be re-created subsequently.
 > 
 
 For more information on [confidential VM](../confidential-computing/confidential-vm-overview.md)
