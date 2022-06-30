@@ -71,7 +71,7 @@ Interactive authoring capabilities are used for functionalities like test connec
 
 :::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="Screenshot that shows interactive authoring.":::
 
-## Time to live
+## Time to live (preview)
 
 ### Copy activity
 

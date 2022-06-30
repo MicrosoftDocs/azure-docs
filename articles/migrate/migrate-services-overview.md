@@ -18,8 +18,8 @@ Azure Migrate provides a centralized hub to assess and migrate on-premises serve
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
 - **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include Azure Migrate: Discovery and assessment and Azure Migrate: Server Migration. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
 - **Assessment and migration**: In the Azure Migrate hub, you can assess and migrate:
-    - **Servers, databases, and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
-    - **Databases**: Assess on-premises databases and migrate them to Azure SQL Database or to SQL Managed Instance.
+    - **Servers, databases and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
+    - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to an SQL Server on an Azure VM or an Azure SQL Managed Instance or to an Azure SQL Database.
     - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service.
     - **Virtual desktops**: Assess your on-premises virtual desktop infrastructure (VDI) and migrate it to Azure Virtual Desktop.
     - **Data**: Migrate large amounts of data to Azure quickly and cost-effectively using Azure Data Box products.
@@ -96,7 +96,7 @@ In the Azure Migrate hub, you select the tool you want to use for assessment or 
 
 ## Movere
 
-Movere is a software as a service (SaaS) platform. It increases business intelligence by accurately presenting entire IT environments within a single day. Organizations and enterprises grow, change, and digitally optimize. As they do so, Movere provides them with the needed confidence to see and control their environments, whatever the platform, application, or geography.
+Movere is a Software as a Service (SaaS) platform. It increases business intelligence by accurately presenting entire IT environments within a single day. Organizations and enterprises grow, change, and digitally optimize. As they do so, Movere provides them with the needed confidence to see and control their environments, whatever the platform, application, or geography.
 
 Microsoft [acquired](https://azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools/) Movere, and it's no longer sold as a standalone offer. Movere is available through Microsoft Solution Assessment and Microsoft Cloud Economics Program. [Learn more](https://www.movere.io) about Movere.
 

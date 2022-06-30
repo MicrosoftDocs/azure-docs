@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -21,11 +21,11 @@ ms.collection: M365-identity-device-management
 
 # User management enhancements in Azure Active Directory
 
-This article describes how to use the user management enhancements in the Azure Active Directory (Azure AD) portal. The **All users** page and user profile pages have been updated to provide more information and make it easier to find users.
+This article describes how to use the user management enhancements in the admin center for Azure Active Directory (Azure AD), part of Microsoft Entra. The **All users** page and user profile pages have been updated to provide more information and make it easier to find users.
 
 Enhancements include:
 
-- Infinite scroll so you no longer have to select ‘Load more’ to view more users 
+- Preloaded scrolling so that you no longer have to select ‘Load more’ to view more users 
 - More user properties can be added as columns including city, country, employee ID, employee type, and external user state
 - More user properties can be filtered on including custom security attributes, on-premises extension attributes, and manager 
 - More ways to customize your view, like using drag-and-drop to reorder columns 

@@ -45,6 +45,16 @@ items:
     href: custom-text-classification/language-support.md
   - name: FAQ
     href: custom-text-classification/faq.md
+  - name: Samples
+    items:
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items:
     - name: Transparency note for custom text classification
@@ -116,16 +126,6 @@ items:
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
-        - name: Samples
-          items:
-          - name: Java
-            href: https://aka.ms/sdk-samples-java
-          - name: JavaScript
-            href: https://aka.ms/sdk-samples-java-script
-          - name: C#
-            href:  https://aka.ms/sdk-samples-dot-net
-          - name: Python
-            href:  https://aka.ms/sdk-samples-python
 - name: Custom named entity recognition (NER)
   items:
   - name: Overview
@@ -136,6 +136,16 @@ items:
     href: custom-named-entity-recognition/language-support.md
   - name: FAQ
     href: custom-named-entity-recognition/faq.md
+  - name: Samples
+    items:
+    - name: Java
+      href: https://aka.ms/sdk-samples-java
+    - name: JavaScript
+      href: https://aka.ms/sdk-samples-java-script
+    - name: C#
+      href:  https://aka.ms/sdk-samples-dot-net
+    - name: Python
+      href:  https://aka.ms/sdk-samples-python
   - name: Responsible use of AI
     items: 
     - name: Transparency note for custom NER
@@ -206,16 +216,6 @@ items:
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
-        - name: Samples
-          items:
-          - name: Java
-            href: https://aka.ms/sdk-samples-java
-          - name: JavaScript
-            href: https://aka.ms/sdk-samples-java-script
-          - name: C#
-            href:  https://aka.ms/sdk-samples-dot-net
-          - name: Python
-            href:  https://aka.ms/sdk-samples-python
 - name: Conversational language understanding
   items:
   - name: Overview
@@ -226,6 +226,12 @@ items:
     href: conversational-language-understanding/language-support.md
   - name: FAQ
     href: conversational-language-understanding/faq.md
+  - name: Samples
+    items:
+    - name: C#
+      href:  https://aka.ms/sdk-sample-conversation-dot-net
+    - name: Python
+      href:   https://aka.ms/sdk-samples-conversation-python
   - name: How-to guides
     items:
       - name: Create projects
@@ -282,12 +288,6 @@ items:
           href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
-        - name: Samples
-          items:
-          - name: C#
-            href:  https://aka.ms/sdk-sample-conversation-dot-net
-          - name: Python
-            href:   https://aka.ms/sdk-samples-conversation-python
 - name: Entity linking
   items:
   - name: Overview
@@ -296,6 +296,16 @@ items:
     href: entity-linking/quickstart.md
   - name: Language support
     href: entity-linking/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items: 
     - name: Integration and responsible use
@@ -346,6 +356,16 @@ items:
     href: language-detection/quickstart.md 
   - name: Language support
     href: language-detection/language-support.md 
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items: 
     - name: Transparency note for language detection
@@ -412,6 +432,16 @@ items:
     href: key-phrase-extraction/quickstart.md 
   - name: Language support
     href: key-phrase-extraction/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items: 
     - name: Transparency note for key phrase extraction
@@ -482,6 +512,16 @@ items:
     href: named-entity-recognition/quickstart.md
   - name: Language support
     href: named-entity-recognition/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items: 
     - name: Transparency note for NER
@@ -545,6 +585,12 @@ items:
     href: orchestration-workflow/faq.md
   - name: Language support
     href: orchestration-workflow/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href:  https://aka.ms/sdk-sample-conversation-dot-net
+    - name: Python
+      href:   https://aka.ms/sdk-samples-conversation-python
   - name: How-to guides
     items:
       - name: Create project
@@ -597,12 +643,6 @@ items:
           href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
-        - name: Samples
-          items:
-          - name: C#
-            href:  https://aka.ms/sdk-sample-conversation-dot-net
-          - name: Python
-            href:   https://aka.ms/sdk-samples-conversation-python
 - name: Personally Identifying Information (PII) detection
   items:
   - name: Overview
@@ -611,6 +651,16 @@ items:
     href: personally-identifiable-information/quickstart.md
   - name: Language support
     href: personally-identifiable-information/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items: 
     - name: Transparency note for PII
@@ -673,6 +723,12 @@ items:
     href: question-answering/quickstart/sdk.md
   - name: Language support
     href: question-answering/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/samples
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/samples
   - name: Responsible use of AI
     items: 
     - name: Transparency note for question answering
@@ -776,6 +832,16 @@ items:
     href: sentiment-opinion-mining/quickstart.md
   - name: Language support
     href: sentiment-opinion-mining/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items: 
     - name: Transparency note for sentiment analysis and opinion mining
@@ -848,6 +914,16 @@ items:
     href: text-analytics-for-health/quickstart.md 
   - name: Language support
     href: text-analytics-for-health/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items: 
     - name: Transparency note for Text Analytics for health
