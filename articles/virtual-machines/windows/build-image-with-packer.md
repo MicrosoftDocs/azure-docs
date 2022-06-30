@@ -56,7 +56,8 @@ $sp.AppId
 To authenticate to Azure, you also need to obtain your Azure tenant and subscription IDs with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-Get-AzSubscription
+$subName = "mySubscriptionName"
+$sub = Get-AzSubscription -SubscriptionName $subName
 ```
 
 

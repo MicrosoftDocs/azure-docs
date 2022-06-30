@@ -78,5 +78,6 @@ SELECT create_reference_table('countries');
 
 We've completed the how-to for building scalable apps.
 
+* Learn how to use specific [app stacks](howto-app-stacks-overview.md) with Hyperscale (Citus).
 * You may now want to know how to [scale a server group](howto-scale-grow.md)
   to give your app more nodes and hardware capacity.

@@ -23,7 +23,7 @@ ms.custom: include file
 | Upload bandwidth <sup>2</sup> (Mbps) | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
-| Availability zones | N/A | N/A | [Preview][zones] |
+| Availability zones | N/A | N/A | [Supported][zones] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Private link with private endpoints | N/A | N/A | [Supported][plink] |
 | &bull; Private endpoints | N/A | N/A | 200 |
