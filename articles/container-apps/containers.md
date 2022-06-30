@@ -196,7 +196,7 @@ You can use an Azure managed identity to authenticate with Azure Container Regis
 - Specify the managed identity you want to use for each registry.
 
 > [!NOTE]
-> You will need to [enable an admin user account](../container-registry/container-registry-authentication?tabs=azure-cli#admin-account) in your Azure
+> You will need to [enable an admin user account](../container-registry/container-registry-authentication.md) in your Azure
 > Container Registry even when you use an Azure managed identity.  You will not need to use the ACR admin credentials to pull images into Azure
 > Container Apps, however, it is a prequisite to have the ACR admin user account enabled in the registry Azure Container Apps is pulling from.
 
