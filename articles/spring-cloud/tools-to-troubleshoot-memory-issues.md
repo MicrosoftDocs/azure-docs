@@ -21,7 +21,7 @@ This doc provides a list of tools for troubleshooting Java memory issues. These 
 
 ## Alert and diagnose
 
-### 1. Resource health
+### Resource health
 
 For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](monitor-app-lifecycle-events.md).
 
@@ -31,7 +31,7 @@ For more information, see [How to fix app restart issues caused by out of memory
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png" alt-text="memory 5":::
 
-### 2. Diagnose and solve problems
+### Diagnose and solve problems
 
 For more information, see [Self-diagnose and solve problems in Azure Spring Apps](how-to-self-diagnose-solve.md).
 
@@ -41,17 +41,17 @@ Under "Diagnose and solve problems", you can find "Memory Usage" detector. It sh
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/diagnose-solve-problem-example.png" alt-text="memory 4":::
 
-### 3. Metrics
+### Metrics
 
 For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](quickstart-logs-metrics-tracing.md?tabs=Azure-CLI&pivots=programming-language-java).
 
 Metrics cover issues including high memory usage, heap memory too large and garbage collection abnormal(too frequent or too not frequent), through following metrics.
 
-#### (1) App Memory Usage
+#### App Memory Usage
 
 App Memory Usage is a percentage = app memory used / app memory limit. It shows the whole app memory.
 
-#### (2) jvm.memory.used/committed/max
+#### jvm.memory.used/committed/max
 
 On JVM memory, there are three metrics: jvm.memory.used, jvm.memory.committed, jvm.memory.max.
 
@@ -79,7 +79,7 @@ On JVM memory, there are three metrics: jvm.memory.used, jvm.memory.committed, j
 
 (refer to [the doc for default heap size](concepts-for-java-memory-management.md#1-default-max-heap-size)), the default Compressed Class Space size is 1 GB (refer to [an oracle doc](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.oracle.com%2Fjavase%2F9%2Fgctuning%2Fother-considerations.htm%23JSGCT-GUID-B29C9153-3530-4C15-9154-E74F44E3DAD9&data=04%7C01%7Ckaiqianyang%40microsoft.com%7C38fc180b69244f235bc808d9d5957de2%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637775660327124610%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=qRyPF%2BviieEO0lVtOKUoIPy5Ejx7hgM5RMQGaDEVm7A%3D&reserved=0)), then the value of jvm.memory.max will be larger than 1.5 GB regardless of the app memory size 1 GB.
 
-#### (3) jvm.gc.memory.allocated/promoted
+#### jvm.gc.memory.allocated/promoted
 
 These two metrics are for observing [Java garbage collection](concepts-for-java-memory-management.md#java-garbage-collection). Max heap size influences the frequency of minor GC and full GC. Max metaspace and max direct memory size influence full GC. If you want to adjust the frequency of garbage collection, consider to modify max memory sizes.
 

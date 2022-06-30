@@ -19,11 +19,11 @@ ms.custom: devx-track-java
 
 This doc introduces concepts for Java memory management to help understand Java applications in Azure Spring Apps.
 
-## Java Memory Model
+## Java memory model
 
 A Java application's memory has several parts, and there are different ways to divide the parts. We here divide Java memory into 3 parts: 1.heap memory, 2.non-heap memory, 3.direct memory.
 
-### 1. Heap memory
+### Heap memory
 
 Heap memory stores all class instances and arrays. Per JVM only have one heap area which is shared among threads.
 
@@ -40,7 +40,7 @@ Heap memory is divided into young generation and old generation.
 
 Before Java 8, another section called permanent generation was also part of heap. It was majorly replaced by metaspace in non-heap memory, starting from Java 8.
 
-### 2. Non-heap memory
+### Non-heap memory
 
 Here we divide non-heap memory into two parts:
 
@@ -56,9 +56,9 @@ Here we divide non-heap memory into two parts:
 
    - Other memory: other memory such as thread stack.
 
-### 3. Direct Memory
+### Direct memory
 
-Direct Memory is native memory allocated by `java.nio.DirectByteBuffer`, which is used in third party libraries like nio and gzip.
+Direct memory is native memory allocated by `java.nio.DirectByteBuffer`, which is used in third party libraries like nio and gzip.
 
 Spring-boot actuator doesn't observe the value of direct memory.
 
@@ -66,7 +66,7 @@ In conclusion, Java memory model is like following layout.
 
 :::image type="content" source="media/concepts-for-java-memory-management/java-memory-model.png" alt-text="java memory model":::
 
-## Java Garbage Collection
+## Java garbage collection
 
 There are 3 terms regarding of Java Garbage Collection: "Minor GC", "Major GC", "Full GC". These terms are not clearly defined in the JVM specification. Here we consider "Major GC" and "Full GC" equivalent.
 
@@ -84,9 +84,13 @@ When max heap size is set lower, garbage collections perform more frequent, whic
 
 Metaspace and direct memory can only be collected by full GC, when metaspace or direct memory is full, full GC will perform.
 
-## Java Memory Configurations
+## Java memory configurations
 
-### 1. Important JVM Options
+### Java containerization
+
+Applications in Azure Spring Apps run in container environment. For more information, see [Java containerization strategies](https://docs.microsoft.com/en-us/azure/developer/java/containers).
+
+### Important JVM options
 
 Max size of each part of memory can be configured in JVM options. It can be set through Azure CLI or on portal (refer to [the doc for configuring memory settings in JVM options](tools-to-troubleshoot-memory-issues.md#configure-memory-settings-in-jvm-options))
 
@@ -105,9 +109,9 @@ Max size of each part of memory can be configured in JVM options. It can be set 
 
   - "-XX:MaxMetaspaceSize" setts maximum Metaspace size by absolute value.
 
-### 2. Default Max Memory Size
+### Default max memory size
 
-#### (1) default max heap size
+#### Default max heap size
 
 Azure Spring Apps set default max heap memory size about 50%-80% of app memory for Java apps, specifically:
 
@@ -116,11 +120,11 @@ Azure Spring Apps set default max heap memory size about 50%-80% of app memory f
 - If 2 GB <= the app memory < 3 GB, default max heap size will be 70% of app memory.
 - If 3 GB <= the app memory, default max heap size will be 80% of app memory.
 
-#### (2) default max direct memory size
+#### Default max direct memory size
 
 When max direct memory size isn't set in JVM options, JVM automatically setts max direct memory size = [`Runtime.getRuntime.maxMemory()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#maxMemory--) ~= max heap memory size (refer to [jdk8](http://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/a71d26266469/src/share/classes/sun/misc/VM.java#l282&gt;%20jdk8)).
 
-### 3. Memory Usage Layout
+### Memory usage layout
 
 Heap size is influenced by your throughput. Basically when configuring, you can keep the default max heap size, which leaves reasonable memory for other parts.
 
