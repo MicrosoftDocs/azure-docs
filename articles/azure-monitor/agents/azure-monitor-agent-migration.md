@@ -6,6 +6,8 @@ author: shseth
 ms.author: shseth
 ms.date: 02/09/2022 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: shseth
+
 
 ---
 
