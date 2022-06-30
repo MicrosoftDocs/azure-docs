@@ -10,10 +10,10 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-In the Azure Tools extension for VS Code:
+In the Azure Tools extension:
 
-1. Locate the **App Service** section in the Azure Tools extension.
+1. Expand **RESOURCES** and find your subscription. (Make sure resources are grouped by resource type.)
 
-1. Right-click the Azure subscription you want to create your web app in.
+1. Right-click **App Services** in your subscription.
 
-1. Select **Create New Web App...(Advanced)** from the context menu.
+1. Select **Create New Web App...(Advanced)**.

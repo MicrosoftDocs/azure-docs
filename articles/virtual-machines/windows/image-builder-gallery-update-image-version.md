@@ -25,23 +25,23 @@ To use VM Image Builder, you need to register the features.
 
 1. Check your provider registrations. Make sure that each one returns *Registered*.
 
-```azurecli-interactive
-az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-az provider show -n Microsoft.KeyVault | grep registrationState
-az provider show -n Microsoft.Compute | grep registrationState
-az provider show -n Microsoft.Storage | grep registrationState
-az provider show -n Microsoft.Network | grep registrationState
-```
+    ```azurecli-interactive
+    az provider show -n Microsoft.VirtualMachineImages | grep registrationState
+    az provider show -n Microsoft.KeyVault | grep registrationState
+    az provider show -n Microsoft.Compute | grep registrationState
+    az provider show -n Microsoft.Storage | grep registrationState
+    az provider show -n Microsoft.Network | grep registrationState
+    ```
 
 1. If they don't return *Registered*, register the providers by running the following commands:
 
-```azurecli-interactive
-az provider register -n Microsoft.VirtualMachineImages
-az provider register -n Microsoft.Compute
-az provider register -n Microsoft.KeyVault
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Network
-```
+    ```azurecli-interactive
+    az provider register -n Microsoft.VirtualMachineImages
+    az provider register -n Microsoft.Compute
+    az provider register -n Microsoft.KeyVault
+    az provider register -n Microsoft.Storage
+    az provider register -n Microsoft.Network
+    ```
 
 
 ## Set variables and permissions
@@ -53,23 +53,23 @@ If you've already created an Azure Compute Gallery by using [Create an image and
 
 1. If you haven't already created the variables, run the following commands:
 
-```azurecli-interactive
-# Resource group name - we are using ibsigRG in this example
-sigResourceGroup=myIBWinRG
-# Datacenter location - we are using West US 2 in this example
-location=westus
-# Additional region to replicate the image to - we are using East US in this example
-additionalregion=eastus
-# name of the Azure Compute Gallery - in this example we are using myGallery
-sigName=my22stSIG
-# name of the image definition to be created - in this example we are using myImageDef
-imageDefName=winSvrimages
-# image distribution metadata reference name
-runOutputName=w2019SigRo
-# User name and password for the VM
-username="user name for the VM"
-vmpassword="password for the VM"
-```
+    ```azurecli-interactive
+    # Resource group name - we are using ibsigRG in this example
+    sigResourceGroup=myIBWinRG
+    # Datacenter location - we are using West US 2 in this example
+    location=westus
+    # Additional region to replicate the image to - we are using East US in this example
+    additionalregion=eastus
+    # name of the Azure Compute Gallery - in this example we are using myGallery
+    sigName=my22stSIG
+    # name of the image definition to be created - in this example we are using myImageDef
+    imageDefName=winSvrimages
+    # image distribution metadata reference name
+    runOutputName=w2019SigRo
+    # User name and password for the VM
+    username="user name for the VM"
+    vmpassword="password for the VM"
+    ```
 
 1. Create a variable for your subscription ID:
 
@@ -101,10 +101,12 @@ If you already have an Azure Compute Gallery but didn't set it up by following a
 
 ## Modify the helloImage example
 
-You can review the JSON example you're about to use at [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). For information about the JSON file, see [Create an Azure VM Image Builder template](image-builder-json.md). 
+You can review the JSON example you're about to use at [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). For information about the JSON file, see [Create an Azure VM Image Builder template](../linux/image-builder-json.md). 
 
 
-1. Download the JSON example, and then configure it with your variables: 
+1. Download the JSON example, as shown in [Create a user-assigned identity and set permissions on the resource group](image-builder.md). 
+
+1. Configure the JSON with your variables: 
 
     ```azurecli-interactive
     curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json -o helloImageTemplateforSIGfromWinSIG.json
@@ -176,4 +178,4 @@ You should now see two directories:
 
 ## Next steps
 
-To learn more about the components of the JSON file that you used in this article, see [Create an Azure VM Image Builder template](image-builder-json.md).  
+To learn more about the components of the JSON file that you used in this article, see [Create an Azure VM Image Builder template](../linux/image-builder-json.md).  

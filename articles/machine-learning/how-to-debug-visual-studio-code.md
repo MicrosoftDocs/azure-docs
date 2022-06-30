@@ -138,7 +138,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
     parser.add_argument('--remote_debug', action='store_true')
     parser.add_argument('--remote_debug_connection_timeout', type=int,
                         default=300,
-                        help=f'Defines how much time the AML compute target '
+                        help=f'Defines how much time the AzureML compute target '
                         f'will await a connection from a debugger client (VSCODE).')
     parser.add_argument('--remote_debug_client_ip', type=str,
                         help=f'Defines IP Address of VS Code client')
@@ -195,7 +195,7 @@ parser.add_argument("--output_train", type=str, help="output_train directory")
 parser.add_argument('--remote_debug', action='store_true')
 parser.add_argument('--remote_debug_connection_timeout', type=int,
                     default=300,
-                    help=f'Defines how much time the AML compute target '
+                    help=f'Defines how much time the AzureML compute target '
                     f'will await a connection from a debugger client (VSCODE).')
 parser.add_argument('--remote_debug_client_ip', type=str,
                     help=f'Defines IP Address of VS Code client')

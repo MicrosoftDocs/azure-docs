@@ -94,7 +94,7 @@ When working with workbooks, you can either start with an empty workbook, or use
 
 There are:
 
-- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#gallery) that serve as a good starting point when you are just getting started with workbooks.
+- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#the-gallery) that serve as a good starting point when you are just getting started with workbooks.
 - **Private templates** when you start building your own workbooks and want to save one as a template to serve as the foundation for multiple workbooks in your tenant.
 
 

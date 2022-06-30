@@ -20,9 +20,9 @@ In this article, you learn how to use an Azure DevOps task to inject build artif
 
 ## DevOps task versions
 
-At this time, there are two VM Image Builder DevOps tasks:
+At this time, there are two Azure VM Image Builder DevOps tasks:
 
-* [*Stable* VM Image Builder task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder): The latest stable build that's been tested, and reports no General Data Protection Regulation (GDPR) issues. 
+* [*Stable* VM Image Builder task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder): The latest stable build that's been tested, and reports no [General Data Protection Regulation (GDPR)](https://www.microsoft.com/trust-center/privacy/gdpr-overview) issues. 
 
 
 * [*Unstable* VM Image Builder task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary): We offer a so-called *unstable* task so that you can test the latest updates and features before we release the task code as *stable*. After about a week, if there are no customer-reported or telemetry issues, we promote the task code to *stable*. 
@@ -71,7 +71,7 @@ Before you begin, you must:
 
 In the following sections, set the task properties.
 
-### Azure Subscription
+### Azure subscription
 
 In the dropdown list, select the subscription that you want VM Image Builder to run. Use the subscription where your source images are stored and the images are to be distributed. You need to grant the VM Image Builder contributor access to the subscription or resource group.
 
@@ -88,23 +88,23 @@ VM Image Builder requires a managed identity, which it uses to read source custo
 
 ### Virtual network support
 
-The DevOps task doesn't currently support the ability to specify an existing subnet. This capability is on our roadmap, but if you want to utilize an existing virtual network, you can use an ARM template with a VM Image Builder template nested within it. For more information, see the Windows VM Image Builder template examples, or use [VM Image Builder PowerShell](../windows/image-builder-powershell.md).
+You can configure the created VM to be in a specific virtual network. When you configure the task, provide the resource ID of a pre-existing subnet in the **VNet Configuration (Optional)** input field. Omit the resource ID if no specific virtual network needs to be used. For more information, see [Azure VM Image Builder service networking options](image-builder-networking.md).
 
 ### Source
 
 The source images must be of the supported VM Image Builder operating systems. You can choose existing custom images in the same region that VM Image Builder is running from:
 
-* Managed Image: Pass in the resourceId. For example:
+* Managed Image: Pass in the resource ID. For example:
     ```json
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
     ```
 
-* Compute Gallery: Pass in the resourceId of the image version. For example:
+* Compute Gallery: Pass in the resource ID of the image version. For example:
     ```json
     /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/<versionNumber>
     ```
 
-    If you need to get the latest Compute Gallery version, use an Azure PowerShell or Azure CLI task to get it and set a DevOps variable. Use the variable in the VM Image Builder DevOps task. For more information, see the examples in [Get the latest image version resourceID](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery).
+    If you need to get the latest Compute Gallery version, use an Azure PowerShell or Azure CLI task to get it and set a DevOps variable. Use the variable in the VM Image Builder DevOps task. For more information, see the examples in [Get the latest image version resource ID](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery).
 
 * (Marketplace) Base image: Use the dropdown list of popular images, which always uses the latest version of the supported operating systems. 
 
@@ -182,7 +182,7 @@ The following example explains how this works:
     sudo cp -r "/tmp/_ImageBuilding/webapp" /lib/buildArtifacts/.
     ```
     
-    If you're okay with using the */tmp* directory, you can run the script by using the following code:
+    If you're OK with using the */tmp* directory, you can run the script by using the following code:
     
     ```bash
     # Grant execute permissions to run scripts
@@ -230,11 +230,12 @@ When the build starts, VM Image Builder creates a container called *imagebuilder
 
 ### Distribute
 
-There are three distribute types supported.
+The following three distribute types are supported.
 
 #### Managed image
 
-* ResourceID:
+* Resource ID:
+
     ```bash
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
     ```
@@ -245,20 +246,21 @@ There are three distribute types supported.
 
 The Compute Gallery must already exist.
 
-* ResourceID: 
+* Resource ID: 
+
     ```bash
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<imageDefName>
     ```
 
-* Regions: list of regions, comma separated. For example, westus, eastus, centralus.
+* Regions: A list of regions, comma separated. For example,`westus`, `eastus`, `centralus`.
 
-#### Virtual hard disk (VHD)
+#### Virtual hard disk
 
-You can't pass any values to this, VM Image Builder will emit the VHD to the temporary VM Image Builder resource group, `IT_<DestinationResourceGroup>_<TemplateName>`, in the *vhds* container. When you start the release build, image builder emits logs. When it has finished, it will emit the VHD URL.
+You can't pass any values to this. VM Image Builder emits the virtual hard disk VHD to the temporary VM Image Builder resource group, `IT_<DestinationResourceGroup>_<TemplateName>`, in the *vhds* container. When you start the release build, VM Image Builder emits logs. When VM Image Builder has finished, it emits the VHD URL.
 
 ### Optional settings
 
-You can override the [VM Size](image-builder-json.md#vmprofile) setting from its default size of *Standard_D1_v2*. You can do so to reduce total customization time, or because you want to create images that depend on certain VM sizes, such as GPU, HPC, and so on.
+You can override the [VM size](image-builder-json.md#vmprofile) setting from its default size of *Standard_D1_v2*. You might want to do so to reduce total customization time. Or you might want to create images that depend on certain VM sizes, such as GPU (graphics processing unit), HPC (high-performance computing), and so on.
 
 ## How the task works
 
@@ -308,19 +310,20 @@ When the image build finishes, the output is similar to following text:
 
 The image template and `IT_<DestinationResourceGroup>_<TemplateName>` are deleted.
 
-You can take the $(imageUri) Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) variable and use it in the next task or just use the value and build a VM.
+You can take the `$(imageUri)` Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) variable and use it in the next task or just use the value and build a VM.
 
 ## Output DevOps variables
 
 Here are the publisher, offer, SKU, and version of the source marketplace image:
 
-* $(pirPublisher)
-* $(pirOffer)
-* $(pirSku)
-* $(pirVersion)
+* `$(pirPublisher)`
+* `$(pirOffer)`
+* `$(pirSku)`
+* `$(pirVersion)`
 
-Here's the image URI, the ResourceID of the distributed image:
-* $(imageUri)
+Here's the image URI, which is the resource ID of the distributed image:
+
+* `$(imageUri)`
 
 ## FAQ
 

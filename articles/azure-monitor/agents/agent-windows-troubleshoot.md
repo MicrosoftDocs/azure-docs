@@ -3,6 +3,7 @@ title: Troubleshoot issues with Log Analytics agent for Windows
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Windows in Azure Monitor.
 ms.topic: conceptual
 ms.date: 03/31/2022
+ms.reviewer: JeffWo
 
 ---
 

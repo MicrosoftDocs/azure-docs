@@ -16,7 +16,7 @@ Azure Red Hat OpenShift is a managed OpenShift service that lets you quickly dep
 ## Prerequisites
 Sign in to the [Azure portal](https://portal.azure.com). 
 
-Create a service principal, as explained in [Use the portal to create an Azure AD application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). **Be sure to save the client ID and the appID.** 
+Create a service principal, as explained in [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the client ID and the appID.** 
 
 ## Create an Azure Red Hat OpenShift cluster
 1.	On the Azure portal menu or from the **Home** page, select **All Services** under three horizontal bars on the top left hand page.

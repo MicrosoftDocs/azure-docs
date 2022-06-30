@@ -414,7 +414,7 @@ sections:
 
           - For custom models, you can use the endpoint and key of a [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project, and access to at least one blob storage account.
 
-          - For more information, *see* [Azure AD built-in roles](/azure/role-based-access-control/built-in-roles).
+          - For more information, *see* [Azure AD built-in roles](../../role-based-access-control/built-in-roles.md).
 
       - question: |
           I have multiple pages in a document. Why are there only two pages analyzed in Form Recognizer Studio?
