@@ -33,6 +33,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.4 | 07/2022 | 04/2023 |
 | 22.1.5 | 06/2022 | 03/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
@@ -41,6 +42,36 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## July 2022
+
+**Sensor software version**: 22.2.4
+
+### New alert columns with timestamp data
+
+Defender for IoT alerts in the Azure portal and the sensor console now show the following columns and data:
+
+- **Last detection**. Defines the last time the alert was detected in the network, and replaces the **Detection time** column.
+
+- **First detection**. Defines the first time the alert was detected in the network.
+
+- **Last activity**. Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication
+
+The **First detection** and **Last activity** columns aren't displayed by default. Add them to your **Alerts** page as needed.
+
+If you're also a Microsoft Sentinel user, you'll be familiar with similar data from your Log Analytics queries. The new alert columns in Defender for IoT are mapped as follows:
+
+|Defender for IoT  | Log Analytics  |
+|---------|---------|
+|Last detection     |     EndTime    |
+|First detection     | StartTime        |
+|Last activity     |   TimeGenerated      |
+
+For more information, see:
+
+- [View alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
 
 ## June 2022
 

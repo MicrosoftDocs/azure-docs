@@ -3,7 +3,7 @@ title: Integrate Microsoft Sentinel and Microsoft Defender for IoT  | Microsoft 
 description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Defender for IoT to secure your entire OT environment. Detect and respond to OT threats, including multistage attacks that may cross IT and OT boundaries.
 author: batamig
 ms.topic: tutorial
-ms.date: 12/20/2021
+ms.date: 06/30/2022
 ms.author: bagol
 ---
 
@@ -136,6 +136,23 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 >
 > For more information, see [Log queries overview](../azure-monitor/logs/log-query-overview.md) in the Azure Monitor documentation and the [Write your first KQL query](/learn/modules/write-first-query-kusto-query-language/) Learn module.
 >
+
+### Understand alert timestamps
+
+Defender for IoT alerts, in both the Azure portal and on the sensor console, track the time an alert was first detected, last detected, and last changed.
+
+The following table describes the Defender for IoT alert timestamp fields, with a mapping to the relevant fields from Log Analytics shown in Microsoft Sentinel.
+
+|Defender for IoT field |Description |  Log Analytics field |
+|---------|---------|---------|
+|**First detection**     |Defines the first time the alert was detected in the network. | `StartTime`        |
+|**Last detection**     | Defines the last time the alert was detected in the network, and replaces the **Detection time** column.|     `EndTime`    |
+|**Last activity**     |   Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication | `TimeGenerated`      |
+
+In Defender for IoT on the Azure portal and the sensor console, the **Last detection** column is shown by default. Edit the columns on the **Alerts** page to show the **First detection** and **Last activity** columns as needed.
+
+For more information, see [View alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md) and [View alerts on your sensor](how-to-view-alerts.md).
+
 ## Install the Defender for IoT solution
 
 The **IoT OT Threat Monitoring with Defender for IoT** solution is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS).

@@ -1,7 +1,7 @@
 ---
 title: View and manage alerts in the Defender for IoT portal on Azure
 description: View and manage alerts detected by cloud-connected network sensors in the Defender for IoT portal on Azure. 
-ms.date: 02/02/2022
+ms.date: 06/30/2022
 ms.topic: how-to
 ---
 
@@ -58,7 +58,7 @@ This section describes the information available in the Alerts table.
     | **Name** |  The alert title.
     | **Site** |  The site associated  with the sensor. This site name is defined when you register a sensor with Microsoft  Defender for IoT on the Azure portal. The name can be viewed in the Sites and Sensors page on the portal. See [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors) for information on registered sensors. 
     | **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. To learn more about engines, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term micro-agent will be displayed.
-    | **Detection time** | The first time the alert was detected. The alert traffic may occur several times after the first detection. If the alert Status is **New**, the detection time won't change. If the alert is Closed and the traffic is seen again, a new detection time will be displayed.
+    | **Last detection** | The last time the alert was detected. The alert traffic may occur several times after the first detection. If the alert Status is **New**, the detection time won't change. If the alert is **Closed** and the traffic is seen again, a new detection time will be displayed.
     | **Status** | The alert status: New, Active, Closed
     | **Source device** | The IP address, MAC, or device name.
      | **Tactics** | The MITRE ATT&CK stage.
@@ -71,15 +71,17 @@ This section describes the information available in the Alerts table.
 
     | Parameter | Description
     |--|--|
-    | **Source device address** |The IP address of the source device. |    
+    | **Source device address** |The IP address of the source device. |
     | **Destination device address** | The IP address of the destination device. |
-    | **Destination device** | The IP address, MAC, or destination device name.
-    | **ID** |The unique alert ID.
-    | **Protocol** | The protocol detected in the network traffic for this alert.
-    | **Sensor** |  The sensor that detected the alert. 
-    | **Zone** | The zone assigned to the sensor that detected the alert.  
-    | **Category**| The category associated with the alert, for example scans, operational issues, custom alerts, illegal commands. Filtering the Alerts page by category helps you quickly find information important to you. For a list of categories available, see [Customize the view by category](#customize-the-view-by-category).
-    | **Type**| The  internal name of the alert.
+    | **Destination device** | The IP address, MAC, or destination device name. |
+    | **First detection** | Defines the first time the alert was detected in the network. |
+    | **ID** |The unique alert ID. |
+    | **Last activity** | Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication |
+    | **Protocol** | The protocol detected in the network traffic for this alert. |
+    | **Sensor** |  The sensor that detected the alert. |
+    | **Zone** | The zone assigned to the sensor that detected the alert. |
+    | **Category**| The category associated with the alert, for example scans, operational issues, custom alerts, illegal commands. Filtering the Alerts page by category helps you quickly find information important to you. For a list of categories available, see [Customize the view by category](#customize-the-view-by-category). |
+    | **Type**| The  internal name of the alert. |
 
 ### Customize the view
 

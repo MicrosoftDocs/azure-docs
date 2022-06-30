@@ -1,7 +1,7 @@
 ---
 title: View alerts details on the sensor Alerts page 
 description: View alerts detected by your Defender for IoT sensor.
-ms.date: 02/06/2022
+ms.date: 06/30/2022
 ms.topic: how-to
 ---
 
@@ -51,7 +51,7 @@ The following information is available from the Alerts page:
 | **Severity** | The alert severity: Critical, Major, Minor, Warning|
 | **Name** | The alert title |
 | **Engine** | The Defender for IoT detection engine that detected the activity and triggered the alert. If the event was detected by the Device Builder platform, the value will be Micro-agent.  |
-| **Detection time** | The first time the alert activity was detected.   |
+| **Last detection** | The last time the alert activity was detected.   |
 | **Status** | Indicates if the alert is new or closed. | 
 | **Source Device** | The source device IP address | 
 | **Destination Device** | The destination device IP address | 
