@@ -8,7 +8,7 @@ ms.date: 6/14/2022
 ms.author: nasindam
 ---
 
-# Customer Case Studies
+# Customer case studies
 
 Customers in diverse industries use Azure Files and Azure File Sync to host their file shares and sync on-premises file servers to cloud. Learn directly from the customer use cases listed here.
 
