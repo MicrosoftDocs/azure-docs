@@ -31,6 +31,8 @@
     href: custom-security-attributes-overview.md
   - name: Architecture
     items:
+     - name: Azure AD architecture
+       href: active-directory-architecture.md
      - name: Road to the cloud
        items:
        - name: Introduction
@@ -43,8 +45,6 @@
          href: road-to-the-cloud-implement.md
        - name: Transition to the cloud
          href: road-to-the-cloud-migrate.md
-    - name: Azure AD architecture
-      href: active-directory-architecture.md
     - name: Integrating all your apps with Azure AD
       href: five-steps-to-full-application-integration-with-azure-ad.md
     - name: Parallel identity options
