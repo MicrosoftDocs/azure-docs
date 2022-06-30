@@ -14,6 +14,8 @@ This article describes how to use the following network security features when m
 - Service tags in Network Security Groups and Azure Firewalls
 - Private endpoints in Azure Virtual Networks
 
+> [!IMPORTANT]
+> Disabling Public Network Access in the linked **IoT Hub** is not supported by Device Update.
 
 ## Service tags
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [Service tags overview](../virtual-network/service-tags-overview.md).
@@ -33,15 +35,6 @@ Using private endpoints for your Device Update resource enables you to:
 
 - Secure access to your Device Update account from a VNet over the Microsoft backbone network as opposed to the public internet.
 - Securely connect from on-premises networks that connect to the VNet using VPN or Express Routes with private-peering.
-
-### Create a private endpoint for Device Update account
-
-There are two scenarios when creating a private endpoint for Device Update account, depending on the user's permission on the account.
-In both cases, Device Update account has to be already created.
-
-#### Auto-approved private endpoint connection
-
-#### Auto-approved private endpoint connection
 
 When you create a private endpoint for a Device Update account in your VNet, a consent request is sent for approval to the resource owner. If the user requesting the creation of the private endpoint is also an owner of the account, this consent request is automatically approved. Otherwise, the connection is in **pending** state until approved. Applications in the VNet can connect to the Device Update service over the private endpoint seamlessly, using the same hostname and authorization mechanisms that they would use otherwise. Account owners can manage consent requests and the private endpoints, through the **Private endpoints** tab for the resource in the Azure portal.
 
@@ -89,6 +82,4 @@ For update management to be successful, the private endpoint connection state sh
 
 ## Next steps
 
-You can configure private endpoints to restrict access from only from selected virtual networks. For step-by-step instructions, see [Configure private endpoints](configure-private-endpoints.md).
-
-To troubleshoot network connectivity issues, see [Troubleshoot network connectivity issues](troubleshoot-network-connectivity.md)
+* [Configure private endpoints](configure-private-endpoints.md).

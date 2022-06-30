@@ -11,6 +11,9 @@ ms.date: 07/07/2021
 
 # Managing public network access for your IoT hub
 
+> [!IMPORTANT]
+> Disabling Public Network Access will prevent you from using Device Update for IoT Hub.
+
 To restrict access to only [a private endpoint for an IoT hub in your VNet](virtual-network-support.md), disable public network access. To do so, use the Azure portal or the `publicNetworkAccess` API. You can also allow public access by using the portal or the `publicNetworkAccess` API.
 
 ## Turn off public network access using the Azure portal
