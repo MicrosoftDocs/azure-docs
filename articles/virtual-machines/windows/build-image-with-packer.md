@@ -41,9 +41,8 @@ Packer authenticates with Azure using a service principal. An Azure service prin
 Create a service principal with [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). The value for `-DisplayName` needs to be unique; replace with your own value as needed.  
 
 ```azurepowershell
-$sp = New-AzADServicePrincipal -DisplayName "PackerSP$(Get-Random)"
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
-$plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+$sp = New-AzADServicePrincipal -DisplayName "PackerMan2022v2" -role Contributor -scope /subscriptions/yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy
+$plainPassword = (New-AzADSpCredential -ObjectId $sp.Id).SecretText
 ```
 
 Then output the password and application ID.
