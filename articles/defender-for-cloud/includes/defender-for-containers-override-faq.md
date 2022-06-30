@@ -32,7 +32,9 @@ Depending on your region the default Log Analytics workspace located will be loc
 
 ### Why did auto provisioning fail?
 
-If you have an organizational policy for resource tagging in place, auto provisioning may fail. If this happened to you, you can either:
+The defender agent uses the Log analytics workspace to send data from your kubernetes clusters to Defender for Cloud. When you use Defender for Cloud's auto provision feature via the built in policy, the auto provision feature should add the Log analytic workspace and the resource group as a parameter for the agent to use.
+
+However, if you have an organizational policy for resource tagging in place, auto provisioning may fail. If this happened to you, you can either:
 
 - [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) 
 
