@@ -13,7 +13,7 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You will need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 ## Operations
 
@@ -107,7 +107,7 @@ Open a console window and enter the following command:
 setx AZURE_COMMUNICATION_ACCESS_TOKEN "<yourAccessToken>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 #### [macOS](#tab/unix)
 

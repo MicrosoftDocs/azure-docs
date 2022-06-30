@@ -15,7 +15,7 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You will need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 ## Operations
 
@@ -43,9 +43,9 @@ Make these replacements in the code:
 - Replace `<purchasedPhoneNumber>` with a phone number that's associated with your Communication Services resource.
 - Replace `<yourConnectionString>` with your connection string.
 
-### (Optional) Use Azure CLI phonenumbers operations without passing in a connection string
+### (Optional) Use Azure CLI phone numbers operations without passing in a connection string
 
-You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI phonenumbers operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.
+You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI phone numbers operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.
 
 #### [Windows](#tab/windows)
 

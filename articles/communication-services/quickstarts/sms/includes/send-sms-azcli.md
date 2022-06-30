@@ -39,7 +39,7 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You will need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 ### Make sure you're using the correct subscription
 
@@ -57,7 +57,7 @@ If you need to change subscription, you can do that by running the following com
 az account set --subscription "<yourSubcriptionId>"
 ```
 
-You need to replace `<yourSubscriptionId>` with your actual subscription ID, which you can find in the Subscriptions section in Azure Portal.
+You need to replace `<yourSubscriptionId>` with your actual subscription ID, which you can find in the Subscriptions section in Azure portal.
 
 ## Operations
 
