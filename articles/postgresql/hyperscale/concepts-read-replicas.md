@@ -98,16 +98,15 @@ There are two common scenarios for promoting a replica:
    procedure.
 2. **Migrating to another region.** If you want to move to another region,
    create a replica in the new region, wait for data to catch up, then promote
-   the replica.  To avoid potentially losing data, you may want to disable writes
-   to the original server group, after replica catches up, as you promote the
-   replica.
+   the replica.  To avoid potentially losing data during promotion, you may want
+   to disable writes to the original server group after the replica catches up.
 
-> [!NOTE]
->
-> There isn't yet a way in the Azure portal to view replication lag. To
-> determine when a replica has sufficiently caught up, you can insert a signal
-> row in a table of the original server group, and wait for it to appear in the
-> replica.
+   > [!NOTE]
+   >
+   > There isn't yet a way in the Azure portal to view replication lag. To
+   > determine when a replica has sufficiently caught up, you can insert a signal
+   > row in a table of the original server group, and wait for it to appear in the
+   > replica.
 
 ## Considerations
 
