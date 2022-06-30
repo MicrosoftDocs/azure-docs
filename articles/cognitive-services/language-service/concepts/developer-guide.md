@@ -80,7 +80,7 @@ As you use these features in your application, use the following documentation a
 
 The `Azure.AI.Language.QuestionAnswering` namespace enables you to use the following Language features:
 
-* [Question answering](../question-answering/sdk.md?pivots=programming-language-csharp)
+* [Question answering](../question-answering/quickstart/sdk.md?pivots=programming-language-csharp)
     * Authoring - Automate common tasks like adding new question answer pairs and working with projects/knowledge bases.
     * Prediction - Answer questions based on passages of text.
 
