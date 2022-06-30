@@ -88,7 +88,7 @@ Metaspace and direct memory can only be collected by full GC, when metaspace or 
 
 ### Java containerization
 
-Applications in Azure Spring Apps run in container environment. For more information, see [Java containerization strategies](https://docs.microsoft.com/en-us/azure/developer/java/containers).
+Applications in Azure Spring Apps run in container environments. For more information, see [Containerize your Java applications](/azure/developer/java/containers/overview?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json).
 
 ### Important JVM options
 

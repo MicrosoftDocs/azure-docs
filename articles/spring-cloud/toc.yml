@@ -90,6 +90,8 @@ items:
       href: tools-to-troubleshoot-memory-issues.md
     - name: Fix app restart issues caused by OOM
       href: how-to-fix-app-restart-issues-caused-by-out-of-memory.md
+    - name: Containerize your Java applications
+      href: /azure/developer/java/containers/overview?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
   - name: Metrics
     href: concept-metrics.md
   - name: Spring Boot Actuator
