@@ -3,7 +3,7 @@ title: Manage disk space in Azure HDInsight
 description: Troubleshooting steps and possible resolutions for managing disk space issues when interacting with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/17/2020
+ms.date: 06/30/2022
 ---
 
 # Manage disk space in Azure HDInsight
