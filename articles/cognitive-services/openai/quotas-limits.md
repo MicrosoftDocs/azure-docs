@@ -42,7 +42,7 @@ To minimize issues related to throttling, it's a good idea to use the following 
 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
-- Test different load increase patterns. <!--TODO For more information, see the [workload pattern example](#example-of-a-workload-pattern-best-practice).-->
+- Test different load increase patterns.
 - Create another OpenAI service resources in the same or different regions, and distribute the workload among them.
 
 The next sections describe specific cases of adjusting quotas.

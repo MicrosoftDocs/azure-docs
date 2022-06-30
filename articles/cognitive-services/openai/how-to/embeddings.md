@@ -27,8 +27,6 @@ curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYME
   -d '{"input": "Sample Document goes here"}'
 ```
 
-<!--TODO:You can also refer to[Get_Embeddings.ipynb](../Samples/Embeddings/Get_embeddings.ipynb) for a python notebook example of using this API.-->
-
 ## Best Practices
 
 ### Verify inputs don't exceed the maximum length
