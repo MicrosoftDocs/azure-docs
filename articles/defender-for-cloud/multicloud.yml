@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Defender for Cloud for your multicloud environment # < 60 chars
-summary: Microsoft Defender for Cloud connects to your multicloud environments with agentless, API-based methods. You can extend the Defender for Cloud protections with Defender plans. # < 160 chars
+summary: Microsoft Defender for Cloud connects to your multicloud environments with agentless, API-based methods for CSPM insight. You can leverage Azure Arc to use Defender plans for CWP. # < 160 chars
 
 metadata:
   title: The Defender for Cloud multicloud solution # Required; page title displayed in search results. Include the brand. < 60 chars.
