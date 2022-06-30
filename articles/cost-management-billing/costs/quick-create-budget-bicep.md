@@ -6,7 +6,7 @@ ms.author: v-eschaffer
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 06/27/2022
+ms.date: 06/30/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
@@ -76,13 +76,15 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=("user1@contoso.com", "user2@contoso.com")
+    myContactEmails ='("user1@contoso.com", "user2@contoso.com")'
+
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=$myContactEmails
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    $myContactEmails = ["user1@contoso.com", "user2@contoso.com"]
+    $myContactEmails = @("user1@contoso.com", "user2@contoso.com")
 
     New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails $myContactEmails
     ```
@@ -93,7 +95,7 @@ One Azure resource is defined in the Bicep file:
 
     - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
     - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
-    - **contactEmails**: For Azure CLI, enter your emails within parentheses. For Azure PowerShell, first create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
+    - **contactEmails**: First create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
 
     > [!NOTE]
     > When the deployment finishes, you should see a message indicating the deployment succeeded.
@@ -118,14 +120,17 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=("user1@contoso.com", "user2@contoso.com") resourceGroupFilterValues=("resource-group-01", "resource-group-02")
+    myContactEmails ='("user1@contoso.com", "user2@contoso.com")'
+    myRgFilterValues ='("resource-group-01", "resource-group-02")'
+
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=$myContactEmails resourceGroupFilterValues=$myRgFilterValues
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    $myContactEmails = ["user1@contoso.com", "user2@contoso.com"]
-    $myRgFilterValues = ["resource-group-01", "resource-group-02"]
+    $myContactEmails = @("user1@contoso.com", "user2@contoso.com")
+    $myRgFilterValues = @("resource-group-01", "resource-group-02")
 
     New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails $myContactEmails -resourceGroupFilterValues $myRgFilterValues
     ```
@@ -136,8 +141,8 @@ One Azure resource is defined in the Bicep file:
 
     - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
     - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
-    - **contactEmails**: For Azure CLI, enter your emails within parentheses. For Azure PowerShell, first create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
-    - **resourceGroupFilterValues**: For Azure CLI, enter your resource group filter values within parentheses. For Azure PowerShell, first create a variable that holds your resource group filter values and then pass that variable. Replace the sample filter values with the set of values for your resource group filter.
+    - **contactEmails**: First create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
+    - **resourceGroupFilterValues** First create a variable that holds your resource group filter values and then pass that variable. Replace the sample filter values with the set of values for your resource group filter.
 
     > [!NOTE]
     > When the deployment finishes, you should see a message indicating the deployment succeeded.
@@ -162,16 +167,21 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=("user1@contoso.com", "user2@contoso.com") contactGroups=("action-group-resource-id-01", "action-group-resource-id-02") resourceGroupFilterValues=("resource-group-01", "resource-group-02") meterCategoryFilterValues=("meter-category-01", "meter-category-02")
+    myContactEmails ='("user1@contoso.com", "user2@contoso.com")'
+    myContactGroups ='("action-group-resource-id-01", "action-group-resource-id-02")'
+    myRgFilterValues ='("resource-group-01", "resource-group-02")'
+    myMeterCategoryFilterValues ='("meter-category-01", "meter-category-02")'
+
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters startDate=<start-date> endDate=<end-date> contactEmails=$myContactEmails contactGroups=$myContactGroups resourceGroupFilterValues=$myRgFilterValues meterCategoryFilterValues=$myMeterCategoryFilterValues
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    $myContactEmails = ["user1@contoso.com", "user2@contoso.com"]
-    $myContactGroups = ["action-group-resource-id-01", "action-group-resource-id-02"]
-    $myRgFilterValues = ["resource-group-01", "resource-group-02"]
-    $myMeterCategoryFilterValues = ["meter-category-01", "meter-category-02"]
+    $myContactEmails = @("user1@contoso.com", "user2@contoso.com")
+    $myContactGroups = @("action-group-resource-id-01", "action-group-resource-id-02")
+    $myRgFilterValues = @("resource-group-01", "resource-group-02")
+    $myMeterCategoryFilterValues = @("meter-category-01", "meter-category-02")
 
 
     New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails $myContactEmails -contactGroups $myContactGroups -resourceGroupFilterValues $myRgFilterValues -meterCategoryFilterValues $myMeterCategoryFilterValues
@@ -183,10 +193,10 @@ One Azure resource is defined in the Bicep file:
 
     - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
     - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
-    - **contactEmails**: For Azure CLI, enter your emails within parentheses. For Azure PowerShell, first create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
-    - **contactGroups**: For Azure CLI, enter your contact groups within parentheses. For AzurePowerShell, first create a variable that holds your contact groups and then pass that variable. Replace the sample contact groups with the list of action groups to send the budget notification to when the threshold is exceeded.
-    - **resourceGroupFilterValues**: For Azure CLI, enter your resource group filter values within parentheses. For Azure PowerShell, first create a variable that holds your resource group filter values and then pass that variable. Replace the sample filter values with the set of values for your resource group filter.
-    - **meterCategoryFilterValues**: For Azure CLI, enter your meter category filter values within parentheses. For Azure PowerShell, first create a variable that holds your meter category filter values and then pass that variable. Replace the sample filter values within parentheses with the set of values for your meter category filter.
+    - **contactEmails**: First create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
+    - **contactGroups**: First create a variable that holds your contact groups and then pass that variable. Replace the sample contact groups with the list of action groups to send the budget notification to when the threshold is exceeded.
+    - **resourceGroupFilterValues**: First create a variable that holds your resource group filter values and then pass that variable. Replace the sample filter values with the set of values for your resource group filter.
+    - **meterCategoryFilterValues**: First create a variable that holds your meter category filter values and then pass that variable. Replace the sample filter values within parentheses with the set of values for your meter category filter.
 
     > [!NOTE]
     > When the deployment finishes, you should see a message indicating the deployment succeeded.
