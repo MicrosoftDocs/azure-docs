@@ -245,5 +245,5 @@ Generative tasks have a potential to leak training data when requesting completi
 
 ## Next steps
 
-Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
-<!--TODO: Fine tune your model with our [How-to guide](./FineTunes.md) -->
+* Fine tune your model with our [How-to guide](fine-tuning.md)
+* Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md)
