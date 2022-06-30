@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 04/08/2022
+ms.date: 06/30/2022
 ms.author: madsd
 
 ---
@@ -89,7 +89,6 @@ Application routing applies to traffic that is sent from your app after it has b
 > [!NOTE]
 > * Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
 > * When **Route All** is enabled, outbound traffic from your app is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
-> * Regional virtual network integration can't use port 25.
 
 Learn [how to configure application routing](./configure-vnet-integration-routing.md).
 
@@ -100,10 +99,10 @@ We recommend that you use the **Route All** configuration setting to enable rout
 When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, configuration traffic will go directly over the public route, but for the mentioned individual components, you can actively configure it to be routed through the virtual network integration.
 
 > [!NOTE]
-> * Windows containers don't support routing App Service Key Vault references or pulling custom container images over virtual network integration.
+> * Windows containers don't support pulling custom container images over virtual network integration.
 > * Backup/restore to private storage accounts is currently not supported.
 > * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
-> * Diagnostics logs to private storage accounts is currently not supported.
+> * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
 
 ##### Content storage
 

@@ -72,9 +72,6 @@ To configure the lead management in Partner Center:
 
 After you submit your offer for publication in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, test your lead connection by trying to purchase the offer yourself in the preview environment.
 
-> [!TIP]
-> Make sure the connection to the lead destination stays updated so you don't lose any leads.
-
 ## Next steps
 
 * [How to configure your consulting service offer properties](./create-consulting-service-offer-properties.md)

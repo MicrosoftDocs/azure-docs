@@ -58,6 +58,7 @@ The MLflow client exposes several methods to retrieve runs, including options to
 | Filtering runs with string comparators (params, tags, and attributes): `LIKE`/`ILIKE` | **&check;** |  |
 | Filtering runs with comparators `AND` | **&check;** | **&check;** |
 | Filtering runs with comparators `OR` | **&check;** |  |
+| Renaming experiments | **&check;** |  |
 
 > [!NOTE]
 > - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure ML.
