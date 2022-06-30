@@ -1,10 +1,10 @@
 ---
 title: Create a codeless connector for Microsoft Sentinel
 description: Learn how to create a codeless connector in Microsoft Sentinel using the Codeless Connector Platform (CCP).
-author: batamig
-ms.author: bagol
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 06/30/2022
 ---
 # Create a codeless connector for Microsoft Sentinel (Public preview)
 
