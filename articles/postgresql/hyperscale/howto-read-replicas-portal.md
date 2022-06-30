@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 06/30/2022
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal
@@ -66,6 +66,17 @@ steps:
 3. Enter the name of the primary server group to delete. Select **Delete** to
    confirm deletion of the primary server group.
  
+## Promote a replica to an independent server group
+
+To promote a server group replica, follow these steps:
+
+1. In the Azure portal, open the **Replication** page for your server group.
+
+2. Select the **Promote** icon for the desired replica.
+
+3. Select the checkbox indicating you understand the action is irreversible.
+
+4. Select **Promote** to confirm.
 
 ## Delete a replica
 

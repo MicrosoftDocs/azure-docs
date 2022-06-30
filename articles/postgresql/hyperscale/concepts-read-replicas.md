@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 06/30/2022
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -84,6 +84,30 @@ psql -h c.myreplica.postgres.database.azure.com -U citus@myreplica -d postgres
 ```
 
 At the prompt, enter the password for the user account.
+
+## Replica promotion to independent server group
+
+You can promote a replica to an independent server group that is readable and
+writable. A promoted replica no longer receives updates from its original, and
+promotion can't be undone. Promoted replicas can have replicas of their own.
+
+There are two common scenarios for promoting a replica:
+
+1. **Disaster recovery.** If something goes wrong with the primary, or with an
+   entire region, you can open another server group for writes as an emergency
+   procedure.
+2. **Migrating to another region.** If you want to move to another region,
+   create a replica in the new region, wait for data to catch up, then promote
+   the replica.  To avoid potentially losing data, you may want to disable writes
+   to the original server group, after replica catches up, as you promote the
+   replica.
+
+> [!NOTE]
+>
+> There isn't yet a way in the Azure portal to view replication lag. To
+> determine when a replica has sufficiently caught up, you can insert a signal
+> row in a table of the original server group, and wait for it to appear in the
+> replica.
 
 ## Considerations
 
