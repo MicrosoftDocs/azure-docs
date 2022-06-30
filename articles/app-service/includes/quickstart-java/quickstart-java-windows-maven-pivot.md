@@ -1,3 +1,12 @@
+---
+author: cephalin
+ms.service: app-service
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 06/30/2022
+ms.author: cephalin
+---
+
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
 # [Java SE](#tab/javase)
@@ -24,7 +33,7 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 ## 1 - Use Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it-no-h.md](../../../../includes/cloud-shell-try-it-no-h.md)]
+[!INCLUDE [cloud-shell-try-it-no-header.md](../../../../includes/cloud-shell-try-it-no-header.md)]
 
 ## 2 - Create a Java app
 

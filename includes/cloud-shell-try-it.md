@@ -8,4 +8,4 @@ manager: barbkess
 
 ## Use Azure Cloud Shell
 
-[!INCLUDE [Use Azure Cloud Shell](cloud-shell-try-it-no-h.md)]
+[!INCLUDE [Use Azure Cloud Shell](cloud-shell-try-it-no-header.md)]

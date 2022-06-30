@@ -1,3 +1,12 @@
+---
+author: cephalin
+ms.service: app-service
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 06/30/2022
+ms.author: cephalin
+---
+
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Windows using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
@@ -30,7 +39,7 @@ To complete this quickstart you need:
 
 ## 2 - Deploy to Azure
 
-1. Sign into the Azure portal.
+1. Log in to the Azure portal.
 
 1. Type **app services** in the search. Under **Services**, select **App Services**.
 
@@ -62,7 +71,7 @@ To complete this quickstart you need:
     ![Screenshot of the Deployment section of the Create Web App wizard in the Azure portal. Deployment - the second section - is highlighted. Under GitHub Actions settings, continuous deployment's Enable is also highlighted.](../../media/quickstart-java/create-web-app-deployment-section.png)
 
 1. In the section under **GitHub Actions details**, select the following settings:
-    - GitHub account: Log into your GitHub account.
+    - GitHub account: Log in to your GitHub account.
     - Organization: Select your organization.
     - Repository: Select _java-docs-spring-hello-world_.
     - Branch: Select _main_.
