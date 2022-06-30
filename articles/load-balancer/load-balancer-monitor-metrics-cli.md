@@ -44,7 +44,7 @@ For metric definitions and further details, refer to [Monitoring load balancer d
 ## CLI examples for Load Balancer metrics 
 <!-- Introduction paragraph -->
 
-The [az monitor metrics](/cli/azure/monitor/metrics) command is used to view Azure resource metrics. To see the metric definition available for a Standard Load Balancer, you run the `az monitor metrics list-definitions` command. 
+The [az monitor metrics](cli/azure/monitor/metrics) command is used to view Azure resource metrics. To see the metric definitions available for a Standard Load Balancer, you run the `az monitor metrics list-definitions` command. 
 
 ```azurecli
 # Display available metric definitions for a Standard Load Balancer resource
