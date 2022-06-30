@@ -58,7 +58,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
-# [US Government](#tab/US Government)
+# [United States](#tab/united-states)
 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
