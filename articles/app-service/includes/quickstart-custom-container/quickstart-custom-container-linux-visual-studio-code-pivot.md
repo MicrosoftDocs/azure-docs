@@ -22,7 +22,7 @@ Create a container registry by following the instructions in [Quickstart: Create
 1. Launch Visual Studio Code. 
 1. Select the **Azure** logo in the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), navigate to the **APP SERVICE** explorer, then select **Sign in to Azure** and follow the instructions.
 
-    ![sign in to Azure](../../media/quickstart-docker/sign-in.png)
+    ![Screenshot of signing into Azure in Visual Studio Code.](../../media/quickstart-docker/sign-in.png)
 
 1. In the [Status Bar](https://code.visualstudio.com/docs/getstarted/userinterface) at the bottom, verify your Azure account email address. In the **APP SERVICE** explorer, your subscription should be displayed.
 

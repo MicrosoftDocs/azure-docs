@@ -20,17 +20,17 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)** for C#, then select **Next**.
 
-   :::image type="content" source="../../media/quickstart-custom-container/create-new-project.png?text=VS create a new project" alt-text="Create a new project":::
+   :::image type="content" source="../../media/quickstart-custom-container/create-new-project.png?text=VS create a new project" alt-text="Screenshot of the Create a new project dialog.":::
 
 1. In **Configure your new project**, under **Project name**, name the application *myfirstazurewebapp*. Under **Framework**, select **.NET Framework 4.8** and then select **Create**.
 
-    :::image type="content" source="../../media/quickstart-custom-container/configure-web-app-project-container.png?text=Configure your web app project" alt-text="Configure your web app project":::
+    :::image type="content" source="../../media/quickstart-custom-container/configure-web-app-project-container.png?text=Configure your web app project" alt-text="Screenshot of the Configure your web app project.":::
 
 1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
 
 1. Under **Authentication**, select **None**. Under **Advanced**, select **Docker support** and uncheck **Configure for HTTPS**. Select **Create**.
 
-     :::image type="content" source="../../media/quickstart-custom-container/select-mvc-template-for-container.png?text=Create ASP.NET Web Application" alt-text="Create ASP.NET Web Application":::
+     :::image type="content" source="../../media/quickstart-custom-container/select-mvc-template-for-container.png?text=Create ASP.NET Web Application" alt-text="Screenshot of the Create ASP.NET Web Application dialog.":::
 
 1. If the *Dockerfile* file isn't opened automatically, open it from the **Solution Explorer**.
 
@@ -42,7 +42,7 @@ Create an ASP.NET web app by following these steps:
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-    :::image type="content" source="../../media/quickstart-custom-container/local-web-app.png?text=Run app locally" alt-text="Run app locally":::
+    :::image type="content" source="../../media/quickstart-custom-container/local-web-app.png?text=Run app locally" alt-text="Screenshot of the app running locally.":::
 
 ## Publish to Azure Container Registry
 
@@ -50,23 +50,23 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Target**, select **Docker Container Registry**, and then select **Next**.
 
-    :::image type="content" source="../../media/quickstart-custom-container/select-docker-container-registry-visual-studio-2022.png?text=Select Docker Container Registry" alt-text="Select Docker Container Registry":::
+    :::image type="content" source="../../media/quickstart-custom-container/select-docker-container-registry-visual-studio-2022.png?text=Select Docker Container Registry" alt-text="Screenshot of the Select Docker Container Registry screen.":::
 
 1. In **Specific Target**, select **Azure Container Registry**, and then select **Next**.
 
-    :::image type="content" source="../../media/quickstart-custom-container/publish-to-azure-container-registry-visual-studio-2022.png?text=Publish to Azure Container Registry" alt-text="Publish from project overview page":::
+    :::image type="content" source="../../media/quickstart-custom-container/publish-to-azure-container-registry-visual-studio-2022.png?text=Publish to Azure Container Registry" alt-text="Screenshot of the Publish from project overview page.":::
 
 1. In **Publish**, make sure the correct subscription is chosen. In **Container registries** select the **+** button to create a new Azure Container Registry.
 
-    :::image type="content" source="../../media/quickstart-custom-container/create-new-azure-container-registry.png?text=Create new Azure Container Registry" alt-text="Create new Azure Container Registry":::
+    :::image type="content" source="../../media/quickstart-custom-container/create-new-azure-container-registry.png?text=Create new Azure Container Registry" alt-text="Screenshot of the Create new Azure Container Registry screen.":::
 
 1. In **Create new**, make sure the correct subscription is chosen. Under **Resource group**, select **New** and type *myResourceGroup* for the name, and select **OK**. Under **SKU**, select **Basic**. Under **Registry location**, select a location of the registry then select **Create**.
 
-    :::image type="content" source="../../media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Azure Container Registry details":::
+    :::image type="content" source="../../media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Screenshot of Azure Container Registry details.":::
 
 1. In **Publish**, under **Container Registry**, select the registry you created, and then select **Finish**.
 
-    :::image type="content" source="../../media/quickstart-custom-container/select-existing-azure-container-registry.png?text=Select existing Azure Container Registry" alt-text="Select existing Azure Container Registry":::
+    :::image type="content" source="../../media/quickstart-custom-container/select-existing-azure-container-registry.png?text=Select existing Azure Container Registry" alt-text="Screenshot of the Select existing Azure Container Registry screen.":::
 
    Wait for the deployment to complete. The **Publish** page now shows the repository name. Select the *copy button* to copy the **Repository** name for later.
 
