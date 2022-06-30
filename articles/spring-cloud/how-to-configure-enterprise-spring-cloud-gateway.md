@@ -1,7 +1,7 @@
 ---
-title: How to Configure Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise Tier
-titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to Configure Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise Tier.
+title: How to Configure Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise tier
+titleSuffix: Azure Spring Apps Enterprise tier
+description: How to Configure Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise tier.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to configure VMware Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise Tier.
+This article shows you how to configure VMware Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise tier.
 
 [Spring Cloud Gateway for Kubernetes](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
