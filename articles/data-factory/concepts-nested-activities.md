@@ -36,28 +36,28 @@ Control activity | Description
 ## Navigating nested activities
 There are two primary ways to navigate to the contained activities in a nested activity.
 
-1. Each control flow activity that supports nested activities has an activity tab. Selecting the activity tab will then give you an pencil icon you can select to drill down into the inner activities panel. 
-:::image type="content" source="media/concepts-pipelines-activities/nested-activity-navigation.png" alt-text="Screenshot showing an example If activity with a highlights on the pencil icon to navigate.":::
+1. Each control flow activity that supports nested activities has an activity tab. Selecting the activity tab will then give you a pencil icon you can select to drill down into the inner activities panel. 
+:::image type="content" source="media/concepts-pipelines-activities/nested-activity-navigation.png" alt-text="Screenshot showing an example If activity with a highlight on the pencil icon to navigate.":::
  
 Your pipeline canvas will then switch to the context of the inner activity container that you selected. There will also be a breadcrumb trail at the top you can select to navigate back to the parent pipeline.
-:::image type="content" source="media/concepts-pipelines-activities/nested-activity-breadcrumb.png" alt-text="Screenshot showing an example If activity inside the true branch with a highlights on the breadcrumb to navigate back to the parent pipeline.":::
-2. From the activity itself on the pipeline canvas you can select the pencil icon to drill down into the inner activities panel. As above, you will have a breadcrumb to navigate back to the parent pipeline. Additionally, the ForEach and Until activities support double-clicking on the activity to drill down to the inner activities panel.
-:::image type="content" source="media/concepts-pipelines-activities/nested-activity-canvas-navigation.png" alt-text="Screenshot showing an example If activity inside the true branch with a highlights on the breadcrumb to navigate back to the parent pipeline.":::
+:::image type="content" source="media/concepts-pipelines-activities/nested-activity-breadcrumb.png" alt-text="Screenshot showing an example If activity inside the true branch with a highlight on the breadcrumb to navigate back to the parent pipeline.":::
+2. From the activity on the pipeline canvas, you can select the pencil icon to drill down into the inner activities panel. As above, you'll have a breadcrumb to navigate back to the parent pipeline. Additionally, the ForEach and Until activities support double-clicking on the activity to drill down to the inner activities panel.
+:::image type="content" source="media/concepts-pipelines-activities/nested-activity-canvas-navigation.png" alt-text="Screenshot showing an example If activity inside the true branch with a highlight on the breadcrumb to navigate back to the parent pipeline.":::
  
 
 ## Nested activity embedding limitations
-Activities that support nesting (ForEach, Until, Switch, and If) cannot be embedded inside of another nested activity. Essentially, the current support for nesting is one level deep. See the best practices section below on how to use other pipeline activities to enable this scenario. In addition the 
-[Validation Activity](control-flow-validation-activity.md) cannot be placed inside of a nested activity.
+Activities that support nesting (ForEach, Until, Switch, and If) can't be embedded inside of another nested activity. Essentially, the current support for nesting is one level deep. See the best practices section below on how to use other pipeline activities to enable this scenario. In addition, the 
+[Validation Activity](control-flow-validation-activity.md) can't be placed inside of a nested activity.
 
 ## Best practices for multiple levels of nested activities
 In order to have logic that supports nesting more than one level deep, you can use the [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md) inside of your nested activity to call another pipeline that then can have another level of nested activities. A common use case for this pattern is with the ForEach loop where you need to additionally loop based off logic in the inner activities. 
 
-A example of this pattern would be if you had a file system that had a list of folders and each folder there are multiple files you want to process. You would accomplish this pattern, generally, by peforming the follwing.
+An example of this pattern would be if you had a file system that had a list of folders and each folder there are multiple files you want to process. You would accomplish this pattern, generally, by performing the following.
 1. Using a [Get Metadata Activity](control-flow-get-metadta-activity.md) first to get a list of just the folders.
 2. Pass the result of the Get Metadata activity into the Items list of a ForEach activity. Each iteration then represents a single folder to process.
-3. In the inner activities panel of the ForEach activity then use another Get Metadata activity to get a list of files inside of the folder.
+3. In the inner activities panel of the ForEach activity, use another Get Metadata activity to get a list of files inside of the folder.
 4. Call an Execute Pipeline activity that has an array parameter and pass it an array of those filenames.
-5. In the child pipeline you could then use another nested activity (such as ForEach) with the passed in array list to iterated over the files and perform one or more sets of inner activities.
+5. In the child pipeline, you could then use another nested activity (such as ForEach) with the passed in array list to iterate over the files and perform one or more sets of inner activities.
  
 The parent pipeline would look similar to the below example.
  :::image type="content" source="media/concepts-pipelines-activities/nested-activity-execute-pipeline.png" alt-text="Screenshot showing an example parent pipeline calling a child pipeline in a ForEach loop.":::
