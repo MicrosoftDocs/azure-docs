@@ -46,7 +46,7 @@ Azure file shares can be used to:
 * **Familiar programmability**. Applications running in Azure can access data in the share via file [system I/O APIs](/dotnet/api/system.io.file). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use [Azure Storage Client Libraries](/previous-versions/azure/dn261237(v=azure.100)) or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
 
 ## Case Studies
-* Organizations across the world are leveraging Azure Files and Azure Files Sync to optimize file access and storage. [Checkout their case studies here](azure-files-case-study.md).
+* Organizations across the world are leveraging Azure Files and Azure File Sync to optimize file access and storage. [Checkout their case studies here](azure-files-case-study.md).
 
 ## Next Steps
 * [Plan for an Azure Files deployment](storage-files-planning.md)
