@@ -28,7 +28,7 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
 2. Select **+ Create**.
    ![create button](../articles/postgresql/media/quickstart-hyperscale-create-portal/create-button.png)
 3. Select the **Hyperscale (Citus) server group** deployment option.
-   ![deployment options](media/quickstart-hyperscale-create-portal/deployment-option.png)
+   ![deployment options](../articles/postgresql/media/quickstart-hyperscale-create-portal/deployment-option.png)
 
 ---
 
