@@ -1,7 +1,7 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 03/30/2022
+ms.date: 06/30/2022
 ms.topic: how-to
 ---
 
@@ -141,6 +141,34 @@ Make sure that you've started with the relevant updates steps for this update. F
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
+
+## Understand sensor health (Public preview)
+
+This procedure describes how to view sensor health data from the Azure portal. Sensor health includes data such as whether traffic is stable, the sensor is overloaded, notifications about sensor software versions, and more.
+
+**To view overall sensor health**:
+
+1. From Defender for IoT in the Azure portal, select **Sites and sensors** and then check the overall health score in the widget above the grid.
+
+1. To check on specific sensors, filter the sensors shown by sensor health, and select one or more sensor health issues to verify.
+
+1. Expand the filtered sites and sensors now displayed in the grid, and use the **Sensor health** column to learn more at a high level.
+
+1. To drill down further and understand recommended actions, select a sensor name to open the sensor details page.
+
+1. On the sensor details **Overview** page, expand the **Health** section and any messages listed there to learn more. The **Recommendation** column on the right lists recommended actions for handling the health issue.
+
+### Sensor health issues
+
+Defender for IoT will indicate a sensor health issue for any of the following scenarios:
+
+- Sensor traffic to Azure isn't stable
+- Sensor fails regular sanity tests
+- No traffic detected by the sensor
+- Sensor software version is no longer supported
+- A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
+
+For more information, see our [Sensor health message reference](sensor-health-messages.md).
 
 ## Next steps
 

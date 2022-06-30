@@ -219,6 +219,8 @@
         href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
+  - name: Sensor health message reference
+    href: sensor-health-messages.md
   - name: Work with Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
   - name: Work with Defender for IoT CLI commands
