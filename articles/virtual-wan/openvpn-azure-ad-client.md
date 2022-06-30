@@ -146,7 +146,7 @@ These steps help you configure your connection to connect automatically with Alw
 
 ## FAQ
 
-### How do I add DNS suffixes to the VPN client?
+### <a name="add-suffix"></a>How do I add DNS suffixes to the VPN client?
 
 You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
 
@@ -164,7 +164,7 @@ You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dns
 </azvpnprofile>
 ```
 
-### How do I add custom DNS servers to the VPN client?
+### <a name="custom-dns"></a>How do I add custom DNS servers to the VPN client?
 
 You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags.
 
@@ -185,11 +185,11 @@ You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnss
 > The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
 >
 
-### Can I specify multiple certificates for the VPN client?
+### <a name="multi-cert"></a>Can I specify multiple certificates for the VPN client?
 
 If you have 2 hubs for your virtual WAN that are each configured for P2S User VPN and use the same VPN configuration, and that configuration is configured to use multiple certificates, you can now configure the VPN clients for multiple certificates. This means that if one certificate can't be used for any reason, the other certificate can still be used for authentication. Previously, you couldn't configure the client with the settings for both certificates. Go to the Virtual WAN -> User VPN configurations page, select the User VPN configuration used by both hubs, then select **Download virtual WAN user VPN profile** to download the global user VPN profile (rather than the hub profile). The files you download contain the root end certificates. You can configure multiple certificate support on the client side by either using the Azure VPN Client interface (version 2.1963.44.0 or higher), or by using a multiple certificate tag in the xml profile.
 
-### How do I add custom routes to the VPN client?
+### <a name="custom-routes></a>How do I add custom routes to the VPN client?
 
 You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
 
@@ -228,7 +228,7 @@ You can modify the downloaded profile XML file and add the **\<includeroutes>\<r
 </azvpnprofile>
 ```
 
-### How do I block (exclude) routes from the VPN client?
+### <a name="exclude-routes"></a>How do I block (exclude) routes from the VPN client?
 
 You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
 
@@ -246,7 +246,7 @@ You can modify the downloaded profile XML file and add the **\<excluderoutes>\<r
 </azvpnprofile>
 ```
 
-### Can I import the profile from a command-line prompt?
+### <a name="import-profile"></a>Can I import the profile from a command-line prompt?
 
 You can import the profile from a command-line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
 
