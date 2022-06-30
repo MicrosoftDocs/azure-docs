@@ -143,7 +143,6 @@ Brokering mechanism features available:
 |User-defined topics     |         |
 |Device-to-Device     |         |
 |Local broadcasting     |         |
-|Performance     |         |
 
 ### Connecting to the IoT Edge hub
 
