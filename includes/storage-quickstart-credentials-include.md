@@ -10,54 +10,79 @@ ms.author: twooley
 ms.custom: include file
 ---
 
-When an application makes a request to Azure Storage, it must be authorized. Managed Identity is the recommended approach for authentication between Azure services. You can read more about the benefits of this approach in the [Managed Identity overview]("/dotnet/azure/sdk/authentication-azure-hosted-apps"). 
+When an application makes a request to Azure Storage, it must be authorized. Managed Identity is the recommended approach for authentication between Azure services, including Blob Storage. You can read more about the features and benefits of Managed Identity in the [Managed Identity overview]("/dotnet/azure/sdk/authentication-azure-hosted-apps").
 
-Azure Storage also provides the option to use Connection Strings, which offer a simple solution but should be used with caution. Managed Identity provides improved management and security benefits over connection strings. Both options are outlined in the following example.
+Azure Blob Storage also provides the option to authenticate using Connection Strings, but this approach should be used with caution. Managed Identity offers improved management and security benefits over connection strings. Both options are outlined in the following example.
 
 ## [Managed Identity](#tab/managed-identity)
 
-### Enable Managed Identity on the application
+The following steps describe how to authenticate to Azure Blob Storage during local development using Managed Identity. The same process can be also expanded to handle authentication in hosted production environments. You can learn more about authentication between hosted services in the [Auth between Azure-hosted](/dotnet/azure/sdk/authentication-azure-hosted-apps) apps tutorial.
 
-1. Navigate to the resource that hosts your application code in the Azure portal.
+### Create an Azure AD group for local development
+
+Creating an Azure AD group for local development provides a repeatable process as developers are added or removed from a team. It helps you avoid managing specific permissions for individual developer accounts.
+
+1. Navigate to the Azure main Active Directory page in the Azure portal via the left navigation or the top search bar.
  
-2. On the page for your resource, select the Identity menu item from the left-hand menu. All Azure resources capable of supporting managed identity will have an Identity menu item even though the layout of the menu may vary slightly.
+2. On the **Azure Active Directory** page, select **Add &rarr; Group** from the top menu.
 
-3. On the identity page, change the *status* toggle to *On*, and then select *Save*. Choose *Yes* in the confirmation dialog.
+    :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/create-ad-group-small.png" alt-text="A screenshot enabling managed identity." lightbox="../articles/storage/blobs/media/storage-blobs-introduction/enable-identity.png":::
+
+4. On the **New Group** page, enter the following values:
+    * **Group type**: Choose **Security**
+    * **Group name**: Enter a value that includes the application name and a descriptive suffix to indicate the purpose of the group, such as *msdocs-blob-app-local-dev*.
+    * **Group description**: Enter a more detailed description of the purpose of the group.
+    * Select the **No members selected** link to add members to the group.
+
+:::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/new-group-details-small.png" alt-text="A screenshot enabling managed identity." lightbox="../articles/storage/blobs/media/storage-blobs-introduction/new-group-details.png":::
+
+5. On the **Add members** dialog box:
+    * Use the search box to filter the list of user names in the list.
+    * Select the user(s) for local development for this app. As objects are selected, they will move to the Selected items list at the bottom of the dialog.
+    * When finished, choose the **Select** button.
+
+6. Back on the **New group** page, select **Create** to create the group.
 
 ### Assign roles to the managed identity
 
-1. Locate the resource group for your application by searching for the resource group name using the search box at the top of the Azure portal.
+1. In the Azure Portal, locate the resource group for your Blob Storage account using the main search bar or left navigation.
 
-2. On the page for the resource group, select Access control (IAM) from the left-hand menu.	
+2. On the page for the resource group, select **Access control (IAM)** from the left-hand menu.	
 
-3. On the *Access control (IAM)* page, select the *Role assignments* tab.
+3. On the **Access control (IAM)** page, select the **Role assignments** tab.
 
-4. Select + Add from the top menu and then Add role assignment from the resulting drop-down menu.
+4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-5. Use the search box to filter the results to the desired role. For this example, search for *Storage Blob Data Contributor* and select the matching result and then choose *Next*.
+    :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/access-control-small.png" alt-text="A screenshot enabling managed identity." lightbox="../articles/storage/blobs/media/storage-blobs-introduction/access-control.png":::
 
-6. Under *Assign access to*, select Managed identity, and then choose *+ Select members*.
+5. Use the search box to filter the results to the desired role. For this example, search for *Storage Blob Data Contributor* and select the matching result and then choose **Next**.
 
-7. In the *Select managed identities* dialog, choose the managed identity for the Azure resource hosting your application and then choose *Select* at the bottom of the dialog. 
+6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
-8. Select Review + assign to go to the final page, and then *Review + assign* again to complete the process.
+7. In the **Select managed identities** dialog, choose the Azure AD security group you created and then choose **Select** at the bottom of the dialog. 
 
-### Configure your connection
+8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
-DefaultAzureCredential supports multiple authentication methods and determines the authentication method being used at runtime. In this way, your app can use different authentication methods in different environments without implementing environment specific code. This means you can develop locally and deploy to production without manually changing any code or credentials.
+### Connect your app code using DefaultAzureCredential
 
-The order and locations in which DefaultAzureCredential looks for credentials is shown in the diagram and table below.
+`DefaultAzureCredential` is a class provided by the Azure SDK for .NET, which you can learn more about on the [Managed Identity Overview](/en-us/dotnet/azure/sdk/authentication). `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. This enables your app to use different authentication methods in different environments (local vs production) without implementing environment specific code.
+
+ The order and locations in which `DefaultAzureCredential` looks for credentials is shown in the diagram and table below.
 
 :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/authentication-defaultazurecredential.png" alt-text="A diagram of the DefaultAzureCredential order.":::
 
-To implement DefaultAzureCredential, add the Azure.Identity and optionally the Microsoft.Extensions.Azure packages to your application.
+You can authenticate your local app to your Blob Storage account using the following steps:
+
+1. Make sure you are logged into the same Azure account you configured in Azure AD through Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell
+
+2. To implement `DefaultAzureCredential`, add the **Azure.Identity** and the **Microsoft.Extensions.Azure packages** to your application.
 
 ```dotnetcli
 dotnet add package Azure.Identity
 dotnet add package Microsoft.Extensions.Azure
 ```
 
-Azure services are generally accessed using corresponding client classes from the SDK. These classes and your own custom services should be registered in the Program.cs file so they can be accessed via dependency injection throughout your app. 
+Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the Program.cs file so they can be accessed via dependency injection throughout your app. 
 
 An example of this setup is shown in the following code segment inside of `Program.cs`.
 
@@ -72,9 +97,11 @@ builder.Services.AddAzureClients(x =>
     x.UseCredential(new DefaultAzureCredential());
 });
 ```
-When the above code is run on your local workstation during development, it will look in the environment variables for an application service principal or at Visual Studio, VS Code, the Azure CLI, or Azure PowerShell for a set of developer credentials.
 
-When deployed to Azure this same code can also authenticate your app to other Azure resources. DefaultAzureCredential can retrieve environment settings and the managed identity configurations you setup earlier to authenticate to other services automatically.
+When the above code is run on your local workstation during development, it will use the developer credentials of whatever prioritized tool you are logged into to authenticate to Azure.
+
+> [!IMPORTANT]
+> When deployed to Azure this same application code can also authenticate to other Azure services. However, you will need to enable managed identity on your app in Azure, and then configure your Blob Storage account to allow that managed identity to connect. You can find detailed instructions for how to configure this connection between Azure services in the [Auth from Azure-hosted](/dotnet/azure/sdk/authentication-azure-hosted-apps) apps tutorial.
 
 ## [Connection String](#tab/connection-string)
 
