@@ -908,6 +908,8 @@ items:
         items:
         - name: Overview
           href: app/java-in-process-agent.md
+        - name: Spring Boot
+          href: app/java-spring-boot.md
         - name: Configuration options
           href: app/java-standalone-config.md
         - name: Advanced configurations
