@@ -56,7 +56,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="../../media/quickstart-custom-container/sample-windows-custom-container-not-ready-yet.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed will run in background mode.":::
 
-Notice that the message shows **The containers without a port exposed will run in background mode.**. This indicates that if the container deployed successfully, it does not have a port exposed. When this Docker image is deployed to Azure App Service, `dotnet... dll` is executed, but an environment variable still needs to be set.
+Notice that the message shows **The containers without a port exposed will run in background mode.**. This indicates that if the container deployed successfully, it does not have a port exposed. When this Docker image is deployed to Azure App Service, `dotnet publish` is executed for publishing the application, but an environment variable may be missing.
 
 ## 3 - Expose port 80
 
