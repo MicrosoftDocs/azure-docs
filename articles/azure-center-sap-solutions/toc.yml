@@ -23,5 +23,9 @@ items:
   - name: Start and stop SAP systems
     href: start-stop-sap-systems.md
 
+- name: SAP deployment automation framework
+  href: ../virtual-machines/workloads/sap/automation-deployment-framework.md
+- name: Azure Monitor for SAP solutions
+  href: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md
 - name: SAP workloads on Azure
   href: ../virtual-machines/workloads/sap/get-started.md
