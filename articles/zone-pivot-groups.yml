@@ -1591,7 +1591,7 @@ groups:
   prompt: Choose a Client Library
   pivots:
   - id: framework-dotnet
-    title: .Net
+    title: .NET
   - id: framework-spring
     title: Spring Framework
 # Owner: nicktrog
