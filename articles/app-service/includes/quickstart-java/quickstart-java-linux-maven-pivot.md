@@ -33,7 +33,7 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 ## 1 - Use Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it-no-h.md](../../../../includes/cloud-shell-try-it-no-h.md)]
+[!INCLUDE [cloud-shell-try-it-no-header.md](../../../../includes/cloud-shell-try-it-no-header.md)]
 
 ## 2 - Create a Java app
 
