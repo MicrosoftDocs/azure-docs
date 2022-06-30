@@ -31,7 +31,7 @@ There are minor differences between the formats with regard to material property
   * file must be encoded using the `binary_little_endian 1.0` format,
   * file contains a point cloud (that is, no triangles),
   * positions contain all three components (x, y, z),
-  * colors contain all three components (red, green, blue).
+  * colors contain all three components (red, green, blue). Alternatively, color components can be specified through (diffuse_red, diffuse_green, diffuse_blue) or (ambient_red, ambient_green, ambient_blue) semantics.
 
   In case any other properties exist, they're ignored during ingestion.
 * **E57** : E57 contains two types of data: `data3d` and `image2d`. The conversion service only loads the `data3d` part of the file, while the `image2d` part of the file is being ignored.

@@ -62,7 +62,8 @@ You can create an anomaly alert to automatically get notified when an anomaly is
 
 An anomaly alert email includes a summary of changes in resource group count and cost. It also includes the top resource group changes for the day compared to the previous 60 days. And, it has a direct link to the Azure portal so that you can review the cost and investigate further.
 
-1. Start on a subscription scope.
+1. From Azure Home, select **Cost Management** under Tools.
+1. Verify you've selected the correct subscription in the scope at the top of the page.
 1. In the left menu, select **Cost alerts**.
 1. On the Cost alerts page, select **+ Add** > **Add anomaly alert**.
 1. On the Subscribe to emails page, enter required information and then select **Save**.  

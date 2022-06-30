@@ -122,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Yodeck company site as an administrator.
 
-1. Click on **User Settings** option form the top right corner of the page and select **Account Settings**.
+1. Click on **User Settings** option from the top right corner of the page and select **Account Settings**.
 
 	![Screenshot shows with Account Settings selected for the user.](./media/yodeck-tutorial/account.png)
 

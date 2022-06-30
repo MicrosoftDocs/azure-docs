@@ -70,7 +70,7 @@ When you request a certificate, you must provide the FQDN of the address that yo
 
 ## <a id="enable"></a> Enable TLS and deploy
 
-**For AKS deployment**, you can enable TLS termination when you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md) in AML workspace. At AKS model deployment time, you can disable TLS termination with deployment configuration object, otherwise all AKS model deployment by default will have TLS termination enabled at AKS cluster create or attach time.
+**For AKS deployment**, you can enable TLS termination when you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md) in AzureML workspace. At AKS model deployment time, you can disable TLS termination with deployment configuration object, otherwise all AKS model deployment by default will have TLS termination enabled at AKS cluster create or attach time.
 
 For ACI deployment, you can enable TLS termination at model deployment time with deployment configuration object.
 
@@ -80,7 +80,7 @@ For ACI deployment, you can enable TLS termination at model deployment time with
   > [!NOTE]
   > The information in this section also applies when you deploy a secure web service for the designer. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](/python/api/overview/azure/ml/intro).
 
-When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md) in AML workspace, you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both methods return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
+When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md) in AzureML workspace, you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both methods return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
 
 You can enable TLS either with Microsoft certificate or a custom certificate purchased from CA. 
 

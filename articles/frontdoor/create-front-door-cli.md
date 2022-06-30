@@ -34,7 +34,7 @@ Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to cre
 > [!NOTE]
 > If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
-```azurecli
+```azurecli-interactive
 az afd profile create \
     --profile-name contosoafd \
     --resource-group myRGFD \
@@ -90,7 +90,11 @@ Make note of the default host name of each web app so you can define the backend
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 > [!NOTE]
+<<<<<<< HEAD
 > If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](./tier-comparison.md).
+=======
+> If you want to deploy an Azure Front Door Standard instead of Premium substitute the value for the sku parameter with `Standard_AzureFrontDoor`. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
+>>>>>>> 592f6c3f7590446bf15acdea283936b167b7e8da
 
 ```azurecli-interactive
 az afd profile create \
@@ -98,8 +102,11 @@ az afd profile create \
     --resource-group myRGFD \
     --sku Premium_AzureFrontDoor
 ```
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 592f6c3f7590446bf15acdea283936b167b7e8da
 ### Add an endpoint
 
 Run [az afd endpoint create](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
@@ -206,6 +213,7 @@ az network front-door waf-policy create \
 > If you select `Detection` mode, your WAF doesn't block any requests.
 
 ### Assign managed rules to the WAF policy
+
 Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) to add managed rules to your WAF Policy. This example adds Microsoft_DefaultRuleSet_1.2 and Microsoft_BotManagerRuleSet_1.0 to your policy.
 
 
@@ -229,7 +237,7 @@ az network front-door waf-policy managed-rules add \
 Run [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) to apply your WAF policy to the endpoint's default domain.
 
 > [!NOTE]
-> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters below. Run [az account subscription list](/cli/azure/aaccount/subscription#az-account-subscription-list) to get Subscription ID details.
+> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters below. Run [az account subscription list](/cli/azure/account/subscription#az-account-subscription-list) to get Subscription ID details.
 
 
 ```azurecli-interactive
@@ -260,7 +268,7 @@ To test instant global failover, we'll use the following steps:
 
 2. Stop one of the Web Apps by running [az webapp stop](/cli/azure/webapp#az-webapp-stop&preserve-view=true)
 
-    ```azurecli
+    ```azurecli-interactive
     az webapp stop --name WebAppContoso-01 --resource-group myRGFD
     ```
 
@@ -271,7 +279,7 @@ To test instant global failover, we'll use the following steps:
 
 4. Find the other web app, and stop it as well.
 
-    ```azurecli
+    ```azurecli-interactive
     az webapp stop --name WebAppContoso-02 --resource-group myRGFD
     ```
 
@@ -282,7 +290,7 @@ To test instant global failover, we'll use the following steps:
 
 6. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
 
-    ```azurecli
+    ```azurecli-interactive
     az webapp start --name WebAppContoso-01 --resource-group myRGFD
     ```
 
@@ -292,7 +300,7 @@ When you don't need the resources for the Front Door, delete both resource group
 
 Run [az group delete](/cli/azure/group#az-group-delete&preserve-view=true):
 
-```azurecli
+```azurecli-interactive
 az group delete --name myRGFD
 ```
 

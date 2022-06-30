@@ -4,12 +4,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 06/13/2022
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
 
 ## Prerequisites
 
@@ -28,14 +28,14 @@ ms.author: aahi
 
 ### Add the client library
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0</version>
+        <version>5.1.9</version>
     </dependency>
 </dependencies>
 ```
@@ -140,12 +140,12 @@ public class Example {
 
 ```console
 Poller status: IN_PROGRESS.
-Operation created time: 2021-08-24T16:05:15Z, expiration time: 2021-08-25T16:05:15Z.
+Operation created time: 2022-06-13T19:05:56Z, expiration time: 2022-06-14T19:05:56Z.
 Poller status: SUCCESSFULLY_COMPLETED.
-Results of Azure Text Analytics for health entities Model, version: 2021-05-15
+Results of Azure Text Analytics for health entities" Model, version: 2022-03-01
 Document ID = 0
 Document entities: 
-	Text: 100mg, normalized name: null, category: Dosage, subcategory: null, confidence score: 1.000000.
+	Text: 100mg, normalized name: null, category: Dosage, subcategory: null, confidence score: 0.980000.
 	Text: ibuprofen, normalized name: ibuprofen, category: MedicationName, subcategory: null, confidence score: 1.000000.
 	Text: twice daily, normalized name: null, category: Frequency, subcategory: null, confidence score: 1.000000.
 Relation type: DosageOfMedication.

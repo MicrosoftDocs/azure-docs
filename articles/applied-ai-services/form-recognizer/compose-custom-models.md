@@ -146,7 +146,7 @@ When the operation completes, your newly composed model will appear in the list.
 
 ### [**REST API**](#tab/rest-api)
 
-Using the **REST API**, you can make a  [**Compose Custom Model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/Compose) request to create a single composed model from existing models. The request body requires a string array of your `modelIds` to compose and you can optionally define the `modelName`.  *See* [Compose Models Async](/rest/api/formrecognizer/2.1preview2/compose-custom-models-async/compose-custom-models-async).
+Using the **REST API**, you can make a  [**Compose Custom Model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/ComposeDocumentModel) request to create a single composed model from existing models. The request body requires a string array of your `modelIds` to compose and you can optionally define the `modelName`.
 
 ### [**Client-library SDKs**](#tab/sdks)
 
@@ -180,7 +180,7 @@ Use the programming language code of your choice to create a composed model that
 
 ### [**REST API**](#tab/rest-api)
 
-Using the REST API, you can make an [Analyze Form](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) request to analyze a document and extract key-value pairs and table data.
+Using the REST API, you can make an [Analyze Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) request to analyze a document and extract key-value pairs and table data.
 
 ### [**Client-library SDKs**](#tab/sdks)
 
@@ -200,7 +200,7 @@ Test your newly trained models by [analyzing forms](./quickstarts/try-sdk-rest-a
 
 ## Manage your custom models
 
-You can [manage your custom models](./quickstarts/try-sdk-rest-api.md#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel) from your account.
+You can [manage your custom models](./quickstarts/try-sdk-rest-api.md#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/GetModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/GetModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/DeleteModel) from your account.
 
 Great! You've learned the steps to create custom and composed models and use them in your Form Recognizer projects and applications.
 
@@ -209,5 +209,5 @@ Great! You've learned the steps to create custom and composed models and use the
 Learn more about the Form Recognizer client library by exploring our API reference documentation.
 
 > [!div class="nextstepaction"]
-> [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
+> [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
 >

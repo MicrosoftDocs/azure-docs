@@ -10,7 +10,7 @@ ms.date: 11/08/2021
 
 # Quickstart: Connect to the Azure Web PubSub instance from the browser
 
-This quickstart shows you how to get started easily with a [Pub/Sub live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html).
+This quickstart shows you how to get started easily with a [Pub/Sub live demo](https://aka.ms/awps/quicktry).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

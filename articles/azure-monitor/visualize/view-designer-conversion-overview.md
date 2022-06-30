@@ -44,19 +44,7 @@ While this guide offers simple steps to directly recreate several of the commonl
 ![Example of workbooks application](media/view-designer-conversion-overview/workbook-template-example.jpg)
 
 
-## How to start using workbooks
-Open workbooks from the Workbooks tile under your Log Analytics workspace.
 
-![Workbooks navigation](media/view-designer-conversion-overview/workbooks-nav.png)
-
-Once selected, a gallery will be displayed listing out all the saved workbooks and templates for your workspace.
-
-![Workbooks gallery](media/view-designer-conversion-overview/workbooks-gallery.png)
-
-To start a new workbook, you may select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. To view templates or return to saved workbooks, select the item from the gallery or search for the name in the search bar.
-
-To save a workbook, you will need to save the report with a specific title, subscription, resource group, and location.
-The workbook will autofill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are shared resources that require write access to the parent resource group to be saved.
 
 ## Next steps
 

@@ -13,6 +13,8 @@ ms.custom: devx-track-csharp
 
 # Create a container in Azure Cosmos DB SQL API using .NET
 
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+
 Containers in Azure Cosmos DB store sets of items. Before you can create, query, or manage items, you must first create a container.
 
 ## Name a container
@@ -60,7 +62,9 @@ The following example shows the **Database.CreateContainerIfNotExistsAsync** met
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/226-create-container-options/Program.cs" id="create_container_response" highlight="2,6":::
 
-## See also
+## Next steps
 
-- [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
-- [Create a database](how-to-dotnet-create-database.md)
+Now that you've create a container, use the next guide to create items.
+
+> [!div class="nextstepaction"]
+> [Create an item](how-to-dotnet-create-item.md)

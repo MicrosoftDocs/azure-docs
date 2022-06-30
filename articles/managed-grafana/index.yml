@@ -24,9 +24,9 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create a Managed Grafana workspace from the Azure portal
+          - text: Create a Managed Grafana instance from the Azure portal
             url: quickstart-managed-grafana-portal.md
-          - text: Create a Managed Grafana workspace from the CLI
+          - text: Create a Managed Grafana instance from the CLI
             url: quickstart-managed-grafana-cli.md
   - title: Configure a dashboard
     linkLists:
@@ -43,9 +43,9 @@ landingContent:
         links:
           - text: Configure permissions for Managed Grafana
             url: how-to-permissions.md
-          - text: Share your Managed Grafana workspace
+          - text: Share your Managed Grafana instance
             url: how-to-share-grafana-workspace.md
-          - text: Monitor your Managed Grafana workspace
+          - text: Monitor your Managed Grafana instance
             url: how-to-monitor-managed-grafana-workspace.md
   - title: More resources
     linkLists:
