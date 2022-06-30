@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 06/15/2022
+ms.date: 06/30/2022
 ms.author: aahi
 ---
 
@@ -81,6 +81,8 @@ As you use these features in your application, use the following documentation a
 The `Azure.AI.Language.QuestionAnswering` namespace enables you to use the following Language features:
 
 * [Question answering](../question-answering/overview.md)
+    * Authoring - Automate common tasks like adding new question answer pairs and working with projects/knowledge bases.
+    * Prediction - Answer questions based on passages of text.
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
@@ -120,8 +122,8 @@ As you use this API in your application, see the [reference documentation](/rest
 ### Text analysis authoring API
 
 The text analysis authoring API enables you to author custom models and create/manage projects for:
-* [Custom named entity recognition](../custom-named-entity-recognition/overview.md)
-* [Custom text classification](../custom-text-classification/overview.md)
+* [Custom named entity recognition](../custom-named-entity-recognition/quickstart.md?pivots=rest-api)
+* [Custom text classification](../custom-text-classification/quickstart.md?pivots=rest-api)
 
 As you use this API in your application, see the [reference documentation](/rest/api/language/text-analysis-authoring) for additional information.
 
@@ -129,8 +131,8 @@ As you use this API in your application, see the [reference documentation](/rest
 
 The text analysis runtime API enables you to send requests to custom models you've created for:
 
-* [Custom named entity recognition](../custom-named-entity-recognition/overview.md)
-* [Custom text classification](../custom-text-classification/overview.md)
+* [Custom named entity recognition](../custom-named-entity-recognition/quickstart.md?pivots=rest-api)
+* [Custom text classification](../custom-text-classification/quickstart.md?pivots=rest-api)
 
 It additionally enables you to use the following features, without creating any models:
 
@@ -138,7 +140,7 @@ It additionally enables you to use the following features, without creating any 
 * [Entity linking](../entity-linking/quickstart.md?pivots=rest-api)
 * [Key phrase extraction](../key-phrase-extraction/quickstart.md?pivots=rest-api)
 * [Named entity recognition (NER)](../named-entity-recognition/quickstart.md?pivots=rest-api)
-* [Personally Identifying Information (PII) detection](../personally-identifiable-information/overview.md)
+* [Personally Identifying Information (PII) detection](../personally-identifiable-information/quickstart.md?pivots=rest-api)
 * [Sentiment analysis and opinion mining](../sentiment-opinion-mining/quickstart.md?pivots=rest-api)
 * [Text analytics for health](../text-analytics-for-health/quickstart.md?pivots=rest-api)
 
@@ -146,7 +148,7 @@ As you use this API in your application, see the [reference documentation](/rest
 
 ### Question answering APIs
 
-The question answering APIs enables you to use the [question answering](../question-answering/overview.md) feature. 
+The question answering APIs enables you to use the [question answering](../question-answering/quickstart/sdk.md?pivots=rest) feature. 
 
 #### Reference documentation
 
