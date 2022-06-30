@@ -44,9 +44,9 @@ Here are some of the constraints for administrative units.
 
 ## Groups
 
-Adding a group to an administrative unit brings the group itself into the management scope of any user administrator who is also scoped to that administrative unit. User administrators can include the [User Administrator](permissions-reference.md#user-administrator) or [Groups Administrator](permissions-reference.md#groups-administrator) roles.
+Adding a group to an administrative unit brings the group itself into the management scope of the administrative unit, but **not** the members of the group. In other words, an administrator scoped to the administrative unit can manage properties of the group, such as group name or membership, but they cannot manage properties of the users or devices within that group (unless those users and devices are separately added as members of the administrative unit).
 
-For example, a user administrator scoped to an administrative unit that has a group can and can't do the following:
+For example, a [User Administrator](permissions-reference.md#user-administrator) scoped to an administrative unit that contains a group can and can't do the following:
 
 | Permissions | Can do |
 | --- | --- |
@@ -56,7 +56,7 @@ For example, a user administrator scoped to an administrative unit that has a gr
 | Manage the user authentication methods of individual **members** of the group | :x: |
 | Reset the passwords of individual **members** of the group | :x: |
 
-To manage the user properties or user authentication methods of individual members of a group that is added to an administrative unit, the individual group members must be added directly as users of the administrative unit, and the user administrator must also be assigned a role that can manage user properties or user authentication methods.
+In order for the [User Administrator](permissions-reference.md#user-administrator) to manage the user properties or user authentication methods of individual members of the group, the members (users) must be added directly as users of the administrative unit.
 
 ## License requirements
 
