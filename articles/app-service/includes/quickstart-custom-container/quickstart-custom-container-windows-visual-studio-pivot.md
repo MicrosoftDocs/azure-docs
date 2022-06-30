@@ -155,6 +155,11 @@ The streamed logs look like this:
 
 ![Screenshot of the updated web app in Azure.](../../media/quickstart-custom-container/azure-web-app-updated.png)
 
+## 7 - Clean up resources
+
+[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]

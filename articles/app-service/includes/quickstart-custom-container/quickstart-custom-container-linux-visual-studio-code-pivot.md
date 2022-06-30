@@ -138,6 +138,10 @@ The **Output** panel shows the status of the deployment operations. When the ope
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
 
+## 8 - Clean up resources
+
+[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
+
 ## Next steps
 
 Congratulations, you've successfully completed this quickstart.

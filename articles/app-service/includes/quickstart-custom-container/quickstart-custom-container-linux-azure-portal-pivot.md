@@ -1,10 +1,10 @@
-[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an Docker Hub to App Service.
+[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from Docker Hub to App Service.
 
 To complete this quickstart, you need:
 
 * An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 
-## Deploy to Azure
+## 1 - Deploy to Azure
 
 ### Sign in to Azure portal
 
@@ -25,21 +25,21 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Under **Instance details**, type a globally unique name for your web app and select **Docker Container**. Select *Linux* for the **Operating System**. Select a **Region** you want to serve your app from.
 
-    :::image type="content" source="../../media/quickstart-custom-container/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
+    :::image type="content" source="../../media/quickstart-custom-container/instance-details-linux.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
 
 1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select the **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
+    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-linux.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
 
 1. Select the **Next: Docker >** button at the bottom of the page.
 
 1. In the **Docker** tab, ensure *Single Container* **option** is selected, and select *Docker Hub* **Image Source**.
 
-    :::image type="content" source="../../media/quickstart-custom-container/docker-details.png" alt-text="Screenshot showing the container deployment options.":::
+    :::image type="content" source="../../media/quickstart-custom-container/docker-details-linux.png" alt-text="Screenshot showing the container deployment options.":::
 
-1. Under **Docker hub options**, type *mcr.microsoft.com/dotnet/samples:aspnetapp*.
+1. Under **Docker hub options**, set the **Access Type** to *Public*. Set **Image and tag** to *mcr.microsoft.com/dotnet/samples:aspnetapp*.
 
-    :::image type="content" source="../../media/quickstart-custom-container/docker-hub-options.png" alt-text="Screenshot showing the docker hub options.":::
+    :::image type="content" source="../../media/quickstart-custom-container/docker-hub-options-linux.png" alt-text="Screenshot showing the docker hub options.":::
 
 1. Select the **Review + create** button at the bottom of the page.
 
@@ -52,13 +52,15 @@ Sign in to the Azure portal at https://portal.azure.com.
     :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
 
-## Browse to the app
+## 2 - Browse to the app
 
 1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-    :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container.png" alt-text="Screenshot showing the deployed application.":::
+    :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-linux.png" alt-text="Screenshot showing the deployed application.":::
 
-[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-web-app.md)]
+## 3 - Clean up resources
+
+[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
 
 ## Next steps
