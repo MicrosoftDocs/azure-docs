@@ -55,7 +55,7 @@ To maximize these benefits, migrate new or existing data and applications to the
 
 :::row:::
    :::column span="":::
-    **Preparation** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#8680;
+    &#160;&#160;&#160;&#160;&#160; **Preparation** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#129094;
 
      - Define scope&mdash;what is to be migrated
      - Build inventory of data and processes for migration
@@ -67,7 +67,7 @@ To maximize these benefits, migrate new or existing data and applications to the
 
    :::column-end:::
    :::column span="":::
-    **Migration** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#10140;
+    &#160;&#160;&#160;&#160;&#160; **Migration** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#129094;
 
      - Start small and simple
      - Automate wherever possible
@@ -79,7 +79,7 @@ To maximize these benefits, migrate new or existing data and applications to the
 
    :::column-end:::
    :::column span="":::
-    **Post migration** &#129094;
+    &#160;&#160;&#160;&#160;&#160; **Post migration**
 
     - Monitor and document all stages of the process
     - Use the experience gained to build a template for future migrations
