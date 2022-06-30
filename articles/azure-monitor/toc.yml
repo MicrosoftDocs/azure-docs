@@ -431,6 +431,9 @@ items:
       - name: Overview
         displayName: Data collection rules
         href: essentials/data-collection-rule-overview.md
+      - name: Edit
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-edit.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
