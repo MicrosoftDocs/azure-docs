@@ -57,7 +57,7 @@ By default, the graph displays changes from within the past 24 hours help with i
 
 :::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view":::   
 
-## Enable Change Analysis at scale for Web App in-guest file and environment variable changes
+## Enable Change Analysis at scale for web app in-guest file and environment variable changes
 
 If your subscription includes several web apps, enabling the service at the web app level would be inefficient. Instead, run the following script to enable *all web apps* in your subscription.
 
