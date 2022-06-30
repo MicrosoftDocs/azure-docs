@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/23/2022
+ms.date: 06/28/2022
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -23,7 +23,7 @@ There are two ways to enable preview experiences.
 
 1. In the banner seen at the top of the screen, you can click **Open settings to learn more and opt in**. 
 
-	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-1.png" alt-text="Screenshot of Azure Data Factory home page with an Opt in option in a banner at the top of the screen.":::
+	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-1.png" alt-text="Screenshot of Azure Data Factory home page with an Opt-in option in a banner at the top of the screen.":::
 
 2. Alternatively, you can click the **Settings** button. 
 
@@ -41,7 +41,7 @@ There are two ways to enable preview experiences.
   
    Similarly, you can disable preview features with the same steps. Click **Open settings to opt out** or click the **Settings** button and unselect **Azure Data Factory Studio preview update**. 
    
-   	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-5.png" alt-text="Screenshot of Azure Data Factory home page with an Opt out option in a banner at the top of the screen and Settings gear in the top right corner of the screen.":::
+   	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-5.png" alt-text="Screenshot of Azure Data Factory home page with an Opt-out option in a banner at the top of the screen and Settings gear in the top right corner of the screen.":::
 
 > [!NOTE]
 > Enabling/disabling preview updates will discard any unsaved changes.
@@ -55,7 +55,7 @@ There are two ways to enable preview experiences.
 	
    [**Pipeline experimental view**](#pipeline-experimental-view)
    * [Adding activities](#adding-activities)
-   * [ForEach activity container](#foreach-activity-container)
+   * [Iteration & conditionals container view](#iteration-and-conditionals-container-view)
 
 ### Dataflow data first experimental view
 
@@ -73,7 +73,7 @@ If no transformation is selected, the panel will show the pre-existing data flow
 
 #### Transformation settings
 
-Settings specific to a transformation will now show in a pop up instead of the configuration panel. With each new transformation, a corresponding pop-up will automatically appear. 
+Settings specific to a transformation will now show in a pop-up instead of the configuration panel. With each new transformation, a corresponding pop-up will automatically appear. 
  
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-7.png" alt-text="Screenshot of a pop-up with settings specific to the data flow transformation.":::
   
@@ -93,54 +93,53 @@ Columns can be rearranged by dragging a column by its header. You can also sort 
 
 UI (user interface) changes have been made to activities in the pipeline editor canvas. These changes were made to simplify and streamline the pipeline creation process. 
 
-
 #### Adding activities
 
-You now have the option to add an activity using the add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
+You now have the option to add an activity using the Add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
 
 Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas and automatically linked with the previous activity on success. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop down list to select activities.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop-down list to select activities.":::
 
-#### ForEach activity container
+#### Iteration and conditionals container view
 
-You can now view the activities contained in your ForEach activity. 
+You can now view the activities contained iteration and conditional activities.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of new ForEach activity container.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of all iteration and conditional activity containers.":::
   
-You have two options to add activities to your ForEach loop.
+You have two options to add activities to your iteration and conditional activities.
 
-1. Use the + button in your ForEach container to add an activity. 
+1. Use the + button in your container to add an activity. 
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-12.png" alt-text="Screenshot of new ForEach activity container with the add button highlighted on the left side of the center of the screen.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-12.png" alt-text="Screenshot of new activity container with the add button highlighted on the left side of the center of the screen.":::
     
    Clicking this button will bring up a drop-down list of all activities that you can add.
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-13.png" alt-text="Screenshot of a drop-down list in the ForEach container with all the activities listed.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-13.png" alt-text="Screenshot of a drop-down list in the activity container with all the activities listed.":::
     
-    Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the ForEach container.
+    Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the container.
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-14.png" alt-text="Screenshot of the ForEach container with three activities in the center of the container.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-14.png" alt-text="Screenshot of the container with three activities in the center of the container.":::
 
 > [!NOTE]
-> If your ForEach container includes more than 5 activities, only the first 4 will be shown in the container preview.
+> If your container includes more than 5 activities, only the first 4 will be shown in the container preview.
 
-2. Use the edit button in your ForEach container to see everything within the container. You can use the canvas to edit or add to your pipeline.
+2. Use the edit button in your container to see everything within the container. You can use the canvas to edit or add to your pipeline.
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-15.png" alt-text="Screenshot of the ForEach container with the edit button highlighted on the right side of a box in the center of the screen.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-15.png" alt-text="Screenshot of the container with the edit button highlighted on the right side of a box in the center of the screen.":::
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-16.png" alt-text="Screenshot of the inside of the ForEach container with three activities linked together.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-16.png" alt-text="Screenshot of the inside of the container with three activities linked together.":::
     
-    Add additional activities by dragging new activities to the canvas or click the add button on the right most activity to bring up a drop-down list of activities. 
+    Add additional activities by dragging new activities to the canvas or click the add button on the right-most activity to bring up a drop-down list of all activities. 
 
-    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-17.png" alt-text="Screenshot of the Add activity button in the bottom left corner of the right most activity.":::
+    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-17.png" alt-text="Screenshot of the Add activity button in the bottom left corner of the right-most activity.":::
  
-    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-18.png" alt-text="Screenshot of the drop-down list of activities in the right most activity.":::
+    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-18.png" alt-text="Screenshot of the drop-down list of activities in the right-most activity.":::
     
-    Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the ForEach container.
+    Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the container.
     
 ## Provide feedback
 
-We want to hear from you! If you see this pop-up, please provide feedback, and let us know your thoughts. 
+We want to hear from you! If you see this pop-up, please let us know your thoughts by providing feedback on the updates you've tested.  
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-19.png" alt-text="Screenshot of the feedback survey where user can select between one and five stars.":::
