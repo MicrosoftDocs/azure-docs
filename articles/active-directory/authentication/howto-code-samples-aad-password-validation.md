@@ -1,6 +1,6 @@
 ---
-title: Codes Samples - Validate Passwords using Azure AD Password Requirments.
-description: Code snippets examples to validate password using Azure AD password requirments .
+title: Code Samples - Validate Passwords using Azure AD Password Requirements.
+description: Code samples to validate passwords using Azure AD password requirements .
 services: active-directory
 author: spetteway
 manager: vslopes
@@ -75,7 +75,7 @@ def validatePassword(password: str) -> bool:
     if len(password) < 8 or len(password) > 256:
         return False
 
-    # 1. Check to see if passowrd has 3 out of 4 character sets
+    # 1. Check to see if password has 3 out of 4 character sets
     # 2. Ensure no invalid characters
     for char in password:
         for charSet in charSetCounter:
@@ -84,13 +84,13 @@ def validatePassword(password: str) -> bool:
             if char not in validChars:
                 return False
 
-    # 1.Set counter to 0 and increment if chatSetCounter values are eq to 0
+    # Set counter to 0 and increment if chatSetCounter values are eq to 0
     zeroCounter = 0
     for val in charSetCounter.values():
         if val == 0:
             zeroCounter += 1
 
-    #if counter is greater than 1, return False
+    # if counter is greater than 1, return False
     print(charSetCounter)
     if zeroCounter > 1:
         return False
