@@ -30,20 +30,25 @@ Alerts are now automatically enabled by default, but in order to fully configure
 
 ### Alert frequency
 
-Availability alerts created through this experience are state-based. This means that when the alert criteria is met, a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated within the same aggregation period, it won't generate a new alert.
+Availability alerts created through this experience are state-based. This means that when the alert criteria is met, a single alert is generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it will not generate a new alert.
 
-For example, if your site was down for an hour within a two hour aggreation period and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
+For example, if your website is down for an hour and you had setup an e-mail alert with an evaluation frequency of 15 minutes, you will only receive an e-mail when the website goes down, and a subsequent e-mail when it is back up. You will not receive continuous alerts every 15 minutes reminding you that the website is still unavailable.
 
-To change the aggregation period, select the condition of your alert rule to configure the signal logic.
+> [!NOTE]
+> If you don't want to receive notifications when your website is down for only a short period of time, e.g. during maintenance, you can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold, so it only triggers an alert if the website is down for a certain amount of regions.
+
+To make changes to location threshold, aggregation period, and test frequency, select the condition on the edit page of the alert rule, which will open the **Configure signal logic** window.
 
 ![Configure signal logic](./media/availability-alerts/configure-signal-logic.png)
 
 > [!TIP]
-> If you don't want to receive constant notifications when your website is down, e.g. during maintenance, you can either temporarily deactivate the alert, or change the aggregation period to a higher value than the expected downtime.
+> For longer downtimes, we recommend to temporarily deactivate the alert rule, or to create a custom rule as shown below.
 
 ### Custom alert rule
 
-Auto-generated alerts from availability test have a limited set of options to change the logic. If you need advanced capabilities, you can create a custom alert rule from the **Alerts** tab. This will allow you to further define the logic by selecting different operators, aggregation types, and threshold values. You also have the option to create a dynamic threshold.
+Auto-generated alerts from availability tests have a limited set of options to change the logic. If you need advanced capabilities, you can create a custom alert rule from the **Alerts** tab. Click on **Create** and select **Alert rule**. Choose **Metrics** for **Signal type** to show all available signals, and select **Availability**.
+
+This will allow you to further define the logic by selecting different operators, aggregation types, and threshold values. You also have the option to create a dynamic threshold.
 
 ![Create custom alert](./media/availability-alerts/create-custom-alert.png)
 
