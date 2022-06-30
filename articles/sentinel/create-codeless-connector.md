@@ -427,6 +427,27 @@ After the user returns to the client via the redirect URL, the application will 
 | **JwtPem** | String | Optional. Defines a secret key, in PEM Pkcs1 format: `'-----BEGIN RSA PRIVATE KEY-----\r\n{privatekey}\r\n-----END RSA PRIVATE KEY-----\r\n'`<br><br>Make sure to keep the `'\r\n'` code in place. |
 | **RequestTimeoutInSeconds** | Integer | Optional. Determines timeout in seconds when calling token service endpoint. Default is 180 seconds |
 
+Here's an example of how an OAuth2 configuration might look:
+
+```json
+"pollingConfig": {
+    "auth": {
+        "authType": "OAuth2",
+        "authorizationEndpoint": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent",
+        "redirectionEndpoint": "https://portal.azure.com/TokenAuthorize",
+        "tokenEndpoint": "https://oauth2.googleapis.com/token",
+        "authorizationEndpointQueryParameters": {},
+        "tokenEndpointHeaders": {
+            "Accept": "application/json"
+        },
+        "TokenEndpointQueryParameters": {},
+        "isClientSecretInHeader": false,
+        "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
+        "grantType": "authorization_code",
+        "contentType": "application/x-www-form-urlencoded",
+        "FlowName": "AuthCode"
+    },
+```
 
 #### Session authType parameters
 
