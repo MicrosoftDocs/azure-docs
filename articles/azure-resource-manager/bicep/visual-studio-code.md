@@ -46,7 +46,7 @@ The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used
 
 ## Deploy Bicep file
 
-You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bicep file** from the command palette. The extension prompts you to sign in Azure, select subscription, and create/select resource group.
+You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bicep file** from the command palette or from the context menu. The extension prompts you to sign in Azure, select subscription, create/select resource group, and enter parameter values.
 
 ## Generate parameters file
 
