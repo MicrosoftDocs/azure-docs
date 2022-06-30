@@ -419,8 +419,7 @@ items:
     items:
     - name: Data sources
       href: data-sources.md
-    - name: Data collection pipeline
-      displayname: Data collection
+    - name: Data collection process
       href: data-collection.md
     - name: Data collection rules
       items:
@@ -435,7 +434,7 @@ items:
     - name: Transformations
       items:
       - name: Transformations
-        href: essentials/data-collection-rule-transformations.md
+        href: essentials/data-collection-transformations.md
       - name: Ingestion time transformations
         href: logs/ingestion-time-transformations.md
       - name: Tutorial (portal)
