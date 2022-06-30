@@ -1,15 +1,15 @@
 ---
-title: Recover Azure App Configuration stores (Preview)
+title: Recover Azure App Configuration stores
 description: Recover/Purge Azure App Configuration soft deleted Stores
 author: muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.custom: devx-track-dotnet
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 06/07/2022
 ---
 
-# Recover Azure App Configuration stores (Preview)
+# Recover Azure App Configuration stores
 
 This article covers the soft delete feature of Azure App Configuration stores. You'll learn about how to set retention policy, enable purge protection, recover and purge a soft-deleted store.
 
