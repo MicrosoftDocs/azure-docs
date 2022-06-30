@@ -54,6 +54,11 @@ Metrics are configured on a per-named-service-instance basis when you’re creat
 Any metric has some properties that describe it: a name, a weight, and a default load.
 
 * Metric Name: The name of the metric. The metric name is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
+
+> [!NOTE]
+> Metric Name should not be any of the system metric names i.e _servicefabric:/\_CpuCores_ or _servicefabric:/\_MemoryInMB_ as it can lead to undefined behavior.
+>
+
 * Weight: Metric weight defines how important this metric is relative to the other metrics for this service.
 * Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
   * For stateless services, each metric has a single property named DefaultLoad
