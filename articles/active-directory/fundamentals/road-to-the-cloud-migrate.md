@@ -75,9 +75,9 @@ To transform groups and distribution lists:
 
 * For self-managed group capabilities provided by Microsoft Identity Manager (MIM), replace the capability with self-service group management.
 
-* [Conversion of legacy distribution lists to Microsoft 365 groups](~/microsoft-365-docs/blob/public/microsoft-365/admin/manage/upgrade-distribution-lists.md) - You can upgrade distribution lists to Microsoft 365 groups in Outlook. This is a great way to give your organization's distribution lists all the features and functionality of Microsoft 365 groups. 
+* [Conversion of legacy distribution lists to Microsoft 365 groups](~/microsoft-365/admin/manage/upgrade-distribution-lists) - You can upgrade distribution lists to Microsoft 365 groups in Outlook. This is a great way to give your organization's distribution lists all the features and functionality of Microsoft 365 groups. 
 
-* Upgrade your [distribution lists to Microsoft 365 groups in Outlook](https://support.microsoft.com/office/7fb3d880-593b-4909-aafa-950dd50ce188) and [decommission your on-premises Exchange server](~/exchange/decommission-on-premises-exchange.md).
+* Upgrade your [distribution lists to Microsoft 365 groups in Outlook](https://support.microsoft.com/office/7fb3d880-593b-4909-aafa-950dd50ce188) and [decommission your on-premises Exchange server](~/exchange/decommission-on-premises-exchange).
 
 ### Move application provisioning
 
