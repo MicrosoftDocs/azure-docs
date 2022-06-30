@@ -4,7 +4,7 @@ description: Learn how the IoT Edge runtime manages modules, security, communica
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/27/2022
+ms.date: 06/30/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -45,13 +45,13 @@ Both the IoT Edge agent and the IoT Edge hub are modules, just like any other mo
 
 ## IoT Edge agent
 
-The IoT Edge agent is one of two modules that make up the Azure IoT Edge runtime. It is responsible for instantiating modules, ensuring that they continue to run, and reporting the status of the modules back to IoT Hub. This configuration data is written as a property of the IoT Edge agent module twin.
+The IoT Edge agent is one of two modules that make up the Azure IoT Edge runtime. It's responsible for instantiating modules, ensuring that they continue to run, and reporting the status of the modules back to IoT Hub. This configuration data is written as a property of the IoT Edge agent module twin.
 
 The [IoT Edge security daemon](iot-edge-security-manager.md) starts the IoT Edge agent on device startup. The agent retrieves its module twin from IoT Hub and inspects the deployment manifest. The deployment manifest is a JSON file that declares the modules that need to be started.
 
 Each item in the deployment manifest contains specific information about a module and is used by the IoT Edge agent for controlling the module's lifecycle. For more information about all the properties used by the IoT Edge agent to control modules, read about the [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
 
-The IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible responses:
+The IoT Edge agent sends runtime response to IoT Hub. Here's a list of possible responses:
   
 * 200 - OK
 * 400 - The deployment configuration is malformed or invalid.
@@ -76,11 +76,11 @@ The IoT Edge hub isn't a full version of IoT Hub running locally. IoT Edge hub s
 
 ### Cloud communication
 
-To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optimizes how many actual connections are made to the cloud. IoT Edge hub takes logical connections from modules or downstream devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they are all being sent over the same connection. The IoT Edge hub can either use the AMQP or the MQTT protocol to communicate upstream with the cloud, independently from protocols used by downstream devices. However, the IoT Edge hub currently only supports combining logical connections into a single physical connection by using AMQP as the upstream protocol and its multiplexing capabilities. AMQP is the default upstream protocol.
+To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optimizes how many actual connections are made to the cloud. IoT Edge hub takes logical connections from modules or downstream devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they're all being sent over the same connection. The IoT Edge hub can either use the AMQP or the MQTT protocol to communicate upstream with the cloud, independently from protocols used by downstream devices. However, the IoT Edge hub currently only supports combining logical connections into a single physical connection by using AMQP as the upstream protocol and its multiplexing capabilities. AMQP is the default upstream protocol.
 
 ![IoT Edge hub is a gateway between physical devices and IoT Hub](./media/iot-edge-runtime/gateway-communication.png)
 
-IoT Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, IoT Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the IoT Edge hub's module twin. The size of the cache is not capped and will grow as long as the device has storage capacity. For more information, see [Offline capabilities](offline-capabilities.md).
+IoT Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, IoT Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the IoT Edge hub's module twin. The size of the cache isn't capped and will grow as long as the device has storage capacity. For more information, see [Offline capabilities](offline-capabilities.md).
 
 <!-- <1.1> -->
 ::: moniker range="iotedge-2018-06"
@@ -121,15 +121,15 @@ IoT Edge hub facilitates local communication. It enables device-to-module and mo
 
 #### Using routing
 
-The first brokering mechanism leverages the same routing features as IoT Hub to specify how messages are passed between devices or modules. First devices or modules specify the inputs on which they accept messages and the outputs to which they write messages. Then a solution developer can route messages between a source, e.g. outputs, and a destination, e.g. inputs, with potential filters.
+The first brokering mechanism uses the same routing features as IoT Hub to specify how messages are passed between devices or modules. First devices or modules specify the inputs on which they accept messages and the outputs to which they write messages. Then a solution developer can route messages between a source (for example, outputs), and a destination (for example, inputs), with potential filters.
 
 ![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-routing.png)
 
-Routing can be used by devices or modules built with the Azure IoT Device SDKs using the AMQP protocol. All messaging IoT Hub primitives, e.g. telemetry, direct methods, C2D, twins, are supported but communication over user-defined topics is not supported.
+Routing can be used by devices or modules built with the Azure IoT Device SDKs using the AMQP protocol. All messaging IoT Hub primitives (for example, telemetry), direct methods, C2D, twins, are supported but communication over user-defined topics isn't supported.
 
 For more information about routes, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
-Here are the brokering mechanism features available:
+Brokering mechanism features available:
 
 |Features  | Routing  |
 |---------|---------|
@@ -160,20 +160,20 @@ When a client connects to the IoT Edge hub, the following happens:
 
 #### Secure connections (TLS)
 
-By default, the IoT Edge hub only accepts connections secured with Transport Layer Security (TLS), e.g. encrypted connections that a third party cannot decrypt.
+By default, the IoT Edge hub only accepts connections secured with Transport Layer Security (TLS), for example, encrypted connections that a third party can't decrypt.
 
-If a client connects on port 8883 (MQTTS) or 5671 (AMQPS) to the IoT Edge hub, a TLS channel must be built. During the TLS handshake, the IoT Edge hub sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the IoT Edge hub must be installed as a trusted certificate on the client. If the root certificate is not trusted, the client library will be rejected by the IoT Edge hub with a certificate verification error.
+If a client connects on port 8883 (MQTTS) or 5671 (AMQPS) to the IoT Edge hub, a TLS channel must be built. During the TLS handshake, the IoT Edge hub sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the IoT Edge hub must be installed as a trusted certificate on the client. If the root certificate isn't trusted, the client library will be rejected by the IoT Edge hub with a certificate verification error.
 
-The steps to follow to install this root certificate of the broker on device clients are described in the [transparent gateway](how-to-create-transparent-gateway.md) and in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) documentation. Modules can use the same root certificate as the IoT Edge hub by leveraging the IoT Edge daemon API.
+The steps to follow to install this root certificate of the broker on device clients are described in the [transparent gateway](how-to-create-transparent-gateway.md) and in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) documentation. Modules can use the same root certificate as the IoT Edge hub by using the IoT Edge daemon API.
 
 #### Authentication
 
-The IoT Edge Hub only accepts connections from devices or modules that have an IoT Hub identity, e.g. that have been registered in IoT Hub and have one of the three client authentication methods supported by IoT hub to provide prove their identity: [Symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), [X.509 CA signed authentication](how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).  These IoT Hub identities can be verified locally by the IoT Edge hub so connections can still be made while offline.
+The IoT Edge Hub only accepts connections from devices or modules that have an IoT Hub identity, for example that have been registered in IoT Hub and have one of the three client authentication methods supported by IoT hub to provide prove their identity: [Symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), [X.509 CA signed authentication](how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).  These IoT Hub identities can be verified locally by the IoT Edge hub so connections can still be made while offline.
 
 Notes:
 
 * IoT Edge modules currently only support symmetric key authentication.
-* MQTT clients with only local username and passwords are not accepted by the IoT Edge hub MQTT broker, they must use IoT Hub identities.
+* MQTT clients with only local username and passwords aren't accepted by the IoT Edge hub MQTT broker, they must use IoT Hub identities.
 
 #### Authorization
 
@@ -197,7 +197,7 @@ Additionally, several configurations can be done by setting up [environment vari
 
 ## Runtime quality telemetry
 
-IoT Edge collects anonymous telemetry from the host runtime and system modules to improve product quality. This information is called runtime quality telemetry. The collected telemetry is periodically sent as device-to-cloud messages to IoT Hub from the IoT Edge agent. These messages do not appear in customer's regular telemetry and do not consume any message quota.
+IoT Edge collects anonymous telemetry from the host runtime and system modules to improve product quality. This information is called runtime quality telemetry. The collected telemetry is periodically sent as device-to-cloud messages to IoT Hub from the IoT Edge agent. These messages don't appear in customer's regular telemetry and don't consume any message quota.
 
 The IoT Edge agent and hub generate metrics that you can collect to understand device performance. A subset of these metrics is collected by the IoT Edge Agent as part of runtime quality telemetry. The metrics collected for runtime quality telemetry are labeled with the tag `ms_telemetry`. For information about all the available metrics, see [Access built-in metrics](how-to-access-built-in-metrics.md).
 
