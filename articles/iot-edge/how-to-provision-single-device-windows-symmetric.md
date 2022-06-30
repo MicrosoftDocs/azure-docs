@@ -57,6 +57,8 @@ A Windows device.
 
 IoT Edge with Windows containers requires Windows version 1809/build 17763, which is the latest [Windows long term support build](/windows/release-information/). Be sure to review the [supported systems list](support.md#operating-systems) for a list of supported SKUs.
 
+Note that the Windows versions on both the container and host must match 
+
 <!-- Register your device and View provisioning information H2s and content -->
 [!INCLUDE [iot-edge-register-device-symmetric.md](../../includes/iot-edge-register-device-symmetric.md)]
 
