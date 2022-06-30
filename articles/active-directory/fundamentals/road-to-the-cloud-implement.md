@@ -20,7 +20,7 @@ It's key at this point to identify the internal processes that would lead to add
 
 ## Users and groups
 
-* Enrich user attributes in Azure AD - Make sure that more user attributes available in Azure AD are reviewed for inclusion. Examples of common scenarios that require rich user attributes include:
+You can enrich user attributes in Azure AD to make more user attributes available for inclusion. Examples of common scenarios that require rich user attributes include:
 
 * App provisioning - The data source of app provisioning is Azure AD and necessary user attributes must be in there.
 
