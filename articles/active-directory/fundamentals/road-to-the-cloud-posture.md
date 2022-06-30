@@ -38,7 +38,7 @@ The content then provides more detailed guidance organized to help with intentio
 
 * implement a cloud-first approach.
 
-* start to migrate out of your AD environment.
+   * start to migrate out of your AD environment.
 
 Guidance is provided organized by user management, device management, and application management per the pillars above.
 
@@ -108,7 +108,7 @@ The transformation between the states is similar to moving locations:
 
 1. **Limit new items in old location** - You stop investing in the old location and set policy to stage new items in new location. In this content, the activities are described in **[Implement cloud-first approach](road-to-the-cloud-implement.md)**. The activities set the foundation to migrate at scale and reach State 3.
 
-1. **Move existing items to new location** - You move items from the old location to the new location. You assess the business value of the items to determine if you'll move them as-is, upgrade them, replace them, or deprecate them. In this content, the activities are described in **[Migrate out](road-to-the-cloud-migrate.md)**. These activities enable you to complete State 3 and reach State 4 and State 5. Based on your business objectives, you decide what end state you want to target.
+1. **Move existing items to new location** - You move items from the old location to the new location. You assess the business value of the items to determine if you'll move them as-is, upgrade them, replace them, or deprecate them. In this content, the activities are described in **[Transition to the cloud](road-to-the-cloud-migrate.md)**. These activities enable you to complete State 3 and reach State 4 and State 5. Based on your business objectives, you decide what end state you want to target.
 
 Transformation to the cloud isn't only the identity team's responsibility. Coordination across teams to define policies beyond technology that include people and process change are required. Using a coordinated approach helps to ensure consistent progress and reduces the risk of regressing to on-premises solutions. Involve teams that manage:
 
@@ -159,7 +159,7 @@ As a migration of IAM to Azure AD is started, organizations must determine the p
 ## Implement cloud-first approach
 Establish a policy that mandates all new devices, apps and services should be cloud-first. New applications and services using legacy protocols (NTLM, Kerberos, LDAP etc.) should be by exception only.
 
-## Migrate from AD
+## Transition to the cloud
 Shift the management and integration of users, apps and devices away from on-premises and over to cloud-first alternatives. Optimize user provisioning by taking advantage of [cloud-first provisioning capabilities](../governance/what-is-provisioning.md) that integrate with Azure AD.
 
 The transformation changes how users accomplish tasks and how support teams provide end-user support. Initiatives or projects should be designed and implemented in a manner that minimizes the impact on user productivity. As part of the transformation, self-service IAM capabilities are introduced. Some portions of the workforce more easily adapt to the self-service user environment prevalent in cloud-based businesses.
