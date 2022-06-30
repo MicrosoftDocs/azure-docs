@@ -144,12 +144,12 @@ If you've already installed Visual Studio 2022:
 ### [.NET 6.0](#tab/net60)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An GitHub account [Create an account for free](http://github.com/).
+- A GitHub account [Create an account for free](http://github.com/).
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An GitHub account [Create an account for free](http://github.com/).
+- A GitHub account [Create an account for free](http://github.com/).
     
 :::zone-end
 
@@ -165,10 +165,10 @@ If you've already installed Visual Studio 2022:
 
    :::image type="content" source="./media/quickstart-dotnet/configure-webapp-net.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET 6.0 web app." lightbox="media/quickstart-dotnet/configure-webapp-net.png" border="true":::
 
-1. Select **.NET Core 6.0 (Long-term support)**.
+1. Select **.NET 6.0 (Long-term support)**.
 1. Ensure **Authentication Type** is set to **None**. Select **Create**.
 
-   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net60.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET Core 6.0." lightbox="media/quickstart-dotnet/vs-additional-info-net60.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net60.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET 6.0." lightbox="media/quickstart-dotnet/vs-additional-info-net60.png" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
@@ -598,7 +598,7 @@ Follow these steps to create your App Service resources and publish your project
     - Under **Runtime stack** select *.NET 6 (LTS)*.
     - Select an **Operating System**, and a **Region** you want to serve your app from.
     
-    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a .NET 6 runtime.":::
+    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a .NET 6 runtime.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
     
@@ -608,13 +608,13 @@ Follow these steps to create your App Service resources and publish your project
     - Select an **Operating System**, and a **Region** you want to serve your app from.
 
     
-    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a ASP.NET V4.8 runtime.":::
+    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a ASP.NET V4.8 runtime.":::
     
     -----
 
 1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    :::image type="content" source="./media/quickstart-dotnet/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password":::
+    :::image type="content" source="./media/quickstart-dotnet/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
 
 1. Select the **Next: Deployment >** button at the bottom of the page.
 
@@ -628,7 +628,7 @@ Follow these steps to create your App Service resources and publish your project
     - For **Repository** select the *dotnetcore-docs-hello-world* project.
     - For **Branch** select *master*.
 
-    :::image type="content" source="media/quickstart-dotnet/app-service-deploy60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET 6 runtime.":::
+    :::image type="content" source="media/quickstart-dotnet/app-service-deploy-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET 6 runtime.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
     
@@ -636,29 +636,29 @@ Follow these steps to create your App Service resources and publish your project
     - For **Repository** select the *app-service-web-dotnet-get-started* project.
     - For **Branch** select *master*.
     
-    :::image type="content" source="media/quickstart-dotnet/app-service-deploy48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET Framework 4.8 runtime.":::
+    :::image type="content" source="media/quickstart-dotnet/app-service-deploy-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET Framework 4.8 runtime.":::
     
     -----
 
 1. Select the **Review + create** button at the bottom of the page.
 
-    :::image type="content" source="./media/quickstart-dotnet/review-create.png" alt-text="Screenshot of the Review and create button at the bottom of the page":::
+    :::image type="content" source="./media/quickstart-dotnet/review-create.png" alt-text="Screenshot of the Review and create button at the bottom of the page.":::
 
 1. After validation runs, select the **Create** button at the bottom of the page.
 
 1. After deployment is complete, select **Go to resource**.
 
-    :::image type="content" source="./media/quickstart-dotnet/next-steps.png" alt-text="Screenshot of the next step of going to the resource":::
+    :::image type="content" source="./media/quickstart-dotnet/next-steps.png" alt-text="Screenshot of the next step of going to the resource.":::
 
 1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
     ### [.NET 6.0](#tab/net60)
     
-    :::image type="content" source="media/quickstart-dotnet/browse-dotnet60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app":::
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
        
-    :::image type="content" source="media/quickstart-dotnet/browse-dotnet48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app":::
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app.":::
     
     -----
 
@@ -916,11 +916,11 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
     ### [.NET 6.0](#tab/net60)
 
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted ](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnetcore.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnetcore.png)
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted ](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png)
 
 5. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
     
