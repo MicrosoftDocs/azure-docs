@@ -1,16 +1,17 @@
 ---
-title: 'Tutorial: Configure TLS termination in portal - Azure Application Gateway'
+title: 'Tutorial: Configure an Application Gateway with TLS termination using the Azure portal'
 description: In this tutorial, you learn how to configure an application gateway and add a certificate for TLS termination using the Azure portal.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 06/30/2022
 ms.author: greglin
+ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
 
-# Tutorial: Configure an application gateway with TLS termination using the Azure portal
+# Tutorial: Configure an Application Gateway with TLS termination using the Azure portal
 
 You can use the Azure portal to configure an [application gateway](overview.md) with a certificate for TLS termination that uses virtual machines for backend servers.
 
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+- An Azure subscription
 
 ## Create a self-signed certificate
 
@@ -63,19 +64,27 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
+
 ## Create an application gateway
 
-1. Select **Create a resource** on the left menu of the Azure portal. The **New** window appears.
+1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Application Gateway**, or search for *Application Gateway* in the portal search box.
 
-2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
+2. Select **Create**.
 
 ### Basics tab
 
-1. On the **Basics** tab, enter these values for the following application gateway settings:
+1. On the **Basics** tab, enter or select these values:
 
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
 
+
+    :::image type="content" source="./media/folder-name/file-name-inline.png" alt-text="Screentshot/Diagram of xxxxx." border="false" lightbox="./media/folder-name/file-name-expanded.png":::
+
+    
         ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
@@ -265,5 +274,14 @@ When no longer needed, delete the resource group and all related resources. To d
 
 ## Next steps
 
+In this tutorial, you:
+
+- Created a self-signed certificate
+- Created an application gateway with the certificate
+
+To learn more about Application Gateway TLS support, see [end to end TLS with Application Gateway](ssl-overview.md) and [Application Gateway TLS policy](application-gateway-ssl-policy-overview.md).
+
+To learn how to create and configure an Application Gateway to host multiple web sites using the Azure portal, advance to the next tutorial.
+
 > [!div class="nextstepaction"]
-> [Learn more about Application Gateway TLS support](ssl-overview.md)
+> [Host multiple sites](create-multiple-sites-portal.md)
