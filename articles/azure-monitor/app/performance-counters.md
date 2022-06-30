@@ -52,14 +52,17 @@ If the performance counter you want isn't included in the list of metrics, you c
 
 1. Find out what counters are available in your server by using this PowerShell command on the local server:
 
-    `Get-Counter -ListSet *`
+    ```shell
+    Get-Counter -ListSet *
+    ```
 
-    (See [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter).)
+    (For more information, see [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter).)
+
 2. Open ApplicationInsights.config.
 
     If you added Application Insights to your app during development:
-    - Edit `ApplicationInsights.config` in your project
-    - Redeploy it to your servers.
+    1. Edit `ApplicationInsights.config` in your project.
+    1. Redeploy it to your servers.
 
 3. Edit the performance collector directive:
 
