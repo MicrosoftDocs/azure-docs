@@ -10,17 +10,17 @@ ms.topic: conceptual
 
 # Availability zones support for Azure Automation
 
-Azure Automation uses [Azure availability zones](../availability-zones/az-overview.md#availability-zones) to provide improved resiliency and high availability to a service instance in a specific Azure regions.
+Azure Automation uses [Azure availability zones](../availability-zones/az-overview.md#availability-zones) to provide improved resiliency and high availability to a service instance in a specific Azure region.
  
-An [Azure availability zones](../availability-zones/az-overview.md#availability-zones) is a 
-high-availability offering that protects your applications and data from datacenter failures.
-Availability zones are unique physical locations within an Azure region and each region comprises of one or more datacenter(s) equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
+[Azure availability zones](../availability-zones/az-overview.md#availability-zones) is a 
+high-availability offering that protects your applications and data from data center failures.
+Availability zones are unique physical locations within an Azure region and each region comprises of one or more data center(s) equipped with independent power, cooling, and networking. To ensure resiliency, there needs to be a minimum of three separate zones in all enabled regions.
 
-A zone redundant Automation account automatically distributes traffic to the Automation account through various management operations and runbook jobs amongst the availability zones in the supported region. The replication is handled at the service level to these physically separate zones, making the service resilient to a zone failure with no impact on the availability of the Automation Accounts in the same region.
+A zone redundant Automation account automatically distributes traffic to the Automation account through various management operations and runbook jobs amongst the availability zones in the supported region. The replication is handled at the service level to these physically separate zones, making the service resilient to a zone failure with no impact on the availability of the Automation accounts in the same region.
 
-In the event when one zone is down, there's no action required by you to recover from a zone failure and the service would be accessible through the other available zones. The service detects that the zone is down and automatically distributes the traffic to the available zones as needed.
+In the event when a zone is down, there's no action required by you to recover from a zone failure and the service would be accessible through the other available zones. The service detects that the zone is down and automatically distributes the traffic to the available zones as needed.
 
-## Prerequisites
+## Availability zone considerations
 
 - In all Availability zone supported regions, the zone redundancy for Automation accounts is enabled by default and it can't be disabled. It requires no action from your end as it's enabled and managed by the service.
 - All new Automation accounts with basic SKU are created with zone redundancy natively.
