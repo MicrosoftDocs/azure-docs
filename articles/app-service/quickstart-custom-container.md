@@ -20,10 +20,10 @@ zone_pivot_groups: app-service-containers-windows-linux-portal
 [!INCLUDE [quickstart-custom-container-linux-visual-studio-code-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-linux-visual-studio-code-pivot.md)]
 ::: zone-end
 
-:::zone target="docs" pivot="container-linux-azure-portal"
+:::zone pivot="container-linux-azure-portal"
 [!INCLUDE [quickstart-custom-container-linux-azure-portal-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-linux-azure-portal-pivot.md)]
 ::: zone-end
 
-:::zone target="docs" pivot="container-windows-azure-portal"
+:::zone pivot="container-windows-azure-portal"
 [!INCLUDE [quickstart-custom-container-windows-azure-portal-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-azure-portal-pivot.md)]
 ::: zone-end
