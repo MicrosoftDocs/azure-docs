@@ -825,6 +825,18 @@ groups:
     title: Linux
   - id: platform-windows
     title: Windows
+- id: app-service-platform-environment
+  title: App Service platform and development tool
+  prompt: Choose a hosting platform and development tool
+  pivots:
+  - id: platform-linux-development-environment-maven
+    title: Linux with Maven
+  - id: platform-linux-development-environment-azure-portal
+    title: Linux with Azure portal
+  - id: platform-windows-development-environment-maven
+    title: Windows with Maven
+  - id: platform-windows-development-environment-azure-portal
+    title: Windows with Azure portal
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform
@@ -1601,7 +1613,7 @@ groups:
   prompt: Choose a Client Library
   pivots:
   - id: framework-dotnet
-    title: .Net
+    title: .NET
   - id: framework-spring
     title: Spring Framework
 # Owner: nicktrog
