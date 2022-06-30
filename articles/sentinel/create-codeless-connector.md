@@ -482,8 +482,6 @@ The `request` section of the [pollingConfig](#configure-your-connectors-polling-
 | **retryCount**                     | Integer | Optional. Defines the number of request retries to try if needed. |
 | **headers**                        |  Dictionary<string, object> | Optional. Defines the request header value, in the serialized `dictionary<string, object>` format: `{'<attr_name>': '<serialized val>', '<attr_name>': '<serialized val>'... }` |
 
-
-
 ### Response configuration
 
 The `response` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
