@@ -2,13 +2,11 @@
 author: MikeRayMSFT
 ms.service: azure-arc
 ms.topic: include
-ms.date: 06/28/2022
+ms.date: 07/05/2022
 ms.author: mikeray
 ---
 
-The current preview released on June 28, 2022.
-
-This preview is a test release.
+The current preview released on July 05, 2022.
 
 |Component|Value|
 |-----------|-----------|
