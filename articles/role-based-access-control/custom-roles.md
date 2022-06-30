@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/14/2022
+ms.date: 06/28/2022
 ms.author: rolyon
 ---
 
@@ -177,6 +177,8 @@ Instead of adding all of these strings, you could just add a wildcard string. Fo
 ```
 Microsoft.CostManagement/exports/*
 ```
+
+It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard.
 
 ## Who can create, delete, update, or view a custom role
 

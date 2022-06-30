@@ -217,7 +217,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
         name="privateAcr", 
         category="ACR", 
         target = "<acr url>", 
-        authType = "RegistryConnection", 
+        authType = "ManagedIdentity", 
         value={"ResourceId": "<user-assigned managed identity resource id>", "ClientId": "<user-assigned managed identity client ID>"})
     ```
 
