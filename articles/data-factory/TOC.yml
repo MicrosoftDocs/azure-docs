@@ -200,6 +200,9 @@ items:
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
     displayName: retry, timeout
+  - name: Nested activities
+    href: concepts-nested-activities.md
+    displayName: nested, nesting
   - name: Linked services
     href: concepts-linked-services.md
   - name: Datasets
