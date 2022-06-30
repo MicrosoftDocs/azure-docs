@@ -121,15 +121,15 @@ Non-Windows workstations can be integrated with Azure AD to enhance user experie
 
 * macOS
 
-* [Set up enrollment for macOS devices - Microsoft Intune](/mem/intune/enrollment/macos-enroll)
+    * [Set up enrollment for macOS devices - Microsoft Intune](/mem/intune/enrollment/macos-enroll)
 
-* Deploy [Microsoft Enterprise SSO plug-in for Apple devices - Microsoft identity platform | Azure](../develop/apple-sso-plugin.md)
+    * Deploy [Microsoft Enterprise SSO plug-in for Apple devices - Microsoft identity platform | Azure](../develop/apple-sso-plugin.md)
 
 * Linux
 
-* Consider Linux on Azure VM where possible
+    * Consider Linux on Azure VM where possible
 
-* [Sign in to a Linux VM with Azure Active Directory credentials - Azure Virtual Machines](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
+    * [Sign in to a Linux VM with Azure Active Directory credentials - Azure Virtual Machines](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
 
 ### Replace Other Windows versions as Workstation use
 
@@ -195,7 +195,7 @@ To discover modern authentication apps:
 
 * If you're using AD FS, use the [AD FS application activity report](../manage-apps/migrate-adfs-application-activity.md)
 
-* If you're using identity providers, you can use the logs and configuration.
+* If you're using a different identity provider, you can use the logs and configuration.
 
 The following tools can help you to discover applications that use LDAP.
 
