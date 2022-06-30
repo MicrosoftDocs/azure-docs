@@ -626,7 +626,7 @@
       href: hyperscale/quickstart-run-queries.md
   - name: Tutorials
     items:
-      - name: Model and load data
+      - name: Model data
         items:
         - name: Shard data on worker nodes
           href: hyperscale/tutorial-shard.md
@@ -717,6 +717,12 @@
         href: hyperscale/howto-build-scalable-apps-model-real-time.md
       - name: Model high-throughput apps
         href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
+    - name: Ingest data
+      items:
+      - name: Azure Stream Analytics (ASA)
+        href: hyperscale/howto-ingest-azure-stream-analytics.md
+      - name: Azure Data Factory (ADF)
+        href: hyperscale/howto-ingest-azure-data-factory.md
     - name: Server group size
       items:
       - name: Pick initial size

@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 05/31/2022
+ms.date: 06/28/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -21,7 +21,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [GA support for Arc-enabled Kubernetes clusters](#ga-support-for-arc-enabled-kubernetes-clusters) | July 2022 |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | June 2022 |
 | [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | June 2022 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | July 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
 
@@ -66,7 +66,7 @@ The Key Vault recommendations listed here are currently disabled so that they do
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change:** June 2022
+**Estimated date for change:** July 2022
 
 Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In June, we'll be making the changes outlined below.
 
