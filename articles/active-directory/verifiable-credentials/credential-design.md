@@ -32,13 +32,13 @@ The rules definition is a simple JSON document that describes important properti
 
 The following four user-input types are currently available to be configured in the rules definition. They're used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your decentralized identifier (DID).
 
-* **ID token**: When this option is configured, you'll need to provide an Open ID Connect configuration URI and include the claims that should be included in the verifiable credential. The user will be prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
+* **ID token**: When this option is configured, you'll need to provide an Open ID Connect configuration URI and include the claims that should be included in the verifiable credential. Users are prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
 
 * **ID token hint**: The sample App and Tutorial use the ID token Hint. When this option is configured, the relying party app will need to provide claims that should be included in the verifiable credential in the Request Service API issuance request. Where the relying party app gets the claims from is up to the app, but it can come from the current sign-in session, from backend CRM systems or even from self asserted user input. 
 
 * **Verifiable credentials**: The end result of an issuance flow is to produce a verifiable credential but you may also ask the user to Present a verifiable credential in order to issue one. The rules definition is able to take specific claims from the presented verifiable credential and include those claims in the newly issued verifiable credential from your organization. 
 
-* **Self-attested claims**: When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self attested claims. 
+* **Self-attested claims**: When this option is selected, the user can type information directly into Authenticator. At this time, strings are the only supported input for self attested claims. 
 
    ![Detailed view of a verifiable credential card.](media/credential-design/issuance-doc.png) 
 
@@ -235,7 +235,7 @@ For more information about properties, see [selfIssuedAttestation type](rules-an
 
 Verifiable credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great after they're issued to users.
 
-Verifiable credentials that are issued to users are displayed as cards in Microsoft Authenticator. As the administrator, you may choose card color, icon, and text strings to match your organization's brand.
+Authenticator displays verifiable credentials that are issued to users as cards. As an administrator, you can choose card colors, icons, and text strings to match your organization's brand.
 
 ![Image of a verified credential card in Authenticator, calling out key elements.](media/credential-design/detailed-view.png) 
 
@@ -243,10 +243,10 @@ Cards also contain customizable fields. You can use these fields to let users kn
 
 ## Create a credential display definition
 
-Much like the rules definition, the display definition is a simple JSON document that describes how the contents of your verifiable credentials should be displayed in the Authenticator app.
+Much like the rules definition, the display definition is a simple JSON document that describes how the Authenticator app should display the contents of your verifiable credentials.
 
 >[!NOTE]
-> At this time, this display model is used only by Microsoft Authenticator.
+> This display model is currently used only by Microsoft Authenticator.
 
 The display definition has the following structure:
 
