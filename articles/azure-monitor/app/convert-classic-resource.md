@@ -506,8 +506,8 @@ Legacy table: customMetrics
 |valueMin|real|ValueMin|real|
 |valueSum|real|ValueSum|real|
 
-> [!Caution]
-> ValueStdDev metric values are no longer supported by AppMetrics! If app data sent to Log Analytics includes ValueStdDev, it will get dropped during ingestion.
+> [!NOTE]
+> In addition to valueMax, valueMin, and valueSum, older versions of Application Insights SDKs used to report standard deviation (valueStdDev) in the metric pre-aggregation. Due to little adaption of standard deviation in metric analysis, the field was removed and is no longer aggregated by the SDKs. When received by the Application Insights data collection end point, the value is dropped during ingestion and not sent to the Log Analytics workspace. If you are interested in using standard deviation in your analysis, we recommend using queries against Application Insights raw events.
 
 #### AppPageViews
 
