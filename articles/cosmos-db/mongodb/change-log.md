@@ -22,18 +22,6 @@ You can now use the free and lightweight tool feature to manage and query your M
 [Learn more](https://aka.ms/cosmosdb-ads)
 
 
-### Continuous backup enhancements in Azure Cosmos DB
- The feature allows you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes. 
-
-Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such as the following:
-
-* To recover from an accidental write or delete operation within a container.
-* To restore a deleted account, database, or a container.
-* To restore into any region (where backups existed) at the restore point in time.
-
-[Learn more](../continuous-backup-restore-introduction.md)
-
-
 ### Linux emulator with Azure Cosmos DB API for MongoDB 
 The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local environment that emulates the Azure Cosmos DB service for development purposes on Linux and macOS. Using the emulator, you can develop and test your MongoDB applications locally, without creating an Azure subscription or incurring any costs. 
 
@@ -71,7 +59,6 @@ The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functio
 
 
 ### Support $expr in Mongo 3.6+
-We have added support for both in memory and backend. Additionally, we have the infrastructure to support compute only query operators, which allows us to support 3.6 style $lookup. 
 `$expr` allows the use of [aggregation expressions](https://www.mongodb.com/docs/manual/meta/aggregation-quick-reference/#std-label-aggregation-expressions) within the query language. 
 `$expr` can build query expressions that compare fields from the same document in a `$match` stage.  
 
