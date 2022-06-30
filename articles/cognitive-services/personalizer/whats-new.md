@@ -68,4 +68,3 @@ The following preview features were released at the Build 2019 Conference:
 ## Next steps
 
 * [Quickstart: Create a feedback loop in C#](./quickstart-personalizer-sdk.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
-* [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
