@@ -4,7 +4,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-![Screenshot of the sample app running in Azure, showing 'Hello World!'](../../media/quickstart-java/hello-world-in-browser.png)
+![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../../media/quickstart-java/hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -121,7 +121,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 1. Enter a commit message such as `Hello Azure`. Then, select **Commit and Push**.
 
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted ](../../media/quickstart-java/visual-studio-code-in-browser-commit-push.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted.](../../media/quickstart-java/visual-studio-code-in-browser-commit-push.png)
 
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
@@ -129,7 +129,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 ## 4 - Manage your new Azure app
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
+1. Go to the [Azure portal](https://portal.azure.com) to manage the web app you created. Search for and select **App Services**.
 
     ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](../../media/quickstart-java/azure-portal-search-for-app-services.png)    
 
