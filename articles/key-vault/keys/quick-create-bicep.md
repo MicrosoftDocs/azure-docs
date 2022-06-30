@@ -1,21 +1,24 @@
 ---
-title: Azure Quickstart - Create an Azure key vault and a key by using Azure Resource Manager template | Microsoft Docs
-description: Quickstart showing how to create Azure key vaults, and add key to the vaults by using Azure Resource Manager template (ARM template).
+title: Azure Quickstart - Create an Azure key vault and a key by using Bicep | Microsoft Docs
+description: Quickstart showing how to create Azure key vaults, and add key to the vaults by using Bicep.
 services: key-vault
-author: sebansal
 tags: azure-resource-manager
+author: mumian
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 06/28/2022
-ms.author: sebansal
+ms.author: jgao
+ms.date: 06/29/2022
+
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
+
 ---
 
-# Quickstart: Create an Azure key vault and a key by using ARM template
+# Quickstart: Create an Azure key vault and a key by using Bicep
 
-[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificate. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault and a key.
+[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificate. This quickstart focuses on the process of deploying a Bicep file to create a key vault and a key.
+
+[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -24,137 +27,90 @@ To complete this article:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
 
-## Review the template
+## Review the Bicep file
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vaultName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the key vault to be created."
-      }
-    },
-    "keyName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the key to be created."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "The location of the resources"
-      }
-    },
-    "skuName": {
-      "type": "string",
-      "defaultValue": "standard",
-      "allowedValues": [
-        "standard",
-        "premium"
-      ],
-      "metadata": {
-        "description": "The SKU of the vault to be created."
-      }
-    },
-    "keyType": {
-      "type": "string",
-      "defaultValue": "RSA",
-      "allowedValues": [
-        "EC",
-        "EC-HSM",
-        "RSA",
-        "RSA-HSM"
-      ],
-      "metadata": {
-        "description": "The JsonWebKeyType of the key to be created."
-      }
-    },
-    "keyOps": {
-      "type": "array",
-      "defaultValue": [],
-      "metadata": {
-        "description": "The permitted JSON web key operations of the key to be created."
-      }
-    },
-    "keySize": {
-      "type": "int",
-      "defaultValue": 2048,
-      "metadata": {
-        "description": "The size in bits of the key to be created."
-      }
-    },
-    "curveName": {
-      "type": "string",
-      "defaultValue": "",
-      "allowedValues": [
-        "",
-        "P-256",
-        "P-256K",
-        "P-384",
-        "P-521"
-      ],
-      "metadata": {
-        "description": "The JsonWebKeyCurveName of the key to be created."
-      }
+```bicep
+@description('The name of the key vault to be created.')
+param vaultName string
+
+@description('The name of the key to be created.')
+param keyName string
+
+@description('The location of the resources')
+param location string = resourceGroup().location
+
+@description('The SKU of the vault to be created.')
+@allowed([
+  'standard'
+  'premium'
+])
+param skuName string = 'standard'
+
+@description('The JsonWebKeyType of the key to be created.')
+@allowed([
+  'EC'
+  'EC-HSM'
+  'RSA'
+  'RSA-HSM'
+])
+param keyType string = 'RSA'
+
+@description('The permitted JSON web key operations of the key to be created.')
+param keyOps array = []
+
+@description('The size in bits of the key to be created.')
+param keySize int = 2048
+
+@description('The JsonWebKeyCurveName of the key to be created.')
+@allowed([
+  ''
+  'P-256'
+  'P-256K'
+  'P-384'
+  'P-521'
+])
+param curveName string = ''
+
+resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
+  name: vaultName
+  location: location
+  properties: {
+    accessPolicies:[]
+    enableRbacAuthorization: false
+    enableSoftDelete: false
+    enabledForDeployment: false
+    enabledForDiskEncryption: false
+    enabledForTemplateDeployment: false
+    tenantId: subscription().tenantId
+    sku: {
+      name: skuName
+      family: 'A'
     }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2021-11-01-preview",
-      "name": "[parameters('vaultName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "accessPolicies": [],
-        "enableRbacAuthorization": false,
-        "enableSoftDelete": false,
-        "enabledForDeployment": false,
-        "enabledForDiskEncryption": false,
-        "enabledForTemplateDeployment": false,
-        "tenantId": "[subscription().tenantId]",
-        "sku": {
-          "name": "[parameters('skuName')]",
-          "family": "A"
-        },
-        "networkAcls": {
-          "defaultAction": "Allow",
-          "bypass": "AzureServices"
-        }
-      }
-    },
-    {
-      "type": "Microsoft.KeyVault/vaults/keys",
-      "apiVersion": "2021-11-01-preview",
-      "name": "[format('{0}/{1}', parameters('vaultName'), parameters('keyName'))]",
-      "properties": {
-        "kty": "[parameters('keyType')]",
-        "keyOps": "[parameters('keyOps')]",
-        "keySize": "[parameters('keySize')]",
-        "curveName": "[parameters('curveName')]"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-      ]
-    }
-  ],
-  "outputs": {
-    "proxyKey": {
-      "type": "object",
-      "value": "[reference(resourceId('Microsoft.KeyVault/vaults/keys', parameters('vaultName'), parameters('keyName')))]"
+    networkAcls: {
+      defaultAction: 'Allow'
+      bypass: 'AzureServices'
     }
   }
 }
+
+resource key 'Microsoft.KeyVault/vaults/keys@2021-11-01-preview' = {
+  parent: vault
+  name: keyName
+  properties: {
+    kty: keyType
+    keyOps: keyOps
+    keySize: keySize
+    curveName: curveName
+  }
+}
+
+output proxyKey object = key.properties
 ```
 
-Two resources are defined in the template:
+Two resources are defined in the Bicep file:
 
-- [Microsoft.KeyVault/vaults](/azure/templates/microsoft.keyvault/vaults?tabs=json)
-- [Microsoft.KeyVault/vaults/keys](/azure/templates/microsoft.keyvault/vaults/keys?tabs=json)
+- [Microsoft.KeyVault/vaults](/azure/templates/microsoft.keyvault/vaults?tabs=bicep)
+- [Microsoft.KeyVault/vaults/keys](/azure/templates/microsoft.keyvault/vaults/keys?tabs=bicep)
 
 More Azure Key Vault template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
@@ -169,9 +125,31 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 |**nbf**  |  Specifies the time, as a DateTime object, before which the key can't be used. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC).  |
 |**exp**  |  Specifies the expiration time, as a DateTime object. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC). |
 
-## Deploy the template
+## Deploy the Bicep file
 
-You can use [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, Azure CLI, or REST API. To learn about deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
+1. Save the Bicep file as **main.bicep** to your local computer.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters vaultName=<vault-name> keyName=<key-name>
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -vaultName "<key-vault-name>" -keyName "<key-name>"
+    ```
+
+    ---
+
+    > [!NOTE]
+    > Replace **\<vault-name\>** with the name of the key vault. Replace **\<vault-name\>** with the name of the key vault, and replace **\<key-name\>** with the name of the key.
+
+    When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
@@ -237,7 +215,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created a key vault and a key using an ARM template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, see these articles.
+In this quickstart, you created a key vault and a key using a Bicep file, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, see these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
