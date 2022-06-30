@@ -18,7 +18,7 @@ main branch.
 
 # Get Load Balancer metrics with Azure Monitor CLI 
 
-In this article, we'll go over a couple of examples how to retrieve Load Balancer metrics using Azure Monitor CLI.
+In this article, you'll learn some examples to list Load Balancer metrics using Azure Monitor CLI.
 
 Complete reference documentation and other samples for retrieving metrics using Azure Monitor CLI are available in the [az monitor metrics reference](/cli/azure/monitor/metrics).
 
