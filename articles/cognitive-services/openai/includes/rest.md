@@ -13,9 +13,9 @@ keywords:
 
 ## Prerequisites
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>.
-- [Python 3.x](https://www.python.org/)
+- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
+- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here:<a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>
+- <a href="https://www.python.org/" target="_blank">Python 3.x</a>
 - The following python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
 
