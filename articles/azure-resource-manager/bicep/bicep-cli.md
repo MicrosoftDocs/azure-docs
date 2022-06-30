@@ -180,7 +180,7 @@ The local cache is found in:
     /home/<username>/.bicep
     ```
 
-If a module is already cache, the `restore` command doesn't refresh the cache. To fresh the cache, you can either delete the module path from the cache or use the `--force` switch.
+The `restore` command doesn't refresh the cache if a module is already cached, t. To fresh the cache, you can either delete the module path from the cache or use the `--force` switch.
 
 ## upgrade
 
