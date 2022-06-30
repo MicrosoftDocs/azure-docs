@@ -44,6 +44,9 @@ Client applications that push indexing and query requests to the search service 
 
 The portal has similar restrictions to other client applications. Add your client IP address to allow access to the service from the Azure Portal on your current computer. Navigate to the **Networking** section on the left navigation pane. Change **Public Network Access** to **Selected networks**, and then check **Add your client IP address** under **Firewall**.
 
+   :::image type="content" source="media\service-configure-firewall\azure-portal-firewall.png" alt-text="Screenshot of adding client ip to search service firewall" border="true":::
+
+
 Providing IP addresses for clients ensures that the request is not rejected outright, but for successful access to content and operations, authorization is also necessary. Use one of the following methodologies to authenticate your request:
 
 + [Key-based authentication](search-security-api-keys.md), where an admin or query API key is provided on the request
