@@ -14,12 +14,12 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <a href="<https://aka.ms/oai/access" target="_blank"><https://aka.ms/oai/access</a>
+- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>
 - An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
 
 ## Go to the Azure OpenAI Studio
 
-Navigate to the Azure OpenAI Studio: <a href="<https://oai.azure.com/> " target="_blank"><https://oai.azure.com/></a>and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and Azure OpenAI resource.
+Navigate to the Azure OpenAI Studio: <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and Azure OpenAI resource.
 
 ## Landing page
 
