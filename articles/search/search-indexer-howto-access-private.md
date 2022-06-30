@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 06/30/2022
 ---
 
 # Make outbound connections through a private endpoint
@@ -55,11 +55,13 @@ When setting up a shared private link resource, make sure the group ID value is 
 | Azure SQL Database | `sqlServer`|
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault for [customer-managed keys](search-security-manage-encryption-keys.md) | `vault` |
-| Azure Functions (preview) | `sites` |
+| Azure Functions (preview) <sup>3</sup>  | `sites` |
 
 <sup>1</sup> If you enabled [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) and the connection to Azure Blob Storage is through a private endpoint, make sure there is a shared private link of type `blob`.
 
 <sup>2</sup> If you're projecting data to a [knowledge store](knowledge-store-concept-intro.md) and the connection to Azure Blob Storage and Azure Table Storage is through a private endpoint, make sure there are two shared private links of type `blob` and `table`, respectively.
+
+<sup>3</sup> Azure Functions (preview) refer to Functions under a Consumption, Premium and Dedicated [App Service plan](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) are not supported at this time.
 
 > [!TIP]
 > You can query for the list of supported resources and group IDs by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
