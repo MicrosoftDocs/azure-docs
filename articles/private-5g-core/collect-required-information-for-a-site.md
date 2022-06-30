@@ -46,15 +46,15 @@ Collect all the values in the following table for the packet core instance that 
 Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces. The field name displayed in the Azure portal will depend on the value you have chosen for **Technology type**, as described in [Collect packet core configuration values](#collect-packet-core-configuration-values).
 
 > [!IMPORTANT]
-> For all values in this table, you must use the same values you used when deploying the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device for this site. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
+> Where noted, you must use the same values you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.                |**N2 address (Signaling)** (for 5G) or **S1-MME address** (for 4G).|
+   | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.               |**N2 address (Signaling)** (for 5G) or **S1-MME address** (for 4G). |
    | The name for the control plane interface on the access network. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface. The name must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. | **N2 interface name** (for 5G) or **S1-MME interface name** (for 4G). |
    | The name for the user plane interface on the access network. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface. The name must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. | **N3 interface name** (for 5G) or **S1-U interface name** (for 4G). |
-   | The network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.          |**N2 subnet** and **N3 subnet** (for 5G), or **S1-MME subnet** and **S1-U subnet** (for 4G).|
-   | The access subnet default gateway.                        |**N2 gateway** and **N3 gateway** (for 5G), or **S1-MME gateway** and **S1-U gateway** (for 4G).|
+   | The network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.         |**N2 subnet** and **N3 subnet** (for 5G), or **S1-MME subnet** and **S1-U subnet** (for 4G).|
+   | The access subnet default gateway. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                       |**N2 gateway** and **N3 gateway** (for 5G), or **S1-MME gateway** and **S1-U gateway** (for 4G).|
 
 ## Collect data network values
 
