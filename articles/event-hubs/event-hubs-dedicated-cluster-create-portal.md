@@ -37,7 +37,7 @@ To create a cluster in your resource group using the Azure portal, complete the 
     1. Enter a **name for the cluster**. The system immediately checks to see if the name is available.
     2. Select the **subscription** in which you want to create the cluster.
     3. Select the **resource group** in which you want to create the cluster.
-    1. Select the **Support Scaling** option to create a cluster that you can scale out or scale in your self.  For more information about 
+    1. Select the **Support Scaling** option to create a cluster that you can scale out or scale in yourself.  For more information about 
     1. Select a **location** for the cluster. If your preferred region is grayed out, it's temporarily out of capacity and you can submit a [support request](#submit-a-support-request) to the Event Hubs team.
     1. Select the **Next: Tags** button at the bottom of the page. You may have to wait a few minutes for the system to fully provision the resources.
 
