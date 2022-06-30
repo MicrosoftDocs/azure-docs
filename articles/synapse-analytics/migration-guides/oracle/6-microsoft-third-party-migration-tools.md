@@ -64,7 +64,7 @@ Data Factory is also an orchestration tool and is the best Microsoft tool to aut
 
 The next screenshot shows a wrangling data flow in Data Factory.
 
-:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows.png" border="true" alt-text="Screenshot showing an example of Data Factory wrangling dataflows.":::
+:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows.png" border="true" alt-text="Screenshot showing an example of Data Factory wrangling dataflows." lightbox="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows-lrg.png":::
 
 In Data Factory, you can develop simple or comprehensive ETL and ELT processes without coding or maintenance with just a few clicks. ETL/ELT processes ingest, move, prepare, transform, and process your data. You can design and manage scheduling and triggers in Data Factory to build an automated data integration and loading environment. In Data Factory, you can define, manage, and schedule PolyBase bulk data load processes.
 
