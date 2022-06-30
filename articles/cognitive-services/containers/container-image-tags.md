@@ -1771,7 +1771,8 @@ Release notes for `v2.2.0`:
 | `latest`                                    | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
 | `2.2.0-amd64-<locale-and-voice>`            | Replace `<locale>` with one of the available locales, listed below. For example `2.2.0-amd64-en-us-arianeural`. |
 
-| v2.1.0 Locales and voices           | Notes                                                                      |
+
+| v2.2.0 Locales and voices           | Notes                                                                      |
 |-------------------------------------|:---------------------------------------------------------------------------|
 | `am-et-amehaneural`                 | Container image with the `am-ET` locale and `am-ET-amehaneural voice.      |
 | `am-et-mekdesneural`                | Container image with the `am-ET` locale and `am-ET-mekdesneural voice.     |        
