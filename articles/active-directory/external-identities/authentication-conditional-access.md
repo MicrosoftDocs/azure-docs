@@ -32,8 +32,8 @@ The following diagram illustrates the authentication flow when an Azure AD organ
 |**1**     | A user from Fabrikam (the user’s *home tenant*) initiates sign-in to a resource in Contoso (the *resource tenant*).        |
 |**2**     | During sign-in, the Azure AD security token service (STS) evaluates Contoso's Conditional Access policies. It also checks whether the Fabrikam user is allowed access by evaluating cross-tenant access settings (Fabrikam’s outbound settings and Contoso’s inbound settings).        |
 |**3**     | Azure AD checks Contoso’s inbound trust settings to see if Contoso trusts MFA and device claims (device compliance, hybrid Azure AD joined status) from Fabrikam. If not, skip to step 6.         |
-|**4**     | If Contoso trusts MFA and device claims from Fabrikam, Azure AD checks the user’s credentials for an indication the user has completed MFA. If Contoso trusts device information from Fabrikam, Azure AD uses the device ID to look up the device object in Fabrikam to determine its state (compliant or hybrid Azure AD joined).         |
-|**5**     | If MFA is required but not completed or if a device ID isn't provided, Azure AD issues MFA and device challenges in the user's home tenant as needed. When MFA and device requirements are satisfied in Fabrikam, the user is allowed access to the resource in Contoso. If the checks can’t be satisfied, access is blocked.        |
+|**4**     | If Contoso trusts MFA and device claims from Fabrikam, Azure AD checks the user’s authentication session for an indication the user has completed MFA. If Contoso trusts device information from Fabrikam, Azure AD looks for a claim in the authentication session indicating the device state (compliant or hybrid Azure AD joined).         |
+|**5**     | If MFA is required but not completed, or if a device claim isn't provided, Azure AD issues MFA and device challenges in the user's home tenant as needed. When MFA and device requirements are satisfied in Fabrikam, the user is allowed access to the resource in Contoso. If the checks can’t be satisfied, access is blocked.        |
 |**6**     | When no trust settings are configured and MFA is required, B2B collaboration users are prompted for MFA, which they need to satisfy in the resource tenant. Access is blocked for B2B direct connect users. If device compliance is required but can't be evaluated, access is blocked for both B2B collaboration and B2B direct connect users.             |
 
 For more information, see the [Conditional Access for external users](#conditional-access-for-external-users) section.
@@ -148,7 +148,7 @@ When device trust settings are enabled, Azure AD checks a user's authentication 
 
 When creating Conditional Access policies for external users, you can evaluate a policy based on the device attributes of a registered device in Azure AD. By using the *filter for devices* condition, you can target specific devices using the [supported operators and properties](../conditional-access/concept-condition-filters-for-devices.md#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
 
-Device filters can be used together with cross-tenant access settings to base policies on devices that are managed in other organizations. For example, say you want to block devices from an external Azure AD tenant based on a specific device attribute. You can set up a device attribute-based policy by doing the following:
+Device filters can be used together with cross-tenant access settings to base policies on devices that are managed in other organizations. For example, suppose you want to block devices from an external Azure AD tenant based on a specific device attribute. You can set up a device attribute-based policy by doing the following:
 
 - Configure your cross-tenant access settings to trust device claims from that organization.
 - Assign the device attribute you want to use for filtering to one of the [supported device extension attributes](../conditional-access/concept-condition-filters-for-devices.md#supported-operators-and-device-properties-for-filters).
@@ -157,7 +157,7 @@ Device filters can be used together with cross-tenant access settings to base po
 Learn more about [filtering for devices with Conditional Access](../conditional-access/concept-condition-filters-for-devices.md).
 ### Mobile application management policies
 
-We don't recommend requiring an app protection policy for external users. Conditional Access grant controls such as **Require approved client apps** and **Require app protection policies** require the device to be registered in the resource tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). However, because a user’s device can only be managed by their home tenant, these controls can't be applied to external guest users.
+We don't recommend requiring an app protection policy for external users. Conditional Access grant controls such as **Require approved client apps** and **Require app protection policies** require the device to be registered in the resource tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). Because a user’s device can only be managed by their home tenant, these controls can't be applied to external guest users.
 
 ### Location-based Conditional Access
 
