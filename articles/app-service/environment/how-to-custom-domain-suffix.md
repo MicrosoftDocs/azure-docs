@@ -83,7 +83,7 @@ Your certificate must be a wildcard certificate for the selected custom domain n
 
 ## Use Azure Resource Manager to configure custom domain suffix
 
-To configure a custom domain suffix for your App Service Environment using an Azure Resource Manager template, you'll need to include the below properties. Ensure that you've met the [prerequisites](#prerequisites) and that your managed identity and certificate are accessible and have the appropriate permissions for both the Azure Key Vault and the App Service Environment.
+To configure a custom domain suffix for your App Service Environment using an Azure Resource Manager template, you'll need to include the below properties. Ensure that you've met the [prerequisites](#prerequisites) and that your managed identity and certificate are accessible and have the appropriate permissions for the Azure Key Vault.
 
 You'll need to configure the managed identity and ensure it exists before assigning it in your template. For more information on managed identities, see the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -168,8 +168,9 @@ To configure DNS in Azure DNS private zones:
 1. Create an Azure DNS private zone named for your custom domain. In the example below, the custom domain is *internal-contoso.com*.
 1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
 1. Create an A record in that zone that points @ to the inbound IP address used by your App Service Environment.
-
 :::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-dns-configuration.png" alt-text="Sample DNS configuration for your custom domain suffix.":::
+1. Link your Azure DNS private zone to your App Service Environment's virtual network.
+:::image type="content" source="./media/custom-domain-suffix/private-dns-zone-vnet-link.png" alt-text="Sample virtual network link for private DNS zone.":::
 
 For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#dns-configuration).
 

@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 06/29/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -82,6 +82,7 @@ A few features that were available in earlier versions of App Service Environmen
 - Send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
 - Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
 - Configure individual custom domain [IP SSL bindings](..\configure-ssl-bindings.md#create-binding) with your apps.
+- Configure a custom domain suffix.
 - Perform a backup and restore operation on a storage account behind a firewall.
 
 ## Pricing
