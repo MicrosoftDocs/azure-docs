@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 06/30/2022
 ---
 
 # Row-level security in Hyperscale (Citus)
@@ -24,14 +24,14 @@ each tenant’s information from other tenants.
 
 We can implement the separation of tenant data by using a naming convention for
 database roles that ties into table row-level security policies. We’ll assign
-each tenant a database role in a numbered sequence: `tenant_1`, `tenant_2`,
+each tenant a database role in a numbered sequence: `tenant1`, `tenant2`,
 etc. Tenants will connect to Citus using these separate roles. Row-level
 security policies can compare the role name to values in the `tenant_id`
 distribution column to decide whether to allow access.
 
 Here's how to apply the approach on a simplified events table distributed by
-`tenant_id`. First [create the roles](howto-create-users.md) `tenant_1` and
-`tenant_2`. Then run the following SQL commands as the `citus` administrator
+`tenant_id`. First [create the roles](howto-create-users.md) `tenant1` and
+`tenant2`. Then run the following SQL commands as the `citus` administrator
 user:
 
 ```postgresql
@@ -45,9 +45,9 @@ SELECT create_distributed_table('events','tenant_id');
 
 INSERT INTO events VALUES (1,1,'foo'), (2,2,'bar');
 
--- assumes that roles tenant_1 and tenant_2 exist
+-- assumes that roles tenant1 and tenant2 exist
 GRANT select, update, insert, delete
-  ON events TO tenant_1, tenant_2;
+  ON events TO tenant1, tenant2;
 ```
 
 As it stands, anyone with select permissions for this table can see both rows.
@@ -67,19 +67,19 @@ CREATE POLICY admin_all ON events
   USING (true)       -- read any existing row
   WITH CHECK (true); -- insert or update any row
 
--- next a policy which allows role "tenant_<n>" to
+-- next a policy which allows role "tenant<n>" to
 -- access rows where tenant_id = <n>
 CREATE POLICY user_mod ON events
-  USING (current_user = 'tenant_' || tenant_id::text);
+  USING (current_user = 'tenant' || tenant_id::text);
   -- lack of CHECK means same condition as USING
 
 -- enforce the policies
 ALTER TABLE events ENABLE ROW LEVEL SECURITY;
 ```
 
-Now roles `tenant_1` and `tenant_2` get different results for their queries:
+Now roles `tenant1` and `tenant2` get different results for their queries:
 
-**Connected as tenant_1:**
+**Connected as tenant1:**
 
 ```sql
 SELECT * FROM events;
@@ -92,7 +92,7 @@ SELECT * FROM events;
 └───────────┴────┴──────┘
 ```
 
-**Connected as tenant_2:**
+**Connected as tenant2:**
 
 ```sql
 SELECT * FROM events;
