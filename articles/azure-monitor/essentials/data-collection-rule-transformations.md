@@ -2,7 +2,7 @@
 title: Data collection rule transformations
 description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 06/29/2022
 ms.reviwer: nikeist
 
 ---
@@ -12,6 +12,21 @@ Transformations in Azure Monitor allow you to filter or modify incoming data bef
 
 ## Basic concepts
 Data transformations are defined in a [data collection rule (DCR)](data-collection-rule-overview.md) and use a Kusto Query Language (KQL) statement that is applied individually to each entry in the incoming data. It must understand the format of the incoming data and create output in the structure of the target table where that data is being sent.
+
+## Supported workflows
+Transformations are supported by any workflow that uses a [data collection rule](../essentials/data-collection-rule-overview.md). The DCR that configures data collection for the workflow includes the transformation.
+
+The workflows that currently use data collection rules are as follows:
+
+- [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
+- [Custom logs](../logs/data-ingestion-api-overview.md)
+
+## Ingestion-time work
+
+
+Ingestion-time transformation is applied to any workflow that doesn't currently use a [data collection rule](../essentials/data-collection-rule-overview.md) to send data to a [supported table](tables-feature-support.md). Any transformation on a workspace will be ignored for these workflows.
+
+
 
 ## When to use transformations
 Use ingestion-time transformation for the following scenarios:
