@@ -39,10 +39,10 @@ The **Writeback enabled** column allows you to turn off the writeback capability
 
 ## Writeback settings in group properties
 
-You can also configure writeback settings for a group on the property page for the group. There's a **Group writeback state** setting allows you to turn off writeback for the group or to specify the writeback group type. When **No writeback** is selected, the group isn't being written back at all. If you select one of the other writeback types as an option (for example, Security) then you:
+You can also configure writeback settings for a group on the property page for the group. There's a **Group writeback state** setting allows you to turn off writeback for the group or to specify the writeback group type. When **No writeback** is selected, the group isn't being written back at all. If you select one of the other writeback types as an option (for example, Security), then you have:
 
-- Have enabled the group for writeback
-- Are targeting the writeback type as a security group
+- Enabled the group for writeback
+- Targeted the writeback type as a security group
 
 :::image type="content" source="./media/groups-write-back-portal/group-properties-view.png" alt-text="Changing writeback settings in the group properties.":::
  
