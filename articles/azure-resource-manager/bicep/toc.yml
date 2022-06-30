@@ -371,8 +371,8 @@
     - name: What-if check
       href: deploy-what-if.md
       displayName: whatif, what if
-    - name: Deploy - vscode
-      displayName: visual studio code
+    - name: Deploy - VS Code
+      displayName: visual studio code,vscode
       href: deploy-vscode.md
     - name: Deploy - CLI
       href: deploy-cli.md
