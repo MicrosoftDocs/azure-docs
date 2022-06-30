@@ -13,7 +13,7 @@ ms.author: t-khelanmodi
 
 ## Cosmos DB's API for MongoDB updates
 
-### Azure Data Studio MongoDB extension for Azure Cosmos DB
+### Azure Data Studio MongoDB extension for Azure Cosmos DB (Preview)
 You can now use the free and lightweight tool feature to manage and query your MongoDB resources using mongo shell. Azure Data Studio MongoDB extension for Azure Cosmos DB allows you to manage multiple accounts all in one view by 
 1. Connecting your Mongo resources 
 2. Configuring the database settings 
@@ -70,7 +70,7 @@ The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functio
 [Learn more](./feature-support-42.md)
 
 
-### Support $expr in Mongo 3.6 and 4.0.
+### Support $expr in Mongo 3.6+
 We have added support for both in memory and backend. Additionally, we have the infrastructure to support compute only query operators, which allows us to support 3.6 style $lookup. 
 `$expr` allows the use of [aggregation expressions](https://www.mongodb.com/docs/manual/meta/aggregation-quick-reference/#std-label-aggregation-expressions) within the query language. 
 `$expr` can build query expressions that compare fields from the same document in a `$match` stage.  
