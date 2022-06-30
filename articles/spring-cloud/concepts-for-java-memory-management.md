@@ -25,7 +25,7 @@ A Java application's memory has several parts, and there are different ways to d
 
 Heap memory stores all class instances and arrays. Per JVM only have one heap area which is shared among threads.
 
-Spring-boot actuator can observe the value of heap memory, it takes heap value as part of [jvm.memory.used/committed/max](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax).
+Spring-boot actuator can observe the value of heap memory, it takes heap value as part of [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax).
 
 Heap memory is divided into young generation and old generation.
 
@@ -42,7 +42,7 @@ Before Java 8, another section called permanent generation was also part of heap
 
 Here we divide non-heap memory into two parts:
 
-1. The part that replaced permanent generation(permGen) starting from Java 8. Spring-boot actuator observes this section and takes it as part of [jvm.memory.used/committed/max](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax). In other words, [jvm.memory.used/committed/max](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax) is the sum of heap memory and the former permGen part of non-heap memory.
+1. The part that replaced permanent generation(permGen) starting from Java 8. Spring-boot actuator observes this section and takes it as part of [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax). In other words, [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax) is the sum of heap memory and the former permGen part of non-heap memory.
 
 1. The part of other memory such as thread stack, which is not observed by spring-boot actuator.
 
@@ -78,7 +78,7 @@ There are 3 terms regarding of Java Garbage Collection: "Minor GC", "Major GC", 
 
 Max heap size influences the frequency of minor GC and full GC. Max metaspace and max direct memory size influence full GC.
 
-When max heap size is set lower, garbage collections perform more frequent, which slow the app a little but better limit the memory usage. When max heap size is set higher, garbage collections perform less, which may have more [OOM risk](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/fix-app-restart-issues-caused-by-out-of-memory#OOM-Concepts.md).
+When max heap size is set lower, garbage collections perform more frequent, which slow the app a little but better limit the memory usage. When max heap size is set higher, garbage collections perform less, which may have more [OOM risk](fix-app-restart-issues-caused-by-out-of-memory#OOM-Concepts.md).
 
 Metaspace and direct memory can only be collected by full GC, when metaspace or direct memory is full, full GC will perform.
 
@@ -86,7 +86,7 @@ Metaspace and direct memory can only be collected by full GC, when metaspace or 
 
 ### 1. Important JVM Options
 
-Max size of each part of memory can be configured in JVM options. It can be set through Azure CLI or on portal (refer to [the doc for configuring memory settings in JVM options](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/tools-to-troubleshoot-memory-issues.md#5configure-memory-settings-in-jvm-options))
+Max size of each part of memory can be configured in JVM options. It can be set through Azure CLI or on portal (refer to [the doc for configuring memory settings in JVM options](tools-to-troubleshoot-memory-issues.md#5configure-memory-settings-in-jvm-options))
 
 - Heap size configurations
 
@@ -136,4 +136,4 @@ Overall, when configuring max memory sizes, you should consider the usage of eac
 
 OOM means the application is out of memory. There are two different concepts: 1. container OOM, 2. JVM OOM.
 
-Check [the doc for fixing app restart issues caused by out of memory](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/fix-app-restart-issues-caused-by-out-of-memory.md) for more information.
+Check [the doc for fixing app restart issues caused by out of memory](fix-app-restart-issues-caused-by-out-of-memory.md) for more information.

@@ -45,9 +45,9 @@ Resource health shows app restart events due to container OOM.
 
 ### 2. How to fix container OOM
 
-Metrics "App memory Usage", "jvm.memory.used", "jvm.memory.committed" can provide a view of memory using situation [refer to the doc](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/tools-to-troubleshoot-memory-issues.md#2metrics-related-doc). More important, you need to configure max memory sizes in JVM options to control memory under limit.
+Metrics "App memory Usage", "jvm.memory.used", "jvm.memory.committed" can provide a view of memory using situation [refer to the doc](tools-to-troubleshoot-memory-issues.md#2metrics-related-doc). More important, you need to configure max memory sizes in JVM options to control memory under limit.
 
-The sum of max memory sizes of [all parts in java memory model](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/concepts-for-java-memory-management.md#java-memory-model), should be less than real available app memory. You can refer to [typical memory layout](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/concepts-for-java-memory-management.md#3-memory-usage-layout) to set your max memory sizes.
+The sum of max memory sizes of [all parts in java memory model](concepts-for-java-memory-management.md#java-memory-model), should be less than real available app memory. You can refer to [typical memory layout](concepts-for-java-memory-management.md#3-memory-usage-layout) to set your max memory sizes.
 
 Note that, when max memory size is set too high, there will be risk of container OOM. When max memory size is set too low, there will be risk of JVM OOM, and garbage collection will be frequent and slow the app. So a balance need to be found.
 
@@ -55,7 +55,7 @@ Note that, when max memory size is set too high, there will be risk of container
 
 Max heap size is set by "-Xms" "-Xmx" "-XX:InitialRAMPercentage" "-XX:MaxRAMPercentage" in JVM options.
 
-When the value of [jvm.memory.used](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax) is too high in metrics, there may be a need to adjust max heap size settings.
+When the value of [jvm.memory.used](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax) is too high in metrics, there may be a need to adjust max heap size settings.
 
 #### (2) Control direct memory
 
