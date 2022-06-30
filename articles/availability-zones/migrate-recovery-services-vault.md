@@ -86,7 +86,7 @@ If you have any workloads in the old vault that are currently protected by Azure
 
 1. If you don't need the old Recovery Service vault, you can then delete it (provided it has no other active replications). To delete the old vault, see [Delete a Site Recovery Services vault](../site-recovery/delete-vault.md).
 
-## VMWare to Azure replication
+## VMware to Azure replication
 
 Learn about [Registering a VMware configuration server with a different vault](../site-recovery/vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
