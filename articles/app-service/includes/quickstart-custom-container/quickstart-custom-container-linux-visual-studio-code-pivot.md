@@ -1,6 +1,6 @@
 [Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry](../../../container-registry/index.yml) (ACR) to App Service.
 
-## Prerequisites
+To complete this quickstart, you need:
 
 * An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)
@@ -8,7 +8,7 @@
 * The [Azure App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). You can use this extension to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).
 * The [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). You can use this extension to simplify the management of local Docker images and commands and to deploy built app images to Azure.
 
-## Create a container registry
+## 1 - Create a container registry
 
 This quickstart uses Azure Container Registry as the registry of choice. You're free to use other registries, but the steps may differ slightly.
 
@@ -17,7 +17,7 @@ Create a container registry by following the instructions in [Quickstart: Create
 > [!IMPORTANT]
 > Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#configure-app-service-to-deploy-the-image-from-the-registry).
 
-## Sign in
+## 2 - Sign in
 
 1. Launch Visual Studio Code. 
 1. Select the **Azure** logo in the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), navigate to the **APP SERVICE** explorer, then select **Sign in to Azure** and follow the instructions.
@@ -30,7 +30,7 @@ Create a container registry by following the instructions in [Quickstart: Create
 
     ![Screenshot shows the Registries value with Azure expanded.](../../media/quickstart-docker/registries.png)
 
-## Check prerequisites
+## 3 - Check prerequisites
 
 Verify that you have Docker installed and running. The following command will display the Docker version if it's running.
 
@@ -38,7 +38,7 @@ Verify that you have Docker installed and running. The following command will di
 docker --version
 ```
 
-## Create and build image
+## 4 - Create and build image
 
 1. In Visual Studio Code, open an empty folder and add a file called `Dockerfile`. In the Dockerfile, paste in the content based on your desired language framework:
 
@@ -101,7 +101,7 @@ ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar
 
 In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it [in the Azure-App-Service/java GitHub repository, under java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile simply starts that app.
 
------
+---
 
 2. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Type **Enter** to run the command.
 
@@ -111,7 +111,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
     ![Screenshot shows the built image with tag.](../../media/quickstart-docker/built-image.png)
 
-## Deploy to container registry
+## 5 - Deploy to container registry
 
 1. In the Activity Bar, click the **Docker** icon. In the **IMAGES** explorer, find the image you built.
 1. Expand the image, right-click on the tag you want, and click **Push**.
@@ -120,7 +120,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
     ![Screenshot shows the image deployed to Azure container registry.](../../media/quickstart-docker/image-in-registry.png)
 
-## Deploy to App Service
+##  6 - Deploy to App Service
 
 1. In the **REGISTRIES** explorer, expand the image, right-click the tag, and select **Deploy image to Azure App Service**.
 1. Follow the prompts to choose a subscription, a globally unique app name, a resource group, and an App Service plan. Choose **B1 Basic** for the pricing tier, and a region near you.
@@ -131,7 +131,7 @@ A **Resource Group** is a named collection of all your application's resources i
 
 An **App Service Plan** defines the physical resources that will be used to host your website. This quickstart uses a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. If you start with the **Basic** plan, you can use the Azure portal to scale up so that yours is the only site running on a machine. For pricing, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux).
 
-## Browse the website
+## 7 - Browse the website
 
 The **Output** panel shows the status of the deployment operations. When the operation completes, select **Open Site** in the pop-up notification to open the site in your browser.
 

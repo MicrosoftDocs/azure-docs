@@ -1,6 +1,6 @@
 [Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an Docker Hub to App Service.
 
-In order to go through this quickstart, you need:
+To complete this quickstart, you need:
 
 * An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 
@@ -23,7 +23,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="../../media/quickstart-custom-container/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app.":::
 
-1. Under **Instance details**, type a globally unique name for your web app and select **Docker Container**. Select an **Operating System**, and a **Region** you want to serve your app from.
+1. Under **Instance details**, type a globally unique name for your web app and select **Docker Container**. Select *Linux* for the **Operating System**, and a **Region** you want to serve your app from.
 
     :::image type="content" source="../../media/quickstart-custom-container/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
 
