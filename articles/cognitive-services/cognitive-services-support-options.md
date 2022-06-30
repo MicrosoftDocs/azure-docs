@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/28/2021
+ms.date: 06/28/2022
 ms.author: pafarley
 ---
 
@@ -62,6 +62,10 @@ If you can't find an answer to your problem using search, submit a new question 
 * [Metrics Advisor (preview)]()
 * [Personalizer](/answers/topics/azure-personalizer.html)
 
+**Azure OpenAI**
+
+* [Azure OpenAI](/answers/topics/azure-openai.html)
+
 ## Post a question to Stack Overflow
 
 <div class='icon is-large'>
@@ -100,6 +104,10 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 * [Content Moderator](https://stackoverflow.com/search?q=azure+content+moderator)
 * [Metrics Advisor (preview)](https://stackoverflow.com/search?q=azure+metrics+advisor)
 * [Personalizer](https://stackoverflow.com/search?q=azure+personalizer)
+
+**Azure OpenAI**
+
+* [Azure OpenAI](https://stackoverflow.com/search?q=azure+openai)
 
 ## Submit feedback
 
