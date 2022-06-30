@@ -18,7 +18,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 ::: zone pivot="platform-linux"
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a PHP app to Azure App Service on Linux.
 
-![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
+![Screenshot of the sample app running in Azure.](media/quickstart-php/hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -50,7 +50,7 @@ You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azu
     
 1. Browse to the sample application at `http://localhost:8080` in a web browser.
     
-    ![Sample app running locally](media/quickstart-php/localhost-hello-world-in-browser.png)
+    ![Screenshot of the sample app running locally.](media/quickstart-php/localhost-hello-world-in-browser.png)
     
 1. In your terminal window, press **Ctrl+C** to exit the web server.
 
@@ -203,7 +203,7 @@ The PHP sample code is running in an Azure App Service.
 
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-    ![Updated sample app running in Azure](media/quickstart-php/hello-azure-in-browser.png)
+    ![Screenshot of the updated sample app running in Azure.](media/quickstart-php/hello-azure-in-browser.png)
 
 ### [Portal](#tab/portal)
 
@@ -234,7 +234,7 @@ The PHP sample code is running in an Azure App Service.
 
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'](media/quickstart-php/php-8-hello-azure-in-browser.png)
+    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'.](media/quickstart-php/php-8-hello-azure-in-browser.png)
 
 ---
 
