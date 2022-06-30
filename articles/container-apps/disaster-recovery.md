@@ -60,7 +60,7 @@ Zone redundancy requires a virtual network (VNET) with an infrastructure subnet.
 
 Create an VNET and infrastructure subnet to include with the Container Apps environment.
 
-When using these commands, replace the `\<PLACEHOLDERS\>` with your values.
+When using these commands, replace the `<PLACEHOLDERS>` with your values.
 
 # [Bash](#tab/bash)
 
