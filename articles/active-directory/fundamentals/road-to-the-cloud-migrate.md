@@ -217,7 +217,7 @@ Once you have moved SaaS applications that were federated to Azure AD, there are
 
 * [Migrate from federation to cloud authentication](../hybrid/migrate-from-federation-to-cloud-authentication.md)
 
-* If you're using Web Application Proxy, [Move Remote Access to internal applications](#-Move-Remote-Access-to-internal-applications)
+* If you're using Web Application Proxy, [Move Remote Access to internal applications](#Move-Remote-Access-to-internal-applications)
 
 >[!IMPORTANT]
 >If you are using other features, such as remote access, verify those services are relocated prior to decommissioning AD federated services. 
@@ -258,7 +258,7 @@ Legacy applications have different areas of dependencies to AD:
 
 * Access to Directory Data: LDAP queries, schema extensions, read/write of directory objects
 
-* Server Management: As determined by the [server management strategy](#-Define-Application-Server-Management-strategy)
+* Server Management: As determined by the [server management strategy](#Define-Application-Server-Management-strategy)
 
 To reduce or eliminate the dependencies above, there are three main approaches, listed below in order of preference:
 
