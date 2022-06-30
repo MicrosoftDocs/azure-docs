@@ -58,7 +58,7 @@ Here we divide non-heap memory into two parts:
 
 ### 3. Direct Memory
 
-Direct Memory is native memory allocated by `java.nio.DirectByteBuffer`. It is used in third party libraries like nio, gzip.
+Direct Memory is native memory allocated by `java.nio.DirectByteBuffer`, which is used in third party libraries like nio and gzip.
 
 Spring-boot actuator doesn't observe the value of direct memory.
 
@@ -80,7 +80,7 @@ There are 3 terms regarding of Java Garbage Collection: "Minor GC", "Major GC", 
 
 Max heap size influences the frequency of minor GC and full GC. Max metaspace and max direct memory size influence full GC.
 
-When max heap size is set lower, garbage collections perform more frequent, which slow the app a little but better limit the memory usage. When max heap size is set higher, garbage collections perform less, which may have more [OOM risk](fix-app-restart-issues-caused-by-out-of-memory#OOM-Concepts.md).
+When max heap size is set lower, garbage collections perform more frequent, which slow the app a little but better limit the memory usage. When max heap size is set higher, garbage collections perform less, which may have more [OOM risk](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#oom-concepts).
 
 Metaspace and direct memory can only be collected by full GC, when metaspace or direct memory is full, full GC will perform.
 
@@ -88,7 +88,7 @@ Metaspace and direct memory can only be collected by full GC, when metaspace or 
 
 ### 1. Important JVM Options
 
-Max size of each part of memory can be configured in JVM options. It can be set through Azure CLI or on portal (refer to [the doc for configuring memory settings in JVM options](tools-to-troubleshoot-memory-issues.md#5configure-memory-settings-in-jvm-options))
+Max size of each part of memory can be configured in JVM options. It can be set through Azure CLI or on portal (refer to [the doc for configuring memory settings in JVM options](tools-to-troubleshoot-memory-issues.md#5-configure-memory-settings-in-jvm-options))
 
 - Heap size configurations
 
@@ -138,4 +138,4 @@ Overall, when configuring max memory sizes, you should consider the usage of eac
 
 OOM means the application is out of memory. There are two different concepts: 1. container OOM, 2. JVM OOM.
 
-Check [the doc for fixing app restart issues caused by out of memory](fix-app-restart-issues-caused-by-out-of-memory.md) for more information.
+For more information, see [How to fix app restart issues caused by out of memory issues](./how-to-fix-app-restart-issues-caused-by-out-of-memory.md).

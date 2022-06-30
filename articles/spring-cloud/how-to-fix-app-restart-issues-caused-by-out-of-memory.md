@@ -36,7 +36,7 @@ and the Java Profiling tools(such as Java Flight Recorder).
 
 :::image type="content" source="media/how-to-fix-app-restart-issues-caused-by-out-of-memory/heap-out-exception.png" alt-text="memory 3":::
 
-This doc focuses on how to fix container OOM. To fix JVM OOM, check tools like heap dump, thread dump, and Java Flight Recorder. For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](/azure/spring-cloud/how-to-capture-dumps).
+This doc focuses on how to fix container OOM. To fix JVM OOM, check tools like heap dump, thread dump, and Java Flight Recorder. For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](how-to-capture-dumps.md).
 
 ## How to fix app restart issues due to OOM
 
@@ -48,7 +48,7 @@ Resource health shows app restart events due to container OOM.
 
 ### 2. How to fix container OOM
 
-Metrics "App memory Usage", "jvm.memory.used", "jvm.memory.committed" can provide a view of memory using situation [refer to the doc](tools-to-troubleshoot-memory-issues.md#2metrics-related-doc). More important, you need to configure max memory sizes in JVM options to control memory under limit.
+Metrics "App memory Usage", "jvm.memory.used", "jvm.memory.committed" can provide a view of memory using situation [refer to the doc](tools-to-troubleshoot-memory-issues.md#2-metrics-related-doc). More important, you need to configure max memory sizes in JVM options to control memory under limit.
 
 The sum of max memory sizes of [all parts in java memory model](concepts-for-java-memory-management.md#java-memory-model), should be less than real available app memory. You can refer to [typical memory layout](concepts-for-java-memory-management.md#3-memory-usage-layout) to set your max memory sizes.
 

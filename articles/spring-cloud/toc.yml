@@ -82,6 +82,14 @@ items:
     href: quotas.md
   - name: Understand app status
     href: concept-app-status.md
+  - name: Memory
+    items:
+    - name: Java memory management
+      href: concepts-for-java-memory-management.md
+    - name: Tools to troubleshoot memory issues
+      href: tools-to-troubleshoot-memory-issues.md
+    - name: Fix app restart issues caused by OOM
+      href: how-to-fix-app-restart-issues-caused-by-out-of-memory.md
   - name: Metrics
     href: concept-metrics.md
   - name: Spring Boot Actuator

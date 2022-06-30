@@ -23,17 +23,17 @@ This doc provides a list of tools for troubleshooting Java memory issues. These 
 
 ### 1. Resource health
 
-For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](/azure/spring-cloud/monitor-app-lifecycle-events).
+For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](monitor-app-lifecycle-events.md).
 
-Resource health sends alerts about app restart events due to [container OOM](fix-app-restart-issues-caused-by-out-of-memory.md#1-Out-of-available-app-memory).
+Resource health sends alerts about app restart events due to [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#1-out-of-available-app-memory).
 
-Check [the doc for fixing app restart issues caused by out of memory](fix-app-restart-issues-caused-by-out-of-memory.md).
+For more information, see [How to fix app restart issues caused by out of memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png" alt-text="memory 5":::
 
 ### 2. Diagnose and solve problems
 
-For more information, see [Self-diagnose and solve problems in Azure Spring Apps](/azure/spring-cloud/how-to-self-diagnose-solve).
+For more information, see [Self-diagnose and solve problems in Azure Spring Apps](how-to-self-diagnose-solve.md).
 
 Under "Diagnose and solve problems", you can find "Memory Usage" detector. It shows a simple diagnosis for app memory usage.
 
@@ -43,7 +43,7 @@ Under "Diagnose and solve problems", you can find "Memory Usage" detector. It sh
 
 ### 3. Metrics
 
-For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](/azure/spring-cloud/quickstart-logs-metrics-tracing?tabs=Azure-CLI&pivots=programming-language-java).
+For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](quickstart-logs-metrics-tracing.md?tabs=Azure-CLI&pivots=programming-language-java).
 
 Metrics cover issues including high memory usage, heap memory too large and garbage collection abnormal(too frequent or too not frequent), through following metrics.
 
@@ -81,7 +81,7 @@ On JVM memory, there are three metrics: jvm.memory.used, jvm.memory.committed, j
 
 #### (3) jvm.gc.memory.allocated/promoted
 
-These two metrics are for observing [Java garbage collection](concepts-for-java-memory-management.md#Java-Garbage-Collection). Max heap size influences the frequency of minor GC and full GC. Max metaspace and max direct memory size influence full GC. If you want to adjust the frequency of garbage collection, consider to modify max memory sizes.
+These two metrics are for observing [Java garbage collection](concepts-for-java-memory-management.md#java-garbage-collection). Max heap size influences the frequency of minor GC and full GC. Max metaspace and max direct memory size influence full GC. If you want to adjust the frequency of garbage collection, consider to modify max memory sizes.
 
 - jvm.gc.memory.allocated
 
@@ -100,7 +100,7 @@ This feature can be found on portal, and you can choose specific metrics and add
 
 ### Capture heap dump and thread dump manually and use Java Flight Recorder
 
-For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](/azure/spring-cloud/how-to-capture-dumps).
+For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](how-to-capture-dumps.md).
 
 This feature provides further details on heap and threads, to help debug.
 
@@ -112,7 +112,7 @@ Heap dump records the state of the Java heap memory. Thread dump records the sta
 
 ### Configure memory settings in JVM options
 
-If you identify issues including [container OOM](fix-app-restart-issues-caused-by-out-of-memory.md#1-Out-of-available-app-memory), heap memory too large, garbage collection abnormal, you may need to configure max memory size in JVM options.
+If you identify issues including [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#1-out-of-available-app-memory), heap memory too large, garbage collection abnormal, you may need to configure max memory size in JVM options.
 
 You can refer to [related JVM Options](concepts-for-java-memory-management.md#1-important-jvm-options).
 
