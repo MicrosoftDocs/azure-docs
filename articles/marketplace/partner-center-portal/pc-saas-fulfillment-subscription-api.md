@@ -4,7 +4,7 @@ description: Learn how to use the Subscription APIs, which are part of the  the 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/03/2022
+ms.date: 06/30/2022
 author: arifgani
 ms.author: argani
 ---
@@ -413,10 +413,11 @@ Response body example:
 }
 ```
 
-If `subscriptionId` is not found, empty response body is returned.
+Code: 404 Not Found.
+SubscriptionId is not found.
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided.  The request may be attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided.  The request may be attempting to access a SaaS subscription for an offer that's unsubscribed or published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
