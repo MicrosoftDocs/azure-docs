@@ -24,7 +24,9 @@ Complete reference documentation and other samples for retrieving metrics using 
 
 ## Table of metric names via CLI
 
-When using CLI, Load Balancer metrics may use a different metric name. When specifying the metric name via the `--metric dimension`, please use the CLI metric name equivalent instead.
+When you use CLI, Load Balancer metrics may use a different metric name for the CLI parameter value. When specifying the metric name via the `--metric dimension` parameter, use the CLI metric name instead. For example, the metric Data path availability would be used by specifying a parameter of `--metric VipAvaialbility`.
+
+Here's a table of common Load Balancer metrics, the CLI metric name, and recommend aggregation values for queries:
 
 |Metric|CLI metric name|Recommended aggregation|
 |-----------------|-----------------|-----------------|
@@ -123,7 +125,7 @@ az monitor metrics list --resource <ResourceName> --metric DipAvailability --sta
 >Start and end times are represented using a format of yyyy-mm-dd format. For example, every day between May 5, 2022 and May 10, 2022 would be represented as `2022-05-01` and `2022-05-10`. 
 
 
-To split metrics on a dimension, such as “BackendIPAddress”, specify the dimension in the `--filter` flag. Dimensions of a metric are name/value pairs that carry additional data to describe the metric value. To learn more about which dimensions are supported for each metric, see [Monitoring load balancer data reference](./monitor-load-balancer-reference.md). 
+To split metrics on a dimension, such as “BackendIPAddress”, specify the dimension in the `--filter` flag. Dimensions of a metric are name/value pairs that include more data to describe the metric value. To learn more about which dimensions are supported for each metric, see [Monitoring load balancer data reference](./monitor-load-balancer-reference.md). 
  
 ```azurecli
 # List average Health Probe Status metric and filter for all BackendIPAddress dimensions
@@ -139,7 +141,7 @@ You can also specify a specific dimension value.
 az monitor metrics list --resource <ResourceName> --metric DipAvailability --filter “BackendIPAddress eq ’10.1.0.4’” –aggregation Average 
 ```
 
-In cases where you need to filter on multiple dimension values, specify the --filter value using `and` between the values.
+In cases where you need to filter on multiple dimension values, specify the `--filter` value using `and` between the values.
 
 ```azurecli
 # List average Health Probe Status metric and filter for all BackendIPAddress and BackendPort dimensions
