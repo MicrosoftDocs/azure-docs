@@ -135,7 +135,7 @@ The following sections describe current support for administrative unit scenario
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Enable, disable, or delete devices | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Read Bitlocker recovery keys | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Read BitLocker recovery keys | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 Managing devices in Intune is *not* supported at this time.
 
