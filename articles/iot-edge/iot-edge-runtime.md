@@ -121,7 +121,7 @@ IoT Edge hub facilitates local communication. It enables device-to-module and mo
 
 #### Using routing
 
-The first brokering mechanism uses the same routing features as IoT Hub to specify how messages are passed between devices or modules. First devices or modules specify the inputs on which they accept messages and the outputs to which they write messages. Then a solution developer can route messages between a source (for example, outputs), and a destination (for example, inputs), with potential filters.
+The brokering mechanism uses the same routing features as IoT Hub to specify how messages are passed between devices or modules. First devices or modules specify the inputs on which they accept messages and the outputs to which they write messages. Then a solution developer can route messages between a source (for example, outputs), and a destination (for example, inputs), with potential filters.
 
 ![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-routing.png)
 
