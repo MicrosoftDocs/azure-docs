@@ -1,6 +1,6 @@
 ---
-title: Sign in to Windows virtual machine in Azure using Azure Active Directory
-description: Azure AD sign in to an Azure VM running Windows
+title: Log in to a Windows virtual machine in Azure by using Azure AD
+description: Learn how to log in to an Azure VM that's running Windows by by using Azure AD authentication.
 
 services: active-directory
 ms.service: active-directory
@@ -16,38 +16,41 @@ ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
 ---
-# Login to Windows virtual machine in Azure using Azure Active Directory authentication
+# Log in to a Windows virtual machine in Azure by using Azure AD
 
-Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (Azure AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** and later or **Windows 10 1809** and later. You can then centrally control and enforce Azure role-based access control (RBAC) and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD-based authentication.
+Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (Azure AD) authentication. You can now use Azure AD as a core authentication platform to RDP into *Windows Server 2019 Datacenter edition* and later, or *Windows 10 1809* and later. You can then centrally control and enforce Azure role-based access control (RBAC) and Conditional Access policies that allow or deny access to the VMs. 
 
-There are many security benefits of using Azure AD based authentication to login to Windows VMs in Azure, including:
-- Use Azure AD credentials to login to Windows VMs in Azure.
-   - Federated and Managed domain users.
+This article shows you how to create and configure a Windows VM and log in by using Azure AD-based authentication.
+
+There are many security benefits of using Azure AD-based authentication to log in to Windows VMs in Azure. They include:
+
+- Use Azure AD credentials to log in to Windows VMs in Azure. The result is federated and managed domain users.
 - Reduce reliance on local administrator accounts.
-- Password complexity and password lifetime policies configured for your Azure AD help secure Windows VMs as well.
-- With Azure role-based access control (Azure RBAC)
-   - Specify who can login to a VM as a regular user or with administrator privileges. 
+- Password complexity and password lifetime policies that you configure for Azure AD also help secure Windows VMs.
+- With Azure Azure RBAC:
+   - Specify who can log in to a VM as a regular user or with administrator privileges. 
    - When users join or leave your team, you can update the Azure RBAC policy for the VM to grant access as appropriate. 
    - When employees leave your organization and their user account is disabled or removed from Azure AD, they no longer have access to your resources.
-- Configure Conditional Access policies to require multi-factor authentication and other signals such as user or sign in risk before you can RDP to Windows VMs. 
-- Use Azure deploy and audit policies to require Azure AD login for Windows VMs and to flag use of unapproved local accounts on the VMs.
-- Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. 
-   - Auto MDM enrollment requires Azure AD Premium P1 licenses. Windows Server VMs don't support MDM enrollment.
+- Configure Conditional Access policies to require multifactor authentication and other signals, such as user or sign-in risk before you can RDP into Windows VMs. 
+- Use Azure deploy and audit policies to require Azure AD login for Windows VMs and to flag the use of unapproved local accounts on the VMs.
+- Use Intune to automate and scale Azure AD join with mobile device management (MDM) auto-enrollment of Azure Windows VMs that are part of your virtual desktop infrastructure (VDI) deployments. 
+  
+  MDM auto-enrollment requires Azure AD Premium P1 licenses. Windows Server VMs don't support MDM enrollment.
 
 > [!NOTE]
-> After you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join it to another domain like on-premises AD or Azure AD DS. If you need to do so, you will need to disconnect the VM from Azure AD by uninstalling the extension.
+> After you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join them to another domain like on-premises Active Directory or Azure Active Directory Domain Services. If you need to do so, disconnect the VM from Azure AD by uninstalling the extension.
 
 ## Requirements
 
 ### Supported Azure regions and Windows distributions
 
-The following Windows distributions are currently supported for this feature:
+This feature currently supports the following Windows distributions:
 
 - Windows Server 2019 Datacenter and later
 - Windows 10 1809 and later
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 or newer PCs that are either Azure AD registered (starting Windows 10 20H1), Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. 
+> Remote connection to VMs joined to Azure AD is allowed only from Windows 10 or newer PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM. 
 
 This feature is now available in the following Azure clouds:
 
@@ -57,60 +60,60 @@ This feature is now available in the following Azure clouds:
 
 ### Network requirements
 
-To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
+To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure your VM's network configuration permits outbound access to the following endpoints over TCP port 443.
 
-For Azure Global
-- `https://enterpriseregistration.windows.net` - For device registration.
-- `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
-- `https://login.microsoftonline.com` - For authentication flows.
-- `https://pas.windows.net` - For Azure RBAC flows.
+Azure Global:
+- `https://enterpriseregistration.windows.net`: For device registration.
+- `http://169.254.169.254`: Azure Instance Metadata Service endpoint.
+- `https://login.microsoftonline.com`: For authentication flows.
+- `https://pas.windows.net`: For Azure RBAC flows.
 
-For Azure Government
-- `https://enterpriseregistration.microsoftonline.us` - For device registration.
-- `http://169.254.169.254` - Azure Instance Metadata Service.
-- `https://login.microsoftonline.us` - For authentication flows.
-- `https://pasff.usgovcloudapi.net` - For Azure RBAC flows.
+Azure Government:
+- `https://enterpriseregistration.microsoftonline.us`: For device registration.
+- `http://169.254.169.254`: Azure Instance Metadata Service.
+- `https://login.microsoftonline.us`: For authentication flows.
+- `https://pasff.usgovcloudapi.net`: For Azure RBAC flows.
 
-For Azure China 21Vianet
-- `https://enterpriseregistration.partner.microsoftonline.cn` - For device registration.
-- `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
-- `https://login.chinacloudapi.cn` - For authentication flows.
-- `https://pas.chinacloudapi.cn` - For Azure RBAC flows.
+Azure China 21Vianet:
+- `https://enterpriseregistration.partner.microsoftonline.cn`: For device registration.
+- `http://169.254.169.254`: Azure Instance Metadata Service endpoint.
+- `https://login.chinacloudapi.cn`: For authentication flows.
+- `https://pas.chinacloudapi.cn`: For Azure RBAC flows.
 
-## Enabling Azure AD login for Windows VM in Azure
+## Enable Azure AD login for a Windows VM in Azure
 
 To use Azure AD login for Windows VM in Azure, you must: 
 
-- First enable the Azure AD login option for your Windows VM.
-- Then configure Azure role assignments for users who are authorized to login in to the VM.
+1. Enable the Azure AD login option for your Windows VM.
+1. Configure Azure role assignments for users who are authorized to log in to the VM.
 
-There are two ways you can enable Azure AD login for your Windows VM:
+There are two ways to enable Azure AD login for your Windows VM:
 
-- [Using Azure portal create VM experience to enable Azure AD login](#using-azure-portal-create-vm-experience-to-enable-azure-ad-login) when creating a Windows VM.
-- [Using the Azure Cloud Shell experience to enable Azure AD login](#using-the-azure-cloud-shell-experience-to-enable-azure-ad-login) when creating a Windows VM **or for an existing Windows VM**.
+- The Azure portal, when you're creating a Windows VM.
+- Azure Cloud Shell, when you're creating a Windows VM or using an existing Windows VM.
 
-### Using Azure portal create VM experience to enable Azure AD login
+### Azure portal
 
-You can enable Azure AD login for Windows Server 2019 Datacenter or Windows 10 1809 and later VM images. 
+You can enable Azure AD login for VM images in Windows Server 2019 Datacenter or Windows 10 1809 and later. 
 
-To create a Windows Server 2019 Datacenter VM in Azure with Azure AD logon: 
+To create a Windows Server 2019 Datacenter VM in Azure with Azure AD login: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com), with an account that has access to create VMs, and select **+ Create a resource**.
 1. Type **Windows Server** in Search the Marketplace search bar.
-   1. Select **Windows Server** and choose **Windows Server 2019 Datacenter** from Select a software plan dropdown.
+   1. Select **Windows Server** and choose **Windows Server 2019 Datacenter** from the **Select a software plan** dropdown list.
    1. Select **Create**.
-1. On the "Management" tab, check the box to **Login with Azure AD** under the Azure AD section.
-1. Make sure **System assigned managed identity** under the Identity section is checked. This action should happen automatically once you enable Login with Azure AD.
+1. On the **Management** tab, select the **Login with Azure AD** checkbox in the **Azure AD** section.
+1. Make sure that **System assigned managed identity** in the **Identity** section is selected. This action should happen automatically after you enable login with Azure AD.
 1. Go through the rest of the experience of creating a virtual machine. You'll have to create an administrator username and password for the VM.
 
 ![Login with Azure AD credentials create a VM](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
 
 > [!NOTE]
-> In order to log in to the VM using your Azure AD credential, you will first need to configure role assignments for the VM as described in one of the sections below.
+> To log in to the VM by using your Azure AD credentials, you first need to [configure role assignments](#configure-role-assignments-for-the-vm) for the VM.
 
-### Using the Azure Cloud Shell experience to enable Azure AD login
+### Azure Cloud Shell
 
-Azure Cloud Shell is a free, interactive shell that you can use to run the steps in this article. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account. Just select the Copy button to copy the code, paste it in Cloud Shell, and then press Enter to run it. There are a few ways to open Cloud Shell:
+Azure Cloud Shell is a free, interactive shell that you can use to run the steps in this article. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account. Just select the **Copy** button to copy the code, paste it in Cloud Shell, and then press Enter to run it. There are a few ways to open Cloud Shell:
 
 - Select **Try It** in the upper-right corner of a code block.
 - Open Cloud Shell in your browser.
@@ -230,7 +233,9 @@ require multi-factor authentication as a grant access control.
 ## Log in using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 or newer PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. If using an Azure AD registered Windows 10 or newer PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, Azure Bastion can be used to log in with Azure AD authentication [using Azure CLI and the native RDP client **mstsc**](../../bastion/connect-native-client-windows.md). 
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 or newer PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the *same* directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. 
+>
+> If you're using an Azure AD registered Windows 10 or newer PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, Azure Bastion can be used to log in with Azure AD authentication [using Azure CLI and the native RDP client **mstsc**](../../bastion/connect-native-client-windows.md). 
 
 To log in to your Windows Server 2019 virtual machine using Azure AD: 
 
@@ -248,7 +253,7 @@ You're now signed in to the Windows Server 2019 Azure virtual machine with the r
 
 ## Using Azure Policy to ensure standards and assess compliance
 
-Use Azure Policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure Policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Windows VMs within your environment that don't have Azure AD login enabled. You can also use Azure Policy to deploy the Azure AD extension on new Windows VMs that don't have Azure AD login enabled, and remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use Azure Policy to detect and flag Windows VMs that have non-approved local accounts created on their machines. To learn more, review [Azure Policy](../../governance/policy/overview.md).
+Use Azure Policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure Policy compliance dashboard. With this capability, you can use many levels of enforcement. You can flag new and existing Windows VMs within your environment that don't have Azure AD login enabled. You can also use Azure Policy to deploy the Azure AD extension on new Windows VMs that don't have Azure AD login enabled, and remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use Azure Policy to detect and flag Windows VMs that have non-approved local accounts created on their machines. To learn more, review [Azure Policy](../../governance/policy/overview.md).
 
 ## Troubleshoot
 
