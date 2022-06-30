@@ -796,7 +796,7 @@ groups:
   - id: development-environment-azure-portal
     title: Azure portal
 - id: app-service-ide
-  title: Development environment
+  title: Deployment environment
   prompt: Choose a deployment environment
   pivots:
   - id: development-environment-vs
@@ -807,6 +807,8 @@ groups:
     title: Azure CLI
   - id: development-environment-ps
     title: Azure PowerShell
+  - id: development-environment-azure-portal
+    title: Azure portal
 - id: app-service-ide-oss
   title: Development environment
   prompt: Choose a development environment
