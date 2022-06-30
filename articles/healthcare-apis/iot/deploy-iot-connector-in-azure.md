@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/29/2022
+ms.date: 06/30/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
 
 # Deploy the MedTech service in the Azure portal
 
-In this quickstart, you'll learn how to deploy the MedTech service in the Azure portal using two different methods: with a [quickstart template](#deploy-the-medtech-service-with-a-quickstart-template) or [manually](#deploy-the-medtech-service-manually) The MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service.
+In this quickstart, you'll learn how to deploy the MedTech service in the Azure portal using two different methods: with a [quickstart template](#deploy-the-medtech-service-with-a-quickstart-template) or [manually](#deploy-the-medtech-service-manually). The MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 
 ## Deploy the MedTech service with a quickstart template
 
@@ -22,7 +22,7 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
  * An Azure event hub sender role (the sender role is named: **devicedatasender**).
  * An Azure Health Data Services workspace.
  * An Azure Health Data Services FHIR service.
- * An Azure Health Data Services MedTech service including the necessary system managed identity permissions to the device message event hub and FHIR service.
+ * An Azure Health Data Services MedTech service including the necessary system managed identity permissions to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
 
 When the Azure portal launches, the following fields must be filled out:
  * **Subscription** - Choose the Azure subscription you would like to use for the deployment.
