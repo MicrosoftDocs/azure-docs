@@ -92,7 +92,7 @@ select * from user_role_privs order by username, granted_role;
 
 Oracle SQL Developer has built-in options to display user and role information in the *Reports* pane, as shown in the following screenshot.
 
-:::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-1.png" border="true" alt-text="Screenshot showing the Reports pane for user roles in Oracle SQL Developer.":::
+:::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-1.png" border="true" alt-text="Screenshot showing the Reports pane for user roles in Oracle SQL Developer." lightbox="../media/3-security-access-operations/oracle-sql-developer-reports-1-lrg.png":::
 
 You can modify the example `SELECT` statement to produce a result set that is a series of `CREATE USER` and `CREATE GROUP` statements. To do so, include the appropriate text as a literal within the `SELECT` statement.
 
@@ -105,11 +105,11 @@ There's no way to retrieve existing Oracle passwords, so you need to implement a
 
 In an Oracle system, the system `DBA_ROLE_PRIVS` view holds the access rights for users and roles. If you have `SELECT` access, you can query that view to obtain the current access rights lists defined within the system. The following Oracle SQL Developer screenshot shows an example access rights list.
 
-:::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-2.png" border="true" alt-text="Screenshot showing the Reports pane for user access rights in Oracle SQL Developer.":::
+:::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-2.png" border="true" alt-text="Screenshot showing the Reports pane for user access rights in Oracle SQL Developer." lightbox="../media/3-security-access-operations/oracle-sql-developer-reports-2-lrg.png":::
 
 You can also create queries to produce a script that's a series of `CREATE` and `GRANT` statements for Azure Synapse, based on the existing Oracle privileges. The following Oracle SQL Developer screenshot shows an example of that script.
 
-:::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-3.png" border="true" alt-text="Screenshot showing how to create a script of CREATE and GRANT statements in Oracle SQL Developer.":::
+:::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-3.png" border="true" alt-text="Screenshot showing how to create a script of CREATE and GRANT statements in Oracle SQL Developer." lightbox="../media/3-security-access-operations/oracle-sql-developer-reports-3-lrg.png":::
 
 This table lists and describes the data dictionary views required to view user, role, and privileges information.
 
@@ -263,7 +263,7 @@ Azure Synapse also provides a rich monitoring experience within the Azure portal
 
 The Azure portal can also provide recommendations for performance enhancements, as shown in the following screenshot.
 
-:::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure portal recommendations for performance enhancements.":::
+:::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure portal recommendations for performance enhancements." lightbox="../media/3-security-access-operations/azure-portal-recommendations-lrg.png":::
 
 The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](../../../azure-monitor/overview.md), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 
