@@ -101,7 +101,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Virtual machine priority| Low priority virtual machines are cheaper but don't guarantee the compute nodes. 
     Virtual machine type| Select CPU or GPU for virtual machine type.
     Virtual machine size| Select the virtual machine size for your compute.
-    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
+    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AzureML Compute.
     Advanced settings | These settings allow you to configure a user account and existing virtual network for your experiment. 
     
     Select **Create**. Creation of a new compute can take a few minutes.
@@ -293,7 +293,7 @@ The **Edit and submit** button opens the **Create a new Automated ML run** wizar
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
 
 >[!TIP]
-> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) to the workspace. 
+> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-job-1) to the workspace. 
 >
 > Once you're model is registered, find it in the studio by selecting **Models** on the left pane. Once you open your model, you can select the **Deploy** button at the top of the screen, and then follow the instructions as described in **step 2** of the **Deploy your model** section.
 

@@ -5,9 +5,9 @@ services: iot-central
 ms.service: iot-central
 ms.topic: how-to
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
-ms.author: avneets
-author: avneet723
-ms.date: 08/18/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/15/2022
 
 # This article applies to solution builders.
 ---

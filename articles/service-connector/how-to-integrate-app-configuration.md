@@ -29,6 +29,9 @@ This page shows the supported authentication types and client types of Azure App
 
 ## Default environment variable names or application properties
 
+Use the connection details below to connect compute services to Azure App Configuration stores instances. For each example below, replace the placeholder texts
+`<App-Configuration-name>`, `<ID>`, `<secret>`, `<client-ID>`,  `<client-secret>`, and `<tenant-ID>` with your App Configuration store name, ID, secret, client ID, client secret and tenant ID.
+
 ### .NET, Java, Node.JS, Python
 
 #### Secret / connection string
@@ -36,29 +39,29 @@ This page shows the supported authentication types and client types of Azure App
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_APPCONFIGURATION_CONNECTIONSTRING | Your App Configuration Connection String | `Endpoint=https://{AppConfigurationName}.azconfig.io;Id={ID};Secret={secret}` |
+> | AZURE_APPCONFIGURATION_CONNECTIONSTRING | Your App Configuration Connection String | `Endpoint=https://<App-Configuration-name>.azconfig.io;Id=<ID>;Secret=<secret>` |
 
 #### System-assigned managed identity
 
-| Default environment variable name | Description                  | Sample value                                 |
-|-----------------------------------|------------------------------|----------------------------------------------|
-| AZURE_APPCONFIGURATION_ENDPOINT   | App Configuration   endpoint | `https://{AppConfigurationName}.azconfig.io` |
+| Default environment variable name | Description                  | Sample value                                   |
+|-----------------------------------|------------------------------|------------------------------------------------|
+| AZURE_APPCONFIGURATION_ENDPOINT   | App Configuration   endpoint | `https://<App-Configuration-name>.azconfig.io` |
 
 #### User-assigned managed identity
 
 | Default environment variable name | Description                | Sample value                                  |
 |-----------------------------------|----------------------------|-----------------------------------------------|
-| AZURE_APPCONFIGURATION_ENDPOINT   | App Configuration Endpoint | `https://{AppConfigurationName}.azconfig.io` |
-| AZURE_APPCONFIGURATION_CLIENTID   | Your client ID             | `UserAssignedMiClientId`                     |
+| AZURE_APPCONFIGURATION_ENDPOINT   | App Configuration Endpoint | `https://App-Configuration-name>.azconfig.io` |
+| AZURE_APPCONFIGURATION_CLIENTID   | Your client ID             | `<client-ID>`                                 |
 
 #### Service principal
 
 | Default environment variable name   | Description                | Sample value                                 |
 |-------------------------------------|----------------------------|----------------------------------------------|
-| AZURE_APPCONFIGURATION_ENDPOINT     | App Configuration Endpoint | `https://{AppConfigurationName}.azconfig.io` |
-| AZURE_APPCONFIGURATION_CLIENTID     | Your client ID             | `{yourClientID}`                             |
-| AZURE_APPCONFIGURATION_CLIENTSECRET | Your client secret         | `{yourClientSecret}`                         |
-| AZURE_APPCONFIGURATION_TENANTID     | Your tenant ID             | `{yourTenantID}`                             |
+| AZURE_APPCONFIGURATION_ENDPOINT     | App Configuration Endpoint | `https://<AppConfigurationName>.azconfig.io` |
+| AZURE_APPCONFIGURATION_CLIENTID     | Your client ID             | `<client-ID>`                                |
+| AZURE_APPCONFIGURATION_CLIENTSECRET | Your client secret         | `<client-secret>`                            |
+| AZURE_APPCONFIGURATION_TENANTID     | Your tenant ID             | `<tenant-ID>`                                |
 
 ## Next steps
 
