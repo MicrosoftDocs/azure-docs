@@ -56,7 +56,7 @@ For example, a [User Administrator](permissions-reference.md#user-administrator)
 | Manage the user authentication methods of individual **members** of the group | :x: |
 | Reset the passwords of individual **members** of the group | :x: |
 
-In order for the [User Administrator](permissions-reference.md#user-administrator) to manage the user properties or user authentication methods of individual members of the group, the members (users) must be added directly as users of the administrative unit.
+In order for the [User Administrator](permissions-reference.md#user-administrator) to manage the user properties or user authentication methods of individual members of the group, the group members (users) must be added directly as members of the administrative unit.
 
 ## License requirements
 
