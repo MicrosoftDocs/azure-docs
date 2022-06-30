@@ -44,7 +44,7 @@ You can also configure writeback settings for a group on the property page for t
 - Enabled the group for writeback
 - Targeted the writeback type as a security group
 
-:::image type="content" source="./media/groups-write-back-portal/group-properties-view.png" alt-text="Changing writeback settings in the group properties.":::
+:::image type="content" source="./media/groups-write-back-portal/groups-properties-view.png" alt-text="Changing writeback settings in the group properties.":::
  
 ## Next steps
 
