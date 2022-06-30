@@ -24,7 +24,7 @@ Complete reference documentation and other samples for retrieving metrics using 
 
 ## Table of metric names via CLI
 
-When using CLI, Load Balancer metrics may use a different metric name. When specifying the metric name via the --metric dimension, please use the CLI metric name equivalent instead.
+When using CLI, Load Balancer metrics may use a different metric name. When specifying the metric name via the `--metric dimension`, please use the CLI metric name equivalent instead.
 
 |Metric|CLI metric name|Recommended aggregation|
 |-----------------|-----------------|-----------------|
@@ -42,29 +42,28 @@ For metric definitions and further details, refer to [Monitoring load balancer d
 ## CLI examples for Load Balancer metrics 
 <!-- Introduction paragraph -->
 
-To see what metrics are available for Standard Load Balancer resources, you can run the az monitor metrics list-definitions command. 
+To see what metrics are available for Standard Load Balancer resources, you can run the [az monitor metrics list-definitions command](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions). 
 
 ```azurecli
 # Display available metrics for Standard Load Balancer resources
+
 az monitor metrics list-definitions 
 ```
 
-To retrieve Standard Load Balancer metrics using CLI, you can use the `az monitor metrics list` command.  
+To retrieve Standard Load Balancer metrics using CLI, you can use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.  
 
 ```azurecli
 # Retrieve all Standard Load Balancer metrics
+
 az monitor metrics list  
 ```
 
 ```azurecli
 # List the Health Probe Status metric from a Standard Load Balancer
+
 az monitor metrics list --resource <ResourceName> --metric DipAvailability 
 ```
 
-```azurecli
-# List the Health Probe Status metric from a Standard Load Balancer
-az monitor metrics list --resource "/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/demoLB" --metrics DipAvailability
-```
 When you run the above command, the output will appear as follows:
 ```output
 ...
@@ -95,19 +94,12 @@ When you run the above command, the output will appear as follows:
 ```
 Use the following CLI command to collect the Health Probe Status metric from a Standard Load Balancer. By default, Azure monitor metrics list returns the resource’s metrics from the last hour. You can specify the time range using –start-time and –end-time instead. 
 
-List average Health Probe Status aggregated per day, every day between May 5, 2022 and May 10, 2022. 
-
-```azurecli
-# List average Health Probe Status aggregated per day, every day between May 5, 2022 and May 10, 2022. 
-
-az monitor metrics list --resource <ResourceName> --metric DipAvailability --start-time 2022-05-01T00:00:00Z --end-time 2022-05-10T00:00:00Z --interval PT24H 
-```
->[!Note]
->Start and end times are represented using a format of yyyy-mm-dd format. For example, every day between May 5, 2022 and May 10, 2022 would be represented as `2022-05-01` and `2022-05-10`. 
-
 You can also specify the aggregation type of your metric via the –aggregation flag. For recommended aggregations, see Monitoring load balancer data reference. 
 
 ```azurecli
+
+# List the average Health Probe Status metric from a Standard Load Balancer
+
 az monitor metrics list --resource <ResourceName> --metric DipAvailability –aggregation Average 
 ```
 
@@ -117,27 +109,37 @@ The above command uses the “Average” aggregation type, reporting data in 1-m
 az monitor metrics list --resource <ResourceName> --metric DipAvailability –aggregation Average –interval 1M 
 ```
 
+List average Health Probe Status aggregated per day, every day between May 5, 2022 and May 10, 2022. 
+
+```azurecli
+# List average Health Probe Status aggregated per day, every day between May 5, 2022 and May 10, 2022. 
+
+az monitor metrics list --resource <ResourceName> --metric DipAvailability --start-time 2022-05-01T00:00:00Z --end-time 2022-05-10T00:00:00Z --interval PT24H --aggregation Average
+```
+>[!Note]
+>Start and end times are represented using a format of yyyy-mm-dd format. For example, every day between May 5, 2022 and May 10, 2022 would be represented as `2022-05-01` and `2022-05-10`. 
+
+
+
 To split metrics on a dimension such as “BackendIPAddress”, specify the dimension in the –filter flag. To learn more about which dimensions are supported for each metric, see [Monitoring load balancer data reference](./monitor-load-balancer-reference.md). 
  
 ```azurecli
-az monitor metrics list --resource <ResourceName> --metric DipAvailability –filter “BackendIPAddress eq ‘*’” 
+az monitor metrics list --resource <ResourceName> --metric DipAvailability –filter “BackendIPAddress eq ‘*’” –aggregation Average 
 ```
 
 You can also specify a specific dimension value. 
 
 ```azurecli
-az monitor metrics list --resource <ResourceName> --metric DipAvailability –filter “BackendIPAddress eq ’10.1.0.4’” 
+az monitor metrics list --resource <ResourceName> --metric DipAvailability –filter “BackendIPAddress eq ’10.1.0.4’” –aggregation Average 
 ```
 
 You can also filter on multiple dimension values.
 
 ```azurecli
-az monitor metrics list --resource <ResourceName> --metric DipAvailability –filter “BackendIPAddress eq ‘*’ and BackendPort eq ‘*’” 
+az monitor metrics list --resource <ResourceName> --metric DipAvailability –filter “BackendIPAddress eq ‘*’ and BackendPort eq ‘*’” –aggregation Average 
 ```
 
-
 ## Next steps
-* Review the dashboard and provide feedback using the below link if there is anything that can be improved
-* [Review the metrics documentation to ensure you understand how each metric is calculated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
-* [Create Connection Monitors for your Load Balancer](../network-watcher/connection-monitor.md)
+* [Review the metric definitions to better understand how each is generated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
+* [Create Connection Monitors for your Load Balancer](./load-balancer-standard-diagnostics.md)
 * [Create your own workbooks](../azure-monitor/visualize/workbooks-overview.md), you can take inspiration by clicking on the edit button in your detailed metrics dashboard
