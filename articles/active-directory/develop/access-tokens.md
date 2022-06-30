@@ -270,7 +270,9 @@ Your application's business logic will dictate this step, some common authorizat
 #### Validate that the application that signed in the user has permission to access this data
 
 * Use the `scp` claim to validate that the user has granted the calling app permission to call your API.
-* Ensure the calling client is allowed to call your API using the `appid` claim.
+* Ensure the calling client is allowed to call your API using the `appid` claim (for v1.0 tokens) or the `azp` claim (for v2.0 tokens).
+    * You only need to validate these claims if you want your web API to be called by pre-determined applications. For instance, line-of-business applications or web API's called by well-known frontends should validate `appid`/`azp`, but ISV web API's which are called directly by customers should not.
+
 
 ## User and application tokens
 
