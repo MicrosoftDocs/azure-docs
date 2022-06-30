@@ -62,7 +62,7 @@ You use the output from these two commands in the next step.
 ## Define Packer template
 To build images, you create a template as a JSON file. In the template, you define builders and provisioners that carry out the actual build process. Packer has a [provisioner for Azure](https://www.packer.io/docs/builders/azure.html) that allows you to define Azure resources, such as the service principal credentials created in the preceding step.
 
-Create a file named *ubuntu.json* and paste the following content. Enter your own values for the following:
+Create a file named *ubuntu.json* and paste the following content. Enter your own values for the following parameters:
 
 | Parameter                           | Where to obtain |
 |-------------------------------------|----------------------------------------------------|
@@ -236,7 +236,7 @@ It takes a few minutes for Packer to build the VM, run the provisioners, and cle
 
 
 ## Create VM from Azure Image
-You can now create a VM from your Image with [az vm create](/cli/azure/vm). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
+You can now create a VM from your Image with [az vm create](/cli/azure/vm). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they don't already exist:
 
 ```azurecli
 az vm create \
