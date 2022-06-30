@@ -68,7 +68,7 @@ This section details how you can create and configure the components of a Front 
 Run [New-AzFrontDoorCdnProfile](/powershell/module/az.cdn/new-azfrontdoorcdnprofile) to create an Azure Front Door profile.
 
 > [!NOTE]
-> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](./tier-comparison.md).
+> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](/articles/frontdoor/standard-premium/tier-comparison.md).
 
 ```azurepowershell-interactive
 #Create the profile `
@@ -156,7 +156,7 @@ $Route = New-AzFrontDoorCdnRoute `
    -ForwardingProtocol MatchRequest `
    -HttpsRedirect Enabled `
    -LinkToDefaultDomain Enabled `
-   -OriginGroup og `
+   -OriginGroupId $originpool.Id `
    -SupportedProtocol Http,Https
 ```
 Your Front Door profile has become fully functional with the last step.

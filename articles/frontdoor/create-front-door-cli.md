@@ -90,11 +90,7 @@ Make note of the default host name of each web app so you can define the backend
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 > [!NOTE]
-<<<<<<< HEAD
-> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](./tier-comparison.md).
-=======
 > If you want to deploy an Azure Front Door Standard instead of Premium substitute the value for the sku parameter with `Standard_AzureFrontDoor`. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
->>>>>>> 592f6c3f7590446bf15acdea283936b167b7e8da
 
 ```azurecli-interactive
 az afd profile create \
@@ -102,11 +98,6 @@ az afd profile create \
     --resource-group myRGFD \
     --sku Premium_AzureFrontDoor
 ```
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 592f6c3f7590446bf15acdea283936b167b7e8da
 ### Add an endpoint
 
 Run [az afd endpoint create](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
