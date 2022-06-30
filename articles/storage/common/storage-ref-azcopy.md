@@ -59,3 +59,4 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 - [azcopy make](storage-ref-azcopy-make.md)
 - [azcopy remove](storage-ref-azcopy-remove.md)
 - [azcopy sync](storage-ref-azcopy-sync.md)
+- [azcopy set-properties](storage-ref-azcopy-set-properties.md)

@@ -522,6 +522,8 @@ items:
           href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use logs to find errors and resume jobs
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Properties and metadata'
+          href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Upload'
           href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Download'
@@ -696,6 +698,8 @@ items:
         href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
         href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy set-properties
+        href: ../common/storage-ref-azcopy-set-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
@@ -1022,6 +1026,8 @@ items:
         href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
         href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy set-properties
+        href: ../common/storage-ref-azcopy-set-properties?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
