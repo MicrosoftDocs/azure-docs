@@ -78,7 +78,7 @@ az backup container register --resource-group SQLResourceGroup \
 >[!NOTE]
 >If the VM isn't present in the same resource group as the vault, *SQLResourceGroup* uses the resource group where the vault was created.
 
-Registering the SQL server automatically discovers all its current databases. However, to discover any new databases that may be added in the future, see the [Discovering new databases added to the registered SQL server](backup-azure-sql-manage-cli.md#protect-new-databases-added-to-an-SQL-instance) section.
+Registering the SQL server automatically discovers all its current databases. However, to discover any new databases that may be added in the future, see the [Discovering new databases added to the registered SQL server](backup-azure-sql-manage-cli.md#protect-the-new-databases-added-to-a-sql-instance) section.
 
 To verify if the SQL instance is successfully registered with your vault, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command. The response appears as:
 

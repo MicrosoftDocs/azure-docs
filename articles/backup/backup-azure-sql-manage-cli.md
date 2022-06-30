@@ -302,7 +302,7 @@ az backup protectable-item initialize --resource-group SQLResourceGroup \
     --workload-type SQLDataBase
 ```
 
-Then use the [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SQL database](backup-azure-sql-backup-cli.md#enable-backup-on-sql-database).
+Then use the [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SQL database](backup-azure-sql-backup-cli.md#enable-backup-on-the-sql-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group SQLResourceGroup \
