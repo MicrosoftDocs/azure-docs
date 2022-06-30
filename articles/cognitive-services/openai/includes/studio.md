@@ -13,13 +13,13 @@ keywords:
 
 ## Prerequisites
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>.
+- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
+- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <a href="<https://aka.ms/oai/access" target="_blank"><https://aka.ms/oai/access</a>
 - An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
 
 ## Go to the Azure OpenAI Studio
 
-Navigate to the Azure OpenAI Studio: <https://oai.azure.com/> and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and Azure OpenAI resource.
+Navigate to the Azure OpenAI Studio: <a href="<https://oai.azure.com/> " target="_blank"><https://oai.azure.com/></a>and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and Azure OpenAI resource.
 
 ## Landing page
 
@@ -32,11 +32,11 @@ You'll first land on our main page for the Azure OpenAI Studio and from here you
 - Navigate to different parts of the Studio including the **Playground** for experimentation and our fine-tuning workflow
 - Find quick links to other helpful resources like documentation and community forums
 
-From here, select 'create new deployment' button in the banner at the top. If you don't see this, you already have a deployment and can proceed to the 'playground' step.
+From here, select the **create new deployment** button in the banner at the top. If you don't see this, you already have a deployment and can proceed to the 'playground' step.
 
 ## Deployments
 
-Before you can generate text or inference, you need to deploy a model. This is done by clicking the 'create new deployment' on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 isn't available in this region).
+Before you can generate text or inference, you need to deploy a model. This is done by clicking the **create new deployment** on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 isn't available in this region).
 
 Once this is complete, select the 'Playground' button on the left nav to start experimenting.
 
