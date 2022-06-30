@@ -12,7 +12,7 @@ ms.author: sawinark
 
 # Auto-generate a pipeline from the SAP data replication template
 
-[!INCLUDE appliesto-adf-asa-md]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This topic describes how to use the SAP data replication template for SAP change data capture (Preview) in Azure Data Factory.
 

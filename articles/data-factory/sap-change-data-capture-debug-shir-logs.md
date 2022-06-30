@@ -12,7 +12,7 @@ ms.author: sawinark
 
 # Debug ADF copy activity issues by sending SHIR logs
 
-[!INCLUDE appliesto-adf-asa-md]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 If you want us to debug your ADF copy activity issues, send SHIR logs to us.  To do so, complete the following steps.
 

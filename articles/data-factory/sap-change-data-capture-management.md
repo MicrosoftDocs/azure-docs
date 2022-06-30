@@ -12,7 +12,7 @@ ms.author: sawinark
 
 # Management of SAP change data capture (CDC) (Preview) in Azure Data Factory
 
-[!INCLUDE appliesto-adf-asa-md]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to manage SAP change data capture (Preview) in Azure Data Factory.
 
@@ -56,7 +56,7 @@ To monitor data extractions on SAP systems, complete the following steps:
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-delete-queue-subscriptions.png" alt-text="Screenshot of the SAP ODQMON tool with the delete button highlighted for a particular queue subscription.":::
 
-## Current limitations/future improvements
+## Current limitations
 
 The following are the current limitations of SAP CDC solution in ADF:
 

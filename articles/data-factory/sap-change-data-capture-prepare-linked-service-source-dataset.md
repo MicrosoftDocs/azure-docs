@@ -12,7 +12,7 @@ ms.author: sawinark
 
 # Prepare the SAP ODP linked service and source dataset for the SAP CDC solution in Azure Data Factory (Preview)
 
-[!INCLUDE appliesto-adf-asa-md]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article introduces and describes preparation of the linked service and source dataset for SAP change data capture (Preview) in Azure Data Factory.
 
