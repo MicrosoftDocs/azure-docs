@@ -12,9 +12,12 @@ ms.custom: devx-track-java
 
 # How to fix app restart issues caused by out of memory issues
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This doc helps understand out of memory (OOM) issues for Java applications in Azure Spring Cloud.
+This doc helps understand out of memory (OOM) issues for Java applications in Azure Spring Apps.
 
 ## OOM Concepts
 
@@ -33,7 +36,7 @@ and the Java Profiling tools(such as Java Flight Recorder).
 
 :::image type="content" source="media/how-to-fix-app-restart-issues-caused-by-out-of-memory/heap-out-exception.png" alt-text="memory 3":::
 
-This doc focuses on how to fix container OOM. To fix JVM OOM please check tools like heap dump, thread dump, and Java Flight Recorder. For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](/azure/spring-cloud/how-to-capture-dumps).
+This doc focuses on how to fix container OOM. To fix JVM OOM, check tools like heap dump, thread dump, and Java Flight Recorder. For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](/azure/spring-cloud/how-to-capture-dumps).
 
 ## How to fix app restart issues due to OOM
 
@@ -49,7 +52,7 @@ Metrics "App memory Usage", "jvm.memory.used", "jvm.memory.committed" can provid
 
 The sum of max memory sizes of [all parts in java memory model](concepts-for-java-memory-management.md#java-memory-model), should be less than real available app memory. You can refer to [typical memory layout](concepts-for-java-memory-management.md#3-memory-usage-layout) to set your max memory sizes.
 
-Note that, when max memory size is set too high, there will be risk of container OOM. When max memory size is set too low, there will be risk of JVM OOM, and garbage collection will be frequent and slow the app. So a balance need to be found.
+When max memory size is set too high, there will be risk of container OOM. When max memory size is set too low, there will be risk of JVM OOM, and garbage collection will be frequent and slow the app. So a balance need to be found.
 
 #### (1) Control heap memory
 

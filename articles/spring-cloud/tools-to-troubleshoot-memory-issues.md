@@ -12,9 +12,12 @@ ms.custom: devx-track-java
 
 # Tools to troubleshoot memory issues
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This doc provides a list of tools for troubleshooting Java memory issues. Note that these tools can be used in many scenarios not limited to memory issues. This doc only shows one particularly on the topic of memory.
+This doc provides a list of tools for troubleshooting Java memory issues. These tools can be used in many scenarios not limited to memory issues. This doc only shows one particularly on the topic of memory.
 
 ## Alert and diagnose
 
@@ -24,7 +27,7 @@ For more information, see [Monitor app lifecycle events using Azure Activity log
 
 Resource health sends alerts about app restart events due to [container OOM](fix-app-restart-issues-caused-by-out-of-memory.md#1-Out-of-available-app-memory).
 
-Please check [the doc for fixing app restart issues caused by out of memory](fix-app-restart-issues-caused-by-out-of-memory.md).
+Check [the doc for fixing app restart issues caused by out of memory](fix-app-restart-issues-caused-by-out-of-memory.md).
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png" alt-text="memory 5":::
 
@@ -52,7 +55,7 @@ App Memory Usage is a percentage = app memory used / app memory limit. It shows 
 
 On JVM memory, there are three metrics: jvm.memory.used, jvm.memory.committed, jvm.memory.max.
 
-"JVM memory" is not a clearly defined concept. Here "jvm.memory" is the sum of [heap memory](concepts-for-java-memory-management.md#1-heap-memory), [former permGen](concepts-for-java-memory-management.md#2-non-heap-memory). It doesn't include direct memory or other memory like thread stack. These three metrics are gathered by spring-boot actuator, and the scope of jvm.memory is also determined by spring-boot actuator.
+"JVM memory" isn't a clearly defined concept. Here "jvm.memory" is the sum of [heap memory](concepts-for-java-memory-management.md#1-heap-memory), [former permGen](concepts-for-java-memory-management.md#2-non-heap-memory). It doesn't include direct memory or other memory like thread stack. These three metrics are gathered by spring-boot actuator, and the scope of jvm.memory is also determined by spring-boot actuator.
 
 - jvm.memory.used
 
@@ -72,7 +75,7 @@ On JVM memory, there are three metrics: jvm.memory.used, jvm.memory.committed, j
 
   The value of jvm.memory.max sometimes can be confusing because it can be much higher than available app memory.
 
-  Here is a clarification: jvm.memory.max is a sum of all maximum sizes of heap memory and [former permGen](concepts-for-java-memory-management.md#2-non-heap-memory) regardless of the real available memory. E.g. if an app is set with 1 GB memory in Azure Spring Cloud portal, the default heap memory size will be 0.5 GB
+  Here is a clarification: jvm.memory.max is a sum of all maximum sizes of heap memory and [former permGen](concepts-for-java-memory-management.md#2-non-heap-memory) regardless of the real available memory. For example, if an app is set with 1 GB memory in Azure Spring Apps portal, the default heap memory size will be 0.5 GB
 
 (refer to [the doc for default heap size](concepts-for-java-memory-management.md#1-default-max-heap-size)), the default Compressed Class Space size is 1 GB (refer to [an oracle doc](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.oracle.com%2Fjavase%2F9%2Fgctuning%2Fother-considerations.htm%23JSGCT-GUID-B29C9153-3530-4C15-9154-E74F44E3DAD9&data=04%7C01%7Ckaiqianyang%40microsoft.com%7C38fc180b69244f235bc808d9d5957de2%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637775660327124610%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=qRyPF%2BviieEO0lVtOKUoIPy5Ejx7hgM5RMQGaDEVm7A%3D&reserved=0)), then the value of jvm.memory.max will be larger than 1.5 GB regardless of the app memory size 1 GB.
 

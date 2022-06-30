@@ -12,10 +12,12 @@ ms.custom: devx-track-java
 
 # Java memory management
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This doc introduces concepts for Java memory management
-to help understand Java applications in Azure Spring Cloud.
+This doc introduces concepts for Java memory management to help understand Java applications in Azure Spring Apps.
 
 ## Java Memory Model
 
@@ -44,7 +46,7 @@ Here we divide non-heap memory into two parts:
 
 1. The part that replaced permanent generation(permGen) starting from Java 8. Spring-boot actuator observes this section and takes it as part of [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax). In other words, [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax) is the sum of heap memory and the former permGen part of non-heap memory.
 
-1. The part of other memory such as thread stack, which is not observed by spring-boot actuator.
+1. The part of other memory such as thread stack, which isn't observed by spring-boot actuator.
 
    - Former permanent generation
 
@@ -107,7 +109,7 @@ Max size of each part of memory can be configured in JVM options. It can be set 
 
 #### (1) default max heap size
 
-Azure Spring Cloud set default max heap memory size about 50%-80% of app memory for Java apps, specifically:
+Azure Spring Apps set default max heap memory size about 50%-80% of app memory for Java apps, specifically:
 
 - If the app memory < 1 GB, default max heap size will be 50% of app memory.
 - If 1 GB <= the app memory < 2 GB, default max heap size will be 60% of app memory.
@@ -116,13 +118,13 @@ Azure Spring Cloud set default max heap memory size about 50%-80% of app memory 
 
 #### (2) default max direct memory size
 
-When max direct memory size is not set in JVM options, JVM automatically setts max direct memory size = [`Runtime.getRuntime.maxMemory()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#maxMemory--) ~= max heap memory size (refer to [jdk8](http://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/a71d26266469/src/share/classes/sun/misc/VM.java#l282&gt;%20jdk8)).
+When max direct memory size isn't set in JVM options, JVM automatically setts max direct memory size = [`Runtime.getRuntime.maxMemory()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#maxMemory--) ~= max heap memory size (refer to [jdk8](http://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/a71d26266469/src/share/classes/sun/misc/VM.java#l282&gt;%20jdk8)).
 
 ### 3. Memory Usage Layout
 
 Heap size is influenced by your throughput. Basically when configuring, you can keep the default max heap size, which leaves reasonable memory for other parts.
 
-Metaspace size depends on the complexity of your codes, e.g. the amount of classes.
+The metaspace size depends on the complexity of your code, such as the number of classes.
 
 Direct memory size depends on your use of third party libraries like nio, gzip, and also depend on your throughput.
 
