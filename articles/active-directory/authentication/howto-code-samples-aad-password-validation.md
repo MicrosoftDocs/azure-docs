@@ -2,14 +2,14 @@
 title: Code Samples - Validate Passwords using Azure AD Password Requirements.
 description: Code samples to validate passwords using Azure AD password requirements .
 services: active-directory
-author: spetteway
+author: spetteway, ryschwa
 manager: vslopes
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 06/30/2022
-ms.author: spetteway
+ms.author: spetteway, ryshcwa
 ms.reviewer: 
 ---
 
