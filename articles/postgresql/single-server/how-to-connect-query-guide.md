@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.date: 09/21/2020
+ms.date: 06/24/2022
 ---
 
 # Connect and query overview for Azure database for PostgreSQL- Single Server

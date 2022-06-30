@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Purview data governance documentation
-summary: Learn how to use Microsoft Purview so your organization can find, understand, govern, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where you can discover available data sources and manage right use.
+summary: Learn how to use the Microsoft Purview governance portal so your organization can find, understand, govern, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where you can discover available data sources and manage right use.
 
 metadata:
   title: Microsoft Purview data governance documentation
@@ -20,7 +20,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Purview?
+          - text: Microsoft Purview data governance solutions
             url: overview.md
       - linkListType: concept
         links:
@@ -32,6 +32,8 @@ landingContent:
             url: catalog-permissions.md
           - text: Scan and ingest sources
             url: concept-scans-and-ingestion.md
+          - text: Share and receive data
+            url: concept-data-share.md
           - text: Data classification
             url: concept-classification.md
       - linkListType: learn
@@ -47,6 +49,8 @@ landingContent:
             url: create-catalog-portal.md
           - text: Create a Collection - Portal
             url: quickstart-create-collection.md
+          - text: Share and receive data - Portal
+            url: quickstart-data-share.md
       - linkListType: how-to-guide
         links:
           - text: Manage access and collections
@@ -117,6 +121,19 @@ landingContent:
           url: how-to-browse-catalog.md
         - text: Search for assets, terms, annotations, and contacts
           url: how-to-search-catalog.md
+  #Card
+  - title: Share data in Microsoft Purview
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Share data
+          url: how-to-share-data.md
+        - text: Receive shared data
+          url: how-to-receive-share.md
+        - text: Share data from Azure Storage
+          url: register-scan-azure-blob-storage-source.md#data-sharing
+        - text: Share data from ADLS Gen 2
+          url: register-scan-adls-gen2.md#data-sharing
   #Card
   - title: Scan non-Azure data sources
     linkLists:

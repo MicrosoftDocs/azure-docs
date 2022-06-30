@@ -66,7 +66,7 @@ In the first setup example, all your APIs are managed only from within your virt
 * **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case sensitive), and the TLS/SSL certificate name (if configuring TLS offload).
 * **Rule**: The rule binds a listener to a back-end server pool.
 * **Custom health probe**: Application Gateway, by default, uses IP address-based probes to figure out which servers in `BackendAddressPool` are active. API Management only responds to requests with the correct host header, so the default probes fail. You define a custom health probe to help the application gateway determine that the service is alive and should forward requests.
-* **Custom domain certificates**: To access API Management from the internet, create a CNAME mapping of its host name to the Application Gateway front-end DNS name. This mapping ensures that the host name header and certificate sent to Application Gateway and forwarded to API Management are ones that API Management recognizes as valid. In this example, we'll use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
+* **Custom domain certificates**: To access API Management from the internet, create DNS records to map its host names to the Application Gateway front-end IP address. This mapping ensures that the host name header and certificate sent to Application Gateway and forwarded to API Management are ones that API Management recognizes as valid. In this example, we'll use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
 
 ### Expose the developer portal and management endpoint externally through Application Gateway
 
@@ -428,17 +428,11 @@ To create an Application Gateway resource:
 
 Ensure that the health status of each back-end pool is Healthy. If you need to troubleshoot an unhealthy back end or a back end with unknown health status, see [Troubleshoot back-end health issues in Application Gateway](../application-gateway/application-gateway-backend-health-troubleshooting.md).
 
-## Create a CNAME record from the public DNS name
+## Create DNS records to access API Management endpoints from the internet
 
-After the gateway is created, configure the front end for communication. When you use a public IP address, Application Gateway requires a dynamically assigned DNS name, which might not be easy to use.
+After the gateway is created, configure communication to API Management from the internet. Create DNS A-records that map each of the API Management endpoint host names that you configured to the application gateway's static public IP address. In this article, example host names are `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.
 
-Use the application gateway's DNS name to create a CNAME record that points the API Management gateway host name (`api.contoso.net` in the preceding examples) to this DNS name. To configure the front-end IP CNAME record, retrieve the details of the application gateway and its associated IP/DNS name by using the `PublicIPAddress` element. Don't use A-records because the VIP might change when the gateway restarts.
-
-```powershell
-Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
-```
-
-For testing purposes, you might update the hosts file on your local machine with entries that map the application gateway's public IP address to each of the API Management endpoint host names that you configured. Examples are `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.
+For testing purposes, you might update the hosts file on your local machine with entries that map the application gateway's public IP address to the API Management endpoint host names.
 
 ## Summary
 
@@ -446,7 +440,7 @@ API Management configured in a virtual network provides a single gateway interfa
 
 ## Next steps
 
-* Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/private-webapp-with-app-gateway-and-apim).
+* Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-application-gateway).
 * Learn more about Application Gateway:
 
   * [Application Gateway overview](../application-gateway/overview.md)

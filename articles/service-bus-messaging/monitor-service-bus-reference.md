@@ -146,7 +146,7 @@ The following management operations are captured in operational logs:
 
 
 ## Runtime audit logs
-Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive messages) in Service Bus.  
+Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
 
 > [!NOTE] 
 > Runtime audit logs are currently available only in the **premium** tier.  

@@ -1,9 +1,12 @@
 ---
 title: Deploy container image from Azure Container Registry using a managed identity
 description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry using a managed identity.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
 services: container-instances
-ms.topic: article
-ms.date: 11/11/2021
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
