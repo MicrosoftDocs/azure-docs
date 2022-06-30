@@ -1,5 +1,5 @@
 ---
-title: How to create verifiable credentials for ID token hint
+title: Create verifiable credentials for ID token hint
 description: Learn how to use the QuickStart to create custom verifiable credential for ID token hint
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As a verifiable credentials Administrator, I want to create a verifiable credential for the ID token hint scenario 
 ---
 
-# How to create verifiable credentials for ID token hint
+# Create verifiable credentials for ID token hint
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
