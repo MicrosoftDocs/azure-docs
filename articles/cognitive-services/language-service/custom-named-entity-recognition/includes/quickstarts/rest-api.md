@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 06/07/2022
 ms.author: aahi
 ---
 
@@ -13,24 +13,36 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Trigger-import-project-job" target="_target">I ran into an issue</a>
+
 ## Create a new Azure Language resource and Azure storage account
 
 Before you can use custom NER, you’ll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You’ll also need an Azure storage account, where you can upload your dataset that will be used in building your model.
 
 > [!IMPORTANT]
-> To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the Language, and create and/or connect a storage account at the same time, which is easier than doing it later.
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the Language resource, and create and/or connect a storage account at the same time, which is easier than doing it later.
 >
 > If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [create project](../../how-to/create-project.md#using-a-pre-existing-language-resource)  for information.
 
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Create-new-resource" target="_target">I ran into an issue</a>
+
 ## Upload sample data to blob container
 
 [!INCLUDE [Uploading sample data for custom NER](blob-storage-upload.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Upload-sample-data-to-blob-container" target="_target">I ran into an issue</a>
+
 ### Get your resource keys and endpoint
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../get-keys-endpoint-azure.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-resource-keys-and-endpoint" target="_target">I ran into an issue</a>
 
 ## Create a custom NER project
 
@@ -42,9 +54,15 @@ Use the tags file you downloaded from the [sample data](https://github.com/Azure
 
 [!INCLUDE [Import a project using the REST API](../rest-api/import-project.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Trigger-import-project-job" target="_target">I ran into an issue</a>
+
 ### Get import job status
 
  [!INCLUDE [get import project status](../rest-api/get-import-status.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-import-job-status" target="_target">I ran into an issue</a>
 
 ## Train your model
 
@@ -56,23 +74,35 @@ After your project has been imported, you can start training your model.
 
 [!INCLUDE [train model](../rest-api/train-model.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Start-training-your-job" target="_target">I ran into an issue</a>
+
 ### Get training job status
 
 Training could take sometime between 10 and 30 minutes for this sample dataset. You can use the following request to keep polling the status of the training job until it is successfully completed.
 
 [!INCLUDE [get training model status](../rest-api/get-training-status.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-training-job-status" target="_target">I ran into an issue</a>
+
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 ### Start deployment job
 
 [!INCLUDE [deploy model](../rest-api/deploy-model.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Submit-deployment-job" target="_target">I ran into an issue</a>
+
 ### Get deployment job status
 
 [!INCLUDE [get deployment status](../rest-api/get-deployment-status.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-deployment-job-status" target="_target">I ran into an issue</a>
 
 ## Extract custom entities
 
@@ -82,10 +112,19 @@ After your model is deployed, you can start using it to extract entities from yo
 
 [!INCLUDE [submit a custom NER task using the REST API](../rest-api/submit-task.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Submit-custom-ner-task" target="_target">I ran into an issue</a>
+
 ### Get task results
 
 [!INCLUDE [get custom NER task results](../rest-api/get-results.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-task-results" target="_target">I ran into an issue</a>
+
 ## Clean up resources
 
 [!INCLUDE [Delete project using the REST API](../rest-api/delete-project.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>

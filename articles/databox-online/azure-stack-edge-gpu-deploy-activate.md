@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/14/2021
+ms.date: 05/31/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -31,7 +31,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
     
     - You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
     - You've configured the network and compute network settings as detailed in [Configure network, compute network, web proxy](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
-    - You have uploaded your own or generated the device certificates on your device if you changed the device name or the DNS domain via the **Device** page. If you haven't done this step, you will see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates](azure-stack-edge-gpu-deploy-configure-certificates.md).
+    - You've uploaded your own or generated the device certificates on your device if you changed the device name or the DNS domain via the **Device** page. If you haven't done this step, you'll see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates](azure-stack-edge-gpu-deploy-configure-certificates.md).
     
 * You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge Pro device. For more information, go to [Prepare to deploy Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md).
 
@@ -41,18 +41,18 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 1. In the local web UI of the device, go to **Get started** page.
 2. On the **Activation** tile, select **Activate**. 
 
-    ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-1.png)
+    ![Screenshot that shows the local web U I "Cloud details" page.](./media/azure-stack-edge-gpu-deploy-activate/activate-1.png)
     
 3. In the **Activate** pane, enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
 4. Select **Apply**.
 
-    ![Local web UI "Cloud details" page 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
+    ![Screenshot that shows the local web U I "Cloud details" page 2.](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
 
-5. First the device is activated. You are then prompted to download the key file.
+5. First the device is activated. You're then prompted to download the key file.
     
-    ![Local web UI "Cloud details" page 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![Screenshot that shows the local web U I "Cloud details" page 3.](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
     Select **Download and continue** and save the *device-serial-no.json* file in a safe location outside of the device. **This key file contains the recovery keys for the OS disk and data disks on your device**. These keys may be needed to facilitate a future system recovery.
 
@@ -77,13 +77,13 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
     |Field  |Description  |
     |---------|---------|
     |`Id`    | This is the ID for the device.        |
-    |`DataVolumeBitLockerExternalKeys`|These are the BitLockers keys for the data disks and are used to recover the local data on your device.|
+    |`DataVolumeBitLockerExternalKeys`|These are the BitLocker keys for the data disks and are used to recover the local data on your device.|
     |`SystemVolumeBitLockerRecoveryKey`| This is the BitLocker key for the system volume. This key helps with the recovery of the system configuration and system data for your device. |
-    |`ServiceEncryptionKey`| This key protects the data flowing through the Azure service. This key ensures that a compromise of the Azure service will not result in a compromise of stored information. |
+    |`ServiceEncryptionKey`| This key protects the data flowing through the Azure service. This key ensures that a compromise of the Azure service won't result in a compromise of stored information. |
 
 6. Go to the **Overview** page. The device state should show as **Activated**.
 
-    ![Local web UI "Cloud details" page 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
+    ![Screenshot that shows the local web U I "Cloud details" page 4.](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  
 The device activation is complete. You can now add shares on your device.
 
@@ -93,7 +93,7 @@ If you encounter any issues during activation, go to [Troubleshoot activation an
 
 ## Deploy workloads
 
-After you have activated the device, the next step is to deploy workloads.
+After you've activated the device, the next step is to deploy workloads.
 
 - To deploy VM workloads, see [What are VMs on Azure Stack Edge?](azure-stack-edge-gpu-virtual-machine-overview.md) and the associated VM deployment documentation.
 - To deploy network functions as managed applications:

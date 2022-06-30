@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Azure IoT water quality monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the water quality monitoring application template for IoT Central.
-author: miriambrus
-ms.author: miriamb
-ms.date: 12/23/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/15/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

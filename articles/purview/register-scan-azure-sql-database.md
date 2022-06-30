@@ -40,7 +40,7 @@ When setting up scan, you can further scope the scan after providing the databas
 
 * Microsoft Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.
 * Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
-* Stored procedures with dynamic SQL, running from remote data integration tools like Azure Data Factory is currently not supported
+* Stored procedures running remotely from data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.
 * Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency can't be changed.
 * If sql views are referenced in stored procedures, they're captured as sql tables currently.

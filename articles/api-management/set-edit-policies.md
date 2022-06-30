@@ -106,6 +106,9 @@ To configure a policy:
         </on-error>
     </policies>
     ```
+    > [!NOTE]
+    > Set a policy's elements and child elements in the order provided in the policy statement.
+
 1. Select **Save** to propagate changes to the API Management gateway immediately.
     
     The **ip-filter** policy now appears in the **Inbound processing** section.
@@ -187,7 +190,7 @@ If you configure policy definitions at more than one scope, multiple policies co
 In API Management, determine the policy evaluation order by placement of the `base` element in each section in the policy definition at each scope. The `base` element inherits the policies configured in that section at the next broader (parent) scope. The `base` element is included by default in each policy section.
 
 > [!NOTE]
-> To view the effective policies at the current scope, select **Recalculate effective policy** in the policy editor.
+> To view the effective policies at the current scope, select **Calculate effective policy** in the policy editor.
 
 To modify the policy evaluation order using the policy editor:
 

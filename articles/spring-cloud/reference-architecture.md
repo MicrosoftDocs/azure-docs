@@ -95,11 +95,11 @@ The following list describes the Azure services in this reference architecture:
 
 The following diagrams represent a well-architected hub and spoke design that addresses the above requirements:
 
-### [Azure Spring Standard tier](#tab/azure-spring-standard)
+### [Standard tier](#tab/azure-spring-standard)
 
 :::image type="content" source="media/reference-architecture/architecture-private-standard.png" alt-text="Diagram showing the reference architecture for private applications using Azure Spring Apps Standard tier." lightbox="media/reference-architecture/architecture-private-standard.png" border="false":::
 
-### [Azure Spring Enterprise tier](#tab/azure-spring-enterprise)
+### [Enterprise tier](#tab/azure-spring-enterprise)
 
 :::image type="content" source="media/reference-architecture/architecture-private-enterprise.png" alt-text="Diagram showing the reference architecture for private applications using Azure Spring Apps Enterprise tier." lightbox="media/reference-architecture/architecture-private-enterprise.png" border="false":::
 
@@ -157,11 +157,11 @@ The following list describes the Azure services in this reference architecture:
 
 The following diagrams represent a well-architected hub and spoke design that addresses the above requirements. Only the hub-virtual-network communicates with the internet:
 
-### [Azure Spring Standard tier](#tab/azure-spring-standard)
+### [Standard tier](#tab/azure-spring-standard)
 
 :::image type="content" source="media/reference-architecture/architecture-public-standard.png" alt-text="Diagram showing the reference architecture for public applications using Azure Spring Apps Standard tier." lightbox="media/reference-architecture/architecture-public-standard.png" border="false":::
 
-### [Azure Spring Enterprise tier](#tab/azure-spring-enterprise)
+### [Enterprise tier](#tab/azure-spring-enterprise)
 
 :::image type="content" source="media/reference-architecture/architecture-public-enterprise.png" alt-text="Diagram showing the reference architecture for public applications using Azure Spring Apps Enterprise tier." lightbox="media/reference-architecture/architecture-public-enterprise.png" border="false":::
 

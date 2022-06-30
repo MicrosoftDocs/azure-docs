@@ -4,6 +4,7 @@ description: "A detailed breakdown of autoscale settings and how they work. Appl
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 # Understand Autoscale settings
 Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure Autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time. This article takes a detailed look at the anatomy of an Autoscale setting. The article begins with the schema and properties of a setting, and then walks through the different profile types that can be configured. Finally, the article discusses how the Autoscale feature in Azure evaluates which profile to execute at any given time.

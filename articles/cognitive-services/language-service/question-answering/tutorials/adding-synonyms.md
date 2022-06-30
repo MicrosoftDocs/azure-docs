@@ -26,9 +26,9 @@ Let’s us add the following words and their alterations to improve the results:
 
 |Word | Alterations|
 |--------------|--------------------------------|
-| fix problems | `troubleshoot`, `trouble-shoot`|
-| whiteboard   | `white-board`, `white board`   |
-| bluetooth    | `blue-tooth`, `blue tooth`     |
+| fix problems | `troubleshoot`, `diagnostic`|
+| whiteboard   | `white board`, `white canvas`   |
+| bluetooth    | `blue tooth`, `BT`     |
 
 ```json
 {
@@ -37,21 +37,21 @@ Let’s us add the following words and their alterations to improve the results:
             "alterations": [
                 "fix problems",
                 "troubleshoot",
-                "trouble-shoot",
+                "diagnostic",
                 ]
         },
         {
             "alterations": [
                 "whiteboard",
-                "white-board",
-                "white board"
+                "white board",
+                "white canvas"
             ]
         },
         {
             "alterations": [
                 "bluetooth",
-                "blue-tooth",
-                "blue tooth"
+                "blue tooth",
+                "BT"
             ]
         }
     ]
@@ -79,6 +79,8 @@ As you can see, when `troubleshoot` was not added as a synonym, we got a low con
 
 ## Notes
 * Synonyms can be added in any order. The ordering is not considered in any computational logic.
+* Synonyms can only be added to a project that has at least one question and answer pair.
+* Synonyms can be added only when there is at least one question and answer pair present in a knowledge base.
 * In case of overlapping synonym words between 2 sets of alterations, it may have unexpected results and it is not recommended to use overlapping sets.
 * Special characters are not allowed for synonyms. For hyphenated words like "COVID-19", they are treated the same as "COVID 19", and "space" can be used as a term separator. Following is the list of special characters **not allowed**:
 

@@ -2,7 +2,7 @@
 title: Security posture management improvements in Microsoft Defender for Cloud
 description: Learn how to manage your security posture with Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 06/01/2022
 ---
 
 # Security posture management improvements in Microsoft Defender for Cloud
@@ -11,7 +11,7 @@ ms.date: 05/25/2022
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=845108fd-e57d-40e0-808a-1239e78a7390" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=845108fd-e57d-40e0-808a-1239e78a7390" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [1:24](/shows/mdc-in-the-field/defender-for-containers#time=01m24s) - Security recommendation refresh time changes
 

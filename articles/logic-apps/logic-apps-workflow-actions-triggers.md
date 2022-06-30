@@ -1900,7 +1900,6 @@ The Logic Apps engine checks access to the trigger you want to call, so make sur
 | <*trigger-name*> | String | The name for the trigger in the nested logic app you want to call | 
 | <*Azure-subscription-ID*> | String | The Azure subscription ID for the nested logic app |
 | <*Azure-resource-group*> | String | The Azure resource group name for the nested logic app |
-| <*nested-logic-app-name*> | String | The name for the logic app you want to call |
 ||||
 
 *Optional*

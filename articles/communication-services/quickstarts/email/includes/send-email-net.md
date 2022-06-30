@@ -62,6 +62,7 @@ using System.Threading.Tasks;
 
 using Azure;
 using Azure.Communication.Email;
+using Azure.Communication.Email.Models;
 
 namespace SendEmail
 {
@@ -117,7 +118,7 @@ Replace with your domain details and modify the content, recipient details as re
 //Replace with your domain and modify the content, recipient details as required
 
 EmailContent emailContent = new EmailContent("Welcome to Azure Communication Service Email APIs.");
-emailContent.PlainText = "This email meessage is sent from Azure Communication Service Email using .NET SDK.";
+emailContent.PlainText = "This email message is sent from Azure Communication Service Email using .NET SDK.";
 List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@contoso.com") { DisplayName = "Friendly Display Name" }};
 EmailRecipients emailRecipients = new EmailRecipients(emailAddresses);
 EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);

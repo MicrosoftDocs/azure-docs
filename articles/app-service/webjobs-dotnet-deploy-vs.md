@@ -51,7 +51,7 @@ Deploy a project as a WebJob by itself, or link it to a web project so that it a
 
 ### Prerequisites
 
-Install Visual Studio 2017 or Visual Studio 2019 with the [Azure development workload](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Install Visual Studio 2022 with the [Azure development workload](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Enable WebJobs deployment for an existing console app project
 
@@ -228,7 +228,7 @@ If you enable **Always on** in Azure, you can use Visual Studio to change the We
 
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
-1. In the **Publish** tab, choose **Edit**. 
+1. In the **Settings** section, choose **Show all settings**. 
 
 1. In the **Profile settings** dialog box, choose **Continuous** for **WebJob Type**, and then choose **Save**.
 

@@ -1,6 +1,5 @@
 ---
-title: Single sign-on (MSAL.js) | Azure
-titleSuffix: Microsoft identity platform
+title: Single sign-on (MSAL.js)
 description: Learn about building single sign-on experiences using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
 author: mmacy

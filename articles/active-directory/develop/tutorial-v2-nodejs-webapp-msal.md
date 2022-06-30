@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Sign in users in a Node.js & Express web app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Sign in users in a Node.js & Express web app"
 description: In this tutorial, you add support for signing-in users in a web app.
 services: active-directory
 author: mmacy
@@ -101,7 +100,7 @@ The web app sample in this tutorial uses the [express-session](https://www.npmjs
 
 ## Add app registration details
 
-1. Create an *.env* file in the root of your project folder. Then add the following code:
+1. Create a *.env* file in the root of your project folder. Then add the following code:
 
 :::code language="text" source="~/ms-identity-node/App/.env":::
 
@@ -131,6 +130,8 @@ Fill in these details with the values you obtain from Azure app registration por
 
 ## Add code for user login and token acquisition
 
+1. Create a new file named *auth.js* under the *router* folder and add the following code there:
+
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js":::
 
 2. Next, update the *index.js* route by replacing the existing code with the following:
@@ -143,7 +144,7 @@ Fill in these details with the values you obtain from Azure app registration por
 
 ## Add code for calling the Microsoft Graph API
 
-Create a file named **fetch.js** in the root of your project and add the following code:
+Create a file named *fetch.js* in the root of your project and add the following code:
 
 :::code language="js" source="~/ms-identity-node/App/fetch.js":::
 

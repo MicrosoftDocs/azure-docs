@@ -37,9 +37,6 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 * Or, you may enter the job creation from the left pane. Click **+New** and select **Job**. 
 [![Azure Machine Learning studio left navigation](media/how-to-train-with-ui/left-nav-entry.png)](media/how-to-train-with-ui/left-nav-entry.png)
 
-* Or, if you're in the Experiment page, you may go to the **All runs** tab and click **Create job**. 
-[![Experiment page entry for job creation UI](media/how-to-train-with-ui/experiment-entry.png)](media/how-to-train-with-ui/experiment-entry.png)
-
 These options will all take you to the job creation panel, which has a wizard for configuring and creating a training job. 
 
 ## Select compute resources

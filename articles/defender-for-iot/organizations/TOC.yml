@@ -93,6 +93,8 @@
       href: how-to-analyze-programming-details-changes.md
   - name: Integrate with OT security partners
     items:
+    - name: Overview
+      href: integrate-overview.md
     - name: Integrate ClearPass
       href: tutorial-clearpass.md
     - name: Integrate CyberArk
@@ -199,7 +201,7 @@
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Virtual appliances
       items:
-      - name: OT sensor (VMWare ESXi)
+      - name: OT sensor (VMWare ESXi) 
         href: appliance-catalog/virtual-sensor-vmware.md
       - name: OT sensor (Hyper-V)
         href: appliance-catalog/virtual-sensor-hyper-v.md

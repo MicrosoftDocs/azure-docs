@@ -2,7 +2,7 @@
 title: Threat landscape for Defender for Containers
 description: Learn about the new detections that are available for different attacks and how Defender for Containers can help to quickly identify malicious activities in containers.
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 06/01/2022
 ---
 
 # Threat landscape for Defender for Containers
@@ -11,7 +11,7 @@ ms.date: 05/25/2022
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=646c2b9a-3f15-4705-af23-7802bd9549c5" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=646c2b9a-3f15-4705-af23-7802bd9549c5" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [01:15](/shows/mdc-in-the-field/threat-landscape-containers#time=01m15s) - The evolution of attacks against Kubernetes
 
