@@ -62,6 +62,11 @@ The table below shows the supported capabilities for each data source. Select th
 > [!NOTE]
 > Currently, the Microsoft Purview Data Map can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan).
 
+> [!IMPORTANT]
+> If you plan on using a self-hosted integration runtime, scanning some data sources requires additional setup on the self-hosted integration runtime machine. For example, JDK, Visual C++ Redistributable, or specific driver. 
+> For your source, **[refer to each source article for prerequisite details.](azure-purview-connector-overview.md)**
+> Any requirements will be listed in the **Prerequisites** section.
+
 ## Scan regions
 The following is a list of all the Azure data source (data center) regions where the Microsoft Purview Data Map scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Microsoft Purview instance.
 
@@ -102,7 +107,8 @@ The following file types are supported for scanning, for schema extraction, and 
  > * The scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
  > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
  > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
- > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. 
+ > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. \
+ > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - The Microsoft Purview Data Map also supports custom file extensions and custom parsers.
 
