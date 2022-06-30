@@ -19,7 +19,7 @@ Visual Studio Code comes with several Bicep commands.
 
 Open or create a Bicep file in VS Code, select the **View** menu and then select **Command Palette**. You can also use the key combination **[CTRL]+[SHIFT]+P** to bring up the command palette. Type **Bicep** to list the Bicep commands.
 
-:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-commands.png" alt-text="Visual Studio Code Bicep commands in the command palette":::
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-commands.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the command palette.":::
 
 These commands include:
 
@@ -34,7 +34,7 @@ These commands include:
 
 These commands are also shown in the context menu when you right-click a Bicep file:
 
-:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu.png" alt-text="Visual Studio Code Bicep commands in the context menu":::
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu.":::
 
 ## Build Bicep file
 
