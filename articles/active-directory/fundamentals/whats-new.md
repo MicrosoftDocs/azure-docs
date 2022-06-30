@@ -57,7 +57,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management  
  
-Customers can be alerted on assignments made outside PIM either directly on the Azure Portal or also via email. For the current public preview, the assignments are being tracked at the subscription level. For more information, see [Configure security alerts for Azure roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-alerts.md#alerts).
+Customers can be alerted on assignments made outside PIM either directly on the Azure portal or also via email. For the current public preview, the assignments are being tracked at the subscription level. For more information, see [Configure security alerts for Azure roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-alerts.md#alerts).
  
 ---
 
