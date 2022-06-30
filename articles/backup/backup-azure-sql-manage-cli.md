@@ -90,13 +90,13 @@ Example:
 az backup policy create --resource-group SQLResourceGroup --vault-name SQLVault --name SQLPolicy --backup-management-type AzureWorkload --policy SQLPolicy.json --workload-type SQLDataBase
 ```
 
-Sample JSON (sappolicy.json):
+Sample JSON (sqlpolicy.json):
 
 ```json
   "eTag": null,
   "id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SQLResourceGroup/providers/Microsoft.RecoveryServices/vaults/SQLVault/backupPolicies/SQLPolicy",
   "location": null,
-  "name": "sappolicy",
+  "name": "sqlpolicy",
   "properties": {
     "backupManagementType": "AzureWorkload",
     "workLoadType": "SQLDataBase",
@@ -302,7 +302,7 @@ az backup protectable-item initialize --resource-group SQLResourceGroup \
     --workload-type SQLDataBase
 ```
 
-Then use the [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SQL database](backup-azure-sql-backup-cli.md#enable-backup-on-the-sql-database).
+Then use the [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SQL instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SQL database](backup-azure-sql-backup-cli.md#enable-backup-on-the-sql-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group SQLResourceGroup \

@@ -12,7 +12,7 @@ ms.author: v-amallick
 
 Azure CLI is used to create and manage Azure resources from the command line or through scripts. This article describes how to restore a backed-up SQL database on an Azure VM using Azure CLI. You can also perform these actions using the [Azure portal](restore-sql-database-azure-vm.md).
 
-Use [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) to run CLI commands.
+Use [Azure Cloud Shell](../cloud-shell/overview.md) to run CLI commands.
 
 In this article, you'll learn how to:
 
@@ -181,8 +181,8 @@ The response to the above query is a recovery config object that appears as:
 Now, to restore the database, run the [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) command. To use this command, enter the above json output that's saved to a file named *recoveryconfig.json*.
 
 ```azurecli-interactive
-az backup restore restore-azurewl --resource-group saphanaResourceGroup \
-    --vault-name saphanaVault \
+az backup restore restore-azurewl --resource-group sqlResourceGroup \
+    --vault-name sqlVault \
     --recovery-config recoveryconfig.json \
     --output table
 ```
@@ -261,12 +261,12 @@ Name                                  Operation           Status      Item Name 
 
 To restore the backup data as files instead of a database, use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can be a previous point-in-time or any of the previous restore points. Once the files are dumped to a specified path, you can take these files to any SQL machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
 
-Here, choose the previous point-in-time `28-11-2019-09:53:00` to restore to, and the location to dump backup files as `/home/saphana/restoreasfiles` on the same SQL server. You can provide this restore point in one of the following formats: **dd-mm-yyyy** or **dd-mm-yyyy-hh:mm:ss**. To choose a valid point-in-time to restore to, use the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) command, which lists the intervals of unbroken log chain backups.
+Here, choose the previous point-in-time `28-11-2019-09:53:00` to restore to, and the location to dump backup files as `/home/sql/restoreasfiles` on the same SQL server. You can provide this restore point in one of the following formats: **dd-mm-yyyy** or **dd-mm-yyyy-hh:mm:ss**. To choose a valid point-in-time to restore to, use the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) command, which lists the intervals of unbroken log chain backups.
 
 With the above restore point name and the restore mode, create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) command. Check each of the remaining parameters in this command:
 
 * **--target-container-name**: The name of a SQL server that's successfully registered to a Recovery Services vault and present in the same region as per the database to be restored. Let's restore the database as files to the same SQL server that you've protected, named *hxehost*.
-* **--rp-name**: For a point-in-time restore the restore point name is **DefaultRangeRecoveryPoint**.
+* **--rp-name**: For a point-in-time restore, the restore point name is **DefaultRangeRecoveryPoint**.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group SQLResourceGroup \
