@@ -80,10 +80,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
-
-
-    :::image type="content" source="./media/folder-name/file-name-inline.png" alt-text="Screentshot/Diagram of xxxxx." border="false" lightbox="./media/folder-name/file-name-expanded.png":::
-
     
         ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
@@ -164,7 +160,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 5. For the **HTTP setting**, select **Add new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add a HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add a HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Create new application gateway: HTTP setting":::
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Screenshot of Adding H T T P setting from the configuration tab of Create new Application Gateway":::
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
@@ -242,7 +238,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 4. Under **Target type**, select **Virtual machine** from the drop-down list.
 
-5. Under **Target**, select the the network interface under **myVM** from the drop-down list.
+5. Under **Target**, select the network interface under **myVM** from the drop-down list.
 
 6. Repeat to add the network interface for **myVM2**.
 
