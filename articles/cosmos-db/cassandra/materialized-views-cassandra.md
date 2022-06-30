@@ -30,13 +30,15 @@ With Materialized view, you can
 
 ## Main benefits
 
-• With Materialized View (Server side denormalization), you can avoid multiple independent tables and client side denormalization. 
-• Materialized view feature takes on the responsibility of updating views in order to keep them consistent with the base table. With this feature, you can avoid dual writes to the base table and the view.
-• Materialized Views helps optimize read performance
-• Ability to specify throughput for the materialized view independently
-• Based on the requirements to hydrate the view, you can configure the MV builder layer appropriately.
-• Speeding up write operations as it only needs to be written to the base table.
-•	Additionally, This implementation on Cosmos DB is based on a pull model, which doesn't affect the writer performance.
+- With Materialized View (Server side denormalization), you can avoid multiple independent tables and client side denormalization. 
+- Materialized view feature takes on the responsibility of updating views in order to keep them consistent with the base table. With this feature, you can avoid dual writes to the base table and the view.
+- Materialized Views helps optimize read performance
+- Ability to specify throughput for the materialized view independently
+- Based on the requirements to hydrate the view, you can configure the MV builder layer appropriately.
+- Speeding up write operations as it only needs to be written to the base table.
+- Additionally, This implementation on Cosmos DB is based on a pull model, which doesn't affect the writer performance.
+
+
 
 ## How to get started
 
@@ -179,13 +181,13 @@ Azure Cosmos DB Cassandra API uses a MV builder compute layer to maintain Materi
 ## Frequently asked questions (FAQs) …
 
 
-### What transformations/actions are supported
+### What transformations/actions are supported?
 
 1. Specifying a partition key that is different from base table partition key.
 2. Support for projecting selected subset of columns from base table.
 3. Determine if row from base table can be part of materialized view based on conditions evaluated on primary key columns of base table row. Filters supported - equalities, inequalities, contains. (Planned for GA)
 
-### What consistency levels will be supported
+### What consistency levels will be supported?
 
 Data in materialized view is eventually consistent. User might read stale rows when compared to data on base table due to redo of some operations on MVs. This behavior is acceptable since we guarantee only eventual consistency on the MV. Customers can configure (scale up and scale down) the MV builder layer depending on the latency requirement for the view to be consistent with base table.
 
@@ -246,7 +248,7 @@ No. Materialized Views can't be created on a table that existed before the accou
 ### What are the conditions on which records won't make it to MV and how to identify such records?
 
 Below are some of the identified cases where data from base table can't be written to MV as they violate some constraints on MV table-
-1. Rows that don’t satisfy partition key size limit in the materialized views.
-2. Rows that don't satisfy clustering key size limit in materialized views.
+1. Rows that don’t satisfy partition key size limit in the materialized views
+2. Rows that don't satisfy clustering key size limit in materialized views
        
 Currently we drop these rows but plan to expose details related to dropped rows in future so that the user can reconcile the missing data.
