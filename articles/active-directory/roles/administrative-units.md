@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 06/23/2022
+ms.date: 06/30/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -33,6 +33,31 @@ A central administrator could:
 - Add the business school IT team to the role, along with its scope.
 
 ![Screenshot of Devices and Administrative units page with Remove from administrative unit option.](./media/administrative-units/admin-unit-overview.png)
+
+## Constraints
+
+Here are some of the constraints for administrative units.
+
+- Administrative units can't be nested.
+- Administrative unit-scoped user account administrators can't create or delete users.
+- A scoped role assignment doesn't apply to members of groups added to an administrative unit, unless the group members are directly added to the administrative unit. For more information, see [Add members to an administrative unit](admin-units-members-add.md).
+- Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
+
+## Groups
+
+Adding a group to an administrative unit brings the group itself into the management scope of any group administrator who is also scoped to that administrative unit. Group administrators include the [Groups Administrator](permissions-reference.md#groups-administrator) or [User Administrator](permissions-reference.md#user-administrator) roles.
+
+For example, group administrators scoped to an administrative unit that has a group can and can't do the following:
+
+| Permissions | Can do |
+| --- | --- |
+| Manage the name of the group | :heavy_check_mark: |
+| Manage the membership of the group | :heavy_check_mark: |
+| Manage the user properties for individual members of the group | :x: |
+| Manage the user authentication methods of individual members of the group | :x: |
+| Reset the passwords of individual members of the group | :x: |
+
+To manage the user properties or user authentication methods of individual members of a group that is added to an administrative unit, the individual group members must be added directly as users of the administrative unit, and the group administrator must also be assigned a role that can manage user properties or user authentication methods.
 
 ## License requirements
 
@@ -106,9 +131,6 @@ The following sections describe current support for administrative unit scenario
 | Administrative unit-scoped management of group properties and membership | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of group licensing | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
-> [!NOTE]
-> Adding a group to an administrative unit does not grant scoped group administrators the ability to manage properties for individual members of that group. For example, a scoped group administrator can manage group membership, but they can't manage authentication methods of users who are members of the group added to an administrative unit. To manage authentication methods of users who are members of the group that is added to an administrative unit, the individual group members must be directly added as users of the administrative unit, and the group administrator must also be assigned a role that can manage user authentication methods.
-
 ### Device management
 
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
@@ -117,15 +139,6 @@ The following sections describe current support for administrative unit scenario
 | Read Bitlocker recovery keys | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 Managing devices in Intune is *not* supported at this time.
-
-## Constraints
-
-Here are some of the constraints for administrative units.
-
-- Administrative units can't be nested.
-- Administrative unit-scoped user account administrators can't create or delete users.
-- A scoped role assignment doesn't apply to members of groups added to an administrative unit, unless the group members are directly added to the administrative unit. For more information, see [Add members to an administrative unit](admin-units-members-add.md).
-- Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
 
 ## Next steps
 
