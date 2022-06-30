@@ -215,7 +215,7 @@ To access raw traffic files for your alert, known as packet capture files or PCA
 
 For example:
 
-:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button" lightbox="media/release-notes/pcap-request.png":::
+:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button." lightbox="media/release-notes/pcap-request.png":::
 
 The portal requests the file from the sensor that detected the alert and downloads it to your Azure storage.
 
