@@ -71,7 +71,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. With test drive, you must also configure your offer to a CRM system for customer leads (see next section). To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
