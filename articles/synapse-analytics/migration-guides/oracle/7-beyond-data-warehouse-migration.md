@@ -82,7 +82,7 @@ For ELT strategies, consider offloading ELT processing to Data Lake Storage to e
 
 You can use these features without writing any code, or you can add custom code to Data Factory pipelines. The following screenshot shows an example Data Factory pipeline.
 
-:::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline.png" border="true" alt-text="Screenshot of an example of a Data Factory pipeline.":::
+:::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline.png" border="true" alt-text="Screenshot of an example of a Data Factory pipeline." lightbox="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline-lrg.png":::
 
 >[!TIP]
 >Data Factory lets you to build scalable data integration pipelines without code.
@@ -174,7 +174,7 @@ At run time, Data Factory internally uses Azure Synapse Spark pools, which are M
 
 Data wrangling lets business users, also known as citizen data integrators and data engineers, make use of the platform to visually discover, explore, and prepare data at scale without writing code. This Data Factory capability is easy to use and is similar to Microsoft Excel Power Query or Microsoft Power BI dataflows, where self-service business users use a spreadsheet-style UI with drop-down transforms to prepare and integrate data. The following screenshot shows an example Data Factory wrangling data flow.
 
-:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows.png" border="true" alt-text="Screenshot of an example of Data Factory wrangling dataflows.":::
+:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows.png" border="true" alt-text="Screenshot of an example of Data Factory wrangling dataflows." lightbox="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows-lrg.png":::
 
 Unlike Excel and Power BI, Data Factory [wrangling data flows](../../../data-factory/wrangling-tutorial.md) use Power Query to generate M code and then translate it into a massively parallel in-memory Spark job for cloud-scale execution. The combination of mapping data flows and wrangling data flows in Data Factory lets professional ETL developers and business users collaborate to prepare, integrate, and analyze data for a common business purpose. The preceding Data Factory mapping data flows diagram shows how both Data Factory and Azure Synapse Spark pool notebooks can be combined in the same Data Factory pipeline. The combination of mapping and wrangling data flows in Data Factory helps IT and business users stay aware of what data flows each has created, and supports data flow reuse to minimize reinvention and maximize productivity and consistency.
 
@@ -234,7 +234,7 @@ Data scientists can use RStudio (R) and Jupyter Notebooks (Python) to develop an
 
 Azure Machine Learning studio is a fully managed cloud service that lets you build, deploy, and share predictive analytics using a drag-and-drop, web-based UI. The following screenshot shows the Azure Machine Learning studio UI.
 
-:::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-ml-studio-ui.png" border="true" alt-text="Screenshot showing predictive analysis in the Azure Machine Learning studio UI.":::
+:::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-ml-studio-ui.png" border="true" alt-text="Screenshot showing predictive analysis in the Azure Machine Learning studio UI." lightbox="../media/7-beyond-data-warehouse-migration/azure-ml-studio-ui-lrg.png":::
 
 #### Azure Machine Learning
 
