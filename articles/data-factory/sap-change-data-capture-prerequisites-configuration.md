@@ -12,7 +12,7 @@ ms.author: sawinark
 
 # SAP change data capture (CDC) solution prerequisites and configuration in Azure Data Factory (Preview)
 
-[!INCLUDEappliesto-adf-asa-md]
+[!INCLUDE appliesto-adf-asa-md]
 
 This topic introduces and describes the prerequisites and configuration of SAP change data capture (Preview) in Azure Data Factory.
 
@@ -20,17 +20,17 @@ This topic introduces and describes the prerequisites and configuration of SAP c
 
 To preview our new SAP CDC solution in ADF you can/should:
 
-1. Configure SAP systems for Operational Data Provisioning (ODP) framework
-1. Be already familiar w/ ADF concepts, such as integration runtimes, linked services, datasets, activities, data flows, pipelines, templates, and triggers
-1. Prepare SHIR w/ SAP ODP connector
-1. Prepare SAP ODP linked service
-1. Prepare ADF copy activity w/ SAP ODP source dataset
-1. Debug ADF copy activity issues by sending SHIR logs
-1. Auto-generate ADF pipeline from SAP data partitioning template
-1. Auto-generate ADF pipeline from SAP data replication template
-1. Run SAP data replication pipeline frequently
-1. Recover a failed SAP data replication pipeline run
-1. Monitor data extractions on SAP systems
+- Configure SAP systems for Operational Data Provisioning (ODP) framework
+- Be already familiar w/ ADF concepts, such as integration runtimes, linked services, datasets, activities, data flows, pipelines, templates, and triggers
+- Prepare SHIR w/ SAP ODP connector
+- Prepare SAP ODP linked service
+- Prepare ADF copy activity w/ SAP ODP source dataset
+- Debug ADF copy activity issues by sending SHIR logs
+- Auto-generate ADF pipeline from SAP data partitioning template
+- Auto-generate ADF pipeline from SAP data replication template
+- Run SAP data replication pipeline frequently
+- Recover a failed SAP data replication pipeline run
+- Monitor data extractions on SAP systems
 
 ## Configure SAP systems for ODP framework
 
@@ -72,7 +72,7 @@ SLT is a database trigger-enabled CDC solution that can replicate SAP applicatio
       - Select Operational Data Provisioning (ODP) in the Scenario for RFC Communication dropdown menu.
       - For the Queue Alias property, enter your queue alias that can be used to select the context of your data extractions via ODP in ADF as SLT~<_your queue alias_>.
 
-:::image type="content" source="media/sap-cdc-solution/sap-cdc-slt-configurations.png" alt-text="Shows a screenshot of the SAP SLT configuration dialog."::: 
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-slt-configurations.png" alt-text="Screenshot of the SAP SLT configuration dialog."::: 
 
 For more info on SLT configurations, see [Replicating Data to SAP Business Warehouse](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/969cf5258b964a5ba56380da648ac84e/737e69568fb4c359e10000000a441470.html).
 
@@ -91,4 +91,4 @@ To validate your SAP system configurations for ODP, you can run RODPS_REPL_TEST 
 
 ## Next steps
 
-[Prepare the SHIR with the SAP ODP connector](sap-cdc-solution-shir-preparation.md).
+[Prepare the SHIR with the SAP ODP connector](sap-change-data-capture-shir-preparation.md).

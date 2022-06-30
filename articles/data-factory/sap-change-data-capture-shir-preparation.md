@@ -1,7 +1,7 @@
 ---
 title: SAP change data capture solution (Preview) - SHIR preparation
 titleSuffix: Azure Data Factory
-description: This topic introduces and describes preparation of the self-hosted integration runtime (SHIR) for SAP change data capture (Preview) in Azure Data Factory.
+description: This article introduces and describes preparation of the self-hosted integration runtime (SHIR) for SAP change data capture (Preview) in Azure Data Factory.
 author: swinarko
 ms.service: data-factory
 ms.subservice: data-movement
@@ -12,15 +12,15 @@ ms.author: sawinark
 
 # Self-hosted integration runtime (SHIR) preparation for the SAP change data capture (CDC) solution in Azure Data Factory (Preview)
 
-[!INCLUDEappliesto-adf-asa-md]
+[!INCLUDE appliesto-adf-asa-md]
 
-This topic introduces and describes preparation of the self-hosted integration runtime (SHIR) for SAP change data capture (Preview) in Azure Data Factory.
+This article introduces and describes preparation of the self-hosted integration runtime (SHIR) for SAP change data capture (Preview) in Azure Data Factory.
 
 To prepare SHIR w/ SAP ODP connector, complete the following steps:
 
 ## Create and configure SHIR
 
-On ADF Studio, create and configure SHIR, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory). You can download our latest private SHIR version w/ improved performance and detailed error messages from [SHIR installation download](https://www.microsoft.com/en-us/download/details.aspx?id=39717) and install it on your on-premises/virtual machine.
+On ADF Studio, create and configure SHIR, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory). You can download our latest private SHIR version w/ improved performance and detailed error messages from [SHIR installation download](https://www.microsoft.com/download/details.aspx?id=39717) and install it on your on-premises/virtual machine.
 
 The more CPU cores you have on your SHIR machine, the higher your data extraction throughput.  For example, our internal test achieved +12 MB/s throughput from running parallel extractions on SHIR machine w/ 16 CPU cores.
 
@@ -28,19 +28,19 @@ The more CPU cores you have on your SHIR machine, the higher your data extractio
 
 Download the latest [64-bit SAP .NET Connector (SAP NCo 3.0)](https://support.sap.com/en/product/connectors/msnet.html) and install it on your SHIR machine.  During installation, select the **Install Assemblies to GAC** option in the **Optional setup steps** window. 
 
-:::image type="content" source="media/sap-cdc-solution/sap-cdc-net-connector-installation.png" alt-text="Shows a screenshot of the SAP .Net Connector 3.0 installation dialog.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-net-connector-installation.png" alt-text="Screenshot of the SAP .NET Connector 3.0 installation dialog.":::
  
 ## Add required network security rule on your SAP systems
 
 Add a network security rule on your SAP systems, so SHIR machine can connect to them.  If your SAP system is on Azure virtual machine (VM), add the rule by setting the **Source IP addresses/CIDR ranges** property to your SHIR machine IP address and the **Destination port ranges** property to 3200,3300.  For example:
 
-:::image type="content" source="media/sap-cdc-solution/sap-cdc-add-network-security-rule.png" alt-text="Shows a screenshot of the Azure portal networking configuration to add network security rules for your SHIR to connect to your SAP systems.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-add-network-security-rule.png" alt-text="Screenshot of the Azure portal networking configuration to add network security rules for your SHIR to connect to your SAP systems.":::
  
 ## Run PowerShell cmdlet allowing your SHIR to connect to your SAP systems
 
 On your SHIR machine, run the following PowerShell cmdlet to ensure that it can connect to your SAP systems: Test-NetConnection _&lt;SAP system IP address&gt;_ -port 3300 
 
-:::image type="content" source="media/sap-cdc-solution/sap-cdc-powershell-test-connection.png" alt-text="Shows a screenshot of the PowerShell cmdlet to test the connection to your SAP systems.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-powershell-test-connection.png" alt-text="Screenshot of the PowerShell cmdlet to test the connection to your SAP systems.":::
 
 ## Edit hosts file on SHIR machine to add SAP IP addresses to server names
 
@@ -57,4 +57,4 @@ On your SHIR machine, edit _C:\Windows\System32\drivers\etc\hosts_ to add mappin
 
 ## Next steps
 
-[Prepare the SAP ODP linked service and source dataset](sap-cdc-solution-prepare-linked-service-source-dataset.md).
+[Prepare the SAP ODP linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md).

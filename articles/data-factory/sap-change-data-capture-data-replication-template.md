@@ -12,7 +12,7 @@ ms.author: sawinark
 
 # Auto-generate a pipeline from the SAP data replication template
 
-[!INCLUDEappliesto-adf-asa-md]
+[!INCLUDE appliesto-adf-asa-md]
 
 This topic describes how to use the SAP data replication template for SAP change data capture (Preview) in Azure Data Factory.
 
@@ -22,13 +22,13 @@ This topic describes how to use the SAP data replication template for SAP change
 
 1.	Select SAP data replication template.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-data-replication-template.png" alt-text="Shows a screenshot of the template gallery with the SAP data replication template highlighted.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-data-replication-template.png" alt-text="Screenshot of the template gallery with the SAP data replication template highlighted.":::
 
 1.	Create SAP CDC, ADLS Gen2, and Azure Synapse Analytics linked services, if you haven’t done so already, and use them as inputs to SAP data replication template.  
 
     For the **Connect via integration runtime** property of the SAP ODP linked service, select your SHIR.  For the **Connect via integration runtime** property of ADLS Gen2/Azure Synapse Analytics linked services, select _AutoResolveIntegrationRuntime_.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-data-replication-template-configuration.png" alt-text="Shows a screenshot of the configuration page for the SAP data replication template.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-data-replication-template-configuration.png" alt-text="Screenshot of the configuration page for the SAP data replication template.":::
 
 1.	Select the **Use this template** button to auto-generate an SAP data replication pipeline that contains Azure Data Factory copy and dataflow activities.
 
@@ -38,7 +38,7 @@ This topic describes how to use the SAP data replication template for SAP change
 
     To ensure high throughput, locate your SAP system, SHIR, ADLS Gen2, Azure IR, and Azure Synapse Analytics in the same region.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-data-replication-architecture.png" alt-text="Shows a diagram of the architecture of the SAP data replication scenario.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-data-replication-architecture.png" alt-text="Shows a diagram of the architecture of the SAP data replication scenario.":::
 
 1.	Assign your SAP data extraction context, data source object, key column, and subscriber process names, as well as Synapse SQL schema and table names as run-time parameter values for SAP data replication pipeline.
 
@@ -46,7 +46,7 @@ This topic describes how to use the SAP data replication template for SAP change
 
     For the **subscriberProcess** parameter, enter a unique name for the Subscriber process property of ADF copy activity.  For example, you can name it _&lt;your pipeline name&gt;\_&lt;your copy activity name&gt;_.  You can rename it to start a new ODQ subscription in SAP systems.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-data-replication-pipeline-parameters.png" alt-text="Shows a screenshot of the SAP data replication pipeline with the parameters section highlighted.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-data-replication-pipeline-parameters.png" alt-text="Screenshot of the SAP data replication pipeline with the parameters section highlighted.":::
 
 1.	Select the **Save all** button and you can now run SAP data replication pipeline.
 
@@ -60,4 +60,4 @@ This topic describes how to use the SAP data replication template for SAP change
 
 ## Next steps
 
-[Managing your SAP change data capture solution](sap-cdc-management.md).
+[Managing your SAP change data capture solution](sap-change-data-capture-management.md).

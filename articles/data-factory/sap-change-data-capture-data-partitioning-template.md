@@ -12,7 +12,7 @@ ms.author: sawinark
 
 # Auto-generate a pipeline from the SAP data partitioning template
 
-[!INCLUDEappliesto-adf-asa-md]
+[!INCLUDE appliesto-adf-asa-md]
 
 This topic introduces and describes auto-generation of a pipeline with the SAP data partitioning template for SAP change data capture (Preview) in Azure Data Factory.
 
@@ -22,17 +22,17 @@ To auto-generate ADF pipeline from SAP data partitioning template, complete the 
 
 1.	Create a new pipeline from template.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-pipeline-from-template.png" alt-text="Shows a screenshot of the Azure Data Factory resources tab with the Pipeline from template menu highlighted.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-pipeline-from-template.png" alt-text="Screenshot of the Azure Data Factory resources tab with the Pipeline from template menu highlighted.":::
 
 1.	Select SAP data partitioning template.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-template-selection.png" alt-text="Shows a screenshot of the template gallery with the SAP data partitioning template highlighted.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-template-selection.png" alt-text="Screenshot of the template gallery with the SAP data partitioning template highlighted.":::
  
 1.	Create SAP CDC and ADLS Gen2 linked services, if you haven’t done so already, and use them as inputs to SAP data partitioning template.  
 
     For the **Connect via integration runtime** property of SAP ODP linked service, select your SHIR.  For the **Connect via integration runtime** property of ADLS Gen2 linked service, select _AutoResolveIntegrationRuntime_.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-template-configuration.png" alt-text="Shows a screenshot of the SAP data partitioning template configuration page with the Inputs section highlighted.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-template-configuration.png" alt-text="Screenshot of the SAP data partitioning template configuration page with the Inputs section highlighted.":::
 
 1.	Select **Use this template** button to auto-generate SAP data partitioning pipeline that can run multiple ADF copy activities to extract multiple partitions in parallel.
 
@@ -48,10 +48,10 @@ To auto-generate ADF pipeline from SAP data partitioning template, complete the 
 
     These three partitions will be extracted using three ADF copy activities running in parallel.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-partition-extraction-configuration.png" alt-text="Shows a screenshot of the pipeline configuration for the SAP data partitioning template with the parameters section highlighted.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-partition-extraction-configuration.png" alt-text="Screenshot of the pipeline configuration for the SAP data partitioning template with the parameters section highlighted.":::
 
 1.	Select the **Save all** button and you can now run SAP data partitioning pipeline.
 
 ## Next steps
 
-[Auto-generate a pipeline from the SAP data replication template](sap-cdc-data-replication-template.md).
+[Auto-generate a pipeline from the SAP data replication template](sap-change-data-capture-data-replication-template.md).
