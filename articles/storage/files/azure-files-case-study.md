@@ -14,7 +14,7 @@ Customers in diverse industries use Azure Files and Azure File Sync to host thei
 
 ## Case Study 1
 
-An environmental engineering company with 2,500 employees spread across 80 offices around the globe, faced two major problems:
+An environmental engineering company with 2,500 employees spread across 80 offices faced two major problems:
 1. Constantly running out of local disk space on their on-premises file servers 
 2. The looming threat of natural disasters, fires, and power outages
 
