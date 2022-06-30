@@ -111,7 +111,7 @@ Run the notebook by clicking **Run All**.
 
 Follow the instructions to [Arc-enabled the Kubernetes cluster](create-data-controller-direct-prerequisites.md) as normal.
 
-Open the Azure portal by using this special URL: [https://portal.azure.com/?Microsoft_Azure_HybridData_Platform=BugBash](https://portal.azure.com/?Microsoft_Azure_HybridData_Platform=BugBash).
+Open the Azure portal by using this special URL: [https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home).
 
 Follow the instructions to [Create the Azure Arc data controller from Azure portal - Direct connectivity mode](create-data-controller-direct-azure-portal.md) except that when choosing a deployment profile, select **Custom template** in the **Kubernetes configuration template** drop-down.  Set the repository to either `arcdata/test` or `arcdata/preview` as appropriate and enter the desired tag in the **Image tag** field.  Fill out the rest of the custom cluster configuration template fields as normal.
 
