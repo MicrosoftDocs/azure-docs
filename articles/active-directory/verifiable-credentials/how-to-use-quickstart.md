@@ -129,4 +129,4 @@ After you've switched to the custom issue, you have access to a text box with a 
 
 For more information, see:
 - [Rules and display definitions reference](rules-and-display-definitions-model.md)
-- [Create a verifiable credential by using the id token attestation](idtoken-reference.md)
+- [Create a verifiable credential by using the ID token attestation](idtoken-reference.md)
