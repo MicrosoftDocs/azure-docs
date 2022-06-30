@@ -90,6 +90,8 @@ items:
         href: connected-cache-industrial-iot-nested.md
       - name: Migrate Devices from Public Preview to Public Preview Refresh
         href: migration-PP-to-PPR.md
+      - name: Configure Private Endpoints
+        href: configure-private-endpoints.md
       - name: Troubleshoot
         items:
           - name: Troubleshoot device updates
