@@ -3,7 +3,7 @@ title: Nested Activities
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about nested activities in Azure Data Factory and Azure Synapse Analytics.
 author: joowen
-ms.author: jooowen
+ms.author: joowen
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
@@ -53,7 +53,7 @@ Activities that support nesting (ForEach, Until, Switch, and If) can't be embedd
 In order to have logic that supports nesting more than one level deep, you can use the [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md) inside of your nested activity to call another pipeline that then can have another level of nested activities. A common use case for this pattern is with the ForEach loop where you need to additionally loop based off logic in the inner activities. 
 
 An example of this pattern would be if you had a file system that had a list of folders and each folder there are multiple files you want to process. You would accomplish this pattern, generally, by performing the following.
-1. Using a [Get Metadata Activity](control-flow-get-metadta-activity.md) first to get a list of just the folders.
+1. Using a [Get Metadata Activity](control-flow-get-metadata-activity.md) first to get a list of just the folders.
 2. Pass the result of the Get Metadata activity into the Items list of a ForEach activity. Each iteration then represents a single folder to process.
 3. In the inner activities panel of the ForEach activity, use another Get Metadata activity to get a list of files inside of the folder.
 4. Call an Execute Pipeline activity that has an array parameter and pass it an array of those filenames.
