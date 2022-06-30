@@ -70,8 +70,6 @@ The table below lists the URLs that must be available in order to install and us
 |`management.usgovcloudapi.net`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
-|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Private |
-|`azgn*.servicebus.windows.net`|Notification service for extension and connectivity scenarios|Always| Public |
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional| Public |
 
