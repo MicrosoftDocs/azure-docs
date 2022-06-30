@@ -37,7 +37,7 @@ Due to a security vulnerability discovered in CBC mode, Microsoft recommends tha
 
 - Migrate your applications that are using client-side encryption v1 to client-side encryption v2.
 
-    Client-side encryption v2 is available only in version 12.x and later of the Azure Queue Storage client libraries for .NET and Python. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2. For code examples, see [Example: Encrypting and decrypting messages with client-side encryption v2](#example-encrypting-and-decrypting-messages-with-client-side-encryption-v2).
+    Client-side encryption v2 is available only in version 12.x and later of the Azure Queue Storage client libraries for .NET and Python. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2.
 
 - Consider using server-side encryption features instead of client-side encryption. For more information about server-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
 - Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md). ???need more info about how this is a substitute for CSE???
