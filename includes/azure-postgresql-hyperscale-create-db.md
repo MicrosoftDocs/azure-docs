@@ -24,16 +24,16 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
 
 1. Visit the [Azure portal](https://portal.azure.com/) and search for
    **citus**. Select **Azure Database for PostgreSQL Hyperscale (Citus)**.
-   ![search for citus](../media/quickstart-hyperscale-create-portal/portal-search.png)
+   ![search for citus](media/quickstart-hyperscale-create-portal/portal-search.png)
 2. Select **+ Create**.
-   ![create button](../media/quickstart-hyperscale-create-portal/create-button.png)
+   ![create button](media/quickstart-hyperscale-create-portal/create-button.png)
 3. Select the **Hyperscale (Citus) server group** deployment option.
-   ![deployment options](../media/quickstart-hyperscale-create-portal/deployment-option.png)
+   ![deployment options](media/quickstart-hyperscale-create-portal/deployment-option.png)
 
 ---
 
 1. Fill out the **Basics** form.
-   ![basic info form](../media/quickstart-hyperscale-create-portal/basics.png)
+   ![basic info form](media/quickstart-hyperscale-create-portal/basics.png)
 
    Most options are self-explanatory, but keep in mind:
 
@@ -46,7 +46,7 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
 
 2. Select **Configure server group**.
 
-   ![compute and storage](../media/quickstart-hyperscale-create-portal/compute.png)
+   ![compute and storage](media/quickstart-hyperscale-create-portal/compute.png)
 
    For this quickstart, you can accept the default value of **Basic** for
    **Tiers**. The Basic Tier allows you to experiment with a single-node
@@ -58,7 +58,7 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
 5. In the **Networking** tab, select **Allow public access from Azure services
    and resources within Azure to this server group**.
 
-   ![networking configuration](../media/quickstart-hyperscale-create-portal/networking.png)
+   ![networking configuration](media/quickstart-hyperscale-create-portal/networking.png)
 
 6. Select **Review + create** and then **Create** to create the server.
    Provisioning takes a few minutes.
