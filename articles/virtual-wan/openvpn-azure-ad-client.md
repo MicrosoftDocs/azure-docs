@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 06/30/2022
 ms.author: cherylmc
 
 ---
@@ -150,7 +150,7 @@ These steps help you configure your connection to connect automatically with Alw
 
 You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
 
-```
+```xml
 <azvpnprofile>
 <clientconfig>
 
@@ -168,7 +168,7 @@ You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dns
 
 You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags.
 
-```
+```xml
 <azvpnprofile>
 <clientconfig>
 
@@ -224,7 +224,7 @@ Example:
 
 You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
 
-```
+```xml
 <azvpnprofile>
 <clientconfig>
 
@@ -242,7 +242,7 @@ You can modify the downloaded profile XML file and add the **\<includeroutes>\<r
 
 You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
 
-```
+```xml
 <azvpnprofile>
 <clientconfig>
 
@@ -263,7 +263,7 @@ You can modify the downloaded profile XML file and add the **\<includeroutes>\<r
 
 You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
 
-```
+```xml
 <azvpnprofile>
 <clientconfig>
 
@@ -281,7 +281,7 @@ You can modify the downloaded profile XML file and add the **\<excluderoutes>\<r
 
 You can import the profile from a command-line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
 
-```
+```xml
 azurevpn -i azurevpnconfig.xml 
 ```
 To force the import, use the **-f** switch.
