@@ -65,7 +65,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of Edit Basic SAML Configuration.](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -77,11 +77,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Screenshot of The Certificate download link.](common/metadataxml.png)
 
 6. On the **Set up Thoughtworks Mingle** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot of Copy configuration URLs.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -113,11 +113,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click the **Admin** tab, and then, click **SSO Config**.
    
-    ![Admin tab](./media/thoughtworks-mingle-tutorial/admin-tab.png "SSO Config")
+    ![Screenshot of Admin tab.](./media/thoughtworks-mingle-tutorial/admin-tab.png "SSO Config")
 
 3. In the **SSO Config** section, perform the following steps:
    
-    ![SSO Config](./media/thoughtworks-mingle-tutorial/configuration.png "SSO Config")
+    ![Screenshot of SSO Config.](./media/thoughtworks-mingle-tutorial/configuration.png "SSO Config")
     
     a. To upload the metadata file, click **Choose file**. 
 
@@ -133,19 +133,19 @@ For Azure AD users to be able to sign in, they must be provisioned to the Though
 
 2. Click **Profile**.
    
-    ![Your First Project](./media/thoughtworks-mingle-tutorial/profile.png "Your First Project")
+    ![Screenshot of Your First Project.](./media/thoughtworks-mingle-tutorial/profile.png "Your First Project")
 
 3. Click the **Admin** tab, and then click **Users**.
    
-    ![Users](./media/thoughtworks-mingle-tutorial/admin.png "Users")
+    ![Screenshot of Users.](./media/thoughtworks-mingle-tutorial/admin.png "Users")
 
 4. Click **New User**.
    
-    ![New User](./media/thoughtworks-mingle-tutorial/new-user.png "New User")
+    ![Screenshot of New User.](./media/thoughtworks-mingle-tutorial/new-user.png "New User")
 
 5. On the **New User** dialog page, perform the following steps:
    
-    ![New User dialog](./media/thoughtworks-mingle-tutorial/create-user.png "New User")  
+    ![Screenshot of New User dialog.](./media/thoughtworks-mingle-tutorial/create-user.png "New User")  
  
     a. Type the **Sign-in name**, **Display name**, **Choose password**, **Confirm password** of a valid Azure AD account you want to provision into the related textboxes. 
 

@@ -65,7 +65,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of Edit Basic SAML Configuration.](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
@@ -76,11 +76,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![The Certificate download link.](common/certificatebase64.png)
 
 7. On the **Set up Rightscale** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -120,7 +120,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In the textbox of **Display Name**, input your company name.
 
-    ![Screenshot shows where enter a display name.](./media/rightscale-tutorial/dispay-name.png)
+    ![Screenshot shows where enter a display name.](./media/rightscale-tutorial/display-name.png)
 
 5. Select **Allow RightScale-initiated SSO using a discovery hint** and input your **domain name** in the below textbox.
 

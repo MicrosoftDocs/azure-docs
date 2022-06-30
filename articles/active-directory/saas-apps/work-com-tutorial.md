@@ -122,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. To verify that your domain has been set up correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
    
-    ![Domain Deployed to User](./media/work-com-tutorial/domain-settings.png "Domain Deployed to User")
+    ![Screenshot shows Domain Deployed to User.](./media/work-com-tutorial/domain-settings.png "Domain Deployed to User")
 
 5. Sign in to your Work.com tenant.
 
@@ -132,11 +132,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 7. Expand the **Security Controls** menu, and then click **Single Sign-On Settings**.
     
-    ![Single Sign-On Settings](./media/work-com-tutorial/security-controls.png "Single Sign-On Settings")
+    ![Screenshot shows Single Sign-On Settings.](./media/work-com-tutorial/security-controls.png "Single Sign-On Settings")
 
 8. On the **Single Sign-On Settings** dialog page, perform the following steps:
     
-    ![SAML Enabled](./media/work-com-tutorial/sso-settings.png "SAML Enabled")
+    ![Screenshot shows SAML Enabled.](./media/work-com-tutorial/sso-settings.png "SAML Enabled")
     
     a. Select **SAML Enabled**.
     
@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 9. In the **SAML Single Sign-On Settings** section, perform the following steps:
     
-    ![SAML Single Sign-On Setting](./media/work-com-tutorial/configuration.png "SAML Single Sign-On Setting")
+    ![Screenshot shows SAML Single Sign-On Setting.](./media/work-com-tutorial/configuration.png "SAML Single Sign-On Setting")
     
     a. In the **Name** textbox, type a name for your configuration.  
        
@@ -195,15 +195,15 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
 
 3. Go to **Manage Users \> Users**.
    
-    ![Manage Users](./media/work-com-tutorial/users.png "Manage Users")
+    ![Screenshot shows Manage Users.](./media/work-com-tutorial/users.png "Manage Users")
 
 4. Click **New User**.
    
-    ![All Users](./media/work-com-tutorial/new-user.png "All Users")
+    ![Screenshot shows All Users.](./media/work-com-tutorial/new-user.png "All Users")
 
 5. In the User Edit section, perform the following steps, in attributes of a valid Azure AD account you want to provision into the related textboxes:
    
-    ![User Edit](./media/work-com-tutorial/create-user.png "User Edit")
+    ![Screenshot shows User Edit.](./media/work-com-tutorial/create-user.png "User Edit")
    
     a. In the **First Name** textbox, type the **first name** of the user **Britta**.
 	
