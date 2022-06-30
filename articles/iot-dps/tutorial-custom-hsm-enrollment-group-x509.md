@@ -885,8 +885,11 @@ To verify the devices on your IoT hub:
 When you're finished testing and exploring this device client sample, use the following steps to delete all resources created by this tutorial.
 
 1. Close the device client sample output window on your machine.
+
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning Service. Open **Manage Enrollments** for your service, and then select the **Enrollment Groups** tab. Select the check box next to the *Group Name* of the device group you created in this tutorial, and press the **Delete** button at the top of the pane.
+
 1. Click **Certificates** in DPS. For each certificate you uploaded and verified in this tutorial, click the certificate and click the **Delete** button to remove it.
+
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub. Select the check box next to the *DEVICE ID* of the device that you registered in this tutorial. Click the **Delete** button at the top of the pane.
 
 ## Next steps
