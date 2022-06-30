@@ -75,9 +75,9 @@ To transform groups and distribution lists:
 
 * For self-managed group capabilities provided by Microsoft Identity Manager (MIM), replace the capability with self-service group management.
 
-* [Conversion of legacy distribution lists to Microsoft 365 groups](/microsoft-365/admin/manage/upgrade-distribution-lists?view=o365-worldwide) - You can upgrade distribution lists to Microsoft 365 groups in Outlook. This is a great way to give your organization's distribution lists all the features and functionality of Microsoft 365 groups. 
+* [Conversion of legacy distribution lists to Microsoft 365 groups](~/microsoft-365-docs/blob/public/microsoft-365/admin/manage/upgrade-distribution-lists.md) - You can upgrade distribution lists to Microsoft 365 groups in Outlook. This is a great way to give your organization's distribution lists all the features and functionality of Microsoft 365 groups. 
 
-* Upgrade your [distribution lists to Microsoft 365 groups in Outlook](https://support.microsoft.com/office/7fb3d880-593b-4909-aafa-950dd50ce188) and [decommission your on-premises Exchange server](https://docs.microsoft.com/exchange/decommission-on-premises-exchange).
+* Upgrade your [distribution lists to Microsoft 365 groups in Outlook](https://support.microsoft.com/office/7fb3d880-593b-4909-aafa-950dd50ce188) and [decommission your on-premises Exchange server](~/exchange/decommission-on-premises-exchange.md).
 
 ### Move application provisioning
 
@@ -99,7 +99,7 @@ This workstream will reduce your on-premises footprint by moving the HR provisio
 
 * For new employees who need access to applications that have dependency on AD, you can provision hybrid accounts
 
-Azure AD Cloud HR provisioning can also manage AD accounts for existing employees. For more information, see: [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) and, specifically, [Plan the deployment project](../app-provisioning/plan-the-deployment-project.md).
+Azure AD Cloud HR provisioning can also manage AD accounts for existing employees. For more information, see: [Plan cloud HR application to Azure Active Directory user provisioning](../../app-provisioning/plan-cloud-hr-provision.md) and, specifically, [Plan the deployment project](../../app-provisioning/plan-the-deployment-project.md).
 
 ### Move external identity management
 
@@ -129,7 +129,7 @@ Non-Windows workstations can be integrated with Azure AD to enhance user experie
 
 * Consider Linux on Azure VM where possible
 
-* [Sign in to a Linux VM with Azure Active Directory credentials - Azure Virtual Machines](../../virtual-machines/linux/login-using-aad)
+* [Sign in to a Linux VM with Azure Active Directory credentials - Azure Virtual Machines](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
 
 ### Replace Other Windows versions as Workstation use
 
@@ -201,7 +201,7 @@ The following tools can help you to discover applications that use LDAP.
 
 * [Event1644Reader](/troubleshoot/windows-server/identity/event1644reader-analyze-ldap-query-performance) : Sample tool for collecting data on LDAP Queries made to Domain Controllers using Field Engineering Logs.
 
-* [Microsoft Microsoft 365 Defender for Identity](h/defender-for-identity/monitored-activities): Utilize the sign in Operations monitoring capability (note captures binds using LDAP, but not Secure LDAP.
+* [Microsoft Microsoft 365 Defender for Identity](~/ATPDocs/monitored-activities.md): Utilize the sign in Operations monitoring capability (note captures binds using LDAP, but not Secure LDAP.
 
 * [PSLDAPQueryLogging](https://github.com/RamblingCookieMonster/PSLDAPQueryLogging) : GitHub tool for reporting on LDAP queries.
 
@@ -217,7 +217,7 @@ Once you have moved SaaS applications that were federated to Azure AD, there are
 
 * [Migrate from federation to cloud authentication](../hybrid/migrate-from-federation-to-cloud-authentication.md)
 
-* If you're using Web Application Proxy, [Move Remote Access to internal applications](#_Move_Remote_Access_1)
+* If you're using Web Application Proxy, [Move Remote Access to internal applications](#_Move-Remote-Access-to-internal-applications)
 
 >[!IMPORTANT]
 >If you are using other features, such as remote access, verify those services are relocated prior to decommissioning AD federated services. 
@@ -258,7 +258,7 @@ Legacy applications have different areas of dependencies to AD:
 
 * Access to Directory Data: LDAP queries, schema extensions, read/write of directory objects
 
-* Server Management: As determined by the [server management strategy](#_Define_Server_Management)
+* Server Management: As determined by the [server management strategy](#_Define-Application-Server-Management-strategy)
 
 To reduce or eliminate the dependencies above, there are three main approaches, listed below in order of preference:
 
@@ -285,7 +285,7 @@ Utilize Azure AD Domain Services if the dependencies are aligned with [Common de
 
 To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
 
-Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](../../azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide?view=azuresql.md).
+Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](~sql-docs/blob/live/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md).
 
 ##### Option 1 steps
 
@@ -331,7 +331,7 @@ Deploy a new AD to Azure IaaS. If migration option #1 isn't possible and an appl
 
 #### Comparison of strategies
 
-| | A-Azure AD Domain Services| B-Extend AD to IaaS| C-Independent AD in IaaS |
+| Strategy | A-Azure AD Domain Services | B-Extend AD to IaaS | C-Independent AD in IaaS |
 | - | - | - | - |
 | De-coupled from on-premises AD| Yes| No| Yes |
 | Allows Schema Extensions| No| Yes| Yes |
@@ -348,7 +348,7 @@ This project focuses on moving your VPN authentication to Azure AD. It's importa
 
 * [Tutorial: Azure Active Directory single sign-on (SSO) integration with Palo Alto Networks](../saas-apps/palo-alto-networks-globalprotect-tutorial.md) [GlobalProtect](../saas-apps/palo-alto-networks-globalprotect-tutorial.md) 
 
-* For windows 10 devices, consider integrating [Azure AD support to the built-in VPN client](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/ad-ca-vpn-connectivity-windows10)
+* For windows 10 devices, consider integrating [Azure AD support to the built-in VPN client](~/windows-server/remote/remote-access/vpn/ad-ca-vpn-connectivity-windows10)
 
 * After evaluating this scenario, you can implement a solution to remove your dependency with on-premises to authenticate to VPN
 
