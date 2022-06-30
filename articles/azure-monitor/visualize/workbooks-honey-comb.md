@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor workbook honeycomb visualizations
-description: Learn about Azure Monitor workbook honeycomb visualizations.
+title: Azure Workbooks honeycomb visualizations
+description: Learn about Azure Workbooks honeycomb visualizations.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -18,7 +18,7 @@ The following image shows the CPU utilization of virtual machines across two sub
 
 ## Add a honeycomb
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Select **Add** > **Add query** to add a log query control to the workbook.
 1. For **Data source**, select **Logs**. For **Resource type**, select **Log Analytics**. For **Resource**, point to a workspace that has a virtual machine performance log.
 1. Use the query editor to enter the KQL for your analysis.

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor workbook graph visualizations
-description: Learn about all the Azure Monitor workbook graph visualizations.
+title: Azure Workbooks graph visualizations
+description: Learn about all the Azure Workbooks graph visualizations.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -18,7 +18,7 @@ The following graph shows data flowing in and out of a computer via various port
 
 ## Add a graph
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Use the **Add query** link to add a log query control to the workbook.
 1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
@@ -98,7 +98,7 @@ You can specify what content goes to the different parts of a node: top, left, c
 
 ## Field-based node coloring
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Use the **Add query** link to add a log query control to the workbook.
 1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.

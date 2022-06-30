@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor workbook map visualizations
-description: Learn about Azure Monitor workbook map visualizations.
+title: Azure Workbooks map visualizations
+description: Learn about Azure Workbooks map visualizations.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -10,19 +10,26 @@ ms.date: 11/25/2020
 
 # Map visualization
 
-The map visualization aids in pinpointing issues in specific regions and showing high-level aggregated views of the monitoring data by providing the capability to aggregate all the data mapped to each location/country/region.
+The Azure Workbooks map visualization aids in pinpointing issues in specific regions and showing high-level aggregated views of the monitoring data. Maps aggregate all the data mapped to each location, country, or region.
 
-The following screenshot shows the total transactions and end-to-end latency for different storage accounts. Here the size is determined by the total number of transactions. The color metrics below the map show the end-to-end latency. At first glance, the number of transactions in the **West US** region is small compared to the **East US** region. But the end-to-end latency for the **West US** region is higher than the **East US** region. This information provides initial insight that something is amiss for **West US**.
+The following screenshot shows the total transactions and end-to-end latency for different storage accounts. Here the size is determined by the total number of transactions. The color metrics below the map show the end-to-end latency.
+
+At first glance, the number of transactions in the **West US** region is small compared to the **East US** region. But the end-to-end latency for the **West US** region is higher than the **East US** region. This information provides initial insight that something is amiss for **West US**.
 
 ![Screenshot that shows an Azure location map.](./media/workbooks-map-visualizations/map-performance-example.png)
 
 ## Add a map
 
-A map can be visualized if the underlying data or metrics have latitude/longitude information, Azure resource information, Azure location information, or the country/region, name, or country/region code.
+A map can be visualized if the underlying data or metrics have:
+
+- Latitude/longitude information.
+- Azure resource information.
+- Azure location information.
+- Country/region, name, or country/region code.
 
 ### Use an Azure location
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Select **Add** > **Add query**.
 1. Change **Data Source** to **Azure Resource Graph**. Then select any subscription that has a storage account.
 1. Enter the following query for your analysis and then select **Run Query**.
@@ -34,14 +41,14 @@ A map can be visualized if the underlying data or metrics have latitude/longitud
 
 1. Set **Size** to **Large**.
 1. Set **Visualization** to **Map**.
-1. All the settings will be autopopulated. For custom settings, select the **Map Settings** button to open the settings pane.
+1. All the settings are autopopulated. For custom settings, select the **Map Settings** button to open the settings pane.
 1. The following screenshot of the map visualization shows storage accounts for each Azure region for the selected subscription.
 
 ![Screenshot that shows an Azure location map with the preceding query.](./media/workbooks-map-visualizations/map-azure-location-example.png)
 
 ### Use an Azure resource
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Select **Add** > **Add Metric**.
 1. Use a subscription that has storage accounts.
 1. Change **Resource Type** to **storage account**. In **Resource**, select multiple storage accounts.
@@ -50,7 +57,7 @@ A map can be visualized if the underlying data or metrics have latitude/longitud
     1. **Metric**: `Transactions`
     1. **Aggregation**: `Sum`
 
-    ![Screenshot that shows the Transactions metric.](./media/workbooks-map-visualizations/map-transaction-metric.png)
+    ![Screenshot that shows the transaction metric.](./media/workbooks-map-visualizations/map-transaction-metric.png)
 1. Select **Add Metric** and add the **Success E2E Latency** metric:
     1. **Namespace**: `Account`
     1. **Metric**: `Success E2E Latency`
@@ -78,7 +85,7 @@ A map can be visualized if the underlying data or metrics have latitude/longitud
 
 ### Use country/region
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Select **Add** > **Add query**.
 1. Change **Data source** to **Log**.
 1. Select **Resource type** as **Application Insights**. Then select any Application Insights resource that has `pageViews` data.
@@ -96,7 +103,7 @@ A map can be visualized if the underlying data or metrics have latitude/longitud
 
 ### Use latitude/location
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Select **Add** > **Add query**.
 1. Change **Data source** to **JSON**.
 1. Enter the JSON data in the query editor and select **Run Query**.
@@ -110,7 +117,7 @@ The following map visualization shows users for each latitude and longitude loca
 
 ## Map settings
 
-Map settings include layout, color, and metric settings.
+Map settings include layout, color, and metrics.
 
 ### Layout settings
 
