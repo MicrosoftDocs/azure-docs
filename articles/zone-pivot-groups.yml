@@ -796,7 +796,7 @@ groups:
   - id: development-environment-azure-portal
     title: Azure portal
 - id: app-service-ide
-  title: Development environment
+  title: Deployment environment
   prompt: Choose a deployment environment
   pivots:
   - id: development-environment-vs
@@ -807,6 +807,8 @@ groups:
     title: Azure CLI
   - id: development-environment-ps
     title: Azure PowerShell
+  - id: development-environment-azure-portal
+    title: Azure portal
 - id: app-service-ide-oss
   title: Development environment
   prompt: Choose a development environment
@@ -823,6 +825,18 @@ groups:
     title: Linux
   - id: platform-windows
     title: Windows
+- id: app-service-platform-environment
+  title: App Service platform and development tool
+  prompt: Choose a hosting platform and development tool
+  pivots:
+  - id: platform-linux-development-environment-maven
+    title: Linux with Maven
+  - id: platform-linux-development-environment-azure-portal
+    title: Linux with Azure portal
+  - id: platform-windows-development-environment-maven
+    title: Windows with Maven
+  - id: platform-windows-development-environment-azure-portal
+    title: Windows with Azure portal
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform
@@ -1184,6 +1198,26 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: mbullwin
+- id: openai-quickstart
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+# Owner: mbullwin
+- id: openai-create-resource
+  title: Programming languages
+  prompt: Choose your preferred resource creation method
+  pivots:
+  - id: web-portal
+    title: Portal
+  - id: cli
+    title: CLI
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
@@ -1579,7 +1613,7 @@ groups:
   prompt: Choose a Client Library
   pivots:
   - id: framework-dotnet
-    title: .Net
+    title: .NET
   - id: framework-spring
     title: Spring Framework
 # Owner: nicktrog
