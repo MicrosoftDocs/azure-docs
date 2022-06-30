@@ -84,7 +84,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Screenshot of Create a Web App for Containers.](../../media/quickstart-custom-container/create-web-app-container.png)
 
-1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Azure Container Registry](#publish-to-azure-container-registry).
+1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Azure Container Registry](#2---publish-to-azure-container-registry).
 
    ![Screenshot of Configure your a Web App for Containers.](../../media/quickstart-custom-container/configure-web-app-container.png)
 
@@ -151,7 +151,7 @@ The streamed logs look like this:
 
    ![Screenshot of the App Service Overview with the Restart button highlighted.](../../media/quickstart-custom-container/portal-restart-app.png)
 
-[Browse to the custom container](#browse-to-the-custom-container) again. As you refresh the webpage, the app should revert to the "Starting up" page at first, then display the updated webpage again after a few minutes.
+[Browse to the custom container](#4---browse-to-the-custom-container) again. As you refresh the webpage, the app should revert to the "Starting up" page at first, then display the updated webpage again after a few minutes.
 
 ![Screenshot of the updated web app in Azure.](../../media/quickstart-custom-container/azure-web-app-updated.png)
 

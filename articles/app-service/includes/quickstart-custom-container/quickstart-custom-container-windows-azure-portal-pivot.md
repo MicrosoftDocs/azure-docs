@@ -60,7 +60,7 @@ Notice that the message shows **The containers without a port exposed will run i
 
 ## 3 - Expose port 80
 
-We need to expose port 80 - the HTTP port - so that the container can show our application. We can do this using the [ASPNETCORE_URLS environment variable](https://docs.microsoft.com/aspnet/core/fundamentals/host/web-host?view=aspnetcore-6.0#server-urls).
+We need to expose port 80 - the HTTP port - so that the container can show our application. We can do this using the [ASPNETCORE_URLS environment variable](/aspnet/core/fundamentals/host/web-host#server-urls).
 
 1. Navigate to your App Service in the Azure portal.
    
