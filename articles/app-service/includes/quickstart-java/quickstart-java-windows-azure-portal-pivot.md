@@ -119,7 +119,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 ## 4 - Manage your new Azure app
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
+1. Go to the [Azure portal](https://portal.azure.com) to manage the web app you created. Search for and select **App Services**.
 
     ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](../../media/quickstart-java/azure-portal-search-for-app-services.png)    
 
