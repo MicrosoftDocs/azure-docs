@@ -130,7 +130,10 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
    ```
    
    > [!NOTE]
-   > You can also get this URL by: Navigate to the [Azure ML Studio web portal](https://ml.azure.com) -> Clic on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+   > You can also get this URL by: 
+   > 1. Navigate to the [Azure ML Studio web portal](https://ml.azure.com).
+   > 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+   > 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
 
    ---
 
