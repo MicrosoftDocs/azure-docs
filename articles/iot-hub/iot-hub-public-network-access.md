@@ -42,9 +42,9 @@ Disabling public network access is enforced on a specific IoT hub resource, ensu
 
 If public network access is disabled, all [IP Filter](iot-hub-ip-filtering.md) rules are ignored. This is because all IPs from the public internet are blocked. To use IP Filter, use the **Selected IP ranges** option.
 
-### Bug fix with built-in Event Hub compatible endpoint
+### Bug fix with built-in Event Hubs compatible endpoint
 
-There is a bug with IoT Hub where the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) continues to be accessible via public internet when public network access to the IoT Hub is disabled. To learn more and contact us about this bug, see [Disabling public network access for IoT Hub disables access to built-in Event Hub endpoint](https://azure.microsoft.com/updates/iot-hub-public-network-access-bug-fix).
+There is a bug with IoT Hub where the [built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md) continues to be accessible via public internet when public network access to the IoT Hub is disabled. To learn more and contact us about this bug, see [Disabling public network access for IoT Hub disables access to built-in Event Hubs endpoint](https://azure.microsoft.com/updates/iot-hub-public-network-access-bug-fix).
 
 ## Turn on network access using Azure portal
 
