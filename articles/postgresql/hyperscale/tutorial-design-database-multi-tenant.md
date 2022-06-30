@@ -226,7 +226,7 @@ Load it with example data. Remember to run this command in psql from inside the 
 ```
 
 Joining the clicks table with geo\_ips is efficient on all nodes.
-Here is a join to find the locations of everyone who clicked on ad
+Here's a join to find the locations of everyone who clicked on ad
 290. Try running the query in psql.
 
 ```sql
