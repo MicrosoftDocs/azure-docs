@@ -195,7 +195,7 @@ You can update alert status or severity for a single alert or for a group of ale
     1. Select the alerts in the grid that you want to modify.
     1. Use the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change status** and/or :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/severity-icon.png" border="false"::: **Change severity** options in the toolbar to update the status and/or the severity for all the selected alerts.
 
-- **To learn one or more alerts**:
+- **To learn one or more alerts**, do one of the following:
 
     - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
     - On an alert details page, in the **Take Action** tab, select **Learn**.
