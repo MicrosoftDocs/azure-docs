@@ -184,8 +184,9 @@ To do this, you'll:
 
 ### Create a virtual machine
 
-1. On the Azure portal, select **Create a resource**. The **New** window appears.
-2. Select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.
+1. From the Azure portal menu, select **+ Create a resource** > **Compute** > **Windows Server 2016 Datacenter**, or search for *Windows Server* in the portal search box and select **Windows Server 2016 Datacenter**.
+
+2. Select **Create**.
 
    Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
 
