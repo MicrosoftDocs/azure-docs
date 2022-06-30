@@ -251,7 +251,7 @@ Returns the list of all existing subscriptions for all offers made by this publi
         "endDate": "2020-04-30",
         "termUnit": "P1Y"
       },
-      "autoRenew": false
+      "autoRenew": false,
       "allowedCustomerOperations": ["Read"],
       "sessionMode": "None",
       "isFreeTrial": false,
@@ -388,7 +388,7 @@ Response body example:
     {
       "planId": "Platinum001",
       "displayName": "Private platinum plan for Contoso", // display name of the plan as it appears in the marketplace
-      "isPrivate": true //true or false
+      "isPrivate": true, //true or false
       "description": "plan description",
           "minQuantity": 5,
           "maxQuantity": 100,
@@ -400,7 +400,7 @@ Response body example:
     {
       "planId": "gold",
       "displayName": "Gold plan for Contoso",
-      "isPrivate": false //true or false,
+      "isPrivate": false, //true or false
       "description": "gold plan details.",
           "minQuantity": 1,
           "maxQuantity": 5,

@@ -259,8 +259,6 @@ Now, select machines for migration.
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
 
-![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
-
 15. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration.
