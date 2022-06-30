@@ -2,7 +2,7 @@
 title: Overview of Azure Event Hubs dedicated tier
 description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 ms.topic: article
-ms.date: 06/14/2022
+ms.date: 06/29/2022
 ---
 
 # Overview of Azure Event Hubs dedicated tier

@@ -30,11 +30,21 @@ In the testing, the following criteria was used:
 - The data that was ingested was received by two receiver applications receiving from all partitions.
 
 ### Can I scale up/down my cluster?
-If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](event-hubs-dedicated-cluster-create-portal.md#enable-self-service-scaling-after-creating-the-cluster), to scale out and scale in as needed.  
+If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](event-hubs-dedicated-cluster-create-portal.md#enable-self-service-scaling-after-creating-the-cluster), to scale out and scale in as needed. You can scale up to 10 CUs with self-serve scalable clusters. As self-serve scalable dedicated clusters are based out of new infrastructure, they are bound to be performant over dedicated clusters that don't support self-serve scaling. As the performance of dedicated clusters depend on various factors such as resource allocation, number of partitions, storage, and so on, we recommend you to determine the required number of CUs after testing with a real workload. 
 
-For existing non-scalable clusters, submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster.  
+[Submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) in the following scenarios to scale out or scale in your dedicated cluster.
 
-Due to difference in the backend architecture, it's not possible to migrate non-scalable clusters to self-serve scalable clusters. If you would wish to use self-serve scaling, you must recreate the cluster with the support for scaling. To learn how to create scalable cluster, see [Create an Event Hubs dedicated cluster](event-hubs-dedicated-cluster-create-portal.md). 
+- You need more than 10 CUs for a self-serve scalable dedicated cluster (a cluster that was created with the **Support scaling** option set).
+- You need to scale out or scale in a cluster that was created without selecting the **Support scaling** option
+- You need to scale out or scale in a dedicated cluster that was created before the self-serve experience was released
+
+
+> [!WARNING]
+> You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you will be charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+
+### Can I migrate from non-scalable cluster to scalable cluster?
+Due to difference in the backend architecture, we don't currently support migration of clusters that don't support self-serve scaling to self-serve scalable dedicated clusters. If you would wish to use self-serve scaling, you must recreate the cluster with the support for scaling. To learn how to create scalable cluster, see [Create an Event Hubs dedicated cluster](event-hubs-dedicated-cluster-create-portal.md). 
 
 
 ### When to scale my dedicated cluster? 
