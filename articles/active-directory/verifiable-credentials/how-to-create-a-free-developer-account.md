@@ -9,7 +9,7 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-# Customer intent: As a developer I am looking to create a developer Azure Active Directory account so I can participate in the Preview with a P2 license. 
+# Customer intent: As a developer, I want to learn how to create a developer Azure Active Directory account so I can participate in the preview with a P2 license. 
 ---
 
 # Microsoft Entra Verified ID developer information

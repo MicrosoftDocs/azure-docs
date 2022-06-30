@@ -9,7 +9,7 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 06/22/2022
 ms.author: barclayn
-# Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
+# Customer intent: As a developer, I am looking for information about how to enable my users to control their own information. 
 ---
 
 # Customize your verifiable credentials (preview)

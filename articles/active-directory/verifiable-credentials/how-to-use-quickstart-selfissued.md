@@ -10,7 +10,7 @@ ms.subservice: verifiable-credentials
 ms.date: 06/22/2022
 ms.author: barclayn
 
-#Customer intent: As a verifiable credentials administrator, I want to create a verifiable credential for self-asserted claims scenario.
+#Customer intent: As a verifiable credentials administrator, I want to create a verifiable credential for self-asserted claims scenario. 
 ---
 
 # Create verifiable credentials for self-asserted claims

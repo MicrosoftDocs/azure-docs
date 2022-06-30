@@ -10,7 +10,7 @@ ms.subservice: verifiable-credentials
 ms.date: 06/22/2022
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am looking for information to help me disable 
+#Customer intent: As an administrator, I am looking for information to help me create verifiable credentials for ID tokens. 
 ---
 
 # How to create verifiable credentials for ID tokens
