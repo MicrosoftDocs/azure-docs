@@ -108,14 +108,6 @@ Use the following .NET classes to interact with these resources:
 
 The sample code snippets in the following sections show you how to perform basic data operations with the Azure Blob Storage client library for .NET.
 
-### Get the connection string
-
-The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
-
-Add this code inside the `Main` method:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_ConnectionString":::
-
 ### Create a container
 
 Decide on a name for the new container. The code below appends a GUID value to the container name to ensure that it is unique.

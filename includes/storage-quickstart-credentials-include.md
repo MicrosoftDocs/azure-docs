@@ -22,7 +22,7 @@ The following steps describe how to authenticate to Azure Blob Storage during lo
 
 Creating an Azure AD group for local development provides a repeatable process as developers are added or removed from a team. It helps you avoid managing specific permissions for individual developer accounts.
 
-1. Navigate to the Azure main Active Directory page in the Azure portal via the left navigation or the top search bar.
+1. Navigate to the main Azure Active Directory page in the Azure portal via the left navigation or the top search bar.
  
 2. On the **Azure Active Directory** page, select **Add &rarr; Group** from the top menu.
 
@@ -34,18 +34,18 @@ Creating an Azure AD group for local development provides a repeatable process a
     * **Group description**: Enter a more detailed description of the purpose of the group.
     * Select the **No members selected** link to add members to the group.
 
-:::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/new-group-details-small.png" alt-text="A screenshot enabling managed identity." lightbox="../articles/storage/blobs/media/storage-blobs-introduction/new-group-details.png":::
+    :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/new-group-details-small.png" alt-text="A screenshot enabling managed identity." lightbox="../articles/storage/blobs/media/storage-blobs-introduction/new-group-details.png":::
 
 5. On the **Add members** dialog box:
-    * Use the search box to filter the list of user names in the list.
+    * Use the search box to filter the list of users in the list.
     * Select the user(s) for local development for this app. As objects are selected, they will move to the Selected items list at the bottom of the dialog.
     * When finished, choose the **Select** button.
 
 6. Back on the **New group** page, select **Create** to create the group.
 
-### Assign roles to the managed identity
+### Assign roles to the Azure AD group
 
-1. In the Azure Portal, locate the resource group for your Blob Storage account using the main search bar or left navigation.
+1. In the Azure Portal, locate the resource group for your Azure Blob Storage account using the main search bar or left navigation.
 
 2. On the page for the resource group, select **Access control (IAM)** from the left-hand menu.	
 
@@ -77,10 +77,10 @@ You can authenticate your local app to your Blob Storage account using the follo
 
 2. To implement `DefaultAzureCredential`, add the **Azure.Identity** and the **Microsoft.Extensions.Azure packages** to your application.
 
-```dotnetcli
-dotnet add package Azure.Identity
-dotnet add package Microsoft.Extensions.Azure
-```
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    dotnet add package Microsoft.Extensions.Azure
+    ```
 
 Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the Program.cs file so they can be accessed via dependency injection throughout your app. 
 
@@ -90,12 +90,9 @@ An example of this setup is shown in the following code segment inside of `Progr
 using Microsoft.Extensions.Azure;
 using Azure.Identity;
 
-// Inside of Program.cs
-builder.Services.AddAzureClients(x =>
-{
-    x.AddBlobServiceClient(new Uri("https://<account-name>.blob.core.windows.net"));
-    x.UseCredential(new DefaultAzureCredential());
-});
+var blobClient = new BlobServiceClient(
+        new Uri("https://<account-name>.blob.core.windows.net"),
+        new DefaultAzureCredential())
 ```
 
 When the above code is run on your local workstation during development, it will use the developer credentials of whatever prioritized tool you are logged into to authenticate to Azure.
@@ -139,5 +136,19 @@ After you add the environment variable in Windows, you must start a new instance
 #### Restart programs
 
 After you add the environment variable, restart any running programs that will need to read the environment variable. For example, restart your development environment or editor before you continue.
+
+### Get the connection string
+
+The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+
+Add this code inside the `Main` method:
+
+```csharp
+// Retrieve the connection string for use with the application. 
+string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+
+// Create a BlobServiceClient object 
+BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+```
 
 ---
