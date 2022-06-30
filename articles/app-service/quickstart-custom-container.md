@@ -11,15 +11,19 @@ zone_pivot_groups: app-service-containers-windows-linux-portal
 
 # Run a custom container in Azure
 
-::: zone pivot="container-windows-cli"
-[!INCLUDE [quickstart-custom-container-windows-cli-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-cli-pivot.md)]
+::: zone pivot="container-windows-vs"
+[!INCLUDE [quickstart-custom-container-windows-visual-studio-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-visual-studio-pivot.md)]
 
 ::: zone-end  
 
-::: zone pivot="container-linux-cli"
-[!INCLUDE [quickstart-custom-container-linux-cli-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-linux-cli-pivot.md)]
+::: zone pivot="container-linux-vscode"
+[!INCLUDE [quickstart-custom-container-linux-visual-studio-code-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-linux-visual-studio-code-pivot.md)]
 ::: zone-end
 
-:::zone target="docs" pivot="container-azure-portal"
-[!INCLUDE [quickstart-custom-container-azure-portal-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-azure-portal-pivot.md)]
+:::zone pivot="container-linux-azure-portal"
+[!INCLUDE [quickstart-custom-container-linux-azure-portal-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-linux-azure-portal-pivot.md)]
+::: zone-end
+
+:::zone pivot="container-windows-azure-portal"
+[!INCLUDE [quickstart-custom-container-windows-azure-portal-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-azure-portal-pivot.md)]
 ::: zone-end
