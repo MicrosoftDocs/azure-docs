@@ -13,7 +13,7 @@ You can use [Visual Studio Code with the Bicep extension](./visual-studio-code.m
 
 From an opened Bicep file in VS Code, there are two ways you can find the command:
 
-- Right-click anywhere inside the Bicep file, and then select **Deploy Bicep File**.
+- Right-click anywhere inside a Bicep file, and then select **Deploy Bicep File**.
 - Select **Command Palette** from the **View** menu, and then select **Bicep: Deploy Bicep File**.
 
 After you select the command, you follow the wizard to enter the values:
