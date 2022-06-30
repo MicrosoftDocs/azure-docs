@@ -58,17 +58,17 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
     | Parameter              | Description                                                                                                                                                                 | Example                 |
     |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
-    | Subscription           | Select an Azure subscription. Your private endpoint must be in the same subscription as your virtual network. You'll select a virtual network later in this how-to guide. | *MyAzureSubscription*   |
-    | Resource group         | Select a resource group or create a new one.                                                                                                                                | *MyResourceGroup*    |
+    | Subscription           | Select an Azure subscription. Your private endpoint must be in the same subscription as your virtual network. You'll select a virtual network later in this how-to guide.   | *MyAzureSubscription*   |
+    | Resource group         | Select a resource group or create a new one.                                                                                                                                | *MyResourceGroup*       |
     | Name                   | Enter a name for the new private endpoint for your App Configuration store.                                                                                                 | *MyPrivateEndpoint*     |
-    | Network Interface Name | This field is completed automatically. Optionally edit the name of the network interface.                                                                                   | *MyPrivateEndpoint-nin* |
+    | Network Interface Name | This field is completed automatically. Optionally edit the name of the network interface.                                                                                   | *MyPrivateEndpoint-nic* |
     | Region                 | Select a region. Your private endpoint must be in the same region as your virtual network.                                                                                  | *Central US*            |
 
    :::image type="content" source="./media/private-endpoint/private-endpoint-basics.png" alt-text="Screenshot of the Azure portal, create a private endpoint, basics tab.":::
 
 1. Select **Next : Resource >**. Private Link offers options to create private endpoints for different types of Azure resources, such as SQL servers, Azure storage accounts or App Configuration stores. Review the information displayed to ensure that the correct App Configuration store is selected.
 
-   1. The resource type **Contoso.AppConfiguration/configurationStores** and the target subresource **configurationStores** indicate that you're creating an endpoint for an App configuration store.
+   1. The resource type **Contoso.AppConfiguration/configurationStores** and the target subresource **configurationStores** indicate that you're creating an endpoint for an App Configuration store.
 
    1. The name of your configuration store is listed under **Resource**.
 
