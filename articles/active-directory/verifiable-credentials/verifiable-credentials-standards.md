@@ -20,7 +20,7 @@ Microsoft is actively collaborating with members of the Decentralized Identity F
 
 In this article, you'll find the currently supported open standards for Microsoft Entra Verified ID.
 
-## Standard bodies
+## Standards bodies
 
 - [OpenID Foundation (OIDF)](https://openid.net/foundation/)
 - [Decentralized Identity Foundation (DIF)](https://identity.foundation/)
