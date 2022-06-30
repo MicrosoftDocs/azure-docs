@@ -71,7 +71,7 @@ spx csr endpoint create --project YourProjectId --model YourModelId --name "My E
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -145,7 +145,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -213,7 +213,7 @@ spx csr endpoint update --endpoint YourEndpointId --model YourModelId
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -272,7 +272,7 @@ curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -338,7 +338,7 @@ spx csr endpoint list --endpoint YourEndpointId
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 The location of each log file with more details are returned in the response body.
 
@@ -355,7 +355,7 @@ curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtote
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

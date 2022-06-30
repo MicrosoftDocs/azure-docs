@@ -43,6 +43,8 @@ Follow these steps to create a test:
 1. Enter the test name and description, and then select **Next**.
 1. Review the test details, and then select **Save and close**.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Create-a-test" target="_target">I ran into an issue</a>
 
 ::: zone-end
 
@@ -64,7 +66,7 @@ spx csr evaluation create --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --datas
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Create-a-test" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -167,7 +169,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Create-a-test" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -244,6 +246,9 @@ Follow these steps to get test results:
 
 This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Get-test-results" target="_target">I ran into an issue</a>
+
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -259,7 +264,7 @@ spx csr evaluation status --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Get-test-results" target="_target">I ran into an issue</a>
 
 The word error rates and more details are returned in the response body.
 
@@ -338,7 +343,7 @@ curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtote
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Get-test-results" target="_target">I ran into an issue</a>
 
 The word error rates and more details are returned in the response body.
 

@@ -36,6 +36,9 @@ To upload your own datasets in Speech Studio, follow these steps:
 
 After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md)
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
+
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -57,7 +60,7 @@ spx csr dataset create --kind "Acoustic" --name "My Acoustic Dataset" --descript
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -123,7 +126,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
