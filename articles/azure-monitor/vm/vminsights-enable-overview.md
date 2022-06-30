@@ -76,7 +76,7 @@ VM insights requires a Log Analytics workspace. See [Configure Log Analytics wor
 ## Agents
 When you enable VM insights for a machine, the following agents are installed. See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
 
-- [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md). Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace (both agents) and Azure Monitor Metrics (Azure Monitor agent only). VM insights support for Azure Monitor agent is currently in public preview. See [VM insights with Azure Monitor agent (Preview)](vminsights-azure-monitor-agent.md) for details.
+- [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md). Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. VM insights support for Azure Monitor agent is currently in public preview. See [VM insights with Azure Monitor agent (Preview)](vminsights-azure-monitor-agent.md) for details.
 - Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
 
 
@@ -88,7 +88,17 @@ When you enable VM insights for a machine, the following agents are installed. S
 ## Data collection rule (Azure Monitor agent)
 When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. You can edit this DCR to collect additional data such as Windows and Syslog events, or you can create additional DCRs and associate with the machine.
 
+When you 
+
+| Option | Description |
+|:---|:---|
+| Guest performance | Specifies whether to collect performance data from the guest operating system. This is required for all machines. |
+| Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the map feature in VM insights. This is optional and enables the [VM insights map feature](vminsights-maps.md) for the machine. |
+| Workspace
+
 It's not recommended to create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. If you want to customize the configuration, modify the DCR created by VM insights instead of creating a new one.
+
+See [Enable VM insights on unmonitored machine](vminsights-enable-portal.md#enable-vm-insights-on-unmonitored-machine) for more information on creating and editing the VM insights data collection rule.
 
 ## Management packs (Log Analytics agent)
 When a Log Analytics workspace is configured for VM insights, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights* and are written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 

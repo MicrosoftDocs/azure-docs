@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal
+title: Enable VM insights in the Azure portal
 description: Learn how to enable VM insights on a single Azure virtual machine or virtual machine scale set using the Azure portal.
 ms.topic: conceptual
 author: bwren
@@ -17,8 +17,9 @@ This article describes how to enable VM insights using the Azure portal for the 
 
 ## Prerequisites
 
-- [Create a Log Analytics workspace](./vminsights-configure-workspace.md). You can create a new workspace during this process, but you should use an existing workspace if you already have one. See [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md) andn [Design a Log Analytics workspace architecture](../logs/workspace-design.md) for more information.
+- [Create a Log Analytics workspace](./vminsights-configure-workspace.md). You can create a new workspace during this process, but you should use an existing workspace if you already have one. See [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md) and [Design a Log Analytics workspace architecture](../logs/workspace-design.md) for more information.
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
 
 
 > [!NOTE]
@@ -44,21 +45,29 @@ Click **Enable** on the introduction page to view the configuration. The **Monit
 
 
 ### Azure Monitor agent
-If you select Azure Monitor agent, you need to specify a data collection rule to use. The data collection rule specifies the data to collect and the Log Analytics workspace the agent will use.
+If you select Azure Monitor agent, you need to specify a data collection rule (DCR) to use. The data collection rule specifies the data to collect and the Log Analytics workspace the agent will use.
 
-VM insights will create a default data collection rule if one doesn't already exist. This DCR will collect **Guest performance** and **Processes and dependencies**. 
+The DCR is defined by the options in the following table. VM insights will create a default data collection rule if one doesn't already exist. This DCR will collect **Guest performance**. If you also want to enable **Processes and dependencies**, then you need to create a new DCR.
 
 | Option | Description |
 |:---|:---|
 | Guest performance | Specifies whether to collect performance data from the guest operating system. This is required for all machines. |
 | Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the map feature in VM insights. This is optional and enables the [VM insights map feature](vminsights-maps.md) for the machine. |
+| Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights will be listed. |
 
 :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent.":::
 
+
 Click **Configure** to modify this DCR. Note that the DCR will be modified for any machines that use it. The only options you can modify is the workspace and whether to collect processes and dependencies. VM insights requires the collection of guest performance, and you can't modify the set of counters that it collects.
+
+To create a new data collection rule, click **Create new** and provide the required information.
+
+:::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
 
 It will take several minutes for the agent to be installed and data to start being collected. You'll receive status messages as the configuration is performed.
 
+> [!NOTE]
+> A system-assigned managed identity will be added for the machine if one doesn't already exist.
 ### Log Analytics agent
 If you select Log Analytics agent, you only need to specify the Log Analytics workspace that the agent will use. VM insights will configure the data to collect.
 

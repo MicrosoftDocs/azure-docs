@@ -45,14 +45,16 @@ The following changes have been made to the **Overiew** page in VM insights.
 
 
 ## Migrate from Log Analytics agent
-The Azure Monitor agent and the Log Analytics agent can both be installed on the same machine during migration. If a virtual machine was already onboarded to VM insights with the Log Analytics agent, it will have a status of **Enabled** but have an option to **Configure using Azure Monitor Agent**. 
+The Azure Monitor agent and the Log Analytics agent can both be installed on the same machine during migration. If a virtual machine was already onboarded to VM insights with the Log Analytics agent, it will have a status of **Enabled** but have an option to **Configure using Azure Monitor Agent**. Click this option to add the Azure Monitor agent.
 
- You should be careful that running both agents may lead to duplication of data and increased cost. If a machine has both agents installed, you'll have a warning in the Azure portal that you may be collecting duplicate data. 
+You should be careful that running both agents may lead to duplication of data and increased cost. If a machine has both agents installed, you'll have a warning in the Azure portal that you may be collecting duplicate data. 
 
 :::image type="content" source="media/vminsights-azure-monitor-agent/both-agents-installed.png" alt-text="Both agents installed":::
 
 
-For any machines currently enabled with the Log Analytics, you must remove the Log Analytics agent yourself. You can disable collection from all Log Analytics agents by [removing the VM insights solution from the workspace](vminsights-configure-workspace.md). Before you do this, make sure that all machines have been configured with Azure Monitor agent to ensure that you don't miss any data.
+You must remove the Log Analytics agent yourself from any machines that are using it. Before you do this, ensure that the machine is not relying any other solutions that require the Log Analytics agent. See [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for details. 
+
+After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, disable collection from all Log Analytics agents by [removing the VM insights solution from the workspace](vminsights-configure-workspace.md). 
 
 
 

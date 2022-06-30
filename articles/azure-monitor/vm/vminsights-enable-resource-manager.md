@@ -17,8 +17,9 @@ This article describes how to enable VM insights for a virtual machine or virtua
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md). 
+- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).  The workspace must be in the same region as the data collection rule for Azure Monitor agent.
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
 
 ## Resource Manager templates
 Azure Resource Manager templates are available for download that onboard virtual machines and virtual machine scale sets. A different set of templates are used for Azure Monitor agent and Log Analytics agent. The templates install the required agents and perform the configuration required to onboard to machine to VM insights.
