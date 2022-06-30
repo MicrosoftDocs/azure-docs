@@ -3,7 +3,7 @@ title: Create your function app resources in Azure using Bicep
 description: Create and deploy to Azure a simple HTTP triggered serverless function using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 05/12/2022
+ms.date: 06/12/2022
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
@@ -11,11 +11,13 @@ ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 
 # Quickstart: Create and deploy Azure Functions resources using Bicep
 
-In this article, you use Bicep to create a function that responds to HTTP requests.
+In this article, you use Azure Functions with Bicep to create a function app and related resources in Azure. The function app provides an execution context for your function code executions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+
+After you create the function app, you can deploy Azure Functions project code to that app.
 
 ## Prerequisites
 
@@ -80,14 +82,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ---
 
-## Visit function app welcome page
-
-1. Use the output from the previous validation step to retrieve the unique name created for your function app.
-1. Open a browser and enter the following URL: **\<https://<appName.azurewebsites.net\>**. Make sure to replace **<\appName\>** with the unique name created for your function app.
-
-When you visit the URL, you should see a page like this:
-
-:::image type="content" source="../azure-functions/media/functions-create-first-function-bicep/function-app-bicep.png" alt-text="Function app welcome page" border="false":::
+[!INCLUDE [functions-welcome-page](../../includes/functions-welcome-page.md)]
 
 ## Clean up resources
 
@@ -111,21 +106,9 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-Now that you've publish your first function, learn more by adding an output binding to your function.
+Now that you've created your function app resources in Azure, you can deploy your code to the existing app by using one of the following tools: 
 
-# [Visual Studio Code](#tab/visual-studio-code)
+* [Visual Studio Code](functions-develop-vs-code.md#republish-project-files)
+* [Visual Studio](functions-develop-vs.md#publish-to-azure)
+* [Azure Functions Core Tools](functions-run-local.md#publish)
 
-> [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md)
-
-# [Visual Studio](#tab/visual-studio)
-
-> [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs.md)
-
-# [Command line](#tab/command-line)
-
-> [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md)
-
----
