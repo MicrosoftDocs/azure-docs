@@ -80,7 +80,7 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     1. Navigate to **Key vaults** and locate the key vault you want to use.
     1. From the left navigation, under **Settings**, select **Access policies**.
     1. In **Access policies**, select **Add Access Policy**.
-        1. From the Key Permissions drop-down, check **Select all**, **Unwrap Key**, and **Wrap key**.
+        1. From the Key Permissions drop-down, check **Select all**, **Unwrap Key**, and **Wrap Key**.
         1. Under Select principal, select **None selected**. A new **Principal** window with a search box will open.
         1. In the search box, paste the **Object ID** from the previous step, or search the private cloud name you want to use. Choose **Select** when you're done.
         1. Select **ADD**.
