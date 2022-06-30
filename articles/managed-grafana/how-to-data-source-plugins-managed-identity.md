@@ -52,7 +52,7 @@ You can find all available Grafana data sources by going to your resource and se
    :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
 
 > [!NOTE]
-> These data sources are can also be founder under **Configuration** > **Plugins**. However, some of the data sources and other plugins displayed on this page are not supported by Azure Managed Grafana. To view supported data sources, go to **Configuration** > **Data sources** > **Add a data source**.
+> These data sources are also listed on the page **Configuration** > **Plugins**. However, some of the data sources and other plugins displayed on this page are not supported by Azure Managed Grafana. To view supported data sources, go to **Configuration** > **Data sources** > **Add a data source**.
 
 For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 
