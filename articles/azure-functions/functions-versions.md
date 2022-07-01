@@ -201,13 +201,15 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. (Windows only) For function apps running on Windows, use the following command to run on .NET 6:
+1. (Windows only) For function apps running on Windows, use the following command so that the runtime can run on .NET 6:
    
     ```azurecli
     az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
     Version 4.x of the Functions runtime requires .NET 6 when running on Windows. 
+
+1. If your code project required any updates to run on version 4.x, deploy those updates to the staging slot now.
 
 1. Confirm that your function app runs correctly in the upgraded staging environment before swapping.
 
@@ -233,7 +235,7 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~3 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-    You may see errors from the staging slot during the time between the swap and the runtime version being restored on staging. This can happen because having `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` only in staging during a swap will remove the `FUNCTIONS_EXTENSION_VERSION` setting in staging. Without the version setting, your slot is in a bad state. Updating the version in the staging slot right after the swap should put the slot back into a good state, and it enables you to roll back your changes if necessary. However, this rollback would also require you to directly remove `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` from production before the swap back, so that production does not encounter the same errors that you may have seen in staging. This change in the production setting would then initiate a restart.
+    You may see errors from the staging slot during the time between the swap and the runtime version being restored on staging. This can happen because having `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` only in staging during a swap removes the `FUNCTIONS_EXTENSION_VERSION` setting in staging. Without the version setting, your slot is in a bad state. Updating the version in the staging slot right after the swap should put the slot back into a good state, and you call roll back your changes if needed. However, any rollback of the swap also requires you to directly remove `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` from production before the swap back to prevent the same errors in production seen in staging. This change in the production setting would then cause a restart.
 
 1. Use the following command to again set `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` in the staging slot:
 
@@ -241,19 +243,23 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
     az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
+    At this point, both slots have `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` set.
+
 1. Use the following command to change `FUNCTIONS_EXTENSION_VERSION` and upgrade the staging slot to the new runtime version:
 
     ```azurecli
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. (Windows only) For function apps running on Windows, use the following command to run on .NET 6:
+1. (Windows only) For function apps running on Windows, use the following command so that the runtime can run on .NET 6:
    
     ```azurecli
     az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
     Version 4.x of the Functions runtime requires .NET 6 when running on Windows. 
+
+1. If your code project required any updates to run on version 4.x, deploy those updates to the staging slot now.
 
 1. Confirm that your function app runs correctly in the upgraded staging environment before swapping.
 
@@ -268,41 +274,47 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
 Upgrading instructions may be language dependent. If you don't see your language, please select it from the switcher at the [top of the article](#top).
 
 ::: zone pivot="programming-language-csharp"  
-To update a C# class library app to .NET 6 and Azure Functions 4.x, update the `TargetFramework` and `AzureFunctionsVersion`:
+To update a C# class library app to .NET 6 and Azure Functions 4.x: 
 
-```xml
-<TargetFramework>net6.0</TargetFramework>
-<AzureFunctionsVersion>v4</AzureFunctionsVersion>
-```
+1. Update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to version 4.
 
-You must also make sure the NuGet packages references by your app are updated to the latest versions. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information. Specific packages depend on whether your functions run in-process or out-of-process. 
+1. Update the `TargetFramework` and `AzureFunctionsVersion`, as follows:
 
-# [In-process](#tab/in-process)
+    ```xml
+    <TargetFramework>net6.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    ```
 
-* [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 4.0.0 or later
+1. Update the NuGet packages referenced by your app to the latest versions. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.  
+    Specific packages depend on whether your functions run in-process or out-of-process. 
 
-# [Isolated process](#tab/isolated-process)
+    # [In-process](#tab/in-process)
+    
+    * [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 4.0.0 or later
+    
+    # [Isolated process](#tab/isolated-process)
+    
+    * [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) 1.5.2 or later
+    * [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) 1.2.0 or later
 
-* [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) 1.5.2 or later
-* [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) 1.2.0 or later
-
----
+    ---
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-To update your app to Azure Functions 4.x, update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to 4.x and update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
+To update your app to Azure Functions 4.x:
+
+1. Update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to version 4.x. 
+
+1. Update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-> [!NOTE]
-> Node.js 10 and 12 aren't supported in Azure Functions 4.x.
+1. If you are using Node.js version 10 or 12, move to one of the [supported version](functions-reference-node.md#node-version).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-> [!NOTE]
-> PowerShell 6 is not supported in Azure Functions 4.x.
+1. If you are using PowerShell Core 6, move to one of the [supported versions](functions-reference-powershell.md#powershell-versions).
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-> [!NOTE]
-> Python 3.6 isn't supported in Azure Functions 4.x.
+1. If you are using Python 3.6, move to one of the [supported versions](functions-reference-python.md#python-version).
 ::: zone-end
 
 ### Breaking changes between 3.x and 4.x
