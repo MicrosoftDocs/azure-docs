@@ -1,6 +1,6 @@
 ---
-title: How to configure health probes for Apps | Microsoft Docs
-description: How to add health probes in Azure Spring Apps
+title: How to configure health probes and gracefull termination period for Apps | Microsoft Docs
+description: How to add health probes and gracefull termination period in Azure Spring Apps
 author: 
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -9,13 +9,13 @@ ms.author: xuycao
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# How to configure health probes for Apps in Azure Spring Apps
+# How to configure health probes and gracefull termination period for Apps in Azure Spring Apps
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to customize apps running in Azure Spring Apps with health probes.
+This article shows you how to customize apps running in Azure Spring Apps with health probes and graceful termination period.
 
 A probe is a diagnostic performed periodically by Azure Spring Apps on an app instance. To perform a diagnostic, Azure Spring Apps either executes code within the container, or makes a network request.
 
@@ -61,7 +61,7 @@ By default, Azure Spring Apps offers default health probe rules for every applic
 |Property Name | Description|
 |-|-|
 |scheme|Scheme to use for connecting to the host. Defaults to HTTP.|
-|path|Path to access on the HTTP server of the app instance.|
+|path|Path to access on the HTTP server of the app instance. e.g. `/healthz`|
 
 
 - *ExecAction*
@@ -163,7 +163,7 @@ Use the following best practices when adding your own persistent storage to Azur
 
 * It's recommanded to use liveness and readiness probe together. The reason is that Azure Spring Apps provides two approachs for service discovery at the same time. And when the readiness probe fails, the app instance will only be removed from Kubernetes Service Discovery. A proper configed liveness probe can remove the issued app instance from Eureka Service Discovery to avoid unexpected cases.
 For more information about Service Discovery, please refer [Discover and register your Spring Boot applications](how-to-service-registration.md).
-* The total timeout before a probe failure is *initialDelaySeconds + periodSeconds * failureThreshold*. Please ensure this timeout is longer enough for your application to be about to start to server the traffic.
+* The total timeout before a probe failure is *initialDelaySeconds + periodSeconds * failureThreshold*. It means after the time of initial delay, the number of consecutive probe failures exceeds the threshold. Please ensure this timeout is longer enough for your application to be about to start to server the traffic.
 * For spring boot applications, Spring Boot shipped with the [Health Groups support](https://docs.spring.io/spring-boot/docs/2.2.x/reference/html/production-ready-features.html#health-groups), allowing developers to select a subset of health indicators and group them under a single, correlated, health status. Please refer this blog for more information [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot). 
 
     > Examples for Liveness and Readiness Probes with Spring Boot:
