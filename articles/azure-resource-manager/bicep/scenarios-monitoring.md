@@ -4,7 +4,7 @@ description: Describes how to create monitoring resources by using Bicep.
 author: willvelida
 ms.author: willvelida
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 07/01/2022
 ---
 # Create monitoring resources by using Bicep
 
@@ -42,7 +42,7 @@ To use Bicep to configure diagnostic settings to export the Azure activity log, 
 
 The following example shows how to export several activity log types to a Log Analytics workspace:
 
-::: code language="bicep" source="temp/diagnostic-settings-activity-log.bicep" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/diagnostic-settings-activity-log.bicep" :::
 
 ## Alerts
 
