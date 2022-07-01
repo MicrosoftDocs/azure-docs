@@ -52,7 +52,7 @@ When developing locally, you need to make sure the user you want to connect to y
 
 You can authenticate your local app to the Blob Storage account you created using the following steps:
 
-1. Make sure you are signed-in to the same Azure AD account you assigned the role to on your Blob Storage account. You can sign-in through Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
+1. Make sure you are signed-in to the same Azure AD account you assigned the role to on your Blob Storage account. You can sign-in through the Azure CLI, Visual Studio, Visual Studio Code, or Azure PowerShell.
 
     [!INCLUDE [defaultazurecredential-sign-in](defaultazurecredential-sign-in.md)]
 
