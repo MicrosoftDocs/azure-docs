@@ -92,6 +92,8 @@ items:
         href: storage-create-geo-redundant-storage.md
       - name: 2 - Simulate a failure in reading data from the primary region
         href: simulate-primary-region-failure.md
+    - name: Encrypt and decrypt blobs using Azure Key Vault
+      href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Add role assignment conditions
       items:
       - name: Portal
