@@ -120,4 +120,4 @@ DCR content will open in embedded code editor. Once editing is complete, enterin
 
 ## Next steps
 
-- [Read more about data collection rules and options for creationg them.](data-collection-rule-overview.md)
+- [Read more about data collection rules and options for creating them.](data-collection-rule-overview.md)
