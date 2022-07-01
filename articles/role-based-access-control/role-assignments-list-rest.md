@@ -29,7 +29,7 @@ In Azure RBAC, to list access, you list the role assignments. To list role assig
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter={filter}
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role assignments.
@@ -57,7 +57,7 @@ In Azure RBAC, to list access, you list the role assignments. To list role assig
 The following request lists all role assignments for the specified user at subscription scope:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()+and+assignedTo('{objectId1}')
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=atScope()+and+assignedTo('{objectId1}')
 ```
 
 The following shows an example of the output:

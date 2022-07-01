@@ -35,7 +35,7 @@ To get information about a deny assignment, you must have:
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments/{deny-assignment-id}?api-version=2018-07-01-preview
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments/{deny-assignment-id}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the deny assignments.
@@ -54,13 +54,13 @@ To get information about a deny assignment, you must have:
 1. Start with one of the following requests:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01
     ```
 
     With optional parameters:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter={filter}
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the deny assignments.
@@ -91,7 +91,7 @@ To get information about a deny assignment, you must have:
 1. Use the following request:
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter={filter}
+    GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Replace *{filter}* with the condition that you want to apply to filter the deny assignment list. A filter is required.

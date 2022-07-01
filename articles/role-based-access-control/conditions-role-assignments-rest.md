@@ -27,7 +27,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Add a condition
 
-To add a role assignment condition, use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API. Set the `api-version` to `2020-03-01-preview` or later. If you want to utilize the `description` property for role assignments, use `2020-04-01-preview` or later.  [Role Assignments - Create](/rest/api/authorization/roleassignments/create) includes the following parameters related to conditions.
+To add a role assignment condition, use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API. Set the `api-version` to `2022-04-01` or later. [Role Assignments - Create](/rest/api/authorization/roleassignments/create) includes the following parameters related to conditions.
 
 | Parameter | Type | Description |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ To add a role assignment condition, use the [Role Assignments - Create](/rest/ap
 Use the following request and body:
 
 ```http
-PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2020-04-01-preview
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2022-04-01
 ```
 
 ```json
@@ -55,7 +55,7 @@ PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleA
 The following example shows how to assign the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role with a condition. The condition checks whether container name equals 'blobs-example-container'.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2020-04-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2022-04-01
 ```
 
 ```json
@@ -99,7 +99,7 @@ The following shows an example of the output:
 To edit an existing role assignment condition, use the same [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API as you used to add the role assignment condition. The following shows an example JSON where `condition` and `description` are updated. Only the `condition`, `conditionVersion`, and `description` properties can be edited. You must specify the other properties to match the existing role assignment.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2020-04-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2022-04-01
 ```
 
 ```json
@@ -117,7 +117,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## List a condition
 
-To list a role assignment condition, use the [Role Assignments - List](/rest/api/authorization/roleassignments/list) API. Set the `api-version` to `2020-03-01-preview` or later. If you want to utilize the `description` property for role assignments, use `2020-04-01-preview` or later. For more information, see [List Azure role assignments using the REST API](role-assignments-list-rest.md).
+To list a role assignment condition, use the [Role Assignments - List](/rest/api/authorization/roleassignments/list) API. Set the `api-version` to `2022-04-01` or later. For more information, see [List Azure role assignments using the REST API](role-assignments-list-rest.md).
 
 ## Delete a condition
 

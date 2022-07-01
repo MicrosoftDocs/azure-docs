@@ -336,7 +336,7 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2015-07-01
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role definitions.
@@ -362,7 +362,7 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
 The following request lists custom role definitions at subscription scope:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type+eq+'CustomRole'
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter=type+eq+'CustomRole'
 ```
 
 The following shows an example of the output:
@@ -415,13 +415,13 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
     For a directory-level role definition, you can use this request:
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role definition.
@@ -439,7 +439,7 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
 The following request lists the [Reader](built-in-roles.md#reader) role definition:
 
 ```http
-GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
+GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2022-04-01
 ```
 
 The following shows an example of the output:

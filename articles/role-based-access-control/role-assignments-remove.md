@@ -110,7 +110,7 @@ In the REST API, you remove a role assignment by using [Role Assignments - Delet
 1. Start with the following request:
 
     ```http
-    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01
+    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for removing the role assignment.
@@ -128,7 +128,7 @@ In the REST API, you remove a role assignment by using [Role Assignments - Delet
 The following request removes the specified role assignment at subscription scope:
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
+DELETE https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2022-04-01
 ```
 
 The following shows an example of the output:

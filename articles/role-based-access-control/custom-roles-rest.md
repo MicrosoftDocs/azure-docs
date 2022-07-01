@@ -33,7 +33,7 @@ To list all custom roles in a directory, use the [Role Definitions - List](/rest
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Replace *{filter}* with the role type.
@@ -50,7 +50,7 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
@@ -77,7 +77,7 @@ To get information about a custom role by its display name, use the [Role Defini
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
@@ -106,7 +106,7 @@ To get information about a custom role by its unique identifier, use the [Role D
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
@@ -132,7 +132,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 1. Start with the following request and body:
 
     ```http
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
     ```json
@@ -229,7 +229,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 1. Start with the following request:
 
     ```http
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the first `assignableScopes` of the custom role.
@@ -319,7 +319,7 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 1. Start with the following request:
 
     ```http
-    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope that you want to delete the custom role.
