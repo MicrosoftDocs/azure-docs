@@ -19,9 +19,9 @@ This tutorial uses the CLI within the Azure Cloud Shell, which is constantly upd
 
 ## Create a rules file
 
-In order to restrict what extensions can be installed, you need to have a [rule](../../governance/policy/concepts/definition-structure.md#policy-rule) to provide the logic to identify the extension.
+In order to restrict what extensions are available, you need to create a [rule](../../governance/policy/concepts/definition-structure.md#policy-rule) to identify the extension.
 
-This example shows you how to deny installing extensions published by 'Microsoft.OSTCExtensions' by creating a rules file in Azure Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
+This example demonstrates how deny the installation of disallowed VM extensions by defining a rules file in Azure Cloud Shell. However, if you are working in Azure CLI locally, you can create a local file and replace the path (~/clouddrive) with the path to the file on your local file system.
 
 In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 
@@ -29,7 +29,7 @@ In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 vim ~/clouddrive/azurepolicy.rules.json
 ```
 
-Copy and paste the following .json into the file.
+Copy and paste the following `.json` data into the file.
 
 ```json
 {
@@ -55,21 +55,16 @@ Copy and paste the following .json into the file.
 }
 ```
 
-When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
+When you are finished, press **Esc** and then type **:wq** to save and close the file.
 
 ## Create a parameters file
 
-You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
+You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the unauthorized extensions. 
 
-This example shows you how to create a parameter file for Linux VMs in Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
-
-In the [bash Cloud Shell](https://shell.azure.com/bash), type:
-
-```bash
-vim ~/clouddrive/azurepolicy.parameters.json
+This example shows you how to create a parameter file for Linux VMs in Cloud Shell.
 ```
 
-Copy and paste the following .json into the file.
+Copy and paste the following `.json` data into the file.
 
 ```json
 {
@@ -83,11 +78,11 @@ Copy and paste the following .json into the file.
 }
 ```
 
-When you are done, press **Esc** and then type **:wq** to save and close the file.
+When you are finished, press **Esc** and then type **:wq** to save and close the file.
 
 ## Create the policy
 
-A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment).
+A _policy definition_ is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment).
 
 In this example, the rules and parameters are the files you created and stored as .json files in your cloud shell.
 
@@ -103,10 +98,9 @@ az policy definition create \
 
 ## Assign the policy
 
-This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment). Any VM created in the **myResourceGroup** resource group will not be able to install the Linux VM Access or the Custom Script extensions for Linux. The resource group must exist before you can assign the policy.
+This example assigns the policy to a resource group using [`az policy assignment create`](/cli/azure/policy/assignment). Any VM created in the **myResourceGroup** resource group will be unable to install the Linux VM Access or the Custom Script Extensions for Linux. Note: The resource group must exist before you can assign the policy.
 
-Use [az account list](/cli/azure/account) to get your subscription ID to use in place of the one in the example.
-
+Use [`az account list`](/cli/azure/account) to find your subscription ID and replace the placeholder in the following example:
 
 ```azurecli-interactive
 az policy assignment create \
@@ -126,7 +120,6 @@ az policy assignment create \
 ## Test the policy
 
 Test the policy by creating a new VM and adding a new user.
-
 
 ```azurecli-interactive
 az vm create \
