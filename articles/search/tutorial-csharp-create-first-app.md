@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 07/01/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -86,15 +86,13 @@ Hopefully this project will run smoothly, and you have Web app running. Many of 
 
 To create this project from scratch, and thus reinforce the concepts of Azure Cognitive Search in your mind, start with a Visual Studio project.
 
-1. In Visual Studio, select **New** > **Project**, then **ASP.NET Core Web Application**.
+1. In Visual Studio, select **New** > **Project**, then **ASP.NET Core Web App (Model-View-Controller)**.
 
     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Creating a cloud project" border="true":::
 
-1. Give the project a name such as "FirstSearchApp" and set the location. Select **Create**.
+1. Give the project a name such as "FirstSearchApp" and set the location. Select **Next**.
 
-1. Choose the **Web Application (Model-View-Controller)** project template.
-
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Creating an MVC project" border="true":::
+1. Accept the defaults for target framework, authentication type, and HTTPS. Select **Create**.
 
 1. Install the client library. In **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution...**, select  **Browse** and then search for "azure.search.documents". Install **Azure.Search.Documents** (version 11 or later), accepting the license agreements and dependencies.
 
@@ -102,11 +100,11 @@ To create this project from scratch, and thus reinforce the concepts of Azure Co
 
 ### Initialize Azure Cognitive Search
 
-For this sample, you are using publicly available hotel data. This data is an arbitrary collection of 50 fictional hotel names and descriptions, created solely for the purpose of providing demo data. To access this data, specify a name and API key.
+In this step, set the endpoint and access key for connecting to the search service that provides the [hotels sample index](search-get-started-portal.md).
 
 1. Open **appsettings.json** and replace the default lines with the search service URL (in the format `https://<service-name>.search.windows.net`) and an [admin or query API key](search-security-api-keys.md) of your search service. Since you don't need to create or update an index, you can use the query key for this tutorial.
 
-    ```csharp
+    ```json
     {
         "SearchServiceUri": "<YOUR-SEARCH-SERVICE-URI>",
         "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
