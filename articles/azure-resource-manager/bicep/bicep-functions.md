@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 07/01/2022
 ---
 
 # Bicep functions
@@ -72,6 +72,7 @@ The following functions are available for getting values related to the deployme
 The following functions are available for loading the content from external files into your Bicep file. All of these functions are in the `sys` namespace.
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
+* [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
 ## Logical functions
