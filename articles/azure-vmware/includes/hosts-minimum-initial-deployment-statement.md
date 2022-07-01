@@ -14,7 +14,7 @@ For each private cloud created, there's one vSAN cluster by default. You can add
 
 You use vSphere and NSX-T Manager to manage most other aspects of cluster configuration or operation. All local storage of each host in a cluster is under the control of vSAN.
 
-The Azure VMware Solution management and control plane has the following resource requirements that need to be accounted for in solution sizing.
+The Azure VMware Solution management and control plane has the following resource requirements that need to be accounted for during solution sizing.
 
 | **Area** | **Description** | **Provisioned vCPUs** | **Provisioned vRAM (GB)** | **Provisioned vDisk (GB)** |  **Typical CPU Usage (GHz)** | **Typical vRAM Usage (GB)** | **Typical Raw vSAN Datastore Usage (GB)** |
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
