@@ -11,11 +11,11 @@ ms.author: mubatra
 
 # Use App Config references for App Service and Azure Functions
 
-This topic shows you how to work with configuration data in your App Service or Azure Functions application without requiring any code changes. [Azure App Config](../azure-app-configuration/overview.md) is a service to centrally manage application configuration. Additionally, it is an effective audit tool for your configuration values over time or releases.
+This topic shows you how to work with configuration data in your App Service or Azure Functions application without requiring any code changes. [Azure App Config](../azure-app-configuration/overview.md) is a service to centrally manage application configuration. Additionally, it's an effective audit tool for your configuration values over time or releases.
 
 ## Granting your app access to App Config
 
-To get started with using App Config references in App Service, you will first need  an App Config store and provide your app permission to access the configuration key-values in the store.
+To get started with using App Config references in App Service, you'll first need  an App Config store, and provide your app permission to access the configuration key-values in the store.
 
 1. Create an App Config store by following the [App Config quickstart](../azure-app-configuration/quickstart-dotnet-core-app.md#create-an-app-configuration-store).
 
@@ -23,15 +23,15 @@ To get started with using App Config references in App Service, you will first n
 
     App Config references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access App Config Store with a user-assigned identity).
 
-1. Enable the newly created identity to have the right set of access permissions on the App Config store. Update [Access Control for App Config](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You will be assigning `App Configuration Data Reader` role to this identity.
+1. Enable the newly created identity to have the right set of access permissions on the App Config store. Update [Access Control for App Config](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity.
 
 ### Access network-restricted App Config stores
 
-If your store is configured as [private access only](../azure-app-configuration/concept-private-endpoint.md), you will need to ensure that the app service has network access.
+If your store is configured as [private access only](../azure-app-configuration/concept-private-endpoint.md), you'll need to ensure that the app service has network access.
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
-    Linux applications attempting to use private endpoints additionally require that the app be explicitly configured to have all traffic route through the virtual network. This requirement will be removed in a forthcoming update. To set this, use the following CLI command:
+    Linux applications using private endpoints, require that the app is explicitly configured to have all traffic route through the virtual network. This requirement will be removed in a forthcoming update. To set this vNet configuration, use the following CLI command:
 
     ```azurecli
     az webapp config set --subscription <sub> -g <rg> -n <appname> --generic-configurations '{"vnetRouteAllEnabled": true}'
@@ -44,7 +44,7 @@ If your store is configured as [private access only](../azure-app-configuration/
 
 ### Access App Config Store with a user-assigned identity
 
-Some apps might need to reference configuration at creation time, when a system-assigned identity would not yet be available. In these cases, a user-assigned identity can be created and given access to the App Config store, in advance. Follow these steps to [create user-assigned identity for App Config store](../azure-app-configuration/overview-managed-identity.md#adding-a-user-assigned-identity).
+Some apps might need to reference configuration at creation time, when a system-assigned identity wouldn't yet be available. In these cases, a user-assigned identity can be created and given access to the App Config store, in advance. Follow these steps to [create user-assigned identity for App Config store](../azure-app-configuration/overview-managed-identity.md#adding-a-user-assigned-identity).
 
 Once you have granted permissions to the user-assigned identity, follow these steps:
 
@@ -91,24 +91,24 @@ To use an App Config reference for an [app setting](configure-common.md#configur
 > Most application settings using App Config references should be marked as slot settings, as you should have separate stores or labels for each environment.
 
 > [!NOTE]
-> An App Config reference pointing to Key vault reference type will not be resolved and the value will be used as-is. Support for same is planned for the future releases.
+> An App Config reference pointing to Key vault reference type won't be resolved and the value will be used as-is. Support for same is planned for the future releases.
 
 ### Considerations for Azure Files mounting
 
-Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount Azure Files as the file system. This setting has additional validation checks to ensure that the app can be properly started. The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests which modify these settings, the platform will attempt to validate if this content share exists, and it will attempt to create it if not. If it cannot locate or create the content share, the request is blocked.
+Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount Azure Files as the file system. This setting has additional validation checks to ensure that the app can be properly started. The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests that modify these settings, the platform will attempt to validate if this content share exists, and it will attempt to create it if not. If it can't locate or create the content share, the request is blocked.
 
-When using App Config references for this setting, this validation check will fail by default, as the connection itself cannot be resolved while processing the incoming request. To avoid this issue, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to "1". This will bypass all checks, and the content share will not be created for you. You should ensure it is created in advance. 
+If you use App Config references for this setting, this validation check will fail by default, as the connection itself can't be resolved while processing the incoming request. To avoid this issue, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to "1". This setting will bypass all checks, and the content share won't be created for you. You should ensure it's created in advance.
 
 > [!CAUTION]
 > If you skip validation and either the connection string or content share are invalid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
-As part of creating the site, it is also possible that attempted mounting of the content share could fail due to managed identity permissions not being propagated or the virtual network integration not being set up. You can defer setting up Azure Files until later in the deployment template to accommodate this. See [Azure Resource Manager deployment](#azure-resource-manager-deployment) to learn more. App Service will use a default file system until Azure Files is set up, and files are not copied over, so you will need to ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
+As part of creating the site, it's also possible that attempted mounting of the content share could fail due to managed identity permissions not being propagated or the virtual network integration not being set up. You can defer setting up Azure Files until later in the deployment template to accommodate for the required setup. See [Azure Resource Manager deployment](#azure-resource-manager-deployment) to learn more. App Service will use a default file system until Azure Files is set up, and files aren't copied over so make sure that no deployment attempts occur during the interim period before Azure Files is mounted.
 
 ### Azure Resource Manager deployment
 
-When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Of note, you will need to define your application settings as their own resource, rather than using a `siteConfig` property in the site definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
+When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Of note, you'll need to define your application settings as their own resource, rather than using a `siteConfig` property in the site definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
 
-An example pseudo-template for a function app might look like the following:
+Below is an example pseudo-template for a function app with App Config references:
 
 ```json
 {
@@ -222,13 +222,11 @@ An example pseudo-template for a function app might look like the following:
 }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > In this example, the source control deployment depends on the application settings. This is normally unsafe behavior, as the app setting update behaves asynchronously. However, because we have included the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. This means that the source control deployment will only begin once the application settings have been fully updated. For more app settings, see [Environment variables and app settings in Azure App Service](reference-app-settings.md).
 
 ## Troubleshooting App Config References
 
-If a reference is not resolved properly, the reference value will be used instead. This means that for application settings, an environment variable would be created whose value has the `@Microsoft.AppConfig(...)` syntax. This may cause the application to throw errors, as it was expecting a configuration value instead.
+If a reference isn't resolved properly, the reference value will be used instead. For the application settings, an environment variable would be created whose value has the `@Microsoft.AppConfig(...)` syntax. It may cause an error, as the application was expecting a configuration value instead.
 
-Most commonly, this could be due to a misconfiguration of the [App Config access policy](#granting-your-app-access-to-app-config). However, it could also be due to a syntax error in the reference or the config key-value not existing in the store.
-
-If the syntax is correct, you can view other causes for error by checking the current resolution status in the portal. Navigate to Application Settings and select "Edit" for the reference in question. Below the setting configuration, you should see status information, including any errors. The absence of these implies that the reference syntax is invalid.
+Most commonly, this error could be due to a misconfiguration of the [App Config access policy](#granting-your-app-access-to-app-config). However, it could also be due to a syntax error in the reference or the config key-value not existing in the store.
