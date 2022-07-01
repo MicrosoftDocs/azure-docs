@@ -44,7 +44,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
 
 
-## <a name="unable to create new automation jobs in West Europe"></a>Scenario: Unable to create new Automation job in West Europe region
+## Scenario: Unable to create new Automation job in West Europe region
 
 ### Issue
 When creating new Automation jobs, you might experience a delay or failure of job creation.
@@ -53,12 +53,12 @@ When creating new Automation jobs, you might experience a delay or failure of jo
 This is because of scalability limits with the Automation service in the West Europe region.
 
 ### Resolution
-Do one of the following actions in your environment to reduce the chance of failure, if it is feasible as per your requirement and environment: 
+Do one of the following actions if it is feasible as per your requirement and environment to reduce the chance of failure: 
 
 - During the peak hours of job creation, move the job start time to five minutes before or after the hour/half hour.
 - Run the Automation jobs from alternate data centres until the transition work is complete.
 
->[!NOTE> 
+>[!NOTE]
 > The optimization of existing load and transitioning the load to a new design by the product group is in progress.
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message

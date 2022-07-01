@@ -15,7 +15,7 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Automation.
 
 ## why can't I create new Automation job in West Europe region?
 
-You might experience a delay or failure of job creation because of scalability issues in West Europe region. For more information, see [creation of new Automation job in West Europe region](./troubleshoot/runbooks.md#a-nameunable-to-create-new-automation-jobs-in-west-europeascenario-unable-to-create-new-automation-job-in-west-europe-region)
+You might experience a delay or failure of job creation because of scalability issues in West Europe region. For more information, see [creation of new Automation job in West Europe region.](./troubleshoot/runbooks.md#unable-to-find-subscriptionascenario-unable-to-find-the-azure-subscription)
 
 ## Can Update Management prevent unexpected OS-level upgrades?
 
