@@ -248,7 +248,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    JOB_NAME=$(az ml job list --query "[0].name" | tr -d '"')
    ```
    
-   a. Register the model in the registry. 
+   b. Register the model in the registry. 
    
    ```bash
    az ml model create --name "mir-sample-sklearn-mlflow-model" \
@@ -256,7 +256,9 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
                        --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
    ```
    
-   a. Create the deployment `YAML` file:
+   c. Create the deployment `YAML` file:
+   
+   __sklearn-deployment.yaml__
    
    ```yaml
    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
