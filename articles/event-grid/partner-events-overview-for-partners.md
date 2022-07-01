@@ -70,6 +70,11 @@ A Channel is a nested resource to a Partner Namespace. A channel has two main pu
  
       A customer can use your partner destination to send your service any kind of events available to [Event Grid](overview.md).
 
+    - A channel can store ``event types definitions``, these definitions can be added during the creation of a channel or once the channel is created in the configuration to allow a customer to subscribe to these events when using partner topics. [Learn more](concepts.md#inline-event-type-definitions).
+
+      >[!IMPORTANT]
+      >Event types can be managed in the channel and once the values are updated, changes will be reflected immediately in the associated partner topic.
+
 ### Partner namespace
 A partner namespace is a regional resource that has an endpoint to publish events to Azure Event Grid. Partner namespaces contain either channels or event channels (legacy resource). You must create partner namespaces in regions where customers request partner topics or destinations because channels and their corresponding partner resources must reside in the same region. You can't have a channel in a given region with its related partner topic, for example, located in a different region. 
 
