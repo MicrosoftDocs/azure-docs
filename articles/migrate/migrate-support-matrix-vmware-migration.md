@@ -58,7 +58,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
 **iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
-**Storage vMotion** | Not supported. Replication won't work if a VM uses storage vMotion.
+**Storage vMotion** | Supported. 
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
