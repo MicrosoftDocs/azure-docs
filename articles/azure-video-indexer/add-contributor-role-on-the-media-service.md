@@ -23,7 +23,7 @@ This article describes how to assign contributor role on the Media Services acco
 > You'll need an Azure subscription where you have access to both the [Contributor][docs-role-contributor] role and the [User Access Administrator][docs-role-administrator] role to the Azure Media Services and the User-assigned managed identity. If you don't have the right permissions, ask your account administrator to grant you those permissions. The associated Azure Media Services must be in the same region as the Azure Video Indexer account.
 
 ## Add Contributor role on the Media Services
-### [Azure Portal](#tab/portal/)
+### [Azure portal](#tab/portal/)
 
 ### Add Contributor role to Media Services using Azure portal
 
@@ -42,9 +42,9 @@ This article describes how to assign contributor role on the Media Services acco
 1. Once you have found the security principal, click to select it.
 1. To assign the role, click **Review + assign**
 
-## Nexg steps
+## Next steps
 
-[Create a new ARM based account](create-account-portal.md)
+[Create a new Azure Resource Manager based account](create-account-portal.md)
 
 <!-- links -->
 [docs-role-contributor]: ../role-based-access-control/built-in-roles.md#contributor
