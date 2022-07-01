@@ -55,37 +55,37 @@ To maximize these benefits, migrate new or existing data and applications to the
 
 :::row:::
    :::column span="":::
-    &#160;&#160;&#160;&#160;&#160; **Preparation** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#129094;
+    &#160;&#160;&#160;&#160; **Preparation** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#129094;
 
-     - Define scope&mdash;what is to be migrated
-     - Build inventory of data and processes for migration
-     - Define data model changes (if any)
-     - Define source data extract mechanism
-     - Identify the appropriate Azure and third-party tools and features to be used
-     - Train staff early on the new platform
-     - Set up the Azure target platform
-
-   :::column-end:::
-   :::column span="":::
-    &#160;&#160;&#160;&#160;&#160; **Migration** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#129094;
-
-     - Start small and simple
-     - Automate wherever possible
-     - Leverage Azure built-in tools and features to reduce migration effort
-     - Migrate metadata for tables and views
-     - Migrate historical data to be maintained
-     - Migrate or refactor stored procedures and business processes
-     - Migrate or refactor ETL/ELT incremental load processes
+     - Define scope&mdash;what is to be migrated.
+     - Build inventory of data and processes for migration.
+     - Define data model changes (if any).
+     - Define source data extract mechanism.
+     - Identify the appropriate Azure and third-party tools and features to be used.
+     - Train staff early on the new platform.
+     - Set up the Azure target platform.
 
    :::column-end:::
    :::column span="":::
-    &#160;&#160;&#160;&#160;&#160; **Post migration**
+    &#160;&#160;&#160;&#160; **Migration** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#129094;
 
-    - Monitor and document all stages of the process
-    - Use the experience gained to build a template for future migrations
-    - Re-engineer the data model if required (using new platform performance and scalability)
-    - Test applications and query tools
-    - Benchmark and optimize query performance
+     - Start small and simple.
+     - Automate wherever possible.
+     - Leverage Azure built-in tools and features to reduce migration effort.
+     - Migrate metadata for tables and views.
+     - Migrate historical data to be maintained.
+     - Migrate or refactor stored procedures and business processes.
+     - Migrate or refactor ETL/ELT incremental load processes.
+
+   :::column-end:::
+   :::column span="":::
+    &#160;&#160;&#160;&#160; **Post migration**
+
+    - Monitor and document all stages of the process.
+    - Use the experience gained to build a template for future migrations.
+    - Re-engineer the data model if required (using new platform performance and scalability).
+    - Test applications and query tools.
+    - Benchmark and optimize query performance.
 
    :::column-end:::
 :::row-end:::
