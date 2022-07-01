@@ -309,7 +309,7 @@ When analyzing data in a modern data warehouse, you must be able to analyze stre
 Once you've successfully migrated your data warehouse to Azure Synapse, you can introduce live streaming data integration as part of a data warehouse modernization exercise by taking advantage of the extra functionality in Azure Synapse. To do so, ingest streaming data via Event Hubs, other technologies like Kafka, or potentially your existing ETL tool if it supports the streaming data sources. Store the data in Data Lake Storage. Then, create an external table in Azure Synapse using PolyBase and point it at the data being streamed into Data Lake Storage so that your data warehouse now contains new tables that provide access to the real-time streaming data. Query the external table as if the data was in the data warehouse by using standard T-SQL from any BI tool that has access to Azure Synapse. You can also join the streaming data to other tables with historical data to create views that join live streaming data to historical data to make it easier for business users to access the data.
 
 >[!TIP]
->Ingest streaming data into Data Lake Storage from Event Hubs or Kafka, and access the data from Azure Synapse using PolyBase external tables.
+>Ingest streaming data into Data Lake Storage from Event Hubs or Azure Kafka, and access the data from Azure Synapse using PolyBase external tables.
 
 In the following diagram, a real-time data warehouse on Azure Synapse is integrated with streaming data in Data Lake Storage.
 
