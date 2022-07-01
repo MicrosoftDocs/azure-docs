@@ -30,12 +30,12 @@ Alerts are now automatically enabled by default, but in order to fully configure
 
 ### Alert frequency
 
-Availability alerts created through this experience are state-based. This means that when the alert criteria is met, a single alert is generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it will not generate a new alert.
+Availability alerts created through this experience are state-based, which means that when the alert criteria is met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it will not generate a new alert.
 
-For example, if your website is down for an hour and you had setup an e-mail alert with an evaluation frequency of 15 minutes, you will only receive an e-mail when the website goes down, and a subsequent e-mail when it is back up. You will not receive continuous alerts every 15 minutes reminding you that the website is still unavailable.
+For example, if your website is down for an hour and you have set up an e-mail alert with an evaluation frequency of 15 minutes, you will only receive an e-mail when the website goes down, and a subsequent e-mail when it is back up. You will not receive continuous alerts every 15 minutes reminding you that the website is still unavailable.
 
 > [!NOTE]
-> If you don't want to receive notifications when your website is down for only a short period of time, e.g. during maintenance, you can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold, so it only triggers an alert if the website is down for a certain amount of regions.
+> If you don't want to receive notifications when your website is down for only a short period of time (e.g. during maintenance) you can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold, so it only triggers an alert if the website is down for a certain amount of regions.
 
 To make changes to location threshold, aggregation period, and test frequency, select the condition on the edit page of the alert rule, which will open the **Configure signal logic** window.
 
@@ -48,7 +48,7 @@ To make changes to location threshold, aggregation period, and test frequency, s
 
 Auto-generated alerts from availability tests have a limited set of options to change the logic. If you need advanced capabilities, you can create a custom alert rule from the **Alerts** tab. Click on **Create** and select **Alert rule**. Choose **Metrics** for **Signal type** to show all available signals, and select **Availability**.
 
-A custom alert rule offers higher values for aggregation period (up to 24 hours instead of 6 hours) and test frequency (up to 1 hour instead of 15 minutes), and adds options to further define the logic by selecting different operators, aggregation types, and threshold values.
+A custom alert rule offers higher values for aggregation period (up to 24 hours instead of 6 hours) and test frequency (up to 1 hour instead of 15 minutes). It also adds options to further define the logic by selecting different operators, aggregation types, and threshold values.
 
 ![Create custom alert](./media/availability-alerts/create-custom-alert.png)
 
