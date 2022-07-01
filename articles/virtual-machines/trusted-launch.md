@@ -80,6 +80,7 @@ No additional cost to existing VM pricing.
 - Azure Site Recovery
 - Shared disk
 - Ultra disk
+- Managed image
 - Azure Dedicated Host
 - Nested Virtualization
 
