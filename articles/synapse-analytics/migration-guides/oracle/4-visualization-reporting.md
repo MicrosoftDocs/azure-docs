@@ -273,7 +273,6 @@ By using automated metadata discovery and data lineage tools that compare lineag
 
 Automated metadata discovery and data lineage tools substantially simplify the migration process because they help businesses become more aware of their data assets and to know what needs to be migrated to Azure Synapse to achieve a solid reporting environment.
 
-
 Several ETL tools provide end-to-end lineage capability, so check whether your existing ETL tool has that capability if you plan to use it with Azure Synapse. Azure Synapse pipelines or Data Factory both support the ability to view lineage in mapping flows. [Microsoft partners](../../partner/data-integration.md) also provide automated metadata discovery, data lineage, and lineage comparison tools.
 
 ## Migrate BI tool semantic layers to Azure Synapse Analytics
