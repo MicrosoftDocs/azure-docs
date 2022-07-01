@@ -64,10 +64,6 @@ Permissions Management currently doesn't support hybrid environments.
 
 Permissions Management supports user identities (for example, employees, customers, external partners) and workload identities (for example, virtual machines, containers, web apps, serverless functions).
 
-<!---## Is Permissions Management General Data Protection Regulation (GDPR) compliant?
-
-Permissions Management is currently not GDPR compliant.--->
-
 ## Is Permissions Management available in Government Cloud?
 
 No, Permissions Management is currently not available in Government clouds.
@@ -162,7 +158,7 @@ We are currently working on developing a migration plan to help customers on the
 
 ## Can I use Entra Permissions Management in the EU?  
 
-Yes, we are now GDPR compliant.  
+Yes, we are now compliant.  
 
 ## How to I enable one of the new 18 languages supported in the GA release? 
 
