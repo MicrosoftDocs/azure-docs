@@ -11,7 +11,7 @@ This article describes how to access the HCX over a Public IP address using Azur
 > [!IMPORTANT] 
 > This solution is useful where the customer is not using Express Route or VPN connectivity with the Azure cloud. The on-premises HCX appliance should be reachable from the internet to establish HCX communication from on-premises to Azure VMware Solution private cloud. 
 
-## Components
+## Prerequisites
 - AVS Private Cloud with Public IP Block. 
 - HCX Network Profile with Public IPs. 
 - Test Virtual Machines for migration. 
@@ -26,21 +26,21 @@ Configure a Public IP block through portal by using the Public IP feature of the
     :::image type="content" source="media/hcx-ip/public-ip-preview.png" alt-text="Diagram showing the HCX public IP preview." border="false" lightbox="media/hcx-ip/public-ip-preview.png":::
 
 1. Select **+Public IP**. 
-1. Enter the **Public IP name** and select the address space from the **Address space** drop-down list according to the number of IPs required and select **Configure**.
+1. Enter the **Public IP name** and select the address space from the **Address space** drop-down list according to the number of IPs required, then select **Configure**.
    >[!Note]
    > It will take 15-20 minutes to configure the Public IP block on private cloud. 
 
-After the Public IP configured successfully, you should see it appear under Public IP section, and the provisioning state will show **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router. 
+After the Public IP configured successfully, you should see it appear under the Public IP section. The provisioning state shows **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router. 
 
 ## Create Public IP segment on NSX-T 
-Before you create Public IP segment, get your credentials for NSX-T Manager from Azure VMware Solution portal. 
+Before you create a Public IP segment, get your credentials for NSX-T Manager from Azure VMware Solution portal. 
 
 1. Sign in to NSX-T Manager using credentials provided by the Azure VMware Solution portal. 
 1. Under the **Manage** section, select **Identity**.
 1. Copy the NSX-T Manager admin user password.  
-1. Browse the NSX-T Manger and paste the admin password there and select **Login**. 
-1. Under the **Networking** section, select **Connectivity**, select **Segments**, and then select **ADD SEGMENT**.
-1. Provide Segment name, select Tier-1 router as connected gateway and provide public segment under subnets. 
+1. Browse the NSX-T Manger and paste the admin password in the password field, and select **Login**. 
+1. Under the **Networking** section select **Connectivity** and **Segments**, then select **ADD SEGMENT**.
+1. Provide Segment name, select Tier-1 router as connected gateway, and provide public segment under subnets. 
 1. Select **Save**.   
 
 ## Assign public IP to HCX manager
@@ -117,11 +117,11 @@ Service Mesh will deploy HCX WAN Optimizer, HCX Network Extension and HCX-IX app
 1. Enter the Service Mesh name and select **FINISH**. 
 
 ### Extend network 
-The HCX Network Extension service provides layer 2 connectivity between sites. The extension service also provides the ability to keep the same IP and MAC addresses during virtual machine migrations 
+The HCX Network Extension service provides layer 2 connectivity between sites. The extension service also allows you to keep the same IP and MAC addresses during virtual machine migrations. 
 1. Sign in to source HCX Manager. 
 1. Under the **Network Extension** section, select the site for which you want to extend the network, and select **EXTEND NETWORKS**. 
-1. Select the network for which you want to extend to destination site, and select **Next**. 
-1. Enter subnet details of network which you're extending.
+1. Select the network that you want to extend to destination site, and select **Next**. 
+1. Enter the subnet details of network that you're extending.
 1. Select the destination first hop route (T1), and select **Submit**.
 
 Sign in to the destination NSX, you'll see Network 10.14.27.1/24 has been extended. After the network is extended to destination site, VMs can be migrated over Layer 2 Extension. 
