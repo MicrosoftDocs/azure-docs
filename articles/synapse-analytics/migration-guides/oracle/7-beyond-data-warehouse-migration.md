@@ -243,7 +243,7 @@ Azure Machine Learning provides an SDK and services for Python that supports can
 >[!TIP]
 >Azure Machine Learning provides an SDK for developing machine learning models using several open-source frameworks.
 
-You can also use Azure Machine Learning to build machine learning pipelines that manage end-to-end workflow, programmatically scale in the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning uses logical containers called workspaces, which you can create either programmatically or manually in the Azure portal. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. You can use Azure Machine Learning in Visual Studio with the Visual Studio for AI extension.
+You can also use Azure Machine Learning to build machine learning pipelines that manage end-to-end workflow, programmatically scale in the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning contains workspaces, logical spaces that can be created programmatically or manually in the Azure portal. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. You can use Azure Machine Learning in Visual Studio with the Visual Studio for AI extension.
 
 >[!TIP]
 >Organize and manage related data stores, experiments, trained models, Docker images, and deployed services in workspaces.
