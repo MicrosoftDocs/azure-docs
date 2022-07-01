@@ -40,7 +40,7 @@ Here are some of the more relevant customization settings for the components.
 
 ### Azure Active Directory (Azure AD) app registrations
 
-* <APP_NAME>-web (authentication): Manage reply URIs, which is the list of URIs that can be used as landing pages after authentication succeeds. The deployment script might be unable to configure this automatically under certain scenarios, such as lack of Azure AD administrator rights. You might want to add or modify URIs when changing the hostname of the web app (for example, the port number that's used by the localhost for debugging).
+* <APP_NAME>-web (authentication): Manage reply URIs, which is the list of URIs that can be used as landing pages after authentication succeeds. The deployment script might be unable to configure this automatically under certain scenarios, such as lack of Azure AD administrator rights. You might want to add or modify URIs when you're changing the hostname of the web app (for example, the port number that's used by the localhost for debugging).
 
 ### Azure App Service
 
@@ -53,10 +53,10 @@ Here are some of the more relevant customization settings for the components.
 
 ### Azure IoT Hub → Azure IoT Edge
 
-* Manage the identities of the IoT Edge devices that can access the hub, and configure which modules are installed and which configuration they use (for example, encoding parameters for OPC Publisher).
+* Manage the identities of the IoT Edge devices that can access the hub. Also, configure which modules are installed and identify which configuration they use (for example, encoding parameters for OPC Publisher).
 
 ### IoT Hub → IoT Edge → \<DEVICE> → Set Modules → OpcPublisher
-* This applies to *standalone* OPC Publisher operation only.
+* This setting applies to *standalone* OPC Publisher operation only.
 
 ## Command-line arguments for OPC Publisher version 2.8.2 and later
 

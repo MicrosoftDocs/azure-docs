@@ -36,6 +36,7 @@ To control the application, you can use any of several of environment variables:
 > [!NOTE] 
 > Command-line arguments overrule environment variable settings.
 
+
 | Argument | Description |
 | --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to use to configure the nodes to publish.<br>Default: '/appdata/publishednodes.json' |
@@ -105,6 +106,7 @@ To control the application, you can use any of several of environment variables:
 
 ## Command-line arguments for version 2.6 and later
 
+
 | Argument | Description |
 | --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to configure the nodes to publish. If this option is specified, it puts OPC Publisher into *standalone* mode. |
@@ -136,6 +138,7 @@ To control the application, you can use any of several of environment variables:
 The following OPC Publisher configuration can be applied by command-line interface (CLI) options or as environment variable settings.
 
 The `Alternative` field, when it's present, refers to the applicable CLI argument in *standalone mode only*. When both the environment variable and the CLI argument are provided, the latest argument overrules the environment variable.
+
 
 | Argument | Description |
 | --- | --- | 
@@ -194,6 +197,7 @@ The `Alternative` field, when it's present, refers to the applicable CLI argumen
 | `MaxStringLength=VALUE` | The OPC UA Stack Transport Secure Channel maximum length of a string that can be sent/received over the OPC UA secure channel.<br>Alternative: --ol, --opcmaxstringlen<br>Mode: Standalone, orchestrated<br>Type: integer<br>Default: 130,816 (128 KB - 256) |
 | `RuntimeStateReporting=VALUE` | Enables reporting of OPC Publisher restarts.<br>Alternative: --rs, --runtimestatereporting<br>Mode: Standalone<br>Type: Boolean<br>Default: false |
 | `EnableRoutingInfo=VALUE` | Adds the routing information to telemetry messages. The name of the property is `$$RoutingInfo`, and the value is the `DataSetWriterGroup` for that particular message. When the `DataSetWriterGroup` isn't configured, the `$$RoutingInfo` property isn't added to the message even if this argument is set.<br>Alternative: --ri, --enableroutinginfo<br>Mode: Standalone<br>Type: Boolean<br>Default: false |
+
 ## Next steps
 
 For additional resources, go to the following GitHub repositories:
