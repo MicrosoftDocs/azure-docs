@@ -178,7 +178,7 @@ As mentioned earlier, there are some basic differences in approach between Oracl
 
 #### Multiple databases vs. single database and schemas
 
-The Oracle environment often contains multiple separate databases. For instance, there could be separate databases for: data ingestion and staging tables, core warehouse tables, and data marts&mdash;sometimes called a semantic layer. Processing, such as ETL or ELT pipelines, might implement cross-database joins and move data between the separate databases.
+The Oracle environment often contains multiple separate databases. For instance, there could be separate databases for: data ingestion and staging tables, core warehouse tables, and data marts&mdash;sometimes referred to as the semantic layer. Processing, such as ETL or ELT pipelines, might implement cross-database joins and move data between the separate databases.
 
 In contrast, the Azure Synapse environment contains a single database and uses schemas to separate tables into logically separate groups. We recommend that you use a series of schemas within the target Azure Synapse database to mimic the separate databases migrated from the Oracle environment. If the Oracle environment already uses schemas, you may need to use a new naming convention when you move the existing Oracle tables and views to the new environment. For example, you could concatenate the existing Oracle schema and table names into the new Azure Synapse table name, and use schema names in the new environment to maintain the original separate database names. Although you can use SQL views on top of the underlying tables to maintain the logical structures, there are potential downsides to this approach:
 
