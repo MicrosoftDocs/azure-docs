@@ -39,8 +39,6 @@ On the **Plan listing** tab, you can define the plan name and description as you
 
 ## Define pricing and availability
 
-If you chose to sell through Microsoft and have Microsoft host transactions on your behalf, then the **Pricing and availability** tab appears in the left-nav. Otherwise, go to [Copy the Service IDs](#copy-the-service-ids).
-
 1. In the left-nav, select **Pricing and availability**.
 1. In the **Markets** section, select **Edit markets**.
 1. On the side panel that appears, select at least one market. To make your offer available in every possible market, choose **Select all** or select only the specific markets you want. When you're finished, select **Save**.
@@ -80,8 +78,9 @@ If you select this option, customers are not charged for the first month of use.
 
 1. Select **Save draft** before leaving the _Pricing and availability_ page.
 1. In the breadcrumb at the top of the page, select **Plan overview**.
-1. To create another plan for this offer, at the top of the **Plan overview** page, repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Copy the Service IDs.
+1. To create another plan for this offer, at the top of the **Plan overview** page, repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Next steps.
 
+<!--- [
 ## Copy the Service IDs
 
 You need to copy the Service ID of each plan you created so you can map them to your solution package. We’ll provide guidance on the mapping in the next section of this article.
@@ -98,6 +97,7 @@ You need to copy the Service ID of each plan you created so you can map them to 
 
 For information about how to create a solution package, see [Package a Power BI visual](/power-bi/developer/visuals/package-visual).
 For instructions on how to update license enforcement in your visual, see [Licensing API](https://github.com/jennyfel/powerbi-docs/blob/dev/jennyfel/licenseApiDoc/powerbi-docs/developer/visuals/license-api.md).
+]() --->
 
 ## Next steps
 
