@@ -26,32 +26,7 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 For example, your app can authenticate using your Visual Studio login when developing locally, but then use Managed Identity once it has been deployed to Azure. No code changes are required for this transition.
 
-### Create an Azure AD group for local development
-
-Creating an Azure AD group for local development provides a scalable workflow as developers are added or removed from a team. It helps you avoid managing specific permissions for individual developer accounts.
-
-1. Navigate to the main Azure Active Directory page in the Azure portal via the left navigation or the top search bar.
- 
-2. On the **Azure Active Directory** page, select **Add &rarr; Group** from the top menu.
-
-    :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/create-ad-group-small.png" alt-text="A screenshot enabling managed identity." lightbox="../articles/storage/blobs/media/storage-blobs-introduction/enable-identity.png":::
-
-4. On the **New Group** page, enter the following values:
-    * **Group type**: Choose **Security**
-    * **Group name**: Enter a value that includes the application name and a descriptive suffix to indicate the purpose of the group, such as *msdocs-blob-app-local-dev*.
-    * **Group description**: Enter a more detailed description of the purpose of the group.
-    * Select the **No members selected** link to add members to the group.
-
-    :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/new-group-details-small.png" alt-text="A screenshot enabling managed identity." lightbox="../articles/storage/blobs/media/storage-blobs-introduction/new-group-details.png":::
-
-5. On the **Add members** dialog box:
-    * Use the search box to filter the list of users in the list.
-    * Select the user(s) for local development for this app. As objects are selected, they will move to the Selected items list at the bottom of the dialog.
-    * When finished, choose the **Select** button.
-
-6. Back on the **New group** page, select **Create** to create the group.
-
-### Assign roles to the Azure AD group
+### Assign roles to your Azure AD user
 
 1. In the Azure Portal, locate your Blob Storage account using the main search bar or left navigation.
 
@@ -67,7 +42,7 @@ Creating an Azure AD group for local development provides a scalable workflow as
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
-7. In the dialog, locate the Azure AD security group you created and then choose **Select** at the bottom of the dialog. 
+7. In the dialog, search for your Azure AD username (usually your email address) and then choose **Select** at the bottom of the dialog. 
 
 8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
@@ -75,7 +50,9 @@ Creating an Azure AD group for local development provides a scalable workflow as
 
 You can authenticate your local app to your Blob Storage account using the following steps:
 
-1. Make sure you are logged into the same Azure account you configured in Azure AD through Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell
+1. Make sure you are signed into the same Azure AD account you assigned the role to on your Blob Storage account. You can sign in through Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
+
+    [!INCLUDE [defaultazurecredential-sign-in](defaultazurecredential-sign-in.md)]
 
 2. To implement `DefaultAzureCredential`, add the **Azure.Identity** and the **Microsoft.Extensions.Azure packages** to your application.
 
