@@ -16,7 +16,7 @@ Application requests to Azure Blob Storage must be authenticated. `DefaultAzureC
 
 Azure Blob Storage also provides the option to authenticate using Connection Strings, but this approach should be used with caution. `DefaultAzureCredential` offers improved management and security benefits over connection strings. Both options are demonstrated in the following example.
 
-## [DefaultAzureCredential](#tab/managed-identity)
+## [DefaultAzureCredential (Recommended)](#tab/managed-identity)
 
 `DefaultAzureCredential` is a class provided by the Azure SDK for .NET, which you can learn more about on the [Managed Identity Overview](/en-us/dotnet/azure/sdk/authentication). `DefaultAzureCredential` supports multiple authentication methods and determines which should be used at runtime. This enables your app to use different authentication methods in different environments (local vs production) without implementing environment specific code.
 
@@ -28,9 +28,9 @@ For example, your app can authenticate using your Visual Studio login when devel
 
 ### Assign roles to your Azure AD user
 
-1. In the Azure Portal, locate your Blob Storage account using the main search bar or left navigation.
+1. In the Azure Portal, locate your storage account using the main search bar or left navigation.
 
-2. On the page for the resource group, select **Access control (IAM)** from the left-hand menu.	
+2. On the storage account overview page, select **Access control (IAM)** from the left-hand menu.	
 
 3. On the **Access control (IAM)** page, select the **Role assignments** tab.
 
@@ -50,7 +50,7 @@ For example, your app can authenticate using your Visual Studio login when devel
 
 You can authenticate your local app to your Blob Storage account using the following steps:
 
-1. Make sure you are signed into the same Azure AD account you assigned the role to on your Blob Storage account. You can sign in through Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
+1. Make sure you are signed-in to the same Azure AD account you assigned the role to on your Blob Storage account. You can sign-in through Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
 
     [!INCLUDE [defaultazurecredential-sign-in](defaultazurecredential-sign-in.md)]
 
@@ -74,8 +74,8 @@ You can authenticate your local app to your Blob Storage account using the follo
             new DefaultAzureCredential())
     ```
 
-> [!IMPORTANT]
-> When deployed to Azure this same application code can also authenticate to other Azure services. However, you will need to enable managed identity on your app in Azure, and then configure your Blob Storage account to allow that managed identity to connect. You can find detailed instructions for how to configure this connection between Azure services in the [Auth from Azure-hosted](/dotnet/azure/sdk/authentication-azure-hosted-apps) apps tutorial.
+    > [!IMPORTANT]
+    > When deployed to Azure this same application code can also authenticate to other Azure services. However, you will need to enable managed identity on your app in Azure, and then configure your Blob Storage account to allow that managed identity to connect. You can find detailed instructions for how to configure this connection between Azure services in the [Auth from Azure-hosted](/dotnet/azure/sdk/authentication-azure-hosted-apps) apps tutorial.
 
 ## [Connection String](#tab/connection-string)
 
