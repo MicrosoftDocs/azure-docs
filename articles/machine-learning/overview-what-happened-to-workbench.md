@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ms.author: larryfr
 author: BlackMist
-ms.date: 03/05/2020
+ms.date: 07/01/2022
 ---
 # What happened to Azure Machine Learning Workbench?
 
@@ -51,9 +51,9 @@ Older run histories are no longer accessible, how you can still see your runs in
 
 Run histories are now called **experiments**. You can collect your model's experiments and explore them by using the SDK, the CLI, or the Azure Machine Learning studio.
 
-The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Firefox browsers only:
+The Azure Machine Learning studio is supported on Microsoft Edge, Chrome, and Firefox browsers only:
 
-[![Online portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Screenshot of Azure Machine Learning studio](./media/overview-what-happened-to-workbench/jobs-experiments.png)](./media/overview-what-happened-to-workbench/jobs-experiments.png#lightbox)
 
 Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](tutorial-train-deploy-notebook.md).
 
