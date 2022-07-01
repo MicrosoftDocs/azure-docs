@@ -259,7 +259,7 @@ An [Azure Synapse Spark pool notebook](../../spark/apache-spark-development-usin
 >[!TIP]
 >Azure Synapse Spark is a dynamically scalable Spark as a service offering from Microsoft, Spark offers scalable execution of data preparation, model development, and deployed model execution.
 
-Jobs running in Azure Synapse Spark pool notebooks can retrieve, process, and analyze data at scale from Azure Blob Storage, Data Lake Storage, Azure Synapse, HDInsight, and streaming data services such as Kafka.
+Jobs running in Azure Synapse Spark pool notebooks can retrieve, process, and analyze data at scale from Azure Blob Storage, Data Lake Storage, Azure Synapse, HDInsight, and streaming data services such as Apache Kafka.
 
 >[!TIP]
 >Azure Synapse Spark can access data in a range of Microsoft analytical ecosystem data stores on Azure.
