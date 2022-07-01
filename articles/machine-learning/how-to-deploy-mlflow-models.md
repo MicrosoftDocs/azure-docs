@@ -289,7 +289,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy models to Managed Online Endpoints.
 
 > [!IMPORTANT]
-> Although deploying to ACI or AKS with [Azure Machine Learning studio](https://ml.azure.com) is possible. no-code deployment feature is not available for these compute targets. We recommend the use of [managed online endpoints](concept-endpoints.md) as it provides a superior set of features.
+> Although deploying to ACI or AKS with [Azure Machine Learning studio](https://ml.azure.com) is possible, no-code deployment feature is not available for these compute targets. We recommend the use of [managed online endpoints](concept-endpoints.md) as it provides a superior set of features.
 
 1. Ensure your model is registered in the Azure Machine Learning registry. Deployment of unregistered models is not supported in Azure Machine Learning. You can register models from files in the local file system or from the output of a job:
 
