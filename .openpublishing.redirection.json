@@ -6322,6 +6322,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
+      "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
       "redirect_url": "/azure/storage/blobs/client-side-encryption",
       "redirect_document_id": false
@@ -22869,11 +22874,6 @@
     {
       "source_path_from_root": "/articles/storage/storage-dotnet-shared-access-signature-part-2.md",
       "redirect_url": "/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
-      "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
       "redirect_document_id": true
     },
     {
