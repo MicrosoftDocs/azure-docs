@@ -59,7 +59,7 @@ Any current or future subscriptions found get onboarded automatically.
 - Collectors will now be listed and change through status types. For each collector listed with a status of “Collected Inventory”, click on that status to view further information. 
 - You can then view subscriptions on the In Progress page 
 
-#### Option2: Enter authorization systems 
+#### Option 2: Enter authorization systems 
 
 You have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector). Follow the steps below to configure these subscriptions to be monitored: 
 
