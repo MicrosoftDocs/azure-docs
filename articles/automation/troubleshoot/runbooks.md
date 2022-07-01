@@ -55,7 +55,7 @@ This is because of scalability limits with the Automation service in the West Eu
 ### Resolution
 Do one of the following actions if it is feasible as per your requirement and environment to reduce the chance of failure: 
 
-- During the peak hours of job creation, move the job start time to five minutes before or after the hour/half hour.
+- During the peak hours of job creation, typically on the hour, and half hour, move the job start time to five minutes before or after the hour/half hour.
 - Run the Automation jobs from alternate data centres until the transition work is complete.
 
 >[!NOTE]
