@@ -47,18 +47,29 @@ The Aquera Identity Integration Platform as a Service closes the connectivity ga
 * Concur
 * Calendly
 
-## IDM Works
 ### Description
 We Are Experts In Identity & Access Management and Data Center Management.
+The Azure AD platform is integrated with IDMWORKS IdentityForge (IDF) Gateway for user life cycle management for Mainframe systems (RACF, Top Secret, ACF2), Midrange system (AS400), Healthcare applications (EPIC/Cerner), Linux/Unix servers, Databases, and dozens of on-prem and cloud applications. IdentityForge provides a central, standardized integration engine and modern identity store that serves as a trusted source for all life-cycle management.
+The IDF Gateway for Azure AD provides lifecycle management for import sources and provisioning target systems that are not covered by the Azure AD connector portfolio like Mainframe systems (RACF, Top Secret, ACF2) or Healthcare applications (EPIC/Cerner). The IDF Gateway powers Azure AD identity lifecycle management (LCM) to continuously synchronize user account information from Mainframe/Healthcare sources and to automate the account provisioning lifecycle use cases like create, read (import), update, deactivate, delete user accounts and perform group management.
 
 ### Contact information
 * Company website: https://www.idmworks.com/
 * Contact information: 
+* Contact information: https://www.idmworks.com/contacts/
 
-### Popular applications supported
+### Applications supported
 * Cerner
 * Epic
 * RACF
+* Top Secret
+* ACF2
+* AWS
+* AS/400 (IBMi)
+* HP Non stop
+* Technology apps
+*    x3270
+*    SSH
+*    Database
 
 ## UNIFY Solutions
 ### Description
