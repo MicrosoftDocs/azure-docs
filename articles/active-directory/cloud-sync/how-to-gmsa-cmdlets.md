@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 2022-07-01
+ms.date: 07/01/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -45,7 +45,7 @@ The following prerequisites are required to use these cmdlets.
 
    `Set-AADCloudSyncPermissions -EACredential $credential`
 
-6. To restrict Active Directory permissions set by default on the cloud provisioning agent account, you can use the following cmdlet. This will increase the security of the service account by disabling permission inheritance and removing all existing permissions, except SELF and Full Control for administrators. See [Using Set-AADCloudSyncRestrictedPermission](#using-set-aadcloudsyncrestrictedpermission) below for examples on restricting the permissions.
+6. To restrict Active Directory permissions set by default on the cloud provisioning agent account, you can use the following cmdlet. This will increase the security of the service account by disabling permission inheritance and removing all existing permissions, except SELF and Full Control for administrators. See [Using Set-AADCloudSyncRestrictedPermission](#using-set-aadcloudsyncrestrictedpermissions) below for examples on restricting the permissions.
 
    `Set-AADCloudSyncRestrictedPermission -Credential $credential`
 
