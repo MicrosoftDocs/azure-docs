@@ -294,6 +294,12 @@ Check if the current microphone is muted. It returns `Boolean`.
 const muted = call.isMuted;
 ```
 
+Check if the current incoming audio (speaker) is muted. It returns `Boolean`.
+
+```js
+const incomingAudioMuted = call._isIncomingAudioMuted;
+```
+
 Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.
 
 ```js
