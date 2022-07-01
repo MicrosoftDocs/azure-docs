@@ -233,10 +233,43 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
 
-1. Create a YAML configuration file for the deployment. The following example configures a deployment of the `sklearn-diabetes` model to the endpoint created in the previous step:
+1. Create a YAML configuration file for the deployment. 
 
-    > [!IMPORTANT]
-    > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
+   > [!IMPORTANT]
+   > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
+   
+   # [From a training job](#tab/fromjob)
+   
+   The following example configures a deployment `sklearn-diabetes` to the endpoint created in the previous step. The model is registered from a job previously run:
+   
+   a. Get the job name of the training job. In this example we are assuming the job you want is the last one submitted to the platform.
+   
+   ```bash
+   JOB_NAME=$(az ml job list --query "[0].name" | tr -d '"')
+   ```
+   
+   a. Register the model in the registry. 
+   
+   ```bash
+   az ml model create --name "mir-sample-sklearn-mlflow-model" \
+                       --type "mlflow_model" \
+                       --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
+   ```
+   
+   a. Create the deployment `YAML` file:
+   
+   ```yaml
+   $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+   name: sklearn-deployment
+   endpoint_name: my-endpoint
+   model: azureml:mir-sample-sklearn-mlflow-model@latest
+   instance_type: Standard_DS2_v2
+   instance_count: 1
+   ```
+   
+   # [From a local model](#tab/fromlocal)
+   
+   The following example configures a deployment `sklearn-diabetes` to the endpoint created in the previous step using the local MLflow model:
 
     __sklearn-deployment.yaml__
 
