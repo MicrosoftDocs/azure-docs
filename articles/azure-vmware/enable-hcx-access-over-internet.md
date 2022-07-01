@@ -6,7 +6,7 @@ ms.date: 06/27/2022
 ---
 # Enable HCX access over the internet
 
-This article describes how to access the HCX over a Public IP address using Azure VMware Solution. It also explains how to pair HCX sites, and create service mesh from on-premises to Azure VMware Solutions private cloud. The service mesh allows you to migrate a workload from an on-premises datacenter to Azure VMware Solutions private cloud over the public internet.   
+This article describes how to access the HCX over a Public IP address using Azure VMware Solution. It also explains how to pair HCX sites, and create service mesh from on-premises to Azure VMware Solutions private cloud using Public IP. The service mesh allows you to migrate a workload from an on-premises datacenter to Azure VMware Solutions private cloud over the public internet.   
 
 > [!IMPORTANT] 
 > This solution is useful where the customer is not using Express Route or VPN connectivity with the Azure cloud. The on-premises HCX appliance should be reachable from the internet to establish HCX communication from on-premises to Azure VMware Solution private cloud. 
@@ -18,14 +18,13 @@ Configure a Public IP block through portal by using the Public IP feature of the
 1. Sign in to Azure VMware Solution portal. 
 1. Under **Workload Networking**, select **Public IP (preview)**.
 
-    :::image type="content" source="media/hcx-ip/public-ip-preview.png" alt-text="Diagram showing the HCX public IP preview." border="false" lightbox="media/hcx-ip/public-ip-preview.png":::
-
 1. Select **+Public IP**. 
 1. Enter the **Public IP name** and select the address space from the **Address space** drop-down list according to the number of IPs required, then select **Configure**.
    >[!Note]
    > It will take 15-20 minutes to configure the Public IP block on private cloud. 
 
-After the Public IP is configured successfully, you should see it appear under the Public IP section. The provisioning state shows **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router. 
+After the Public IP is configured successfully, you should see it appear under the Public IP section. The provisioning state shows **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router.
+For more information about how to [Enable Public IP to the NSX Edge for Azure VMware Solution ](/enable-public-ip-nsx-edge.md) 
 
 ## Create Public IP segment on NSX-T 
 Before you create a Public IP segment, get your credentials for NSX-T Manager from Azure VMware Solution portal. 
@@ -80,7 +79,7 @@ HCX manager of destination Azure VMware Solution SDDC should be reachable from t
 1. Select **Interconnect** and then select the **Network Profiles** tab. 
 1. Select **Create Network Profile**. 
 1. Select **NSX Networks** as network type under **Network**.
-1. Select the Public-IP-Segment created on NSX-T.
+1. Select the **Public-IP-Segment** created on NSX-T.
 1. Enter **Name**.
 1. Under IP pools, enter **IP Ranges** for HCX uplink, **Prefix Length** and **Gateway** of public IP segment. 
 1. Scroll down and select the **HCX Uplink** checkbox under **HCX Traffic Type** as this profile will be used for HCX uplink.
@@ -89,7 +88,7 @@ HCX manager of destination Azure VMware Solution SDDC should be reachable from t
 ### Pair site
 Site pairing is required to create service mesh between source and destination sites. 
 
-1. Sign in to Source site HCX Manager.
+1. Sign in to **Source** site HCX Manager.
 1. Select **Site Pairing** and select **ADD SITE PAIRING**. 
 1. Enter the remote HCX URL and sign in credentials, then select **Connect**.
 
@@ -97,10 +96,10 @@ After pairing is done, it will appear under site pairing.
 
 ### Create service mesh
 Service Mesh will deploy HCX WAN Optimizer, HCX Network Extension and HCX-IX appliances. 
-1. Sign in to Source site HCX Manager.
+1. Sign in to **Source** site HCX Manager.
 1. Select **Interconnect** and then select the **Service Mesh** tab.
 1. Select **CREATE SERVICE MESH**. 
-1. Select the destination site to create service mesh with and select **Continue**. 
+1. Select the **destination** site to create service mesh with and select **Continue**. 
 1. Select the compute profiles for both sites and select **Continue**.
 1. Select the HCX services to be activated and select **Continue**. 
    >[!Note]
