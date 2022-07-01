@@ -22,7 +22,7 @@ A Data Factory or Synapse Workspace pipeline can contain control flow activities
 
 See the following example with an If activity that has one activity contained.
 
-:::image type="content" source="media/concepts-pipelines-activities/nested-activity-example.png" alt-text="Screenshot showing an example If activity with a contained activity inside.":::
+:::image type="content" source="media/concepts-pipelines-activities/nested-activity-example.png" alt-text="Screenshot showing an example If Condition activity with a contained activity inside.":::
 
 ## Control flow activities
 The following control flow activities support nested activities:
@@ -38,16 +38,16 @@ Control activity | Description
 There are two primary ways to navigate to the contained activities in a nested activity.
 
 1. Each control flow activity that supports nested activities has an activity tab. Selecting the activity tab will then give you a pencil icon you can select to drill down into the inner activities panel. 
-:::image type="content" source="media/concepts-pipelines-activities/nested-activity-navigation.png" alt-text="Screenshot showing an example If activity with a highlight on the pencil icon to navigate.":::
+:::image type="content" source="media/concepts-pipelines-activities/nested-activity-navigation.png" alt-text="Screenshot showing an example If Condition activity with a highlight on the pencil icon to navigate.":::
 
 2. From the activity on the pipeline canvas, you can select the pencil icon to drill down into the inner activities panel. Additionally, the ForEach and Until activities support double-clicking on the activity to drill down to the inner activities panel.
-:::image type="content" source="media/concepts-pipelines-activities/nested-activity-canvas-navigation.png" alt-text="Screenshot showing an example If activity on the pipeline canvas highlighting the pencil icon.":::
+:::image type="content" source="media/concepts-pipelines-activities/nested-activity-canvas-navigation.png" alt-text="Screenshot showing an example If Condition activity on the pipeline canvas highlighting the pencil icon.":::
 
 Your pipeline canvas will then switch to the context of the inner activity container that you selected. There will also be a breadcrumb trail at the top you can select to navigate back to the parent pipeline.
-:::image type="content" source="media/concepts-pipelines-activities/nested-activity-breadcrumb.png" alt-text="Screenshot showing an example If activity inside the true branch with a highlight on the breadcrumb to navigate back to the parent pipeline.":::
+:::image type="content" source="media/concepts-pipelines-activities/nested-activity-breadcrumb.png" alt-text="Screenshot showing an example If Condition activity inside the true branch with a highlight on the breadcrumb to navigate back to the parent pipeline.":::
 
 ## Nested activity embedding limitations
-Activities that support nesting (ForEach, Until, Switch, and If) can't be embedded inside of another nested activity. Essentially, the current support for nesting is one level deep. See the best practices section below on how to use other pipeline activities to enable this scenario. In addition, the 
+Activities that support nesting (ForEach, Until, Switch, and If Condition) can't be embedded inside of another nested activity. Essentially, the current support for nesting is one level deep. See the best practices section below on how to use other pipeline activities to enable this scenario. In addition, the 
 [Validation Activity](control-flow-validation-activity.md) can't be placed inside of a nested activity.
 
 ## Best practices for multiple levels of nested activities
