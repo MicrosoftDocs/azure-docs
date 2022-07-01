@@ -202,7 +202,24 @@ Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to read a queue message passed to a function via a trigger.
+The following example demonstrates how to read a queue message passed to a function via a trigger. The example depends on whether you use decorators to define the function or function.json.
+
+# [Decorator](#tab/python-deco)
+
+```python
+@app.function_name(name="QueueFunc")
+@app.queue_trigger(arg_name="msg", queue_name="inputqueue",
+                   connection="storageAccountConnectionString")  # Queue trigger
+@app.write_queue(arg_name="outputQueueItem", queue_name="outqueue",
+                 connection="storageAccountConnectionString")  # Queue output binding
+def test_function(msg: func.QueueMessage,
+                  outputQueueItem: func.Out[str]) -> None:
+    logging.info('Python queue trigger function processed a queue item: %s',
+                 msg.get_body().decode('utf-8'))
+    outputQueueItem.set('hello')
+```
+
+# [function.json](#tab/python-json)
 
 A Storage queue trigger is defined in *function.json* where *type* is set to `queueTrigger`.
 
@@ -247,6 +264,7 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
@@ -335,6 +353,19 @@ public class QueueTriggerDemo {
 |`connection` | Points to the storage account connection string. |
 
 ::: zone-end  
+::: zone pivot="programming-language-python"  
+## Decorators
+
+For Python functions defined using decorators, the following properties on the `queue_trigger` decorator define the Queue Storage trigger:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
+|`queue_name`  | Declares the queue name in the storage account. |
+|`connection` | Points to the storage account connection string. |
+
+For Python functions defined by using function.json, see the Configuration section. 
+::: zone-end                   
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
