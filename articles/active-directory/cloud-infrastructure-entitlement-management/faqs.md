@@ -42,7 +42,7 @@ Yes, non-Azure customers can use our solution. Permissions Management is a multi
 
 ## Is Permissions Management available for tenants hosted in the European Union (EU)?
 
-No, the Permissions Management Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
+No, the Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 ## If I'm already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Permissions Management provide?
 
@@ -128,7 +128,7 @@ It depends on each customer and how many AWS accounts, GCP projects, and Azure s
 
 ## Once Permissions Management is deployed, how fast can I get permissions insights?
 
-Once fully onboarded with data collection set up, customers can access permissions usage insights within hours. Our machine-learning engine refreshes the Permission Creep Index every hour so that customers can start their risk assessment right away.
+Once fully onboarded with data collection setup, customers can access permissions usage insights within hours. Our machine-learning engine refreshes the Permission Creep Index every hour so that customers can start their risk assessment right away.
 
 ## Is Permissions Management collecting and storing sensitive personal data?
 
@@ -138,13 +138,24 @@ No, Permissions Management doesn't have access to sensitive personal data.
 
 You can read our blog and visit our web page. You can also get in touch with your Microsoft point of contact to schedule a demo.
 
+## What is the data destruction/decommission process? 
+
+If a customer initiates a free Permissions Management 90-day trial, but does not follow up and convert to a paid license within 90 days of the free trial expiration, we will delete all collected data on or just before 90 days.  
+
+If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 90 days of license termination.  
+
+We also have the ability to remove, export or modify specific data should the Global Admin using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+
 ## Resources
 
 - [Public Preview announcement blog](https://www.aka.ms/CloudKnox-Public-Preview-Blog)
 - [Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
+- For more information about Microsoft's privacy and security terms, see [Commercial Licensing Terms](https://www.microsoft.com/licensing/terms/product/ForallOnlineServices/all). 
+- For more information about Microsoft's data processing and security terms when you subscribe to a product, see [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA).
+- For more information about Microsoft’s policy and practices for Data Subject Requests for GDPR and CCPA: [https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure](https://docs.microsoft.com/compliance/regulatory/gdpr-dsr-azure).
 
 
 ## Next steps
 
-- For an overview of Permissions Management, see [What's Permissions Management Permissions Management?](overview.md).
+- For an overview of Permissions Management, see [What's Permissions Management?](overview.md).
 - For information on how to onboard Permissions Management in your organization, see [Enable Permissions Management in your organization](onboard-enable-tenant.md).
