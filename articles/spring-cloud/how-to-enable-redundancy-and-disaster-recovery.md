@@ -1,6 +1,6 @@
 ---
 title: Zone redundancy and customer-managed geo-disaster recovery
-description: Learn how to protect your Spring App application from zonal and regional outages
+description: Learn how to protect your Spring Apps application from zonal and regional outages
 author: karlerickson
 ms.author: wenhaozhang
 ms.service: spring-cloud
@@ -21,11 +21,11 @@ This article explains the resiliency strategy of Azure Spring Apps, which includ
 
 In Microsoft Azure, [Availability Zones (AZ)](../availability-zones/az-overview.md) are unique physical locations within an Azure region. Each zone is made up of one or more data centers that are equipped with independent power, cooling, and networking. To ensure resiliency, there's always more than one zone in all zone enabled regions. The physical separation of availability zones within a region protects applications and data from datacenter failures. Availability zones protect your applications and data from data center failures.
 
-When an Azure Spring App service instance is created with zone redundant enabled, Azure Spring App will automatically distribute fundamental resources across logical sections of underlying Azure infrastructure. More specifically, the underlying compute resource will distribute VMs across all availability zones to make sure the ability to compute and the underlying storage resource will replicate data across all availability zones to keep it available even if there are datacenter failures. This distribution provides a higher level of availability to protect against a hardware failure or a planned maintenance event.
+When an Azure Spring Apps service instance is created with zone redundant enabled, Azure Spring Apps will automatically distribute fundamental resources across logical sections of underlying Azure infrastructure. More specifically, the underlying compute resource will distribute VMs across all availability zones to make sure the ability to compute and the underlying storage resource will replicate data across all availability zones to keep it available even if there are datacenter failures. This distribution provides a higher level of availability to protect against a hardware failure or a planned maintenance event.
 
 ## Limitations and region availability
 
-Azure Spring App currently supports availability zones in the following regions:
+Azure Spring Apps currently supports availability zones in the following regions:
 
 - Australia East
 - Brazil South
@@ -46,25 +46,25 @@ Azure Spring App currently supports availability zones in the following regions:
 - West US 2
 - West US 3
 
-The following limitations apply when you create an Azure Spring App Service instance with zone redundant enabled:
+The following limitations apply when you create an Azure Spring Apps Service instance with zone redundant enabled:
 - This feature is not available in basic tier.
-- Zone redundant can only be enabled when creating a new Azure Spring App Service instance.
-- If you would like to enable your own resource in Azure Spring App such as [your own persistent storage](how-to-custom-persistent-storage.md), you should take care the zone redundancy of these resource by your own.
-- For compute resource, this feature only promise that the VM nodes will be distributed across all availability zones. For app's deployment instance, the zone redundant property is an important factor while schedule the VMs for instance but it do not guarantee the instance distribution across zones. If a deployment instance failed because a zone went down, Azure Spring App will create a new deployment instance for this app in another available zone.
+- Zone redundant can only be enabled when creating a new Azure Spring Apps Service instance.
+- If you would like to enable your own resource in Azure Spring Apps such as [your own persistent storage](how-to-custom-persistent-storage.md), you should take care the zone redundancy of these resource by your own.
+- This feature promises that the underneath VM nodes will be distributed evenly across all availability zones while no assurance to distribute app instances evenly. If an app instance failed because its located zone went down, Azure Spring Apps will create a new app instance for this app in another available zone.
 - Geo-disaster recovery is not the purpose of this feature. To protect your service from regional outages, please refer to [Customer-managed geo-disaster recovery
 ](#Customer-managed-geo-disaster-recovery). 
 
 
-## How to create an instance in Azure Spring App with availability zone enabled
+## How to create an instance in Azure Spring Apps with availability zone enabled
 
 >[!NOTE]
 > You can only enable zone redundant when creating your spring app instance. You can't change your zone redundant property after the creation.
 
-You can enable zone redundant in Azure Spring App using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
+You can enable zone redundant in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a service in Azure Spring App with zone redundant enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service in Azure Spring App.
+To create a service in Azure Spring Apps with zone redundant enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service in Azure Spring App.
 
 ```azurecli
 az spring create \
@@ -76,19 +76,19 @@ az spring create \
 
 # [Azure portal](#tab/portal)
 
-To create a service in Azure Spring App with zone redundant enabled using the Azure portal, enable the Zone Redundant option when creating the instance.
+To create a service in Azure Spring Apps with zone redundant enabled using the Azure portal, enable the Zone Redundant option when creating the instance.
 
 ![Image of where to enable zone redundant using the portal.](media/spring-cloud-availability-zone/availability-zone-portal.png)
 
 ---
 
-## How to verify zone redundant property of Azure Spring App instance
+## How to verify zone redundant property of Azure Spring Apps instance
 
-You can verify zone redundant property in Azure Spring App instance using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
+You can verify zone redundant property in Azure Spring Apps instance using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify zone redundant property of Azure Spring App instance using the Azure CLI, you could use the following command to show the details of an Azure Spring App instance, which includes the zone redundant property.
+To verify zone redundant property of Azure Spring Apps instance using the Azure CLI, you could use the following command to show the details of an Azure Spring Apps instance, which includes the zone redundant property.
 
 ```azurecli
 az spring show \
@@ -98,7 +98,7 @@ az spring show \
 
 # [Azure portal](#tab/portal)
 
-To verify zone redundant property of Azure Spring App instance using the Azure portal, verify that at the service overview blade.
+To verify zone redundant property of Azure Spring Apps instance using the Azure portal, verify that at the service overview blade.
 
 ![Image of where to verify zone redundant property using the portal.](media/spring-cloud-availability-zone/availability-zone-verify-portal.png)
 
