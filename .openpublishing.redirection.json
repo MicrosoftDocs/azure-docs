@@ -40227,6 +40227,16 @@
       "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-troubleshoot.md",
       "redirect_url": "/azure/azure-sql/database/sql-insights-troubleshoot",
       "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/connect-logon.md",
+      "redirect_url": "/articles/virtual-machines/windows/connect-rdp.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
+      "redirect_url": "/articles/virtual-machines/windows/connect-winrm.md",
+      "redirect_document_id": false
     }
   ]
 }
