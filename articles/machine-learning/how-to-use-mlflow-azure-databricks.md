@@ -33,7 +33,7 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 * Install the `azureml-mlflow` package. 
     * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install), which provides the connectivity for MLflow to access your workspace.
 * An [Azure Databricks workspace and cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
-* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+* [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 ## Track Azure Databricks runs
@@ -99,7 +99,7 @@ This code,
 
 *  Gets the details of your Azure subscription to instantiate your Azure Machine Learning workspace. 
 
-* Assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](how-to-manage-workspace.md). 
+* Assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [Create workspace resources](quickstart-create-resources.md). 
 
 * Sets the experiment name. The `user_name` here is consistent with the `user_name` associated with the Azure Databricks workspace.
 
