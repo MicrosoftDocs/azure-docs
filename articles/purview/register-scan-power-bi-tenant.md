@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/29/2022
+ms.date: 06/28/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)| No |
 
 ### Supported scenarios for Power BI scans
 
@@ -89,12 +89,13 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. If user is recently created, sign in with the user at least once to make sure password is reset successfully and user can successfully initiate the session.
    4. There's no MFA or Conditional Access Policies are enforced on the user.
 1. Validate App registration settings to make sure:
-   5. App registration exists in your Azure Active Directory tenant.
-   6. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
+   1. App registration exists in your Azure Active Directory tenant.
+   2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
-1. Validate Self-hosted runtime settings:
+    3. Under **Authentication**, **Allow public client flows** is enabled.
+2. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
    2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
@@ -126,7 +127,8 @@ Use any of the following deployment checklists during the setup or for troublesh
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
-1. Review network configuration and validate if:
+   3. Under **Authentication**, **Allow public client flows** is enabled.
+2. Review network configuration and validate if:
    1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. 
    2. All required [private endpoints for Microsoft Purview](/azure/purview/catalog-private-link-end-to-end) are deployed.
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled through private network.
@@ -298,8 +300,10 @@ To create and run a new scan, do the following:
    - Microsoft Graph User.Read
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
+    
+1. Under **Advanced settings**, enable **Allow Public client flows**.
 
-1. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu.
+2. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu.
 
 1. Navigate to **Sources**.
 
