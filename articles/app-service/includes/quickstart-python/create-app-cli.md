@@ -17,7 +17,7 @@ az login
 Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
 
 ```azurecli
-az webapp up --runtime 'PYTHON:3.9' --sku B1 --logs
+az webapp up --runtime PYTHON:3.9 --sku B1 --logs
 ```
 
 * The `--runtime` parameter specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.

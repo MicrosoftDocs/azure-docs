@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Set and view configuration settings
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This topic describes how to view configuration settings, create and delete a service account, and create a role in Permissions Management.
 
 ## View configuration settings

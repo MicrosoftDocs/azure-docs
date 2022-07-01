@@ -5,12 +5,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/07/2022
+ms.date: 06/21/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
+[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
 
 
 ## Prerequisites
@@ -46,10 +46,27 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/keyPhrases \
+curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", language:"en", text: "I had a wonderful trip to Seattle last week."}]}'
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
+-d \
+'
+{
+    "kind": "KeyPhraseExtraction",
+    "parameters": {
+        "modelVersion": "latest"
+    },
+    "analysisInput":{
+        "documents":[
+            {
+                "id":"1",
+                "language":"en",
+                "text": "I had a wonderful trip to Seattle last week."
+            }
+        ]
+    }
+}
+'
 ```
 
 > [!div class="nextstepaction"]
@@ -59,21 +76,15 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/key
 
 ```json
 {
-   "documents":[
-      {
-         "id":"1",
-         "keyPhrases":[
-            "wonderful trip",
-            "Seattle"
-         ],
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2021-06-01"
+	"kind": "KeyPhraseExtractionResults",
+	"results": {
+		"documents": [{
+			"id": "1",
+			"keyPhrases": ["wonderful trip", "Seattle"],
+			"warnings": []
+		}],
+		"errors": [],
+		"modelVersion": "2021-06-01"
+	}
 }
 ```

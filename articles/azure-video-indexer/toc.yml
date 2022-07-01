@@ -47,18 +47,22 @@
     href: compare-video-indexer-with-media-services-presets.md
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md
-  - name: Language identification model
-    href: language-identification-model.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Observed people in a video
-    href: observed-people-tracing.md
-  - name: Matched person
-    href: matched-person.md
-  - name: People's detected clothing
-    href: detected-clothing.md
-  - name: Audio effects detection
-    href: audio-effects-detection.md
+  - name: Add contributor role to Media Services
+    href: add-contributor-role-on-the-media-service.md
+  - name: Insights
+    items:
+    - name: Language identification model
+      href: language-identification-model.md
+    - name: Observed people 
+      href: observed-people-tracing.md
+    - name: Matched person
+      href: matched-person.md
+    - name: People's detected clothing
+      href: detected-clothing.md
+    - name: Audio effects detection
+      href: audio-effects-detection.md
   - name: Customizing content models
     items:
     - name: Overview
@@ -76,12 +80,16 @@
     items:
     - name: Audio Effects Detection
       href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Face Detection
+    - name: Faces detection
       href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
     - name: OCR
       href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Keywords
-      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context      
+    - name: Keywords extraction
+      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
+    - name: Transcription, Translation, Language
+      href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Labels identification
+      href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
   - name: Connect an existing account to ARM (Preview)
