@@ -1,12 +1,43 @@
+---
+author: cephalin
+ms.service: app-service
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 06/30/2022
+ms.author: cephalin
+---
+
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
-This quickstart shows you how to deploy an ASP.NET app in a Windows image from Docker Hub to App Service.
+This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service.
 
 To complete this quickstart, you need:
 
 * An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
+* An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
 
-## 1 - Deploy to Azure
+## 1 - Fork the sample repository
+
+We will fork the code so that we can update the code and then update our container.
+
+1. Go to [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
+1. Select the **Fork** button in the upper right on the GitHub page.
+1. Select the **Owner** and leave the default **Repository name**.
+1. Select **Create fork**.
+
+## 2 - Push the image to Azure Container Registry
+
+(This can't be automated with GitHub Actions, as the platform does not support Windows images. We need a way to handle this.
+
+TODO:
+
+- Explain Dockerfile.
+- Walk through with:
+  - Image name: dotnetcore-hello-world-windows
+  - Tag: latest
+)
+
+## 3 - Create the Azure App Service
 
 ### Sign in to Azure portal
 
@@ -35,50 +66,31 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Select the **Next: Docker >** button at the bottom of the page.
 
-1. In the **Docker** tab, select *Docker Hub* for the **Image Source**. Under **Docker hub options**, set the **Access Type** to *Public*. Set **Image and tag** to *mcr.microsoft.com/dotnet/samples:aspnetapp*.
+1. In the **Docker** tab, select *Azure Container Registry* for the **Image Source**. Under **Azure container registry options**, set the following values:
+   - **Registry**: Select your Azure Container Registry.
+   - **Image**: Select *dotnetcore-docs-hello-world-windows*.
+   - **Tag**: Select *latest*.
 
-    :::image type="content" source="../../media/quickstart-custom-container/docker-hub-options-windows.png" alt-text="Screenshot showing the Docker hub options.":::
+    :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-windows.png" alt-text="Screenshot showing the Azure Container Registry options.":::
 
-1. Select the **Review + create** button at the bottom of the page.
+2. Select the **Review + create** button at the bottom of the page.
 
     :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page.":::
 
-1. After validation runs, select the **Create** button at the bottom of the page.
+3. After validation runs, select the **Create** button at the bottom of the page.
 
-1. After deployment is complete, select **Go to resource**.
+4. After deployment is complete, select **Go to resource**.
 
     :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
 
-##  2 - Browse to the app
+##  4 - Browse to the app
 
 1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-    :::image type="content" source="../../media/quickstart-custom-container/sample-windows-custom-container-not-ready-yet.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed will run in background mode.":::
+    :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed will run in background mode.":::
 
-Notice that the message shows **The containers without a port exposed will run in background mode.**. This indicates that if the container deployed successfully, it does not have a port exposed. When this Docker image is deployed to Azure App Service, `dotnet publish` is executed for publishing the application, but an environment variable may be missing.
-
-## 3 - Expose port 80
-
-We need to expose port 80 - the HTTP port - so that the container can show our application. We can do this using the [ASPNETCORE_URLS environment variable](https://docs.microsoft.com/aspnet/core/fundamentals/host/web-host?view=aspnetcore-6.0#server-urls).
-
-1. Navigate to your App Service in the Azure portal.
-   
-1. Under the **Settings** section of the navigation, select **Configuration**. Ensure you are on the **Application settings** section.
-
-    :::image type="content" source="../../media/quickstart-custom-container/azure-app-service-configuration-app-settings.png" alt-text="Screenshot showing the application settings for the custom container App Service. Configuration under the Settings menu is highlighted. The Application settings heading is also highlighted.":::
-
-1. Add a new application setting by selecting **+ New application setting**. For the **Name**, enter *ASPNETCORE_URLS*. For the **Value**, enter `http://+:80`/.
-
-    :::image type="content" source="../../media/quickstart-custom-container/azure-app-service-configuration-app-settings-new-application-setting.png" alt-text="Screenshot showing the application settings for the custom container App Service. The 'New application setting' button is highlighted.":::
-
-1. Select **Save**.
-
-## 4 - Browse the app with the port exposed
-
-1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. You should now see the sample app.
-
-    :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows.png" alt-text="Screenshot showing the deployed application.":::
+Note that the Host operating system appears in the footer, confirming we are running in a Windows container.
 
 ## 5 - Clean up resources
 

@@ -1,3 +1,12 @@
+---
+author: cephalin
+ms.service: app-service
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 06/30/2022
+ms.author: cephalin
+---
+
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
 This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](../../../container-registry/container-registry-intro.md) from Visual Studio. You run the app in a custom container in Azure App Service.
@@ -84,7 +93,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Screenshot of Create a Web App for Containers.](../../media/quickstart-custom-container/create-web-app-container.png)
 
-1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Azure Container Registry](#publish-to-azure-container-registry).
+1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Azure Container Registry](#2---publish-to-azure-container-registry).
 
    ![Screenshot of Configure your a Web App for Containers.](../../media/quickstart-custom-container/configure-web-app-container.png)
 
@@ -151,7 +160,7 @@ The streamed logs look like this:
 
    ![Screenshot of the App Service Overview with the Restart button highlighted.](../../media/quickstart-custom-container/portal-restart-app.png)
 
-[Browse to the custom container](#browse-to-the-custom-container) again. As you refresh the webpage, the app should revert to the "Starting up" page at first, then display the updated webpage again after a few minutes.
+[Browse to the custom container](#4---browse-to-the-custom-container) again. As you refresh the webpage, the app should revert to the "Starting up" page at first, then display the updated webpage again after a few minutes.
 
 ![Screenshot of the updated web app in Azure.](../../media/quickstart-custom-container/azure-web-app-updated.png)
 

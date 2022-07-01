@@ -1,3 +1,12 @@
+---
+author: cephalin
+ms.service: app-service
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 06/30/2022
+ms.author: cephalin
+---
+
 [Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from Docker Hub to App Service.
 
 To complete this quickstart, you need:
