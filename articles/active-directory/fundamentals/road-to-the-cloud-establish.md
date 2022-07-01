@@ -1,6 +1,6 @@
 ---
-title: Road to the cloud - Establish a Footpring for Moving identity and access management from AD to Azure AD
-description: Establish an Azure AD footpring as part of planning your migration if IAM from AD to Azure AD.
+title: Road to the cloud - establish a footprint for moving identity and access management from AD to Azure AD
+description: Establish an Azure AD footprint as part of planning your migration of IAM from AD to Azure AD.
 documentationCenter: ''
 author: janicericketts
 manager: martinco
@@ -24,13 +24,13 @@ If you're using Microsoft Office 365, Exchange Online, or Teams then you are alr
 
 ## Optional tasks
 
-The following aren't specific nor mandatory to transforming from AD to Azure AD but are recommended functions to incorporate into your environment. These are also items recommended in the [Zero Trust](/security/zero-trust/) guidance.
+The following aren't specific or mandatory to transforming from AD to Azure AD but are recommended functions to incorporate into your environment. These are also items recommended in the [Zero Trust](/security/zero-trust/) guidance.
 
 ### Deploy Passwordless authentication
 
 In addition to the security benefits of [passwordless credentials](../authentication/concept-authentication-passwordless.md), this simplifies your environment because the management and registration experience is already native to the cloud. Azure AD provides different passwordless credentials that align with different use cases. Use the information in this document to plan your deployment: [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md)
 
-Once you roll out passwordless credentials to your users, consider reducing the useof password credentials. You can use the [reporting and Insights dashboard](../authentication/howto-authentication-methods-activity.md) to continue to drive use of passwordless credentials and reduce use of passwords in Azure AD.
+Once you roll out passwordless credentials to your users, consider reducing the use of password credentials. You can use the [reporting and Insights dashboard](../authentication/howto-authentication-methods-activity.md) to continue to drive use of passwordless credentials and reduce use of passwords in Azure AD.
 
 >[!IMPORTANT]
 >During your application discovery, you might find applications that have a dependency or assumptions around passwords. Users of these applications need to have access to their passwords until those applications are updated or migrated.
