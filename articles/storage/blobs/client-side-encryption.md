@@ -35,7 +35,7 @@ The Azure Blob Storage client library uses [AES](https://en.wikipedia.org/wiki/A
 
 ## Mitigate the security vulnerability in your applications
 
-Due to a security vulnerability discovered in CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
+Due to a security vulnerability discovered in the Storage library's use of CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
 
 - Migrate your applications that are using client-side encryption v1 to client-side encryption v2.
 
