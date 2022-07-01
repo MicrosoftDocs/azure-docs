@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 05/06/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # What is document and conversation summarization (preview)?
 
-Document summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications. 
+Summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications.
 
 # [Document summarization](#tab/document-summarization)
 
@@ -48,7 +48,7 @@ Document summarization supports the following features:
 This documentation contains the following article types:
 
 * [**Quickstarts**](quickstart.md?pivots=rest-api&tabs=conversation-summarization) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/document-summarization.md) contain instructions for using the service in more specific or customized ways.
+* [**How-to guides**](how-to/conversation-summarization.md) contain instructions for using the service in more specific or customized ways.
 
 Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
 
@@ -86,21 +86,21 @@ Conversation summarization feature would simplify the text into the following:
 
 |Example summary  | Format | Conversation aspect |
 |---------|----|----|
-|  Customer wants to use the wifi connection on their Smart Brew 300. They can’t connect it using the Contoso Coffee app. |  One or two sentences     | issue  |
-| Checked if the power light is blinking slowly. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
+|  Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
+| Checked if the power light is blinking slowly. Checked the Contoso coffee app. It had no prompt. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
 ---
 
-## Get started with text summarization
+## Get started with summarization
 
 # [Document summarization](#tab/document-summarization)
 
-To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use text summarization:
+To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use summarization:
 
 
 |Development option  |Description  | Links | 
 |---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try document summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/summarization) <br> • [Quickstart: Use the Language studio](../language-studio.md) |
+| Language Studio    | A web-based platform that enables you to try document summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/summarization) <br> • [Quickstart: Use Language Studio](../language-studio.md) |
 | REST API or Client library (Azure SDK)     | Integrate document summarization into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use document summarization](quickstart.md) |
 
 
@@ -119,14 +119,14 @@ To use this feature, you submit raw text for analysis and handle the API output 
 
 # [Document summarization](#tab/document-summarization)
 
-* Text summarization takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
-* Text summarization works with a variety of written languages. See [language support](language-support.md) for more information.
+* Summarization takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
+* Summarization works with a variety of written languages. See [language support](language-support.md?tabs=document-summarization) for more information.
 
 
 # [Conversation summarization](#tab/conversation-summarization)
 
 * Conversation summarization takes structured text for analysis. See the [data and service limits](../concepts/data-limits.md) for more information.
-* Conversation summarization accepts text in English. See [language support](language-support.md) for more information.
+* Conversation summarization accepts text in English. See [language support](language-support.md?tabs=conversation-summarization) for more information.
 
 ---
 
@@ -144,6 +144,9 @@ As you use document summarization in your applications, see the following refere
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it’s deployed. Read the [transparency note for document summarization](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it’s deployed. Read the [transparency note for summarization](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
-[!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
+* [Transparency note for Azure Cognitive Service for Language](/legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context)
+* [Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use-summarization?context=/azure/cognitive-services/language-service/context/context)
+* [Characteristics and limitations of summarization](/legal/cognitive-services/language-service/characteristics-and-limitations-summarization?context=/azure/cognitive-services/language-service/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context)

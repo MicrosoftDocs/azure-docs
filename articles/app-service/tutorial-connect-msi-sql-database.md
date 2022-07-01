@@ -144,10 +144,9 @@ The steps you follow for your project depends on whether you're using [Entity Fr
 1. In Visual Studio, open the Package Manager Console and add the NuGet package [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) and update Entity Framework:
 
     ```powershell
-    Install-Package Azure.Identity -Version 1.5.0
+    Install-Package Azure.Identity
     Update-Package EntityFramework
     ```
-
 1. In your DbContext object (in *Models/MyDbContext.cs*), add the following code to the default constructor.
 
     ```csharp

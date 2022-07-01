@@ -171,6 +171,8 @@
       href: howto-move-resource-between-regions.md
     - name: Recover App Configuration stores (Preview)
       href: howto-recover-deleted-stores-in-azure-app-configuration.md
+    - name: Disable public access
+      href: howto-disable-public-access.md
 - name: Reference
   items:
     - name: Client libraries

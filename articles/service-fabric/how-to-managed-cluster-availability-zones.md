@@ -70,7 +70,7 @@ Existing Service Fabric managed clusters which are not spanned across availabili
 
 Requirements:
 * Standard SKU cluster
-* Three [availability zones in the region](/availability-zones/az-overview.md#azure-regions-with-availability-zones).
+* Three [availability zones in the region](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
 >[!NOTE]
 >Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not affect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.

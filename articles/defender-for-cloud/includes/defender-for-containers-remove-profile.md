@@ -16,28 +16,6 @@ Nevertheless, to ensure the Defender for Containers components aren't automatica
 
 You can remove the profile using the REST API or a Resource Manager template as explained in the tabs below.
 
-### [**Azure CLI**](#tab/k8s-remove-cli)
-
-### Use Azure CLI to remove the Defender profile
-
-1. Remove the Microsoft Defender for  with the following commands:
-
-    ```azurecli
-    az login
-    az account set --subscription <subscription-id>
-    az aks update --disable-defender
-    ```
-
-    Removing the profile may take a few minutes.
-
-1. To verify that the profile was successfully removed, run the following command:
-
-    ```console
-    kubectl get pods -n azuredefender
-    ```
-
-    When the profile is removed, you should see that no pods are returned in the `get pods` command. It might take a few minutes for the pods to be deleted.
-
 ### [**REST API**](#tab/aks-removeprofile-api)
 
 ### Use REST API to remove the Defender profile from AKS
@@ -76,6 +54,28 @@ Request body parameters:
 |--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
 | location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
+
+### [**Azure CLI**](#tab/k8s-remove-cli)
+
+### Use Azure CLI to remove the Defender profile
+
+1. Remove the Microsoft Defender for  with the following commands:
+
+    ```azurecli
+    az login
+    az account set --subscription <subscription-id>
+    az aks update --disable-defender --resource-group <your-resource-group> --name <your-cluster-name>
+    ```
+
+    Removing the profile may take a few minutes.
+
+1. To verify that the profile was successfully removed, run the following command:
+
+    ```console
+    kubectl get pods -n azuredefender
+    ```
+
+    When the profile is removed, you should see that no pods are returned in the `get pods` command. It might take a few minutes for the pods to be deleted.
 
 ### [**Resource Manager**](#tab/aks-removeprofile-resource-manager)
 

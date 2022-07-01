@@ -110,11 +110,7 @@
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration with Azure Digital Twins access
-      items:
-      - name: Portal
-        href: how-to-create-app-registration-portal.md
-      - name: CLI
-        href: how-to-create-app-registration-cli.md
+      href: how-to-create-app-registration.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
   - name: Connect input

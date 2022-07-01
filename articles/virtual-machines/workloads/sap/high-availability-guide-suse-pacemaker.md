@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 04/26/2022
+ms.date: 05/26/2022
 ms.author: radeltch
 
 ---
@@ -485,15 +485,15 @@ This section applies only if you're using a STONITH device that's based on an Az
 
 By default, the service principal doesn't have permissions to access your Azure resources. You need to give the service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
 
-Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *c276fc76-9cd4-44c9-99a7-4fd71546436e* and *e91d47c4-76f3-4271-a796-21b4ecfe3624* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
+Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
 ```json
 {
       "Name": "Linux fence agent Role",
       "description": "Allows to power-off and start virtual machines",
       "assignableScopes": [
-              "/subscriptions/e663cc2d-722b-4be1-b636-bbd9e4c60fd9",
-              "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+              "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+              "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
       ],
       "actions": [
               "Microsoft.Compute/*/read",

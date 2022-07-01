@@ -80,6 +80,8 @@ Instead of service principals, use managed identities, which are essentially wra
 
 ## How do I change the administrator password for Windows Server nodes on my cluster?
 
+### [Azure CLI](#tab/azure-cli)
+
 When you create your AKS cluster, you specify the `--windows-admin-password` and `--windows-admin-username` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you didn't specify administrator credentials when you created a cluster by using the Azure portal or when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure` by using the Azure CLI, the username defaults to *azureuser* and a randomized password.
 
 To change the administrator password, use the `az aks update` command:
@@ -95,6 +97,25 @@ az aks update \
 > Performing the `az aks update` operation upgrades only Windows Server node pools. Linux node pools are not affected.
 > 
 > When you're changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+When you create your AKS cluster, you specify the `-WindowsProfileAdminUserPassword` and `-WindowsProfileAdminUserName` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you didn't specify administrator credentials when you created a cluster by using the Azure portal or when setting `-NodeVmSetType VirtualMachineScaleSets` and `-NetworkPlugin azure` by using the Azure PowerShell, the username defaults to *azureuser* and a randomized password.
+
+To change the administrator password, use the `Set-AzAksCluster` command:
+
+```azurepowershell
+$cluster = Get-AzAksCluster -ResourceGroupName $RESOURCE_GROUP -Name $CLUSTER_NAME
+$cluster.WindowsProfile.AdminPassword = $NEW_PW
+$cluster | Set-AzAksCluster
+```
+
+> [!IMPORTANT]
+> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools. Linux node pools are not affected.
+> 
+> When you're changing the Windows administrator password, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
+
+---
 
 ## How many node pools can I create?
 
@@ -195,17 +216,12 @@ Use the following configuration:
 1. In your Kubernetes service configuration, set **externalTrafficPolicy=Local**. This ensures that the Kubernetes service directs traffic only to pods within the local node.
 1. In your Kubernetes service configuration, set **sessionAffinity: ClientIP**. This ensures that the Azure Load Balancer gets configured with session affinity.
 
-## What if I need a feature that's not supported?
-
-If you encounter feature gaps, the open-source [aks-engine][aks-engine] project provides an easy and fully customizable way of running Kubernetes in Azure, including Windows support. For more information, see [AKS roadmap][aks-roadmap].
-
 ## Next steps
 
 To get started with Windows Server containers in AKS, see [Create a node pool that runs Windows Server in AKS][windows-node-cli].
 
 <!-- LINKS - external -->
 [kubernetes]: https://kubernetes.io
-[aks-engine]: https://github.com/azure/aks-engine
 [upstream-limitations]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations
 [intro-windows]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/
 [aks-roadmap]: https://github.com/Azure/AKS/projects/1

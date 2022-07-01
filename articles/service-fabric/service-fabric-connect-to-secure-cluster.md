@@ -3,7 +3,7 @@ title: Connect securely to an Azure Service Fabric cluster
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
 
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 06/22/2022
 ms.custom: devx-track-csharp
 ---
 # Connect to a secure cluster
@@ -235,9 +235,9 @@ catch (Exception e)
 The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
 
 > [!IMPORTANT]
-> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](/azure/active-directory/develop/msal-migration) for more details.
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../active-directory/develop/msal-migration.md) for more details.
 
-For more information on AAD token acquisition, see [Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?view=azure-dotnet).
+For more information on AAD token acquisition, see [Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?view=azure-dotnet&preserve-view=true).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";

@@ -1,6 +1,5 @@
 ---
-title: "How to: Restore or remove a recently deleted application with the Microsoft identity platform | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to: Restore or remove a recently deleted application with the Microsoft identity platform"
 description: In this how-to, you learn how to restore or permanently delete a recently deleted application registered with the Microsoft identity platform.
 services: active-directory
 author: arcrowe

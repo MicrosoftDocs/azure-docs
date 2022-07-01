@@ -142,6 +142,14 @@ Microsoft provides direct support for the latest agent version and one version b
 ### Download link
 You can download the latest version of the agent using [this link](https://aka.ms/onpremprovisioningagent).
 
+### 1.1.892.0 
+
+May 20th, 2022 - released for download
+
+#### Fixed issues
+
+- We added support for exporting changes to integer attributes, which benefits customers using the generic LDAP connector.
+
 ### 1.1.846.0
 
 April 11th, 2022 - released for download

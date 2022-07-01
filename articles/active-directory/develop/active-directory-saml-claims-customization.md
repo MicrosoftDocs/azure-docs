@@ -1,16 +1,15 @@
 ---
 title: Customize app SAML token claims
-titleSuffix: Microsoft identity platform
 description: Learn how to customize the claims issued by Microsoft identity platform in the SAML token for enterprise applications.
 services: active-directory
-author: kenwith
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/07/2022
-ms.author: kenwith
+ms.author: davidmu
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ---

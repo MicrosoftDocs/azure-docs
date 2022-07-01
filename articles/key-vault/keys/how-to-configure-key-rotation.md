@@ -15,10 +15,15 @@ ms.author: mbaldwin
 
 ## Overview
 
-Automated key rotation in Key Vault allows users to configure Key Vault to automatically generate a new key version at a specified frequency. You can use rotation policy to configure rotation for each individual
-key. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices.
+Automated key rotation in [Key Vault](../general/overview.md) allows users to configure Key Vault to automatically generate a new key version at a specified frequency. For more information about how keys are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
-This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation.
+You can use rotation policy to configure rotation for each individual key. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. 
+
+This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation. 
+
+For more information about data encryption in Azure, see:
+- [Azure Encryption at Rest](../../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components)
+- [Azure services data encryption support table](../../security/fundamentals/encryption-models.md#supporting-services)
 
 ## Pricing
 
@@ -47,6 +52,9 @@ Key rotation policy settings:
     -   Automatically renew at a given time before expiry. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key.
 -   Rotation time: key rotation interval, the minimum value is seven days from creation and seven days from expiration time
 -   Notification time: key near expiry event interval for Event Grid notification. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key. 
+
+> [!IMPORTANT]
+> Key rotation generates a new key version of an existing key with new key material. Target services should use versionless key uri to automatically refresh to latest version of the key. Ensure that your data encryption solution stores versioned key uri with data to point to the same key material for decrypt/unwrap as was used for encrypt/wrap operations to avoid disruption to your services. All Azure services are currently following that pattern for data encryption.
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-1.png" alt-text="Rotation policy configuration":::
 
@@ -90,12 +98,20 @@ Save  key rotation policy to a file. Key rotation policy example:
   }
 }
 ```
-Set rotation policy on a key passing previously saved file. 
+
+Set rotation policy on a key passing previously saved file using Azure CLI [az keyvault key rotation-policy update](/cli/azure/keyvault/key/rotation-policy) command. 
 
 ```azurecli
 az keyvault key rotation-policy update --vault-name <vault-name> --name <key-name> --value </path/to/policy.json>
 ```
 
+### Azure PowerShell
+
+Set rotation policy using Azure Powershell [Set-AzKeyVaultKeyRotationPolicy](/powershell/module/az.keyvault/set-azkeyvaultkeyrotationpolicy) cmdlet. 
+
+```powershell
+Set-AzKeyVaultKeyRotationPolicy -VaultName <vault-name> -KeyName <key-name> -ExpiresIn (New-TimeSpan -Days 720) -KeyRotationLifetimeAction @{Action="Rotate";TimeAfterCreate= (New-TimeSpan -Days 540)}
+```
 ## Rotation on demand
 
 Key rotation can be invoked manually.
@@ -106,8 +122,19 @@ Click 'Rotate Now' to invoke rotation.
 :::image type="content" source="../media/keys/key-rotation/key-rotation-4.png" alt-text="Rotation on-demand":::
 
 ### Azure CLI
+
+Use Azure CLI [az keyvault key rotate](/cli/azure/keyvault/key#az-keyvault-key-rotate) command to rotate key.
+
 ```azurecli
 az keyvault key rotate --vault-name <vault-name> --name <key-name>
+```
+
+### Azure PowerShell
+
+Use Azure PowerShell [Invoke-AzKeyVaultKeyRotation](/powershell/module/az.keyvault/invoke-azkeyvaultkeyrotation) cmdlet.
+
+```powershell
+Invoke-AzKeyVaultKeyRotation -VaultName <vault-name> -Name <key-name>
 ```
 
 ## Configure key near expiry notification

@@ -13,8 +13,11 @@ ms.custom: references_regions
 Azure Automation receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
+- New features
+- Improvements to existing features
 - Known issues
 - Bug fixes
+
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
@@ -49,7 +52,7 @@ Users can now restore an Automation account deleted within 30 days. Read [here](
 
 **Type:** New feature
 
-New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation-create-alert-triggered-runbook.md).
+New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation-create-alert-triggered-runbook.md#common-azure-vm-management-operations).
 
 - Stop-Azure-VM-On-Alert
 - Restart-Azure-VM-On-Alert

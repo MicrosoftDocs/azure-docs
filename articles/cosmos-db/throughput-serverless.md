@@ -29,7 +29,7 @@ Azure Cosmos DB is available in two different capacity modes: [provisioned throu
 | Performance | < 10-ms latency for point-reads and writes covered by SLA | < 10-ms latency for point-reads and < 30 ms for writes covered by SLO |
 | Billing model | Billing is done on a per-hour basis for the RU/s provisioned, regardless of how many RUs were consumed. | Billing is done on a per-hour basis for the number of RUs consumed by your database operations. |
 
-<sup>1</sup> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](/azure/azure-resource-manager/management/preview-features).
+<sup>1</sup> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
 
 ## Estimating your expected consumption
 
