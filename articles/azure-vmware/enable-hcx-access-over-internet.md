@@ -25,7 +25,7 @@ Configure a Public IP block through portal by using the Public IP feature of the
    >[!Note]
    > It will take 15-20 minutes to configure the Public IP block on private cloud. 
 
-After the Public IP configured successfully, you should see it appear under the Public IP section. The provisioning state shows **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router. 
+After the Public IP is configured successfully, you should see it appear under the Public IP section. The provisioning state shows **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router. 
 
 ## Create Public IP segment on NSX-T 
 Before you create a Public IP segment, get your credentials for NSX-T Manager from Azure VMware Solution portal. 
