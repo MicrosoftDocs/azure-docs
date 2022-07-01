@@ -4,18 +4,18 @@ description: Use Azure Policy to restrict VM extension deployments.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: gabsta
-author: MsGabsta
+ms.author: msgabsta
+author: msgabsta
 ms.collection: linux
-ms.date: 03/23/2018
+ms.date: 07/01/2022
 
 ---
 
 # Use Azure Policy to restrict extensions installation on Linux VMs
 
-If you want to prevent the use or installation of certain extensions on your Linux VMs, you can create an Azure Policy definition using the CLI to restrict extensions for VMs within a resource group. 
+If you want to prevent the use or installation of certain extensions on your Linux VMs, you can create an Azure Policy definition using the Azure CLI to restrict extensions for VMs within a resource group. To learn the basics of Azure VM extensions for Linux, see [Virtual machine extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
 
-This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Create a rules file
 
@@ -37,14 +37,14 @@ Copy and paste the following .json into the file.
 		"allOf": [
 			{
 				"field": "type",
-				"equals": "Microsoft.OSTCExtensions/virtualMachines/extensions"
+				"equals": "Microsoft.Compute/virtualMachines/extensions"
 			},
 			{
-				"field": "Microsoft.OSTCExtensions/virtualMachines/extensions/publisher",
-				"equals": "Microsoft.OSTCExtensions"
+				"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+				"equals": "Microsoft.Compute"
 			},
 			{
-				"field": "Microsoft.OSTCExtensions/virtualMachines/extensions/type",
+				"field": "Microsoft.Compute/virtualMachines/extensions/type",
 				"in": "[parameters('notAllowedExtensions')]"
 			}
 		]
@@ -57,12 +57,11 @@ Copy and paste the following .json into the file.
 
 When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
 
-
 ## Create a parameters file
 
 You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
 
-This example shows you how to create a parameters file for Linux VMs in Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
+This example shows you how to create a parameter file for Linux VMs in Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
 
 In the [bash Cloud Shell](https://shell.azure.com/bash), type:
 
@@ -84,7 +83,7 @@ Copy and paste the following .json into the file.
 }
 ```
 
-When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
+When you are done, press **Esc** and then type **:wq** to save and close the file.
 
 ## Create the policy
 
@@ -101,7 +100,6 @@ az policy definition create \
    --params '~/clouddrive/azurepolicy.parameters.json' \
    --mode All
 ```
-
 
 ## Assign the policy
 
@@ -127,7 +125,7 @@ az policy assignment create \
 
 ## Test the policy
 
-Test the policy by creating a new VM and trying to add a new user.
+Test the policy by creating a new VM and adding a new user.
 
 
 ```azurecli-interactive
@@ -147,8 +145,6 @@ az vm user update \
   --username myNewUser \
   --password 'mynewuserpwd123!'
 ```
-
-
 
 ## Remove the assignment
 
