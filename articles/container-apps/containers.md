@@ -188,6 +188,9 @@ The following example shows how to configure Azure Container Registry credential
 }
 ```
 
+> [!NOTE]
+> Docker Hub [limits](https://docs.docker.com/docker-hub/download-rate-limit/) the number of Docker image downloads. When the limit is reached, containers in your app will fail to start. You're recommended to use a registry with sufficient limits, such as [Azure Container Registry](../container-registry/container-registry-intro.md).
+
 ### Managed identity with Azure Container Registry
 
 You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. To use a managed identity:
