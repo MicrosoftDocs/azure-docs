@@ -35,7 +35,7 @@ Call recording currently supports mixed audio+video MP4 and mixed audio-only MP3
 
 ## Channel types
 > [!NOTE]
-> **Unmixed audio-only** is still in a **Private Preview**
+> **Unmixed audio-only** is still in a **Private Preview** and NOT enabled for Teams Interop meetings.
 
 | Channel type              | Content format               | Output                                                                                | Scenario                                                |
 |---------------------|-----------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------|
