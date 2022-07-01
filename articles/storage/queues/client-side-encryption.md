@@ -39,7 +39,7 @@ Due to a security vulnerability discovered in the Queue Storage client library's
 
     Client-side encryption v2 is available only in version 12.x and later of the Azure Queue Storage client libraries for .NET and Python. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use version 12.x side-by-side with an earlier version of the client library while you are migrating your code.
 
-- Consider using server-side encryption features instead of client-side encryption. For more information about server-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
+- Consider using service-side encryption features instead of client-side encryption. For more information about service-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
 - Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md). ???need more info about how this is a substitute for CSE???
 - Limit network access to specific networks only. ???need more info about how this is a substitute for CSE? more info???
 
