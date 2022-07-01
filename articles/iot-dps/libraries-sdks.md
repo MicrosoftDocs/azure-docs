@@ -67,6 +67,4 @@ The DPS management SDKs help you build backend applications that manage the DPS 
 
 ## Next steps
 
-- The Device Provisioning Service documentation provides [tutorials](how-to-legacy-device-symm-key.md) and [additional samples](quick-create-simulated-device-tpm.md) that you can use to try out the SDKs and libraries.
-
-- To learn about using webhooks to implement custom allocation policies, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md).
+The Device Provisioning Service documentation provides [tutorials](how-to-legacy-device-symm-key.md) and [additional samples](quick-create-simulated-device-tpm.md) that you can use to try out the SDKs and libraries.
