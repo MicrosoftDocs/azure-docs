@@ -274,7 +274,7 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
     @model FirstAzureSearchApp.Models.SearchData
     ```
 
-1. It is standard practice to enter a title for the view, so the next lines should be:
+1. It's standard practice to enter a title for the view, so the next lines should be:
 
     ```csharp
     @{
@@ -468,7 +468,7 @@ In this section, we extend the method to support a second use case: rendering th
 
 ### Note the error handling and other default views and methods
 
-Depending on which version of .NET Core you're using, a slightly different set of default views are created. For .NET Core 3.1 the default views are Index, Privacy, and Error. You can view these default pages when running the app, and examine how they are handled in the controller.
+Depending on which version of .NET Core you're using, a slightly different set of default views is created. For .NET Core 3.1 the default views are Index, Privacy, and Error. You can view these default pages when running the app, and examine how they're handled in the controller.
 
 You'll be testing the Error view later on in this tutorial.
 
@@ -529,7 +529,7 @@ The Azure Cognitive Search call is encapsulated in our **RunQueryAsync** method.
 
     In this method, first ensure our Azure configuration is initiated, then set some search options. The **Select** option specifies which fields to return in results, and thus match the property names in the **hotel** class. If you omit **Select**, all unhidden fields are returned, which can be inefficient if you're only interested in a subset of all possible fields.
 
-    The asynchronous call to search formulates the request (modeled as **searchText**) and response (modeled as **searchResult**). If you're debugging this code, the **SearchResult** class is a good candidate for setting a break point if you need to examine the contents of **model.resultList**. You should find that it is intuitive, providing you with the data you asked for, and not much else.
+    The asynchronous call to search formulates the request (modeled as **searchText**) and response (modeled as **searchResult**). If you're debugging this code, the **SearchResult** class is a good candidate for setting a break point if you need to examine the contents of **model.resultList**. You should find that it's intuitive, providing just the data you asked for, and not much else.
 
 ### Test the app
 
@@ -551,7 +551,7 @@ Now, let's check whether the app runs correctly.
 
 ## Test edge conditions and errors
 
-It is important to verify that our error handling features work as they should, even when things are working perfectly. 
+It's important to verify that our error handling features work as they should, even when things are working perfectly. 
 
 1. In the **Index** method, after the **try {** call, enter the line **Throw new Exception()**. This exception will force an error when you search on text.
 
