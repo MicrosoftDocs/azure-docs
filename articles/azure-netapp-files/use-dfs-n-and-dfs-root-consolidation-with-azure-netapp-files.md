@@ -236,7 +236,7 @@ Set-ItemProperty `
 
 In order for DFS Namespaces to respond to existing file server names, **you must** create alias (CNAME) records for your existing file servers that point at the DFS Namespaces server name. The exact procedure for updating your DNS records may depend on what servers your organization is using and if your organization is using custom tooling to automate the management of DNS. The following steps are shown for the DNS server included with Windows Server and automatically used by Windows AD. In this example, the DFS-N server name is `mydfscluster`.
 
-# [GUI](#tab/winodws-gui)
+# [GUI](#tab/windows-gui)
 
 1. From a Windows DNS server, open the DNS management console.
 
