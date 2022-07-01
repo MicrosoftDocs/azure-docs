@@ -8,7 +8,7 @@ ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 10/21/2021
+ms.date: 07/01/2022
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 ---
@@ -27,7 +27,7 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 
 * Install the `azureml-mlflow` package, which handles the connectivity with Azure Machine Learning, including authentication.
 * An [Azure Databricks workspace and cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
-* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+* [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 ## Install libraries
