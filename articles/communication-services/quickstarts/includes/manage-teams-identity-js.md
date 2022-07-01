@@ -98,7 +98,10 @@ app.get('/', async (req, res) => {
     pkceVerifier = verifier;
     
     const authCodeUrlParameters = {
-        scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
+        scopes: [
+            "https://auth.msft.communication.azure.com/Teams.ManageCalls",
+            "https://auth.msft.communication.azure.com/Teams.ManageChats"
+        ],
         redirectUri: REDIRECT_URI,
         codeChallenge: challenge, 
         codeChallengeMethod: "S256"
@@ -112,7 +115,10 @@ app.get('/', async (req, res) => {
 app.get('/redirect', async (req, res) => {
     const tokenRequest = {
         code: req.query.code,
-        scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
+        scopes: [
+            "https://auth.msft.communication.azure.com/Teams.ManageCalls",
+            "https://auth.msft.communication.azure.com/Teams.ManageChats"
+        ],
         redirectUri: REDIRECT_URI,
         codeVerifier: pkceVerifier,
     };

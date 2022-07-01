@@ -63,8 +63,11 @@ authority = "https://login.microsoftonline.com/%s" % tenant_id
 
 app = PublicClientApplication(client_id, authority=authority)
 
-scope = [ "https://auth.msft.communication.azure.com/Teams.ManageCalls" ]
-result = app.acquire_token_interactive(scope)
+scopes = [ 
+"https://auth.msft.communication.azure.com/Teams.ManageCalls",
+"https://auth.msft.communication.azure.com/Teams.ManageChats"
+ ]
+result = app.acquire_token_interactive(scopes)
 aad_token =  result["access_token"]
 user_object_id = result["id_token_claims"]["oid"] 
 ```

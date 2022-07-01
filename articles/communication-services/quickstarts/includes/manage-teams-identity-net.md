@@ -90,10 +90,13 @@ var aadClient = PublicClientApplicationBuilder
                 .WithRedirectUri(redirectUri)
                 .Build();
 
-string scope = "https://auth.msft.communication.azure.com/Teams.ManageCalls";
+List<string> scopes = new List<string> {
+    "https://auth.msft.communication.azure.com/Teams.ManageCalls",
+    "https://auth.msft.communication.azure.com/Teams.ManageChats"
+};
 
 var result = await aadClient
-                        .AcquireTokenInteractive(new List<string> { scope })
+                        .AcquireTokenInteractive(scopes)
                         .ExecuteAsync();
 string teamsUserAadToken =  result.AccessToken;
 string userObjectId =  result.UniqueId;

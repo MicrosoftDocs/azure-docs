@@ -39,6 +39,7 @@ Optionally, you can also use custom Teams endpoints to integrate chat capabiliti
 |   Permission    |  Display string   |  Description | Admin consent required | Microsoft account supported |
 |:--- |:--- |:--- |:--- |:--- |
 | _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
+| _`https://auth.msft.communication.azure.com/Teams.ManageChats`_ | Manage chats in Teams | Create, read, update, and delete 1:1 or group chat threads on behalf of the signed-in user. Read, send, update, and delete messages in chat threads on behalf of the signed-in user. | No | No |
 
 ### Application permissions
 

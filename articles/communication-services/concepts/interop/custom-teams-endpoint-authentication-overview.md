@@ -40,7 +40,7 @@ Artifacts:
   - Type: Azure AD access token
   - Audience: _`Azure Communication Services`_ — control plane
   - Azure AD application ID: Fabrikam's _`Azure AD application ID`_
-  - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
+  - Permissions: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_, _`https://auth.msft.communication.azure.com/Teams.ManageChats`_
 - Artifact A2
   - Type: Object ID of an Azure AD user
   - Azure AD application ID: Fabrikam's _`Azure AD application ID`_
@@ -75,7 +75,7 @@ Artifacts:
   - Type: Azure AD access token
   - Audience: Azure Communication Services — control plane
   - Azure AD application ID: Contoso's _`Azure AD application ID`_
-  - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
+  - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_, _`https://auth.msft.communication.azure.com/Teams.ManageChats`_
 - Artifact A2
   - Type: Object ID of an Azure AD user
   - Azure AD application ID: Fabrikam's _`Azure AD application ID`_
