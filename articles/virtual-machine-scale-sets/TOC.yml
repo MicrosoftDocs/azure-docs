@@ -66,8 +66,6 @@
     maintainContext: true
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
-  - name: Vertical scaling in a scale set
-    href: virtual-machine-scale-sets-vertical-scale-reprovision.md
   - name: Scale-In Policy
     href: virtual-machine-scale-sets-scale-in-policy.md 
   - name: Instance protection
@@ -82,13 +80,8 @@
   - name: Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
     maintainContext: true
-  - name: Proximity Placement Groups
-    items: 
-    - name: Overview
-      href: ../virtual-machines/co-location.md
-      maintainContext: true
-    - name: Create a proximity placement group
-      href: proximity-placement-groups.md
+  - name: Create a proximity placement group
+    href: proximity-placement-groups.md
   - name: Capacity reservations
     href: ../virtual-machines/capacity-reservation-overview.md
   - name: Automatic instance repairs

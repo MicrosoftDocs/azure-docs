@@ -14,8 +14,6 @@ ms.custom: devx-track-azurecli
 
 # Create a scale set using a specialized image version with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 > [!IMPORTANT]
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 

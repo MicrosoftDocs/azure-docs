@@ -13,8 +13,6 @@ ms.custom: mimckitt, devx-track-azurepowershell
 ---
 # Tutorial: Create and use disks with virtual machine scale set with Azure PowerShell
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 > [!NOTE]
 > This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
 

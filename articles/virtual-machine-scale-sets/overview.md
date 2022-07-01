@@ -26,9 +26,6 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 - Services that want to mix virtual machine types or leverage Spot and on-demand VMs together
 - Existing Availability Set applications
 
-> [!IMPORTANT]
-> This article is about virtual machine scale sets in Flexible orchestration mode, which we recommend using for all new scale set deployments. To access information about Uniform scale sets, go to [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) documentation.
-
 Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
 
 > [!CAUTION]
