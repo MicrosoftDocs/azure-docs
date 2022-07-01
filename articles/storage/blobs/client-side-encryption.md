@@ -207,11 +207,11 @@ For a sample project that shows how to decrypt and reencrypt existing data with 
 
 ### [Java](#tab/java)
 
-For a sample project that shows how to decrypt and reencrypt existing data with Java, see [???](https://github.com/wastore/azure-storage-samples-for-java/pull/6).
+For a sample project that shows how to decrypt and reencrypt existing data with Java, see [ClientSideEncryptionV2Uploader](https://github.com/wastore/azure-storage-samples-for-java/blob/f1621c807a4b2be8b6e04e226cbf0a288468d7b4/ClientSideEncryptionMigration/src/main/java/ClientSideEncryptionV2Uploader.java).
 
 ### [Python](#tab/python)
 
-For a sample project that shows how to decrypt and reencrypt existing data with Python, see [???](https://github.com/wastore/azure-storage-samples-for-python/tree/master/ClientSideEncryptionToServerSideEncryptionMigrationSamples/ClientSideEncryptionV1ToV2).
+For a sample project that shows how to decrypt and reencrypt existing data with Python, see [Client Side Encryption Migration from V1 to V2](https://github.com/wastore/azure-storage-samples-for-python/tree/master/ClientSideEncryptionToServerSideEncryptionMigrationSamples/ClientSideEncryptionV1ToV2).
 
 ## Client-side encryption and performance
 
