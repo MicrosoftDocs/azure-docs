@@ -42,7 +42,7 @@ Yes, non-Azure customers can use our solution. Permissions Management is a multi
 
 ## Is Permissions Management available for tenants hosted in the European Union (EU)?
 
-No, the Permissions Management Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
+No, the Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 ## If I'm already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Permissions Management provide?
 
@@ -128,7 +128,7 @@ It depends on each customer and how many AWS accounts, GCP projects, and Azure s
 
 ## Once Permissions Management is deployed, how fast can I get permissions insights?
 
-Once fully onboarded with data collection set up, customers can access permissions usage insights within hours. Our machine-learning engine refreshes the Permission Creep Index every hour so that customers can start their risk assessment right away.
+Once fully onboarded with data collection setup, customers can access permissions usage insights within hours. Our machine-learning engine refreshes the Permission Creep Index every hour so that customers can start their risk assessment right away.
 
 ## Is Permissions Management collecting and storing sensitive personal data?
 
@@ -140,7 +140,7 @@ You can read our blog and visit our web page. You can also get in touch with you
 
 ## What is the data destruction/decommission process? 
 
-If a customer initiates a free Permissions Management 90-day trial, but does not follow-up and convert to a paid license within 90 days of the free trial expiration, we will delete all collected data on or just before 90 days.  
+If a customer initiates a free Permissions Management 90-day trial, but does not follow up and convert to a paid license within 90 days of the free trial expiration, we will delete all collected data on or just before 90 days.  
 
 If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 90 days of license termination.  
 
@@ -157,5 +157,5 @@ We also have the ability to remove, export or modify specific data should the Gl
 
 ## Next steps
 
-- For an overview of Permissions Management, see [What's Permissions Management Permissions Management?](overview.md).
+- For an overview of Permissions Management, see [What's Permissions Management?](overview.md).
 - For information on how to onboard Permissions Management in your organization, see [Enable Permissions Management in your organization](onboard-enable-tenant.md).
