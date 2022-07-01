@@ -68,7 +68,7 @@ This section details how you can create and configure the components of a Front 
 Run [New-AzFrontDoorCdnProfile](/powershell/module/az.cdn/new-azfrontdoorcdnprofile) to create an Azure Front Door profile.
 
 > [!NOTE]
-> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](/articles/frontdoor/standard-premium/tier-comparison.md).
+> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
 ```azurepowershell-interactive
 #Create the profile `
@@ -93,7 +93,7 @@ $FDendpoint = New-AzFrontDoorCdnEndpoint `
 
 ### Create an origin group
 
-Use [New-AzFrontDoorCdnOriginGroupHealthProbeSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouphealthprobesettingobject) and [New-AzFrontDoorCdnOriginGroupLoadBalancingSettingObject](/powershell/module/az.cdn/azfrontdoorcdnorigingrouploadbalancingsettingobject) to create  in-memory objects for storing health probe and load balancing settings.
+Use [New-AzFrontDoorCdnOriginGroupHealthProbeSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouphealthprobesettingobject) and [New-AzFrontDoorCdnOriginGroupLoadBalancingSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouploadbalancingsettingobject) to create  in-memory objects for storing health probe and load balancing settings.
 Run [New-AzFrontDoorCdnOriginGroup](/powershell/module/az.cdn/new-azfrontdoorcdnorigingroup) to create an origin group that will contain your two web apps.
 
 ```azurepowershell-interactive
@@ -177,7 +177,7 @@ $fd.hostname
 ```
 In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
 
-:::image type="content" source="/media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
+:::image type="content" source="./media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
 
 To test instant global failover, we'll use the following steps:
 
@@ -185,9 +185,9 @@ To test instant global failover, we'll use the following steps:
 
 2. Stop one of the Web Apps by running [Stop-AzWebApp](/powershell/module/az.websites/stop-azwebapp)
 
-```azurepowershell-interactive
-Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
-```
+    ```azurepowershell-interactive
+    Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
+    ```
 
 3. Refresh your browser. You should see the same information page.
 
@@ -196,20 +196,20 @@ Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
 
 4. Find the other web app, and stop it as well.
 
-```azurepowershell-interactive
-Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-02"
-```
+    ```azurepowershell-interactive
+    Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-02"
+    ```
 
 5. Refresh your browser. This time, you should see an error message.
 
-:::image type="content" source="/media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
+    :::image type="content" source="./media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped.":::
 
 
 6. Restart one of the Web Apps by running [Start-AzWebApp](/powershell/module/az.websites/start-azwebapp). Refresh your browser and the page will go back to normal.
 
-```azurepowershell-interactive
-Start-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
-```
+    ```azurepowershell-interactive
+    Start-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
+    ```
 
 
 ## Clean up resources
