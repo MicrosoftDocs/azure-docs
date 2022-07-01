@@ -61,7 +61,14 @@ An example of this pattern would be if you had a file system that had a list of 
 5. In the child pipeline, you could then use another nested activity (such as ForEach) with the passed in array list to iterate over the files and perform one or more sets of inner activities.
  
 The parent pipeline would look similar to the below example.
- :::image type="content" source="media/concepts-pipelines-activities/nested-activity-execute-pipeline.png" alt-text="Screenshot showing an example parent pipeline calling a child pipeline in a ForEach loop.":::
+[ ![Screenshot showing an example parent pipeline calling a child pipeline in a ForEach loop.](media/concepts-pipelines-activities/nested-activity-execute-pipeline.png) ](media/concepts-pipelines-activities/nested-activity-execute-pipeline.png#lightbox)
 
 The child pipeline would look similar to the below example.
  :::image type="content" source="media/concepts-pipelines-activities/nested-activity-execute-child-pipeline.png" alt-text="Screenshot showing an example child pipeline with a ForEach loop.":::
+
+## Next steps
+
+See the following tutorials for step-by-step instructions for creating pipelines and datasets.
+
+- [Tutorial: Copy multiple tables in bulk by using Azure Data Factory in the Azure portal](tutorial-bulk-copy-portal.md)
+- [Tutorial: Incrementally load data from a source data store to a destination data store](tutorial-incremental-copy-overview.md)
