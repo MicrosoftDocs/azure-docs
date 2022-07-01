@@ -138,6 +138,14 @@ No, Permissions Management doesn't have access to sensitive personal data.
 
 You can read our blog and visit our web page. You can also get in touch with your Microsoft point of contact to schedule a demo.
 
+## What is the data destruction/decommission process? 
+
+If a customer initiates a free Permissions Management 90-day trial, but does not follow-up and convert to a paid license within 90 days of the free trial expiration, we will delete all collected data on or just before 90 days.  
+
+If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 90 days of license termination.  
+
+We also have the ability to remove, export or modify specific data should the Global Admin using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+
 ## Resources
 
 - [Public Preview announcement blog](https://www.aka.ms/CloudKnox-Public-Preview-Blog)
