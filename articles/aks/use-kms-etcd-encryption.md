@@ -1,19 +1,20 @@
 ---
-title: Use KMS etcd encryption in Azure Kubernetes Service (AKS) (Preview)
+title: Use KMS etcd encryption in Azure Kubernetes Service (AKS) 
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/06/2022
+ms.date: 07/01/2022
 
 ---
 
-# Add KMS etcd encryption to an Azure Kubernetes Service (AKS) cluster (Preview)
+# Add KMS etcd encryption to an Azure Kubernetes Service (AKS) cluster 
 
 This article shows you how to enable encryption at rest for your Kubernetes data in etcd using Azure Key Vault with Key Management Service (KMS) plugin. The KMS plugin allows you to:
 
 * Use a key in Key Vault for etcd encryption
 * Bring your own keys
 * Provide encryption at rest for secrets stored in etcd
+* Rotate the keys in Key Vault
 
 For more information on using the KMS plugin, see [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
 
@@ -24,38 +25,6 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed](/cli/azure/install-azure-cli).
 
-### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.58 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register the `AzureKeyVaultKmsPreview` preview feature
-
-To use the feature, you must also enable the `AzureKeyVaultKmsPreview` feature flag on your subscription.
-
-Register the `AzureKeyVaultKmsPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AzureKeyVaultKmsPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AzureKeyVaultKmsPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Limitations
 
