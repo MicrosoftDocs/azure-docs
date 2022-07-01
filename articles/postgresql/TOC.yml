@@ -626,7 +626,7 @@
       href: hyperscale/quickstart-run-queries.md
   - name: Tutorials
     items:
-      - name: Model and load data
+      - name: Model data
         items:
         - name: Shard data on worker nodes
           href: hyperscale/tutorial-shard.md
@@ -662,6 +662,9 @@
       - name: Private access
         href: hyperscale/concepts-private-access.md
         displayName: private, link, hyperscale
+      - name: Row-level security
+        href: hyperscale/concepts-row-level-security.md
+        displayName: row, level, security, rls, hyperscale
       - name: Security baseline
         href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
     - name: Scheduled maintenance
@@ -689,6 +692,20 @@
     items:
     - name: Connect and query
       href: hyperscale/howto-connect.md
+    - name: App stacks
+      items:
+        - name: Overview
+          href: hyperscale/howto-app-stacks-overview.md
+        - name: Python
+          href: hyperscale/howto-app-stacks-python.md
+        - name: Node.js
+          href: hyperscale/howto-app-stacks-nodejs.md
+        - name: C#
+          href: hyperscale/howto-app-stacks-csharp.md
+        - name: Java
+          href: hyperscale/howto-app-stacks-java.md
+        - name: Ruby
+          href: hyperscale/howto-app-stacks-ruby.md
     - name: Build scalable apps
       items:
       - name: Overview
@@ -703,6 +720,12 @@
         href: hyperscale/howto-build-scalable-apps-model-real-time.md
       - name: Model high-throughput apps
         href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
+    - name: Ingest data
+      items:
+      - name: Azure Stream Analytics (ASA)
+        href: hyperscale/howto-ingest-azure-stream-analytics.md
+      - name: Azure Data Factory (ADF)
+        href: hyperscale/howto-ingest-azure-data-factory.md
     - name: Server group size
       items:
       - name: Pick initial size

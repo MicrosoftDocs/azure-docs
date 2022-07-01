@@ -112,7 +112,7 @@ You can set up the OpenFrame environment using various deployment patterns, but 
 
 **To create a VM**
 
-1. Go to the Azure portal at <https://portal.azure.com> and sign in to your account.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Click **Virtual machines**.
 
@@ -153,9 +153,9 @@ When giving new individuals access the VM:
 
 **To generate a public/private key pair**
 
-1.  Download PuTTYgen from <https://www.putty.org/> and install it using all the default settings.
+1.  Download [PuTTYgen](https://www.putty.org) and install it using all the default settings.
 
-2.  To open PuTTYgen, locate the PuTTY installation directory in C:\\Program Files\\PuTTY.
+2.  To open PuTTYgen, locate the PuTTY installation directory in `C:\Program Files\PuTTY`.
 
     ![PuTTY interface](media/puttygen-01.png)
 
@@ -1381,7 +1381,7 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
      http://<IP>:<port>/webadmin/login
      ```
 
-     For example, <http://192.168.92.133:9736/webadmin/login.> The logon screen appears:
+     For example, `http://192.168.92.133:9736/webadmin/login`. The logon screen appears:
     
      ![JEUS WebAdmin logon screen](media/jeus-01.png)
 

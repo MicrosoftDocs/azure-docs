@@ -8,7 +8,7 @@ ms.reviewer: vkann
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 06/24/2022
 ---
 
 # Add users to your data labeling project
@@ -102,7 +102,8 @@ To add a guest user, your organization's external collaboration settings must be
     :::image type="content" source="media/how-to-add-users/menu-active-directory.png" alt-text="Select Azure Active Directory from the menu.":::
 
 1. On the left, select **Users**.
-1. At the top, select **New guest user**.
+1. At the top, select **New user**.
+1. Select **Invite external user**.
 1. Fill in the name and email address for the user.
 1. Add a message for the new user.
 1. At the bottom of the page, select **Invite**.

@@ -440,7 +440,7 @@ run = experiment.submit(config=src)
 
 Once you have a trained model, you can save/serialize it to a `.pkl` file with  `pickle.dump()` and `pickle.load()`.  You can also use `joblib.dump()` and `joblib.load()`.
 
-The following example is how you download and load  a model in-memory that was trained in AML compute with `ScriptRunConfig`. This code can run in the same notebook you used the Azure ML SDK `ScriptRunConfig`.
+The following example is how you download and load  a model in-memory that was trained in AzureML compute with `ScriptRunConfig`. This code can run in the same notebook you used the Azure ML SDK `ScriptRunConfig`.
 
 ```python
 import joblib

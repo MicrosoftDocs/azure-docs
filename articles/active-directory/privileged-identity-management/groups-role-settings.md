@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/12/2021
+ms.date: 06/24/2022
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Configure privileged access group settings (preview) in Privileged Identity Management
 
-Role settings are the default settings that are applied to group owner and group member privileged access assignments in Privileged Identity Management (PIM). Use the following steps to set up the approval workflow to specify who can approve or deny requests to elevate privilege.
+Role settings are the default settings that are applied to group owner and group member privileged access assignments in Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. Use the following steps to set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
 ## Open role settings
 
