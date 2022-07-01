@@ -43,12 +43,12 @@ In order to update DCR, we are going to retrieve its content and save it as a fi
 
 2. Execute the following commands to retrieve DCR content and save it to a file. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file to store DCR.
 
-```PowerShell
-$ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
-$FilePath = “<FilePath>” # Store DCR content in this file
-$DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
-$DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
-```
+    ```PowerShell
+    $ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
+    $FilePath = “<FilePath>” # Store DCR content in this file
+    $DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
+    $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
+    ```
 ## Edit DCR
 Now, when DCR content is stored as a JSON file, you can use an editor of your choice to make changes in the DCR. You may [prefer to download the file from the Cloud Shell environment](../../cloud-shell/using-the-shell-window.md#upload-and-download-files), if you are using one. 
 
@@ -60,25 +60,25 @@ code "temp.dcr"
 Let’s modify the KQL transformation within DCR to drop rows where RequestType is anything, but “GET”.
 1.	Open the file created in the previous part for editing using an editor of your choice.
 2.	Locate the line containing `”transformKql”` attribute, which, if you followed the tutorial for custom log creation, should look similar to this:
-``` JSON
-"transformKql": "  source\n    | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
-```
+    ``` JSON
+    "transformKql": "  source\n    | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
+    ```
 3.	Modify KQL transformation to include additional filter by RequestType
-``` JSON
-"transformKql": "  source\n    | where RawData contains \"GET\"\n     | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
-```
+    ``` JSON
+    "transformKql": "  source\n    | where RawData contains \"GET\"\n     | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
+    ```
 4.	Save the file with modified DCR content.
 
 ## Apply changes
 Our final step is to update DCR back in the system. This is accomplished by “PUT” HTTP call to ARM API, with updated DCR content sent in the HTTP request body.
 1.	If you are using Azure Cloud Shell, save the file and close the embedded editor, or [upload modified DCR file back to the Cloud Shell environment](../../cloud-shell/using-the-shell-window.md#upload-and-download-files).
 2.	Execute the following commands to load DCR content from the file and place HTTP call to update the DCR in the system. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file modified in the previous part of the tutorial. You can omit first two lines if you read and write to the DCR within the same PowerShell session.
-```PowerShell
-$ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
-$FilePath = “<FilePath>” # Store DCR content in this file
-$DCRContent = Get-Content $FilePath -Raw 
-Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method PUT -Payload $DCRContent 
-```
+    ```PowerShell
+    $ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
+    $FilePath = “<FilePath>” # Store DCR content in this file
+    $DCRContent = Get-Content $FilePath -Raw 
+    Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method PUT -Payload $DCRContent 
+    ```
 3.	Upon successful call, you should get the response with status code “200”, indicating that your DCR is now updated.
 4.	You can now navigate to your DCR and examine its content on the portal via “JSON View” function, or you could repeat the first part of the tutorial to retrieve DCR content into a file.
 
