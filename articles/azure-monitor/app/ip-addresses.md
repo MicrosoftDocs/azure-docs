@@ -21,7 +21,7 @@ Alternatively, you can subscribe to this page as an RSS feed by adding https://g
 
 You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Status Monitor to send data to the portal.
 
-| Purpose | URL | Global IPs | Ports |
+| Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
 | Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com<br/><br/> || 443 |
 | Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/>*Example for {region}: westus2*<br/><br/> |20.49.111.32/29<br/>13.73.253.112/29| 443 |
@@ -83,58 +83,58 @@ Download [China cloud IP addresses](https://www.microsoft.com/download/details.a
 
 #### Addresses grouped by region (Azure public cloud)
 
-| Continent/Country | Region | IP ranges |
+| Continent/Country | Region | IP |
 | --- | --- | --- |
 |Asia|East Asia|52.229.216.48/28<br/>20.189.111.16/29|
 ||Southeast Asia|52.139.250.96/28<br/>23.98.106.152/29|
-|Australia|Australia Central|20.37.227.104/29|
-||Australia Central 2|20.53.60.224/31|
+|Australia|Australia Central|20.37.227.104/29<br/><br/>|
+||Australia Central 2|20.53.60.224/31<br/><br/>|
 ||Australia East|20.40.124.176/28<br/>20.37.198.232/29|
-||Australia Southeast|20.42.230.224/29|
+||Australia Southeast|20.42.230.224/29<br/><br/>|
 |Brazil|Brazil South|191.233.26.176/28<br/>191.234.137.40/29|
-||Brazil Southeast|20.206.0.196/31|
-|Canada|Canada Central|52.228.86.152/29|
-||Canada East|52.242.40.208/31|
+||Brazil Southeast|20.206.0.196/31<br/><br/>|
+|Canada|Canada Central|52.228.86.152/29<br/><br/>|
+||Canada East|52.242.40.208/31<br/><br/>|
 |Europe|North Europe|52.158.28.64/28<br/>20.50.68.128/29|
 ||West Europe|51.144.56.96/28<br/>40.113.178.32/29|
 |France|France Central|20.40.129.32/28<br/>20.43.44.216/29|
 ||France South|20.40.129.96/28<br/>52.136.191.12/31|
-|Germany|Germany North|51.116.75.92/31|
-||Germany West Central|20.52.95.50/31|
-|India|Central India|52.140.108.216/29|
-||South India|20.192.153.106/31|
-||West India|20.192.84.164/31|
-||Jio India Central|20.192.50.200/29|
-||Jio India West|20.193.194.32/29|
-|Israel|Israel Central|20.217.44.250/31|
+|Germany|Germany North|51.116.75.92/31<br/><br/>|
+||Germany West Central|20.52.95.50/31<br/><br/>|
+|India|Central India|52.140.108.216/29<br/><br/>|
+||South India|20.192.153.106/31<br/><br/>|
+||West India|20.192.84.164/31<br/><br/>|
+||Jio India Central|20.192.50.200/29<br/><br/>|
+||Jio India West|20.193.194.32/29<br/><br/>|
+|Israel|Israel Central|20.217.44.250/31<br/><br/>|
 |Japan|Japan East|52.140.232.160/28<br/>20.43.70.224/29|
-||Japan West|20.189.194.102/31|
-|Korea|Korea Central|20.41.69.24/29|
-|Norway|Norway East|51.120.235.248/29|
-||Norway West|51.13.143.48/31|
-|Poland|Poland Central|20.215.4.250/31|
-|Qatar|Qatar Central|20.21.39.224/29|
-|South Africa|South Africa North|102.133.219.136/29|
-||South Africa West|102.37.86.196/31|
-|Sweden|Sweden Central|51.12.25.192/29|
-||Sweden South|51.12.17.128/29|
-|Switzerland|Switzerland North|51.107.52.200/29|
-||Switzerland West|51.107.148.8/29|
-|Taiwan|Taiwan North|51.53.28.214/31|
-||Taiwan Northwest|51.53.172.214/31|
-|United Arab Emirates|UAE Central|20.45.95.68/31|
+||Japan West|20.189.194.102/31<br/><br/>|
+|Korea|Korea Central|20.41.69.24/29<br/><br/>|
+|Norway|Norway East|51.120.235.248/29<br/><br/>|
+||Norway West|51.13.143.48/31<br/><br/>|
+|Poland|Poland Central|20.215.4.250/31<br/><br/>|
+|Qatar|Qatar Central|20.21.39.224/29<br/><br/>|
+|South Africa|South Africa North|102.133.219.136/29<br/><br/>|
+||South Africa West|102.37.86.196/31<br/><br/>|
+|Sweden|Sweden Central|51.12.25.192/29<br/><br/>|
+||Sweden South|51.12.17.128/29<br/><br/>|
+|Switzerland|Switzerland North|51.107.52.200/29<br/><br/>|
+||Switzerland West|51.107.148.8/29<br/><br/>|
+|Taiwan|Taiwan North|51.53.28.214/31<br/><br/>|
+||Taiwan Northwest|51.53.172.214/31<br/><br/>|
+|United Arab Emirates|UAE Central|20.45.95.68/31<br/><br/>|
 ||UAE North|20.38.143.44/31<br/>40.120.87.204/31|
 |United Kingdom|UK South|51.105.9.128/28<br/>51.104.30.160/29|
 ||UK West|20.40.104.96/28<br/>51.137.164.200/29|
 |United States|Central US|13.86.97.224/28<br/>20.40.206.232/29|
 ||East US|20.42.35.32/28<br/>20.49.111.32/29|
-||East US 2|20.49.102.24/29|
+||East US 2|20.49.102.24/29<br/><br/>|
 ||North Central US|23.100.224.16/28<br/>20.49.114.40/29|
 ||South Central US|20.45.5.160/28<br/>13.73.253.112/29|
-||West Central US|52.150.154.24/29|
+||West Central US|52.150.154.24/29<br/><br/>|
 ||West US|40.91.82.48/28<br/>52.250.228.8/29|
-||West US 2|40.64.134.128/29|
-||West US 3|20.150.241.64/29|
+||West US 2|40.64.134.128/29<br/><br/>|
+||West US 3|20.150.241.64/29<br/><br/>|
 
 ### Discovery API
 
