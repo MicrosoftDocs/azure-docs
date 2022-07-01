@@ -39,6 +39,8 @@ For more information, see [Virtual network service tags](../../virtual-network/s
 
 The table below lists the URLs that must be available in order to install and use the Connected Machine agent.
 
+# [Azure Cloud](#tab/azure-cloud)
+
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
@@ -55,6 +57,21 @@ The table below lists the URLs that must be available in order to install and us
 |`*.servicebus.windows.net`|For Windows Admin Center and SSH scenarios|If using SSH or Windows Admin Center from Azure|Public|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
+
+# [Azure Government](#tab/azure-government)
+
+| Agent resource | Description | When required| Endpoint used with private link |
+|---------|---------|--------|---------|
+|`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
+|`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
+|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
+|`login.microsoftonline.us`|Azure Active Directory|Always| Public |
+|`pasff.usgovcloudapi.net`|Azure Active Directory|Always| Public |
+|`management.usgovcloudapi.net`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
+|`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
+|`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
+|`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
+|`dc.applicationinsights.us`|Agent telemetry|Optional| Public |
 
 ## Transport Layer Security 1.2 protocol
 
