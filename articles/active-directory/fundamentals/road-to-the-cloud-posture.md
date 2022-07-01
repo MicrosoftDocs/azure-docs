@@ -52,9 +52,6 @@ In enterprise-sized organizations, IAM transformation, or even transformation fr
 
 ![Five states of transformation](media/road-to-cloud-posture/road-to-the-cloud-five-states.png)
 
-> [!Note]
->The five states above represent a logical progression of cloud transformation. Microsoft continues to innovate and deliver solutions to enable customers of all sizes to achieve these transformations. This document will be updated regularly to include the latest capabilities in Azure AD that enable further migrations.
-
 **State 1 Cloud attached** - In this state, organizations have created an Azure AD tenant to enable user productivity and collaboration tools and the tenant is fully operational. Most companies that use Microsoft products and services in their IT environment are already in or beyond this state. In this state operational costs may be higher because there's an on-premises environment and cloud environment to maintain and make interactive. Also, people must have expertise in both environments to support their users and the organization. In this state:
 
 * Devices are joined to AD and managed using group policy and or on-premises device management tools.
