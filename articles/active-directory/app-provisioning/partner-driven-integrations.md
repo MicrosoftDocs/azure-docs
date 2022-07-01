@@ -41,7 +41,7 @@ The Aquera Identity Integration Platform as a Service closes the connectivity ga
 * Company website: https://www.aquera.com/applications.html
 * Contact information: https://www.aquera.com/contact-us.html
 
-### Applications supported
+### Popular applications supported
 3 apps listed below for reference. Catalog contains [200+](https://www.aquera.com/applications.html).
 * ADP
 * Concur
@@ -55,7 +55,7 @@ We Are Experts In Identity & Access Management and Data Center Management.
 * Company website: https://www.idmworks.com/
 * Contact information: 
 
-### Applications supported
+### Popular applications supported
 * Cerner
 * Epic
 * RACF
@@ -91,6 +91,11 @@ If you have built a SCIM Gateway and would like to add it to this list, please f
 * Add any new partners in alphabetical order.
 * Limit your entries to 500 words.
 * Ensure that you provide contact information for customers to learn more.
+* To avoid duplication, please only include applications that do not already have out of the box provisioning connectors in the [Azure AD application gallery](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
 
 # Disclaimer
-{Input Legal text once available}
+For independent software vendors: The Microsoft Azure Active Directory Application Gallery Terms & Conditions, excluding Sections 2–4, apply to this Partner-Driven Integrations Catalog (https://aka.ms/PartnerDrivenProvisioning, the “Integrations Catalog”). References to the “Gallery” shall be read as the “Integrations Catalog” and references to an “App” shall be read as “Integration”.  
+
+If you do not agree with these terms, you should not submit your Integration for listing in the Integrations Catalog. If you submit an Integration to the Integrations Catalog, you agree that you or the entity you represent (“YOU” or “YOUR”) is bound by these terms. 
+ 
+Microsoft reserves the right to accept or reject your proposed Integration in its sole discretion and reserves the right to determine the manner in which Apps are presented, promoted, or featured in this Integrations Catalog. 
