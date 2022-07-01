@@ -7,7 +7,7 @@ ms.date: 10/13/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Add contributor role on the Media Services
+# Add contributor role to Media Services
 
 This article describes how to assign contributor role on the Media Services account.
 
