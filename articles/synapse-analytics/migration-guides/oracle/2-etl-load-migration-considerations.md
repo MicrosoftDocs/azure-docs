@@ -345,7 +345,7 @@ Other export options include JSON and XML. You can use the UI to add a set of ta
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-2.png" border="true" alt-text="Screenshot of the SQL Developer cart option UI." lightbox="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-2-lrg.png":::
 
-You can also use Oracle SQL Developer command line option to export Oracle data. This option supports automation using a shell script.
+You can also use Oracle SQL Developer Command Line (SQLcl) to export Oracle data. This option supports automation using a shell script.
 
 For relatively small tables, you might find this technique useful if you run into problems extracting data through a direct connection.
 
