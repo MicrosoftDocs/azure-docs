@@ -662,6 +662,9 @@
       - name: Private access
         href: hyperscale/concepts-private-access.md
         displayName: private, link, hyperscale
+      - name: Row-level security
+        href: hyperscale/concepts-row-level-security.md
+        displayName: row, level, security, rls, hyperscale
       - name: Security baseline
         href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
     - name: Scheduled maintenance
