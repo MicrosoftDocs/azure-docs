@@ -4,8 +4,8 @@ description: Use Azure Policy to restrict VM extension deployments.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: msgabsta
-author: msgabsta
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 07/01/2022
 
@@ -13,7 +13,7 @@ ms.date: 07/01/2022
 
 # Use Azure Policy to restrict extensions installation on Linux VMs
 
-If you want to prevent the use or installation of certain extensions on your Linux VMs, you can create an Azure Policy definition using the Azure CLI to restrict extensions for VMs within a resource group. To learn the basics of Azure VM extensions for Linux, see [Virtual machine extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
+If you want to prevent the installation of certain extensions on your Linux VMs, you can create an Azure Policy definition using the Azure CLI to restrict extensions for VMs within a resource group. To learn the basics of Azure VM extensions for Linux, see [Virtual machine extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
 
 This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
@@ -21,7 +21,7 @@ This tutorial uses the CLI within the Azure Cloud Shell, which is constantly upd
 
 In order to restrict what extensions are available, you need to create a [rule](../../governance/policy/concepts/definition-structure.md#policy-rule) to identify the extension.
 
-This example demonstrates how deny the installation of disallowed VM extensions by defining a rules file in Azure Cloud Shell. However, if you are working in Azure CLI locally, you can create a local file and replace the path (~/clouddrive) with the path to the file on your local file system.
+This example demonstrates how to deny the installation of disallowed VM extensions by defining a rules file in Azure Cloud Shell. However, if you're working in Azure CLI locally, you can create a local file and replace the path (~/clouddrive) with the path to the file on your local file system.
 
 In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 
@@ -55,7 +55,7 @@ Copy and paste the following `.json` data into the file.
 }
 ```
 
-When you are finished, press **Esc** and then type **:wq** to save and close the file.
+When you're finished, press **Esc**, and then type **:wq** to save and close the file.
 
 ## Create a parameters file
 
@@ -78,13 +78,13 @@ Copy and paste the following `.json` data into the file.
 }
 ```
 
-When you are finished, press **Esc** and then type **:wq** to save and close the file.
+When you're finished, press **Esc**, and then type **:wq** to save and close the file.
 
 ## Create the policy
 
 A _policy definition_ is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment).
 
-In this example, the rules and parameters are the files you created and stored as .json files in your cloud shell.
+In this example, the rules and parameters are the files you created and stored as .json files in Cloud Shell or in your local file system.
 
 ```azurecli-interactive
 az policy definition create \
