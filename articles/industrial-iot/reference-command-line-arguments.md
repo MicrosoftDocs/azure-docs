@@ -24,7 +24,7 @@ This article describes the command-line arguments that you can use to set global
 
     You ordinarily specify the connection string only when you start the application for the first time. The connection string is encrypted and stored in the platforms certificate store.
 
-    On subsequent calls, the connection string is read from the platforms certificate store and reused. If you specify the connection string on each start, the device, which is created for the application in the IoT hub device registry is removed and re-created each time.
+    On subsequent calls, the connection string is read from the platforms certificate store and reused. If you specify the connection string on each start, the device, which is created for the application in the IoT hub device registry, is removed and re-created each time.
     
 To control the application, you can use any of several of environment variables:
 
