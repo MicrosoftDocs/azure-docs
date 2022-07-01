@@ -1,5 +1,5 @@
 ---
-title: ISV app license management - Microsoft AppSource and Azure Marketplace
+title: About ISV app license management - Microsoft AppSource and Azure Marketplace
 description: Learn about managing ISV app licenses through Microsoft.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,7 +10,7 @@ ms.reviewer: dannyevers
 ms.date: 07/18/2022
 ---
 
-# ISV app license management
+# About ISV app license management
 
 Applies to the following offer types:
 

@@ -41,7 +41,7 @@
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
   - name: ISV app license management
     items:
-      - name: ISV app license management overview
+      - name: About ISV app license management
         href: isv-app-license-management.md
       - name: License management for Dynamics 365 apps on Dataverse and Power Apps
         href: isv-app-license.md
