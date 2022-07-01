@@ -88,7 +88,7 @@ To configure the lead management in Partner Center:
     - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. To validate the configuration you provided, select the **Validate link**.
-1. When you’ve configured and validated the connection details, select **Connect**.
+1. After you’ve configured and validated the connection details, select **Connect**.
 
     For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
