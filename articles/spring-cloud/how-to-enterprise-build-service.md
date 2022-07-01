@@ -57,7 +57,7 @@ The following list shows the Tanzu Buildpacks available in Azure Spring Apps Ent
 
 For details about Tanzu Buildpacks, see [Using the Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html).
 
-## Create a Customized Builder to build apps
+## Use the Customized Builder to build apps
 
 Besides the `default` builder, you can also create custom builders with the provided buildpacks.
 
@@ -100,6 +100,10 @@ az spring-cloud app deploy \
 
 If you're using the `tanzu-buildpacks/java-azure` buildpack, we recommend that you set the `BP_JVM_VERSION` environment variable in the `build-env` argument.
 
+When the customized builder has been used in a app deployment, the builder **is not allowed to** edit and delete.
+If you want to change the configuration, please create a new builder and use the new builder to deploy app. After you deploy the app with new builder, this deployment has been linked to the new builder.
+After migrate all the deployments under the preview builder to new builder, you can edit and delete the previous builder freely. 
+
 ## Real-time build logs
 
 A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. For information on using build logs to diagnose problems, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md) .
@@ -137,6 +141,8 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
 ## Manage buildpack bindings
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
+
+Note: you can only manage buildpack bindings when the parent builder is not used in a app deployment. If you want to create, update or delete buildpack bindings, please create a new builder. 
 
 ### [Portal](#tab/azure-portal)
 
