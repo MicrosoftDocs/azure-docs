@@ -40,7 +40,7 @@ With Materialized view, you can
 
 
 
-## How to get started
+## How to get started?
 
 New Cassandra API accounts with Materialized Views enabled can be provisioned on your subscription by using REST API calls from az CLI. 
 
