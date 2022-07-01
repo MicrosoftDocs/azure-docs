@@ -35,7 +35,7 @@ The Azure Blob Storage client library uses [AES](https://en.wikipedia.org/wiki/A
 
 ## Mitigate the security vulnerability in your applications
 
-Due to a security vulnerability discovered in CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
+Due to a security vulnerability discovered in the Storage library's use of CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
 
 - Migrate your applications that are using client-side encryption v1 to client-side encryption v2.
 
@@ -215,7 +215,7 @@ For a sample project that shows how to decrypt and reencrypt existing data with 
 
 ## Client-side encryption and performance
 
-Keep in mind that encrypting your storage data results in additional performance overhead. When you use client-side encryption in your application, the client library must generate the CEK and IV, encrypt the content itself, and format and upload additional metadata. This overhead varies depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
+Keep in mind that encrypting your storage data results in additional performance overhead. When you use client-side encryption in your application, the client library must securely generate the CEK and IV, encrypt the content itself, communicate with your chosen keystore for key-enveloping, and format and upload additional metadata. This overhead varies depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps
 
