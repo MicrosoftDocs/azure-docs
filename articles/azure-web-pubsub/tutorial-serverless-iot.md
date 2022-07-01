@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 06/01/2022
+ms.date: 06/30/2022
 ---
 
 # Tutorial: Visualize IoT device data from IoT Hub using Azure Web PubSub service and Azure Functions
