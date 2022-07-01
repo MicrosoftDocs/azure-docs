@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/01/2022
+ms.date: 07/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -61,7 +61,9 @@ To send twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-ov
 
 Once the data has been historized, you can query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
-You can also use data history in combination with [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) to aggregate data from disparate sources. One useful application of this is to combine information technology (IT) data from ERP or CRM systems (like Dynamics 365, SAP, or Salesforce) with operational technology (OT) data from IoT devices and production management systems. For an example that illustrates how a company might combine this data, see the following blog post: [Integrating IT and OT Data with Azure Digital Twins, Azure Data Explorer, and Azure Synapse](https://techcommunity.microsoft.com/t5/internet-of-things-blog/integrating-it-and-ot-data-with-azure-digital-twins-azure-data/ba-p/3401981).
+You can also use data history in combination with [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) to aggregate data from disparate sources. This can be useful in many scenarios. Here are two examples:
+* Combine information technology (IT) data from ERP or CRM systems (like Dynamics 365, SAP, or Salesforce) with operational technology (OT) data from IoT devices and production management systems. For an example that illustrates how a company might combine this data, see the following blog post: [Integrating IT and OT Data with Azure Digital Twins, Azure Data Explorer, and Azure Synapse](https://techcommunity.microsoft.com/t5/internet-of-things-blog/integrating-it-and-ot-data-with-azure-digital-twins-azure-data/ba-p/3401981).
+* Integrate with with the Azure AI and Cognitive Services [Multivariate Anomaly Detector](/azure/cognitive-services/anomaly-detector/overview-multivariate), to quickly connect your Azure Digital Twins data with a downstream AI/machine learning solution that specializes in anomaly detection. The [Azure Digital Twins Multivariate Anomaly Detection Toolkit](/samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/) is a sample project that provides a workflow for training multiple Multivariate Anomaly Detector models for several scenario analyses, based on historized digital twin data. It then leverages the trained models to detect abnormal operations and anomalies in modeled Azure Digital Twins environments, in near real-time.
 
 ## Next steps
 
