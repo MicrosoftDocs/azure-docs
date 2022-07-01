@@ -42,7 +42,7 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
 ## Prerequisites
 
 * Install the `azureml-mlflow` package. 
-* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+* [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.

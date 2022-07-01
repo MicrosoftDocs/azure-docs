@@ -60,6 +60,10 @@ items:
     href: routing-preference-overview.md
   - name: Routing preference Unmetered
     href: routing-preference-unmetered.md
+  - name: Monitoring
+    items:
+    - name: Monitor public IP addresses
+      href: monitor-public-ip.md
   - name: Security
     items:
     - name: Public IP security baseline
@@ -170,6 +174,8 @@ items:
     href: /dotnet/api/overview/azure/virtual-network
   - name: Java
     href: /java/api/
+  - name: Monitoring data
+    href: monitor-public-ip-reference.md
   - name: Node.js
     href: /javascript/azure#azure-sdk
   - name: Python
