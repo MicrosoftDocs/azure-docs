@@ -461,11 +461,48 @@ This section covers how you can customize the provisioning app for the following
 
 ### Support for worker conversions
 
-When a worker converts from employee to contingent worker or from contingent worker to employee, the Workday connector automatically detects this change and links the AD account to the active worker profile so that all AD attributes are in sync with the active worker profile. No configuration changes are required to enable this functionality. Here is the description of the provisioning behavior when a conversion happens. 
+When a worker converts from full-time employee (FTE) to contingent worker (CW) or from contingent worker to employee, the Workday connector automatically detects this change and links the AD account to the active worker profile so that all AD attributes are in sync with the active worker profile. Depending on how worker conversions are processed in Workday, there may be different scenarios to consider. 
 
-* Let's say John Smith joins as a contingent worker in January. As there is no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account for the user and links John's contingent worker *WID (WorkdayID)* to his AD account.
-* Three months later, John converts to a full-time employee. In Workday, a new worker profile is created for John. Though John's *WorkerID* in Workday stays the same, John now has two *WID*s in Workday, one associated with the contingent worker profile and another associated with the employee worker profile. 
-* During incremental sync, when the provisioning service detects two worker profiles for the same WorkerID, it automatically transfers ownership of the AD account to the active worker profile. In this case, it de-links the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and his AD account. 
+* [Scenario 1: Backdated conversion from FTE to CW or vice versa](#scenario-1-backdated-conversion-from-fte-to-cw-or-vice-versa) 
+* [Scenario 2: Worker employed as CW/FTE today, will change to FTE/CW today](#scenario-2-worker-employed-as-cwfte-today-will-change-to-ftecw-today)
+* [Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap](#scenario-3-worker-employed-as-cwfte-is-terminated-rejoins-as-ftecw-after-a-significant-gap)
+* [Scenario 4: Future-dated conversion, when worker is an active CW/FTE](#scenario-4-future-dated-conversion-when-worker-is-an-active-cwfte)
+
+#### Scenario 1: Backdated conversion from FTE to CW or vice versa
+Your HR team may backdate a worker conversion transaction in Workday for valid business reasons, such as payroll processing, budget compliance, legal requirements or benefits management. Here is an example to illustrate how provisioning is handled for this scenario. 
+
+* It's 15-Jan-2022 and Jane Doe is employed as a contingent worker. Her manager agrees to convert her to a full-time employee.  
+* The terms of her contract change require backdating the transaction so it aligns with the start of the current month. HR initiates a backdated worker conversion transaction Workday with effective date as 1-Jan-2022. Now there are two worker profiles in Workday for Jane. The CW profile is inactive, while the FTE profile is active. 
+* The Azure AD provisioning service will detect this change in the Workday transaction log and automatically provision attributes associated with the new FTE profile in the next sync cycle. 
+* No changes are required in the provisioning app configuration to handle this scenario. 
+
+#### Scenario 2: Worker employed as CW/FTE today, will change to FTE/CW today
+This scenario is similar to the above scenario, except that instead of backdating the transaction, HR performs a worker conversion that is effective immediately. The Azure AD provisioning service will detect this change in the Workday transaction log and automatically provision attributes associated with active FTE profile in the next sync cycle. No changes are required in the provisioning app configuration to handle this scenario.  
+
+#### Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap 
+It is common for workers to start work at a company as a contingent worker, leave the company and then rejoin after several months as a full-time employee. Here is an example to illustrate how provisioning is handled for this scenario.
+
+* It's 1-Jan-2022 and John Smith starts work at as a contingent worker. As there is no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to his AD account. 
+* John's contract ends on 31-Jan-2022. In the provisioning cycle that runs after end of day 31-Jan-2022, John's AD account is disabled. 
+* John applies for another position and decides to rejoin the company as full-time employee effective 01-May-2022. HR enters his information as a pre-hire and processes his employment details on 15-Apr-2022. Now there are two worker profiles in Workday for John. The CW profile is inactive, while the FTE profile is active. The two records have the same *WorkerID* but different *WID*s.  
+* On 15-Apr-2022, during incremental cycle, the Azure AD provisioning service automatically transfers ownership of the AD account to the active worker profile. In this case, it de-links the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and his AD account.
+* No changes are required in the provisioning app configuration to handle this scenario. 
+
+#### Scenario 4: Future-dated conversion, when worker is an active CW/FTE
+Sometimes, a worker may already be an active contingent worker, when HR initiates a future-dated worker conversion transaction. Here is an example to illustrate how provisioning is handled for this scenario and what configuration changes are required to support this scenario. 
+
+* It's 1-Jan-2022 and John Smith starts work at as a contingent worker. As there is no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to his AD account. 
+* On 15-Jan-2022, HR initiates a transaction to convert John from contingent worker to full-time employee effective 01-Feb-2022. 
+* Since Azure AD provisioning service automatically processes future-dated hires, it will process John's new full-time employee worker profile on 15-Jan-2022 and update his profile in AD with full-time employment details even though he is still a contingent worker. 
+* To ensure that this does not happen and John's FTE details get provisioned on 01-Feb-2022, perform the following configuration changes. 
+
+   **Configuration changes**
+   1. Engage your Workday admin to create a provisioning group called "Future-dated conversions". 
+   1. Implement logic in Workday to add employee/contingent worker records with future dated conversions to this provisioning group. 
+   1. Update the Azure AD provisioning app to read this provisioning group. Refer to instructions here on how to [retrieve the provisioning group](#example-3-retrieving-provisioning-group-assignments)  
+   1. Create a [scoping filter](define-conditional-rules-for-provisioning-user-accounts.md) in Azure AD to exclude worker profiles that are part of this provisioning group. 
+   1. In Workday, implement logic so that when the date of conversion is effective, Workday removes the relevant employee/contingent worker record from the provisioning group in Workday. 
+   1. With this configuration, the existing employee/contingent worker record will continue to be effective and the provisioning change will happen only on the day of conversion.
 
 >[!NOTE]
 >During initial full sync, you may notice a behavior where the attribute values associated with the previous inactive worker profile flow to the AD account of converted workers. This is temporary and as full sync progresses, it will eventually be overwritten by attribute values from the active worker profile. Once the full sync is complete and the provisioning job reaches steady state, it will always pick the active worker profile during incremental sync. 
