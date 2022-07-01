@@ -34,13 +34,13 @@ You can now view all the recovery points that are moved to archive.
 You can automatically move all eligible/recommended recovery points to vault-archive by configuring the required settings in the backup policy.
 
 >[!Note]
->This feature is currently in preview. To use this feature, ensure that your subscription is allowlisted.
+>This feature is currently in preview. Enable your subscription to use this feature.
 
-### Allowlist a subscription for Smart Tiering (preview)
+### Enable a subscription for Smart Tiering (preview)
 
-To allowlist a subscription, follow these steps:
+To enable a subscription, follow these steps:
 
-1. In the Azure portal, select the subscription you want to allowlist.
+1. In the Azure portal, select the subscription you want to enable.
 
 1. Select **Preview Features** in the left pane.
 
@@ -101,7 +101,6 @@ To enable Smart Tiering for Azure SAP HANA/SQL servers in Azure VM backup polici
 
    >[!Note]
    >The number of days would range from *45* to *(retention-180)* days.
-   >The number of days would range from 45* days to *(retention-180)* days.
 
 Once Smart Tiering is enabled, all the eligible recovery points are moved to the Vault-archive tier.
 
