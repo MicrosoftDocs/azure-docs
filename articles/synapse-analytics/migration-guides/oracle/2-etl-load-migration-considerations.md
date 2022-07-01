@@ -18,11 +18,11 @@ This article is part two of a seven-part series that provides guidance on how to
 
 ## Data migration considerations
 
-There are many factors to consider when migrating data, ETL, and loads from a legacy Oracle data warehouse and data marts to Azure Synapse. This article applies specifically to migrations from an existing Oracle environment.
+There are many factors to consider when migrating data, ETL, and loads from a legacy Oracle data warehouse and data marts to Azure Synapse.
 
 ### Initial decisions about data migration from Oracle
 
-When you're planning a migration from an Oracle environment, consider the following data-related questions:
+When you're planning a migration from an existing Oracle environment, consider the following data-related questions:
 
 - Should unused table structures be migrated?
 
@@ -166,7 +166,7 @@ HAVING SUM(bytes)/1024/1024 > 10  /* Ignore really small tables */
 ORDER BY SUM(bytes) desc;
 ```
 
-In addition, the Microsoft database migration team provides many resources, including an asset called *Oracle inventory script artifacts* that can be found on GitHub. The asset includes a PL/SQL query that accesses Oracle system tables and provides a count of objects by schema type, object type, and status. The asset also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format. An included calculator spreadsheet takes the CSV as input and provides sizing data.
+In addition, the Microsoft database migration team provides many resources, including the [Oracle Inventory Script Artifacts](https://www.microsoft.com/download/details.aspx?id=103121). The Oracle Inventory Script Artifacts tool includes a PL/SQL query that accesses Oracle system tables and provides a count of objects by schema type, object type, and status. The tool also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format. An included calculator spreadsheet takes the CSV as input and provides sizing data.
 
 For any table, you can accurately estimate the volume of data that needs to be migrated by extracting a representative sample of the data, such as one million rows, to an uncompressed delimited flat ASCII data file. Then, use the size of that file to get an average raw data size per row. Finally, multiply that average size by the total number of rows in the full table to give a raw data size for the table. Use that raw data size in your planning.
 
@@ -211,11 +211,11 @@ The following flowchart summarizes one approach:
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/migration-options-flowchart.png" border="true" alt-text="Flowchart of migration options and recommendations.":::
 
-As shown in the flowchart, your initial step is always to build an inventory of ETL/ELT processes that need to be migrated. With the standard "built-in" Azure features, some existing processes might not need to move. For planning purposes, it's important that you understand the scale of the migration. Next, consider the questions in the flowchart decision tree:
+As shown in the flowchart, the initial step is always to build an inventory of ETL/ELT processes that need to be migrated. With the standard built-in Azure features, some existing processes might not need to move. For planning purposes, it's important that you understand the scale of the migration. Next, consider the questions in the flowchart decision tree:
 
 1. **Move to native Azure?** Your answer depends on whether you're migrating to a completely Azure-native environment. If so, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](../../../data-factory/concepts-pipelines-activities.md) or [Azure Synapse pipelines](../../get-started-pipelines.md).
 
-1. **Using a third-party ETL tool?** If you're not moving to a completely Azure-native environment, then check whether an existing [third-party](../../partner/data-integration.md) ETL tool is already in use. In the Oracle environment, you might find that some or all of the ETL processing is performed by custom scripts using Oracle-specific utilities such as SQL\*Developer, SQL\*Loader, or Data Pump. The approach in this case is to re-engineer using Azure Data Factory.
+1. **Using a third-party ETL tool?** If you're not moving to a completely Azure-native environment, then check whether an existing [third-party](../../partner/data-integration.md) ETL tool is already in use. In the Oracle environment, you might find that some or all of the ETL processing is performed by custom scripts using Oracle-specific utilities such as Oracle SQL Developer, Oracle SQL\*Loader, or Oracle Data Pump. The approach in this case is to re-engineer using Azure Data Factory.
 
 1. **Does the third-party support dedicated SQL pools within Azure Synapse?** Consider whether there's a large investment in skills in the third-party ETL tool, or if existing workflows and schedules use that tool. If so, determine whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include native connectors that can use Azure facilities like [PolyBase](../../sql/load-data-overview.md) or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql) for the most efficient data loading. But even without native connectors, there's generally a way that you can call external processes, such as PolyBase or `COPY INTO`, and pass in applicable parameters. In this case, use existing skills and workflows, with Azure Synapse as the new target environment.
 
@@ -228,7 +228,7 @@ As shown in the flowchart, your initial step is always to build an inventory of 
 
 ### Re-engineer existing Oracle-specific scripts
 
-If some or all of the existing Oracle warehouse ETL/ELT processing is handled by custom scripts that use Oracle-specific utilities, such as SQL\*Plus, SQL\*Developer, SQL\*Loader, or Data Pump, then you need to recode these scripts for the Azure Synapse environment. Similarly, if ETL processes have been implemented using stored procedures in Oracle, then you need to recode those processes.
+If some or all of the existing Oracle warehouse ETL/ELT processing is handled by custom scripts that use Oracle-specific utilities, such as Oracle SQL\*Plus, Oracle SQL Developer, Oracle SQL\*Loader, or Oracle Data Pump, then you need to recode these scripts for the Azure Synapse environment. Similarly, if ETL processes have been implemented using stored procedures in Oracle, then you need to recode those processes.
 
 Some elements of the ETL process are easy to migrate, for example, by simple bulk data load into a staging table from an external file. It may even be possible to automate those parts of the process, for example, by using Azure Synapse `COPY INTO` or PolyBase instead of SQL\*Loader. Other parts of the process that contain arbitrary complex SQL and/or stored procedures will take more time to re-engineer.
 
@@ -273,7 +273,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 - **File Extract**: extract the data from the Oracle tables to flat delimited files, normally in CSV format. You can extract table data in several ways:
 
     - Use standard Oracle tools such as SQL\*Plus, SQL Developer, and SQLcl.
-    - Use [Oracle Data Integrator](https://www.oracle.com/middleware/technologies/data-integrator.html) ODI to generate flat files.
+    - Use [Oracle Data Integrator](https://www.oracle.com/middleware/technologies/data-integrator.html) (ODI) to generate flat files.
     - Use Oracle connector in Data Factory to unload Oracle tables in parallel to enable data loading by partitions.
     - Use a [third-party](../../partner/data-integration.md) ETL tool.
 
