@@ -1,11 +1,13 @@
 ---
-title: Deploy Azure Video Analyzer on Azure Stack Edge
+title: Deploy Video Analyzer on Azure Stack Edge
 description: This article discusses how to deploy Azure Video Analyzer on Azure Stack Edge.
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Deploy Azure Video Analyzer on Azure Stack Edge
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This article provides full instructions for deploying Azure Video Analyzer on your Azure Stack Edge device. After you've set up and activated the device, it's ready for Video Analyzer deployment. 
 
@@ -87,7 +89,7 @@ The Azure portal, you can create a deployment manifest and push the deployment t
 
 #### Select your device and set modules
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/), and then go to your IoT hub.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and then go to your IoT hub.
 1. On the left pane, select **IoT Edge**.
 1. In the list of devices, select the ID of the target device.
 1. Select **Set Modules**.
@@ -177,7 +179,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 1. Select the **Module Settings** tab, provide a name for the module, and then specify the container image URI. For example:   
     
     * **IoT Edge Module Name**: rtspsim  
-    * **Image URI**: mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2 
+    * **Image URI**: mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2 
 
 1. Select the **Container Create Options** tab and then, in the box, paste the following JSON code:
     

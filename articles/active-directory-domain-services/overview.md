@@ -3,13 +3,13 @@ title: Overview of Azure Active Directory Domain Services | Microsoft Docs
 description: In this overview, learn what Azure Active Directory Domain Services provides and how to use it in your organization to provide identity services to applications and services in the cloud.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 06/15/2022
 ms.author: justinha
 
 ms.custom: contperf-fy21q1

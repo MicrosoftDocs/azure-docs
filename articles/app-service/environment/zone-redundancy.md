@@ -1,21 +1,18 @@
 ---
-title: Availability Zone support for App Service Environments
+title: Availability Zone support for App Service Environment v2
 description: Learn how to deploy your App Service Environments so that your apps are zone redundant.
-author: ccompy
-
-ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
+author: madsd
 ms.topic: article
-ms.date: 07/05/2021
-ms.author: ccompy
-ms.custom: seodec18
+ms.date: 03/29/2022
+ms.author: madsd
 ---
-# Availability Zone support for App Service Environments
+# Availability Zone support for App Service Environment v2
 
-> [!NOTE]
-> This article is about the App Service Environment v2 which is used with Isolated App Service plans
-> 
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
-App Service Environments (ASE) can be deployed into Availability Zones (AZ).  Customers can deploy an internal load balancer (ILB) ASEs into a specific AZ within an Azure region. If you pin your ILB ASE to a specific AZ, the resources used by a ILB ASE will either be pinned to the specified AZ, or deployed in a zone redundant manner.  
+App Service Environment v2 (ASE) can be deployed into Availability Zones (AZ).  Customers can deploy an internal load balancer (ILB) ASEs into a specific AZ within an Azure region. If you pin your ILB ASE to a specific AZ, the resources used by a ILB ASE will either be pinned to the specified AZ, or deployed in a zone redundant manner.  
 
 An ILB ASE that is explicitly deployed into an AZ is considered a zonal resource because the ILB ASE is pinned to a specific zone. The following ILB ASE dependencies will be pinned to the specified zone:
 

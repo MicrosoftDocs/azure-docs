@@ -3,12 +3,12 @@ title: DDL operations in Azure Cosmos DB Cassandra API from Spark
 description: This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/07/2020
-
+ms.devlang: scala
 ---
 
 # DDL operations in Azure Cosmos DB Cassandra API from Spark
@@ -51,7 +51,10 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
 > [!NOTE]
-> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+> If you are using Spark 3.0, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+
+> [!WARNING]
+> The Spark 3 samples shown in this article have been tested with Spark **version 3.0.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
 
 ## Keyspace DDL operations
 

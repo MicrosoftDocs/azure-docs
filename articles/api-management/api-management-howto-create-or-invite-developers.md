@@ -17,7 +17,7 @@ ms.author: danlep
 ---
 # How to manage user accounts in Azure API Management
 
-In API Management, developers are the users of the APIs that you expose using API Management. This guide shows how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](/rest/api/apimanagement/2020-12-01/user) documentation in the [API Management REST](/rest/api/apimanagement/) reference.
+In API Management, developers are the users of the APIs that you expose using API Management. This guide shows how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](/rest/api/apimanagement/current-ga/user) documentation in the [API Management REST](/rest/api/apimanagement/) reference.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -51,6 +51,8 @@ A confirmation message is displayed, but the newly invited developer does not ap
 When a developer is invited, an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][Configure email templates].
 
 Once the invitation is accepted, the account becomes active.
+
+Invitation link will be active for 2 days.
 
 ## <a name="block-developer"> </a> Deactivate or reactivate a developer account
 

@@ -6,9 +6,9 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 01/19/2022
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 # Serverless SQL pool in Azure Synapse Analytics 
 
@@ -83,6 +83,9 @@ Serverless SQL pool has no local storage, only metadata objects are stored in da
 - DDL statements other than ones related to views and security
 - DML statements
 
+> [!NOTE]
+> Serverless SQL pool queries have a timeout. For more information on query timeout that may affect your workload, see [serverless SQL pool system constraints](resources-self-help-sql-on-demand.md#constraints). Currently you can't change the timeout.
+
 ### Extensions
 
 In order to enable smooth experience for in place querying of data residing in files in data lake, serverless SQL pool extends the existing [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) function by adding following capabilities:
@@ -113,7 +116,7 @@ Serverless SQL pool offers mechanisms to secure access to your data.
 
 ### Azure Active Directory integration and multi-factor authentication
 
-Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../azure-sql/database/authentication-aad-configure.md). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-configure.md) (MFA) to increase data and application security while supporting a single sign-on process.
+Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](/azure/azure-sql/database/authentication-aad-configure). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](/azure/azure-sql/database/authentication-mfa-ssms-configure) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 

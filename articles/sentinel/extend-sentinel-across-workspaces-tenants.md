@@ -1,18 +1,9 @@
 ---
 title: Extend Microsoft Sentinel across workspaces and tenants | Microsoft Docs
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/09/2021
+ms.date: 05/03/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -33,7 +24,7 @@ You can get the full benefit of the Microsoft Sentinel experience when using a s
 | Data ownership | The boundaries of data ownership, for example by subsidiaries or affiliated companies, are better delineated using separate workspaces. |  |
 | Multiple Azure tenants | Microsoft Sentinel supports data collection from Microsoft and Azure SaaS resources only within its own Azure Active Directory (Azure AD) tenant boundary. Therefore, each Azure AD tenant requires a separate workspace. |  |
 | Granular data access control | An organization may need to allow different groups, within or outside the organization, to access some of the data collected by Microsoft Sentinel. For example:<br><ul><li>Resource owners' access to data pertaining to their resources</li><li>Regional or subsidiary SOCs' access to data relevant to their parts of the organization</li></ul> | Use [resource Azure RBAC](resource-context-rbac.md) or [table level Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
-| Granular retention settings | Historically, multiple workspaces were the only way to set different retention periods for different data types. This is no longer needed in many cases, thanks to the introduction of table level retention settings. | Use [table level retention settings](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) or automate [data deletion](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
+| Granular retention settings | Historically, multiple workspaces were the only way to set different retention periods for different data types. This is no longer needed in many cases, thanks to the introduction of table level retention settings. | Use [table level retention settings](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) or automate [data deletion](../azure-monitor/logs/personal-data-mgmt.md#exporting-and-deleting-personal-data) |
 | Split billing | By placing workspaces in separate subscriptions, they can be billed to different parties. | Usage reporting and cross-charging |
 | Legacy architecture | The use of multiple workspaces may stem from a historical design that took into consideration limitations or best practices which do not hold true anymore. It might also be an arbitrary design choice that can be modified to better accommodate Microsoft Sentinel.<br><br>Examples include:<br><ul><li>Using a per-subscription default workspace when deploying Microsoft Defender for Cloud</li><li>The need for granular access control or retention settings, the solutions for which are relatively new</li></ul> | Re-architect workspaces |
 
@@ -57,7 +48,7 @@ To address this requirement, Microsoft Sentinel offers multiple-workspace capabi
 
 This model offers significant advantages over a fully centralized model in which all data is copied to a single workspace:
 
-- Flexible role assignment to the global and local SOCs, or to the MSSP its customers.
+- Flexible role assignment to the global and local SOCs, or to the MSSP and its customers.
 
 - Fewer challenges regarding data ownership, data privacy and regulatory compliance.
 
@@ -129,7 +120,7 @@ Cross-workspace hunting capabilities enable your threat hunters to create new hu
 
 To configure and manage multiple Microsoft Sentinel workspaces, you will need to automate the use of the Microsoft Sentinel management API. For more information on how to automate the deployment of Microsoft Sentinel resources, including alert rules, hunting queries, workbooks and playbooks, see [Extending Microsoft Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-See also [Deploying and Managing Microsoft Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) and [Combining Azure Lighthouse with Microsoft Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) for a consolidated, community-contributed methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private GitHub repository.
+See also [Deploy Custom Content from your Repository](ci-cd.md) for a consolidated methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private Azure DevOps or GitHub repository.
 
 ## Managing workspaces across tenants using Azure Lighthouse
 

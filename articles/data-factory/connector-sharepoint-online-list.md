@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 04/22/2022
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -41,23 +41,34 @@ The SharePoint List Online connector uses service principal authentication to co
 
 2. Grant SharePoint Online site permission to your registered application: 
 
-    > [!NOTE]
-    > This operation requires SharePoint Online site owner permission. You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.
-
     1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
         - App Domain: `localhost.com`
         - Redirect URL: `https://www.localhost.com`
-        - Permission Request XML:
+        - Permission Request XML   
+            For the site owner role, the Permission Request XML is:  
 
-        ```xml
-        <AppPermissionRequests AllowAppOnlyPolicy="true">
-            <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-        </AppPermissionRequests>
-        ```
+            ```xml
+            <AppPermissionRequests>
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```           
+            
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site owner role.":::
 
-        :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png" alt-text="sharepoint grant permission":::
+            > [!NOTE]
+            > You can find the site owner by going to the site home page -> select **Settings** in the top right corner -> select **Site permissions** and check who has the site owner role.   
+
+            For the site admin role, the Permission Request XML is:  
+
+            ```xml
+            <AppPermissionRequests AllowAppOnlyPolicy="true">
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```
+
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
 
     3. Click "Trust It" for this app.
 
@@ -93,7 +104,7 @@ The following sections provide details about properties you can use to define en
 
 ## Linked service properties
 
-The following properties are supported for an SharePoint Online List linked service:
+The following properties are supported for a SharePoint Online List linked service:
 
 | **Property**        | **Description**                                              | **Required** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
@@ -246,7 +257,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 3. Chain with a **Copy activity** with HTTP connector as source to copy SharePoint Online file content:
 
     - HTTP linked service:
-        - **Base URL**: `https://[site-url]/_api/web/GetFileByServerRelativeUrl('[relative-path-to-file]')/$value`. Replace the site URL and relative path to file. Sample relative path to file as `/sites/site2/Shared Documents/TestBook.xlsx`.
+        - **Base URL**: `https://[site-url]/_api/web/GetFileByServerRelativeUrl('[relative-path-to-file]')/$value`. Replace the site URL and relative path to file. Make sure to include the SharePoint site URL along with the Domain name, such as `https://[sharepoint-domain-name].sharepoint.com/sites/[sharepoint-site]/_api/web/GetFileByServerRelativeUrl('/sites/[sharepoint-site]/[relative-path-to-file]')/$value`.
         - **Authentication type:** Anonymous *(to use the Bearer token configured in copy activity source later)*
     - Dataset: choose the format you want. To copy file as-is, select "Binary" type.
     - Copy activity source:

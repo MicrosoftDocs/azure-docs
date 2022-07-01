@@ -66,7 +66,6 @@ az extension add --upgrade --yes --name appservice-kube
 
     az group create -g $aksClusterGroupName -l $resourceLocation
     az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
-    infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
     ```
 
     # [PowerShell](#tab/powershell)
@@ -440,7 +439,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
     az appservice kube create \
         --resource-group $groupName \
         --name $kubeEnvironmentName \
-        --custom-location $customLocationId \
+        --custom-location $customLocationId 
     ```
 
     # [PowerShell](#tab/powershell)
@@ -449,7 +448,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
     az appservice kube create `
         --resource-group $groupName `
         --name $kubeEnvironmentName `
-        --custom-location $customLocationId `      
+        --custom-location $customLocationId       
     ```
 
     ---

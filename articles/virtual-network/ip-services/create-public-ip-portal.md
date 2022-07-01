@@ -8,12 +8,12 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
-ms.custom: template-quickstart #Required; leave this attribute/value as-is.
+ms.custom: template-quickstart, mode-ui
 ---
 
 # Quickstart: Create a public IP address using the Azure portal
 
-In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs, basic, and standard. Two tiers of public IP addresses are available, regional, and global.  The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
+In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs: basic, and standard. Two tiers of public IP addresses are available: regional, and global.  The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
 
 ## Prerequisites
 

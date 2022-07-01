@@ -1,5 +1,5 @@
 ---
-title: Continuous video recording and playback tutorial - Azure Video Analyzer
+title: Continuous video recording and playback tutorial
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to continuously record video to the cloud and play back that recording.
 ms.topic: tutorial
 ms.date: 11/04/2021
@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 # Tutorial: Continuous video recording and playback
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 In this tutorial, you'll learn how to use Azure Video Analyzer to perform [continuous video recording](../continuous-video-recording.md) (CVR) to the cloud and play back that recording. This capability is useful for scenarios such as safety and compliance where there is a need to maintain an archive of the footage from a camera for days, weeks, months or even years or alternatively you could specify the retention period for the video being recorded. Retention policy defines how many days of video should be stored (for example, the last 7 days), you can learn more about it in the [Manage retention policy](../manage-retention-policy.md) article.
 
@@ -54,7 +56,7 @@ As explained in [this](../pipeline.md) article, a video analyzer pipeline lets y
 > :::image type="content" source="../media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Video Analyzer pipeline for CVR":::
 <!-- ./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg -->
 
-In this tutorial, you'll use an edge module built using the [Live555 Media Server](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) to simulate an RTSP camera. Inside the pipeline, you'll use an [RTSP source](../pipeline.md#rtsp-source) node to get the live feed and send that video to the [video sink node](../pipeline.md#video-sink), which records the video to your Video Analyzer account. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
+In this tutorial, you'll use an edge module built using the [Live555 Media Server](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) to simulate an RTSP camera. Inside the pipeline, you'll use an [RTSP source](../pipeline.md#rtsp-source) node to get the live feed and send that video to the [video sink node](../pipeline.md#video-sink), which records the video to your Video Analyzer account. The video that will be used in this tutorial is [a highway intersection sample video](https://avamedia.blob.core.windows.net/public/camera-300s.mkv).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

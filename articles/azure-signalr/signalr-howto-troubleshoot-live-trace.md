@@ -1,8 +1,8 @@
 ---
 title: How to use live trace tool for Azure SignalR service
 description: Learn how to use live trace tool for Azure SignalR service
-author: wanlwanl
-ms.author: wanl
+author: vicancy
+ms.author: lianwei
 ms.service: signalr
 ms.topic: conceptual 
 ms.date: 06/30/2021
@@ -15,6 +15,7 @@ You can enable and disable the live trace feature with a single click. You can a
 
 > [!NOTE]
 > Please note that the live traces will be counted as outbound messages.
+> Azure Active Directory access to live trace tool is not supported, please enable `Access Key` in `Keys` menu.
 
 ## Launch the live trace tool
 
@@ -52,7 +53,7 @@ The real time live traces captured by live trace tool contain detailed informati
 | User ID | Identity of the user |
 | IP | The IP address of client |
 | Server Sticky | Routing mode of client. Allowed values are `Disabled`, `Preferred` and `Required`. For more information, see [ServerStickyMode](https://github.com/Azure/azure-signalr/blob/master/docs/run-asp-net-core.md#serverstickymode) |
-| Transport | The transport that the client can use to send HTTP requests. Allowed values are `WebSockets`, `ServerSentEvents` and `LongPolling`. For more information, see [HttpTransportType](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype) |
+| Transport | The transport that the client can use to send HTTP requests. Allowed values are `WebSockets`, `ServerSentEvents` and `LongPolling`. For more information, see [HttpTransportType](/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype) |
 | Message Tracing ID | The unique identifier for a message |
 | Route Template | The route template of the API |
 | Http Method | The Http method (POST/GET/PUT/DELETE) |

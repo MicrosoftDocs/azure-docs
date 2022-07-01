@@ -29,7 +29,7 @@ LUIS provides three types of prebuilt models. Each model can be added to your ap
 
 ## Prebuilt domains
 
-Language Understanding (LUIS) provides *prebuilt domains*, which are pre-trained models of [intents](luis-how-to-add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of client applications. 
+Language Understanding (LUIS) provides *prebuilt domains*, which are pre-trained models of [intents](luis-how-to-add-intents.md) and [entities](concepts/entities.md) that work together for domains or common categories of client applications. 
 
 The prebuilt domains are trained and ready to add to your LUIS app. The intents and entities of a prebuilt domain are fully customizable once you've added them to your app. 
 
@@ -52,9 +52,6 @@ LUIS provides prebuilt intents and their utterances for each of its prebuilt dom
 LUIS includes a set of prebuilt entities for recognizing common types of information, like dates, times, numbers, measurements, and currency. Prebuilt entity support varies by the culture of your LUIS app. For a full list of the prebuilt entities that LUIS supports, including support by culture, see the [prebuilt entity reference](./luis-reference-prebuilt-entities.md).
 
 When a prebuilt entity is included in your application, its predictions are included in your published application. The behavior of prebuilt entities is pre-trained and **cannot** be modified. 
-
-> [!NOTE]
-> **builtin.datetime** is deprecated. It is replaced by [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
 ## Next steps
 

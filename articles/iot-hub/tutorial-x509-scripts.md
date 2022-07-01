@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Use Microsoft scripts to create x.509 test certificates for Azure IoT Hub | Microsoft Docs
 description: Tutorial - Use custom scripts to create CA and device certificates for Azure IoT Hub
-author: v-gpettibone
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 06/26/2021
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to Microsoft scripts that I can use to generate test certificates. 
 ---
@@ -20,7 +20,7 @@ Microsoft provides PowerShell and Bash scripts to help you understand how to cre
 
 ### Step 1 - Setup
 
-Get OpenSSL for Windows. See <https://www.openssl.org/docs/faq.html#MISC4> for places to download it or <https://www.openssl.org/source/> to build from source. Then run the preliminary scripts:
+Download [OpenSSL for Windows](https://www.openssl.org/docs/faq.html#MISC4) or [build it from source](https://www.openssl.org/source/). Then run the preliminary scripts:
 
 1. Copy the scripts from this GitHub [repository](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) into the local directory in which you want to work. All files will be created as children of this directory.
 

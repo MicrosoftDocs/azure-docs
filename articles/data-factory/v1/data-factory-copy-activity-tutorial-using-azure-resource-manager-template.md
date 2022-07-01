@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Create a pipeline using Resource Manager Template '
 description: In this tutorial, you create an Azure Data Factory pipeline by using an Azure Resource Manager template. This pipeline copies data from an Azure blob storage to Azure SQL Database. 
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
-ms.author: jingwang 
+ms.author: jianleishen 
 ms.custom: devx-track-azurepowershell
 robots: noindex
 ---

@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline '
 description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage to Azure SQL Database. 
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
-ms.author: jingwang 
+ms.author: jianleishen 
 ms.custom: devx-track-azurepowershell
 robots: noindex
 ---

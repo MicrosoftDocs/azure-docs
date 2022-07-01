@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Question answering client library for .NET"
 description: This quickstart shows how to get started with the question answering client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. Question answering enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: include
-ms.date: 11/11/2021
+ms.date: 06/06/2022
 ---
 
 Use this quickstart for the question answering client library for .NET to:
@@ -15,8 +15,8 @@ Use this quickstart for the question answering client library for .NET to:
 
  [API reference documentation][questionanswering_refdocs]|[Source code][questionanswering_client_src] | [Package (NuGet)][questionanswering_nuget_package]  | [Samples][questionanswering_samples] |
 
-[questionanswering_nuget_package]: https://nuget.org/packages/Azure.AI.Language.
-[questionanswering_refdocs]: https://docs.microsoft.com/dotnet/api/Azure.AI.Language.QuestionAnswering/
+[questionanswering_nuget_package]: https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering/
+[questionanswering_refdocs]: /dotnet/api/Azure.AI.Language.QuestionAnswering/
 [questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/src/
 [questionanswering_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/samples/README.md
 
@@ -24,9 +24,13 @@ Use this quickstart for the question answering client library for .NET to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint. <!--TODO: Change link-->
+* Question answering, requires a [Language resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint. <!--TODO: Change link-->
     * After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
+* To create a Language resource with [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) provide the following additional properties during resource creation configure Custom Question Answering  with your Language resource `--api-properties qnaAzureSearchEndpointId=/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Search/searchServices/<azure-search-service-name> qnaAzureSearchEndpointKey=<azure-search-service-auth-key>`
 * An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -59,6 +63,9 @@ Within the application directory, install the custom question answering client l
 ```console
 dotnet add package Azure.AI.Language.QuestionAnswering
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Query a knowledge base
 
@@ -163,6 +170,9 @@ A:No good match found in KB
 (0)
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Query-a-knowledge-base" target="_target">I ran into an issue</a>
+
 ## Query text without a knowledge base
 
 You can also use question answering without a knowledge base with `GetAnswersFromText`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
@@ -225,3 +235,6 @@ namespace questionansweringcsharp
 To run the code above, replace the `Program.cs` with the contents of the script block above and modify the `endpoint` and `credential` variables to correspond to the language resource you created as part of the prerequisites.
 
 In this case, we iterate through all responses and only return the response with the highest confidence score that is greater than 0.9. To understand more about the options available with `GetAnswersFromText`.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Query-text-without-a-knowledge-base" target="_target">I ran into an issue</a>

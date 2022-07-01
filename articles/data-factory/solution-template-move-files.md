@@ -3,17 +3,17 @@ title: Move files between file-based storage
 description: Learn how to use a solution template to move files between file-based storage by using Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 7/12/2019
+ms.date: 01/26/2022
 ---
 
 # Move files with Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ADF copy activity has built-in support on “move” scenario when copying binary files between storage stores.  The way to enable it is to set “deleteFilesAfterCompletion” as true in copy activity. By doing so, copy activity will delete files from data source store after job completion. 
 
@@ -43,11 +43,12 @@ The template defines four parameters:
 
 1. Go to the **Move files** template. Select existing connection or create a **New** connection to your source file store where you want to move files from. Be aware that **DataSource_Folder** and **DataSource_File** are reference to the same connection of your source file store.
 
-    :::image type="content" source="media/solution-template-move-files/move-files1.png" alt-text="Create a new connection to the source":::
+    
+    :::image type="content" source="media/solution-template-move-files/move-files-1-small.png" alt-text="Create a new connection to the source" lightbox="media/solution-template-move-files/move-files-1.png":::
 
 2. Select existing connection or create a **New** connection to your destination file store where you want to move files to.
 
-    :::image type="content" source="media/solution-template-move-files/move-files2.png" alt-text="Create a new connection to the destination":::
+    :::image type="content" source="media/solution-template-move-files/move-files-2-small.png" alt-text="Create a new connection to the destination" lightbox="media/solution-template-move-files/move-files-2.png":::
 
 3. Select **Use this template** tab.
 	

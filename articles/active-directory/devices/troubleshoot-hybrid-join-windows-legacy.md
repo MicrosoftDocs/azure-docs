@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,7 +27,7 @@ This article is applicable only to the following devices:
 - Windows Server 2012 
 - Windows Server 2012 R2 
 
-For Windows 10 or Windows Server 2016, see [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
+For Windows 10 or newer and Windows Server 2016, see [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
 
 This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
@@ -37,7 +37,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 **What you should know:** 
 
-- Hybrid Azure AD join for downlevel Windows devices works slightly differently than it does in Windows 10. Many customers do not realize that they need AD FS (for federated domains) or Seamless SSO configured (for managed domains).
+- Hybrid Azure AD join for downlevel Windows devices works slightly differently than it does in Windows 10 or newer. Many customers do not realize that they need AD FS (for federated domains) or Seamless SSO configured (for managed domains).
 - Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode or if Enhanced Security Configuration is enabled.
 - For customers with federated domains, if the Service Connection Point (SCP) was configured such that it points to the managed domain name (for example, contoso.onmicrosoft.com, instead of contoso.com), then Hybrid Azure AD Join for downlevel Windows devices will not work.
 - The same physical device appears multiple times in Azure AD when multiple domain users sign-in the downlevel hybrid Azure AD joined devices.  For example, if *jdoe* and *jharnett* sign-in to a device, a separate registration (DeviceID) is created for each of them in the **USER** info tab. 
@@ -74,7 +74,7 @@ If the device was not hybrid Azure AD joined, you can attempt to do hybrid Azure
    - It could be that AD FS and Azure AD URLs are missing in IE's intranet zone on the client.
    - Network connectivity issues may be preventing **autoworkplace.exe** from reaching AD FS or the Azure AD URLs. 
    - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
-   - Your organization uses Azure AD Seamless Single Sign-On, `https://autologon.microsoftazuread-sso.com` or `https://aadg.windows.net.nsatc.net` are not present on the device's IE intranet settings, and **Allow updates to status bar via script** is not enabled for the Intranet zone.
+   - Your organization uses Azure AD Seamless Single Sign-On, `https://autologon.microsoftazuread-sso.com` or `https://aadg.windows.net.nsatc.net` are not present on the device's IE intranet settings.
 - You are not signed on as a domain user
 
    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Screenshot of the Workplace Join for Windows dialog box. Text reports that an error occurred during account verification." border="false":::

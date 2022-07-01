@@ -1,12 +1,13 @@
 ---
 title: Azure Cosmos DB indexing metrics
 description:  Learn how to obtain and interpret the indexing metrics in Azure Cosmos DB
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/25/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 # Indexing metrics in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -131,7 +132,7 @@ Index Utilization Information
     Index Impact Score: High
     ---
 ```
-These index metrics show that the query used the indexed paths `/name/?`, `/age/?`, `/town/?`, and `/timestamp/?`. The index metrics also indicate that there's a high likelihood that adding the composite indexes (`/name` ASC, `(/town ASC, /age ASC)` and `(/name ASC, /town ASC, /timestamp ASC)` will further improve performance.
+These index metrics show that the query used the indexed paths `/name/?`, `/age/?`, `/town/?`, and `/timestamp/?`. The index metrics also indicate that there's a high likelihood that adding the composite indexes `(/name ASC, /town ASC, /age ASC)` and `(/name ASC, /town ASC, /timestamp ASC)` will further improve performance.
 
 ## Next steps
 

@@ -7,9 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2021
+ms.date: 06/29/2022
 ms.author: tamram
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: "devx-track-csharp"
 ---
 
@@ -130,13 +131,6 @@ Not applicable. Blob versioning is supported only in the Azure Storage client li
 
 You can restore soft deleted blobs and directories in accounts that have a hierarchical namespace.
 
-> [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available globally in all Azure regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
->
-> To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOVRVOUpDRUtHVUtDUUtMVTZUR0tUMjZWNy4u).
-
 ### Manage soft-deleted blobs with the Azure portal
 
 You can use the Azure portal to view and restore soft-deleted blobs and directories.
@@ -207,7 +201,7 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
 
    ```azurecli
    $dirName="my-directory"
-   az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName -deletion-id "<deletionId>" --auth-mode login
+   az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName --deletion-id "<deletionId>" --auth-mode login
    ```
 
    If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to it's original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.

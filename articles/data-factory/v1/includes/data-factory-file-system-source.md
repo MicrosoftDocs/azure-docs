@@ -1,10 +1,10 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
 ms.date: 10/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
 

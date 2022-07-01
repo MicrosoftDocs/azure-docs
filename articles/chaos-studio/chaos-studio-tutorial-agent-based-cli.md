@@ -6,7 +6,8 @@ ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: johnkem
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create a chaos experiment that uses an agent-based fault on a virtual machine or virtual machine scale set with the Azure CLI
@@ -30,6 +31,9 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+
+> [!NOTE]
+> These instructions use a Bash terminal in Azure Cloud Shell. Some commands may not work as described if running the CLI locally or in a PowerShell terminal.
 
 ## Assign managed identity to the virtual machine
 
@@ -62,7 +66,7 @@ sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install 
 Or:
 
 ```bash
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng
+sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum -y install stress-ng
 ```
 
 ### Enable chaos target and capabilities
@@ -93,7 +97,7 @@ Next, set up a Microsoft-Agent target on each virtual machine or virtual machine
 
 3. Copy down the GUID for the **agentProfileId** returned by this command for use in a later step.
 
-4. Create the capabilities on the target by creating a capability.json file as shown below. Save the JSON file in the same location where you are running the Azure CLI. Replace `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
+4. Create the capabilities by replacing `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
     
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
@@ -143,7 +147,11 @@ The chaos agent is an application that runs in your virtual machine or virtual m
     ```azurecli-interactive
     az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"}'
     ```
-3. If setting up a virtual machine scale set, verify that the instances have been upgraded to the latest model. 
+3. If setting up a virtual machine scale set, verify that the instances have been upgraded to the latest model. If needed, upgrade all instances in the model.
+
+    ```azurecli-interactive
+    az vmss update-instances -g $RESOURCE_GROUP -n $VMSS_NAME --instance-ids *
+    ```
 
 ## Create an experiment
 
@@ -163,11 +171,11 @@ With your virtual machine now onboarded, you can create your experiment. A chaos
             "id": "Selector1",
             "targets": [
               {
-                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myWindowsVM/providers/Microsoft.Chaos/targets/microsoft-agent",
+                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myWindowsVM/providers/Microsoft.Chaos/targets/Microsoft-Agent",
                 "type": "ChaosTarget"
               },
               {
-                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myLinuxVM/providers/Microsoft.Chaos/targets/micosoft-agent",
+                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myLinuxVM/providers/Microsoft.Chaos/targets/Microsoft-Agent",
                 "type": "ChaosTarget"
               }
             ],

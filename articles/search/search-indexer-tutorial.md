@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
++ [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
@@ -143,7 +143,7 @@ A schema can also include other elements, including scoring profiles for boostin
 
 The main program includes logic for creating [an indexer client](/dotnet/api/azure.search.documents.indexes.models.searchindexer), an index, a data source, and an indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
 
-The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The source demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
+The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#CaptureChangedRows) for leveraging the built-in [change detection features](/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The source demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
 
 ```csharp
 Console.WriteLine("Creating data source...");

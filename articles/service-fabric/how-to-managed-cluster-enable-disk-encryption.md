@@ -2,15 +2,15 @@
 title: Enable Disk Encryption for Service Fabric managed cluster nodes
 description: Learn how to enable disk encryption for Azure Service Fabric managed cluster nodes in Windows using an ARM template.
 ms.topic: how-to
-ms.date: 11/8/2021 
-ms.custom: devx-track-azurepowershell
+ms.date: 2/14/2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Enable disk encryption for Service Fabric managed cluster nodes
 
 Service Fabric managed clusters support two disk encryption options to help safeguard your data to meet your organizational security and compliance commitments. The recommended option is Encryption at host, but also supports Azure Disk Encryption. Review the [disk encryption options](../virtual-machines/disk-encryption-overview.md) and make sure the selected option meets your needs.
 
 
-## Enable encryption at host (preview)
+## Enable encryption at host
 
 This encryption method improves on [Azure Disk Encryption](how-to-managed-cluster-enable-disk-encryption.md) by supporting all OS types and images, including custom images, for your VMs by encrypting data in the Azure Storage service. This method does not use your VMs CPU nor does it impact your VMs performance enabling workloads to use all of the available VMs SKU resources.
 
@@ -54,7 +54,7 @@ Follow these steps and reference this [sample template](https://github.com/Azure
    New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug -Verbose 
    ```
 
-   You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s), and storage accounts). Be sure to modify `VmssName` to whatever cluster node type name you wish to check (as specified in your deployment template).
+   You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmss` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s), and storage accounts). Be sure to modify `NodeTypeNAme` to whatever cluster node type name you wish to check (as specified in your deployment template).
 
    ```powershell
    $NodeTypeName = "NT2"

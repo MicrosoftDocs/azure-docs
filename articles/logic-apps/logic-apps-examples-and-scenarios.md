@@ -67,7 +67,6 @@ and [switch statements](../logic-apps/logic-apps-control-flow-switch-statement.m
 * [Repeat steps or process items in arrays and collections with loops](../logic-apps/logic-apps-control-flow-loops.md)
 * [Group actions together with scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Add error and exception handling to a workflow](../logic-apps/logic-apps-exception-handling.md)
-* [Use case: How a healthcare company uses logic app exception handling for HL7 FHIR workflows](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 
 ## Create custom APIs and connectors
 
@@ -140,7 +139,7 @@ Azure Logic Apps integrates with many services, such as Azure Functions, Azure A
 * [Tutorial: Call or trigger logic apps by using Azure Functions and Azure Service Bus](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Tutorial: Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Tutorial: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
-* [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](https://aka.ms/logicappsdemo)
+* [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](/shows/)
 * [Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Tutorial: IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Call SOAP services by using Azure Logic Apps](/archive/blogs/logicapps/using-soap-services-with-logic-apps)

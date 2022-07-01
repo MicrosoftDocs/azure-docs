@@ -1,7 +1,6 @@
 ---
 title: Capacity limits for dedicated SQL pool
 description: Maximum values allowed for various components of dedicated SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 2/19/2020
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 
 ms.custom: azure-synapse
 ---

@@ -13,7 +13,7 @@ ms.author: riyazp
 Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers. Azure FarmBeats enables you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. By using Azure FarmBeats, agriculture businesses can focus on core value-adds instead of the undifferentiated heavy lifting of data engineering.
 
 > [!NOTE]
-> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats Support Forum](/answers/topics/azure-farmbeats.html) for support.
+> We have built a new PaaS version of Azure FarmBeats as a fully managed service and currently in private preview. For more information on trying out the new Azure FarmBeats, write to us at FarmBeatsSupport@microsoft.com. 
 
 ![Project Farm Beats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -25,6 +25,9 @@ With the preview of Azure FarmBeats you can:
 - Get soil moisture map based on the fusion of satellite and sensor data.
 - Gain actionable insights by building AI/ML models on top of aggregated datasets.
 - Build or augment your digital agriculture solution by providing farm health advisories.
+
+> [!NOTE]
+> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats Support Forum](/answers/topics/azure-farmbeats.html) for support.
 
 ## Datahub
 

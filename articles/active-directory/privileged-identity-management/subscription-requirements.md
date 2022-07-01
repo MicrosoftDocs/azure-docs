@@ -4,16 +4,15 @@ description: Describes the licensing requirements to use Azure AD Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 06/27/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -23,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # License requirements to use Privileged Identity Management
 
-To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a directory must have a valid license. Furthermore, licenses must be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.
+To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have a valid license. Licenses must also be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.
 
 ## Valid licenses
 

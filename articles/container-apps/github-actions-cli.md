@@ -1,21 +1,22 @@
 ---
-title: Publish revisions with GitHub Actions in Azure Container Apps Preview
-description: Learn to automatically create new revisions using GitHub Actions in Azure Container Apps Preview
+title: Publish revisions with GitHub Actions in Azure Container Apps
+description: Learn to automatically create new revisions using GitHub Actions in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/30/2021
 ms.author: cshoe
 ---
 
-# Publish revisions with GitHub Actions in Azure Container Apps Preview
+# Publish revisions with GitHub Actions in Azure Container Apps
 
-Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Action is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
+Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Actions is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
 
 :::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
 
-The GitHub action is triggered by commits to a specific branch in your repository. When creating the integration link, you decide which branch triggers the action.
+The GitHub Actions is triggered by commits to a specific branch in your repository. When creating the integration link, you decide which branch triggers the action.
 
 ## Authentication
 
@@ -54,7 +55,7 @@ az ad sp create-for-rbac `
 
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
-The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
+The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `clientId`, and `clientSecret`.
 
 The following example shows you how to add an integration while using a personal access token.
 
@@ -65,8 +66,10 @@ az containerapp github-action add \
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" \
   --docker-file-path "./dockerfile" \
   --branch <BRANCH_NAME> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --registry-url <URL_TO_CONTAINER_REGISTRY> \
-  --registry-user-name <REGISTRY_USER_NAME> \
+  --registry-username <REGISTRY_USER_NAME> \
   --registry-password <REGISTRY_PASSWORD> \
   --service-principal-client-id <CLIENT_ID> \
   --service-principal-client-secret <CLIENT_SECRET> \
@@ -81,8 +84,10 @@ az containerapp github-action add `
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" `
   --docker-file-path "./dockerfile" `
   --branch <BRANCH_NAME> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
   --registry-url <URL_TO_CONTAINER_REGISTRY> `
-  --registry-user-name <REGISTRY_USER_NAME> `
+  --registry-username <REGISTRY_USER_NAME> `
   --registry-password <REGISTRY_PASSWORD> `
   --service-principal-client-id <CLIENT_ID> `
   --service-principal-client-secret <CLIENT_SECRET> `
@@ -124,12 +129,12 @@ This command returns a JSON payload with the GitHub Actions integration configur
 
 ## Delete
 
-The `containerapp github-action remove` command removes the GitHub Actions from the container app.
+The `containerapp github-action delete` command removes the GitHub Actions from the container app.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp github-action remove \
+az containerapp github-action delete \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <CONTAINER_APP_NAME> \
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
@@ -138,7 +143,7 @@ az containerapp github-action remove \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp github-action remove `
+az containerapp github-action delete `
   --resource-group <RESOURCE_GROUP_NAME> `
   --name <CONTAINER_APP_NAME> `
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>

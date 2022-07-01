@@ -3,7 +3,7 @@ title: Configure an IP firewall for your Azure Cosmos DB account
 description: Learn how to configure IP access control policies for firewall support on Azure Cosmos accounts.
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 02/18/2022
 ms.author: thweiss
 author: ThomasWeiss 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -32,7 +32,7 @@ You can secure the data stored in your Azure Cosmos DB account by using IP firew
 
 To set the IP access control policy in the Azure portal, go to the Azure Cosmos DB account page and select **Firewall and virtual networks** on the navigation menu. Change the **Allow access from** value to **Selected networks**, and then select **Save**.
 
-![Screenshot showing how to open the Firewall page in the Azure portal](./media/how-to-configure-firewall/azure-portal-firewall.png)
+:::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing how to open the Firewall page in the Azure portal" border="true":::
 
 When IP access control is turned on, the Azure portal provides the ability to specify IP addresses, IP address ranges, and switches. Switches enable access to other Azure services and the Azure portal. The following sections give details about these switches.
 
@@ -52,13 +52,13 @@ When you enable an IP access control policy programmatically, you need to add th
 
 You can enable requests to access the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
 
-![Screenshot showing how to enable Azure portal access](./media/how-to-configure-firewall/enable-azure-portal.png)
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Screenshot showing how to enable Azure portal access" border="true":::
 
 ### Allow requests from global Azure datacenters or other sources within Azure
 
 If you access your Azure Cosmos DB account from services that don’t provide a static IP (for example, Azure Stream Analytics and Azure Functions), you can still use the IP firewall to limit access. You can enable access from other sources within the Azure by selecting the **Accept connections from within Azure datacenters** option, as shown in the following screenshot:
 
-![Screenshot showing how to accept connections from Azure datacenters](./media/how-to-configure-firewall/enable-azure-services.png)
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Screenshot showing how to accept connections from Azure datacenters" border="true":::
 
 When you enable this option, the IP address `0.0.0.0` is added to the list of allowed IP addresses. The `0.0.0.0` IP address restricts requests to your Azure Cosmos DB account from Azure datacenter IP range. This setting does not allow access for any other IP ranges to your Azure Cosmos DB account.
 
@@ -73,7 +73,7 @@ The portal automatically detects the client IP address. It might be the client I
 
 To add your current IP to the list of IPs, select **Add my current IP**. Then select **Save**.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Screenshot showing a how to configure firewall settings for the current IP":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Screenshot showing a how to configure firewall settings for the current IP" border="true":::
 
 ### Requests from cloud services
 

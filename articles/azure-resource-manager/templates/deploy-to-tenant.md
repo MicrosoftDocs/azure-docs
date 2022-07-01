@@ -2,13 +2,16 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 01/19/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Tenant deployments with ARM templates
 
 As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [tenant deployments](../bicep/deploy-to-tenant.md).
 
 ## Supported resources
 
@@ -33,8 +36,10 @@ For creating subscriptions, use:
 For managing costs, use:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [billingRoleAssignments](/azure/templates/microsoft.billing/billingaccounts/billingroleassignments)
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+* [policies](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/policies)
 
 For configuring the portal, use:
 
@@ -90,7 +95,7 @@ The commands for tenant deployments are different than the commands for resource
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \

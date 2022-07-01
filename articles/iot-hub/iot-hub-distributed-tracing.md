@@ -1,13 +1,13 @@
 ---
 title: Add correlation IDs to IoT messages w/distributed tracing (pre)
 description: Learn how to use the distributed tracing ability to trace IoT messages throughout the Azure services used by your solution.
-author: jlian
+author: kgremban
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/06/2019
-ms.author: jlian
+ms.date: 01/26/2022
+ms.author: kgremban
 ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 ---
 
@@ -70,7 +70,7 @@ In this section, you configure an IoT Hub to log distributed tracing attributes 
 
 Once the logging is turned on, IoT Hub records a log when a message containing valid trace properties is encountered in any of the following situations:
 
-- The messages arrives at IoT Hub's gateway.
+- The message arrives at IoT Hub's gateway.
 - The message is processed by the IoT Hub.
 - The message is routed to custom endpoints. Routing must be enabled.
 
@@ -183,7 +183,7 @@ To control the percentage of messages containing this property, implement logic 
 
 ## Update sampling options 
 
-To change the percentage of messages to be traced from the cloud, you must update the device twin. You can accomplish this multiple ways including the JSON editor in portal and the IoT Hub service SDK. The following subsections provide examples.
+To change the percentage of messages to be traced from the cloud, you must update the device twin. You can accomplish this in multiple ways including the JSON editor in portal and the IoT Hub service SDK. The following subsections provide examples.
 
 ### Update using the portal
 
@@ -271,17 +271,6 @@ Example logs as shown by Log Analytics:
 
 To understand the different types of logs, see [Azure IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview).
 
-### Application Map
-
-To visualize the flow of IoT messages, set up the Application Map sample app. The sample app sends the distributed tracing logs to [Application Map](../azure-monitor/app/app-map.md) using an Azure Function and an Event Hub.
-
-> [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on GitHub</a>
-
-This image below shows distributed tracing in App Map with three routing endpoints:
-
-![IoT distributed tracing in App Map](./media/iot-hub-distributed-tracing/app-map.png)
-
 ## Understand Azure IoT distributed tracing
 
 ### Context
@@ -321,4 +310,4 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 - To learn more about the general distributed tracing pattern in microservices, see [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html).
 - To set up configuration to apply distributed tracing settings to a large number of devices, see [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md).
 - To learn more about Azure Monitor, see [What is Azure Monitor?](../azure-monitor/overview.md).
-- To learn more about using Azure Monitor with IoT HUb, see [Monitor IoT Hub](monitor-iot-hub.md)
+- To learn more about using Azure Monitor with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md)

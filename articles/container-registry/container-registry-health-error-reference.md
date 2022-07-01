@@ -12,31 +12,31 @@ For information about running `az acr check-health`, see [Check the health of an
 
 ## DOCKER_COMMAND_ERROR
 
-This error means that Docker client for CLI could not be found. As a result, the following additional checks are not run: finding Docker version, evaluating Docker daemon status, and running a Docker pull command.
+This error means that Docker client for CLI could not be found. As a result, the following additional checks aren't run: finding Docker version, evaluating Docker daemon status, and running a Docker pull command.
 
 *Potential solutions*: Install Docker client; add Docker path to the system variables.
 
 ## DOCKER_DAEMON_ERROR
 
-This error means that the Docker daemon status is unavailable, or that it could not be reached using the CLI. As a result, Docker operations (such as `docker login` and `docker pull`) are unavailable through the CLI.
+This error means that the Docker daemon status is unavailable, or that it couldn't be reached using the CLI. As a result, Docker operations (such as `docker login` and `docker pull`) are unavailable through the CLI.
 
 *Potential solutions*: Restart Docker daemon, or validate that it is properly installed.
 
 ## DOCKER_VERSION_ERROR
 
-This error means that CLI was not able to run the command `docker --version`.
+This error means that CLI wasn't able to run the command `docker --version`.
 
 *Potential solutions*: Try running the command manually, make sure you have the latest CLI version, and investigate the error message.
 
 ## DOCKER_PULL_ERROR
 
-This error means that the CLI was not able to pull a sample image to your environment.
+This error means that the CLI wasn't able to pull a sample image to your environment.
 
 *Potential solutions*: Validate that all components necessary to pull an image are running properly.
 
 ## HELM_COMMAND_ERROR
 
-This error means that Helm client could not be found by the CLI, which precludes other Helm operations.
+This error means that Helm client couldn't be found by the CLI, which precludes other Helm operations.
 
 *Potential solutions*: Verify that Helm client is installed, and that its path is added to the system environment variables.
 
@@ -102,8 +102,8 @@ This error means that the CLI was unable to find the login server of the given r
 
 ## NOTARY_VERSION_ERROR
 
-This error means that the CLI is not compatible with the currently installed version of Docker/Notary. Try downgrading your notary.exe version to a version earlier than 0.6.0 by replacing your Docker installation's Notary client manually to resolve this issue.
-
+This error means that the CLI is not compatible with the currently installed version of Docker/Notary. Try downgrading your notary.exe version to a version earlier than 0.6.0 by replacing your Docker installation's Notary client manually to resolve this issue. You can also try downloading and installing a pre-compiled binary of Notary earlier than 0.6.0 for 64 bit Linux or macOS X from the Notary repository's releases page on GitHub. For windows download the .exe, place it in the(default path:  C:\ProgramFiles\Docker\Docker\resources\bin) and rename it to notary.exe. 
+ 
 ## Next steps
 
 For options to check the health of a registry, see [Check the health of an Azure container registry](container-registry-check-health.md).

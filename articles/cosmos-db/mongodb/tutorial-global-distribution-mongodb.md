@@ -7,7 +7,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 ---

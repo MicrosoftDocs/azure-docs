@@ -11,14 +11,12 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: conceptual
+  ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 11/08/2021
+  ms.date: 11/23/2021
   ms.author: markvi
   ms.reviewer: besiler
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions around Azure Active Directory reports
 summary: |
   This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](overview-reports.md). 
@@ -88,6 +86,10 @@ sections:
   - name: Sign-in logs
     questions:
       - question: |
+          What data is included in the CSV file I can download from the Azure AD sign-in logs?
+        answer: |
+          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign in logs is not included. For example, conditional access policies and report-only information are not included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
+      - question: |
           I see .XXX in part of the IP address from a user in my sign in logs. Why is that happening?
         answer: |
           Azure AD may redact part of an IP address in the sign in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service was not able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
@@ -137,4 +139,3 @@ sections:
           My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?
         answer: |
           Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a Conditional Access policy.
-

@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/22/2021
 ms.author: eur
 ---
@@ -47,7 +47,7 @@ This setting can be found in the following place:
 
 | Required | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
-| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](speech-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
+| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](speech-container-howto.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -113,7 +113,7 @@ Replace {_argument_name_} with your own values:
 | Placeholder | Value | Format or example |
 | ----------- | ----- | ----------------- |
 | **{API_KEY}** | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page. | See [gathering required parameters](speech-container-howto.md#gathering-required-parameters) for explicit examples. |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page. | See [gather required parameters](speech-container-howto.md#gather-required-parameters) for explicit examples. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

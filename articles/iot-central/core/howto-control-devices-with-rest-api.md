@@ -3,7 +3,7 @@ title: Use the REST API to manage devices in Azure IoT Central
 description: How to use the IoT Central REST API to control devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/28/2021
+ms.date: 06/20/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -27,8 +27,7 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
-> [!TIP]
-> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/devices) includes support for the new [organizations feature](howto-create-organizations.md).
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 ## Components and modules
 
@@ -36,7 +35,7 @@ Components let you group and reuse device capabilities. To learn more about comp
 
 Not all device templates use components. The following screenshot shows the device template for a simple [thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) where all the capabilities are defined in a single interface called the **Root component**:
 
-:::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="Screenshot that shows a simple no component thermostat device.":::
+:::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="Screenshot that shows a simple no component thermostat device." lightbox="media/howto-control-devices-with-rest-api/thermostat-device.png":::
 
 The following screenshot shows a [temperature controller](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json) device template that uses components. The temperature controller has two thermostat components and a device information component:
 
@@ -51,7 +50,7 @@ In IoT Central, a module refers to an IoT Edge module running on a connected IoT
 Use the following request to retrieve the components from a device called `temperature-controller-01`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example. The `value` array contains details of each device component:
@@ -86,7 +85,7 @@ The response to this request looks like the following example. The `value` array
 Use the following request to retrieve a list of modules running on a connected IoT Edge device called `environmental-sensor-01`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example. The array of modules only includes custom modules running on the IoT Edge device, not the built-in `$edgeAgent` and `$edgeHub` modules:
@@ -109,7 +108,7 @@ The response to this request looks like the following example. The array of modu
 Use the following request to retrieve a list of the components in a module called `SimulatedTemperatureSensor`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules?api-version=2022-05-31
 ```
 
 ## Read telemetry
@@ -117,7 +116,7 @@ GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-s
 Use the following request to retrieve the last known telemetry value from a device that doesn't use components. In this example, the device is called `thermostat-01` and the telemetry is called `temperature`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/telemetry/temperature?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/telemetry/temperature?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -132,7 +131,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve the last known telemetry value from a device that does use components. In this example, the device is called `temperature-controller-01`, the component is called `thermostat2`, and the telemetry is called `temperature`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/telemetry/temperature?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/telemetry/temperature?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -147,7 +146,7 @@ The response to this request looks like the following example:
 If the device is an IoT Edge device, use the following request to retrieve the last known telemetry value from a module. This example uses a device called `environmental-sensor-01` with a module called `SimulatedTemperatureSensor` and telemetry called `ambient`. The `ambient` telemetry type has temperature and humidity values:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules/SimulatedTemperatureSensor/telemetry/ambient?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules/SimulatedTemperatureSensor/telemetry/ambient?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -170,7 +169,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve the property values from a device that doesn't use components. In this example, the device is called `thermostat-01`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/properties?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/properties?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example. It shows the device is reporting a single property value:
@@ -189,7 +188,7 @@ The response to this request looks like the following example. It shows the devi
 Use the following request to retrieve property values from all components. In this example, the device is called `temperature-controller-01`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/properties?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/properties?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -260,7 +259,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a property value from an individual component. In this example, the device is called `temperature-controller-01` and the component is called `thermostat2`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/properties?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/properties?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -279,7 +278,7 @@ The response to this request looks like the following example:
 If the device is an IoT Edge device, use the following request to retrieve property values from a from a module. This example uses a device called `environmental-sensor-01` with a module called `SimulatedTemperatureSensor`:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules/SimulatedTemperatureSensor/properties?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules/SimulatedTemperatureSensor/properties?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -309,7 +308,7 @@ Some properties are writable. For example, in the thermostat model the `targetTe
 Use the following request to write an individual property value to a device that doesn't use components. In this example, the device is called `thermostat-01`:
 
 ```http
-PATCH https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/properties?api-version=1.0
+PATCH https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/properties?api-version=2022-05-31
 ```
 
 The request body looks like the following example:
@@ -338,7 +337,7 @@ The response to this request looks like the following example:
 Use the following request to write an individual property value to a device that does use components. In this example, the device is called `temperature-controller-01` and the component is called `thermostat2`:
 
 ```http
-PATCH https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/properties?api-version=1.0
+PATCH https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/properties?api-version=2022-05-31
 ```
 
 The request body looks like the following example:
@@ -367,7 +366,7 @@ The response to this request looks like the following example:
 If the device is an IoT Edge device, use the following request to write an individual property value to a module. This example uses a device called `environmental-sensor-01`, a module called `SimulatedTemperatureSensor`, and a property called `SendInterval`:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules/SimulatedTemperatureSensor/properties?api-version=1.0
+PUT https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules/SimulatedTemperatureSensor/properties?api-version=2022-05-31
 ```
 
 The request body looks like the following example:
@@ -398,13 +397,13 @@ The response to this request looks like the following example:
 If you're using an IoT Edge device, use the following request to retrieve property values from a module:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modules/{moduleName}/properties?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modules/{moduleName}/properties?api-version=2022-05-31
 ```
 
 If you're using an IoT Edge device, use the following request to retrieve property values from a component in a module:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modules/{moduleName}/components/{componentName}/properties?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modules/{moduleName}/components/{componentName}/properties?api-version=2022-05-31
 ```
 
 ## Call commands
@@ -414,14 +413,14 @@ You can use the REST API to call device commands and retrieve the device history
 Use the following request to call a command on device that doesn't use components. In this example, the device is called `thermostat-01` and the command is called `getMaxMinReport`:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/commands/getMaxMinReport?api-version=1.0
+POST https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/commands/getMaxMinReport?api-version=2022-05-31
 ```
 
 The request body looks like the following example:
 
 ```json
 {
-  "since": "2021-03-24T12:55:20.789Z"
+  "request": "2021-03-24T12:55:20.789Z"
 }
 ```
 
@@ -443,7 +442,7 @@ The response to this request looks like the following example:
 To view the history for this command, use the following request:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/commands/getMaxMinReport?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/thermostat-01/commands/getMaxMinReport?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -468,7 +467,7 @@ The response to this request looks like the following example:
 Use the following request to call a command on device that does use components. In this example, the device is called `temperature-controller-01`, the component is called `thermostat2`, and the command is called `getMaxMinReport`:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/commands/getMaxMinReport?api-version=1.0
+POST https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/commands/getMaxMinReport?api-version=2022-05-31
 ```
 
 The formats of the request payload and response are the same as for a device that doesn't use components.
@@ -476,7 +475,7 @@ The formats of the request payload and response are the same as for a device tha
 To view the history for this command, use the following request:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/commands/getMaxMinReport?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/commands/getMaxMinReport?api-version=2022-05-31
 ```
 
 > [!TIP]

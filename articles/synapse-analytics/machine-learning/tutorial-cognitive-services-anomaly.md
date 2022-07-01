@@ -1,11 +1,10 @@
 ---
 title: 'Tutorial: Anomaly detection with Cognitive Services'
 description: Learn how to use Cognitive Services for anomaly detection in Azure Synapse Analytics.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
@@ -80,7 +79,7 @@ When you're done, select **Open notebook**. This will generate a notebook for yo
 
 ## Run the notebook
 
-The notebook that you just opened uses the [SynapseML] library](https://github.com/microsoft/SynapseML) to connect to Cognitive Services. The Azure Cognitive Services linked service that you provided allow you to securely reference your cognitive service from this experience without revealing any secrets.
+The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Cognitive Services. The Azure Cognitive Services linked service that you provided allow you to securely reference your cognitive service from this experience without revealing any secrets.
 
 You can now run all cells to perform anomaly detection. Select **Run All**. [Learn more about Anomaly Detector in Cognitive Services](../../cognitive-services/anomaly-detector/index.yml).
 

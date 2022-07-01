@@ -1,6 +1,5 @@
 ---
 title: Increase the resilience of authentication and authorization in daemon applications you develop
-titleSuffix: Microsoft identity platform
 description: Guidance for increasing resiliency of authentication and authorization in daemon application using the Microsoft identity platform 
 services: active-directory 
 ms.service: active-directory

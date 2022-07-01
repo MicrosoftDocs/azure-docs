@@ -1,19 +1,24 @@
 ---
-title: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud | Microsoft Docs
-description: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud.
+title: How to use Logback to write logs to custom persistent storage in Azure Spring Apps | Microsoft Docs
+description: How to use Logback to write logs to custom persistent storage in Azure Spring Apps.
 author: karlerickson
 ms.author: xuycao
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.custom: devx-track-java
+ms.date: 11/17/2021
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # How to use Logback to write logs to custom persistent storage
 
-**This article applies to:** ✔️ Java
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-This article shows you how to load Logback and write logs to custom persistent storage in Azure Spring Cloud.
+**This article applies to:** ✔️ Java ❌ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to load Logback and write logs to custom persistent storage in Azure Spring Apps.
 
 > [!NOTE]
 > When a file in the application's classpath has one of the following names, Spring Boot will automatically load it over the default configuration for Logback:
@@ -24,9 +29,9 @@ This article shows you how to load Logback and write logs to custom persistent s
 
 ## Prerequisites
 
-* An existing storage resource bound to an Azure Spring Cloud instance. If you need to bind a storage resource, see [How to enable your own persistent storage in Azure Spring Cloud](./how-to-custom-persistent-storage.md).
+* An existing storage resource bound to an Azure Spring Apps instance. If you need to bind a storage resource, see [How to enable your own persistent storage in Azure Spring Apps](./how-to-custom-persistent-storage.md).
 * The Logback dependency included in your application. For more information on Logback, see [A Guide To Logback](https://www.baeldung.com/logback).
-* The [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+* The [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 ## Edit the Logback configuration to write logs into a specific path
 
@@ -84,20 +89,22 @@ You can set the path to where logs will be written by using the logback-spring.x
 
 In the preceding example, there are two placeholders named `{LOGS}` in the path for writing the application's logs to. A value needs to be assigned to the environment variable `LOGS` to have the log write to both the console and your persistent storage. 
 
-## Use the Azure CLI to create and deploy Logback to write logs to persistent storage
+## Use the Azure CLI to create and deploy a new app with Logback on persistent storage
 
-1. Use the following command to create an application in Azure Spring Cloud with persistent storage enabled and the environment variable set:
+1. Use the following command to create an application in Azure Spring Apps with persistent storage enabled and the environment variable set:
 
    ```azurecli
-   az spring-cloud app create \
+   az spring app create \
         --resource-group <resource-group-name> \
         --name <app-name> \
         --service <spring-instance-name> \
         --persistent-storage <path-to-json-file> \
         --env LOGS=/byos/logs
    ```
-
-    You must mount your persistent storage to the same path as used in your application. Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Make sure to pass the same value for the environment variable in the CLI command above and in the `mountPath` property below: 
+   > [!NOTE]
+   > The value of the `LOGS` environment variable can be the same as, or a subdirectory of the `mountPath`.
+    
+    Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. In this example, the same value is passed for the environment variable in the CLI command above and in the `mountPath` property below: 
 
     ```json
     {
@@ -118,7 +125,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
 1. Use the following command to deploy your application:
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
         --resource-group <resource-group-name> \
         --name <app-name> \
         --service <spring-instance-name> \
@@ -128,15 +135,28 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
 1. Use the following command to check your application's console log:
 
    ```azurecli
-   az spring-cloud app logs \
+   az spring app logs \
         --resource-group <resource-group-name> \
         --name <app-name> \
         --service <spring-instance-name>
    ```
 
-    Go to the Azure Storage Account resource you bound and find the Azure File Share that was attached as persistent storage. In this example, the logs will be written to the *spring-boot-logger.log* file in your Azure File Share's home path. All of the rotated log files will be stored in the */archived* folder in your Azure File Share.
+    Go to the Azure Storage Account resource you bound and find the Azure file share that was attached as persistent storage. In this example, the logs will be written to the *spring-boot-logger.log* file at the root of your Azure file share. All of the rotated log files will be stored in the */archived* folder in your Azure file share.
+
+1. Optionally, use the following command to update the path or persistent storage of an existing app:
+
+    The path or persistent storage where the logs are saved can be changed at any time. The application will restart when changes are made to either environment variables or persistent storage.
+
+   ```azurecli
+   az spring app update \
+        --resource-group <resource-group-name> \
+        --name <app-name> \
+        --service <spring-instance-name> \
+        --persistent-storage <path-to-new-json-file> \
+        --env LOGS=<new-path>
+   ```
 
 ## Next steps
 
-* [Structured application log for Azure Spring Cloud](./structured-app-log.md)
+* [Structured application log for Azure Spring Apps](./structured-app-log.md)
 * [Analyzing logs and metrics with diagnostic settings](./diagnostic-services.md)

@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/2/2019
+ms.date: 05/02/2022
 ms.author: mayg
 
 ---
@@ -44,11 +44,13 @@ When you try to select the source machine to enable replication by using Site Re
 * **vCenter not connected**: Check if vCenter is in connected state. To verify, go to Recovery Services vault > Site Recovery Infrastructure > Configuration Servers > Click on respective configuration server > a blade opens on your right with details of associated servers. Check if vCenter is connected. If it's in a "Not Connected" state, resolve the issue and then [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine will be listed on the portal.
 * **ESXi powered off**: If ESXi host under which the virtual machine resides is in powered off state, then virtual machine will not be listed or will not be selectable on the Azure portal. Power on the ESXi host, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine will be listed on the portal.
 * **Pending reboot**: If there is a pending reboot on the virtual machine, then you will not be able to select the machine on Azure portal. Ensure to complete the pending reboot activities, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine will be listed on the portal.
-* **IP not found**: If the virtual machine doesn't have a valid IP address associated with it, then you will not be able to select the machine on Azure portal. Ensure to assign a valid IP address to the virtual machine, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine will be listed on the portal.
+* **IP not found or Machine does not have IP address**: If the virtual machine doesn't have a valid IP address associated with it, then you will not be able to select the machine on Azure portal. Ensure to assign a valid IP address to the virtual machine, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). It could also be caused if the machine does not have a valid IP address associated with one of its NIC's. Either assign a valid IP address to all NIC's or remove the NIC that's missing the IP. After this, virtual machine will be listed on the portal.
+
+
 
 ### Troubleshoot protected virtual machines greyed out in the portal
 
-Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. To learn how to delete stale entries and resolve the issue, refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. [Learn more](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) about deleting stale entries and resolving the issue.
 
 ## No crash consistent recovery point available for the VM in the last 'XXX' minutes
 

@@ -3,18 +3,18 @@ title: "Select a domain for a Custom Vision project - Computer Vision"
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to select a domain for your project in the Custom Vision Service.
 services: cognitive-services
-author: shonohs
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 03/06/2020
-ms.author: shono
+ms.topic: how-to
+ms.date: 06/13/2022
+ms.author: pafarley
 ---
 
 # Select a domain for a Custom Vision project
 
-From the settings tab of your Custom Vision project, you can select a domain for your project. Choose the domain that is closest to your scenario. If you're accessing Custom Vision through a client library or REST API, you'll need to specify a domain ID when creating the project. You can get a list of domain IDs with [Get Domains](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeab), or use the table below.
+From the **settings** tab of your project on the Custom Vision web portal, you can select a model domain for your project. You'll want to choose the domain that's closest to your scenario. If you're accessing Custom Vision through a client library or REST API, you'll need to specify a domain ID when creating the project. You can get a list of domain IDs with [Get Domains](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeab), or use the table below.
 
 ## Image Classification
 

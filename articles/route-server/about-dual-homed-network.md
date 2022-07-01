@@ -2,16 +2,16 @@
 title: 'About dual-homed network with Azure Route Server '
 description: Learn about how Azure Route Server works in a dual-homed network.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
 ms.date: 09/01/2021
-ms.author: duau
+ms.author: halkazwini
 ---
 
 # About dual-homed network with Azure Route Server
 
-Azure Route Server supports your typical hub-and-spoke network topology. This configuration is when both the Route Server and network virtual appliance (NVA) are in the hub virtual network. Router Server also enables you to configure a different topology called a dual-homed network. This configuration is when you have a spoke virtual network peered with two or more hub virtual networks. Virtual machines in the spoke virtual network can communicate through either hub virtual network to your on-premises or the Internet.
+In a typical hub and spoke architecture, application workloads are deployed in spoke VNets. These spokes are peered with a single hub VNet, which contains shared network resources such as VPN and ExpressRoute gateways. In some situations it can be desirable to peer spokes to more than one hub VNet, for example if multiple VPN or ExpressRoute Gateways are required for any reason. Azure Route Server enables this architecture so that workloads in a spoke VNet can communicate through either of the hub VNets it is connected to.
 
 ## How to set it up
 

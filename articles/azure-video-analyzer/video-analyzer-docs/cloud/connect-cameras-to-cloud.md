@@ -1,5 +1,5 @@
 ---
-title: Connecting cameras to Azure Video Analyzer service
+title: Connecting cameras to the service
 description: This article discusses ways to connect cameras directly to Azure Video Analyzer service.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 # Connect cameras to the cloud
 
 [!INCLUDE [header](includes/cloud-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 Azure Video Analyzer service allows users to connect RTSP cameras directly to the cloud in order capture and record video, using [live pipelines](../pipeline.md). This will either reduce the computational load on an edge device or eliminate the need for an edge device completely. Video Analyzer service currently supports three different methods for connecting cameras to the cloud: connecting via a remote device adapter, connecting from behind a firewall using an IoT PnP command, and connecting over the internet without a firewall.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Tulip | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Tulip'
 description: Learn how to configure single sign-on between Azure Active Directory and Tulip.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/30/2021
+ms.date: 01/27/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Tulip
+# Tutorial: Azure AD SSO integration with Tulip
 
 In this tutorial, you'll learn how to integrate Tulip with Azure Active Directory (Azure AD). When you integrate Tulip with Azure AD, you can:
 
@@ -29,14 +29,16 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Tulip single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
 * Tulip supports **IDP** initiated SSO.
 
-## Adding Tulip from the gallery
+## Add Tulip from the gallery
 
 To configure the integration of Tulip into Azure AD, you need to add Tulip from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +48,6 @@ To configure the integration of Tulip into Azure AD, you need to add Tulip from 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Tulip** in the search box.
 1. Select **Tulip** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Tulip
 
@@ -86,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image3](common/idp-intiated.png)
 
 	> [!Note]
-	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.
+	> If the **Identifier** and **Reply URL** values are not getting auto populated, then fill in the values manually according to your requirement.
 
 1. Tulip application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -101,7 +102,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| badgeID |	user.employeeid |
 	| groups |user.groups |
 
-
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
@@ -109,6 +109,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Tulip** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -173,7 +174,7 @@ In this section, you create a user called Britta Simon in Tulip. Work with [Tul
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Tulip for which you set up the SSO
+* Click on Test this application in Azure portal and you should be automatically signed in to the Tulip for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Tulip tile in the My Apps, you should be automatically signed in to the Tulip for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

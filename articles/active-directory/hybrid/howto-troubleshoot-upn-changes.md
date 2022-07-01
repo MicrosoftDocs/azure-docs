@@ -8,9 +8,9 @@ ms.subservice: hybrid
 ms.topic: how-to
 ms.date: 03/13/2020
 
-ms.author: baselden
-author: barbaraselden
-manager: daveba
+ms.author: gasinh
+author: gargi-sinha
+manager: martinco
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---

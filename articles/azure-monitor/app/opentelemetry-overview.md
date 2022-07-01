@@ -3,8 +3,7 @@ title: OpenTelemetry with Azure Monitor overview
 description: Provides an overview of how to use OpenTelemetry with Azure Monitor.
 ms.topic: conceptual
 ms.date: 10/11/2021
-author: mattmccleary
-ms.author: mmcc
+ms.reviewer: mmcc
 ---
 
 # OpenTelemetry overview
@@ -22,7 +21,7 @@ Telemetry, the data collected to observe your application, can be broken into th
 
 Initially the OpenTelemetry community took on Distributed Tracing. Metrics and Logs are still in progress. A complete observability story includes all three pillars, but currently our [Azure Monitor OpenTelemetry-based exporter **preview** offerings for .NET, Python, and JavaScript](opentelemetry-enable.md) **only include Distributed Tracing**.
 
-There are several sources that explain the three pillars in detail including the [OpenTelemetry community website](https://opentelemetry.io/docs/concepts/data-sources/), [OpenTelemetry Specifications](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/overview.md), and [Distributed Systems Observability](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html) by Cindy Sridharan.
+There are several sources that explain the three pillars in detail including the [OpenTelemetry community website](https://opentelemetry.io/docs/concepts/data-collection/), [OpenTelemetry Specifications](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/overview.md), and [Distributed Systems Observability](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html) by Cindy Sridharan.
 
 In the following sections, we'll cover some telemetry collection basics.
 

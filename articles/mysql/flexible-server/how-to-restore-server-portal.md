@@ -4,6 +4,7 @@ description: This article describes how to perform restore operations in Azure D
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 04/01/2021
 ---
@@ -106,9 +107,17 @@ Follow these steps to restore your flexible server using an existing full backup
 
 5. Provide a new server name in the **Name** field in the Server details section.
 
-6. Select **Review + Create** to review your selections. 
+6. When primary region is down, one cannot create geo-redundant servers in the respective geo-paired region as storage cannot be provisioned in the primary region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. With the primary region down one can still geo-restore the source server to the geo-paired region by disabling the geo-redundancy option in the Compute + Storage Configure Server settings in the restore portal experience and restore as a locally redundant server to ensure business continuity.
 
-7. A notification will be shown that the restore operation has been initiated. This operation may take a few minutes. 
+   :::image type="content" source="./media/how-to-restore-server-portal/georestore-region-down-1.png" alt-text="Compute + Storage window":::
+
+   :::image type="content" source="./media/how-to-restore-server-portal/georestore-region-down-2.png" alt-text="Disabling Geo-Redundancy":::
+
+   :::image type="content" source="./media/how-to-restore-server-portal/georestore-region-down-3.png" alt-text="Restoring as Locally redundant server":::
+
+7. Select **Review + Create** to review your selections.
+
+8. A notification will be shown that the restore operation has been initiated. This operation may take a few minutes.
 
 The new server created by geo-restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's Overview page. Additionally during a geo-restore, **Networking** settings such as virtual network settings and firewall rules can be configured as described in the below section.
 

@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Video Analyzer
+title: Analyze live video with Video Analyzer on IoT Edge and Azure Custom Vision
 description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision.
 ms.topic: tutorial
 ms.date: 06/01/2021
@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 # Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](../analyze-live-video-without-recording.md#analyzing-video-using-a-custom-vision-model) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 
@@ -60,7 +62,7 @@ Read through the following articles before you begin:
 
 ## Review the sample video
 
-This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck.
+This tutorial uses a [toy car inference video](https://avamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://avamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LPwK]
 
@@ -85,7 +87,7 @@ To build a toy truck detector, follow the steps in [Quickstart: Build an object 
 
 Additional notes:
 
-- For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) in the [quickstart](../../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+- For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://avamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) in the [quickstart](../../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 - In the tagging image section of the quick start, ensure that you're tagging the toy truck seen in the picture with the tag "delivery truck."
 - Ensure to select General(compact) as the option for Domains when creating the Custom Vision project
 

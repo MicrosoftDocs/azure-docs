@@ -4,11 +4,13 @@ description: This article describes the Query Store feature in Azure Database fo
 author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 11/30/2021
 ---
 # Monitor Performance with Query Store
-**Applies to:** Azure Database for PostgreSQL - Flex Server versions 11 and above
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
 
@@ -22,32 +24,69 @@ Query Store is an opt-in feature, so it isn't enabled by default on a server. Qu
 3. Search for the `pg_qs.query_capture_mode` parameter.
 4. Set the value to `TOP` or `ALL` and **Save**.
 Allow up to 20 minutes for the first batch of data to persist in the azure_sys database.
+To enable wait statistics in your Query Store:
+1. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
+2. Set the value to `ALL` and **Save**.
 ## Information in Query Store
-Query Store has one store:
+Query Store has two stores:
 - A runtime stats store for persisting the query execution statistics information.
+- A wait stats store for persisting wait statistics information.
 
 Common scenarios for using Query Store include:
 - Determining the number of times a query was executed in a given time window
 - Comparing the average execution time of a query across time windows to see large deltas
 - Identifying longest running queries in the past few hours
+- Identifying top N queries that are waiting on resources
+- Understanding wait nature for a particular query
 To minimize space usage, the runtime execution statistics in the runtime stats store are aggregated over a fixed, configurable time window. The information in these stores can be queried using views.
 ## Access Query Store information
-Query Store data is stored in the azure_sys database on your Postgres server. 
+Query Store data is stored in the azure_sys database on your Postgres server.
 The following query returns information about queries in Query Store:
 ```sql
-SELECT * FROM query_store.qs_view; 
-``` 
+
+SELECT * FROM  query_store.qs_view;
+
+```
+Or this query for wait stats:
+
+```sql
+
+SELECT * FROM  query_store.pgms_wait_sampling_view;
+
+```
+## Finding wait queries
+
+Wait event types combine different wait events into buckets by similarity. Query Store provides the wait event type, specific wait event name, and the query in question. Being able to correlate this wait information with the query runtime statistics means you can gain a deeper understanding of what contributes to query performance characteristics.
+
+Here are some examples of how you can gain more insights into your workload using the wait statistics in Query Store:
+
+| **Observation** | **Action** |
+|---|---|
+|High Lock waits | Check the query texts for the affected queries and identify the target entities. Look in Query Store for other queries modifying the same entity, which is executed frequently and/or have high duration. After identifying these queries, consider changing the application logic to improve concurrency, or use a less restrictive isolation level.
+| High Buffer IO waits | Find the queries with a high number of physical reads in Query Store. If they match the queries with high IO waits, consider introducing an index on the underlying entity, in order to do seeks instead of scans. This would minimize the IO overhead of the queries. Check the **Performance Recommendations** for your server in the portal to see if there are index recommendations for this server that would optimize the queries.|
+| High Memory waits | Find the top memory consuming queries in Query Store. These queries are probably delaying further progress of the affected queries. Check the **Performance Recommendations** for your server in the portal to see if there are index recommendations that would optimize these queries.|
 
 ## Configuration options
-When Query Store is enabled it saves data in 15-minute aggregation windows, up to 500 distinct queries per window. 
+When Query Store is enabled it saves data in 15-minute aggregation windows, up to 500 distinct queries per window.
 The following options are available for configuring Query Store parameters.
 
 | **Parameter** | **Description** | **Default** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Sets which statements are tracked. | none | none, top, all |
+| pg_qs.store_query_plans |  Turns saving query plans on or off for pg_qs | off | on, off |
+| pg_qs.max_plan_size |  Sets the maximum number of bytes that will be saved for query plan text for pg_qs; longer plans will be truncated. | 7500 | 100 - 10k |
 | pg_qs.max_query_text_length | Sets the maximum query length that can be saved. Longer queries will be truncated. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Sets the retention period. | 7 | 1 - 30 |
 | pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |
+  
+The following options apply specifically to wait statistics.  
+
+| **Parameter** | **Description** | **Default** | **Range**|
+|---|---|---|---|
+| pgms_wait_sampling.query_capture_mode | Sets which statements are tracked for wait stats. | none | none, all|
+| Pgms_wait_sampling.history_period | Set the frequency, in milliseconds, at which wait events are sampled. | 100 | 1-600000 |
+>  [!NOTE]
+>  **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
 
 Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
 
@@ -55,9 +94,9 @@ Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get
 View and manage Query Store using the following views and functions. Anyone in the PostgreSQL public role can use these views to see the data in Query Store. These views are only available in the **azure_sys** database.
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same queryId.
 ### query_store.qs_view
-This view returns all the data in Query Store. There is one row for each distinct database ID, user ID, and query ID. 
+This view returns all the data in Query Store. There is one row for each distinct database ID, user ID, and query ID.
 
-|**Name**	|**Type** |	**References**	| **Description**|
+|**Name** |**Type** | **References**  | **Description**|
 |---|---|---|---|
 |runtime_stats_entry_id	|bigint	| |	ID from the runtime_stats_entries table|
 |user_id	|oid	|pg_authid.oid	|OID of user who executed the statement|
@@ -86,7 +125,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 |temp_blks_written|	bigint	 ||	Total number of temp blocks written by the statement|
 |blk_read_time	|double precision	 ||	Total time the statement spent reading blocks, in milliseconds (if track_io_timing is enabled, otherwise zero)|
 |blk_write_time	|double precision	 ||	Total time the statement spent writing blocks, in milliseconds (if track_io_timing is enabled, otherwise zero)|
-	
+
 ### query_store.query_texts_view
 This view returns query text data in Query Store. There is one row for each distinct query_text.
 
@@ -95,6 +134,26 @@ This view returns query text data in Query Store. There is one row for each dist
 | query_text_id | bigint | ID for the query_texts table |
 | query_sql_text | Varchar(10000) | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. |
 
+### query_store.pgms_wait_sampling_view
+This view returns wait events data in Query Store. There is one row for each distinct database ID, user ID, query ID, and event.
+
+| **Name** | **Type** | **References** | **Description** |
+|--|--|--|--|
+| user_id | oid | pg_authid.oid | OID of user who executed the statement |
+| db_id | oid | pg_database.oid | OID of database in which the statement was executed |
+| query_id | bigint | | Internal hash code, computed from the statement's parse tree |
+| event_type | text | | The type of event for which the backend is waiting |
+| event | text | | The wait event name if backend is currently waiting |
+| calls | Integer | | Number of the same event captured |
+### query_store.query_plans_view
+This view returns the query plan that was used to execute a query. There is one row per each distinct database ID, and query ID. This will only store query plans for non-utility queries.
+
+|**plan_id**|**db_id**|**query_id**|**plan_text**|
+|--|--|--|--|
+| plan_id | bigint | | The hash value from the query_text |
+| db_id | oid | pg_database.oid | OID of database in which the statement was executed |
+| query_id | bigint | | Internal hash code, computed from the statement's parse tree |
+| plan_text | varchar(10000) | Execution plan of the statement given costs=false, buffers=false, and format=false. This is the same output given by EXPLAIN. |
 ### Functions
 `qs_reset` discards all statistics gathered so far by Query Store. This function can only be executed by the server admin role.
 

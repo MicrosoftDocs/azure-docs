@@ -1,12 +1,12 @@
 ---
 title: Working with the change feed support in Azure Cosmos DB 
 description: Use Azure Cosmos DB change feed support to track changes in documents, event-based processing like triggers, and keep caches and analytic systems up-to-date 
-author: timsander1
-ms.author: tisande
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/07/2021
-ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
 ---
 # Change feed in Azure Cosmos DB
@@ -20,7 +20,7 @@ Learn more about [change feed design patterns](change-feed-design-patterns.md).
 
 This feature is currently supported by the following Azure Cosmos DB APIs and client SDKs.
 
-| **Client drivers** | **SQL API** | **Azure Cosmos DB's API for Cassandra** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API**|**Table API** |
+| **Client drivers** | **SQL API** | **Azure Cosmos DB API for Cassandra** | **Azure Cosmos DB API for MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | Yes | Yes | Yes | Yes | No |
 |Java|Yes|Yes|Yes|Yes|No|

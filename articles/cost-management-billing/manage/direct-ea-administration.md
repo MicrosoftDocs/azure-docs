@@ -3,7 +3,7 @@ title: Azure portal administration for direct Enterprise Agreements
 description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2021
+ms.date: 11/16/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -23,6 +23,10 @@ To manage your service, the initial enterprise administrator opens the [Azure 
 If you've been set up as the enterprise administrator, then go to the Azure portal and sign in with your work, school, or Microsoft account email address and password.
 
 If you have more than one billing account, select a billing account from billing scope menu. You can view your billing account properties and policy from the left menu.
+
+Check out the [EA admin manage enrollment](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+
+>[!VIDEO https://www.youtube.com/embed/NUlRrJFF1_U]
 
 ## Select a billing scope
 
@@ -103,6 +107,10 @@ EA admins and department administrators use departments to organize and report o
 
 A department administrator can add new accounts to their departments. They can also remove accounts from their departments, but not from the enrollment.
 
+Check out the [EA admin manage departments](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+
+>[!VIDEO https://www.youtube.com/embed/cxAtOSSE6UI]
+
 ### To create a department
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
@@ -158,6 +166,10 @@ Enterprise administrators automatically get department administrator permissions
 The structure of accounts and subscriptions affect how they're administered and how they appear on your invoices and reports. Examples of typical organizational structures include business divisions, functional teams, and geographic locations.
 
 After a new account is added to the enrollment, the account owner is sent an account ownership email that's used to confirm ownership.
+
+Check out the [EA admin manage accounts](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+
+>[!VIDEO https://www.youtube.com/embed/VKWAEx6qfPc]
 
 ### To add an account and account owner
 
@@ -352,6 +364,10 @@ When you create different subscriptions for each application environment, you he
 - You can associate subscriptions with any number of services.
 - The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
 
+Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+
+>[!VIDEO https://www.youtube.com/embed/KFfcg2eqPo8]
+
 ## Add a subscription
 
 Account owners create subscriptions within their enrollment account. The first time you add a subscription to your account, you're asked to accept the Microsoft Online Subscription Agreement (MOSA) and a rate plan. Although they aren't applicable to Enterprise Agreement customers, the MOSA and the rate plan are required to create your subscription. Your Microsoft Azure Enterprise Agreement Enrollment Amendment supersedes the preceding items and your contractual relationship doesn't change. When prompted, select the option that indicates you accept the terms.
@@ -408,7 +424,7 @@ You can delete an enrollment account only when there are no active subscriptions
 
 The Azure sponsorship offer is a limited sponsored Microsoft Azure account. It's available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure sponsorship offer, you'll receive an e-mail invitation to your account ID.
 
-For more information, create a [support request for sponsorship activation](https://aka.ms/azrsponsorship).
+If you need assistance, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
 
 ## Convert to work or school account authentication
 

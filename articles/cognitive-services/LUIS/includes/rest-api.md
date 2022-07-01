@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 11/30/2020
+ms.date: 03/07/2022
 ms.topic: include
 ---
 
@@ -164,6 +164,9 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
     |`***YOUR-AUTHORING-KEY***`|Your 32 character authoring key.|
 
     Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
+
+    
+    [!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
 
 1. Start a Command Prompt (Windows) or Terminal (macOS and Linux), and change directories to the same directory where you saved the `ExampleUtterances.JSON` file.
 

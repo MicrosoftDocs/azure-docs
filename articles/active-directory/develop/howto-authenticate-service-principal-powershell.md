@@ -1,6 +1,5 @@
 ---
-title: Create an Azure app identity (PowerShell) | Azure
-titleSuffix: Microsoft identity platform
+title: Create an Azure app identity (PowerShell)
 description: Describes how to use Azure PowerShell to create an Azure Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a certificate.
 services: active-directory
 author: rwike77
@@ -8,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev , devx-track-azurepowershell
+ms.custom: aaddev, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.date: 02/22/2021

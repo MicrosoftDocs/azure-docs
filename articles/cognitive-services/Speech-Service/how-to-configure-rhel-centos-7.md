@@ -7,16 +7,16 @@ author: pankopon
 manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 04/01/2022
 ms.author: pankopon
 ---
 
-# Configure RHEL/CentOS 7 for Speech SDK
+# Configure RHEL/CentOS 7
 
-To use the Speech SDK for C++ development on Red Hat Enterprise Linux (RHEL) 8 x64 and CentOS 8 x64, update the C++ compiler and the shared C++ runtime library on your system.
+To use the Speech SDK on Red Hat Enterprise Linux (RHEL) 7 x64 and CentOS 7 x64, update the C++ compiler (for C++ development) and the shared C++ runtime library on your system.
 
-### 1. General setup
+## Install dependencies
 
 First install all general dependencies:
 
@@ -30,7 +30,7 @@ sudo yum install -y alsa-lib dotnet-sdk-2.1 java-1.8.0-openjdk-devel openssl
 sudo yum install -y gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
 ```
 
-### 2. C/C++ compiler and runtime libraries
+## C/C++ compiler and runtime libraries
 
 Install the prerequisite packages with this command:
 
@@ -42,8 +42,8 @@ Next update the compiler and runtime libraries:
 
 ```bash
 # Build GCC 7.5.0 and runtimes and install them under /usr/local
-curl https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.bz2 -O
-tar jxf gcc-7.5.0.tar.bz2
+curl https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.gz -O
+tar -xf gcc-7.5.0.tar.gz
 mkdir gcc-7.5.0-build && cd gcc-7.5.0-build
 ../gcc-7.5.0/configure --enable-languages=c,c++ --disable-bootstrap --disable-multilib --prefix=/usr/local
 make -j$(nproc)
@@ -52,7 +52,7 @@ sudo make install-strip
 
 If the updated compiler and libraries need to be deployed on several machines, you can simply copy them from under `/usr/local` to other machines. If only the runtime libraries are needed then the files in `/usr/local/lib64` will be enough.
 
-### 3. Environment settings
+## Environment settings
 
 Run the following commands to complete the configuration:
 
@@ -68,9 +68,11 @@ export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 #   (note, use the actual path to extracted files!)
 export PATH=/usr/local/bin:$PATH
 hash -r # reset cached paths in the current shell session just in case
-export LD_LIBRARY_PATH=/path/to/extracted/SpeechSDK-Linux-<version>/lib/x64:$LD_LIBRARY_PATH
-
+export LD_LIBRARY_PATH=/path/to/extracted/SpeechSDK-Linux-<version>/lib/centos7-x64:$LD_LIBRARY_PATH
 ```
+
+> [!NOTE]
+> The Linux .tar package contains specific libraries for RHEL/CentOS 7. These are in `lib/centos7-x64` as shown in the environment setting example for `LD_LIBRARY_PATH` above. Speech SDK libraries in `lib/x64` are for all the other supported Linux x64 distributions (including RHEL/CentOS 8) and don't work on RHEL/CentOS 7.
 
 ## Next steps
 

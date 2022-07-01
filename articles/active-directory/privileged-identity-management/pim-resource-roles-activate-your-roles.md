@@ -4,14 +4,13 @@ description: Learn how to activate your Azure resource roles in Azure AD Privile
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -20,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Activate my Azure resource roles in Privileged Identity Management
 
-Use Privileged Identity Management (PIM) to allow eligible role members for Azure resources to schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators).
+Use Privileged Identity Management (PIM) in Azure Active Diretory (Azure AD), part of Microsoft Entra, to allow eligible role members for Azure resources to schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators).
 
 This article is for members who need to activate their Azure resource role in Privileged Identity Management.
 
@@ -192,6 +191,10 @@ If you do not require activation of a role that requires approval, you can cance
     When you select Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## Deactivate a role assignment
+
+When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
 
 ## Troubleshoot
 

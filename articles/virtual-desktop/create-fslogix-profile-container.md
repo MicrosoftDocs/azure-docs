@@ -3,7 +3,7 @@ title: FSLogix profile containers NetApp Azure Virtual Desktop - Azure
 description: How to create an FSLogix profile container using Azure NetApp Files in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 07/01/2020
 ms.author: helohr
 manager: femila
 ---
@@ -13,9 +13,7 @@ We recommend using FSLogix profile containers as a user profile solution for the
 
 You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Azure Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
-This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Azure Virtual Desktop.
-
-This article assumes you already have [host pools](create-host-pools-azure-marketplace.md) set up and grouped into one or more tenants in your Azure Virtual Desktop environment. To learn how to set up tenants, see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Azure Virtual Desktop. It assumes you have already [created a host pool](./create-host-pools-azure-marketplace.md) and an [application group](./manage-app-groups.md).
 
 The instructions in this guide are specifically for Azure Virtual Desktop users. If you're looking for more general guidance for how to set up Azure NetApp Files and create FSLogix profile containers outside of Azure Virtual Desktop, see the [Set up Azure NetApp Files and create an NFS volume quickstart](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -30,7 +28,7 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 Before you can create an FSLogix profile container for a host pool, you must:
 
 - Set up and configure Azure Virtual Desktop
-- Provision a Azure Virtual Desktop host pool
+- Provision an Azure Virtual Desktop host pool
 
 ## Set up your Azure NetApp Files account
 
@@ -101,16 +99,24 @@ After that, you need to join an Active Directory connection.
 
 1. Select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
+   ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu-2.png)
 
 2. Enter the following values in the **Join Active Directory** page to join a connection:
 
     - For **Primary DNS**, enter the IP address of the DNS server in your environment that can resolve the domain name.
-    - For **Domain**, enter your fully qualified domain name (FQDN).
+    - For **Secondary DNS**, enter the IP address of the secondary DNS Server for the domain.
+    - For **AD DNS Domain Name**, enter your fully qualified domain name (FQDN).
+    - For **AD Site Name**, enter the Active Directory Site name that the domain controller discovery will be limited to. This should match the Site name in Active Directory Sites and Services for the Site created to represent the Azure virtual network environment. This Site must be reachable by Azure NetApp Files in Azure. 
     - For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
-    - For **Username**, enter the name of the account with permissions to perform domain join.
-    - For **Password**, enter the account's password.
+    - For **Organizational unit path**, this is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is OU=AADDC Computers when you configure Active Directory for your NetApp account.
+    - For **Credentials**, insert username and password: 
+      
+      ![A screenshot of the Join Active Directory connections menu for username and password.](media/active-directory-connections-credentials.png)
+
+    - For additional parameters descriptions, please refer to [this](../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection) article. 
+    - Click **Join**, the Active Directory connection you created appears.
+    
+      ![A screenshot of Active Directory connection screen after joining.](media/active-directory-connections-show.png)
 
 ## Create a new volume
 
@@ -136,6 +142,8 @@ After you create the volume, configure the volume access parameters.
 2.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection). Keep in mind that there's a limit of one Active Directory per subscription.
 3.  In the **Share name** text box, enter the name of the share used by the session host pool and its users.
 
+    It is recommended that you enable Continuous Availability on the SMB volume for use with FsLogix profile containers, so select **Enable Continuous Availability**. For more information see [Enable Continuous Availability on existing SMB volumes](../azure-netapp-files/enable-continuous-availability-existing-smb.md).
+
 4.  Select **Review + create** at the bottom of the page. This opens the validation page. After your volume is validated successfully, select **Create**.
 
 5.  At this point, the new volume will start to deploy. Once deployment is complete, you can use the Azure NetApp Files share.
@@ -149,7 +157,7 @@ After you create the volume, configure the volume access parameters.
 
 This section is based on [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
 
-1. [Download the FSLogix agent .zip file](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409) while you're still remoted in the session host VM.
+1. [Download the FSLogix agent .zip file](https://aka.ms/fslogix/download) while you're still remoted in the session host VM.
 
 2. Unzip the downloaded file.
 
@@ -176,36 +184,11 @@ This section is based on [Create a profile container for a host pool using a fil
 13. Create a value named **DeleteLocalProfileWhenVHDShouldApply** with a DWORD value of 1 to avoid problems with existing local profiles before you sign in.
 
      >[!WARNING]
-     >Be careful when creating the DeleteLocalProfileWhenVHDShouldApply value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
-
-## Assign users to session host
-
-1. Open **PowerShell ISE** as administrator and sign in to Azure Virtual Desktop.
-
-2. Run the following cmdlets:
-
-   ```powershell
-   Import-Module Microsoft.RdInfra.RdPowershell
-   # (Optional) Install-Module Microsoft.RdInfra.RdPowershell
-   $brokerurl = "https://rdbroker.wvd.microsoft.com"
-   Add-RdsAccount -DeploymentUrl $brokerurl
-   ```
-
-3. When prompted for credentials, enter the credentials for the user with the Tenant Creator or RDS Owner/RDS Contributor roles on the Azure Virtual Desktop tenant.
-
-4. Run the following cmdlets to assign a user to a Remote Desktop group:
-
-   ```powershell
-   $wvdTenant = "<your-wvd-tenant>"
-   $hostPool = "<wvd-pool>"
-   $appGroup = "Desktop Application Group"
-   $user = "<user-principal>"
-   Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
-   ```
+     >Be careful when creating the *DeleteLocalProfileWhenVHDShouldApply* value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
 
 ## Make sure users can access the Azure NetApp File share
 
-1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/arm/webclient>.
+1. Browse to <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 2. Sign in with the credentials of a user assigned to the Remote Desktop group.
 

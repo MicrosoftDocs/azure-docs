@@ -4,14 +4,13 @@ titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: allensu
+ms.author: mbender
 ms.custom: references_regions
 
 ---
@@ -97,9 +96,10 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 * Central US
 * North Europe
 * East Asia
+* US Gov Virginia
 
 > [!NOTE]
-> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the 7 regions above.
+> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the regions above.
 
 A **participating region** is where the Global public IP of the load balancer is being advertised.
 
@@ -125,6 +125,11 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * Australia Southeast 
 * Australia East 
 * Central India 
+* US DoD Central
+* US DoD East
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 
 ## Limitations
 
@@ -138,7 +143,6 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
-* Integration with Azure Kubernetes Service (AKS) is currently unavailable. Loss of connectivity will occur when deploying a cross-region load balancer with the Standard load balancer with AKS cluster deployed in the backend.
 
 ## Pricing and SLA
 Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) of standard load balancer.

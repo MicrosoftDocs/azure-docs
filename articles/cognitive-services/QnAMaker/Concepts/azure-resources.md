@@ -4,7 +4,7 @@ description: QnA Maker uses several Azure sources, each with a different purpose
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 02/02/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -152,9 +152,7 @@ Each Azure resource created with QnA Maker has a specific purpose:
 
 ### QnA Maker resource
 
-The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA pairs at runtime.
-
-The second ranking applies intelligent filters that can include metadata and follow-up prompts.
+The QnA Maker resource provides access to the authoring and publishing APIs.
 
 #### QnA Maker resource configuration settings
 
@@ -185,7 +183,7 @@ Learn [how to configure](../How-To/configure-QnA-Maker-resources.md#configure-qn
 
 ### App service and App service plan
 
-The [App service](../../../app-service/index.yml) is used by your client application to access the published knowledge bases via the runtime endpoint.
+The [App service](../../../app-service/index.yml) is used by your client application to access the published knowledge bases via the runtime endpoint. App service includes the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA pairs at runtime. The second ranking applies intelligent filters that can include metadata and follow-up prompts.
 
 To query the published knowledge base, all published knowledge bases use the same URL endpoint,  but specify the **knowledge base ID** within the route.
 

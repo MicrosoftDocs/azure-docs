@@ -1,23 +1,22 @@
 ---
 title: Configure permission classifications
-titleSuffix: Azure AD
 description: Learn how to manage delegated permission classifications.
 services: active-directory
-author: davidmu1
+author: jackson-woods
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/23/2021
-ms.author: davidmu
+ms.author: jawoods
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 
 #customer intent: As an admin, I want configure permission classifications for applications in Azure AD
 ---
 
-# Configure permission classifications in Azure Active Directory
+# Configure permission classifications
 
 In this article you'll learn how to configure permissions classifications in Azure Active Directory (Azure AD). Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 

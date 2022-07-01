@@ -8,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 06/21/2022
 ms.author: aahi
-ms.custom: language-service-entity-linking, ignite-fall-2021
+ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-entity-linking, ignite-fall-2021, mode-api
 keywords: text mining, entity linking
 zone_pivot_groups: programming-languages-text-analytics
 ---
@@ -55,6 +56,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
 
 ## Next steps
 

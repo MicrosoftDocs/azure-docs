@@ -2,14 +2,13 @@
 title: Speech service encryption of data at rest
 titleSuffix: Azure Cognitive Services
 description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Speech service.
-author: erindormier
-manager: venkyv
-
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/14/2021
-ms.author: egeaney
+ms.author: eur
 #Customer intent: As a user of the Translator service, I want to learn how encryption at rest works.
 ---
 

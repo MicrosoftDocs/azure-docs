@@ -22,7 +22,7 @@ The steps in this document assume that you have an intermediate level of knowled
 
 ## The airline and weather datasets
 
-The flight data is available from the [U.S. government archives](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). It's also available as a zip from [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+The flight data is available from the [U.S. government archives](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236).
 
 The weather data can be downloaded as zip files in raw form, by month, from the [National Oceanic and Atmospheric Administration repository](https://www.ncdc.noaa.gov/orders/qclcd/). For this example, download the data for May 2007 – December 2012. Use the hourly data files and `YYYYMMMstation.txt` file within each of the zips.
 
@@ -187,7 +187,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## Importing the airline and weather data to Spark DataFrames
 
-Now we use the SparkR [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) function to import the weather and airline data to Spark DataFrames. This function, like many other Spark methods, is executed lazily, meaning that they're queued for execution but not executed until required.
+Now we use the SparkR [read.df()](https://spark.apache.org/docs/3.3.0/api/R/reference/read.df.html) function to import the weather and airline data to Spark DataFrames. This function, like many other Spark methods, is executed lazily, meaning that they're queued for execution but not executed until required.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -260,7 +260,7 @@ weatherDF <- rename(weatherDF,
 
 ## Joining the weather and airline data
 
-We now use the SparkR [join()](https://spark.apache.org/docs/latest/api/R/join.html) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there's no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
+We now use the SparkR [join()](https://spark.apache.org/docs/3.3.0/api/R/reference/join.html) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there's no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

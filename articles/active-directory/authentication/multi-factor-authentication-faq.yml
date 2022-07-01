@@ -6,14 +6,13 @@ metadata:
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 07/14/2020
   ms.author: justinha
   author: justinha
-  manager: daveba
+  manager: karenhoran
   ms.reviewer: michmcla
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions about Azure AD Multi-Factor Authentication
 summary: |
   This FAQ answers common questions about Azure AD Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.

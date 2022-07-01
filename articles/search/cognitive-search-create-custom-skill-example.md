@@ -18,7 +18,7 @@ In this example, learn how to create a web API custom skill. This skill will acc
 
 + Read about [custom skill interface](cognitive-search-custom-skill-interface.md) article if you aren't familiar with the input/output interface that a custom skill should implement.
 
-+ Create a [Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.BingSearch) through the Azure Portal. A free tier is available and sufficient for this example.
++ Create a [Bing Search v7 resource](https://portal.azure.com/#create/Microsoft.BingSearch) through the Azure Portal. A free tier is available and sufficient for this example.
 
 + Install [Visual Studio 2019](https://www.visualstudio.com/vs/) or later, including the Azure development workload.
 

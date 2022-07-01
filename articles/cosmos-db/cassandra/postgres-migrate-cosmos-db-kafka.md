@@ -1,12 +1,12 @@
 ---
 title: Migrate data from PostgreSQL to Azure Cosmos DB Cassandra API account using Apache Kafka
 description: Learn how to use Kafka Connect to synchronize data from PostgreSQL to Azure Cosmos DB Cassandra API in real time.
-author: abhirockzz
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 01/05/2021
-ms.author: abhishgu
+ms.date: 04/02/2022
+ms.author: sidandrews
 ms.reviewer: abhishgu
 ---
 
@@ -37,15 +37,15 @@ Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium Post
 ## Prerequisites
 
 * [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account)
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview)
+* [Use cqlsh for validation](cassandra-support.md#cql-shell)
 * JDK 8 or above
 * [Docker](https://www.docker.com/) (optional)
 
 ## Base setup
 
-### Set up PostgreSQL database if you haven't already. 
+### Set up PostgreSQL database if you haven't already.
 
-This could be an existing on-premise database or you could [download and install one](https://www.postgresql.org/download/) on your local machine. It's also possible to use a [Docker container](https://hub.docker.com/_/postgres).
+This could be an existing on-premises database or you could [download and install one](https://www.postgresql.org/download/) on your local machine. It's also possible to use a [Docker container](https://hub.docker.com/_/postgres).
 [!INCLUDE [pull-image-include](../../../includes/pull-image-include.md)]
 
 To start a container:
@@ -87,7 +87,7 @@ CREATE TABLE retail.orders_by_customer (order_id int, customer_id int, purchase_
 CREATE TABLE retail.orders_by_city (order_id int, customer_id int, purchase_amount int, city text, purchase_time timestamp, PRIMARY KEY (city,order_id)) WITH cosmosdb_cell_level_timestamp=true AND cosmosdb_cell_level_timestamp_tombstones=true AND cosmosdb_cell_level_timetolive=true;
 ```
 
-### Setup Apache Kafka 
+### Setup Apache Kafka
 
 This article uses a local cluster, but you can choose any other option. [Download Kafka](https://kafka.apache.org/downloads), unzip it, start the Zookeeper and Kafka cluster.
 
@@ -257,8 +257,8 @@ You can continue to insert more data into PostgreSQL and confirm that the record
 
 * [Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect](kafka-connect.md)
 * [Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture](../../event-hubs/event-hubs-kafka-connect-debezium.md)
-* [Migrate data from Oracle to Azure Cosmos DB Cassandra API using Blitzz](oracle-migrate-cosmos-db-blitzz.md)
-* [Provision throughput on containers and databases](../set-throughput.md) 
+* [Migrate data from Oracle to Azure Cosmos DB Cassandra API using Arcion](oracle-migrate-cosmos-db-arcion.md)
+* [Provision throughput on containers and databases](../set-throughput.md)
 * [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
 * [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles
 

@@ -40,7 +40,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Fixes:**
 
-- For VMware virtual machines and physical machines, recommendation is updated to be based on replication to Managed Disks.
+- For VMware virtual machines, recommendation is updated to be based on replication to Managed Disks.
 - Added support for Windows 10 (x64), Windows 8.1 (x64), Windows 8 (x64), Windows 7 (x64) SP1 or later
 
 ## Version 2.4

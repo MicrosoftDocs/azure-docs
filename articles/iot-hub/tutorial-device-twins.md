@@ -2,10 +2,10 @@
 title: Tutorial - Synchronize device state from Azure IoT Hub | Microsoft Docs
 description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
-ms.devlang: dotnet
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 10/13/2021
 ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
@@ -67,7 +67,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub connection-string show --name $hubname --policy-name service -o table
+az iot hub connection-string show --hub-name $hubname --policy-name service -o table
 
 ```
 

@@ -95,7 +95,11 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 
     Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name> -InstallNewExtension
     ```
- 
+
+1. Restart SAP Host Agent
+
+    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
+
 ## <a name="fa4428b9-bed6-459a-9dfb-74cc27454481"></a>Configure the Azure VM extension for SAP solutions with Azure CLI
  
 The new VM Extension for SAP uses a managed identity that is assigned to the VM to access monitoring and configuration data of the VM.
@@ -126,6 +130,9 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
    az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
    ```
  
+ 1. Restart SAP Host Agent
+
+    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
  
 ## <a name="5774c1db-1d3c-4b34-8448-3afd0b0f18ab"></a>Readiness check
 
@@ -134,9 +141,9 @@ This check makes sure that all performance metrics that appear inside your SAP a
 ### Run the readiness check on a Windows VM
 
 1. Sign in to the Azure virtual machine (using an admin account is not necessary).
-1. Open a web browser and navigate to http://127.0.0.1:11812/azure4sap/metrics
+1. Open a web browser and navigate to `http://127.0.0.1:11812/azure4sap/metrics`.
 1. The browser should display or download an XML file that contains the monitoring data of your virtual machine. If that is not the case, make sure that the Azure Extension for SAP is installed.
-1. Check the content of the XML file. The XML file that you can access at http://127.0.0.1:11812/azure4sap/metrics contains all populated Azure performance counters for SAP. It also contains a summary and health indicator of the status of Azure Extension for SAP.
+1. Check the content of the XML file. The XML file that you can access at `http://127.0.0.1:11812/azure4sap/metrics` contains all populated Azure performance counters for SAP. It also contains a summary and health indicator of the status of Azure Extension for SAP.
 1. Check the value of the **Provider Health Description** element. If the value is not **OK**, follow the instructions in chapter [Health checks][health-check].
  
 ### Run the readiness check on a Linux VM

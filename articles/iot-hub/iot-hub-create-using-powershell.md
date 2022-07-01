@@ -1,12 +1,12 @@
 ---
 title: Create an Azure IoT Hub using a PowerShell cmdlet | Microsoft Docs
 description: Learn how to use the PowerShell cmdlets to create a resource group and then create an IoT hub in the resource group. Also learn how to remove the hub.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: robinsh 
+ms.author: kgremban 
 ms.custom: devx-track-azurepowershell
 ---
 

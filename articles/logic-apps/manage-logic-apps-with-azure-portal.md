@@ -3,23 +3,23 @@ title: Manage logic apps in the Azure portal
 description: Edit, enable, disable, or delete logic apps by using the Azure portal.
 services: logic-apps
 ms.suite: integration
-author: lauradolan
-ms.author: ladolan
-ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 04/23/2021
+ms.date: 04/01/2022
 ---
 
 # Manage logic apps in the Azure portal
 
-You can manage logic apps using the [Azure portal](https://portal.azure.com) or [Visual Studio](manage-logic-apps-with-visual-studio.md). This article shows how to edit, disable, enable, or delete logic apps in the Azure portal. If you're new to Azure Logic Apps, see [What is Azure Logic Apps](logic-apps-overview.md)?
+This article shows how to edit, disable, enable, or delete Consumption logic apps with the Azure portal. You can also [manage Consumption logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md).
+
+To manage Standard logic apps, review [Create a Standard workflow with single-tenant Azure Logic Apps in the Azure portal](create-single-tenant-workflows-azure-portal.md). If you're new to Azure Logic Apps, review [What is Azure Logic Apps](logic-apps-overview.md)?
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 
-* An existing logic app. To learn how to create a logic app in the Azure portal, see [Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
+* An existing logic app. To learn how to create a logic app in the Azure portal, review [Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
 
 <a name="find-logic-app"></a>
 
@@ -27,7 +27,7 @@ You can manage logic apps using the [Azure portal](https://portal.azure.com) or 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-1. In the portal search box, enter `logic apps`, and select **Logic apps**.
+1. In the portal search box, enter **logic apps**, and select **Logic apps**.
 
 1. From the logic apps list, find your logic app by either browsing or filtering the list.
 
@@ -53,15 +53,27 @@ You can manage logic apps using the [Azure portal](https://portal.azure.com) or 
    * **Access endpoint IP addresses**
    * **Connector outgoing IP addresses**
 
+<a name="view-connections"></a>
+
+## View connections
+
+When you create connections within a workflow using [managed connectors](../connectors/managed.md), these connections are actually separate Azure resources with their own resource definitions. To view and manage these connections, follow these steps:
+
+1. In the Azure portal, [find and open your logic app](#find-logic-app).
+
+1. From your logic app's menu, under **Development tools**, select **API Connections**.
+
+1. On the **API Connections** pane, select a specific connection instance, which shows more information about that connection. To view the underlying connection resource definition, select **JSON View**.
+
 <a name="disable-enable-logic-apps"></a>
 
 ## Disable or enable logic apps
 
 To stop the trigger from firing the next time when the trigger condition is met, disable your logic app. In the Azure portal, you can enable or disable a [single logic app](#disable-enable-single-logic-app) or [multiple logic apps at the same time](#disable-or-enable-multiple-logic-apps). Disabling a logic app affects workflow instances in the following ways:
 
-* The Logic Apps services continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
+* Azure Logic Apps continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
 * The trigger won't fire the next time that its conditions are met. However, the trigger state remembers the point at which the logic app was stopped. So, if you reactivate the logic app, the trigger fires for all the unprocessed items since the last run.
 
@@ -70,6 +82,8 @@ To stop the trigger from firing the next time when the trigger condition is met,
   1. In the logic app, edit any part of the workflow's trigger.
   1. Save your changes. This step resets your trigger's current state.
   1. [Reactivate your logic app](#disable-enable-single-logic-app).
+
+* When a workflow is disabled, you can still resubmit runs.
 
 <a name="disable-enable-single-logic-app"></a>
 
@@ -112,11 +126,11 @@ To stop the trigger from firing the next time when the trigger condition is met,
 
 You can delete a single logic app or multiple logic apps at the same time. Deleting a logic app affects workflow instances in the following ways:
 
-* The Logic Apps service makes a best effort to cancel any in-progress and pending runs.
+* Azure Logic Apps makes a best effort to cancel any in-progress and pending runs.
 
   Even with a large volume or backlog, most runs are canceled before they finish or start. However, the cancellation process might take time to complete. Meanwhile, some runs might get picked up for execution while the service works through the cancellation process.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
 * If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 

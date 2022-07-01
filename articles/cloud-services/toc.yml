@@ -12,6 +12,8 @@
     href: cloud-services-dotnet-get-started.md
   - name: Example Python for Visual Studio Cloud Service
     href: cloud-services-python-ptvs.md
+  - name: Troubleshoot LocationNotFoundForRoleSize
+    href: cloud-services-troubleshoot-location-not-found-for-role-size.md
 - name: Concepts
   items:
   - name: Security baseline
@@ -102,12 +104,10 @@
         href: cloud-services-role-config-xpath.md
     - name: Manage certificates
       items:
-      - name: Azure PowerShell
-        href: cloud-services-diagnostics-powershell.md
-      - name: .NET
-        href: cloud-services-dotnet-diagnostics.md
-      - name: Visual Studio
-        href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
+      - name: Cloud Services and management certificates
+        href: cloud-services-certs-create.md
+      - name: Configure SSL
+        href: cloud-services-configure-ssl-certificate-portal.md
     - name: Store and view diagnostic data in Azure Storage
       href: diagnostics-extension-to-storage.md
     - name: Trace Cloud Service with Diagnostics
@@ -222,7 +222,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Learning path
-    href: /learn/paths/azure-fundamentals/
+    href: /learn/paths/az-900-describe-cloud-concepts/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-cloud-services.html
   - name: Pricing

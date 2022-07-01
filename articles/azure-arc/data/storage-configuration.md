@@ -4,6 +4,7 @@ description: Explains Azure Arc-enabled data services storage configuration opti
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
@@ -146,7 +147,7 @@ Some services in Azure Arc for data services depend upon being configured to use
 
 At the time the data controller is provisioned, the storage class to be used for each of these persistent volumes is specified by either passing the --storage-class | -sc parameter to the `az arcdata dc create` command or by setting the storage classes in the control.json deployment template file that is used.  If you are using the Azure portal to create the data controller in the directly connected mode, the deployment template that you choose will either have the storage class predefined in the template or if you select a template which does not have a predefined storage class then you will be prompted for one.  If you use a custom deployment template, then you can specify the storage class.
 
-The deployment templates that are provided out of the box have a default storage class specified that is appropriate for the target environment, but it can be overridden during deployment. See the detailed steps to [alter the deployment profile](create-data-controller.md) to change the storage class configuration for the data controller pods at deployment time.
+The deployment templates that are provided out of the box have a default storage class specified that is appropriate for the target environment, but it can be overridden during deployment. See the detailed steps to [create custom configuration templates](create-custom-configuration-template.md) to change the storage class configuration for the data controller pods at deployment time.
 
 If you set the storage class using the --storage-class | -sc parameter the storage class will be used for both log and data storage classes. If you set the storage classes in the deployment template file, you can specify different storage classes for logs and data.
 
@@ -168,14 +169,17 @@ When creating an instance using either `az sql mi-arc create` or `az postgres ar
 
 |Parameter name, short name|Used for|
 |---|---|
-|`--storage-class-data`, `-d`|Used to specify the storage class for all data files including transaction log files|
-|`--storage-class-logs`, `-g`|Used to specify the storage class for all log files|
-|`--storage-class-data-logs`|Used to specify the storage class for the database transaction log files.|
-|`--storage-class-backups`|Used to specify the storage class for all backup files.|
+|`--storage-class-data`, `-d`|Storage class for all data files (.mdf, ndf). If not specified, defaults to storage class for data controller.|
+|`--storage-class-logs`, `-g`|Storage class for all log files. If not specified, defaults to storage class for data controller.|
+|`--storage-class-data-logs`|Storage class for the database transaction log files. If not specified, defaults to storage class for data controller.|
+|`--storage-class-backups`|Storage class for all backup files. If not specified, defaults to storage class for data (`--storage-class-data`).<br/><br/> Use a ReadWriteMany (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes). |
+
+> [!WARNING]
+> If you don't specify a storage class for backups, the deployment uses the storage class specified for data. If this storage class isn't RWX capable, the point-in-time restore may not work as desired.
 
 The table below lists the paths inside the Azure SQL Managed Instance container that is mapped to the persistent volume for data and logs:
 
-|Parameter name, short name|Path inside mssql-miaa container|Description|
+|Parameter name, short name|Path inside `mssql-miaa` container|Description|
 |---|---|---|
 |`--storage-class-data`, `-d`|/var/opt|Contains directories for the mssql installation and other system processes. The mssql directory contains default data (including transaction logs), error log & backup directories|
 |`--storage-class-logs`, `-g`|/var/log|Contains directories that store console output (stderr, stdout), other logging information of processes inside the container|
@@ -199,7 +203,8 @@ If there are multiple databases on a given database instance, all of the databas
 
 Important factors to consider when choosing a storage class for the database instance pods:
 
-- Database instances can be deployed in either a single pod pattern or a multiple pod pattern. An example of a single pod pattern is a general purpose pricing tier Azure SQL managed instance. An example of a multiple pod pattern is a highly available business critical pricing tier Azure SQL managed instance. Database instances deployed with the single pod pattern **must** use a remote, shared storage class in order to ensure data durability and so that if a pod or node dies that when the pod is brought back up it can connect again to the persistent volume. In contrast, a highly available Azure SQL managed instance uses Always On Availability Groups to replicate the data from one instance to another either synchronously or asynchronously. Especially in the case where the data is replicated synchronously, there is always multiple copies of the data - typically three copies. Because of this, it is possible to use local storage or remote, shared storage classes for data and log files. If utilizing local storage, the data is still preserved even in the case of a failed pod, node, or storage hardware because there are multiple copies of the data. Given this flexibility, you might choose to use local storage for better performance.
+- Starting with the February, 2022 release of Azure Arc data services, you need to specify a **ReadWriteMany** (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes). If no storage class is specified for backups, the default storage class in kubernetes is used and if this is not RWX capable, an Azure SQL managed instance deployment may not succeed.
+- Database instances can be deployed in either a single pod pattern or a multiple pod pattern. An example of a single pod pattern is a General Purpose pricing tier Azure SQL managed instance. An example of a multiple pod pattern is a highly available Business Critical pricing tier Azure SQL managed instance. Database instances deployed with the single pod pattern **must** use a remote, shared storage class in order to ensure data durability and so that if a pod or node dies that when the pod is brought back up it can connect again to the persistent volume. In contrast, a highly available Azure SQL managed instance uses Always On Availability Groups to replicate the data from one instance to another either synchronously or asynchronously. Especially in the case where the data is replicated synchronously, there is always multiple copies of the data - typically three copies. Because of this, it is possible to use local storage or remote, shared storage classes for data and log files. If utilizing local storage, the data is still preserved even in the case of a failed pod, node, or storage hardware because there are multiple copies of the data. Given this flexibility, you might choose to use local storage for better performance.
 - Database performance is largely a function of the I/O throughput of a given storage device. If your database is heavy on reads or heavy on writes, then you should choose a storage class with hardware designed for that type of workload. For example, if your database is mostly used for writes, you might choose local storage with RAID 0. If your database is mostly used for reads of a small amount of "hot data", but there is a large overall storage volume of cold data, then you might choose a SAN device capable of tiered storage. Choosing the right storage class is not any different than choosing the type of storage you would use for any database.
 - If you are using a local storage volume provisioner, ensure that the local volumes that are provisioned for data, logs, and backups are each landing on different underlying storage devices to avoid contention on disk I/O. The OS should also be on a volume that is mounted to a separate disk(s). This is essentially the same guidance as would be followed for a database instance on physical hardware.
 - Because all databases on a given instance share a persistent volume claim and persistent volume, be sure not to colocate busy database instances on the same database instance. If possible, separate busy databases on to their own database instances to avoid I/O contention. Further, use node label targeting to land database instances onto separate nodes so as to distribute overall I/O traffic across multiple nodes. If you are using virtualization, be sure to consider distributing I/O traffic not just at the node level but also the combined I/O activity happening by all the node VMs on a given physical host.

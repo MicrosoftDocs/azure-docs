@@ -3,7 +3,7 @@ title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save you money with your enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 02/08/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -24,7 +24,10 @@ We’ll issue a partial refund when EA customers return reservations that were p
 
 The refund will be displayed in the EA portal as a negative adjustment in the previous month and a positive adjustment in the current month. It will show up similarly to a reservations exchange. The credit memo will reference the original invoice number; therefore, to reconcile the initial purchase with the credit memo, please refer to the original invoice number.
 
-Direct Enterprise customer can view the refund details in Azure portal. Navigate to **Reservation transactions** menu to view reservation refund.
+Direct Enterprise customers can view the refund details in the Azure portal. To view refunds:
+
+1. Navigate to **Cost Management + Billing** > select a billing scope > in the left menu under **Billing**, select  **Reservation transactions** menu. 
+1. In the list of reservation transactions, you'll see entries under **Type** labeled with `Refund`.
 
 ## Reservation costs and usage
 
@@ -43,7 +46,7 @@ For information about pricing, see [Linux Virtual Machines Pricing](https://azur
 
 ### Reservation prices
 
-Any reservation discounts that your organization might have negotiated are not shown in the EA portal price sheet. Previously, the discounted rates were available in the EA portal, however that functionality was removed. If you’ve negotiated reduced reservation prices, currently the only way to get a list of them is to create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Any reservation discounts that your organization might have negotiated are not shown in the EA portal price sheet. Previously, the discounted rates were available in the EA portal, however that functionality was removed. If you’ve negotiated reduced reservation prices, currently the only way to view the discounted prices is in the purchase reservation purchase experience.
 
 The prices for reservations are not necessarily the same between retail rates and EA. They could be the same, but if you’ve negotiated a discount, the rates will differ.
 

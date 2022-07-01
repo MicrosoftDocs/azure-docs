@@ -158,5 +158,4 @@ When you are finished with this quickstart, delete the file from the file system
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Best practices for an app](../luis-concept-best-practices.md)
+[Best practices for an app](../luis-concept-best-practices.md)

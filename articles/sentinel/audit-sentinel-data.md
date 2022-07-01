@@ -1,18 +1,8 @@
 ---
 title: Audit Microsoft Sentinel queries and activities | Microsoft Docs
 description: This article describes how to audit queries and activities performed in Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
@@ -99,7 +89,7 @@ Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../a
 |**Created**     |Alert rules <br> Case comments <br>Incident comments <br>Saved searches<br>Watchlists    <br>Workbooks     |
 |**Deleted**     |Alert rules <br>Bookmarks <br>Data connectors <br>Incidents <br>Saved searches <br>Settings <br>Threat intelligence reports <br>Watchlists      <br>Workbooks <br>Workflow  |
 |**Updated**     |  Alert rules<br>Bookmarks <br> Cases <br> Data connectors <br>Incidents <br>Incident comments <br>Threat intelligence reports <br> Workbooks <br>Workflow       |
-|     |         |
+
 
 You can also use the Azure Activity logs to check for user authorizations and licenses.
 
@@ -125,7 +115,7 @@ For example, the following table lists selected operations found in Azure Activi
 |Update data connectors |Microsoft.SecurityInsights/dataConnectors|
 |Delete data connectors |Microsoft.SecurityInsights/dataConnectors|
 |Update settings |Microsoft.SecurityInsights/settings|
-| | |
+
 
 For more information, see [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md).
 
@@ -229,7 +219,7 @@ Use Microsoft Sentinel's own features to monitor events and actions that occur w
 
   For more information, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md).
 
-- **Watch for ingestion delay**.  If you have concerns about ingestion delay, [set a variable in an analytics rule](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851) to represent the delay.
+- **Watch for ingestion delay**.  If you have concerns about ingestion delay, [set a variable in an analytics rule](ingestion-delay.md) to represent the delay.
 
   For example, the following analytics rule can help to ensure that results don't include duplicates, and that logs aren't missed when running the rules:
 

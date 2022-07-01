@@ -2,7 +2,7 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/09/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -29,10 +29,8 @@ Before you restore a database, note the following:
 - If you have multiple instances running on a server, all the instances should be up and running. Otherwise the server won't appear in the list of destination servers for you to restore the database to. For more information, refer to [the troubleshooting steps](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
-- Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
-  - The value for **-m** is the name of the client.
-  - Only the specified client name can open the connection.
-- For all system databases (model, master, msdb), stop the SQL Server Agent service before you trigger the restore.
+- We strongly recommended to restore the "master" database using the [Restore as files](#restore-as-files) option and then restore [using T-SQL commands](/sql/relational-databases/backup-restore/restore-the-master-database-transact-sql).
+- For all system databases (model, msdb), stop the SQL Server Agent service before you trigger the restore.
 - Close any applications that might try to take a connection to any of these databases.
 
 ## Restore a database
@@ -105,7 +103,7 @@ Restore as follows:
 To restore the backup data as .bak files instead of a database, choose **Restore as Files**. Once the files are dumped to a specified path, you can take these files to any machine where you want to restore them as a database. Since you can move these files around to any machine, you can now restore the data across subscriptions and regions.
 
 1. Under **Where and how to Restore**, select **Restore as files**.
-1. elect the SQL Server name to which you want to restore the backup files.
+1. Select the SQL Server name to which you want to restore the backup files.
 1. In the **Destination path on the server** input the folder path on the server selected in step 2. This is the location where the service will dump all the necessary backup files. Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.<BR>
 
    >[!Note]
@@ -162,7 +160,7 @@ As one of the restore options, Cross Region Restore (CRR) allows you to restore 
 
 To onboard to the feature, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
-To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore)
 
 ### View backup items in secondary region
 

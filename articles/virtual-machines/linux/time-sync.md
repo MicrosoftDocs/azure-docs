@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/03/2021
+ms.date: 05/04/2022
 ms.author: cynthn
 ---
 
@@ -19,7 +19,7 @@ Time sync is important for security and event correlation. Sometimes it is used 
 Azure is backed by infrastructure running Windows Server 2016. Windows Server 2016 has improved algorithms used to correct time and condition the local clock to synchronize with UTC.  The Windows Server 2016 Accurate Time feature greatly improved how the VMICTimeSync service that governs VMs with the host for accurate time. Improvements include more accurate initial time on VM start or VM restore and interrupt latency correction. 
 
 > [!NOTE]
-> For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
+> For a quick overview of Windows Time service, take a look at this [high-level overview video](/shows/).
 >
 > For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
@@ -53,10 +53,7 @@ Historically, most Azure Marketplace images with Linux have been configured in o
 
 To confirm ntpd is synchronizing correctly, run the `ntpq -p` command.
 
-Starting in early calendar 2021, the most current Azure Marketplace images with Linux are being changed to use chronyd as the time sync service,
-and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize
-against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source
-over the public internet.
+Some Azure Marketplace images with Linux are being changed to use chronyd as the time sync service, and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source over the public internet.
 
 The VMICTimeSync is used in parallel and provides two functions:
 - Immediately updates the Linux VM time-of-day clock after a host maintenance event
@@ -103,17 +100,14 @@ cat /sys/class/ptp/ptp0/clock_name
 
 This should return `hyperv`, meaning the Azure host.
 
-In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device.
-Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be /dev/ptp0 or it might be /dev/ptp1, which makes
-it difficult to configure chronyd with the correct clock source. To solve this problem, the most recent Linux images have a udev rule that creates the
-symlink /dev/ptp_hyperv to whichever /dev/ptp entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of /dev/ptp0 or /dev/ptp1.
+In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device. Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be `/dev/ptp0` or it might be `/dev/ptp1`, which makes it difficult to configure `chronyd` with the correct clock source. To solve this problem, the most recent Linux images have a `udev` rule that creates the symlink `/dev/ptp_hyperv` to whichever `/dev/ptp` entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of `/dev/ptp0` or `/dev/ptp1`.
 
 ### chrony
 
 On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
 
 ```bash
-refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0 stratum 2
+refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0 stratum 2
 ```
 
 If the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
@@ -145,5 +139,3 @@ On SUSE and Ubuntu releases before 19.10, time sync is configured using [systemd
 ## Next steps
 
 For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time).
-
-

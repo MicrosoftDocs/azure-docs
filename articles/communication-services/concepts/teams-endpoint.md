@@ -14,10 +14,9 @@ ms.subservice: teams-interop
 ---
 # Build a custom Teams endpoint
 
-> [!IMPORTANT]
-> To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
+[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
-You can use Azure Communication Services to build custom Teams endpoints to communicate with the Microsoft Teams client or other custom Teams endpoints. With a custom Teams endpoint, you can customize a voice, video, chat, and screen-sharing experience for Teams users.
+You can use Azure Communication Services and Graph API to build custom Teams endpoints to communicate with the Microsoft Teams client or other custom Teams endpoints. With a custom Teams endpoint, you can customize a voice, video, chat, and screen-sharing experience for Teams users.
 
 You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) access tokens of Teams users for Communication Identity access tokens. The diagrams in the next sections demonstrate multitenant use cases, where fictional company Fabrikam is the customer of fictional company Contoso.
 
@@ -39,7 +38,7 @@ Optionally, you can also use custom Teams endpoints to integrate chat capabiliti
 
 |   Permission    |  Display string   |  Description | Admin consent required | Microsoft account supported |
 |:--- |:--- |:--- |:--- |:--- |
-| _`https://auth.msft.communication.azure.com/VoIP`_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
+| _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
 
 ### Application permissions
 
@@ -48,8 +47,10 @@ None.
 ### Roles for granting consent on behalf of a company
 
 - Global admin
-- Application admin (only in private preview)
-- Cloud application admin (only in private preview)
+- Application admin
+- Cloud application admin
+
+Find more details in [Azure Active Directory documentation](../../active-directory/roles/permissions-reference.md).
 
 ## Next steps
 

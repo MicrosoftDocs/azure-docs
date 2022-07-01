@@ -77,7 +77,7 @@ To reenable automatic deletions, use Azure REST API or Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az feature register](/cli/azure/feature#az_feature_register).
+For Azure CLI, use [az feature register](/cli/azure/feature#az-feature-register).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -89,7 +89,7 @@ To see the current status of your subscription, use:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az_feature_unregister).
+To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az-feature-unregister).
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming

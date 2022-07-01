@@ -1,10 +1,10 @@
 ---
 title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
-description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
+description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 06/14/2022
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
@@ -12,7 +12,7 @@ ms.custom: contperf-fy21q2
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer files.
+AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 
 > [!NOTE]
 > AzCopy **V10** is the currently supported version of AzCopy.
@@ -28,9 +28,12 @@ First, download the AzCopy V10 executable file to any directory on your computer
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [Linux ARM64 Preview](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
+
+For detailed information on AzCopy releases see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
@@ -60,11 +63,6 @@ Use this table as a guide:
 #### Option 1: Use Azure Active Directory
 
 This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.
-
-> [!NOTE]
-> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](#transfer-data).
-
-To authorize access by using Azure AD, see [Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 
 #### Option 2: Use a SAS token
 
@@ -125,10 +123,10 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy jobs remove](storage-ref-azcopy-jobs-remove.md?toc=/azure/storage/blobs/toc.json)|Remove all files associated with the given job ID.|
 |[azcopy jobs resume](storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json)|Resumes the existing job with the given job ID.|
 |[azcopy jobs show](storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json)|Shows detailed information for the given job ID.|
-|[azcopy load](storage-ref-azcopy-load.md)|Subcommands related to transferring data in specific formats.|
-|[azcopy load clfs](storage-ref-azcopy-load-avere-cloud-file-system.md?toc=/azure/storage/blobs/toc.json)|Transfers local data into a Container and stores it in Microsoft's Avere Cloud FileSystem (CLFS) format.|
+|[azcopy jobs](storage-ref-azcopy-jobs.md?toc=/azure/storage/blobs/toc.json)|Subcommands related to managing jobs.|
 |[azcopy list](storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json)|Lists the entities in a given resource.|
 |[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Azure Active Directory to access Azure Storage resources.|
+|[azcopy login status](storage-ref-azcopy-login-status.md)|Lists the entities in a given resource.|
 |[azcopy logout](storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json)|Logs the user out and terminates access to Azure Storage resources.|
 |[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|Creates a container or file share.|
 |[azcopy remove](storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json)|Delete blobs or files from an Azure storage account.|
@@ -150,7 +148,9 @@ To obtain the link, run this command:
 | Operating system  | Command |
 |--------|-----------|
 | **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
+| **Windows (PowerShell Core 7)** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue -SkipHttpErrorCheck).headers.location[0]` |
+| **Windows (PowerShell 5.1)** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue ).headers.location` |
+
 
 > [!NOTE]
 > For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
@@ -190,7 +190,9 @@ See any of the following resources:
 
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
 
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
 
 ## Use a previous version
 

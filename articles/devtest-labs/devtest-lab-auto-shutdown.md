@@ -2,6 +2,8 @@
 title: Configure auto shutdown policy for labs and virtual machines
 description: Learn how to set auto shutdown schedules and policies for Azure DevTest Labs or for individual virtual machines (VMs) to shut down the VMs at a specific time daily.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 11/01/2021
 ---
 
@@ -228,4 +230,4 @@ Now you can copy the webhook URL. Select the **When an HTTP request is received*
 
 - [Auto startup lab virtual machines](devtest-lab-auto-startup-vm.md)
 - [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md)
-- [Receive and respond to inbound HTTPS requests in Azure Logic Apps](/azure/connectors/connectors-native-reqres)
+- [Receive and respond to inbound HTTPS requests in Azure Logic Apps](../connectors/connectors-native-reqres.md)

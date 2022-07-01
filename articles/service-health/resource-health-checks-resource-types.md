@@ -2,7 +2,7 @@
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 ms.topic: conceptual
-ms.date: 07/05/2021
+ms.date: 12/07/2021
 ---
 
 # Resource types and health checks in Azure resource health
@@ -189,6 +189,12 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are the load balancing endpoints available?</li></ul>|
 
+
+## Microsoft.network/natGateways
+|Executed Checks|
+|---|
+|<ul><li>Are the NAT gateway endpoints available?</li></ul>|
+
 ## Microsoft.network/trafficmanagerprofiles
 |Executed Checks|
 |---|
@@ -237,7 +243,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.SQL/servers/databases
 |Executed Checks|
 |---|
-|<ul><li>Have there been logins to the database?</li></ul>|
+|<ul><li>Have login attempts to the database failed because the database was unavailable?</li></ul>|
 
 ## Microsoft.Storage/storageAccounts
 |Executed Checks|

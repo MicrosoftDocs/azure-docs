@@ -4,14 +4,13 @@ description: This article discusses best practices to consider during the releas
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 06/15/2022
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -29,7 +28,7 @@ The focus of the release phase is readying a project for public release. This in
 
 ### Check your application’s performance before you launch
 
-Check your application's performance before you launch it or deploy updates to production. Run cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) by using Visual Studio to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
+Check your application's performance before you launch it or deploy updates to production. Use Azure Load Testing to run cloud-based [load tests](/azure/load-testing/) to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
 
 ### Install a web application firewall
 

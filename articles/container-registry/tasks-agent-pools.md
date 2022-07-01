@@ -65,6 +65,7 @@ Create an agent pool by using the [az acr agentpool create][az-acr-agentpool-cre
 
 ```azurecli
 az acr agentpool create \
+    --registry MyRegistry \
     --name myagentpool \
     --tier S2
 ```
@@ -78,6 +79,7 @@ Scale the pool size up or down with the [az acr agentpool update][az-acr-agentpo
 
 ```azurecli
 az acr agentpool update \
+    --registry MyRegistry \
     --name myagentpool \
     --count 2
 ```
@@ -106,12 +108,13 @@ The following example creates an agent pool in the *mysubnet* subnet of network 
 ```azurecli
 # Get the subnet ID
 subnetId=$(az network vnet subnet show \
-        --resource-grop myresourcegroup \
+        --resource-group myresourcegroup \
         --vnet-name myvnet \
         --name mysubnetname \
         --query id --output tsv)
 
 az acr agentpool create \
+    --registry MyRegistry \
     --name myagentpool \
     --tier S2 \
     --subnet-id $subnetId
@@ -131,6 +134,7 @@ Queue a quick task on the agent pool by using the [az acr build][az-acr-build] c
 
 ```azurecli
 az acr build \
+    --registry MyRegistry \
     --agent-pool myagentpool \
     --image myimage:mytag \
     --file Dockerfile \
@@ -143,6 +147,7 @@ For example, create a scheduled task on the agent pool with [az acr task create]
 
 ```azurecli
 az acr task create \
+    --registry MyRegistry \
     --name mytask \
     --agent-pool myagentpool \
     --image myimage:mytag \
@@ -156,6 +161,7 @@ To verify task setup, run [az acr task run][az-acr-task-run]:
 
 ```azurecli
 az acr task run \
+    --registry MyRegistry \
     --name mytask
 ```
 
@@ -165,6 +171,7 @@ To find the number of runs currently scheduled on the agent pool, run [az acr ag
 
 ```azurecli
 az acr agentpool show \
+    --registry MyRegistry \
     --name myagentpool \
     --queue-count
 ```

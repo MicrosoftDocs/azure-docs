@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Trelica | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Trelica'
 description: Learn how to configure single sign-on between Azure Active Directory and Trelica.
 services: active-directory
 author: jeevansd
@@ -9,21 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/06/2020
+ms.date: 02/16/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Trelica
+# Tutorial: Azure AD SSO integration with Trelica
 
-In this tutorial, you learn how to integrate Trelica with Azure Active Directory (Azure AD).
-
-With this integration, you can:
+In this tutorial, you learn how to integrate Trelica with Azure Active Directory (Azure AD). When you integrate Trelica with Azure AD, you can:
 
 * Control in Azure AD who has access to Trelica.
 * Enable your users to be automatically signed in to Trelica with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
-
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -38,24 +34,26 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Trelica supports IDP-initiated SSO.
 * Trelica supports just-in-time user provisioning.
-* After you configure Trelica, you can enforce session control. This control protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
-## Adding Trelica from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add Trelica from the gallery
 
 To configure the integration of Trelica into Azure AD, you need to add Trelica from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
 1. On the leftmost navigation pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, enter **Trelica** in the search box.
 1. Select **Trelica** from the search results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Trelica
+## Configure and test Azure AD SSO for Trelica
 
 Configure and test Azure AD SSO with Trelica by using a test user called **B.Simon**. For SSO to work, you must establish a linked relationship between an Azure AD user and the related user in Trelica.
 
-To configure and test Azure AD SSO with Trelica, complete the following building blocks:
+To configure and test Azure AD SSO with Trelica, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
@@ -68,17 +66,18 @@ To configure and test Azure AD SSO with Trelica, complete the following building
 
 Follow these steps to enable Azure AD SSO in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Trelica** application integration page, go to the **Manage** section. Select **Single sign-on**.
+1. In the Azure portal, on the **Trelica** application integration page, go to the **Manage** section. Select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![The Set up Single Sign-On with SAML page, with the pencil icon for Basic SAML Configuration highlighted](common/edit-urls.png)
 
-1. On the **Set up Single Sign-on with SAML** page, enter the following values:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    1. In the **Identifier** box, enter the URL **https://app.trelica.com**.
+    1. In the **Identifier** box, type the URL:
+    `https://app.trelica.com`.
 
-    1. In the **Reply URL** box, enter a URL having the pattern
+    1. In the **Reply URL** box, type a URL using the following pattern:
     `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
 
 	> [!NOTE]
@@ -109,13 +108,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **Trelica**.
 1. In the app's overview page, go to the **Manage** section, and select **Users and groups**.
-
-   ![The Manage section, with Users and groups highlighted](common/users-groups-blade.png)
-
 1. Select **Add user**. In the **Add Assignment** dialog box, select **Users and groups**.
-
-   ![The Users and groups window, with Add user highlighted](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog box, select **B.Simon** from the users list. Then choose the **Select** button at the bottom of the screen.
 1. If you expect any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then choose the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
@@ -132,20 +125,12 @@ Trelica supports just-in-time user provisioning, which is enabled by default. Th
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-When you select the Trelica tile in the My Apps portal, you're automatically signed in to the Trelica for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Click on Test this application in Azure portal and you should be automatically signed in to the Trelica for which you set up the SSO.
 
-## Additional resources
+* You can use Microsoft My Apps. When you click the Trelica tile in the My Apps, you should be automatically signed in to the Trelica for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [Tutorials for integrating SaaS apps with Azure Active Directory](./tutorial-list.md)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Trelica with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Trelica with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+Once you configure Trelica you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 02/08/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,13 +17,15 @@ ms.collection: M365-identity-device-management
 ---
 # How SSO to on-premises resources works on Azure AD joined devices
 
-It is probably not a surprise that an Azure Active Directory (Azure AD) joined device gives you a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has an on-premises Active Directory (AD), you can also get SSO experience on Azure AD joined devices to resources and applications that rely on on-premises AD. 
+It's probably not a surprise that an Azure Active Directory (Azure AD) joined device gives you a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has on-premises Active Directory Domain Services (AD DS), you can also get SSO experience on Azure AD joined devices to resources and applications that rely on on-premises AD. 
 
 This article explains how this works.
 
 ## Prerequisites
 
-On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers. If Azure AD joined devices are not connected to your organization's network, a VPN or other network infrastructure is required. 
+- An [Azure AD joined device](concept-azure-ad-join.md).
+- On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers. If Azure AD joined devices aren't connected to your organization's network, a VPN or other network infrastructure is required. 
+- Azure AD Connect: To synchronize default user attributes like SAM Account Name, Domain Name, and UPN. For more information, see the article [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
 
 ## How it works 
 
@@ -31,15 +33,19 @@ With an Azure AD joined device, your users already have an SSO experience to the
 
 Azure AD joined devices have no knowledge about your on-premises AD environment because they aren't joined to it. However, you can provide additional information about your on-premises AD to these devices with Azure AD Connect.
 
-If you have a hybrid environment, with both Azure AD and on-premises AD, it is likely that you already have Azure AD Connect or Azure AD Connect cloud sync deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
+If you have a hybrid environment, with both Azure AD and on-premises AD, it's likely that you already have Azure AD Connect or Azure AD Connect cloud sync deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
 
 1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token](concept-primary-refresh-token.md)
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
 
->[!NOTE]
-> Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
+> [!NOTE]
+> Additional configuration is required when passwordless authentication to Azure AD joined devices is used.
 >
-> FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 
+> For FIDO2 security key based passwordless authentication and Windows Hello for Business Hybrid Cloud Trust, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md).
+> 
+> For Windows Hello for Business Hybrid Key Trust, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base).
+> 
+> For Windows Hello for Business Hybrid Certificate Trust, see [Using Certificates for AADJ On-premises Single-sign On](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-cert). 
 
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
@@ -55,7 +61,7 @@ With SSO, on an Azure AD joined device you can:
 - Access a UNC path on an AD member server
 - Access an AD member web server configured for Windows-integrated security 
 
-If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools for Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
+If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools](https://www.microsoft.com/download/details.aspx?id=45520).
 
 You can use:
 
@@ -64,11 +70,11 @@ You can use:
  
 ## What you should know
 
-You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized.
-
-Apps and resources that depend on Active Directory machine authentication don't work because Azure AD joined devices don't have a computer object in AD. 
-
-You can't share files with other users on an Azure AD-joined device.
+- You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized if you have multiple domains.
+- Apps and resources that depend on Active Directory machine authentication don't work because Azure AD joined devices don't have a computer object in AD. 
+- You can't share files with other users on an Azure AD-joined device.
+- Applications running on your Azure AD joined device may authenticate users. They must use the implicit UPN or the NT4 type syntax with the domain FQDN name as the domain part, for example: user@contoso.corp.com or contoso.corp.com\user.
+   - If applications use the NETBIOS or legacy name like contoso\user, the errors the application gets would be either, NT error STATUS_BAD_VALIDATION_CLASS - 0xc00000a7, or Windows error ERROR_BAD_VALIDATION_CLASS - 1348 “The validation information class requested was invalid.” This happens even if you can resolve the legacy domain name.
 
 ## Next steps
 

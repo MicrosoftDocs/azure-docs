@@ -1,12 +1,14 @@
 ---
 title: Write stored procedures and triggers using the JavaScript query API in Azure Cosmos DB 
 description: Learn how to write stored procedures and triggers using the JavaScript Query API in Azure Cosmos DB 
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 
@@ -82,10 +84,10 @@ See the following articles to learn about stored procedures, triggers, and user-
 
 * [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [How to register and use stored procedures in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures)
+* [How to register and use stored procedures in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-stored-procedures)
 
-* How to register and use [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) in Azure Cosmos DB
+* How to register and use [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) in Azure Cosmos DB
 
-* [How to register and use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs)
+* [How to register and use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#how-to-work-with-user-defined-functions)
 
 * [Synthetic partition keys in Azure Cosmos DB](synthetic-partition-keys.md)

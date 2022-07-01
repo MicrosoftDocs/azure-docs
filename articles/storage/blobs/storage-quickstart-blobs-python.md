@@ -7,6 +7,7 @@ ms.date: 01/28/2021
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
+ms.devlang: python
 ms.custom: devx-track-python, mode-api
 ---
 
@@ -45,12 +46,6 @@ Create a Python application named *blob-quickstart-v12*.
 
     ```console
     cd blob-quickstart-v12
-    ```
-
-1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This directory is where the blob data files will be created and stored.
-
-    ```console
-    mkdir data
     ```
 
 ### Install the package

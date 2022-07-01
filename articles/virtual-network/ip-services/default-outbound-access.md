@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 03/02/2022
 ms.author: allensu
 ---
 
@@ -22,6 +22,8 @@ Examples of explicit outbound connectivity are virtual machines:
 * In the backend pool of basic public load balancer.
 * Virtual machines with public IP addresses explicitly associated to them.
 
+:::image type="content" source="./media/default-outbound-access/explicit-outbound-options.png" alt-text="Diagram of explicit outbound options.":::
+
 ## How is default outbound access provided?
 
 The public IPv4 address used for the access is called the default outbound access IP. This IP is implicit and belongs to Microsoft. This IP address is subject to change and it's not recommended to depend on it for production workloads.
@@ -29,6 +31,9 @@ The public IPv4 address used for the access is called the default outbound acces
 ## When is default outbound access provided?
 
 If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
+
+:::image type="content" source="./media/default-outbound-access/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
+
 ## Why is disabling default outbound access recommended?
 
 * Secure by default
@@ -63,9 +68,10 @@ There are multiple ways to turn off default outbound access:
 
 NAT gateway is the recommended approach to have explicit outbound connectivity. A firewall can also be used to provide this access.
 
-## Limitations
+## Constraints
 
 * Connectivity maybe needed for Windows Updates.
+
 * Default outbound access IP doesn't support fragmented packets. 
 
 ## Next steps

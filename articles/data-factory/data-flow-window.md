@@ -45,7 +45,7 @@ Lastly, use the Expression Builder to define the aggregations you wish to use wi
 
 :::image type="content" source="media/data-flow/windows7.png" alt-text="Screenshot shows the result of the windowing action.":::
 
-The full list of aggregation and analytical functions available for you to use in the Data Flow Expression Language via the Expression Builder are listed in [Data transformation expressions in mapping data flow](data-flow-expression-functions.md).
+The full list of aggregation and analytical functions available for you to use in the Data Flow Expression Language via the Expression Builder are listed in [Data transformation expressions in mapping data flow](data-transformation-functions.md).
 
 ## Next steps
 

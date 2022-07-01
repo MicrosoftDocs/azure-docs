@@ -80,7 +80,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 5. Check the status of your registration. Registration can take a few minutes to complete. 
 
     ```powershell
-    Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
+    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
     ```
 
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
@@ -129,7 +129,7 @@ These are top scenarios involving combinations of resources, features, and Cloud
 | Service |	Configuration | Comments | 
 |---|---|---|
 | [Azure AD Domain Services](../active-directory-domain-services/migrate-from-classic-vnet.md) | Virtual networks that contain Azure Active Directory Domain services. | Virtual network containing both Cloud Service deployment and Azure AD Domain services is supported. Customer first needs to separately migrate Azure AD Domain services and then migrate the virtual network left only with the Cloud Service deployment |
-| Cloud Service | Cloud Service with a deployment in a single slot only. | Cloud Services containing either a prod or staging slot deployment can be migrated |
+| Cloud Service | Cloud Service with a deployment in a single slot only. | Cloud Services containing a prod slot deployment can be migrated. It is not reccomended to migrate staging slot as this can result in issues with retaining service FQDN |
 | Cloud Service | Deployment not in a publicly visible virtual network (default virtual network deployment) | A Cloud Service can be in a publicly visible virtual network, in a hidden virtual network or not in any virtual network.  Cloud Services in a hidden virtual network and publicly visible virtual networks are supported for migration. Customer can use the Validate API to tell if a deployment is inside a default virtual network or not and thus determine if it can be migrated. |
 |Cloud Service | XML extensions (BGInfo, Visual Studio Debugger, Web Deploy, and Remote Debugging). | All xml extensions are supported for migration 
 | Virtual Network | Virtual network containing multiple Cloud Services.	| Virtual network contain multiple cloud services is supported for migration. The virtual network and all the Cloud Services within it will be migrated together to Azure Resource Manager. |

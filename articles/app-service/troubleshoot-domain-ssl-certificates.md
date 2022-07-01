@@ -15,7 +15,7 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 This article lists common problems that you might encounter when you configure a domain or TLS/SSL certificate for your web apps in Azure App Service. It also describes possible causes and solutions for these problems.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [Microsoft Q & A and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -105,7 +105,7 @@ The custom domain that you configured is missing a CNAME or A record.
 
 **Solution for cause 1**
 
-- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#4-create-the-dns-records).
+- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#3-create-the-dns-records).
 - If you don't have to use the root domain for your app, we recommend that you use a CNAME record instead of an A record.
 - Don't use both a CNAME record and an A record for the same domain. This issue can cause a conflict and prevent the domain from being resolved. 
 
@@ -231,9 +231,7 @@ This problem occurs for one of the following reasons:
 - You're not the subscription owner, so you don't have permission to purchase a domain.
 
     **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or contact the subscription administrator to get permission to purchase a domain.
-- You have reached the limit for purchasing domains on your subscription. The current limit is 20.
 
-    **Solution**: To request an increase to the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Your Azure subscription type does not support the purchase of an App Service domain.
 
     **Solution**: Upgrade your Azure subscription to another subscription type, such as a Pay-As-You-Go subscription.
@@ -265,7 +263,7 @@ This problem occurs for one of the following reasons:
 
 **Do I have to configure my custom domain for my website once I buy it?**
 
-When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. For more information, watch [Azure App Service Self Help: Add a Custom Domain Name](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) on Channel9.
+When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. For more information, watch Azure App Service Self Help: Add a Custom Domain Name on Channel9.
 
 **Can I use a domain purchased in the Azure portal to point to an Azure VM instead?**
 

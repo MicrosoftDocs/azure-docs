@@ -1,38 +1,38 @@
 ---
-title: Autoscale managed online endpoints
+title: Autoscale online endpoints
 titleSuffix:  Azure Machine Learning
-description: Learn to scale up managed endpoints. Get more CPU, memory, disk space, and extra features.
+description: Learn to scale up online endpoints. Get more CPU, memory, disk space, and extra features.
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: seramasu
-author: rsethur
-ms.reviewer: laobri
-ms.custom: devplatv2
-ms.date: 11/03/2021
+author: dem108
+ms.author: sehan
+ms.reviewer: larryfr
+ms.custom: devplatv2, cliv2, event-tier1-build-2022
 
+ms.date: 04/27/2022
 ---
-# Autoscale a managed online endpoint (preview)
+# Autoscale an online endpoint
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
+Autoscale automatically runs the right amount of resources to handle the load on your application. [Online endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
 
-Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](/azure-monitor/autoscale/autoscale-overview.md).
+Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
 
 :::image type="content" source="media/how-to-autoscale-endpoints/concept-autoscale.png" alt-text="Diagram for autoscale adding/removing instance as needed":::
 
 Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the browser-based Azure portal. Other Azure ML SDKs, such as the Python SDK, will add support over time.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+## Prerequisites
 
-## Prerequisites 
-
-* A deployed endpoint. [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md). 
+* A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md). 
 
 ## Define an autoscale profile
 
 To enable autoscale for an endpoint, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. The following example sets the default and minimum capacity as two VM instances, and the maximum capacity as five:
 
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The following snippet sets the endpoint and deployment names:
 
@@ -47,7 +47,7 @@ The following snippet creates the autoscale profile:
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="create_autoscale_profile" :::
 
 > [!NOTE]
-> For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+> For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale)
 
 # [Portal](#tab/azure-portal)
 
@@ -75,6 +75,8 @@ Under __Choose how to scale your resources__, select __Custom autoscale__ to beg
 A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following example will allocate two more nodes (up to the maximum) if the CPU average a load of greater than 70% for five minutes::
 
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
 
@@ -104,6 +106,8 @@ When load is light, a scaling in rule can reduce the number of VM instances. The
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
 
 # [Portal](#tab/azure-portal)
@@ -131,6 +135,8 @@ The previous rules applied to the deployment. Now, add a rule that applies to th
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
 
 # [Portal](#tab/azure-portal)
@@ -157,6 +163,8 @@ You can also create rules that apply only on certain days or at certain times. I
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
 
 # [Portal](#tab/azure-portal)
@@ -176,13 +184,15 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 
 If you are not going to use your deployments, delete them:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="delete_endpoint" :::
 
 ## Next steps
 
 To learn more about autoscale with Azure Monitor, see the following articles:
 
-- [Understand autoscale settings](/autoscale/autoscale-understand-settings)
-- [Overview of common autoscale patterns](/autoscale/autoscale-common-scale-patterns)
-- [Best practices for autoscale](/autoscale/autoscale-best-practices)
-- [Troubleshooting Azure autoscale](/autoscale/autoscale-troubleshoot)
+- [Understand autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md)
+- [Overview of common autoscale patterns](../azure-monitor/autoscale/autoscale-common-scale-patterns.md)
+- [Best practices for autoscale](../azure-monitor/autoscale/autoscale-best-practices.md)
+- [Troubleshooting Azure autoscale](../azure-monitor/autoscale/autoscale-troubleshoot.md)

@@ -1,15 +1,16 @@
 ---
 title: "Quickstart: Create and use learning loop with SDK - Personalizer"
 description: This quickstart shows you how to create and manage your knowledge base using the Personalizer client library.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/27/2020
-ms.custom: cog-serv-seo-aug-2020
-keywords: personalizer, Azure personalizer, machine learning 
+ms.devlang: csharp, javascript, python
+ms.custom: cog-serv-seo-aug-2020, mode-api
+keywords: personalizer, Azure personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
 ---
 

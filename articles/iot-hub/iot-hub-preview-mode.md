@@ -2,11 +2,11 @@
  title: Turn on preview mode for Azure IoT Hub
  description: Learn how to turn on preview mode for IoT Hub, why you would want to, and some warnings
  services: iot-hub
- author: jlian
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: conceptual
  ms.date: 11/24/2020
- ms.author: jlian
+ ms.author: kgremban
 ---
 
 # Turn on preview mode for IoT Hub to try select new features

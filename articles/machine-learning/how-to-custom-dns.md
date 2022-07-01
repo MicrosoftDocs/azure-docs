@@ -8,9 +8,9 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/29/2021
+ms.date: 06/14/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.custom: contperf-fy21q3, devx-track-azurepowershell, event-tier1-build-2022
 ---
 
 # How to use your workspace with a custom DNS server
@@ -20,16 +20,15 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 > [!IMPORTANT]
 > This article covers how to find the fully qualified domain names (FQDN) and IP addresses for these entries if you would like to manually register DNS records in your DNS solution. Additionally this article provides architecture recommendations for how to configure your custom DNS solution to automatically resolve FQDNs to the correct IP addresses. This article does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
 
-> [!WARNING]
-> If you use a private endpoint for other Azure services that the machine learning workspace relies on, such as Azure Storage, Azure Key Vault, or Azure Container Registry. You must also create DNS entries or use a conditional forwarder for these services. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
-
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * For securing inference, see the following documents:
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 ## Prerequisites
@@ -66,33 +65,34 @@ Access to a given Azure Machine Learning workspace via Private Link is done by c
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.azureml.ms```
 - ```<compute instance name>.<region the workspace was created in>.instances.azureml.ms```
-- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.azure.net```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.azure.net```
+- ```*.<per-workspace globally-unique identifier>.inference.<region the workspace was created in>.api.azureml.ms``` - Used by managed online endpoints
 
 **Azure China 21Vianet regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.cn```
-- ```<compute instance name>.<region the workspace was created in>.instances.ml.azure.cn```
-- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.chinacloudapi.cn```
+- ```<compute instance name>.<region the workspace was created in>.instances.azureml.cn```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.chinacloudapi.cn```
 
 **Azure US Government regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.us```
-- ```<compute instance name>.<region the workspace was created in>.instances.ml.azure.us```
-- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.usgovcloudapi.net```
+- ```<compute instance name>.<region the workspace was created in>.instances.azureml.us```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.usgovcloudapi.net```
 
 The Fully Qualified Domains resolve to the following Canonical Names (CNAMEs) called the workspace Private Link FQDNs:
 
 **Azure Public regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.azureml.ms```
-- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.azure.net```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.privatelink.notebooks.azure.net```
 
 **Azure China regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.cn```
-- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.chinacloudapi.cn```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.privatelink.notebooks.chinacloudapi.cn```
 
 **Azure US Government regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.us```
-- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.usgovcloudapi.net```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.privatelink.notebooks.usgovcloudapi.net```
 
 The FQDNs resolve to the IP addresses of the Azure Machine Learning workspace in that region. However, resolution of the workspace Private Link FQDNs can be overridden by using a custom DNS server hosted in the virtual network. For an example of this architecture, see the [custom DNS server hosted in a vnet](#example-custom-dns-server-hosted-in-vnet) example.
 
@@ -108,7 +108,7 @@ The following list contains the fully qualified domain names (FQDNs) used by you
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.<region>.notebooks.azure.net`
 
     > [!NOTE]
     > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
@@ -118,18 +118,20 @@ The following list contains the fully qualified domain names (FQDNs) used by you
     > * Compute instances can be accessed only from within the virtual network.
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
+* `*.<workspace-GUID>.inference.<region>.api.azureml.ms`
+
 #### Azure China region
 
 The following FQDNs are for Azure China regions:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
 * `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
-* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.<region>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
     > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
     
-* `<instance-name>.<region>.instances.ml.azure.cn`
+* `<instance-name>.<region>.instances.azureml.cn`
 
    * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
@@ -139,11 +141,11 @@ The following FQDNs are for Azure US Government regions:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.us`
 * `<workspace-GUID>.workspace.<region>.api.ml.azure.us`
-* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.usgovcloudapi.net`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.<region>.notebooks.usgovcloudapi.net`
 
     > [!NOTE]
     > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
-* `<instance-name>.<region>.instances.ml.azure.us`
+* `<instance-name>.<region>.instances.azureml.us`
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
 ### Find the IP addresses
@@ -180,7 +182,7 @@ To find the internal IP addresses for the FQDNs in the VNet, use one of the foll
         },
         {
             "FQDNs": [
-            "ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net"
+            "ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.eastus.notebooks.azure.net"
             ],
             "IPAddress": "10.1.0.6"
         }
@@ -213,7 +215,8 @@ The information returned from all methods is the same; a list of the FQDN and pr
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms` | `10.1.0.5` |
-| `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
+| `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.eastus.notebooks.azure.net` | `10.1.0.6` |
+| `mymanagedonlineendpoint.fb7e20a0-8891-458b-b969-55ddb3382f51.inference.eastus.api.azureml.ms` | `10.1.0.7` |
 
 The following table shows example IPs from Azure China regions:
 
@@ -221,7 +224,7 @@ The following table shows example IPs from Azure China regions:
 | ----- | ----- |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.cert.api.ml.azure.cn` | `10.1.0.5` |
-| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
+| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.chinaeast2.notebooks.chinacloudapi.cn` | `10.1.0.6` |
 
 The following table shows example IPs from Azure US Government regions:
 
@@ -229,7 +232,7 @@ The following table shows example IPs from Azure US Government regions:
 | ----- | ----- |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.us` | `10.1.0.5` |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.cert.api.ml.azure.us` | `10.1.0.5` |
-| `ml-mype-plt-usgovvirginia-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.usgovcloudapi.net` | `10.1.0.6` |
+| `ml-mype-plt-usgovvirginia-52882c08-ead2-44aa-af65-08a75cf094bd.usgovvirginia.notebooks.usgovcloudapi.net` | `10.1.0.6` |
 
 <a id='dns-vnet'></a>
 
@@ -241,7 +244,7 @@ Once the list of FQDNs and corresponding IP addresses are gathered, proceed to c
 
 This architecture uses the common Hub and Spoke virtual network topology. One virtual network contains the DNS server and one contains the private endpoint to the Azure Machine Learning workspace and associated resources. There must be a valid route between both virtual networks. For example, through a series of peered virtual networks.
 
-:::image type="content" source="./media/how-to-custom-dns/custom-dns-topology.svg" alt-text="Diagram of custom DNS hosted in Azure topology":::
+:::image type="content" source="./media/how-to-custom-dns/custom-dns-topology.svg" alt-text="Diagram of custom DNS hosted in Azure topology"  lightbox ="./media/how-to-custom-dns/custom-dns-topology-expanded.png":::
 
 The following steps describe how this topology works:
 
@@ -283,17 +286,20 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.ml.azure.ms```
+    - ```instances.azureml.ms```
+    - ```aznbcontent.net```
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
-    - ```instances.ml.azure.cn```
+    - ```instances.azureml.cn```
+    - ```aznbcontent.net```
     
     **Azure US Government regions**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
-    - ```instances.ml.azure.us```
+    - ```instances.azureml.us```
+    - ```aznbcontent.net```
 
     > [!IMPORTANT]
     > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
@@ -305,15 +311,15 @@ The following steps describe how this topology works:
 
     **Azure Public regions**:
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
-    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.azure.net```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.azure.net```
     
     **Azure China regions**:
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
-    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.chinacloudapi.cn```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.chinacloudapi.cn```
     
     **Azure US Government regions**:
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
-    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.usgovcloudapi.net```
 
 5. **Azure DNS recursively resolves workspace domain to CNAME**:
 
@@ -338,7 +344,7 @@ If you cannot access the workspace from a virtual machine or jobs fail on comput
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 
     Navigate to the Azure portal using one of the following links:
-    - [Azure Public regions](https://ms.portal.azure.com/?feature.privateendpointmanagedns=false)
+    - [Azure Public regions](https://portal.azure.com/?feature.privateendpointmanagedns=false)
     - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
@@ -367,7 +373,7 @@ If you cannot access the workspace from a virtual machine or jobs fail on comput
 
 This architecture uses the common Hub and Spoke virtual network topology. ExpressRoute is used to connect from your on-premises network to the Hub virtual network. The Custom DNS server is hosted on-premises. A separate virtual network contains the private endpoint to the Azure Machine Learning workspace and associated resources. With this topology, there needs to be another virtual network hosting a DNS server that can send requests to the Azure DNS Virtual Server IP address.
 
-:::image type="content" source="./media/how-to-custom-dns/custom-dns-express-route.svg" alt-text="Diagram of custom DNS hosted on-premises topology":::
+:::image type="content" source="./media/how-to-custom-dns/custom-dns-express-route.svg" alt-text="Diagram of custom DNS hosted on-premises topology" lightbox ="./media/how-to-custom-dns/custom-dns-express-route-expanded.png" :::
 
 The following steps describe how this topology works:
 
@@ -416,17 +422,20 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.ml.azure.us```     
+    - ```instances.azureml.ms```
+    - ```aznbcontent.net```   
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
-    - ```instances.ml.azure.cn```
+    - ```instances.azureml.cn```
+    - ```aznbcontent.net``` 
 
     **Azure US Government regions**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
-    - ```instances.ml.azure.us```
+    - ```instances.azureml.us```
+    - ```aznbcontent.net``` 
 
     > [!IMPORTANT]
     > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
@@ -440,17 +449,17 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.ml.azure.us```
+    - ```instances.azureml.ms```
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
-    - ```instances.ml.azure.cn```
+    - ```instances.azureml.cn```
     
     **Azure US Government regions**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
-    - ```instances.ml.azure.us```
+    - ```instances.azureml.us```
 
     > [!IMPORTANT]
     > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
@@ -463,15 +472,15 @@ The following steps describe how this topology works:
 
     **Azure Public regions**:
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
-    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.azure.net```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.azure.net```
     
     **Azure China regions**:
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
-    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.chinacloudapi.cn```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.chinacloudapi.cn```
     
     **Azure US Government regions**:
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
-    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.usgovcloudapi.net```
 
 6. **On-premises DNS server recursively resolves workspace domain**:
 
@@ -522,7 +531,8 @@ The following is an example of `hosts` file entries for Azure Machine Learning:
 # For core Azure Machine Learning hosts
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
-10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net
+10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.eastus.notebooks.azure.net
+10.1.0.7    mymanagedonlineendpoint.fb7e20a0-8891-458b-b969-55ddb3382f51.inference.eastus.api.azureml.ms
 
 # For a compute instance named 'mycomputeinstance'
 10.1.0.5    mycomputeinstance.eastus.instances.azureml.ms
@@ -530,14 +540,23 @@ The following is an example of `hosts` file entries for Azure Machine Learning:
 
 For more information on the `hosts` file, see [https://wikipedia.org/wiki/Hosts_(file)](https://wikipedia.org/wiki/Hosts_(file)).
 
-#### Troubleshooting
+## Dependency services DNS resolution
+
+The services that your workspace relies on may also be secured using a private endpoint. If so, then you may need to create a custom DNS record if you need to directly communicate with the service. For example, if you want to directly work with the data in an Azure Storage Account used by your workspace.
+
+> [!NOTE]
+> Some services have multiple private-endpoints for sub-services or features. For example, an Azure Storage Account may have individual private endpoints for Blob, File, and DFS. If you need to access both Blob and File storage, then you must enable resolution for each specific private endpoint.
+
+For more information on the services and DNS resolution, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+## Troubleshooting
 
 If after running through the above steps you are unable to access the workspace from a virtual machine or jobs fail on compute resources in the Virtual Network containing the Private Endpoint to the Azure Machine learning workspace, follow the below steps to try to identify the cause.
 
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 
     Navigate to the Azure portal using one of the following links:
-    - [Azure Public regions](https://ms.portal.azure.com/?feature.privateendpointmanagedns=false)
+    - [Azure Public regions](https://portal.azure.com/?feature.privateendpointmanagedns=false)
     - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
@@ -568,7 +587,9 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* For securing inference, see the following documents:
+    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 

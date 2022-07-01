@@ -4,6 +4,7 @@ description: Understanding the common alert schema definitions for Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 07/20/2021
+ms.reviewer: ofmanor
 ---
 
 # Common alert schema definitions
@@ -11,7 +12,7 @@ ms.date: 07/20/2021
 This article describes the [common alert schema definitions](./alerts-common-schema.md) for Azure Monitor, including those for webhooks, Azure Logic Apps, Azure Functions, and Azure Automation runbooks. 
 
 Any alert instance describes the resource that was affected and the cause of the alert. These instances are described in the common schema in the following sections:
-* **Essentials**: A set of standardized fields, common across all alert types, which describe what resource the alert is on, along with additional common alert metadata (for example, severity or description). Definitions of severity can be found in the [alerts overview](alerts-overview.md#overview). 
+* **Essentials**: A set of standardized fields, common across all alert types, which describe what resource the alert is on, along with additional common alert metadata (for example, severity or description). 
 * **Alert context**: A set of fields that describes the cause of the alert, with fields that vary based on the alert type. For example, a metric alert includes fields like the metric name and metric value in the alert context, whereas an activity log alert has information about the event that generated the alert. 
 
 **Sample alert payload**
@@ -276,18 +277,18 @@ Any alert instance describes the resource that was affected and the cause of the
             ]
           ]
         }
+      ],
+      "dataSources": [
+        {
+          "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+          "tables": [
+            "Heartbeat"
+          ]
+        }
       ]
     },
-    "dataSources": [
-      {
-        "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
-        "tables": [
-          "Heartbeat"
-        ]
-      }
-    ],
-  "IncludedSearchResults": "True",
-  "AlertType": "Metric measurement"
+    "IncludedSearchResults": "True",
+    "AlertType": "Metric measurement"
   }
 }
 ```
@@ -373,14 +374,17 @@ Any alert instance describes the resource that was affected and the cause of the
 ```json
 {
   "alertContext": {
-    "properties": null,
+    "properties": {
+      "name1": "value1",
+      "name2": "value2"
+    },
     "conditionType": "LogQueryCriteria",
     "condition": {
       "windowSize": "PT10M",
       "allOf": [
         {
           "searchQuery": "Heartbeat",
-          "metricMeasure": null,
+          "metricMeasureColumn": "CounterValue",
           "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
           "operator": "LowerThan",
           "threshold": "1",

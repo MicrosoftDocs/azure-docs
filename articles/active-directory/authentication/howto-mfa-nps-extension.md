@@ -6,15 +6,15 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 01/12/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: 
 ---
 # Integrate your existing Network Policy Server (NPS) infrastructure with Azure AD Multi-Factor Authentication
 
@@ -27,7 +27,7 @@ The NPS extension acts as an adapter between RADIUS and cloud-based Azure AD Mul
 When you use the NPS extension for Azure AD Multi-Factor Authentication, the authentication flow includes the following components:
 
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers.
-2. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.  
+2. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.
 3. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
    >[!NOTE]
    >Users must have access to their default authentication method to complete the MFA requirement. They cannot choose an alternative method. Their default authentication method will be used even if it's been disabled in the tenant authentication methods and MFA policies.
@@ -106,6 +106,9 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 The NPS server must be able to communicate with the following URLs over ports 80 and 443:
 
+* *https:\//strongauthenticationservice.auth.microsoft.com*
+* *https:\//strongauthenticationservice.auth.microsoft.us*
+* *https:\//strongauthenticationservice.auth.microsoft.cn*
 * *https:\//adnotifications.windowsazure.com*
 * *https:\//login.microsoftonline.com*
 * *https:\//credentials.azure.com*
@@ -160,6 +163,9 @@ There are two factors that affect which authentication methods are available wit
     > When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
     >
     > Also, regardless of the authentication protocol that's used (PAP, CHAP, or EAP), if your MFA method is text-based (SMS, mobile app verification code, or OATH hardware token) and requires the user to enter a code or text in the VPN client UI input field, the authentication might succeed. *But* any RADIUS attributes that are configured in the Network Access Policy are *not* forwarded to the RADIUS client (the Network Access Device, like the VPN gateway). As a result, the VPN client might have more access than you want it to have, or less access or no access.
+    >
+    > As a workaround, you can run the [CrpUsernameStuffing script](https://github.com/OneMoreNate/CrpUsernameStuffing) to forward RADIUS attributes that are configured in the Network Access Policy and allow MFA when the user's authentication method requires the use of a One-Time Passcode (OTP), such as SMS, a Microsoft Authenticator passcode, or a hardware FOB.  
+
 
 * The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
 
@@ -182,6 +188,8 @@ If you need to create and configure a test account, use the following steps:
 > Combined security registration can be enabled that configures SSPR and Azure AD Multi-Factor Authentication at the same time. For more information, see [Enable combined security information registration in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
 >
 > You can also [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options) if they previously only enabled SSPR.
+>
+> Users who connect to the NPS server using username and password will be required to complete a multi-factor authentication prompt.
 
 ## Install the NPS extension
 
@@ -262,14 +270,16 @@ For customers that use the Azure Government or Azure China 21Vianet clouds, the 
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
-    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | AZURE_MFA_HOSTNAME | strongauthenticationservice.auth.microsoft.us   |
+    | AZURE_MFA_RESOURCE_HOSTNAME | adnotifications.windowsazure.us |
     | STS_URL            | https://login.microsoftonline.us/ |
 
 1. For Azure China 21Vianet customers, set the following key values:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
-    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | AZURE_MFA_HOSTNAME | strongauthenticationservice.auth.microsoft.cn   |
+    | AZURE_MFA_RESOURCE_HOSTNAME | adnotifications.windowsazure.cn |
     | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Repeat the previous two steps to set the registry key values for each NPS server.
@@ -327,6 +337,19 @@ The following script is available to perform basic health check steps when troub
 
 [MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
+### How to fix the error "Service principal was not found" while running `AzureMfaNpsExtnConfigSetup.ps1` script? 
+
+If for any reason the "Azure Multi-Factor Auth Client" service principal was not created in the tenant , it can be manually created by running the `New-MsolServicePrincipal` cmdlet as shown below. 
+
+```powershell
+import-module MSOnline
+Connect-MsolService
+New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
+```
+Once done , go to https://aad.portal.azure.com > "Enterprise Applications" > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
+
+Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
+
 ### How do I verify that the client cert is installed as expected?
 
 Look for the self-signed certificate created by the installer in the cert store, and check that the private key has permissions granted to user *NETWORK SERVICE*. The cert has a subject name of **CN \<tenantid\>, OU = Microsoft NPS Extension**
@@ -361,7 +384,7 @@ After you run this command, go to the root of your *C:* drive, locate the file, 
 
 Check that your password hasn't expired. The NPS extension doesn't support changing passwords as part of the sign-in workflow. Contact your organization's IT Staff for further assistance.
 
-### Why are my requests failing with ADAL token error?
+### Why are my requests failing with security token error?
 
 This error could be due to one of several reasons. Use the following steps to troubleshoot:
 
@@ -376,7 +399,7 @@ Verify that AD Connect is running, and that the user is present in both the on-p
 
 ### Why do I see HTTP connect errors in logs with all my authentications failing?
 
-Verify that https://adnotifications.windowsazure.com is reachable from the server running the NPS extension.
+Verify that https://adnotifications.windowsazure.com, https://strongauthenticationservice.auth.microsoft.com is reachable from the server running the NPS extension.
 
 ### Why is authentication not working, despite a valid certificate being present?
 

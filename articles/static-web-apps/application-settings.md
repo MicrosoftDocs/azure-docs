@@ -5,14 +5,14 @@ services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 12/21/2021
 ms.author: buhollan
 ms.custom: devx-track-js
 ---
 
 # Configure application settings for Azure Static Web Apps
 
-Application settings hold configuration settings for values that may change, such as database connection strings. Adding application settings allows you to modify the configuration input to your app, without having to change application code.
+Application settings hold configuration values that may change, such as database connection strings. Adding application settings allows you to modify the configuration input to your app, without having to change application code.
 
 Application settings:
 
@@ -37,7 +37,7 @@ Application settings:
 APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define application settings in the _local.settings.json_ file when you're running the application locally. This file defines application settings in the `Values` property of the configuration.
 
 > [!NOTE]
-> The _local.settings.json_ file is only used for local development. Use the [Azure portal](https://portal.azure.com) to configure application settings for production.
+> The _local.settings.json_ file is only used for local development. Use the [Azure portal](#configure-application-settings) to configure application settings for production.
 
 The following sample _local.settings.json_ shows how to add a value for the `DATABASE_CONNECTION_STRING`.
 
@@ -62,7 +62,7 @@ The `local.settings.json` file is not tracked by the GitHub repository because s
 
 Generally, configuring your settings is done infrequently, and isn't required with every build.
 
-## Configure application settings
+## <a name="configure-application-settings"></a>Configure API application settings in Azure
 
 You can configure application settings via the Azure portal or with the Azure CLI.
 
@@ -72,74 +72,57 @@ The Azure portal provides an interface for creating, updating and deleting appli
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, search for and select **Static Web Apps**.
+1. Open your static web app.
 
-1. Click on the **Configuration** option in the sidebar.
+1. Select **Configuration** in the sidebar.
 
 1. Select the environment that you want to apply the application settings to. Staging environments are automatically created when a pull request is generated, and are promoted into production once the pull request is merged. You can set application settings per environment.
 
-1. Click on the **Add Button** to add a new app setting.
+1. Select **+ Add** to add a new app setting.
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Azure Static Web Apps configuration view":::
 
 1. Enter a **Name** and **Value**.
 
-1. Click **OK**.
+1. Select **OK**.
 
-1. Click **Save**.
+1. Select **Save**.
 
 ### Use the Azure CLI
 
-You can use the `az rest` command to do bulk uploads of your settings to Azure. The command accepts application settings as JSON objects in a parent property called `properties`.
+You can use the `az staticwebapp appsettings` command to update your settings in Azure.
 
-The easiest way to create a JSON file with the appropriate values is to create a modified version of your _local.settings.json_ file.
+- In a terminal or command line, execute the following command to add or update a setting named `message` with a value of `Hello world`. Make sure to replace the placeholder `<YOUR_APP_ID>` with your value.
 
-1. To ensure your new file with sensitive data isn't exposed publicly, add the following entry into your _.gitignore_ file.
-
-   ```bash
-   local.settings*.json
+   ```azurecli
+   az staticwebapp appsettings set --name <YOUR_APP_ID> --setting-names "message=Hello world"
    ```
 
-1. Next, make a copy of your _local.settings.json_ file and name it _local.settings.properties.json_.
-
-1. Inside the new file, remove all other data from the file except for the application settings and rename `Values` to `properties`.
-
-   Your file should now look similar to the following example:
-
-   ```json
-   {
-     "properties": {
-       "DATABASE_CONNECTION_STRING": "<YOUR_DATABASE_CONNECTION_STRING>"
-     }
-   }
-   ```
-
-1. Execute the following command to list the static web apps in your subscription and display their details.
-
-    ```bash
-    az staticwebapp list -o json
-    ```
-
-    Locate the static web app you want to configure and note its ID.
-
-1. From a terminal or command line, execute the following command to upload the settings. Replace `<YOUR_APP_ID>` with the ID of the app you retrieved in the previous step.
-
-   ```bash
-   az rest --method put --headers "Content-Type=application/json" --uri "<YOUR_APP_ID>/config/functionappsettings?api-version=2019-12-01-preview" --body @local.settings.properties.json
-   ```
-
-  > [!IMPORTANT]
-  > The "local.settings.properties.json" file must be in the same directory where this command is run. This file can be named anything you like. The name is not significant.
+  > [!TIP]
+  > You can add or update multiple settings by passing multiple name-value pairs to `--setting-names`.
 
 ### View application settings with the Azure CLI
 
 Application settings are available to view through the Azure CLI.
 
-- From a terminal or command line, execute the following command. Make sure to replace the placeholder `<YOUR_APP_ID>` with your value.
+- In a terminal or command line, execute the following command. Make sure to replace the placeholder `<YOUR_APP_ID>` with your value.
 
-   ```bash
-   az rest --method post --uri "<YOUR_APP_ID>/listFunctionAppSettings?api-version=2019-12-01-preview"
+   ```azurecli
+   az staticwebapp appsettings list --name <YOUR_APP_ID>
    ```
+
+### Delete application settings with the Azure CLI
+
+Application settings can be deleted through the Azure CLI.
+
+- In a terminal or command line, execute the following command to delete a setting named `message`. Make sure to replace the placeholder `<YOUR_APP_ID>` with your value.
+
+   ```azurecli
+   az staticwebapp appsettings delete --name <YOUR_APP_ID> --setting-names "message"
+   ```
+
+  > [!TIP]
+  > You can delete multiple settings by passing multiple setting names to `--setting-names`.
 
 ## Next steps
 

@@ -1,17 +1,8 @@
 ---
 title: Manage template versions for your scheduled analytics rules in Microsoft Sentinel
 description: Learn how to manage the relationship between your scheduled analytics rule templates and the rules created from those templates. Merge updates to the templates into your rules, and revert changes in your rules back to the original template.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -58,7 +49,6 @@ With the implementation of template version control, you can see and track the v
     :::image type="content" source="media/manage-analytics-rule-templates/see-template-versions.png" alt-text="Screenshot of details pane. Scroll down to see template version numbers." border="false":::
 
     The number is in a “1.0.0” format – major version, minor version, and build.  
-    (For the time being, the build number is not in use and will always be 0.)
 
     - A difference in the *major version* number indicates that something essential in the template was changed, that could affect how the rule detects threats or even its ability to function altogether. This is a change you will want to include in your rules.
 

@@ -7,11 +7,12 @@ ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/10/2019
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---
-# Create SAS definition and fetch shared access signature tokens in code
+# Create SAS definition and fetch shared access signature tokens in code (legacy)
 
 You can manage your storage account with shared access signature (SAS) tokens stored in your key vault. For more information, see [Grant limited access to Azure Storage resources using SAS](../../storage/common/storage-sas-overview.md).
 

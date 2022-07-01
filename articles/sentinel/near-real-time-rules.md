@@ -1,16 +1,7 @@
 ---
 title: Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel | Microsoft Docs
 description: This article explains how the new near-real-time (NRT) analytics rules can help you detect threats quickly in Microsoft Sentinel.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -32,7 +23,7 @@ Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.
 
 NRT rules are hard-coded to run once every minute and capture events ingested in the preceding minute, so as to be able to supply you with information as up-to-the-minute as possible.
 
-Unlike regular scheduled rules that run on a built-in five-minute delay to account for ingestion time lag, NRT rules run on just a two-minute delay, solving the ingestion delay problem by querying on events' ingestion time instead of their generation time at the source (the TimeGenerated field). This results in improvements of both frequency and accuracy in your detections. (To understand this issue more completely, see [Query scheduling and alert threshold](detect-threats-custom.md#query-scheduling-and-alert-threshold) and the linked article mentioned there, [Handling ingestion delay in Microsoft Sentinel scheduled alert rules](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851).)
+Unlike regular scheduled rules that run on a built-in five-minute delay to account for ingestion time lag, NRT rules run on just a two-minute delay, solving the ingestion delay problem by querying on events' ingestion time instead of their generation time at the source (the TimeGenerated field). This results in improvements of both frequency and accuracy in your detections. (To understand this issue more completely, see [Query scheduling and alert threshold](detect-threats-custom.md#query-scheduling-and-alert-threshold) and [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).)
 
 NRT rules have many of the same features and capabilities as scheduled analytics rules. The full set of alert enrichment capabilities is available – you can map entities and surface custom details, and you can configure dynamic content for alert details. You can choose how alerts are grouped into incidents, you can temporarily suppress the running of a query after it generates a result, and you can define automation rules and playbooks to run in response to alerts and incidents generated from the rule.
 
@@ -42,6 +33,10 @@ For the time being, these templates have limited application as outlined below, 
 The following limitations currently govern the use of NRT rules:
 
 1. No more than 20 rules can be defined per customer at this time.
+
+1. By design, NRT rules will only work properly on log sources with an **ingestion delay of less than 12 hours**.
+
+    (Since the NRT rule type is supposed to approximate **real-time** data ingestion, it doesn't afford you any advantage to use NRT rules on log sources with significant ingestion delay, even if it's far less than 12 hours.)
 
 1. As this type of rule is new, its syntax is currently limited but will gradually evolve. Therefore, at this time the following restrictions are in effect:
 
@@ -55,7 +50,7 @@ The following limitations currently govern the use of NRT rules:
 
     1. Queries can run only within a single workspace. There is no cross-workspace capability.
 
-    1. There is no event grouping. NRT rules produce a single alert that groups all the applicable events.
+    1. Event grouping is not configurable. NRT rules produce a single alert that groups all the applicable events.
 
 ## Next steps
 

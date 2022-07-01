@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 01/07/2022
 
 ms.author: mimart
 author: msmimart
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Enforce multi-factor authentication for B2B guest users
 
-When collaborating with external B2B guest users, it’s a good idea to protect your apps with multi-factor authentication (MFA) policies. Then external users will need more than just a user name and password to access your resources. In Azure Active Directory (Azure AD), you can accomplish this goal with a Conditional Access policy that requires MFA for access. MFA policies can be enforced at the tenant, app, or individual guest user level, the same way that they are enabled for members of your own organization.
+When collaborating with external B2B guest users, it’s a good idea to protect your apps with multi-factor authentication (MFA) policies. Then external users will need more than just a user name and password to access your resources. In Azure Active Directory (Azure AD), you can accomplish this goal with a Conditional Access policy that requires MFA for access. MFA policies can be enforced at the tenant, app, or individual guest user level, the same way that they are enabled for members of your own organization. The resource tenant is always responsible for Azure AD Multi-Factor Authentication for users, even if the guest user’s organization has Multi-Factor Authentication capabilities.
 
 Example:
 
@@ -28,6 +28,9 @@ Example:
 1. The guest user signs in with their own work, school, or social identity.
 1. The user is asked to complete an MFA challenge. 
 1. The user sets up MFA with Company A and chooses their MFA option. The user is allowed access to the application.
+
+>[!NOTE]
+>Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability. When the guest user signs in, they'll see the resource tenant sign-in page displayed in the background, and their own home tenant sign-in page and company logo in the foreground.
 
 In this tutorial, you will:
 
@@ -128,6 +131,9 @@ To complete the scenario in this tutorial, you need:
 1. You should see a request for additional authentication methods. Note that it could take some time for the policy to take effect.
 
     ![Screenshot showing the More information required message](media/tutorial-mfa/mfa-required.png)
+
+    > [!NOTE]
+    > You also can configure [cross-tenant access settings](cross-tenant-access-overview.md) to trust the MFA from the Azure AD home tenant. This allows external Azure AD users to use the MFA registered in their own tenant rather than register in the resource tenant.
 
 1. Sign out.
 

@@ -2,10 +2,7 @@
 title:  Application Insights Usage Impact - Azure Monitor
 description: Analyze how different properties potentially impact conversion rates for parts of your apps.
 ms.topic: conceptual
-author: mattmccleary
-ms.author: mmcc
 ms.date: 07/30/2021
-
 ---
 
 # Impact analysis with Application Insights

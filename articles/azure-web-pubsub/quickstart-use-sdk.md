@@ -6,6 +6,8 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/01/2021
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Publish messages using the service SDK for the Azure Web PubSub instance
@@ -69,7 +71,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     mkdir publisher
     cd publisher
     dotnet new console
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub
     ```
 
 2. Update the `Program.cs` file to use the `WebPubSubServiceClient` class and send messages to the clients.
@@ -125,7 +127,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     mkdir publisher
     cd publisher
     npm init -y
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
     ```
 
 2. Now let's use Azure Web PubSub SDK to publish a message to the service. Create a `publish.js` file with the below code:
@@ -137,7 +139,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
       console.log('Usage: node publish <message>');
       return 1;
     }
-    const hub = "pubsub";
+    const hub = "myHub1";
     let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
     service.sendToAll(process.argv[2], { contentType: "text/plain" });
@@ -221,7 +223,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0</version>
     </dependency>
     ```
 
@@ -229,12 +231,12 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
     ```java
     package com.webpubsub.quickstart;
-
+    
     import com.azure.messaging.webpubsub.*;
     import com.azure.messaging.webpubsub.models.*;
-
+    
     /**
-    * Quickstart - Publish messages using Azure Web PubSub service SDK
+    * Publish messages using Azure Web PubSub service SDK
     *
     */
     public class App 
@@ -245,8 +247,8 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
                 System.out.println("Expecting 3 arguments: <connection-string> <hub-name> <message>");
                 return;
             }
-
-            WebPubSubServiceClient service = new WebPubSubClientBuilder()
+    
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();

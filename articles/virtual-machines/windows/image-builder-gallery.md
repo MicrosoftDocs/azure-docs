@@ -7,8 +7,8 @@ ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subervice: image-builder
-ms.colletion: windows 
+ms.subservice: image-builder
+ms.collection: windows 
 ms.custom: devx-track-azurepowershell
 ---
 # Create a Windows image and distribute it to an Azure Compute Gallery 
@@ -266,7 +266,7 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $vmResourceGroup -Location $repl
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
+  -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $vmResourceGroup -Location $replRegion2 `

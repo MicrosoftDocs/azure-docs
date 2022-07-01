@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
+ms.devlang: csharp
 ---
 
 # Tutorial: Use Custom Vision with an IoT device to report visual states
@@ -34,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]
     > This project needs to be a **Compact** image classification project, because we will be exporting the model to ONNX later.
-* You'll also need to [create an IoT Hub resource](https://ms.portal.azure.com/#create/Microsoft.IotHub) on Azure.
+* You'll also need to [create an IoT Hub resource](https://portal.azure.com/#create/Microsoft.IotHub) on Azure.
 * [Visual Studio 2015 or later](https://www.visualstudio.com/downloads/)
 * Optionally, an IoT device running Windows 10 IoT Core version 17763 or higher. You can also run the app directly from your PC.
    * For Raspberry Pi 2 and 3, you can set up Windows 10 directly from the IoT Dashboard app. For other devices such as DrangonBoard, you'll need to flash it using the [eMMC method](/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). If you need help with setting up a new device, see [Setting up your device](/windows/iot-core/tutorials/quickstarter/devicesetup) in the Windows IoT documentation.

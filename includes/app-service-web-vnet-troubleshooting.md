@@ -4,6 +4,7 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
+ms.custom: fasttrack-edit
 ---
 
 The feature is easy to set up, but that doesn't mean your experience will be problem free. If you encounter problems accessing your desired endpoint, there are some utilities you can use to test connectivity from the app console. There are two consoles that you can use. One is the Kudu console, and the other is the console in the Azure portal. To reach the Kudu console from your app, go to **Tools** > **Kudu**. You can also reach the Kudo console at [sitename].scm.azurewebsites.net. After the website loads, go to the **Debug console** tab. To get to the Azure portal-hosted console from your app, go to **Tools** > **Console**.
@@ -67,17 +68,17 @@ You don't know what address your app actually uses. It could be any address in t
 
 More debug steps include:
 
-* Connect to a VM in your virtual network and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **test-netconnection**. The syntax is:
+* Connect to a VM in your virtual network and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **Test-NetConnection**. The syntax is:
     
-    ```powershell
-    test-netconnection hostname [optional: -Port]
-    ```
+```powershell
+Test-NetConnection hostname [optional: -Port]
+```
 
 * Bring up an application on a VM and test access to that host and port from the console from your app by using **tcpping**.
 
 #### On-premises resources
 
-If your app can't reach a resource on-premises, check if you can reach the resource from your virtual network. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection might not be configured properly.
+If your app can't reach a resource on-premises, check if you can reach the resource from your virtual network. Use the **Test-NetConnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection might not be configured properly.
 
 If your virtual network-hosted VM can reach your on-premises system but your app can't, the cause is likely one of the following reasons:
 
@@ -85,3 +86,17 @@ If your virtual network-hosted VM can reach your on-premises system but your app
 * Your network security groups are blocking access for your point-to-site IP range.
 * Your on-premises firewalls are blocking traffic from your point-to-site IP range.
 * You're trying to reach a non-RFC 1918 address by using the regional virtual network integration feature.
+
+#### Deleting the App Service plan or web app before disconnecting the VNet integration
+
+If you deleted the web app or the App Service plan without disconnecting the VNet integration first, you will not be able to do any update/delete operations on the virtual network or subnet that was used for the integration with the deleted resource. A subnet delegation 'Microsoft.Web/serverFarms' will remain assigned to your subnet and will prevent the update/delete operations. 
+
+In order to do update/delete the subnet or virtual network again you need to re-create the VNet integration and then disconnect it:
+1. Re-create the App Service plan and web app (it is mandatory to use the exact same web app name as before).
+1. Navigate to the 'Networking' blade on the web app and configure the VNet integration. 
+1. After the VNet integration is configured, select the 'Disconnect' button.
+1. Delete the App Service plan or web app. 
+1. Update/Delete the subnet or virtual network.
+
+If you still encounter issues with the VNet integration after following the steps above, please contact Microsoft Support. 
+

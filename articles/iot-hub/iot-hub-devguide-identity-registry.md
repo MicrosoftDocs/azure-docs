@@ -1,8 +1,8 @@
 ---
 title: Understand the Azure IoT Hub identity registry | Microsoft Docs
 description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -47,6 +47,9 @@ An IoT Hub identity registry:
 > [!IMPORTANT]
 > Only use the identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](iot-hub-devguide-quotas-throttling.md) for the identity registry, and the [device heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat) pattern.
 
+> [!NOTE]
+> It can take a few seconds for a device or module identity to be available for retrieval after creation. Please retry `get` operation of device or module identities in case of failures.
+
 ## Disable devices
 
 You can disable devices by updating the **status** property of an identity in the identity registry. Typically, you use this property in two scenarios:
@@ -80,90 +83,14 @@ The IoT Hub identity registry contains a field called **connectionState**. Only 
 If your IoT solution needs to know if a device is connected, you can implement the *heartbeat pattern*.
 In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). Therefore, even if a device does not have any data to send, it still sends an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution maintains a map with the last heartbeat received for each device. If the solution does not receive a heartbeat message within the expected time from the device, it assumes that there is a problem with the device.
 
-A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles](iot-hub-devguide-quotas-throttling.md).
+A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. To learn more about using these services with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). For more specific information about using Azure Monitor or Event Grid to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity](iot-hub-troubleshoot-connectivity.md). When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
 > If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, consider using the simpler *short expiry time* pattern. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. If you request message acknowledgements, IoT Hub can notify you about which devices are able to receive messages and which are not.
 
 ## Device and module lifecycle notifications
 
-IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events will be sent for both device identities and module identities; however, the message contents will differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  The notification message includes properties, and body.
-
-Properties: Message system properties are prefixed with the `$` symbol.
-
-Notification message for device:
-
-| Name | Value |
-| --- | --- |
-|$content-type | application/json |
-|$iothub-enqueuedtime |  Time when the notification was sent |
-|$iothub-message-source | deviceLifecycleEvents |
-|$content-encoding | utf-8 |
-|opType | **createDeviceIdentity** or **deleteDeviceIdentity** |
-|hubName | Name of IoT Hub |
-|deviceId | ID of the device |
-|operationTimestamp | ISO8601 timestamp of operation |
-|iothub-message-schema | deviceLifecycleNotification |
-
-Body: This section is in JSON format and represents the twin of the created device identity. For example,
-
-```json
-{
-    "deviceId":"11576-ailn-test-0-67333793211",
-    "etag":"AAAAAAAAAAE=",
-    "properties": {
-        "desired": {
-            "$metadata": {
-                "$lastUpdated": "2016-02-30T16:24:48.789Z"
-            },
-            "$version": 1
-        },
-        "reported": {
-            "$metadata": {
-                "$lastUpdated": "2016-02-30T16:24:48.789Z"
-            },
-            "$version": 1
-        }
-    }
-}
-```
-Notification message for module:
-
-| Name | Value |
-| --- | --- |
-$content-type | application/json |
-$iothub-enqueuedtime |  Time when the notification was sent |
-$iothub-message-source | moduleLifecycleEvents |
-$content-encoding | utf-8 |
-opType | **createModuleIdentity** or **deleteModuleIdentity** |
-hubName | Name of IoT Hub |
-moduleId | ID of the module |
-operationTimestamp | ISO8601 timestamp of operation |
-iothub-message-schema | moduleLifecycleNotification |
-
-Body: This section is in JSON format and represents the twin of the created module identity. For example,
-
-```json
-{
-    "deviceId":"11576-ailn-test-0-67333793211",
-    "moduleId":"tempSensor",
-    "etag":"AAAAAAAAAAE=",
-    "properties": {
-        "desired": {
-            "$metadata": {
-                "$lastUpdated": "2016-02-30T16:24:48.789Z"
-            },
-            "$version": 1
-        },
-        "reported": {
-            "$metadata": {
-                "$lastUpdated": "2016-02-30T16:24:48.789Z"
-            },
-            "$version": 1
-        }
-    }
-}
-```
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events will be sent for both device identities and module identities; however, the message contents will differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  To learn more about the properties and body returned in the notification message, see  [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
 
 ## Device identity properties
 

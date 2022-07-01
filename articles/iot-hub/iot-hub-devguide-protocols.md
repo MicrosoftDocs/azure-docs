@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Hub communication protocols and ports | Microsoft Docs
 description: Developer guide - describes the supported communication protocols for device-to-cloud and cloud-to-device communications and the port numbers that must be open.
-author: robinsh
+author: kgremban
 
-ms.author: robinsh
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -60,7 +60,7 @@ Devices can communicate with IoT Hub in Azure using various protocols. Typically
 | AMQP over WebSockets |443 |
 | HTTPS |443 |
 
-Once you have created an IoT hub in an Azure region, the IoT hub keeps the same IP address for the lifetime of that IoT hub. However, if Microsoft moves the IoT hub to a different scale unit to maintain quality of service,  then it is assigned a new IP address.
+The IP address of an IoT hub is subject to change without notice. To learn how to mitigate the effects of IoT hub IP address changes on your IoT solution and devices, see [IoT Hub IP address best practices](iot-hub-understand-ip-address.md#best-practices).
 
 ## Next steps
 

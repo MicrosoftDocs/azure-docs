@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 06/15/2022
 ms.author: aahi
 ms.custom: language-service-entity-linking, ignite-fall-2021
 ---
@@ -26,9 +26,11 @@ This documentation contains the following types of articles:
 
 The result will be a collection of recognized entities in your text, with URLs to Wikipedia as an online knowledge base. 
 
+[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
+
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for entity linking](/legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for entity linking](/legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

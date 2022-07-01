@@ -3,7 +3,7 @@ title: Monitor the health of your backups using Azure Backup Metrics (preview)
 description: In this article, learn about the metrics available for Azure Backup to monitor your backup health
 ms.topic: conceptual
 author: v-amallick
-ms.date: 10/20/2021
+ms.date: 03/21/2022
 ms.author: v-amallick
 ms.service: backup
 ---
@@ -18,7 +18,7 @@ Azure Backup offers the following key capabilities:
 * Ability to write custom alert rules on these metrics to efficiently monitor the health of your backup items
 * Ability to route fired metric alerts to different notification channels supported by Azure Monitor, such as email, ITSM, webhook, logic apps, and so on.
 
-[Learn more about Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
+[Learn more about Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 
 ## Supported scenarios
 
@@ -26,7 +26,8 @@ Azure Backup offers the following key capabilities:
 
   - Azure VM, SQL databases in Azure VM
   - SAP HANA databases in Azure VM
-  - Azure Files.
+  - Azure Files
+  - Azure Blobs.
 
   Metrics for HANA instance workload type are currently not supported.
 
@@ -39,6 +40,9 @@ Currently, Azure Backup supports the following metrics:
 - **Backup Health Events**: The value of this metric represents the count of health events pertaining to backup job health, which were fired for the vault within a specific time. When a backup job completes, the Azure Backup service creates a backup health event. Based on the job status (such as succeeded or failed), the dimensions associated with the event vary.
 
 - **Restore Health Events**: The value of this metric represents the count of health events pertaining to restore job health, which were fired for the vault within a specific time. When a restore job completes, the Azure Backup service creates a restore health event. Based on the job status (such as succeeded or failed), the dimensions associated with the event vary.
+
+>[!Note]
+>We support Restore Health Events only for Azure Blobs workload, as backups are continuous, and there's no notion of backup jobs here.
 
 By default, the counts are surfaced at the vault level. To view the counts for a particular backup item and job status, you can filter the metrics on any of the supported dimensions.
 
@@ -109,7 +113,7 @@ To configure alerts and notifications on your metrics, follow these steps:
 
 1. To configure notifications for these alerts using Action Groups, configure an Action Group as part of the alert rule, or create a separate action rule.
 
-   We support various notification channels, such as email, ITSM, webhook, Logic App, SMS. [Learn more about Action Groups](/azure/azure-monitor/alerts/action-groups).
+   We support various notification channels, such as email, ITSM, webhook, Logic App, SMS. [Learn more about Action Groups](../azure-monitor/alerts/action-groups.md).
 
    :::image type="content" source="./media/metrics-overview/action-group-inline.png" alt-text="Screenshot showing the process to configure notifications for these alerts using Action Groups." lightbox="./media/metrics-overview/action-group-expanded.png":::
 
@@ -118,7 +122,7 @@ To configure alerts and notifications on your metrics, follow these steps:
    - To generate an alert on every job failure irrespective of the failure is due to the same underlying cause (stateless behavior), deselect the **Automatically resolve alerts** option in the alert rule.
    - Alternately, to configure the alerts as stateful, select the same checkbox. Therefore, when a metric alert is fired on the scope, another failure won't create a new metric alert. The alert gets auto-resolved if the alert generation condition evaluates to false for three successive evaluation cycles. New alerts are generated if the condition evaluates to true again.
 
-[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](/azure/azure-monitor/alerts/alerts-troubleshoot-metric#make-metric-alerts-occur-every-time-my-condition-is-met).
+[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](../azure-monitor/alerts/alerts-troubleshoot-metric.md#make-metric-alerts-occur-every-time-my-condition-is-met).
 
 :::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
 
@@ -147,11 +151,43 @@ Based on the alert rules configuration, the fired alert appears under the **Data
 
 [Learn more about datasource and global alerts here](backup-center-monitor-operate.md#alerts)
 
+>[!Note]
+>Currently, in case of blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
+
 ### Accessing metrics programmatically
 
-You can use the different programmatic clients, such as PowerShell, CLI, or REST API, to access the metrics functionality. See [Azure Monitor REST API documentation](/azure/azure-monitor/essentials/rest-api-walkthrough) for more details.
+You can use the different programmatic clients, such as PowerShell, CLI, or REST API, to access the metrics functionality. See [Azure Monitor REST API documentation](../azure-monitor/essentials/rest-api-walkthrough.md) for more details.
+
+### Sample alert scenarios
+
+#### Fire a single alert if all backups for a vault were successful in last 24 hours
+
+**Alert Rule: Fire an alert if Backup Health Events < 1 in last 24 hours for**:
+
+Dimensions["HealthStatus"]="Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+	 
+#### Fire an alert after every failed backup job
+
+**Alert Rule: Fire an alert if Backup Health Events > 0 in last 5 minutes for**:
+ 
+- Dimensions["HealthStatus"]= "Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+- Dimensions["DatasourceId"]= "All current and future values"
+
+#### Fire an alert if there were consecutive backup failures for the same item in last 24 hours
+
+**Alert Rule: Fire an alert if Backup Health Events > 1 in last 24 hours for**:
+
+- Dimensions["HealthStatus"]= "Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+- Dimensions["DatasourceId"]= "All current and future values"
+	 
+#### Fire an alert if no backup job was executed for an item in last 24 hours
+
+**Alert Rule: Fire an alert if Backup Health Events < 1 in the last 24 hours for**:
+
+Dimensions["DatasourceId"]= "All current and future values"
 
 ## Next steps
+
 - [Learn more about monitoring and reporting in Azure Backup](monitoring-and-alerts-overview.md).
-- [Learn more about Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
-- [Learn more about Azure alerts](/azure/azure-monitor/alerts/alerts-overview).
+- [Learn more about Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
+- [Learn more about Azure alerts](../azure-monitor/alerts/alerts-overview.md).

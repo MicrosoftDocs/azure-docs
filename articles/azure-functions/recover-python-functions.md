@@ -4,6 +4,7 @@ description: Learn how to troubleshoot Python functions.
 
 ms.topic: article
 ms.date: 07/29/2020
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 
@@ -63,7 +64,7 @@ See [Enable remote build](#enable-remote-build) or [Build native dependencies](#
 
 #### The package is incompatible with the Python interpreter version
 
-Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, or `Python :: 3.8`, this means the package version is either too old, or most likely, the package is already out of maintenance.
+Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, this means the package version is either too old, or most likely, the package is already out of maintenance.
 
 You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app, choose **Resource explorer**, and select **Go**.
 
@@ -120,7 +121,7 @@ Make sure that the latest version of both **docker** and [Azure Functions Core T
 
 #### Update your package to the latest version
 
-Browse the latest package version in `https://pypi.org/project/<package-name>` and check the **Classifiers:** section. The package should be `OS Independent`, or compatible with `POSIX` or `POSIX :: Linux` in **Operating System**. Also, the Programming Language should contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, or `Python :: 3.8`.
+Browse the latest package version in `https://pypi.org/project/<package-name>` and check the **Classifiers:** section. The package should be `OS Independent`, or compatible with `POSIX` or `POSIX :: Linux` in **Operating System**. Also, the Programming Language should contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`.
 
 If these are correct, you can update the package to the latest version by changing the line `<package-name>~=<latest-version>` in requirements.txt.
 
@@ -134,7 +135,7 @@ The best practice is to check the import statement from each .py file in your pr
 
 First, we should take a look into the latest version of the package in `https://pypi.org/project/<package-name>`. Usually, this package has their own GitHub page, go to the **Issues** section on GitHub and search if your issue has been fixed. If so, update the package to the latest version.
 
-Sometimes, the package may have been integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as pathlib). If so, since we provide a certain Python distribution in Azure Functions (Python 3.6, Python 3.7, and Python 3.8), the package in your requirements.txt should be removed.
+Sometimes, the package may have been integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as pathlib). If so, since we provide a certain Python distribution in Azure Functions (Python 3.6, Python 3.7, Python 3.8, and Python 3.9), the package in your requirements.txt should be removed.
 
 However, if you're facing an issue that it has not been fixed and you're on a deadline. I encourage you to do some research and find a similar package for your project. Usually, the Python community will provide you with a wide variety of similar libraries that you can use.
 
@@ -157,7 +158,7 @@ This error occurs when a Python function app fails to start with a proper Python
 
 This is most likely caused by a 32-bit Python interpreter is installed on your 64-bit operating system.
 
-If you're running on an x64 operating system, please ensure your Python 3.6, 3.7, or 3.8 interpreter is also on 64-bit version.
+If you're running on an x64 operating system, please ensure your Python 3.6, 3.7, 3.8, or 3.9 interpreter is also on 64-bit version.
 
 You can check your Python interpreter bitness by the following commands:
 
@@ -169,10 +170,10 @@ If there's a mismatch between Python interpreter bitness and operating system ar
 
 #### The Python interpreter is not supported by Azure Functions Python Worker
 
-The Azure Functions Python Worker only supports Python 3.6, 3.7, and 3.8.
-Please check if your Python interpreter matches our expected version by `py --version` in Windows or `python3 --version` in Unix-like systems. Ensure the return result is Python 3.6.x, Python 3.7.x, or Python 3.8.x.
+The Azure Functions Python Worker only supports Python 3.6, 3.7, 3.8, and 3.9.
+Please check if your Python interpreter matches our expected version by `py --version` in Windows or `python3 --version` in Unix-like systems. Ensure the return result is Python 3.6.x, Python 3.7.x, Python 3.8.x, or Python 3.9.x.
 
-If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, or 3.8 interpreter from [Python Software Foundation](https://www.python.org/downloads).
+If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, 3.8, or 3.9 interpreter from [Python Software Foundation](https://www.python.org/downloads).
 
 ---
 

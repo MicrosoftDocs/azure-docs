@@ -3,8 +3,8 @@ title: Azure HDInsight Ubuntu 18.04 update
 description: Learn about Azure HDInsight Ubuntu 18.04 OS changes.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.author: yanacai
-author: yanancai
+ms.author: sairamyeturi
+author: yeturis
 ms.date: 05/25/2021
 ---
 
@@ -16,7 +16,7 @@ This article provides more details for HDInsight Ubuntu 18.04 OS update and pote
 
 HDInsight has started rolling out the new HDInsight 4.0 cluster image running on Ubuntu 18.04 in May 2021. Newly created HDInsight 4.0 clusters will run on Ubuntu 18.04 by default once available. Existing clusters on Ubuntu 16.04 will run as is with full support.
 
-HDInsight 3.6 will continue to run on Ubuntu 16.04. It will reach the end of standard support by 30 June 2021, and will change to Basic support starting on 1 July 2021. For more information about dates and support options, see [Azure HDInsight versions](./hdinsight-component-versioning.md). Ubuntu 18.04 won't be supported for HDInsight 3.6. If you’d like to use Ubuntu 18.04, you’ll need to migrate your clusters to HDInsight 4.0.
+HDInsight 3.6 will continue to run on Ubuntu 16.04. It will reach the end of standard support by 30 June 2021, and will change to Basic support starting on 1 July 2021. For more information about dates and support options, see [Azure HDInsight versions](./hdinsight-component-versioning.md). Ubuntu 18.04 won't be supported for HDInsight 3.6. If you’d like to use Ubuntu 18.04, you’ll need to migrate your clusters to HDInsight 4.0. Spark 3.0 with HDInsight 4.0 is available only on Ubuntu 16.04. Spark 3.1 with HDInsight 4.0 will be shipping soon and will be available on Ubuntu 18.04.   
 
 Drop and recreate your clusters if you’d like to move existing clusters to Ubuntu 18.04. Plan to create or recreate your cluster. 
 

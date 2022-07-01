@@ -6,8 +6,8 @@ summary: Learn how to use Personalizer to allow your application to choose the b
 metadata:
   ms.topic: landing-page
   ms.date: 06/11/2020
-  ms.author: jeffme
-  author: jeffmend
+  ms.author: jacodel
+  author: jcodella
   ms.service: cognitive-services
   ms.subservice: personalizer
   services: cognitive-services

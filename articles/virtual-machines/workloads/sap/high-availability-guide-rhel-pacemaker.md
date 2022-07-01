@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 08/26/2021
+ms.date: 05/26/2022
 ms.author: radeltch
 
 ---
@@ -35,7 +35,9 @@ ms.author: radeltch
 
 [virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
+The article describes how to configure basic Pacemaker cluster on Red Hat Enterprise Server(RHEL). The instructions cover both RHEL 7 and RHEL 8.   
 
+## Prerequisites
 Read the following SAP Notes and papers first:
 
 * SAP Note [1928533], which has:
@@ -59,7 +61,7 @@ Read the following SAP Notes and papers first:
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-  * [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691)
+  * [Support Policies for RHEL High Availability Clusters - `sbd` and `fence_sbd`](https://access.redhat.com/articles/2800691)
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -75,9 +77,9 @@ Read the following SAP Notes and papers first:
 > Red Hat doesn't support software-emulated watchdog. Red Hat doesn't support SBD on cloud platforms. For details see [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691).
 > The only supported fencing mechanism for Pacemaker Red Hat Enterprise Linux clusters on Azure, is Azure fence agent.  
 
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
+The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2. Differences in the commands or the configuration between RHEL 7 and RHEL 8 are marked in the document.
 
-1. **[A]** Register. This step is not required, if using RHEL SAP HA-enabled images.  
+1. **[A]** Register - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
 
    Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
 
@@ -87,11 +89,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../redhat/byos.md).
+   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this situation, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../redhat/byos.md).
 
-1. **[A]** Enable RHEL for SAP repos. This step is not required, if using RHEL SAP HA-enabled images.  
+1. **[A]** Enable RHEL for SAP repos - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
 
-   In order to install the required packages, enable the following repositories.
+   In order to install the required packages on RHEL 7, enable the following repositories.
 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
@@ -222,7 +224,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
-1. Go to <https://portal.azure.com>
+1. Go to the [Azure portal](https://portal.azure.com).
 1. Open the Azure Active Directory blade  
    Go to Properties and make a note of the Directory ID. This is the **tenant ID**.
 1. Click App registrations
@@ -237,17 +239,17 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/role-assignments-powershell.md) or [Azure CLI](../../../role-based-access-control/role-assignments-cli.md)
+The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
-Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
+Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
 ```json
 {
       "Name": "Linux Fence Agent Role",
       "description": "Allows to power-off and start virtual machines",
       "assignableScopes": [
-              "/subscriptions/e663cc2d-722b-4be1-b636-bbd9e4c60fd9",
-              "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+              "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+              "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
       ],
       "actions": [
               "Microsoft.Compute/*/read",
@@ -275,7 +277,7 @@ sudo pcs property set stonith-timeout=900
 
 > [!NOTE]
 > Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure VM names are NOT identical. Specify the mapping in the format **hostname:vm-name**.
-> Refer to the bold section in the command. For more information see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
+> Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
 For RHEL **7.X**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
@@ -290,7 +292,7 @@ op monitor interval=3600
 </code></pre>
 
 > [!TIP]
-> Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
+> Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
  
 
 > [!IMPORTANT]
@@ -315,7 +317,7 @@ If there is a need to collect diagnostic information within the VM , it may be u
 > [!IMPORTANT]
 > Be aware that when `fence_kdump` is configured as a first level stonith, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
 > 
-> If a crash dump is successfully detected, the fencing will be delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing will be delayed by time determined by the configured number of iterations and the `fence_kdump` timeout. For more details see [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971).  
+> If a crash dump is successfully detected, the fencing will be delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing will be delayed by time determined by the configured number of iterations and the `fence_kdump` timeout. For more details, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971).  
 > The proposed fence_kdump timeout may need to be adapted to the specific environment.
 >     
 > We recommend to configure `fence_kdump` stonith only when necessary to collect diagnostics within the VM and always in combination with traditional fence method as Azure Fence Agent.   

@@ -1,7 +1,7 @@
 ---
 title: Create risk assessment reports
 description: Gain insight into network risks detected by individual sensors or an aggregate view of risks detected by all sensors.
-ms.date: 11/09/2021
+ms.date: 02/03/2022
 ms.topic: how-to
 ---
 
@@ -50,15 +50,15 @@ Overall network security score is generated in each report. The score represents
 
 Risk Assessment scores are based on information learned from packet inspection, behavioral modeling engines, and a SCADA-specific state machine design.
 
-**Secure Devices** are devices with a security score above 90 %.
+**Secure Devices** are devices with a security score above 90%.
 
-**Devices Needing Improvement**: Devices with a security score between 70 percent and 89 %.
+**Devices Needing Improvement**: Devices with a security score between 70 percent and 89%.
 
-**Vulnerable Devices** are devices with a security score below 70 %.
+**Vulnerable Devices** are devices with a security score below 70%.
 
 ### About backup and anti-virus servers
 
-The risk assessment score may be negatively impacted if you do not define backup and anti-virus server addresses in your sensor. Adding these addresses improves your score. By default these addresses are not defined.
+The risk assessment score may be negatively impacted if you don't define backup and anti-virus server addresses in your sensor. Adding these addresses improves your score. By default these addresses aren't defined.
 The Risk Assessment report cover page will indicate if backup servers and anti-virus servers are not defined.
 
 **To add servers:**
@@ -66,47 +66,39 @@ The Risk Assessment report cover page will indicate if backup servers and anti-v
 1. Select **System Settings** and then select **System Properties**.
 1. Select **Vulnerability Assessment** and add the addresses to **backup_servers** and **AV_addresses** fields. Use commas to separate multiple addresses.  separated by commas.  
 1. Select **Save**.
+
 ## Create risk assessment reports
 
-Create a PDF risk assessment report. The report name is automatically generated as risk-assessment-report-1.pdf. The number is updated for each new report you create.  The time and day of creation are displayed.
+Create a risk assessment report based on detections made by the sensor you are logged into. The report name is automatically generated as risk-assessment-report-1.pdf. The number is updated for each new report you create.  The time and day of creation are displayed.
 
-### Create a sensor risk assessment report
+**To create a report:**
 
-Create a risk assessment report based on detections made by the sensor you are logged into.
+1. Sign in to the sensor console.
+1. Select **Risk assessment** on the side menu.
+1. Select **Generate report**. The report appears in the Saved Reports section.
+1. Select the report from the Saved Reports section to download it.
 
-To create a report:
+**To import a company logo:**
 
-1. Login to the sensor console.
-1. Select **Risk Assessment** on the side menu.
-1. Select **Generate Report**. The report appears in the Archived Reports section.
-1. Select the report from the Archived Reports section to download it.
-
-:::image type="content" source="media/how-to-generate-reports/risk-assessment.png" alt-text="A view of the risk assessment.":::
-
-To import a company logo:
-
-- Select **Import Logo**.
+1. Select **Import logo**.
+1. Choose a logo to add to the header of your Risk assessment reports.
 
 ### Create an on-premises management console risk assessment report
 
-Create a risk assessment report based on detections made by the any of the sensors managed by your on-premises management console. 
+Create a risk assessment report based on detections made by sensors that are managed by your on-premises management console.
 
-To create a report:
+**To create a report:**
 
 1. Select **Risk Assessment** on the side menu.
-
 2. Select a sensor from the **Select sensor** drop-down list.
-
 3. Select **Generate Report**.
-
 4. Select **Download** from the **Archived Reports** section.
 
-To import a company logo:
+**To import a company logo:**
 
-- Select **Import Logo**.
+1. Select **Import logo**.
+1. Choose a logo to add to the header of your Risk assessment reports.
 
-:::image type="content" source="media/how-to-generate-reports/import-logo-screenshot.png" alt-text="Import your logo through the risk assessment view.":::
+## Next steps
 
-## See also
-
-[Attack vector reporting](how-to-create-attack-vector-reports.md)
+For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md).

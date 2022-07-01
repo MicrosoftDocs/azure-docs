@@ -1,6 +1,6 @@
 ---
 title: Import a Logic App as an API with the Azure portal  | Microsoft Docs
-description: This article shows you how to use API Management (APIM) to import Logic App as an API.
+description: This article shows you how to use API Management to import a Logic App (Consumption) resource as an API.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -26,10 +26,13 @@ In this article, you learn how to:
 > -   Import a Logic App as an API
 > -   Test the API in the Azure portal
 
+> [!NOTE]
+> API Management supports automated import of a Logic App (Consumption) resource. which runs in the multi-tenant Logic Apps environment. Learn more about [single-tenant versus muti-tenant Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+
 ## Prerequisites
 
 -   Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
--   Make sure there is a Logic App in your subscription that exposes an HTTP endpoint. For more information, [Trigger workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
+-   Make sure there is a Consumption plan-based Logic App resource in your subscription that exposes an HTTP endpoint. For more information, [Trigger workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -90,7 +93,7 @@ Operations can be called directly from the Azure portal, which provides a conven
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 >[!NOTE]
->Every Logic App has **manual-invoke** operation. To comprise your API of multiple logic apps and avoid collision, you need to rename the function.
+>Every Logic App has **manual-invoke** operation. To comprise your API of multiple logic apps and avoid collision, you need to rename the function. In order to rename the function/API, please navigate to the OpenAPI Specification editor and change the title value.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

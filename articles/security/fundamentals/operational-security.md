@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article 
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -222,7 +221,7 @@ Auditing your network security is vital for detecting network vulnerabilities an
 
 Network Watcher currently has the following capabilities:
 
--	**<a href="/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and Rest API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
+-	**<a href="/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and REST API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
 
 
 -	**<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP flow verifies </a>** - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a Network Security Group, the rule and Network Security Group that denied the packet is returned.
@@ -307,7 +306,7 @@ For customers interested in storing their [audit events](../../active-directory/
 
 ## Summary
 
-This article summaries protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. Microsoft recognizes that when they entrust their data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. Securing and protecting data is a top priority at Microsoft.
+This article summarizes protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. Microsoft recognizes that when they entrust their data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. Securing and protecting data is a top priority at Microsoft.
 
 This article explains
 

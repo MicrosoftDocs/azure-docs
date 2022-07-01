@@ -4,15 +4,14 @@ description: Azure Active Directory Identity Governance allows you to balance yo
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/22/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -22,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources. These and related Azure AD and Enterprise Mobility + Security features allows you to mitigate access risk by protecting, monitoring, and auditing access to critical assets -- while ensuring employee and business partner productivity.  
 
-Identity Governance give organizations the ability to do the following tasks across employees, business partners and vendors, and across services and applications both on-premises and in clouds:
+Identity Governance gives organizations the ability to do the following tasks across employees, business partners and vendors, and across services and applications both on-premises and in clouds:
 
 - Govern the identity lifecycle
 - Govern access lifecycle
@@ -55,7 +54,7 @@ Typically, IT delegates access approval decisions to business decision makers.  
 
 Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../enterprise-users/groups-dynamic-membership.md), coupled with user provisioning to [SaaS apps](../saas-apps/tutorial-list.md) or [apps integrated with SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organizations can also control which [guest users have access to on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).  These access rights can then be regularly reviewed using recurring [Azure AD access reviews](access-reviews-overview.md).   [Azure AD entitlement management](entitlement-management-overview.md) also enables you to define how users request access across packages of group and team memberships, application roles, and SharePoint Online roles.
 
-When a user attempts to access applications, Azure AD enforces [Conditional Access](../conditional-access/index.yml) policies. For example, Conditional Access policies can include displaying a [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to those terms](../conditional-access/require-tou.md) prior to being able to access an application.
+When a user attempts to access applications, Azure AD enforces [Conditional Access](../conditional-access/index.yml) policies. For example, Conditional Access policies can include displaying a [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to those terms](../conditional-access/require-tou.md) prior to being able to access an application. For more information, see [govern access to applications in your environment](identity-governance-applications-prepare.md).
 
 ## Privileged access lifecycle
 
@@ -77,23 +76,26 @@ In addition to the features listed above, additional Azure AD features frequentl
 |Access requests|End users can request group membership or application access. End users, including guests from other organizations, can request access to access packages.|[Entitlement management](entitlement-management-overview.md)|
 |Workflow|Resource owners can define the approvers and escalation approvers for access requests and approvers for role activation requests.  |[Entitlement management](entitlement-management-overview.md) and [PIM](../privileged-identity-management/pim-configure.md)|
 |Policy and role management|Admin can define conditional access policies for run-time access to applications.  Resource owners can define policies for user's access via access packages.|[Conditional access](../conditional-access/overview.md) and [Entitlement management](entitlement-management-overview.md) policies|
-|Access certification|Admins can enable recurring access re-certification for: SaaS apps or cloud group memberships, Azure AD or Azure Resource role assignments. Automatically remove resource access, block guest access and delete guest accounts.|[Access reviews](access-reviews-overview.md), also surfaced in [PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)|
-|Fulfillment and provisioning|Automatic provisioning and deprovisioning into Azure AD connected apps, including via SCIM and into SharePoint Online sites. |[user provisioning](../app-provisioning/user-provisioning.md)|
+|Access certification|Admins can enable recurring access recertification for: SaaS apps, on-premises apps, cloud group memberships, Azure AD or Azure Resource role assignments. Automatically remove resource access, block guest access and delete guest accounts.|[Access reviews](access-reviews-overview.md), also surfaced in [PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)|
+|Fulfillment and provisioning|Automatic provisioning and deprovisioning into Azure AD connected apps, including via SCIM, LDAP, SQL and into SharePoint Online sites. |[user provisioning](../app-provisioning/user-provisioning.md)|
 |Reporting and analytics|Admins can retrieve audit logs of recent user provisioning and sign on activity. Integration with Azure Monitor and 'who has access' via access packages.|[Azure AD reports](../reports-monitoring/overview-reports.md) and [monitoring](../reports-monitoring/overview-monitoring.md)|
 |Privileged access|Just-in-time and scheduled access, alerting, approval workflows for Azure AD roles (including custom roles) and Azure Resource roles.|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|
 |Auditing|Admins can be alerted of creation of admin accounts.|[Azure AD PIM alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
 
 ## Getting started
 
-Check out the Getting started tab of **Identity Governance** in the Azure portal to start using entitlement management, access reviews, Privileged Identity Management, and Terms of use.
+Check out the [Getting started tab](https://portal.azure.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/GettingStarted) of **Identity Governance** in the Azure portal to start using entitlement management, access reviews, Privileged Identity Management, and Terms of use, and see some common use cases.
 
 ![Identity Governance getting started](./media/identity-governance-overview/getting-started.png)
 
+
+There are also tutorials for [managing access to resources in entitlement management](entitlement-management-access-package-first.md), [onboarding external users to Azure AD through an approval process](entitlement-management-onboard-external-user.md), [governing access to existing applications](identity-governance-applications-prepare.md).  You can also automate identity governance tasks through Microsoft Graph and PowerShell.
 
 If you have any feedback about Identity Governance features, click **Got feedback?** in the Azure portal to submit your feedback. The team regularly reviews your feedback.
 
 While there is no perfect solution or recommendation for every customer, the following configuration guides also provide the baseline policies Microsoft recommends you follow to ensure a more secure and productive workforce.
 
+- [Plan an access reviews deployment to manage resource access lifecycle](deploy-access-reviews.md)
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Securing privileged access](../roles/security-planning.md)
 

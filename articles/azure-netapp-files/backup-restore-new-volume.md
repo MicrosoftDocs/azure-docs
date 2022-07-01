@@ -3,7 +3,7 @@ title: Restore a backup to a new Azure NetApp Files volume | Microsoft Docs
 description: Describes how to restore a backup to a new volume. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.author: b-juche
+ms.date: 05/23/2022
+ms.author: anfdocs
 ---
 # Restore a backup to a new volume
 
@@ -22,9 +21,17 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 ## Considerations
 
+* You can restore backups only within the same NetApp account. Restoring backups across NetApp accounts are not supported. 
+
+* You can restore backups to a different capacity pool within the same NetApp account.
+
+* You can restore a backup only to a new volume.  You cannot overwrite the existing volume with the backup. 
+
 * The new volume created by the restore operation cannot be mounted until the restore completes. 
 
 * You should trigger the restore operation when there are no baseline backups. Otherwise, the restore might increase the load on the Azure Blob account where your data is backed up. 
+
+See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for additional considerations about using Azure NetApp Files backup.
 
 ## Steps
 

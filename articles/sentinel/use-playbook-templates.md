@@ -1,16 +1,7 @@
 ---
 title: Create and customize Microsoft Sentinel playbooks from built-in templates | Microsoft Docs
 description: This article shows how to create playbooks from and work with playbook templates, to customize them to fit your needs.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -128,22 +119,29 @@ You can repeat this process to create multiple playbooks on the same template.
 
 1. For each connector you chose to create a new connection for after deployment:
     1. From the navigation menu, select **API connections**.
+
     1. Select the connection name.
+        :::image type="content" source="media/use-playbook-templates/view-api-connections.png" alt-text="Screenshot showing how to view A P I connections.":::
     1. Select **Edit API connection** from the navigation menu.
+
     1. Fill in the required parameters and click **Save**.
         :::image type="content" source="media/use-playbook-templates/edit-api-connection.png" alt-text="Screenshot showing how to edit A P I connections.":::
 
     Alternatively, you can create a new connection from within the relevant steps in the Logic Apps designer:
+    
     1. For each step which appears with an error sign, select it to expand.
+
     1. Select **Add new**.
+
     1. Authenticate according to the relevant instructions.
+
     1. If there are other steps using this same connector, expand their boxes. From the list of connections that appears, select the connection you just created.
 
 1. If you have chosen to use a managed identity connection for Microsoft Sentinel (or for other supported connections), grant permissions to the new playbook on the Microsoft Sentinel workspace (or on the relevant target resources for other connectors).
 
 1. Save the playbook. You'll now be able to see it in the **Active Playbooks** tab.
 
-1. To run this playbook,  [set an automated response](automate-responses-with-playbooks.md#set-an-automated-response) or [run manually](automate-responses-with-playbooks.md#run-a-playbook-manually-on-an-alert) (alert trigger only).
+1. To run this playbook,  [set an automated response](automate-responses-with-playbooks.md#set-an-automated-response) or [run manually](automate-responses-with-playbooks.md#run-a-playbook-manually).
 
 1. Most of the templates can be used as is, but we recommend making any adjustments required to fit the new playbook to your SOC needs.
 
@@ -157,7 +155,7 @@ To report a bug or request an improvement for a playbook, select the **Supported
 
 In this article, you learned how to work with playbook templates, creating and customizing playbooks to fit your needs. Learn more about playbooks and automation in Microsoft Sentinel:
 
-- [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](automation-in-azure-sentinel.md)
+- [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](automation.md)
 - [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
 - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Authenticate playbooks to Microsoft Sentinel](authenticate-playbooks-to-sentinel.md)

@@ -6,40 +6,50 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: cliv2, event-tier1-build-2022
 
-author: mx-iao
-ms.author: minxia
-ms.date: 10/21/2021
-ms.reviewer: laobri
+author: blackmist
+ms.author: larryfr
+ms.date: 03/31/2022
+ms.reviewer: nibaccam
 ---
 
 # CLI (v2) core YAML syntax
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Every Azure Machine Learning entity has a schematized YAML representation. You can create a new entity from a YAML configuration file with a `.yml` or `.yaml` extension.
 
 This article provides an overview of core syntax concepts you will encounter while configuring these YAML files.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Referencing an Azure ML entity
 
-Azure ML provides a reference syntax (consisting of a shorthand and longhand format) for referencing an existing Azure ML entity when configuring a YAML file. For example, you can reference an existing registered environment in your workspace to use at the environment for a job.
+Azure ML provides a reference syntax (consisting of a shorthand and longhand format) for referencing an existing Azure ML entity when configuring a YAML file. For example, you can reference an existing registered environment in your workspace to use as the environment for a job.
 
-### Shorthand
+### Referencing an Azure ML asset
 
-The shorthand syntax consists of the following:
+There are two options for referencing an Azure ML asset (environments, models, data, and components):
+* Reference an explicit version of an asset:
+  * Shorthand syntax: `azureml:<asset_name>:<asset_version>`
+  * Longhand syntax, which includes the Azure Resource Manager (ARM) resource ID of the asset:
+  ```
+  azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/environments/<environment-name>/versions/<environment-version>
+  ```
+* Reference the latest version of an asset:
 
-* For assets: `azureml:<asset-name>:<asset-version>`
-* For resources: `azureml:<resource-name>`
+  In some scenarios you may want to reference the latest version of an asset without having to explicitly look up and specify the actual version string itself. The latest    version is defined as the latest (also known as most recently) created version of an asset under a given name. 
 
-Azure ML will resolve this reference to the specified asset or resource in the workspace.
+  You can reference the latest version using the following syntax: `azureml:<asset_name>@latest`. Azure ML will resolve the reference to an explicit asset version in the workspace.
 
-### Longhand
+### Reference an Azure ML resource
 
-The longhand syntax consists of the `azureml:` prefix plus the ARM resource ID of the entity:
-
+To reference an Azure ML resource (such as compute), you can use either of the following syntaxes:
+* Shorthand syntax: `azureml:<resource_name>`
+* Longhand syntax, which includes the ARM resource ID of the resource:
 ```
-azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/environments/<environment-name>/versions/<environment-version>
+azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/computes/<compute-name>
 ```
 
 ## Azure ML data reference URI
@@ -73,23 +83,23 @@ The supported scenarios are covered below.
 
 ### Parameterizing the `command` with the `inputs` and `outputs` contexts of a job
 
-You can specify literal values, URI paths, and Azure ML datasets as inputs to a job. The `command` can then be parameterized with references to those input(s) using the `${{inputs.<input-name>}}` syntax. References to literal inputs will get resolved to the literal value at runtime, while references to data URI or Azure ML dataset inputs will get resolved to the download path or mount path (depending on the `mode` specified).
+You can specify literal values, URI paths, and registered Azure ML data assets as inputs to a job. The `command` can then be parameterized with references to those input(s) using the `${{inputs.<input_name>}}` syntax. References to literal inputs will get resolved to the literal value at runtime, while references to data inputs will get resolved to the download path or mount path (depending on the `mode` specified).
 
-Likewise, outputs to the job can also be referenced in the `command`. For each named output specified in the `outputs` dictionary, Azure ML will autogenerate an output location on the default datastore where you can write files to. The output location for each named output is based on the following templatized path: `<default-datastore>/azureml/<job-name>/<output-name>/`. Parameterizing the `command` with the `${{outputs.<output-name>}}` syntax will resolve that reference to the autogenerated path, so that your script can write files to that location from the job.
+Likewise, outputs to the job can also be referenced in the `command`. For each named output specified in the `outputs` dictionary, Azure ML will system-generate an output location on the default datastore where you can write files to. The output location for each named output is based on the following templatized path: `<default-datastore>/azureml/<job-name>/<output_name>/`. Parameterizing the `command` with the `${{outputs.<output_name>}}` syntax will resolve that reference to the system-generated path, so that your script can write files to that location from the job.
 
-In the example below for a command job YAML file, the `command` is parameterized with two inputs, a literal input and a URI input, and one output. At runtime, the `${{inputs.learning_rate}}` expression will resolve to `0.01`, and the `${{inputs.iris}}` expression will resolve to the download path of the `iris.csv` file. `${{outputs.model_dir}}` will resolve to the mount path of the autogenerated output location.
+In the example below for a command job YAML file, the `command` is parameterized with two inputs, a literal input and a data input, and one output. At runtime, the `${{inputs.learning_rate}}` expression will resolve to `0.01`, and the `${{inputs.iris}}` expression will resolve to the download path of the `iris.csv` file. `${{outputs.model_dir}}` will resolve to the mount path of the system-generated output location corresponding to the `model_dir` output.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code:
-  local_path: ./src
+code: ./src
 command: python train.py --lr ${{inputs.learning_rate}} --training-data ${{inputs.iris}} --model-dir ${{outputs.model_dir}}
-environment: azureml:AzureML-Minimal:1
+environment: azureml:AzureML-Minimal@latest
 compute: azureml:cpu-cluster
 inputs:
   learning_rate: 0.01
   iris:
-    file: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+    type: uri_file
+    path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
     mode: download
 outputs:
   model_dir:
@@ -104,7 +114,8 @@ In the example below for a sweep job YAML file, the `${{search_space.learning_ra
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json
 type: sweep
-sampling_algorithm: random
+sampling_algorithm:
+  type: random
 search_space:
   learning_rate:
     type: uniform
@@ -117,40 +128,40 @@ objective:
   goal: minimize
   primary_metric: test-multi_logloss
 trial:
-  code: 
-    local_path: src 
+  code: ./src
   command: >-
     python train.py 
     --training-data ${{inputs.iris}}
     --lr ${{search_space.learning_rate}}
     --boosting ${{search_space.boosting}}
-  environment: azureml:AzureML-Minimal:1
+  environment: azureml:AzureML-Minimal@latest
 inputs:
   iris:
-    file: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+    type: uri_file
+    path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
     mode: download
 compute: azureml:cpu-cluster
 ```
 
 ### Binding inputs and outputs between steps in a pipeline job
 
-Expressions are also used for binding inputs and outputs between steps in a pipeline job. For example, you can bind the input of one job (job #2) in a pipeline to the output of another job (job #1). This usage will signal to Azure ML the dependency flow of the pipeline graph, and job #2 will get executed after job #1, since the output of job #1 is required as an input for job #2.
+Expressions are also used for binding inputs and outputs between steps in a pipeline job. For example, you can bind the input of one job (job B) in a pipeline to the output of another job (job A). This usage will signal to Azure ML the dependency flow of the pipeline graph, and job B will get executed after job A, since the output of job A is required as an input for job B.
 
 For a pipeline job YAML file, the `inputs` and `outputs` sections of each child job are evaluated within the parent context (the top-level pipeline job). The `command`, on the other hand, will resolve to the current context (the child job).
 
 There are two ways to bind inputs and outputs in a pipeline job:
 
-**1) Bind to the top-level inputs and outputs of the pipeline job**
+**Bind to the top-level inputs and outputs of the pipeline job**
 
-You can bind the inputs or outputs of a child job to the inputs/outputs of the top-level parent pipeline job using the following syntax: `${{inputs.<input-name>}}` or `${{outputs.<output-name>}}`. This reference resolves to the parent context; hence the top-level inputs/outputs. 
+You can bind the inputs or outputs of a child job (a pipeline step) to the inputs/outputs of the top-level parent pipeline job using the following syntax: `${{parent.inputs.<input_name>}}` or `${{parent.outputs.<output_name>}}`. This reference resolves to the `parent` context; hence the top-level inputs/outputs. 
 
-In the example below, the output (`model_dir`) of the final `train` step is bound to the top-level pipeline job output via `${{outputs.trained_model}}`
+In the example below, the input (`raw_data`) of the first `prep` step is bound to the top-level pipeline input via `${{parent.inputs.input_data}}`. The output (`model_dir`) of the final `train` step is bound to the top-level pipeline job output via `${{parent.outputs.trained_model}}`.
 
-**2) Bind to the inputs and outputs of another child job (step)**
+**Bind to the inputs and outputs of another child job (step)**
 
-To bind the inputs/outputs of one step to the inputs/outputs of another step, use the following syntax: `${{jobs.<step-name>.inputs.<input-name>}}` or `${{jobs.<step-name>.outputs.<outputs-name>}}`. Again, this reference resolves to the parent context, so the context starts with `jobs.<step-name>`.
+To bind the inputs/outputs of one step to the inputs/outputs of another step, use the following syntax: `${{parent.jobs.<step_name>.inputs.<input_name>}}` or `${{parent.jobs.<step_name>.outputs.<outputs_name>}}`. Again, this reference resolves to the parent context, so the expression must start with `parent.jobs.<step_name>`.
 
-In the example below, the input (`clean_data`) of the `train` step is bound to the output (`prep_data`) of the `prep` step via `${{jobs.prep.outputs.prep_data}}`. The prepared data from the `prep` step will be used as the training data for the `train` step.
+In the example below, the input (`training_data`) of the `train` step is bound to the output (`clean_data`) of the `prep` step via `${{parent.jobs.prep.outputs.clean_data}}`. The prepared data from the `prep` step will be used as the training data for the `train` step.
 
 On the other hand, the context references within the `command` properties will resolve to the current context. For example, the `${{inputs.raw_data}}` reference in the `prep` step's `command` will resolve to the inputs of the current context, which is the `prep` child job. The lookup will be done on `prep.inputs`, so an input named `raw_data` must be defined there.
 
@@ -158,40 +169,40 @@ On the other hand, the context references within the `command` properties will r
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
 type: pipeline
 inputs:
+  input_data: 
+    type: uri_folder
+    path: https://azuremlexamples.blob.core.windows.net/datasets/cifar10/
 outputs:
   trained_model:
 jobs:
   prep:
     type: command
     inputs:
-      raw_data:
-        folder:
-        mode: rw_mount
+      raw_data: ${{parent.inputs.input_data}}
     outputs:
-      prep_data: 
-        mode: upload
-    code:
-      local_path: src/prep
-    environment: azureml:AzureML-Minimal:1
+      clean_data:
+    code: src/prep
+    environment: azureml:AzureML-Minimal@latest
     command: >-
       python prep.py 
       --raw-data ${{inputs.raw_data}} 
-      --prep-data ${{outputs.prep_data}}
+      --prep-data ${{outputs.clean_data}}
     compute: azureml:cpu-cluster
   train:
     type: command
     inputs: 
-      clean_data: ${{jobs.prep.outputs.prep_data}}
+      training_data: ${{parent.jobs.prep.outputs.clean_data}}
+      num_epochs: 1000
     outputs:
-      model_dir: $${{outputs.trained_model}}
-    code: 
-      local_path: src/train
-    environment: azureml:AzureML-Minimal:1
-    compute: azureml:gpu-cluster
+      model_dir: ${{parent.outputs.trained_model}}
+    code: src/train
+    environment: azureml:AzureML-Minimal@latest
     command: >-
       python train.py 
-      --training-data ${{inputs.clean_data}} 
+      --epochs ${{inputs.num_epochs}}
+      --training-data ${{inputs.training_data}} 
       --model-output ${{outputs.model_dir}}
+    compute: azureml:gpu-cluster
 ```
 
 ### Parameterizing the `command` with the `inputs` and `outputs` contexts of a component
@@ -201,20 +212,18 @@ Similar to the `command` for a job, the `command` for a component can also be pa
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 type: command
-code:
-  local_path: ./src
+code: ./src
 command: python train.py --lr ${{inputs.learning_rate}} --training-data ${{inputs.iris}} --model-dir ${{outputs.model_dir}}
-environment: azureml:AzureML-Minimal:1
+environment: azureml:AzureML-Minimal@latest
 inputs:
   learning_rate:
     type: number
     default: 0.01
-    optional: true
   iris:
-    type: path
+    type: uri_file
 outputs:
   model_dir:
-    type: path
+    type: uri_folder
 ```
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer terminology
+title: Terminology
 description: This article provides an overview of Azure Video Analyzer terminology.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
@@ -7,6 +7,8 @@ ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Azure Video Analyzer terminology
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 This article provides an overview of terminology related to [Azure Video Analyzer](overview.md).
 
@@ -28,7 +30,7 @@ In the context of a video management system for security cameras, video recordin
 
 ## Streaming
 
-You can use Video Analyzer to stream video recordings to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). You can use the [Azure Video Analyzer player widgets](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md) (web components) to play back video resources. In addition, HLS is supported by web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by [a list of clients on this page](https://dashif.org/tools/clients/).
+You can use Video Analyzer to stream video recordings to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). You can use the [Azure Video Analyzer player widgets](https://github.com/Azure/video-analyzer-widgets/blob/main/README.md) (web components) to play back video resources. In addition, HLS is supported by web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by [a list of clients on this page](https://dashif.org/tools/clients/).
 
 ## Exporting
 

@@ -1,21 +1,20 @@
 ---
 title: Use the activity report to move AD FS apps to Azure Active Directory
 description: The Active Directory Federation Services (AD FS) application activity report lets you quickly migrate applications from AD FS to Azure Active Directory (Azure AD). This migration tool for AD FS identifies compatibility with Azure AD and gives migration guidance.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/14/2019
-ms.author: davidmu
+ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
 ---
 
-# Review the application activity report in Azure Active Directory
+# Review the application activity report
 
 Many organizations use Active Directory Federation Services (AD FS) to provide single sign-on to cloud applications. There are significant benefits to moving your AD FS applications to Azure AD for authentication, especially in terms of cost management, risk management, productivity, compliance, and governance. But understanding which applications are compatible with Azure AD and identifying specific migration steps can be time consuming.
 

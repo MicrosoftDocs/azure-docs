@@ -1,5 +1,5 @@
 ---
-title: Record and stream inference metadata with video - Azure Video Analyzer
+title: Record and stream inference metadata with video
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to record video and inference metadata to the cloud and play back the recording with the visual inference metadata.
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 # Tutorial: Record and stream inference metadata with video
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 In this tutorial, you will learn how to use Azure Video Analyzer to record live video and inference metadata to the cloud and play back that recording with visual inference metadata. In this use case, you will be continuously recording video, while using a custom model to detect objects **(yoloV3)** and a Video Analyzer processor **(object tracker)** to track objects. As video is being continuously recorded, so will the inference metadata from the objects being detected and tracked. 
 
@@ -22,7 +24,7 @@ Read these articles before you begin:
 * [Azure Video Analyzer on IoT Edge terminology](../terminology.md)
 * [Video Analyzer Pipeline concepts](../pipeline.md) 
 * [Continuous video recording](../continuous-video-recording.md)
-* [Quickstart: Analyze live video with your own model - HTTP](analyze-live-video-use-your-model-http.md)
+* [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md)
 * [Quickstart: Track objects in a live video](track-objects-live-video.md)
 
 ## Prerequisites
@@ -48,7 +50,7 @@ As the diagram shows, you'll use an [RTSP source](../pipeline.md#rtsp-source) no
 
 * The first path is to an HTTP extension node. The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the video sink node and the IoT Hub sink node. The [video sink](../pipeline.md#video-sink) node will use the inference metadata from the object tracker node to be played back with the recorded video. The [IoT Hub message sink](../pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
-* The second path is directly from the RTSP source to the video sink node to accomplish continuous video recording. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
+* The second path is directly from the RTSP source to the video sink node to accomplish continuous video recording. The video that will be used in this tutorial is [a highway intersection sample video](https://avamedia.blob.core.windows.net/public/camera-300s.mkv).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

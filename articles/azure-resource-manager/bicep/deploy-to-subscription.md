@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to subscription
 description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope. It shows how to create a resource group.
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/22/2021
 ---
 
 # Subscription deployments with Bicep files
@@ -16,7 +16,7 @@ To simplify the management of resources, you can deploy resources at the level o
 
 ### Microsoft Learn
 
-To learn more about deployment scopes, and for hands-on guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
 
 ## Supported resources
 
@@ -36,10 +36,15 @@ For Azure Policies, use:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-For Azure role-based access control (Azure RBAC), use:
+For access control, use:
 
+* [accessReviewScheduleDefinitions](/azure/templates/microsoft.authorization/accessreviewscheduledefinitions)
+* [accessReviewScheduleSettings](/azure/templates/microsoft.authorization/accessreviewschedulesettings)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleAssignmentScheduleRequests](/azure/templates/microsoft.authorization/roleassignmentschedulerequests)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [roleEligibilityScheduleRequests](/azure/templates/microsoft.authorization/roleeligibilityschedulerequests)
+* [roleManagementPolicyAssignments](/azure/templates/microsoft.authorization/rolemanagementpolicyassignments)
 
 For nested templates that deploy to resource groups, use:
 
@@ -51,11 +56,33 @@ For creating new resource groups, use:
 
 For managing your subscription, use:
 
-* [Advisor configurations](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [Change Analysis profile](/azure/templates/microsoft.changeanalysis/profile)
+* [configurations - Advisor ](/azure/templates/microsoft.advisor/configurations)
+* [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
+* [locks](/azure/templates/microsoft.authorization/locks)
+* [profile - Change Analysis ](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
+
+For monitoring, use:
+
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
+* [logprofiles](/azure/templates/microsoft.insights/logprofiles)
+
+For security, use:
+
+* [advancedThreatProtectionSettings](/azure/templates/microsoft.security/advancedthreatprotectionsettings)
+* [alertsSuppressionRules](/azure/templates/microsoft.security/alertssuppressionrules)
+* [assessmentMetadata](/azure/templates/microsoft.security/assessmentmetadata)
+* [assessments](/azure/templates/microsoft.security/assessments)
+* [autoProvisioningSettings](/azure/templates/microsoft.security/autoprovisioningsettings)
+* [connectors](/azure/templates/microsoft.security/connectors)
+* [deviceSecurityGroups](/azure/templates/microsoft.security/devicesecuritygroups)
+* [ingestionSettings](/azure/templates/microsoft.security/ingestionsettings)
+* [pricings](/azure/templates/microsoft.security/pricings)
+* [securityContacts](/azure/templates/microsoft.security/securitycontacts)
+* [settings](/azure/templates/microsoft.security/settings)
+* [workspaceSettings](/azure/templates/microsoft.security/workspacesettings)
 
 Other supported types include:
 
@@ -77,7 +104,7 @@ To deploy to a subscription, use the subscription-level deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \

@@ -20,7 +20,7 @@ Microsoft Defender for IoT provides comprehensive protocol support. In addition 
 - Secure proprietary information by developing on-site as an external plugin. 
 - Localize text for alerts, events, and protocol parameters.
 
-This unique solution for developing protocols as plugins, does not require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
+This unique solution for developing protocols as plugins, doesn't require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
 
 ## Do I have to purchase hardware appliances from Microsoft partners?
 Microsoft Defender for IoT sensor runs on specific hardware specs as described in the [Hardware Specifications Guide](./how-to-identify-required-appliances.md), customers can purchase certified hardware from Microsoft partners or use the supplied bill of materials  (BOM) and purchase it on their own. 
@@ -28,7 +28,7 @@ Microsoft Defender for IoT sensor runs on specific hardware specs as described i
 Certified hardware has been tested in our labs for driver stability, packet drops and network sizing.
 
 
-## Regulation does not allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
+## Regulation doesn't allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
 
 Yes you can! The Microsoft Defender for IoT platform on-premises solution is deployed as a physical or virtual sensor appliance that passively ingests network traffic (via SPAN, RSPAN, or TAP) to analyze, discover, and continuously monitor IT, OT, and IoT networks. For larger enterprises, multiple sensors can aggregate their data to an on-premises management console.
 
@@ -46,7 +46,7 @@ Microsoft Defender for IoT delivers comprehensive security across all your IoT/O
 
 ## Do I have to be an Azure customer?
 
-No, for the agentless version of Microsoft Defender for IoT, you do not need to be an Azure customer. However, if you want to send alerts to Microsoft Sentinel; provision network sensors and monitor their health from the cloud; and benefit from automatic software and threat intelligence updates, you will need to connect the sensor to Azure via Azure IoT Hub.
+No, for the agentless version of Microsoft Defender for IoT, you do not need to be an Azure customer. However, if you want to send alerts to Microsoft Sentinel; provision network sensors and monitor their health from the cloud; and benefit from automatic software and threat intelligence updates, you will need to connect the sensor to Azure and Defender for IoT. For more information, see [Sensor connection methods](architecture-connections.md).
 
 For the agent-based version of Microsoft Defender for IoT, you must be an Azure customer.
 
@@ -68,7 +68,7 @@ For information on how to activate your on-premises management console, see [Act
 
 ## How to change the network configuration
 
-You can see how to [update your sensor network configuration before activation](how-to-activate-and-set-up-your-sensor.md#update-sensor-network-configuration-before-activation).
+You can update your sensor network configuration before or after activation. For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
 
 You can also [update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration) after activation.
 
@@ -76,14 +76,15 @@ You can work with CLI [commands](references-work-with-defender-for-iot-cli-comma
 
 ## How do I check the sanity of my deployment
 
-After installing the software for your sensor, or on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System statistics](how-to-install-software.md#system).
+After installing the software for your sensor or on-premises management console, you'll want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation).
 
-You can follow these links, if [The appliance isn't responding](how-to-install-software.md#the-appliance-isnt-responding) or [You can't connect by using a web interface](how-to-install-software.md#you-cant-connect-by-using-a-web-interface).
+You can also use our [UI and CLI tools](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) to check system health and review your overall system statistics.
+
+For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
 
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:
 
 - Read the Defender for IoT [overview](overview.md)
-- Verify the [System prerequisites](quickstart-system-prerequisites.md)
-- Learn more about how to [Getting started with Defender for IoT](getting-started.md)
+- [Get started with Defender for IoT](getting-started.md)

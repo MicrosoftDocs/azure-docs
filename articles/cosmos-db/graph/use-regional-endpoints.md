@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -41,7 +42,7 @@ Global database account CNAME always points to a valid write region. During serv
 
 The easiest way to get the list of regions for Azure Cosmos DB Graph account is overview blade in Azure portal. It will work for applications that do not change regions often, or have a way to update the list via application configuration.
 
-:::image type="content" source="./media/use-regional-endpoints/get-end-point-portal.png " alt-text="Retrieve regions of Cosmos DB Graph account from the portal":::
+:::image type="content" source="./media/use-regional-endpoints/get-end-point-portal.png" alt-text="Retrieve regions of Cosmos DB Graph account from the portal.":::
 
 Example below demonstrates general principles of accessing regional Gremlin endpoint. Application should consider number of regions to send the traffic to and number of corresponding Gremlin clients to instantiate.
 
@@ -76,7 +77,7 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 
 ## SDK endpoint discovery
 
-Application can use [Azure Cosmos DB SDK](../sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or automatic failover.
+Application can use [Azure Cosmos DB SDK](../sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or service-managed failover.
 
 TinkerPop Gremlin SDK doesn't have an API to discover Cosmos DB Graph database account regions. Applications that need runtime endpoint discovery need to host 2 separate SDKs in the process space.
 

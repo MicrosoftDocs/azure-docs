@@ -5,6 +5,7 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
+ms.devlang: csharp, golang, java, javascript, powershell, python
 ms.date: 08/17/2020
 ---
 
@@ -427,7 +428,7 @@ def sign_request(host,
                 secret):    # Access Key Value
     verb = method.upper()
 
-    utc_now = str(datetime.utcnow().strftime("%b, %d %Y %H:%M:%S ")) + "GMT"
+    utc_now = str(datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S ")) + "GMT"
 
     if six.PY2:
         content_digest = hashlib.sha256(bytes(body)).digest()

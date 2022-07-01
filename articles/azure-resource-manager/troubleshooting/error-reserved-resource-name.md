@@ -2,7 +2,7 @@
 title: Reserved resource name errors
 description: Describes how to resolve errors when providing a resource name that includes a reserved word.
 ms.topic: troubleshooting
-ms.date: 11/02/2021
+ms.date: 01/24/2021
 ---
 # Resolve reserved resource name errors
 
@@ -10,7 +10,7 @@ This article describes the error you get when deploying a resource that includes
 
 ## Symptom
 
-When deploying a resource that is available through a public endpoint, you may receive the following error:
+When deploying a resource, you may receive the following error:
 
 ```
 Code=ReservedResourceName;
@@ -19,7 +19,7 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## Cause
 
-Resources that have a public endpoint can't use reserved words or trademarks in the name.
+Resources that have an accessible endpoint, such as a fully qualified domain name, can't use reserved words or trademarks in the name. The name is checked when the resource is created, even if the endpoint isn't currently enabled.
 
 The following words are reserved:
 
@@ -64,6 +64,11 @@ The following words can't be used as either a whole word or a substring in the n
 
 * MICROSOFT
 * WINDOWS
+
+The following words can't be used at the start of a resource name, but can be used later in the name:
+
+* LOGIN
+* XBOX
 
 ## Solution
 

@@ -1,12 +1,13 @@
 ---
 title: Azure PowerShell samples for Azure Cosmos DB Gremlin API
 description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB Gremlin API
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 01/20/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB Gremlin API
@@ -32,6 +33,6 @@ The following table includes links to commonly used Azure PowerShell scripts for
 |[Create an account, database and graph](../scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and graph. |
 |[Create an account, database and graph with autoscale](../scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and graph with autoscale. |
 |[List or get databases or graphs](../scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get database or graph. |
-|[Throughput operations](../scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Throughput operations for a database or graph including get, update and migrate between autoscale and standard throughput. |
+|[Perform throughput operations](../scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Perform throughput operations for a database or graph including get, update and migrate between autoscale and standard throughput. |
 |[Lock resources from deletion](../scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||

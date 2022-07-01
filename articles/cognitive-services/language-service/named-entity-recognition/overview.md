@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 06/15/2022
 ms.author: aahi
 ms.custom: language-service-ner, ignite-fall-2021
 ---
@@ -23,6 +23,8 @@ Named Entity Recognition (NER) is one of the features offered by [Azure Cognitiv
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
+[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
+
 ## Responsible AI 
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for NER](/legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
@@ -31,6 +33,6 @@ An AI system includes not only the technology, but also the people who will use 
 
 ## Next steps
 
-There are two ways to get started using the entity linking feature:
+There are two ways to get started using the Named Entity Recognition (NER) feature:
 * [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for Language features without needing to write code.
 * The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  

@@ -4,12 +4,11 @@ description: Learn how to review access of Azure resource and Azure AD roles in 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
 ms.date: 10/07/2021
@@ -21,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Perform an access review of Azure resource and Azure AD roles in PIM
 
-Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure Active Directory (AD) and other Microsoft online services like Microsoft 365 or Microsoft Intune. Follow the steps in this article to perform reviews of access to roles.
+Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure Active Directory (AD), part of Microsoft Entra, and other Microsoft online services like Microsoft 365 or Microsoft Intune. Follow the steps in this article to perform reviews of access to roles.
 
 If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com) and begin.
 

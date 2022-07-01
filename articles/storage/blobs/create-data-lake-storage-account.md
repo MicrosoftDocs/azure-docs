@@ -47,9 +47,6 @@ The following image shows this setting in the **Create storage account** page.
 
 To enable Data Lake Storage capabilities on an existing account, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
-> [!NOTE]
-> **Data protection** and hierarchical namespace can't be enabled simultaneously.
-
 ## Next steps
 
 - [Storage account overview](../common/storage-account-overview.md)

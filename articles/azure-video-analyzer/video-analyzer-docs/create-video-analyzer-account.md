@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Video Analyzer account
+title: Create a Video Analyzer account
 description: This topic explains how to create an account for Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 ---
 
 # Create a Video Analyzer account
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and at least one [user-assigned managed identity][docs-uami](UAMI). The UAMI will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role and [Reader][docs-role-reader] role to your storage account. You can optionally associate an IoT Hub with your Video Analyzer account – this is needed if you use Video Analyzer edge module as a [transparent gateway](./cloud/use-remote-device-adapter.md). If you do so, then you will need to add a UAMI which has [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role permissions. You can use the same UAMI for both storage account and IoT Hub, or separate UAMIs.
 
@@ -261,4 +263,4 @@ When no longer needed, delete the resource group, which deletes the account and 
 [docs-storage-access]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor
 [docs-role-reader]: ../../role-based-access-control/built-in-roles.md#reader
 [docs-arm-template]: ../../azure-resource-manager/templates/overview.md
-[docs-deploy-on-edge]: deploy-iot-edge-device.md
+[docs-deploy-on-edge]: ./edge/deploy-iot-edge-device.md

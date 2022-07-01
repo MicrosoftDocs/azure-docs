@@ -1,9 +1,10 @@
 ---
 title: Use event hub from Apache Kafka app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on Apache Kafka support by Azure Event Hubs. 
-ms.topic: article
-ms.date: 08/30/2021
+ms.topic: overview
+ms.date: 06/27/2022
 ---
+
 # Use Azure Event Hubs from Apache Kafka applications
 Event Hubs provides an endpoint compatible with the Apache Kafka® producer and consumer APIs that can be used by most existing Apache Kafka client applications as an alternative to running your own Apache Kafka cluster. Event Hubs supports Apache Kafka's producer and consumer APIs clients at version 1.0 and above.
 
@@ -79,6 +80,8 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 > [!NOTE]
 > When using SAS authentication with Kafka clients, established connections aren't disconnected when the SAS key is regenerated. 
 
+> [!NOTE]
+> [Generated shared access signature tokens](authenticate-shared-access-signature.md#generate-a-shared-access-signature-token) are not supported when using the Event Hubs for Apache Kafka endpoint.
 
 #### Samples 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).

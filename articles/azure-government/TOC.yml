@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Azure Government Portal
+  - name: Azure Government portal
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
@@ -49,12 +49,14 @@
       href: documentation-government-manage-marketplace.md
   - name: Industry segments
     items:
-    - name: Export controls
-      href: documentation-government-overview-itar.md
-    - name: Justice and public safety
-      href: documentation-government-overview-jps.md
     - name: Department of Defense
       href: documentation-government-overview-dod.md
+    - name: Export controls
+      href: documentation-government-overview-itar.md
+    - name: Power and utilities
+      href: documentation-government-overview-nerc.md
+    - name: Public safety and justice
+      href: documentation-government-overview-jps.md
     - name: Worldwide public sector
       href: documentation-government-overview-wwps.md
 - name: How-to guides
@@ -64,9 +66,9 @@
     - name: Guidance for developers
       href: documentation-government-developer-guide.md
     - name: Azure Storage
-      href: documentation-government-get-started-connect-to-storage.md    
+      href: documentation-government-get-started-connect-to-storage.md
     - name: Cognitive Services
-      href: documentation-government-cognitiveservices.md     
+      href: documentation-government-cognitiveservices.md
     - name: Integrate Azure AD authentication
       href: documentation-government-aad-auth-qs.md
     - name: SQL Server Management Studio
@@ -112,13 +114,13 @@
 - name: Resources
   items:
   - name: Azure Government Website
-    href: https://azure.microsoft.com/overview/clouds/government/
+    href: https://azure.microsoft.com/global-infrastructure/government/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?tag=azure-government
   - name: Blog
-    href: https://blogs.msdn.microsoft.com/azuregov/
+    href: https://devblogs.microsoft.com/azuregov/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/
   - name: Pricing calculator

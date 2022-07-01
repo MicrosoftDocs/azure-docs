@@ -3,18 +3,17 @@ title: Add network interfaces to or remove from Azure VMs
 description: Learn how to add network interfaces to or remove network interfaces from virtual machines.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Add network interfaces to or remove network interfaces from virtual machines
@@ -35,7 +34,7 @@ If you don't have one, set up an Azure account with an active subscription. [Cre
 
     If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). Run `Connect-AzAccount` to create a connection with Azure.
 
-- **Azure Command-line interface (CLI) users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run the CLI from your computer. Use Azure CLI version 2.0.26 or later if you're running the Azure CLI locally. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to create a connection with Azure.
+- **Azure CLI users**: Run the commands via either the [Azure Cloud Shell](https://shell.azure.com/bash) the Azure CLI running locally. Use Azure CLI version 2.0.26 or later if you're running the Azure CLI locally. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to create a connection with Azure.
 
 ## Add existing network interfaces to a new VM
 
@@ -47,7 +46,7 @@ Before you create the VM, [Create a network interface](virtual-network-network-i
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az-network-nic-create)|
 |PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## Add a network interface to an existing VM
@@ -75,7 +74,7 @@ Now you can configure the VM operating system to use multiple network interfaces
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_add) (reference); [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az-vm-nic-add) (reference); [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (reference); [detailed steps](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## View network interfaces for a VM
@@ -97,7 +96,7 @@ To learn about network interface settings and how to change them, see [Manage ne
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic list](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_list)|
+|CLI|[az vm nic list](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az-vm-nic-list)|
 |PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## Remove a network interface from a VM
@@ -121,7 +120,7 @@ To learn about network interface settings and how to change them, see [Manage ne
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_remove) (reference); [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az-vm-nic-remove) (reference); [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (reference); [detailed steps](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## Constraints

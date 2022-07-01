@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 06/17/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -32,7 +32,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 
 - **Cause**: This issue is by design, because Data Factory and Synapse pipelines are unable to show columns that contain no values in the first 10 records. Make sure that the columns you've added are in the correct format. 
 
-- **Recommendation**: Manually add the columns in the mapping tab.
+- **Recommendation**: Manually add the columns in the mapping tab. For more details, refer to [Explicit mapping](copy-activity-schema-and-type-mapping.md#explicit-mapping).
 
 
 ## Error code: DynamicsMissingTargetForMultiTargetLookupField
@@ -143,6 +143,14 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 - **Cause**: Sink columns in the column mapping miss the 'type' property. 
  
 - **Recommendation**: You can add the 'type' property to those columns in the column mapping by using JSON editor on the portal. 
+
+## Error code: UserErrorUnsupportedAttributeType
+ 
+- **Message**: `The attribute type 'Lookup' of field %attributeName; is not supported` 
+ 
+- **Cause**: When loading data to Dynamics sink, Azure Data Factory imposes validation on lookup attribute's metadata. However, there's the known issue of certain Dynamics entities not having valid lookup attribute metadata that holds a list of targets, which would fail the validation.
+
+- **Recommendation**: Contact Dynamics support team to mitigate the issue.
 
 ## The copy activity from the Dynamics 365 reads more rows than the actual number
 

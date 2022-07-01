@@ -14,7 +14,7 @@ This chapter lists the minimum system requirements to work with *Azure Remote Re
 
 ## Development PC
 
-* Windows 10 version 1903 or higher.
+* Windows 10 version 1903 or higher or Windows 11.
 * Up-to-date graphics drivers.
 * Optional: [H265 hardware video decoder](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7), if you want to use local preview of remotely rendered content (for example in Unity).
 
@@ -39,14 +39,17 @@ Even though the correct H265 codec might be installed, security properties on th
 
 Azure Remote Rendering currently only supports **HoloLens 2** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
 
+On desktop, it is required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
 1. Start the **Microsoft Store**.
-1. Click the **"..."** button in the top right.
-1. Select **Downloads and Updates**.
-1. Search the list for **HEVC Video Extensions from Device Manufacturer**. If this item is not listed under updates, the most recent version is already installed.
+1. Click the **"Library"** button in the bottom left.
+1. Find **HEVC Video Extensions from Device Manufacturer** in the list. If it is not listed under updates, the most recent version is already installed. Otherwise click the **Get Updates** button and wait for it to install.
 1. Make sure the listed codec has at least version **1.0.21821.0**.
-1. Click the **Get Updates** button and wait for it to install.
+    1. Select the **HEVC Video Extensions from Device Manufacturer** entry from the list.
+    1. Scroll down to the **Additional Information** section.
+    1. Check the **Installed version** entry.
 
 ## Network
 
@@ -106,6 +109,10 @@ The following software must be installed:
 ## Unity
 
 For development with Unity, install a supported version of Unity [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+
+> [!IMPORTANT]
+> In addition to the supported versions mentioned below, make sure to check out the [Unity known issues page](/windows/mixed-reality/develop/unity/known-issues).
+
 Make sure to include the following modules in your Unity installation:
 * **UWP** - Universal Windows Platform Build Support
 * **IL2CPP** - Windows Build Support (IL2CPP)

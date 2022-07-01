@@ -4,6 +4,7 @@ description: Learn how to configure scheduled maintenance settings for an Azure 
 author: niklarin
 ms.author: nlarin
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 9/21/2020
 ---

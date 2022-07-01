@@ -12,7 +12,6 @@ ms.service: security
 ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -416,7 +415,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Many javascript functions don't do encoding by default. When assigning untrusted input to DOM elements via such functions, may result in cross site script (XSS) executions.| 
+| **Steps** | Many JavaScript functions don't do encoding by default. When assigning untrusted input to DOM elements via such functions, may result in cross site script (XSS) executions.| 
 
 ### Example
 Following are insecure examples: 

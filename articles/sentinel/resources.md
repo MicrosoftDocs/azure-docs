@@ -1,12 +1,7 @@
 ---
 title: Useful resources when working with Microsoft Sentinel
 description: This document provides you with a list of useful resources when working with Microsoft Sentinel.
-services: sentinel
 author: yelevin
-manager: rkarlin
-ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -23,10 +18,14 @@ This article lists resources that can help you get more information about workin
 
 Microsoft Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL) to build queries. For more information, see:
 
-- [KQL concepts](/azure/data-explorer/kusto/concepts/)
-- [KQL queries](/azure/data-explorer/kusto/query/)
-- [KQL quick reference guide](/azure/data-explorer/kql-quick-reference).
-- [Get started with KQL queries](../azure-monitor/logs/get-started-queries.md)
+- [Kusto Query Language in Microsoft Sentinel](kusto-overview.md)
+- [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kusto-resources.md)
+
+## Microsoft Sentinel templates for data to monitor
+
+The [Azure Active Directory Security Operations Guide](../active-directory/fundamentals/security-operations-introduction.md) includes specific guidance and knowledge about data that's important to monitor for security purposes, for several operational areas. 
+
+In each article, check for sections named [Things to monitor](../active-directory/fundamentals/security-operations-privileged-accounts.md#things-to-monitor) for lists of events that we recommend alerting on and investigating, as well as analytics rule templates to deploy directly to Microsoft Sentinel.
 
 ## Learn more about creating automation
 
@@ -45,7 +44,7 @@ The following table describes the differences between playbooks, workbooks, and 
 |**Advantages**     |<ul><li> Best for single, repeatable tasks </li><li>No coding knowledge required  </li></ul>      |<ul><li>Best for a high-level view of Microsoft Sentinel data </li><li>No coding knowledge required</li></ul>       | <ul><li>Best for complex chains of repeatable tasks </li><li>Ad-hoc, more procedural control</li><li>Easier to pivot with interactive functionality </li><li>Rich Python libraries for data manipulation and visualization </li><li>Machine learning and custom analysis </li><li>Easy to document and share analysis evidence </li></ul>       |
 |**Challenges**     | <ul><li>Not suitable for ad-hoc and complex chains of tasks </li><li>Not ideal for documenting and sharing evidence</li></ul>        |   <ul><li>Cannot integrate with external data </li></ul>     |    <ul><li> High learning curve and requires coding knowledge </li></ul>   |
 |  **More information**   | [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)        | [Visualize collected data](get-visibility.md)        | [Use Jupyter notebooks to hunt for security threats](notebooks.md)        |
-|     |         |         |         |
+
 
 ## Comment on our blogs and forums
 
@@ -53,8 +52,8 @@ We love hearing from our users.
 
 In the TechCommunity space for Microsoft Sentinel:
 
-- [View and comment on recent blog posts](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
-- [Post your own questions about Microsoft Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
+- [View and comment on recent blog posts](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog)
+- [Post your own questions about Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel/bd-p/MicrosoftSentinel)
 
 You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8) program.
 

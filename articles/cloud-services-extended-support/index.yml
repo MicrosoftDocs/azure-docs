@@ -49,6 +49,8 @@ landingContent:
         links:
           - text: Available sizes
             url: available-sizes.md
+          - text: Power and Provisioning States
+            url: states.md
           - text: Frequently asked questions
             url: faq.yml
           - text: Guest OS release news

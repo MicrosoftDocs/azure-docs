@@ -1,10 +1,10 @@
 ---
 title: Create, edit, or extend logic app JSON workflow definitions
-description: How to write, edit, and extend your logic app's JSON workflow definitions in Azure Logic Apps
+description: Write, edit, and extend your logic app's JSON workflow definitions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 01/01/2018
 ---
 

@@ -7,10 +7,10 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
+ms.topic: tutorial
+ms.date: 05/27/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, cogserv-non-critical-language
 ---
 
 # Deploy a key phrase extraction container to Azure Kubernetes Service

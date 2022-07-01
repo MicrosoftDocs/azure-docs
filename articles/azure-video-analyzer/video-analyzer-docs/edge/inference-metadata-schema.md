@@ -1,5 +1,5 @@
 ---
-title: Inference metadata schema - Azure
+title: Inference metadata schema
 description: In Azure Video Analyzer, each inference object regardless of using HTTP-based contract or gRPC based contract follows the object model described in this topic.
 ms.topic: reference
 ms.date: 11/04/2021
@@ -10,7 +10,9 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
-In Azure Video Analyzer, each inference object regardless of using HTTP-based contract or gRPC based contract follows the object model described in this topic.
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+In Azure Video Analyzer, each inference object regardless of using HTTP-based contract or gRPC based contract should follow the object model described below. The JSON schema is documented [here](https://github.com/Azure/video-analyzer/tree/main/contracts/data-schema).
 
 ## Object model
 

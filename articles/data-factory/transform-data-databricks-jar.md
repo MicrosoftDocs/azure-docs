@@ -19,7 +19,21 @@ The Azure Databricks Jar Activity in a [pipeline](concepts-pipelines-activities.
 
 For an eleven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+
+## Add a Jar activity for Azure Databricks to a pipeline with UI
+
+To use a Jar activity for Azure Databricks in a pipeline, complete the following steps:
+
+1. Search for _Jar_ in the pipeline Activities pane, and drag a Jar activity to the pipeline canvas.
+1. Select the new Jar activity on the canvas if it is not already selected.
+1. Select the  **Azure Databricks** tab to select or create a new Azure Databricks linked service that will execute the Jar activity.
+
+   :::image type="content" source="media/transform-data-databricks-jar/jar-activity.png" alt-text="Shows the UI for a Jar activity.":::
+
+1. Select the **Settings** tab and specify a class name to be executed on Azure Databricks, optional parameters to be passed to the Jar, and libraries to be installed on the cluster to execute the job.
+
+   :::image type="content" source="media/transform-data-databricks-jar/jar-settings.png" alt-text="Shows the UI for the Settings tab for a Jar activity.":::
 
 ## Databricks Jar activity definition
 
@@ -123,4 +137,4 @@ For more information, see the [Databricks documentation](/azure/databricks/dev-t
 
 ## Next steps
 
-For an eleven-minute introduction and demonstration of this feature, watch the [video](https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).
+For an eleven-minute introduction and demonstration of this feature, watch the [video](/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).

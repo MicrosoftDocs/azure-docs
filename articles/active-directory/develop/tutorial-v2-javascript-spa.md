@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Create a JavaScript single-page app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create a JavaScript single-page app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build a JavaScript single-page app (SPA) that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: mmacy
@@ -87,9 +86,8 @@ Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and the
    // Set the front-end folder to serve public assets.
    app.use(express.static('JavaScriptSPA'))
 
-   // Set up a route for index.html.
    app.get('*', function (req, res) {
-       res.sendFile(path.join(__dirname + '/index.html'));
+       res.sendFile(path.join(__dirname + '/JavaScriptSPA/index.html'));
    });
 
    // Start the server.
@@ -436,8 +434,8 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 
    ```JavaScript
       const graphConfig = {
-        graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
-        graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+        graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+        graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
       };
    ```
 
@@ -480,6 +478,10 @@ In the sample application created by this guide, the `callMSGraph()` method is u
    npm start
    ```
 1. In your browser, enter **http://localhost:3000** or **http://localhost:{port}**, where *port* is the port that your web server is listening to. You should see the contents of your *index.html* file and the **Sign In** button.
+
+
+> [!Important]
+> Enable popups and redirects for your site in your browser settings.
 
 After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform:
 

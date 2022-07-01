@@ -11,7 +11,7 @@ ms.date: 02/26/2020
 
 [!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use [Azure CLI](/cli/azure/) to manage Azure HDInsight clusters. The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.
+Learn how to use [Azure CLI](/cli/azure/) to manage Azure HDInsight clusters. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -34,7 +34,7 @@ az login
 
 ## List clusters
 
-Use [az hdinsight list](/cli/azure/hdinsight#az_hdinsight_list) to list clusters. Edit the commands below by replacing `RESOURCE_GROUP_NAME` with the name of your resource group, then enter the commands:
+Use [az hdinsight list](/cli/azure/hdinsight#az-hdinsight-list) to list clusters. Edit the commands below by replacing `RESOURCE_GROUP_NAME` with the name of your resource group, then enter the commands:
 
 ```azurecli-interactive
 # List all clusters in the current subscription
@@ -52,7 +52,7 @@ az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:
 
 ## Show cluster
 
-Use [az hdinsight show](/cli/azure/hdinsight#az_hdinsight_show) to show information for a specified cluster. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information, then enter the command:
+Use [az hdinsight show](/cli/azure/hdinsight#az-hdinsight-show) to show information for a specified cluster. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information, then enter the command:
 
 ```azurecli-interactive
 az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -60,7 +60,7 @@ az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 
 ## Delete clusters
 
-Use [az hdinsight delete](/cli/azure/hdinsight#az_hdinsight_delete) to delete a specified cluster. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information, then enter the command:
+Use [az hdinsight delete](/cli/azure/hdinsight#az-hdinsight-delete) to delete a specified cluster. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information, then enter the command:
 
 ```azurecli-interactive
 az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -74,7 +74,7 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## Scale clusters
 
-Use [az hdinsight resize](/cli/azure/hdinsight#az_hdinsight_resize) to resize the specified HDInsight cluster to the specified size. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information. Replace `WORKERNODE_COUNT` with the desired number of worker nodes for your cluster. For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md). Enter the command:
+Use [az hdinsight resize](/cli/azure/hdinsight#az-hdinsight-resize) to resize the specified HDInsight cluster to the specified size. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information. Replace `WORKERNODE_COUNT` with the desired number of worker nodes for your cluster. For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md). Enter the command:
 
 ```azurecli-interactive
 az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT

@@ -20,8 +20,16 @@
   href: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
 - name: Responsible use of AI
   items:
-  - name: Ethics & responsible use
-    href: ethics-responsible-use.md
+  - name: Transparency notes
+    items:
+    - name: Use cases
+      href: responsible-use-cases.md
+    - name: Characteristics and limitations
+      href: responsible-characteristics-and-limitations.md
+  - name: Data and privacy
+    href: responsible-data-and-privacy.md
+  - name: Guidance for integration and responsible use
+    href: responsible-guidance-integration.md
 - name: How-to guides
   items:
   - name: Create Personalizer Resource

@@ -1,7 +1,6 @@
 ---
 title: Design guidance for replicated tables
 description: Recommendations for designing replicated tables in Synapse SQL pool  
-services: synapse-analytics
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual

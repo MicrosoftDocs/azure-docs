@@ -2,9 +2,6 @@
 title: Connect Microsoft Sentinel to Azure, Windows, and Microsoft services
 description: Learn how to connect Microsoft Sentinel to Azure and Microsoft 365 cloud services and to Windows Server event logs.
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -30,7 +27,7 @@ This article presents information that is common to groups of connectors. See th
 The following integrations are both more unique and more popular, and are treated individually, with their own articles:
 
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
-- [Microsoft Defender for Cloud](connect-azure-security-center.md)
+- [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
 - [Azure Active Directory](connect-azure-active-directory.md)
 - [Windows Security Events](connect-windows-security-events.md)
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
@@ -88,6 +85,8 @@ To ingest data into Microsoft Sentinel:
 
 1. Select **Save** at the top of the screen.
 
+For more information, see also [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md) in the Azure Monitor documentation.
+
 # [Azure Policy](#tab/AP)
 
 ### Prerequisites
@@ -128,7 +127,7 @@ Connectors of this type use Azure Policy to apply a single diagnostic settings c
 >
 > With this type of data connector, the connectivity status indicators (a color stripe in the data connectors gallery and connection icons next to the data type names) will show as *connected* (green) only if data has been ingested at some point in the past 14 days. Once 14 days have passed with no data ingestion, the connector will show as being disconnected. The moment more data comes through, the *connected* status will return.
 
-You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
+You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page. For more information, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD) in the Azure Monitor documentation.
 
 ## Windows agent-based connections
 
@@ -136,7 +135,9 @@ You can find and query the data for each resource type using the table name that
 
 > [!IMPORTANT]
 >
-> - Some connectors based on the Azure Monitor Agent (AMA) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Some connectors based on the Azure Monitor Agent (AMA) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> 
+> The Azure Monitor Agent is currently supported only for Windows Security Events and Windows Forwarded Events.
 
 The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
 
@@ -150,7 +151,7 @@ See below how to create data collection rules.
 
 - You must have read and write permissions on the Microsoft Sentinel workspace.
 
-- To collect events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable the Azure Monitor Agent-based connector.
+- To collect events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-manage.md) installed and enabled *before* you enable the Azure Monitor Agent-based connector.
 
   This includes:
 
@@ -170,9 +171,9 @@ See below how to create data collection rules.
 
 1. In the **Resources** tab, select **+Add resource(s)** to add machines to which the Data Collection Rule will apply. The **Select a scope** dialog will open, and you will see a list of available subscriptions. Expand a subscription to see its resource groups, and expand a resource group to see the available machines. You will see Azure virtual machines and Azure Arc-enabled servers in the list. You can mark the check boxes of subscriptions or resource groups to select all the machines they contain, or you can select individual machines. Select **Apply** when you've chosen all your machines. At the end of this process, the Azure Monitor Agent will be installed on any selected machines that don't already have it installed.
 
-1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
+1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
 
-    Learn more about [data collection rules](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr) from the Azure Monitor documentation.
+    Learn more about [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
 
     > [!NOTE]
     >
@@ -249,9 +250,13 @@ PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41f
 }
 ```
 
-See this [complete description of data collection rules](../azure-monitor/agents/data-collection-rule-overview.md) from the Azure Monitor documentation.
+See this [complete description of data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
+
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+>
 
 ### Prerequisites
 
@@ -270,7 +275,7 @@ See this [complete description of data collection rules](../azure-monitor/agents
     | --------- | --------- |
     | **For an Azure Windows VM** | 1. Under **Choose where to install the agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
     | **For any other Windows machine** | 1. Under **Choose where to install the agent**, expand **Install agent on non-Azure Windows Machine** <br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.  <br><br>4. Using the downloaded executable file, install the agent on the Windows systems of your choice, and configure it using the **Workspace ID and Keys** that appear below the download links in the previous step. |
-    | | |
+
 
 > [!NOTE]
 >
@@ -283,7 +288,7 @@ For additional installation options and further details, see the [**Log Analytic
 
 #### Determine the logs to send
 
-For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the [**event set**](windows-security-event-id-reference.md) you wish to send and select **Update**.
+For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the **event set** you wish to send and select **Update**. For more information, see [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md).
 
 You can find and query the data for these services using the table names in their respective sections in the [Data connectors reference](data-connectors-reference.md) page.
 

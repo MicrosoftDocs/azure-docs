@@ -1,14 +1,14 @@
 ---
 title: Quickstart - Deploy JBoss Enterprise Application Platform (EAP) on Red Hat Enterprise Linux (RHEL) to Azure VMs and virtual machine scale sets
 description: How to deploy enterprise Java applications by using Red Hat JBoss EAP on Azure RHEL VMs and virtual machine scale sets.
-author: theresa-nguyen
-ms.author: bicnguy
+author: m-reza-rahman
+ms.author: rezar
+ms.custom: mode-other, devx-track-java, devx-track-javaee, devx-track-javaee-jboss-eap, devx-track-javaee-jboss-eap-vms
 ms.date: 10/30/2020
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom: mode-api
 ms.collection: linux
 ---
 
@@ -130,7 +130,7 @@ To start JBoss EAP with a different configuration, use the `--server-config` arg
     
 For a complete listing of all available startup script arguments and their purposes, use the `--help` argument. For more information, see [Server Runtime Arguments on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) or [Server Runtime Arguments on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime).
     
-JBoss EAP can also work in cluster mode. JBoss EAP cluster messaging allows grouping of JBoss EAP messaging servers to share message processing load. Each active node in the cluster is an active JBoss EAP messaging server, which manages its own messages and handles its own connections. To learn more, see [Clusters Overview on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuring_messaging/clusters_overview) or [ Clusters Overview on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuring_messaging/clusters_overview). 
+JBoss EAP can also work in cluster mode. JBoss EAP cluster messaging allows grouping of JBoss EAP messaging servers to share message processing load. Each active node in the cluster is an active JBoss EAP messaging server, which manages its own messages and handles its own connections. To learn more, see [Clusters Overview on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuring_messaging/clusters_overview) or [Clusters Overview on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuring_messaging/clusters_overview). 
 
 ## Support and subscription notes
 These Quickstart templates are offered as follows: 

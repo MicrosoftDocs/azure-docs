@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/7/2021
+ms.date: 06/06/2022
 ---
 
 # Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
@@ -13,6 +13,9 @@ ms.date: 07/7/2021
 Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data. A fundamental part of Data Lake Storage Gen2 is the addition of a hierarchical namespace to Blob storage.
 
 Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+
+>[!NOTE]
+> For details on the behaviors specific to the AVRO and Parquet formats, see the related sections in the [overview](stream-analytics-define-outputs.md).
 
 ## Output configuration
 
@@ -41,7 +44,7 @@ When you're using Blob storage as output, a new file is created in the blob in t
 * If the file exceeds the maximum number of allowed blocks (currently 50,000). You might reach the maximum allowed number of blocks without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.
 * If there's a schema change in the output, and the output format requires fixed schema (CSV, Avro, Parquet).
 * If a job is restarted, either externally by a user stopping it and starting it, or internally for system maintenance or error recovery.
-* If the query is fully partitioned, and a new file is created for each output partition.
+* If the query is fully partitioned, and a new file is created for each output partition. This comes from using PARTITION BY, or the native parallelization introduced in [compatibility level 1.2](stream-analytics-compatibility-level.md#parallel-query-execution-for-input-sources-with-multiple-partitions)
 * If the user deletes a file or a container of the storage account.
 * If the output is time partitioned by using the path prefix pattern, and a new blob is used when the query moves to the next hour.
 * If the output is partitioned by a custom field, and a new blob is created per partition key if it does not exist.
@@ -58,7 +61,8 @@ For the maximum message size, see [Azure Storage limits](../azure-resource-manag
 ## Limitations
 
 * If "/" is used in the path pattern (e.g /folder2/folder3), then empty folders will be created and they will not be visible in Storage Explorer
-* Stream Analytics appends to the same file in cases where a new blob file is not needed. Please note that this could cause additional triggers to be generated if azure services like event grid are configured to be triggered on blob file update
+* Azure Stream Analytics appends to the same file in cases where a new blob file is not needed. Please note that this could cause additional triggers to be generated if azure services like event grid are configured to be triggered on blob file update
+* Azure Stream Analytics appends to blob by default. When the output format is a Json array, it completes the file on shutdown or when the output moves to the next time partition for time partitioned outputs. Note that, in some cases such as an unclean restart, it is possible that the closing "]" for json array may be missing. 
 
 ## Next steps
 

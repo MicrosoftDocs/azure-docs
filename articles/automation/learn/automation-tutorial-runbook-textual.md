@@ -99,7 +99,7 @@ Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-t
 
 1. Select **+ Create a runbook**.
     1. Name the runbook. For example, test.
-    1. From the **Runbook type** drop-down menu, select **PowerShell**.
+    1. From the **Runbook type** drop-down menu, select **PowerShell Workflow**.
     1. From the  **Runtime version** drop-down, select **5.1**.
     1. Enter applicable **Description**.
     1. Select **Create**.

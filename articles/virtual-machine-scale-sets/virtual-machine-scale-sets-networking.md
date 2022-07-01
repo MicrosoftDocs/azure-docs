@@ -139,8 +139,13 @@ To create a scale set using an Azure template, make sure the API version of the 
     }
 }
 ```
+Note when virtual machine scale sets with public IPs per instance are created with a load balancer in front, the SKU of the instance IPs is determined by the SKU of the Load Balancer (i.e. Basic or Standard).
 
-Example template: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
+Example template using a Basic Load Balancer: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
+
+Alternatively, a [Public IP Prefix](../virtual-network/ip-services/public-ip-address-prefix.md) (a contiguous block of Standard SKU Public IPs) can be used to generate instance-level IPs in a virtual machine scale set. The zonal properties of the prefix will be passed to the instance IPs, though they will not be shown in the output.
+
+Example template using a Public IP Prefix: [vmms-with-public-ip-prefix](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-with-public-ip-prefix)
 
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using the CLI, use the **az vmss list-instance-public-ips** command.
@@ -518,7 +523,7 @@ The following example shows how to add a second IP Configuration to your NIC.
 
 In order to enhance default network security, [virtual machine scale sets with Flexible orchestration](..\virtual-machines\flexible-virtual-machine-scale-sets.md) will require that instances created implicitly via the autoscaling profile have outbound connectivity defined explicitly through one of the following methods: 
 
-- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
+- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md).
 - For scenarios with high security requirements or when using Azure Firewall or Network Virtual Appliance (NVA), you can specify a custom User Defined Route as next hop through firewall. 
 - Instances are in the backend pool of a Standard SKU Azure Load Balancer. 
 - Attach a Public IP Address to the instance network interface. 

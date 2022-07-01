@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This tutorial shows you how to use the [OpenVINO™ Model Server – AI Extension from Intel](https://aka.ms/ava-intel-ovms) to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to models for detecting objects (a person, a vehicle, or a bike), and a model for classifying vehicles. A subset of the frames in the live video feed is sent to this inference server, and the results are sent to IoT Edge Hub.
 
 This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#.
@@ -67,7 +69,7 @@ In this tutorial, you will:
 
 ### Review the sample video
 
-When you set up the Azure resources, a short [video of a parking lot](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
+When you set up the Azure resources, a short [video of a parking lot](https://avamedia.blob.core.windows.net/public/lots_015.mkv) is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 

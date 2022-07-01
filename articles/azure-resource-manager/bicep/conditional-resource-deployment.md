@@ -17,7 +17,7 @@ Sometimes you need to optionally deploy a resource or module in Bicep. Use the `
 
 ### Microsoft Learn
 
-To learn more about conditions, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
 
 ## Deploy condition
 
@@ -42,7 +42,7 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
-Conditions may be used with dependency declarations. For [explicit dependencies](resource-declaration.md#dependencies), Azure Resource Manager automatically removes it from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but may produce a deployment error.
+Conditions may be used with dependency declarations. For [explicit dependencies](resource-dependencies.md), Azure Resource Manager automatically removes it from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but may produce a deployment error.
 
 ## New or existing resource
 
@@ -94,10 +94,10 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
     settings: {
-      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : json('null'))
+      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : null)
     }
     protectedSettings: {
-      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : json('null'))
+      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : null)
     }
   }
 }

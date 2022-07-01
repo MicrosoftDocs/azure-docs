@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021
 
 To plan your QnA Maker app, you need to understand how QnA Maker works and interacts with other Azure services. You should also have a solid grasp of knowledge base concepts.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Azure resources
 
 Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Maker has a specific purpose. Each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations). It's important to understand the function of these resources so that you can use that knowledge into your planning process.
@@ -87,7 +89,7 @@ A bot personality is recommended if your bot connects to your knowledge base. Yo
 
 Conversation flow usually begins with a salutation from a user, such as `Hi` or `Hello`. Your knowledge base can answer with a general answer, such as `Hi, how can I help you`, and it can also provide a selection of follow-up prompts to continue the conversation.
 
-You should design your conversational flow with a loop in mind so that a user knows how to use your bot and isn't abandoned by the bot in the conversation. [Follow-up prompts](../how-to/multiturn-conversation.md) provide linking between QnA pairs, which allow for the conversational flow.
+You should design your conversational flow with a loop in mind so that a user knows how to use your bot and isn't abandoned by the bot in the conversation. [Follow-up prompts](../how-to/multi-turn.md) provide linking between QnA pairs, which allow for the conversational flow.
 
 ### Authoring with collaborators
 

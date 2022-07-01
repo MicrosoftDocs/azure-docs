@@ -4,14 +4,13 @@ description: Learn how to configure Azure resource role settings in Azure AD Pri
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -20,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure resource role settings in Privileged Identity Management
 
-When you configure Azure resource role settings, you define the default settings that are applied to Azure resource role assignments in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Use the following procedures to configure the approval workflow and specify who can approve or deny requests.
+When you configure Azure resource role settings, you define the default settings that are applied to Azure role assignments in Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. Use the following procedures to configure the approval workflow and specify who can approve or deny requests.
 
 ## Open role settings
 
@@ -109,7 +108,7 @@ For more information, see [Multifactor authentication and Privileged Identity Ma
 
 ## Activation maximum duration
 
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role assignment stays active before it expires. This value can be from one to 24 hours.
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
 ## Require justification
 

@@ -79,7 +79,7 @@ The `func new` action supports the following options:
 
 | Option     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--authLevel`** | Lets you set the authorization level for an HTTP trigger. Supported values are: `function`, `anonymous`, `admin`. Authorization isn't enforced when running locally. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). |
+| **`--authlevel`** | Lets you set the authorization level for an HTTP trigger. Supported values are: `function`, `anonymous`, `admin`. Authorization isn't enforced when running locally. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). |
 | **`--csx`** | (Version 2.x and later versions.) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
 | **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and later versions, you don't use this option because the language is defined by the worker runtime. |
 | **`--name`**, **`-n`** | The function name. |
@@ -253,28 +253,7 @@ func azure storage fetch-connection-string <STORAGE_ACCOUNT_NAME>
 
 ## func deploy
 
-Deploys a function app in a custom Linux container to a Kubernetes cluster without KEDA.
-
-```command
-func deploy --name <FUNCTION_APP> --platform kubernetes --registry <DOCKER_USER>
-```
-
-This command builds your project as a custom container and publishes it to a Kubernetes cluster using a default scaler or using KNative. To publish to a cluster using KEDA for dynamic scale, instead use the [`func kubernetes deploy` command](#func-kubernetes-deploy). Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init).     
-
-The `deploy` action supports the following options:
-
-| Option     | Description                            |
-| ------------ | -------------------------------------- |
-| **`--config`** | Sets an optional deployment configuration file. |
-| **`--max`**  | Optionally, sets the maximum number of function app instances to deploy to. |
-| **`--min`**  | Optionally, sets the minimum number of function app instances to deploy to. |
-| **`--name`** | Function app name (required). |
-| **`--platform`** | Hosting platform for the function app (required). Valid options are: `kubernetes` and `knative`.|
-| **`--registry`** | The name of a Docker Registry the current user signed-in to (required). |
-
-Core Tools uses the local Docker CLI to build and publish the image. 
-
-Make sure your Docker is already installed locally. Run the `docker login` command to connect to your account.
+The `func deploy` command is deprecated. Please instead use [`func kubernetes deploy`](#func-kubernetes-deploy).
 
 ## func durable delete-task-hub
 
@@ -489,13 +468,13 @@ Regenerates a missing extensions.csproj file. No action is taken when an extensi
 
 ## func kubernetes deploy
 
-Deploys a Functions project as a custom docker container to a Kubernetes cluster using KEDA.
+Deploys a Functions project as a custom docker container to a Kubernetes cluster.
 
 ```command
 func kubernetes deploy 
 ```
 
-This command builds your project as a custom container and publishes it to a Kubernetes cluster using KEDA for dynamic scale. To publish to a cluster using a default scaler or using KNative, instead use the [`func deploy` command](#func-deploy). Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init). 
+This command builds your project as a custom container and publishes it to a Kubernetes cluster. Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init). 
 
 The following Kubernetes deployment options are available:
 

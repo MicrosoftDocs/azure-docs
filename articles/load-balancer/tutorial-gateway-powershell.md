@@ -2,11 +2,11 @@
 title: 'Tutorial: Create a gateway load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using Azure PowerShell.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/17/2021
 ms.custom: template-tutorial, ignite-fall-2021
 ---
 
@@ -17,7 +17,6 @@ Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register preview feature.
 > * Create virtual network.
 > * Create network security group.
 > * Create a gateway load balancer.
@@ -36,24 +35,6 @@ In this tutorial, you learn how to:
 - Azure PowerShell installed locally or Azure Cloud Shell
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
-## Register preview feature
-
-As part of the public preview of gateway load balancer, the provider must be registered in your Azure subscription.
-
-Use [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) to register the **AllowGatewayLoadBalancer** provider feature:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGatewayLoadBalancer
-
-```
-
-Use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) to register the **Microsoft.Network** resource provider:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-
-```
 
 ## Create a resource group
 
@@ -255,7 +236,7 @@ New-AzLoadBalancer @lb
 ## Add network virtual appliances to the Gateway Load Balancer backend pool
 Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
-## Chain load balancer frontend to gateway load balancer
+## Chain load balancer frontend to Gateway Load Balancer
 
 In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
 
@@ -298,6 +279,41 @@ $config | Set-AzLoadBalancer
 
 ```
 
+## Chain virtual machine to Gateway Load Balancer
+
+Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
+
+You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+
+Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to chain the gateway load balancer frontend to your existing VM's NIC IP configuration.
+
+```azurepowershell-interactive
+ ## Place the gateway load balancer configuration into a variable. ##
+$par1 = @{
+    ResourceGroupName = 'TutorGwLB-rg'
+    Name = 'myLoadBalancer-gw'
+}
+$gwlb = Get-AzLoadBalancer @par1
+
+## Place the existing NIC into a variable. ##
+$par2 = @{
+    ResourceGroupName = 'MyResourceGroup'
+    Name = 'myNic'
+}
+$nic = Get-AzNetworkInterface @par2
+
+## Chain the gateway load balancer to your existing VM NIC. ##
+$par3 = @{
+    Name = 'myIPconfig'
+    NetworkInterface = $nic
+    GatewayLoadBalancerId = $gwlb.FrontendIpConfigurations.Id
+}
+$config = Set-AzNetworkInterfaceIpConfig @par3
+
+$config | Set-AzNetworkInterface
+
+```
+
 ## Clean up resources
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
@@ -318,7 +334,7 @@ When creating the NVAs, choose the resources created in this tutorial:
 
 * Network security group
 
-* Gateway load balancer
+* Gateway Load Balancer
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]

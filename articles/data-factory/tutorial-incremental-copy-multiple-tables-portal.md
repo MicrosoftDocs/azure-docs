@@ -60,7 +60,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 * **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
+* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 

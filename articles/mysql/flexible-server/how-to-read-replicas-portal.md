@@ -4,6 +4,7 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 06/17/2021
 ---
@@ -11,9 +12,6 @@ ms.date: 06/17/2021
 # How to create and manage read replicas in Azure Database for MySQL Flexible Server using the Azure portal
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Read replicas in Azure Database for MySQL - Flexible Server is in preview.
 
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure portal.
 
@@ -138,3 +136,5 @@ To delete a source server from the Azure portal, use the following steps:
 ## Next steps
 
 - Learn more about [read replicas](concepts-read-replicas.md)
+- You can also monitor the replication latency by following the steps mentioned [here](../single-server/how-to-troubleshoot-replication-latency.md#monitoring-replication-latency).
+- To troubleshoot high replication latency observed in Metrics, visit the [link](../single-server/how-to-troubleshoot-replication-latency.md#common-scenarios-for-high-replication-latency).

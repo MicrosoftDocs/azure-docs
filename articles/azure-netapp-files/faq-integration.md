@@ -4,9 +4,9 @@ description: Answers frequently asked questions (FAQs) about using other product
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
-ms.date: 10/11/2021
+author: b-hchen
+ms.author: anfdocs
+ms.date: 06/02/2022
 ---
 # Integration FAQs for Azure NetApp Files
 
@@ -19,11 +19,6 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 ## What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
 Using Azure NetApp Files NFS or SMB volumes with AVS for *Guest OS mounts* is supported in [all AVS and ANF enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
-
-## Does Azure NetApp Files work with Azure Policy?
-
-Yes. Azure NetApp Files is a first-party service. It fully adheres to Azure Resource Provider standards. As such, Azure NetApp Files can be integrated into Azure Policy via *custom policy definitions*. For information about how to implement custom policies for Azure NetApp Files, see 
-[Azure Policy now available for Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) on Microsoft Tech Community. 
 
 ## Which Unicode Character Encoding is supported by Azure NetApp Files for the creation and display of file and directory names?   
 

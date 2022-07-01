@@ -2,9 +2,10 @@
 title: Azure Application Insights - Dependency Auto-Collection | Microsoft Docs
 description: Application Insights automatically collect and visualize dependencies
 ms.topic: reference
+ms.devlang: csharp, java, javascript
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
-
+ms.reviewer: mmcc
 ---
 
 # Dependency auto-collection

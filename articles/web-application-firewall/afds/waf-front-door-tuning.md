@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Tuning Web Application Firewall (WAF) for Azure Front Door
  
-The Azure-managed Default Rule Set is based on the [OWASP Core Rule Set (CRS)](https://github.com/SpiderLabs/owasp-modsecurity-crs/tree/v3.1/dev) and is designed to be strict out of the box. It is often expected that WAF rules need to be tuned to suit the specific needs of the application or organization using the WAF. This is commonly achieved by defining rule exclusions, creating custom rules, and even disabling rules that may be causing issues or false positives. There are a few things you can do if requests that should pass through your Web Application Firewall (WAF) are blocked.
+The Microsoft-managed Default Rule Set is based on the  [OWASP Core Rule Set (CRS)](https://github.com/SpiderLabs/owasp-modsecurity-crs/tree/v3.1/dev) and includes Microsoft Threat Intelligence Collection rules. It is often expected that WAF rules need to be tuned to suit the specific needs of the application or organization using the WAF. This is commonly achieved by defining rule exclusions, creating custom rules, and even disabling rules that may be causing issues or false positives. There are a few things you can do if requests that should pass through your Web Application Firewall (WAF) are blocked.
 
 First, ensure you’ve read the [Front Door WAF overview](afds-overview.md) and the [WAF Policy for Front Door](waf-front-door-create-portal.md) documents. Also, make sure you’ve enabled [WAF monitoring and logging](waf-front-door-monitor.md). These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
  
@@ -38,7 +38,7 @@ In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log 
 
 ```kusto
 AzureDiagnostics
-| where Category == 'FrontDoorWebApplicationFirewallLog'
+| where Category == 'FrontdoorWebApplicationFirewallLog'
 | where TimeGenerated > ago(1d)
 | where action_s == 'Block'
 
@@ -140,7 +140,7 @@ One benefit of using an exclusion list is that only the match variable you selec
  
 It’s important to consider that exclusions are a global setting. This means that the configured exclusion will apply to all traffic passing through your WAF, not just a specific web app or URI. For example, this could be a concern if *1=1* is a valid request in the body for a certain web app, but not for others under the same WAF policy. If it makes sense to use different exclusion lists for different applications, consider using different WAF policies for each application and applying them to each application's frontend.
  
-When configuring exclusion lists for managed rules, you can choose to exclude all rules within a rule set, all rules within a rule group, or an individual rule. An exclusion list can be configured using [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal.
+When configuring exclusion lists for managed rules, you can choose to exclude all rules within a rule set, all rules within a rule group, or an individual rule. An exclusion list can be configured using [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion), [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal.
 
 * Exclusions at a rule level
   * Applying exclusions at a rule level means that the specified exclusions will not be analyzed against that individual rule only, while it will still be analyzed by all other rules in the rule set. This is the most granular level for exclusions, and it can be used to fine-tune the managed rule set based on the information you find in the WAF logs when troubleshooting an event.

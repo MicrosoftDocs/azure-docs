@@ -2,7 +2,7 @@
 title: NCas T4 v3-series 
 description: Specifications for the NCas T4 v3-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
@@ -27,6 +27,7 @@ The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://w
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 Nvidia NVLink Interconnect: Not Supported<br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (Mbps) |

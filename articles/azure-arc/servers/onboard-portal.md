@@ -11,7 +11,7 @@ You can enable Azure Arc-enabled servers for one or a small number of Windows or
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
 
-Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
+Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -23,7 +23,7 @@ The script to automate the download and installation, and to establish the conne
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 
-1. On the **Select a method** page, select the **Add servers using interactive script** tile, and then select **Generate script**.
+1. On the **Select a method** page, select the **Add a single server** tile, and then select **Generate script**.
 
 1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored. This location can be the same or different, as the resource group's location.
 
@@ -122,7 +122,7 @@ The following example downloads the agent and installs it:
 # Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent.
+# Install the Azure Connected Machine agent.
 bash ~/Install_linux_azcmagent.sh
 ```
 
@@ -132,7 +132,7 @@ bash ~/Install_linux_azcmagent.sh
     # Download the installation package.
     wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-    # Install the connected machine agent.
+    # Install the AZure Connected Machine agent.
     bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
     ```
 

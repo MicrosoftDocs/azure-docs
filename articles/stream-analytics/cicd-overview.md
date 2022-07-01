@@ -23,6 +23,9 @@ Follow the steps in this guide to create a CI/CD pipeline for Stream Analytics.
 
    Use Azure Stream Analytics tools for [Visual Studio Code](./quick-create-visual-studio-code.md) or [Visual Studio](stream-analytics-quick-create-vs.md) to [develop and test queries locally](develop-locally.md). You can also [export an existing job](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) to a local project.
 
+   > [!NOTE] 
+   > We strongly recommend using [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for best local development experience. There are known feature gaps in Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) and it won't be improved going forward.
+
 2. Commit your Azure Stream Analytics projects to your source control system, like a Git repository.
 
 3. Use [Azure Stream Analytics CI/CD tools](cicd-tools.md) to build the projects and generate Azure Resource Manager templates for the deployment.

@@ -112,8 +112,12 @@ For bounding boxes, important questions include:
 
 * How is the bounding box defined for this task? Should it be entirely on the interior of the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some clearance acceptable?
 * What level of care and consistency do you expect the labelers to apply in defining bounding boxes?
+* What is the visual definition of each label class? Is it possible to provide a list of normal, edge, and counter cases for each class? 
+* What should the labelers do if the object is tiny? Should it be labeled as an object or should it be ignored as background?
 * How to label the object that is partially shown in the image? 
 * How to label the object that partially covered by other object?
+* How to label the object if there is no clear boundary of the object?
+* How to label the object which is not object class of interest but visually similar to an interested object type?
 
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
@@ -189,10 +193,10 @@ On the **Data** tab, you can see your dataset and review labeled data. Scroll th
 
 ### Details tab
 
-View details of your project.  In this tab you can:
+View and change details of your project.  In this tab you can:
 
 * View project details and input datasets
-* Enable incremental refresh
+* Enable or disable incremental refresh at regular intervals or request an immediate refresh
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
@@ -232,5 +236,5 @@ Once you have exported your labeled data to an Azure Machine Learning dataset, y
 
 ## Next steps
 
-* [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
+<!-- * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md). -->
 * [How to tag images](how-to-label-data.md)

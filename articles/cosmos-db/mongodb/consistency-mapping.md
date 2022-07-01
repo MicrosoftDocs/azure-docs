@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 
 ---
 

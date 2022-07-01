@@ -1,8 +1,10 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 08/17/2021
+ms.date: 05/12/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy assignment structure
 
@@ -11,7 +13,11 @@ initiatives. The policy assignment can determine the values of parameters for th
 resources at assignment time, making it possible to reuse policy definitions that address the same
 resource properties with different needs for compliance.
 
-You use JSON to create a policy assignment. The policy assignment contains elements for:
+> [!NOTE]
+> For more information on Azure Policy scope, see
+> [Understand scope in Azure Policy](./scope.md).
+
+You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
 - display name
 - description
@@ -21,6 +27,7 @@ You use JSON to create a policy assignment. The policy assignment contains eleme
 - policy definition
 - non-compliance messages
 - parameters
+- identity
 
 For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
 parameters:
@@ -132,8 +139,10 @@ after creation of the initial assignment.
 ## Policy definition ID
 
 This field must be the full path name of either a policy definition or an initiative definition.
-`policyDefinitionId` is a string and not an array. It's recommended that if multiple policies are
-often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
+`policyDefinitionId` is a string and not an array. The latest content of the assigned policy
+definition or initiative will be retrieved each time the policy assignment is evaluated. It's
+recommended that if multiple policies are often assigned together, to use an
+[initiative](./initiative-definition-structure.md) instead.
 
 ## Non-compliance messages
 
@@ -194,6 +203,26 @@ In this example, the parameters previously defined in the policy definition are 
 same policy definition is reusable with a different set of parameters for a different department,
 reducing the duplication and complexity of policy definitions while providing flexibility.
 
+## Identity
+For policy assignments with effect set to **deployIfNotExisit** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment.
+
+> [!NOTE]
+> A single policy assignment can be associated with only one system- or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
+
+```json
+# System-assigned identity
+ "identity": {
+    "type": "SystemAssigned"
+  }
+# User-assigned identity
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/SubscriptionID/resourceGroups/testResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {}
+    }
+  },
+```
+
 ## Next steps
 
 - Learn about the [policy definition structure](./definition-structure.md).
@@ -202,3 +231,4 @@ reducing the duplication and complexity of policy definitions while providing fl
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with
   [Organize your resources with Azure management groups](../../management-groups/overview.md).
+

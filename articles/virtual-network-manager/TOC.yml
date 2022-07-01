@@ -10,6 +10,8 @@
     href: create-virtual-network-manager-portal.md
   - name: Create Virtual Network Manager - PowerShell
     href: create-virtual-network-manager-powershell.md
+  - name: Create Virtual Network Manager - CLI
+    href: create-virtual-network-manager-cli.md
   expanded: true
 - name: Tutorials
   items:
@@ -66,7 +68,7 @@
   - name: REST
     href: /rest/api/networkmanager/
   - name: .NET SDK
-    href: /dotnet/api/microsoft.azure.management.network?view=azure-dotnet
+    href: /dotnet/api/microsoft.azure.management.network
 - name: Resources
   items:
   - name: Azure roadmap

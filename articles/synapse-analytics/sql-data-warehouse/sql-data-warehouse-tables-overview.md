@@ -1,12 +1,11 @@
 ---
 title: Designing tables
 description: Introduction to designing tables using dedicated SQL pool. 
-services: synapse-analytics
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 11/02/2021
+ms.date: 06/10/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
@@ -233,6 +232,7 @@ INNER JOIN sys.dm_pdw_nodes_db_partition_stats nps
     ON nt.[object_id] = nps.[object_id]
     AND nt.[pdw_node_id] = nps.[pdw_node_id]
     AND nt.[distribution_id] = nps.[distribution_id]
+    AND i.[index_id] = nps.[index_id]
 LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where distribution_ordinal = 1) cdp
     ON t.[object_id] = cdp.[object_id]
 LEFT OUTER JOIN sys.columns c

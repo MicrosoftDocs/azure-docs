@@ -1,12 +1,13 @@
 ---
 title: Performance and scale testing with Azure Cosmos DB
 description: Learn how to do scale and performance testing with Azure Cosmos DB. You can then evaluate the functionality of Azure Cosmos DB for high-performance application scenarios.
-author: SnehaGunda
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: sngun
 ms.custom: seodec18
 
 ---

@@ -1,13 +1,13 @@
 ---
 title: Cloud Solution Provider program considerations
 description: For CSP partners, Azure delegated resource management helps improve security and control by enabling granular permissions.
-ms.date: 09/13/2021
+ms.date: 06/09/2022
 ms.topic: conceptual
 ---
 
 # Azure Lighthouse and the Cloud Solution Provider program
 
-If you're a [CSP (Cloud Solution Provider)](/partner-center/csp-overview) partner, you can already access the Azure subscriptions created for your customers through the CSP program by using the [Administer On Behalf Of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) functionality. This access allows you to directly support, configure, and manage your customers' subscriptions.
+If you're a [CSP (Cloud Solution Provider)](/partner-center/csp-overview) partner, you can already access the Azure subscriptions created for your customers through the CSP program by using the Administer On Behalf Of (AOBO) functionality. This access allows you to directly support, configure, and manage your customers' subscriptions.
 
 With [Azure Lighthouse](../overview.md), you can use Azure delegated resource management along with AOBO. This helps improve security and reduces unnecessary access by enabling more granular permissions for your users. It also allows for greater efficiency and scalability, as your users can work across multiple customer subscriptions using a single login in your tenant.
 
@@ -22,14 +22,18 @@ With AOBO, any user with the [Admin Agent](/partner-center/permissions-overview#
 
 ## Azure Lighthouse
 
-Using Azure Lighthouse, you can assign different groups to different customers or roles, as shown in the following diagram. Because users will have the appropriate level of access through [Azure delegated resource management](architecture.md), you can reduce the number of users who have the Admin Agent role (and thus have full AOBO access). This helps improve security by limiting unnecessary access to your customers' resources. It also gives you more flexibility to manage multiple customers at scale, using the [Azure built-in role](tenants-users-roles.md#role-support-for-azure-lighthouse) that's most appropriate for each user's duties, without granting a user more access than necessary.
+Using Azure Lighthouse, you can assign different groups to different customers or roles, as shown in the following diagram. Because users will have the appropriate level of access through [Azure delegated resource management](architecture.md), you can reduce the number of users who have the Admin Agent role (and thus have full AOBO access).
 
 ![Diagram showing tenant management using AOBO and Azure Lighthouse.](../media/csp-2.jpg)
 
-Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md). Any user who has the Admin Agent role in your tenant can perform this onboarding.
+Azure Lighthouse helps improve security by limiting unnecessary access to your customers' resources. It also gives you more flexibility to manage multiple customers at scale, using the [Azure built-in role](tenants-users-roles.md#role-support-for-azure-lighthouse) that's most appropriate for each user's duties, without granting a user more access than necessary.
+
+To further minimize the number of permanent assignments, you can [create eligible authorizations](../how-to/create-eligible-authorizations.md) (currently in public preview) to grant additional permissions to your users on a just-in-time basis.
+
+Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md). Any user who has the Admin Agent role in the customer's tenant can perform this onboarding.
 
 > [!TIP]
-> [Managed Service offers](managed-services-offers.md) with private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program. You can onboard these subscriptions to Azure Lighthouse by [using Azure Resource Manager templates](../how-to/onboard-customer.md).
+> [Managed Service offers](managed-services-offers.md) with private plans aren't supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program. Instead, you can onboard these subscriptions to Azure Lighthouse by [using Azure Resource Manager templates](../how-to/onboard-customer.md).
 
 > [!NOTE]
 > The [**My customers** page in the Azure portal](../how-to/view-manage-customers.md) now includes a **Cloud Solution Provider (Preview)** section, which displays billing info and resources for CSP customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started). For more info, see [Get started with your Microsoft Partner Agreement billing account](../../cost-management-billing/understand/mpa-overview.md).
