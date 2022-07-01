@@ -62,7 +62,7 @@ landingContent:
     linkLists:
       - linkListType: Tutorial 
         links:
-         - text: Migrate outbound access to NAT gateway
+          - text: Migrate outbound access to NAT gateway
             url: tutorial-migrate-outbound-nat.md
           - text: Migrate a VM public IP to NAT gateway
             url: tutorial-migrate-ilip-nat.md
