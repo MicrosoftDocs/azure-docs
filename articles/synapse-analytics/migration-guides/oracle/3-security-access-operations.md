@@ -221,7 +221,7 @@ Oracle offers several methods and interfaces that you can use to perform system 
 
 - SQL commands that support administration tasks and queries within a SQL database session. You can run SQL commands from the Oracle SQL\*Plus command interpreter, Oracle SQL Developer UI, or through SQL APIs such as ODBC, JDBC, and OLE DB Provider. You must have a database user account to run SQL commands, with appropriate permissions for the queries and tasks that you perform.
 
-While the management and operations tasks for different data warehouse are similar in concept, the individual implementations can differ. Modern cloud-based products such as Azure Synapse tend to incorporate a more automated and "system managed" approach, compared to the more manual approach in legacy environments like Oracle.
+While the management and operations tasks for different data warehouses are similar in concept, the individual implementations can differ. Modern cloud-based products such as Azure Synapse tend to incorporate a more automated and "system managed" approach, compared to the more manual approach in legacy environments like Oracle.
 
 The following sections compare Oracle and Azure Synapse options for various operational tasks.
 

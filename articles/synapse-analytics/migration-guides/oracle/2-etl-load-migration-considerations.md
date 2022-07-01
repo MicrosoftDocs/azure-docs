@@ -290,7 +290,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
     
     For more information, see [Transfer data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
 
-- **Direct extract and load across network**: the target Azure environment sends a data extract request, normally via a SQL command, to the legacy Oracle system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to land the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Oracle database and the Azure environment. For very large data volumes, this approach may not be practical.
+- **Direct extract and load across network**: the target Azure environment sends a data extract request, normally via a SQL command, to the legacy Oracle system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to land the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Oracle database and the Azure environment. For exceptionally large data volumes, this approach may not be practical.
 
 >[!TIP]
 >Understand the data volumes to be migrated and the available network bandwidth, because these factors influence the migration approach decision.
