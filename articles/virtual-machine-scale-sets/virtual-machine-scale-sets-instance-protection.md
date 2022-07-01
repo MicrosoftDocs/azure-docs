@@ -13,11 +13,6 @@ ms.custom: avverma, devx-track-azurepowershell
 ---
 # Instance Protection for Azure virtual machine scale set instances
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
-
-> [!NOTE]
-> We recommend using Flexible virtual machine scale sets for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
-
 Azure virtual machine scale sets enable better elasticity for your workloads through [Autoscale](virtual-machine-scale-sets-autoscale-overview.md), so you can configure when your infrastructure scales-out and when it scales-in. Scale sets also enable you to centrally manage, configure, and update a large number of VMs through different [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) settings. You can configure an update on the scale set model and the new configuration is applied automatically to every scale set instance if you've set the upgrade policy to Automatic or Rolling.
 
 As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don't want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform additional or different tasks than the other members of the scale set. You require these 'special' VMs not to be modified with the other instances in the scale set. Instance protection provides the additional controls to enable these and other scenarios for your application.

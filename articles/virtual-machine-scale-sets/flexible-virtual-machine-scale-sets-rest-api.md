@@ -13,9 +13,6 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 # Create virtual machines in a scale set using an ARM template
 
-**Applies to:** :heavy_check_mark: Flexible scale sets
-
-
 This article steps through using an ARM template to create a virtual machine scale set. 
 
 
