@@ -43,6 +43,10 @@ To enable Permissions Management in your organization:
     1. If needed, activate the global administrator role in your Azure AD tenant.
     1. In the Azure AD portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.
 
+> [!NOTE]
+> There are two ways to enable a trial or a full product license, self-service and volume licensing. 
+> For self-service, navigate to the M365 portal at [http://aka.ms/TryPermissionsManagement](http://aka.ms/TryPermissionsManagement) and purchase licenses or sign up for a free trial. The second way is through Volume Licensing or Enterprise agreements. If your organization falls under a volume license or enterprise agreement scenario, please contact your Microsoft representative.
+
 Permissions Management launches with the **Data Collectors** dashboard.
 
 ## Configure data collection settings
