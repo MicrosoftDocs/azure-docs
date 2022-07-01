@@ -40,7 +40,7 @@ In this article, you'll learn to:
 * The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
 
-## 1. Connect to Azure Machine Learning workspace
+## Connect to Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
 
