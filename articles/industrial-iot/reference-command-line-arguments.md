@@ -18,13 +18,13 @@ This article describes the command-line arguments that you can use to set global
     
 * **applicationname**: (Required) The OPC Unified Architecture (OPC UA) application name to use. 
 
-    You also use the application name to register the publisher under this name in the IoT hub device registry.
+    You also use the application name to register the publisher in the IoT Hub device registry.
     
-* **iothubconnectionstring**: (Optional) the IoT hub owner connection string. 
+* **iothubconnectionstring**: (Optional) The IoT hub owner connection string. 
 
     You ordinarily specify the connection string only when you start the application for the first time. The connection string is encrypted and stored in the platforms certificate store.
 
-    On subsequent calls, the connection string is read from the platforms certificate store and reused. If you specify the connection string on each start, the device, which is created for the application in the IoT hub device registry is removed and re-created each time.
+    On subsequent calls, the connection string is read from the platforms certificate store and reused. If you specify the connection string on each start, the device, which is created for the application in the IoT hub device registry, is removed and re-created each time.
     
 To control the application, you can use any of several of environment variables:
 
@@ -33,12 +33,11 @@ To control the application, you can use any of several of environment variables:
 * `_TPC_SP`: Sets the path to store certificates of trusted stations
 * `_GW_PNFP`: Sets the file name of the publishing configuration file
 
-
 > [!NOTE] 
 > Command-line arguments overrule environment variable settings.
 
 | Argument | Description |
-| --- | --- |
+| --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to use to configure the nodes to publish.<br>Default: '/appdata/publishednodes.json' |
 | `--tc, --telemetryconfigfile=VALUE` | The file name to use to configure the ingested telemetry.<br>Default: '' |
 | `-s, --site=VALUE` | The site that OPC Publisher is working in. If it's specified, this domain is appended (delimited by a ':' to the 'ApplicationURI' property when telemetry is sent to Iot Hub. The value must follow the syntactical rules of a DNS hostname.<br>Default: \<not set> |
@@ -48,13 +47,13 @@ To control the application, you can use any of several of environment variables:
 | `--di, --diagnosticsinterval=VALUE` | Shows OPC Publisher diagnostics information at the specified interval, in seconds (need log level information). -1 disables the remote diagnostics log and diagnostics output. 0 disables the diagnostics output.<br>Default: 0 |
 | `--ns, --noshutdown=VALUE` | Same as `runforever`.<br>Default: False |
 | `--rf, --runforever` | You can't stop OPC Publisher by pressing a key on the console. It runs forever.<br>Default: False |
-| `--lf, --logfile=VALUE` | The file name of the log file to use.<br>Default: './<hostname>-publisher.log' |
+| `--lf, --logfile=VALUE` | The file name of the log file to use.<br>Default: \<hostname>-publisher.log |
 | `--lt, --logflushtimespan=VALUE` | The timespan, in seconds, when the log file should be flushed.<br>Default: 00:00:30 sec |
-| `--ll, --loglevel=VALUE` | The log level to use (allowed: fatal, error, warn, info, debug, verbose).<br>Default: info |
-| `--ih, --iothubprotocol=VALUE` | The protocol to use for communication with Iot Hub (allowed values: Amqp, Http1, Amqp_WebSocket_Only, Amqp_Tcp_Only, Mqtt, Mqtt_WebSocket_Only, Mqtt_ Tcp_Only) or IoT EdgeHub (allowed values: Mqtt_ Tcp_Only, Amqp_Tcp_Only).<br>Default for Iot Hub: Mqtt_WebSocket_Only<br>Default for IoT EdgeHub: Amqp_Tcp_Only |
-| `--ms, --iothubmessagesize=VALUE` | The maximum size of a message that can be sent to Iot Hub. When telemetry of this size is available it is sent. 0 enforces immediate send when telemetry is available.<br>Minimum: 0<br>Maximum: 262144<br>Default: 262144 |
-| `--si, --iothubsendinterval=VALUE` | The interval, in seconds, when telemetry should be sent to IoT Hub. If the interval is 0, only the iothubmessagesize parameter controls when telemetry is sent.<br>Default: 10 |
-| `--dc, --deviceconnectionstring=VALUE` | If OPC Publisher can't register itself with Iot Hub, you can create a device with the name <applicationname> manually and pass in the connection string of this device.<br>Default: none |
+| `--ll, --loglevel=VALUE` | The log level to use. Allowed: fatal, error, warn, info, debug, verbose.<br>Default: info |
+| `--ih, --iothubprotocol=VALUE` | The protocol to use for communication with the Iot hub (allowed values: Amqp, Http1, Amqp_WebSocket_Only, Amqp_Tcp_Only, Mqtt, Mqtt_WebSocket_Only, Mqtt_ Tcp_Only) or the IoT Edge hub (allowed values: Mqtt_ Tcp_Only, Amqp_Tcp_Only).<br>Default for the IoT hub: Mqtt_WebSocket_Only<br>Default for the IoT Edge hub: Amqp_Tcp_Only |
+| `--ms, --iothubmessagesize=VALUE` | The maximum size of a message that can be sent to Iot Hub. When telemetry of this size is available, it is sent. 0 enforces immediate send when telemetry is available.<br>Minimum: 0<br>Maximum: 262144<br>Default: 262144 |
+| `--si, --iothubsendinterval=VALUE` | The interval, in seconds, when telemetry should be sent to the IoT hub. If the interval is 0, only the iothubmessagesize parameter controls when telemetry is sent.<br>Default: 10 |
+| `--dc, --deviceconnectionstring=VALUE` | If OPC Publisher can't register itself with Iot Hub, you can create a device with the name \<applicationname> manually and pass in the connection string of this device.<br>Default: none |
 | `-c, --connectionstring=VALUE` | The Iot Hub owner connection string.<br>Default: none |
 | `--hb, --heartbeatinterval=VALUE` | OPC Publisher uses this as a default value, in seconds, for the heartbeat interval setting of nodes without a heartbeat interval setting.<br>Default: 0 |
 | `--sf, --skipfirstevent=VALUE` | OPC Publisher uses this as default value for the skipfirstevent setting of nodes without a skipfirstevent setting.<br>Default: False |
@@ -94,7 +93,7 @@ To control the application, you can use any of several of environment variables:
 | `--rc, --removecert=VALUE` | Removes certificates with the specified thumbprints (multiple comma-separated thumbprints supported). |
 | `--dt, --devicecertstoretype=VALUE` | The IoT Hub device certificate store type.<br>Allowed values: Directory, X509Store<br>Default: X509Store |
 | `--dp, --devicecertstorepath=VALUE` | The path of the IoT device certificate store<br>Default (depends on store type): X509Store<br>'My' Directory: 'CertificateStores/IoTHub' |
-| `-i, --install` | Registers OPC Publisher with IoT Hub and then exits.<br>Default: False |
+| `-i, --install` | Registers OPC Publisher with the IoT hub and then exits.<br>Default: False |
 | `-h, --help` | Shows this message and exits. |
 | `--st, --opcstacktracemask=VALUE` | Ignored. |
 | `--sd, --shopfloordomain=VALUE` | Same as the site option. The value must follow the syntactical rules of a DNS hostname.<br>Default: \<not set> |
@@ -103,13 +102,11 @@ To control the application, you can use any of several of environment variables:
 | `--tt, --trustedcertstoretype=VALUE` | Ignored. The trusted certificate store always resides in a directory. |
 | `--rt, --rejectedcertstoretype=VALUE` | Ignored. The rejected certificate store always resides in a directory. |
 | `--it, --issuercertstoretype=VALUE` | Ignored. The trusted issuer certificate store always resides in a directory. |
-| | |
-
 
 ## Command-line arguments for version 2.6 and later
 
 | Argument | Description |
-| --- | --- |
+| --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to configure the nodes to publish. If this option is specified, it puts OPC Publisher into *standalone* mode. |
 | `--lf, --logfile=VALUE` | The file name of the log file to use. |
 | `--ll. --loglevel=VALUE` | The log level to use. Allowed: fatal, error, warn, info, debug, verbose. |
@@ -133,7 +130,6 @@ To control the application, you can use any of several of environment variables:
 | `--kt, --keepalivethresholt=VALUE` | Specifies the number of keep-alive packets that a server can miss before a session is disconnected. |
 | `--tm, --trustmyself` | Automatically puts the OPC Publisher certificate into the trusted store. |
 | `--at, --appcertstoretype=VALUE` | The owned application certificate store type. Allowed: Directory, X509Store). |
-| | |
 
 ## Command-line arguments for version 2.8.2 and later
 
@@ -142,14 +138,14 @@ The following OPC Publisher configuration can be applied by command-line interfa
 The `Alternative` field, when it's present, refers to the applicable CLI argument in *standalone mode only*. When both the environment variable and the CLI argument are provided, the latest argument overrules the environment variable.
 
 | Argument | Description |
-| --- | --- |
+| --- | --- | 
 | `PublishedNodesFile=VALUE` | The file that's used to store the configuration of the nodes to be published along with the information to connect to the OPC UA server sources. When this file is specified, or the default file is accessible by the module, OPC Publisher starts in *standalone* mode.<br>Alternative: --pf, --publishfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: publishednodes.json |
 | `site=VALUE` | The site that OPC Publisher is assigned to.<br>Alternative: --s, --site<br>Mode: Standalone, orchestrated<br>Type: string<br>Default: \<not set> |
 | `LogFile name==VALUE` | The file name of the log file to use<br>Alternative: --lf, --logfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: \<not set> |
 | `LogFileFlushTimeSpan=VALUE` | The time span, in seconds, when the log file should be flushed in the storage account.<br>Alternative: --lt, --logflushtimespan<br>Mode: Standalone only<br>Environment variable<br>Type: time span string {[d.]hh:mm:ss[.fffffff]}<br>Alternative argument type: integer, in seconds<br>Default: {00:00:30} |
 | `loglevel=Value` |  The level for logs to be persisted in the log file.<br>Alternative: --ll --loglevel<br>Mode: Standalone only<br>Type: string enum - Fatal, Error, Warning, Information, Debug, Verbose<br>Default: info |
 | `EdgeHubConnectionString=VALUE` | An IoT Edge Device or IoT Edge module connection string to use. When it's deployed as a module in IoT Edge, the environment variable is already set as part of the container deployment.<br>Alternative: --dc, --deviceconnectionstring \| `--ec, --edgehubconnectionstring<br>Mode: Standalone, orchestrated<br>Type: connection string<br>Default: \<not set> <set by iotedge run time> |
-| `Transport=VALUE` | The protocol to use for upstream communication to EdgeHub or IoT Hub.<br>Alternative: --ih, --iothubprotocol<br>Mode: Standalone, orchestrated<br>Type: string enum - Any, Amqp, Mqtt, AmqpOverTcp, AmqpOverWebsocket, MqttOverTcp, MqttOverWebsocket, Tcp, Websocket<br>Default: MqttOverTcp |
+| `Transport=VALUE` | The protocol to use for upstream communication to the IoT Edge hub or the IoT hub.<br>Alternative: --ih, --iothubprotocol<br>Mode: Standalone, orchestrated<br>Type: string enum - Any, Amqp, Mqtt, AmqpOverTcp, AmqpOverWebsocket, MqttOverTcp, MqttOverWebsocket, Tcp, Websocket<br>Default: MqttOverTcp |
 | `BypassCertVerification=VALUE` | Enables/disables the bypassing of certificate verification for upstream communication to EdgeHub.<br>Alternative: N/A<br>Mode: Standalone, orchestrated<br>Type: Boolean<br>Default: false |    
 | `EnableMetrics=VALUE` | Enables/disables upstream metrics propagation.<br>Alternative: N/A<br>Mode: Standalone, orchestrated<br>Type: Boolean<br>Default: true |
 | `DefaultPublishingInterval=VALUE` | The default value for the OPC UA publishing interval of OPC UA subscriptions created to an OPC UA server. This value is used when no explicit setting is configured.<br>Alternative: --op, --opcpublishinginterval<br>Mode: Standalone only<br> Environment variable<br>Type: time span string {[d.]hh:mm:ss[.fffffff]}<br>Alternative argument type: integer, in milliseconds<br>Default: {00:00:01} (1000) |
@@ -159,7 +155,7 @@ The `Alternative` field, when it's present, refers to the applicable CLI argumen
 | `MessageEncoding=VALUE` | The messaging encoding for outgoing telemetry.<br>Alternative: --me, --messageencoding<br>Mode: Standalone only<br>Type: string enum - Json, Uadp<br>Default: Json |
 | `MessagingMode=VALUE` | The messaging mode for outgoing telemetry.<br>Alternative: --mm, --messagingmode<br>Mode: Standalone only<br>Type: string enum - PubSub, Samples<br>Default: Samples |
 | `FetchOpcNodeDisplayName=VALUE` | Fetches the display name for the nodes to be published from the OPC UA server when it isn't explicitly set in the configuration.<br>**Note**: This argument has a high impact on OPC Publisher startup performance.<br>Alternative: --fd, --fetchdisplayname<br>Mode: Standalone only<br>Type: Boolean<br>Default: false |
-| `FullFeaturedMessage=VALUE` | The full-featured mode for messages (all fields filled in the telemetry).<br>Default is 'false' for legacy compatibility.<br>Alternative: --fm, --fullfeaturedmessage<br>Mode: Standalone only<br>Type:Boolean<br>Default: false |
+| `FullFeaturedMessage=VALUE` | The full-featured mode for messages (all fields filled in the telemetry).<br>Default is 'false' for legacy compatibility.<br>Alternative: --fm, --fullfeaturedmessage<br>Mode: Standalone only<br>Type: Boolean<br>Default: false |
 | `BatchSize=VALUE` | The number of incoming OPC UA data change messages to be cached for batching. When BatchSize is 1 or TriggerInterval is set to 0, batching is disabled.<br>Alternative: --bs, --batchsize<br>Mode: Standalone, orchestrated<br>Type: integer<br>Default: 50 |
 | `BatchTriggerInterval=VALUE` | The batching trigger interval. When BatchSize is 1 or TriggerInterval is set to 0, batching is disabled.<br>Alternative: --si, --iothubsendinterval<br>Mode: Standalone, orchestrated<br>Environment variable<br>Type: time span string {[d.]hh:mm:ss[.fffffff]}<br> Alternative argument type: integer, in seconds<br>Default: {00:00:10} |
 | `IoTHubMaxMessageSize=VALUE` | The maximum  size of the IoT D2C telemetry message.<br>Alternative: --ms, --iothubmessagesize<br>Mode: Standalone, orchestrated<br>Type: integer<br>Default: 0 |
@@ -198,8 +194,6 @@ The `Alternative` field, when it's present, refers to the applicable CLI argumen
 | `MaxStringLength=VALUE` | The OPC UA Stack Transport Secure Channel maximum length of a string that can be sent/received over the OPC UA secure channel.<br>Alternative: --ol, --opcmaxstringlen<br>Mode: Standalone, orchestrated<br>Type: integer<br>Default: 130,816 (128 KB - 256) |
 | `RuntimeStateReporting=VALUE` | Enables reporting of OPC Publisher restarts.<br>Alternative: --rs, --runtimestatereporting<br>Mode: Standalone<br>Type: Boolean<br>Default: false |
 | `EnableRoutingInfo=VALUE` | Adds the routing information to telemetry messages. The name of the property is `$$RoutingInfo`, and the value is the `DataSetWriterGroup` for that particular message. When the `DataSetWriterGroup` isn't configured, the `$$RoutingInfo` property isn't added to the message even if this argument is set.<br>Alternative: --ri, --enableroutinginfo<br>Mode: Standalone<br>Type: Boolean<br>Default: false |
-| | |
-
 ## Next steps
 
 For additional resources, go to the following GitHub repositories:
