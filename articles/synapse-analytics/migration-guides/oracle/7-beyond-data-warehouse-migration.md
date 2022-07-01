@@ -107,7 +107,7 @@ Developers and data scientists who prefer to write code can easily author Data F
 After you develop Data Factory pipelines to integrate and analyze data, you can deploy those pipelines globally and schedule them to run in batch, invoke them on demand as a service, or run them in real-time on an event-driven basis. A Data Factory pipeline can also run on one or more execution engines and monitor execution to ensure performance and to track errors.
 
 >[!TIP]
->Pipelines called data factories control the integration and analysis of data. Data Factory is enterprise-class data integration software aimed at IT professionals with a data wrangling capability for business users.
+> In Azure Data Factory, pipelines control the integration and analysis of data. Data Factory is enterprise-class data integration software aimed at IT professionals with a data wrangling capability for business users.
 
 #### Use cases
 
