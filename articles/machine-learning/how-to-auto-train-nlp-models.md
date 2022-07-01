@@ -13,7 +13,7 @@ ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
-# # Set up AutoML to train a natural language processing model (preview)
+# Set up AutoML to train a natural language processing model (preview)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
