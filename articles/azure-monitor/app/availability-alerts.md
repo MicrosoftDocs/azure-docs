@@ -42,13 +42,13 @@ To make changes to location threshold, aggregation period, and test frequency, s
 ![Configure signal logic](./media/availability-alerts/configure-signal-logic.png)
 
 > [!TIP]
-> For longer downtimes, we recommend to temporarily deactivate the alert rule, or to create a custom rule as shown below.
+> For longer downtimes, we recommend to temporarily deactivate the alert rule, or to create a custom rule as shown below. This will give you more options to account for the downtime.
 
 ### Custom alert rule
 
 Auto-generated alerts from availability tests have a limited set of options to change the logic. If you need advanced capabilities, you can create a custom alert rule from the **Alerts** tab. Click on **Create** and select **Alert rule**. Choose **Metrics** for **Signal type** to show all available signals, and select **Availability**.
 
-This will allow you to further define the logic by selecting different operators, aggregation types, and threshold values. You also have the option to create a dynamic threshold.
+A custom alert rule offers higher values for aggregation period (up to 24 hours instead of 6 hours) and test frequency (up to 1 hour instead of 15 minutes), and adds options to further define the logic by selecting different operators, aggregation types, and threshold values.
 
 ![Create custom alert](./media/availability-alerts/create-custom-alert.png)
 
