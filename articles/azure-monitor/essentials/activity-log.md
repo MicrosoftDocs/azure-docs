@@ -4,7 +4,7 @@ description: View the Azure Monitor activity log and send it to Azure Monitor Lo
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 07/01/2022
 ms.author: bwren
 ms.reviewer: lualderm
 ---
@@ -69,8 +69,8 @@ You can also access activity log events by using the following methods:
 - Use log queries to perform complex analysis and gain deep insights on activity log entries.
 - Use log alerts with Activity entries for more complex alerting logic.
 - Store activity log entries for longer than the activity log retention period.
-- Incur no data ingestion charges for activity log data stored in a Log Analytics workspace.
-- Incur no data retention charges for the first 90 days for activity log data stored in a Log Analytics workspace.
+- Incur no data ingestion or retention charges for activity log data stored in a Log Analytics workspace.
+- The default retention period in Log Analytics is 90 days
 
  Select **Export Activity Logs** to send the activity log to a Log Analytics workspace.
 
