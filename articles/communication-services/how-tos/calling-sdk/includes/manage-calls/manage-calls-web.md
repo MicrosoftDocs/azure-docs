@@ -107,16 +107,16 @@ When starting/joining/accepting a call with video on, if the specified video cam
 To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynchronous APIs:
 
 ```js
-//mute local device (microphone)
+//mute local device (microphone / sent audio)
 await call.mute();
 
-//unmute local device (microphone)
+//unmute local device (microphone / sent audio)
 await call.unmute();
 ```
 
 ## Mute and unmute incoming audio
 
-To mute or unmute the incoming audio, you can use the `muteIncomingAudio` and `unmuteIncomingAudio` asynchronous APIs:
+Mute incoming audio sets the call volume to 0. To mute or unmute the incoming audio, you can use the `muteIncomingAudio` and `unmuteIncomingAudio` asynchronous APIs:
 
 ```js
 //mute local device (speaker)
