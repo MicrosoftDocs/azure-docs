@@ -6329,7 +6329,7 @@
     {
       "source_path_from_root": "/articles/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
       "redirect_url": "/azure/storage/blobs/client-side-encryption",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },    
     {
       "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
