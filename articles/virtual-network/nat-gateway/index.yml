@@ -81,7 +81,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Architecture Framework for NAT gateway
-            url: well-architected-network-address-translation-gateway.yml
+            url: /azure/architecture/networking/guide/well-architected-network-address-translation-gateway
  
    # Card (optional)
   - title: Security
@@ -89,7 +89,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure security baseline for NAT gateway
-            url: virtual-network-nat-security-baseline.md
+            url: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
 
   # Card (optional)
   - title: Reference
