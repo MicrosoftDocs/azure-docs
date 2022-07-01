@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/22/2021
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory
 
-Use the following information and examples to gain a more advanced understanding of Azure Active Directory (Azure AD) group-based licensing.
+Use the following information and examples to gain a more advanced understanding of group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 ## Usage location
 

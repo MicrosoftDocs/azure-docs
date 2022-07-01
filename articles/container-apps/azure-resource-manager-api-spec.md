@@ -1,16 +1,16 @@
 ---
-title: Container Apps Preview ARM template API specification
+title: Container Apps ARM template API specification
 description: Explore the available properties in the Container Apps ARM template.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: reference
-ms.date: 03/28/2022
+ms.date: 05/26/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Container Apps Preview ARM template API specification
+# Container Apps ARM template API specification
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
@@ -68,13 +68,22 @@ The following example ARM template deploys a Container Apps environment.
     },
     "log_analytics_shared_key": {
       "type": "SecureString"
+    },
+    "storage_account_name": {
+      "type": "String"
+    },
+    "storage_account_key": {
+      "type": "SecureString"
+    },
+    "storage_share_name": {
+      "type": "String"
     }
   },
   "variables": {},
   "resources": [
     {
       "type": "Microsoft.App/managedEnvironments",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "name": "[parameters('environment_name')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -86,7 +95,25 @@ The following example ARM template deploys a Container Apps environment.
             "sharedKey": "[parameters('log_analytics_shared_key')]"
           }
         }
-      }
+      },
+      "resources": [
+        {
+          "type": "storages",
+          "name": "myazurefiles",
+          "apiVersion": "2022-03-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]"
+          ],
+          "properties": {
+            "azureFile": {
+              "accountName": "[parameters('storage_account_name')]",
+              "accountKey": "[parameters('storage_account_key')]",
+              "shareName": "[parameters('storage_share_name')]",
+              "accessMode": "ReadWrite"
+            }
+          }
+        }
+      ]
     }
   ]
 }
@@ -190,17 +217,20 @@ The following example ARM template deploys a container app.
     },
     "registry_password": {
       "type": "SecureString"
+    },
+    "storage_share_name": {
+      "type": "String"
     }
   },
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "type": "Microsoft.App/containerApps",
       "name": "[parameters('containerappName')]",
       "location": "[parameters('location')]",
       "identity": {
-        "type": "None"      
+        "type": "None"
       },
       "properties": {
         "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
@@ -260,50 +290,73 @@ The following example ARM template deploys a container app.
                 "cpu": 0.5,
                 "memory": "1Gi"
               },
-              "probes":[
-                  {
-                      "type":"liveness",
-                      "httpGet":{
-                      "path":"/health",
-                      "port":8080,
-                      "httpHeaders":[
-                          {
-                              "name":"Custom-Header",
-                              "value":"liveness probe"
-                          }]
-                      },
-                      "initialDelaySeconds":7,
-                      "periodSeconds":3
+              "probes": [
+                {
+                  "type": "liveness",
+                  "httpGet": {
+                    "path": "/health",
+                    "port": 8080,
+                    "httpHeaders": [
+                      {
+                        "name": "Custom-Header",
+                        "value": "liveness probe"
+                      }
+                    ]
                   },
-                  {
-                      "type":"readiness",
-                      "tcpSocket":
-                          {
-                              "port": 8081
-                          },
-                      "initialDelaySeconds": 10,
-                      "periodSeconds": 3
+                  "initialDelaySeconds": 7,
+                  "periodSeconds": 3
+                },
+                {
+                  "type": "readiness",
+                  "tcpSocket": {
+                    "port": 8081
                   },
-                  {
-                      "type": "startup",
-                      "httpGet": {
-                          "path": "/startup",
-                          "port": 8080,
-                          "httpHeaders": [
-                              {
-                                  "name": "Custom-Header",
-                                  "value": "startup probe"
-                              }]
-                      },
-                      "initialDelaySeconds": 3,
-                      "periodSeconds": 3
-                  }]
+                  "initialDelaySeconds": 10,
+                  "periodSeconds": 3
+                },
+                {
+                  "type": "startup",
+                  "httpGet": {
+                    "path": "/startup",
+                    "port": 8080,
+                    "httpHeaders": [
+                      {
+                        "name": "Custom-Header",
+                        "value": "startup probe"
+                      }
+                    ]
+                  },
+                  "initialDelaySeconds": 3,
+                  "periodSeconds": 3
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "mountPath": "/myempty",
+                  "volumeName": "myempty"
+                },
+                {
+                  "mountPath": "/myfiles",
+                  "volumeName": "azure-files-volume"
+                }
+              ]
             }
           ],
           "scale": {
             "minReplicas": 1,
             "maxReplicas": 3
-          }
+          },
+          "volumes": [
+            {
+              "name": "myempty",
+              "storageType": "EmptyDir"
+            },
+            {
+              "name": "azure-files-volume",
+              "storageType": "AzureFile",
+              "storageName": "myazurefiles"
+            }
+          ]
         }
       }
     }
@@ -369,25 +422,25 @@ properties:
         probes:
           - type: liveness
             httpGet:
-              - path: "/health"
-                port: 8080
-                httpHeaders:
-                  - name: "Custom-Header"
-                    value: "liveness probe"
-                initialDelaySeconds: 7
-                periodSeconds: 3
+              path: "/health"
+              port: 8080
+              httpHeaders:
+                - name: "Custom-Header"
+                  value: "liveness probe"
+            initialDelaySeconds: 7
+            periodSeconds: 3
           - type: readiness
             tcpSocket:
-              - port: 8081
+              port: 8081
             initialDelaySeconds: 10
             periodSeconds: 3
           - type: startup
             httpGet:
-              - path: "/startup"
-                port: 8080
-                httpHeaders:
-                  - name: "Custom-Header"
-                    value: "startup probe"
+              path: "/startup"
+              port: 8080
+              httpHeaders:
+                - name: "Custom-Header"
+                  value: "startup probe"
             initialDelaySeconds: 3
             periodSeconds: 3
     scale:

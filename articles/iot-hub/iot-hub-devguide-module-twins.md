@@ -345,7 +345,7 @@ This information is kept at every level (not just the leaves of the JSON structu
 
 ## Optimistic concurrency
 
-Tags, desired, and reported properties all support optimistic concurrency.
+Tags, desired properties, and reported properties all support optimistic concurrency. If you need to guarantee order of twin property updates, consider implementing synchronization at the application level by waiting for reported properties callback before sending the next update. 
 
 Module twins have an ETag (`etag` property), as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This is the only option for ensuring consistency in operations that involve the `tags` container.
 

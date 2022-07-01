@@ -39,7 +39,7 @@ sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install 
 or
 
 ```bash
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng
+sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum -y install stress-ng
 ```
 
 ### Enable chaos target, capabilities, and agent

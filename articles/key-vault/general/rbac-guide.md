@@ -16,7 +16,7 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
 
 > [!NOTE]
-> Azure App Service certificate configuration does not support Key Vault RBAC permission model.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. It is supported using client libraries like Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignemnts.
 
 
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
@@ -247,35 +247,35 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 1. Validate adding new secret without "Key Vault Secrets Officer" role on key vault level.
 
-Go to key vault Access control (IAM) tab and remove "Key Vault Secrets Officer" role assignment for this resource.
+   1. Go to key vault Access control (IAM) tab and remove "Key Vault Secrets Officer" role assignment for this resource.
 
-![Remove assignment - key vault](../media/rbac/image-9.png)
+      ![Remove assignment - key vault](../media/rbac/image-9.png)
 
-Navigate to previously created secret. You can see all secret properties.
+   1. Navigate to previously created secret. You can see all secret properties.
 
-![Secret view with access](../media/rbac/image-10.png)
+      ![Secret view with access](../media/rbac/image-10.png)
 
-Create new secret ( Secrets \> +Generate/Import) should show below error:
+   1. Create new secret ( Secrets \> +Generate/Import) should show below error:
 
-   ![Create new secret](../media/rbac/image-11.png)
+      ![Create new secret](../media/rbac/image-11.png)
 
-2.  Validate secret editing without "Key Vault Secret Officer" role on secret level.
+1. Validate secret editing without "Key Vault Secret Officer" role on secret level.
 
--   Go to previously created secret Access Control (IAM) tab
+   1. Go to previously created secret Access Control (IAM) tab
     and remove "Key Vault Secrets Officer" role assignment for
     this resource.
 
--   Navigate to previously created secret. You can see secret properties.
+   1. Navigate to previously created secret. You can see secret properties.
 
-   ![Secret view without access](../media/rbac/image-12.png)
+      ![Secret view without access](../media/rbac/image-12.png)
 
-3. Validate secrets read without reader role on key vault level.
+1. Validate secrets read without reader role on key vault level.
 
--   Go to key vault resource group Access control (IAM) tab and remove "Key Vault Reader" role assignment.
+   1. Go to key vault resource group Access control (IAM) tab and remove "Key Vault Reader" role assignment.
 
--   Navigating to key vault's Secrets tab should show below error:
+   1. Navigating to key vault's Secrets tab should show below error:
 
-   ![Secret tab - error](../media/rbac/image-13.png)
+      ![Secret tab - error](../media/rbac/image-13.png)
 
 ### Creating custom roles 
 

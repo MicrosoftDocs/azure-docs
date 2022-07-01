@@ -4,7 +4,7 @@ description: Learn how to directly connect to Kafka on HDInsight through an Azur
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
-ms.date: 03/04/2020
+ms.date: 05/30/2022
 ---
 
 # Connect to Apache Kafka on HDInsight through an Azure Virtual Network
@@ -336,8 +336,8 @@ To validate connectivity to Kafka, use the following steps to create and run a P
    * If you have __enabled name resolution through a custom DNS server__, replace the `kafka_broker` entries with the FQDN of the worker nodes.
 
      > [!NOTE]
-     > This code sends the string `test message` to the topic `testtopic`. The default configuration of Kafka on HDInsight is to create the topic if it does not exist.
-
+     > This code sends the string `test message` to the topic `testtopic`. The default configuration of Kafka on HDInsight is not to create the topic if it does not exist. See [How to configure Apache Kafka on HDInsight to automatically create topics](./apache-kafka-auto-create-topics.md). Alternatively, you can create topics manually before producing messages.
+ 
 4. To retrieve the messages from Kafka, use the following Python code:
 
    ```python

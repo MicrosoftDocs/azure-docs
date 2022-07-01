@@ -1,10 +1,10 @@
 ---
 title: Develop Azure Functions using Visual Studio  
-description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
+description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2022.
 ms.devlang: csharp
-ms.custom: "vs-azure, devx-track-csharp"
+ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 05/19/2022
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -21,45 +21,15 @@ Visual Studio provides the following benefits when you develop your functions:
 
 This article provides details about how to use Visual Studio to develop C# class library functions and publish them to Azure. Before you read this article, consider completing the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-Unless otherwise noted, procedures and examples shown are for Visual Studio 2019. 
+Unless otherwise noted, procedures and examples shown are for Visual Studio 2022. 
 
 ## Prerequisites
 
-- Azure Functions Tools. To add Azure Function Tools, include the **Azure development** workload in your Visual Studio installation. Azure Functions Tools is available in the Azure development workload starting with Visual Studio 2017.
+- Azure Functions Tools. To add Azure Function Tools, include the **Azure development** workload in your Visual Studio installation. If you are using Visual Studio 2017, you may need to [follow some additional installation steps](#azure-functions-tools-with-visual-studio-2017).
 
 - Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-> [!NOTE]
-> In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017. 
->
-> Skip these sections if you're using Visual Studio 2019.
-
-### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
-
-1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools**, and then choose **Azure Functions and Web Jobs Tools**.
-
-    ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
-
-1. Note the installed **Version** and compare this version with the latest version listed in the [release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
-
-1. If your version is older, update your tools in Visual Studio as shown in the following section.
-
-### Update your tools in Visual Studio 2017
-
-1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
-
-    ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
-
-1. After the tools update is downloaded, select **Close**, and then close Visual Studio to trigger the tools update with VSIX Installer.
-
-1. In VSIX Installer, choose **Modify** to update the tools. 
-
-1. After the update is complete, choose **Close**, and then restart Visual Studio.
-
-> [!NOTE]  
-> In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio.  
 
 ## Create an Azure Functions project
 
@@ -72,7 +42,7 @@ After you create an Azure Functions project, the project template creates a C# p
 * **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings).
 
     >[!IMPORTANT]
-    >Because the local.settings.json file can contain secrets, you must exclude it from your project source control. Ensure the **Copy to Output Directory** setting for this file is set to **Copy if newer**. 
+    >Because the local.settings.json file can contain secrets, you must exclude it from your project source control. Make sure the **Copy to Output Directory** setting for this file is set to **Copy if newer**. 
 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -88,9 +58,9 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
 To set the storage account connection string:
 
-1. In Visual Studio, select **View** > **Cloud Explorer**.
+1. In the Azure portal, navigate to your storage account.
 
-2. In **Cloud Explorer**, expand **Storage Accounts**, and then select your storage account. In the **Properties** tab, copy the **Primary Connection String** value.
+2. In the **Access keys** tab, below **Security + networking**, copy the **Connection string** of **key1**.
 
 2. In your project, open the local.settings.json file and set the value of the `AzureWebJobsStorage` key to the connection string you copied.
 
@@ -104,11 +74,13 @@ In C# class library functions, the bindings used by the function are defined by 
 
 2. Select **Azure Function**, enter a **Name** for the class, and then select **Add**.
 
-3. Choose your trigger, set the binding properties, and then select **OK**. The following example shows the settings for creating a Queue storage trigger function. 
+3. Choose your trigger, set the binding properties, and then select **Add**. The following example shows the settings for creating a Queue storage trigger function. 
 
     ![Create a Queue storage trigger function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    This trigger example uses a connection string with a key named `QueueStorage`. Define this connection string setting in the [local.settings.json file](functions-develop-local.md#local-settings-file).
+    You will then be prompted to choose between two Azure storage emulators or referencing a provisioned Azure storage account.
+
+    This trigger example uses a connection string with a key named `QueueStorage`. This key, stored in the [local.settings.json file](functions-develop-local.md#local-settings-file), either references the Azure storage emulators or an Azure storage account.
 
 4. Examine the newly added class. You see a static `Run()` method that's attributed with the `FunctionName` attribute. This attribute indicates that the method is the entry point for the function.
 
@@ -191,7 +163,7 @@ For a full list of the bindings supported by Functions, see [Supported bindings]
 
 ## Run functions locally
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project the local Functions host (func.exe) is started listening on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio. 
+Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project, the local Functions host (func.exe) starts to listen on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio.
 
 To start your function in Visual Studio in debug mode:
 
@@ -205,7 +177,7 @@ For a more detailed testing scenario using Visual Studio, see [Testing functions
 
 ## Publish to Azure
 
-When you publish from Visual Studio, it uses one of two deployment methods:
+When you publish from Visual Studio, it uses one of the two deployment methods:
 
 * [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): Packages and deploys Windows apps to any IIS server.
 * [Zip Deploy with run-From-package enabled](functions-deployment-technologies.md#zip-deploy): Recommended for Azure Functions deployments.
@@ -216,9 +188,9 @@ Use the following steps to publish your project to a function app in Azure.
 
 ## Function app settings
 
-Because Visual Studio doesn't upload these settings automatically when you publish the project, any settings you add in the local.settings.json you must also add to the function app in Azure.
+Visual Studio doesn't upload these settings automatically when you publish the project. Any settings you add in the local.settings.json you must also add to the function app in Azure.
 
-The easiest way to upload the required settings to your function app in Azure is to select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
+The easiest way to upload the required settings to your function app in Azure is to expand the three dots next to the **Hosting** section and select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
 
 :::image type="content" source="./media/functions-develop-vs/functions-vstools-app-settings.png" alt-text="Settings in Publish window":::
 
@@ -245,7 +217,7 @@ To learn more about monitoring using Application Insights, see [Monitor Azure Fu
 
 ## Testing functions
 
-This section describes how to create a C# function app project in Visual Studio and run and tests with [xUnit](https://github.com/xunit/xunit).
+This section describes how to create a C# function app project in Visual Studio and to run and test with [xUnit](https://github.com/xunit/xunit).
 
 ![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
@@ -256,7 +228,7 @@ To set up your environment, create a function and test the app. The following st
 1. [Create a new Functions app](functions-get-started.md) and name it **Functions**
 2. [Create an HTTP function from the template](functions-get-started.md) and name it **MyHttpTrigger**.
 3. [Create a timer function from the template](functions-create-scheduled-function.md) and name it **MyTimerTrigger**.
-4. [Create an xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution and name it **Functions.Tests**.
+4. [Create an xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution and name it **Functions.Tests**. Remove the default test files.
 5. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project) from *Functions.Tests* app.
 
@@ -266,7 +238,7 @@ Now that the projects are created, you can create the classes used to run the au
 
 Each function takes an instance of [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
-You'll create a new class named `ListLogger` which holds an internal list of messages to evaluate during a testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
+You'll create a new class named `ListLogger`, which holds an internal list of messages to evaluate during testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
 
 Create a new class in *Functions.Tests* project named **NullScope.cs** and enter the following code:
 
@@ -452,7 +424,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            MyTimerTrigger.Run(null, logger);
+            new MyTimerTrigger().Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }
@@ -466,23 +438,50 @@ The members implemented in this class are:
 
 - **Http_trigger_should_return_string_from_member_data**: This test uses xUnit attributes to provide sample data to the HTTP function.
 
-- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer functions. Once the function is run, then the log is checked to ensure the expected message is present.
+- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer function. Once the function is run, then the log is checked to make sure the expected message is present.
 
 If you want to access application settings in your tests, you can [inject](functions-dotnet-dependency-injection.md) an `IConfiguration` instance with mocked environment variable values into your function.
 
 ### Run tests
 
-To run the tests, navigate to the **Test Explorer** and click **Run all**.
+To run the tests, navigate to the **Test Explorer** and select **Run All Tests in View**.
 
 ![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### Debug tests
 
-To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and click **Run > Debug Last Run**.
+To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and select **Run > Debug Last Run**.
 
+## Azure Functions tools with Visual Studio 2017
+
+Azure Functions Tools is available in the Azure development workload starting with Visual Studio 2017. In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio. 
+
+When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions Tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017.
+
+### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
+
+1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools**, and then choose **Azure Functions and Web Jobs Tools**.
+
+    ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+1. Note the installed **Version** and compare this version with the latest version listed in the [release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+1. If your version is older, update your tools in Visual Studio as shown in the following section.
+
+### Update your tools in Visual Studio 2017
+
+1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
+
+    ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+1. After the tools update is downloaded, select **Close**, and then close Visual Studio to trigger the tools update with VSIX Installer.
+
+1. In VSIX Installer, choose **Modify** to update the tools. 
+
+1. After the update is complete, choose **Close**, and then restart Visual Studio.
 
 ## Next steps
 
 For more information about the Azure Functions Core Tools, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
-For more information about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
+For more information about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples on how to use attributes to declare the various types of bindings supported by Azure Functions.    

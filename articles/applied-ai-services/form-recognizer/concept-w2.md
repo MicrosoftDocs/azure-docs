@@ -1,13 +1,13 @@
 ---
-title: Form Recognizer W-2 form prebuilt model
+title: Form Recognizer W-2 prebuilt model
 titleSuffix: Azure Applied AI Services
-description: Data extraction and analysis extraction using the prebuilt-tax Form W-2 model
+description: Data extraction and analysis extraction using the prebuilt W-2 model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -24,7 +24,7 @@ A W-2 is a multipart form divided into state and federal sections and consisting
 
 ## Development options
 
-The prebuilt W-2 form, model is supported by Form Recognizer v3.0 with the following tools:
+The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -32,7 +32,7 @@ The prebuilt W-2 form, model is supported by Form Recognizer v3.0 with the follo
 
 ### Try Form Recognizer
 
-See how data is extracted from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
+Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -45,7 +45,7 @@ See how data is extracted from W-2 forms using the Form Recognizer Studio. You'l
 > [!NOTE]
 > Form Recognizer studio is available with v3.0 preview API.
 
-1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2 form**.
+1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2**.
 
 1. You can analyze the sample W-2 document or select the **➕ Add** button to upload your own sample.
 
@@ -71,7 +71,7 @@ See how data is extracted from W-2 forms using the Form Recognizer Studio. You'l
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|prebuilt-tax.us.w2| <ul>English (United States)</ul></br>|English (United States)—en-US|
+|prebuilt-tax.us.w2|<ul><li>English (United States)</li></ul>|English (United States)—en-US|
 
 ## Field extraction
 
@@ -117,7 +117,6 @@ See how data is extracted from W-2 forms using the Form Recognizer Studio. You'l
 | TaxYear |  | Number | Tax year | 2020 |
 | W2FormVariant |  | String | The variants of W-2 forms, including "W-2", "W-2AS", "W-2CM", "W-2GU", "W-2VI" | W-2 |
 
-
 ### Migration guide and REST API v3.0
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
@@ -127,9 +126,10 @@ See how data is extracted from W-2 forms using the Form Recognizer Studio. You'l
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
-
-|Programming language | :::image type="content" source="media/form-recognizer-icon.png" alt-text="Form Recognizer icon from the Azure portal."::: |Programming language
-|:---:|:---:|:---:|
-|[**C#**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)||[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)|
-|[**Java**](quickstarts/try-v3-java-sdk.md#prebuilt-model)||[**Python**](quickstarts/try-v3-python-sdk.md#prebuilt-model)|
-|[**REST API**](quickstarts/try-v3-rest-api.md)|||
+> [!div class="checklist"]
+>
+> * [**REST API**](quickstarts/try-v3-rest-api.md)
+> * [**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)
+> * [**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)
+> * [**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)
+> * [**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>

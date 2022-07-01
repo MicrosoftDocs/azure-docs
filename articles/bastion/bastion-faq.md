@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 04/26/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -27,9 +27,13 @@ At this time, IPv6 isn't supported. Azure Bastion supports IPv4 only. This means
 
 Azure Bastion doesn't move or store customer data out of the region it's deployed in.
 
+### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
+
+Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. For more information, see [Set up routing configuration for a virtual network connection](../virtual-wan/how-to-virtual-hub-routing.md#routing-configuration).
+
 ### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
 
-Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following exact names:
+Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, make sure that the host virtual network isn't linked to a private DNS zone with the following exact names:
 
 * management.azure.com
 * blob.core.windows.net
@@ -40,7 +44,7 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 
 You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net).
 
-The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
+Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 

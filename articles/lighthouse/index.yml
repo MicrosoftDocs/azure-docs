@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Lighthouse documentation
-summary: Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants.
+summary: Azure Lighthouse enables multi-tenant management with enhanced automation, scalability, and governance across resources and tenants.
 
 metadata:
   title: Azure Lighthouse Documentation
-  description: Azure Lighthouse lets service providers manage Azure resources across all their customers with higher automation, scalability, and enhanced governance.
+  description: Azure Lighthouse lets service providers manage Azure resources in multiple customer tenants, with enhanced automation, scalability, and governance.
   ms.service: lighthouse
   ms.topic: landing-page
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/28/2021
+  ms.date: 06/20/2022
   
 landingContent:
   - title: About Azure Lighthouse

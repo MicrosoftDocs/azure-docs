@@ -4,7 +4,7 @@ description: An overview of networking options for Azure Files.
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 04/19/2022
+ms.date: 05/23/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -160,9 +160,11 @@ This reflects the fact that the storage account can expose both the public endpo
 - Forward the `core.windows.net` zone from your on-premises DNS servers to your Azure private DNS zone. The Azure private DNS host can be reached through a special IP address (`168.63.129.16`) that is only accessible inside virtual networks that are linked to the Azure private DNS zone. To work around this limitation, you can run additional DNS servers within your virtual network that will forward `core.windows.net` on to the Azure private DNS zone. To simplify this set up, we have provided PowerShell cmdlets that will auto-deploy DNS servers in your Azure virtual network and configure them as desired. To learn how to set up DNS forwarding, see [Configuring DNS with Azure Files](storage-files-networking-dns.md).
 
 ## SMB over QUIC
-Windows Server 2022 Azure Edition supports a new transport protocol called QUIC for the SMB server provided by the File Server role. QUIC is a replacement for TCP that is built on top of UDP, providing numerous advantages over TCP while still providing a reliable transport mechanism. Although there are multiple advantages to QUIC as a transport protocol, one key advantage for the SMB protocol is that all transport is done over port 443, which is widely open outbound to support HTTPS. This effectively means that SMB over QUIC offers a "SMB VPN" for file sharing over the public internet. Windows 11 ships with a SMB over QUIC capable client.
+Windows Server 2022 Azure Edition supports a new transport protocol called QUIC for the SMB server provided by the File Server role. QUIC is a replacement for TCP that is built on top of UDP, providing numerous advantages over TCP while still providing a reliable transport mechanism. One key advantage for the SMB protocol is that instead of using port 445, all transport is done over port 443, which is widely open outbound to support HTTPS. This effectively means that SMB over QUIC offers an "SMB VPN" for file sharing over the public internet. Windows 11 ships with an SMB over QUIC capable client.
 
-At this time, Azure Files does not directly support SMB over QUIC. However, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. To learn more about this option, see [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md) and [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
+At this time, Azure Files doesn't directly support SMB over QUIC. However, you can get access to Azure file shares via Azure File Sync running on Windows Server as in the diagram below. This also gives you the option to have Azure File Sync caches both on-premises or in different Azure datacenters to provide local caches for a distributed workforce. To learn more about this option, see [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md) and [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
+
+:::image type="content" source="media/storage-files-networking-overview/smb-over-quic.png" alt-text="Diagram for creating a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition V M using Azure File Sync." border="false":::
 
 ## See also
 - [Azure Files overview](storage-files-introduction.md)

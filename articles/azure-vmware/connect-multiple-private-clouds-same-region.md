@@ -2,10 +2,8 @@
 title: Connect multiple Azure VMware Solution private clouds in the same region
 description: Learn how to create a network connection between two or more Azure VMware Solution private clouds located in the same region.
 ms.topic: how-to 
+ms.service: azure-vmware
 ms.date: 09/20/2021
-
-#Customer intent: As an Azure service administrator, I want create a network connection between two or more Azure VMware Solution private clouds located in the same region.  
-
 ---
 
 # Connect multiple Azure VMware Solution private clouds in the same region
@@ -18,7 +16,7 @@ You can only connect private clouds in the same region. To connect private cloud
 
 ## Supported regions
 
-The AVS Interconnect feature is available in all regions except for South Central US (SAT20), North Europe (DUB21), Southeast Asia (SG2), and UK West (CWL20). 
+The Azure VMware Solution Interconnect feature is available in all regions.
 
 ## Prerequisites
 

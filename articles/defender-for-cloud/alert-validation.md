@@ -78,7 +78,7 @@ If you've integrated Azure Kubernetes Service with Defender for Cloud, you can t
 
 `kubectl get pods --namespace=asc-alerttest-662jfi039n`
 
-For more information about defending your Kubernetes nodes and clusters, see [Introduction to Microsoft Defender for Containers](defender-for-containers-introduction.md)
+For more information about defending your Kubernetes nodes and clusters, see [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
 
 ## Next steps
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
