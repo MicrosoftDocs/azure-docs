@@ -323,7 +323,7 @@ To summarize, our recommendations for migrating data and associated ETL processe
 
 - Understand the data volumes to be migrated, and the network bandwidth between the on-premises data center and Azure cloud environments.
 
-- Consider using an Oracle instance in an Azure VM as a stepping-stone to offload migration from the legacy Oracle environment.
+- Consider using an Oracle instance in an Azure VM as a stepping stone to offload migration from the legacy Oracle environment.
 
 - Use standard built-in Azure features to minimize the migration workload.
 
