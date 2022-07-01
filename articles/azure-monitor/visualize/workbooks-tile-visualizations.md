@@ -10,7 +10,7 @@ ms.date: 09/04/2020
 
 # Tile visualizations
 
-Tiles are a useful way to present summary data in Azure Monitor workbooks. The following example shows a common use case of tiles with app-level summary on top of a detailed grid.
+Tiles are a useful way to present summary data in workbooks. The following example shows a common use case of tiles with app-level summary on top of a detailed grid.
 
 [![Screenshot that shows a tile summary view.](./media/workbooks-tile-visualizations/tiles-summary.png)](./media/workbooks-tile-visualizations/tiles-summary.png#lightbox)
 
@@ -18,9 +18,9 @@ Workbook tiles support showing items like a title, subtitle, large text, icons, 
 
 ## Add a tile
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Select **Add** > **Add query** to add a log query control to the workbook.
-1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
 
     ```kusto
@@ -34,12 +34,12 @@ Workbook tiles support showing items like a title, subtitle, large text, icons, 
 1. Select the **Tile Settings** button to open the **Tile Settings** pane:
     1. In **Title**, set:
         * **Use column**: `name`
-    2. In **Left**, set:
+    1. In **Left**, set:
         * **Use column**: `Requests`
         * **Column renderer**: `Big Number`
         * **Color palette**: `Green to Red`
         * **Minimum value**: `0`
-    3. In **Bottom**, set:
+    1. In **Bottom**, set:
         * **Use column**: `appName`
 1. Select the **Save and Close** button at the bottom of the pane.
 
@@ -51,14 +51,14 @@ The tiles in read mode:
 
 ## Spark lines in tiles
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Add a time range parameter called `TimeRange`.
     1. Select **Add** > **Add parameters**.
     1. In the parameter control, select **Add Parameter**.
     1. In the **Parameter name** field, enter `TimeRange`. For **Parameter type**, choose `Time range picker`.
     1. Select **Save** at the top of the pane and then select **Done Editing** in the parameter control.
 1. Select **Add** > **Add query** to add a log query control under the parameter control.
-1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
 
     ```kusto

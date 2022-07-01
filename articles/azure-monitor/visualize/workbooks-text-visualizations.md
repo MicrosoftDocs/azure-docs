@@ -9,7 +9,7 @@ ms.date: 09/04/2020
 ---
 # Text visualizations
 
-You can include text blocks in your Azure Monitor workbooks. The text can be human analysis of telemetry, information to help users interpret your data, and section headings.
+You can include text blocks in your workbooks. The text can be human analysis of telemetry, information to help users interpret your data, and section headings.
 
 [![Screenshot that shows the Apdex table of text.](./media/workbooks-text-visualizations/apdex.png)](./media/workbooks-text-visualizations/apdex.png#lightbox)
 
@@ -25,7 +25,7 @@ Preview mode:
 
 ## Add a text control
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Use the **Add text** link to add a text control to the workbook.
 1. Add Markdown in the editor box.
 1. Use the **Text Style** option to switch between `plain` Markdown and Markdown wrapped with the Azure portal's standard `info`, `warning`, `success`, and `error` styling.

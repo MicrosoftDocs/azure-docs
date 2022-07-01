@@ -9,17 +9,17 @@ ms.author: abbyweisberg
 
 # Grid visualizations
 
-Grids or tables are a common way to present data to users. You can individually style the columns of grids in Azure Monitor workbooks to provide a rich UI for your reports.
+Grids or tables are a common way to present data to users. You can individually style the columns of grids in workbooks to provide a rich UI for your reports.
 
 The following example shows a grid that combines icons, heatmaps, and spark bars to present complex information. The workbook also provides sorting, a search box, and a go-to-analytics button.
 
-[![Screenshot that shows log-based grid.](./media/workbooks-grid-visualizations/grid.png)](./media/workbooks-grid-visualizations/grid.png#lightbox)
+[![Screenshot that shows a log-based grid.](./media/workbooks-grid-visualizations/grid.png)](./media/workbooks-grid-visualizations/grid.png#lightbox)
 
 ## Add a log-based grid
 
 1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
 1. Select **Add query** to add a log query control to the workbook.
-1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis. An example is VMs with memory below a threshold.
 1. Set **Visualization** to **Grid**.
 1. Set other parameters like the time range, size, color palette, and legend, if needed.
@@ -70,7 +70,7 @@ Here's the same grid styled as bars:
 
 The following example shows the **Requests** column styled as a bar:
 
-[![Screenshot that shows a log-based grid with the Request column styled as a bar.](./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png)](./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png#lightbox)
+[![Screenshot that shows a log-based grid with the Requests column styled as a bar.](./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png)](./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png#lightbox)
 
 This option usually takes you to some other view with context coming from the cell, or it might open a URL.
 

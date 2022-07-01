@@ -10,7 +10,7 @@ ms.date: 09/04/2020
 
 # Chart visualizations
 
-Azure Monitor workbooks allow monitoring data to be presented as charts. Supported chart types include line, bar, bar categorical, area, scatter plots, pie, and time. You can choose to customize the height, width, color palette, legend, titles, no-data message, and other characteristics. You can also customize axis types and series colors by using chart settings.
+With workbooks, you can present monitoring data as charts. Supported chart types include line, bar, bar categorical, area, scatter plots, pie, and time. You can choose to customize the height, width, color palette, legend, titles, no-data message, and other characteristics. You can also customize axis types and series colors by using chart settings.
 
 Workbooks support charts for both logs and metric data sources.
 
@@ -22,9 +22,9 @@ Azure Monitor logs give you detailed information about the workings of your apps
 
 The following example shows the trend of requests to an app over the previous days.
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Use the **Add query** link to add a log query control to the workbook.
-1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the [KQL](/azure/kusto/query/) for your analysis. An example is the trend of requests.
 1. Set **Visualization** to **Area**, **Bar**, **Bar (categorical)**, **Line**, **Pie**, **Scatter**, or **Time**.
 1. Set other parameters like the time range, size, color palette, and legend, if needed.
@@ -142,7 +142,7 @@ Most Azure resources emit metric data about state and health. Examples include C
 
 The following example shows the number of transactions in a storage account over the prior hour. This information allows the storage owner to see the transaction trend and look for anomalies in behavior.
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Use the **Add metric** link to add a metric control to the workbook.
 1. Select a **Resource type**, for example, **Storage Account**. Select the resources to target, the metric namespace and name, and the aggregation to use.
 1. Set other parameters like time range, split by, visualization, size, and color palette, if needed.
@@ -162,7 +162,7 @@ The following example shows the number of transactions in a storage account over
 | Visualization | The visualization to use. | Area, bar, line, scatter, grid |
 | Split by | Optionally split the metric on a dimension. | Transactions by geo type |
 | Size | The vertical size of the control. | Small, medium, or large |
-| Color palette | The color palette to use in the chart. Ignored if the *Split by* parameter is used. | Blue, green, red |
+| Color palette | The color palette to use in the chart. Ignored if the `Split by` parameter is used. | Blue, green, red |
 
 ### Examples
 
@@ -182,12 +182,12 @@ Average latency as a scatter chart:
 
 You can use chart settings to customize which fields are used in the chart axes, the axis units, custom formatting, ranges, grouping behaviors, legends, and series colors.
 
-### The Settings tab
+### Settings tab
 
 The **Settings** tab controls:
 
 - **X-axis Settings**, **Y-axis Settings**: Includes which fields. You can use custom formatting to set the number formatting to the axis values and custom ranges.
-- **Grouping Settings**: Includes which field. The limits before an "Others" group is created.
+- **Grouping Settings**: Includes which field. Sets the limits before an "Others" group is created.
 - **Legend Settings**: Shows metrics like series name, colors, and numbers at the bottom, and a legend like series names and colors.
 
 ![Screenshot that shows chart settings.](./media/workbooks-chart-visualizations/chart-settings.png)
@@ -209,7 +209,7 @@ Number formatting options are shown in this table.
 
 ![Screenshot that shows x-axis settings.](./media/workbooks-chart-visualizations/number-format-settings.png)
 
-### The Series Settings tab
+### Series Settings tab
 
 With the **Series Settings** tab, you can adjust the labels and colors shown for series in the chart:
 

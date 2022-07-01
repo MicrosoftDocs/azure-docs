@@ -10,7 +10,7 @@ ms.date: 09/04/2020
 
 # Tree visualizations
 
-Azure Monitor workbooks support hierarchical views via tree grids. Trees allow some rows to be expandable into the next level for a drill-down experience.
+Workbooks support hierarchical views via tree grids. Trees allow some rows to be expandable into the next level for a drill-down experience.
 
 The following example shows container health metrics of a working set size that are visualized as a tree grid. The top-level nodes here are Azure Kubernetes Service (AKS) nodes. The next-level nodes are pods, and the final-level nodes are containers. Notice that you can still format your columns like you do in a grid with heatmaps, icons, and links. The underlying data source in this case is a Log Analytics workspace with AKS logs.
 
@@ -18,9 +18,9 @@ The following example shows container health metrics of a working set size that 
 
 ## Add a tree grid
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Select **Add** > **Add query** to add a log query control to the workbook.
-1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
 
     ```kusto
@@ -67,9 +67,9 @@ You can use grouping to build hierarchical views similar to the ones shown in th
 
 ## Add a tree by using grouping
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
 1. Select **Add** > **Add query** to add a log query control to the workbook.
-1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
 
     ```kusto
