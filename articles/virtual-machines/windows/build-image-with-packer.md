@@ -168,6 +168,11 @@ Build the image by opening a cmd prompt and specifying your Packer template file
 ```
 ./packer build windows.json
 ```
+You can also build the image by specifying the *windows.pkr.hcl* file as follows:
+
+```
+packer build windows.pkr.hcl
+```
 
 An example of the output from the preceding commands is as follows:
 
