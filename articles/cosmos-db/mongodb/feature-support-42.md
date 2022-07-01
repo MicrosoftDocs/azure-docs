@@ -584,7 +584,13 @@ Azure Cosmos DB supports automatic, native replication at the lowest layers. Thi
 ## Retryable Writes (preview)
 Retryable writes enables MongoDB drivers to automatically retry certain write operations in case of failure, but results in more stringent requirements for certain operations, which match MongoDB protocol requirements. With this feature enabled, update operations, including deletes, in sharded collections will require the shard key to be included in the query filter or update statement.
 
-To enable the feature, add the EnableMongoRetryableWrites capability to your database account. 
+For example, with a sharded collection, sharded on key “country”: To delete all the documents with the field city = "NYC", the application will need to execute the operation for all shard key (country) values if Retryable writes is enabled. 
+
+db.coll.deleteMany({"country": "USA", "city": "NYC"}) – Success 
+
+db.coll.deleteMany({"city": "NYC"})- Fails with error ShardKeyNotFound(61) 
+
+To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. 
 
 ## Sharding
 
