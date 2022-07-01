@@ -57,7 +57,7 @@ Microsoft Entra Verified ID supports the following key types for the JSON Web Si
 
 Microsoft is collaborating with organization members of Decentralized Identity Foundation (DIF), the W3C Credentials Community Group, and the wider identity community. Our collaboration efforts aim to build a Verifiable Credentials Interoperability profile to support standards-based issuance, revocation, presentation, and wallet portability.
 
-Today, we have a working JWT verifiable credentials presentation profile that supports the interoperable presentation of verifiable credentials between Wallets and Verifiers/RPs. Join us at the DIF Claims and Credentials working group, [aka.ms/vcinterop](https://aka.ms/vcinterop).
+Today, we have a working JWT verifiable credentials presentation profile that supports the interoperable presentation of verifiable credentials between wallets and verifiers/resource providers. Join us at the DIF Claims and Credentials working group, [aka.ms/vcinterop](https://aka.ms/vcinterop).
 
 ## Next steps
 
