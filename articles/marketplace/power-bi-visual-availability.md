@@ -12,9 +12,6 @@ ms.date: 07/18/2022
 
 # Define the availability of a Power BI visual offer
 
-> [!NOTE]
-> If you chose to configure a transactable offer, you’ll see the _Preview audience_ tab instead of the _Availability_ tab in the left-nav. If you see the _Preview audience_ tab in the left-nav, go to [Preview audience](power-bi-visual-preview.md).
-
 The _Availability_ page lets you define where and how to make your offer available, including markets and release date.
 
 ## Markets
