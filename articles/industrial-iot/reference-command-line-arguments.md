@@ -33,9 +33,9 @@ To control the application, you can use any of several of environment variables:
 * `_TPC_SP`: Sets the path to store certificates of trusted stations
 * `_GW_PNFP`: Sets the file name of the publishing configuration file
 
-
 > [!NOTE] 
 > Command-line arguments overrule environment variable settings.
+
 
 | Argument | Description |
 | --- | --- | 
@@ -107,6 +107,7 @@ To control the application, you can use any of several of environment variables:
 
 ## Command-line arguments for version 2.6 and later
 
+
 | Argument | Description |
 | --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to configure the nodes to publish. If this option is specified, it puts OPC Publisher into *standalone* mode. |
@@ -138,6 +139,7 @@ To control the application, you can use any of several of environment variables:
 The following OPC Publisher configuration can be applied by command-line interface (CLI) options or as environment variable settings.
 
 The `Alternative` field, when it's present, refers to the applicable CLI argument in *standalone mode only*. When both the environment variable and the CLI argument are provided, the latest argument overrules the environment variable.
+
 
 | Argument | Description |
 | --- | --- | 
