@@ -46,9 +46,8 @@ To enable self-service capabilities, your authentication methods must be updated
 
 ### To scale out
 
-Gradually register and enable SSPR. For example, roll out by region, subsidiary, department, etc. for all users. This enables both MFA and SSPR.
->[!IMPORTANT]
->End-user communications and evangelizing are required. [Sample SSPR rollout materials](/download/details.aspx?id=56768)
+Gradually register and enable SSPR. For example, roll out by region, subsidiary, department, etc. for all users. This enables both MFA and SSPR. Refer to [Sample SSPR rollout materials](/download/details.aspx?id=56768) to assist with required end-user communications and evangelizing.
+
 **Key points:**
 
 * Use Azure AD password policies on the domain.
@@ -83,11 +82,11 @@ To transform groups and distribution lists:
 
 This workstream will help you to simplify your environment by removing application provisioning flows from on-premises IDM systems such as Microsoft Identity Manager. Based on your application discovery, categorize your application based on the following:
 
-1.Applications in your environment that have a provisioning integration with the [Azure AD Application Gallery](https://www.microsoft.com/security/business/identity-access-management/integrated-apps-azure-ad)
+* Applications in your environment that have a provisioning integration with the [Azure AD Application Gallery](https://www.microsoft.com/security/business/identity-access-management/integrated-apps-azure-ad)
 
-2.Applications that aren't in the gallery but support the SCIM 2.0 protocol are natively compatible with Azure AD cloud provisioning service.
+* Applications that aren't in the gallery but support the SCIM 2.0 protocol are natively compatible with Azure AD cloud provisioning service.
 
-3.On-Premises applications that have an ECMA connector available, can be integrated with [Azure AD on-premises application provisioning](../app-provisioning/on-premises-application-provisioning-architecture.md)
+* On-Premises applications that have an ECMA connector available, can be integrated with [Azure AD on-premises application provisioning](../app-provisioning/on-premises-application-provisioning-architecture.md)
 
 For more information check: [Plan an automatic user provisioning deployment for Azure Active Directory](../app-provisioning/plan-auto-user-provisioning.md)
 
@@ -262,40 +261,31 @@ Legacy applications have different areas of dependencies to AD:
 
 To reduce or eliminate the dependencies above, there are three main approaches, listed below in order of preference:
 
-1. Replace with SaaS alternatives that use modern authentication.
+**Approach 1** Replace with SaaS alternatives that use modern authentication. In this approach, undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Azure AD directly.
 
-1. Replatform (for example, adopt serverless/PaaS) to support modern hosting without servers and/or update the code to support modern authentication.
+**Approach 2** Replatform (for example, adopt serverless/PaaS) to support modern hosting without servers and/or update the code to support modern authentication. In this approach, undertake projects to update authentication code for applications that will be modernized or replatform on serverless/PaaS to eliminate the need for underlying server management. Enable the app to use modern authentication and integrate to Azure AD directly. [Learn about MSAL - Microsoft identity platform](../develop/msal-overview.md).
 
-1. Leave the applications as legacy applications for the foreseeable future or sunset the applications and opportunity arises.
-
-#### Approaches
-
-There are three approaches.
-1. Undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Azure AD directly.
-
-1. Undertake projects to update authentication code for applications that will be modernized.      Replatform on serverless/PaaS to eliminate the need for underlying server management. Update the app to enable modern authentication and integrate to Azure AD directly. [Learn about MSAL - Microsoft identity platform](../develop/msal-overview.md).
-
-1. For applications that must remain legacy we recommend that this is considered as a last resort.
+**Approach 3** Leave the applications as legacy applications for the foreseeable future or sunset the applications and opportunity arises. We recommend that this is considered as a last resort.
 
 Based on the app dependencies, you have three migration options:
 
 #### Migration option #1
 
-Utilize Azure AD Domain Services if the dependencies are aligned with [Common deployment scenarios for Azure AD Domain Services](../../active-directory-domain-services/scenarios.md). 
+* Utilize Azure AD Domain Services if the dependencies are aligned with [Common deployment scenarios for Azure AD Domain Services](../../active-directory-domain-services/scenarios.md). 
 
-To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
+* To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
 
-Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
+* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 
 ##### Option 1 steps
 
 1. Deploy Azure AD Domain Services into an Azure virtual network
 
-1. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined to Azure AD Domain Services
+2. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined to Azure AD Domain Services
 
-1. Publish legacy apps to the cloud using Azure AD App Proxy or a [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md) partner
+3. Publish legacy apps to the cloud using Azure AD App Proxy or a [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md) partner
 
-1. As legacy apps retire through attrition, eventually decommission Azure AD Domain Services running in the Azure virtual network
+4. As legacy apps retire through attrition, eventually decommission Azure AD Domain Services running in the Azure virtual network
 
 #### Migration option #2
 
@@ -305,17 +295,17 @@ Extend on-premises AD to Azure IaaS. If #1 isn't possible and an application has
 
 1. Connect an Azure virtual network to the on-premises network via VPN or ExpressRoute
 
-1. Deploy new Domain Controllers for the on-premises AD as virtual machines into the Azure virtual network 
+2. Deploy new Domain Controllers for the on-premises AD as virtual machines into the Azure virtual network 
 
-1. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined
+3. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined
 
-1. Publish legacy apps to the cloud using Azure AD App Proxy or a [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md) partner
+4. Publish legacy apps to the cloud using Azure AD App Proxy or a [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md) partner
 
-1. Eventually, decommission the on-premises AD infrastructure and run the Active Directory in the Azure virtual network entirely
+5. Eventually, decommission the on-premises AD infrastructure and run the Active Directory in the Azure virtual network entirely
 
-1. As legacy apps retire through attrition, eventually decommission the Active Directory running in the Azure virtual network
+6. As legacy apps retire through attrition, eventually decommission the Active Directory running in the Azure virtual network
 
-#### Migration option 3
+#### Migration option #3
 
 Deploy a new AD to Azure IaaS. If migration option #1 isn't possible and an application has a strong dependency on AD. This approach enables you to decouple the app from the existing AD to reduce surface area.
 
@@ -323,11 +313,11 @@ Deploy a new AD to Azure IaaS. If migration option #1 isn't possible and an appl
 
 1. Deploy a new Active Directory as virtual machines into an Azure virtual network
 
-1. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined to the new Active Directory
+2. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined to the new Active Directory
 
-1. Publish legacy apps to the cloud using Azure AD App Proxy or a [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md) partner
+3. Publish legacy apps to the cloud using Azure AD App Proxy or a [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md) partner
 
-1. As legacy apps retire through attrition, eventually decommission the Active Directory running in the Azure virtual network
+4. As legacy apps retire through attrition, eventually decommission the Active Directory running in the Azure virtual network
 
 #### Comparison of strategies
 
