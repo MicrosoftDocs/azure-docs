@@ -1145,7 +1145,7 @@ mssparkutils.session.stop()
 ```
 ::: zone-end
 
-`mssparkutils.session.stop()` API will stop the current interactive session asynchrously in the background, it stops the Spark session and release resources occupied by the session so they are available to other sessions in the same pool.
+`mssparkutils.session.stop()` API will stop the current interactive session asynchronously in the background, it stops the Spark session and release resources occupied by the session so they are available to other sessions in the same pool.
 
 > [!NOTE]
 > We don't recommend call language built-in APIs like `sys.exit` in Scala or `sys.exit()` in Python in your code, because such APIs just
