@@ -45,7 +45,7 @@ To enable Permissions Management in your organization:
 
 > [!NOTE]
 > There are two ways to enable a trial or a full product license, self-service and volume licensing. 
-> For self-service, navigate to the M365 portal at [https://aka.ms/TryPermissionsManagement](http://aka.ms/TryPermissionsManagement) and purchase licenses or sign up for a free trial. The second way is through Volume Licensing or Enterprise agreements. If your organization falls under a volume license or enterprise agreement scenario, please contact your Microsoft representative.
+> For self-service, navigate to the M365 portal at [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) and purchase licenses or sign up for a free trial. The second way is through Volume Licensing or Enterprise agreements. If your organization falls under a volume license or enterprise agreement scenario, please contact your Microsoft representative.
 
 Permissions Management launches with the **Data Collectors** dashboard.
 
