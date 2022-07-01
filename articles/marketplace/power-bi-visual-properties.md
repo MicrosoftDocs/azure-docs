@@ -7,16 +7,16 @@ ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 02/10/2022
+ms.date: 07/18/2022
 ---
 
 # Configure Power BI visual offer properties
 
-This page lets you define the [categories](./categories.md) used to group your offer on Microsoft AppSource, the legal contracts that support your offer, and support documentation.
+The _Properties_ page lets you define the [categories](./categories.md) used to group your offer on Microsoft AppSource, the legal contracts that support your offer, and support documentation.
 
 ## Categories
 
-Select up to three **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas. This table shows the categories that are available for Power BI visuals.
+Select up to two **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas. This table shows the categories that are available for Power BI visuals.
 
 | Category | Description |
 | ------------ | ------------- |
@@ -78,12 +78,14 @@ To simplify the procurement process for customers and reduce legal complexity fo
    > [!NOTE]
    > After you publish an offer using the Standard Contract for the commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the standard contract with optional amendments or under your own terms and conditions.
 
+1. Go to [Privacy policy link](#privacy-policy-link).
+
 ### Use your own terms and conditions
 
 You may provide your own terms and conditions instead of using the standard contract, or use our EULA specific for Power BI visual offers. Customers must accept these terms before they can try your offer.
 
-1. Clear the **Use the Standard Contract for Microsoft's commercial marketplace** check box.
-1. In the **EULA** filed (see image above), enter a single web address for your terms and conditions. Or, point to the Power BI visuals contract at `https://visuals.azureedge.net/app-store/Power%20BI%20-%20Default%20Custom%20Visual%20EULA.pdf` (PDF). Either will display as an active link in AppSource.
+1. Clear the **Use the Standard Contract...** check box.
+1. In the **EULA** field, enter a single web address for your terms and conditions. Or, point to the Power BI visuals contract at `https://visuals.azureedge.net/app-store/Power%20BI%20-%20Default%20Custom%20Visual%20EULA.pdf` (PDF). Either will display as an active link in AppSource.
 
 ### Privacy policy link
 
