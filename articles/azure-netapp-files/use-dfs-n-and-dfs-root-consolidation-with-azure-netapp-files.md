@@ -109,7 +109,8 @@ Install-WindowsFeature -Name "FS-DFS-Namespace", "RSAT-DFS-Mgmt-Con"
 
 If you do not need to take over an existing legacy file server, a domain-based namespace is recommended. Domain-based namespaces are hosted as part of AD and will have a UNC path containing the name of your domain, for example, `\\contoso.com\corporate\finance`, if your domain is `contoso.com`. An example of this architecture is shown in the graphic below.
 
-![A screenshot of the architecture for DFS-N with Azure NetApp Files volumes](../media/azure-netapp-files/azure-netapp-files-dfs-domain-architecture-example.png)
+![A screenshot of the architecture for DFS-N with Azure NetApp Files volumes.](../media/azure-netapp-files/azure-netapp-files-dfs-domain-architecture-example.png)
+
 
 >[!IMPORTANT]
 >If you wish to use DFS Namespaces to take over an existing server name with root consolidation, skip to [Take over existing server names with root consolidation](#take-over-existing-server-names-with-root-consolidation).
@@ -207,7 +208,8 @@ Root consolidation may only be used with standalone namespaces. If you already h
 
 This section outlines the steps to configure DFS Namespace root consolidation on a standalone server. For a highly available architecture please work with your Microsoft technical team to configure Windows Server failover clustering and an Azure Load Balancer as required. An example of a highly available architecture is shown in the graphic below.
 
-![A screenshot of the architecture for root consolidation with Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-root-consolidation-architecture-example.png)
+![A screenshot of the architecture for root consolidation with Azure NetApp Files.](../media/azure-netapp-files/azure-netapp-files-root-consolidation-architecture-example.png)
+
 
 ### Enabling root consolidation
 
