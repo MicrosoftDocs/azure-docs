@@ -1125,7 +1125,10 @@ mssparkutils.runtime.context
 ```
 ::: zone-end
 
-## Stop an interactive session
+## Session management
+
+### Stop an interactive session
+
 Instead of manually click stop button, sometimes it's more convenient to stop an interactive session by calling an API in the code. For such cases, we provide an API `mssparkutils.session.stop()` to support stopping the interactive session via code, it's available for Scala and Python.
 
 :::zone pivot = "programming-language-python"
@@ -1142,7 +1145,7 @@ mssparkutils.session.stop()
 ```
 ::: zone-end
 
-`mssparkutils.session.stop()` will stop the current interactive session asynchrously in the background, it stops the Spark session and release resources occupied by the session so they are available to other sessions in the same pool.
+`mssparkutils.session.stop()` API will stop the current interactive session asynchrously in the background, it stops the Spark session and release resources occupied by the session so they are available to other sessions in the same pool.
 
 > [!NOTE]
 > We don't recommend call language built-in APIs like `sys.exit` in Scala or `sys.exit()` in Python in your code, because such APIs just
