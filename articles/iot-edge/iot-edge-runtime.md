@@ -169,26 +169,16 @@ The steps to follow to install this root certificate of the broker on device cli
 
 The IoT Edge Hub only accepts connections from devices or modules that have an IoT Hub identity, for example that have been registered in IoT Hub and have one of the three client authentication methods supported by IoT hub to provide prove their identity: [Symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), [X.509 CA signed authentication](how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).  These IoT Hub identities can be verified locally by the IoT Edge hub so connections can still be made while offline.
 
-Notes:
-
-* IoT Edge modules currently only support symmetric key authentication.
-* MQTT clients with only local username and passwords aren't accepted by the IoT Edge hub MQTT broker, they must use IoT Hub identities.
+IoT Edge modules currently only support symmetric key authentication.
 
 #### Authorization
 
-Once authenticated, the IoT Edge hub has two ways to authorize client connections:
 
-* By verifying that a client belongs to its set of trusted clients defined in IoT Hub. The set of trusted clients is specified by setting up parent/child or device/module relationships in IoT Hub. When a module is created in IoT Edge, a trust relationship is automatically established between this module and its IoT Edge device. This is the only authorization model supported by the routing brokering mechanism.
-
-* By setting up an authorization policy. This authorization policy is a document listing all the authorized client identities that can access resources on the IoT Edge hub. This is the primary authorization model used by the IoT Edge hub MQTT broker, though parent/child and device/module relationships can also be understood by the MQTT broker for IoT Hub topics.
+By verifying that a client belongs to its set of trusted clients defined in IoT Hub. The set of trusted clients is specified by setting up parent/child or device/module relationships in IoT Hub. When a module is created in IoT Edge, a trust relationship is automatically established between this module and its IoT Edge device. This is the only authorization model supported by the routing brokering mechanism.
 
 ### Remote configuration
 
-The IoT Edge hub is entirely controlled by the cloud. It gets its configuration from IoT Hub via its [module twin](iot-edge-modules.md#module-twins). It includes:
-
-* Routes configuration
-* Authorization policies
-* MQTT bridge configuration
+The IoT Edge hub is entirely controlled by the cloud. It gets its configuration from IoT Hub via its [module twin](iot-edge-modules.md#module-twins). The twin contains a desired property called routes that declares how messages are passed within a deployment. For more information on routes, see [declare routes](module-composition.md#declare-routes).
 
 Additionally, several configurations can be done by setting up [environment variables on the IoT Edge hub](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 ::: moniker-end
