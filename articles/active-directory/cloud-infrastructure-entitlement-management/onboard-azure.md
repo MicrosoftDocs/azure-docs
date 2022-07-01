@@ -51,43 +51,43 @@ Any current or future subscriptions found get onboarded automatically.
 
  To view status of onboarding after saving the configuration: 
 
-- In the MEPM portal, click the cog on the top right-hand side.  
-- Navigate to data collectors tab.  
-- Click ‘Create Configuration’ 
-- For onboarding mode, select ‘Automatically Manage’ 
-- Click ‘Verify Now & Save’ 
-- Collectors will now be listed and change through status types. For each collector listed with a status of “Collected Inventory”, click on that status to view further information. 
-- You can then view subscriptions on the In Progress page 
+1. In the MEPM portal, click the cog on the top right-hand side.  
+1. Navigate to data collectors tab.  
+1. Click ‘Create Configuration’ 
+1. For onboarding mode, select ‘Automatically Manage’ 
+1. Click ‘Verify Now & Save’ 
+1. Collectors will now be listed and change through status types. For each collector listed with a status of “Collected Inventory”, click on that status to view further information. 
+1. You can then view subscriptions on the In Progress page 
 
 #### Option 2: Enter authorization systems 
 
 You have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector). Follow the steps below to configure these subscriptions to be monitored: 
 
-- For each subscription you wish to manage, ensure that the ‘Reader’ role has been granted to Cloud Infrastructure Entitlement Management application for this subscription. 
-- In the MEPM portal, click the cog on the top right-hand side. 
-- Navigate to data collectors tab 
-- Click ‘Create Configuration’ 
-- Select ‘Enter Authorization Systems’ 
-- Under the Subscription IDs section, enter a desired subscription ID into the input box. Click the “+” up to 9 additional times, putting a single subscription ID into each respective input box. 
-- Once you have input all of the desired subscriptions, click next 
-- Click ‘Verify Now & Save’ 
-- Once the access to read and collect data is verified, collection will begin. 
+1. For each subscription you wish to manage, ensure that the ‘Reader’ role has been granted to Cloud Infrastructure Entitlement Management application for this subscription. 
+1. In the MEPM portal, click the cog on the top right-hand side. 
+1. Navigate to data collectors tab 
+1. Click ‘Create Configuration’ 
+1. Select ‘Enter Authorization Systems’ 
+1. Under the Subscription IDs section, enter a desired subscription ID into the input box. Click the “+” up to 9 additional times, putting a single subscription ID into each respective input box. 
+1. Once you have input all of the desired subscriptions, click next 
+1. Click ‘Verify Now & Save’ 
+1. Once the access to read and collect data is verified, collection will begin. 
 
 To view status of onboarding after saving the configuration: 
 
-- Navigate to data collectors tab.  
-- Click on the status of the data collector.  
-- View subscriptions on the In Progress page 
+1. Navigate to data collectors tab.  
+1. Click on the status of the data collector.  
+1. View subscriptions on the In Progress page 
 
 #### Option 3: Select authorization systems 
 
 This option detects all subscriptions that are accessible by the Cloud Infrastructure Entitlement Management application.  
 
-- Grant Reader role to Cloud Infrastructure Entitlement Management application at management group or subscriptions(s) scope. 
-- Click Verify and Save. 
-- Navigate to newly create Data Collector row under Azure data collectors. 
-- Click on Status column when the row has “Pending” status 
-- To onboard and start collection, choose specific ones subscriptions from the detected list and consent for collection.
+1. Grant Reader role to Cloud Infrastructure Entitlement Management application at management group or subscription(s) scope. 
+1. Click Verify and Save. 
+1. Navigate to newly create Data Collector row under Azure data collectors. 
+1. Click on Status column when the row has “Pending” status 
+1. To onboard and start collection, choose specific ones subscriptions from the detected list and consent for collection.
 
 ### 2. Review and save.
 
