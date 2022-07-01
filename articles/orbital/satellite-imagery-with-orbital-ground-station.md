@@ -9,7 +9,7 @@ ms.date: 07/06/2022
 ms.custom: template-overview 
 ---
 
-# Collecting and processing AQUA satellite payload using Azure Orbital Ground Station as-a-Service (GSaaS)
+# Collect and process AQUA satellite payload using Azure Orbital Ground Station as-a-Service (GSaaS)
 
 This topic is a comprehensive walk through showing how to use the [Azure Orbital Ground Station as-a-Service (GSaaS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the Azure Orbital GSaaS and its core concepts, shows how to schedule contacts, and steps through an example collecting and processing NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
