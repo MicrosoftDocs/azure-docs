@@ -146,7 +146,6 @@ In Studio (classic), **datasets** were saved in your workspace and could only be
 
 In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](./v1/concept-data.md).
 
-![automobile-price-aml-dataset](./media/migrate-overview/aml-dataset.png)
 
 ### Pipeline
 

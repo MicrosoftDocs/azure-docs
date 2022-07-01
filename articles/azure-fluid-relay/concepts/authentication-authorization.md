@@ -33,8 +33,7 @@ The secret key is how the Azure Fluid Relay service knows that requests are comi
 Azure Fluid Relay uses [JSON Web Tokens (JWTs)](https://jwt.io/) to encode and verify data signed with your secret key. JSON Web Tokens are a signed bit of JSON that can include additional information about rights and permissions.
 
 > [!NOTE]
-> The specifics of JWTs are beyond the scope of this article. For more details about the JWT standard see
-> <https://jwt.io/introduction>.
+> The specifics of JWTs are beyond the scope of this article. For more information about the JWT standard, see [Introduction to JSON Web Tokens](https://jwt.io/introduction).
 
 Though the details of authentication differ between Fluid services, several values must always be present.
 

@@ -219,7 +219,7 @@
       href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
   - name: Develop custom modules
     items:
-    - name: Develop with Visual Studio 2019
+    - name: Develop with Visual Studio 2022
       href: how-to-visual-studio-develop-module.md
     - name: Develop with Visual Studio Code
       href: how-to-vs-code-develop-module.md

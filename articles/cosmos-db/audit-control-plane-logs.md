@@ -225,5 +225,6 @@ AzureDiagnostics
 
 ## Next steps
 
+* [Prevent Azure Cosmos DB resources from being deleted or changed](resource-locks.md)
 * [Explore Azure Monitor for Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * [Monitor and debug with metrics in Azure Cosmos DB](use-metrics.md)

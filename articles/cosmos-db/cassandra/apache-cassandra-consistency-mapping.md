@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ---
 
 # Apache Cassandra and Azure Cosmos DB Cassandra API consistency levels

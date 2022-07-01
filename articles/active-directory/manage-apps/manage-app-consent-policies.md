@@ -1,7 +1,6 @@
 ---
 title: Manage app consent policies
 description: Learn how to manage built-in and custom app consent policies to control when consent can be granted.
-titleSuffix: Microsoft Entra
 services: active-directory
 author: psignoret
 ms.service: active-directory

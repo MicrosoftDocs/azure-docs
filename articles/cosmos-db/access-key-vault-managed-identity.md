@@ -79,7 +79,7 @@ In this step, create an access policy in Azure Key Vault using the previously ma
 
 1. Use the [``az keyvault set-policy``](/cli/azure/keyvault#az-keyvault-set-policy) command to create an access policy in Azure Key Vault that gives the Azure Cosmos DB managed identity permission to access Key Vault. Specifically, the policy will use the **key-permissions** parameters to grant permissions to ``get``, ``list``, and ``import`` keys.
 
-    ```azurecli-itneractive
+    ```azurecli-interactive
     az keyvault set-policy \
         --name $keyVaultName \
         --object-id $principal \

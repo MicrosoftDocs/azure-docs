@@ -27,6 +27,7 @@ The below table shows the available add-ons.
 | open-service-mesh | Use Open Service Mesh with your AKS cluster. | [Open Service Mesh AKS add-on][osm] |
 | azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] |
 | web_application_routing | Use a managed NGINX ingress Controller with your AKS cluster.| [Web Application Routing Overview][web-app-routing] |
+| keda | Event-driven autoscaling for the applications on your AKS cluster. | [Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on][keda]|
 
 ## Extensions
 
@@ -46,7 +47,7 @@ The below table shows a few examples of open-source and third-party integrations
 |---|---|---|
 | [Helm][helm] | An open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. | [Quickstart: Develop on Azure Kubernetes Service (AKS) with Helm][helm-qs] |
 | [Prometheus][prometheus] | An open source monitoring and alerting toolkit. | [Container insights with metrics in Prometheus format][prometheus-az-monitor], [Prometheus Helm chart][prometheus-helm-chart] |
-| [Grafana][grafana] | An open-source dashboard for observability.  | [Deploy Grafana on Kubernetes][grafana-install] |
+| [Grafana][grafana] | An open-source dashboard for observability.  | [Deploy Grafana on Kubernetes][grafana-install] or use [Managed Grafana][managed-grafana]|
 | [Couchbase][couchdb] | A distributed NoSQL cloud database. | [Install Couchbase and the Operator on AKS][couchdb-install] |
 | [OpenFaaS][open-faas]| An open-source framework for building serverless functions by using containers. | [Use OpenFaaS with AKS][open-faas-aks] |
 | [Apache Spark][apache-spark] | An open source, fast engine for large-scale data processing. | Running Apache Spark jobs requires a minimum node size of *Standard_D3_v2*. See [running Spark on Kubernetes][spark-kubernetes] for more details on running Spark jobs on Kubernetes. |
@@ -87,3 +88,6 @@ The below table shows a few examples of open-source and third-party integrations
 [spark-kubernetes]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
+[managed-grafana]: ../managed-grafana/overview.md
+[keda]: keda-about.md
+[web-app-routing]: web-app-routing.md

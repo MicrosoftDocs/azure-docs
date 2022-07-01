@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 05/24/2022
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
@@ -437,11 +437,12 @@ You'll now create a VM image from the managed disk.
     $DiskSize = "<Size greater than or equal to size of source managed disk>"
     $OsType = "<linux or windows>" 
     $ImageName = "<Image name>"
+    $hyperVGeneration = "<Generation of the image: V1 or V2>" 
     ```
 1. Create a VM image. The supported OS types are Linux and Windows.
 
     ```powershell
-    $imageConfig = New-AzImageConfig -Location DBELocal
+    $imageConfig = New-AzImageConfig -Location DBELocal -HyperVGeneration $hyperVGeneration 
     $ManagedDiskId = (Get-AzDisk -Name $DiskName -ResourceGroupName $ResourceGroupName).Id
     Set-AzImageOsDisk -Image $imageConfig -OsType $OsType -OsState 'Generalized' -DiskSizeGB $DiskSize -ManagedDiskId $ManagedDiskId 
     New-AzImage -Image $imageConfig -ImageName $ImageName -ResourceGroupName $ResourceGroupName  

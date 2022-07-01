@@ -1,6 +1,5 @@
 ---
 title: 'Configure enterprise application properties'
-titleSuffix: Microsoft Entra
 description: Configure the properties of an enterprise application in Azure Active Directory.
 services: active-directory
 author: omondiatieno
