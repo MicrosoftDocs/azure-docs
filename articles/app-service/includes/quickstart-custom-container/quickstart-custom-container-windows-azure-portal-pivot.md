@@ -42,7 +42,7 @@ The cloned repository contains a **Dockerfile.windows** file. We will be using W
 
 This Dockerfile does the following steps:
 
-1. Get [the .NET SDK image from the Microsoft Artifact Registry](https://mcr.microsoft.com/en-us/product/dotnet/sdk/about). The image name and tag is **mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-ltsc2022**.
+1. Get [the .NET SDK image from the Microsoft Artifact Registry](https://mcr.microsoft.com/product/dotnet/sdk/about). The image name and tag is **mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-ltsc2022**.
 
 1. Change to a folder in the container named **source**. If this folder doesn't exist, the WORKDIR command will also create the folder.
 
@@ -52,7 +52,7 @@ This Dockerfile does the following steps:
 
 1. Publish the .NET Core sample app.
 
-1. Get [the ASP.NET Core Runtime image from the Microsoft Artifact Registry](https://mcr.microsoft.com/en-us/product/aspnet/about). The image name and tag is **mcr.microsoft.com/dotnet/aspnet:6.0.6-nanoserver-ltsc2022**.
+1. Get [the ASP.NET Core Runtime image from the Microsoft Artifact Registry](https://mcr.microsoft.com/product/dotnet/aspnet/about). The image name and tag is **mcr.microsoft.com/dotnet/aspnet:6.0.6-nanoserver-ltsc2022**.
 
 1. Change to a folder named **app**.
    
