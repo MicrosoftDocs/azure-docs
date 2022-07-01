@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to customize apps running in Azure Spring Apps with health probes and graceful termination period.
 
-A probe is a diagnostic performed periodically by Azure Spring Apps on an app instance. To perform a diagnostic, Azure Spring Apps either executes code within the container, or makes a network request.
+A probe is a diagnostic performed periodically by Azure Spring Apps on an app instance. To perform a diagnostic, Azure Spring Apps either executes arbitrary command of your choice within the app instance, establishs TCP socket connection or makes a HTTP request.
 
 Azure Spring Apps uses liveness probes to know when to restart an application. For example, liveness probes could catch a deadlock, where an application is running, but unable to make progress. Restarting the application in such a state can help to make the application more available despite bugs.
 
@@ -52,6 +52,7 @@ By default, Azure Spring Apps offers default health probe rules for every applic
 |successThreshold|Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.|
 
 ### Probe Action Properties
+There are three different ways to check an app instance using a probe. Each probe must define exactly one of these three probe actions:
 
 - *HTTPGetAction*
 
@@ -66,11 +67,15 @@ By default, Azure Spring Apps offers default health probe rules for every applic
 
 - *ExecAction*
 
+Executes a specified command inside the app instance. The diagnostic is considered successful if the command exits with a status code of 0.
+
 |Property Name | Description|
 |-|-|
 |command|Command is the command line to execute inside the app instance. The working directory for the command is root ('/') in the app instance's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.|
 
 - *TCPSocketAction*
+
+Performs a TCP check against the app instance.
 
 No available property to be customized for now.
 
@@ -163,7 +168,7 @@ Use the following best practices when adding your own persistent storage to Azur
 
 * It's recommanded to use liveness and readiness probe together. The reason is that Azure Spring Apps provides two approachs for service discovery at the same time. And when the readiness probe fails, the app instance will only be removed from Kubernetes Service Discovery. A proper configed liveness probe can remove the issued app instance from Eureka Service Discovery to avoid unexpected cases.
 For more information about Service Discovery, please refer [Discover and register your Spring Boot applications](how-to-service-registration.md).
-* The total timeout before a probe failure is *initialDelaySeconds + periodSeconds * failureThreshold*. It means after the time of initial delay, the number of consecutive probe failures exceeds the threshold. Please ensure this timeout is longer enough for your application to be about to start to server the traffic.
+* After an app instance starts, the first check is done after initialDelaySeconds, and subsequent checks happen afterwards every periodSeconds. If the app has failed to respond to the requests for failureThreshold times, the app instance will be restarted. Please make sure your application can start fast enough, or update above parameters, so the total timeout `initialDelaySeconds + periodSeconds * failureThreshold` is longer than the start time of your application.
 * For spring boot applications, Spring Boot shipped with the [Health Groups support](https://docs.spring.io/spring-boot/docs/2.2.x/reference/html/production-ready-features.html#health-groups), allowing developers to select a subset of health indicators and group them under a single, correlated, health status. Please refer this blog for more information [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot). 
 
     > Examples for Liveness and Readiness Probes with Spring Boot:
