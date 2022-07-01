@@ -79,9 +79,9 @@ The Blob Storage and Queue Storage client libraries uses [AES](https://en.wikipe
 - Version 1.x uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
 
 > [!WARNING]
-> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data. See the following section, [Mitigate the security vulnerability in your applications](#mitigate-the-security-vulnerability-in-your-applications), for further guidance.
+> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data.
 
-The following table shows which client libraries support which versions of client-side encryption.
+The following table shows which client libraries support which versions of client-side encryption and provides guidelines for migrating to client-side encryption v2.
 
 | Client library | Version of client-side encryption supported | Recommended migration | Additional guidance |
 |--|--|--|--|
