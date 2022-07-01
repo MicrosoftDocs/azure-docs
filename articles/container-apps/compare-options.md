@@ -18,7 +18,7 @@ There are many options for teams to build and deploy cloud native and containeri
 - [Azure Container Instances](#azure-container-instances)
 - [Azure Kubernetes Service](#azure-kubernetes-service)
 - [Azure Functions](#azure-functions)
-- [Azure Spring Cloud](#azure-spring-cloud)
+- [Azure Spring Cloud](#azure-spring-apps)
 - [Azure Red Hat OpenShift](#azure-red-hat-openshift)
 
 There's no perfect solution for every use case and every team. The following explanation provides general guidance and recommendations as a starting point to help find the best fit for your team and your requirements.
