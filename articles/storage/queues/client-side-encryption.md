@@ -29,7 +29,7 @@ The Azure Queue Storage client library uses [AES](https://en.wikipedia.org/wiki/
 - Version 1.x uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
 
 > [!WARNING]
-> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/azure-storage-blog/preview-azure-storage-updating-client-side-encryption-in-sdk-to/ba-p/3522620). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data. See the following section, [Mitigate the security vulnerability in your applications](#mitigate-the-security-vulnerability-in-your-applications), for further guidance.
+> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data. See the following section, [Mitigate the security vulnerability in your applications](#mitigate-the-security-vulnerability-in-your-applications), for further guidance.
 
 ## Mitigate the security vulnerability in your applications
 
@@ -95,5 +95,6 @@ Keep in mind that encrypting your storage data results in additional performance
 
 ## Next steps
 
+- [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog)
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
 - [Azure Key Vault documentation](../../key-vault/general/overview.md)

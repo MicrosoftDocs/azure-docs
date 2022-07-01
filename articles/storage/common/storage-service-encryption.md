@@ -66,7 +66,7 @@ For more information about how to create a storage account that enables infrastr
 The Azure Blob Storage client libraries for .NET, Java, and Python support encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The Queue Storage client libraries for .NET and Python also support client-side encryption. These libraries all support client-side encryption v2.
 
 > [!WARNING]
-> A security vulnerability has been discovered in client-side encryption v1. Microsoft recommends that you do not use it in your applications until the mitigation is released in new versions of the Azure Storage client libraries. For more information, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/azure-storage-blog/preview-azure-storage-updating-client-side-encryption-in-sdk-to/ba-p/3522620).
+> A security vulnerability has been discovered in client-side encryption v1. Microsoft recommends that you do not use it in your applications until the mitigation is released in new versions of the Azure Storage client libraries. For more information, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog).
 
 The following table shows which client libraries support which versions of client-side encryption.
 
