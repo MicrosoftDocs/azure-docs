@@ -75,7 +75,7 @@ For clusters created with the **Support Scaling** option set, use the following 
 
 1. On the **Event Hubs Cluster** page for your dedicated cluster, select **Scale** on the left menu.
 
-    :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/scale-page.png" alt-text="Screenshot showing the Scale tab of the Event Hubs Cluster page":::
+    :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/scale-page.png" alt-text="Screenshot showing the Scale tab of the Event Hubs Cluster page.":::
 1. Use the slider to increase (scale out) or decrease (scale in) capacity units assigned to the cluster. 
 1. Then, select **Save** on the command bar. 
 
