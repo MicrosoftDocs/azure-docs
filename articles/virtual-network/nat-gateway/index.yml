@@ -44,7 +44,7 @@ landingContent:
             url: https://www.youtube.com/watch?v=2Ng_uM0ZaB4   
 
   # Card (optional)
-  - title: Get started
+  - title: Get Started
     linkLists:
       - linkListType: quickstart
         links:
@@ -60,7 +60,7 @@ landingContent:
   # Card (optional)
   - title: Connect Outbound
     linkLists:
-      - linkListType: Tutorial 
+      - linkListType: tutorial 
         links:
           - text: Migrate outbound access to NAT gateway
             url: tutorial-migrate-outbound-nat.md
@@ -76,6 +76,22 @@ landingContent:
             url: troubleshoot-nat.md
 
   # Card (optional)
+  - title: Architectural Guidance
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Architecture Framework for NAT gateway
+            url: well-architected-network-address-translation-gateway.yml
+ 
+   # Card (optional)
+  - title: Security
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure security baseline for NAT gateway
+            url: virtual-network-nat-security-baseline.md
+
+  # Card (optional)
   - title: Reference
     linkLists:
       - linkListType: reference
@@ -89,5 +105,5 @@ landingContent:
           - text: ARM templates
             url: /azure/templates/microsoft.network/natgateways
           - text: Rest
-            url: rest/api/virtualnetwork/nat-gateways
+            url: /rest/api/virtualnetwork/nat-gateways
           
