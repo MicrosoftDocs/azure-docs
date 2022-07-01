@@ -40,7 +40,7 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 
 * A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
@@ -223,7 +223,7 @@ from azureml.core.webservice import AksWebservice, Webservice
 
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
 # cores and memory to handle this deployment configuration. Note that memory is also used by
-# things such as dependencies and AML components.
+# things such as dependencies and AzureML components.
 
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
                                                        autoscale_min_replicas=1, 

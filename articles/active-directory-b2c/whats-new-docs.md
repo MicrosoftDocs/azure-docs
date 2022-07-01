@@ -15,6 +15,27 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
 
+## June 2022
+
+### New articles
+
+- [Configure authentication in an Azure Static Web App by using Azure AD B2C](configure-authentication-in-azure-static-app.md)
+- [Configure authentication in an Azure Web App configuration file by using Azure AD B2C](configure-authentication-in-azure-web-app-file-based.md)
+- [Configure authentication in an Azure Web App by using Azure AD B2C](configure-authentication-in-azure-web-app.md)
+- [Enable authentication options in an Azure Static Web App by using Azure AD B2C](enable-authentication-azure-static-app-options.md)
+- [Enable authentication in your own Python web application using Azure Active Directory B2C](enable-authentication-python-web-app.md)
+- [Set up OAuth 2.0 client credentials flow in Azure Active Directory B2C](client-credentials-grant-flow.md)
+- [Configure WhoIAM Rampart with Azure Active Directory B2C](partner-whoiam-rampart.md)
+
+### Updated articles
+
+- [Configure authentication in a sample Python web app by using Azure AD B2C](configure-authentication-sample-python-web-app.md)
+- [Single-page application sign-in using the OAuth 2.0 implicit flow in Azure Active Directory B2C](implicit-flow-single-page-application.md)
+- [Set up OAuth 2.0 client credentials flow in Azure Active Directory B2C](client-credentials-grant-flow.md)
+- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md)
+- [Configure TheAccessHub Admin Tool by using Azure Active Directory B2C](partner-n8identity.md)
+- [Monitor Azure AD B2C with Azure Monitor](azure-monitor.md)
+
 
 ## May 2022
 
