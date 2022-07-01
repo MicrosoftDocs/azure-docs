@@ -31,9 +31,9 @@ By default, Microsoft Playwright Testing runs tests on the latest Ubuntu version
 The `connectOptions` function in a project specifies service-related configuration. The `PlaywrightService.connectOptions()` function enables you to specify the target operating system. The function takes two input parameters:
 
 | Parameter | Type | Default | Description |
-|---|---|---||---|
-|**os_name**| string | linux || Operating system name. See the list of [supported operating systems](#supported-operating-systems). |
-|**os_version**| string | ubuntu-latest || Operating system version name. See the list of [supported operating systems](#supported-operating-systems). |
+|-----|-----|-----|-----|
+|**os_name**| string | linux | Operating system name. See the list of [supported operating systems](#supported-operating-systems). |
+|**os_version**| string | ubuntu-latest | Operating system version name. See the list of [supported operating systems](#supported-operating-systems). |
 
 To specify the operating system for a specific Playwright project, set `connectOptions` within the project. You can define as many projects as you like with different OS-browser combinations.
 
