@@ -19,7 +19,8 @@ zone_pivot_groups: programming-languages-set-functions
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
 
 > [!IMPORTANT]
-> Beginning on December 3, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime can no longer be supported. Before that time, please test, verify, and migrate your function apps to version 4.x of the Functions runtime. End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these runtime versions. This requirement affects all Azure Functions runtime languages.  
+> Beginning on December 3, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime can no longer be supported. Before that time, please test, verify, and migrate your function apps to version 4.x of the Functions runtime. For more information, see [Migrating from 3.x to 4.x](#migrating-from-3x-to-4x).  
+>End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these older runtime versions. This requirement affects all Azure Functions runtime languages.  
 >Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions). 
 
 This article details some of the differences between these versions, how you can create each version, and how to change the version on which your functions run.
@@ -64,7 +65,7 @@ To learn more, see [How to target Azure Functions runtime versions](set-runtime-
 
 ### Pinning to a specific minor version
 
-To resolve issues your function app may have when running on the latest major version, you have to temporarily pin your app to a specific minor version. This gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+To resolve issues your function app may have when running on the latest major version, you have to temporarily pin your app to a specific minor version. Pinning gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 Older minor versions are periodically removed from Functions. For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues). 
 
@@ -114,30 +115,30 @@ To learn more about extension bundles, see [Extension bundles](functions-binding
 
 ## <a name="migrating-from-3x-to-4x"></a>Migrating from 3.x to 4.x
 
-Azure Functions version 4.x is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. An upgrade is initiated when you set the `FUNCTIONS_EXTENSION_VERSION` app setting to a value of `~4`. For function apps running on Windows, you also need to set the `netFrameworkVersion` site setting to target .NET 6. 
+Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely upgrade to 4.x without requiring significant code changes. An upgrade is initiated when you set the `FUNCTIONS_EXTENSION_VERSION` app setting to a value of `~4`. For function apps running on Windows, you also need to set the `netFrameworkVersion` site setting to target .NET 6. 
 
-Before upgrading your app to version 4.x of the Functions runtime, you should do the following:
+Before you upgrade your app to version 4.x of the Functions runtime, you should do the following tasks:
 
 * Review the list of [breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x).
-* When possible, [upgrade your local project environment to version 4.x](#upgrade-your-local-project). Fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). When you use Visual Studio to publish a version 4.x project to a existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#migrate-without-slots).
 * [Run the pre-upgrade validator](#run-the-pre-upgrade-validator).
+* When possible, [upgrade your local project environment to version 4.x](#upgrade-your-local-project). Fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#migrate-without-slots).
 * Consider using a [staging slot](functions-deployment-slots.md) to test and verify your app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#migrate-using-slots).  
 
 ### Run the pre-upgrade validator
 
 Azure Functions provides a pre-upgrade validator to help you identify potential issues when migrating your function app to 4.x. To run the pre-upgrade validator:
 
-1. In the Azure portal, navigate to your function app.
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 
-1. Open the *Diagnose and solve problems* page.
+1. Open the **Diagnose and solve problems** page.
 
-1. In *Search for common problems or tools*, enter and select **Functions 4.x Pre-Upgrade Validator**.
+1. In **Function App Diagnostics**, start typing `Functions 4.x Pre-Upgrade Validator` and then choose it from the list. 
 
-After you've validated that your app can be upgraded, you can start the migration. 
+1.  After validation completes, review the recommendations and address any issues in your app. If you need to make changes to your app, make sure to validate the changes against version 4.x of the Functions runtime, either [locally using Azure Functions Core Tools v4](#upgrade-your-local-project) or by [using a staging slot](#migrate-using-slots). 
 
 ### Migrate without slots
 
-The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4`. When running on Windows, you also need to update the `netFrameworkVersion` site setting. You must follow a [different procedure](#migrate-using-slots) on a site with slots. 
+The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on your function app in Azure. When your function app runs on Windows, you also need to update the `netFrameworkVersion` site setting in Azure. You must follow a [different procedure](#migrate-using-slots) on a site with slots. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -178,7 +179,7 @@ After you've verified your app in the upgraded slot, you can swap the app and ne
 
 #### Standard upgrade
 
-If your function app can handle the downtime of a full restart, you can update the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` setting directly in the production slot. Because changing this setting directly in the production slot causes a restart that impacts availability, consider doing this at a time of reduced traffic. You can then swap in the upgraded version from the staging slot. 
+If your slot-enabled function app can handle the downtime of a full restart, you can update the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` setting directly in the production slot. Because changing this setting directly in the production slot causes a restart that impacts availability, consider doing this change at a time of reduced traffic. You can then swap in the upgraded version from the staging slot. 
 
 The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) PowerShell cmdlet doesn't currently support slots. You must use Azure CLI or the Azure portal.
 
@@ -271,7 +272,7 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
 
 ### Upgrade your local project
 
-Upgrading instructions may be language dependent. If you don't see your language, please select it from the switcher at the [top of the article](#top).
+Upgrading instructions are language dependent. If you don't see your language, choose it from the switcher at the [top of the article](#top).
 
 ::: zone pivot="programming-language-csharp"  
 To update a C# class library project to .NET 6 and Azure Functions 4.x: 
@@ -285,7 +286,7 @@ To update a C# class library project to .NET 6 and Azure Functions 4.x:
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     ```
 
-1. Update the NuGet packages referenced by your app to the latest versions. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.  
+1. Update the NuGet packages referenced by your app to the latest versions. For more information, see [breaking changes](#breaking-changes-between-3x-and-4x).  
     Specific packages depend on whether your functions run in-process or out-of-process. 
 
     # [In-process](#tab/in-process)
@@ -304,17 +305,17 @@ To update your project to Azure Functions 4.x:
 
 1. Update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to version 4.x. 
 
-1. Update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
+1. Update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. For more information, see [breaking changes](#breaking-changes-between-3x-and-4x).
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-1. If you are using Node.js version 10 or 12, move to one of the [supported version](functions-reference-node.md#node-version).
+1. If you're using Node.js version 10 or 12, move to one of the [supported version](functions-reference-node.md#node-version).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-1. If you are using PowerShell Core 6, move to one of the [supported versions](functions-reference-powershell.md#powershell-versions).
+1. If you're using PowerShell Core 6, move to one of the [supported versions](functions-reference-powershell.md#powershell-versions).
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-1. If you are using Python 3.6, move to one of the [supported versions](functions-reference-python.md#python-version).
+1. If you're using Python 3.6, move to one of the [supported versions](functions-reference-python.md#python-version).
 ::: zone-end
 
 ### Breaking changes between 3.x and 4.x
@@ -431,7 +432,7 @@ In version 2.x, the following changes were made:
 
 * The default timeout for functions in an App Service plan is changed to 30 minutes. You can manually change the timeout back to unlimited by using the [functionTimeout](functions-host-json.md#functiontimeout) setting in host.json.
 
-* HTTP concurrency throttles are implemented by default for Consumption plan functions, with a default of 100 concurrent requests per instance. You can change this in the [`maxConcurrentRequests`](functions-host-json.md#http) setting in the host.json file.
+* HTTP concurrency throttles are implemented by default for Consumption plan functions, with a default of 100 concurrent requests per instance. You can change this behavior in the [`maxConcurrentRequests`](functions-host-json.md#http) setting in the host.json file.
 
 * Because of [.NET Core limitations](https://github.com/Azure/azure-functions-host/issues/3414), support for F# script (`.fsx` files) functions has been removed. Compiled F# functions (.fs) are still supported.
 
@@ -486,7 +487,7 @@ You can also choose `net5.0` as the target framework if you're using [.NET isola
 
 ###### Updating 2.x apps to 3.x in Visual Studio
 
-You can open an existing function targeting 2.x and move to 3.x by editing the `.csproj` file and updating the values above.  Visual Studio manages runtime versions automatically for you based on project metadata.  However, it's possible if you've never created a 3.x app before that Visual Studio doesn't yet have the templates and runtime for 3.x on your machine.  This may present itself with an error like "no Functions runtime available that matches the version specified in the project."  To fetch the latest templates and runtime, go through the experience to create a new function project.  When you get to the version and template select screen, wait for Visual Studio to complete fetching the latest templates. After the latest .NET Core 3 templates are available and displayed, you can run and debug any project configured for version 3.x.
+You can open an existing function targeting 2.x and move to 3.x by editing the `.csproj` file and updating the values above.  Visual Studio manages runtime versions automatically for you based on project metadata.  However, it's possible if you've never created a 3.x app before that Visual Studio doesn't yet have the templates and runtime for 3.x on your machine.  This issue may present itself with an error like "no Functions runtime available that matches the version specified in the project."  To fetch the latest templates and runtime, go through the experience to create a new function project.  When you get to the version and template select screen, wait for Visual Studio to complete fetching the latest templates. After the latest .NET Core 3 templates are available and displayed, you can run and debug any project configured for version 3.x.
 
 > [!IMPORTANT]
 > Version 3.x functions can only be developed in Visual Studio if using Visual Studio version 16.4 or newer.
@@ -495,7 +496,7 @@ You can open an existing function targeting 2.x and move to 3.x by editing the `
 
 [Azure Functions Core Tools](functions-run-local.md) is used for command-line development and also by the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. To develop against version 3.x, install version 3.x of the Core Tools. Version 2.x development requires version 2.x of the Core Tools, and so on. For more information, see [Install the Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation.  To create apps in `~3` you would update the `azureFunctions.projectRuntime` user setting to `~3`.
+For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation.  To create apps in `~3`, you update the `azureFunctions.projectRuntime` user setting to `~3`.
 
 ![Azure Functions extension runtime setting](./media/functions-versions/vs-code-version-runtime.png)
 
