@@ -172,7 +172,7 @@ For any table, you can accurately estimate the volume of data that needs to be m
 
 #### Use SQL queries to find data types
 
-By querying the Oracle static data dictionary `DBA_TAB_COLUMNS` view, you can determine which data types are in use in a schema and whether any of those data types need to be changed. Use SQL queries to find the columns in any Oracle schema with data types that don't map directly to data types in Azure Synapse. Similarly, you can use queries to count the number of occurrences of each Oracle data type that doesn't map directly to Azure Synapse. By using the results from these queries in combination with the data type comparison table, you can determine which data types need to be changed in a Synapse environment.
+By querying the Oracle static data dictionary `DBA_TAB_COLUMNS` view, you can determine which data types are in use in a schema and whether any of those data types need to be changed. Use SQL queries to find the columns in any Oracle schema with data types that don't map directly to data types in Azure Synapse. Similarly, you can use queries to count the number of occurrences of each Oracle data type that doesn't map directly to Azure Synapse. By using the results from these queries in combination with the data type comparison table, you can determine which data types need to be changed in an Azure Synapse environment.
 
 To find the columns with data types that don't map to data types in Azure Synapse, run the following query after you replace `<owner_name>` with the relevant owner of your schema:
 
