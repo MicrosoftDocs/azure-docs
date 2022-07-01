@@ -4,7 +4,7 @@ description: This article provides the properties and schema for Azure IoT Hub n
 author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 07/01/2022
 ms.service: iot-hub
 services: iot-hub
 ---
@@ -36,12 +36,12 @@ The following system properties are set by IoT Hub on each event.
 | -------- | ---- | ---------- | ------------------------- |
 | content-encoding | string | utf-8 | $contentEncoding |
 | content-type | string | application/json | $contentType |
-| correlation-id | string | A unique ID that identifies the event. **NEED MORE DEFINITION! Is this something that can be used to identify events routed to different services? Sometimes it's a GUID and sometime it isn't.** | $correlationId |
+| correlation-id | string | A unique ID that identifies the event. | $correlationId |
 | user-id | string | The name of IoT Hub that generated the event. | $userId |
 | iothub-connection-device-id | string | The device ID. | $connectionDeviceId |
 | iothub-connection-module-id | string | The module ID. This property is output only for module life cycle and twin events. | $connectionModuleId |
-| iothub-enqueuedtime | number | Date and time when the notification was sent. **DESCRIPTION NEEDED as this is a number not a UTC string: 1653677358153. My best guess is that it's a Unix epoch in milliseconds** In routing queries, use an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp; for example, `$enqueuedTime > "2022-06-06T22:56:06Z"` | $enqueuedTime |
-| iothub-message-source | string | The event category that identifies the message source. For example, *deviceLifecycleEvents*. |  **N/A (tried $messageSource but it didn't work)** |
+| iothub-enqueuedtime | number | Date and time when the notification was sent. In routing queries, use an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp; for example, `$enqueuedTime > "2022-06-06T22:56:06Z"` | $enqueuedTime |
+| iothub-message-source | string | The event category that identifies the message source. For example, *deviceLifecycleEvents*. | N/A |
 
 ### Application properties
 
