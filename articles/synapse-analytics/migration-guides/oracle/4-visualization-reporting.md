@@ -80,7 +80,7 @@ If BI tools query views in the underlying data warehouse or data mart database, 
 >[!TIP]
 >Views and SQL queries using proprietary SQL query extensions are likely to result in incompatibilities that impact BI reports and dashboards.
 
-Other issues, like the behavior of nulls or data type variations across DBMS platforms, need to be tested to ensure that even slight differences don't exist in calculation results. Minimize those issues and take all necessary steps to shield business users from being affected by them. Depending on your legacy data warehouse environment, [third-party](../../partner/data-integration.md) tools that can help hide the differences between the legacy and new environments so that BI tools and applications run unchanged.
+Other issues, like the behavior of `NULL` values or data type variations across DBMS platforms, need to be tested to ensure that even slight differences don't exist in calculation results. Minimize those issues and take all necessary steps to shield business users from being affected by them. Depending on your legacy data warehouse environment, [third-party](../../partner/data-integration.md) tools that can help hide the differences between the legacy and new environments so that BI tools and applications run unchanged.
 
 Testing is critical to visualization and report migration. You need a test suite and agreed-on test data to run and rerun tests in both environments. A test harness is also useful, and a few are mentioned in this guide. Also, it's important to involve business users in the testing aspect of the migration to keep confidence high and to keep them engaged and part of the project.
 
