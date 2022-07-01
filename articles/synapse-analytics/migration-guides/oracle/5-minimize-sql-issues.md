@@ -214,7 +214,7 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
 | LPAD | Left-pad string to the specified length | Expression using REPLICATE, RIGHT, and LEFT |
 | MOD | Get the remainder of a division of one number by another | `%` operator |
 | MONTHS_BETWEEN | Get the number of months between two dates | DATEDIFF |
-| NVL | Replace NULL with expression  | ISNULL |
+| NVL | Replace `NULL` with expression  | ISNULL |
 | SUBSTR | Return a substring from a string | SUBSTRING |
 | TO_CHAR for datetime | Convert datetime to string | CONVERT |
 | TO_DATE | Convert a string to datetime | CONVERT |
