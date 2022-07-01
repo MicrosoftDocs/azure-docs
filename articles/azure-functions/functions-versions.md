@@ -274,7 +274,7 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
 Upgrading instructions may be language dependent. If you don't see your language, please select it from the switcher at the [top of the article](#top).
 
 ::: zone pivot="programming-language-csharp"  
-To update a C# class library app to .NET 6 and Azure Functions 4.x: 
+To update a C# class library project to .NET 6 and Azure Functions 4.x: 
 
 1. Update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to version 4.
 
@@ -300,7 +300,7 @@ To update a C# class library app to .NET 6 and Azure Functions 4.x:
     ---
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-To update your app to Azure Functions 4.x:
+To update your project to Azure Functions 4.x:
 
 1. Update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to version 4.x. 
 
