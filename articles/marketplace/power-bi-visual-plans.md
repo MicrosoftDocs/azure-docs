@@ -50,9 +50,55 @@ If you chose to sell through Microsoft and have Microsoft host transactions on y
     > [!IMPORTANT]
     > It is your responsibility to meet any local legal requirements, even if those requirements aren't listed here or in Partner Center. Even if you select all markets, local laws, restrictions, or other factors may prevent certain offers from being listed in some countries and regions.
 
-## Configure per user pricing
+### Configure per user pricing
 
+1. On the **Pricing and availability** tab, under **User limits**, optionally specify the minimum and maximum number of users for this plan.
 
+    > [!NOTE]
+    > If you choose not to define the user limits, the default value of one to one million users will be used.
 
+1. Under Billing term, specify a monthly price, annual price, or both.
+
+    > [!NOTE]
+    > You must specify a price for your offer, even if the price is zero.
+
+    :::image type="content" source="./media/power-bi-visual/pricing-and-availability.png" alt-text="Screenshot of the pricing and availability tab.":::
+
+### Enable a free trial
+
+You can optionally configure a free trial for each plan in your offer. To enable a free trial, select the **Allow a one-month free trial** check box.
+
+> [!IMPORTANT]
+> After your transactable offer has been published with a free trial, it cannot be disabled for that plan. Make sure this setting is correct before you publish the offer to avoid having to re-create the plan.
+
+If you select this option, customers are not charged for the first month of use. At the end of the free month, one of the following occurs:
+
+- If the customer chose recurring billing, they will automatically be upgraded to a paid plan and the selected payment method is charged.
+- If the customer didn’t choose recurring billing, the plan will expire at the end of the free trial.
+
+### View your plans
+
+1. Select **Save draft** before leaving the _Pricing and availability_ page.
+1. In the breadcrumb at the top of the page, select **Plan overview**.
+1. To create another plan for this offer, at the top of the **Plan overview** page, repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Copy the Service IDs.
 
 ## Copy the Service IDs
+
+You need to copy the Service ID of each plan you created so you can map them to your solution package. We’ll provide guidance on the mapping in the next section of this article.
+
+1. To go to the **Plan overview** page, in the breadcrumb at the top of the page or in the left-nav, select **Plan overview**.
+1. For each plan you created, copy the Service ID to a safe place. You’ll add them to your solution package in the next section. The service ID is listed on the **Plan overview** page in the form of `ISV name.offer name.plan ID`. For example, contoso.pbivisual.bronze.
+
+:::image type="content" source="./media/power-bi-visual/copy-service-ids.png" alt-text="Screenshot of the location of the service IDs on the Plan overview page.":::
+
+## Add Service IDs to your solution package
+
+1. Add the Service IDs you copied in the previous step to the metadata of your solution package. To learn how, see [Add licensing information to your solution](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution) and [Create an AppSource package for your app](/powerapps/developer/data-platform/create-package-app-appsource).
+1. After you create the CRM package .zip file, upload it to [Azure Blob Storage](/power-apps/developer/data-platform/store-appsource-package-azure-storage). You'll need to provide the SAS URL of the Azure Blob Storage account that contains the uploaded CRM package .zip file, when configuring the technical configuration.
+
+For information about how to create a solution package, see [Package a Power BI visual](/power-bi/developer/visuals/package-visual).
+For instructions on how to update license enforcement in your visual, see [Licensing API](https://github.com/jennyfel/powerbi-docs/blob/dev/jennyfel/licenseApiDoc/powerbi-docs/developer/visuals/license-api.md).
+
+## Next steps
+
+- [Manage Power BI visual offer names](power-bi-visual-manage-names.md)
