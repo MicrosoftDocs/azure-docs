@@ -3,7 +3,7 @@ title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/13/2022
+ms.date: 07/01/2022
 ms.custom: references_regions
 ---
 
@@ -20,7 +20,7 @@ With Azure VMware Solution, ESXi hosts deployed in a standard vSphere cluster tr
 Stretched clusters allow the configuration of vSAN fault domains across two AZs to notify vCenter that hosts reside in each Availability Zone (AZ). Each fault domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it's treated as a vSphere HA event and the virtual machine is restarted in the other AZ. 
 
 **Stretch cluster benefits:**
-- Improve an application’s availability
+- Improve an application’s availability.
 - Provide a zero RPO recovery for enterprise applications without needing to redesign them, or to deploy expensive disaster recovery (DR) solutions.
 - Enable developers to focus on core application requirements and capabilities, instead of infrastructure availability.
 
@@ -66,7 +66,7 @@ When the request support details are received, quota will be reserved for a stre
 
 :::image type="content" source="media/stretch-clusters/stretched-clusters-hosts-two-availability-zones.png" alt-text="Image showing where to select hosts in two availability zones.":::
 
-Once the private cloud is created, you can peer both availability zones (AZs) to your on-premises ExpressRoute circuit with Global Reach that helps connect your on-premises datacenter to the private cloud. Peering both the AZs will ensure that an AZ failure doesn't result in a loss of connectivity to your private cloud. Since an ExpressRoute Auth Key is valid for only one connection, repeat the [Create an ExpressRoute auth key in the on-premises ExpressRoute circuit](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit) process to generate another authorization.
+Once the private cloud is created, you can peer both availability zones (AZs) to your on-premises ExpressRoute circuit with Global Reach that helps connect your on-premises data center to the private cloud. Peering both the AZs will ensure that an AZ failure doesn't result in a loss of connectivity to your private cloud. Since an ExpressRoute Auth Key is valid for only one connection, repeat the [Create an ExpressRoute auth key in the on-premises ExpressRoute circuit](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit) process to generate another authorization.
 
 Next, repeat the process to [peer](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#peer-private-cloud-to-on-premises) the two availability zones to the on-premises ExpressRoute circuit.
 
@@ -78,7 +78,7 @@ Once stretched clusters are made generally available, it's expected that all the
 
 The following scenarios are supported:
 
-- Workload connectivity to internet from both AZs via Customer vWAN or On-premises datacenter
+- Workload connectivity to internet from both AZs via Customer vWAN or On-premises data center
 - Private DNS resolution
 - Placement policies (except for VM-AZ affinity)
 - Cluster scale out and scale in
