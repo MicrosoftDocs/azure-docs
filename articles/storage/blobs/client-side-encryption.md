@@ -31,15 +31,15 @@ The Azure Blob Storage client library uses [AES](https://en.wikipedia.org/wiki/A
 - Version 1.x uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
 
 > [!WARNING]
-> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in CBC mode. For more information about this security vulnerability, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/azure-storage-blog/preview-azure-storage-updating-client-side-encryption-in-sdk-to/ba-p/3522620). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data. See the following section, [Mitigate the security vulnerability in your applications](#mitigate-the-security-vulnerability-in-your-applications), for further guidance.
+> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/blogs/blogworkflowpage/blog-id/AzureStorageBlog/article-id/67). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data. See the following section, [Mitigate the security vulnerability in your applications](#mitigate-the-security-vulnerability-in-your-applications), for further guidance.
 
 ## Mitigate the security vulnerability in your applications
 
-Due to a security vulnerability discovered in the Storage library's use of CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
+Due to a security vulnerability discovered in the Blob Storage client library's implementation of CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
 
 - Migrate your applications that are using client-side encryption v1 to client-side encryption v2.
 
-    Client-side encryption v2 is available only in version 12.x and later of the Azure Blob Storage client libraries. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2. For code examples, see [Example: Encrypting and decrypting a blob with client-side encryption v2](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2).
+    Client-side encryption v2 is available only in version 12.x and later of the Azure Blob Storage client libraries. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use version 12.x side-by-side with an earlier version of the client library while you are migrating your code. For code examples, see [Example: Encrypting and decrypting a blob with client-side encryption v2](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2).
 
 - Consider using service-side encryption features instead of client-side encryption. For more information about service-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
 - Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md). ???need more info about how this is a substitute for CSE???
@@ -49,7 +49,7 @@ The following table summarizes the steps you'll need to take if you choose to mi
 
 | Client-side encryption status | Recommended actions |
 |---|---|
-| Application is using client-side encryption with Azure Blob Storage SDK version 11.x or earlier | Update your application to use Blob Storage SDK version 12.x or later. [Learn more...](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md)<br/><br/>Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. [Learn more...](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2) |
+| Application is using client-side encryption with Azure Blob Storage SDK version 11.x or earlier | Update your application to use Blob Storage SDK version 12.x or later. If necessary, you can use version 12.x side-by-side with an earlier version of the client library while you are migrating your code. [Learn more...](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md)<br/><br/>Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. [Learn more...](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2) |
 | Application is using client-side encryption with Azure Blob Storage SDK version 12.x or later | Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. [Learn more...](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2) |
 
 ## How client-side encryption works
@@ -203,19 +203,19 @@ Any data that was previously encrypted with client-side encryption v1 must be de
 
 ### [.NET](#tab/dotnet)
 
-For a sample project that shows how to decrypt and reencrypt existing data with .NET, see the [Encryption migration sample project](https://github.com/wastore/azure-storage-samples-for-net/pull/4) ???this is PR - will need pointer to project in repo after merge???.
+For a sample project that shows how to migrate data from client-side encryption v1 to v2 and how to encrypt data with client-side encryption v2 in .NET, see the [Encryption migration sample project](https://github.com/wastore/azure-storage-samples-for-net/pull/4) ???this is PR - will need pointer to project in repo after merge???.
 
 ### [Java](#tab/java)
 
-For a sample project that shows how to decrypt and reencrypt existing data with Java, see [ClientSideEncryptionV2Uploader](https://github.com/wastore/azure-storage-samples-for-java/blob/f1621c807a4b2be8b6e04e226cbf0a288468d7b4/ClientSideEncryptionMigration/src/main/java/ClientSideEncryptionV2Uploader.java).
+For a sample project that shows how to migrate data from client-side encryption v1 to v2 and how to encrypt data with client-side encryption v2 in Java, see [ClientSideEncryptionV2Uploader](https://github.com/wastore/azure-storage-samples-for-java/blob/f1621c807a4b2be8b6e04e226cbf0a288468d7b4/ClientSideEncryptionMigration/src/main/java/ClientSideEncryptionV2Uploader.java).
 
 ### [Python](#tab/python)
 
-For a sample project that shows how to decrypt and reencrypt existing data with Python, see [Client Side Encryption Migration from V1 to V2](https://github.com/wastore/azure-storage-samples-for-python/tree/master/ClientSideEncryptionToServerSideEncryptionMigrationSamples/ClientSideEncryptionV1ToV2).
+For a sample project that shows how to migrate data from client-side encryption v1 to v2 and how to encrypt data with client-side encryption v2 in Python, see [Client Side Encryption Migration from V1 to V2](https://github.com/wastore/azure-storage-samples-for-python/tree/master/ClientSideEncryptionToServerSideEncryptionMigrationSamples/ClientSideEncryptionV1ToV2).
 
 ## Client-side encryption and performance
 
-Keep in mind that encrypting your storage data results in additional performance overhead. When you use client-side encryption in your application, the client library must generate the CEK and IV, encrypt the content itself, and format and upload additional metadata. This overhead varies depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
+Keep in mind that encrypting your storage data results in additional performance overhead. When you use client-side encryption in your application, the client library must securely generate the CEK and IV, encrypt the content itself, communicate with your chosen keystore for key-enveloping, and format and upload additional metadata. This overhead varies depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps
 

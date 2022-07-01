@@ -29,15 +29,15 @@ The Azure Queue Storage client library uses [AES](https://en.wikipedia.org/wiki/
 - Version 1.x uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
 
 > [!WARNING]
-> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in CBC mode. For more information about this security vulnerability, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/azure-storage-blog/preview-azure-storage-updating-client-side-encryption-in-sdk-to/ba-p/3522620). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data. See the following section, [Mitigate the security vulnerability in your applications](#mitigate-the-security-vulnerability-in-your-applications), for further guidance.
+> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/azure-storage-blog/preview-azure-storage-updating-client-side-encryption-in-sdk-to/ba-p/3522620). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data. See the following section, [Mitigate the security vulnerability in your applications](#mitigate-the-security-vulnerability-in-your-applications), for further guidance.
 
 ## Mitigate the security vulnerability in your applications
 
-Due to a security vulnerability discovered in CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
+Due to a security vulnerability discovered in the Queue Storage client library's implementation of CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
 
 - Migrate your applications that are using client-side encryption v1 to client-side encryption v2.
 
-    Client-side encryption v2 is available only in version 12.x and later of the Azure Queue Storage client libraries for .NET and Python. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2.
+    Client-side encryption v2 is available only in version 12.x and later of the Azure Queue Storage client libraries for .NET and Python. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use version 12.x side-by-side with an earlier version of the client library while you are migrating your code.
 
 - Consider using server-side encryption features instead of client-side encryption. For more information about server-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
 - Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md). ???need more info about how this is a substitute for CSE???
@@ -47,8 +47,8 @@ The following table summarizes the steps you'll need to take if you choose to mi
 
 | Client-side encryption status | Recommended actions |
 |---|---|
-| Application is using client-side encryption with Azure Queue Storage SDK version 11.x or earlier | Update your application to use Queue Storage SDK version 12.x or later.<br/><br/>Update your code to use client-side encryption v2.<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. |
-| Application is using client-side encryption with Azure Queue Storage SDK version 12.x or later | Update your code to use client-side encryption v2.<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. |
+| Application is using client-side encryption with Azure Queue Storage SDK version 11.x or earlier | Update your application to use Queue Storage SDK version 12.x or later. If necessary, you can use version 12.x side-by-side with an earlier version of the client library while you are migrating your code.<br/><br/>Update your code to use client-side encryption v2. |
+| Application is using client-side encryption with Azure Queue Storage SDK version 12.x or later | Update your code to use client-side encryption v2. |
 
 ## How client-side encryption works
 
@@ -87,9 +87,7 @@ During encryption, the client library generates a random IV of 16 bytes along wi
 
 During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable. The encrypted message is Base64-encoded, as shown in the above snippet, which will also expand the size of the message being sent.
 
-## Reencrypt previously encrypted data with client-side encryption v2
-
-Any data that was previously encrypted with client-side encryption v1 must be decrypted and then reencrypted with client-side encryption v2 to mitigate the security vulnerability. Decryption requires reading a message and reencryption requires re-adding it to the queue.
+Due to the short-lived nature of messages in the queue, decrypting and reencrypting queue messages after updating to client-side encryption v2 should not be necessary. Any less secure messages will be rotated in the course of normal queue consumption.
 
 ## Client-side encryption and performance
 
