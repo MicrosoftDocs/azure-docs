@@ -151,15 +151,15 @@ Now that your configuration files are saved in a repository, you need to connect
 
 5. Select **Validate**.
 
-    ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navigate to config server](media/how-to-config-server/portal-config.png)
 
 6. When validation is complete, select **Apply** to save your changes.
 
-    ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+    ![Validating config server](media/how-to-config-server/validate-complete.png)
 
 7. Updating the configuration can take a few minutes.
 
-    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
+    ![Updating config server](media/how-to-config-server/updating-config.png)
 
 8. You should get a notification when the configuration is complete.
 
