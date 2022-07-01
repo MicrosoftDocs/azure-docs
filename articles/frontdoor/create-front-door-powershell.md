@@ -177,7 +177,7 @@ $fd.hostname
 ```
 In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
 
-:::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
+:::image type="content" source="/media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
 
 To test instant global failover, we'll use the following steps:
 
@@ -202,7 +202,7 @@ Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-02"
 
 5. Refresh your browser. This time, you should see an error message.
 
-:::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
+:::image type="content" source="/media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
 
 
 6. Restart one of the Web Apps by running [Start-AzWebApp](/powershell/module/az.websites/start-azwebapp). Refresh your browser and the page will go back to normal.
