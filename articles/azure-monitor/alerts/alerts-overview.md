@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 ms.topic: overview 
 ms.date: 06/09/2022
 ms.custom: template-overview 
-ms.reviewer: harelb    
+ms.reviewer: nolavime    
 ---
 # What are Azure Monitor Alerts?
 

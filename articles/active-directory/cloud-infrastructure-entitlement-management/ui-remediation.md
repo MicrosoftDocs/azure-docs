@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # View roles/policies and requests for permission in the Remediation dashboard
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 The **Remediation** dashboard in Permissions Management provides an overview of roles/policies, permissions, a list of existing requests for permissions, and requests for permissions you have made.
 
 This article provides an overview of the components of the **Remediation** dashboard.
