@@ -2,6 +2,9 @@
 title: Tutorial - Editing Data Collection Rules
 description: This article describes how to make changes in Data Collection Rule definition using command line tools and simple API calls.
 ms.topic: tutorial
+author: bwren
+ms.author: bwren
+ms.reviewer: ivankh
 ms.date: 05/31/2022
 ---
 
@@ -17,8 +20,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 To complete this tutorial you need the following:
-- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/azure/azure-monitor/essentials/data-collection-rule-overview#permissions) in the workspace.
+- Log Analytics workspace where you have at least [contributor rights](../manage-access.md#manage-access-using-azure-permissions).
+- [Permissions to create Data Collection Rule objects](data-collection-rule-overview#permissions.md) in the workspace.
 - Up to date version of PowerShell. Using Azure Cloud Shell is recommended.
 
 ## Overview of tutorial
@@ -30,13 +33,13 @@ While going through the wizard on the portal is the simplest way to set up the i
 In this tutorial, you will, first, set up ingestion of a custom log, then. you will modify the KQL transformation for your custom log to include additional filtering and apply the changes to your DCR. Finally, we are going to combine all editing operations into a single PowerShell script, which can be used to edit any DCR for any of the above mentioned reasons.
 
 ## Set up new custom log
-Start by setting up a new custom log. Follow [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)]( /azure/azure-monitor/logs/tutorial-custom-logs). Note the resource ID of the DCR created.
+Start by setting up a new custom log. Follow [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)]( ../logs/tutorial-custom-logs.md). Note the resource ID of the DCR created.
 
 ## Retrieve DCR content
 In order to update DCR, we are going to retrieve its content and save it as a file, which can be further edited.
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
+    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
 
 2. Execute the following commands to retrieve DCR content and save it to a file. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file to store DCR.
 
@@ -47,7 +50,7 @@ $DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview
 $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
 ```
 ## Edit DCR
-Now, when DCR content is stored as a JSON file, you can use an editor of your choice to make changes in the DCR. You may [prefer to download the file from the Cloud Shell environment](azure/cloud-shell/using-the-shell-window#upload-and-download-files), if you are using one. 
+Now, when DCR content is stored as a JSON file, you can use an editor of your choice to make changes in the DCR. You may [prefer to download the file from the Cloud Shell environment](../../cloud-shell/using-the-shell-window#upload-and-download-files.md), if you are using one. 
 
 Alternatively you can use code editors supplied with the environment. For example, if you saved your DCR in a file named `temp.dcr` on your Cloud Drive, you could use the following command to open DCR for editing right in the Cloud Shell window:
 ```PowerShell
@@ -68,7 +71,7 @@ Let’s modify the KQL transformation within DCR to drop rows where RequestType 
 
 ## Apply changes
 Our final step is to update DCR back in the system. This is accomplished by “PUT” HTTP call to ARM API, with updated DCR content sent in the HTTP request body.
-1.	If you are using Azure Cloud Shell, save the file and close the embedded editor, or [upload modified DCR file back to the Cloud Shell environment](azure/cloud-shell/using-the-shell-window#upload-and-download-files).
+1.	If you are using Azure Cloud Shell, save the file and close the embedded editor, or [upload modified DCR file back to the Cloud Shell environment](../../cloud-shell/using-the-shell-window#upload-and-download-files.md).
 2.	Execute the following commands to load DCR content from the file and place HTTP call to update the DCR in the system. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file modified in the previous part of the tutorial. You can omit first two lines if you read and write to the DCR within the same PowerShell session.
 ```PowerShell
 $ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
