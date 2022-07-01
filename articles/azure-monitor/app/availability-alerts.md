@@ -39,7 +39,7 @@ For example, if your website is down for an hour and you have set up an e-mail a
 
 To make changes to location threshold, aggregation period, and test frequency, select the condition on the edit page of the alert rule, which will open the **Configure signal logic** window.
 
-![Configure signal logic](./media/availability-alerts/configure-signal-logic.png)
+![Screenshot showing Configure signal logic.](./media/availability-alerts/configure-signal-logic.png)
 
 > [!TIP]
 > For longer downtimes, we recommend to temporarily deactivate the alert rule, or to create a custom rule as shown below. This will give you more options to account for the downtime.
@@ -50,7 +50,7 @@ Auto-generated alerts from availability tests have a limited set of options to c
 
 A custom alert rule offers higher values for aggregation period (up to 24 hours instead of 6 hours) and test frequency (up to 1 hour instead of 15 minutes). It also adds options to further define the logic by selecting different operators, aggregation types, and threshold values.
 
-![Create custom alert](./media/availability-alerts/create-custom-alert.png)
+![Screenshot showing Create custom alert.](./media/availability-alerts/create-custom-alert.png)
 
 ### Alert on X out of Y locations reporting failures
 
