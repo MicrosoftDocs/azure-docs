@@ -71,7 +71,7 @@ To use DFS Namespaces with Azure NetApp Files, you must have the following resou
 
 For all DFS Namespace types, the **DFS Namespaces** server role must be installed. If you are already using DFS Namespaces, you may skip these steps.
 
-# [Portal](#tab/azure-portal)
+# [GUI](#tab/windows-gui)
 
 1. Open **Server Manager**
 
@@ -118,7 +118,7 @@ If you do not need to take over an existing legacy file server, a domain-based n
 
 The basic unit of management for DFS Namespaces is the namespace. The namespace root, or name, is the starting point of the namespace, such that in the UNC path `\\contoso.com\corporate\`, the namespace root is `corporate`.
 
-# [Portal](#tab/azure-portal)
+# [GUI](#tab/windows-gui)
 
 1. From a domain controller, open the **DFS Management** console. This can be found by selecting the **Start** button and typing **DFS Management**. The resulting management console has two sections **Namespaces** and **Replication**, which refer to DFS Namespaces and DFS Replication (DFS-R) respectively.
 2. Select the **Namespaces** section, and select the **New Namespace** button (you may also right-click on the **Namespaces** section). The resulting **New Namespace Wizard** walks you through creating a namespace.
@@ -167,7 +167,7 @@ For a namespace to be useful, it must have folders and folder targets. Each fold
 
 You can think of DFS Namespaces folders as analogous to file shares.
 
-# [Portal](#tab/azure-portal)
+# [GUI](#tab/windows-gui)
 
 1. In the DFS Management console, select the namespace you just created and select **New Folder**. The resulting **New Folder** dialog will allow you to create both the folder and its targets.
 
@@ -236,7 +236,7 @@ Set-ItemProperty `
 
 In order for DFS Namespaces to respond to existing file server names, **you must** create alias (CNAME) records for your existing file servers that point at the DFS Namespaces server name. The exact procedure for updating your DNS records may depend on what servers your organization is using and if your organization is using custom tooling to automate the management of DNS. The following steps are shown for the DNS server included with Windows Server and automatically used by Windows AD. In this example, the DFS-N server name is **mydfscluster**.
 
-# [Portal](#tab/azure-portal)
+# [GUI](#tab/winodws-gui)
 
 1. From a Windows DNS server, open the DNS management console.
 
@@ -279,7 +279,7 @@ The basic unit of management for DFS Namespaces is the namespace. The namespace 
 
 To take over an existing server name with root consolidation, the name of the namespace should be the name of server name you want to take over, prepended with the `#` character. For example, if you wanted to take over an existing server named `MyServer`, you would create a DFS-N namespace called `#MyServer`. The PowerShell section below takes care of prepending the `#`, but if you create via the DFS Management console, you will need to prepend as appropriate.
 
-# [Portal](#tab/azure-portal)
+# [GUI](#tab/windows-gui)
 
 1. Open the **DFS Management** console. This can be found by selecting the **Start** button and typing **DFS Management**. The resulting management console has two sections **Namespaces** and **Replication**, which refer to DFS Namespaces and DFS Replication (DFS-R) respectively.
 
@@ -329,7 +329,7 @@ For a namespace to be useful, it must have folders and folder targets. Each fold
 
 You can think of DFS Namespaces folders as analogous to file shares.
 
-# [Portal](#tab/azure-portal)
+# [GUI](#tab/windows-gui)
 
 1. In the DFS Management console, select the namespace you just created and select **New Folder**. The resulting **New Folder** dialog will allow you to create both the folder and its targets.
 
