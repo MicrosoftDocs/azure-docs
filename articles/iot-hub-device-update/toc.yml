@@ -23,6 +23,8 @@ items:
   items:
   - name: Device Update account and instance
     href: device-update-resources.md
+  - name: Device Update agent
+    href: device-update-agent-overview.md
   - name: User roles and access
     href: device-update-control-access.md
   - name: Apt manifest
@@ -33,8 +35,6 @@ items:
     href: device-update-groups.md
   - name: Deployments
     href: device-update-deployments.md
-  - name: Device Update agent
-    href: device-update-agent-overview.md
   - name: Configuration file
     href: device-update-configuration-file.md
   - name: Update manifest
@@ -89,6 +89,8 @@ items:
       href: connected-cache-industrial-iot-nested.md
   - name: Migrate devices to public preview refresh
     href: migration-PP-to-PPR.md
+  - name: Configure Private Endpoints
+    href: configure-private-endpoints.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot device updates
@@ -117,23 +119,23 @@ items:
         href: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
       - name: Python
         href: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true
-- name: Resources
-  items:
-  - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
-  - name: Azure IoT services
+  - name: Resources
     items:
-    - name: IoT Hub
-      href: ../iot-hub/index.yml
-    - name: IoT Hub Device Provisioning Service
-      href: ../iot-dps/index.yml
-    - name: IoT Central
-      href: ../iot-central/index.yml
-    - name: IoT Edge
-      href: ../iot-edge/index.yml
-    - name: Azure Maps
-      href: ../azure-maps/index.yml
-    - name: Time Series Insights
-      href: ../time-series-insights/index.yml
-  - name: Delivery Optimization
-    href: https://github.com/microsoft/do-client
+      - name: Support and help options
+        href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
+      - name: Azure IoT services
+        items:
+          - name: IoT Hub
+            href: ../iot-hub/index.yml
+          - name: IoT Hub Device Provisioning Service
+            href: ../iot-dps/index.yml
+          - name: IoT Central
+            href: ../iot-central/index.yml
+          - name: IoT Edge
+            href: ../iot-edge/index.yml
+          - name: Azure Maps
+            href: ../azure-maps/index.yml
+          - name: Time Series Insights
+            href: ../time-series-insights/index.yml
+      - name: Delivery Optimization
+        href: https://github.com/microsoft/do-client
