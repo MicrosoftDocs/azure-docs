@@ -26,7 +26,8 @@ You should see a capability section similar to this:
     }
 ]
 ```
-Copy each of this capabilities. In this example, we have EnableMongo and DisableRateLimitingResponses.
+Copy each of these capabilities. In this example, we have EnableMongo and DisableRateLimitingResponses.
+
 2. Set the new capability on your database account. The list of capabilities should include the list of previously enabled capabilities, since only the explicitly named capabilities will be set on your account. For example, if you want to add the capability "DisableRateLimitingResponses", you would run the following command: 
 ```powershell
 az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongo, DisableRateLimitingResponses
@@ -48,7 +49,8 @@ You should see a capability section similar to this:
     }
 ]
 ```
-Copy each of this capabilities. In this example, we have EnableMongo and DisableRateLimitingResponses.
+Copy each of these capabilities. In this example, we have EnableMongo and DisableRateLimitingResponses.
+
 2. Remove the capability from your database account. The list of capabilities should include the list of previously enabled capabilities you want to keep, since only the explicitly named capabilities will be set on your account. For example, if you want to remove the capability "DisableRateLimitingResponses", you would run the following command: 
 ```powershell
 az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongo
