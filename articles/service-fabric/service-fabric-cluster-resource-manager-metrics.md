@@ -56,7 +56,7 @@ Any metric has some properties that describe it: a name, a weight, and a default
 * Metric Name: The name of the metric. The metric name is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
 
 > [!NOTE]
-> Starting with Service Fabric version 9.1, Metric Name should not be any of the system metric names i.e _servicefabric:/\_CpuCores_ or _servicefabric:/\_MemoryInMB_ as it can lead to undefined behavior. For existing services with these custom metric names, a health warning is issued to indicate that the metric name is incorrect.
+> Custom metric Name should not be any of the system metric names i.e servicefabric:/_CpuCores or servicefabric:/_MemoryInMB as it can lead to undefined behavior. Starting with Service Fabric version 9.1, for existing services with these custom metric names, a health warning is issued to indicate that the metric name is incorrect.
 >
 
 * Weight: Metric weight defines how important this metric is relative to the other metrics for this service.
