@@ -197,7 +197,7 @@ $fd.hostname
 ```
 In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the web app with the lowest latency in the origin group.
 
-:::image type="content" source="./media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
+:::image type="content" source="./media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
 
 To test instant global failover, we'll use the following steps:
 
@@ -211,8 +211,8 @@ To test instant global failover, we'll use the following steps:
 
 1. Refresh your browser. You should see the same information page.
 
->[!TIP]
->There is a little bit of delay for these actions. You might need to refresh again.
+   > [!TIP]
+   > There is a little bit of delay for these actions. You might need to refresh again.
 
 1. Find the other web app, and stop it as well.
 
