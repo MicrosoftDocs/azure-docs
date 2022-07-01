@@ -28,6 +28,8 @@ For example, your app can authenticate using your Visual Studio login when devel
 
 ### Assign roles to your Azure AD user
 
+When developing locally, you need to make sure the user you want to connect to your storage account with has the correct permissions. 
+
 1. In the Azure Portal, locate your storage account using the main search bar or left navigation.
 
 2. On the storage account overview page, select **Access control (IAM)** from the left-hand menu.	
@@ -48,7 +50,7 @@ For example, your app can authenticate using your Visual Studio login when devel
 
 ### Connect your app code using DefaultAzureCredential
 
-You can authenticate your local app to your Blob Storage account using the following steps:
+You can authenticate your local app to the Blob Storage account you created using the following steps:
 
 1. Make sure you are signed-in to the same Azure AD account you assigned the role to on your Blob Storage account. You can sign-in through Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
 

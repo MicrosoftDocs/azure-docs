@@ -20,7 +20,7 @@ Connect-AzAccount
 
     :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/sign-in-visual-studio-small.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
 
-1. Sign-in using the Azure AD account you assigned a role to previously.
+2. Sign-in using the Azure AD account you assigned a role to previously.
 
     :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
@@ -30,7 +30,7 @@ Connect-AzAccount
 
     :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/azure-extension.png" alt-text="A screenshot showing the Azure extension.":::
 
-1. Use the **CTRL + Shift P** shortcut to open the command palette. Search for the **Azure: Sign In** command and follow the prompts to sign-in. Make sure to use the Azure AD account you assigned a role to previously from your blob storage account.
+2. Use the **CTRL + Shift P** shortcut to open the command palette. Search for the **Azure: Sign In** command and follow the prompts to sign-in. Make sure to use the Azure AD account you assigned a role to previously from your blob storage account.
 
     :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/azure-command.png" alt-text="A screenshot showing the Azure extension.":::
 
