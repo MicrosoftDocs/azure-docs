@@ -1,5 +1,5 @@
 ---
-title: Nested Activities
+title: Nested activities
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about nested activities in Azure Data Factory and Azure Synapse Analytics.
 author: joowen
