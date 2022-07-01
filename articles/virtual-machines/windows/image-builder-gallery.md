@@ -232,8 +232,6 @@ Invoke-AzResourceAction `
 
 Creating the image and replicating it to both regions can take a few moments. Before you begin creating a VM, wait until this part is finished.
 
-For information about options for automating getting the image build status, see the [Readme].
-
 ```powershell
 Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup |
   Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState
