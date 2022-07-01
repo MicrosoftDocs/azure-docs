@@ -125,7 +125,7 @@ The set of **Hotel**, **Address**, and **Room** classes are known as [*complex t
 
 1. In Solution Explorer, right-click **Models** > **Add** > **New Item**.
 
-1. Select**Class** and name the item Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves so you'll need models for them too.
+1. Select **Class** and name the item Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves so you'll need models for them too.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
