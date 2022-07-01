@@ -80,24 +80,12 @@ If you select this option, customers are not charged for the first month of use.
 1. In the breadcrumb at the top of the page, select **Plan overview**.
 1. To create another plan for this offer, at the top of the **Plan overview** page, repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Next steps.
 
-<!--- [
-## Copy the Service IDs
+## Integrate your solution with the Power BI License APIs
 
-You need to copy the Service ID of each plan you created so you can map them to your solution package. We’ll provide guidance on the mapping in the next section of this article.
-
-1. To go to the **Plan overview** page, in the breadcrumb at the top of the page or in the left-nav, select **Plan overview**.
-1. For each plan you created, copy the Service ID to a safe place. You’ll add them to your solution package in the next section. The service ID is listed on the **Plan overview** page in the form of `ISV name.offer name.plan ID`. For example, contoso.pbivisual.bronze.
-
-:::image type="content" source="./media/power-bi-visual/copy-service-ids.png" alt-text="Screenshot of the location of the service IDs on the Plan overview page.":::
-
-## Add Service IDs to your solution package
-
-1. Add the Service IDs you copied in the previous step to the metadata of your solution package. To learn how, see [Add licensing information to your solution](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution) and [Create an AppSource package for your app](/powerapps/developer/data-platform/create-package-app-appsource).
-1. After you create the CRM package .zip file, upload it to [Azure Blob Storage](/power-apps/developer/data-platform/store-appsource-package-azure-storage). You'll need to provide the SAS URL of the Azure Blob Storage account that contains the uploaded CRM package .zip file, when configuring the technical configuration.
+You need to update the license enforcement in your visual.
 
 For information about how to create a solution package, see [Package a Power BI visual](/power-bi/developer/visuals/package-visual).
 For instructions on how to update license enforcement in your visual, see [Licensing API](https://github.com/jennyfel/powerbi-docs/blob/dev/jennyfel/licenseApiDoc/powerbi-docs/developer/visuals/license-api.md).
-]() --->
 
 ## Next steps
 

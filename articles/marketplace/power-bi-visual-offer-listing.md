@@ -59,9 +59,8 @@ For additional marketplace listing resources, see [Best practices for marketplac
 
 Select **Save draft**.
 
-If you selected additional languages, select each from the dropdown list at the top of the page and repeat the above steps for each one. When finished, continue to the next tab in the left-nav menu.
+If you selected additional languages, select each from the dropdown list at the top of the page and repeat the above steps for each one. When finished, continue to the next tab in the left-nav menu: Availability.
 
 ## Next steps
 
-- If you choose to enable app license management through Microsoft, go to [Define a preview audience for a Power BI visual offer](power-bi-visual-preview.md).
-- Otherwise, go to [**Define the availability of a Power BI visual offer**](power-bi-visual-availability.md)
+- [Define the availability of a Power BI visual offer](power-bi-visual-availability.md)
