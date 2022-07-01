@@ -36,3 +36,10 @@ landingContent:
         links:
           - text: Identify issues with end-to-end web tests
             url: tutorial-identify-issues-with-end-to-end-web-tests.md
+
+  - title: Run tests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Run tests across multiple operating systems
+            url: how-to-cross-platform-tests.md
