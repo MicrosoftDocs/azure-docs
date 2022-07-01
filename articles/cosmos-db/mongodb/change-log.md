@@ -10,6 +10,7 @@ ms.author: t-khelanmodi
 ---
 
 # Change Log for Azure Cosmos DB API for MongoDB
+The Change Log for MongoDB API is being built to keep customers informed on our feature updates. It will make the process simpler by addressing all feature updates in a single place for Mongo users. This page will be an additional resource to Azure Updates for medium updates. In the long term, we will explore other ways to notify users. 
 
 ## Cosmos DB's API for MongoDB updates
 
@@ -67,7 +68,7 @@ The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functio
 
 ###  Role-Based Access Control for $merge stage
 * Added Role-Based Access Control(RBAC) for `$merge` stage. 
-* `$merge` writes the results of agrregation pipeline to specified collection. The `$merge` operator must be the last stage in the pipeline
+* `$merge` writes the results of aggregation pipeline to specified collection. The `$merge` operator must be the last stage in the pipeline
 
 [Learn more](https://www.mongodb.com/docs/manual/reference/operator/aggregation/merge/)
 
