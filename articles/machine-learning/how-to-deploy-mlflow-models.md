@@ -234,9 +234,6 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
 
 1. Create a YAML configuration file for the deployment. 
-
-   > [!IMPORTANT]
-   > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
    
    # [From a training job](#tab/fromjob)
    
@@ -252,9 +249,12 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    ```bash
    az ml model create --name "mir-sample-sklearn-mlflow-model" \
-                       --type "mlflow_model" \
-                       --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
+                      --type "mlflow_model" \
+                      --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
    ```
+   
+   > [!IMPORTANT]
+   > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
    
    c. Create the deployment `YAML` file:
    
@@ -276,6 +276,9 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
     __sklearn-deployment.yaml__
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+    
+    > [!IMPORTANT]
+   > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
 
 1. To create the deployment using the YAML configuration, use the following command:
 
