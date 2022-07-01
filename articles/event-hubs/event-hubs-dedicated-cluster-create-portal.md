@@ -38,7 +38,7 @@ To create a cluster in your resource group using the Azure portal, complete the 
     2. Select the **subscription** in which you want to create the cluster.
     3. Select the **resource group** in which you want to create the cluster.
     1. Select the **Support Scaling** option to create a cluster that you can scale out or scale in yourself.  For more information about 
-    1. Select a **location** for the cluster. If your preferred region is grayed out, it's temporarily out of capacity and you can submit a [support request](#submit-a-support-request) to the Event Hubs team.
+    1. Select a **location** for the cluster. If your preferred region is grayed out or it's temporarily out of capacity, you can submit a [support request](#submit-a-support-request) to the Event Hubs team.
     1. Select the **Next: Tags** button at the bottom of the page. You may have to wait a few minutes for the system to fully provision the resources.
 
         :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png" alt-text="Image showing the Create Event Hubs Cluster - Basics page.":::
@@ -79,7 +79,7 @@ For clusters created with the **Support Scaling** option set, use the following 
 1. Use the slider to increase (scale out) or decrease (scale in) capacity units assigned to the cluster. 
 1. Then, select **Save** on the command bar. 
 
-The **Scale** tab is available only for the Event Hubs clusters created with the **Support scaling** option checked. You don't see the **Scale** tab for clusters that were created before this feature was released or for the clusters you created without selecting the **Support scaling** option. If you wish to change the size of a cluster that you can't scale yourself or if your preferred region isn't available, submit a support request by using the following steps. 
+The **Scale** tab is available only for the Event Hubs clusters created with the **Support scaling** option checked. You don't see the **Scale** tab for clusters that were created before this feature was released or for the clusters you created without selecting the **Support scaling** option. If you wish to change the size of a cluster that you can't scale yourself, or if your preferred region isn't available, submit a support request by using the following steps. 
 
 ### Submit a support request
 
@@ -90,10 +90,10 @@ The **Scale** tab is available only for the Event Hubs clusters created with the
     2. For **Subscription**, select your subscription.
     3. For **Service**, select **My services**, and then select **Event Hubs**.
     4. For **Resource**, select your cluster if it exists already, otherwise select **General Question/Resource Not Available**.
-    5. For **Problem type**, select **Quota**.
+    5. For **Problem type**, select **Quota or Configuration changes**.
     6. For **Problem subtype**, select one of the following values from the drop-down list:
-        1. Select **Request for Dedicated SKU** to request for the feature to be supported in your region.
-        2. Select **Request to Scale Up or Scale Down Dedicated Cluster** if you want to scale up or scale down your dedicated cluster. 
+        1. Select **Dedicated Cluster SKU requests** to request for the feature to be supported in your region.
+        2. Select **Scale up or down a dedicated Cluster** if you want to scale up or scale down your dedicated cluster. 
     7. For **Subject**, describe the issue.
 
         ![Support ticket page](./media/event-hubs-dedicated-cluster-create-portal/support-ticket.png)
