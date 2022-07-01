@@ -18,11 +18,11 @@ For more information, see [Virtual network service endpoints for Azure Key Vault
 
 ## Firewall Settings
 
-This section will cover the different ways that the Azure Key Vault firewall can be configured.
+This section will cover the different ways that the Azure Key Vault Firewall can be configured.
 
 ### Key Vault Firewall Disabled (Default)
 
-By default, when you create a new key vault, the Azure Key Vault firewall is disabled. All applications and Azure services can access the key vault and send requests to the key vault. Note, this configuration does not mean that any user will be able to perform operations on your key vault. The key vault still restricts to secrets, keys, and certificates stored in key vault by requiring Azure Active Directory authentication and access policy permissions. To understand key vault authentication in more detail see the key vault authentication fundamentals document [here](./authentication.md). For more information, see [Access Azure Key Vault behind a firewall](./access-behind-firewall.md).
+By default, when you create a new key vault, the Azure Key Vault firewall is disabled. All applications and Azure services can access the key vault and send requests to the key vault. Note, this configuration does not mean that any user will be able to perform operations on your key vault. The key vault still restricts access to secrets, keys, and certificates stored in key vault by requiring Azure Active Directory authentication and access policy permissions. To understand key vault authentication in more detail see the key vault authentication fundamentals document [here](./authentication.md). For more information, see [Access Azure Key Vault behind a firewall](./access-behind-firewall.md).
 
 ### Key Vault Firewall Enabled (Trusted Services Only)
 
@@ -33,28 +33,28 @@ For how-to guide, follow the instructions here for [Portal, Azure CLI and PowerS
 
 ### Key Vault Firewall Enabled (IPv4 Addresses and Ranges - Static IPs)
 
-If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add it's IP Address to the key vault firewall allow list. This configuration is best for services that use static IP addresses or well-known ranges. There is a limit of 1000 CIDR ranges for this case.
+If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add its IP Address to the Key Vault Firewall allow list. This configuration is best for services that use static IP addresses or well-known ranges. There is a limit of 1000 CIDR ranges for this case.
 
 To allow an IP Address or range of an Azure resource, such as a Web App or Logic App, perform the following steps.
 
-1. Log in to the Azure portal
-1. Select the resource (specific instance of the service)
-1. Click on the 'Properties' blade under 'Settings'
+1. Log in to the Azure portal.
+1. Select the resource (specific instance of the service).
+1. Click on the 'Properties' blade under 'Settings'.
 1. Look for the "IP Address" field.
 1. Copy this value or range and enter it into the key vault firewall allow list.
 
-To allow an entire Azure service, through the Key Vault firewall, use the list of publicly documented data center IP addresses for Azure [here](https://www.microsoft.com/download/details.aspx?id=41653). Find the IP addresses associated with the service you would like in the region you want and add those IP addresses to the key vault firewall using the steps above.
+To allow an entire Azure service through the Key Vault Firewall, use the list of publicly documented data center IP addresses for Azure [here](https://www.microsoft.com/download/details.aspx?id=41653). Find the IP addresses associated with the service you would like in the region you want and add those IP addresses to the Key Vault Firewall using the steps above.
 
 ### Key Vault Firewall Enabled (Virtual Networks - Dynamic IPs)
 
-If you are trying to allow an Azure resource such as a virtual machine through key vault, you may not be able to use Static IP addresses, and you may not want to allow all IP addresses for Azure Virtual Machines to access your key vault.
+If you are trying to allow an Azure resource such as a virtual machine through the Key Vault Firewall, you may not be able to use Static IP addresses, and you may not want to allow all IP addresses for Azure Virtual Machines to access your key vault.
 
 In this case, you should create the resource within a virtual network, and then allow traffic from the specific virtual network and subnet to access your key vault. To do this, perform the following steps.
 
-1. Log in to the Azure portal
-1. Select the key vault you wish to configure
-1. Select the 'Networking' blade
-1. Select '+ Add existing virtual network'
+1. Log in to the Azure portal.
+1. Select the key vault you wish to configure.
+1. Select the 'Networking' blade.
+1. Select '+ Add existing virtual network'.
 1. Select the virtual network and subnet you would like to allow through the key vault firewall.
 
 ### Key Vault Firewall Enabled (Private Link)
