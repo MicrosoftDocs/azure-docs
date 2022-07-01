@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/12/2022
+ms.date: 06/30/2022
 ms.author: eur
 ---
 
@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Recognize speech from a file
 
-At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and replace `YourAudioFile.wav` with the path and name of your audio file.
+At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and replace `YourAudioFile.wav` with the path and name of your audio file.  
 
 ```console
 key="YourSubscriptionKey"
@@ -30,7 +30,7 @@ curl --location --request POST \
 --data-binary $audio_file
 ```
 
-You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file.
+You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. Up to 30 seconds of audio will be recognized and converted to text.
 
 ```console
 {

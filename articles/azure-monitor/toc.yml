@@ -431,6 +431,9 @@ items:
       - name: Overview
         displayName: Data collection rules
         href: essentials/data-collection-rule-overview.md
+      - name: Edit
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-edit.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
@@ -908,6 +911,8 @@ items:
         items:
         - name: Overview
           href: app/java-in-process-agent.md
+        - name: Spring Boot
+          href: app/java-spring-boot.md
         - name: Configuration options
           href: app/java-standalone-config.md
         - name: Advanced configurations
@@ -1396,12 +1401,10 @@ items:
             href: visualize/workbooks-multi-value.md
         - name: Link actions
           href: visualize/workbooks-link-actions.md    
-    - name: Configuration
+    - name: Integrating with other Azure services
       items:
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
-      - name: Groups
-        href: visualize/workbooks-groups.md
       - name: Bring your own storage
         href: visualize/workbooks-bring-your-own-storage.md
       - name: Transform JSON data with JSONPath
@@ -1414,7 +1417,7 @@ items:
       items:
         - name: Links
           href: visualize/workbooks-sample-links.md
-    - name: Deprecated Features
+    - name: Retired Features
       items:
       - name: View Designer
         items:
