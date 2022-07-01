@@ -1126,7 +1126,7 @@ mssparkutils.runtime.context
 ::: zone-end
 
 ## Stop an interactive session
-Instead of manually click stop button, sometimes it's more convenient to stop an interactive session by calling an API in the code. For such cases, we provide an API `mssparkutils.session.stop()` to support stopping the interactive session via code, it's available for Scala and Python. You can follow the below sample code to use it:
+Instead of manually click stop button, sometimes it's more convenient to stop an interactive session by calling an API in the code. For such cases, we provide an API `mssparkutils.session.stop()` to support stopping the interactive session via code, it's available for Scala and Python.
 
 :::zone pivot = "programming-language-python"
 
