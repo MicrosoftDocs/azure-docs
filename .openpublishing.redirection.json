@@ -6342,7 +6342,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
+      "source_path_from_root": "/articles/storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
       "redirect_url": "/azure/storage/blobs/client-side-encryption",
       "redirect_document_id": false
     },    
