@@ -226,7 +226,7 @@ az containerapp create \
   --name $FRONTEND_NAME \
   --resource-group $RESOURCE_GROUP \
   --environment $ENVIRONMENT \
-  --image $ACR_NAME.azurecr.io/albumapp-ui  \
+  --image $ACR_NAME.azurecr.io/$FRONTEND_NAME  \
   --target-port 3000 \
   --env-vars API_BASE_URL=https://$API_BASE_URL \
   --ingress 'external' \
