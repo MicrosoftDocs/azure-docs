@@ -24,7 +24,7 @@ To auto-generate ADF pipeline from SAP data partitioning template, complete the 
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-pipeline-from-template.png" alt-text="Screenshot of the Azure Data Factory resources tab with the Pipeline from template menu highlighted.":::
 
-1.	Select SAP data partitioning template.
+1.	Select the **Partition SAP data to extract and load into Azure Data Lake Store Gen2 in parallel** template.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-template-selection.png" alt-text="Screenshot of the template gallery with the SAP data partitioning template highlighted.":::
  
