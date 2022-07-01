@@ -368,4 +368,4 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn more about [Azure ML logging](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-mlflow-cli-runs?tabs=azuremlsdk).
+> Learn more about [Azure ML logging](/azure/machine-learning/how-to-use-mlflow-cli-runs).
