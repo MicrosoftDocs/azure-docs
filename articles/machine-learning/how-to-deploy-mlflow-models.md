@@ -49,7 +49,7 @@ There are three workflows for deploying MLflow models to Azure Machine Learning:
 - [Deploy using Azure ML CLI (v2)](#deploy-using-azure-ml-cli-v2)
 - [Deploy using Azure Machine Learning studio](#deploy-using-azure-machine-learning-studio)
 
-Each workflows has different capabilities, particularly around which type of compute they can target. The following table shows them:
+Each workflow has different capabilities, particularly around which type of compute they can target. The following table shows them:
 
 | Scenario | MLflow SDK | Azure ML CLI/SDK v2 | Azure ML studio |
 | :- | :-: | :-: | :-: |
