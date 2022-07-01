@@ -47,6 +47,24 @@ To view a video on how to configure and onboard GCP accounts in Permissions Mana
 
 ### 2. Set up a GCP OIDC project.
 
+Choose from 3 options to manage GCP projects. 
+
+#### Option 1: Automatically manage 
+
+This option allows projects to be automatically detected and monitored without additional configuration. Steps to detect list of projects and onboard for collection:  
+
+- Grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope.  
+
+Any current or future projects found get onboarded automatically. 
+
+To view status of onboarding after saving the configuration: 
+
+- Navigate to data collectors tab.  
+- Click on the status of the data collector.  
+- View projects on the In Progress page 
+
+#### Option 2: Enter authorization systems 
+
 1. In the **Permissions Management Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project ID** and **OIDC Project Number** of the GCP project in which the OIDC provider and pool will be created. You can change the role name to your requirements.
 
     > [!NOTE]
@@ -58,6 +76,16 @@ To view a video on how to configure and onboard GCP accounts in Permissions Mana
 
     You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described [later in this article](onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
 1. Select **Next**.
+
+#### Option 3: Select authorization systems 
+
+This option detects all projects that are accessible by the Cloud Infrastructure Entitlement Management application.  
+
+- Grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
+- Click Verify and Save. 
+- Navigate to newly create Data Collector row under GCP data collectors. 
+- Click on Status column when the row has “Pending” status 
+- To onboard and start collection, choose specific ones from the detected list and consent for collection. 
 
 ### 3. Set up GCP member projects.
 
