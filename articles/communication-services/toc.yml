@@ -304,7 +304,7 @@ items:
       href: how-tos/ui-library-sdk/localization.md
     - name: Setup Theming
       href: how-tos/ui-library-sdk/theming.md
-    - name: Custom Data Model Injection 
+    - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
 - name: Samples
   items:

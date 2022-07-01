@@ -4,8 +4,7 @@ description: How to onboard a Google Cloud Platform (GCP) project on Permissions
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
@@ -13,15 +12,6 @@ ms.author: kenwith
 ---
 
 # Onboard a Google Cloud Platform (GCP) project
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-
-> [!NOTE]
-> The Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
-
 
 This article describes how to onboard a Google Cloud Platform (GCP) project on Permissions Management.
 

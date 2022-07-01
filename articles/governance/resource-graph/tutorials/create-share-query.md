@@ -1,8 +1,10 @@
 ---
 title: "Tutorial: Manage queries in the Azure portal"
 description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
-ms.date: 08/17/2021
+ms.date: 06/15/2022
 ms.topic: tutorial
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Tutorial: Create and share an Azure Resource Graph query in the Azure portal
 
@@ -183,7 +185,7 @@ Resources
 ## Run a shared query
 
 A Resource Graph shared query can be run with the `{{shared-query-uri}}` syntax (preview). For more
-information, see [Shared query syntax](../concepts/query-language.md#shared-query-syntax).
+information, see [Shared query syntax](../concepts/query-language.md#shared-query-syntax-preview).
 
 ## Delete a Shared query
 

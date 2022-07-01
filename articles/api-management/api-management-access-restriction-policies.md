@@ -85,7 +85,7 @@ Use the `get-authorization-context` policy to get the authorization context of a
 
 The policy fetches and stores authorization and refresh tokens from the configured authorization provider.
 
-If `identity-type=jwt` is configured, a JWT token is required to be validated. The audience of this token must be https://azure-api.net/authorization-manager.  
+If `identity-type=jwt` is configured, a JWT token is required to be validated. The audience of this token must be `https://azure-api.net/authorization-manager`.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
