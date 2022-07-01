@@ -10,7 +10,7 @@ ms.date: 09/18/2020
 
 # Honeycomb visualizations
 
-Honeycombs allow high-density views of metrics or categories that can optionally be grouped as clusters. They're useful for visually identifying hotspots and drilling in further.
+Azure Workbooks honeycomb visualizations provide high-density views of metrics or categories that can optionally be grouped as clusters. They're useful for visually identifying hotspots and drilling in further.
 
 The following image shows the CPU utilization of virtual machines across two subscriptions. Each cell represents a virtual machine. The color/label represents its average CPU utilization. Reds are hot machines. The virtual machines are clustered by subscription.
 
@@ -22,14 +22,14 @@ The following image shows the CPU utilization of virtual machines across two sub
 1. Select **Add** > **Add query** to add a log query control to the workbook.
 1. For **Data source**, select **Logs**. For **Resource type**, select **Log Analytics**. For **Resource**, point to a workspace that has a virtual machine performance log.
 1. Use the query editor to enter the KQL for your analysis.
-
-```kusto
-    Perf
-| where CounterName == 'Available MBytes'
-| summarize CounterValue = avg(CounterValue) by Computer, _ResourceId
-| extend ResourceGroup = extract(@'/subscriptions/.+/resourcegroups/(.+)/providers/microsoft.compute/virtualmachines/.+', 1, _ResourceId)
-| extend ResourceGroup = iff(ResourceGroup == '', 'On-premises computers', ResourceGroup), Id = strcat(_ResourceId, '::', Computer)
-```
+    
+    ```kusto
+        Perf
+    | where CounterName == 'Available MBytes'
+    | summarize CounterValue = avg(CounterValue) by Computer, _ResourceId
+    | extend ResourceGroup = extract(@'/subscriptions/.+/resourcegroups/(.+)/providers/microsoft.compute/virtualmachines/.+', 1, _ResourceId)
+    | extend ResourceGroup = iff(ResourceGroup == '', 'On-premises computers', ResourceGroup), Id = strcat(_ResourceId, '::', Computer)
+    ```
 
 1. Run the query.
 1. Set **Visualization** to **Graph**.

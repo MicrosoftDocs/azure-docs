@@ -10,7 +10,7 @@ ms.date: 11/25/2020
 
 # Map visualization
 
-The Azure Workbooks map visualization aids in pinpointing issues in specific regions and showing high-level aggregated views of the monitoring data. Maps aggregate all the data mapped to each location, country, or region.
+Azure Workbooks map visualizations aid in pinpointing issues in specific regions and showing high-level aggregated views of the monitoring data. Maps aggregate all the data mapped to each location, country, or region.
 
 The following screenshot shows the total transactions and end-to-end latency for different storage accounts. Here the size is determined by the total number of transactions. The color metrics below the map show the end-to-end latency.
 

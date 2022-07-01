@@ -10,13 +10,13 @@ ms.date: 9/04/2020
 
 # Composite bar renderer
 
-Workbooks allow for rendering data by using the composite bar. This bar is made up of multiple bars.
+With Azure Workbooks, data can be rendered by using the composite bar. This bar is made up of multiple bars.
 
 The following image shows the composite bar for database status. It shows how many servers are online, offline, and in a recovering state.
 
 ![Screenshot that shows the composite bar for database status.](./media/workbooks-composite-bar/database-status.png)
 
-The composite bar renderer is supported for grids, tiles, and graphs visualizations.
+The composite bar renderer is supported for grid, tile, and graph visualizations.
 
 ## Add the composite bar renderer
 
@@ -110,12 +110,12 @@ In the following example, **online**, **offline**, and **recovering** all have m
 
 For grid visualizations, the sorting of the rows for the column with the composite bar renderer works based on the value that's the sum of the columns used to render the composite bar computer dynamically. In the previous examples, the value used for sorting is the sum of the **online**, **recovering**, and **offline** columns for that particular row.
 
-## Tiles visualization
+## Tile visualizations
 
 To make a composite bar renderer for a tile visualization, follow these instructions.
 
 1. Select **Add** > **Add query**.
-1. Change the data source to **JSON**, and enter the data from the [previous example](#adding-composite-bar-renderer).
+1. Change the data source to **JSON**, and enter the data from the [previous example](#add-the-composite-bar-renderer).
 1. Change **Visualization** to **Tiles**.
 1. Run the query.
 1. Select **Tile Settings**.
@@ -146,12 +146,12 @@ The composite bar view for tiles with the preceding settings will look like this
 
 ![Screenshot that shows composite bar tiles.](./media/workbooks-composite-bar/composite-bar-tiles.png)
 
-## Graphs visualization
+## Graph visualizations
 
 To make a composite bar renderer for a graph visualization (type Hive Clusters), follow these instructions.
 
 1. Select **Add** > **Add query**.
-2. Change **Data source** to **JSON**, and enter the data from the [previous example](#adding-composite-bar-renderer).
+2. Change **Data source** to **JSON**, and enter the data from the [previous example](#add-the-composite-bar-renderer).
 1. Change **Visualization** to **Graphs**.
 1. Run the query.
 1. Select **Graph Settings**.

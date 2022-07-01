@@ -10,7 +10,7 @@ ms.date: 09/04/2020
 
 # Graph visualizations
 
-Workbooks support visualizing arbitrary graphs based on data from logs to show the relationships between monitoring entities.
+Azure Workbooks graph visualizations support visualizing arbitrary graphs based on data from logs to show the relationships between monitoring entities.
 
 The following graph shows data flowing in and out of a computer via various ports to and from external computers. It's colored by type, for example, computer vs. port vs. external IP. The edge sizes correspond to the amount of data flowing in between. The underlying data comes from KQL query targeting VM connections.
 
@@ -153,5 +153,5 @@ You can specify what content goes to the different parts of a node: top, left, c
 
 ## Next steps
 
-* Graphs also support the composite bar renderer. To learn more, see the [composite bar documentation](workbooks-composite-bar.md).
+* Graphs also support the composite bar renderer. To learn more, see [Composite bar renderer](workbooks-composite-bar.md).
 * Learn more about the [data sources](workbooks-data-sources.md) you can use in workbooks.
