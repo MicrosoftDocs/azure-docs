@@ -26,8 +26,6 @@ Many companies migrating from Active Directory (AD) to Azure Active Directory (A
 
 * **Users and Groups**: Represent the human and non-human identities and attributes that access resources from different devices as specified.
 
-![Transformation starting point](media/road-to-cloud-posture/road-to-the-cloud-start.png)
-
 :::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-start.png" alt-text="Architectural diagram depicting applications, devices, and users and groups layers, each containing common technologies found within each layer." border="false":::
 
 Microsoft has modeled five states of transformation that commonly align with the business goals of our customers. As the goals of customers mature, it's typical for them to shift from one state to the next at a pace that suits their resourcing and culture. This approach closely follows [Active Directory in Transition: Gartner Survey| Results and Analysis](https://www.gartner.com/en/documents/4006741).
@@ -52,7 +50,6 @@ For customers with established on-premises IT capability, the transformation pro
 
 In enterprise-sized organizations, IAM transformation, or even transformation from AD to Azure AD is typically a multi-year effort with multiple states. You analyze your environment to determine your current state, and then set a goal for your next state. Your goal might remove the need for AD entirely, or you might decide not to migrate some capability to Azure AD and leave it in place. The states are meant to logically group initiatives into projects towards completing a transformation. During the state transitions, interim solutions are put in place. The interim solutions enable the IT environment to support IAM operations in both AD and Azure AD. The interim solutions must also enable the two environments to interoperate. The following diagram shows the five states:
 
-![Five states of transformation](media/road-to-cloud-posture/road-to-the-cloud-five-states.png)
 :::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-five-states.png" alt-text="Five elements, each depicting a possible network architecture. Options include cloud attached, hybrid, cloud first, AD minimized, and 100% cloud." border="false":::
 
 **State 1 Cloud attached** - In this state, organizations have created an Azure AD tenant to enable user productivity and collaboration tools and the tenant is fully operational. Most companies that use Microsoft products and services in their IT environment are already in or beyond this state. In this state operational costs may be higher because there's an on-premises environment and cloud environment to maintain and make interactive. Also, people must have expertise in both environments to support their users and the organization. In this state:
@@ -148,7 +145,6 @@ Transformation to the cloud isn't only the identity team's responsibility. Coord
 
 As a migration of IAM to Azure AD is started, organizations must determine the prioritization of efforts based on their specific needs. Teams of operational staff and support staff must be trained to perform their jobs in the new environment. The following shows the high-level journey for AD to Azure AD migration:
 
-![Migration path](media/road-to-cloud-posture/road-to-the-cloud-migration.png)
 :::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-migration.png" alt-text="Table depicting three major milestones that organizations move through when implementing an AD to Azure AD migration. These include Establish Azure AD capabilities, Implement cloud-first approach, and Move workloads to the cloud." border="false":::
 
 ## Establish Azure AD capabilities
