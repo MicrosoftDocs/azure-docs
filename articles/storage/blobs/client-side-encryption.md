@@ -215,7 +215,7 @@ For a sample project that shows how to decrypt and reencrypt existing data with 
 
 ## Client-side encryption and performance
 
-Keep in mind that encrypting your storage data results in additional performance overhead. When you use client-side encryption in your application, the client library must securely generate the CEK and IV, encrypt the content itself, communicate with your chosen keystore for key-enveloping, and format and upload additional metadata. This overhead varies depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
+Keep in mind that encrypting your storage data results in additional performance overhead. When you use client-side encryption in your application, the client library must generate the CEK and IV, encrypt the content itself, and format and upload additional metadata. This overhead varies depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps
 
