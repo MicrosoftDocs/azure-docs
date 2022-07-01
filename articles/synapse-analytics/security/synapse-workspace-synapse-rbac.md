@@ -78,7 +78,8 @@ If a button or option is disabled, hovering over the button or option shows a to
 
 ## Who can assign Synapse RBAC roles?
 
-Only a Synapse Administrator can assign Synapse RBAC roles.  A Synapse Administrator at the workspace level can grant access at any scope.  A Synapse Administrator at a lower-level scope can only grant access at that scope. 
+- A Synapse Administrator can assign Synapse RBAC roles.  A Synapse Administrator at the workspace level can grant access at any scope. And a Synapse Administrator at a lower-level scope can only grant access at that scope.
+- Additionally, a user with Azure RBAC permission _Microsoft.Authorization/roleAssignments/write_ on the Synapse workspace can also invoke the Synapse RBAC role assignment APIs and assign Synapse RBAC roles.
 
 When a new workspace is created, the creator is automatically given the Synapse Administrator role at workspace scope.   
 
