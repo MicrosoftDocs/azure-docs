@@ -195,7 +195,7 @@ New-DfsnFolder -Path $sharePath -TargetPath $targetUNC
 
 ---
 
-Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. The full path for your share should be `\\<domain-name>\<namespace>\<share>`.
+Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. The full path for your share should be `\\contoso.com\orporate\finance`.
 
 ## Take over existing server names with root consolidation
 
@@ -234,7 +234,7 @@ Set-ItemProperty `
 
 ### Creating DNS entries for existing file server names
 
-In order for DFS Namespaces to respond to existing file server names, **you must** create alias (CNAME) records for your existing file servers that point at the DFS Namespaces server name. The exact procedure for updating your DNS records may depend on what servers your organization is using and if your organization is using custom tooling to automate the management of DNS. The following steps are shown for the DNS server included with Windows Server and automatically used by Windows AD.
+In order for DFS Namespaces to respond to existing file server names, **you must** create alias (CNAME) records for your existing file servers that point at the DFS Namespaces server name. The exact procedure for updating your DNS records may depend on what servers your organization is using and if your organization is using custom tooling to automate the management of DNS. The following steps are shown for the DNS server included with Windows Server and automatically used by Windows AD. In this example, the DFS-N server name is **mydfscluster**.
 
 # [Portal](#tab/azure-portal)
 
@@ -261,7 +261,7 @@ On a Windows DNS server, open a PowerShell session (or use PowerShell remoting) 
 $oldServer = "fileserver01"
 $domain = Get-CimInstance -ClassName "Win32_ComputerSystem" | `
     Select-Object -ExpandProperty Domain
-$dfsnServer = "CloudDFSN.$domain"
+$dfsnServer = "mydfscluster.$domain"
 
 # Create CNAME record
 Import-Module -Name DnsServer
@@ -357,7 +357,7 @@ New-DfsnFolder -Path $sharePath -TargetPath $targetUNC
 
 ---
 
-Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. Using a standalone namespace with root consolidation, you can access directly through your old server name, such as `\\<old-server>\<share>`.
+Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. Using a standalone namespace with root consolidation, you can access directly through your old server name, such as `\\fileserver01\finance`.
 
 ## See also
 
