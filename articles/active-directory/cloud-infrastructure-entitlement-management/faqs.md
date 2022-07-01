@@ -158,7 +158,7 @@ We are currently working on developing a migration plan to help customers on the
 
 ## Can I use Entra Permissions Management in the EU?  
 
-Yes, we are now compliant.  
+Yes, the product is compliant.  
 
 ## How to I enable one of the new 18 languages supported in the GA release? 
 
