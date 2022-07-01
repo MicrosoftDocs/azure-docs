@@ -234,7 +234,7 @@ In most legacy data warehouse environments, regular housekeeping tasks are time-
 
 Collecting statistics is a potentially time-consuming task that's required after bulk data ingestion to provide the query optimizer with up-to-date data for its query execution plans.
 
-Oracle introduced a feature called the Optimizer Statistics Advisor that works through a list of Oracle rules that represent best practices for optimizer statistics. The advisor checks each rule and, where necessary, generates findings, recommendations, and actions that involve calls to the `DBMS_STATS` package to take corrective measures. Users can see the list of rules in the `V$STATS_ADVISOR_RULES` view, as shown in the following screenshot.
+Oracle has a built-in feature to help with analyzing the quality of statistics, the Optimizer Statistics Advisor. It works through a list of Oracle rules that represent best practices for optimizer statistics. The advisor checks each rule and, where necessary, generates findings, recommendations, and actions that involve calls to the `DBMS_STATS` package to take corrective measures. Users can see the list of rules in the `V$STATS_ADVISOR_RULES` view, as shown in the following screenshot.
 
 :::image type="content" source="../media/3-security-access-operations/optimizer-statistics-advisor-rules.png" border="true" alt-text="Screenshot showing how to display a list of rules by using the Optimizer Statistics Advisor.":::
 
