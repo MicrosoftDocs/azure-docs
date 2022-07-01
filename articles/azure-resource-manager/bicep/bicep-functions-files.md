@@ -39,7 +39,7 @@ The file as a base64 string.
 
 `loadJsonContent(filePath, [jsonPath], [encoding])`
 
-Loads the specified JSON file as a Bicep object.
+Loads the specified JSON file as an Any object.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
