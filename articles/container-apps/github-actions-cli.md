@@ -33,7 +33,7 @@ When adding or removing a GitHub Actions integration, you can authenticate by ei
 The `containerapp github-action add` command creates a GitHub Actions integration with your container app.
 
 > [!Note]
-> Your GitHub personal access token needs to have the `workflow` scope selected.
+> Before you proceed with the example below, you must have your first container app already deployed.
 
 The first time you attach GitHub Actions to your container app, you need to provide a service principal context. The following command shows you how to create a service principal.
 
