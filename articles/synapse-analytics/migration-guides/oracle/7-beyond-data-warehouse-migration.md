@@ -31,7 +31,7 @@ A key reason to migrate your existing data warehouse to Azure Synapse Analytics 
   - Power BI
   - Adobe Customer Experience Platform
   - Azure IoT
-  - Microsoft ISV Partners
+  - Microsoft ISV partners
 
 - Microsoft [data science technologies](/azure/architecture/data-science-process/platforms-and-tools), including:
   - Azure Machine Learning studio
