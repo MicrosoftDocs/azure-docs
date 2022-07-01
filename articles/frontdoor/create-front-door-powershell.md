@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Create an Azure Front Door Standard/Premium - Azure PowerShell
 
-In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using  Azure PowerShell. You'll create this profile using two Web Apps as your origin. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
+In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using Azure PowerShell. You'll create this profile using two Web Apps as your origin. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
 ## Prerequisites
 
@@ -46,17 +46,20 @@ If you don't already have a web app, use [New-AzWebApp](/powershell/module/az.we
 
 ```azurepowershell-interactive
 # Create first web app in Central US region.
+
 $webapp1 = New-AzWebApp `
--Name "WebAppContoso-01" `
--Location centralus `
--ResourceGroupName myRGFD `
--AppServicePlan myAppServicePlanCentralUS
+    -Name "WebAppContoso-01" `
+    -Location centralus `
+    -ResourceGroupName myRGFD `
+    -AppServicePlan myAppServicePlanCentralUS
+
 # Create second web app in South Central US region.
+
 $webapp2 = New-AzWebApp `
--Name "WebAppContoso-02" `
--Location EastUS `
--ResourceGroupName myRGFD `
--AppServicePlan myAppServicePlanEastUS
+    -Name "WebAppContoso-02" `
+    -Location EastUS `
+    -ResourceGroupName myRGFD `
+    -AppServicePlan myAppServicePlanEastUS
 ```
 
 ## Create a Front Door
@@ -71,7 +74,8 @@ Run [New-AzFrontDoorCdnProfile](/powershell/module/az.cdn/new-azfrontdoorcdnprof
 > If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with `Standard_AzureFrontDoor`. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
 ```azurepowershell-interactive
-#Create the profile `
+#Create the profile
+
 $fdprofile = New-AzFrontDoorCdnProfile `
     -ResourceGroupName myRGFD `
     -Name contosoAFD `
@@ -83,69 +87,79 @@ $fdprofile = New-AzFrontDoorCdnProfile `
 Run [New-AzFrontDoorCdnEndpoint](/powershell/module/az.cdn/new-azfrontdoorcdnendpoint) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
 
 ```azurepowershell-interactive
-#Create the endpoint `
+#Create the endpoint
+
 $FDendpoint = New-AzFrontDoorCdnEndpoint `
-   -EndpointName contosofrontend `
-   -ProfileName contosoAFD `
-   -ResourceGroupName myRGFD `
-   -Location Global
+    -EndpointName contosofrontend `
+    -ProfileName contosoAFD `
+    -ResourceGroupName myRGFD `
+    -Location Global
 ```
 
 ### Create an origin group
 
-Use [New-AzFrontDoorCdnOriginGroupHealthProbeSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouphealthprobesettingobject) and [New-AzFrontDoorCdnOriginGroupLoadBalancingSettingObject](/powershell/module/az.cdn/azfrontdoorcdnorigingrouploadbalancingsettingobject) to create  in-memory objects for storing health probe and load balancing settings.
+Use [New-AzFrontDoorCdnOriginGroupHealthProbeSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouphealthprobesettingobject) and [New-AzFrontDoorCdnOriginGroupLoadBalancingSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouploadbalancingsettingobject) to create  in-memory objects for storing health probe and load balancing settings.
+
 Run [New-AzFrontDoorCdnOriginGroup](/powershell/module/az.cdn/new-azfrontdoorcdnorigingroup) to create an origin group that will contain your two web apps.
 
 ```azurepowershell-interactive
-# Create health probe settings `
-$HealthProbeSetting = New-AzFrontDoorCdnOriginGroupHealthProbeSettingObject `
-   -ProbeIntervalInSecond 60 `
-   -ProbePath "/" `
-   -ProbeRequestType GET `
-   -ProbeProtocol Http ` 
-# Create load balancing settings `
-$LoadBalancingSetting = New-AzFrontDoorCdnOriginGroupLoadBalancingSettingObject `
-   -AdditionalLatencyInMillisecond 50 `
-   -SampleSize 4 `
-   -SuccessfulSamplesRequired 3
-# Create origin pool `
-$originpool = New-AzFrontDoorCdnOriginGroup `
-   -OriginGroupName og `
-   -ProfileName contosoAFD `
-   -ResourceGroupName myRGFD `
-   -HealthProbeSetting $HealthProbeSetting `
-   -LoadBalancingSetting $LoadBalancingSetting
-```
+# Create health probe settings
 
+$HealthProbeSetting = New-AzFrontDoorCdnOriginGroupHealthProbeSettingObject `
+    -ProbeIntervalInSecond 60 `
+    -ProbePath "/" `
+    -ProbeRequestType GET `
+    -ProbeProtocol Http
+
+# Create load balancing settings
+
+$LoadBalancingSetting = New-AzFrontDoorCdnOriginGroupLoadBalancingSettingObject `
+    -AdditionalLatencyInMillisecond 50 `
+    -SampleSize 4 `
+    -SuccessfulSamplesRequired 3
+
+# Create origin group
+
+$originpool = New-AzFrontDoorCdnOriginGroup `
+    -OriginGroupName og `
+    -ProfileName contosoAFD `
+    -ResourceGroupName myRGFD `
+    -HealthProbeSetting $HealthProbeSetting `
+    -LoadBalancingSetting $LoadBalancingSetting
+```
+    
 ### Add an origin to the group
 
 Run [New-AzFrontDoorCdnOrigin](/powershell/module/az.cdn/new-azfrontdoorcdnorigin) to add your Web App origins to your origin group.
+
 ```azurepowershell-interactive
-# Create origin 1 `
+# Add first web app origin to origin group.
+
 $origin1 = New-AzFrontDoorCdnOrigin `
-   -OriginGroupName og `
-   -OriginName contoso1 `
-   -ProfileName contosoAFD `
-   -ResourceGroupName myRGFD `
-   -HostName webappcontoso-01.azurewebsites.net `
-   -OriginHostHeader webappcontoso-01.azurewebsites.net `
-   -HttpPort 80 `
-   -HttpsPort 443 `
-   -Priority 1 `
-   -Weight 1000 
-# Create origin 2 `
+    -OriginGroupName og `
+    -OriginName contoso1 `
+    -ProfileName contosoAFD `
+    -ResourceGroupName myRGFD `
+    -HostName webappcontoso-01.azurewebsites.net `
+    -OriginHostHeader webappcontoso-01.azurewebsites.net `
+    -HttpPort 80 `
+    -HttpsPort 443 `
+    -Priority 1 `
+    -Weight 1000
+
+# Add second web app origin to origin group.
+
 $origin2 = New-AzFrontDoorCdnOrigin `
-   -OriginGroupName og `
-   -OriginName contoso2 `
-   -ProfileName contosoAFD `
-   -ResourceGroupName myRGFD `
-   -HostName webappcontoso-02.azurewebsites.net `
-   -OriginHostHeader webappcontoso-02.azurewebsites.net `
-   -HttpPort 80 `
-   -HttpsPort 443 `
-   -Priority 1 `
-   -Weight 1000
-   
+    -OriginGroupName og `
+    -OriginName contoso2 `
+    -ProfileName contosoAFD `
+    -ResourceGroupName myRGFD `
+    -HostName webappcontoso-02.azurewebsites.net `
+    -OriginHostHeader webappcontoso-02.azurewebsites.net `
+    -HttpPort 80 `
+    -HttpsPort 443 `
+    -Priority 1 `
+    -Weight 1000
 ```
 ### Add a route
 
@@ -153,17 +167,18 @@ Run [New-AzFrontDoorCdnRoute](/powershell/module/az.cdn/new-azfrontdoorcdnroute)
 
 
 ```azurepowershell-interactive
-# Create a route to map the endpoint to the origin pool
+# Create a route to map the endpoint to the origin group
+
 $Route = New-AzFrontDoorCdnRoute `
-   -EndpointName contosofrontend `
-   -Name defaultroute `
-   -ProfileName contosoAFD `
-   -ResourceGroupName myRGFD `
-   -ForwardingProtocol MatchRequest `
-   -HttpsRedirect Enabled `
-   -LinkToDefaultDomain Enabled `
-   -OriginGroup og `
-   -SupportedProtocol Http,Https
+    -EndpointName contosofrontend `
+    -Name defaultroute `
+    -ProfileName contosoAFD `
+    -ResourceGroupName myRGFD `
+    -ForwardingProtocol MatchRequest `
+    -HttpsRedirect Enabled `
+    -LinkToDefaultDomain Enabled `
+    -OriginGroupId $originpool.Id `
+    -SupportedProtocol Http,Https
 ```
 Your Front Door profile has become fully functional with the last step.
 
@@ -174,14 +189,13 @@ Run [Get-AzFrontDoorCdnEndpoint](/powershell/module/az.cdn/get-azfrontdoorcdnend
 
 ```azurepowershell-interactive
 $fd = Get-AzFrontDoorCdnEndpoint `
-   -EndpointName contosofrontend `
-   -ProfileName contosoafd `
-   -ResourceGroupName myRGFD
-```
-```azurepowershell-interactive
+    -EndpointName contosofrontend-1234 `
+    -ProfileName contosoafd `
+    -ResourceGroupName myRGFD
+
 $fd.hostname
 ```
-In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
+In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the web app with the lowest latency in the origin group.
 
 :::image type="content" source="./media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
 
@@ -189,34 +203,33 @@ To test instant global failover, we'll use the following steps:
 
 1. Open a browser, as described above, and go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`.
 
-2. Stop one of the Web Apps by running [Stop-AzWebApp](/powershell/module/az.websites/stop-azwebapp)
+1. Stop one of the Web Apps by running [Stop-AzWebApp](/powershell/module/az.websites/stop-azwebapp)
 
-```azurepowershell-interactive
-Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
-```
+    ```azurepowershell-interactive
+    Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
+    ```
 
-3. Refresh your browser. You should see the same information page.
+1. Refresh your browser. You should see the same information page.
 
 >[!TIP]
 >There is a little bit of delay for these actions. You might need to refresh again.
 
-4. Find the other web app, and stop it as well.
+1. Find the other web app, and stop it as well.
 
-```azurepowershell-interactive
-Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-02"
-```
+    ```azurepowershell-interactive
+    Stop-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-02"
+    ```
 
-5. Refresh your browser. This time, you should see an error message.
+1. Refresh your browser. This time, you should see an error message.
 
-:::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
+    :::image type="content" source="./media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped.":::
 
 
-6. Restart one of the Web Apps by running [Start-AzWebApp](/powershell/module/az.websites/start-azwebapp). Refresh your browser and the page will go back to normal.
+1. Restart one of the Web Apps by running [Start-AzWebApp](/powershell/module/az.websites/start-azwebapp). Refresh your browser and the page will go back to normal.
 
-```azurepowershell-interactive
-Start-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
-```
-
+    ```azurepowershell-interactive
+    Start-AzWebApp -ResourceGroupName myRGFD -Name "WebAppContoso-01"
+    ```
 
 ## Clean up resources
 
@@ -229,10 +242,6 @@ Remove-AzResourceGroup -Name myRGFD
 ```
 
 ## Next steps
-
-In this quickstart, you created a:
-* Front Door
-* Two web apps
 
 To learn how to add a custom domain to your Front Door, continue to the Front Door tutorials.
 
