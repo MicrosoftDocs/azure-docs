@@ -11,11 +11,6 @@ This article describes how to access the HCX over a Public IP address using Azur
 > [!IMPORTANT] 
 > This solution is useful where the customer is not using Express Route or VPN connectivity with the Azure cloud. The on-premises HCX appliance should be reachable from the internet to establish HCX communication from on-premises to Azure VMware Solution private cloud. 
 
-## Prerequisites
-- AVS Private Cloud with Public IP Block. 
-- HCX Network Profile with Public IPs. 
-- Test Virtual Machines for migration. 
-
 ## Configure Public IP block  
 
 Configure a Public IP block through portal by using the Public IP feature of the Azure VMware Solution private cloud. 
@@ -77,7 +72,8 @@ HCX manager of destination Azure VMware Solution SDDC should be reachable from t
 1. Make sure to set the Firewall option on DNAT rule to **Match External Address**.
 1. Create T1 Gateway Firewall rules to allow only expected traffic to the Public IP for HCX Manager and drop everything else.  
 
-HCX manager can now be accessed over the internet using public IP.  
+>[!NOTE]
+> HCX manager can now be accessed over the internet using public IP.  
 
 ### Create network profile for HCX at destination site
 1. Sign in to Destination HCX Manager.
@@ -118,13 +114,14 @@ Service Mesh will deploy HCX WAN Optimizer, HCX Network Extension and HCX-IX app
 
 ### Extend network 
 The HCX Network Extension service provides layer 2 connectivity between sites. The extension service also allows you to keep the same IP and MAC addresses during virtual machine migrations. 
-1. Sign in to source HCX Manager. 
+1. Sign in to **source** HCX Manager. 
 1. Under the **Network Extension** section, select the site for which you want to extend the network, and select **EXTEND NETWORKS**. 
 1. Select the network that you want to extend to destination site, and select **Next**. 
 1. Enter the subnet details of network that you're extending.
 1. Select the destination first hop route (T1), and select **Submit**.
+1. Sign in to the **destination** NSX, you'll see Network 10.14.27.1/24 has been extended. 
 
-Sign in to the destination NSX, you'll see Network 10.14.27.1/24 has been extended. After the network is extended to destination site, VMs can be migrated over Layer 2 Extension. 
+After the network is extended to destination site, VMs can be migrated over Layer 2 Extension. 
 
 ## Next steps 
 For detailed information on HCX network underlay minimum requirements, see [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html).
