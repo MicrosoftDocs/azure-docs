@@ -273,7 +273,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 - **File Extract**: extract the data from the Oracle tables to flat delimited files, normally in CSV format. You can extract table data in several ways:
 
     - Use standard Oracle tools such as SQL\*Plus, SQL Developer, and SQLcl.
-    - Use ODI to generate flat files.
+    - Use [Oracle Data Integrator](https://www.oracle.com/middleware/technologies/data-integrator.html) ODI to generate flat files.
     - Use Oracle connector in Data Factory to unload Oracle tables in parallel to enable data loading by partitions.
     - Use a [third-party](../../partner/data-integration.md) ETL tool.
 
