@@ -39,7 +39,7 @@ For no-code-deployment, Azure Machine Learning
 > - Data type `mlflow.types.DataType.Binary` is not supported as column type in signatures. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
 > - Signatures with tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
 
-For more information about how to specify requests to online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference). FOr more information about the supported file types in batch endpoints, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
+For more information about how to specify requests to online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference). For more information about the supported file types in batch endpoints, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
 
 ## Deployment tools
 
