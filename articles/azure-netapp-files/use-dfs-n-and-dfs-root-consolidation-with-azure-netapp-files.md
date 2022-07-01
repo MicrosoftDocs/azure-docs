@@ -195,7 +195,7 @@ New-DfsnFolder -Path $sharePath -TargetPath $targetUNC
 
 ---
 
-Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. The full path for your share should be `\\contoso.com\orporate\finance`.
+Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. The full path for your share should be `\\contoso.com\corporate\finance`.
 
 ## Take over existing server names with root consolidation
 
