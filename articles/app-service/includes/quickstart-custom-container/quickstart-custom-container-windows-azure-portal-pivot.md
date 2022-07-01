@@ -9,34 +9,86 @@ ms.author: cephalin
 
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
-This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service.
+This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service. 
 
 To complete this quickstart, you need:
 
-* An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-* An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
+- An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
+- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
+- [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
+- [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 
-## 1 - Fork the sample repository
+## 1 - Clone the sample repository
 
-We will fork the code so that we can update the code and then update our container.
+We will clone the code so that we can update the code and then update our container.
 
 1. Go to [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
-1. Select the **Fork** button in the upper right on the GitHub page.
-1. Select the **Owner** and leave the default **Repository name**.
-1. Select **Create fork**.
+1. Select the **Code** button.
+1. Copy the HTTPS URL.
+1. In your command line, run:
+
+```bash
+git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
+```
 
 ## 2 - Push the image to Azure Container Registry
 
-(This can't be automated with GitHub Actions, as the platform does not support Windows images. We need a way to handle this.
+The cloned repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system, explicitly calling out our Windows base.
 
-TODO:
+> [!NOTE]
+> [Even though this is a Windows container, the paths still need to use forward slashes. See [Write a Dockerfile](/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-using-copy-with-windows) for mroe details.]]
 
-- Explain Dockerfile.
-- Walk through with:
-  - Image name: dotnetcore-hello-world-windows
-  - Tag: latest
-)
+### Explore the Dockerfile
 
+This Dockerfile does the following steps:
+
+1. Get [the .NET SDK image from the Microsoft Artifact Registry](https://mcr.microsoft.com/product/dotnet/sdk/about). The image name and tag is **mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-ltsc2022**.
+
+1. Change to a folder in the container named **source**. If this folder doesn't exist, the WORKDIR command will also create the folder.
+
+1. Copy the files from the dotnetcore-docs-hello-world repository to a folder named **dotnetcore-docs-hello-world**.
+
+1. Change to the dotnetcore-docs-hello-world folder.
+
+1. Publish the .NET Core sample app.
+
+1. Get [the ASP.NET Core Runtime image from the Microsoft Artifact Registry](https://mcr.microsoft.com/product/dotnet/aspnet/about). The image name and tag is **mcr.microsoft.com/dotnet/aspnet:6.0.6-nanoserver-ltsc2022**.
+
+1. Change to a folder named **app**.
+   
+1. Copy the build artifacts from the build container to the deploy container.
+
+1. Expose port 80. The `ENV PORT 80` sets the PORT environment variable for the .NET runtime to listen to in the container. The `EXPOSE 80` exposes port 80 internally, in case this needs to work with other containers.
+
+1. Set the entrypoint used the **dotnet** executable and the DLL created for the sample code.
+
+### Build and deploy the sample image to Azure Container Registry
+
+Now that we looked at what the Dockerfile.windows file is doing, let's build the image and deploy it to Azure Container Registry.
+
+1. Log in to Azure Container Registry.
+
+```azurecli
+az acr login -n <your_registry_name>
+```
+
+1. Build the container image. We are naming the image **dotnetcore-docs-hello-world-windows**.
+
+```docker
+docker build -f Dockerfile.windows -t dotnetcore-docs-hello-world-windows . 
+```
+
+1. Tag the container image.
+
+```docker
+docker tag dotnetcore-docs-hello-world-windows <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-windows:latest
+```
+
+1. Push the container image to Azure Container Registry.
+
+```docker
+docker push <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-windows:latest
+```
 ## 3 - Create the Azure App Service
 
 ### Sign in to Azure portal
