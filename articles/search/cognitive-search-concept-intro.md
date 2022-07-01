@@ -114,13 +114,13 @@ Billing follows a pay-as-you-go pricing model. The costs of using built-in skill
 
 ## Checklist: A typical workflow
 
-An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). Post-indexing, you can access content via search requests through all [query types supported by Azure Cognitive Search](search-query-overview.md).
+An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). Post-indexing, you can query an index to validate your results.
 
 Start with a subset of data in a [supported data source](search-indexer-overview.md#supported-data-sources). Indexer and skillset design is an iterative process. The work goes faster with a small representative data set.
 
 1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection to your data.
 
-1. [Create a skillset](cognitive-search-defining-skillset.md) to add enrichment steps. Unless your project is small, you'll want to [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
+1. [Create a skillset](cognitive-search-defining-skillset.md). Unless your project is small, you'll want to [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
 
 1. [Create an index schema](search-how-to-create-search-index.md) that defines a search index.
 
@@ -128,9 +128,9 @@ Start with a subset of data in a [supported data source](search-indexer-overview
 
    An indexer is also where you specify field mappings and output field mappings that set up the data path to a search index.
 
-   If possible, [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) in the indexer configuration. This step allows you to reuse existing enrichments later on.
+   Optionally, [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) in the indexer configuration. This step allows you to reuse existing enrichments later on.
 
-1. [Run queries](search-query-create.md) against the search index to evaluate results. [Start a debug session](cognitive-search-how-to-debug-skillset.md) to work through any skillset issues.
+1. [Run queries](search-query-create.md) to evaluate results or [start a debug session](cognitive-search-how-to-debug-skillset.md) to work through any skillset issues.
 
 To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). If you enabled caching the indexer will pull from the cache if data is unchanged at the source, and if your edits to the pipeline don't invalidate the cache.
 
