@@ -10,7 +10,7 @@ ms.custom: template-how-to
 
 You can onboard Active Directory–joined Windows machines to Azure Arc-enabled servers at scale using Group Policy.
 
-You'll first need to set up a local remote share with the Connected Machine Agent and modify a script specifying the Arc-enabled server's landing zone within Azure. You'll then run a script that generates a Group Policy Object to onboard a group of machines to Azure Arc-enabled servers. This Group Policy can be applied to the site, domain, or organizational level. Assignment can also use Access Control List (ACL) and other security filtering native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
+You'll first need to set up a local remote share with the Connected Machine agent and modify a script specifying the Arc-enabled server's landing zone within Azure. You'll then run a script that generates a Group Policy Object to onboard a group of machines to Azure Arc-enabled servers. This Group Policy can be applied to the site, domain, or organizational level. Assignment can also use Access Control List (ACL) and other security filtering native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
 
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.  
 
@@ -18,7 +18,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prepare a remote share and create a service principal
 
-The Group Policy to onboard Azure Arc-enabled servers requires a remote share with the Connected Machine Agent. You will need to:
+The Group Policy to onboard Azure Arc-enabled servers requires a remote share with the Connected Machine agent. You will need to:
 
 1. Prepare a remote share to host the Azure Connected Machine agent package for Windows and the configuration file. You need to be able to add files to the distributed location. The network share should provide Domain Controllers, Domain Computers, and Domain Admins with Change permissions.
 
@@ -31,6 +31,9 @@ The Group Policy to onboard Azure Arc-enabled servers requires a remote share wi
     * `EnableAzureArc.ps1`
     * `DeployGPO.ps1`
     * `AzureArcDeployment.psm1`
+
+    > [!NOTE] 
+    > The ArcGPO folder must be in the same directory as the downloaded script files above. The ArcGPO folder contains the files that define the Group Policy Object that's created when the DeployGPO script is run. When running the DeployGPO script, make sure you're in the same directory as the ps1 files and ArcGPO folder.
 
 1. Modify the script `EnableAzureArc.ps1` by providing the parameter declarations for servicePrincipalClientId, tenantId, subscriptionId, ResourceGroup, Location, Tags, and ReportServerFQDN fields respectively.
 
