@@ -39,7 +39,7 @@ The file as a base64 string.
 
 `loadJsonContent(filePath, [jsonPath], [encoding])`
 
-Loads the specified JSON file as a Bicep object. File loading occurs during compilation, not at runtime.
+Loads the specified JSON file as a Bicep object.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -53,25 +53,25 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
-Use this function when you have JSON content or minified JSON content that is more stored in a separate file. Rather than duplicating the JSON content in your Bicep file, load the content with this function. You can even load a part of a JSON file by specifying a JSON path. The file is loaded when the Bicep file is compiled to the JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
+Use this function when you have JSON content or minified JSON content that is stored in a separate file. Rather than duplicating the JSON content in your Bicep file, load the content with this function. You can load a part of a JSON file by specifying a JSON path. The file is loaded when the Bicep file is compiled to the JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
-When loading a JSON file, you can use the [json](bicep-functions-object.md#json) function with the loadTextContent function to create an Any object. In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
+In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 
 This function requires **Bicep version 0.7.4 or later**.
 
 ### Return value
 
-The contents of the file as a JSON object.
+The contents of the file as an Any object.
 
 ### Examples
 
 The following example creates a JSON file that contains values for a network security group.
 
-::: code language="json" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadTextContent/nsg-security-rules.json" :::
+::: code language="json" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/nsg-security-rules.json" :::
 
 You load that file and convert it to a JSON object. You use the object to assign values to the resource.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadTextContent/loadsharedrules.bicep" highlight="3,13-21" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/loadsharedrules.bicep" highlight="3,13-21" :::
 
 You can reuse the file of values in other Bicep files that deploy a network security group.
 
@@ -94,7 +94,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 Use this function when you have content that is more stored in a separate file. Rather than duplicating the content in your Bicep file, load the content with this function. For example, you can load a deployment script from a file. The file is loaded when the Bicep file is compiled to the JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
-Use [`loadJsonContent'](#loadjsoncontent) when loading a JSON file.
+Use the [`loadJsonContent()`](#loadjsoncontent) function to load JSON files.
 
 This function requires **Bicep version 0.4.412 or later**.
 
