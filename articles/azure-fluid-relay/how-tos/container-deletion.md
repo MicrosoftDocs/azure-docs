@@ -8,7 +8,7 @@ ms.service: azure-fluid
 ms.topic: reference
 ---
 
-# Delete Fluid containers in Microsoft Azure Fluid Relay Server
+# Delete Fluid containers in Azure Fluid Relay
 
 > [!NOTE]
 > This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.

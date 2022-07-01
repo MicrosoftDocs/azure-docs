@@ -1,6 +1,5 @@
 ---
-title: "Migrate your Node.js application from ADAL to MSAL | Azure"
-titleSuffix: Microsoft identity platform
+title: "Migrate your Node.js application from ADAL to MSAL"
 description: How to update your existing Node.js application to use the Microsoft Authentication Library (MSAL) for authentication and authorization instead of the Active Directory Authentication Library (ADAL).
 services: active-directory
 author: mmacy

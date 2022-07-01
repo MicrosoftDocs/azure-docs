@@ -27,7 +27,7 @@ You can continue to work with Defender for IoT features even if the activation f
 
 ### About activation files for cloud-connected sensors
 
-Sensors that are cloud connected are not limited by time periods for their activation file. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
+Sensors that are cloud connected aren't limited by time periods for their activation file. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
 
 ### Upload new activation files
 
@@ -65,9 +65,9 @@ You might need to upload a new activation file for an onboarded sensor when:
 
 ### Troubleshoot activation file upload
 
-You'll receive an error message if the activation file could not be uploaded. The following events might have occurred:
+You'll receive an error message if the activation file couldn't be uploaded. The following events might have occurred:
 
-- **For locally connected sensors**: The activation file is not valid. If the file is not valid, go to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
+- **For locally connected sensors**: The activation file isn't valid. If the file isn't valid, go to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
 
 - **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that \*.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the FQDN for your specific endpoint (either a sensor, or for legacy connections, an IoT hub) should be opened in your firewall and/or proxy. For more information, see [Reference - IoT Hub endpoints](../../iot-hub/iot-hub-devguide-endpoints.md).
 
@@ -368,6 +368,36 @@ To send notifications:
 
 For more information about forwarding rules, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
+
+## Upload and play PCAP files
+
+When troubleshooting, you may want to examine data recorded by a specific PCAP file. To do so, you can upload a PCAP file to your sensor console and replay the data recorded.
+
+To view the PCAP player in your sensor console, you'll first need to configure the relevant advanced configuration option.
+
+Maximum size for uploaded files is 2 GB.
+
+**To show the PCAP player in your sensor console**:
+
+1. On your sensor console, go to **System settings > Sensor management > Advanced Configurations**.
+
+1. In the **Advanced configurations** pane, select the **Pcaps** category.
+
+1. In the configurations displayed, change `enabled=0` to `enabled=1`, and select **Save**.
+
+The **Play PCAP** option is now available in the sensor console's settings, under: **System settings > Basic > Play PCAP**.
+
+**To upload and play a PCAP file**:
+
+1. On your sensor console, select **System settings > Basic > Play PCAP**.
+
+1. In the **PCAP PLAYER** pane, select **Upload** and then navigate to and select the file you want to upload.
+
+1. Select **Play** to play your PCAP file, or **Play All** to play all PCAP files currently loaded.
+
+> [!TIP]
+> Select **Clear All** to clear the sensor of all PCAP files loaded.
+
 ## Adjust system properties
 
 System properties control various operations and settings in the sensor. Editing or modifying them might damage the operation of the sensor console.
@@ -381,6 +411,7 @@ To access system properties:
 2. Select **System Settings**.
 
 3. Select **System Properties** from the **General** section.
+
 
 ## Next steps
 

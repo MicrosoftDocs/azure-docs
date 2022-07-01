@@ -203,25 +203,25 @@ tools:
   items:
     # Card
     - title: Azure IoT SDK for C reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
+      imageSrc: /media/logos/logo_c.svg
       url: /azure/iot-hub/iot-c-sdk-ref/
     # Card
     - title: Azure IoT SDK for Python
-      imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+      imageSrc: /media/logos/logo_python.svg
       url: https://github.com/Azure/azure-iot-sdk-python
     # Card
     - title: Azure IoT SDK for Node.js reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+      imageSrc: /media/logos/logo_nodejs.svg
       url: /javascript/api/overview/azure/iot-hub
     # Card
     - title: Azure IoT SDK for Java reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+      imageSrc: /media/logos/logo_java.svg
       url: /java/api/com.microsoft.azure.sdk.iot.service
     # Card
     - title: Azure IoT SDK for .NET reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+      imageSrc: /media/logos/logo_NET.svg
       url: /dotnet/api/overview/azure/iot
     # Card
     - title: Azure IoT Central REST API reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
+      imageSrc: /media/logos/logo_REST.svg
       url: /rest/api/iotcentral

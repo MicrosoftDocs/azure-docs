@@ -5,13 +5,13 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 06/06/2022
 ms.author: ranku
 ---
 
 # Bulk-import FHIR data (Preview)
 
-The bulk-import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
+The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
 
 > [!NOTE]
 > You must have the **FHIR Data Importer** role on the FHIR server to use $import.
@@ -219,7 +219,7 @@ Below are some error codes you may encounter and the solutions to help you resol
 
 **Cause:** We use managed identity for source storage auth. This error may be caused by a missing or wrong role assignment.
 
-**Solution:** Assign _Storage Blob Data Contributor_ role to the FHIR server following [the RBAC guide.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current)
+**Solution:** Assign _Storage Blob Data Contributor_ role to the FHIR server following [the RBAC guide.](../../role-based-access-control/role-assignments-portal.md?tabs=current)
 
 ### 500 Internal Server Error
 
@@ -245,13 +245,11 @@ Below are some error codes you may encounter and the solutions to help you resol
 
 ## Bulk import - another option
 
-As illustrated in this article, $import is one way of doing bulk import. Another way is using an open-source solution, called [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader). FHIR-Bulk Loader is an Azure Function App solution that provides the following services for ingesting FHIR data:
+As illustrated in this article, $import is one way of doing bulk import. Another way is using an open-source solution, called [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader). FHIR-Bulk Loader is an Azure Function App solution that provides the following capabilities for ingesting FHIR data:
 
 * Imports FHIR Bundles (compressed and non-compressed) and NDJSON files into a FHIR service
 * High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources
 * Complete Auditing, Error logging and Retry for throttled transactions
-
-Regardless of whether you would like to use the $import API on the managed services or the FHIR Bulk Loader in open-source, you can achieve the same import solution.
 
 ## Next steps
 
@@ -266,3 +264,5 @@ In this article, you've learned about how the Bulk import feature enables import
 
 >[!div class="nextstepaction"]
 >[Copy data from Azure API for FHIR to Azure Synapse Analytics](copy-to-synapse.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

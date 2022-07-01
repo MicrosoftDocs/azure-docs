@@ -158,6 +158,7 @@ The following table has descriptions of each supported style.
 
 |Style|Description|
 |-----------|-------------|
+|`style="advertisement-upbeat"`|Expresses an excited and high-energy tone for promoting a product or service.|
 |`style="affectionate"`|Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The personality of the speaker is often endearing in nature.|
 |`style="angry"`|Expresses an angry and annoyed tone.|
 |`style="assistant"`|Expresses a warm and relaxed tone for digital assistants.|
@@ -181,9 +182,12 @@ The following table has descriptions of each supported style.
 |`style="newscast"`|Expresses a formal and professional tone for narrating news.|
 |`style="newscast-casual"`|Expresses a versatile and casual tone for general news delivery.|
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|
+|`style="poetry-reading"`|Expresses an emotional and rhythmic tone while reading a poem.|
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
 |`style="shouting"`|Speaks like from a far distant or outside and to make self be clearly heard|
+|`style="sports-commentary"`|Expresses a relaxed and interesting tone for broadcasting a sports event.|
+|`style="sports-commentary-excited"`|Expresses an intensive and energetic tone for broadcasting exciting moments in a sports event.|
 |`style="whispering"`|Speaks very softly and make a quiet and gentle sound|
 |`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
 |`style="unfriendly"`|Expresses a cold and indifferent tone.|
@@ -388,7 +392,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
 <voice name="en-US-JennyNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
@@ -436,7 +440,7 @@ The `ph` element is used for phonetic pronunciation in SSML documents. The `ph` 
 Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
-> At this time, the phonemes tag isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
+> Phonemes tag may not work on all locales.
 
 **Syntax**
 
@@ -767,6 +771,9 @@ Any audio included in the SSML document must meet these requirements:
 * The combined total time for all text and audio files in a single response can't exceed 600 seconds.
 * The audio must not contain any customer-specific or other sensitive information.
 
+> [!NOTE]
+> The 'audio' element is not supported by the Long Audio API.
+
 **Syntax**
 
 ```xml
@@ -802,6 +809,9 @@ You can use the `mstts:backgroundaudio` element to add background audio to your 
 If the background audio provided is shorter than the text-to-speech or the fade out, it loops. If it's longer than the text-to-speech, it stops when the fade out has finished.
 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
+
+> [!NOTE]
+> The `mstts:backgroundaudio` element is not supported by the Long Audio API.
 
 **Syntax**
 

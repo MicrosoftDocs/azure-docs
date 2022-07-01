@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 05/25/2021
 ms.topic: conceptual
-author: shashankbarsin
-ms.author: shasb
 description: "This article provides a conceptual overview of Custom Locations capability of Azure Arc-enabled Kubernetes"
 ---
 

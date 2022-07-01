@@ -282,7 +282,7 @@ Update payload file, e.g. binary, firmware, script, etc. Must be unique within u
 |---|---|---|---|
 |**filename**|`string`|Update payload file name.|Yes|
 |**sizeInBytes**|`number`|File size in number of bytes.|Yes|
-|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent.|Yes|
+|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
 
 Additional properties are not allowed.
 
@@ -314,7 +314,7 @@ File hashes.
 
 ### fileHashes object
 
-Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. For an example of how to calculate the hash correctly, see the [AduUpdate.psm1 script](https://github.com/Azure/iot-hub-device-update/blob/main/tools/AduCmdlets/AduUpdate.psm1).
+Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. For an example of how to calculate the hash correctly, see the Get-AduFileHashes function in [AduUpdate.psm1 script](https://github.com/Azure/iot-hub-device-update/blob/main/tools/AduCmdlets/AduUpdate.psm1).
 
 **Properties**
 

@@ -49,14 +49,15 @@ Then output the password and application ID.
 
 ```powershell
 $plainPassword
-$sp.ApplicationId
+$sp.AppId
 ```
 
 
 To authenticate to Azure, you also need to obtain your Azure tenant and subscription IDs with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-Get-AzSubscription
+$subName = "mySubscriptionName"
+$sub = Get-AzSubscription -SubscriptionName $subName
 ```
 
 
@@ -67,7 +68,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
 
 | Parameter                           | Where to obtain |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | View service principal ID with `$sp.applicationId` |
+| *client_id*                         | View service principal ID with `$sp.AppId` |
 | *client_secret*                     | View the auto-generated password with `$plainPassword` |
 | *tenant_id*                         | Output from `$sub.TenantId` command |
 | *subscription_id*                   | Output from `$sub.SubscriptionId` command |

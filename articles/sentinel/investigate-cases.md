@@ -102,9 +102,11 @@ To use the investigation graph:
 
     ![Explore more details](media/investigate-cases/exploration-cases.png)
 
-   For example, on a computer you can request related alerts. If you select an exploration query, the resulting entitles are added back to the graph. In this example, selecting **Related alerts** returned the following alerts into the graph:
+    For example, you can request related alerts. If you select an exploration query, the resulting entitles are added back to the graph. In this example, selecting **Related alerts** returned the following alerts into the graph:
 
     :::image type="content" source="media/investigate-cases/related-alerts.png" alt-text="Screenshot: view related alerts" lightbox="media/investigate-cases/related-alerts.png":::
+
+    See that the related alerts appear connected to the entity by dotted lines.
 
 1. For each exploration query, you can select the option to open the raw event results and the query used in Log Analytics, by selecting **Events\>**.
 
@@ -115,6 +117,10 @@ To use the investigation graph:
 1. Hover over the timeline to see which things on the graph occurred at what point in time.
 
     :::image type="content" source="media/investigate-cases/use-timeline.png" alt-text="Screenshot: use timeline in map to investigate alerts.'" lightbox="media/investigate-cases/use-timeline.png":::
+
+## Focus your investigation
+
+Learn how you can broaden or narrow the scope of your investigation by either [adding alerts to your incidents or removing alerts from incidents](relate-alerts-to-incidents.md).
 
 ## Similar incidents (preview)
 

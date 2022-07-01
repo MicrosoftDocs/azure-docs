@@ -68,17 +68,17 @@ You don't know what address your app actually uses. It could be any address in t
 
 More debug steps include:
 
-* Connect to a VM in your virtual network and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **test-netconnection**. The syntax is:
+* Connect to a VM in your virtual network and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **Test-NetConnection**. The syntax is:
     
-    ```powershell
-    test-netconnection hostname [optional: -Port]
-    ```
+```powershell
+Test-NetConnection hostname [optional: -Port]
+```
 
 * Bring up an application on a VM and test access to that host and port from the console from your app by using **tcpping**.
 
 #### On-premises resources
 
-If your app can't reach a resource on-premises, check if you can reach the resource from your virtual network. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection might not be configured properly.
+If your app can't reach a resource on-premises, check if you can reach the resource from your virtual network. Use the **Test-NetConnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection might not be configured properly.
 
 If your virtual network-hosted VM can reach your on-premises system but your app can't, the cause is likely one of the following reasons:
 

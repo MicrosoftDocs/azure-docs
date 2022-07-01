@@ -115,6 +115,11 @@ In a scenario where a retention policy is set as “1”, you can find two snaps
 - You clean up snapshots, which are past retention.
 - The garbage collector (GC) in the backend is under heavy load.
 
+> [!NOTE]
+> Azure Backup manages backups in automatic way. Azure Backup retains old snapshop as these are needed to mantain this backup for consistency purpose. If you delete snapshot manually, you might encounter problem in backup consistency.
+> If there are errors in your backup history, you need to stop backup with retain data option and resume the backup.
+> Consider creating a **backup strategy** if you've a particular scenario (for example, a virtual machine with multiple disks and requires oversize space). You need to separately create a backup for **VM with OS Disk** and create a different backup for **the other disks**.
+
 ### I don’t need Instant Restore functionality. Can it be disabled?
 
 Instant restore feature is enabled for everyone and can't be disabled. You can reduce the snapshot retention to a minimum of one day.
