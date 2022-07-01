@@ -30,7 +30,7 @@ Alerts are now automatically enabled by default, but in order to fully configure
 
 ### Alert frequency
 
-Availability alerts created through this experience are state-based, which means that when the alert criteria is met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it will not generate a new alert.
+Availability alerts which are created through this experience are state-based. When the alert criteria is met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it will not generate a new alert.
 
 For example, if your website is down for an hour and you have set up an e-mail alert with an evaluation frequency of 15 minutes, you will only receive an e-mail when the website goes down, and a subsequent e-mail when it is back up. You will not receive continuous alerts every 15 minutes reminding you that the website is still unavailable.
 
