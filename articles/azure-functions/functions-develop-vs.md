@@ -236,7 +236,7 @@ To republish a debug configured project to your function app in Azure:
 
 ### Attach the debugger
 
-The way you attach the debugger depends on your execution mode. When debugging an isolated process app, you need to attach the remote debugger to a separate .NET process, and several other configuration steps are required.
+The way you attach the debugger depends on your execution mode. When debugging an isolated process app, you currently need to attach the remote debugger to a separate .NET process, and several other configuration steps are required.
 
 # [In-process](#tab/in-process)
 
@@ -252,8 +252,8 @@ Visual Studio connects to your function app and enables remote debugging, if it'
 
 1. From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Download publish profile**. This downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated process running in Azure.
 
-> [!CAUTION]
-> The .publishsettings file contains your credentials (unencoded) that are used to administer your function app. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it after it's no longer needed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your function app.
+    > [!CAUTION]
+    > The .publishsettings file contains your credentials (unencoded) that are used to administer your function app. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it after it's no longer needed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your function app.
 
 1. Again select the ellipses (**...**) in the **Hosting** section, and this time choose **Open in Azure portal**. This opens the function app in the Azure portal to which your project is deployed. 
 
@@ -268,6 +268,8 @@ Visual Studio connects to your function app and enables remote debugging, if it'
     Verify that your target looks like `<FUNCTION_APP>.scm.azurewebsites.net:4024` and press **Enter**.
 
     ![Visual Studio attach to process dialog](./media/functions-develop-vs/attach-to-process-dialog.png)
+
+1. If prompted, allow Visual Studio access through your local firewall.
 
 1. When prompted for credentials, instead of local user credentials choose a different account and provide the values of **userName** and **userPWD** from the published profile in the for **Email address** and **Password** in the authentication dialog. After a secure connection is established with the deployment server, the available processes are shown.
 
