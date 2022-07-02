@@ -259,9 +259,6 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
                       --path "azureml://jobs/$JOB_NAME/outputs/artifacts/model"
    ```
    
-   > [!IMPORTANT]
-   > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
-   
    c. Create the deployment `YAML` file:
    
    __sklearn-deployment.yaml__
@@ -274,6 +271,9 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    instance_type: Standard_DS2_v2
    instance_count: 1
    ```
+   
+   > [!IMPORTANT]
+   > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
    
    # [From a local model](#tab/fromlocal)
    
