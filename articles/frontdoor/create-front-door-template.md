@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 
 # Quickstart: Create a Front Door Standard/Premium using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create a Azure Front Door Standard/Premium with a Web App as origin
+This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an Azure Front Door Standard/Premium with a Web App as origin
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,7 +34,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-gb/resources/templates/front-door-standard-premium-app-service-public/).
 
-In this quickstart, you will create a Front Door Standard/Premium, an App Service, and configure the App Service to validate that traffic has come through the Front Door origin.
+In this quickstart, you'll create a Front Door Standard/Premium, an App Service, and configure the App Service to validate that traffic has come through the Front Door origin.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/azuredeploy.json":::
 
@@ -71,7 +71,7 @@ One Azure resource is defined in the template:
 
 1. Enter the values.
 
-    The template deployment creates a Front Door with a a web app as origin
+    The template deployment creates a Front Door with a web app as origin
 
     The resource group name is the project name with **rg** appended.
 
@@ -92,7 +92,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 3. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
 
-4. Select the Front Door you created previously and you will be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
+4. Select the Front Door you created previously and you'll be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
 
     :::image type="content" source="./media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
 
@@ -100,7 +100,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 ## Clean up resources
 
-When you no longer need the Front Door service, delete the resource group. This removes the Front Door and all the related resources.
+When you no longer need the Front Door service, delete the resource group. This will remove the Front Door and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
