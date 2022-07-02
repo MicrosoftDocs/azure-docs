@@ -5,7 +5,7 @@ description: Learn how to use Azure Virtual WAN to create a site-to-site VPN con
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 05/02/2022
+ms.date: 06/16/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -46,7 +46,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 A virtual hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. It's also possible to create an empty virtual hub (a virtual hub that doesn't contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a virtual hub is created, you'll be charged for the virtual hub, even if you don't attach any sites or create any gateways within the virtual hub.
 
-[!INCLUDE [Create a virtual hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+[!INCLUDE [Create a virtual hub](../../includes/virtual-wan-hub-basics.md)]
 
 Don't create the virtual hub yet. Continue on to the next section to configure additional settings.
 
@@ -92,7 +92,7 @@ Use the VPN device configuration file to configure your on-premises VPN device. 
 
 The device configuration file contains the settings to use when configuring your on-premises VPN device. When you view this file, notice the following information:
 
-* **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public ip address of the branch device.
+* **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public IP address of the branch device.
 * **vpnSiteConnections -** This section provides information about the following settings:
 
     * **Address space** of the virtual hub(s) VNet.<br>Example:
@@ -245,7 +245,7 @@ On the **Edit VPN Gateway** page, you can see the following settings:
 * **Public IP Address**: Assigned by Azure.
 * **Private IP Address**: Assigned by Azure.
 * **Default BGP IP Address**: Assigned by Azure.
-* **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
+* **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP. Users can specify multiple custom BGP IP addresses for each instance. The same custom BGP IP address shouldn't be used for both instances. 
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/edit-gateway.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/edit-gateway.png":::
 

@@ -33,7 +33,7 @@ After deploying your project/knowledge base, you can create a bot from the **Dep
 
 * When you make changes to the knowledge base and redeploy, you don't need to take further action with the bot. It's already configured to work with the knowledge base, and works with all future changes to the knowledge base. Every time you publish a knowledge base, all the bots connected to it are automatically updated.
 
-1. In the Language Studio portal, on the question answering **Deploy knowledge base** page, select **Create bot**.
+1. In Language Studio, on the question answering **Deploy knowledge base** page, select **Create bot**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of UI with option to create a bot in Azure.](../media/bot-service/create-bot-in-azure.png)

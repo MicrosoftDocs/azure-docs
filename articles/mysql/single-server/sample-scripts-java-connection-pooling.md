@@ -7,8 +7,9 @@ ms.custom: devx-track-java
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: sample
-ms.date: 02/28/2018
+ms.date: 06/20/2022
 ---
+
 # Java sample to illustrate connection pooling
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

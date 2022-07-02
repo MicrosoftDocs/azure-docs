@@ -2,7 +2,7 @@
 title: Quickstart - Connect hybrid machine with Azure Arc-enabled servers
 description: In this quickstart, you connect and register a hybrid machine with Azure Arc-enabled servers.
 ms.topic: quickstart
-ms.date: 05/20/2022
+ms.date: 06/06/2022
 ms.custom: mode-other
 ---
 
@@ -34,7 +34,7 @@ Use the Azure portal to create a script that automates the agent download and in
 
 1. On the **Servers - Azure Arc** page, select **Add** near the upper left.-->
 
-1. [Go to the Azure portal page for adding servers with Azure Arc](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/HybridVmAddBlade). Select the **Add a single server** tile, then select **Generate script**.
+1. [Go to the Azure portal page for adding servers with Azure Arc](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/HybridVmAddBlade). Select the **Add a single server** tile, then select **Generate script**.
 
     :::image type="content" source="media/quick-enable-hybrid-vm/add-single-server.png" alt-text="Screenshot of Azure portal's add server page." lightbox="media/quick-enable-hybrid-vm/add-single-server-expanded.png":::
     > [!NOTE]

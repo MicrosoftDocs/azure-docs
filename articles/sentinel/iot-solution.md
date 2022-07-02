@@ -104,11 +104,11 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
-    | where ProductComponentName == " PROTOCOL_VIOLATION"
+    | where ProductComponentName == "PROTOCOL_VIOLATION"
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
-    | where ProductComponentName == " POLICY_VIOLATION"
+    | where ProductComponentName == "POLICY_VIOLATION"
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
@@ -191,6 +191,7 @@ The following table describes the out-of-the-box analytics rules provided in the
 | **High bandwidth in the network**                | An unusually high bandwidth may be an indication of a new service/process on the network, such as backup, or an indication of malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network.     |
 | **Denial of Service**    | This alert detects attacks that would prevent the use or proper operation of the DCS system.         |
 | **Unauthorized remote access to the network**    | Unauthorized remote access to the network can compromise the target device. <br><br> This means that if another device on the network is compromised, the target devices can be accessed remotely, increasing the attack surface.         |
+| **No traffic on Sensor Detected**    | A sensor that no longer detects network traffic indicates that the system may be insecure.         |
 
 # [Create and maintain analytics rules manually](#tab/create-and-maintain-analytics-rules-manually)
 

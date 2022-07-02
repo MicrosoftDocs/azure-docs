@@ -71,7 +71,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Bitscape](https://www.bitscape.com)|
 |[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
-|[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
+|[Blue Source Group, Inc.](https://bluesourcegroup.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
@@ -231,7 +231,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
 |[Jasper Solutions Inc.](https://jaspersolutions.com/)|
-|[JHC Technology, Inc.](https://www.effectual.com/jhc-technology/)|
 |[Quiet Professionals](https://quietprofessionalsllc.com)|
 |[Quzara LLC](https://www.quzara.com)|
 |[Karpel Solutions](https://www.karpel.com/)|

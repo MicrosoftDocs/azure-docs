@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 06/20/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: spring-cloud-tier-selection
 ---
@@ -90,7 +90,7 @@ Enable the Java In-Process Agent by using the following procedure.
 
 1. Select **Save** to save the change.
 
-> [!Note]
+> [!NOTE]
 > Do not use the same Application Insights instance in different Azure Spring Apps instances, or you'll see mixed data.
 
 ::: zone-end
@@ -344,7 +344,31 @@ az spring build-service builder buildpack-binding delete \
 
 ::: zone pivot="sc-standard-tier"
 
-The following sections describe how to automate your deployment using Azure Resource Manager templates (ARM templates) or Terraform.
+The following sections describe how to automate your deployment using Bicep, Azure Resource Manager templates (ARM templates) or Terraform.
+
+### Bicep
+
+To deploy using a Bicep file, copy the following content into a *main.bicep* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
+
+```bicep
+param springName string
+param location string = resourceGroup().location
+
+resource spring 'Microsoft.AppPlatform/Spring@2020-07-01' = {
+  name: springName
+  location: location
+  properties: {}
+}
+
+resource monitorSetting 'Microsoft.AppPlatform/Spring/monitoringSettings@2020-11-01-preview' = {
+  parent: spring
+  name: 'default'
+  properties: {
+    appInsightsInstrumentationKey: '00000000-0000-0000-0000-000000000000'
+    appInsightsSamplingRate: 88
+  }
+}
+```
 
 ### ARM templates
 
@@ -352,31 +376,38 @@ To deploy using an ARM template, copy the following content into an *azuredeploy
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.AppPlatform/Spring",
-            "name": "customize this",
-            "apiVersion": "2020-07-01",
-            "location": "[resourceGroup().location]",
-            "resources": [
-                {
-                    "type": "monitoringSettings",
-                    "apiVersion": "2020-11-01-preview",
-                    "name": "default",
-                    "properties": {
-                        "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
-                        "appInsightsSamplingRate": 88.0
-                    },
-                    "dependsOn": [
-                        "[resourceId('Microsoft.AppPlatform/Spring', 'customize this')]"
-                    ]
-                }
-            ],
-            "properties": {}
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "springName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.AppPlatform/Spring",
+      "apiVersion": "2020-07-01",
+      "name": "[parameters('springName')]",
+      "location": "[parameters('location')]",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.AppPlatform/Spring/monitoringSettings",
+      "apiVersion": "2020-11-01-preview",
+      "name": "[format('{0}/{1}', parameters('springName'), 'default')]",
+      "properties": {
+        "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
+        "appInsightsSamplingRate": 88
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.AppPlatform/Spring', parameters('springName'))]"
+      ]
+    }
+  ]
 }
 ```
 
@@ -438,7 +469,7 @@ Automation in Enterprise tier is pending support. Documentation will be added as
 
 The Java agent will be updated/upgraded regularly with the JDK, which may affect the following scenarios.
 
-> [!Note]
+> [!NOTE]
 > The JDK version will be updated/upgraded quarterly per year.
 
 * Existing applications that use the Java agent before updating/upgrading won't be affected.
@@ -459,7 +490,7 @@ The Java agent will be updated/upgraded when the buildpack is updated.
 
 Azure Spring Apps has enabled a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
 
-> [!Note]
+> [!NOTE]
 > The hot-loading mechanism has a delay in minutes.
 
 * When the Java agent has been previously enabled, changes to the Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
