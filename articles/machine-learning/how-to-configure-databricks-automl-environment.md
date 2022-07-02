@@ -24,7 +24,7 @@ For information on other machine learning development environments, see [Set up 
 
 ## Prerequisite
 
-Azure Machine Learning workspace. If you don't have one, you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
+Azure Machine Learning workspace. To create one, use the steps in the [Create workspace resources](quickstart-create-resources.md) article.
 
 
 ## Azure Databricks with Azure Machine Learning and AutoML
