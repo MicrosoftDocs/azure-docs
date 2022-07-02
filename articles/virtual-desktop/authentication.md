@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 07/26/2022
 ms.author: helohr
 manager: femila
 ---
@@ -85,7 +85,7 @@ If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved yo
 
 ### Single sign-on (SSO)
 
-SSO allows the connection to skip the session host credential prompt and automatically sign the user in to Windows. For session hosts that are Azure AD-joined or Hybrid Azure AD-joined, it is recommended to enable [SSO using Azure AD authentication](configure-single-sign-on.md). Azure AD authentication provides additional benefits including passwordless authentication.
+SSO allows the connection to skip the session host credential prompt and automatically sign the user in to Windows. For session hosts that are Azure AD-joined or Hybrid Azure AD-joined, it is recommended to enable [SSO using Azure AD authentication](configure-single-sign-on.md). Azure AD authentication provides additional benefits including passwordless authentication and support for third-party identity providers.
 
 Azure Virtual Desktop also supports [SSO using Active Directory Federation Services (AD FS)](configure-adfs-sso.md) for the Windows and web clients.
 
@@ -101,7 +101,14 @@ Once you're connected to your remote app or desktop, you may be prompted for aut
 
 ### Passwordless authentication
 
-Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices (e.g. FIDO keys). This functionality is enabled by default and can be configured using [WebAuthn redirection](configure-device-redirections.md#webauthn-redirection).
+Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices (e.g. FIDO keys). This functionality is enabled by default when the local PC and session hosts use a supported operating system and it can be configured using the [WebAuthn redirection](configure-device-redirections.md#webauthn-redirection) RDP property. The supported operating systems are:
+
+- Windows 11 Enterprise single or multi-session with the [2022-09 Cumulative Updates for Windows 11]() or later installed.
+- Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-09 Cumulative Updates for Windows 10]() or later installed.
+- Windows Server, version 2022 with the [2022-09 Cumulative Update for Microsoft server operating system]() or later installed.
+- Windows Server, version 2019 with the [2022-09 Cumulative Update for Microsoft server operating system]() or later installed.
+
+When enabled, all WebAuthn requests in the session are redirected to the local PC where you can use your local biometrics with Windows Hello for Business or locally attached security devices to complete the authentication process.
 
 ### Smart cards
 

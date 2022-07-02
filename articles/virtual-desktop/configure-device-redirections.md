@@ -3,7 +3,7 @@ title: Configure device redirection - Azure
 description: How to configure device redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 07/26/2022
 ms.author: helohr
 manager: femila
 ---

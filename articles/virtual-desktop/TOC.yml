@@ -345,6 +345,8 @@
     href: remotefx-graphics-performance-counters.md
   - name: Connections to Azure AD-joined VMs
     href: troubleshoot-azure-ad-connections.md
+  - name: Device redirections
+    href: troubleshoot-device-redirections.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
   - name: Azure Files authorization
