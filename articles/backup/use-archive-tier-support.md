@@ -20,8 +20,8 @@ This article provides the procedure to back up long-term retention points in Arc
 
 | Workloads | Operations |
 | --- | --- |
-| Azure virtual machine | View archived recovery points.    <br><br>   Move all recommended recovery points to archive.<br><br> Restore for archived recovery points.   <br><br>  View archive move and restore jobs.  |
-| SQL Server in Azure virtual machine  <br><br> SAP HANA in Azure virtual machines | View archived recovery points.    <br><br>  Move all archivable recovery points to archive.  <br><br>  Restore from archived recovery points.   <br><br>  View archive move and restore jobs. |
+| Microsoft Azure Virtual Machine | View archived recovery points.    <br><br>   Move all recommended recovery points to archive.<br><br> Restore for archived recovery points.   <br><br>  View archive move and restore jobs.  |
+| SQL Server in Azure Virtual Machine  <br><br> SAP HANA in Azure Virtual Machines | View archived recovery points.    <br><br>  Move all archivable recovery points to archive.  <br><br>  Restore from archived recovery points.   <br><br>  View archive move and restore jobs. |
 
 ## View archived recovery points
 
@@ -54,7 +54,7 @@ To enable a subscription, follow these steps:
 
 The subscription gets enabled for Smart Tiering in a few minutes.
 
-### Enable Smart Tiering for Azure virtual machine
+### Enable Smart Tiering for Azure Virtual Machine
 
 To enable Smart Tiering for Azure VM backup policies, follow these steps:
 
@@ -82,7 +82,7 @@ To enable Smart Tiering for Azure VM backup policies, follow these steps:
 
 Once the policy is configured, all the recommended recovery points are moved to archive tier.
 
-### Enable Smart Tiering for SAP HANA/  SQL Servers in Azure virtual machines
+### Enable Smart Tiering for SAP HANA/  SQL Servers in Azure Virtual Machines
 
 To enable Smart Tiering for Azure SAP HANA/SQL servers in Azure VM backup policies, follow these steps:
 
@@ -116,9 +116,9 @@ Follow these steps:
 
 1. Select **click here** to view the list of all eligible achievable recovery points.
 
-   :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-recovery-points-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points that are older than seven days." lightbox="./media/use-archive-tier-support/view-old-recovery-points-expanded.png":::
 
-1. Click **Move recovery points to archive** to move all recovery points to the Vault-archive tier.
+1. Select **Move recovery points to archive** to move all recovery points to the Vault-archive tier.
 
    :::image type="content" source="./media/use-archive-tier-support/move-all-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-recovery-points-to-vault-expanded.png":::
 
@@ -129,19 +129,19 @@ You can monitor the progress in backup jobs.
 
 ### Move recommended recovery points for a particular Azure Virtual Machine
 
-You can move all recommended recovery points for selected Azure virtual machines to the Vault-archive tier. [Learn](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendation set for Azure virtual machine.
+You can move all recommended recovery points for selected Azure Virtual Machines to the Vault-archive tier. [Learn](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendation set for Azure Virtual Machine.
 
 Follow these steps:
 
-1. Select the virtual machine whose recovery points you want to move to the Vault-archive tier.
+1. Select the Virtual Machine whose recovery points you want to move to the Vault-archive tier.
 
 1. Select **click here** to view recommended recovery points.
 
-   :::image type="content" source="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points for virtual machines that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points for Virtual Machines that are older than seven days." lightbox="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-expanded.png":::
 
-1. Click **Move recovery points to archive** to move all the recommended recovery points to Archive tier.
+1. Select **Move recovery points to archive** to move all the recommended recovery points to Archive tier.
 
-   :::image type="content" source="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points for virtual machines to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points for Virtual Machines to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-expanded.png":::
 
 >[!Note]
 >To ensure cost savings, you need to move all the recommended recovery points to the Vault-archive tier. To verify, follow steps 1 and 2. If the list of recovery points is empty in step 3, all the recommended recovery points are moved to the Vault-archive tier.
@@ -177,7 +177,7 @@ This article provides the procedure to back up long-term retention points in Arc
 
 | Workloads | Operations |
 | --- | --- |
-| Azure Virtual Machines   <br><br>  SQL Server in Azure Virtual Machines   | View archivable recovery points.    <br><br>  View recommended recovery points (only for virtual machines).  <br><br>  Move archivable recovery points.   <br><br>  Move recommended recovery points (only for Azure virtual machines).   <br><br>  View archived recovery points.   <br><br>  Restore from archived recovery points.  |
+| Azure Virtual Machines   <br><br>  SQL Server in Azure Virtual Machines   | View archivable recovery points.    <br><br>  View recommended recovery points (only for Virtual Machines).  <br><br>  Move archivable recovery points.   <br><br>  Move recommended recovery points (only for Azure Virtual Machines).   <br><br>  View archived recovery points.   <br><br>  Restore from archived recovery points.  |
 
 ## Get started
 
@@ -205,13 +205,13 @@ This article provides the procedure to back up long-term retention points in Arc
 
 1. Get the list of backup items:
 
-   - **For Azure virtual machines**
+   - **For Azure Virtual Machines**
 
        ```azurepowershell
        $BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"
        ```
 
-   - **For SQL Server in Azure virtual machines**
+   - **For SQL Server in Azure Virtual Machines**
 
        ```azurepowershell
        $BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"
@@ -219,13 +219,13 @@ This article provides the procedure to back up long-term retention points in Arc
 
 1. Get the backup item.
 
-   - **For Azure virtual machines**
+   - **For Azure Virtual Machines**
 
      ```azurepowershell
      $bckItm = $BackupItemList | Where-Object {$_.Name -match '<vmName>'}
      ```
 
-   - **For SQL Server in Azure virtual machines**
+   - **For SQL Server in Azure Virtual Machines**
 
      ```azurepowershell
      $bckItm = $BackupItemList | Where-Object {$_.FriendlyName -eq '<dbName>' -and $_.ContainerName -match '<vmName>'}
@@ -256,7 +256,7 @@ $rp | select RecoveryPointId, @{ Label="IsArchivable";Expression={$_.RecoveryPoi
 $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
-This lists all recovery points associated with a particular backup item that's ready to be moved to archive (from the start date to the end date). You can also modify the start dates and the end dates.
+This cmdlet lists all recovery points associated with a particular backup item that's ready to be moved to archive (from the start date to the end date). You can also modify the start dates and the end dates.
 
 ## Check why a recovery point can't be moved to archive
 
@@ -277,7 +277,7 @@ False           Recovery-Point Type is not eligible for archive move as it is al
 
 ## Check recommended set of archivable points (only for Azure VMs)
 
-The recovery points associated with a virtual machine are incremental. When you move a particular recovery point to archive, it's converted into a full backup, and then moved to archive. So, the cost savings associated with moving to archive depends on the churn of the data source.
+The recovery points associated with a Virtual Machine are incremental. When you move a particular recovery point to archive, it's converted into a full backup, then moved to archive. So, the cost savings associated with moving to archive depends on the churn of the data source.
 
 Therefore, Azure Backup provides a recommended set of recovery points that might save cost, if moved together.
 
@@ -320,13 +320,13 @@ The integrated restore is a two-step process.
 >- The rehydration duration once selected can't be changed and the rehydrated recovery points stay in the standard tier for the rehydration duration.
 >- The additional step of rehydration incurs cost.
 
-For more information about various restore methods for Azure virtual machines, see [Restore an Azure VM with PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
+For more information about various restore methods for Azure Virtual Machines, see [Restore an Azure VM with PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ```azurepowershell
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` cmdlet requires two additional parameters, `RehydrationDuration` and `RehydrationPriority`.
+To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` cmdlet requires two other parameters, `RehydrationDuration` and `RehydrationPriority`.
 
 ## View jobs
 
@@ -343,7 +343,7 @@ You can now use sample scripts to perform at scale operations. [Learn more](http
 You can perform the following operations using the sample scripts provided by Azure Backup:
 
 - Move all eligible recovery points for a particular database/all databases for a SQL server in Azure VM to Archive tier.
-- Move all recommended recovery points for a particular Azure virtual machine to Archive tier.
+- Move all recommended recovery points for a particular Azure Virtual Machine to Archive tier.
  
 You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
 
@@ -364,17 +364,17 @@ This article provides the procedure to back up long-term retention points in the
 
 | Workloads | Operations |
 | --- | --- |
-| Azure virtual machines    <br><br>  SQL Server in Azure virtual machines   <br><br>   SAP HANA in Azure virtual machines |  View archivable recovery points.       <br><br>  View recommended recovery points (only for virtual machines).    <br><br>  Move archivable recovery points.    <br><br>  Move recommended recovery points (only for Azure virtual machines).    <br><br>  View archived recovery points.    <br><br>  Restore from archived recovery points.  |
+| Azure Virtual Machines    <br><br>  SQL Server in Azure Virtual Machines   <br><br>   SAP HANA in Azure Virtual Machines |  View archivable recovery points.       <br><br>  View recommended recovery points (only for Virtual Machines).    <br><br>  Move archivable recovery points.    <br><br>  Move recommended recovery points (only for Azure Virtual Machines).    <br><br>  View archived recovery points.    <br><br>  Restore from archived recovery points.  |
 
 
 ## Get started
 
-1. Download/Upgrade AZ CLI version to 2.26.0 or higher 
+1. Download/Upgrade Azure CLI version to 2.26.0 or higher.
 
    1. Follow the [instructions](/cli/azure/install-azure-cli) to install CLI for the first time.
-   1. Run az --upgrade to upgrade an already installed version.
+   1. Run `az --upgrade` to upgrade an already installed version.
 
-2. Log in  using the following command:
+2. Sign in  using the following command:
 
    ```azurecli
    az login
@@ -389,19 +389,19 @@ This article provides the procedure to back up long-term retention points in the
 
 You can move the archivable recovery points to the Vault-archive tier using the following commands. [Learn more](archive-tier-support.md#supported-workloads) about the eligibility criteria.
 
-- **For Azure virtual machines**
+- **For Azure Virtual Machines**
 
   ```azurecli
   az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureIaasVM} --workload-type {VM}  --target-tier {VaultArchive} --is-ready-for-move {True}
   ```
 
-- For SQL Server in Azure virtual machines
+- For SQL Server in Azure Virtual Machines
 
   ```azurecli
   az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {MSSQL}  --target-tier {VaultArchive} --is-ready-for-move {True}
   ```
 
-- For SAP HANA in Azure virtual machines
+- For SAP HANA in Azure Virtual Machines
 
   ```azurecli
   az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {SAPHANA}  --target-tier {VaultArchive} --is-ready-for-move {True}
@@ -415,7 +415,7 @@ Run the following command:
 az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload / AzureIaasVM} --workload-type {MSSQL / SAPHANA / VM}  --query [].{Name:name,move_ready:properties.recoveryPointMoveReadinessInfo.ArchivedRP.isReadyForMove,additional_details: properties.recoveryPointMoveReadinessInfo.ArchivedRP.additionalInfo
 ```
 
-You will get a list of all recovery points, whether they are archivable and the reason if they are not archivable
+You'll get a list of all recovery points, whether they're archivable and the reason if they're not archivable
 
 ## Check recommended set of archivable points (only for Azure VMs)
 
@@ -435,17 +435,17 @@ az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backu
 
 You can move archivable recovery points to the Vault-archive tier using the following commands. The name parameter in the command should contain the name of an archivable recovery point.
 
-- **For Azure virtual machine**
+- **For Azure Virtual Machine**
 
   ```azurecli
   az backup recoverypoint move -g {rg} -v {vault} -c {container} -i {item} --backup-management-type { AzureIaasVM} --workload-type {VM} --source-tier {VaultStandard} --destination-tier {VaultArchive} --name {rp}
   ```
-- **For SQL Server in Azure virtual machine**
+- **For SQL Server in Azure Virtual Machine**
 
   ```azurecli
   az backup recoverypoint move -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {MSSQL} --source-tier {VaultStandard} --destination-tier {VaultArchive} --name {rp}
   ```
-- **For SAP HANA in Azure virtual machine**
+- **For SAP HANA in Azure Virtual Machine**
 
   ```azurecli
   az backup recoverypoint move -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {SAPHANA} --source-tier {VaultStandard} --destination-tier {VaultArchive} --name {rp}
@@ -455,17 +455,17 @@ You can move archivable recovery points to the Vault-archive tier using the foll
 
 Use the following commands:
 
-- **For Azure virtual machines**
+- **For Azure Virtual Machines**
 
     ```azurecli
     az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload } --workload-type {VM} -- tier {VaultArchive}
     ```
-- **For SQL Server in Azure virtual machines**
+- **For SQL Server in Azure Virtual Machines**
 
     ```azurecli
     az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {MSSQL} -- tier {VaultArchive}
     ```
-- **For SAP HANA in Azure virtual machines**
+- **For SAP HANA in Azure Virtual Machines**
 
     ```azurecli
     az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {SAPHANA} -- tier {VaultArchive}
@@ -475,7 +475,7 @@ Use the following commands:
 
 Run the following commands:
 
-- **For Azure virtual machines**
+- **For Azure Virtual Machines**
 
     ```azurecli
     az backup restore restore-disks -g {rg} -v {vault} -c {container} -i {item} --rp-name {rp} --storage-account {storage_account} --rehydration-priority {Standard / High} --rehydration-duration {rehyd_dur}
