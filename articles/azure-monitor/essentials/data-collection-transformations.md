@@ -40,7 +40,7 @@ For example, a DCR that collects data from a virtual machine using Azure Monitor
 ## Workspace transformations
 Workspace transformations provide ingestion-time transformations for workflows that send data to a Log Analytics workspace but don't yet use the Azure Monitor data ingestion pipeline, which is any workflow that doesn't use a [data collection rule (DCR)](data-collection-rule-overview.md). 
 
-Workspace transformations are defined in a [workspace DCR](data-collection-rule-overview.md#types-of-data-collection-rules), which is associated with the workspace itself. This DCR can contain a transformation for one more [supported tables](tables-feature-support.md). Any data sent to these tables not using another DCR have the transformation applied. 
+Workspace transformations are defined in a [workspace DCR](data-collection-rule-overview.md#types-of-data-collection-rules), which is associated with the workspace itself. This DCR can contain a transformation for one more [supported tables](../logs/tables-feature-support.md). Any data sent to these tables not using another DCR have the transformation applied. 
 
 A common example is [resource logs](resource-logs.md) which are configured with a [diagnostic setting](diagnostic-settings.md). This is shown in the example below. 
 
@@ -53,7 +53,7 @@ The following table lists guidance for different methods for creating trasnforma
 |:---|:---|
 | Transformation queries | [Structure of ingestion-time transformations in Azure Monitor (preview)](ingestion-time-transformations-structure.md) |
 | Data ingestion API with transformation | [Send custom logs to Azure Monitor Logs using the Azure portal](../logs/tutorial-data-ingestion-portal.md)<br>[Send custom logs to Azure Monitor Logs using Resource Manager templates](../logs/tutorial-data-ingestion-api.md) |
-| Workspace transformations | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-workspace-tranformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](tutorial-workspace-tranformations-api.md)
+| Workspace transformations | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](tutorial-workspace-transformations-api.md)
 
 
 ## Next steps

@@ -11,7 +11,7 @@ ms.date: 01/19/2022
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
 ## Basic operation
-The transformation is a [KQL query](../essentials/data-collection-rule-transformations.md) that runs against the incoming data and modifies it before it's stored in the workspace. Transformations are defined separately for each table in the workspace. This article provides an overview of this feature and guidance for further details and samples. Configuration for ingestion-time transformation is stored in a workspace transformation DCR. You can either [create this DCR directly](tutorial-ingestion-time-transformations-api.md) or configure transformation [through the Azure portal](tutorial-ingestion-time-transformations.md). 
+The transformation is a [KQL query](../essentials//data-collection-transformations.md) that runs against the incoming data and modifies it before it's stored in the workspace. Transformations are defined separately for each table in the workspace. This article provides an overview of this feature and guidance for further details and samples. Configuration for ingestion-time transformation is stored in a workspace transformation DCR. You can either [create this DCR directly](tutorial-workspace-transformations-api.md) or configure transformation [through the Azure portal](tutorial-workspace-transformations-portal.md). 
 
 
 
@@ -21,16 +21,16 @@ See [Supported tables for ingestion-time transformations](tables-feature-support
 ## Configure ingestion-time transformation
 See the following tutorials for a complete walkthrough of configuring ingestion-time transformation.
 
-- [Azure portal](../logs/tutorial-ingestion-time-transformations.md)
-- [Resource Manager templates and REST API](../logs/tutorial-ingestion-time-transformations-api.md)
+- [Azure portal](../logs/tutorial-workspace-transformations-portal.md)
+- [Resource Manager templates and REST API](../logs/tutorial-workspace-transformations-api.md)
 
 
 ## Limits
 
-- Transformation queries use a subset of KQL. See [Supported KQL features](../essentials/data-collection-rule-transformations.md#supported-kql-features) for details.
+- Transformation queries use a subset of KQL. See [Supported KQL features](../essentials//data-collection-transformations.md#supported-kql-features) for details.
 
 ## Next steps
 
-- [Get details on transformation queries](../essentials/data-collection-rule-transformations.md)
-- [Walk through configuration of ingestion-time transformation using the Azure portal](tutorial-ingestion-time-transformations.md)
-- [Walk through configuration of ingestion-time transformation using Resource Manager templates and REST API](tutorial-ingestion-time-transformations.md)
+- [Get details on transformation queries](../essentials//data-collection-transformations.md)
+- [Walk through configuration of ingestion-time transformation using the Azure portal](tutorial-workspace-transformations-portal.md)
+- [Walk through configuration of ingestion-time transformation using Resource Manager templates and REST API](tutorial-workspace-transformations-portal.md)

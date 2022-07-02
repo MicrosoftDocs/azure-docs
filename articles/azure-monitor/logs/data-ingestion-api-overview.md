@@ -48,12 +48,12 @@ Data ingestion API can send data to the following built-in tables. Other tables 
 Authentication for the data ingestion API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-data-ingestion-portal.md).
 
 ## Source data
-The source data sent by your application is formatted in JSON and must match the structure expected by the data collection rule. It doesn't necessarily need to match the structure of the target table since the DCR can include a [transformation](../essentials/data-collection-rule-transformations.md) to convert the data to match the table's structure.
+The source data sent by your application is formatted in JSON and must match the structure expected by the data collection rule. It doesn't necessarily need to match the structure of the target table since the DCR can include a [transformation](../essentials//data-collection-transformations.md) to convert the data to match the table's structure.
 
 ## Data collection rule
 [Data collection rules](../essentials/data-collection-rule-overview.md) define data collected by Azure Monitor and specify how and where that data should be sent or stored. The REST API call must specify a DCR to use. A single DCE can support multiple DCRs, so you can specify a different DCR for different sources and target tables.
 
-The DCR must understand the structure of the input data and the structure of the target table. If the two don't match, it can use a [transformation](../essentials/data-collection-rule-transformations.md) to convert the source data to match the target table. You may also use the transformation to filter source data and perform any other calculations or conversions.
+The DCR must understand the structure of the input data and the structure of the target table. If the two don't match, it can use a [transformation](../essentials//data-collection-transformations.md) to convert the source data to match the target table. You may also use the transformation to filter source data and perform any other calculations or conversions.
 
 ## Sending data
 To send data to Azure Monitor with the data ingestion API, make a POST call to the data collection endpoint over HTTP. Details of the call are as follows:

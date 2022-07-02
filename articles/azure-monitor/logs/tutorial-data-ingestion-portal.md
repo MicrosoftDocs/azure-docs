@@ -214,7 +214,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
 
 2. Data from the sample file is displayed with a warning that a `TimeGenerated` is not in the data. All log tables within Azure Monitor Logs are required to have a `TimeGenerated` column populated with the timestamp of logged event. In this sample, the timestamp of event is stored in field called `Time`. You're going to add a transformation that will rename this column in the output. 
 
-3. Click **Transformation editor** to open the transformation editor to add this column. You're going to add a transformation that will rename this column in the output. The transformation editor lets you create a transformation for the incoming data stream. This is a KQL query that is run against each incoming record. The results of the query will be stored in the destination table. See [Data collection rule transformations in Azure Monitor](../essentials/data-collection-rule-transformations.md) for details on transformation queries.
+3. Click **Transformation editor** to open the transformation editor to add this column. You're going to add a transformation that will rename this column in the output. The transformation editor lets you create a transformation for the incoming data stream. This is a KQL query that is run against each incoming record. The results of the query will be stored in the destination table. See [Data collection rule transformations in Azure Monitor](../essentials//data-collection-transformations.md) for details on transformation queries.
 
     :::image type="content" source="media/tutorial-custom-logs/custom-log-data-preview.png" lightbox="media/tutorial-custom-logs/custom-log-data-preview.png" alt-text="Screenshot showing custom log data preview.":::
 
@@ -857,4 +857,4 @@ Following is sample data that you can use for the tutorial. Alternatively, you c
 
 - [Complete a similar tutorial using the Azure portal.](tutorial-data-ingestion-api.md)
 - [Read more about custom logs.](data-ingestion-api-overview.md)
-- [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)
+- [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)

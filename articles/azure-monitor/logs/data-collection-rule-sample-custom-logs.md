@@ -10,7 +10,7 @@ ms.date: 02/15/2022
 The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [custom logs](../logs/data-ingestion-api-overview.md). It has the following details:
 
 - Sends data to a table called MyTable_CL in a workspace called my-workspace.
-- Applies a [transformation](../essentials/data-collection-rule-transformations.md) to the incoming data.
+- Applies a [transformation](../essentials//data-collection-transformations.md) to the incoming data.
 
 ## Sample DCR
 

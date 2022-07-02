@@ -70,7 +70,7 @@ Virtual machines can vary significantly in the amount of data they collect, depe
 
 
 ### Use transformations to filter events
-The bulk of data collection from virtual machines will be from Windows or Syslog events. While you can provide more filtering with the Azure Monitor agent, you still may be collecting records that provide little value. Use [transformations](essentials/data-collection-rule-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
+The bulk of data collection from virtual machines will be from Windows or Syslog events. While you can provide more filtering with the Azure Monitor agent, you still may be collecting records that provide little value. Use [transformations](essentials//data-collection-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
 
 See the section below on filtering data with transformations for a summary on where to implement filtering and transformations for different data sources.
 
@@ -110,7 +110,7 @@ See the documentation for other services that store their data in a Log Analytic
 
 
 ## Filter data with transformations (preview)
-[Data collection rule transformations in Azure Monitor](essentials/data-collection-rule-transformations.md) allow you to filter incoming data to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its billable size as described in [Data size calculation](logs/cost-logs.md#data-size-calculation).
+[Data collection rule transformations in Azure Monitor](essentials//data-collection-transformations.md) allow you to filter incoming data to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its billable size as described in [Data size calculation](logs/cost-logs.md#data-size-calculation).
 
 Use ingestion-time transformations on the workspace to further filter data for workflows where you don't have granular control. For example, you can select categories in a [diagnostic setting](essentials/diagnostic-settings.md) to collect resource logs for a particular service, but that category might send a variety of records that you don't need. Create a transformation for the table that service uses to filter out records you don't want.
 

@@ -50,7 +50,7 @@ Use the following procedures from the Log Analytics and Azure Monitor documentat
 - Walk through a tutorial for [ingesting custom logs using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-custom-logs-api.md).
 
 [Ingestion-time data transformation](../azure-monitor/logs/ingestion-time-transformations.md):
-- Walk through a tutorial for [configuring ingestion-time transformation using the Azure portal](../azure-monitor/logs/tutorial-ingestion-time-transformations.md).
+- Walk through a tutorial for [configuring ingestion-time transformation using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
 - Walk through a tutorial for [configuring ingestion-time transformation using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-ingestion-time-transformations-api.md).- 
 
 [More on data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md):

@@ -290,4 +290,4 @@ There is currently a known issue affecting dynamic columns. A temporary workarou
 
 - [Read more about ingestion-time transformations](ingestion-time-transformations.md)
 - [See which tables support ingestion-time transformations](tables-feature-support.md)
-- [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)
+- [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)

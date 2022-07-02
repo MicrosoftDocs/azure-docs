@@ -445,4 +445,4 @@ The cache that drives IntelliSense may take up to 24 hours to update.
 
 - [Complete a similar tutorial using the Azure portal.](tutorial-data-ingestion-portal.md)
 - [Read more about custom logs.](data-ingestion-api-overview.md)
-- [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)
+- [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)

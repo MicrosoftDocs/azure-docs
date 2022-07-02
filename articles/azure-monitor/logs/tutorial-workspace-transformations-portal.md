@@ -13,7 +13,7 @@ Workspace transformations are stored together in a single [data collection rule 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
 > [!NOTE]
-> This tutorial uses the Azure portal to configure a workspace transformation. See [Tutorial: Add workspace transformation to Azure Monitor using resource manager templates (preview)](tutorial-ingestion-time-transformations-api.md) for the same tutorial using resource manager templates and REST API.
+> This tutorial uses the Azure portal to configure a workspace transformation. See [Tutorial: Add workspace transformation to Azure Monitor using resource manager templates (preview)](tutorial-workspace-transformations-api.md) for the same tutorial using resource manager templates and REST API.
 
 In this tutorial, you learn to:
 
