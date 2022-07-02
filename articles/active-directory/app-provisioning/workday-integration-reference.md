@@ -357,52 +357,52 @@ The table below provides guidance on mapping configuration to use to retrieve a 
 
 | \# | Workday Entity                       | Included by default | XPATH pattern to specify in mapping to fetch non-default entities             |
 |----|--------------------------------------|---------------------|-------------------------------------------------------------------------------|
-| 1  | Personal Data                        | Yes                 | wd:Worker\_Data/wd:Personal\_Data                                             |
-| 2  | Employment Data                      | Yes                 | wd:Worker\_Data/wd:Employment\_Data                                           |
-| 3  | Additional Job Data                  | Yes                 | wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary\_Job=0\]|
-| 4  | Organization Data                    | Yes                 | wd:Worker\_Data/wd:Organization\_Data                                         |
-| 5  | Management Chain Data                | Yes                 | wd:Worker\_Data/wd:Management\_Chain\_Data                                    |
-| 6  | Supervisory Organization             | Yes                 | 'SUPERVISORY'                                                                 |
-| 7  | Company                              | Yes                 | 'COMPANY'                                                                     |
-| 8  | Business Unit                        | No                  | 'BUSINESS\_UNIT'                                                              |
-| 9  | Business Unit Hierarchy              | No                  | 'BUSINESS\_UNIT\_HIERARCHY'                                                   |
-| 10 | Company Hierarchy                    | No                  | 'COMPANY\_HIERARCHY'                                                          |
-| 11 | Cost Center                          | No                  | 'COST\_CENTER'                                                                |
-| 12 | Cost Center Hierarchy                | No                  | 'COST\_CENTER\_HIERARCHY'                                                     |
-| 13 | Fund                                 | No                  | 'FUND'                                                                        |
-| 14 | Fund Hierarchy                       | No                  | 'FUND\_HIERARCHY'                                                             |
-| 15 | Gift                                 | No                  | 'GIFT'                                                                        |
-| 16 | Gift Hierarchy                       | No                  | 'GIFT\_HIERARCHY'                                                             |
-| 17 | Grant                                | No                  | 'GRANT'                                                                       |
-| 18 | Grant Hierarchy                      | No                  | 'GRANT\_HIERARCHY'                                                            |
-| 19 | Business Site Hierarchy              | No                  | 'BUSINESS\_SITE\_HIERARCHY'                                                   |
-| 20 | Matrix Organization                  | No                  | 'MATRIX'                                                                      |
-| 21 | Pay Group                            | No                  | 'PAY\_GROUP'                                                                  |
-| 22 | Programs                             | No                  | 'PROGRAMS'                                                                    |
-| 23 | Program Hierarchy                    | No                  | 'PROGRAM\_HIERARCHY'                                                          |
-| 24 | Region                               | No                  | 'REGION\_HIERARCHY'                                                           |
-| 25 | Location Hierarchy                   | No                  | 'LOCATION\_HIERARCHY'                                                         |
-| 26 | Account Provisioning Data            | No                  | wd:Worker\_Data/wd:Account\_Provisioning\_Data                                |
-| 27 | Background Check Data                | No                  | wd:Worker\_Data/wd:Background\_Check\_Data                                    |
-| 28 | Benefit Eligibility Data             | No                  | wd:Worker\_Data/wd:Benefit\_Eligibility\_Data                                 |
-| 29 | Benefit Enrollment Data              | No                  | wd:Worker\_Data/wd:Benefit\_Enrollment\_Data                                  |
-| 30 | Career Data                          | No                  | wd:Worker\_Data/wd:Career\_Data                                               |
-| 31 | Compensation Data                    | No                  | wd:Worker\_Data/wd:Compensation\_Data                                         |
-| 32 | Contingent Worker Tax Authority Data | No                  | wd:Worker\_Data/wd:Contingent\_Worker\_Tax\_Authority\_Form\_Type\_Data       |
-| 33 | Development Item Data                | No                  | wd:Worker\_Data/wd:Development\_Item\_Data                                    |
-| 34 | Employee Contracts Data              | No                  | wd:Worker\_Data/wd:Employee\_Contracts\_Data                                  |
-| 35 | Employee Review Data                 | No                  | wd:Worker\_Data/wd:Employee\_Review\_Data                                     |
-| 36 | Feedback Received Data               | No                  | wd:Worker\_Data/wd:Feedback\_Received\_Data                                   |
-| 37 | Worker Goal Data                     | No                  | wd:Worker\_Data/wd:Worker\_Goal\_Data                                         |
-| 38 | Photo Data                           | No                  | wd:Worker\_Data/wd:Photo\_Data                                                |
-| 39 | Qualification Data                   | No                  | wd:Worker\_Data/wd:Qualification\_Data                                        |
-| 40 | Related Persons Data                 | No                  | wd:Worker\_Data/wd:Related\_Persons\_Data                                     |
-| 41 | Role Data                            | No                  | wd:Worker\_Data/wd:Role\_Data                                                 |
-| 42 | Skill Data                           | No                  | wd:Worker\_Data/wd:Skill\_Data                                                |
-| 43 | Succession Profile Data              | No                  | wd:Worker\_Data/wd:Succession\_Profile\_Data                                  |
-| 44 | Talent Assessment Data               | No                  | wd:Worker\_Data/wd:Talent\_Assessment\_Data                                   |
-| 45 | User Account Data                    | No                  | wd:Worker\_Data/wd:User\_Account\_Data                                        |
-| 46 | Worker Document Data                 | No                  | wd:Worker\_Data/wd:Worker\_Document\_Data                                     |
+| 1  | Personal Data                        | Yes                 | `wd:Worker_Data/wd:Personal_Data`                                             |
+| 2  | Employment Data                      | Yes                 | `wd:Worker_Data/wd:Employment_Data`                                           |
+| 3  | Additional Job Data                  | Yes                 | `wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]`|
+| 4  | Organization Data                    | Yes                 | `wd:Worker_Data/wd:Organization_Data`                                        |
+| 5  | Management Chain Data                | Yes                 | `wd:Worker_Data/wd:Management_Chain_Data`                                    |
+| 6  | Supervisory Organization             | Yes                 | `SUPERVISORY`                                                                 |
+| 7  | Company                              | Yes                 | `COMPANY`                                                                     |
+| 8  | Business Unit                        | No                  | `BUSINESS_UNIT`                                                              |
+| 9  | Business Unit Hierarchy              | No                  | `BUSINESS_UNIT_HIERARCHY`                                                   |
+| 10 | Company Hierarchy                    | No                  | `COMPANY_HIERARCHY`                                                          |
+| 11 | Cost Center                          | No                  | `COST_CENTER`                                                                |
+| 12 | Cost Center Hierarchy                | No                  | `COST_CENTER_HIERARCHY`                                                     |
+| 13 | Fund                                 | No                  | `FUND`                                                                        |
+| 14 | Fund Hierarchy                       | No                  | `FUND_HIERARCHY`                                                             |
+| 15 | Gift                                 | No                  | `GIFT`                                                                        |
+| 16 | Gift Hierarchy                       | No                  | `GIFT_HIERARCHY`                                                             |
+| 17 | Grant                                | No                  | `GRANT`                                                                       |
+| 18 | Grant Hierarchy                      | No                  | `GRANT_HIERARCHY`                                                            |
+| 19 | Business Site Hierarchy              | No                  | `BUSINESS_SITE_HIERARCHY`                                                   |
+| 20 | Matrix Organization                  | No                  | `MATRIX`                                                                      |
+| 21 | Pay Group                            | No                  | `PAY_GROUP`                                                                  |
+| 22 | Programs                             | No                  | `PROGRAMS`                                                                    |
+| 23 | Program Hierarchy                    | No                  | `PROGRAM_HIERARCHY`                                                          |
+| 24 | Region                               | No                  | `REGION_HIERARCHY`                                                           |
+| 25 | Location Hierarchy                   | No                  | `LOCATION_HIERARCHY`                                                         |
+| 26 | Account Provisioning Data            | No                  | `wd:Worker_Data/wd:Account_Provisioning_Data`                                |
+| 27 | Background Check Data                | No                  | `wd:Worker_Data/wd:Background_Check_Data`                                    |
+| 28 | Benefit Eligibility Data             | No                  | `wd:Worker_Data/wd:Benefit_Eligibility_Data`                                 |
+| 29 | Benefit Enrollment Data              | No                  | `wd:Worker_Data/wd:Benefit_Enrollment_Data`                                  |
+| 30 | Career Data                          | No                  | `wd:Worker_Data/wd:Career_Data`                                               |
+| 31 | Compensation Data                    | No                  | `wd:Worker_Data/wd:Compensation_Data`                                         |
+| 32 | Contingent Worker Tax Authority Data | No                  | `wd:Worker_Data/wd:Contingent_Worker_Tax_Authority_Form_Type_Data`       |
+| 33 | Development Item Data                | No                  | `wd:Worker_Data/wd:Development_Item_Data`                                    |
+| 34 | Employee Contracts Data              | No                  | `wd:Worker_Data/wd:Employee_Contracts_Data`                                  |
+| 35 | Employee Review Data                 | No                  | `wd:Worker_Data/wd:Employee_Review_Data`                                     |
+| 36 | Feedback Received Data               | No                  | `wd:Worker_Data/wd:Feedback_Received_Data`                                   |
+| 37 | Worker Goal Data                     | No                  | `wd:Worker_Data/wd:Worker_Goal_Data`                                         |
+| 38 | Photo Data                           | No                  | `wd:Worker_Data/wd:Photo_Data`                                                |
+| 39 | Qualification Data                   | No                  | `wd:Worker_Data/wd:Qualification_Data`                                        |
+| 40 | Related Persons Data                 | No                  | `wd:Worker_Data/wd:Related_Persons_Data`                                     |
+| 41 | Role Data                            | No                  | `wd:Worker_Data/wd:Role_Data`                                                 |
+| 42 | Skill Data                           | No                  | `wd:Worker_Data/wd:Skill_Data`                                                |
+| 43 | Succession Profile Data              | No                  | `wd:Worker_Data/wd:Succession_Profile_Data`                                  |
+| 44 | Talent Assessment Data               | No                  | `wd:Worker_Data/wd:Talent_Assessment_Data`                                   |
+| 45 | User Account Data                    | No                  | `wd:Worker_Data/wd:User_Account_Data`                                        |
+| 46 | Worker Document Data                 | No                  | `wd:Worker_Data/wd:Worker_Document_Data`                                     |
 
 >[!NOTE]
 >Each Workday entity listed in the table is protected by a **Domain Security Policy** in Workday. If you are unable to retrieve any attribute associated with the entity after setting the right XPATH, check with your Workday admin to ensure that the appropriate domain security policy is configured for the integration system user associated with the provisioning app. For example, to retrieve *Skill data*, *Get* access is required on the Workday domain *Worker Data: Skills and Experience*. 
@@ -482,7 +482,7 @@ This scenario is similar to the above scenario, except that instead of backdatin
 #### Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap 
 It's common for workers to start work at a company as a contingent worker, leave the company and then rejoin after several months as a full-time employee. Here's an example to illustrate how provisioning is handled for this scenario.
 
-* It's January 1, 2022 and John Smith starts work at as a contingent worker. As tHere's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
+* It's January 1, 2022 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
 * John's contract ends on January 31, 2022. In the provisioning cycle that runs after end of day January 31, John's AD account is disabled. 
 * John applies for another position and decides to rejoin the company as full-time employee effective May 1, 2022. HR enters John's information as a pre-hire on April 15, 2022. Now there are two worker profiles in Workday for John. The CW profile is inactive, while the FTE profile is active. The two records have the same *WorkerID* but different *WID*s.  
 * On April 15, during incremental cycle, the Azure AD provisioning service automatically transfers ownership of the AD account to the active worker profile. In this case, it de-links the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and John's AD account.
@@ -491,7 +491,7 @@ It's common for workers to start work at a company as a contingent worker, leave
 #### Scenario 4: Future-dated conversion, when worker is an active CW/FTE
 Sometimes, a worker may already be an active contingent worker, when HR initiates a future-dated worker conversion transaction. Here's an example to illustrate how provisioning is handled for this scenario and what configuration changes are required to support this scenario. 
 
-* It's January 1, 2022 and John Smith starts work at as a contingent worker. As tHere's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
+* It's January 1, 2022 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
 * On January 15, HR initiates a transaction to convert John from contingent worker to full-time employee effective February 1, 2022. 
 * Since Azure AD provisioning service automatically processes future-dated hires, it will process John's new full-time employee worker profile on January 15, and update John's profile in AD with full-time employment details even though he is still a contingent worker. 
 * To avoid this behavior and ensure that John's FTE details get provisioned on February 1, 2022, perform the following configuration changes. 
