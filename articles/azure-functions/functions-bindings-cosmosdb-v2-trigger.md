@@ -285,7 +285,7 @@ Here's the Python code:
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
-## Attributes
+## Configuration
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [CosmosDBTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file.
 
@@ -317,7 +317,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-## Annotations
+## Configuration
 
 # [Functions 2.x+](#tab/functionsv2)
 
