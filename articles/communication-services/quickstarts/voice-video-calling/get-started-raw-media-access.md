@@ -15,19 +15,19 @@ ms.custom: mode-other
 # QuickStart: Add raw media access to your app
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Video calling with JavaScript](./includes/raw-media/raw-media-access-javascript.md)]
+[!INCLUDE [Raw media with JavaScript](./includes/raw-media/raw-media-access-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Video calling with Android](./includes/raw-media/raw-media-access-android.md)]
+[!INCLUDE [Raw media with Android](./includes/raw-media/raw-media-access-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Video calling with iOS](./includes/raw-media/raw-media-access-ios.md)]
+[!INCLUDE [Raw media with iOS](./includes/raw-media/raw-media-access-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Video calling with Windows](./includes/raw-media/raw-media-access-windows.md)]
+[!INCLUDE [Raw media with Windows](./includes/raw-media/raw-media-access-windows.md)]
 ::: zone-end
 
 ## Next steps
