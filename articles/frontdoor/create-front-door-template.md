@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Service by using an Azure Resource Manager template (ARM template)'
-description: This quickstart describes how to create an Azure Front Door Service by using Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create an Azure Front Door Standard/Premium by using an Azure Resource Manager template (ARM template)'
+description: This quickstart describes how to create an Azure Front Door Standard/Premium by using Azure Resource Manager template (ARM template).
 services: front-door
 documentationcenter: 
 author: duongau
@@ -32,7 +32,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-gb/resources/templates/front-door-standard-premium-app-service-public/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/front-door-standard-premium-app-service-public/).
 
 In this quickstart, you'll create a Front Door Standard/Premium, an App Service, and configure the App Service to validate that traffic has come through the Front Door origin.
 
@@ -50,26 +50,26 @@ One Azure resource is defined in the template:
 > If you want to deploy Azure Front Door Premium instead of Standard substitute the value of the sku parameter with `Premium_AzureFrontDoor`. For detailed comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
 
-    ```azurepowershell-interactive
-    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/azuredeploy.json"
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/azuredeploy.json"
 
-    $resourceGroupName = "${projectName}rg"
+$resourceGroupName = "${projectName}rg"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -frontDoorSkuName Standard_AzureFrontDoor
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -frontDoorSkuName Standard_AzureFrontDoor
 
-    Read-Host -Prompt "Press [ENTER] to continue ..."
-    ```
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
 
-    Wait until you see the prompt from the console.
+Wait until you see the prompt from the console.
 
-1. Select **Copy** from the previous code block to copy the PowerShell script.
+2. Select **Copy** from the previous code block to copy the PowerShell script.
 
-1. Right-click the shell console pane and then select **Paste**.
+3. Right-click the shell console pane and then select **Paste**.
 
-1. Enter the values.
+4. Enter the values.
 
     The template deployment creates a Front Door with a web app as origin
 
