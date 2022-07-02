@@ -22,7 +22,7 @@ Azure Monitor collects and aggregates data from a variety of sources into a comm
 ## Overview
 Azure Monitor data collection is defined by a [data collection Rule (DCR)](essentials/data-collection-rule-overview.md), which includes the configuration of a particular workflow. The DCR includes details such as the data to collect, the destination of that data, and any transformations that should be applied to the data before its stored. All data using the new data collection process uses a DCR to define its configuration.
 
-Some workflows specify a particular data collection rule to use. For example, when using the [data ingestion API](), the API call connects to a data collection endpoint (DCE) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data and specifies the destination.
+Some workflows specify a particular data collection rule to use. For example, when using the [data ingestion API](logs/data-ingestion-api-overview.md), the API call connects to a data collection endpoint (DCE) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data and specifies the destination.
 
 ![]()
 

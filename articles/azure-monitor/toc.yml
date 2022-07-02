@@ -59,14 +59,14 @@ items:
     - name: Resource Manager templates
       displayName: Custom logs
       href: logs/tutorial-custom-logs-api.md
-  - name: Ingestion-time transformations
+  - name: Workspace transformations
     items:
     - name: Azure portal
-      displayName: Ingestion-time transformations
-      href: logs/tutorial-ingestion-time-transformations.md
+      displayName: Workspace transformations
+      href: logs/tutorial-workspace-transformations.md
     - name: Resource Manager templates
-      displayName: Ingestion-time transformations
-      href: logs/tutorial-ingestion-time-transformations-api.md
+      displayName: Workspace transformations
+      href: logs/tutorial-workspace-transformations-api.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -435,12 +435,10 @@ items:
       items:
       - name: Transformations
         href: essentials/data-collection-transformations.md
-      - name: Ingestion time transformations
-        href: logs/ingestion-time-transformations.md
       - name: Tutorial (portal)
-        href: logs/tutorial-ingestion-time-transformations.md
+        href: logs/tutorial-workspace-transformations.md
       - name: Tutorial (API)
-        href: logs/tutorial-ingestion-time-transformations-api.md
+        href: logs/tutorial-workspace-transformations-api.md
     - name: Private Link networking
       items:
       - name: Private Link overview
