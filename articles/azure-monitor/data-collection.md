@@ -24,11 +24,10 @@ Azure Monitor data collection is defined by a [data collection Rule (DCR)](essen
 
 Some workflows specify a particular data collection rule to use. For example, when using the [data ingestion API](logs/data-ingestion-api-overview.md), the API call connects to a data collection endpoint (DCE) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data and specifies the destination.
 
-![]()
 
 Other workflows use a data collection rule association (DCRA), which associates a data collection rule with a resource. For example, to collect data from virtual machines using the Azure Monitor agent, you create a data rule association (DCRA) between the one or more DCRs and one or more virtual machines. The DCRs specify the data to collect on the agent and where that data should be sent.
 
-![]()
+
 
 ## Components
 The following table identifies different components of the Azure Monitor data collection process.

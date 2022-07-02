@@ -45,7 +45,7 @@ Data ingestion API can send data to the following built-in tables. Other tables 
 
 
 ## Authentication
-Authentication for the data ingestion API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-custom-logs.md).
+Authentication for the data ingestion API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-data-ingestion-portal.md).
 
 ## Source data
 The source data sent by your application is formatted in JSON and must match the structure expected by the data collection rule. It doesn't necessarily need to match the structure of the target table since the DCR can include a [transformation](../essentials/data-collection-rule-transformations.md) to convert the data to match the table's structure.
@@ -66,7 +66,7 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 ```
 
 > [!NOTE]
-> You can retrieve the immutable ID from the JSON view of the DCR. See [Collect information from DCR](tutorial-custom-logs.md#collect-information-from-dcr).
+> You can retrieve the immutable ID from the JSON view of the DCR. See [Collect information from DCR](tutorial-data-ingestion-portal.md#collect-information-from-dcr).
 
 ### Headers
 
@@ -90,5 +90,5 @@ For limits related to data ingestion API, see [Azure Monitor service limits](../
 
 ## Next steps
 
-- [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-custom-logs.md)
-- [Walk through a tutorial sending custom logs using Resource Manager templates and REST API.](tutorial-custom-logs-api.md)
+- [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-data-ingestion-portal.md)
+- [Walk through a tutorial sending custom logs using Resource Manager templates and REST API.](tutorial-data-ingestion-api.md)

@@ -55,10 +55,10 @@ items:
     items:
     - name: Azure portal
       displayName: Custom logs
-      href: logs/tutorial-custom-logs.md
+      href: logs/tutorial-data-ingestion-portal.md
     - name: Resource Manager templates
       displayName: Custom logs
-      href: logs/tutorial-custom-logs-api.md
+      href: logs/tutorial-data-ingestion-api.md
   - name: Workspace transformations
     items:
     - name: Azure portal
@@ -433,8 +433,12 @@ items:
       href: essentials/data-collection-endpoint-overview.md
     - name: Transformations
       items:
-      - name: Transformations
+      - name: Overview
+        displayname: Transformations
         href: essentials/data-collection-transformations.md
+      - name: Structure
+        displayname: Transformations
+        href: essentials/data-collection-transformations-kql.md
       - name: Tutorial (portal)
         href: logs/tutorial-workspace-transformations.md
       - name: Tutorial (API)
@@ -1322,9 +1326,9 @@ items:
       displayName: data ingestion
       href: logs/data-ingestion-api-overview.md
     - name: Tutorial (portal)
-      href: logs/tutorial-custom-logs.md
+      href: logs/tutorial-data-ingestion-portal.md
     - name: Tutorial (API)
-      href: logs/tutorial-custom-logs-api.md
+      href: logs/tutorial-data-ingestion-api.md
     - name: Migrate from Data Collector API
       href: logs/custom-logs-migrate.md
     - name: Data collector API

@@ -34,7 +34,7 @@ The transformation is defined in a [data collection rule (DCR)](data-collection-
 
 For example, a DCR that collects data from a virtual machine using Azure Monitor agent would specify particular data to collect from the agent. It could also include a transformation that would get applied to that data after it was sent to the data ingestion pipeline that further filtered the data or added a calculated column. This workflow is shown in the following diagram.
 
-:::image type="content" source="media/data-collection-transformations/transformation-data-collectron-rule.png" lightbox="media/data-collection-transformations/transformation-data-collectron-rule.png" alt-text="Diagram of ingestion-time transformation for workflow supporting data collection rules.":::
+:::image type="content" source="media/data-collection-transformations/transformation-data-collectron-rule.png" lightbox="media/data-collection-transformations/transformation-data-collectron-rule.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent.":::
 
 
 ## Workspace transformations
@@ -44,7 +44,7 @@ Workspace transformations are defined in a [workspace DCR](data-collection-rule-
 
 A common example is [resource logs](resource-logs.md) which are configured with a [diagnostic setting](diagnostic-settings.md). This is shown in the example below. 
 
-:::image type="content" source="media/data-collection-transformations/transformation-legacy.png" alt-text="Diagram of ingestion-time transformation for workflow supporting data collection rules.":::
+:::image type="content" source="media/data-collection-transformations/transformation-legacy.png" alt-text="Diagram of workspace transformation for resource logs configured with diagnostic settings.":::
 
 ## Creating a transformation
 The following table lists guidance for different methods for creating trasnformations. See [Structure of ingestion-time transformations in Azure Monitor (preview)](ingestion-time-transformations-structure.md) for details on writing the query of an ingestion-time transformation.  
@@ -52,7 +52,7 @@ The following table lists guidance for different methods for creating trasnforma
 | Type | Reference |
 |:---|:---|
 | Transformation queries | [Structure of ingestion-time transformations in Azure Monitor (preview)](ingestion-time-transformations-structure.md) |
-| Data ingestion API with transformation | [Send custom logs to Azure Monitor Logs using the Azure portal](../logs/tutorial-data-ingestion-p[ortal].md)<br>[Send custom logs to Azure Monitor Logs using Resource Manager templates](../logs/tutorial-data-ingestion-api.md) |
+| Data ingestion API with transformation | [Send custom logs to Azure Monitor Logs using the Azure portal](../logs/tutorial-data-ingestion-portal.md)<br>[Send custom logs to Azure Monitor Logs using Resource Manager templates](../logs/tutorial-data-ingestion-api.md) |
 | Workspace transformations | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-workspace-tranformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](tutorial-workspace-tranformations-api.md)
 
 

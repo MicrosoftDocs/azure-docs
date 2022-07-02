@@ -32,9 +32,9 @@ If all of these conditions aren't true, then you can use DCR-based custom logs w
 ## Migration procedure
 If the table that you're targeting with DCR-based custom logs does indeed falls under the criteria described above, the following strategy is required for a graceful migration:
 
-1. Configure your data collection rule (DCR) following procedures at [Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)](tutorial-custom-logs-api.md) or [Add ingestion-time transformation to Azure Monitor Logs using Resource Manager templates (preview)](tutorial-ingestion-time-transformations-api.md).
+1. Configure your data collection rule (DCR) following procedures at [Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)](tutorial-data-ingestion-api.md) or [Add ingestion-time transformation to Azure Monitor Logs using Resource Manager templates (preview)](tutorial-ingestion-time-transformations-api.md).
 
-1. If using the DCR-based API, also [configure the data collection endpoint (DCE)](tutorial-custom-logs-api.md#create-data-collection-endpoint) and the agent or component that will be sending data to the API.
+1. If using the DCR-based API, also [configure the data collection endpoint (DCE)](tutorial-data-ingestion-api.md#create-data-collection-endpoint) and the agent or component that will be sending data to the API.
 
 1. Issue the following API call against your table. This call is idempotent, so there will be no effect if the table has already been migrated. 
 
@@ -46,5 +46,5 @@ If the table that you're targeting with DCR-based custom logs does indeed falls 
 
 ## Next steps
 
-- [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-custom-logs.md)
-- [Walk through a tutorial sending custom logs using Resource Manager templates and REST API.](tutorial-custom-logs-api.md)
+- [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-data-ingestion-portal.md)
+- [Walk through a tutorial sending custom logs using Resource Manager templates and REST API.](tutorial-data-ingestion-api.md)
