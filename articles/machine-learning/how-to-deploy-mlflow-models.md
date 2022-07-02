@@ -160,25 +160,31 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
    
    ```python
    import json
-   from mlflow.deployments import get_deploy_client
    
-   # Create the deployment configuration.
    deploy_config = {"computeType": "aks", "computeTargetName": "aks-mlflow" }
+   
+   deployment_config_path = "deployment_config.json"
+   with open(deployment_config_path, "w") as outfile:
+      outfile.write(json.dumps(deploy_config))
    ```
    
    # [ACI](#tab/aci)
    
    ```python
    import json
-   from mlflow.deployments import get_deploy_client
 
-   # Create the deployment configuration.
    deploy_config = {"computeType": "aci"}
+   
+   deployment_config_path = "deployment_config.json"
+   with open(deployment_config_path, "w") as outfile:
+      outfile.write(json.dumps(deploy_config))
    ```
    
 4. Create a deployment client using the Azure Machine Learning Tracking URI.
 
    ```python
+   from mlflow.deployments import get_deploy_client
+   
    # Set the tracking uri in the deployment client.
    client = get_deploy_client("<azureml-mlflow-tracking-url>")
    ```
