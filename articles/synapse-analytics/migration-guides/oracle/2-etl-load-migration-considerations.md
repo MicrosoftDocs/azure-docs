@@ -337,7 +337,7 @@ You can use several techniques to extract Oracle data when migrating from Oracle
 
 ### Use Oracle SQL Developer for data extraction
 
-You can use the Oracle SQL Developer UI to export table data to many formats, including CSV:
+You can use the Oracle SQL Developer UI to export table data to many formats, including CSV, as shown in the following screenshot:
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-1.png" border="true" alt-text="Screenshot of the SQL Developer export wizard UI." lightbox="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-1-lrg.png":::
 

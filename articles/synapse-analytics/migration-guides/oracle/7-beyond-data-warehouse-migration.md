@@ -372,7 +372,7 @@ You can broaden your ETL processing to ingest data of any type into Data Lake St
 
 You can use PolyBase or `COPY INTO` to go beyond your data warehouse to simplify access to insights from multiple underlying analytical platforms on Azure. To do so, create holistic integrated views in a logical data warehouse that support access to streaming, big data, and traditional data warehouse insights from BI tools and applications.
 
-By migrating your data warehouse to Azure Synapse, you can take advantage of the rich Microsoft analytical ecosystem running on Azure and drive new value in your business.
+By migrating your data warehouse to Azure Synapse, you can take advantage of the rich Microsoft analytical ecosystem running on Azure to drive new value in your business.
 
 ## Next steps
 
