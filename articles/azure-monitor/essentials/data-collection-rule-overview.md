@@ -10,8 +10,6 @@ ms.reviewer: nikeist
 # Data collection rules in Azure Monitor
 Data Collection Rules (DCRs) determine how to collect and process telemetry coming into Azure. Depending on the type of workflow, DCRs may specify what data should be collected, where that data should be sent, and may filter or transform data before it's stored. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements.
 
-Data collection rules currently send data only to Azure Monitor destinations such as Metrics and Log Analytics workspaces, but will soon extend to other locations such as event hubs and storage accounts.
-
 
 ## Viewing data collection rules
 To view your data collection rules in the Azure portal, select **Data Collection Rules** from the **Monitor** menu.
@@ -20,6 +18,13 @@ To view your data collection rules in the Azure portal, select **Data Collection
 > While this view shows all data collection rules in the specified subscriptions, clicking the **Create** button will create a data collection for Azure Monitor agent. Similarly, this page will only allow you to modify data collection rules for the Azure Monitor agent. See [Creating a data collection rule](#create-a-data-collection-rule) below for guidance on creating and updating data collection rules for other workflows.
 
 :::image type="content" source="media/data-collection-rule-overview/view-data-collection-rules.png" lightbox="media/data-collection-rule-overview/view-data-collection-rules.png" alt-text="Screenshot of data collection rules in the Azure portal.":::
+
+## Types of data collection rules
+There is actually no concept of a data collection rule type. They all share a common schema with different elements and details depending on the workflow they describe. There are currently two fundamental ways though that data collection rules are implemented in Azure Monitor:
+
+- Standard DCR. Provides the details of a particular workflow that uses the new Azure Monitor [data ingestion pipeline](../data-collection.md). This might include a DCR associated with a virtual machine describing how to collect data from the guest operating system. Or it could be a DCR used by data ingestion API that transforms the incoming data before sending it to a Log Analytics workspace.
+
+- Workspace transformation DCR. Used with a Log Analytics workspace to apply ingestion-time transformations (preview) to workflows that don't yet use the new data ingestion pipeline. The DCR is associated with a workspace and contains transformations for one or more [supported tables](). The transformation is applied to any data sent to that table from any workflow not using a DCR (which means it wouldn't be using the data ingestion pipeline). For example, diagnostic settings can't currently use transformations because they don't use DCRs. You can use the workspace transformation DCR to specify a transformation that will be applied to any data sent from the diagnostic setting to that table. 
 
 
 ## Create a data collection rule

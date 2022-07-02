@@ -1318,9 +1318,9 @@ items:
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
       href: insights/troubleshoot-workbooks.md
-  - name: Custom logs
-    items:
+  - name: Data ingestion API
     - name: Overview
+      displayName: data ingestion
       href: logs/data-ingestion-api-overview.md
     - name: Tutorial (portal)
       href: logs/tutorial-custom-logs.md

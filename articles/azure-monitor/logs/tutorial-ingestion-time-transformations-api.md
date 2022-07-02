@@ -2,23 +2,24 @@
 title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using resource manager templates
 description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using resource manager templates.
 ms.topic: tutorial
-ms.date: 02/20/2022
+ms.date: 07/01/2022
 ---
 
-# Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates (preview)
-[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks you through configuration of a sample ingestion time transformation using resource manager templates.
+# Tutorial: Add workspace transformation to Azure Monitor using resource manager templates (preview)
+This tutorial walks you through configuration of a sample [workspace transformation](data-collection-transformations.md#workspace-transformations) using resource manager templates. [Transformations](data-collection-transformations.md) in Azure Monitor allow you to filter or modify incoming data before it's sent to its destination. Workspace transformations provide support for [ingestion-time transformations](data-collection-transformations.md) for workflows that don't yet use the [Azure Monitor data ingestion pipeline](../data-collection.md).
+
+Workspace transformations are stored together in a single [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for the workspace, called the workspace DCR. Each transformation is associated with a particular table. The transformation will be applied to all data sent to this table from any workflow not using a DCR.
 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
-
 > [!NOTE]
-> This tutorial uses resource manager templates and REST API to configure an ingestion-time transformation. See [Tutorial: Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-ingestion-time-transformations.md) for the same tutorial using the Azure portal.
+> This tutorial uses resource manager templates and REST API to configure a workspace transformation. See [Tutorial: Add workspace transformation to Azure Monitor using the Azure portal (preview)](tutorial-workspace-transformations.md) for the same tutorial using the Azure portal.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Configure [ingestion-time transformation](ingestion-time-transformations.md) for a table in Azure Monitor Logs
-> * Write a log query for an ingestion-time transform
+> * Configure [workspace transformation](ingestion-time-transformations.md) for a table in a Log Analytics workspace.
+> * Write a log query for an ingestion-time transform.
 
 
 > [!NOTE]
@@ -30,7 +31,7 @@ To complete this tutorial, you need the following:
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - The table must already have some data.
-- The table can't be linked to the [workspace's transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules).
+- The table can't already be linked to the [workspace transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules).
 
 
 ## Overview of tutorial
@@ -55,10 +56,10 @@ You need to enable [query auditing](query-audit.md) for your workspace to create
 ## Update table schema
 Before you can create the transformation, the following two changes must be made to the table:
 
-- The table must be enabled for ingestion-time transformation. This is required for any table that will have a transformation, even if the transformation doesn't modify the table's schema.
+- The table must be enabled for workspace transformation. This is required for any table that will have a transformation, even if the transformation doesn't modify the table's schema.
 - Any additional columns populated by the transformation must be added to the table.
 
-Use the **Tables - Update** API to configure the table with the PowerShell code below. Calling the API enables the table for ingestion-time transformations, whether or not custom columns are defined. In this sample, it includes a custom column called *Resources_CF* that will be populated with the transformation query. 
+Use the **Tables - Update** API to configure the table with the PowerShell code below. Calling the API enables the table for workspace transformations, whether or not custom columns are defined. In this sample, it includes a custom column called *Resources_CF* that will be populated with the transformation query. 
 
 > [!IMPORTANT]
 > Any custom columns added to a built-in table must end in *_CF*. Columns added to a custom table (a table with a name that ends in *_CL*) does not need to have this suffix.
@@ -146,7 +147,7 @@ Use Log Analytics to test the transformation query before adding it to a data co
    ```
 
 ## Create data collection rule (DCR)
-Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules). If you create transformations for other tables in the same workspace, they will be stored in this same DCR.
+Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules). If you create workspace transformations for other tables in the same workspace, they must be stored in this same DCR.
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
