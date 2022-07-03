@@ -24,9 +24,9 @@ Materialized Views when defined will help provide a means to efficiently query a
 You can query a column store without specifying a partition key by using Secondary Indexes. However, the query won't be effective for columns with high cardinality (scanning through all data for a small result set) or columns with low cardinality. Such queries end up being expensive as they end up being a cross partition query.
 
 With Materialized view, you can
-1. Use as Global Secondary Indexes and save cross partition scans that reduce expensive queries 
-2. Provide SQL based conditional predicate to populate only certain columns and certain data that meet the pre-condition 
-3. Real time MVs that simplify real time event based scenarios where customers today use Change feed trigger for precondition checks to populate new collections"
+- Use as Global Secondary Indexes and save cross partition scans that reduce expensive queries 
+- Provide SQL based conditional predicate to populate only certain columns and certain data that meet the pre-condition 
+- Real time MVs that simplify real time event based scenarios where customers today use Change feed trigger for precondition checks to populate new collections"
 
 ## Main benefits
 
@@ -150,16 +150,16 @@ az rest --method GET --uri https://management.azure.com/subscriptions/{{subscrip
 Once your account and Materialized View Builder is set up, you should be able to create Materialized views per the documentation [here](https://cassandra.apache.org/doc/latest/cql/mvs.html) : 
 
 However, there are a few caveats with Cosmos DB Cassandra API’s preview implementation of Materialized Views:
-1. Materialized Views can't be created on a table that existed before the account was onboarded to support materialized views. Create new table after account is onboarded on which materialized views can be defined.
-2. For the MV definition’s WHERE clause, only “IS NOT NULL” filters are currently allowed.
-3. After a Materialized View is created against a base table, ALTER TABLE ADD operations aren't allowed on the base table’s schema - they're allowed only if none of the MVs have select * in their definition.
+- Materialized Views can't be created on a table that existed before the account was onboarded to support materialized views. Create new table after account is onboarded on which materialized views can be defined.
+- For the MV definition’s WHERE clause, only “IS NOT NULL” filters are currently allowed.
+- After a Materialized View is created against a base table, ALTER TABLE ADD operations aren't allowed on the base table’s schema - they're allowed only if none of the MVs have select * in their definition.
 
 In addition to the above, note the following limitations 
 
 ### Availability zones limitations
 
-1. Materialized views can't be enabled on an account that has Availability zone enabled regions. 
-2. Adding a new region with Availability zone is not supported once “enableMaterializedViews” is set to true on the account.
+- Materialized views can't be enabled on an account that has Availability zone enabled regions. 
+- Adding a new region with Availability zone is not supported once “enableMaterializedViews” is set to true on the account.
 
 ### Periodic backup and restore limitations
 
@@ -167,12 +167,12 @@ Materialized views aren't automatically restored with the restore process. Custo
 
 Other limitations similar to **Open Source Apache Cassandra** behavior
 
-1. Defining Conflict resolution policy on Materialized Views is not allowed.
-2. Write operations from customer aren't allowed on Materialized views.
-3. Cross document queries and use of aggregate functions aren't supported on Materialized views.
-4. Modifying MaterializedViewDefinitionString after MV creation is not supported.
-5. Deleting base table is not allowed if at least one MV is defined on it. All the MVs must first be deleted and then the base table can be deleted.
-6. Defining materialized views on containers with Static columns is not allowed
+- Defining Conflict resolution policy on Materialized Views is not allowed.
+- Write operations from customer aren't allowed on Materialized views.
+- Cross document queries and use of aggregate functions aren't supported on Materialized views.
+- Modifying MaterializedViewDefinitionString after MV creation is not supported.
+- Deleting base table is not allowed if at least one MV is defined on it. All the MVs must first be deleted and then the base table can be deleted.
+- Defining materialized views on containers with Static columns is not allowed
 
 ## Under the hood
 
@@ -183,9 +183,9 @@ Azure Cosmos DB Cassandra API uses a MV builder compute layer to maintain Materi
 
 ### What transformations/actions are supported?
 
-1. Specifying a partition key that is different from base table partition key.
-2. Support for projecting selected subset of columns from base table.
-3. Determine if row from base table can be part of materialized view based on conditions evaluated on primary key columns of base table row. Filters supported - equalities, inequalities, contains. (Planned for GA)
+- Specifying a partition key that is different from base table partition key.
+- Support for projecting selected subset of columns from base table.
+- Determine if row from base table can be part of materialized view based on conditions evaluated on primary key columns of base table row. Filters supported - equalities, inequalities, contains. (Planned for GA)
 
 ### What consistency levels will be supported?
 
@@ -214,16 +214,16 @@ Setting table level TTL on MV is not allowed. TTL from base table rows will be a
 
 
 ### Initial troubleshooting if MVs aren't up to date: 
-1. Check if MV builder instances are provisioned
-2. Check if enough RUs are provisioned on the base table
-3. Check for unavailability on Base table or MV
+- Check if MV builder instances are provisioned
+- Check if enough RUs are provisioned on the base table
+- Check for unavailability on Base table or MV
 
 ### What type of monitoring is available in addition to the existing monitoring for Cassandra API?
 
-1. Max Materialized View Catchup Gap in Minutes – Value(t) indicates rows written to base table in last ‘t’ minutes is yet to be propagated to MV. 
-2. Metrics related to RUs consumed on base table for MV build (read change feed cost)
-3. Metrics related to RUs consumed on MV for MV build (write cost)
-4. Metrics related to resource consumption on MV builders (CPU, memory usage metrics)
+- Max Materialized View Catchup Gap in Minutes – Value(t) indicates rows written to base table in last ‘t’ minutes is yet to be propagated to MV. 
+- Metrics related to RUs consumed on base table for MV build (read change feed cost)
+- Metrics related to RUs consumed on MV for MV build (write cost)
+- Metrics related to resource consumption on MV builders (CPU, memory usage metrics)
 
 
 ### What are the restore options available for MVs?
@@ -248,7 +248,7 @@ No. Materialized Views can't be created on a table that existed before the accou
 ### What are the conditions on which records won't make it to MV and how to identify such records?
 
 Below are some of the identified cases where data from base table can't be written to MV as they violate some constraints on MV table-
-1. Rows that don’t satisfy partition key size limit in the materialized views
-2. Rows that don't satisfy clustering key size limit in materialized views
+- Rows that don’t satisfy partition key size limit in the materialized views
+- Rows that don't satisfy clustering key size limit in materialized views
        
 Currently we drop these rows but plan to expose details related to dropped rows in future so that the user can reconcile the missing data.
