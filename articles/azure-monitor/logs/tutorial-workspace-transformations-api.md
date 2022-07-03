@@ -6,7 +6,7 @@ ms.date: 07/01/2022
 ---
 
 # Tutorial: Add workspace transformation to Azure Monitor using resource manager templates (preview)
-This tutorial walks you through configuration of a sample [workspace transformation](data-collection-transformations.md#workspace-transformations) using resource manager templates. [Transformations](data-collection-transformations.md) in Azure Monitor allow you to filter or modify incoming data before it's sent to its destination. Workspace transformations provide support for [ingestion-time transformations](data-collection-transformations.md) for workflows that don't yet use the [Azure Monitor data ingestion pipeline](../data-collection.md).
+This tutorial walks you through configuration of a sample [workspace transformation](../essentials/data-collection-transformations.md#workspace-transformations) using resource manager templates. [Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow you to filter or modify incoming data before it's sent to its destination. Workspace transformations provide support for [ingestion-time transformations](../essentials/data-collection-transformations.md) for workflows that don't yet use the [Azure Monitor data ingestion pipeline](../data-collection.md).
 
 Workspace transformations are stored together in a single [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for the workspace, called the workspace DCR. Each transformation is associated with a particular table. The transformation will be applied to all data sent to this table from any workflow not using a DCR.
 
@@ -288,6 +288,6 @@ There is currently a known issue affecting dynamic columns. A temporary workarou
 
 ## Next steps
 
-- [Read more about ingestion-time transformations](ingestion-time-transformations.md)
-- [See which tables support ingestion-time transformations](tables-feature-support.md)
-- [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
+- [Read more about transformations](../essentials/data-collection-transformations.md)
+- [See which tables support workspace transformations](tables-feature-support.md)
+- [Learn more about writing transformation queries](../essentials/data-collection-transformations-kql.md)
