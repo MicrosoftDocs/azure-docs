@@ -119,7 +119,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
     kubectl exec -it azuredefender-publisher-ds-gcq2c -n kube-system -- bash
     ```
 
-1. Copy an executable to a convenient location and rename it to `./asc_alerttest_662jfi039n`. For example:
+1. Select an executable, copy it to a convenient location and rename it to `./asc_alerttest_662jfi039n`. For example:
 `cp /bin/echo ./asc_alerttest_662jfi039n`.
 
 1. Execute the file `./asc_alerttest_662jfi039n testing eicar pipe`.
