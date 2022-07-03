@@ -42,4 +42,4 @@ ms.date: 06/26/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Remediate Security Recommendations with Governance](episode-fifteen.md)
