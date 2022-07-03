@@ -23,7 +23,7 @@ Use this article with the related article titled [Configure authentication in a 
 
 Review the prerequisites and integration steps in the [Configure authentication in a sample React single-page application](configure-authentication-sample-React-spa-app.md) article.
 
-## 1: Create an React app project
+## Step 1: Create an React app project
 
 You can use an existing React app, or [create a new React App](https://reactjs.org/docs/create-a-new-react-app.html). To create a new project, run the following commands.
 
@@ -34,7 +34,7 @@ cd my-app
 npm start
 ```
 
-## 2: Install the dependencies
+## Step 2: Install the dependencies
 
 To install the [MSAL Browser](https://www.npmjs.com/package/@azure/msal-browser) and [MSAL React](https://www.npmjs.com/package/@azure/msal-react) libraries in your application, run the following command in your command shell:
 
