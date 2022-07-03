@@ -87,7 +87,7 @@ aks-secrets-store-provider-azure-6pqmv   1/1     Running   0          4m24s
 aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
 ```
 
-Be sure that a Secrets Store CSI Driver pod and an Azure Key Vault Provider pod are running on each node in your cluster's node pools.
+Be sure that a Secrets Store CSI Driver pod and a Secrets Store Provider Azure pod are running on each node in your cluster's node pools.
 
 ## Create or use an existing Azure key vault
 
