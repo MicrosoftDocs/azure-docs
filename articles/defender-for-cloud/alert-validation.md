@@ -102,7 +102,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 1. On the relevant AKS cluster, locate the following alert `Microsoft Defender for Cloud test alert for K8S (not a threat)` 
 
-## Simulate workload alerts (K8S.NODE_ prefix)
+### Simulate workload alerts (K8S.NODE_ prefix)
 
 **Prerequisites**
 
