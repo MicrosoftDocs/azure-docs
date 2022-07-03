@@ -119,6 +119,7 @@ class Program
 {
     private static readonly string key = "<your-translator-key>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
+    private static readonly string region = "<your-translator-region>";
 
     static async Task Main(string[] args)
     {
@@ -136,6 +137,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", region);
 
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
