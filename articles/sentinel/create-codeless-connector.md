@@ -348,7 +348,7 @@ This section describes the configuration for how data is polled from your data s
 
 The following code shows the syntax of the `pollingConfig` section of the [CCP configuration](#create-a-connector-json-configuration-file) file.
 
-```rest
+```json
 "pollingConfig": {
     auth": {
         "authType": <string>,
@@ -528,7 +528,7 @@ The `paging` section of the [pollingConfig](#configure-your-connectors-polling-s
 
 The following code shows an example of the `pollingConfig` section of the [CCP configuration](#create-a-connector-json-configuration-file) file:
 
-```rest
+```json
 "pollingConfig": {
     "auth": {
         "authType": "APIKey",
@@ -663,7 +663,7 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
 
     If you're using a [template configuration file with placeholder data](#add-placeholders-to-your-connectors-json-configuration-file), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
 
-    ```rest
+    ```json
     "requestConfigUserInputValues": [
         {
            "displayText": "<A display name>",
@@ -690,7 +690,7 @@ Use one of the following methods:
 
 - **API**: Use the [DISCONNECT](/rest/api/securityinsights/preview/data-connectors/disconnect) API to send a PUT call with an empty body to the following URL:
 
-    ```rest
+    ```http
     https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
     ```
 
