@@ -227,9 +227,14 @@ As long as the Cosmos container still exists, a FeedIterator's continuation toke
 
 ### [Java](#tab/java)
 
-You can execute `container.queryChangeFeed` to process the change feed using the pull model. When creating `CosmosChangeFeedRequestOptions` you can specify different methods to determine where to start reading the change feed from. You will also pass the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed. If you specify `FeedRange.forFullRange()`, you can process an entire container's change feed at your own pace. Here's an example, which starts reading all changes starting from the beginning:
+You can execute `container.queryChangeFeed` to process the change feed using the pull model. When creating `CosmosChangeFeedRequestOptions` you can specify different methods to determine where to start reading the change feed from. You will also pass the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed. If you specify `FeedRange.forFullRange()`, you can process an entire container's change feed at your own pace. Below is an example, which reads all changes starting from the beginning.
+
+>[!NOTE]
+> All of the below code snippets are taken from a sample in GitHub, which you can find [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java).
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)]
+
+
 
 Because the change feed is effectively an infinite list of items encompassing all future writes and updates, we can execute an infinite loop. Each iteration persists a continuation token, and will pick up from the last processed point in the change feed. In the above example, this is handled by initializing using `createForProcessingFromBeginning`, and then `createForProcessingFromContinuation` after the first execution.
 
@@ -268,7 +273,6 @@ Machine 2:
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine2)]
 
 ---
-
 
 ## Next steps
 
