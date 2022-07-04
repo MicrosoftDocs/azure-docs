@@ -57,7 +57,7 @@ The cloned repository contains a **Dockerfile.windows** file. We will be using W
     ```
 
 > [!NOTE]
-> The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure a custom container](./configure-custom-container)
+> The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure custom container](../../configure-custom-container.md).
 
 ## 3 - Create the Azure App Service
 
