@@ -1,6 +1,6 @@
 ---
 title: Configure a Microsoft Dev Box project
-description: 'This quickstart shows you how to configure a Microsoft Dev Box project and dev box pools and provide access to dev boxes for your users.'
+description: 'This quickstart shows you how to configure a Microsoft Dev Box project, create dev box pools, and provide access to dev boxes for your users.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.date: 07/03/2022
 ---
 <!-- 
   Customer intent:
-	As an Dev Box project admin I want to create and configure projects so that I can provide Dev Boxes for my users.
+	As an Dev Box project admin I want to configure projects so that I can provide Dev Boxes for my users.
  -->
 
 # Configure a Microsoft Dev Box project
