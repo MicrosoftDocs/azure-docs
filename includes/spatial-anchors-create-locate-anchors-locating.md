@@ -1,6 +1,6 @@
 ## Locate a cloud spatial anchor
 
-Being able to locate a previously saved cloud spatial anchor is one of the main reasons for using Azure Spatial Anchors. There are several different ways you can locate a cloud spatial anchor. You can use one strategy on a watcher at a time.
+Being able to locate a previously saved cloud spatial anchor is one of the main reasons for using Azure Spatial Anchors. For this we are using "Watchers". **You can only use one Watcher at a time; multiple Watchers are not supported**. There are several different ways (aka [Anchor Locate Strategies](../articles/spatial-anchors/concepts/anchor-locate-strategy.md)) a Watcher can locate a cloud spatial anchor. You can use one strategy on a watcher at a time.
 - Locate anchors by identifier.
 - Locate anchors connected to a previously located anchor. You can learn about anchor relationships [here](../articles/spatial-anchors/concepts/anchor-relationships-way-finding.md).
 - Locate anchor using [Coarse relocalization](../articles/spatial-anchors/concepts/coarse-reloc.md).
