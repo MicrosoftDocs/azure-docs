@@ -148,7 +148,7 @@
     - name: Increase throughput of your job
       href: stream-analytics-scale-jobs.md
   - name: Streaming unit and streaming node
-    href: stream-analytics-streamingunit-and-streamingnode.md
+    href: stream-analytics-streaming-unit-streaming-node.md
   - name: Metric dimensions
     href: stream-analytics-job-metrics-dimensions.md
   - name: No code editor

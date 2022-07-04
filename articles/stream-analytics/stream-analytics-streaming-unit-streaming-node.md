@@ -1,5 +1,5 @@
 ---
-title: Stream Analytics streaming unit and streaming node
+title: Azure Stream Analytics streaming unit and streaming node
 description: This article describes the relationship between streaming unit and streaming node.
 author: xujiang1
 ms.author: xujiang1
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.custom: 
 ms.date: 06/30/2022
 ---
-# Streaming Units and Streaming Node
+# Azure Stream Analytics streaming units and streaming node
 
-There are some documents available already to describe the Streaming Units (SUs), such as: [Streaming Units in Azure Stream Analytics](./stream-analytics-streaming-unit-consumption.md) and [Scaling up and out in Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md). There's relationship between Streaming Units assigned to a job and the Streaming Node behind.
+There are some documents available already to describe the streaming units (SUs), such as: [Streaming Units in Azure Stream Analytics](./stream-analytics-streaming-unit-consumption.md) and [Scaling up and out in Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md). There's relationship between streaming units assigned to a job and the streaming node behind.
 
 ## Computation resources of given SUs
 
-Normally, 6 SUs is mapping to one Streaming Node computation resource. In the above documents, it's also recommended to use one SU, three SUs for a small job. In this case, one Streaming Node will also be provisioned for this small job. But the corresponding computation resource allocated to this Streaming Node will be relatively smaller than the normal streaming node.
+Normally, 6 SUs is mapping to one streaming node computation resource. In the above documents, it's also recommended to use one SU, three SUs for a small job. In this case, one Streaming Node will also be provisioned for this small job. But the corresponding computation resource allocated to this streaming node will be relatively smaller than the normal streaming node.
 
-So, if your job requires SUs more than 6 SUs, you'll need to assign the SUs with 6 x n (n > 1), such as: 12 SUs, 18 SUs, 24 SUs, etc. so that the corresponding Streaming Nodes could be allocated for your job.
+So, if your job requires SUs more than 6 SUs, you'll need to assign the SUs with 6 x n (n > 1), such as: 12 SUs, 18 SUs, 24 SUs, etc. so that the corresponding streaming nodes could be allocated for your job.
 
 ## “Embarrassingly Parallel” job
 
 It's recommended to have stream  analytics job to process the similar amount of input data in each of its streaming nodes and make sure each streaming node’s resource utilization (CPU or memory) is in the reasonable range (CPU < 80%, SU < 80%). To achieve this, you'll need to:
--	Partition your input data into several partitions equally in input source, says 10 partitions from event hub.  
--	Decide how many partitions one streaming node should handle as a starting point, says one streaming node to handle two partitions data that means you'll need 10/2 = 5 streaming nodes  
--	Calculate how many SUs you should assign to your job based on the partition counts above, says 5 x 6 = 30 SUs based on “one streaming node needs 6 SUs”.
--	Adjust the initial SUs assigned based on the metrics data with dimension.
+1. Partition your input data into several partitions equally in input source, says 10 partitions from event hub.  
+2. Decide how many partitions one streaming node should handle as a starting point, says one streaming node to handle two partitions data that means you'll need 10/2 = 5 streaming nodes  
+3. Calculate how many SUs you should assign to your job based on the partition counts above, says 5 x 6 = 30 SUs based on “one streaming node needs 6 SUs”.
+4. Adjust the initial SUs assigned based on the metrics data with dimension.
 
 With 30 SUs assigned, your job should be an “embarrassingly-parallel” job (or perfectly parallel) now. Sometimes, we also call it fully-parallel job.
 
@@ -37,7 +37,7 @@ If you still see the high CPU or memory usage in each node after having one stre
 
 There's another case that different streaming nodes are handling different number of partitions. For example, in the above case, if 48 SUs are assigned to that job (that is, 48 / 6 = 8 streaming nodes), there will be two streaming nodes are handling four partitions (each of them is handling two partitions) and another six streaming nodes are handling the rest 6 partitions (each of them is handling one partition). This is also a parallel job, but not perfectly as two streaming nodes will work harder than the other six streaming nodes.
 
-![Partially-parallel job with different number of partitions in its streaming nodes](./media/stream-analytics-streamingunit-and-streamingnode/01-partially-parallel-job-with-different-number-of-partitions-in-its-streamingnode.png)
+![Diagram that shows the parallel job with different number of partitions in its streaming nodes](./media/stream-analytics-streamingunit-and-streamingnode/01-parallel-job-with-uneven-data-streaming-node.png)
 
 
 

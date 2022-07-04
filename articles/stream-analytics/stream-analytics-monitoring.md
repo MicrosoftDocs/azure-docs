@@ -13,13 +13,12 @@ ms.custom: seodec18
 ## Introduction: The monitor page
 The Azure portal surfaces key performance metrics that can be used to monitor and troubleshoot your query and job performance. To see these metrics, browse to the Stream Analytics job you're interested in seeing metrics for and view the **Monitoring** section on the **Overview** page.  
 
-![Stream Analytics job monitoring link](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Diagram that shows the Stream Analytics job monitoring link](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 
 Alternatively, browse to the **Monitoring** blade in the left panel and click the **Metrics**, then the metric page will be shown for adding the specific metric you'd like to check:
 
-![Stream Analytics job monitoring dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)
-
+:::image type="content" source="./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png" alt-text="Diagram that shows Stream Analytics job monitoring dashboard":::
 
 ## Metrics available for Stream Analytics
 | Metric                 | Definition                               |
@@ -56,14 +55,14 @@ Azure Stream Analytics provides three important dimensions: “Logic Name”, �
 | Partition ID     | The ID of the input data partition from input source, for example, if the input source is from event hub, the partition ID is the EH partition ID. The “Partition ID” is the same as it in the output as well. |
 | Node Name        | The streaming node name that the data is processed on a streaming node. A streaming node represents a set of compute resources that is used to process your input data. |
 
-![Stream Analytics job metrics dimension](./media/stream-analytics-monitoring/05-stream-analytics-monitoring-dimension.png)
+:::image type="content" source="./media/stream-analytics-monitoring/05-stream-analytics-monitoring-dimension.png" alt-text="Stream Analytics job metrics dimension":::
 
-To learn more about the metric dimensions, see <<THE_LINK_TO_DIMENSION_DETAILS>>
+To learn more about the metric dimensions, see [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md).
 
 ## Customizing Monitoring in the Azure portal
 You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../azure-monitor/data-platform.md).
 
-  ![Stream Analytics query monitor time graph](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+:::image type="content" source="./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png" alt-text="Diagram that shows the Stream Analytics monitor page with time range":::
 
 
 ## Latest output
