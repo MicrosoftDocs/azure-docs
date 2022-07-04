@@ -21,7 +21,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
 * Understanding of what a job is in Azure Machine Learning. See [how to train models with the CLI (v2)](how-to-train-cli.md).
 

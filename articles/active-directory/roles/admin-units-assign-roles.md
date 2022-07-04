@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 06/01/2022
+ms.date: 06/30/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -64,6 +64,12 @@ The following security principals can be assigned to a role with an administrati
 * Users
 * Azure AD role-assignable groups
 * Service principals
+
+## Service principals and guest users
+
+Service principals and guest users will not be able to use a role assignment scoped to an administrative unit unless they are also assigned corresponding permissions to read the objects. This is because service principals and guest users do not receive directory read permissions by default, which are required to perform administrative actions. To enable a service principal or guest user to use a role assignment scoped to an administrative unit, you must assign the [Directory Readers](permissions-reference.md#directory-readers) role (or another role that includes read permissions) at a tenant scope.
+
+It is not currently possible to assign directory read permissions scoped to an administrative unit. For more information about default permissions for users, see [default user permissions](../fundamentals/users-default-permissions.md). 
 
 ## Assign a role with an administrative unit scope
 

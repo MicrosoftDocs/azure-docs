@@ -392,7 +392,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
 <voice name="en-US-JennyNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.

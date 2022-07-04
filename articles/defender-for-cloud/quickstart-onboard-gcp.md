@@ -194,7 +194,7 @@ Connect your GCP VM instances to Azure Arc in order to have full visibility to M
 Microsoft Defender for SQL brings threat detection and vulnerability assessment to your GCP VM instances.
 To have full visibility to Microsoft Defender for SQL security content, ensure you have the following requirements configured:
 
-- Microsoft SQL servers on machines plan enabled on your subscription. Learn how to enable plan in the [Enable enhanced security features](defender-for-sql-enable-azure-sql-protections.md) article.
+- Microsoft SQL servers on machines plan enabled on your subscription. Learn how to enable plan in the [Enable enhanced security features](quickstart-enable-database-protections.md) article.
 
 - Azure Arc for servers installed on your VM instances.
     - **(Recommended) Auto-provisioning** - Auto-provisioning is enabled by default in the onboarding process and requires owner permissions on the subscription. Arc auto-provisioning process is using the OS config agent on GCP end. Learn more about the [OS config agent availability on GCP machines](https://cloud.google.com/compute/docs/images/os-details#vm-manager).
