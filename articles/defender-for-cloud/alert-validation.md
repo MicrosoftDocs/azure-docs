@@ -2,7 +2,7 @@
 title: Alert validation in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 07/03/2022
+ms.date: 07/04/2022
 
 ---
 # Alert validation in Microsoft Defender for Cloud
@@ -100,7 +100,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 1. In the Azure portal, navigate to the Defender for Cloud's alerts page.
 
-1. On the relevant AKS cluster, locate the following alert `Microsoft Defender for Cloud test alert for K8S (not a threat)` 
+1. On the relevant Kubernetes cluster, locate the following alert `Microsoft Defender for Cloud test alert for K8S (not a threat)` 
 
 ### Simulate workload alerts (K8S.NODE_ prefix)
 
@@ -111,13 +111,16 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 **To simulate a a Kubernetes workload security alert**:
  
-1. Access one of the `azuredefender-publisher-<XXX>` pods deployed in your AKS cluster.
+1. Access one of the `azuredefender-publisher-<XXX>` pods deployed in your Kubernetes cluster.
 
 1. Run the following command from the cluster:
 
     ```bash
-    kubectl exec -it azuredefender-publisher-ds-gcq2c -n kube-system -- bash
+    kubectl exec -it azuredefender-publisher-xx-xxxxx -n <namespace> -- bash
     ```
+
+    For AKS - <namespace> = `kube-system`
+    For ARC - <namespace> = `mdc`
 
 1. Select an executable, copy it to a convenient location and rename it to `./asc_alerttest_662jfi039n`. For example:
 `cp /bin/echo ./asc_alerttest_662jfi039n`.
