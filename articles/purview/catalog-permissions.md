@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 06/17/2022
 ---
 
 # Access control in the Microsoft Purview governance portal
@@ -27,8 +27,10 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 - **Collection administrator** - a role for users that will need to assign roles to other users in the Microsoft Purview governance portal or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.- **Insights reader** - a role that provides read-only access to insights reports for collections where the insights reader also has at least the **Data reader** role. For more information, see [insights permissions.](insights-permissions.md)
-- **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within the Microsoft Purview governance portal.
+- **Data share contributor** - A role that can share data within an organization and with other organizations using data sharing capabilities in Microsoft Purview. Data share contributors can view, create, update, and delete sent and received shares.
+- **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Insights reader** - a role that provides read-only access to insights reports for collections where the insights reader also has at least the **Data reader** role. For more information, see [insights permissions.](insights-permissions.md)
+- **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within Microsoft Purview.
 - **Workflow administrator** - a role that allows a user to access the workflow authoring page in the Microsoft Purview governance portal, and publish workflows on collections where they have access permissions. Workflow administrator only has access to authoring, and so will need at least Data reader permission on a collection to be able to access the Purview governance portal.
 
 > [!NOTE] 
@@ -48,6 +50,7 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 |I need to put users into roles in the Microsoft Purview governance portal| Collection administrator |
 |I need to create and publish access policies | Data source administrator and policy author |
 |I need to create workflows for my Microsoft Purview account in the governance portal| Workflow administrator |
+|I need to share data from sources registered in Microsoft Purview | Data share contributor|
 |I need to view insights for collections I'm a part of | Insights reader **or** data curator |
 
 :::image type="content" source="media/catalog-permissions/catalog-permission-role.svg" alt-text="Chart showing Microsoft Purview governance portal roles" lightbox="media/catalog-permissions/catalog-permission-role.svg":::
@@ -79,6 +82,7 @@ After creating a Microsoft Purview (formerly Azure Purview) account, the first t
 >   ```azurecli
 >   az purview account add-root-collection-admin --account-name [Microsoft Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
 >   ```
+>
 > The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az-purview-account-add-root-collection-admin).
 
 ### Create collections
@@ -102,7 +106,7 @@ This is one way an organization might structure their data: Starting with their 
 The [data reader role](#roles) can access information within the catalog, but not manage or edit it. So for our example above, adding the Data Reader permission to a group on the root collection and allowing inheritance will give all users in that group reader permissions on sources and assets in the Microsoft Purview Data Map. This makes these resources discoverable, but not editable, by everyone in that group. [Restricting inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on the Revenue group will control access to those assets. Users who need access to revenue information can be added separately to the Revenue collection.
 Similarly with the Data Curator and Data Source Admin roles, permissions for those groups will start at the collection where they're assigned and trickle down to subcollections that haven't restricted inheritance. Below we have assigned permissions for several groups at collections levels in the Americas sub collection.
 
-:::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department showing permissions distribution." border="true":::
+:::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department, showing permissions distribution." border="true":::
 
 ### Add users to roles
 

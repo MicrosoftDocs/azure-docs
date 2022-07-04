@@ -74,11 +74,11 @@ To see example queries and complete a walkthrough with sample data, see [Azure D
 
 ## Ingesting Azure Digital Twins data into Azure Data Explorer
 
-Before querying with the plugin, you'll need to ingest your Azure Digital Twins data into Azure Data Explorer. There are two main ways you can do so: through the **data history (preview)** feature, or through direct ingestion. The following sections describe these options in more detail.
+Before querying with the plugin, you'll need to ingest your Azure Digital Twins data into Azure Data Explorer. There are two main ways you can do so: through the **data history** feature, or through direct ingestion. The following sections describe these options in more detail.
 
 ### Ingesting with data history
 
-The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history (preview)** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and twin property updates are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer) (preview)](concepts-data-history.md). 
+The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and twin property updates are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
 
 ### Direct ingestion
 
