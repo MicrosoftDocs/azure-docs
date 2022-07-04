@@ -500,8 +500,8 @@
       href: top-workbooks.md
     - name: Entities reference
       href: entities-reference.md
-    - name: UEBA enrichments
-      href: ueba-enrichments.md
+    - name: UEBA reference
+      href: ueba-reference.md
     - name: Anomalies reference
       href: anomalies-reference.md
     - name: Multistage attack detection scenarios

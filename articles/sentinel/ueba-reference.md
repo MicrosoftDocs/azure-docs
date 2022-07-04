@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This reference article lists the input data sources for the User and Entity Behavior Analytics service in Microsoft Sentinel. It also describes the **BehaviorAnalytics** table found in the **Logs** page, in which UEBA's output information is stored and which is mentioned on the [entity details pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages). The article also provides the details of the entity enrichments fields in that table, the contents of which you can use to focus and sharpen your security incident investigations.
+This reference article lists the input data sources for the User and Entity Behavior Analytics service in Microsoft Sentinel. It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
 
 ## UEBA data sources
 
@@ -27,22 +27,19 @@ These are the data sources from which the UEBA engine collects and analyzes data
 
 ## UEBA enrichments
 
-The following three dynamic fields from the BehaviorAnalytics table are described in the [tables below](#entity-enrichments-dynamic-fields).
+This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
 
-The [UsersInsights](#usersinsights-field) and  [DevicesInsights](#devicesinsights-field) fields contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
+- The **BehaviorAnalytics** table is where UEBA's output information is stored.
 
-The [ActivityInsights](#activityinsights-field) field contains entity information based on the behavioral profiles built by Microsoft Sentinel's entity behavior analytics. 
+    The following three dynamic fields from the BehaviorAnalytics table are described in the [entity enrichments dynamic fields](#entity-enrichments-dynamic-fields) section below.
 
-<a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
+    - The [UsersInsights](#usersinsights-field) and  [DevicesInsights](#devicesinsights-field) fields contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
 
-> [!NOTE]
-> The **Enrichment name** column in all the [entity enrichment field](#entity-enrichments-dynamic-fields) tables displays two rows of information. 
->
-> - The first, in **bold**, is the "friendly name" of the enrichment.
-> - The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](#behavioranalytics-table).
+    - The [ActivityInsights](#activityinsights-field) field contains entity information based on the behavioral profiles built by Microsoft Sentinel's entity behavior analytics. 
 
-> [!IMPORTANT]
-> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        <a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
+
+- The **IdentityInfo** table is where identity information synchronized to UEBA from Azure Active Directory is stored.
 
 ### BehaviorAnalytics table
 
@@ -73,6 +70,14 @@ The following table describes the behavior analytics data displayed on each [ent
 
 
 ### Entity enrichments dynamic fields
+
+> [!NOTE]
+> The **Enrichment name** column in the tables in this section displays two rows of information. 
+>
+> - The first, in **bold**, is the "friendly name" of the enrichment.
+> - The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](#behavioranalytics-table).
+
+
 
 #### UsersInsights field
 
@@ -211,9 +216,9 @@ The following tables describe the enrichments featured in the **ActivityInsights
 |
 
 
-### IdentityInfo table (Public Preview)
+### IdentityInfo table
 
-After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Azure Active Directory is synchronized to the **IdentityInfo** table in Log Analytics for use in Microsoft Sentinel. You can embed user data synchronized from your Azure AD from the  in your analytics rules to enhance your analytics to fit your use cases and reduce false positives.
+After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Azure Active Directory is synchronized to the **IdentityInfo** table in Log Analytics for use in Microsoft Sentinel. You can embed user data synchronized from your Azure AD in your analytics rules to enhance your analytics to fit your use cases and reduce false positives.
 
 While the initial synchronization may take a few days, once the data is fully synchronized:
 
