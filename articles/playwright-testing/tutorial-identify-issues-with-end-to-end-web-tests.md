@@ -398,4 +398,4 @@ You've now created a Microsoft Playwright Testing account and configured your Pl
 Advance to the next tutorial to learn how to set up automated end-to-end testing.
 
 > [!div class="nextstepaction"]
-> [What is Microsoft Playwright Testing](./overview-what-is-microsoft-playwright-testing.md)
+> [Automate tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md)

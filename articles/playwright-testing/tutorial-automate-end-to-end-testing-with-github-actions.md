@@ -239,5 +239,4 @@ As you continue to make application code changes or update your test specificati
 
 You've successfully set up a continuous end-to-end testing workflow with GitHub Actions and Microsoft Playwright Testing. 
 
-> [!div class="nextstepaction"]
-> [What is Microsoft Playwright Testing](./overview-what-is-microsoft-playwright-testing.md)
+- Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
