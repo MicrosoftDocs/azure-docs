@@ -57,13 +57,13 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 You can use Azure AD security groups to manage access to workspaces. This approach has following benefits:
  * Team or project leaders can manage user access to workspace as security group owners, without needing Owner role on the workspace resource directly.
  * You can organize, manage and revoke users' permissions on workspace and other resources as a group, without having to manage permissions on user-by-user basis.
- * Using Azure AD groups helps you to avoid reaching the [subscription limit](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit) on role assignments. 
+ * Using Azure AD groups helps you to avoid reaching the [subscription limit](../role-based-access-control/troubleshooting.md#azure-role-assignments-limit) on role assignments. 
 
 To use Azure AD security groups:
- 1. [Create a security group](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
- 2. [Add a group owner](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners). This user has permissions to add or remove group members. Note that the group owner is not required to be group member, or have direct RBAC role on the workspace.
+ 1. [Create a security group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+ 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner is not required to be group member, or have direct RBAC role on the workspace.
  3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader or Contributor. 
- 4. [Add group members](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal). The members consequently gain access to the workspace.
+ 4. [Add group members](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md). The members consequently gain access to the workspace.
 
 
 ## Create custom role
