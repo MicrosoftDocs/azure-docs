@@ -7,8 +7,10 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
+ms.devlang: java
 ms.topic: conceptual
 ms.date: 04/07/2022
+ms.custom: devx-track-java
 ---
 
 # Change feed pull model in Azure Cosmos DB
@@ -228,6 +230,7 @@ As long as the Cosmos container still exists, a FeedIterator's continuation toke
 
 You can execute `container.queryChangeFeed` to process the change feed using the pull model. When creating `CosmosChangeFeedRequestOptions` you can specify different methods to determine where to start reading the change feed from. You will also pass the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed. If you specify `FeedRange.forFullRange()`, you can process an entire container's change feed at your own pace. Here's an example, which starts reading all changes starting from the beginning:
 
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=CosmosBulkOperationsImport)]
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)]
 
 Because the change feed is effectively an infinite list of items encompassing all future writes and updates, we can execute an infinite loop and persist a continuation token. Each iteration will process from the last processed point in the change feed. In the above example, this is handled by initializing using `createForProcessingFromBeginning`, and then `createForProcessingFromContinuation` after the first execution.
