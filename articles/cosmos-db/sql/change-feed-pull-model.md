@@ -273,7 +273,7 @@ Machine 2:
    <!-- [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine2)] -->
    [!code-java[](https://github.com/TheovanKraay/azure-cosmos-java-sql-api-samples/blob/change-feed-pull-sample/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine2)]
 
-
+---
 
 
 ## Next steps
