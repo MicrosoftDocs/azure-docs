@@ -38,7 +38,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](mobile-app-quickstart-portal-android.md)
 - [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](mobile-app-quickstart-portal-ios.md)
 - [Set up your application's Azure AD test environment](test-setup-environment.md)
-- [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md)
+- [Single sign-on SAML protocol](single-sign-on-saml-protocol.md)
 - [Single sign-on with MSAL.js](msal-js-sso.md)
 - [Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app](tutorial-v2-nodejs-webapp-msal.md)
 - [What's new for authentication?](reference-breaking-changes.md)
