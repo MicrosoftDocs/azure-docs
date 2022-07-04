@@ -20,19 +20,26 @@ Automation rules are a way to centrally manage automation in Microsoft Sentinel,
 
 Automation rules apply to the following categories of use cases:
 
-- Basic automation tasks for incident handling without using playbooks. For example:
+- Perform basic automation tasks for incident handling without using playbooks. For example:
     - Suppress noisy incidents.
     - Triage new incidents by changing their status from New to Active and assigning an owner.
     - Tag incidents to classify them.
     - Escalate an incident by assigning a new owner.
     - Close resolved incidents, specifying a reason and adding comments.
 
-Automation rules can also:
 - Automate responses for multiple analytics rules at once.
+
 - Control the order of actions that are executed.
+
 - Inspect the contents of an incident (alerts, entities, and other properties) and take further action by calling a playbook.
 
-As of July 2022 (Preview), automation rules can also be the mechanism by which you run a playbook in response to an alert not associated with an incident.
+- Automation rules can also be [the mechanism by which you run a playbook](whats-new.md#automation-rules-for-alerts) in response to an **alert** *not associated with an incident*.
+
+    > [!IMPORTANT]
+    >
+    > **Automation rules for alerts** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+
 
 In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your threat response orchestration processes.
 
@@ -155,19 +162,15 @@ You can define an expiration date on an automation rule. The rule will be disabl
 
 You can define the order in which automation rules will run. Later automation rules will evaluate the conditions of the incident according to its state after being acted on by previous automation rules.
 
-***(DOES THIS APPLY TO ALERT-TRIGGER RULES ALSO??? -YL)***
-
 For example, if "First Automation Rule" changed an incident's severity from Medium to Low, and "Second Automation Rule" is defined to run only on incidents with Medium or higher severity, it won't run on that incident.
 
 Rules based on the update trigger have their own separate order queue. If such rules are triggered to run on a just-created incident (by a change made by another automation rule), they will run only after all the applicable rules based on the create trigger have run.
 
 ## Common use cases and scenarios
 
-### Incident-triggered automation
+### Incident- and alert-triggered automation
 
-***(I FEEL LIKE THIS PARAGRAPH IS OBSOLETE NOW. GET RID OF IT??? -YL)***
-
-Before automation rules existed, only alerts could trigger an automated response, through the use of playbooks. With automation rules, incidents can now trigger automated response chains, which can include new incident-triggered playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)), when an incident is created. 
+Automation rules can be triggered by the creation or updating of incidents and also (in Preview) by the creation of alerts. These occurrences can all trigger automated response chains, which can include playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)). 
 
 ### Trigger playbooks for Microsoft providers
 
