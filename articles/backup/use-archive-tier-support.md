@@ -46,7 +46,7 @@ To enable a subscription, follow these steps:
 
    :::image type="content" source="./media/use-archive-tier-support/select-preview-feature-inline.png" alt-text="Screenshot showing to select the Preview Feature option." lightbox="./media/use-archive-tier-support/select-preview-feature-expanded.png":::
 
-1. Select **Smart Tiering for Archive**.
+1. Select **Smart Tiering for Azure Backup**.
 
    :::image type="content" source="./media/use-archive-tier-support/select-smart-tiering-for-archive-inline.png" alt-text="Screenshot showing to select Smart Tiering for Archive option." lightbox="./media/use-archive-tier-support/select-smart-tiering-for-archive-expanded.png":::
 
