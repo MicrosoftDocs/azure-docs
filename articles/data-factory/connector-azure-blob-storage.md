@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/13/2021
+ms.date: 07/04/2022
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory or Azure Synapse Analytics
@@ -24,15 +24,19 @@ This article outlines how to use the Copy activity in Azure Data Factory and Azu
 >[!TIP]
 >To learn about a migration scenario for a data lake or a data warehouse, see the article [Migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
 
-## Supported capabilities
+## Overview
 
-This Azure Blob storage connector is supported for the following activities:
+This Azure Blob storage connector is supported for the following activities, integration runtimes and managed private endpoints.
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ |
+
+&#9312;Azure integration runtime &#9313;Self-hosted integration runtime
 
 For the Copy activity, this Blob storage connector supports:
 
