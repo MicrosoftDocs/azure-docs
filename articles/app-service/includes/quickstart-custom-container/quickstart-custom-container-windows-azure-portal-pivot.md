@@ -27,13 +27,13 @@ We will clone the code so that we can update the code and then update our contai
 1. Copy the HTTPS URL.
 1. In your command line, run:
 
-```bash
-git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
+    ```
 
 ## 2 - Push the image to Azure Container Registry
 
-The cloned repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system, explicitly calling out our Windows base.
+The cloned repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system , explicitly calling out our Windows base.
 
 > [!NOTE]
 > [Even though this is a Windows container, the paths still need to use forward slashes. See [Write a Dockerfile](/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-using-copy-with-windows) for more details.]]
@@ -48,12 +48,6 @@ The cloned repository contains a **Dockerfile.windows** file. We will be using W
 
     ```docker
     docker build -f Dockerfile.windows -t dotnetcore-docs-hello-world-windows . 
-    ```
-
-1. Tag the container image.
-
-    ```docker
-    docker tag dotnetcore-docs-hello-world-windows <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-windows:latest
     ```
 
 1. Push the container image to Azure Container Registry.
@@ -101,13 +95,13 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-windows.png" alt-text="Screenshot showing the Azure Container Registry options.":::
 
-2. Select the **Review + create** button at the bottom of the page.
+1. Select the **Review + create** button at the bottom of the page.
 
     :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page.":::
 
-3. After validation runs, select the **Create** button at the bottom of the page.
+1. After validation runs, select the **Create** button at the bottom of the page.
 
-4. After deployment is complete, select **Go to resource**.
+1. After deployment is complete, select **Go to resource**.
 
     :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
