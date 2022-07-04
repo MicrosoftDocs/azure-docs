@@ -150,9 +150,7 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 > [!TIP]
 > For cloud-connected sensors, the diagnostics log is automatically available to your support team when you open a support ticket.
 >
-<<<<<<< HEAD
 
-=======
 >>>>>>> b15439643896b8fcd2fd5e1f1e2c862513766664
 **To upload a diagnostics report**:
 
