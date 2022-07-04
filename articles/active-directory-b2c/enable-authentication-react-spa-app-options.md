@@ -255,4 +255,5 @@ export const msalConfig = {
 
 ## Next steps
 
-- Learn more: [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md).
+- Learn more: [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react/docs).
+
