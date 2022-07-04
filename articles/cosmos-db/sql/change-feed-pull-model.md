@@ -7,7 +7,6 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 04/07/2022
 ms.custom: devx-track-java
