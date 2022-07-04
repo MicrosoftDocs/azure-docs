@@ -2,7 +2,7 @@
 title: About Azure Lab Services | Microsoft Docs
 description: Learn how Lab Services can make it easy to create, manage, and secure labs with VMs for educators and students. 
 ms.topic: overview
-ms.date: 06/29/2022
+ms.date: 07/04/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -43,7 +43,7 @@ You can set up labs for several types of classes with Azure Lab Services. See th
 
 Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=lab-services) page to learn where Azure Lab Services is available.
 
-[Azure Lab Services April 2022 Update (preview](lab-services-whats-new.md)) doesn't move or store customer data outside the region it's deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
+[Azure Lab Services August 2022 Update](lab-services-whats-new.md)) doesn't move or store customer data outside the region it's deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
 
 There are no guarantees customer data will stay in the region it's deployed to when using Azure Lab Services previous to the April 2022 Update.
 

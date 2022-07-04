@@ -2,7 +2,7 @@
 title: Manage a VM pool in Azure Lab Services
 description: Learn how to manage a VM pool in Azure Lab Services
 ms.topic: how-to
-ms.date: 06/29/2022
+ms.date: 07/04/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -55,7 +55,7 @@ On the **Reset virtual machine(s)** dialog box, select **Reset**.
 
 ### Redeploy VMs
 
-In the [April 2022 Update](lab-services-whats-new.md), redeploying VMs replaces the previous reset VM behavior.  In the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com), the command is named **Troubleshoot** and is available in the student's view of their VMs.
+In the [August 2022 Update](lab-services-whats-new.md), redeploying VMs replaces the previous reset VM behavior.  In the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com), the command is named **Troubleshoot** and is available in the student's view of their VMs.
 
 If students are facing difficulties accessing their VM, redeploying the VM may provide a resolution for the issue. Redeploying, unlike resetting, doesn't cause the data on the OS to be lost.  When you [redeploy a VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows), Azure Lab Services will shut down the VM, move it to a new host, and restart it.  You can think of it as a refresh of the underlying VM for the student's machine.  The student doesn't need to re-register to the lab or do any other action.  Any data you saved in the OS disk (usually C: drive) of the VM will still be available after the redeploy operation.  Anything saved on the temporary disk (usually D: drive) will be lost.
 
