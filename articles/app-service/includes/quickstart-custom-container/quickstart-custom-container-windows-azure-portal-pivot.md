@@ -33,7 +33,7 @@ We will clone the code so that we can update the code and then update our contai
 
 ## 2 - Push the image to Azure Container Registry
 
-The cloned repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system , explicitly calling out our Windows base.
+The cloned repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system, explicitly calling out our Windows base.
 
 > [!NOTE]
 > [Even though this is a Windows container, the paths still need to use forward slashes. See [Write a Dockerfile](/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-using-copy-with-windows) for more details.]]
