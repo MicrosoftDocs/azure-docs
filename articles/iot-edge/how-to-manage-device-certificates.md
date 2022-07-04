@@ -27,6 +27,17 @@ To learn more about the different types of certificates and their roles, see [Un
 >[!NOTE]
 >The term "root CA" used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.
 
+<!--1.2-->
+:::moniker range=">=iotedge-2020-11"
+
+## Changes in version 1.2
+
+* The **device CA certificate** was renamed as **edge CA certificate**.
+* The **workload CA certificate** was deprecated. Now the IoT Edge security manager generates the IoT Edge hub server certificate directly from the edge CA certificate, without the intermediate workload CA certificate between them.
+
+:::moniker-end
+<!-- end-1.2 -->
+
 ### Prerequisites
 
 * An IoT Edge device.
@@ -180,8 +191,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
 
 IoT Edge automatically generates certificates on the device in several cases, including:
 
-* If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates a **device CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
-* The IoT Edge security manager also generates a **workload CA certificate** signed by the device CA certificate
+If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates a **device CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
 
 For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
