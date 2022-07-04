@@ -20,6 +20,30 @@ Azure Monitor Agent (AMA) replaces the Log Analytics Agent (MMA/OMS) for Windows
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
+### Prerequisites
+
+To install DCR Config Generator, you need:
+
+1. PowerShell version 5.1 or higher. We recommend using PowerShell version 7.1.3 or higher.
+1. Read access for the specified workspace resources.
+1. The Azure credentials for running `Connect-AzAccount` and `Select-AzSubscription`, which set the context for the script to run.
+## Installing and using AMA Migration Helper (preview)
+
+AMA Migration Helper is a workbook-based Azure Monitor solution that helps you **discover what to migrate** and **track progress** as you move from Log Analytics Agent to Azure Monitor Agent. Use this single pane of glass view to expedite and track the status of your agent migration journey. 
+
+To set up the AMA Migration Helper workbook in the Azure portal:
+
+1. From the **Monitor** menu, select **Workbooks** > **+ New** > **Advanced Editor** (**</>**).
+4. Paste the content from the file attached.
+5. Select **Apply** to load the workbook. 
+1. Select **Done Editing**. 
+
+    You’re now ready to use the workbook.
+
+1. Select the **Subscriptions** and **Workspaces** dropdowns to view relevant information.
+
+    :::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the Subscription and Workspace dropdowns and shows the Azure Virtual Machines tab, on which you can track which agent is deployed on each virtual machine.":::
+
 ## Installing and using DCR Config Generator (preview)
 Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) for configuration, whereas Log Analytics Agent inherits its configuration from Log Analytics workspaces. 
 
@@ -28,13 +52,7 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
 > [!NOTE]
 > DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on Log Analytics Agent. Future versions of DCR Config Generator will support migrating Azure solution and service configuration.
 
-### Prerequisites
-
-1. We recommend using PowerShell version 7.1.3 or higher (minimum version 5.1).
-1. Read access for the specified workspace resources.
-1. The Azure credentials for running `Connect-AzAccount` and `Select-AzSubscription`, which set the context for the script to run.
-
-### Installing DCR Config Generator
+To install DCR Config Generator:
 
 1. [Download the PowerShell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools).
 
@@ -68,19 +86,4 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
 	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
 	
 1. Use the built-in rule association policies to [associate generated rules with machines running the new agent](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association).
-
-## Installing and using AMA Migration Helper (preview)
-
-AMA Migration Helper is a workbook-based Azure Monitor solution that helps you discover **what to migrate** and **track progress** as you move from legacy Log Analytics Agent to Azure Monitor Agent. Use this single pane of glass view to expedite and track the status of your agent migration journey. 
-
-To set up the AMA Migration Helper workbook in the Azure portal:
-
-1. From the **Monitor** menu, select **Workbooks** > **+ New** > **Advanced Editor** (**</>**).
-4. Paste the content from the file attached.
-5. Select **Apply** to load the workbook. 
-1. Select **Done Editing**. 
-
-    You’re now ready to use the workbook.
-
-1. Select the **Subscriptions** and **Workspaces** dropdowns to view relevant information.
 
