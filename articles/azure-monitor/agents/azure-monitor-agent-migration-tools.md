@@ -85,5 +85,5 @@ To install DCR Config Generator:
 	- Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
 	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
 	
-1. Use the built-in rule association policies to [associate generated rules with machines running the new agent](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association).
+1. Use the built-in rule association policies to [associate the generated data collection rules with virtual machines](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) running the new agent.
 
