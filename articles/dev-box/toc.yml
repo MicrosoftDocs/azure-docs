@@ -9,9 +9,11 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Configure the Microsoft Dev Box service
+    - name: Configure the Microsoft Dev Box service (DevCenter owner)
       href: quickstart-configure-dev-box-service.md
-    - name: Create a Dev Box
+    - name: Manage Dev Box projects (Project admin)
+      href: quickstart-dev-box-projects.md
+    - name: Create a Dev Box (Dev Box user)
       href: quickstart-create-dev-box.md
 - name: Tutorials
   expanded: true
