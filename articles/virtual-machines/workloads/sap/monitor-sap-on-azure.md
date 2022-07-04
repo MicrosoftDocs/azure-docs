@@ -110,6 +110,10 @@ Azure Monitor for SAP Solutions collects system metadata to provide improved sup
 You can enable data sharing with Microsoft when you create Azure Monitor for SAP Solutions resource by choosing *Share* from the drop-down. We recommend that you enable data sharing. Data sharing gives Microsoft support and engineering teams information about your environment, which helps us provide better support for your mission-critical SAP on Azure solution.
 
 ## Architecture overview
+>![Note]:
+> This content would apply to both versions.
+
+###### Azure Monitor for SAP solutions (Classic) 
 
 The following diagram shows, at a high level, how Azure Monitor for SAP Solutions collects telemetry from SAP HANA database. The architecture is the same whether SAP HANA is deployed on Azure VMs or Azure Large Instances.
 
