@@ -38,10 +38,13 @@ When you're finished, select Add provider. Continue to add providers as needed, 
 For SUSE based cluster
 
 
+
 <img width="563" alt="image" src="https://user-images.githubusercontent.com/33844181/167705933-68b0b8c7-5fda-4335-90eb-3354e21c9e1d.png">
 
 
 For RHEL based cluster
+
+
 
 
 <img width="563" alt="image" src="https://user-images.githubusercontent.com/33844181/167706004-9e52da62-a2eb-45df-a36a-346520ea142a.png">
