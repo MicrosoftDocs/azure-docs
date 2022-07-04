@@ -1381,8 +1381,8 @@ items:
           href: visualize/workbooks-templates.md
         - name: Creating a new workbook
           href: visualize/workbooks-create-workbook.md
-        - name: Workbook settings
-          href: visualize/workbooks-settings.md
+        - name: Workbook configuration options
+          href: visualize/workbooks-configurations.md
         - name: Working with parameters
           items:
           - name: Workbook parameters
