@@ -106,4 +106,4 @@ In the [Microsoft Playwright Portal](https://dashboard.playwright-ppe.io/playwri
 
 ## Next steps
 
-- Learn more about [how Microsoft Playwright Testing works](./overview-what-is-microsoft-playwright-testing.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).

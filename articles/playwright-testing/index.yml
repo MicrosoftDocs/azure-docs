@@ -36,6 +36,8 @@ landingContent:
         links:
           - text: Identify issues with end-to-end web tests
             url: tutorial-identify-issues-with-end-to-end-web-tests.md
+          - text: Automate end-to-end testing with GitHub Actions
+            url: tutorial-automate-end-to-end-testing-with-github-actions.md
 
   - title: Run tests
     linkLists:
