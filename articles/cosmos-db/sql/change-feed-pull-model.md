@@ -228,8 +228,7 @@ As long as the Cosmos container still exists, a FeedIterator's continuation toke
 
 You can execute `container.queryChangeFeed` to process the change feed using the pull model. When creating `CosmosChangeFeedRequestOptions` you can specify different methods to determine where to start reading the change feed from. You will also pass the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed. If you specify `FeedRange.forFullRange()`, you can process an entire container's change feed at your own pace. Here's an example, which starts reading all changes starting from the beginning:
 
-   <!-- [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)] -->
-   [!code-java[](https://github.com/TheovanKraay/azure-cosmos-java-sql-api-samples/src/change-feed-pull-sample/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)]
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)]
 
 Because the change feed is effectively an infinite list of items encompassing all future writes and updates, we can execute an infinite loop and persist a continuation token. Each iteration will process from the last processed point in the change feed. In the above example, this is handled by initializing using `createForProcessingFromBeginning`, and then `createForProcessingFromContinuation` after the first execution.
 
@@ -237,8 +236,7 @@ Because the change feed is effectively an infinite list of items encompassing al
 
 In some cases, you may only want to process a specific partition key's changes. You can can process the changes for a specific partition key in the same way that you can for an entire container.
 
-   <!-- [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/examples/changefeedpull/SampleChangeFeedPullModel.java?name=PartitionKeyProcessing)] -->
-   [!code-java[](https://github.com/TheovanKraay/azure-cosmos-java-sql-api-samples/src/change-feed-pull-sample/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=PartitionKeyProcessing)]
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=PartitionKeyProcessing)]
 
 
 ## Using FeedRange for parallelization
@@ -247,8 +245,7 @@ In the [change feed processor](change-feed-processor.md), work is automatically 
 
 Here's an example showing how to obtain a list of ranges for your container:
 
-   <!-- [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/examples/changefeedpull/SampleChangeFeedPullModel.java?name=GetFeedRanges)] -->
-   [!code-java[](https://github.com/TheovanKraay/azure-cosmos-java-sql-api-samples/src/change-feed-pull-sample/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=GetFeedRanges)]
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=GetFeedRanges)]
 
 When you obtain of list of FeedRanges for your container, you'll get one `FeedRange` per [physical partition](../partitioning-overview.md#physical-partitions).
 
@@ -263,13 +260,11 @@ Here's a sample that shows how to read from the beginning of the container's cha
 
 Machine 1:
 
-   <!-- [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine1)] -->
-   [!code-java[](https://github.com/TheovanKraay/azure-cosmos-java-sql-api-samples/src/change-feed-pull-sample/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine1)]
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine1)]
 
 Machine 2:
 
-   <!-- [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine2)] -->
-   [!code-java[](https://github.com/TheovanKraay/azure-cosmos-java-sql-api-samples/src/change-feed-pull-sample/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine2)]
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine2)]
 
 ---
 
