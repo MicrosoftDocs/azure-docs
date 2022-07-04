@@ -2,7 +2,7 @@
 title: Labs concepts - Azure Lab Services | Microsoft Docs
 description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 07/04/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -45,7 +45,7 @@ For more information, see [Configure automatic shutdown of VMs for a lab plan](h
 
 A template VM in a lab is a base image from which all students' VMs are created. Educators configure the template VM with the software needed to complete the lab. When educators [publish a template VM](tutorial-setup-lab.md#publish-a-lab), Azure Lab Services creates or updates student lab VMs to match the template VM.
 
-Labs can be created without needing a template VM, if using the [April 2022 Update](lab-services-whats-new.md).  The Marketplace or Azure Compute Gallery image is used as-is to create the student's VMs.
+Labs can be created without needing a template VM, if using the [August 2022 Update](lab-services-whats-new.md).  The Marketplace or Azure Compute Gallery image is used as-is to create the student's VMs.
 
 ## Lab plans
 
