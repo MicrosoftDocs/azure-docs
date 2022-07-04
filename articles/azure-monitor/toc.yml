@@ -498,7 +498,6 @@ items:
       - name: Use data collection endpoints
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Migrate from Log Analytics agent
-        href: agents/azure-monitor-agent-migration.md
         items:
         - name: Migration guidance
           href: agents/azure-monitor-agent-migration.md
