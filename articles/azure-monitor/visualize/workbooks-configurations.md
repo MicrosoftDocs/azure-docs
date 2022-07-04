@@ -14,18 +14,19 @@ ms.date: 07/20/2020
 There are several ways you can configure Workbooks to suit your needs.
 
 ## Workbook settings
-The workbooks settings pane has these tabs to help you configure your workbook.
+The workbooks settings has these tabs to help you configure your workbook.
 
 
 |Settings tab  |Description  |
 |---------|---------|
 |Resources|This tab contains the resources that appear as default selections in this workbook.<br>The resource marked as the **Owner** resource is where the workbook will be saved, and the location of the workbooks and templates you'll see when browsing. The owner resource can't be removed.<br> You can add a default resource by selecting **Add Resources**. You can remove resources by selecting a resource or several resources, and selecting **Remove Selected Resources**. When you're done adding and removing resources, select **Apply Changes**.|
-|Versions| This tab contains a list of all the available versions of this workbook. Select a version and use the toolbar to compare, view, or restore versions. Previous workbook versions are available for 90 days.<br><ul><li>**Compare**: Compare the JSON of the previous workbook to the most recently saved version.</li><li>**View**: Opens the selected version of the workbook in a context pane.</li><li>**Restore**: Saves a new copy of the workbook with the contents of the selected version and overwrites any existing current content. You'll be prompted to confirm this action.</li></ul><br>
-> [!NOTE]
-> Version history is not available for [Bring your own storage](workbooks-bring-your-own-storage.md) workbooks.|
+|Versions| This tab contains a list of all the available versions of this workbook. Select a version and use the toolbar to compare, view, or restore versions. Previous workbook versions are available for 90 days.<br><ul><li>**Compare**: Compare the JSON of the previous workbook to the most recently saved version.</li><li>**View**: Opens the selected version of the workbook in a context pane.</li><li>**Restore**: Saves a new copy of the workbook with the contents of the selected version and overwrites any existing current content. You'll be prompted to confirm this action.</li></ul><br>|
 |Style     |In this tab, you can set a padding and spacing style for the whole workbook. The possible options are `Wide`, `Standard`, `Narrow`, `None`. `Standard` is the default style setting.|
 |Pin     |While in pin mode, you can select **Pin Workbook** to pin an item from this workbook to a dashboard. Select **Link to Workbook**, to pin a static link to this workbook on your dashboard. You can choose a specific item in your workbook to pin.|
 |Trusted hosts     |In this tab, you can enable a trusted source or mark this workbook as trusted in this browser. See [trusted hosts](#trusted-hosts) for detailed information. |
+
+> [!NOTE]
+> Version history is not available for [Bring your own storage](workbooks-bring-your-own-storage.md) workbooks.
 
 **Versions tab**
 
@@ -34,7 +35,7 @@ The workbooks settings pane has these tabs to help you configure your workbook.
 **Comparing versions**
 :::image type="content" source="media/workbooks-configurations/workbooks-compare-versions.png" alt-text="Screenshot showing version comparison in the workbooks settings pane.":::
 
-## Trusted hosts
+### Trusted hosts
 Enable trusted source or mark this workbook as trusted in this browser.
 
 | Control      | Definition |
@@ -46,10 +47,10 @@ Enable trusted source or mark this workbook as trusted in this browser.
 
 There are several ways that you can create interactive reports and experiences in workbooks.
  - **Parameters**: When a user updates a [parameter](workbooks-parameters.md), any control that uses the parameter automatically refreshes and redraws to reflect the new value. This is how most of the Azure portal reports support interactivity. Workbooks provide this functionality in a straight-forward manner with minimal user effort.
- - **Grid, tile, and chart selections**: You can construct scenarios where clicking a row in a grid updates subsequent charts based on the content of the row. For example, if you have a grid that shows a list of requests and some statistics like failure counts, you can set it up so that if you click on the row of a request, the detailed charts below update to show only that request. Learn how to [#set up a grid row click](#set-up-a-grid-row-click).
- - **Grid Cell Clicks**: You to add interactivity with a special type of grid column renderer called a **[link renderer](#link-renderer-actions)**. A link renderer converts a grid cell into a hyperlink based on the contents of the cell. Workbooks support many kinds of link renderers including renderers that open resource overview blades, property bag viewers, App Insights search, usage, transaction tracing, etc. Learn how to [#set up a grid cell click](#set-up-grid-cell-clicks).
- - **Conditional Visibility**: You can make controls appear or disappear based on the values of parameters. This allows you to have reports that look different based on user input or telemetry state. For example, you can show consumers a summary when there are no issues, and show detailed information when there's something wrong. Learn how to [#set up conditional visibility](#set-conditional-visibility).
- - **Export parameters with multi-selections**:  You can export parameters from query and metrics workbook items when a row or multiple rows are selected.Learn how to [#set up multi-selects in grids and charts](#set-up-multi-selects-in-grids-and-charts).
+ - **Grid, tile, and chart selections**: You can construct scenarios where clicking a row in a grid updates subsequent charts based on the content of the row. For example, if you have a grid that shows a list of requests and some statistics like failure counts, you can set it up so that if you click on the row of a request, the detailed charts below update to show only that request. Learn how to [set up a grid row click](#set-up-a-grid-row-click).
+ - **Grid Cell Clicks**: You to add interactivity with a special type of grid column renderer called a [link renderer](#link-renderer-actions). A link renderer converts a grid cell into a hyperlink based on the contents of the cell. Workbooks support many kinds of link renderers including renderers that open resource overview blades, property bag viewers, App Insights search, usage, transaction tracing, etc. Learn how to [set up a grid cell click](#set-up-grid-cell-clicks).
+ - **Conditional Visibility**: You can make controls appear or disappear based on the values of parameters. This allows you to have reports that look different based on user input or telemetry state. For example, you can show consumers a summary when there are no issues, and show detailed information when there's something wrong. Learn how to [set up conditional visibility](#set-conditional-visibility).
+ - **Export parameters with multi-selections**:  You can export parameters from query and metrics workbook items when a row or multiple rows are selected.Learn how to [set up multi-selects in grids and charts](#set-up-multi-selects-in-grids-and-charts).
 
 
 ### Set up a grid row click
