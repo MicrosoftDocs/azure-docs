@@ -80,10 +80,10 @@ After the first failure, the first retry happens within the next 2 hours (usuall
 - The third retry happens 12 hours after the first failure.
 - The fourth retry happens 24 hours after the first failure.
 - The fifth retry happens 48 hours after the first failure.
-- The sixth retry happens 96 hours after the first failure
-- The seventh retry happens 168 hours after the first failure.
+- The sixth retry happens 72 hours after the first failure
+- The seventh retry happens 96 hours after the first failure.
 
-After the 7th failure, entry is flagged and no further retries are run.
+This cycle will continue every 24 hours until the 30th day when the cycle is disabled and no further retries are run
 
 
 ## How do I get my application out of quarantine?
