@@ -319,7 +319,7 @@ The `update` command also works with local deployments. Use the same `az ml onli
 > The above is an example of inplace rolling update.
 > * For managed online endpoint, the same deployment is updated with the new configuration, with 20% nodes at a time, i.e. if the deployment has 10 nodes, 2 nodes at a time will be updated. 
 > * For Kubernetes online endpoint, the system will iterately create a new deployment instance with the new configuration and delete the old one.
->* For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
+> * For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
 
 ### (Optional) Configure autoscaling
 
