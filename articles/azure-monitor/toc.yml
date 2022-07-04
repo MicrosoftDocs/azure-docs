@@ -63,7 +63,7 @@ items:
     items:
     - name: Azure portal
       displayName: Workspace transformations
-      href: logs/tutorial-workspace-transformations.md
+      href: logs/tutorial-workspace-transformations-portal.md
     - name: Resource Manager templates
       displayName: Workspace transformations
       href: logs/tutorial-workspace-transformations-api.md
@@ -417,10 +417,11 @@ items:
         href: essentials/diagnostic-settings-policy.md
   - name: Data collection
     items:
+    - name: Overview
+      displayname: data collection, data collection rules
+      href: data-collection.md
     - name: Data sources
       href: data-sources.md
-    - name: Data collection process
-      href: data-collection.md
     - name: Data collection rules
       items:
       - name: Overview
@@ -443,7 +444,7 @@ items:
         displayname: Transformations
         href: essentials/data-collection-transformations-kql.md
       - name: Tutorial (portal)
-        href: logs/tutorial-workspace-transformations.md
+        href: logs/tutorial-workspace-transformations-portal.md
       - name: Tutorial (API)
         href: logs/tutorial-workspace-transformations-api.md
     - name: Private Link networking

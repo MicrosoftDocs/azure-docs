@@ -8,7 +8,37 @@ ms.reviwer: nikeist
 ---
 
 # KQL limitations in data collection transformations
-[Transformations in Azure Monitor](/data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. Data transformations are defined in a [data collection rule (DCR)](data-collection-rule-overview.md) and use a Kusto Query Language (KQL) statement that is applied individually to each entry in the incoming data. Since the transformation is applied to each record individually, it can't use any KQL operators that act on multiple records. Only operators that take a single row as input and return no more than one row are supported. For example, [summarize](/azure/data-explorer/kusto/query/summarizeoperator) isn't supported since it summarizes multiple records. See [Supported KQL features](#supported-kql-features) for a complete list of supported features.
+[Transformations in Azure Monitor](/data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They are implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
+
+
+## Transformation structure
+The KQL statement is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. The input stream is represented by a virtual table named `source` with columns matching the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
+
+- Filters the incoming data with a [where](/azure/data-explorer/kusto/query/whereoperator) statement
+- Adds a new column using the [extend](/azure/data-explorer/kusto/query/extendoperator) operator
+- Formats the output to match the columns of the target table using the [project](/azure/data-explorer/kusto/query/projectoperator) operator
+
+```kusto
+source  
+| where severity == "Critical" 
+| extend Properties = parse_json(properties)
+| project
+    TimeGenerated = todatetime(["time"]),
+    Category = category,
+    StatusDescription = StatusDescription,
+    EventName = name,
+    EventId = tostring(Properties.EventId)
+```
+
+## KQL limitations
+Since the transformation is applied to each record individually, it can't use any KQL operators that act on multiple records. Only operators that take a single row as input and return no more than one row are supported. For example, [summarize](/azure/data-explorer/kusto/query/summarizeoperator) isn't supported since it summarizes multiple records. See [Supported KQL features](#supported-kql-features) for a complete list of supported features.
+
+
+
+Transformations in a [data collection rule (DCR)](data-collection-rule-overview.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. This article describes how to build transformations in a DCR, including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
+
+
+
 
 ## Inline reference table
 The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This would normally be used in KQL to define an inline query-time table. Use dynamic literals instead to work around this limitation.
