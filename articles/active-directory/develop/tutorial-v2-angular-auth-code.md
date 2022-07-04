@@ -154,7 +154,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
 
     @NgModule({
       imports: [RouterModule.forRoot(routes, {
-        initialNavigation: !isIframe ? 'enabled' : 'disabled' // Don't perform initial navigation in iframes
+        initialNavigation: !isIframe ? 'enabledBlocking' : 'disabled' // Don't perform initial navigation in iframes
       })],
       exports: [RouterModule]
     })
