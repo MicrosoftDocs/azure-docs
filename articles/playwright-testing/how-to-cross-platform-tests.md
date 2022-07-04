@@ -90,7 +90,7 @@ const config: PlaywrightTestConfig = {
 }
 ```
 
-In the [Microsoft Playwright Portal](https://dashboard.playwright-ppe.io/playwright-service), you can quickly filter the test results for a specific configuration. The following screenshots shows the test results for tests that were run on Windows:
+In the [Microsoft Playwright Portal](https://dashboard.playwright-ppe.io/playwright-service), you can quickly filter the test results for a specific configuration. The following screenshot shows the test results for tests that were run on Windows:
 
 :::image type="content" source="./media/how-to-cross-platform-tests/playwright-testing-dashboard-filtered-operating-system.png" alt-text="Screenshot that shows the Microsoft Playwright Testing dashboard with the test results filtered for the Windows operating system.":::
  
