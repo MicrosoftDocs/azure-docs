@@ -142,7 +142,7 @@ The following image shows a more elaborate interactive report in read mode based
 
 ### Set conditional visibility
 
-1. Follow the steps in the [Setting up interactivity on grid row click](#set-up-a-grid-row-click) section to set up two interactive controls.
+1. Follow the steps in the [setting up interactivity on grid row click](#set-up-a-grid-row-click) section to set up two interactive controls.
 1. Add a new parameter with these values:
     - Name: `ShowDetails`
     - Parameter type: `Drop down`
@@ -167,7 +167,7 @@ The following image shows the case where `ShowDetails` is `Yes`:
 
   :::image type="content" source="media/workbooks-configurations/workbooks-conditional-visibility-visible.png" alt-text="Screenshot showing a workbook with a conditional item that is visible.":::
 
-The image below shows the hidden case where `ShowDetails` is `No`
+The image below shows the hidden case where `ShowDetails` is `No`:
 
 :::image type="content" source="media/workbooks-configurations/workbooks-conditional-visibility-invisible.png" alt-text="Screenshot showing a workbook with a conditional item that is hidden.":::
 
@@ -189,7 +189,7 @@ When single selection is enabled, you can specify which field of the original da
 When multi-selection is enabled, you specify which field of the original data to export. Fields include parameter name, parameter type, quote with and delimiter. The quote with and delimiter values are used when turning arrow values into text when being replaced in a query. In multi-selection, if no values are selected, the default value is an empty array.
 
 > [!NOTE]
-> For multi select, only unique values are exported. For example, you will not see output array values like " 1,1,2,1". The array output will be get "1,2".
+> For multi-select, only unique values are exported. For example, you will not see output array values like " 1,1,2,1". The array output will be get "1,2".
 
 If you leave the `Field to export` setting empty in the export settings, all the available fields in the data will be exported as a stringified JSON object of key:value pairs. For grids and titles, the string includes the fields in the grid. For charts, the available fields are x,y,series, and label (depending on the type of chart).
 
