@@ -231,7 +231,7 @@ You can execute `container.queryChangeFeed` to process the change feed using the
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)]
 
-Because the change feed is effectively an infinite list of items encompassing all future writes and updates, we can execute an infinite loop and persist a continuation token. Each iteration will process from the last processed point in the change feed. In the above example, this is handled by initializing using `createForProcessingFromBeginning`, and then `createForProcessingFromContinuation` after the first execution.
+Because the change feed is effectively an infinite list of items encompassing all future writes and updates, we can execute an infinite loop. Each iteration persists a continuation token, and will pick up from the last processed point in the change feed. In the above example, this is handled by initializing using `createForProcessingFromBeginning`, and then `createForProcessingFromContinuation` after the first execution.
 
 ## Consuming a partition key's changes
 
