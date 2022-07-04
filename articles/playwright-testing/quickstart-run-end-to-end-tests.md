@@ -161,21 +161,11 @@ You've now configured your Playwright tests to run in the cloud with Microsoft P
     
     The dashboard shows the results for each test, for each browser configuration, grouped by the test specification file. You can use the rich test artifacts to diagnose failing tests.
 
-1. Set the `workers` parameter to increase the number of parallel workers.
-
-    Microsoft Playwright Testing enables you to use cloud infrastructure to scale out and speed up your tests.
-
-    ```bash
-    npx playwright test --workers=20
-    ```
-
-Congratulations! You have successfully run your first Playwright tests with Microsoft Playwright Testing.
-
 ## Next steps
 
-You've now created a Microsoft Playwright Testing account and configured your Playwright tests to run at high scale.
+You've now created a Microsoft Playwright Testing account and configured your Playwright tests to run in the cloud.
 
 Advance to the next tutorial to learn how to identify application issues in the Microsoft Playwright Testing portal.
 
 > [!div class="nextstepaction"]
-> [What is Microsoft Playwright Testing](./overview-what-is-microsoft-playwright-testing.md)
+> [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md)
