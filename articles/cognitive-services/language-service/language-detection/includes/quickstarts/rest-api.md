@@ -10,7 +10,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
+[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
 
 
 ## Prerequisites
@@ -46,10 +46,26 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/languages/ \
+curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", text: "This is a document written in English."}]}'
+-H "Ocp-Apim-Subscription-Key:<your-language-resource-key>" \
+-d \
+'
+{
+    "kind": "LanguageDetection",
+    "parameters": {
+        "modelVersion": "latest"
+    },
+    "analysisInput":{
+        "documents":[
+            {
+                "id":"1",
+                "text": "This is a document written in English."
+            }
+        ]
+    }
+}
+'
 ```
 
 > [!div class="nextstepaction"]
@@ -60,22 +76,19 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/lan
 
 ```json
 {
-   "documents":[
-      {
-         "id":"1",
-         "detectedLanguage":{
-            "name":"English",
-            "iso6391Name":"en",
-            "confidenceScore":1.0
-         },
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2021-01-05"
+	"kind": "LanguageDetectionResults",
+	"results": {
+		"documents": [{
+			"id": "1",
+			"detectedLanguage": {
+				"name": "English",
+				"iso6391Name": "en",
+				"confidenceScore": 1.0
+			},
+			"warnings": []
+		}],
+		"errors": [],
+		"modelVersion": "2021-11-20"
+	}
 }
 ```

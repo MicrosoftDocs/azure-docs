@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Connect using C++ - Azure Database for MySQL'
 description: This quickstart provides a C++ code sample you can use to connect and query data from Azure Database for MySQL.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: mvc, mode-api
-ms.devlang: cpp
 ms.topic: quickstart
-ms.date: 5/26/2020
-adobe-target: true
+ms.devlang: cpp
+author: savjani
+ms.author: pariks
+ms.custom: mvc, mode-api
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use Connector/C++ to connect and query data in Azure Database for MySQL

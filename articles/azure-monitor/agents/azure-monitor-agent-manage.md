@@ -4,7 +4,7 @@ description: Options for managing the Azure Monitor agent (AMA) on Azure virtual
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/10/2022
+ms.date: 06/21/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: shseth
 
@@ -29,16 +29,18 @@ The Azure Monitor agent is implemented as an [Azure VM extension](../../virtual-
 ## Prerequisites
 The following prerequisites must be met prior to installing the Azure Monitor agent.
 
-- For methods other than Azure portal, you must have the following role assignments to install the agent:  
+- **Permissions**: For methods other than Azure portal, you must have the following role assignments to install the agent:  
 
-| Built-in Role | Scope(s) | Reason |  
-|:---|:---|:---|  
-| <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, scale sets</li><li>Arc-enabled servers</li></ul> | To deploy the agent |  
-| Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li></ul> | To deploy ARM templates |  
-- For installing the agent on physical servers and virtual machines hosted *outside* of Azure (i.e. on-premises), you must [install the Azure Arc Connected Machine agent](../../azure-arc/servers/agent-overview.md) first (at no added cost)
-- [Managed system identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) must be enabled on Azure virtual machines. This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed via [creating and assigning a data collection rule using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal).
-- The [AzureResourceManager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine.
-- The virtual machine must have access to the following HTTPS endpoints:
+   | Built-in Role | Scope(s) | Reason |  
+   |:---|:---|:---|  
+   | <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, scale sets</li><li>Arc-enabled servers</li></ul> | To deploy the agent |  
+   | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li></ul> | To deploy ARM templates |  
+- **Non-Azure**: For installing the agent on physical servers and virtual machines hosted *outside* of Azure (i.e. on-premises) or in other clouds, you must [install the Azure Arc Connected Machine agent](../../azure-arc/servers/agent-overview.md) first (at no added cost)
+- **Authentication**: [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) must be enabled on Azure virtual machines. Both system-assigned and user-assigned managed identities are supported.
+  - **User-assigned**: This is recommended for large scale deployments, configurable via [built-in Azure policies](#using-azure-policy). It can be created once and shared across multiple VMs, and is thus more scalable than system-assigned.
+  - **System-assigned**: This is suited for initial testing or small deployments. When used at scale (for example, for all VMs in a subscription) it results in substantial number of identities created (and deleted) in Azure AD (Azure Active Directory). To avoid this churn of identities, it is recommended to use user-assigned managed identities instead. **For Arc-enabled servers, system-assigned managed identity is enabled automatically** (as soon as you install the Arc agent) as it's the only supported type for Arc-enabled servers.
+  - This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed via [creating and assigning a data collection rule using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association).
+- **Networking**: The [AzureResourceManager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine. Additionally, the virtual machine must have access to the following HTTPS endpoints:
   -	global.handler.control.monitor.azure.com
   -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
   -	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opsinsights.azure.com)  
@@ -53,7 +55,7 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
 ## Using the Azure portal
 
 ### Install
-To install the Azure Monitor agent using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) in the Azure portal. This not only creates the rule, but it also associates it to the selected resources and installs the Azure Monitor agent on them if not already installed.
+To install the Azure Monitor agent using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) in the Azure portal. This not only creates the rule, but it also associates it to the selected resources and installs the Azure Monitor agent on them if not already installed.
 
 ### Uninstall
 To uninstall the Azure Monitor agent using the Azure portal, navigate to your virtual machine, scale set or Arc-enabled server, select the **Extensions** tab and click on **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that pops up, click **Uninstall**.
@@ -268,20 +270,37 @@ az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-nam
 
 
 ## Using Azure Policy
-Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule, every time you create a virtual machine.
+Use the following policies and policy initiatives to **automatically install the agent and associate it with a data collection rule**, every time you create a virtual machine, scale set, or Arc-enabled server.
+
+> [!NOTE]
+> As per Microsoft Identity best practices, policies for installing  Azure Monitor agent on **virtual machines and scale-sets** rely on **user-assigned managed identity**. This is the more scalable and resilient managed identity options for these resources.  
+> For **Arc-enabled servers**, policies rely on only **system-assigned managed identity** as the only supported option today. 
 
 ### Built-in policy initiatives
-[View prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites). 
+Before proceeding, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites). 
 
-Policy initiatives for Windows and Linux virtual machines consist of individual policies that:
+Policy initiatives for Windows and Linux **virtual machines, scale-sets** consist of individual policies that:
 
-- Install the Azure Monitor agent extension on the virtual machine.
-- Create and deploy the association to link the virtual machine to a data collection rule.
+- (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details).  
+   - `Bring Your Own User-Assigned Identity`: If set of `true`, it creates the built-in user-assigned managed identity in the predefined resource group, and assigns it to all machines that the policy is applied to. If set to `false`, you can instead use existing user-assigned identity that **you must assign** to the machines beforehand.
+- Install the Azure Monitor agent extension on the machine, and configure it to use user-assigned identity as specified by the parameters below
+  - `Bring Your Own User-Assigned Managed Identity`: If set to `false`, it configures the agent to use the built-in user-assigned managed identity created by the policy above. If set to `true`, it configures the agent to use an existing user-assigned identity that **you must assign** to the machine(s) in scope beforehand.
+  - `User-Assigned Managed Identity Name`: If using your own identity (selected `true`), specify the name of the identity that's assigned to the machine(s)
+  - `User-Assigned Managed Identity Resource Group`: If using your own identity (selected `true`), specify the resource group where the identity exists
+  - `Additional Virtual Machine Images`: Pass additional VM image names that you want to apply the policy to, if not already included
+- Create and deploy the association to link the machine to specified data collection rule.
+   - `Data Collection Rule Resource Id`: The ARM resourceId of the rule you want to associate via this policy, to all machines the policy is applied to.
 
 ![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiatives for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
 
+#### Known issues:
+- Managed Identity default behavior: [Learn more](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+- Possible race condition with using built-in user-assigned identity creation policy above. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#known-issues)
+- Assigning policy to resource groups: If the assignment scope of the policy is a resource group and not a subscription, the identity used by policy assignment (different from the user-assigned identity used by agent) must be manually granted [these roles](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#required-authorization) prior to assignment/remediation. Failing to do this will result in **deployment failures**.
+- Other [Managed Identity limitations](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations)
+
 ### Built-in policies 
-You can choose to use the individual policies from their respective policy initiatives, based on your needs. For example, if you only want to automatically install the agent, use the first policy from the initiative as shown in the following example.  
+You can choose to use the individual policies from the policy initiative above to perform a single action at scale. For example, if you *only* want to automatically install the agent, use the second agent installation policy from the initiative as shown below.  
 
 ![Partial screenshot from the Azure Policy Definitions page showing policies contained within the initiative for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)  
 

@@ -2,9 +2,13 @@
 title: Migrate from legacy agents to the new Azure Monitor agent
 description: This article provides guidance for migrating from the existing legacy agents to the new Azure Monitor agent (AMA) and data collection rules (DCR).
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
-ms.date: 02/09/2022
+author: guywild
+ms.author: guywild
+ms.reviewer: shseth
+ms.date: 6/22/2022 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+
+# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics agent to Azure Monitor Agent and track the status of the migration in my account.    
 
 ---
 
@@ -87,7 +91,7 @@ The following tables show gap analyses for the **log types** that are currently 
 ## Test migration by using the Azure portal
 To ensure safe deployment during migration, you should begin testing with a few resources in your nonproduction environment that are running the existing Log Analytics agent. After you can validate the data collected on these test resources, roll out to production by following the same steps.
 
-See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) to start collecting some of the existing data types. Once you validate data is flowing as expected with the Azure Monitor agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
+See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) to start collecting some of the existing data types. Once you validate data is flowing as expected with the Azure Monitor agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
 
 
 ## At-scale migration using Azure Policy
