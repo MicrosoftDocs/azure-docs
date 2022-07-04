@@ -120,7 +120,7 @@ Now that you've obtained the SPA sample, update the code with your Azure AD B2C 
 | b2cPolicies | names |The user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). |
 | b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
 | b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
-| Configuration | clientId | The React application ID from [step 2.3](#23-register-the-React-app). |
+| Configuration | clientId | The React application ID from [step 2.3](#23-register-the-react-app). |
 | protectedResources| endpoint| The URL of the web API: `http://localhost:5000/api/todolist`. |
 | protectedResources| scopes| The web API scopes that you created in [step 2.2](#22-configure-scopes). For example: `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`. |
 

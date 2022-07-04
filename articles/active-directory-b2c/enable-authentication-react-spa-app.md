@@ -55,7 +55,7 @@ Install the [Bootstrap for React](https://www.npmjs.com/package/react-bootstrap)
 npm i bootstrap react-bootstrap    
 ```
 
-## 3: Add the authentication components
+## Step 3: Add the authentication components
 
 The sample code is made up of the following components. Add these components from the sample React app to your own app: 
 
@@ -98,7 +98,7 @@ The sample code is made up of the following components. Add these components fro
 
 ## Step 4: Configure your Android app
 
-After you [add the authentication components](#step-2-add-the-authentication-components), configure your Android app with your Azure AD B2C settings. Azure AD B2C identity provider settings are configured in the *auth_config_b2c.json* file and B2CConfiguration class. 
+After you [add the authentication components](#step-3-add-the-authentication-components), configure your Android app with your Azure AD B2C settings. Azure AD B2C identity provider settings are configured in the *auth_config_b2c.json* file and B2CConfiguration class. 
 
 For guidance, see [Configure the sample mobile app](configure-authentication-sample-android-app.md#step-5-configure-the-sample-mobile-app).
 
