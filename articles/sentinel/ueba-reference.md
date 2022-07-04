@@ -23,7 +23,7 @@ These are the data sources from which the UEBA engine collects and analyzes data
 | **Azure Active Directory**<br>Sign-in logs | All |
 | **Azure Active Directory**<br>Audit logs | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
 | **Azure Activity logs** | Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
-| **Windows Security events** | 4624 Successful login<br>4625 Failed login<br>4648<br>4672 |
+| **Windows Security events** | 4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
 
 ## UEBA enrichments
 
