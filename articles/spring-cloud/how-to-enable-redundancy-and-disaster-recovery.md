@@ -52,7 +52,7 @@ The following limitations apply when you create an Azure Spring Apps Service ins
 - If you would like to enable your own resource in Azure Spring Apps such as [your own persistent storage](how-to-custom-persistent-storage.md), you should take care the zone redundancy of these resource by your own.
 - This feature promises that the underneath VM nodes will be distributed evenly across all availability zones while no assurance to distribute app instances evenly. If an app instance failed because its located zone went down, Azure Spring Apps will create a new app instance for this app in another available zone.
 - Geo-disaster recovery is not the purpose of this feature. To protect your service from regional outages, please refer to [Customer-managed geo-disaster recovery
-](#Customer-managed-geo-disaster-recovery). 
+](#customer-managed-geo-disaster-recovery). 
 
 
 ## How to create an instance in Azure Spring Apps with availability zone enabled
