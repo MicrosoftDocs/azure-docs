@@ -3,7 +3,7 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS)
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/01/2022
+ms.date: 07/04/2022
 
 ---
 
@@ -31,9 +31,8 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Disabling of the KMS etcd encryption feature.
-* Changing of key ID, including key name and key version.
 * Deletion of the key, Key Vault, or the associated identity.
-* KMS etcd encryption doesn't work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity isn't available until cluster creation, thus there's a cycle dependency.
+* KMS etcd encryption doesn't work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity isn't available until cluster creation, thus there's a cycle dependency. 
 * Using more than 2000 secrets in a cluster.
 * Bring your own (BYO) Azure Key Vault from another tenant.
 
@@ -120,6 +119,15 @@ Use below command to update all secrets. Otherwise, the old secrets aren't encry
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
+## Rotate the existing keys 
+After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to rotate the exitsing keys of KMS.
+
+```azurecli-interactive
+az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $NewKEY_ID 
+```
+
+
+
 
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
