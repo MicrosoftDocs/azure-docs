@@ -32,32 +32,36 @@ To set up the AMA Migration Helper workbook in the Azure portal:
 5. Select **Apply** to load the workbook. 
 1. Select **Done Editing**. 
 
-    You’re now ready to use the workbook
+    You’re now ready to use the workbook.
 
 1. Select the subscriptions and workspaces dropdowns to view relevant information.
 
 
 ## DCR Config Generator (preview)
-The Azure Monitor agent relies only on [Data Collection rules](../essentials/data-collection-rule-overview.md) for configuration, whereas the legacy agent pulls all its configuration from Log Analytics workspaces. Use this tool to parse legacy agent configuration from your workspaces and automatically generate corresponding rules. You can then associate the rules to machines running the new agent using built-in association policies. 
+Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) for configuration, whereas the legacy agent pulls all its configuration from Log Analytics workspaces. Use the DCR Config Generator to parse legacy agent configuration from your workspaces and automatically generate corresponding rules. You can then associate the rules to machines running the new agent using built-in association policies. 
 
 > [!NOTE]
-> Additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on agent are not yet supported in this tool. These will be available in future versions.
+> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on legacy the agent. DCR Config Generator will support migrating Azure solution and service configurationin future versions.
 
 ![Flow diagram that shows the steps involved in agent migration.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)
 
-1. **Prerequisites**
-	1. Powershell version 7.1.3 or higher is recommended (minimum version 5.1)
-	2. Primarily uses `Az Powershell module` to pull workspace agent configuration information
-	3. You must have read access for the specified workspace resource
+### Prerequisites
+	1. Powershell version 7.1.3 or higher is recommended (minimum version 5.1).
+	2. Primarily uses `Az Powershell module` to pull workspace agent configuration.
+	3. Read access for the specified workspace resource.
 	4. `Connect-AzAccount` and `Select-AzSubscription` will be used to set the context for the script to run so proper Azure credentials will be needed
-2. [Download the powershell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools)
-2. Run the script using one of the options below:
+
+### Installing DCR Config Generator
+
+1. [Download the powershell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools)
+1. Run the script:
+
 	1. Option 1
 		# [PowerShell](#tab/ARMAgentPowerShell)
 		```powershell
 		.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
 		```
-	2. Option 2 (if you are just looking for the DCR payload json)
+	1. Option 2 (if you are just looking for the DCR payload json)
 		# [PowerShell](#tab/ARMAgentPowerShell)
 		```powershell
 		$dcrJson = Get-DCRJson -ResourceGroupName $rgName -WorkspaceName $workspaceName -PlatformType $platformType $dcrJson | ConvertTo-Json -Depth 10 | Out-File "<filepath>\OutputFiles\dcr_output.json"
@@ -65,7 +69,7 @@ The Azure Monitor agent relies only on [Data Collection rules](../essentials/dat
 	
 		**Parameters**  
 		
-		| Paremeter | Required? | Description |
+		| Parameter | Required? | Description |
 		|------|------|------|
 		| SubscriptionId | Yes | Subscription Id that contains the target workspace |
 		| ResourceGroupName | Yes | Resource Group that contains the target workspace |
@@ -74,8 +78,8 @@ The Azure Monitor agent relies only on [Data Collection rules](../essentials/dat
 		| Location | Yes | Region location for the new DCR |
 		| FolderPath | No |  Local path to store the output. Current directory will be used if nothing is provided |  
 	
-3. Review the output data collection rule(s). There are two separate ARM templates that can be produced (based on agent configuration of the target workspace):
+1. Review the output data collection rules. There are two separate ARM templates that can be produced (based on agent configuration of the target workspace):
 	- Windows ARM Template and Parameter Files: will be created if target workspace contains Windows Performance Counters and/or Windows Events
 	- Linux ARM Template and Parameter Files: will be created if target workspace contains Linux Performance Counters and/or Linux Syslog Events
 	
-4. Use the rule association built-in policies to associate generated rules with machines running the new agent. [Learn more](./data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations)
+1. Use the rule association built-in policies to associate generated rules with machines running the new agent. [Learn more](./data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations)
