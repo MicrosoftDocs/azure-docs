@@ -12,7 +12,7 @@ ms.date: 07/01/2022
 
 # Run tests in browsers across multiple operating systems with Microsoft Playwright Testing Preview
 
-Microsoft Playwright Testing enables you to run tests against browsers on multiple operating systems. Microsoft Playwright Testing abstracts the infrastructure needed for running Playwright tests at scale.
+Microsoft Playwright Testing Preview enables you to run tests against browsers on multiple operating systems. Microsoft Playwright Testing abstracts the infrastructure needed for running Playwright tests at scale.
 
 Extend the [Playwright project](https://playwright.dev/docs/test-advanced#projects) configuration to specify which tests to run, the browser configurations, and the operating systems to run on. You can run all tests on multiple operating systems, or selectively run tests on a specific operating system.
 
