@@ -36,7 +36,7 @@ This Azure Blob storage connector is supported for the following activities, int
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ |
 
-&#9312;*Azure integration runtime* &#9313;*Self-hosted integration runtime*
+&#9312; *Azure integration runtime*  &#9313; *Self-hosted integration runtime*
 
 For the Copy activity, this Blob storage connector supports:
 

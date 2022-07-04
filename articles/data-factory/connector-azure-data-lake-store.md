@@ -22,19 +22,19 @@ ms.date: 07/04/2022
 
 This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
-## Overview
+## Supported capabilities
 
 This Azure Data Lake Storage Gen1 connector is supported for the following activities and integration runtimes.
 
->| Supported capabilities|IR |
->|---------| --------|
->|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
->|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
->|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
->|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
->|[Delete activity](delete-activity.md)|&#9312; &#9313;|
-> 
-> &#9312;Azure integration runtime &#9313;Self-hosted integration runtime
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
+
+*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
 Specifically, with this connector you can:
 
