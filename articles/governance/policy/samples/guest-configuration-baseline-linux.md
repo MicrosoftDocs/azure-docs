@@ -1,22 +1,22 @@
 ---
 title: Reference - Azure Policy guest configuration baseline for Linux
 description: Details of the Linux baseline on Azure implemented through Azure Policy guest configuration.
-ms.date: 05/12/2022
+ms.date: 06/21/2022
 ms.topic: reference
 ms.custom: generated
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Linux security baseline
 
 This article details the configuration settings for Linux guests as applicable in the following
-implementations:
+Azure Policy definitions:
 
-- **\[Preview\]: Linux machines should meet requirements for the Azure compute security baseline**
-  Azure Policy guest configuration definition
-- **Vulnerabilities in security configuration on your machines should be remediated** in Azure
-  Security Center
+- Linux machines should meet requirements for the Azure compute security baseline
+- Vulnerabilities in security configuration on your machines should be remediated
 
 For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
-[Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
+[Overview of the Azure Security Benchmark (V3)](../../../security/benchmarks/overview.md).
 
 ## General security controls
 
