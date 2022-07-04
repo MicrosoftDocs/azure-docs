@@ -35,7 +35,7 @@ Microsoft has a set of internal guidelines for encryption key rotation which Azu
 
 ### Can I use my own encryption keys?
 
-No, this feature is not available yet. Keep an eye out for more updates on this. 
+Yes. For more information, refer to [Customer-managed keys for Azure Fluid Relay encryption](../concepts/customer-managed-keys.md).
 
 ### What regions have encryption turned on?
 

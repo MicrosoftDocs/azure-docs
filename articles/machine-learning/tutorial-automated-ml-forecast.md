@@ -34,7 +34,7 @@ Also try automated machine learning for these other model types:
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
 * Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
 
