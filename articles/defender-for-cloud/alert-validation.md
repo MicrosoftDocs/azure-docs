@@ -119,8 +119,8 @@ You can simulate alerts for both of the control plane, and workload alerts with 
     kubectl exec -it azuredefender-publisher-xx-xxxxx -n <namespace> -- bash
     ```
 
-    For AKS - <namespace> = `kube-system`
-    For ARC - <namespace> = `mdc`
+    For AKS - `<namespace>` = `kube-system`<br>
+    For ARC - `<namespace>` = `mdc`
 
 1. Select an executable, copy it to a convenient location and rename it to `./asc_alerttest_662jfi039n`. For example:
 `cp /bin/echo ./asc_alerttest_662jfi039n`.
@@ -138,6 +138,6 @@ You can also learn more about defending your Kubernetes nodes and clusters with 
 ## Next steps
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
 
-* [Validating Azure Key Vault threat detection in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Defender for Cloud.
-* [Understanding security alerts in Microsoft Defender for Cloud](./alerts-overview.md) - Learn about the different types of security alerts.
+- [Validating Azure Key Vault threat detection in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
+- [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Defender for Cloud.
+- [Understanding security alerts in Microsoft Defender for Cloud](./alerts-overview.md)
