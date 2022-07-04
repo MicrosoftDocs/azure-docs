@@ -15,7 +15,7 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
-## June
+## June 2022
 
 ### Updated articles
 
