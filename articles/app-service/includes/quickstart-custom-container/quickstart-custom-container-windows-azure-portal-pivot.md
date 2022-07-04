@@ -27,68 +27,38 @@ We will clone the code so that we can update the code and then update our contai
 1. Copy the HTTPS URL.
 1. In your command line, run:
 
-```bash
-git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
+    ```
 
 ## 2 - Push the image to Azure Container Registry
 
 The cloned repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system, explicitly calling out our Windows base.
 
 > [!NOTE]
-> [Even though this is a Windows container, the paths still need to use forward slashes. See [Write a Dockerfile](/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-using-copy-with-windows) for mroe details.]]
-
-### Explore the Dockerfile
-
-This Dockerfile does the following steps:
-
-1. Get [the .NET SDK image from the Microsoft Artifact Registry](https://mcr.microsoft.com/product/dotnet/sdk/about). The image name and tag is **mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-ltsc2022**.
-
-1. Change to a folder in the container named **source**. If this folder doesn't exist, the WORKDIR command will also create the folder.
-
-1. Copy the files from the dotnetcore-docs-hello-world repository to a folder named **dotnetcore-docs-hello-world**.
-
-1. Change to the dotnetcore-docs-hello-world folder.
-
-1. Publish the .NET Core sample app.
-
-1. Get [the ASP.NET Core Runtime image from the Microsoft Artifact Registry](https://mcr.microsoft.com/product/dotnet/aspnet/about). The image name and tag is **mcr.microsoft.com/dotnet/aspnet:6.0.6-nanoserver-ltsc2022**.
-
-1. Change to a folder named **app**.
-   
-1. Copy the build artifacts from the build container to the deploy container.
-
-1. Expose port 80. The `ENV PORT 80` sets the PORT environment variable for the .NET runtime to listen to in the container. The `EXPOSE 80` exposes port 80 internally, in case this needs to work with other containers.
-
-1. Set the entrypoint used the **dotnet** executable and the DLL created for the sample code.
-
-### Build and deploy the sample image to Azure Container Registry
-
-Now that we looked at what the Dockerfile.windows file is doing, let's build the image and deploy it to Azure Container Registry.
+> [Even though this is a Windows container, the paths still need to use forward slashes. See [Write a Dockerfile](/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-using-copy-with-windows) for more details.]]
 
 1. Log in to Azure Container Registry.
 
-```azurecli
-az acr login -n <your_registry_name>
-```
+    ```azurecli
+    az acr login -n <your_registry_name>
+    ```
 
 1. Build the container image. We are naming the image **dotnetcore-docs-hello-world-windows**.
 
-```docker
-docker build -f Dockerfile.windows -t dotnetcore-docs-hello-world-windows . 
-```
-
-1. Tag the container image.
-
-```docker
-docker tag dotnetcore-docs-hello-world-windows <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-windows:latest
-```
+    ```docker
+    docker build -f Dockerfile.windows -t dotnetcore-docs-hello-world-windows . 
+    ```
 
 1. Push the container image to Azure Container Registry.
 
-```docker
-docker push <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-windows:latest
-```
+    ```docker
+    docker push <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-windows:latest
+    ```
+
+> [!NOTE]
+> The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure custom container](../../configure-custom-container.md).
+
 ## 3 - Create the Azure App Service
 
 ### Sign in to Azure portal
@@ -125,13 +95,13 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-windows.png" alt-text="Screenshot showing the Azure Container Registry options.":::
 
-2. Select the **Review + create** button at the bottom of the page.
+1. Select the **Review + create** button at the bottom of the page.
 
     :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page.":::
 
-3. After validation runs, select the **Create** button at the bottom of the page.
+1. After validation runs, select the **Create** button at the bottom of the page.
 
-4. After deployment is complete, select **Go to resource**.
+1. After deployment is complete, select **Go to resource**.
 
     :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
