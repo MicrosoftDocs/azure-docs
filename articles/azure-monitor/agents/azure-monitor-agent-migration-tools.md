@@ -46,10 +46,11 @@ Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/
 ![Flow diagram that shows the steps involved in agent migration.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)
 
 ### Prerequisites
-	1. Powershell version 7.1.3 or higher is recommended (minimum version 5.1).
-	2. Primarily uses `Az Powershell module` to pull workspace agent configuration.
-	3. Read access for the specified workspace resource.
-	4. `Connect-AzAccount` and `Select-AzSubscription` will be used to set the context for the script to run so proper Azure credentials will be needed
+
+1. Powershell version 7.1.3 or higher is recommended (minimum version 5.1).
+1. Primarily uses `Az Powershell module` to pull workspace agent configuration.
+1. Read access for the specified workspace resource.
+1. `Connect-AzAccount` and `Select-AzSubscription` used to set the context for the script to run so proper Azure credentials will be needed.
 
 ### Installing DCR Config Generator
 
@@ -57,12 +58,12 @@ Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/
 1. Run the script:
 
 	1. Option 1
-		# [PowerShell](#tab/ARMAgentPowerShell)
+
 		```powershell
 		.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
 		```
 	1. Option 2 (if you are just looking for the DCR payload json)
-		# [PowerShell](#tab/ARMAgentPowerShell)
+
 		```powershell
 		$dcrJson = Get-DCRJson -ResourceGroupName $rgName -WorkspaceName $workspaceName -PlatformType $platformType $dcrJson | ConvertTo-Json -Depth 10 | Out-File "<filepath>\OutputFiles\dcr_output.json"
 		```
