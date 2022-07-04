@@ -72,15 +72,15 @@ Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/
 		
 		| Parameter | Required? | Description |
 		|------|------|------|
-		| SubscriptionId | Yes | Subscription Id that contains the target workspace |
-		| ResourceGroupName | Yes | Resource Group that contains the target workspace |
-		| WorkspaceName | Yes | Name of the target workspace |
-		| DCRName | Yes | Name of the new generated DCR to create |
-		| Location | Yes | Region location for the new DCR |
-		| FolderPath | No |  Local path to store the output. Current directory will be used if nothing is provided |  
+		| `SubscriptionId` | Yes | ID of the subscription that contains the target workspace. |
+		| `ResourceGroupName` | Yes | Resource group that contains the target workspace. |
+		| `WorkspaceName` | Yes | Name of the target workspace. |
+		| `DCRName` | Yes | Name of the new DCR. |
+		| `Location` | Yes | Region location for the new DCR. |
+		| `FolderPath` | No | Path in which to save the new DCR. By default, Azure Monitor uses the current directory. |  
 	
-1. Review the output data collection rules. There are two separate ARM templates that can be produced (based on agent configuration of the target workspace):
-	- Windows ARM Template and Parameter Files: will be created if target workspace contains Windows Performance Counters and/or Windows Events
-	- Linux ARM Template and Parameter Files: will be created if target workspace contains Linux Performance Counters and/or Linux Syslog Events
+1. Review the output data collection rules. There are two ARM templates that can be produced (based on agent configuration of the target workspace):
+	- Windows ARM Template and Parameter Files: created if target workspace contains Windows Performance Counters and/or Windows Events
+	- Linux ARM Template and Parameter Files: created if target workspace contains Linux Performance Counters and/or Linux Syslog Events
 	
 1. Use the rule association built-in policies to associate generated rules with machines running the new agent. [Learn more](./data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations)
