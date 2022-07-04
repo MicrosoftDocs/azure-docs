@@ -23,7 +23,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | July 2022 |
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
-| Change in pricing for threat protection | August 2022 |
+| [Change in pricing for threat protection](#change-in-pricing-for-threat-protection) | August 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -143,7 +143,7 @@ We will be deprecating the following policies to corresponding policies that alr
 
 **Estimated date for change:** August 2022
 
-Defender for Containers is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged according to the listing on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Customers that already have clusters onboarded to Arc (on the subscription level) will incur charges.
+Defender for Containers is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be a charged feature. You can see details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions that already have clusters onboarded to Arc (on the subscription level) will begin to incur charges in August.
 
 ## Next steps
 
