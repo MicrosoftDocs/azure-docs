@@ -61,7 +61,7 @@ Points to note:
 1. You can either use the default name of the RG, or edit it according to your company requirements.
 
    >[!Note]
-   >If you [create an RG](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups), a numeric is appended to the given name and is used for restore point collection.
+   >When Azure Backup creates an RG, a numeric is appended to the name of RG and used for restore point collection.
 
 1. You provide the RG name pattern as input during VM backup policy creation. The RG name should be of the following format:
               `<alpha-numeric string>* n <alpha-numeric string>`. 'n' is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a maximum of 600 RPCs today.
