@@ -36,9 +36,8 @@ To control the application, you can use any of several of environment variables:
 > [!NOTE] 
 > Command-line arguments overrule environment variable settings.
 
-
-|Argument |Description |
-|---|---| 
+| Argument | Description |
+| --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to use to configure the nodes to publish.<br>Default: '/appdata/publishednodes.json' |
 | `--tc, --telemetryconfigfile=VALUE` | The file name to use to configure the ingested telemetry.<br>Default: '' |
 | `-s, --site=VALUE` | The site that OPC Publisher is working in. If it's specified, this domain is appended (delimited by a ':' to the 'ApplicationURI' property when telemetry is sent to Iot Hub. The value must follow the syntactical rules of a DNS hostname.<br>Default: \<not set> |
@@ -107,8 +106,8 @@ To control the application, you can use any of several of environment variables:
 
 ## Command-line arguments for version 2.6 and later
 
-|Argument |Description |
-|---|---| 
+| Argument | Description |
+| --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to configure the nodes to publish. If this option is specified, it puts OPC Publisher into *standalone* mode. |
 | `--lf, --logfile=VALUE` | The file name of the log file to use. |
 | `--ll. --loglevel=VALUE` | The log level to use. Allowed: fatal, error, warn, info, debug, verbose. |
@@ -140,8 +139,8 @@ The following OPC Publisher configuration can be applied by command-line interfa
 
 The `Alternative` field, when it's present, refers to the applicable CLI argument in *standalone mode only*. When both the environment variable and the CLI argument are provided, the latest argument overrules the environment variable.
 
-|Argument |Description |
-|---|---| 
+| Argument | Description |
+| --- | --- | 
 | `PublishedNodesFile=VALUE` | The file that's used to store the configuration of the nodes to be published along with the information to connect to the OPC UA server sources. When this file is specified, or the default file is accessible by the module, OPC Publisher starts in *standalone* mode.<br>Alternative: --pf, --publishfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: publishednodes.json |
 | `site=VALUE` | The site that OPC Publisher is assigned to.<br>Alternative: --s, --site<br>Mode: Standalone, orchestrated<br>Type: string<br>Default: \<not set> |
 | `LogFile name==VALUE` | The file name of the log file to use<br>Alternative: --lf, --logfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: \<not set> |
