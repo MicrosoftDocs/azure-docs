@@ -148,7 +148,7 @@ The following list mentions fields that have specific guidelines for DNS events:
 
 #### All common fields
 
-Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, see the [ASIM Common Fields](normalization-common-fields.md) article.
 
 | **Class** | **Fields** |
 | --------- | ---------- |
@@ -231,7 +231,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name=query></a>**DnsQuery** | Mandatory | String | The domain that the request tries to resolve. <br><br>**Notes**:<br> - Some sources send valid FQDN queries in a different format. For example, in the DNS protocol itself, the query includes a dot (**.**) at the end, which must be removed.<br>- While the DNS protocol limits the type of value in this field to an FQDN, most DNS servers allow any value, and this field is therefore not limited to FQDN values only. Most notably, DNS tunneling attacks may use invalid FQDN values in the query field.<br>- While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](normalization-common-fields.md#additionalfields) field.<br><br>Example: `www.malicious.com` |
 | **Domain** | Alias | | Alias to [DnsQuery](#query). |
 | **DnsQueryType** | Optional | Integer | The [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `28`|
-| **DnsQueryTypeName** | Recommended | Enumerated | The [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Notse**:<br> -IANA doesn't define the case for the values, so analytics must normalize the case as needed.<br>- The value `ANY` is supported for the response code 255.<br> - The value `TYPExxxx` is supported for unmapped response codes, where `xxxx` is the numerical value of the response code. This conforms to BIND's logging practice.<br> -If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
+| **DnsQueryTypeName** | Recommended | Enumerated | The [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Notse**:<br> - IANA doesn't define the case for the values, so analytics must normalize the case as needed.<br>- The value `ANY` is supported for the response code 255.<br> - The value `TYPExxxx` is supported for unmapped response codes, where `xxxx` is the numerical value of the response code, as reported by the BIND DNS server.<br> -If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
 | <a name=responsename></a>**DnsResponseName** | Optional | String | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source-agnostic analytics. Therefore the information model doesn't require parsing and normalization, and Microsoft Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
 | <a name=responsecodename></a>**DnsResponseCodeName** |  Alias | | Alias to [EventResultDetails](#eventresultdetails) |
 | **DnsResponseCode** | Optional | Integer | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `3`|
@@ -239,35 +239,43 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **NetworkProtocol** | Optional | Enumerated | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. <br><br>Example: `UDP`|
 | **DnsQueryClass** | Optional | Integer | The [DNS class ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, and therefore this field is less valuable.|
 | **DnsQueryClassName** | Optional | String | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, and therefore this field is less valuable.<br><br>Example: `IN`|
-| <a name=flags></a>**DnsFlags** | Optional | List of strings | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing and normalization aren't required. Microsoft Sentinel can use an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response). <br><br>Example: `["DR"]`|
+| <a name=flags></a>**DnsFlags** | Optional | List of strings | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing, and normalization aren't required. Microsoft Sentinel can use an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response). <br><br>Example: `["DR"]`|
+| <a name="dnsnetworkduration"></a>**DnsNetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of DNS request.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [DnsNetworkDuration](#dnsnetworkduration) |
-| **DnsFlagsAuthenticated** | Optional | Boolean | The DNS `AD` flag, which is related to DNSSEC, indicates in a response that all data included in the answer and authority sections of the response have been verified by the server according to the policies of that server. see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.    |
+| **DnsFlagsAuthenticated** | Optional | Boolean | The DNS `AD` flag, which is related to DNSSEC, indicates in a response that all data included in the answer and authority sections of the response have been verified by the server according to the policies of that server. For more information, see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.    |
 | **DnsFlagsAuthoritative** | Optional | Boolean | The DNS `AA` flag indicates whether the response from the server was authoritative    |
-| **DnsFlagsCheckingDisabled** | Optional | Boolean | The DNS `CD` flag, which is related to DNSSEC, indicates in a query that non-verified data is acceptable to the system sending the query. see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.   |
+| **DnsFlagsCheckingDisabled** | Optional | Boolean | The DNS `CD` flag, which is related to DNSSEC, indicates in a query that non-verified data is acceptable to the system sending the query. For more information, see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.   |
 | **DnsFlagsRecursionAvailable** | Optional | Boolean | The DNS `RA` flag indicates in a response that  that server supports recursive queries.   |
 | **DnsFlagsRecursionDesired** | Optional | Boolean | The DNS `RD` flag indicates in a request that that client would like the server to use recursive queries.   |
 | **DnsFlagsTruncated** | Optional | Boolean | The DNS `TC` flag indicates that a response was truncated as it exceeded the maximum response size.  |
 | **DnsFlagsZ** | Optional | Boolean | The DNS `Z` flag is a deprecated DNS flag, which might be reported by older DNS systems.  |
-|<a name="dnssessionid"></a>**DnsSessionId** | Optional | string | The DNS session identifier as reported by the reporting device. Note that this value is different from [TransactionIdHex](#transactionidhex), the DNS query unique ID as assigned by the DNS client.<br><br>Example: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
+|<a name="dnssessionid"></a>**DnsSessionId** | Optional | string | The DNS session identifier as reported by the reporting device. This value is different from [TransactionIdHex](#transactionidhex), the DNS query unique ID as assigned by the DNS client.<br><br>Example: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
 | **SessionId** | Alias | String | Alias to [DnsSessionId](#dnssessionid) |
 
 ### Inspection fields
 
-The following fields are used to represent an inspection which a DNS security device performed. The IP address related fields refers to the first IP address for which a threat was identified, whether a source, a destination or a query response IP address. If more than one IP address was idenfied as a thread information about additional IP addresses can be stored in the field `AdditionalFields`.
+The following fields are used to represent an inspection, which a DNS security device performed. The threat related fields represent a single threat that is associated with either the source address, the destination address, one of the IP addresses in the response or the DNS query domain. If more than one threat was identified as a threat, information about other IP addresses can be stored in the field `AdditionalFields`.
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name=UrlCategory></a>**UrlCategory** |  Optional | String | A DNS event source may also look up the category of the requested Domains. The field is called **_UrlCategory_** to align with the Microsoft Sentinel network schema. <br><br>**_DomainCategory_** is added as an alias that's fitting to DNS. <br><br>Example: `Educational \\ Phishing` |
+| <a name=UrlCategory></a>**UrlCategory** |  Optional | String | A DNS event source may also look up the category of the requested Domains. The field is called **UrlCategory** to align with the Microsoft Sentinel network schema. <br><br>**DomainCategory** is added as an alias that's fitting to DNS. <br><br>Example: `Educational \\ Phishing` |
 | **DomainCategory** | Optional | Alias | Alias to [UrlCategory](#UrlCategory). |
 | **ThreatCategory** | Optional | String | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it can search for the IP address or domain in a threat intelligence database, and assign the domain or IP address with a Threat Category. |
-| <a name="dnsnetworkduration"></a>**DnsNetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of DNS request.<br><br>Example: `1500` |
-| **ThreatIpAddress** | Optional | IP Address | An IP address for which a threat was identified. The value should be either the source IP address, the destination IP address, or an IP address included in the DNS response. |
-| **
+| **ThreatIpAddr** | Optional | IP Address | An IP address for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatIpAddr** represents. If a threat is identified in the [Domin](#domain) field, this field should be empty. |
+| <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcIpAddr`, `DstIpAddr`, `Domain`, or `DnsResponseName`. |
+| **ThreatName** | Optional | String | The name of the threat identified, as reported by the reporting device. | 
+| **ThreatConfidence** | Optional | Integer | The confidence level of the threat indetified, normalized to a value bewteen 0 and a 100.| 
+| **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
+| **ThreatRiskLevel** | Optional | Integer | The risk level associated with the threat indetified, normalized to a value bewteen 0 and a 100. | 
+| **ThreatOriginalRiskLevel** | Optional | String | The original risk level associated with the threat identified, as reported by the reporting device. |  
+| **ThreatIsActive** | Optional | Boolean | True id the threat idenified is considered an acive threat. | 
+| **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
+| **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
 
 
 ### Deprecated aliases and fields
 
-The following fields are aliases that are maintained for backwards compatibility. They were removed from the schema on December 31st, 2021.
+The following fields are aliases that are maintained for backwards compatibility. They were removed from the schema on December 31, 2021.
 
 - `Query` (alias to `DnsQuery`)
 - `QueryType` (alias to `DnsQueryType`)
@@ -284,7 +292,7 @@ The following fields are aliases that are maintained for backwards compatibility
 
 The changes in version 0.1.2 of the schema are:
 - Added the field `EventSchema`.
-- Added dedicated flag field which augments the combined **[Flags](#flags)** field: `DnsFlagsAuthoritative`, `DnsFlagsCheckingDisabled`, `DnsFlagsRecursionAvailable`, `DnsFlagsRecursionDesired`, `DnsFlagsTruncated`, and `DnsFlagsZ`.
+- Added dedicated flag field, which augments the combined **[Flags](#flags)** field: `DnsFlagsAuthoritative`, `DnsFlagsCheckingDisabled`, `DnsFlagsRecursionAvailable`, `DnsFlagsRecursionDesired`, `DnsFlagsTruncated`, and `DnsFlagsZ`.
 
 The changes in version 0.1.3 of the schema are:
 - The schema now explicitly documents `Src*`, `Dst*`, `Process*` and `User*` fields.
