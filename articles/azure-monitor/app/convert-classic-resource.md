@@ -13,11 +13,11 @@ This guide will walk you through migrating a classic Application Insights resour
 
 Workspace-based resources enable common Azure role-based access control (Azure RBAC) across your resources, and eliminate the need for cross-app/workspace queries.
 
-**Workspace-based resources are currently available in all commercial regions and Azure US Government**
+**Workspace-based resources are currently available in all commercial regions and Azure US Government.**
 
 ## New capabilities
 
-Workspace-based Application Insights allows you to take advantage of all the latest capabilities of Azure Monitor and Log Analytics including:
+Workspace-based Application Insights allows you to take advantage of all the latest capabilities of Azure Monitor and Log Analytics, including:
 
 * [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
 * [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
@@ -29,11 +29,11 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 > [!NOTE]
-> After migrating to a workspace-based Application Insights resource, telemetry from multiple Application Insights resources may be stored in a common Log Analytics workspace. You will still be able to pull data from a specific Application Insights resource, [as described here](#understanding-log-queries).
+> After migrating to a workspace-based Application Insights resource, telemetry from multiple Application Insights resources may be stored in a common Log Analytics workspace. You will still be able to pull data from a specific Application Insights resource, as described under [Understanding log queries](#understanding-log-queries).
 
 ## Migration process
 
-When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data. 
+When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data.
 
 Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you're able to change the target workspace as often as needed. 
@@ -70,17 +70,16 @@ This section walks through migrating a classic Application Insights resource to 
 
 1. From your Application Insights resource, select **Properties** under the **Configure** heading in the left-hand menu bar.
 
-    ![Properties highlighted in red box](./media/convert-classic-resource/properties.png)
+![Properties highlighted in red box](./media/convert-classic-resource/properties.png)
 
 2. Select **`Migrate to Workspace-based`**.
     
-     ![Migrate resource button](./media/convert-classic-resource/migrate.png)
+![Migrate resource button](./media/convert-classic-resource/migrate.png)
 
 3. Choose the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription, or in a different subscription that shares the same Azure AD tenant. The Log Analytics workspace does not have to be in the same resource group as the Application Insights resource.
 
-     ![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
+![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
     
-
 Once your resource is migrated, you'll see the corresponding workspace info in the **Overview** pane:
 
 ![Workspace Name](./media/create-workspace-resource/workspace-name.png)
@@ -88,6 +87,12 @@ Once your resource is migrated, you'll see the corresponding workspace info in t
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
 > [!NOTE]
+> Migrating to a workspace-based resource can take up to 24 hours, but it usually faster than that. Please rely on the Application Insights data plane while waiting for the migration process to complete.
+
+> [!CAUTION]
+> Do not take a production dependency on the Log Analytics AppRequests, App* tables, until you see new telemetry records show up directly in Log Analytics.
+
+> [!TIP]
 > After migrating to a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/daily-cap.md) to limit ingestion and costs instead of the cap in Application Insights.
 
 ## Understanding log queries
