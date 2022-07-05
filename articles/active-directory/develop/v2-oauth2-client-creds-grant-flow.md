@@ -71,6 +71,9 @@ When authenticating as an application (as opposed to with a user), you can't use
 
 For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
 
+#### Refreshing Tokens
+The client credentials grant does not issue a refresh token. There is no benefit to issue refresh token with the client credential flow over just using the client id and client secret again.
+
 #### Recommended: Sign the admin into your app to have app roles assigned
 
 Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
