@@ -11,7 +11,7 @@ ms.date: 07/05/2022
 
 This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
 
-Features released earlier than nine months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+Features released earlier than nine months ago are listed in [What's new archive for Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -19,9 +19,17 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after release. Fixes and new functionality are applied to each new version and aren't applied to older versions.
+- **Starting in version 22.1.x**, each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after its first minor release date, not including hotfix releases.
 
-- Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
+    Release versions have the following syntax: **[Major][Minor][Hotfix]**
+
+    Therefore, for example, all **22.1.x** versions, including all hotfix versions, are supported for nine months after the first **22.1.x** release.
+
+    Fixes and new functionality are applied to each new version and are not applied to older versions.
+
+- **Software update packages include new functionality and security patches**. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
+
+- **Features available from the Azure portal that are dependent on a specific sensor version** are only available for sensors that have the required version installed, or higher.
 
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
@@ -29,14 +37,19 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 > Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to packages.
 >
 
+> [!TIP]
+> - Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation. To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
+>
+> - When updating your sensor software version, make sure to also update your on-premises management console. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 **Current versions of the sensor and on-premises management console software include**:
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.2.3 | 07/2022 | 04/2023 |
-| 22.1.5 | 06/2022 | 03/2022 |
-| 22.1.4 | 04/2022 | 12/2022 |
-| 22.1.3 | 03/2022 | 11/2022 |
+| 22.2.3 | 07/2022 | 4/2023 |
+| 22.1.5 | 06/2022 | 10/2023 |
+| 22.1.4 | 04/2022 | 10/2022 |
+| 22.1.3 | 03/2022 | 10/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
@@ -57,8 +70,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 To update to version 22.2.3:
 
 - From version 22.1.x, update directly to version 22.2.3
-- From version 10.x, first update to version 22.1.6, and then update again to 22.2.3
+- From version 10.x, first update to version 21.1.6, and then update again to 22.2.3
 
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
@@ -114,6 +128,7 @@ For more information, see:
 - [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 
+
 ### Improved security for uploading protocol plugins
 
 This version of the sensor provides an improved security for uploading proprietary plugins you've created using the Horizon SDK.
@@ -161,7 +176,7 @@ Check out our new structure to follow through viewing devices and assets, managi
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
 - [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
-- [Plan your sensor connections for OT monitoring](plan-network-monitoring.md)
+- [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
 - [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
 
 > [!NOTE]
@@ -170,9 +185,11 @@ Check out our new structure to follow through viewing devices and assets, managi
 
 ## April 2022
 
-**Sensor software version**: 22.1.4
+- [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
 
 ### Extended device property data in the Device inventory
+
+**Sensor software version**: 22.1.4
 
 Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
 
@@ -184,14 +201,16 @@ Starting for sensors updated to version 22.1.4, the **Device inventory** page on
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
-
 ## March 2022
+
+**Sensor version**: 22.1.3
 
 - [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot-public-preview)
 - [IoT OT Threat Monitoring with Defender for IoT solution GA](#iot-ot-threat-monitoring-with-defender-for-iot-solution-ga)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
+
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
@@ -237,6 +256,8 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 
 ## February 2022
+
+**Sensor software version**: 22.1.1
 
 - [New sensor installation wizard](#new-sensor-installation-wizard)
 - [Sensor redesign and unified Microsoft product experience](#sensor-redesign-and-unified-microsoft-product-experience)
@@ -397,7 +418,7 @@ If you're on a legacy version, you may need to run a series of updates in order 
 
 After you've upgraded to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 
-For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Update sensor versions from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#update-sensor-versions).
+For more information, see [Update OT system software](update-ot-software.md).
 
 > [!NOTE]
 > Upgrading to version 22.1.x is a large update, and you should expect the update process to require more time than previous updates.
@@ -431,6 +452,8 @@ The following Defender for IoT options and configurations have been moved, remov
 
 
 ## December 2021
+
+**Sensor software version**: 10.5.4
 
 - [Enhanced integration with Microsoft Sentinel (Preview)](#enhanced-integration-with-microsoft-sentinel-preview)
 - [Apache Log4j vulnerability](#apache-log4j-vulnerability)
@@ -508,6 +531,8 @@ This new functionality is available on the following alerts:
 
 ## November 2021
 
+**Sensor software version**: 10.5.3
+
 The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
 - The on-premises management console, has a new [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
@@ -519,6 +544,8 @@ The following feature enhancements are available with version 10.5.3 of Microsof
 - Many enhancements have been made to the exporting of alert metadata based on customer feedback.
 
 ## October 2021
+
+**Sensor software version**: 10.5.2
 
 The following feature enhancements are available with version 10.5.2 of Microsoft Defender for IoT.
 

@@ -1,13 +1,13 @@
 ---
-title: Gain insight into devices discovered by a specific sensor
-description: The device inventory displays an extensive range of device attributes that a sensor detects. 
+title: View your device inventory from a sensor console
+description: The device inventory displays an extensive range of device attributes that a sensor detects.
 ms.date: 06/09/2022
 ms.topic: how-to
 ---
 
-# Investigate sensor detections in an inventory
+# View your device inventory from a sensor console
 
-The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility of the devices on your network. 
+The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility of the devices on your network.
 
 :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
@@ -144,7 +144,7 @@ In addition to learning OT devices, you can discover Microsoft Windows workstati
 
 Two options are available for retrieving this information:
 
-- Active polling by using scheduled WMI scans. 
+- Active polling with scheduled WMI scans. For more information, see [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md).
 
 - Local surveying by distributing and running a script on the device. Working with local scripts bypasses the risks of running WMI polling on an endpoint. It's also useful for regulated networks with waterfalls and one-way elements.
 
@@ -162,7 +162,9 @@ You can survey the following Windows operating systems:
 
 - Windows 10
 
-- Windows Server 2003/2008/2012/2016
+- Windows 11
+
+- Windows Server 2003/2008/2012/2016/2019
 
 ### Before you begin
 
