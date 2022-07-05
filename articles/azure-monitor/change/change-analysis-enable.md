@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 06/29/2022 
+ms.date: 07/05/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -22,7 +22,11 @@ Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource
 - Enter the Web App **Diagnose and Solve Problems** tool, or 
 - Bring up the Change Analysis standalone tab.
 
-## Enable Change Analysis for web app in-guest changes
+In this guide, you'll learn the two ways to enable Change Analysis for web app in-guest changes:
+- For one or a few web apps, enable Change Analysis via the UI.
+- For a large number of web apps (for example, 50+ web apps), enable Change Analysis using the provided PowerShell script.
+
+## Enable Change Analysis via the Azure portal UI
 
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#diagnose-and-solve-problems-tool) section.
 
@@ -57,9 +61,9 @@ By default, the graph displays changes from within the past 24 hours help with i
 
 :::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view":::   
 
-## Enable Change Analysis at scale for web app in-guest file and environment variable changes
+## Enable Change Analysis at scale using PowerShell
 
-If your subscription includes several web apps, enabling the service at the web app level would be inefficient. Instead, run the following script to enable *all web apps* in your subscription.
+If your subscription includes several web apps, run the following script to enable *all web apps* in your subscription.
 
 ### Pre-requisites
 
