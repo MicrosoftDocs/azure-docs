@@ -19,7 +19,7 @@ monikerRange: ">=iotedge-2020-11"
 You can use Azure IoT Edge MQTT broker to publish and subscribe to messages. This article shows you how to connect to this broker, publish and subscribe to messages over user-defined topics, and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built in the IoT Edge hub. For more information, see [the brokering capabilities of the IoT Edge hub](iot-edge-runtime.md).
 
 > [!NOTE]
-> IoT Edge MQTT broker is currently in public preview.
+> IoT Edge MQTT broker (currently in preview) will not move to general availability and will be removed from the future version of IoT Edge Hub. We appreciate the feedback we received on the preview, and we are continuing to refine our plans for an MQTT broker. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like [Mosquitto](https://mosquitto.org/) as an IoT Edge module.
 
 ## Prerequisites
 
@@ -170,6 +170,9 @@ The following JSON snippet is an example of an authorization policy that explici
 When writing your authorization policy, keep in mind:
 
 - It requires `$edgeHub` twin schema version 1.2.
+  > [!IMPORTANT]
+  > Once your IoT Edge device is deployed, it currently won't display correctly in the Azure portal with schema version 1.2 (version 1.1 will be fine). This is a known bug and will be fixed soon. However, this won't affect your device, as it's still connected in IoT Hub and can be communicated with at any time using the Azure CLI.
+  :::image type="content" source="./media/how-to-publish-subscribe/unsupported-1.2-schema.png" alt-text="Screenshot of Azure portal error on the IoT Edge device page.":::
 - By default, all operations are denied.
 - Authorization statements are evaluated in the order that they appear in the JSON definition. It starts by looking at `identities` and then selects the first *allow* or *deny* statements that match the request. If there are conflicts between these statements, the *deny* statement wins.
 - Several variables (for example, substitutions) can be used in the authorization policy:

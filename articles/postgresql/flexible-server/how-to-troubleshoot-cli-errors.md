@@ -12,6 +12,8 @@ ms.date: 11/30/2021
 
 # Troubleshoot Azure Database for PostgreSQL Flexible Server CLI errors
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This doc will help you troubleshoot common issues with Azure CLI when using PostgreSQL Flexible Server.
 
 ## Command not found

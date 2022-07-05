@@ -6,7 +6,7 @@ ms.author: dejv
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 05/31/2022
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
 ---
@@ -33,9 +33,9 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 **VM size support**:
 - B-series
-- Dav4-series, Dasv4-series
 - DCsv2-series
 - Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series
+- Dav4-series, Dasv4-series
 - Ddv4-series, Ddsv4-series
 - Dv5-series, Dsv5-series
 - Ddv5-series, Ddsv5-series
@@ -168,11 +168,69 @@ Trusted launch now allows images to be created and shared through the Azure Comp
 
 ### Does trusted launch support Azure Backup?
 
-Trusted launch now supports Azure Backup in preview. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
+Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
 
 ### Does trusted launch support ephemeral OS disks?
 
-Trusted launch now supports ephemeral OS disks in preview. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
+Trusted launch supports ephemeral OS disks. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
+
+### How can I find VM sizes that support Trusted launch?
+
+See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#limitations).
+
+The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
+
+#### CLI
+
+```azurecli
+subscription="<yourSubID>"
+region="westus"
+vmSize="Standard_NC12s_v3"
+
+az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
+```
+#### PowerShell
+
+```azurepowershell
+$region = "southeastasia"
+$vmSize = "Standard_M64"
+(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
+```
+
+The response will be similar to the following form. `TrustedLaunchDisabled   True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
+
+```
+Name                                         Value
+----                                         -----
+MaxResourceVolumeMB                          8192000
+OSVhdSizeMB                                  1047552
+vCPUs                                        64
+MemoryPreservingMaintenanceSupported         False
+HyperVGenerations                            V1,V2
+MemoryGB                                     1000
+MaxDataDiskCount                             64
+CpuArchitectureType                          x64
+MaxWriteAcceleratorDisksAllowed              8
+LowPriorityCapable                           True
+PremiumIO                                    True
+VMDeploymentTypes                            IaaS
+vCPUsAvailable                               64
+ACUs                                         160
+vCPUsPerCore                                 2
+CombinedTempDiskAndCachedIOPS                80000
+CombinedTempDiskAndCachedReadBytesPerSecond  838860800
+CombinedTempDiskAndCachedWriteBytesPerSecond 838860800
+CachedDiskBytes                              1318554959872
+UncachedDiskIOPS                             40000
+UncachedDiskBytesPerSecond                   1048576000
+EphemeralOSDiskSupported                     True
+EncryptionAtHostSupported                    True
+CapacityReservationSupported                 False
+TrustedLaunchDisabled                        True
+AcceleratedNetworkingEnabled                 True
+RdmaEnabled                                  False
+MaxNetworkInterfaces                         8
+```
 
 ### What is VM Guest State (VMGS)?  
 

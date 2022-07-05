@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 06/03/2022
 ---
 
 # Resource types that extend capabilities of other resources
@@ -71,8 +71,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * artifactSetDefinitions
 * artifactSetSnapshots
-* chaosProviderConfigurations
-* chaosTargets
 * targets
 
 ## Microsoft.Consumption
@@ -131,12 +129,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * backupInstances
 
-## Microsoft.Diagnostics
-
-* apollo
-* insights
-* solutions
-
 ## Microsoft.EventGrid
 
 * eventSubscriptions
@@ -176,6 +168,7 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.KubernetesConfiguration
 
 * extensions
+* extensionTypes
 * fluxConfigurations
 * namespaces
 * sourceControlConfigurations
@@ -239,6 +232,7 @@ An extension resource is a resource that adds to another resource's capabilities
 * Compliances
 * dataCollectionAgents
 * deviceSecurityGroups
+* governanceRules
 * InformationProtectionPolicies
 * insights
 * jitPolicies
@@ -255,6 +249,7 @@ An extension resource is a resource that adds to another resource's capabilities
 * automationRules
 * bookmarks
 * cases
+* dataConnectorDefinitions
 * dataConnectors
 * enrichment
 * entities
@@ -264,6 +259,7 @@ An extension resource is a resource that adds to another resource's capabilities
 * metadata
 * MitreCoverageRecords
 * onboardingStates
+* overview
 * securityMLAnalyticsSettings
 * settings
 * sourceControls

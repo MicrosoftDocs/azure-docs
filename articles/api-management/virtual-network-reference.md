@@ -118,26 +118,6 @@ Enable publishing the [developer portal](api-management-howto-developer-portal.m
 
 When adding virtual machines running Windows to the VNet, allow outbound connectivity on port `1688` to the [KMS endpoint](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution) in your cloud. This configuration routes Windows VM traffic to the Azure Key Management Services (KMS) server to complete Windows activation.
 
-## Force tunneling traffic to on-premises firewall Using ExpressRoute or Network Virtual Appliance  
-  Commonly, you configure and define your own default route (0.0.0.0/0), forcing all traffic from the API Management subnet to flow through an on-premises firewall or to a network virtual appliance. This traffic flow breaks connectivity with Azure API Management, since outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses no longer working with various Azure endpoints. You can solve this issue via one of the following methods: 
-
-  * Enable [service endpoints][ServiceEndpoints] on the subnet in which the API Management service is deployed for:
-      * Azure SQL (required only in the primary region if the API Management service is deployed to [multiple regions](api-management-howto-deploy-multi-region.md))
-      * Azure Storage
-      * Azure Event Hubs
-      * Azure Key Vault (required when API Management is deployed on the v2 platform) 
-  
-     By enabling endpoints directly from the API Management subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, the above Azure services traffic isn't force tunneled. The other API Management service dependency traffic is force tunneled and can't be lost. If lost, the API Management service would not function properly.
-
-  * All the control plane traffic from the internet to the management endpoint of your API Management service is routed through a specific set of inbound IPs, hosted by API Management. When the traffic is force tunneled, the responses will not symmetrically map back to these inbound source IPs. To overcome the limitation, set the destination of the following user-defined routes ([UDRs][UDRs]) to the "Internet", to steer traffic back to Azure. Find the set of inbound IPs for control plane traffic documented in [Control plane IP addresses](#control-plane-ip-addresses).
-
-  * For other force tunneled API Management service dependencies, resolve the hostname and reach out to the endpoint. These include:
-      - Metrics and Health Monitoring
-      - Azure portal diagnostics
-      - SMTP relay
-      - Developer portal CAPTCHA
-      - Azure KMS server
-
 ## Control plane IP addresses
 
 The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address. In some cases, two IP addresses are listed. Permit both IP addresses.

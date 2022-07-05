@@ -1,13 +1,13 @@
 ---
 title: Configure server parameters - Azure PowerShell - Azure Database for MySQL
 description: This article describes how to configure the service parameters in Azure Database for MySQL using PowerShell.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.devlang: azurepowershell
 ms.topic: how-to
-ms.date: 10/1/2020
+ms.date: 06/20/2022
 ms.custom: devx-track-azurepowershell
 ---
 

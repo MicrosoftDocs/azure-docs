@@ -1,38 +1,42 @@
 ---
-title: 'Quickstart: Connect with Rust - Azure Database for PostgreSQL - Single Server'
-description: This quickstart provides Rust code samples that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
+title: Use Rust to interact with Azure Database for PostgreSQL
+description: Learn to connect and query data in Azure Database for PostgreSQL Single Server using Rust code samples.
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
 ms.devlang: rust
-ms.custom: mode-other
-ms.date: 03/26/2021
+ms.custom: kr2b-contr-experiment
+ms.date: 06/24/2022
 ---
 
-# Quickstart: Use Rust to connect and query data in Azure Database for PostgreSQL - Single Server
+# Quickstart: Use Rust to interact with Azure Database for PostgreSQL - Single Server
 
-In this article, you will learn how to use the [PostgreSQL driver for Rust](https://github.com/sfackler/rust-postgres) to interact with Azure Database for PostgreSQL by exploring CRUD (create, read, update, delete) operations implemented in the sample code. Finally, you can run the application locally to see it in action.
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+In this article, you will learn how to use the [PostgreSQL driver for Rust](https://github.com/sfackler/rust-postgres) to connect and query data in Azure Database for PostgreSQL. You can explore CRUD (create, read, update, delete) operations implemented in sample code, and run the application locally to see it in action.
 
 ## Prerequisites
-For this quickstart you need:
+
+For this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - A recent version of [Rust](https://www.rust-lang.org/tools/install) installed.
-- An Azure Database for PostgreSQL single server - create one using [Azure portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md).
+- An Azure Database for PostgreSQL single server. Create one using [Azure portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md).
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
   |Action| Connectivity method|How-to guide|
   |:--------- |:--------- |:--------- |
   | **Configure firewall rules** | Public | [Portal](./how-to-manage-firewall-using-portal.md) <br/> [CLI](./quickstart-create-server-database-azure-cli.md#configure-a-server-based-firewall-rule)|
-  | **Configure Service Endpoint** | Public | [Portal](./how-to-manage-vnet-using-portal.md) <br/> [CLI](./how-to-manage-vnet-using-cli.md)|
+  | **Configure service endpoint** | Public | [Portal](./how-to-manage-vnet-using-portal.md) <br/> [CLI](./how-to-manage-vnet-using-cli.md)|
   | **Configure private link** | Private | [Portal](./how-to-configure-privatelink-portal.md) <br/> [CLI](./how-to-configure-privatelink-cli.md) |
 
 - [Git](https://git-scm.com/downloads) installed.
 
 ## Get database connection information
-Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can get this information from the Azure portal.
+
+Connecting to an Azure Database for PostgreSQL database requires a fully qualified server name and login credentials. You can get this information from the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL server name.
 1. On the server's **Overview** page, copy the fully qualified **Server name** and the **Admin username**. The fully qualified **Server name** is always of the form *\<my-server-name>.postgres.database.azure.com*, and the **Admin username** is always of the form *\<my-admin-username>@\<my-server-name>*.
@@ -74,7 +78,7 @@ The sample application uses a simple `inventory` table to demonstrate the CRUD (
 CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);
 ```
 
-The `drop_create_table` function initially tries to `DROP` the `inventory` table before creating a new one. This makes it easier for learning/experimentation, as you always start with a known (clean) state. The [execute](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.execute) method is used for create and drop operations. 
+The `drop_create_table` function initially tries to `DROP` the `inventory` table before creating a new one. This makes it easier for learning/experimentation, as you always start with a known (clean) state. The [execute](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.execute) method is used for create and drop operations.
 
 ```rust
 const CREATE_QUERY: &str =
@@ -96,8 +100,7 @@ fn drop_create_table(pg_client: &mut postgres::Client) {
 
 ### Insert data
 
-`insert_data` adds entries to the `inventory` table. It creates a [prepared statement](https://docs.rs/postgres/0.19.0/postgres/struct.Statement.html) with [prepare](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.prepare) function. 
-
+`insert_data` adds entries to the `inventory` table. It creates a [prepared statement](https://docs.rs/postgres/0.19.0/postgres/struct.Statement.html) with [prepare](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.prepare) function.
 
 ```rust
 const INSERT_QUERY: &str = "INSERT INTO inventory (name, quantity) VALUES ($1, $2) RETURNING id;";
@@ -158,7 +161,7 @@ Finally, a `for` loop is used to add `item-3`, `item-4` and, `item-5` with rando
 
 ### Query data
 
-`query_data` function demonstrates how to retrieve data from the `inventory` table. The [query_one](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.query_one) method is used to get an item by its `id`. 
+`query_data` function demonstrates how to retrieve data from the `inventory` table. The [query_one](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.query_one) method is used to get an item by its `id`.
 
 ```rust
 const SELECT_ALL_QUERY: &str = "SELECT * FROM inventory;";
@@ -183,7 +186,7 @@ fn query_data(pg_client: &mut postgres::Client) {
 }
 ```
 
-All rows in the inventory table are fetched using a `select * from` query with the [query](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.query) method. The returned rows are iterated over to extract the value for each column using [get](https://docs.rs/postgres/0.19.0/postgres/row/struct.Row.html#method.get). 
+All rows in the inventory table are fetched using a `select * from` query with the [query](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.query) method. The returned rows are iterated over to extract the value for each column using [get](https://docs.rs/postgres/0.19.0/postgres/row/struct.Row.html#method.get).
 
 > [!TIP]
 > Note how `get` makes it possible to specify the column either by its numeric index in the row, or by its column name.
@@ -233,7 +236,7 @@ fn update_data(pg_client: &mut postgres::Client) {
                 ],
             )
             .expect("update failed");
-        
+
         let quantity: i32 = row.get("quantity");
         println!("updated item id {} to quantity = {}", id, quantity);
     }
@@ -242,7 +245,7 @@ fn update_data(pg_client: &mut postgres::Client) {
 
 ### Delete data
 
-Finally, the `delete` function demonstrates how to remove an item from the `inventory` table by its `id`. The `id` is chosen randomly - it's a random integer between `1` to `5` (`5` inclusive) since the `insert_data` function had added `5` rows to start with. 
+Finally, the `delete` function demonstrates how to remove an item from the `inventory` table by its `id`. The `id` is chosen randomly - it's a random integer between `1` to `5` (`5` inclusive) since the `insert_data` function had added `5` rows to start with.
 
 > [!TIP]
 > Note that we use `query` instead of `execute` since we intend to get back the info about the item we just deleted (using [RETURNING clause](https://www.postgresql.org/docs/current/dml-returning.html)).
@@ -336,6 +339,7 @@ az group delete \
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Manage Azure Database for PostgreSQL server using Portal](./how-to-create-manage-server-portal.md)<br/>
 

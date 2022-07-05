@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/16/2022
+ms.date: 05/24/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -65,6 +65,7 @@ Here are some of the [blob storage attributes](../storage/common/storage-auth-ab
 - Blob prefix
 - Container name
 - Encryption scope name
+- Is Current Version
 - Is hierarchical namespace enabled
 - Snapshot
 - Version ID
@@ -107,7 +108,7 @@ Here's a list of the primary features of conditions:
 
 | Feature | Status | Date |
 | --- | --- | --- |
-| Use the following [attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition: Account name, Blob prefix, Encryption scope name, Is hierarchical namespace enabled, Snapshot, Version ID | Preview | May 2022 |
+| Use the following [attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition: Account name, Blob prefix, Encryption scope name, Is Current Version, Is hierarchical namespace enabled, Snapshot, Version ID | Preview | May 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
 | Add conditions to blob storage data role assignments | Preview | May 2021 |
 | Use attributes on a resource in a condition | Preview | May 2021 |

@@ -4,7 +4,7 @@ description: Create and query a dedicated SQL pool (formerly SQL DW) using the A
 author: pimorano
 ms.author: pimorano
 manager: craigg
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.date: 05/28/2019
 ms.topic: quickstart
 ms.service: synapse-analytics

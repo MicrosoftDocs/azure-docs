@@ -11,6 +11,8 @@ ms.date: 07/17/2020
 
 # Determining Application Type
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 Running efficient queries on a Hyperscale (Citus) server group requires that
 tables be properly distributed across servers. The recommended distribution
 varies by the type of application and its query patterns.

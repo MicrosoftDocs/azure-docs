@@ -240,6 +240,10 @@
         href: sizes-storage.md
       - name: Lsv2-series
         href: lsv2-series.md
+      - name: Lsv3-series
+        href: lsv3-series.md
+      - name: Lasv3-series
+        href: lasv3-series.md
       - name: Optimize performance
         items:
         - name: Linux
@@ -665,6 +669,8 @@
     - name: ARM template
       displayName: pre-empt, preempt, spot, low priority, low-priority, ARM, template
       href: ./linux/spot-template.md
+    - name: VM size recommendation 
+      href: ../virtual-machine-scale-sets/spot-vm-size-recommendation.md?toc=/azure/virtual-machines/toc.json
     - name: Error codes
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: error-codes-spot.md
@@ -1009,6 +1015,9 @@
     - name: Portal
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ./create-portal-availability-zone.md
+    - name: Migrate to Availability Zones
+      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones 
+      href: ../availability-zones/migrate-vm.md
   - name: Proximity Placement Groups
     items:
     - name: Overview
@@ -1290,6 +1299,8 @@
       href: ephemeral-os-disks.md
     - name: Create a VM using ephemeral OS disks
       href: ephemeral-os-disks-deploy.md
+    - name: FAQ on ephemeral OS disks
+      href: ephemeral-os-disks-faq.md      
   - name: Securely import/export a disk
     items:
     - name: Configure private links for disks - CLI
@@ -1847,9 +1858,6 @@
       - name: Overview
         displayName: VM insights
         href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-      - name: General Availability FAQ
-        displayName: VM insights
-        href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayName: VM insights
         href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1878,7 +1886,7 @@
         href: ../azure-monitor/vm/vminsights-performance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Analyze data with log queries
         displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-log-search.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: /azure/azure-monitor/vm/vminsights-log-query
       - name: Visualize data with workbooks
         displayName: Azure monitor, monitoring
         href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext

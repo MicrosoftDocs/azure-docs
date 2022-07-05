@@ -93,6 +93,8 @@
       href: how-to-analyze-programming-details-changes.md
   - name: Integrate with OT security partners
     items:
+    - name: Overview
+      href: integrate-overview.md
     - name: Integrate ClearPass
       href: tutorial-clearpass.md
     - name: Integrate CyberArk
@@ -111,7 +113,7 @@
       href: tutorial-servicenow.md
   - name: System deployment
     items:
-    - name: Manage an Azure subscription
+    - name: Manage plans on Azure subscriptions
       href: how-to-manage-subscriptions.md
     - name: Onboard sensors in the Azure portal
       href: how-to-manage-sensors-on-the-cloud.md
@@ -133,6 +135,8 @@
           href: how-to-connect-sensor-by-proxy.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      - name: Add support for proprietary protocols
+        href: resources-manage-proprietary-protocols.md
   - name: System maintenance
     items:
     - name: Maintain threat intelligence packages
@@ -151,6 +155,8 @@
         items:
         - name: Create and manage users
           href: how-to-create-and-manage-users.md
+        - name: Integrate with active directory
+          href: integrate-with-active-directory.md
         - name: Define global user access control
           href: how-to-define-global-user-access-control.md
       - name: Enrich device information
@@ -197,7 +203,7 @@
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Virtual appliances
       items:
-      - name: OT sensor (VMWare ESXi)
+      - name: OT sensor (VMWare ESXi) 
         href: appliance-catalog/virtual-sensor-vmware.md
       - name: OT sensor (Hyper-V)
         href: appliance-catalog/virtual-sensor-hyper-v.md
