@@ -3,10 +3,10 @@ title: Monitoring Azure Functions data reference
 description: Important reference material needed when you monitor Azure Functions
 author: vraposo
 ms.topic: reference
-ms.author: #Required; Microsoft alias of author; optional team alias.
-ms.service: Azure Functions
+ms.author: glenga
+ms.service: azure-functions
 ms.custom: subject-monitoring
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 07/05/2022
 ---
 
 # Monitoring Azure Functions data reference
@@ -58,7 +58,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 <!-- TODO:glenn Same as above -->
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](../azure-monitor/reference/tables/tables-resourcetype). <!-- TODO:glenn the reference above doesn't exist in the repo -->
+For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Activity log
 

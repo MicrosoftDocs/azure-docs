@@ -2,10 +2,11 @@
 title: Monitoring Azure Functions
 description: Start here to learn how to monitor Azure Functions
 author: vraposo
-ms.author: #Required; Microsoft alias of author; optional team alias.
-ms.service: Azure Functions
+ms.topic: howto
+ms.author: glenga
+ms.service: azure-functions
 ms.custom: subject-monitoring
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 07/05/2022
 ---
 
 # Monitoring Azure Functions
@@ -18,7 +19,7 @@ See [Monitor Azure Functions](functions-monitoring.md) for detailed information 
 
 ## Monitoring data
 
-Azure Functions collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources).
+Azure Functions collects the same kinds of monitoring data as other Azure resources that are described in [Azure Monitor data collection](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources).
 
 See [Monitoring *Azure Functions* data reference](monitor-functions-reference.md) for detailed information on the metrics and logs metrics created by Azure Functions.
 
@@ -48,7 +49,7 @@ The following examples use Monitor Metrics to help estimate the cost of running 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md). The schema for Azure Functions resource logs is found in the [Azure Functions Data Reference](monitor-functions-reference.md#schemas)
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md). 
 
 The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 

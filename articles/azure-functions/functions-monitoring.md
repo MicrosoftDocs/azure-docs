@@ -119,7 +119,7 @@ To enable this feature, you add an application setting named `SCALE_CONTROLLER_L
 
 ## Azure Monitor metrics
 
-In addition to log-based telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). To learn more, see [Using Azure Monitor Metric with Azure Functions](monitor-metrics.md).
+In addition to log-based telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). To learn more, see [Monitoring with Azure Monitor](monitor-functions.md).
 
 ## Report issues
 

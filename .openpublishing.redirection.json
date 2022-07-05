@@ -7244,6 +7244,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-functions/monitor-metrics.md",
+      "redirect_url": "/azure/azure-functions/monitor-functions",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
       "redirect_url": "/azure/azure-government",
       "redirect_document_id": false
