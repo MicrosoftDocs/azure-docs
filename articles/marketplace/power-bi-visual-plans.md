@@ -13,7 +13,7 @@ ms.date: 07/18/2022
 # Create Power Bi visual plans
 
 > [!NOTE]
-> If you enabled app license management for your offer, the **Plans overview** tab appears in the left-nav as shown in the following screenshot. Otherwise, go to [Manage Power BI visual offer names](power-bi-visual-manage-names.md).
+> If you enabled the “Managing license and selling with Microsoft” option on the [Offer setup](#power-bi-visual-offer-setup.md) page, the **Plans overview** tab appears in the left-nav as shown in the following screenshot. Otherwise, go to [Manage Power BI visual offer names](power-bi-visual-manage-names.md).
 
 :::image type="content" source="./media/power-bi-visual/plan-overview-tab.png" alt-text="Screenshot the Plan overview tab in the left-nav of the Plan overview page.":::
 
@@ -73,6 +73,39 @@ If you select this option, customers are not charged for the first month of use.
 
 - If the customer chose recurring billing, they will automatically be upgraded to a paid plan and the selected payment method is charged.
 - If the customer didn’t choose recurring billing, the plan will expire at the end of the free trial.
+
+### Choose who can see your plan
+
+You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file. A private plan is not the same as a preview audience.
+
+> [!NOTE]
+> If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
+
+#### Make your plan public
+
+1. Under **Plan visibility**, select **Public**.
+1. Select **Save draft**, and then go to [View your plans](#view-your-plans).
+
+#### Manually add tenant IDs for a private plan
+
+1. Under **Plan visibility**, select **Private**.
+1. In the **Tenant ID** box that appears, enter the Azure AD tenant ID of the audience you want to grant access to this private plan. A minimum of one tenant ID is required.
+1. (Optional) Enter a description of this audience in the **Description** box.
+1. To add another tenant ID, select **Add ID**, and then repeat steps 2 and 3.
+1. When you're done adding tenant IDs, select **Save draft**, and then go to [View your plans](#view-your-plans).
+
+#### Use a .CSV file for a private plan
+
+1. Under **Plan visibility**, select **Private**.
+1. Select the **Export Audience (csv)** link.
+1. Open the .CSV file and add the Azure IDs you want to grant access to the private offer to the **ID** column.
+1. (Optional) Enter a description for each audience in the **Description** column.
+1. Add "TenantID" in the **Type** column, for each row with an Azure ID.
+1. Save the .CSV file.
+1. On the **Pricing and availability** tab, under **Plan visibility**, select the **Import Audience (csv)** link.
+1. In the dialog box that appears, select **Yes**.
+1. Select the .CSV file and then select **Open**.
+1. Select **Save draft**, and then the next section: View your plans.
 
 ### View your plans
 

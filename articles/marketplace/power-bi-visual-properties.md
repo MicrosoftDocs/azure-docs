@@ -20,7 +20,6 @@ Select up to two **[Categories](./categories.md)** for grouping your offer into 
 
 | Category | Description |
 | ------------ | ------------- |
-| All | All the different types of visuals that are certified for use within your organization. |
 | Change over time | These visuals are used to display the changing trend of measures over time. |
 | Comparison | These visuals are used to compare categories by their measures. |
 | Correlation | These visuals show the degree to which two or more variables are correlated. |
