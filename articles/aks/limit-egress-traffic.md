@@ -4,7 +4,7 @@ description: Learn what ports and addresses are required to control egress traff
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/27/2022
+ms.date: 07/05/2022
 author: palma21
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -477,7 +477,7 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 > [!NOTE]
 > For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment.][add role to identity]
 > 
-> If you are not using the CLI but using your own VNet or route table which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> If you are not using the CLI but using your own VNet or route table which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Create an AKS cluster with user-assigned identities]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
 
 #### Create an AKS cluster with user-assigned identities
 
@@ -544,6 +544,9 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
   --assign-identity <identity-resource-id> \
   --assign-kubelet-identity <kubelet-identity-resource-id>
 ```
+
+> [!NOTE]
+> For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment.][add role to identity]
 
 ### Enable developer access to the API server
 
@@ -868,5 +871,5 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [aks-faq]: faq.md
 [aks-private-clusters]: private-clusters.md
 [add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
-[Bring your own control plane managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[Create an AKS cluster with user-assigned identities]: limit-egress-traffic.md#create-an-AKS-cluster-with-user-assigned-identities
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
