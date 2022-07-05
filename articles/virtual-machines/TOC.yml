@@ -1939,8 +1939,6 @@
     - name: Overview
       href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
-    - name: Creating restore points
-      href: virtual-machines-create-restore-points.md
     - name: Quickstarts
       items:
       - name: CLI
@@ -1985,6 +1983,21 @@
       href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md?context=/azure/virtual-machines/context/context
     - name: Fail back a VM to the primary region
       href: ../site-recovery/azure-to-azure-tutorial-failback.md?context=/azure/virtual-machines/context/context
+  - name: VM restore points
+    items:
+    - name: Overview
+      href: virtual-machines-create-restore-points.md
+    - name: Concepts
+      items:
+      - name: concepts-restore-points.md
+    - name: Quickstarts
+      items: 
+      - name: CLI
+        href: virtual-machines-create-restore-points-cli.md
+      - name: PowerShell
+        href: virtual-machines-create-restore-points-powershell.md
+      - name: Portal
+        href: virtual-machines-create-restore-points-portal.md
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
