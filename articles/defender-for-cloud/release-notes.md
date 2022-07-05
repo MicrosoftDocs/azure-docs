@@ -27,7 +27,7 @@ We're excited to share that Microsoft Defender containerized agent for AKS clust
 
 The production deployments of Kubernetes clusters continue to grow as customers continue to containerize their applications. To assist with this growth, the Defender for Containers team has developed a cloud-native Kubernetes oriented agent.
 
-The new agent is a Daemon set, based on eBPF technology and is fully integrated into AKS clusters as part of the AKS Security Profile.
+The new agent is a Daemonset, based on eBPF technology and is fully integrated into AKS clusters as part of the AKS Security Profile.
 
 The agent enablement is available through auto-provisioning, recommendations flow, AKS RP or at scale using Azure Policy.
 
