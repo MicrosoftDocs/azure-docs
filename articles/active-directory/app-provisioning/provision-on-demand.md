@@ -35,7 +35,8 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
  
 1. Select **Provision** at the bottom of the page.
 
-:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand.":::
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
+
 
 ## Understand the provisioning steps
 
@@ -121,7 +122,7 @@ Finally, the provisioning service takes an action, such as creating, updating, d
 
 Here's an example of what you might see after the successful on-demand provisioning of a user:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot that shows the successful on-demand provisioning of a user.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.png" alt-text="Screenshot that shows the successful on-demand provisioning of a user." lightbox="media/provision-on-demand/success-on-demand-provision.png":::
 
 #### View details
 
