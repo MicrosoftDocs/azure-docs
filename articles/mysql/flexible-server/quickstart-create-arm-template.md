@@ -30,122 +30,291 @@ An Azure Database for MySQL Flexible Server is the parent resource for one or mo
 
 Create a _mysql-flexible-server-template.json_ file and copy this JSON script into it.
 
+### [Create server with public access](#tab/mysql-create-with-public-access)
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "administratorLogin": {
-      "type": "String"
-    },
-    "administratorLoginPassword": {
-      "type": "SecureString"
-    },
-    "location": {
-      "type": "String"
-    },
-    "serverName": {
-      "type": "String"
-    },
-    "serverEdition": {
-      "type": "String"
-    },
-    "storageSizeMB": {
-      "type": "Int"
-    },
-    "haEnabled": {
-      "type": "string",
-      "defaultValue": "Disabled"
-    },
-    "availabilityZone": {
-      "type": "String"
-    },
-    "version": {
-      "type": "String"
-    },
-    "tags": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "firewallRules": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "vnetData": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "backupRetentionDays": {
-      "type": "Int"
-    }
-  },
-  "variables": {
-    "api": "2021-05-01",
-    "firewallRules": "[parameters('firewallRules').rules]",
-    "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.DBforMySQL/flexibleServers",
-      "apiVersion": "[variables('api')]",
-      "name": "[parameters('serverName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "administratorLogin": {
+        "type": "String"
       },
-      "tags": "[parameters('tags')]",
-      "properties": {
-        "version": "[parameters('version')]",
-        "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "haEnabled": "[parameters('haEnabled')]",
-        "storageProfile": {
-          "storageMB": "[parameters('storageSizeMB')]",
-          "backupRetentionDays": "[parameters('backupRetentionDays')]"
-        },
-        "availabilityZone": "[parameters('availabilityZone')]"
-      }
+      "administratorLoginPassword": {
+        "type": "SecureString"
+      },
+      "location": {
+        "type": "String"
+      },
+      "serverName": {
+        "type": "String"
+      },
+      "databaseName": {
+        "type": "String"
+      },
+      "serverEdition": {
+        "type": "String"
+      },
+      "serverSku": {
+        "type": "String"
+      },
+      "storageSizeGB": {
+        "type": "Int"
+      },
+      "haEnabled": {
+        "type": "String",
+        "defaultValue": "Disabled"
+      },
+      "availabilityZone": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      },
+      "tags": {
+        "defaultValue": {},
+        "type": "Object"
+      },
+      "firewallRules": {
+        "defaultValue": {},
+        "type": "Object"
+      },
+      "backupRetentionDays": {
+        "type": "Int"
+      },
+      "charset": {
+        "type":"String"
+      },
+      "collation": {
+        "type":"String"
+      },      
+      "firewallRuleName": {
+        "type":"String"
+      },
+      "StartIpAddress": {
+        "type":"String"
+      },
+      "EndIpAddress": {
+        "type":"String"
+      }      
     },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-08-01",
-      "name": "[concat('firewallRules-', copyIndex())]",
-      "dependsOn": [
-        "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
-              "name": "[concat(parameters('serverName'),'/',variables('firewallRules')[copyIndex()].name)]",
-              "apiVersion": "[variables('api')]",
-              "properties": {
-                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
-                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
-              }
-            }
-          ]
+    "variables": {
+      "api": "2021-12-01-preview",
+      "firewallRules": "[parameters('firewallRules').rules]",
+      "publicNetworkAccess": "Enabled"
+    },
+    "resources": [
+      {
+        "type": "Microsoft.DBforMySQL/flexibleServers",
+        "apiVersion": "[variables('api')]",
+        "name": "[parameters('serverName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "[parameters('serverSku')]",
+          "tier": "[parameters('serverEdition')]"
+        },
+        "tags": "[parameters('tags')]",
+        "properties": {        
+          "version": "[parameters('version')]",
+          "administratorLogin": "[parameters('administratorLogin')]",
+          "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+          "storage": {
+            "storageSizeGB": "[parameters('storageSizeGB')]",
+            "iops": 360,
+            "autoGrow": "Enabled"
+        },
+        "maintenanceWindow": {
+            "customWindow": "Disabled",
+            "dayOfWeek": 0,
+            "startHour": 0,
+            "startMinute": 0
+        },
+        "replicationRole": "None",
+        "network": {},
+        "backup": {
+            "backupRetentionDays": "[parameters('backupRetentionDays')]",
+            "geoRedundantBackup": "Disabled"
+        },
+        "highAvailability": {
+            "mode": "[parameters('haEnabled')]"
+        },
+        "availabilityZone":  "[parameters('availabilityZone')]"
         }
       },
-      "copy": {
-        "name": "firewallRulesIterator",
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial"
+      {
+
+        "type": "Microsoft.DBforMySQL/flexibleServers/databases",
+        "apiVersion": "[variables('apiVersion')]",
+        "name": "[format('{0}/{1}', parameters('serverName'), parameters('databaseName') )]",
+        "dependsOn": [
+                "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
+        ],
+        "properties": {
+            "charset": "[parameters('charset')]",
+            "collation": "[parameters('collation')]"
+
+        }
+    },  
+    {
+        "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
+        "apiVersion": "2021-05-01",
+        "name": "[format('{0}/{1}', parameters('serverName'), parameters('firewallRuleName') )]",
+        "dependsOn": [
+            "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
+        ],
+        "properties": {
+            "StartIpAddress": "0.0.0.0",
+            "EndIpAddress": "0.0.0.0"
+        }
+    }
+    ]
+  }
+```
+### [Create with private access](#tab/mysql-create-with-private-access)
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "administratorLogin": {
+        "type": "String"
       },
-      "condition": "[greater(length(variables('firewallRules')), 0)]"
+      "administratorLoginPassword": {
+        "type": "SecureString"
+      },
+      "location": {
+        "type": "String"
+      },
+      "serverName": {
+        "type": "String"
+      },
+      "databaseName": {
+        "type": "String"
+      },
+      "serverEdition": {
+        "type": "String"
+      },
+      "serverSku": {
+        "type": "String"
+      },
+      "storageSizeGB": {
+        "type": "Int"
+      },
+      "haEnabled": {
+        "type": "String",
+        "defaultValue": "Disabled"
+      },
+      "availabilityZone": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      },
+      "tags": {
+        "defaultValue": {},
+        "type": "Object"
+      },
+      "firewallRules": {
+        "defaultValue": {},
+        "type": "Object"
+      },
+      "backupRetentionDays": {
+        "type": "Int"
+      },
+      "charset": {
+        "type":"String"
+      },
+      "collation": {
+        "type":"String"
+      },      
+      "firewallRuleName": {
+        "type":"String"
+      },
+      "StartIpAddress": {
+        "type":"String"
+      },
+      "EndIpAddress": {
+        "type":"String"
+      },
+      "vnetName":{
+        "type":"String"
+      },
+      "subnetName":{
+        "type":"String"
+      } ,
+      "delegatedSubnetResourceIdUri":{
+        "type":"String"
+      },
+      "privateDnsZoneResourceIdUri":{
+        "type": "String"
+      }
+    },
+    "variables": {
+      "api": "2021-12-01-preview",
+    },
+    "resources": [
+      {
+        "type": "Microsoft.DBforMySQL/flexibleServers",
+        "apiVersion": "[variables('api')]",
+        "name": "[parameters('serverName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "[parameters('serverSku')]",
+          "tier": "[parameters('serverEdition')]"
+        },
+        "tags": "[parameters('tags')]",
+        "properties": {        
+          "version": "[parameters('version')]",
+          "administratorLogin": "[parameters('administratorLogin')]",
+          "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+          "storage": {
+            "storageSizeGB": "[parameters('storageSizeGB')]",
+            "iops": 360,
+            "autoGrow": "Enabled"
+        },
+        "maintenanceWindow": {
+            "customWindow": "Disabled",
+            "dayOfWeek": 0,
+            "startHour": 0,
+            "startMinute": 0
+        },
+        "replicationRole": "None",
+        "network": {},
+        "backup": {
+            "backupRetentionDays": "[parameters('backupRetentionDays')]",
+            "geoRedundantBackup": "Disabled"
+        },
+        "highAvailability": {
+            "mode": "[parameters('haEnabled')]"
+        },
+        "availabilityZone":  "[parameters('availabilityZone')]",
+        "network": {
+            "publicNetworkAccess": "Disabled",
+            "delegatedSubnetResourceId": "[parameters('delegatedSubnetResourceIdUri')]",
+            "privateDnsZoneResourceId": "[parameters('rivateDnsZoneResourceIdUri')]"
+          }
+        }
+      },
+      {
+
+        "type": "Microsoft.DBforMySQL/flexibleServers/databases",
+        "apiVersion": "[variables('apiVersion')]",
+        "name": "[format('{0}/{1}', parameters('serverName'), parameters('databaseName') )]",
+        "dependsOn": [
+                "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
+        ],
+        "properties": {
+            "charset": "[parameters('charset')]",
+            "collation": "[parameters('collation')]"
+
+        }
     }
   ]
 }
 ```
+
+
+---
 
 These resources are defined in the template:
 
