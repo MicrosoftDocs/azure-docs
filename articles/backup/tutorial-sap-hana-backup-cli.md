@@ -148,7 +148,7 @@ The [az backup job list](/cli/azure/backup/job#az-backup-job-list) cmdlet lists 
 
 ## Get the container name
 
-To get container name, run the following command. [Learn about this CLI commamd](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
+To get container name, run the following command. [Learn about this CLI command](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
 
 ```azurecli
     az backup item list --resource-group <resource group name> --vault-name <vault name>
