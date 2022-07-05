@@ -243,9 +243,9 @@ The errors below are general to the copy activity and could occur with any conne
 
 - **Message**: `The following ODBC Query is not valid: '%'.`
  
-- **Cause**: In ODBC connectors, you provide a wrong or invalid query in Lookup activity. Lookup activity expects data/schemas to be returned, otherwise this exception will be thrown.
+- **Cause**: You provide a wrong or invalid query to fetch the data/schemas.
 
-- **Recommendation**: Verify your query is valid and can return data. Use [Script activity](transform-data-using-script.md) if you want to execute non-query scripts and your data store is supported by this activity. If not, think about using stored procedure that returns a dummy result to execute your non-query scripts.
+- **Recommendation**: Verify your query is valid and can return data/schemas. Use [Script activity](transform-data-using-script.md) if you want to execute non-query scripts and your data store is supported. Alternatively, consider to use stored procedure that returns a dummy result to execute your non-query scripts.
 
 ## Next steps
 
