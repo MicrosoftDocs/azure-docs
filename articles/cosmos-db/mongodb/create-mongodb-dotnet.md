@@ -94,8 +94,8 @@ dotnet add package MongoDb.Driver
 
 Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and docs.
 
-:::image type="complex" source="media/quickstart-javascript/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
-    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
+:::image type="complex" source="media/quickstart-javascript/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, collections, and docs.":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
 :::image-end:::
 
 You'll use the following MongoDB classes to interact with these resources:
@@ -163,13 +163,13 @@ In Azure Cosmos DB, you can retrieve items by composing queries using Linq. In t
 
 ### Query items
 
-After you insert an item, you can run a query to get all items that match a specific filter by treating the collection as an `IQueryable`. This example uses an expression to filter products by category. Once the call to `AsQueryable`  is made, call [``MongoQueryable.Where``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_Linq_MongoQueryable_Where__1.htm) to get retrieve a set of filtered items.
+After you insert an item, you can run a query to get all items that match a specific filter by treating the collection as an `IQueryable`. This example uses an expression to filter products by category. Once the call to `AsQueryable`  is made, call [``MongoQueryable.Where``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_Linq_MongoQueryable_Where__1.htm) to retrieve a set of filtered items.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="query_items" :::
 
 ## Run the code
 
-This app creates an Azure Cosmos MongoDb API database and collection. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should returns multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
+This app creates an Azure Cosmos MongoDb API database and collection. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should return multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
