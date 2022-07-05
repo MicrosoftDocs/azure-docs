@@ -20,7 +20,7 @@ Azure Monitor Agent (AMA) replaces the Log Analytics Agent (MMA/OMS) for Windows
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-### Prerequisites
+## Prerequisites
 
 To install DCR Config Generator, you need:
 
@@ -34,7 +34,7 @@ AMA Migration Helper is a workbook-based Azure Monitor solution that helps you *
 To set up the AMA Migration Helper workbook in the Azure portal:
 
 1. From the **Monitor** menu, select **Workbooks** > **+ New** > **Advanced Editor** (**</>**).
-4. Paste the content from the file attached.
+4. Paste the content from the *AMA Migration Helper* file.
 5. Select **Apply** to load the workbook. 
 1. Select **Done Editing**. 
 
