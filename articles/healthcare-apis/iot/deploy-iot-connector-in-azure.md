@@ -18,7 +18,8 @@ In this quickstart, you'll learn how to deploy the MedTech service in the Azure 
 
 If you already have an active Azure account, you can use this [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) button to deploy a MedTech service that will include the following resources and permissions:
 
- * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**) and a single consumer group (the consumer group is named: **$Default**).
+ * An Azure Event Hubs Namespace and device message Azure event hub (the event hub is named: **devicedata**).
+ * An Azure event hub consumer group (the consumer group is named: **$Default**).
  * An Azure event hub sender role (the sender role is named: **devicedatasender**).
  * An Azure Health Data Services workspace.
  * An Azure Health Data Services FHIR service.
