@@ -3,7 +3,7 @@ title: Limits and restrictions - Azure IoT Edge | Microsoft Docs
 description: Description of the limits and restrictions when using IoT Edge.
 author: raisalitch
 ms.author: ralitchf
-ms.date: 01/28/2022
+ms.date: 07/05/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
