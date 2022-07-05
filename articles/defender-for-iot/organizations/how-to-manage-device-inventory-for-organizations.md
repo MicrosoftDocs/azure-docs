@@ -141,7 +141,7 @@ The following device fields are supported for editing in the Device inventory pa
 
 ## Export the device inventory to CSV
 
-You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
+You can export a maximum of 30,000 devices at a time from your device inventory to a CSV file. If you have filters applied to the table, only the devices shown are exported to the CSV file.
 
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
 

@@ -9,15 +9,15 @@ ms.topic: reference
 ms.service: azure-fluid
 ---
 
-# Help and Support options for Azure Fluid Relay
+# Help and support options for Azure Fluid Relay
 
 If you have an issue or question involving Azure Fluid Relay, the following options are available.
 
-## Check out Frequently Asked Questions
+## Check out frequently asked questions
 
 You can see if your question is already answered on our Frequently Asked Questions [page](faq.md).
 
-## Create an Azure Support Request
+## Create an Azure support request
 
 With Azure, there are many [support options and plans](https://azure.microsoft.com/support/plans/) available, which you can explore and review. You can create a support ticket in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

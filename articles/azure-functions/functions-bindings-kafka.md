@@ -1,10 +1,8 @@
 ---
 title: Apache Kafka bindings for Azure Functions
 description: Learn to integrate Azure Functions with an Apache Kafka stream.
-author: ggailey777
 ms.topic: reference
 ms.date: 05/14/2022
-ms.author: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
