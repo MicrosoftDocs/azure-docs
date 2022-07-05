@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 07/07/2022
+ms.date: 05/31/2022
 ---
 
 # Design and performance for Netezza migrations
 
-This article is part one of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for design and performance.
+This article is part one of a seven-part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. The focus of this article is best practices for design and performance.
 
 ## Overview
 
