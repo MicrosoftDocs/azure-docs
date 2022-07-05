@@ -22,14 +22,6 @@ ms.custom: mode-other
 [!INCLUDE [Raw media with Android](./includes/raw-media/raw-media-access-android.md)]
 ::: zone-end
 
-::: zone pivot="platform-ios"
-[!INCLUDE [Raw media with iOS](./includes/raw-media/raw-media-access-ios.md)]
-::: zone-end
-
-::: zone pivot="platform-windows"
-[!INCLUDE [Raw media with Windows](./includes/raw-media/raw-media-access-windows.md)]
-::: zone-end
-
 ## Next steps
 For more information, see the following articles:
 
