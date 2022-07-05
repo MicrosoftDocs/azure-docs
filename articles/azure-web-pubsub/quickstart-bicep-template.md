@@ -21,12 +21,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the Bicep file
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/<templateName>).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-web-pubsub/).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/ZZZZZZZZZZZZZ/main.bicep":::
-
-- [Azure resource type](link to the template reference): resource type description.
-- [Azure resource type](link to the template reference): resource type description.
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/azure-web-pubsub/main.bicep":::
 
 ## Deploy the Bicep file
 
