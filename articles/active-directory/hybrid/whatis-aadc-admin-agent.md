@@ -72,4 +72,4 @@ Once the agent is installed, If you do not want the Microsoft service engineer t
 ![Screenshot that shows where to restart the Azure AD Administrator Agent service.](media/whatis-aadc-admin-agent/adminagent2.png)
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hyb
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
