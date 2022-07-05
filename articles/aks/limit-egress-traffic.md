@@ -458,6 +458,13 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 >
 > The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
+#### Create an AKS cluster with system-assigned identities
+
+> [!NOTE]
+> AKS will create a system-assigned kubelet identity in the Node resource group if you do not [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+
+You can create an AKS cluster using a system-assigned managed identity by running the following CLI command.
+
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 \
@@ -472,6 +479,71 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 > 
 > If you are not using the CLI but using your own VNet or route table which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
 
+#### Create an AKS cluster with user-assigned identities
+
+##### Create user-assigned managed identities
+
+If you don't have a control plane managed identity, you can create by running the following [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+
+The output should resemble the following:
+
+```output
+{                                  
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principal-id>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+If you don't have a kubelet managed identity, you can create one by running the following [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myKubeletIdentity --resource-group myResourceGroup
+```
+
+The output should resemble the following:
+
+```output
+{
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+  "location": "westus2",
+  "name": "myKubeletIdentity",
+  "principalId": "<principal-id>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+##### Create an AKS cluster with user-assigned identities
+
+Now you can use the following command to create your AKS cluster with your existing identities in the subnet. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
+
+```azurecli
+az aks create -g $RG -n $AKSNAME -l $LOC \
+  --node-count 3 \
+  --network-plugin $PLUGIN \
+  --outbound-type userDefinedRouting \
+  --vnet-subnet-id $SUBNETID \
+  --api-server-authorized-ip-ranges $FWPUBLIC_IP
+  --enable-managed-identity \
+  --assign-identity <identity-resource-id> \
+  --assign-kubelet-identity <kubelet-identity-resource-id>
+```
 
 ### Enable developer access to the API server
 
@@ -797,3 +869,4 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [aks-private-clusters]: private-clusters.md
 [add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
 [Bring your own control plane managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
