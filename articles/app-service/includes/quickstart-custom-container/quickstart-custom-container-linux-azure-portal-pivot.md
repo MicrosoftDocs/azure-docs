@@ -7,13 +7,55 @@ ms.date: 06/30/2022
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from Docker Hub to App Service.
+[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from Azure Container Registry to Azure App Service.
 
 To complete this quickstart, you need:
 
-* An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
+- An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
+- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
+- [Azure CLI](/cli/azure/install-azure-cli)
+- [Docker](https://www.docker.com/community-edition)
 
-## 1 - Deploy to Azure
+## 1 - Clone the sample repository
+
+We will clone the code so that we can update the code and then update our container.
+
+1. Go to [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
+1. Select the **Code** button.
+1. Copy the HTTPS URL.
+1. In your command line, run:
+
+    ```bash
+    git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
+    ```
+
+## 2 - Push the image to Azure Container Registry
+
+The cloned repository contains a **Dockerfile.linux** file.
+
+1. Log in to Azure Container Registry.
+
+    ```azurecli
+    az acr login -n <your_registry_name>
+    ```
+
+1. Build the container image. We are naming the image **dotnetcore-docs-hello-world-linux**.
+
+    ```docker
+    docker build -f Dockerfile.linux -t <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-linux . 
+    ```
+
+1. Push the container image to Azure Container Registry.
+
+    ```docker
+    docker push <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-linux:latest
+    ```
+
+> [!NOTE]
+> The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure custom container](../../configure-custom-container.md).
+
+
+## 3 - Deploy to Azure
 
 ### Sign in to Azure portal
 
@@ -24,7 +66,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Type **app services** in the search. Under **Services**, select **App Services**.
 
-     :::image type="content" source="../../media/quickstart-custom-container/portal-search.png?text=Azure portal search details" alt-text="Screenshot of portal search.":::
+     :::image type="content" source="../../media/quickstart-custom-container/portal-search.png?text=Azure portal search details" alt-text="Screenshot of searching for 'app services' in the Azure portal.":::
 
 1. In the **App Services** page, select **+ Create**.
 
@@ -42,14 +84,13 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Select the **Next: Docker >** button at the bottom of the page.
 
-1. In the **Docker** tab, ensure *Single Container* **option** is selected, and select *Docker Hub* **Image Source**.
+1. In the **Docker** tab, select *Single Container* under **Options** and *Azure Container Registry* for the **Image Source**. Under **Azure container registry options**, set the following values:
+   - **Registry**: Select your Azure Container Registry.
+   - **Image**: Select *dotnetcore-docs-hello-world-linux*.
+   - **Tag**: Select *latest*.
 
-    :::image type="content" source="../../media/quickstart-custom-container/docker-details-linux.png" alt-text="Screenshot showing the container deployment options.":::
-
-1. Under **Docker hub options**, set the **Access Type** to *Public*. Set **Image and tag** to *mcr.microsoft.com/dotnet/samples:aspnetapp*.
-
-    :::image type="content" source="../../media/quickstart-custom-container/docker-hub-options-linux.png" alt-text="Screenshot showing the docker hub options.":::
-
+    :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-linux.png" alt-text="Screenshot showing the Azure Container Registry options.":::
+    
 1. Select the **Review + create** button at the bottom of the page.
 
     :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page.":::
@@ -61,13 +102,13 @@ Sign in to the Azure portal at https://portal.azure.com.
     :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
 
-## 2 - Browse to the app
+## 4 - Browse to the app
 
-1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-    :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-linux.png" alt-text="Screenshot showing the deployed application.":::
+:::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-linux.png" alt-text="Screenshot showing the deployed application.":::
 
-## 3 - Clean up resources
+## 5 - Clean up resources
 
 [!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
