@@ -20,7 +20,7 @@
       href: migrate-app-service-environment.md
     - name: App Service
       href: migrate-app-service.md
-    - name: Cache for Redis
+    - name: Azure Cache for Redis
       href: migrate-cache-redis.md
     - name: Virtual machines and virtual machine scale sets
       href: migrate-vm.md
