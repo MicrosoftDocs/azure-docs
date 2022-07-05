@@ -1,5 +1,5 @@
 ---
-title: Road to the cloud - establish a footprint for moving identity and access management from AD to Azure AD
+title: Road to the cloud - Establish a footprint for moving identity and access management from AD to Azure AD
 description: Establish an Azure AD footprint as part of planning your migration of IAM from AD to Azure AD.
 documentationCenter: ''
 author: janicericketts
