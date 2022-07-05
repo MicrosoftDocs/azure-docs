@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 07/04/2022
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -24,12 +24,18 @@ This article outlines how to use Copy Activity in Azure Data Factory or Synapse 
 
 ## Supported capabilities
 
-This Azure Synapse Analytics connector is supported for the following activities:
+This Azure Synapse Analytics connector is supported for the following activities, integration runtimes and managed private endpoints.
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) table
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
+|[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
