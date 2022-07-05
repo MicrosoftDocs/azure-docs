@@ -13,7 +13,7 @@ This article gives an overview of Azure Video Indexer accounts and provides link
 ## Differences between classic, ARM, trial accounts
 
 Classic and ARM (Azure Resource Manager) are both paid accounts with similar data plane capabilities and pricing. The main difference is that classic accounts control plane is managed by Azure Video Indexer and ARM accounts control plane is managed by Azure Resource Manager.
-Going forward, ARM account support more Azure native features and integareations such as: Azure Monitor, Private endpoints, Service tag and CMK(Customer managed key).  
+Going forward, ARM account support more Azure native features and integrations such as: Azure Monitor, Private endpoints, Service tag and CMK (Customer managed key).  
 **The recommended paid account type is the ARM-based account**  
 
 
@@ -37,7 +37,7 @@ For more details, see [Pricing](https://azure.microsoft.com/pricing/details/vide
 * ARM accounts: [Get started with Azure Video Indexer in Azure portal](create-account-portal.md)
     * Upgrade a trial account to an ARM based account and [**import** you content for free](https://docs.microsoft.com/azure/azure-video-indexer/connect-to-azure#import-your-content-from-the-trial-account)  
 * Classic accounts: [Create classic accounts using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account)
-* Connect a clsssic account to ARM: [Connect an existing classic paid Azure Video Indexer account to ARM-based account](connect-classic-account-to-arm.md)
+* Connect a classic account to ARM: [Connect an existing classic paid Azure Video Indexer account to ARM-based account](connect-classic-account-to-arm.md)
 
 ## Limited access features
 
