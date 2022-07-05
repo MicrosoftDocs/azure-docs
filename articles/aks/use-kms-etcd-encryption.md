@@ -268,6 +268,11 @@ Use below command to disable KMS on existing cluster.
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
 ```
 
+Use below command to update all secrets. Otherwise, the old secrets are still encrypted with the previous key. 
+
+```azurecli-interactive
+kubectl get secrets --all-namespaces -o json | kubectl replace -f -
+```
 
 
 <!-- LINKS - Internal -->
