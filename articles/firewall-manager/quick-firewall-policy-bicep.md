@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Firewall and a firewall policy - Bicep'
-description: In this quickstart, you deploy an Azure Firewall and a firewall policy.
+description: In this quickstart, you deploy an Azure Firewall and a firewall policy using Bicep.
 services: firewall-manager
 author: schaffererin
 ms.author: v-eschaffer
