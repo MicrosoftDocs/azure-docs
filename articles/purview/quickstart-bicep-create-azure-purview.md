@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account 
 description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 07/01/2022
+ms.date: 07/05/2022
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-arm
@@ -27,7 +27,7 @@ To deploy a Microsoft Purview account to your subscription, follow the prereques
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-share-share-storage-account/).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.azurepurview/azure-purview-deployment/main.bicep":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.datashare/data-share-share-storage-account/main.bicep":::
 
 The following resources are defined in the Bicep file:
 
