@@ -45,10 +45,6 @@ In this tutorial, you learn how to:
 - <!-- prerequisite 2 -->
 - <!-- prerequisite n -->
 
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
 ## Deploy Virtual Network environment
 This procedure walks you through creating three virtual networks. One will be in the West US region and the other two will be in the East US region.
 -prod-vnet-east-1
@@ -59,6 +55,11 @@ This procedure walks you through creating three virtual networks. One will be in
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
+## Deploy Network Security Rules
+
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
 ## Create a Virtual Network Manager
 This procedure walks you through creating a virtual network manager.
 <!-- Introduction paragraph -->
