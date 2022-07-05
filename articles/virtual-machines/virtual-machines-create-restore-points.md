@@ -1,8 +1,8 @@
 ---
 title: Using Virtual Machine Restore Points
 description: Using Virtual Machine Restore Points
-author: cynthn
-ms.author: cynthn
+author: dikethir
+ms.author: dikethir
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
@@ -10,17 +10,17 @@ ms.date: 02/14/2022
 ms.custom: template-how-to
 ---
 
-# Create VM restore points (Preview)
+# Overview of VM restore points
 
 Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbacks across multiple regions. Azure VM restore point APIs are a lightweight option you can use to implement granular backup and retention policies.
 
-You can protect your data and guard against extended downtime by creating virtual machine (VM) restore points at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case. You can read about additional [Backup and restore options for virtual machines in Azure](backup-recovery.md).
+You can protect your data and guard against extended downtime by creating virtual machine (VM) restore points at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case. You can read about other [Backup and restore options for virtual machines in Azure](backup-recovery.md).
 
 ## About VM restore points
 
-An individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. VM restore points can be leveraged to easily capture multi-disk consistent backups.  VM restore points contains a disk restore point for each of the attached disks. A disk restore point consists of a snapshot of an individual managed disk.
+An individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. VM restore points can be used to easily capture multi-disk consistent backups.  VM restore points contain a disk restore point for each of the attached disks. A disk restore point consists of a snapshot of an individual managed disk.
 
-VM restore points support application consistency for VMs running Windows operating systems and support file system consistency for VMs running Linux operating system. Application consistent restore points use VSS writers (or pre/post scripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application consistent restore point the application running in the VM needs to provide a VSS writer (for Windows) or pre and post scripts (for Linux) to achieve application consistency.
+VM restore points support application consistency for VMs running Windows operating systems and support file system consistency for VMs running Linux operating system. Application consistent restore points use VSS writers (or pre/post scripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application consistent restore point, the application running in the VM needs to provide a VSS writer (for Windows), or pre and post scripts (for Linux) to achieve application consistency.
 
 VM restore points are organized into restore point collections. A restore point collection is an Azure Resource Management resource that contains the restore points for a specific VM. If you want to utilize ARM templates for creating restore points and restore point collections, visit the public [Virtual-Machine-Restore-Points](https://github.com/Azure/Virtual-Machine-Restore-Points) repository on GitHub.
 
@@ -32,23 +32,18 @@ You can use the APIs to create restore points for your source VM in either the s
 
 VM restore points are incremental. The first restore point stores a full copy of all disks attached to the VM. For each successive restore point for a VM, only the incremental changes to your disks are backed up. To reduce your costs, you can optionally exclude any disk when creating a restore point for your VM.
 
-Keep the following restrictions in mind when you work with VM restore points:
+### Limitations
 
-- The restore points APIs work with managed disks only.
-- Ultra disks, Ephemeral OS Disks, and Shared Disks aren't supported.
-- The restore points APIs require API version 2021-03-01 or better.
-- There is a limit of 200 VM restore points that can be created for a particular VM.
-- Concurrent creation of restore points for a VM is not supported.
-- Private links are not supported when:
-    - Copying restore points across regions.
-    - Creating restore points in a region other than the source VM.
-- Currently, cross-region creation and copy of VM restore points are only available in the following regions:
-
-  | Area            | Regions    |
-  |-----------------|----------------------------------------------|
-  |**Americas**     | East US, East US 2, Central US, North Central US, <br/>South Central US, West Central US, West US, West US 2 |
-  |**Asia Pacific** | Central India, South India |
-  |**Europe**       | Germany West central, North Europe, West Europe |
+- Restore points are supported only for managed disks. 
+- Ultra-disks, Ephemeral OS disks, and Shared disks are not supported. 
+- Restore points APIs require an API of version 2021-03-01 or higher. 
+- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
+- Concurrent creation of restore points for a VM is not supported. 
+- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM IDs between the actual VM and the restore points. 
+ > [!Note]
+ > Public preview of cross-region creation and copying of VM restore points are available, with the following limitations: 
+ > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 
+ > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
 
 ## Create VM restore points
 
@@ -72,7 +67,7 @@ After the restore point collection is created, create a VM restore point within 
 
 ### Step 3: Track the status of the VM restore point creation
 
-Restore point creation in your local region will be completed within a few seconds. Scenarios which involve the creation of cross-region restore points will take considerably longer. To track the status of the creation operation, follow the guidance within the [Get restore point copy or replication status](#get-restore-point-copy-or-replication-status) section below. This is only applicable for scenarios where the restore points are created in a different region than the source VM.
+Restore point creation in your local region will be completed within a few seconds. Scenarios, which involve the creation of cross-region restore points will take considerably longer. To track the status of the creation operation, follow the guidance within the [Get restore point copy or replication status](#get-restore-point-copy-or-replication-status) section below. This is only applicable for scenarios where the restore points are created in a different region than the source VM.
 
 ## Copy a VM restore point between regions
 
@@ -115,10 +110,10 @@ To restore a full VM from a VM restore point, first restore individual disks fro
 
 ## Get a shared access signature for a disk
 
-To create a shared access signature (SAS) for a disk within a VM restore point, pass the ID of the disk restore points via the `BeginGetAccess` API. If no active SAS exists on the restore point snapshot, a new SAS will be created. The new SAS URL will be returned in the response. If an active SAS already exists, the SAS duration will be extended and the pre-existing SAS URL will be returned in the response.
+To create a shared access signature (SAS) for a disk within a VM restore point, pass the ID of the disk restore points via the `BeginGetAccess` API. If no active SAS exists on the restore point snapshot, a new SAS will be created. The new SAS URL will be returned in the response. If an active SAS already exists, the SAS duration will be extended, and the pre-existing SAS URL will be returned in the response.
 
 For more information about granting access to snapshots, see the [Grant Access](/rest/api/compute/snapshots/grant-access) API documentation.
 
 ## Next steps
 
-Read more about [Backup and restore options for virtual machines in Azure](backup-recovery.md).
+[Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
