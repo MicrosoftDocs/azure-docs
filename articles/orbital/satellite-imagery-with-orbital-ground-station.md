@@ -26,7 +26,7 @@ Processing the Aqua data stream involves the following steps in order:
 
 ## Step 1: Prerequisites
 
-First, follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](howto-downlink-aqua.md). This includes all the steps in each subsection of that document, in order.
+You must first follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](howto-downlink-aqua.md). 
 
 > [!NOTE]
 > In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](howto-downlink-aqua.md#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
