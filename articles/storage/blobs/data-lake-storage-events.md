@@ -291,8 +291,8 @@ Create an Azure Function that runs the Job.
 10. Replace the contents of the code file with this code, and then click the **Save** button:
 
     ```cs
-    using "Microsoft.Azure.EventGrid"
-    using "Newtonsoft.Json"
+    #r "Microsoft.Azure.EventGrid"
+    #r "Newtonsoft.Json"
     using Microsoft.Azure.EventGrid.Models;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
@@ -306,7 +306,7 @@ Create an Azure Function that runs the Job.
         log.LogInformation("Event Type: " + eventGridEvent.EventType);
         log.LogInformation(eventGridEvent.Data.ToString());
 
-        if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" | | eventGridEvent.EventType == "Microsoft.Storage.FileRenamed") {
+        if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" || eventGridEvent.EventType == "Microsoft.Storage.FileRenamed") {
             var fileData = ((JObject)(eventGridEvent.Data)).ToObject<StorageBlobCreatedEventData>();
             if (fileData.Api == "FlushWithClose") {
                 log.LogInformation("Triggering Databricks Job for file: " + fileData.Url);
