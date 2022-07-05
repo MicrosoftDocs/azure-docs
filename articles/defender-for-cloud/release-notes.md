@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 06/26/2022
+ms.date: 07/05/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -18,23 +18,29 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 ## July 2022
 
-Update sin July include:
+Updates in July include:
 
-[General availability (GA) of the AKS security Defender profile for Defender for Containers](#general-availability-ga-of-the-aks-security-defender-profile-for-defender-for-containers)
+- [General availability (GA) of the Microsoft Defender containerized agent for AKS clusters](#general-availability-ga-of-the-microsoft-defender-containerized-agent-for-aks-clusters)
+- 
+### General availability (GA) of the Microsoft Defender containerized agent for AKS clusters
 
-### General availability (GA) of the AKS security Defender profile for Defender for Containers
+We are excited to share that Microsoft Defender containerized agent for AKS clusters is now generally available (GA)!
 
-The AKS security Defender profile is a Daemonset enables Defender for Containers to provide runtime protections and to collect signals from nodes.
+The production deployments of Kubernetes clusters continue to grow as customers continue to containerize their applications. To assist with this growth, the Defender for Containers team has developed a cloud-native Kubernetes oriented agent.
 
-With this announcement, the runtime protection - threat detection (workload) is also generally available.
+The new agent is a Daemonset, based on eBPF technology and is fully integrated into AKS clusters as part of the AKS Security Profile.
+
+The agent enablement is available through auto-provisioning, recommendations flow, AKS RP or at scale using Azure Policy.
 
 You can [deploy the Defender profile](/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#deploy-the-defender-profile) today on your AKS clusters.
+
+With this announcement, the runtime protection - threat detection (workload) is now also generally available.
 
 Learn more about the Defender for Container's [feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
 You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
 
-If you were using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
+Please note, if you were using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
 
 ## June 2022
 

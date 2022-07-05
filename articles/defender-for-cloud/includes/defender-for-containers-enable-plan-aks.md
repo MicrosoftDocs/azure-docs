@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 06/19/2022
+ms.date: 07/05/2022
 ---
 
 ## Enable the plan
@@ -39,7 +39,7 @@ ms.date: 06/19/2022
     - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
 
     > [!Note]
-    >Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the auto provisioning capabilities.
+    > Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the auto provisioning capabilities.
     >
     > If you choose to disable all of the auto provision configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the Agentless features only. Learn which features are Agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers.
 
@@ -50,7 +50,7 @@ You can enable the Defender for Containers plan and deploy all of the relevant c
 Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
 
 > [!NOTE]
-> You should deploy the Defender profile to each node to provide the runtime protections and collect signals from those nodes using [eBPF technology](https://ebpf.io/).
+> The Defender profile is deployed to each node to provide the runtime protections and collect signals from those nodes using [eBPF technology](https://ebpf.io/).
 
 ### [**Azure portal**](#tab/aks-deploy-portal)
 
@@ -95,7 +95,7 @@ Request query parameters:
 | SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
-| ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
+| ApiVersion     | API version, must by >= 2022-06-01 | Yes       |
 
 Request Body:
 
@@ -104,9 +104,11 @@ Request Body:
   "location": "{{Location}}",
   "properties": {
     "securityProfile": {
-            "azureDefender": {
-                "enabled": true,
-                "logAnalyticsWorkspaceResourceId": "{{LAWorkspaceResourceId}}"
+            "defender": {
+                "logAnalyticsWorkspaceResourceId": "{{LAWorkspaceResourceId}}",
+                "securityMonitoring": {
+                    "enabled": true,
+                }
             }
         }
     }
@@ -115,11 +117,11 @@ Request Body:
 
 Request body parameters:
 
-| Name                                                                     | Description                                                                              | Mandatory |
-|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
-| location                                                                 | Cluster's location                                                                       | Yes       |
-| properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
-| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
+| Name | Description | Mandatory |
+|--|--|--|
+| Location | Cluster's location | Yes |
+| Properties.securityProfile.defender.securityMonitoring.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
+| Properties.securityProfile.defender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
