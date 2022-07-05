@@ -44,29 +44,29 @@ It's also important to consider the relative quantities of your training data. F
 
 Be sure to use images that are representative of what will be submitted to the classifier during normal use. Otherwise, your model could learn to make predictions based on arbitrary characteristics that your images have in common. For example, if you're creating a classifier for apples vs. citrus, and you've used images of apples in hands and of citrus on white plates, the classifier may give undue importance to hands vs. plates, rather than apples vs. citrus.
 
-![Image of fruits with unexpected matching.](./media/getting-started-improving-your-classifier/unexpected.png)
+![Photo of fruits with unexpected matching.](./media/getting-started-improving-your-classifier/unexpected.png)
 
 To correct this problem, include a variety of images to ensure that your model can generalize well. Below are some ways you can make your training set more diverse:
 
 * __Background:__ Provide images of your object in front of different backgrounds. Photos in natural contexts are better than photos in front of neutral backgrounds as they provide more information for the classifier.
 
-    ![Image of background samples.](./media/getting-started-improving-your-classifier/background.png)
+    ![Photo of background samples.](./media/getting-started-improving-your-classifier/background.png)
 
 * __Lighting:__ Provide images with varied lighting (that is, taken with flash, high exposure, and so on), especially if the images used for prediction have different lighting. It's also helpful to use images with varying saturation, hue, and brightness.
 
-    ![Image of lighting samples.](./media/getting-started-improving-your-classifier/lighting.png)
+    ![Photo of lighting samples.](./media/getting-started-improving-your-classifier/lighting.png)
 
 * __Object Size:__ Provide images in which the objects vary in size and number (for example, a photo of bunches of bananas and a closeup of a single banana). Different sizing helps the classifier generalize better.
 
-    ![Image of size samples.](./media/getting-started-improving-your-classifier/size.png)
+    ![Photo of size samples.](./media/getting-started-improving-your-classifier/size.png)
 
 * __Camera Angle:__ Provide images taken with different camera angles. Alternatively, if all of your photos must be taken with fixed cameras (such as surveillance cameras), be sure to assign a different label to every regularly occurring object to avoid overfitting&mdash;interpreting unrelated objects (such as lampposts) as the key feature.
 
-    ![Image of angle samples.](./media/getting-started-improving-your-classifier/angle.png)
+    ![Photo of angle samples.](./media/getting-started-improving-your-classifier/angle.png)
 
 * __Style:__ Provide images of different styles of the same class (for example, different varieties of the same fruit). However, if you have objects of drastically different styles (such as Mickey Mouse vs. a real-life mouse), we recommend you label them as separate classes to better represent their distinct features.
 
-    ![Image of style samples.](./media/getting-started-improving-your-classifier/style.png)
+    ![Photo of style samples.](./media/getting-started-improving-your-classifier/style.png)
 
 ## Negative images (classifiers only)
 
@@ -98,7 +98,7 @@ When you use or test the model by submitting images to the prediction endpoint, 
 
     To add an image to your existing training data, select the image, set the correct tag(s), and select __Save and close__. The image will be removed from __Predictions__ and added to the set of training images. You can view it by selecting the __Training Images__ tab.
 
-    ![Image of the tagging page](./media/getting-started-improving-your-classifier/tag.png)
+    ![Screenshot of the tagging page](./media/getting-started-improving-your-classifier/tag.png)
 
 3. Then use the __Train__ button to retrain the model.
 
