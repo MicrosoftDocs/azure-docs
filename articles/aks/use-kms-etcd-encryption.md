@@ -3,7 +3,7 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS)
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/04/2022
+ms.date: 07/05/2022
 
 ---
 
@@ -262,7 +262,10 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 ## Disable KMS
 
-Use below command to disable KMS on existing cluster.
+Use below command to disable KMS on existing cluster. 
+
+> [!NOTE]
+> After disabling KMS, the relevant sidecars still exist. 
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
