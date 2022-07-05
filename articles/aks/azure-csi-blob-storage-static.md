@@ -255,7 +255,7 @@ The following YAML creates a pod that uses the persistent volume claim **pvc-blo
     kubectl create -f nginx-pod-blob.yaml
     ```
 
-3. Run the following command to create an interactive shell session with the pod to verify the PVC mount:
+3. Run the following command to create an interactive shell session with the pod to verify the Blob storage mounted:
 
     ```bash
     kubectl exec -it nginx-blob -- df -h
