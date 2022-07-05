@@ -51,6 +51,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 - [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
+- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
@@ -89,6 +90,22 @@ For more information, see:
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+### Support diagnostic log enhancements (Public preview)
+
+Starting in sensor version [22.1.1](#new-support-diagnostics-log), you've been able to download a diagnostic log from the sensor console to send to support when you open a ticket.
+
+Now, for locally-managed sensors, you can upload that diagnostic log directly on the Azure portal.
+
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the Send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
+
+> [!TIP]
+> For cloud-connected sensors, starting from sensor version [22.1.3](#march-2022), the diagnostic log is automatically available to support when you open the ticket.
+>
+For more information, see:
+
+- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 
 ## June 2022
 
