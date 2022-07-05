@@ -23,37 +23,7 @@ This content provides guidance to move:
 >[!NOTE]
 > In this content, when we refer to AD, we are referring to Windows Server Active Directory Domain Services.
 
-Some organizations set goals to remove AD, and their on-premises IT footprint. Others set goals to take advantage of some cloud-based capabilities, but not to completely remove their on-premises or IaaS environments. Transformation must be aligned with and achieve business objectives to warrant the investment. Three primary reasons that organizations have for transforming to Azure AD are:
-
-## **Increased productivity**
-
-* Frictionless end-user authentication
-
-* Self-service tools (password and group management)
-
-* Simple access through single sign-on extended to your cloud environment
-
-## **Reduced costs and complexity**
-
-* Lower cost of ownership
-
-* Reduction in the growth of areas that would require more staff be added to maintain service levels, for example patching
-
-* Reduced set of reactive efforts due to equipment failure, breaches, complexity to add users and business relationships
-
-## **Improved security posture**
-
-* Shifting to modern IAM tools better suited for digitally based businesses operating and doing business in the cloud
-
-* Simplifying the environment that has grown in complexity over time
-
-* Empowering users with easy and secure authentication mechanisms
-
-Recent Forrester Consulting Total Economic Impact (TEI) studies show that migrating to Azure Active Directory (Azure AD) can provide cost payback in six months with overall return-on-investment (ROI) of 123%. The value is measured by improved user productivity, efficiency gains for IT and the identity team, and cost savings from previous identity and access management (IAM) solutions.
-
-* See [Forrester TEI for Microsoft Azure Active Directory](https://www.microsoft.com/security/business/forrester-tei-study) and other TEI reports for detailed insight on value measurement.
-
-* See [Cloud economics](https://azure.microsoft.com/overview/cloud-economics/) for estimating your Azure costs and building your cloud strategy.
+Some organizations set goals to remove AD, and their on-premises IT footprint. Others set goals to take advantage of some cloud-based capabilities, but not to completely remove their on-premises or IaaS environments. Transformation must be aligned with and achieve business objectives including increased productivity, reduced costs and complexity, and improved security posture. To better understand the costs vs. value of moving to the cloud, see [Forrester TEI for Microsoft Azure Active Directory](https://www.microsoft.com/security/business/forrester-tei-study) and other TEI reports and [Cloud economics](https://azure.microsoft.com/overview/cloud-economics/).
 
 ## Next steps
 
