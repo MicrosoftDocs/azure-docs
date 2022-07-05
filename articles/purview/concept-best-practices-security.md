@@ -309,7 +309,7 @@ For more information, see [Encrypt sensitive data at rest](/security/benchmark/a
 
 ### Optional Event Hubs namespace
 
-Each Microsoft Purview account can enable a fully managed event hub that is accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. This can be enabled at creation, or from the Azure portal. It is recommended to enable optional managed event hub, only if it is used to distribute events into or outside of Microsoft Purview account Data Map. To remove this information distribution point, you can disable this Event Hubs namespace.
+Each Microsoft Purview account can enable a fully managed event hub that is accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. This can be enabled at creation, or from the Azure portal. It's recommended to enable optional managed event hub, only if it's used to distribute events into or outside of Microsoft Purview account Data Map. To remove this information distribution point, you can disable this Event Hubs namespace.
 
 To disable the Event Hubs namespace, you can follow these steps:
 1. Search for and open your Microsoft Purview account in the [Azure portal](https://portal.azure.com).
