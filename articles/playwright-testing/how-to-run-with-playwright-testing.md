@@ -27,9 +27,9 @@ To run your existing Playwright tests and report their results in Microsoft Play
 - [Node](https://nodejs.org/en/download)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-## Configure and install project dependencies
+## Install project dependencies
 
-You have to install the `@microsoft/playwright-service` npm package to connect to Microsoft Playwright Testing.
+Install the `@microsoft/playwright-service` npm package to connect to Microsoft Playwright Testing.
 
 1. Open your favorite terminal.
 1. Go to the directory that contains your Playwright project.
