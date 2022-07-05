@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 07/04/2022
+ms.date: 07/05/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -23,7 +23,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | July 2022 |
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
-| [Change in pricing for threat protection](#change-in-pricing-for-threat-protection) | August 2022 |
+| [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -139,11 +139,11 @@ We will be deprecating the following policies to corresponding policies that alr
 | `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
 | `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
 
-### Change in pricing for threat protection
+### Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters
 
 **Estimated date for change:** August 2022
 
-Defender for Containers is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be a charged feature. You can see details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions that already have clusters onboarded to Arc (on the subscription level) will begin to incur charges in August.
+Runtime protection is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged for runtime protection. You can view pricing details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions with Kubernetes clusters already onboarded to Arc, will begin to incur charges in August.
 
 ## Next steps
 
