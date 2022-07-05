@@ -30,7 +30,7 @@ There are multiple ways to migrate data to a new cache. Many of them require som
 
 ### When to use redeployment
 
-Azure Cache for Redis currently doesn’t allow adding availability zone support to an existing cache. The best way to convert a non-zone redundant cache to a zone redundant cache is to deploy a new cache using the availability zone configuration you need and then migrate your data from the current cache to the new cache. 
+Azure Cache for Redis currently doesn’t allow adding availability zone support to an existing cache. The best way to convert a non-zone redundant cache to a zone redundant cache is to deploy a new cache using the availability zone configuration you need, and then migrate your data from the current cache to the new cache. 
 
 ### Redeployment considerations
 
