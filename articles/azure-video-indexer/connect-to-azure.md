@@ -64,7 +64,7 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 
     Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register.
 
-    :::image type="content" alt-text="Screenshot that shows how to select an event grid subscription." source="./media/create-account/event-grid.png":::
+    :::image type="content" alt-text="Screenshot that shows how to select an Event Grid subscription." source="./media/create-account/event-grid.png":::
 
 ## Connect to Azure manually (advanced option)
 
