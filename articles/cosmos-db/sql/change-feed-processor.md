@@ -144,7 +144,7 @@ An example of a delegate implementation would be:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
 
-Here we pass the compute instance name (`hostName`), the monitored container (here called `feedContainer`) and the lease container. Then, we assign this to a `changeFeedProcessorInstance`, and start the change feed processor as below:
+We assign this to a `changeFeedProcessorInstance`, passing parameters of compute instance name (`hostName`), the monitored container (here called `feedContainer`) and the `leaseContainer`. We then start the change feed processor:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=StartChangeFeedProcessor)]
 
