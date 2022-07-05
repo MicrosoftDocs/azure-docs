@@ -218,7 +218,7 @@ Often, one of the biggest challenges for security organization in a company is t
 
 If you've extended your Microsoft 365 sensitivity labels for assets and database columns in Microsoft Purview, you can keep track of highly valuable assets using Microsoft Defender for Cloud from inventory, alerts and recommendations based on assets detected sensitivity labels. 
 
-- For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Microsoft 365 Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](../defender-for-cloud/secure-score-security-controls.md#security-controls-and-their-recommendations).
+- For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Microsoft Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](../defender-for-cloud/secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 - For alerts, we've assigned **severity labels** to each alert to help you prioritize the order in which you attend to each alert. Learn more in [How are alerts classified?](../defender-for-cloud/alerts-overview.md#how-are-alerts-classified).
 
