@@ -167,7 +167,7 @@ var myVar = 'what\'s up?'
 All strings in Bicep support interpolation. To inject an expression, surround it by `${` and `}`. Expressions that are referenced can't span multiple lines.
 
 ```bicep
-var storageName = 'storage${uniqueString(resourceGroup().id)}
+var storageName = 'storage${uniqueString(resourceGroup().id)}'
 ```
 
 ## Multi-line strings

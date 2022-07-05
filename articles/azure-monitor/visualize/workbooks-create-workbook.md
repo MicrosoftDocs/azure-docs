@@ -45,7 +45,8 @@ Text is added through a markdown control into which an author can add their cont
 
 ### Add text to an Azure workbook
 
-1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a query by doing either of these steps:
+1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. 
+1. Add text by doing either of these steps:
     - Select **Add**, and **Add text** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add text**.
 1. Enter markdown text into the editor field.
@@ -88,7 +89,8 @@ For example, you can query Azure Resource Health to help you view any service pr
 
 ### Add a query to an Azure Workbook
 
-1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a query by doing either of these steps:
+1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar.
+1. Add a query by doing either of these steps:
     - Select **Add**, and **Add query** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add query**.
 1. Select the [data source](workbooks-data-sources.md) for your query. The other fields are determined based on the data source you choose.
@@ -107,7 +109,8 @@ Workbooks allow you to control how your parameter controls are presented to cons
 
 ### Add a parameter to an Azure Workbook
 
-1.  Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a parameter by doing either of these steps:
+1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar.
+1. Add a parameter by doing either of these steps:
     - Select **Add**, and **Add parameter** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add parameter**.
 1. In the new parameter pane that pops up enter values for these fields:
@@ -131,7 +134,8 @@ The example below shows the number of transactions in a storage account over the
 
 ### Add a metric chart to an Azure Workbook
 
-1.  Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a metric chart by doing either of these steps:
+1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar.
+1. Add a metric chart by doing either of these steps:
     - Select **Add**, and **Add metric** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add metric**.
 1. Select a **resource type**, the resources to target, the metric namespace and name, and the aggregation to use.
@@ -261,7 +265,8 @@ Groups in workbooks are useful for several things:
 
 ### Add a group to your workbook
 
-1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a parameter by doing either of these steps:
+1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar.
+1. Add a group by doing either of these steps:
     - Select **Add**, and **Add group** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add group**.
 
