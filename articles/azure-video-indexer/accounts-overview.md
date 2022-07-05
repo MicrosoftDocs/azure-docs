@@ -19,7 +19,7 @@ Going forward, ARM account support more Azure native features and integrations s
 |   | ARM-based |Classic| Trial|
 |---|---|---|---|
 |Get access token | [ARM REST API](https://aka.ms/avam-arm-api) |[Get access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)|Same as classic
-|Share account| [Azure RBAC(role based access control)](azure/role-based-access-control/overview)| [Invite users](invite-users.md) |Same as classic
+|Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](invite-users.md) |Same as classic
 
 
 A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. 
@@ -35,7 +35,7 @@ For more details, see [Pricing](https://azure.microsoft.com/pricing/details/vide
 
 * ARM accounts: [Get started with Azure Video Indexer in Azure portal](create-account-portal.md)
 
-    * Upgrade a trial account to an ARM based account and [**import** your content for free](connect-to-azure#import-your-content-from-the-trial-account).  
+    * Upgrade a trial account to an ARM based account and [**import** your content for free](connect-to-azure.md#import-your-content-from-the-trial-account).  
 * Classic accounts: [Create classic accounts using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account).
 * Connect a classic account to ARM: [Connect an existing classic paid Azure Video Indexer account to ARM-based account](connect-classic-account-to-arm.md).
 
