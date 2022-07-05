@@ -193,8 +193,8 @@ There's no forced tunneling in Container Apps routes.
 ## Managed resources
 
 When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. In addition to the [Azure Container Apps billing](https://docs.microsoft.com/azure/container-apps/billing), you will be billed for the following:
-- 3 Standard Static [Public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an internal environment, or 4 Standard Static [Public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an external environment,
-- 2 Standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or 1 Standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment, each with less than 6 rules, plus the cost of Data processed (GB). The Data processed (GB) includes both ingress and egress for management operations.
+- Three standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an internal environment, or four standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an external environment.
+- Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has less than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
 
 
 ## Next steps
