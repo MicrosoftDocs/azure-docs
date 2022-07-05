@@ -39,19 +39,19 @@ For web app in-guest changes, separate enablement is required for scanning code 
 
    - Selecting **Enable Now** in the banner, or
 
-     :::image type="content" source="./media/change-analysis/enable-changeanalysis.png" alt-text="Screenshot of the Application Changes options from the banner":::   
+     :::image type="content" source="./media/change-analysis/enable-changeanalysis.png" alt-text="Screenshot of the Application Changes options from the banner.":::   
 
    - Selecting **Configure** from the top menu.
    
-     :::image type="content" source="./media/change-analysis/configure-button.png" alt-text="Screenshot of the Application Changes options from the top menu"::: 
+     :::image type="content" source="./media/change-analysis/configure-button.png" alt-text="Screenshot of the Application Changes options from the top menu."::: 
 
 1. Toggle on **Change Analysis** status and select **Save**.
 
-   :::image type="content" source="./media/change-analysis/change-analysis-on.png" alt-text="Screenshot of the Enable Change Analysis user interface":::   
+   :::image type="content" source="./media/change-analysis/change-analysis-on.png" alt-text="Screenshot of the Enable Change Analysis user interface.":::   
   
     - The tool displays all web apps under an App Service plan, which you can toggle on and off individually. 
 
-      :::image type="content" source="./media/change-analysis/change-analysis-on-2.png" alt-text="Screenshot of the Enable Change Analysis user interface expanded":::   
+      :::image type="content" source="./media/change-analysis/change-analysis-on-2.png" alt-text="Screenshot of the Enable Change Analysis user interface expanded.":::   
 
 You can also view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
 - The change types over time.
@@ -59,7 +59,7 @@ You can also view change data via the **Web App Down** and **Application Crashes
 
 By default, the graph displays changes from within the past 24 hours help with immediate problems.
 
-:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view":::   
+:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view.":::   
 
 ## Enable Change Analysis at scale using PowerShell
 
