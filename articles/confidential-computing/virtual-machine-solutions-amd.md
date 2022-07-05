@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 11/15/2021
 ---
 
-# Azure Confidential VM options on AMD (preview)
+# Azure Confidential VM options on AMD
 
 > [!IMPORTANT]
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
