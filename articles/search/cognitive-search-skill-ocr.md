@@ -58,9 +58,7 @@ In previous versions, there was a parameter called "textExtractionAlgorithm" to 
 | `text`             | Plain text extracted from the image.   |
 | `layoutText`    | Complex type that describes the extracted text and the location where the text was found.|
 
-
-The OCR skill always extracts images at the end of each page. This is by design.
-
+The OCR skill always outputs images at the end of each page. This is by design and is non-configurable.
 
 ## Sample definition
 
