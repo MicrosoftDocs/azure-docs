@@ -25,7 +25,7 @@ Configure a Public IP block through portal by using the Public IP feature of the
 
 After the Public IP is configured successfully, you should see it appear under the Public IP section. The provisioning state shows **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router.
 
-For more information about how to enable public IP to the NSX Edge for Azure VMware Solution, see [Enable Public IP to the NSX Edge for Azure VMware Solution](https://docs.microsoft.com/en-us/azure/azure-vmware/enable-public-ip-nsx-edge) 
+For more information about how to enable public IP to the NSX Edge for Azure VMware Solution, see [Enable Public IP to the NSX Edge for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge) 
 
 ## Create Public IP segment on NSX-T 
 Before you create a Public IP segment, get your credentials for NSX-T Manager from Azure VMware Solution portal. 
