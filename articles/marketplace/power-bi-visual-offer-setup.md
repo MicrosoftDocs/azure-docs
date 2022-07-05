@@ -63,7 +63,7 @@ Review [Plan a Power BI visual offer](marketplace-power-bi-visual.md). It will e
     - To manage licenses and transactions independently, select **My offer requires purchase of a service or offers additional in-app purchase**.
     - To provide a free offer, select **My offer does not require purchase of a service and does not offer in app purchases**.
 
-1. Under **Power BI certification** (optional), read the description carefully and if you want to request Power BI certification, select the check box. [Certified](/power-bi/developer/visuals/power-bi-custom-visuals-certified) Power BI visuals meet certain specified code requirements that the Microsoft Power BI team has tested and approved. We recommend that you submit and publish your Power BI visual *before* you request certification, because the certification process takes extra time that could delay publishing of your offer.
+1. Under **Power BI certification** (optional), read the description carefully and if you want to request [Power BI certification](https://go.microsoft.com/fwlink/?linkid=2036068), select the check box. [Certified](/power-bi/developer/visuals/power-bi-custom-visuals-certified) Power BI visuals meet certain specified code requirements that the Microsoft Power BI team has tested and approved. We recommend that you submit and publish your Power BI visual *before* you request certification, because the certification process takes extra time that could delay publishing of your offer.
 
 ## Customer leads
 

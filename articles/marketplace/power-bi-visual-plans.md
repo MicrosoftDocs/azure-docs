@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 07/18/2022
 ---
 
-# Create Power Bi visual plans
+# Create Power BI visual plans
 
 > [!NOTE]
-> If you enabled the “Managing license and selling with Microsoft” option on the [Offer setup](#power-bi-visual-offer-setup.md) page, the **Plans overview** tab appears in the left-nav as shown in the following screenshot. Otherwise, go to [Manage Power BI visual offer names](power-bi-visual-manage-names.md).
+> If you enabled the “Managing license and selling with Microsoft” option on the [Offer setup](power-bi-visual-offer-setup.md#setup-details) page, the **Plans overview** tab appears in the left-nav as shown in the following screenshot. Otherwise, go to [Manage Power BI visual offer names](power-bi-visual-manage-names.md).
 
 :::image type="content" source="./media/power-bi-visual/plan-overview-tab.png" alt-text="Screenshot the Plan overview tab in the left-nav of the Plan overview page.":::
 
-You need to define at least one plan, if your offer has app license management enabled. You can create a variety of plans with different options for the same offer. These plans (sometimes referred to as SKUs) can differ in terms of monetization or tiers of service. Later, you will map the Service IDs of each plan in the metadata of your solution package to enable a runtime license check by the Dynamics platform against these plans (we'll walk you through this process later). You’ll map the Service ID of each plan in your solution package.
+You need to define at least one plan, if your offer has app license management enabled. You can create a variety of plans with different options for the same offer. These plans (sometimes referred to as SKUs) can differ in terms of monetization or tiers of service. Later, you will map the Service IDs of each plan in the solution package to enable a runtime license check by the Power BI platform against these plans (we'll walk you through this process later). You’ll map the Service ID of each plan in your solution package.
 
 ## Create a plan
 
@@ -71,7 +71,7 @@ You can optionally configure a free trial for each plan in your offer. To enable
 
 If you select this option, customers are not charged for the first month of use. At the end of the free month, one of the following occurs:
 
-- If the customer chose recurring billing, they will automatically be upgraded to a paid plan and the selected payment method is charged.
+- If the customer chooses recurring billing, they will automatically be upgraded to a paid plan and the selected payment method is charged.
 - If the customer didn’t choose recurring billing, the plan will expire at the end of the free trial.
 
 ### Choose who can see your plan
@@ -113,7 +113,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 1. In the breadcrumb at the top of the page, select **Plan overview**.
 1. To create another plan for this offer, at the top of the **Plan overview** page, repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Next steps.
 
-## Integrate your solution with the Power BI License APIs
+## Integrate your Visual with the Power BI License APIs
 
 You need to update the license enforcement in your visual.
 
