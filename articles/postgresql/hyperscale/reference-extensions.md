@@ -39,7 +39,7 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.10 | 10.0.6 | 10.2.4 | 10.2.4 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.11 | 10.0.7 | 10.2.6 | 10.2.6 |
 
 ### Data types extensions
 
