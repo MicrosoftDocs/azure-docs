@@ -36,9 +36,9 @@ Prerequisites:
 
 ![admin agent](media/whatis-aadc-admin-agent/adminagent0.png)
 
-The Azure AD Connect Administration Agent binaries are placed in the AAD Connect server. To install the agent, use the following steps:
+The Azure AD Connect Administration Agent binaries are placed in the Azure AD Connect server. To install the agent, use the following steps:
 
-1.    Open powershell in admin mode
+1.    Open PowerShell in admin mode
 2.    Navigate to the directory where the application is located cd "C:\Program Files\Microsoft Azure Active Directory Connect\Tools"
 3.    Run ConfigureAdminAgent.ps1
 
@@ -59,7 +59,7 @@ When you open a support case, the Microsoft Support Engineer can see, for a give
 The Microsoft Support Engineer cannot change any data in your system and cannot see any passwords. 
 
 ## What if I don't want the Microsoft support engineer to access my data? 
-Once the agent is installed, If you do not want the Microsoft service engineer to access your data for a support call, you can disable the functionality by modifying the service config file as described below: 
+Once the agent is installed, if you do not want the Microsoft service engineer to access your data for a support call, you can disable the functionality by modifying the service config file as described below: 
 
 1. Open **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** in notepad.
 2. Disable **UserDataEnabled** setting as shown below. If **UserDataEnabled** setting exists and is set to true, then set it to false. If the setting does not exist, then add the setting as shown below.    
