@@ -21,7 +21,7 @@ This article summarizes support settings and limitations for using [VM restore p
 - Restore points APIs require an API of version 2021-03-01 or higher. 
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
 - Concurrent creation of restore points for a VM is not supported. 
-- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM IDs between the actual VM and the restore points. 
+- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
  > [!Note]
  > Public preview of cross-region creation and copying of VM restore points are available, with the following limitations: 
  > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 

@@ -18,7 +18,7 @@ You can protect your data and guard against extended downtime by creating virtua
 
 ## About VM restore points
 
-An individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. VM restore points can be used to easily capture multi-disk consistent backups.  VM restore points contains a disk restore point for each of the attached disks. A disk restore point consists of a snapshot of an individual managed disk.
+An individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. VM restore points can be used to easily capture multi-disk consistent backups.  VM restore points contain a disk restore point for each of the attached disks. A disk restore point consists of a snapshot of an individual managed disk.
 
 VM restore points support application consistency for VMs running Windows operating systems and support file system consistency for VMs running Linux operating system. Application consistent restore points use VSS writers (or pre/post scripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application consistent restore point, the application running in the VM needs to provide a VSS writer (for Windows), or pre and post scripts (for Linux) to achieve application consistency.
 
