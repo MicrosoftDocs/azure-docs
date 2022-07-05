@@ -225,8 +225,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 > * This policy can be used only once per policy document.
 > * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
-> [!CAUTION]
-> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests varyies based on request volume and rate, backend latency, and other factors.
+[!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -301,8 +300,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
-> [!CAUTION]
-> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
+[!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -430,6 +428,8 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 > * This policy can be used only once per policy document.
 > * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
+[!INCLUDE [api-management-quota-accuracy](../../includes/api-management-quota-accuracy.md)]
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
@@ -490,6 +490,9 @@ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or ba
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+
+[!INCLUDE [api-management-quota-accuracy](../../includes/api-management-quota-accuracy.md)]
+
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
