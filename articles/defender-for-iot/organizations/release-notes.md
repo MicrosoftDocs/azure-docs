@@ -54,6 +54,12 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
 
+To update to version 22.2.3:
+
+- From version 22.1.x, update directly to version 22.2.3
+- From version 10.x, first update to version 22.1.6, and then update again to 22.2.3
+
+
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
 Defender for IoT’s new purchase experience and the Enterprise IoT integration with Microsoft Defender for Endpoint is now in General Availability (GA). With this update, we've made the following updates and improvements:
