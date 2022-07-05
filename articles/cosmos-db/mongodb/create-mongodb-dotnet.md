@@ -4,11 +4,11 @@ description: Learn how to build a .NET app to manage Azure Cosmos DB MongoDB API
 author: alexwolfmsft
 ms.author: alexwolf
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/24/2022
-ms.custom: devx-track-dotnet
+ms.date: 07/05/2022
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Azure Cosmos DB MongoDB API for .NET with the MongoDB driver
