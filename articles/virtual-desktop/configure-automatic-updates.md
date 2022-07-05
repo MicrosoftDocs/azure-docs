@@ -10,7 +10,7 @@ manager: femila
 ---
 # Use Microsoft Endpoint Configuration Manager to automatically deploy software updates to Azure Virtual Desktop session hosts
 
-This article explains how to group Azure Virtual Desktop session hosts running Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session in Microsoft Endpoint Configuration Manager to automatically apply updates. A collection is created based on a query which you can then use as the target collection for a servicing plan.
+Azure Virtual Desktop session hosts running Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session can be grouped together in Microsoft Endpoint Configuration Manager to automatically apply updates. A collection is created based on a query which you can then use as the target collection for a servicing plan.
 
 You can update Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session with the corresponding Windows client updates. For example, you can update Windows 10 Enterprise multi-session, version 21H2 by installing the client updates for Windows 10, version 21H2.
 
