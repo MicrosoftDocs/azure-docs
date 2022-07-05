@@ -30,7 +30,7 @@ Add monitoring on memory usage to ensure that you don't run out of memory and ha
 
 Configure your [maxmemory-reserved setting](cache-configure.md#memory-policies) to improve system responsiveness:
 
-- A sufficient reservation setting is especially important for write-heavy workloads or if you're storing values of 100 KB or more in your cache. By default when you create a cache, 10% of the available memory is reserved for `maxmemory-reserved`. Another 10% is reserved for `maxfragmentationmemory-reserved`. You can increase the amount reserved if you have write-heavy loads.
+- A sufficient reservation setting is especially important for write-heavy workloads or if you're storing values of 100 KB or more in your cache. By default when you create a cache, approximately 10% of the available memory is reserved for `maxmemory-reserved`. Another 10% is reserved for `maxfragmentationmemory-reserved`. You can increase the amount reserved if you have write-heavy loads.
 
 - The `maxmemory-reserved` setting configures the amount of memory, in MB per instance in a cluster, that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that write large amounts of data. When memory is reserved for such operations, it's unavailable for storage of cached data. The allowed range for `maxmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set these values lower than 10% or higher than 60%, they are re-evaluated and set to the 10% minimum and 60% maximum. The values are rendered in megabytes.
 
