@@ -271,7 +271,7 @@ Visual Studio connects to your function app and enables remote debugging, if it'
 
 1. If prompted, allow Visual Studio access through your local firewall.
 
-1. When prompted for credentials, instead of local user credentials choose a different account and provide the values of **userName** and **userPWD** from the published profile in the for **Email address** and **Password** in the authentication dialog. After a secure connection is established with the deployment server, the available processes are shown.
+1. When prompted for credentials, instead of local user credentials choose a different account (**More choices** on Windows). Provide the values of **userName** and **userPWD** from the published profile for **Email address** and **Password** in the authentication dialog on Windows. After a secure connection is established with the deployment server, the available processes are shown.
 
     ![Visual Studio enter credential](./media/functions-develop-vs/creds-dialog.png)
 
