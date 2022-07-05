@@ -60,6 +60,9 @@ Add `-javaagent:path/to/applicationinsights-agent-3.3.0.jar` to your application
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
+> [!TIP]
+> If you develop a Spring Boot application, you can replace the JVM argument by a programmatic configuration. More [here](./java-spring-boot.md).
+
 #### Set the Application Insights connection string
 
 1. There are two ways you can point the jar file to your Application Insights resource:

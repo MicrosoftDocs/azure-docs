@@ -27,7 +27,7 @@ In this article, you'll learn how to use Apache Spark pools powered by Azure Syn
 
 ## Prerequisites
 
-* Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
+* Create an [Azure Machine Learning workspace](quickstart-create-resources.md) to hold all your pipeline resources.
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
