@@ -14,13 +14,13 @@ ms.custom: mode-other
 
 # Raw Video
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services Calling SDK for Android.
 
 The Azure Communication Services Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
 
-This quick start builds upon [QuickStart: Add 1:1 video calling to your app](./get-started-with-video-calling.md?pivots=platform-android) for Android.
+This quick start builds upon [QuickStart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
 
 
 ## Virtual Video Stream Overview
