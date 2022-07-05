@@ -555,7 +555,7 @@ The output from the preceding example with the default values is:
 
 ## join
 
-`split(inputArray, delimiter)`
+`join(inputArray, delimiter)`
 
 Joins a string array into a single string, separated using a delimiter.
 
