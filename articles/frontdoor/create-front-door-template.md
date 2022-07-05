@@ -38,7 +38,7 @@ In this quickstart, you'll create a Front Door Standard/Premium, an App Service,
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/azuredeploy.json":::
 
-Multiple Azure resource is defined in the template:
+Multiple Azure resources are defined in the template:
 
 * [**Microsoft.Network/frontDoors**](/azure/templates/microsoft.network/frontDoors)
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms) (App service plan to host web apps)
