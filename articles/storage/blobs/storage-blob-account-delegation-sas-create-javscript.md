@@ -25,7 +25,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 An **Account SAS token** is one [type of SAS token](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-shared-access-signatures) for access delegation provided by Azure Storage. An Account SAS token provides access to Azure Storage. The token is only as restrictive as your define it when creating it. Because anyone with the token can use it to access your Storage account, you should define the token with the most restrictive permissions that still allows the token to complete the required tasks.
 
-[Best practices for token](../common/storage-sas-overview#best-practices-when-using-sas) creation include limiting permissions:
+[Best practices for token](../common/storage-sas-overview.md#best-practices-when-using-sas) creation include limiting permissions:
 
 * Start and end time for the token - a 10 minute interval or shorter is recommended
 * Services: blob, file, queue, table
@@ -95,7 +95,7 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 ## See also
 
 - [Types of SAS tokens](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
-- [How a shared access signature works](../common/storage-sas-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#how-a-shared-access-signature-works)
+- [How a shared access signature works](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#how-a-shared-access-signature-works)
 - [API reference](/javascript/api/@azure/storage-blob/)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
