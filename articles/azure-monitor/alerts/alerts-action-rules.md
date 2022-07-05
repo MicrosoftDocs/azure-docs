@@ -23,10 +23,10 @@ Some common use cases for alert processing rules include:
 
 ### Notification suppression during planned maintenance
 
-Many customers set up a planned maintenance time for their resources, either on a one-off basis or on a regular schedule. The planned maintenance may cover a single resource like a virtual machine, or multiple resources like all virtual machines in a resource group. So, you may want to stop receiving alert notifications for those resources during the maintenance window. In other cases, you may prefer to not receive alert notifications at all outside of your business hours. Alert procesing rules allows to achieve that.
+Many customers set up a planned maintenance time for their resources, either on a one-off basis or on a regular schedule. The planned maintenance may cover a single resource like a virtual machine, or multiple resources like all virtual machines in a resource group. So, you may want to stop receiving alert notifications for those resources during the maintenance window. In other cases, you may prefer to not receive alert notifications at all outside of your business hours. Alert procesing rules allow you to achieve that.
 
 You could alternatively suppress alert notifications by disabling the alert rules themselves at the beginning of the maintenance window, and re-enabling them once the maintenance is over, so the alerts will not fire in the first place. However, that approach has several limitations:
-   * This approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintenance. For example, a single alert rule might cover multiple resources, but only one or a few of those resources is going through maintenance. So, if you disable the alert rule, you will miss valid alerts on the remaining resources covered by that rule.
+   * This approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintenance. For example, a single alert rule might cover multiple resources, but only a few of those resources are going through maintenance. So, if you disable the alert rule, you will not be alerted when the remaining resources covered by that rule run into issues.
    * You may have many alert rules that cover the resource. Updating all of them is time consuming and error prone.
    * You might have some alerts that are not created by an alert rule at all, like alerts from Azure Backup.  
  
