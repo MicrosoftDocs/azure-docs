@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/29/2021
+ms.date: 07/03/2022
 author: mgoedtel
 
 ---
@@ -35,6 +35,61 @@ Azure Blob storage CSI driver (preview) supports the following features:
 - The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 - Install the aks-preview Azure CLI extension version 0.5.85 or later.
 
+### Uninstall open-source driver
+
+If the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] is installed on your cluster, you'll need to uninstall it.
+
+1. Copy the following Shell script and create a file named `uninstall-driver.sh`:
+
+    ```bash
+    # Copyright 2020 The Kubernetes Authors.
+    #
+    # Licensed under the Apache License, Version 2.0 (the "License");
+    # you may not use this file except in compliance with the License.
+    # You may obtain a copy of the License at
+    #
+    #     http://www.apache.org/licenses/LICENSE-2.0
+    #
+    # Unless required by applicable law or agreed to in writing, software
+    # distributed under the License is distributed on an "AS IS" BASIS,
+    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    # See the License for the specific language governing permissions and
+    # limitations under the License.
+    
+    set -euo pipefail
+    
+    ver="master"
+    if [[ "$#" -gt 0 ]]; then
+      ver="$1"
+    fi
+    
+    repo="https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/$ver/deploy"
+    if [[ "$#" -gt 1 ]]; then
+      if [[ "$2" == *"local"* ]]; then
+        echo "use local deploy"
+        repo="./deploy"
+      fi
+    fi
+    
+    if [ $ver != "master" ]; then
+      repo="$repo/$ver"
+    fi
+    
+    echo "Uninstalling Azure Blob Storage CSI driver, version: $ver ..."
+    kubectl delete -f $repo/csi-blob-controller.yaml --ignore-not-found
+    kubectl delete -f $repo/csi-blob-node.yaml --ignore-not-found
+    kubectl delete -f $repo/csi-blob-driver.yaml --ignore-not-found
+    kubectl delete -f $repo/rbac-csi-blob-controller.yaml --ignore-not-found
+    kubectl delete -f $repo/rbac-csi-blob-node.yaml --ignore-not-found
+    echo 'Uninstalled Azure Blob Storage CSI driver successfully.'
+    ```
+
+2. Run the script using the following command:
+
+    ```bash
+    ./uninstall-driver.sh
+    ```
+
 ## Install the Azure CLI aks-preview extension
 
 The following steps are required to install and register the Azure CLI aks-preview extension and driver in your subscription.
@@ -65,7 +120,7 @@ az extension update --name aks-preview
 
 ## Enable CSI driver on a new or existing AKS cluster
 
-Using the Azure CLI, you can enable the Blob storage CSI driver on a new or existing AKS cluster before you configure a persistent volume for use by pods in the cluster.
+Using the Azure CLI, you can enable the Blob storage CSI driver (preview) on a new or existing AKS cluster before you configure a persistent volume for use by pods in the cluster.
 
 To enable the driver on a new cluster, include the `--enable-blob-driver` parameter with the `az aks create` command as shown in the following example:
 
@@ -139,8 +194,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 
 1. Create a file named `azure-blob-nfs-ss.yaml` and copy in the following YAML.
 
-    ```bash
-    ---
+    ```yml
     apiVersion: apps/v1
     kind: StatefulSet
     metadata:
@@ -190,8 +244,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 
 1. Create a file named `azure-blobfuse-ss.yaml` and copy in the following YAML.
 
-    ```bash
-    ---
+    ```yml
     apiVersion: apps/v1
     kind: StatefulSet
     metadata:
@@ -256,6 +309,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
+[csi-blob-storage-open-source-driver]: https://github.com/kubernetes-sigs/blob-csi-driver
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

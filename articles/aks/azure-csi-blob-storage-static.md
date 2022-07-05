@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/24/2022
+ms.date: 07/03/2022
 
 ---
 
@@ -138,7 +138,7 @@ The following example demonstrates how to mount a Blob storage container using B
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
-      name: blob-fuse
+      name: blob-fuse-custom
     provisioner: blob.csi.azure.com
     parameters:
       resourceGroup: EXISTING_RESOURCE_GROUP_NAME
@@ -302,3 +302,6 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
 [azure-blob-storage-csi]: azure-blob-csi.md
+[rbac-contributor-role]: ../role-based-access-control/built-in-roles.md#contributor
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[manage-blob-storage]: ../storage/blobs/blob-containers-cli.md

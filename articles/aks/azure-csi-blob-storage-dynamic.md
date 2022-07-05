@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/27/2022
+ms.date: 07/03/2022
 
 ---
 
@@ -88,9 +88,9 @@ NAME                 STATUS   VOLUME                                     CAPACIT
 azure-blob-storage   Bound    pvc-b88e36c5-c518-4d38-a5ee-337a7dda0a68   5Gi        RWX            blob-nfs       92m
 ```
 
-## Use the persistent volume
+## Use the persistent volume claim
 
-The following YAML creates a pod that uses the persistent volume claim my-blobstorage to mount the Azure Blob storage at the `/mnt/blob' path.
+The following YAML creates a pod that uses the persistent volume claim **azure-blob-storage** to mount the Azure Blob storage at the `/mnt/blob' path.
 
 1. Create a file named `azure-blob-nfs-pv.yaml`, and copy in the following YAML. Make sure that the claimName matches the PVC created in the previous step.
 
@@ -137,7 +137,7 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
-[kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [CSI driver parameters]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share
 [blobfuse-overview]: https://github.com/Azure/azure-storage-fuse
