@@ -341,9 +341,9 @@ Consider the following options to execute the `az acr build` successfully.
 ## Disable access to a container registry using a service endpoint 
 
 > [!IMPORTANT]
-> The container registry does not support enabling both private endpoint and service endpoint features configured from a virtual network.
+> The container registry does not support enabling both private link and service endpoint features configured from a virtual network.
 
-Once the registry has public access disabled, private endpoint enabled, you can disable the service endpoint access to a container registry from a virtual network by [removing virtual network rules](./container-registry-vnet.md#remove-network-rules).
+Once the registry has public access disabled, private link configured, you can disable the service endpoint access to a container registry from a virtual network by [removing virtual network rules](./container-registry-vnet.md#remove-network-rules).
 
 * Run [`az acr network-rule list`](/cli/azure/acr/network-rule#az-acr-network-rule-list) command to list the existing network rules.
 * Run [`az acr network-rule remove`](/cli/azure/acr/network-rule#az-acr-network-rule-remove) command to remove the network rule. 
