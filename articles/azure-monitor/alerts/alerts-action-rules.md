@@ -95,7 +95,7 @@ This action adds one or more action groups to the affected fired alerts.
 
 ### When should this rule apply?
 
-You may optionally control when will the rule apply. By default, the rule is applied unconditionally as long as it is enabled. However, you can select a one-off window for this rule to apply, or have a recurring window such as a weekly recurrence. 
+You may optionally control when will the rule apply. By default, the rule is always active. However, you can select a one-off window for this rule to apply, or have a recurring window such as a weekly recurrence. 
 
 ## Configuring an alert processing rule
 
@@ -115,7 +115,7 @@ In the second tab (**Rule settings**), you select which action to apply on the a
 
 ![Alert processing rules wizard - rule settings tab.](media/alerts-action-rules/action-rules-wizard-rule-settings-tab.png)
 
-In the third tab (**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, as long as it is not disabled. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
+In the third tab (**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, unless you disable it. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
 Let's see an example of a schedule for a one-off, overnight, planned maintenance. It starts in the evening until the next morning, in a specific timezone:
 
 ![Alert processing rules wizard - scheduling tab - one-off schedule.](media/alerts-action-rules/action-rules-wizard-scheduling-tab-once.png)
