@@ -36,7 +36,7 @@ To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `
 > [!NOTE]
 > If you are using external streaming jobs as part of the database, please ensure the following:
 > 
-> 1. The generated dacpac will capture all the SQL Server Objects corresponding to the inputs/output streams and the streaming jobs. But the jobs will not be automatically started. In order to have the external streaming job automatically started after deployment, add a post-deployment script that restarts the jobs as follows:
+> - The generated dacpac will capture all the SQL Server Objects corresponding to the inputs/output streams and the streaming jobs. But the jobs will not be automatically started. In order to have the external streaming job automatically started after deployment, add a post-deployment script that restarts the jobs as follows:
 >   
 >   ```
 >   exec sys.sp_stop_streaming_job @name=N'<JOB NAME>';
@@ -45,7 +45,7 @@ To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `
 >   GO
 >   ```
 >   
-> 2. Ensure any credentials required by the external streaming jobs to access input or output streams are provided as part of the dacpac.
+> - Ensure any credentials required by the external streaming jobs to access input or output streams are provided as part of the dacpac.
 
 
 
