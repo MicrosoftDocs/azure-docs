@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed by users in your tenant.
-ms.date: 09/30/2021
+ms.date: 07/06/2022
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -14,7 +14,7 @@ This article explains how you, as a service provider, can onboard a customer to 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to set up Azure Lighthouse and consolidate their management experience.
 
-You can repeat the onboarding process for multiple customers. When a user with the appropriate permissions signs in to your managing tenant, that user can be authorized across customer tenancy scopes to perform management operations, without having to sign in to every individual customer tenant.
+You can repeat the onboarding process for multiple customers. When a user with the appropriate permissions signs in to your managing tenant, that user is authorized to perform management operations across customer tenancy scopes, without having to sign in to each individual customer tenant.
 
 > [!NOTE]
 > Customers can alternately be onboarded to Azure Lighthouse when they purchase a Managed Service offer (public or private) that you [publish to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here in conjunction with offers published to Azure Marketplace.
@@ -38,12 +38,12 @@ As a service provider, you may want to perform multiple tasks for a single custo
 > [!NOTE]
 > Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to an Azure AD user, group, or service principal in an authorization.
 
-To define authorizations, you'll need to know the ID values for each user, user group, or service principal in the managing tenant to which you want to grant access. You can [retrieve these IDs by using the Azure portal, Azure PowerShell, or Azure CLI](../../role-based-access-control/role-assignments-template.md#get-object-ids) from within the managing tenant. You'll also need the role definition ID for each [built-in role](../../role-based-access-control/built-in-roles.md) you want to assign.
+To define authorizations in your template, you must include the ID values for each user, user group, or service principal in the managing tenant to which you want to grant access. You'll also need the role definition ID for each [built-in role](../../role-based-access-control/built-in-roles.md) you want to assign. When you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), you can select the user account and role, and the ID values will be included automatically. If you are [creating a template manually](#create-your-template-manually), you can [retrieve user IDs by using the Azure portal, Azure PowerShell, or Azure CLI](../../role-based-access-control/role-assignments-template.md#get-object-ids) from within the managing tenant.
 
 > [!TIP]
 > We recommend assigning the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](remove-delegation.md) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
 
-We recommend using Azure AD user groups for each role whenever possible, rather than to individual users. This gives you the flexibility to add or remove individual users to the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can also assign roles to a service principal, which can be useful for automation scenarios.
+Whenever possible, we recommend using Azure AD user groups for each assignment whenever possible, rather than individual users. This gives you the flexibility to add or remove individual users to the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can also assign roles to a service principal, which can be useful for automation scenarios.
 
 > [!IMPORTANT]
 > In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
