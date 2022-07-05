@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
-ms.date: 07/04/2022
+ms.date: 07/05/2022
 ms.topic: overview
 ---
 
@@ -53,7 +53,8 @@ For a full list of the cluster level alerts, see alerts with "K8S_" prefix in th
 
 - [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-containers-enabled)
 - [Is Defender for Containers a mandatory upgrade?](#is-defender-for-containers-a-mandatory-upgrade)
-- [How can I calculate potential price changes with the new Defender for Containers plan?](#how-can-i-calculate-potential-price-changes-with-the-new-defender-for-containers-plan)
+- [Does the new plan reflect a price increase?](#does-the-new-plan-reflect-a-price-increase)
+- [How can I calculate my potential price change?](#how-can-i-calculate-my-potential-price-change)
 
 ### What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?
 
@@ -65,11 +66,15 @@ If you haven't enabled them yet, or create a new subscription, these plans can n
 
 No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsoft Defender for Containers Registries enabled doesn't need to be upgraded to the new Microsoft Defender for Containers plan. However, they won't benefit from the new and improved capabilities and they’ll have an upgrade icon shown alongside them in the Azure portal. 
 
-### How can I calculate potential price changes with the new Defender for Containers plan?
+### Does the new plan reflect a price increase?
 
 The new comprehensive Container security plan combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. Pricing is dependant on your container architecture and coverage. For example, your price may change if you change the number of images in your Container Registry, or the number of AKS VMSS nodes among other reasons.
 
+###  How can I calculate my potential price change?
+
 In order to help you understand your costs, Defender for Cloud offers the Price Estimation workbook as part of its published Workbooks. The Price Estimation workbook allows you to estimate the expected price for Defender for Cloud plans before enabling them.
+
+Your price is dependant on your container architecture and coverage. For example, your price may change if you change the number of images in your Container Registry, or the number of AKS VMSS nodes among other reasons.
 
 You can learn [how to enable and use](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-price-estimation-dashboard/ba-p/3247622) the Price Estimation workbook.
 
