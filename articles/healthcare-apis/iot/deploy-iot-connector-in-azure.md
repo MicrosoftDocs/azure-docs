@@ -1,11 +1,11 @@
 ---
 title: Deploy the MedTech service in the Azure portal - Azure Health Data Services
-description: In this article, you'll learn how to deploy the MedTech service in the Azure portal.
+description: In this article, you'll learn how to deploy the MedTech service in the Azure portal using either a quickstart template or manually.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/30/2022
+ms.date: 07/05/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -18,7 +18,7 @@ In this quickstart, you'll learn how to deploy the MedTech service in the Azure 
 
 If you already have an active Azure account, you can use this [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) button to deploy a MedTech service that will include the following resources and permissions:
 
- * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**).
+ * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**) and a single consumer group (the consumer group is named: **$Default**).
  * An Azure event hub sender role (the sender role is named: **devicedatasender**).
  * An Azure Health Data Services workspace.
  * An Azure Health Data Services FHIR service.
@@ -45,6 +45,15 @@ After a successful deployment, there will be remaining configurations that will 
  * Provide a working device mapping file. For more information, see [How to use device mappings](how-to-use-device-mappings.md).
  * Provide a working destination mapping file. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
  * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information, see [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace).
+
+> [!IMPORTANT]
+> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
+>
+> Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see, [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
+>
+> Examples: 
+>* Two MedTech services accessing the same device message event hub.
+>* A MedTech service and a storage writer application accessing the same device message event hub. 
 
 ## Deploy the MedTech service manually
 
@@ -78,7 +87,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
 1. Enter the **MedTech service name**.
 
-   The **MedTech service name** is a friendly name for MedTech service. Enter a unique name for your IoT connector. As an example, you can name it `healthdemo-iot`.
+   The **MedTech service name** is a friendly name for the MedTech service. Enter a unique name for your MedTech service. As an example, you can name it `healthdemo-iot`.
 
 2. Enter the **Event Hub name**.
 
@@ -92,12 +101,10 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
    ![Screenshot of Consumer group name.](media/consumer-group-name.png#lightbox)
 
-   For information about Consumer Groups, see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
-
 > [!IMPORTANT]
 > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
 >
-> Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see, [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
+> Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
 >
 > Examples: 
 >* Two MedTech services accessing the same device message event hub.
@@ -224,7 +231,7 @@ To ensure that your MedTech service works properly, it must have granted access 
 
    `<your workspace name>/iotconnectors/<your MedTech service name>`
  
-   When you deploy a MedTech service, it creates a managed identity. The managed identify name is a concatenation of the workspace name, resource type (that's the MedTech service), and the name of the MedTech service.
+   When you deploy a MedTech service, it creates a system managed identity. The system managed identify name is a concatenation of the workspace name, resource type (that's the MedTech service), and the name of the MedTech service.
 
 7. Select **Save**.
 
