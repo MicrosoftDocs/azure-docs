@@ -6,7 +6,7 @@ ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 06/20/2022
 ---
 
 # Migrate large databases to Azure Database for MySQL using mydumper/myloader
