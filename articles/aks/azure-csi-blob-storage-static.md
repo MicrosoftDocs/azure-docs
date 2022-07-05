@@ -312,5 +312,5 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 [azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
 [azure-blob-storage-csi]: azure-blob-csi.md
 [rbac-contributor-role]: ../role-based-access-control/built-in-roles.md#contributor
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [manage-blob-storage]: ../storage/blobs/blob-containers-cli.md

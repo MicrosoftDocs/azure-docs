@@ -176,7 +176,7 @@ storageclass.storage.k8s.io/blob-nfs created
 ```
 
 In this example, the following manifest configures using blobfuse and mount a Blob storage container. Use it to update the *skuName* parameter.
-Create a file named azure-blobfuse-sc.yaml, and paste the following example manifest:
+Create a file named `azure-blobfuse-sc.yaml`, and paste the following example manifest:
 
 ```yml
 apiVersion: storage.k8s.io/v1
