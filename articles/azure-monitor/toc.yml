@@ -431,6 +431,9 @@ items:
       - name: Overview
         displayName: Data collection rules
         href: essentials/data-collection-rule-overview.md
+      - name: Edit
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-edit.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
@@ -1378,6 +1381,8 @@ items:
           href: visualize/workbooks-templates.md
         - name: Creating a new workbook
           href: visualize/workbooks-create-workbook.md
+        - name: Workbook configuration options
+          href: visualize/workbooks-configurations.md
         - name: Working with parameters
           items:
           - name: Workbook parameters
@@ -1414,22 +1419,6 @@ items:
       items:
         - name: Links
           href: visualize/workbooks-sample-links.md
-    - name: Retired Features
-      items:
-      - name: View Designer
-        items:
-          - name: Converting View Designer 
-            href: visualize/view-designer-conversion-overview.md
-          - name: Conversion options
-            href: visualize/view-designer-conversion-options.md
-          - name: Overview and access
-            href: visualize/view-designer-conversion-access.md
-          - name: Common tasks
-            href: visualize/view-designer-conversion-tasks.md
-          - name: Tile conversions
-            href: visualize/view-designer-conversion-tiles.md
-          - name: Examples
-            href: visualize/view-designer-conversion-examples.md
   - name: Other visualizations
     items:
     - name: Monitoring solutions
