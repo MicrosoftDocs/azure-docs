@@ -24,27 +24,28 @@ The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-updat
 > [!Note]
 > If you are not able to test Device Update and select No, you will still be able to run all other Secured-core tests, but your product will not be eligible for certification.
 
-![Connect + test](.\media\how-to-adu\connect-test.png)
-
+:::image type="content" source="./media/how-to-adu/connect-test.png" alt-text="Connect + test.":::
 
 2.	Proceed with connecting your device to the test infrastructure.
 
 3.  Select **"Upload"** to upload the ".manifest.json" file.
 
 4.	On the Select Requirement Validation step, select the **"Upload"** button at the bottom of the page.
-![Select tests](.\media\how-to-adu\select-tests.png)
+
+:::image type="content" source="./media/how-to-adu/select-tests.png" alt-text="Select tests.":::
 
 5.	Upload your .importmanifest.json file by selecting the **Choose File** button.  Select your file and then select the **Upload** button.  
 > [!Note]
 > The file extension must be .importmanifest.json.
 
-![Upload SWU](.\media\how-to-adu\upload-swu.png)
+:::image type="content" source="./media/how-to-adu/upload-swu.png" alt-text="Upload SWU file.":::
 
 6.	Copy and Paste the SAS URL to the location of your .SWU file in the provided input box, then select the **Validate** button.
-![Validate SWU](.\media\how-to-adu\validate-swu.png)
+:::image type="content" source="./media/how-to-adu/validate-swu.png" alt-text="Validate the SWU file.":::
 
 7.	Once we’ve validated our service can reach the provided URL, select **Import**.   
-![Staging complete](.\media\how-to-adu\staging-complete.png) 
+:::image type="content" source="./media/how-to-adu/staging-complete.png" alt-text="Staging complete":::
+
 > [!Note]
 > If you receive an “Invalid SAS URL” message, generate a new SAS URL from your storage blob and try again.
 
