@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 07/04/2022
+ms.date: 07/05/2022
 ---
 
 ## FAQ
@@ -12,7 +12,7 @@ ms.date: 07/04/2022
 - [Can I delete the default workspaces created by Defender for Cloud?](#can-i-delete-the-default-workspaces-created-by-defender-for-cloud)
 - [I deleted my default workspace, how can I get it back?](#i-deleted-my-default-workspace-how-can-i-get-it-back)
 - [Where is the default Log Analytics workspace located?](#where-is-the-default-log-analytics-workspace-located)
-- [I have an organizational policy that requires tags on my resources and auto provision failed, what went wrong?](#i-have-an-organizational-policy-that-requires-tags-on-my-resources-and-auto-provision-failed-what-went-wrong)
+- [My organization requires me to tag my resources, and auto provision failed, what went wrong?](#my-organization-requires-me-to-tag-my-resources-and-auto-provision-failed-what-went-wrong)
 
 ### How can I use my existing Log Analytics workspace?
 
@@ -30,7 +30,7 @@ To recover your default workspace, you need to remove the Defender profile/exten
 
 Depending on your region the default Log Analytics workspace located will be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](../faq-data-collection-agents.yml)
 
-### I have an organizational policy that requires tags on my resources and auto provision failed, what went wrong?
+### My organization requires me to tag my resources, and auto provision failed, what went wrong?
 
 The Defender agent uses the Log analytics workspace to send data from your Kubernetes clusters to Defender for Cloud. When you use Defender for Cloud's auto provision feature via the built in policy, the auto provision feature should add the Log analytic workspace and the resource group as a parameter for the agent to use.
 
@@ -41,8 +41,8 @@ However, if your organization has a policy that requires a specific tag on your 
     or 
 
 - If your company requires you to tag your resource, you should navigate to that policy and exclude the following resources:
-    - The resource group `DefaultResourceGroup-<RegionShortCode>`
-    - The Workspace  `DefaultWorkspace-<sub-id>-<RegionShortCode>` 
+    1. The resource group `DefaultResourceGroup-<RegionShortCode>`
+    1. The Workspace  `DefaultWorkspace-<sub-id>-<RegionShortCode>` 
 
     RegionShortCode is a 2-4 letters string.
     
