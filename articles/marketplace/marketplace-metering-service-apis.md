@@ -185,7 +185,7 @@ For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details 
 }
 ```
 
-For Azure Application Managed Apps plans, the `resourceUri` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+For Azure Application Managed Apps plans, the `resourceUri` is the Managed Application `resourceId`. An example script for fetching it can be found in [using the Azure-managed identities token](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 *Request body example for Azure Application managed apps:*
 

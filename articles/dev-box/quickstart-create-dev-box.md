@@ -51,6 +51,7 @@ In this quickstart, you will:
 4. To begin creating your dev box, select the **Add** button. You can track the progress of creation in the developer portal home page. 
 
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-creating.png" alt-text="Screenshot of the developer portal showing the Your dev box card with the status Creating.":::
+   
    >[!NOTE]
    >The dev box creation can take between 60 and 90 minutes.
 
