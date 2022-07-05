@@ -70,7 +70,7 @@ A Channel is a nested resource to a Partner Namespace. A channel has two main pu
  
       A customer can use your partner destination to send your service any kind of events available to [Event Grid](overview.md).
 
-    - A channel can store ``event types definitions``, these definitions can be added during the creation of a channel or once the channel is created in the configuration to allow a customer to subscribe to these events when using partner topics. [Learn more](concepts.md#inline-event-type-definitions).
+    - A channel can store definitions for event types. These definitions can be added during the creation of a channel or once the channel is created in the configuration. The event type definitions allow a customer to subscribe to these events when using partner topics. [Learn more](concepts.md#inline-event-type-definitions).
 
       >[!IMPORTANT]
       >Event types can be managed in the channel and once the values are updated, changes will be reflected immediately in the associated partner topic.
