@@ -16,6 +16,9 @@ This issue occurs when the Functions runtime can't start. The most common reason
 
 The rest of this article helps you troubleshoot specific causes of this error, including how to identify and resolve each case.
 
+## Function App Slot HostID Truncation
+HostID Truncation can cause collisions when using slots with long function app names. By default, the HostId will be equal to your Site Name. If the provided Site Name for the function app is 32 characters or longer (including the suffix slot name), the function app might not be able to connect to the storage account and give you an error 'Azure Functions Runtime is unreachable' when viewing Functions -> App files. This occurs because the host id cannot be determined as unique. For more information on how to resolve this issue see: [Azure Function Host:Host IDs](https://github.com/Azure/azure-functions-host/wiki/Host-IDs)
+
 ## Storage account was deleted
 
 Every function app requires a storage account to operate. If that account is deleted, your functions won't work.
