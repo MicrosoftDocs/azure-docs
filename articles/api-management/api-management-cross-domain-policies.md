@@ -90,10 +90,10 @@ Configure the `cors` policy in API Management for the following scenarios:
 
 ### Common configuration issues
 
-* If you configure the `cors` policy at the *product* scope, and your API uses subscription key authentication, the policy won't work when the subscription key is passed in a header. As a workaround, modify requests to include a subscription key as a query parameter.
-* If you configure the `cors` policy at the *API* scope, and your API uses a header-versioning scheme, the policy won't work because the version is passed in a header. You may need to configure an alternative versioning method such as a path or query parameter. 
-* You may experience unexpected behavior if the `cors` policy is not the first policy in the inbound section. Select **Calculate effective policy** in the policy editor to check the [policy evaluation order](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) at each scope. Generally, only the first `cors` policy is applied.
-* In some policy configurations, certain cross-origin requests complete with an empty `200 OK` response. This happens when `terminate-unmatched-request` is set to its default value of `true` and an incoming request has an `Origin` header that doesn’t match an allowed origin configured in the `cors` policy. 
+* **Subscription key in header** - If you configure the `cors` policy at the *product* scope, and your API uses subscription key authentication, the policy won't work when the subscription key is passed in a header. As a workaround, modify requests to include a subscription key as a query parameter.
+* **API with header versioning** - If you configure the `cors` policy at the *API* scope, and your API uses a header-versioning scheme, the policy won't work because the version is passed in a header. You may need to configure an alternative versioning method such as a path or query parameter. 
+* **Policy order** - You may experience unexpected behavior if the `cors` policy is not the first policy in the inbound section. Select **Calculate effective policy** in the policy editor to check the [policy evaluation order](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) at each scope. Generally, only the first `cors` policy is applied.
+* **Empty 200 OK response** - In some policy configurations, certain cross-origin requests complete with an empty `200 OK` response. This response is expected when `terminate-unmatched-request` is set to its default value of `true` and an incoming request has an `Origin` header that doesn’t match an allowed origin configured in the `cors` policy. 
 
 ### Policy statement
 
