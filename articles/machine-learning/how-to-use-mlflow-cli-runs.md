@@ -71,13 +71,13 @@ import mlflow
 #Enter details of your AzureML workspace
 subscription_id = '<SUBSCRIPTION_ID>'
 resource_group = '<RESOURCE_GROUP>'
-workspace = '<AZUREML_WORKSPACE_NAME>'
+workspace_name = '<AZUREML_WORKSPACE_NAME>'
 
 ml_client = MLClient(credential=DefaultAzureCredential(),
                      subscription_id=subscription_id, 
                      resource_group_name=resource_group)
                      
-azureml_mlflow_uri = ml_client.workspaces.get(workspace).mlflow_tracking_uri
+azureml_mlflow_uri = ml_client.workspaces.get(workspace_name).mlflow_tracking_uri
 mlflow.set_tracking_uri(azureml_mlflow_uri)
 ```
 
@@ -102,12 +102,12 @@ The Azure Machine Learning Tracking URI can be constructed using the subscriptio
 ```python
 import mlflow
 
-aml_region = ""
+region = ""
 subscription_id = ""
 resource_group = ""
-workspace = ""
+workspace_name = ""
 
-azureml_mlflow_uri = f"azureml://{aml_region}.api.azureml.ms/mlflow/v1.0/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}"
+azureml_mlflow_uri = f"azureml://{region}.api.azureml.ms/mlflow/v1.0/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}"
 mlflow.set_tracking_uri(azureml_mlflow_uri)
 ```
 
@@ -124,6 +124,9 @@ All MLflow runs are logged to the active experiment. By default, runs are logged
 experiment_name = 'experiment_with_mlflow'
 mlflow.set_experiment(experiment_name)
 ```
+
+> [!NOTE]
+> When submitting jobs using Azure ML CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
 
 You can also set one of the MLflow environment variables [MLFLOW_EXPERIMENT_NAME or MLFLOW_EXPERIMENT_ID](https://mlflow.org/docs/latest/cli.html#cmdoption-mlflow-run-arg-uri) with the experiment name. 
 
