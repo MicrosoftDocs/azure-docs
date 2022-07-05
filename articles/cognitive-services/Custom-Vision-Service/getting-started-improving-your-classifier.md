@@ -98,7 +98,7 @@ When you use or test the model by submitting images to the prediction endpoint, 
 
     To add an image to your existing training data, select the image, set the correct tag(s), and select __Save and close__. The image will be removed from __Predictions__ and added to the set of training images. You can view it by selecting the __Training Images__ tab.
 
-    ![Screenshot of the tagging page](./media/getting-started-improving-your-classifier/tag.png)
+    ![Screenshot of the tagging page.](./media/getting-started-improving-your-classifier/tag.png)
 
 3. Then use the __Train__ button to retrain the model.
 
