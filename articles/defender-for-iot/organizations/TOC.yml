@@ -113,7 +113,7 @@
       href: tutorial-servicenow.md
   - name: System deployment
     items:
-    - name: Manage an Azure subscription
+    - name: Manage plans on Azure subscriptions
       href: how-to-manage-subscriptions.md
     - name: Onboard sensors in the Azure portal
       href: how-to-manage-sensors-on-the-cloud.md
@@ -135,6 +135,8 @@
           href: how-to-connect-sensor-by-proxy.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      - name: Add support for proprietary protocols
+        href: resources-manage-proprietary-protocols.md
   - name: System maintenance
     items:
     - name: Maintain threat intelligence packages

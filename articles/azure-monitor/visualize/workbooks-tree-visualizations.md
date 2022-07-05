@@ -36,25 +36,25 @@ The following example shows container health metrics of a working set size that 
 
 1. Set **Visualization** to **Grid**.
 1. Select the **Column Settings** button to open the **Edit column settings** pane.
-1. In the **Tree/Group By Settings** section at the bottom, set:
-    * **Tree type**: `Parent/Child`
-    * **Id Field**: `Id`
-    * **Parent Id Field**: `ParentId`
-    * **Show the expander on**: `Name`
-    * Select the **Expand the top level of the tree** checkbox.
 1. In the **Columns** section at the top, set:
     * **Id - Column renderer**: `Hidden`
     * **Parent Id - Column renderer**: `Hidden`
     * **Requests - Column renderer**: `Bar`
     * **Color palette**: `Blue`
     * **Minimum value**: `0`
+1. In the **Tree/Group By Settings** section at the bottom, set:
+    * **Tree type**: `Parent/Child`
+    * **Id Field**: `Id`
+    * **Parent Id Field**: `ParentId`
+    * **Show the expander on**: `Name`
+    * Select the **Expand the top level of the tree** checkbox.
 1. Select the **Save and Close** button at the bottom of the pane.
 
 [![Screenshot that shows a tile summary view with settings.](./media/workbooks-tree-visualizations/tree-settings.png)](./media/workbooks-tree-visualizations/tree-settings.png#lightbox)
 
 ## Tree settings
 
-| Setting | Explanation |
+| Setting | Description |
 |:------------- |:-------------|
 | `Id Field` | The unique ID of every row in the grid. |
 | `Parent Id Field` | The ID of the parent of the current row. |
@@ -80,16 +80,16 @@ You can use grouping to build hierarchical views similar to the ones shown in th
 
 1. Set **Visualization** to **Grid**.
 1. Select the **Column Settings** button to open the **Edit column settings** pane.
-1. In the **Tree/Group By Settings** section at the bottom, set:
-    * **Tree type**: `Group By`
-    * **Group by**: `App`
-    * **Then by**: `None`
-    * Select the **Expand the top level of the tree** checkbox.
 1. In the **Columns** section at the top, set:
     * **App - Column renderer**: `Hidden`
     * **Requests - Column renderer**: `Bar`
     * **Color palette**: `Blue`
     * **Minimum value**: `0`
+1. In the **Tree/Group By Settings** section at the bottom, set:
+    * **Tree type**: `Group By`
+    * **Group by**: `App`
+    * **Then by**: `None`
+    * Select the **Expand the top level of the tree** checkbox.
 1. Select the **Save and Close** button at the bottom of the pane.
 
 [![Screenshot that shows the creation of a tree visualization in workbooks.](./media/workbooks-tree-visualizations/tree-group-create.png)](./media/workbooks-tree-visualizations/tree-group-create.png#lightbox)

@@ -10,13 +10,35 @@ ms.date: 09/04/2020
 
 # Chart visualizations
 
-With workbooks, you can present monitoring data as charts. Supported chart types include line, bar, bar categorical, area, scatter plots, pie, and time. You can choose to customize the height, width, color palette, legend, titles, no-data message, and other characteristics. You can also customize axis types and series colors by using chart settings.
+Workbooks are able to take the data returned from queries in various formats to create different visualizations from that data, such as area, line, bar, or time visualizations.
+
+You can present monitoring data as charts. Supported chart types include:
+
+- Line
+- Bar
+- Bar categorical
+- Area
+- Scatter plots
+- Pie
+- Time
+
+You can choose to customize the:
+
+- Height
+- Width
+- Color palette
+- Legend
+- Titles
+- No-data message
+- Other characteristics
+
+You can also customize axis types and series colors by using chart settings.
 
 Workbooks support charts for both logs and metric data sources.
 
 ## Log charts
 
-Azure Monitor logs give you detailed information about the workings of your apps and infrastructure. Unlike metrics, log information isn't collected by default and requires some kind of collection onboarding. When logs are present, they provide information about the state of the resource and data that's useful for diagnostics. Workbooks allow presenting log data as visual charts for user analysis.
+Azure Monitor logs give you detailed information about your apps and infrastructure. Log information isn't collected by default, and you have to configure data collection. Logs provide information about the state of the resource and data that's useful for diagnostics. You can use workbooks to present log data as visual charts for user analysis.
 
 ### Add a log chart
 
@@ -33,7 +55,7 @@ The following example shows the trend of requests to an app over the previous da
 
 ### Log chart parameters
 
-| Parameter | Explanation | Examples |
+| Parameter | Description | Examples |
 | ------------- |:-------------|:-------------|
 | Query type | The type of query to use. | Logs, Azure Resource Graph |
 | Resource type | The resource type to target. | Application Insights, Log Analytics, or Azure-first |
@@ -47,7 +69,7 @@ The following example shows the trend of requests to an app over the previous da
 
 ### Time-series charts
 
-Time-series charts like area, bar, line, scatter, and time can be easily created by using the query control in workbooks. The key is having time and metric information in the result set.
+You can use the workbook's query control to create time-series charts such as area, bar, line, scatter, and time. You must have time and metric information in the result set to create a time-series chart.
 
 #### Simple time series
 
@@ -84,9 +106,9 @@ requests
 
 ### Summarize vs. make-series
 
-The examples in the previous section use the `summarize` operator because it's easier to understand. The `summarize` operator does have a major limitation because it omits the results row if there are no items in the bucket. It can have the effect of shifting the chart time window depending on whether the empty buckets are in the front or backside of the time range.
+The examples in the previous section use the `summarize` operator because it's easier to understand. The `summarize` operator's major limitation is that it omits the results row if there are no items in the bucket. If the results row is omitted, depending on where the empty buckets are in the time range, the chart time window might shift.
 
-It's usually better to use the `make-series` operator to create time-series data, which has the option to provide default values for empty buckets.
+We recommend using the `make-series` operator to create time-series data. You can provide default values for empty buckets.
 
 The following query uses the `make-series` operator:
 
@@ -102,13 +124,11 @@ requests
 | summarize Request = count() by bin(timestamp, 1h), RequestName = name
 ```
 
-Even though the queries return results in different formats, when you set the visualization to area, line, bar, or time, workbooks understand how to handle the data to create the visualization.
-
 [![Screenshot that shows a log line chart made from a make-series query.](./media/workbooks-chart-visualizations/log-chart-line-make-series.png)](./media/workbooks-chart-visualizations/log-chart-line-make-series.png#lightbox)
 
 ### Categorical bar chart or histogram
 
-Categorical charts allow you to represent a dimension or column on the x-axis of a chart, which is especially useful in histograms. The following example shows the distribution of requests by their result code:
+You can represent a dimension or column on the x-axis by using categorical charts. Categorical charts are useful for histograms. The following example shows the distribution of requests by their result code:
 
 ```kusto
 requests
@@ -116,7 +136,7 @@ requests
 | order by Requests desc
 ```
 
-The query returns two columns: `Requests` metric and `Result` category. Each value of the `Result` column gets its own bar in the chart with height proportional to the `Requests metric`.
+The query returns two columns: `Requests` metric and `Result` category. Each value of the `Result` column is represented by a bar in the chart with height proportional to the `Requests metric`.
 
 [![Screenshot that shows a categorical bar chart for requests by result code.](./media/workbooks-chart-visualizations/log-chart-categorical-bar.png)](./media/workbooks-chart-visualizations/log-chart-categorical-bar.png#lightbox)
 
@@ -136,7 +156,7 @@ The query returns two columns: `Requests` metric and `Result` category. Each val
 
 ## Metric charts
 
-Most Azure resources emit metric data about state and health. Examples include CPU utilization, storage availability, count of database transactions, and failing app requests. Workbooks allow the visualization of this data as time-series charts.
+Most Azure resources emit metric data about their state and health. Examples include CPU utilization, storage availability, count of database transactions, and failing app requests. You can use workbooks to create visualizations of this data as time-series charts.
 
 ### Add a metric chart
 
@@ -151,7 +171,7 @@ The following example shows the number of transactions in a storage account over
 
 ### Metric chart parameters
 
-| Parameter | Explanation | Examples |
+| Parameter | Description | Examples |
 | ------------- |:-------------|:-------------|
 | Resource type | The resource type to target. | Storage or virtual machine |
 | Resources | A set of resources to get the metrics value from. | MyStorage1 |
@@ -180,7 +200,15 @@ Average latency as a scatter chart:
 
 ## Chart settings
 
-You can use chart settings to customize which fields are used in the chart axes, the axis units, custom formatting, ranges, grouping behaviors, legends, and series colors.
+You can use chart settings to customize which fields are used in the:
+
+- Chart axes
+- The axis units
+- Custom formatting
+- Ranges
+- Grouping behaviors
+- Legends
+- Series colors
 
 ### Settings tab
 
@@ -196,7 +224,7 @@ The **Settings** tab controls:
 
 Number formatting options are shown in this table.
 
-| Formatting option             | Explanation                                                                                           |
+| Formatting option             | Description                                                                                           |
 |:---------------------------- |:-------------------------------------------------------------------------------------------------------|
 | Units                      | The units for the column, such as various options for percentage, counts, time, byte, count/time, and bytes/time. For example, the unit for a value of 1234 can be set to milliseconds and it's rendered as 1.234s.                                  |
 | Style                      | The format to render it as, such as decimal, currency, and percent.                                               |
@@ -211,12 +239,12 @@ Number formatting options are shown in this table.
 
 ### Series Settings tab
 
-With the **Series Settings** tab, you can adjust the labels and colors shown for series in the chart:
+You can adjust the labels and colors shown for series in the chart with the **Series Settings** tab:
 
 - **Series name**: This field is used to match a series in the data and, if matched, the display label and color are displayed.
 - **Comment**: This field is useful for template authors because this comment might be used by translators to localize the display labels.
 
-![Screenshot that shows the Series Settings tab.](./media/workbooks-chart-visualizations/series-settings.png)
+![Screenshot that shows series settings.](./media/workbooks-chart-visualizations/series-settings.png)
 
 ## Next steps
 

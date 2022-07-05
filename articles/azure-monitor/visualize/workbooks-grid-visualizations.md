@@ -9,7 +9,7 @@ ms.author: abbyweisberg
 
 # Grid visualizations
 
-Grids or tables are a common way to present data to users. You can individually style the columns of grids in workbooks to provide a rich UI for your reports.
+Grids or tables are a common way to present data to users. You can individually style the columns of grids in workbooks to provide a rich UI for your reports. While a plain table shows data, it's hard to read and insights won't always be apparent. Styling the grid can help make it easier to read and interpret the data.
 
 The following example shows a grid that combines icons, heatmaps, and spark bars to present complex information. The workbook also provides sorting, a search box, and a go-to-analytics button.
 
@@ -28,7 +28,7 @@ The following example shows a grid that combines icons, heatmaps, and spark bars
 
 ## Log chart parameters
 
-| Parameter | Explanation | Examples |
+| Parameter | Description | Examples |
 | ------------- |:-------------|:-------------|
 |Query type| The type of query to use. | Logs, Azure Resource Graph |
 |Resource type| The resource type to target. | Application Insights, Log Analytics, or Azure-first |
@@ -53,13 +53,11 @@ requests
 
 ## Grid styling
 
-While a plain table shows data, it's hard to read and insights won't always be apparent. Styling the grid can help make it easier to read and interpret the data.
-
-Here's the same grid from the previous section styled as heatmaps:
+Columns styled as heatmaps:
 
 [![Screenshot that shows a log-based grid with columns styled as heatmaps.](./media/workbooks-grid-visualizations/log-chart-grid-heatmap.png)](./media/workbooks-grid-visualizations/log-chart-grid-heatmap.png#lightbox)
 
-Here's the same grid styled as bars:
+Columns styled as bars:
 [![Screenshot that shows a log-based grid with columns styled as bars.](./media/workbooks-grid-visualizations/log-chart-grid-bar.png)](./media/workbooks-grid-visualizations/log-chart-grid-bar.png#lightbox)
 
 ### Style a grid column
@@ -78,7 +76,7 @@ This option usually takes you to some other view with context coming from the ce
 
 You can also set the number formatting of your cell values in workbooks. To set this formatting, select the **Custom formatting** checkbox when it's available.
 
-| Formatting option | Explanation |
+| Formatting option | Description |
 |:------------- |:-------------|
 |Units| The units for the column with various options for percentage, counts, time, byte, count/time, and bytes/time. For example, the unit for a value of 1234 can be set to milliseconds and it's rendered as 1.234 s. |
 |Style| The format used to render it, such as decimal, currency, percent. |
@@ -94,7 +92,7 @@ You can also set the number formatting of your cell values in workbooks. To set 
 
 When you've specified that a column is set to the date/time renderer, you can specify custom date formatting options by using the **Custom date formatting** checkbox.
 
-| Formatting option | Explanation |
+| Formatting option | Description |
 |:------------- |:-------------|
 |Style| The format to render a date as short, long, or full, or a time as short or long. |
 |Show time as| Allows you to decide between showing the time in local time (default) or as UTC. Depending on the date format style selected, the UTC/time zone information might not be displayed. |
@@ -107,7 +105,7 @@ You can customize the width of any column in the grid by using the **Custom Colu
 
 If the field is left blank, the width is automatically determined based on the number of characters in the column and the number of visible columns. The default unit is "ch," which is an abbreviation for "characters."
 
-Selecting the blue **(Current Width)** button in the label fills the text field with the selected column's current width. If a value is present in the **Custom Column Width** field with no unit of measurement, the default is used.
+Selecting the **(Current Width)** button in the label fills the text field with the selected column's current width. If a value is present in the **Custom Column Width** field with no unit of measurement, the default is used.
 
 The units of measurement available are:
 
@@ -120,7 +118,7 @@ The units of measurement available are:
 
 **Input validation**: If validation fails, a red guidance message appears underneath the field, but you can still apply the width. If a value is present in the input, it's parsed out. If no valid unit of measure is found, the default is used.
 
-There's no minimum or maximum width. This measurement is left to your discretion. The **Custom Column Width** field is disabled for hidden columns.
+You can set the width to any value. There's no minimum or maximum width. The **Custom Column Width** field is disabled for hidden columns.
 
 ## Examples
 

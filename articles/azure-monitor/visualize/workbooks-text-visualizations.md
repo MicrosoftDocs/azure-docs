@@ -39,7 +39,7 @@ Preview mode:
 
 The following text styles are available for the text step:
 
-| Style     | Explanation                                                                               |
+| Style     | Description                                                                               |
 |-----------|-------------------------------------------------------------------------------------------|
 | `plain`   | No other formatting is applied.                                                      |
 | `info`    | The portal's `info` style, with an  `ℹ` or similar icon and generally a blue background.      |
