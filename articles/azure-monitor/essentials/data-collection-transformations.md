@@ -24,7 +24,7 @@ The transformation is defined in a [data collection rule (DCR)](data-collection-
 
 For example, a DCR that collects data from a virtual machine using Azure Monitor agent would specify particular data to collect from the client operating system. It could also include a transformation that would get applied to that data after it's sent to the data ingestion pipeline that further filters the data or adds a calculated column. This workflow is shown in the following diagram.
 
-:::image type="content" source="media/data-collection-transformations/transformation-data-collectron-rule.png" lightbox="media/data-collection-transformations/transformation-data-collectron-rule.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent.":::
+:::image type="content" source="media/data-collection-transformations/transformation-data-collection-rule.png" lightbox="media/data-collection-transformations/transformation-data-collection-rule.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent." border=false:::
 
 ## Supported workflows
 Transformations are not yet supported for all data collected by Azure Monitor. Ingestion-time transformations are supported for any workflow that uses the Azure Monitor [data ingestion pipeline](../data-collection.md), which is any workflow that uses a [data collection rule (DCR)](data-collection-rule-overview.md).
@@ -43,7 +43,7 @@ Workspace transformations are defined in a [workspace DCR](data-collection-rule-
 
 A common example is [resource logs](resource-logs.md) which are configured with a [diagnostic setting](diagnostic-settings.md). This is shown in the example below. 
 
-:::image type="content" source="media/data-collection-transformations/transformation-legacy.png" alt-text="Diagram of workspace transformation for resource logs configured with diagnostic settings.":::
+:::image type="content" source="media/data-collection-transformations/transformation-legacy.png" lightbox="media/data-collection-transformations/transformation-legacy.png" alt-text="Diagram of workspace transformation for resource logs configured with diagnostic settings." border=false:::
 
 ## Creating a transformation
 The following table lists guidance for different methods for creating transformations. 
