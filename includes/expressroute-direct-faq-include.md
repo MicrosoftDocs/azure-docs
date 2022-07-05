@@ -38,3 +38,7 @@ ExpressRoute Direct will be billed for the port pair at a fixed amount. Standard
 ExpressRoute Direct's port pairs are billed 45 days into the creation of the ExpressRoute Direct resource or when 1 or both of the links are enabled, whichever comes first. The 45-day grace period is granted to allow customers to complete the cross-connection process with the colocation provider.
 
 You'll stop being charged for ExpressRoute Direct's port pairs after you delete the direct ports and remove the cross-connects. 
+
+### Does ExpressRoute Direct support overprovisioning? 
+
+Yes, the ExpressRoute Direct resource supports an overprovision factor of 2. As a result, a customer can create up to 20Gb of ExpressRoute circuits on a 10Gb ExpressRoute Direct. Additionally, customers can create 200Gb of ExpressRoute circuits on a 100Gb ExpressRoute Direct. 
