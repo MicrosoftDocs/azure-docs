@@ -12,7 +12,7 @@ ms.custom: mode-api
 
 # Get started with the MedTech service in Azure Health Data Services
 
-This article outlines the basic steps to get started with the [MedTech service](l) in [Azure Health Data Services](../healthcare-apis-overview.md). The MedTech service enables you to receive data from a device, such as a smart watch, medical monitor, or patient record. You can then convert the data to a FHIR service format for analysis by a medical team.
+This article outlines the basic steps to get started with the MedTech service in [Azure Health Data Services](../healthcare-apis-overview.md). The MedTech service enables you to receive data from a device, such as a smart watch, medical monitor, or patient record. You can then convert the data to a FHIR service format for analysis by a medical team.
 
 Before you can get started, you'll need an valid Azure subscription. You will also need permission to create and deploy Azure resources. You can skip these steps if you already have the appropriate permissions for the relevant resources.
 
@@ -57,7 +57,7 @@ You can make the provisioning process easier and more efficient by automating ev
 
 You must provision an [Event Hubs](../../event-hubs/event-hubs-create.md) service instance in your workspace.
 
-Once Event Hubs is provisioned, you must give permission to the Event Hubs to read data from the device. The MedTech service retrieves data from the Event Hubs using a system-managed identity. For more information on how to assign the managed-identity role to the MedTech service from Event Hubs, see [Granting MedTech service access](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access).
+Once Event Hubs is provisioned, you must give permission to the Event Hubs to read data from the device. The MedTech service retrieves data from the Event Hubs using a system-managed identity. For more information on how to assign the managed-identity role to the MedTech service from Event Hubs, see [Granting MedTech service access](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access).
 
 #### Provision a FHIR service instance to the same workspace
 
