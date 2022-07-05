@@ -30,7 +30,7 @@ Here are some details about what you need:
   ```
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   ```
-- The AADCloudSyncTools module might not work correctly if the Azure AD Connect cloud provisioning agent is not running or the configuration wizard has finished successfully.
+- The AADCloudSyncTools module might not work correctly if the Azure AD Connect cloud provisioning agent is not running or the configuration wizard has not finished successfully.
 
 ## Install the AADCloudSyncTools PowerShell module
 
