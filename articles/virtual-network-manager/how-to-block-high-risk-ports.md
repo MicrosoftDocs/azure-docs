@@ -79,7 +79,7 @@ It’s time to construct our security admin rules within a configuration so that
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
-## Deploy the Security Admin Configuration
+## Deploy a Security Admin Configuration
 We’re at the final step, which is to deploy OurSecurityConfig. This is how the security admin configuration will actually take effect on the VNets in OurNetworkGroup, and we can control the regions to which this deployment rolls out.
 
 ## Create a Network Group for Application
