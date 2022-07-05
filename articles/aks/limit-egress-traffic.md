@@ -873,3 +873,4 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
 [Create an AKS cluster with user-assigned identities]: limit-egress-traffic.md#create-an-AKS-cluster-with-user-assigned-identities
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
+[az-identity-create]: /cli/azure/identity#az_identity_create
