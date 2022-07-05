@@ -99,7 +99,8 @@ Confidential VMs *don't support*:
 - Azure Backup
 - Azure Site Recovery
 - Azure Dedicated Host 
-- Microsoft Azure Virtual Machine Scale Sets for encrypted OS disks
+- Microsoft Azure Virtual Machine Scale Sets from PIR with full OS disk encryption enabled
+- Limited Azure compute gallery support
 - Shared disks
 - Ultra disks
 - Accelerated Networking
