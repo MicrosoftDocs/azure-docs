@@ -1,11 +1,10 @@
 ---
 title: Restore a deleted Azure Database for MySQL Flexible server
 description: This article describes how to restore a deleted server in Azure Database for MySQL Flexible server using the Azure portal.
-author: adig
-ms.author: adig
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
+author: VandhanaMehta
 ms.date: 11/10/2021
 ---
 
