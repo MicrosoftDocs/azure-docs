@@ -58,7 +58,7 @@ This section describes the information available in the Alerts table.
     | **Name** |  The alert title.
     | **Site** |  The site associated  with the sensor. This site name is defined when you register a sensor with Microsoft  Defender for IoT on the Azure portal. The name can be viewed in the Sites and Sensors page on the portal. See [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors) for information on registered sensors. 
     | **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. To learn more about engines, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term micro-agent will be displayed.
-    | **Last detection** | The last time the alert was detected. The alert traffic may occur several times after the first detection. If the alert is **Closed** and the traffic is seen again, a new detection time will be displayed.
+    | **Last detection** | The last time the alert was detected. If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the earlier alert. If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.|
     | **Status** | The alert status: New, Active, Closed
     | **Source device** | The IP address, MAC, or device name.
      | **Tactics** | The MITRE ATT&CK stage.
