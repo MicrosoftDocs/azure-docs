@@ -368,6 +368,8 @@
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
+    - name: Migrate alert playbooks to automation rules
+      href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
   - name: Manage Microsoft Sentinel
@@ -500,8 +502,8 @@
       href: top-workbooks.md
     - name: Entities reference
       href: entities-reference.md
-    - name: UEBA enrichments
-      href: ueba-enrichments.md
+    - name: UEBA reference
+      href: ueba-reference.md
     - name: Anomalies reference
       href: anomalies-reference.md
     - name: Multistage attack detection scenarios
@@ -534,11 +536,13 @@
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   - name: Feature availability for US Government clouds
     href: ../security/fundamentals/feature-availability.md
-  - name: Build your skills with Microsoft Learn training
+  - name: Build your skills for Microsoft Sentinel
     items: 
-    - name: Microsoft Sentinel training 
+    - name: Microsoft Sentinel skill-up training  
+      href: skill-up-resources.md
+    - name: Microsoft Learn modules for Microsoft Sentinel
       href: /learn/browse/?expanded=azure&products=azure-sentinel
-    - name: Kusto Query Language (KQL) training 
+    - name: Microsoft Learn modules for Kusto Query Language (KQL)
       href: /learn/browse/?expanded=azure&terms=kusto%20query%20language
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md
