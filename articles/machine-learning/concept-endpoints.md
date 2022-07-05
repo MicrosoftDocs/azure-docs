@@ -227,7 +227,7 @@ Specify the storage output location to any datastore and path. By default, batch
 - VNET support: Batch endpoints support ingress protection. A batch endpoint with ingress protection will accept scoring requests only from hosts inside a virtual network but not from the public internet. A batch endpoint that is created in a private-link enabled workspace will have ingress protection. To create a private-link enabled workspace, see [Create a secure workspace](tutorial-create-secure-workspace.md).
 
 > [!NOTE]
-Please install the [latest CLI version](https://docs.microsoft.com/en-us/cli/azure/ml?view=azure-cli-latest) (version 2.15.1 or higher) to create batch endpoints in a private-link enabled workspace.
+Creating batch endpoints on a private-link enabled workspace requires CLI version 2.15.1 or higher. Please ensure you install the [latest CLI version](https://docs.microsoft.com/en-us/cli/azure/ml?view=azure-cli-latest).
 
 ## Next steps
 
