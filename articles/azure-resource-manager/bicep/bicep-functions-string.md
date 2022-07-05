@@ -565,7 +565,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputArray | Yes |An array of string |An array of string to join. |
+| inputArray | Yes |An array of string. |An array of strings to join. |
 | delimiter | Yes |The delimiter to use for splitting the string. |
 
 ### Return value

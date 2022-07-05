@@ -503,7 +503,7 @@ The output from the preceding example with the default values is:
 
 ## join
 
-`split(inputArray, delimiter)`
+`join(inputArray, delimiter)`
 
 Joins a string array into a single string, separated using a delimiter.
 
@@ -518,13 +518,13 @@ In Bicep, use the [join](../bicep/bicep-functions-string.md#join) function.
 
 ### Return value
 
-A strings.
+A string.
 
 ### Examples
 
-The following example joins the input string array into strings delimited by either a comma or a semi-colon.
+The following example joins the input string array into strings delimited by using different delimiters.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/indexof.json":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/join.json":::
 
 The output from the preceding example is:
 
