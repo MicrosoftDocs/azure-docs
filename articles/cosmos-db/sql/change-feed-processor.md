@@ -39,6 +39,8 @@ Each range is being read in parallel and its progress is maintained separately f
 
 ## Implementing the change feed processor
 
+### [.NET](#tab/dotnet)
+
 The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
@@ -135,6 +137,97 @@ The change feed processor will be initialized and start reading changes from the
 
 > [!NOTE]
 > These customization options only work to setup the starting point in time of the change feed processor. Once the leases container is initialized for the first time, changing them has no effect.
+
+### [Java](#tab/java)
+
+An example of a delegate implementation would be:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
+
+Here we pass the compute instance name (`hostName`), the monitored container (here called `feedContainer`) and the lease container. Then, we assign this to a `changeFeedProcessorInstance`, and start the change feed processor as below:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=StartChangeFeedProcessor)]
+
+
+## Processing life cycle
+
+The normal life cycle of a host instance is:
+
+1. Read the change feed.
+1. If there are no changes, sleep for a predefined amount of time (customizable with `WithPollInterval` in the Builder) and go to #1.
+1. If there are changes, send them to the **delegate**.
+1. When the delegate finishes processing the changes **successfully**, update the lease store with the latest processed point in time and go to #1.
+
+## Error handling
+
+The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check which was the latest point in time the lease store has for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee.
+
+> [!NOTE]
+> There is only one scenario where a batch of changes will not be retried. If the failure happens on the first ever delegate execution, the lease store has no previous saved state to be used on the retry. On those cases, the retry would use the [initial starting configuration](#starting-time), which might or might not include the last batch.
+
+To prevent your change feed processor from getting "stuck" continuously retrying the same batch of changes, you should add logic in your delegate code to write documents, upon exception, to a dead-letter queue. This design ensures that you can keep track of unprocessed changes while still being able to continue to process future changes. The dead-letter queue might be another Cosmos container. The exact data store does not matter, simply that the unprocessed changes are persisted.
+
+In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed or use the [life cycle notifications](#life-cycle-notifications) to detect underlying failures.
+
+<!-- ## Life-cycle notifications
+
+The change feed processor lets you hook to relevant events in its [life cycle](#processing-life-cycle), you can choose to be notified to one or all of them. The recommendation is to at least register the error notification:
+
+* Register a handler for `WithLeaseAcquireNotification` to be notified when the current host acquires a lease to start processing it.
+* Register a handler for `WithLeaseReleaseNotification` to be notified when the current host releases a lease and stops processing it.
+* Register a handler for `WithErrorNotification` to be notified when the current host encounters an exception during processing, being able to distinguish if the source is the user delegate (unhandled exception) or an error the processor is encountering trying to access the monitored container (for example, networking issues).
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartWithNotifications)] -->
+
+## Deployment unit
+
+A single change feed processor deployment unit consists of one or more compute instances with the same `processorName` and lease container configuration but different instance name each. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances.
+
+For example, you might have one deployment unit that triggers an external API anytime there is a change in your container. Another deployment unit might move data, in real time, each time there is a change. When a change happens in your monitored container, all your deployment units will get notified.
+
+## Dynamic scaling
+
+As mentioned before, within a deployment unit you can have one or more compute instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
+
+1. All instances should have the same lease container configuration.
+1. All instances should have the same `processorName`.
+1. Each instance needs to have a different instance name (`WithInstanceName`).
+
+If these three conditions apply, then the change feed processor will, using an equal distribution algorithm, distribute all the leases in the lease container across all running instances of that deployment unit and parallelize compute. One lease can only be owned by one instance at a given time, so the maximum number of instances equals to the number of leases.
+
+The number of instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly.
+
+Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
+
+## Change feed and provisioned throughput
+
+Change feed read operations on the monitored container will consume [request units](../request-units.md). Make sure your monitored container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors.
+
+Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances using the same lease container, the higher the potential request units consumption will be. Make sure your lease container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors, in some cases where throttling is high, the processors might stop processing completely.
+
+## Starting time
+
+Note that in the earlier example we passed a variable `options` of type `ChangeFeedProcessorOptions`, which can be used to set various values including `setStartFromBeginning`:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
+
+By default, when a change feed processor starts the first time, it will initialize the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
+
+### Reading from a previous date and time
+
+It's possible to initialize the change feed processor to read changes starting at a **specific date and time**, by setting `setStartTime`. The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
+
+> [!NOTE]
+> Starting the change feed processor at a specific date and time is not supported in multi-region write accounts.
+
+### Reading from the beginning
+
+In our aove sample, we set `setStartFromBeginning` to `false`, which is the same as the default value. In other scenarios like data migrations or analyzing the entire history of a container, we need to read the change feed from **the beginning of that container's lifetime**. To do that, we can set `setStartFromBeginning` to `true`. The change feed processor will be initialized and start reading changes from the beginning of the lifetime of the container.
+
+> [!NOTE]
+> These customization options only work to setup the starting point in time of the change feed processor. Once the leases container is initialized for the first time, changing them has no effect.
+
+---
 
 ## Sharing the lease container
 
