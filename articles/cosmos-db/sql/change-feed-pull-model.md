@@ -227,20 +227,21 @@ As long as the Cosmos container still exists, a FeedIterator's continuation toke
 
 ### [Java](#tab/java)
 
-You can execute `container.queryChangeFeed` to process the change feed using the pull model. When creating `CosmosChangeFeedRequestOptions` you can specify different methods to determine where to start reading the change feed from. You will also pass the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed. If you specify `FeedRange.forFullRange()`, you can process an entire container's change feed at your own pace. Below is an example, which reads all changes starting from the beginning.
+You can create a `Iterator<FeedResponse<JsonNode>> responseIterator` to process the change feed using the pull model. When creating `CosmosChangeFeedRequestOptions` you must specify where to start reading the change feed from. You will also pass the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed. If you specify `FeedRange.forFullRange()`, you can process an entire container's change feed at your own pace. You can optionally specify a value in `byPage()`. When set, this property sets the maximum number of items received per page. Below is an example for obtaining a `responseIterator`.
 
 >[!NOTE]
 > All of the below code snippets are taken from a sample in GitHub, which you can find [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java).
 
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=FeedResponseIterator)]
+
+We can then iterate over the results. Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `responseIterator.hasNext()` is always true. Below is an example, which reads all changes starting from the beginning. Each iteration persists a continuation token after processing all events, and will pick up from the last processed point in the change feed. This is handled using `createForProcessingFromContinuation`:.
+
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)]
 
 
-
-Because the change feed is effectively an infinite list of items encompassing all future writes and updates, we can execute an infinite loop. Each iteration persists a continuation token, and will pick up from the last processed point in the change feed. In the above example, this is handled by initializing using `createForProcessingFromBeginning`, and then `createForProcessingFromContinuation` after the first execution.
-
 ## Consuming a partition key's changes
 
-In some cases, you may only want to process a specific partition key's changes. You can can process the changes for a specific partition key in the same way that you can for an entire container.
+In some cases, you may only want to process a specific partition key's changes. You can can process the changes for a specific partition key in the same way that you can for an entire container. Here's an example:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=PartitionKeyProcessing)]
 
