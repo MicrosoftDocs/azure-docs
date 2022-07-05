@@ -191,7 +191,7 @@ Sand Surfboard
 
 When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
 
-### [Azure CLI / Resource Manager template](#tab/azure-cli+azure-resource-manager)
+### [Azure CLI / Resource Manager template](#tab/azure-cli)
 
 Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delete the resource group.
 
