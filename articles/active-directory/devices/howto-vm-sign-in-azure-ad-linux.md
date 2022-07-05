@@ -181,19 +181,19 @@ Now that you've created the VM, you need to configure an Azure RBAC policy to de
 - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
 - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
  
-To log in to a VM over SSH, you must have the Virtual Machine Administrator Login or Virtual Machine User Login role on the resource group that contains the VM and its associated virtual network, network interface, public IP address, or load balancer resources. 
+To allow a user to log in to a VM over SSH, you must assign the Virtual Machine Administrator Login or Virtual Machine User Login role on the resource group that contains the VM and its associated virtual network, network interface, public IP address, or load balancer resources. 
 
 An Azure user who has the Owner or Contributor role assigned for a VM doesn't automatically have privileges to Azure AD login to the VM over SSH. There's an intentional (and audited) separation between the set of people who control virtual machines and the set of people who can access virtual machines. 
 
-There are multiple ways to configure role assignments for a VM. For example, you can use:
+There are two ways to configure role assignments for a VM:
 
-- The Azure AD portal experience.
-- The Azure Cloud Shell experience.
+- Azure AD portal experience
+- Azure Cloud Shell experience
 
 > [!NOTE]
 > The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit) per subscription.
 
-### Use the Azure AD portal experience
+### Azure AD portal
 
 To configure role assignments for your Azure AD-enabled Linux VMs:
 
@@ -214,7 +214,7 @@ To configure role assignments for your Azure AD-enabled Linux VMs:
 
 After a few moments, the security principal is assigned the role at the selected scope.
 
-### Use the Azure Cloud Shell experience
+### Azure Cloud Shell
 
 The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. You obtain the username of your current Azure account by using [az account show](/cli/azure/account#az-account-show), and you set the scope to the VM created in a previous step by using [az vm show](/cli/azure/vm#az-vm-show). 
 
@@ -232,8 +232,8 @@ az role assignment create \
 
 > [!NOTE]
 > If your Azure AD domain and logon username domain don't match, you must specify the object ID of your user account by using `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account by using [az ad user list](/cli/azure/ad/user#az-ad-user-list).
->
-> For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+
+For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
 ## Install the SSH extension for Azure CLI
 
