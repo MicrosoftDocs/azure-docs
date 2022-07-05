@@ -72,6 +72,7 @@ The following functions are available for getting values related to the deployme
 The following functions are available for loading the content from external files into your Bicep file. All of these functions are in the `sys` namespace.
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
+* [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
 ## Logical functions
