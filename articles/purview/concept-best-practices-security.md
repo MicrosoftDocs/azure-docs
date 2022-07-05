@@ -210,13 +210,13 @@ For more information about Microsoft Purview break glass strategy, see [Microsof
 
 ## Threat protection and preventing data exfiltration 
 
-Microsoft Purview provides rich insights into the sensitivity of your data, which makes it valuable to security teams using Microsoft Microsoft 365 Defender for Cloud to manage the organization's security posture and protect against threats to their workloads. Data resources remain a popular target for malicious actors, making it crucial for security teams to identify, prioritize, and secure sensitive data resources across their cloud environments. To address this challenge, we're announcing the integration between Microsoft Microsoft 365 Defender for Cloud and Microsoft Purview in public preview.
+Microsoft Purview provides rich insights into the sensitivity of your data, which makes it valuable to security teams using Microsoft Defender for Cloud to manage the organization's security posture and protect against threats to their workloads. Data resources remain a popular target for malicious actors, making it crucial for security teams to identify, prioritize, and secure sensitive data resources across their cloud environments. To address this challenge, we're announcing the integration between Microsoft Defender for Cloud and Microsoft Purview in public preview.
 
-### Integrate with Microsoft 365 and Microsoft Microsoft 365 Defender for Cloud 
+### Integrate with Microsoft 365 and Microsoft Defender for Cloud 
 
-Often, one of the biggest challenges for security organization in a company is to identify and protect assets based on their criticality and sensitivity. Microsoft recently [announced integration between Microsoft Purview and Microsoft Microsoft 365 Defender for Cloud in Public Preview](https://techcommunity.microsoft.com/t5/azure-purview-blog/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954) to help overcome these challenges. 
+Often, one of the biggest challenges for security organization in a company is to identify and protect assets based on their criticality and sensitivity. Microsoft recently [announced integration between Microsoft Purview and Microsoft Defender for Cloud in Public Preview](https://techcommunity.microsoft.com/t5/azure-purview-blog/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954) to help overcome these challenges. 
 
-If you've extended your Microsoft 365 sensitivity labels for assets and database columns in Microsoft Purview, you can keep track of highly valuable assets using Microsoft Microsoft 365 Defender for Cloud from inventory, alerts and recommendations based on assets detected sensitivity labels. 
+If you've extended your Microsoft 365 sensitivity labels for assets and database columns in Microsoft Purview, you can keep track of highly valuable assets using Microsoft Defender for Cloud from inventory, alerts and recommendations based on assets detected sensitivity labels. 
 
 - For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Microsoft 365 Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](../defender-for-cloud/secure-score-security-controls.md#security-controls-and-their-recommendations).
 
@@ -368,7 +368,7 @@ For self-hosted integration runtime VMs deployed as virtual machines in Azure, f
 - Deploy Azure Defender to get insights around any potential anomaly on the VMs. 
 - Limit the amount of software in the self-hosted integration runtime VMs. Although it isn't a mandatory requirement to have a dedicated VM for a self-hosted runtime for Microsoft Purview, we highly suggest using dedicated VMs especially for production environments. 
 - Monitor the VMs using [Azure Monitor for VMs](../azure-monitor/vm/vminsights-overview.md). By using Log analytics agent, you can capture content such as performance metrics to adjust required capacity for your VMs. 
-- By integrating virtual machines with Microsoft Microsoft 365 Defender for Cloud, you can you prevent, detect, and respond to threats.
+- By integrating virtual machines with Microsoft Defender for Cloud, you can you prevent, detect, and respond to threats.
 - Keep your machines current. You can enable Automatic Windows Update or use [Update Management in Azure Automation](../automation/update-management/overview.md) to manage operating system level updates for the OS. 
 - Use multiple machines for greater resilience and availability. You can deploy and register multiple self-hosted integration runtimes to distribute the scans across multiple self-hosted integration runtime machines or deploy the self-hosted integration runtime on a Virtual Machine Scale Set for higher redundancy and scalability. 
 - Optionally, you can plan to enable Azure backup from your self-hosted integration runtime VMs to increase the recovery time of a self-hosted integration runtime VM if there's a VM level disaster.
