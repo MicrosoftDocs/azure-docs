@@ -134,6 +134,40 @@ Single vip registry refresh property : null
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
 
+## Stream Azure Spring Apps app log in vnet injection instance
+
+For vnet injection instance, the log stream could by default be accessed if your client stays in the same vnet where Azure Spring Apps in. If your client is outside the vnet, Azure Spring Apps also enable you to get real-time app logs by means of exposing log stream endpoint.
+
+The following procedure opens the log stream endpoint for a vnet injection instance.
+
+#### [Portal](#tab/azure-portal)
+
+1. Select the Azure Spring Apps service instance deployed in your virtual network, and open the **Networking** tab in the menu on the left.
+
+2. Select the **Vnet injection** page.
+
+3. Switch the status of **Log streaming on public network** to **enable** to enable log streaming on public network. The log streaming on public network will take a few minutes to take effict.
+
+    ![Enable log stream public endpoint](media/spring-cloud-access-app-vnet/enable-logstream-public-endpoint.png)
+
+#### [CLI](#tab/azure-CLI)
+
+Update your instance to enable log stream public endpoint on it. Customize the value of your service instance name based on your real environment.
+
+```azurecli
+SPRING_CLOUD_APP='your spring cloud app'
+az spring update \
+    --resource-group $RESOURCE_GROUP \
+    --service $SPRING_CLOUD_NAME \
+    --enable-log-stream-public-endpoint true
+```
+
+After the log stream public endpoint has enabled, you could access the app log stream outside the virtal network like an instance without vnet injection.
+
+## Secure the traffic to the log stream public endpoint
+
+Azure Spring Apps do not provide ways to secure the public endpoint but we strongly recommend you to sufficiently secure the endpoint with a network security group inbound security rule, review [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group).
+
 ## Next steps
 
 * [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
