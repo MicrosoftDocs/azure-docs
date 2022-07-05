@@ -15,6 +15,7 @@ To complete this quickstart, you need:
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 - An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 
@@ -47,7 +48,7 @@ The cloned repository contains a **Dockerfile.windows** file. We will be using W
 1. Build the container image. We are naming the image **dotnetcore-docs-hello-world-windows**.
 
     ```docker
-    docker build -f Dockerfile.windows -t dotnetcore-docs-hello-world-windows . 
+    docker build -f Dockerfile.windows -t <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-windows . 
     ```
 
 1. Push the container image to Azure Container Registry.
@@ -59,7 +60,7 @@ The cloned repository contains a **Dockerfile.windows** file. We will be using W
 > [!NOTE]
 > The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure custom container](../../configure-custom-container.md).
 
-## 3 - Create the Azure App Service
+## 3 - Deploy to Azure
 
 ### Sign in to Azure portal
 
@@ -108,9 +109,9 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ##  4 - Browse to the app
 
-1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-    :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed will run in background mode.":::
+:::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed will run in background mode.":::
 
 Note that the Host operating system appears in the footer, confirming we are running in a Windows container.
 
