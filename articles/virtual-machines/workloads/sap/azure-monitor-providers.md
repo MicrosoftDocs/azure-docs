@@ -16,6 +16,9 @@ ms.author: radeltch
 
 This article describes the various providers currently available for Azure Monitor for SAP Solutions.
 
+>![Note]
+> This content would apply to both new and classic version of Azure Monitor for SAP solutions.
+
 In the context of Azure Monitor for SAP Solutions, a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP Solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
    
 You can choose to configure different provider types to enable data collection from the corresponding component in their SAP landscape. For example, you can configure one provider for SAP HANA provider type, another provider for high-availability cluster provider type, and so on.  
@@ -28,6 +31,7 @@ For public preview, the following provider types are supported:
 - Microsoft SQL Server
 - High-availability cluster
 - Operating system (OS)
+- IBM Db2 (available with new version)
 
 ![Azure Monitor for SAP solutions providers](https://user-images.githubusercontent.com/75772258/115047655-5a5b2c00-9ef6-11eb-9e0c-073e5e1fcd0e.png)
 
@@ -145,6 +149,19 @@ To configure an OS (Linux) provider, two primary steps are involved:
 > [!Warning]
 > Ensure Node Exporter keeps running after node reboot. 
 
+## Provider type: IBM Db2
+You can configure one or more providers of provider type IBM Db2 database.
+
+In public preview, you can expect to see the following data with the IBM Db2 provider:
+
+- DB availability
+- Number of Connections
+- Logical and Physical Reads
+- Waits and Current Locks
+- Top 20 Runtime and Executions 
+
+![Azure Monitor for SAP solutions providers - IBM Db2](./media/azure-monitor-sap/azure-monitor-providers-db2.png)
+- 
 ## Next steps
 
 Learn how to deploy Azure Monitor for SAP Solutions from the Azure portal.
