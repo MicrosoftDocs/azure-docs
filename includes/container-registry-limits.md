@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: container-registry
-author: dlepow
+author: tejaswikolli-web
 
 ms.service: container-registry
 ms.topic: include
 ms.date: 10/22/2021
-ms.author: danlep
+ms.author: tejaswikolli
 ms.custom: include file
 ---
 
