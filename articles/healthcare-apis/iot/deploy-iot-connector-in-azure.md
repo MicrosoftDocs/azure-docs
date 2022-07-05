@@ -58,15 +58,6 @@ It's important that you have the following prerequisites completed before you be
 * [Workspace deployed in Azure Health Data Services](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
 
-> [!IMPORTANT]
-> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
->
-> Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see, [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
->
-> Examples: 
->* Two MedTech services accessing the same device message event hub.
->* A MedTech service and a storage writer application accessing the same device message event hub. 
-
 1. Sign in the [Azure portal](https://portal.azure.com), and then enter your Health Data Services workspace resource name in the **Search** bar field.
  
    ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png#lightbox)
@@ -101,7 +92,16 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
    ![Screenshot of Consumer group name.](media/consumer-group-name.png#lightbox)
 
-   For information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
+   For information about Consumer Groups, see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
+
+> [!IMPORTANT]
+> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
+>
+> Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see, [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
+>
+> Examples: 
+>* Two MedTech services accessing the same device message event hub.
+>* A MedTech service and a storage writer application accessing the same device message event hub. 
 
 4. Enter the name of the **Fully Qualified Namespace**.
 
