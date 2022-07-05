@@ -197,9 +197,9 @@ To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md
 
 Azure Backup supports backup and restore of VMs that are available in Azure Marketplace. This error occurs when you try to restore a VM (with a specific Plan/Publisher setting), which is no longer available in Azure Marketplace. [Learn more here](/azure/marketplace/deprecate-vm).
 
-**Resolution**: In this scenario, a partial failure occurs when disks are restored. However, VM isn't restored as it's not possible to create a new VM from the restored disks.
+In this scenario, a partial failure happens where the disks are restored, but the VM isn't restored. This is because it's not possible to create a new VM from the restored disks.
 
-If the publisher doesn't have any Marketplace information, you can attach the restored disk(s) (that were created during partial failure) as data disks of an existing VM.
+If the publisher doesn't have any Marketplace information, you can attach the restored disk(s) (that were created during partial failure) as data disks to an existing VM.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
