@@ -40,8 +40,6 @@ The following partners offer pre-built solutions to support **conditional access
 
 - [Citrix Application Delivery Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md)
 
-- [Cloudflare](../manage-apps/cloudflare-azure-ad-integration.md)
-
 - [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
 
 - [F5 BIG-IP APM (ADC)](../manage-apps/f5-aad-integration.md)
@@ -63,6 +61,8 @@ The following partners offer pre-built solutions and detailed guidance for integ
 - [Check Point](../saas-apps/check-point-remote-access-vpn-tutorial.md)
 
 - [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
+
+- [Cloudflare](../manage-apps/cloudflare-azure-ad-integration.md)
 
 - [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
