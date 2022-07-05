@@ -35,7 +35,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 |--|--|--|
 | 22.2.3 | 07/2022 | 04/2023 |
 | 22.1.5 | 06/2022 | 03/2022 |
-| 22.1.5 | 06/2022 | 03/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -50,7 +49,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 **Sensor software version**: 22.2.3
 
-- [Bi-directional alert synch between sensors and the Azure portal (Public preview)](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
+- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
+- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
@@ -64,6 +64,16 @@ Defender for IoT’s new purchase experience and the Enterprise IoT integration 
 
 > [!NOTE]
 > The Enterprise IoT network sensor and all detections remain in Public Preview.
+
+### PCAP access from the Azure portal (Public preview)
+
+Now you can access the raw traffic files, known as packet capture files or PCAP files, directly from the Azure portal. This feature supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately.
+
+:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button." lightbox="media/release-notes/pcap-request.png":::
+
+PCAP files are downloaded to your Azure storage.
+
+For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md).
 
 ### Bi-directional alert synch between sensors and the Azure portal (Public preview)
 
