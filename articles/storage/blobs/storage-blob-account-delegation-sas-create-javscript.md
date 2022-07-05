@@ -34,21 +34,61 @@ An **Account SAS token** is one [type of SAS token](../common/storage-sas-overvi
 
 ## Add required dependencies to your application
 
-Include the required dependencies in your code.
+Include the required dependencies to create an account SAS token.
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_Dependencies":::
 
 ## Get environment variables to create shared key credential
 
-## Create an Account SAS token
+Use the Blob Storage account name and key to create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential). This key is required to create the SAS token and to use the SAS token.
 
 Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) by using the storage account name and account key. Then use the StorageSharedKeyCredential to initialize a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_StorageAcctInfo":::
-azure_storage-snippets
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_EnvironmentVariables":::
 
-## Create a client with SAS token
+## Async operation boilerplate
 
+The remaining sample code snippets assume the following async boilerplate code for Node.js. 
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_AsyncBoilerplate":::
+
+## Create SAS token
+
+Because this token can be used with blobs, queues, tables, and files, some of the settings are more broad than just blob options.
+
+1. Create the options object. 
+    
+    The scope of the abilities of a SAS token are defined by the [AccountSASSignatureValues](/javascript/api/@azure/storage-blob/accountsassignaturevalues). 
+
+    Use the following helper functions provided by the SDK to create the correct value types for the values:
+
+    * [AccountSASServices.parse("btqf").toString()](/javascript/api/@azure/storage-blob/accountsasservices):
+        * b: blob
+        * t: table
+        * q: query
+        * f: file
+    * [resourceTypes: AccountSASResourceTypes.parse("sco").toString()](/javascript/api/@azure/storage-blob/accountsasresourcetypes)
+        * s: service
+        * c: container - such as blob container, table or queue
+        * o: object - blob, row, message
+    * [permissions: AccountSASPermissions.parse("rwdlacupi")](/javascript/api/@azure/storage-blob/accountsaspermissions)
+        * r: read
+        * w: write
+        * d: delete
+        * l: list
+        * f: filter
+        * a: add
+        * c: create
+        * u: update
+        * t: tag access
+        * p: process - such as process messages in a queue 
+        * i: set immutability policy
+
+1. Pass the object to the [generateAccountSASQueryParameters](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateaccountsasqueryparameters) function, along with the [SharedKeyCredential](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateaccountsasqueryparameters), to create the SAS token. 
+
+    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="Snippet_GetSas":::
+
+1. Secure the SAS token until it is used. 
 
 ## Use Blob service with SAS token
 
