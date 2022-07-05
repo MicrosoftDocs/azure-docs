@@ -321,9 +321,16 @@ Only one field per table can be used for partitioning. That field is frequently 
 
 Ensure that statistics on data tables are up to date by building in a [statistics](../../sql/develop-tables-statistics.md) step to ETL/ELT jobs.
 
-#### PolyBase for data loading
+#### PolyBase or COPY INTO for data loading
 
-PolyBase is the most efficient method for loading large amounts of data into the warehouse since it can leverage parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
+[PolyBase](/sql/relational-databases/polybase) supports efficient loading of large amounts of data to a data warehouse by using parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
+
+[COPY INTO](/sql/t-sql/statements/copy-into-transact-sql) also supports high-throughput data ingestion, and:
+
+- Data retrieval from all files within a folder and subfolders.
+- Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
+- [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
+- CSV, PARQUET, and ORC file formats.
 
 #### Use workload management
 
