@@ -557,7 +557,7 @@ The output from the preceding example with the default values is:
 
 `split(inputArray, delimiter)`
 
-Joins multiple strings from an array of strings into a single string, separated using a delimiter.
+Joins a string array into a single string, separated using a delimiter.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -565,16 +565,16 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputArray |Yes |array of string |An array of string to join. |
-| delimiter |Yes  |The delimiter to use for splitting the string. |
+| inputArray | Yes |An array of string |An array of string to join. |
+| delimiter | Yes |The delimiter to use for splitting the string. |
 
 ### Return value
 
-A strings.
+A string.
 
 ### Examples
 
-The following example joins the input string array with either a comma or a semi-colon.
+The following example joins the input string array into strings delimited by either a comma or a semi-colon.
 
 ```bicep
 var arrayString = [

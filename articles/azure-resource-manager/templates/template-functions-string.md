@@ -505,7 +505,7 @@ The output from the preceding example with the default values is:
 
 `split(inputArray, delimiter)`
 
-Joins multiple strings from an array of strings into a single string, separated using a delimiter.
+Joins a string array into a single string, separated using a delimiter.
 
 In Bicep, use the [join](../bicep/bicep-functions-string.md#join) function.
 
@@ -522,11 +522,11 @@ A strings.
 
 ### Examples
 
-The following example joins the input string array with either a comma or a semi-colon.
+The following example joins the input string array into strings delimited by either a comma or a semi-colon.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/indexof.json":::
 
-The output from the preceding example with the default values is:
+The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
