@@ -15,9 +15,9 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-Azure Spring Apps have already provided articles which explains [how to expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [how to expose applications to the internet with end-to-end TLS at Application Gateway](./expose-apps-gateway-end-to-end-tls.md). But the problem is that the application gateway is a bit heavy to some users, it not only requires lots of steps to set up but also needs to pay for extra expense. 
+Azure Spring Apps have already provided articles which explains [how to expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [how to expose applications to the internet with end-to-end TLS at Application Gateway](./expose-apps-gateway-end-to-end-tls.md). These two methods work well but the problem is that the application gateway is a bit heavy to some users, not only the complicated setup but also the large extra expense.
 
-Azure Spring Apps provides a straight foward way for users to expose their applicatiosn to the internet. If you do not want to take the benefit of application gateway to do some advanced operations and only want to expose your applications to the internet, you could just use this feature.
+If you do not want to take the benefit of application gateway to do some advanced operations and only want to expose your applications to the internet. Azure Spring Apps provides a straightforward way for users to achieve. To use this feature, what you need to do is only one click on Azure portal or one command on Azure command line, and at the same time the extra expense is only one standard public IP for one Azure Spring Apps service, on matter how many apps you want to expose.
 
 ## Prerequisites
 
@@ -52,10 +52,16 @@ az spring app update \
     --assign-public-endpoint true
 ```
 
-## Access the application from both inside and outside the virtual network using the same url
+## Access the application from both inside and outside the virtual network using the Public URL
 
-To 
+To make the engineering work much easier, we provide the ability to let the **public URL** could be accessed both inside or outside the virtual network. To achieve that, follow [Access your application in a private network](./access-app-virtual-network.md) to bind the domain *.private.azuremicroservices.io to the service runtime Subnet private IP address in your private dns zone but keep the **Assign Endpoint** in disable state. Under that condition, the **public URL** could used to access the app from both inside and outside the virtual network. 
 
 ## Secure the traffic to the public endpoint
 
-Azure Spring Apps do not provide ways to secure the public endpoint but we strongly recommend you to sufficiently secure the endpoint with a network security group inbound security rule, review [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group).
+To ensure the security of your applications when you expose public endpoint for them, we strongly recommend you to sufficiently secure the endpoint by filtering network traffic to your service with network security group, review [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
+
+## Next steps
+
+- [Exposing applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
+- [Troubleshooting Azure Spring Apps in VNET](./troubleshooting-vnet.md)
+- [Customer Responsibilities for Running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md)
