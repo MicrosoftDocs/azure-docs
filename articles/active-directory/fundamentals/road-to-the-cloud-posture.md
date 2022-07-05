@@ -50,7 +50,7 @@ For customers with established on-premises IT capability, the transformation pro
 
 In enterprise-sized organizations, IAM transformation, or even transformation from AD to Azure AD is typically a multi-year effort with multiple states. You analyze your environment to determine your current state, and then set a goal for your next state. Your goal might remove the need for AD entirely, or you might decide not to migrate some capability to Azure AD and leave it in place. The states are meant to logically group initiatives into projects towards completing a transformation. During the state transitions, interim solutions are put in place. The interim solutions enable the IT environment to support IAM operations in both AD and Azure AD. The interim solutions must also enable the two environments to interoperate. The following diagram shows the five states:
 
-[ ![Five elements, each depicting a possible network architecture. Options include cloud attached, hybrid, cloud first, AD minimized, and 100% cloud.](media/road-to-cloud-posture/road-to-the-cloud-five-states.png) ](media/road-to-cloud-posture/road-to-the-cloud-five-states.png#lightbox)
+[ ![Diagram that shows five elements, each depicting a possible network architecture. Options include cloud attached, hybrid, cloud first, AD minimized, and 100% cloud.](media/road-to-cloud-posture/road-to-the-cloud-five-states.png) ](media/road-to-cloud-posture/road-to-the-cloud-five-states.png#lightbox)
 
 **State 1 Cloud attached** - In this state, organizations have created an Azure AD tenant to enable user productivity and collaboration tools and the tenant is fully operational. Most companies that use Microsoft products and services in their IT environment are already in or beyond this state. In this state operational costs may be higher because there's an on-premises environment and cloud environment to maintain and make interactive. Also, people must have expertise in both environments to support their users and the organization. In this state:
 
@@ -74,7 +74,7 @@ In enterprise-sized organizations, IAM transformation, or even transformation fr
 
 * New Windows clients are joined to Azure AD and are managed with Intune.
 * ECMA connectors are used for provision users and groups for on-premises apps.
-* All apps that were previously using an AD DS-integrated federated identity provider such as Active Directory Federation Services (ADFS), are updated to use Azure AD for authentication. And, if you were using password-based authentication via that identity provider for Azure AD, that is migrated to Password Hash Syncronization (PHS).
+* All apps that were previously using an AD DS-integrated federated identity provider such as Active Directory Federation Services (ADFS), are updated to use Azure AD for authentication. And, if you were using password-based authentication via that identity provider for Azure AD, that is migrated to Password Hash Synchronization (PHS).
 * Plans to shift file and print services to Azure AD are being developed.
 * Collaboration capability is provided by Azure AD B2B.
 * New groups are created and managed in Azure AD.
@@ -109,39 +109,14 @@ The transformation between the states is similar to moving locations:
 
 Transformation to the cloud isn't only the identity team's responsibility. Coordination across teams to define policies beyond technology that include people and process change are required. Using a coordinated approach helps to ensure consistent progress and reduces the risk of regressing to on-premises solutions. Involve teams that manage:
 
-:::row:::
-   :::column span="":::
-     * Device / endpoint
-   :::column-end:::
-   :::column span="":::
-     * Human resources
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-     * Networking
-   :::column-end:::
-   :::column span="":::
-     * Collaboration
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-     * Security / risk
-   :::column-end:::
-   :::column span="":::
-     * Procurement
-   :::column-end:::
-:::row-end:::
-
-:::row:::
-   :::column span="":::
-     * Application owners
-   :::column-end:::
-   :::column span="":::
-     * Operations
-   :::column-end:::
-:::row-end:::
+* Device/endpoint
+* Networking
+* Security/risk
+* Application owners
+* Human resources
+* Collaboration 
+* Procurement
+* Operations
 
 As a migration of IAM to Azure AD is started, organizations must determine the prioritization of efforts based on their specific needs. Teams of operational staff and support staff must be trained to perform their jobs in the new environment. The following shows the high-level journey for AD to Azure AD migration:
 
