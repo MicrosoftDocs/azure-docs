@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/03/2022
+ms.date: 07/05/2022
 
 ---
 
@@ -73,57 +73,66 @@ Next, create a container for storing blobs following the steps in the [Manage bl
 
 ## Mount Blob storage as a volume using NFS
 
-Mounting blob storage using the NFS v3 protocol does not authentication using an account key. Your AKS cluster needs to reside in the same or peered virtual network as the agent node. The only way to secure the data in your storage account is by using a virtual network and other network security settings. For more information on how to setup NFS access to your storage account, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md).
+Mounting blob storage using the NFS v3 protocol does not authenticate using an account key. Your AKS cluster needs to reside in the same or peered virtual network as the agent node. The only way to secure the data in your storage account is by using a virtual network and other network security settings. For more information on how to setup NFS access to your storage account, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md).
 
-The following example demonstrates how to mount a Blob storage container using the NFS protocol.
+The following example demonstrates how to mount a Blob storage container as a persistent volume using the NFS protocol.
 
-1. Create a `statefulset-nfs.yaml` file with a *PersistentVolume*. For example:
+1. Create a file named `azure-blob-nfs-pv.yaml` and copy in the following YAML.
 
     ```yml
-    ---
-    apiVersion: apps/v1
-    kind: StatefulSet
+    apiVersion: v1
+    kind: PersistentVolume
     metadata:
-      name: statefulset-blob
-      labels:
-        app: nginx
+      name: pv-blob
     spec:
-      serviceName: statefulset-blob
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app: nginx
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-            - name: statefulset-blob
-              image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
-              volumeMounts:
-                - name: persistent-storage
-                  mountPath: /mnt/blob
-      updateStrategy:
-        type: RollingUpdate
-      selector:
-        matchLabels:
-          app: nginx
-      volumeClaimTemplates:
-        - metadata:
-            name: persistent-storage
-            annotations:
-              volume.beta.kubernetes.io/storage-class: blob-nfs
-          spec:
-            accessModes: ["ReadWriteMany"]
-            resources:
-              requests:
-                storage: 100Gi
+      capacity:
+        storage: 10Gi
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
+      storageClassName: blob-nfs
+      mountOptions:
+        - nconnect=8  # only supported on linux kernel version >= 5.3
+      csi:
+        driver: blob.csi.azure.com
+        readOnly: false
+        # make sure this volumeid is unique in the cluster
+        # `#` is not allowed in self defined volumeHandle
+        volumeHandle: unique-volumeid
+        volumeAttributes:
+          resourceGroup: EXISTING_RESOURCE_GROUP_NAME
+          storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
+          containerName: EXISTING_CONTAINER_NAME
+          protocol: nfs
     ```
 
 2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
-    kubectl create -f statfulset-nfs.yaml
+    kubectl create -f azure-blob-nfs-pv.yaml
+    ```
+
+3. Create a file named `azure-blob-nfs-pvc.yaml` and copy in the following YAML.
+
+    ```yml
+    kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
+      name: pvc-blob
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 10Gi
+      volumeName: pv-blob
+      storageClassName: blob-nfs 
+    ```
+
+4. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
+
+    ```bash
+    kubectl create -f azure-blob-nfs-pvc.yaml
     ```
 
 ## Mount Blob storage as a volume using Blobfuse
