@@ -7,7 +7,7 @@ ms.subservice: single-server
 ms.author: pariks
 ms.custom: mvc
 ms.topic: troubleshooting
-ms.date: 5/21/2021
+ms.date: 06/20/2022
 ---
 
 # Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL

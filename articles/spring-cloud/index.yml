@@ -181,4 +181,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API reference
-            url: /rest/api/azurespringcloud/
+            url: /rest/api/azurespringcloud/?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json

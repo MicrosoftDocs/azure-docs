@@ -42,7 +42,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-[Review](./agent-based-migration-architecture.md) the migration architecture.
+- [Review](./agent-based-migration-architecture.md) the migration architecture.
+- [Review](/site-recovery/migrate-tutorial-windows-server-2008.md#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
 
 ## Prepare Azure
 
@@ -258,8 +259,6 @@ Now, select machines for migration.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
-
-![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
 15. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.

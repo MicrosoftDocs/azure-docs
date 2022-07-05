@@ -1,6 +1,6 @@
 ---
 title: Edit an API with the Azure portal  | Microsoft Docs
-description: Learn how to use API Management (APIM) to edit an API. Add, delete, or rename operations in the APIM instance, or edit the API's swagger.
+description: Learn how to use API Management to edit an API. Add, delete, or rename operations in the APIM instance, or edit the API's swagger.
 services: api-management
 documentationcenter: ''
 author: adrianhall
@@ -16,7 +16,7 @@ ms.author: adhal
 ---
 # Edit an API
 
-The steps in this tutorial show you how to use API Management (APIM) to edit an API.
+The steps in this tutorial show you how to use API Management to edit an API.
 
 + You can add, rename, or delete operations in the Azure portal.
 + You can edit your API's swagger.
@@ -28,9 +28,9 @@ The steps in this tutorial show you how to use API Management (APIM) to edit an 
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## Edit an API in APIM
+## Edit an operation
 
-![Screenshot that highlights the process for editing an API in APIM.](./media/edit-api/edit-api001.png)
+![Screenshot that highlights the process for editing an API in API Management.](./media/edit-api/edit-api001.png)
 
 1. Click the **APIs** tab.
 2. Select one of the APIs that you previously imported.
@@ -40,7 +40,7 @@ The steps in this tutorial show you how to use API Management (APIM) to edit an 
 
 ## Update the swagger
 
-You can update your backbend API from the Azure portal by following these steps:
+You can update your backend API from the Azure portal by following these steps:
 
 1. Select **All operations**
 2. Click pencil in the **Frontend** window.

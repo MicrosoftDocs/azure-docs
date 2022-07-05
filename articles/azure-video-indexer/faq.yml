@@ -45,6 +45,14 @@ sections:
         answer: |
           You can use the Azure Video Indexer web-based interface to evaluate, configure, and manage your account with **no coding required**.  When you are ready to develop more complex applications, you can use the [Azure Video Indexer API](https://api-portal.videoindexer.ai/) to integrate Azure Video Indexer into your own applications, web sites, or [custom workflows using serverless technologies like Azure Logic Apps](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) or Azure Functions.
 
+      - question: What are the Limited Access features of Azure Video Indexer and how to register? 
+        answer: |
+          Face Identify and Celebrity Recognition features of Azure Video Indexer are Limited Access features that require registration. 
+          
+          Find the registration form and more information about Limited Access in [this article](limited-access-features.md).
+          
+          Also, see the following: the [announcement blog post](https://aka.ms/AAh91ff) and  [investment and safeguard for facial recognition blog post](https://aka.ms/AAh9oye).
+
       - question: Do I need machine learning skills to use Azure Video Indexer?
         answer: No, Azure Video Indexer provides the integration of multiple machine learning models into one pipeline. Indexing a video or audio file via Azure Video Indexer retrieves a full set of insights extracted on one shared timeline without any machine learning skills or knowledge on algorithms needed on the customer's part.
 

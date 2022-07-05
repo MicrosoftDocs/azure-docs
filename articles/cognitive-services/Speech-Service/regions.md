@@ -34,12 +34,12 @@ In the [Speech SDK](speech-sdk.md), you specify the region as a parameter (for e
 
 The Speech service is available in these regions for speech-to-text, pronunciation assessment, text-to-speech, and translation:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-region-identifier.md)]
 
 If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can use the [Speech-to-text REST API v3.0](rest-speech-to-text.md) to [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
 
 > [!TIP]
-> For pronunciation assessment, `en-US` and `en-GB` are available in all regions listed above, `zh-CN` is available in East Asia and Southeast Asia regions, `es-ES` and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
+> For pronunciation assessment, `en-US` and `en-GB` are available in all regions listed above, `zh-CN` is available in East Asia and Southeast Asia regions, `de-DE`, `es-ES`, and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
 
 ### Intent recognition
 
@@ -152,7 +152,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
 > The language parameter must be appended to the URL to avoid receiving an HTTP error. For example, the language set to `US English` by using the `West US` endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
