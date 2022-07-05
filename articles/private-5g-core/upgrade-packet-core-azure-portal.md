@@ -26,7 +26,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 
 Carry out the following steps to upgrade the packet core instance.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
