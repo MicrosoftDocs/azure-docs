@@ -90,7 +90,7 @@ While a virtual switch doesn't have mirroring capabilities, you can use *Promisc
 
 *Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
 
-For more information, see [Purdue reference model and Defender for IoT](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot).
+For more information, see [Purdue reference model and Defender for IoT](../best-practices/understand-network-architecture.md#purdue-reference-model-and-defender-for-iot).
 
 ### Prerequisites
 
@@ -217,6 +217,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)
