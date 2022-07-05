@@ -25,9 +25,60 @@ First, you will need to enable SSH in your Windows machine.
 
 **Windows Server 2019 and newer**
 
-Follow the Windows Server documentation page
-[Get started with OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse)
+Following the Windows Server documentation page
+[Get started with OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse),
+run the command `Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0`
 to enable the built-in capability, start the service, and open the Windows Firewall port.
+
+You can use the Azure RunCommand extension to complete this task.
+
+# [Azure CLI](#tab/azurecli)
+
+```azurecli
+az vm run-command invoke -g myResourceGroup -n myVM --command-id RunPowerShellScript --scripts "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
+```
+
+# [Azure PowerShell](#tab/azurepowershell-interactive)
+
+```azurepowershell-interactive
+Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunPowerShellScript' -ScriptString "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
+```
+
+# [ARM template](#tab/json)
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines/runCommands",
+  "apiVersion": "2022-03-01",
+  "name": "[concat(parameters('VMName'), '/RunPowerShellScript')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "source": {
+      "commandId": "RunPowerShellScript",
+      "script": "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0",
+    },
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022-03-01' = {
+  name: 'RunPowerShellScript'
+  location: resourceGroup().location
+  parent: virtualMachine
+  properties: {
+    source: {
+      commandId: 'RunPowerShellScript'
+      script: "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
+    }
+  }
+}
+```
+
+---
+
 
 **Windows Server 2016 and older**
 
