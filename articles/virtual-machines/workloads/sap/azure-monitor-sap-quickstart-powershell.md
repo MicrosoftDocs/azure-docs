@@ -16,6 +16,9 @@ ms.custom: devx-track-azurepowershell, mode-api
 This article describes how you can create Azure Monitor for SAP Solutions resources using the
 [Az.HanaOnAzure](/powershell/module/az.hanaonazure/#sap-hana-on-azure) PowerShell module.
 
+>[!Note]
+>This content would only apply to Azure Monitor for SAP solutions (classic) version.
+
 > [!CAUTION]
 > Azure Monitor for SAP Solutions is currently in public preview. This preview version is provided without a service level agreement. It's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

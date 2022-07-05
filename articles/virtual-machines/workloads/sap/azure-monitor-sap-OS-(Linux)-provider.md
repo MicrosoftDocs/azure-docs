@@ -3,6 +3,9 @@
 > **Note**       
  > Applicable for Linux OS only 
 
+>![Note]
+> This content would apply to both new and classic version of Azure Monitor for SAP solutions.
+
 
 > **Important pre-requisite**      
  >  To configure an OS (Linux) provider, install [node-exporter is 1.3.0](https://prometheus.io/download/#node_exporter) in each host (BareMetal or virtual machine) you want to monitor. [Learn more](https://github.com/prometheus/node_exporter).    
@@ -27,4 +30,4 @@
 >      
 > If the Linux host is an Azure virtual machine (VM), ensure that all applicable network security groups allow inbound traffic at port 9100 from VirtualNetwork as the source.         
 
-2. When you're finished, select Add provider. Continue to add providers as needed, or select Review + create to complete the deployment.
+2. When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
