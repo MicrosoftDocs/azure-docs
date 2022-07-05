@@ -21,7 +21,6 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in July include:
 
 - [General availability (GA) of the Microsoft Defender containerized agent for AKS clusters](#general-availability-ga-of-the-microsoft-defender-containerized-agent-for-aks-clusters)
-- 
 ### General availability (GA) of the Microsoft Defender containerized agent for AKS clusters
 
 We're excited to share that Microsoft Defender containerized agent for AKS clusters is now generally available (GA)!
