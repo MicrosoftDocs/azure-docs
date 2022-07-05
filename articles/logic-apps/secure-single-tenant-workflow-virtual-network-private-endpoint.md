@@ -156,7 +156,7 @@ To secure outbound traffic from your logic app, you can integrate your logic app
    The HTTP action now runs successfully.
 
 > [!IMPORTANT]
-> For the Azure Logic Apps runtime to work, you need to have an uninterrupted connection to the backend storage. 
+> For the Azure Logic Apps runtime to work, you need to have an uninterrupted connection to the backend storage. If the backend storage is presented to the VNET via a private endpoint, outbound communication via port 445 (SMB) should be open between the subnet integrated to the logic apps standard instance and the private endpoint.
 > For Azure-hosted managed connectors to work, you need to have an uninterrupted connection to the managed API service.
 > With VNet integration, you need to make sure no firewall or network security policy is blocking these connections. 
 
