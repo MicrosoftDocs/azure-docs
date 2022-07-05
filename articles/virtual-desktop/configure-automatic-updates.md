@@ -18,7 +18,7 @@ You can update Windows 10 Enterprise multi-session and Windows 11 Enterprise mul
 
 To create this query-based collection, you'll need to do the following:
 
-   - Make sure you've installed the Microsoft Endpoint Configuration Manager Agent on your session host virtual machines (VMs).
+   - Make sure you've installed the Microsoft Endpoint Configuration Manager Agent on your session host virtual machines (VMs) and they're assigned to a site in Configuration Manager.
    - Make sure your version of Microsoft Endpoint Configuration Manager is at least on branch level 1910 for Windows 10, or 2107 for Windows 11.
 
 ## Create a query-based collection
