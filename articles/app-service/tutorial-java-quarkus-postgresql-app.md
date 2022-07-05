@@ -89,7 +89,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 Follow these steps to create an Azure PostgreSQL database in your subscription. The Quarkus Fruits app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
-3. Create the database service.
+1. Create the database service.
 
     ```azurecli
     DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
@@ -105,6 +105,8 @@ Follow these steps to create an Azure PostgreSQL database in your subscription. 
         --sku-name GP_Gen5_2
     ```
 
+    The following parameters are used in the above Azure CLI command:
+
    * *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-quarkus-postgres-webapp-rg`.
    * *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. (`msdocs-quarkus-postgres-webapp-db`)
    * *location* &rarr; Use the same location used for the web app.
@@ -115,9 +117,9 @@ Follow these steps to create an Azure PostgreSQL database in your subscription. 
        > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Java apps.
 
    * *public-access* &rarr; `None` which sets the server in public access mode with no firewall rules. Rules will be created in a later step.
-   * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `GP_Gen5_2`. Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
+   * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `GP_Gen5_2`. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
-4. Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command to give your local environment access to connect to the server.
+2. Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command to give your local environment access to connect to the server.
 
     ```azurecli
     az postgres server firewall-rule create \
@@ -138,7 +140,7 @@ Follow these steps to create an Azure PostgreSQL database in your subscription. 
       --start-ip-address 0.0.0.0 \
       --end-ip-address 0.0.0.0
     ```
-5. Create a database named `fruits` within the Postgres service with this command:
+3. Create a database named `fruits` within the Postgres service with this command:
 
     ```azurecli
     az postgres db create \
