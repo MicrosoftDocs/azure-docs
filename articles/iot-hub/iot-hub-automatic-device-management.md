@@ -26,7 +26,7 @@ Automatic device management works by updating a set of device twins or module tw
 
 * The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on twin reported properties.  System metrics are the default metrics that measure twin update status, such as the number of twins that are targeted and the number of twins that have been successfully updated.
 
-Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic configuration runs.
+Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic configuration runs. A maximum of 100 automatic configurations is supported on standard tier IoT hubs; ten on free tier IoT hubs. Throttling limits also apply. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Implement twins
 
@@ -48,6 +48,8 @@ Before you create a configuration, you must specify which devices or modules you
 ```
 
 ## Create a configuration
+
+You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 

@@ -88,7 +88,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
         --query "documentEndpoint"
     ```
 
-1. Find the *PRIMARY KEY* from the list of keys for the account with the[``az-cosmosdb-keys-list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+1. Find the *PRIMARY KEY* from the list of keys for the account with the [`az-cosmosdb-keys-list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
     az cosmosdb keys list \
@@ -173,7 +173,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the SQL API](/azure/cosmos-db/sql/introduction.md).
+1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the SQL API](../index.yml).
 
    :::image type="content" source="media/create-account-portal/cosmos-api-choices.png" lightbox="media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
 

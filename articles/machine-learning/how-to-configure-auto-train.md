@@ -31,7 +31,7 @@ If you prefer to submit training jobs with the Azure Machine learning CLI v2 ext
 ## Prerequisites
 
 For this article you need: 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 * The Azure Machine Learning Python SDK v2 (preview) installed.
     To install the SDK you can either, 
@@ -65,10 +65,10 @@ try:
     ml_client = MLClient.from_config(credential)
 except Exception as ex:
     print(ex)
-    # Enter details of your AML workspace
+    # Enter details of your AzureML workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
-    workspace = "<AML_WORKSPACE_NAME>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
     ml_client = MLClient(credential, subscription_id, resource_group, workspace)
 
 ```
@@ -96,7 +96,7 @@ transformations:
         encoding: 'ascii'
 ```
 
-Therefore, the MLTable folder would have the MLTable deinifition file plus the data file (the bank_marketing_train_data.csv file in this case).
+Therefore, the MLTable folder would have the MLTable definition file plus the data file (the bank_marketing_train_data.csv file in this case).
 
 The following shows two ways of creating an MLTable.
 - A. Providing your training data and MLTable definition file from your local folder and it'll be automatically uploaded into the cloud (default Workspace Datastore)
@@ -385,7 +385,7 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
-From Azure Machine Learning UI at the model's page you can also view the hyperparameters used when training a particular a particular model and also view and customize the internal model's training code used. 
+From Azure Machine Learning UI at the model's page you can also view the hyperparameters used when training a particular model and also view and customize the internal model's training code used. 
 
 ## Register and deploy models
 

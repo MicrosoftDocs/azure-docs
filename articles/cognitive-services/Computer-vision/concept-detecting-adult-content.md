@@ -18,6 +18,11 @@ ms.custom: seodec18
 
 Computer Vision can detect adult material in images so that developers can restrict the display of these images in their software. Content flags are applied with a score between zero and one so developers can interpret the results according to their own preferences.
 
+Try out the adult content detection features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
+
 ## Content flag definitions
 
 The "adult" classification contains several different categories:
