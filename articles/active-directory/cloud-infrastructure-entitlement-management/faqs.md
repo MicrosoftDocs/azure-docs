@@ -64,10 +64,6 @@ Permissions Management currently doesn't support hybrid environments.
 
 Permissions Management supports user identities (for example, employees, customers, external partners) and workload identities (for example, virtual machines, containers, web apps, serverless functions).
 
-<!---## Is Permissions Management General Data Protection Regulation (GDPR) compliant?
-
-Permissions Management is currently not GDPR compliant.--->
-
 ## Is Permissions Management available in Government Cloud?
 
 No, Permissions Management is currently not available in Government clouds.
@@ -145,6 +141,32 @@ If a customer initiates a free Permissions Management 90-day trial, but does not
 If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 90 days of license termination.  
 
 We also have the ability to remove, export or modify specific data should the Global Admin using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+
+## Do I require a license to use Entra Permissions Management? 
+
+Yes, as of July 1st, 2022, new customers must acquire a free 90-trial license or a paid license to use the service. You can enable a trial or purchase licenses here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement)
+ 
+## What do I do if I’m using Public Preview version of Entra Permissions Management?  
+
+If you are using the Public Preview version of Entra Permissions Management, your current deployment(s) will continue to work through October 1st.  
+
+After October 1st you will need to move over to use the newly released version of the service and enable a 90-day trial or purchase licenses to continue using the service.  
+
+## What do I do if I’m using the legacy version of the CloudKnox service?  
+
+We are currently working on developing a migration plan to help customers on the original CloudKnox service move to the new Entra Permissions Management service later in 2022.   
+
+## Can I use Entra Permissions Management in the EU?  
+
+Yes, the product is compliant.  
+
+## How to I enable one of the new 18 languages supported in the GA release? 
+
+We are now localized in 18 languages. We respect your browser setting or you can manually enable your language of choice by adding a query string suffix to your Entra Permissions Management URL:  
+
+`?lang=xx-XX` 
+
+Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-DE', 'en-US', 'es-ES', 'fr-FR', 'hu-HU', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sv-SE', 'tr-TR', 'zh-CN', or 'zh-TW'. 
 
 ## Resources
 
