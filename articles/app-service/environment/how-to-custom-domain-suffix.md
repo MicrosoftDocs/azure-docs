@@ -3,14 +3,12 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.date: 07/01/2022
+ms.date: 07/05/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
 
 # Custom domain suffix for App Service Environments
-
-## Overview
 
 An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. The DNS settings for your App Service Environment's default domain suffix don't restrict your apps to only being accessible by those names. Custom domain suffix is an internal load balancer (ILB) App Service Environment feature that allows you to use your own domain suffix to access the apps in your App Service Environment.
 
@@ -174,7 +172,7 @@ To configure DNS in Azure DNS private zones:
 
 For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#dns-configuration).
 
-## Access your Apps
+## Access your apps
 
 After configuring the custom domain suffix and DNS for your App Service Environment, you can go to the **Custom domains** page for one of your App Service apps in your App Service Environment and confirm the addition of the assigned custom domain for the app. 
 
