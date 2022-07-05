@@ -261,7 +261,7 @@ Azure Monitor collects application logs and stores them in a Log Analytics works
 There are two types of logs for Container Apps.  
 
 1. System logs, which originate from the container app.
-1. Console logs, which originate from containers and from sidecars. 
+1. Console logs, which originate from containers and sidecars. 
 
 
 ### Container Apps System Logs
