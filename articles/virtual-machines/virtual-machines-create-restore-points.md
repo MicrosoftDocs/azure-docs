@@ -41,7 +41,7 @@ VM restore points are incremental. The first restore point stores a full copy of
 - Concurrent creation of restore points for a VM is not supported. 
 - Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM IDs between the actual VM and the restore points. 
  > [!Note]
- > Public preview of cross-region creation and copying of VM restore points are available, with the following limitations: 
+ > Public preview of cross-region creation and copying of VM restore points is available, with the following limitations: 
  > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 
  > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
 

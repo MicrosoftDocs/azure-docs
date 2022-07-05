@@ -14,19 +14,6 @@ ms.custom: template-concept
 This article summarizes support settings and limitations for using [VM restore points](virtual-machines-create-restore-points.md).
 
 
-## Limitations
-
-- Restore points are supported only for managed disks. 
-- Ultra-disks, Ephemeral OS disks, and Shared disks are not supported. 
-- Restore points APIs require an API of version 2021-03-01 or higher. 
-- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
-- Concurrent creation of restore points for a VM is not supported. 
-- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
- > [!Note]
- > Public preview of cross-region creation and copying of VM restore points are available, with the following limitations: 
- > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 
- > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
-
 ## VM restore points support matrix
 
 The following table summarizes the support for local region VM restore points.
@@ -87,6 +74,19 @@ The following table summarizes the support for local region VM restore points.
 **VMs that are part of Azure Batch** | Yes
 **VMs that are part of Service Fabric Mesh** | Yes
 **VMs that are part of App Service** | Yes
+
+## Limitations
+
+- Restore points are supported only for managed disks. 
+- Ultra-disks, Ephemeral OS disks, and Shared disks are not supported. 
+- Restore points APIs require an API of version 2021-03-01 or higher. 
+- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
+- Concurrent creation of restore points for a VM is not supported. 
+- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
+ > [!Note]
+ > Public preview of cross-region creation and copying of VM restore points is available, with the following limitations: 
+ > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 
+ > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
 
 ## Next steps
 
