@@ -30,11 +30,12 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
-* Disabling of the KMS etcd encryption feature.
 * Deletion of the key, Key Vault, or the associated identity.
 * KMS etcd encryption doesn't work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity isn't available until cluster creation, thus there's a cycle dependency. 
 * Using more than 2000 secrets in a cluster.
 * Bring your own (BYO) Azure Key Vault from another tenant.
+
+KMS supports [public key vault](Enable KMS with public key vault) and [public key vault](Enable KMS with private key vault) now. 
 
 ## Enable KMS with public key vault
 
@@ -139,19 +140,25 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 AKS cluster will create a private endpoint and private link in the node resource group automatically. The key vault will be added a private endpoint connection with the AKS cluster.
 
-### Create or update a private key vault
+### Create a private key vault and key
 
 > [!WARNING]
 > Deleting the key or the Azure Key Vault is not supported and will cause your cluster to become unstable.
 > 
 > If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
 
-#### Create a private key vault and key
+Without private endpoint, we could not create or update keys in private key vault. Thus we would create a key vault and key first, then update the key vault to private mode. For existing private key vault, you could refer to [Integrate Key Vault with Azure Private Link](private-link-service.md).
 
-Use `az keyvault create` to create a KeyVault.
+Use `az keyvault create` to create a public KeyVault.
 
 ```azurecli
-az keyvault create --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disable
+az keyvault create --name MyKeyVault --resource-group MyResourceGroup 
+```
+
+Use `az keyvault create` to create a public KeyVault.
+
+```azurecli
+az keyvault show --name cocotestkeyvaultdudu --query 'id' -o tsv
 ```
 
 Use `az keyvault key create` to create a key.
@@ -169,14 +176,12 @@ echo $KEY_ID
 
 The above example stores the Key ID in *KEY_ID*.
 
-#### Update an existing key vault to private 
-
-Use below command to disable public access of existing key vault:
+Use `az keyvault update` to disable public access of existing key vault:
 
 ```azurecli
 az keyvault update --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disable
 ```
- 
+
 ### Create a user-assigned managed identity
 
 Use `az identity create` to create a User-assigned managed identity.
@@ -210,6 +215,8 @@ Use `az keyvault set-policy` to create an Azure KeyVault policy.
 ```azurecli-interactive
 az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
+
+az role assignment create --role “Key Vault Contributor” --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope /subscriptions/8ecadfc9-d1a3-4ea4-b844-0d9f87e4d7c8/resourceGroups/kmsgatest/providers/Microsoft.KeyVault/vaults/kmskeyvaultcoco
 
 ### Create an AKS cluster with private key vault and enable KMS etcd encryption 
 
@@ -264,3 +271,5 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-update]: /cli/azure/aks#az_aks_update
+[Enable KMS with public key vault]:use-kms-etcd-encryption.md#enable-kms-with-public-key-vault
+[Enable KMS with private key vault]:use-kms-etcd-encryption.md#enable-kms-with-private-key-vault
