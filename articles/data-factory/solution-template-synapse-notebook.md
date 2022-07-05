@@ -2,7 +2,7 @@
 title: Call Synapse pipeline with a notebook activity
 description:  Learn how to use a solution template to call a Synapse pipeline with a notebook activity in Azure Data Factory.
 ms.author: chugu
-author: chugugrace
+author: chugugracegrace
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual

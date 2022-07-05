@@ -6,8 +6,8 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/15/2022
-author: chugu
-ms.author: chugugrace
+author: chugugrace
+ms.author: chugu
 ms.custom: subject-rbac-steps
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule

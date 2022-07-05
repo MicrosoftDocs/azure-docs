@@ -1,7 +1,7 @@
 ---
 title: Migrate on-premises SQL Server Integration Services (SSIS) jobs to Azure Data Factory  
 description: This article describes how to migrate SQL Server Integration Services (SSIS) jobs to Azure Data Factory pipelines/activities/triggers by using SQL Server Management Studio.
-author: chugugrace
+author: chugugracegrace
 ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services

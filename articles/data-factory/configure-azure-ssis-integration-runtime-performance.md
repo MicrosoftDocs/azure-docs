@@ -5,8 +5,8 @@ ms.date: 02/15/2022
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
-author: chugu
-ms.author: chugugrace
+author: chugugrace
+ms.author: chugu
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 

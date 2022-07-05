@@ -4,8 +4,8 @@ description: Learn how to configure a self-hosted integration runtime as a proxy
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-author: chugu
-ms.author: chugugrace
+author: chugugrace
+ms.author: chugu
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 02/16/2022
 ---
