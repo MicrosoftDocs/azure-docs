@@ -22,6 +22,7 @@ Resource Manager provides the following functions for working with strings in yo
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [join](#join)
 * [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
@@ -499,6 +500,38 @@ The output from the preceding example with the default values is:
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## join
+
+`split(inputArray, delimiter)`
+
+Joins multiple strings from an array of strings into a single string, separated using a delimiter.
+
+In Bicep, use the [join](../bicep/bicep-functions-string.md#join) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array of string |An array of string to join. |
+| delimiter |Yes  |The delimiter to use for splitting the string. |
+
+### Return value
+
+A strings.
+
+### Examples
+
+The following example joins the input string array with either a comma or a semi-colon.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/indexof.json":::
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | "one,two,three" |
+| secondOutput | String | "one;two;three" |
 
 <a id="json"></a>
 
