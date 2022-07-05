@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 07/05/2022
 ms.author: pafarley
 ---
 
@@ -23,7 +23,7 @@ After you train your Custom Vision model, you can quickly test it using a locall
 
     ![The Quick Test button is shown in the upper right corner of the window.](./media/test-your-model/quick-test-button.png)
 
-2. In the **Quick Test** window, select in the **Submit Image** field and enter the URL of the image you want to use for your test. If you want to use a locally stored image instead, select the **Browse local files** button and select a local image file.
+1. In the **Quick Test** window, select in the **Submit Image** field and enter the URL of the image you want to use for your test. If you want to use a locally stored image instead, select the **Browse local files** button and select a local image file.
 
     ![Image of the submit image page](./media/test-your-model/submit-image.png)
 
@@ -40,7 +40,7 @@ You can now take the image submitted previously for testing and use it to retrai
     > [!TIP]
     > The default view shows images from the current iteration. You can use the __Iteration__ drop down field to view images submitted during previous iterations.
 
-2. Hover over an image to see the tags that were predicted by the classifier.
+1. Hover over an image to see the tags that were predicted by the classifier.
 
     > [!TIP]
     > Images are ranked, so that the images that can bring the most gains to the classifier are at the top. To select a different sorting, use the __Sort__ section.
@@ -49,7 +49,7 @@ You can now take the image submitted previously for testing and use it to retrai
 
     ![Image of the tagging page](./media/test-your-model/tag-image.png)
 
-3. Use the __Train__ button to retrain the classifier.
+1. Use the __Train__ button to retrain the classifier.
 
 ## Next steps
 
