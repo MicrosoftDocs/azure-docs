@@ -40,7 +40,7 @@ In this article, you'll learn to:
 * The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
 
-## 1. Connect to Azure Machine Learning workspace
+## Connect to Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
 
@@ -67,10 +67,10 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
     ```python
-    # enter details of your AML workspace
+    # enter details of your AzureML workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
-    workspace = "<AML_WORKSPACE_NAME>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
     ```
 
     ```python

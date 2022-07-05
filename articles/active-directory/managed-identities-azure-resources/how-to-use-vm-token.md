@@ -4,7 +4,7 @@ description: Step-by-step instructions and examples for using managed identities
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 editor: 
 
 ms.service: active-directory

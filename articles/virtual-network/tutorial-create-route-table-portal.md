@@ -373,7 +373,7 @@ In this section, you'll turn on IP forwarding for the operating system of **myVM
 
 ## Test the routing of network traffic
 
-You'll test routing of network traffic using [tracert](/windows-server/administration/windows-commands/tracert.md) tool from **myVMPublic** VM to **myVMPrivate** VM, and then you'll test the routing in the opposite direction.
+You'll test routing of network traffic using [tracert](/windows-server/administration/windows-commands/tracert) tool from **myVMPublic** VM to **myVMPrivate** VM, and then you'll test the routing in the opposite direction.
 
 ### Test network traffic from myVMPublic VM to myVMPrivate VM
 

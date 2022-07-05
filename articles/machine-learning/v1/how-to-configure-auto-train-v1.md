@@ -29,7 +29,7 @@ If you prefer a no-code experience, you can also [Set up no-code AutoML training
 ## Prerequisites
 
 For this article you need, 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
 * The Azure Machine Learning Python SDK installed.
     To install the SDK you can either, 
