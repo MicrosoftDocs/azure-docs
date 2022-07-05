@@ -45,3 +45,5 @@ landingContent:
         links:
           - text: Run tests across multiple operating systems
             url: how-to-cross-platform-tests.md
+          - text: Run Playwright tests in the cloud
+            url: how-to-run-with-playwright-testing.md
