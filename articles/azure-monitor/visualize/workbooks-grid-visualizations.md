@@ -3,7 +3,7 @@ title: Azure Monitor workbook grid visualizations
 description: Learn about all the Azure Monitor workbook grid visualizations.
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 07/05/2022
 ms.author: abbyweisberg
 ---
 
@@ -17,7 +17,7 @@ The example below shows a grid that combines icons, heatmaps, and spark-bars to 
 
 ## Adding a log-based grid
 
-1. Switch the workbook to edit mode by clicking on the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
 2. Select **Add query** to add a log query control to the workbook.
 3. Select the query type as **Log**, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis (for example, VMs with memory below a threshold)
@@ -113,7 +113,7 @@ The units of measurement available are:
 
 | Unit of measurement | Definition           |
 |:--------------------|:---------------------|
-| ch                  | characters (default) |
+| ch                  | characters (default) |ep
 | px                  | pixels               |
 | fr                  | fractional units     |
 | %                   | percentage           |
