@@ -11,33 +11,31 @@ ms.author: victorh
 
 # Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 
-This article shows you how can protect Azure Kubernetes Service (AKS) clusters by using Azure Firewall to secure outbound and inbound traffic.
+This article shows you how you can protect Azure Kubernetes Service (AKS) clusters by using Azure Firewall to secure outbound and inbound traffic.
 
 ## Background
 
 Azure Kubernetes Service (AKS) offers a managed Kubernetes cluster on Azure. For more information, see [Azure Kubernetes Service](../aks/intro-kubernetes.md).
 
-Despite AKS being a fully managed solution, it does not offer a built-in solution to secure ingress and egress traffic between the cluster and external networks. Azure Firewall offers a solution to this, but the problem is not as straight forward as it may seem.
+Despite AKS being a fully managed solution, it does not offer a built-in solution to secure ingress and egress traffic between the cluster and external networks. Azure Firewall offers a solution to this.
 
-These AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (pre-configured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). This is where the challenges start. For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs) describing these outbound dependencies.
-
- This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down the outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
+AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (pre-configured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs) describing these outbound dependencies. This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
  
-However, in a production environment, communications with a Kubernetes cluster should be protected to prevent against data exfiltration along with other vulnerabilities. All incoming and outgoing network traffic must be monitored and controlled based on a set of security rules. If you want to do this, you'll restrict egress traffic, but a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks and satisfy those outbound dependencies previously mentioned.
+However, in a production environment, communications with a Kubernetes cluster should be protected to prevent against data exfiltration along with other vulnerabilities. All incoming and outgoing network traffic must be monitored and controlled based on a set of security rules. If you want to do this, you will have to restrict egress traffic, but a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks and satisfy those outbound dependencies previously mentioned.
  
-The simplest solution uses a firewall device that can control outbound traffic based on domain names. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination, giving you fine-grained egress traffic control, but at the same time allows you to provide access to the FQDNs encompassing an AKS cluster’s outbound dependencies (something that NSGs cannot do). Likewise, you can control ingress traffic and improve security by enabling threat intelligence-based filtering on an Azure Firewall deployed to a shared perimeter network. This filtering can provide alerts and deny traffic to and from known malicious IP addresses and domains.
+The simplest solution uses a firewall device that can control outbound traffic based on domain names. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination, giving you fine-grained egress traffic control, but at the same time allows you to provide access to the FQDNs encompassing an AKS cluster’s outbound dependencies (something that NSGs cannot do). Likewise, you can control ingress traffic and improve security by enabling threat intelligence-based filtering on an Azure Firewall deployed to a shared perimeter network. This filtering can provide alerts, and deny traffic to and from known malicious IP addresses and domains.
 
 See the following video by Abhinav Sriram for a quick overview on how this works in practice on a sample environment:
 
 \<video gets embedded here like Jorge Cortes video on the current page\>
 
-You can download a zip file that contains a bash script file and a yaml file to automatically configure the sample environment used in the video. It configures Azure Firewall to protect both ingress and egress traffic. The following procedure walks through each step of the script in more detail so you can set up a custom configuration. 
+You can download a zip file that contains a bash script file and a yaml file to automatically configure the sample environment used in the video. It configures Azure Firewall to protect both ingress and egress traffic. The guide(s) below walk through each step of the script in more detail so you can set up a custom configuration. 
 
-The following diagram shows the sample environment:
+The following diagram shows the sample environment from the video that the script and guide configure:
 
 :::image type="content" source="media/protect-azure-kubernetes-service/aks-firewall.png" alt-text="A K S cluster with Azure Firewall for ingress egress filtering":::
 
-There is one difference between the script and the following procedures. The script uses managed identities, but the following procedures use a service principal. This shows you two different ways to create an identity to manage and create cluster resources.
+There is one difference between the script and the guide below. The script uses managed identities, but the guide below use a service principal. This shows you two different ways to create an identity to manage and create cluster resources.
 
 ## Restrict Egress Traffic Using Azure Firewall
 
