@@ -21,21 +21,8 @@ items:
   - name: Create data factory - Copy data tool
     href: quickstart-create-data-factory-copy-data-tool.md
     displayName: timeout
-  - name: Create data factory - Azure CLI
-    href: quickstart-create-data-factory-azure-cli.md
-  - name: Create data factory - Azure PowerShell
-    href: quickstart-create-data-factory-powershell.md
-  - name: Create data factory - .NET
-    href: quickstart-create-data-factory-dot-net.md
-  - name: Create data factory - Python
-    href: quickstart-create-data-factory-python.md
-  - name: Create data factory - REST
-    href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: quickstart-create-data-factory-bicep.md
   - name: Create data factory - ARM template
-    displayName: Resource Manager
+    displayName: ARM, Resource Manager, Template
     href: quickstart-create-data-factory-resource-manager-template.md
   - name: Create data flow
     href: data-flow-create.md
@@ -304,6 +291,20 @@ items:
     href: concepts-data-redundancy.md
 - name: How-to guides 
   items:
+  - name: Create Data Factory Programmatically
+    items:
+    - name: Create data factory - Azure CLI
+      href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Create data factory - .NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Create data factory - Python
+      href: quickstart-create-data-factory-python.md
+    - name: Create data factory - REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Create data factory - Bicep
+      href: quickstart-create-data-factory-bicep.md
   - name: Author
     items:
     - name: Visually author data factories
