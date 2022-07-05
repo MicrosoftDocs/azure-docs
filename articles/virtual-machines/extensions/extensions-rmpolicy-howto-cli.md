@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.author: gabsta
 author: MsGabsta
 ms.collection: linux
-ms.date: 07/01/2022
+ms.date: 07/05/2022
 
 ---
 
@@ -41,7 +41,7 @@ Copy and paste the following `.json` data into the file.
 			},
 			{
 				"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
-				"equals": "Microsoft.Compute"
+				"equals": "Microsoft.OSTCExtensions"
 			},
 			{
 				"field": "Microsoft.Compute/virtualMachines/extensions/type",

@@ -22,7 +22,7 @@ If you are using a different API, see [SQL API](../how-to-provision-container-th
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account), or select an existing Azure Cosmos account.
+1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-an-azure-cosmos-db-account), or select an existing Azure Cosmos account.
 
 1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
 
