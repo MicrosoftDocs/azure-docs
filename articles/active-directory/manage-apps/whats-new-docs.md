@@ -13,14 +13,14 @@ manager: CelesteDG
 
 # Azure Active Directory application management: What's new
 
-Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
 
 ## June 2022
 
 ### Updated articles
 
 - [Protect against consent phishing](protect-against-consent-phishing.md)
-- [Request to Publish your application in the Azure Active Directory application gallery](v2-howto-app-gallery-listing.md)
+- [Request to publish your application in the Azure AD application gallery](v2-howto-app-gallery-listing.md)
 
 ## May 2022
 
@@ -30,9 +30,9 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### Updated articles
 
-- [Tutorial: Configure Datawiza with Azure Active Directory for secure hybrid access](datawiza-with-azure-ad.md)
+- [Tutorial: Configure Datawiza with Azure AD for secure hybrid access](datawiza-with-azure-ad.md)
 - [Tutorial: Manage certificates for federated single sign-on](tutorial-manage-certificates-for-federated-single-sign-on.md)
-- [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta federation to Azure AD-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
 - [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
 
 ## March 2022
@@ -46,9 +46,9 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 - [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 - [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-- [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md)
+- [Integrate F5 BIG-IP with Azure AD](f5-aad-integration.md)
 - [Manage app consent policies](manage-app-consent-policies.md)
-- [Plan Azure Active Directory My Apps configuration](my-apps-deployment-plan.md)
+- [Plan Azure AD My Apps configuration](my-apps-deployment-plan.md)
 - [Quickstart: View enterprise applications](view-applications-portal.md)
 - [Review admin consent requests](review-admin-consent-requests.md)
 - [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP SSO](f5-big-ip-ldap-header-easybutton.md)
