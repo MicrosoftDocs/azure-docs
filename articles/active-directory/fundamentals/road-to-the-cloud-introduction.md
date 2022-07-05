@@ -16,9 +16,9 @@ ms.custom: references_regions
 
 This content provides guidance to move:
 
-**From** - Active Directory (AD) and other non-cloud based services, either hosted on-premises or Infrastructure-as-a-Service (IaaS), that provide identity management (IDM), identity and access management (IAM) and device management.
+ * **From** - Active Directory (AD) and other non-cloud based services, either hosted on-premises or Infrastructure-as-a-Service (IaaS), that provide identity management (IDM), identity and access management (IAM) and device management.
 
-**To** - Azure Active Directory (Azure AD) and other Microsoft cloud native solutions for identity management (IDM), identity and access management (IAM), and device management.
+* **To** - Azure Active Directory (Azure AD) and other Microsoft cloud native solutions for identity management (IDM), identity and access management (IAM), and device management.
 
 >[!NOTE]
 > In this content, when we refer to AD, we are referring to Windows Server Active Directory Domain Services.
