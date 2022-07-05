@@ -62,5 +62,21 @@ az policy assignment list --query "[?contains(displayName,'Container Registries'
 ```
 
 
+## Clean up resources
 
-# Configure conditional access to Azure Container Registry
+To remove the assignment created, use the following command:
+
+```azurecli-interactive
+az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+```
+
+
+## Next steps
+
+To learn more about assigning policies to validate that new resources are compliant, continue to the
+tutorial for:
+
+> [!div class="nextstepaction"]
+> [Creating and managing policies](./tutorials/create-and-manage.md)
+
+
