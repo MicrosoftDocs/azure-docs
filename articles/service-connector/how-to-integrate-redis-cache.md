@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/13/2022
 ---
 
 # Integrate Azure Cache for Redis with Service Connector
@@ -16,73 +16,63 @@ This page shows the supported authentication types and client types of Azure Cac
 ## Supported compute service
 
 - Azure App Service
+- Azure Container Apps
 - Azure Spring Cloud
 
 ## Supported Authentication types and client types
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
-| --- | --- | --- | --- | --- |
-| .NET (StackExchange.Redis) | | | ![yes icon](./media/green-check.png) | |
-| Java (Jedis) | | | ![yes icon](./media/green-check.png) | |
-| Java - Spring Boot (spring-boot-starter-data-redis) | | | ![yes icon](./media/green-check.png) | |
-| Node.js (node-redis) | | | ![yes icon](./media/green-check.png) | |
-| Python (redis-py) | | | ![yes icon](./media/green-check.png) | |
-| Go (go-redis) | | | ![yes icon](./media/green-check.png) | |
+| Client type                                         | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
+|-----------------------------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET (StackExchange.Redis)                          |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (Jedis)                                        |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (spring-boot-starter-data-redis) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js (node-redis)                                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python (redis-py)                                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Go (go-redis)                                       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 
 ## Default environment variable names or application properties
 
-### .NET (StackExchange.Redis) 
+Use the connection details below to connect compute services to Redis Server. For each example below, replace the placeholder texts `<redis-server-name>`, and `<redis-key>` with your own Redis server name and key.
 
-**Secret/ConnectionString**
+### .NET (StackExchange.Redis) secret / connection string
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_REDIS_CONNECTIONSTRING | StackExchange.Redis connection string | `{redis-server}.redis.cache.windows.net:6380,password={redis-key},ssl=True,defaultDatabase=0` |
+| Default environment variable name | Description                            | Example value                                                                                      |
+|-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------------------------|
+| AZURE_REDIS_CONNECTIONSTRING      | StackExchange. Redis connection string | `<redis-server-name>.redis.cache.windows.net:6380,password=<redis-key>,ssl=True,defaultDatabase=0` |
 
-### Java (Jedis)
+### Java (Jedis) secret / connection string
 
-**Secret/ConnectionString**
+| Default environment variable name | Description             | Example value                                                              |
+|-----------------------------------|-------------------------|----------------------------------------------------------------------------|
+| AZURE_REDIS_CONNECTIONSTRING      | Jedis connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_REDIS_CONNECTIONSTRING | Jedis connection string | `rediss://:{redis-key}@{redis-server}.redis.cache.windows.net:6380/0` |
+### Java - Spring Boot (spring-boot-starter-data-redis) secret / connection string
 
-### Java - Spring Boot (spring-boot-starter-data-redis)
+| Application properties | Description    | Example value                                 |
+|------------------------|----------------|-----------------------------------------------|
+| spring.redis.host      | Redis host     | `<redis-server-name>.redis.cache.windows.net` |
+| spring.redis.port      | Redis port     | `6380`                                        |
+| spring.redis.database  | Redis database | `0`                                           |
+| spring.redis.password  | Redis key      | `<redis-key>`                                 |
+| spring.redis.ssl       | SSL setting    | `true`                                        |
 
-**Secret/ConnectionString**
+### Node.js (node-redis) secret / connection string
 
-| Application properties | Description | Example value |
-| --- | --- | --- |
-| spring.redis.host | Redis host | `{redis-server}.redis.cache.windows.net` |
-| spring.redis.port | Redis port | `6380` |
-| spring.redis.database | Redis database | `0` |
-| spring.redis.password | Redis key | `{redis-key}` |
-| spring.redis.ssl | SSL setting | `true` |
+| Default environment variable name | Description                  | Example value                                                              |
+|-----------------------------------|------------------------------|----------------------------------------------------------------------------|
+| AZURE_REDIS_CONNECTIONSTRING      | node-redis connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
 
-### Node.js (node-redis) 
+### Python (redis-py) secret / connection string
 
-**Secret/ConnectionString**
+| Default environment variable name | Description                | Example value                                                              |
+|-----------------------------------|----------------------------|----------------------------------------------------------------------------|
+| AZURE_REDIS_CONNECTIONSTRING      | redis-py connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
 
-| Default environment variable name | Description | Example value |
-|---------|---------|---------|
-| AZURE_REDIS_CONNECTIONSTRING | node-redis connection string | `rediss://:{redis-key}@{redis-server}.redis.cache.windows.net:6380/0` |
+### Go (go-redis) secret / connection string
 
-
-### Python (redis-py)
-
-**Secret/ConnectionString**
-
-| Default environment variable name | Description | Example value |
-|---------|---------|---------|
-| AZURE_REDIS_CONNECTIONSTRING | redis-py connection string | `rediss://:{redis-key}@{redis-server}.redis.cache.windows.net:6380/0` |
-
-### Go (go-redis)
-
-**Secret/ConnectionString**
-
-| Default environment variable name | Description | Example value |
-|---------|---------|---------|
-| AZURE_REDIS_CONNECTIONSTRING | redis-py connection string | `rediss://:{redis-key}@{redis-server}.redis.cache.windows.net:6380/0` |
+| Default environment variable name | Description                | Example value                                                              |
+|-----------------------------------|----------------------------|----------------------------------------------------------------------------|
+| AZURE_REDIS_CONNECTIONSTRING      | redis-py connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
 
 ## Next steps
 

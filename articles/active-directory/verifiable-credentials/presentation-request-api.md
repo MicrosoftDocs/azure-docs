@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 05/26/2022
+ms.date: 06/02/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued.
@@ -64,7 +64,7 @@ The following permission is required to call the Request Service REST API. For m
 
 | Permission type | Permission  |
 |---------|---------|
-| Application | bbb94529-53a3-4be5-a069-7eaf2712b826/.default|
+| Application | 3db474b9-6a0c-4840-96ac-1fceb342124f/.default |
 
 ## Presentation request payload
 
@@ -146,7 +146,7 @@ The Request Service REST API generates several events to the callback endpoint. 
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `url` | string| URI to the callback endpoint of your application. The URI must point to a reacheable endpoint on the internet otherwise the service will throw a callback URL unreadable error. Accepted inputs IPv4, IPv6 or DNS resolvable hostname. |
+| `url` | string| URI to the callback endpoint of your application. The URI must point to a reachable endpoint on the internet otherwise the service will throw a callback URL unreadable error. Accepted inputs IPv4, IPv6 or DNS resolvable hostname. |
 | `state` | string| Associates with the state passed in the original payload. |
 | `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The current supported header values are the `api-key` or the `Authorization` headers. Any other header will throw an invalid callback header error.|
 

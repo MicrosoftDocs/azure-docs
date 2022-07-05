@@ -4,7 +4,7 @@ description: Overview of VM insights, which monitors the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/08/2022
+ms.date: 06/21/2022
 ---
 
 # Overview of VM insights
@@ -12,7 +12,7 @@ ms.date: 06/08/2022
 VM insights monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. It can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues and can also help you understand whether an issue is related to other dependencies.
 
 > [!NOTE]
-> VM insights does not currently support [Azure Monitor agent](../agents/azure-monitor-agent-overview.md). You can 
+> VM insights does not currently support [Azure Monitor agent](../agents/azure-monitor-agent-overview.md).
 
 VM insights supports Windows and Linux operating systems on the following machines:
 

@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/18/2022
+ms.date: 06/13/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -72,7 +72,7 @@ Exclusions can be configured to apply to a specific set of WAF rules, to ruleset
 
 ### Per-rule exclusions
 
-You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation.
+You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation. To exclude a complete group of rules, only provide the `ruleGroupName` parameter, the `rules` parameter is only useful when you want to limit the exclusion to specific rules of a group.
 
 Per-rule exclusions are available when you use the OWASP (CRS) ruleset version 3.2 or later.
 
@@ -145,7 +145,7 @@ az network application-gateway waf-policy managed-rule exclusion rule-set add \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-05-01' = {
+resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-08-01' = {
   name: wafPolicyName
   location: location
   properties: {
@@ -168,6 +168,14 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
               ruleGroups: [
                 {
                   ruleGroupName: 'REQUEST-942-APPLICATION-ATTACK-SQLI'
+                  rules: [
+                    {
+                      ruleId: '942150'
+                    }
+                    {
+                      ruleId: '942410'
+                    }
+                  ]
                 }
               ]
             }
@@ -184,7 +192,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 ```json
 {
   "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
-  "apiVersion": "2021-05-01",
+  "apiVersion": "2021-08-01",
   "name": "[parameters('wafPolicyName')]",
   "location": "[parameters('location')]",
   "properties": {
@@ -206,7 +214,152 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
               "ruleSetVersion": "3.2",
               "ruleGroups": [
                 {
-                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI"
+                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI",
+                  "rules": [
+                    {
+                      "ruleId": "942150"
+                    },
+                    {
+                      "ruleId": "942410"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+---
+
+You can also exclude the `User-Agent` header from evaluation just by rule 942270:
+
+# [Azure portal](#tab/portal)
+
+Follow the steps described in the preceding example, and select rule 942270 in step 4.
+
+# [Azure PowerShell](#tab/powershell)
+
+```azurepowershell
+$ruleEntry = New-AzApplicationGatewayFirewallPolicyExclusionManagedRule `
+  -Rule '942270'
+
+$ruleGroupEntry = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleGroup `
+  -RuleGroupName 'REQUEST-942-APPLICATION-ATTACK-SQLI' `
+  -Rule $ruleEntry
+
+$exclusionManagedRuleSet = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleSet `
+  -RuleSetType 'OWASP' `
+  -RuleSetVersion '3.2' `
+  -RuleGroup $ruleGroupEntry
+
+$exclusionEntry = New-AzApplicationGatewayFirewallPolicyExclusion `
+  -MatchVariable "RequestHeaderValues" `
+  -SelectorMatchOperator 'Equals' `
+  -Selector 'User-Agent' `
+  -ExclusionManagedRuleSet $exclusionManagedRuleSet
+
+$wafPolicy = Get-AzApplicationGatewayFirewallPolicy `
+  -Name $wafPolicyName `
+  -ResourceGroupName $resourceGroupName
+$wafPolicy.ManagedRules[0].Exclusions.Add($exclusionEntry)
+$wafPolicy | Set-AzApplicationGatewayFirewallPolicy
+```
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+az network application-gateway waf-policy managed-rule exclusion rule-set add \
+  --resource-group $resourceGroupName \
+  --policy-name $wafPolicyName \
+  --type OWASP \
+  --version 3.2 \
+  --group-name 'REQUEST-942-APPLICATION-ATTACK-SQLI' \
+  --rule-ids 942270 \
+  --match-variable 'RequestHeaderValues' \
+  --match-operator 'Equals' \
+  --selector 'User-Agent'
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-08-01' = {
+  name: wafPolicyName
+  location: location
+  properties: {
+    managedRules: {
+      managedRuleSets: [
+        {
+          ruleSetType: 'OWASP'
+          ruleSetVersion: '3.2'
+        }
+      ]
+      exclusions: [
+        {
+          matchVariable: 'RequestHeaderValues'
+          selectorMatchOperator: 'Equals'
+          selector: 'User-Agent'
+          exclusionManagedRuleSets: [
+            {
+              ruleSetType: 'OWASP'
+              ruleSetVersion: '3.2'
+              ruleGroups: [
+                {
+                  ruleGroupName: 'REQUEST-942-APPLICATION-ATTACK-SQLI'
+                  rules: [
+                    {
+                      ruleId: '942270'
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+# [ARM template](#tab/armtemplate)
+
+```json
+{
+  "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
+  "apiVersion": "2021-08-01",
+  "name": "[parameters('wafPolicyName')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "managedRules": {
+      "managedRuleSets": [
+        {
+          "ruleSetType": "OWASP",
+          "ruleSetVersion": "3.2"
+        }
+      ],
+      "exclusions": [
+        {
+          "matchVariable": "RequestHeaderValues",
+          "selectorMatchOperator": "Equals",
+          "selector": "User-Agent",
+          "exclusionManagedRuleSets": [
+            {
+              "ruleSetType": "OWASP",
+              "ruleSetVersion": "3.2",
+              "ruleGroups": [
+                {
+                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI",
+                  "rules": [
+                    {
+                      "ruleId": "942270"
+                    }
+                  ]
                 }
               ]
             }
@@ -232,7 +385,7 @@ The following example shows how you can exclude the `user` query string argument
 
 # [Azure portal](#tab/portal)
 
-To configure a g;lobal exclusion by using the Azure portal, follow these steps:
+To configure a global exclusion by using the Azure portal, follow these steps:
 
 1. Navigate to the WAF policy, and select **Managed rules**.
 
@@ -271,7 +424,7 @@ az network application-gateway waf-policy managed-rule exclusion add \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-05-01' = {
+resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-08-01' = {
   name: wafPolicyName
   location: location
   properties: {
@@ -299,7 +452,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 ```json
 {
   "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
-  "apiVersion": "2021-05-01",
+  "apiVersion": "2021-08-01",
   "name": "[parameters('wafPolicyName')]",
   "location": "[parameters('location')]",
   "properties": {

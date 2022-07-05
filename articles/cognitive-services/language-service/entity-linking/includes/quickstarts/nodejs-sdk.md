@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/07/2022
+ms.date: 06/13/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
@@ -64,12 +64,12 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 "use strict";
 
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-const key = '<paste-your-key-here>';
 const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint
+const key = '<paste-your-key-here>';
+// Authenticate the client with your key and endpoint.
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 
-// Example method for recognizing entities and providing a link to an online data source
+// Example method for recognizing entities and providing a link to an online data source.
 async function linkedEntityRecognition(client){
 
     const linkedEntityInput = [

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/31/2022
 ---
 
-# Partner Events overview for customers - Azure Event Grid (preview)
+# Partner Events overview for customers - Azure Event Grid
 Azure Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners".
 
 This feature also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams.
