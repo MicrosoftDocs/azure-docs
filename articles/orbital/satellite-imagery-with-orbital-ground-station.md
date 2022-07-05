@@ -13,7 +13,7 @@ ms.custom: template-overview
 
 This topic is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station as-a-Service (GSaaS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the Azure Orbital GSaaS and its core concepts and shows how to schedule contacts. The topic also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
-The polar-orbiting Aqua spacecraft, launched by NASA in May 2002, provides an X-band direct broadcast service where data from all science instruments is downlinked to the Earth in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. With Azure Orbital Ground Station as-a-Service (GSaaS), we can capture the Aqua broadcast when the satellite is within line of sight of a ground station.
+Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. With Azure Orbital Ground Station as-a-Service (GSaaS), we can capture the Aqua broadcast when the satellite is within line of sight of a ground station.
 
 A *contact* is time reserved at an orbital ground station to communicate with a satellite. During the contact, the ground station orients its antenna towards Aqua and captures the broadcast payload. The captured data is sent to an Azure VM as a data stream that is processed using the [RT-STPS](http://directreadout.sci.gsfc.nasa.gov/index.cfm?section=technology&page=NISGS&subpage=NISFES&sub2page=RT-STPS&sub3Page=overview) (Real-Time Software Telemetry Processing System) provided by [Direct Readout Laboratory](http://directreadout.sci.gsfc.nasa.gov/) at NASA to generate a level 0 product. Further processing of level 0 data is done using IPOPP (International Planetary Observation Processing Package) tool, also provided by DRL.
 
@@ -23,6 +23,8 @@ Processing the Aqua data stream involves the following steps in order:
 2. [Process RAW data using RT-STPS](#step-2-process-raw-data-using-rt-stps).
 3. [Prepare a virtual machine (processor-vm) to process higher level products](#step-3-prepare-a-virtual-machine-processor-vm-to-create-higher-level-products).
 4. [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
+
+Optional setup for capturing the ground station telemetry are included in the [Appendix](#appendix)
 
 ## Step 1: Prerequisites
 
