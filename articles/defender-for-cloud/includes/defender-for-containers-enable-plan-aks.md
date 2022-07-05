@@ -21,7 +21,7 @@ ms.date: 07/05/2022
 
 1. By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace.
 
-    If you want to disable auto provisioning during the onboading process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable auto provisioning for each component.
+    If you want to disable auto provisioning during the onboarding process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable auto provisioning for each component.
    
     In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components** row:
 
@@ -95,7 +95,7 @@ Request query parameters:
 | SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
-| ApiVersion     | API version, must by >= 2022-06-01 | Yes       |
+| ApiVersion     | API version, must be >= 2022-06-01 | Yes       |
 
 Request Body:
 
@@ -127,7 +127,7 @@ Request body parameters:
 
 ### Use Azure CLI to deploy the Defender extension
 
-1. Log in to Azure:
+1. Sign in to Azure:
 
     ```azurecli
     az login
@@ -177,7 +177,7 @@ Request body parameters:
     kubectl get pods -n kube-system
     ```
 
-    When the profile is added, you should see a pods called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
+    When the profile is added, you should see a pod called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 

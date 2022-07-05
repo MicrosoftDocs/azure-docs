@@ -24,11 +24,11 @@ Updates in July include:
 - 
 ### General availability (GA) of the Microsoft Defender containerized agent for AKS clusters
 
-We are excited to share that Microsoft Defender containerized agent for AKS clusters is now generally available (GA)!
+We're excited to share that Microsoft Defender containerized agent for AKS clusters is now generally available (GA)!
 
 The production deployments of Kubernetes clusters continue to grow as customers continue to containerize their applications. To assist with this growth, the Defender for Containers team has developed a cloud-native Kubernetes oriented agent.
 
-The new agent is a Daemonset, based on eBPF technology and is fully integrated into AKS clusters as part of the AKS Security Profile.
+The new agent is a Daemon set, based on eBPF technology and is fully integrated into AKS clusters as part of the AKS Security Profile.
 
 The agent enablement is available through auto-provisioning, recommendations flow, AKS RP or at scale using Azure Policy.
 
@@ -40,7 +40,7 @@ Learn more about the Defender for Container's [feature availability](supported-m
 
 You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
 
-Please note, if you were using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
+Note, if you are using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
 
 ## June 2022
 
@@ -176,7 +176,7 @@ Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.
 
 ### JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)
 
-When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatically evaluate the network configuration of your instance's security groups and recommend which instances need protection for their exposed management ports. This is similar to how JIT works with Azure. When you onboard unprotected EC2 instances, JIT will block public access to the management ports and only open them with authorized requests for a limited time frame.
+When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatically evaluate the network configuration of your instance's security groups and recommend which instances need protection for their exposed management ports. This is similar to how JIT works with Azure. When you onboard unprotected EC2 instances, JIT will block public access to the management ports, and only open them with authorized requests for a limited time frame.
 
 Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws)
 
