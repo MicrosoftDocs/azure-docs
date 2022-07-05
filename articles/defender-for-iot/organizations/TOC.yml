@@ -135,6 +135,8 @@
           href: how-to-connect-sensor-by-proxy.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      - name: Add support for proprietary protocols
+        href: resources-manage-proprietary-protocols.md
   - name: System maintenance
     items:
     - name: Maintain threat intelligence packages

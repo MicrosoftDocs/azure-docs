@@ -52,6 +52,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
+- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
 
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
@@ -106,6 +107,14 @@ For more information, see:
 
 - [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+
+### Improved security for uploading protocol plugins
+
+This version of the sensor provides an improved security for uploading proprietary plugins you've created using the Horizon SDK.
+
+:::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page." lightbox="media/release-notes/horizon.png":::
+
+For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
 ## June 2022
 
