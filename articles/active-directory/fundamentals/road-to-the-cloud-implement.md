@@ -85,19 +85,19 @@ The organization has a process to evaluate Azure AD alternatives when considerin
 
 * Provide a recommendation to create a policy to prioritize use of cloud native alternatives. The policy should limit deployment of new application servers to the domain. Common cloud native scenarios to replace AD joined servers include:
 
-* File servers
+   * File servers
 
-  * SharePoint / OneDrive - Collaboration support across Microsoft 365 solutions and built-in governance, risk, security, and compliance.
+     * SharePoint / OneDrive - Collaboration support across Microsoft 365 solutions and built-in governance, risk, security, and compliance.
 
-  * [Azure Files](../../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB or NFS protocol. Customers can use native [Azure AD authentication to Azure Files](../../virtual-desktop/create-profile-container-azure-ad.md) over the internet without line of sight to a DC.
+     * [Azure Files](../../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB or NFS protocol. Customers can use native [Azure AD authentication to Azure Files](../../virtual-desktop/create-profile-container-azure-ad.md) over the internet without line of sight to a DC.
 
-  * Azure AD also works with third party applications in our [Application Gallery](/security/business/identity-access-management/integrated-apps-azure-ad)
+     * Azure AD also works with third party applications in our [Application Gallery](/security/business/identity-access-management/integrated-apps-azure-ad)
 
-* Print Servers
+   * Print Servers
 
-  * Mandate to procure [Universal Print](/universal-print/) compatible printers - [Partner Integrations](/universal-print/fundamentals/universal-print-partner-integrations)
+     * Mandate to procure [Universal Print](/universal-print/) compatible printers - [Partner Integrations](/universal-print/fundamentals/universal-print-partner-integrations)
 
-  * Bridge with [Universal Print connector](/universal-print/fundamentals/universal-print-connector-overview) for non-compatible printers
+     * Bridge with [Universal Print connector](/universal-print/fundamentals/universal-print-connector-overview) for non-compatible printers
 
 ## Next steps
 
