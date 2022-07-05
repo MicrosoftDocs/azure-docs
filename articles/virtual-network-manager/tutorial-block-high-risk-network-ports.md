@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Secure high-risk network ports with SecurityAdmin Rules in Azure Virtual Network Manager.'
+title: 'Tutorial: Secure high-risk network ports with Security Admin Rules in Azure Virtual Network Manager.'
 description: #Required; In this article, you will deploy Security admin rules to block high-risk security ports with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
@@ -7,7 +7,7 @@ ms.service: virtual-network-manager
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: #Required; mm/dd/yyyy format.
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
-#Customer intent: As a network administrator responsible for governance policy, I want secure my network traffic across multiple VNets in a flexible and scalable manner so that I can reduce administrative overhead of policies and improve my security posture.
+#Customer intent: As a network administrator responsible responsible for network governance, I want secure my network traffic across multiple VNets in a flexible and scalable manner so that I can reduce administrative overhead and improve my security posture.
 ---
 
 
@@ -19,7 +19,7 @@ what the customer will learn, or do, or accomplish. Answer the fundamental “wh
 would I want to do this?” question. Keep it short.
 -->
 
-In this article, you will learn to secure network traffic to high risk network ports using Azure Virtual Network Manager and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your vnets with network groups, and create & deploy security admin configurations for your organization. You'll deploy an general block rule for high risk ports. Then you'll create an exception for managing a specific application's vnet. This is will allow you to manage access to the application vnets using network security groups.
+In this article, you will learn to secure network traffic to high risk network ports using Azure Virtual Network Manager and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your vnets with network groups, and create & deploy security admin configurations for your organization. You'll deploy an general block rule for high risk ports. Then you'll create an exception for managing a specific application's vnet. This is will allow you to manage access to the application vnets using network security groups. Deploying this configuration provides you a flexible and scalabable management framework for securing your network traffic across your all Azure virtual networks.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
