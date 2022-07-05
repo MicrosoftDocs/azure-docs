@@ -21,7 +21,7 @@ This article helps you understand the details of the error codes and the steps t
 
 ## List of error codes and their details
 
-The following sections describe the various errors you might encounter. You can verify if your gateway has any such problem by visting [**Azure Advisor**](./key-vault-certs.md#investigating-and-resolving-key-vault-errors) for your account, and use this troubleshooting article to fix the problem. We recommend configuring Azure Advisor alerts to stay informed when a key vault problem is detected for your gateway.
+The following sections describe the various errors you might encounter. You can verify if your gateway has any such problem by visiting [**Azure Advisor**](./key-vault-certs.md#investigating-and-resolving-key-vault-errors) for your account, and use this troubleshooting article to fix the problem. We recommend configuring Azure Advisor alerts to stay informed when a key vault problem is detected for your gateway.
 
 > [!NOTE]
 > Azure Application Gateway generates logs for key vault diagnostics every four hours. If the diagnostic continues to show the error after you have fixed the configuration, you might have to wait for the logs to be refreshed.
@@ -40,7 +40,7 @@ The following sections describe the various errors you might encounter. You can 
   1. Under **Secret Management Operations**, select the **Get** permission.
   1. Select **Save**.
 
-:::image type="content" source="./media/application-gateway-key-vault-common-errors/no-get-permssion-for-managed-identity.png " alt-text=" Screenshot that shows how to resolve the Get permission error.":::
+:::image type="content" source="./media/application-gateway-key-vault-common-errors/no-get-permission-for-managed-identity.png" alt-text=" Screenshot that shows how to resolve the Get permission error.":::
 
 For more information, see [Assign a Key Vault access policy by using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
 
@@ -85,7 +85,7 @@ For more information, see [Azure role-based access control in Key Vault](../key-
 
 On the other hand, if a certificate object is permanently deleted, you will need to create a new certificate and update Application Gateway with the new certificate details. When you're configuring through the Azure CLI or Azure PowerShell, use a secret identifier URI without a version. This choice allows instances to retrieve a renewed version of the certificate, if it exists.
 
-:::image type="content" source="./media/application-gateway-key-vault-common-errors/secret-deleted.png " alt-text="Screenshot that shows how to recover a deleted certificate in Key Vault.":::
+:::image type="content" source="./media/application-gateway-key-vault-common-errors/secret-deleted.png" alt-text="Screenshot that shows how to recover a deleted certificate in Key Vault.":::
 
 [comment]: # (Error Code 4)
 ### Error code: UserAssignedManagedIdentityNotFound 

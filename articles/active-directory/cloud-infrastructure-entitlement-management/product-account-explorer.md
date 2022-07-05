@@ -12,10 +12,6 @@ ms.author: kenwith
 
 # View roles and identities that can access account information from an external account
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 You can view information about users, groups, and resources that can access account information from an external account in Permissions Management.
 
 ## Display information about users, groups, or tasks

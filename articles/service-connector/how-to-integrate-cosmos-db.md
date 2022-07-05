@@ -31,41 +31,43 @@ This page shows the supported authentication types and client types of Azure Cos
 
 ## Default environment variable names or application properties
 
+Use the connection details below to connect compute services to Cosmos DB. For each example below, replace the placeholder texts `<mongo-db-admin-user>`, `<password>`, `<mongo-db-server>`, `<subscription-ID>`, `<resource-group-name>`, `<database-server>`, `<client-secret>`, and `<tenant-id>` with your Mongo DB Admin username, password, Mongo DB server, subscription ID, resource group name, database server, client secret and tenant ID.
+
 ### Secret / Connection string
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_COSMOS_CONNECTIONSTRING | Mango DB in Cosmos DB connection string | `mongodb://{mango-db-admin-user}:{********}@{mango-db-server}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@{mango-db-server}@` |
+| Default environment variable name | Description                             | Example value                                                                                                                                                                                |
+|-----------------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_COSMOS_CONNECTIONSTRING     | Mongo DB in Cosmos DB connection string | `mongodb://<mongo-db-admin-user>:<password>@<mongo-db-server>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<mongo-db-server>@` |
 
 ### System-assigned managed identity
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group-name}/providers/Microsoft.DocumentDB/databaseAccounts/{your-database-server}/listConnectionStrings?api-version=2021-04-15` |
-| AZURE_COSMOS_SCOPE | Your managed identity scope | `https://management.azure.com/.default` |
-| AZURE_COSMOS_RESOURCEENDPOINT | Your resource endpoint| `https://{your-database-server}.documents.azure.com:443/` |
+| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
+|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
+| AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
+| AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
 
 ### User-assigned managed identity
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group-name}/providers/Microsoft.DocumentDB/databaseAccounts/{your-database-server}/listConnectionStrings?api-version=2021-04-15` |
-| AZURE_COSMOS_SCOPE | Your managed identity scope | `https://management.azure.com/.default` |
-| AZURE_COSMOS_CLIENTID | Your client secret ID | `{client-id}` |
-| AZURE_COSMOS_SUBSCRIPTIONID | Your subscription ID | `{your-subscription-id}` |
-| AZURE_COSMOS_RESOURCEENDPOINT | Your resource endpoint| `https://{your-database-server}.documents.azure.com:443/` |
+| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
+|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
+| AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
+| AZURE_COSMOS_CLIENTID                | Your client secret ID                | `<client-ID>`                                                                                                                                                                                                      |
+| AZURE_COSMOS_SUBSCRIPTIONID          | Your subscription ID                 | `<subscription-ID>`                                                                                                                                                                                                |
+| AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
 
 ### Service principal
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group-name}/providers/Microsoft.DocumentDB/databaseAccounts/{your-database-server}/listConnectionStrings?api-version=2021-04-15` |
-| AZURE_COSMOS_SCOPE | Your managed identity scope | `https://management.azure.com/.default` |
-| AZURE_COSMOS_CLIENTID | Your client secret ID | `{client-id}` |
-| AZURE_COSMOS_CLIENTSECRET | Your client secret secret | `{client-secret}` |
-| AZURE_COSMOS_TENANTID | Your tenant ID | `{tenant-id}` |
-| AZURE_COSMOS_SUBSCRIPTIONID | Your subscription ID | `{your-subscription-id}` |
-| AZURE_COSMOS_RESOURCEENDPOINT | Your resource endpoint| `https://{your-database-server}.documents.azure.com:443/` |
+| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
+|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
+| AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
+| AZURE_COSMOS_CLIENTID                | Your client secret ID                | `<client-ID>`                                                                                                                                                                                                      |
+| AZURE_COSMOS_CLIENTSECRET            | Your client secret                   | `<client-secret>`                                                                                                                                                                                                  |
+| AZURE_COSMOS_TENANTID                | Your tenant ID                       | `<tenant-ID>`                                                                                                                                                                                                      |
+| AZURE_COSMOS_SUBSCRIPTIONID          | Your subscription ID                 | `<subscription-ID>`                                                                                                                                                                                                |
+| AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
 
 ## Next steps
 
