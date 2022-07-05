@@ -4,8 +4,8 @@ description: Learn how to manage packages with Azure-SSIS Integration Runtime pa
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-author: swinarko
-ms.author: sawinark
+author: chugu
+ms.author: chugugrace
 ms.custom: seo-lt-2019
 ms.date: 10/22/2021
 ---

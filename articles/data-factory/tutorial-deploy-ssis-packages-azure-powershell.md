@@ -7,8 +7,8 @@ ms.devlang: powershell
 ms.topic: tutorial
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 10/22/2021
-author: swinarko
-ms.author: sawinark
+author: chugu
+ms.author: chugugrace
 ---
 
 # Set up an Azure-SSIS IR in Azure Data Factory by using PowerShell

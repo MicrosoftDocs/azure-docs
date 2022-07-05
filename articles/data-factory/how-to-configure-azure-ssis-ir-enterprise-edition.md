@@ -5,8 +5,8 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark
+author: chugu
+ms.author: chugugrace
 ---
 # Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 

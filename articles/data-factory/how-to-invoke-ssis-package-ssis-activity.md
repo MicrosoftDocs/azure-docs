@@ -5,8 +5,8 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.author: sawinark
-author: swinarko
+ms.author: chugugrace
+author: chugu
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 02/15/2022
 ---

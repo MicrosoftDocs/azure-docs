@@ -5,8 +5,8 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 10/22/2021
-author: swinarko
-ms.author: sawinark
+author: chugu
+ms.author: chugugrace
 ---
 
 # Run SQL Server Integration Services packages with the Azure-enabled dtexec utility

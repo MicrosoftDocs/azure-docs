@@ -5,8 +5,8 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 02/17/2022
-author: swinarko
-ms.author: sawinark
+author: chugu
+ms.author: chugugrace
 ---
 
 # Reconfigure the Azure-SSIS integration runtime
