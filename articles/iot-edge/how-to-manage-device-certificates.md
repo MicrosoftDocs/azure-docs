@@ -218,8 +218,7 @@ IoT Edge automatically generates certificates on the device in several cases, in
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-* If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates a **edge CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
-* The IoT Edge security manager also generates a **workload CA certificate** signed by the edge CA certificate
+If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates an **edge CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
 :::moniker-end
 <!-- end 1.2 -->
 

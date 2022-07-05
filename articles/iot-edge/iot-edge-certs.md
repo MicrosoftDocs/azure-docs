@@ -32,6 +32,7 @@ This article explains how IoT Edge certificates can work in production, developm
 * The **workload CA certificate** was deprecated. Now the IoT Edge security manager generates the IoT Edge hub server certificate directly from the edge CA certificate, without the intermediate workload CA certificate between them.
 
 :::moniker-end
+<!-- end-1.2 -->
 
 ## IoT Edge certificates
 
