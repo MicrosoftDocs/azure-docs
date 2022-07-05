@@ -24,11 +24,11 @@ Azure Monitor data collection is defined by a [data collection Rule (DCR)](essen
 
 Some workflows specify a particular data collection rule to use. For example, when using the [data ingestion API](logs/data-ingestion-api-overview.md), the API call connects to a [data collection endpoint (DCE))](essentials/data-collection-endpoint-overview.md) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data and specifies the destination.
 
-:::image type="content" source="media/data-collection/data-ingestion-api.png" lightbox="media/data-collection/data-ingestion-api.png" alt-text="Diagram of data collection using data ingestion API.":::
+:::image type="content" source="logs/media/data-ingestion-api-overview/data-ingestion-api-overview.png" lightbox="logs/media/data-ingestion-api-overview/data-ingestion-api-overview.png" alt-text="Diagram of data collection using data ingestion API." border="false":::
 
 Other workflows use a data collection rule association (DCRA), which associates a data collection rule with a resource. For example, to collect data from virtual machines using the Azure Monitor agent, you create a data rule association (DCRA) between the one or more DCRs and one or more virtual machines. The DCRs specify the data to collect on the agent and where that data should be sent.
 
-:::image type="content" source="media/data-collection-transformations/transformation-data-collectron-rule.png" lightbox="media/data-collection-transformations/transformation-data-collectron-rule.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent.":::
+:::image type="content" source="essentials/media/data-collection-transformations/transformation-data-collectron-rule.png" lightbox="essentials/media/data-collection-transformations/transformation-data-collectron-rule.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent." border="false":::
 
 
 ## Supported workflows

@@ -12,7 +12,9 @@ ms.reviewer: shseth
 # Sources of monitoring data for Azure Monitor
 Azure Monitor is based on a [common monitoring data platform](data-platform.md) that includes [Logs](logs/data-platform-logs.md) and [Metrics](essentials/data-platform-metrics.md). Collecting data into this platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. Monitoring data may also be sent to other locations to support certain scenarios, and some resources may write to other locations before they can be collected into Logs or Metrics.
 
-This article describes the different sources of monitoring data collected by Azure Monitor in addition to the monitoring data created by Azure resources. Links are provided to detailed information on configuration required to collect this data to different locations.
+This article describes common sources of monitoring data collected by Azure Monitor in addition to the monitoring data created by Azure resources. Links are provided to detailed information on configuration required to collect this data to different locations.
+
+Some of these data source use the [new data ingestion pipeline]().
 
 ## Application tiers
 
@@ -117,6 +119,16 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 |:---|:---|:---|
 | Azure Monitor Logs | The Azure Monitor agent allows you to collect logs from data sources that you configure using [data collection rules](agents/data-collection-rule-azure-monitor-agent.md) or from monitoring solutions that provide additional insights into applications running on the machine. These can be sent to one or more Log Analytics workspaces. | [Data sources and destinations](agents/azure-monitor-agent-overview.md#data-sources-and-destinations) |
 | Azure Monitor Metrics (preview) | The Azure Monitor agent allows you to collect performance counters and send them to Azure Monitor metrics database  | [Data sources and destinations](agents/azure-monitor-agent-overview.md#data-sources-and-destinations) |
+
+
+### Log Analytics agent 
+The Log Analytics agent has been replaced by the Azure Monitor agent. 
+Install the Log Analytics agent for comprehensive monitoring and management of your Windows or Linux virtual machines. The virtual machine can be running in Azure, another cloud, or on-premises.
+
+| Destination | Description | Reference |
+|:---|:---|:---|
+| Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](../agents/agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](./om-agents.md) |
+| VM Storage | VM insights uses the Log Analytics agent to store heath state information in a custom location. See the next section for more information.  |
 
 ### Azure Diagnostic extension
 Enabling the Azure Diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, virtual machine scale sets, and Service Fabric.
