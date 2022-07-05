@@ -6,15 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: blackmist
-ms.author: larryfr
-ms.custom: seodec18, mktng-kw-nov2021
-ms.date: 11/04/2021
+author: dem108
+ms.author: sehan
+ms.reviewer: larryfr
+ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
+ms.date: 05/11/2022
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning
 
-In this article, you'll learn how to use machine learning operations (MLOps) in Azure Machine Learning to manage the lifecycle of your models. MLOps improves the quality and consistency of your machine learning solutions.
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
+> * [v1](./v1/concept-model-management-and-deployment.md)
+> * [v2 (current version)](concept-model-management-and-deployment.md)
+
+In this article, learn about how do Machine Learning Operations (MLOps) in Azure Machine Learning to manage the lifecycle of your models. MLOps improves the quality and consistency of your machine learning solutions. 
 
 ## What is MLOps?
 
@@ -68,17 +75,11 @@ Registered models are identified by name and version. Each time you register a m
 > [!TIP]
 > You can also register models trained outside Machine Learning.
 
-You can't delete a registered model that's being used in an active deployment.
-For more information, see the "Register model" section of [Deploy models](how-to-deploy-and-where.md#registermodel).
-
 > [!IMPORTANT]
-> When you use the **Filter by** `Tags` option on the **Models** page of Azure Machine Learning Studio, instead of using `TagName : TagValue`, use `TagName=TagValue` without spaces.
+> * When you use the **Filter by** `Tags` option on the **Models** page of Azure Machine Learning Studio, instead of using `TagName : TagValue`, use `TagName=TagValue` without spaces.
+> * You can't delete a registered model that's being used in an active deployment.
 
-### Profile models
-
-Machine Learning can help you understand the CPU and memory requirements of the service that's created when you deploy your model. Profiling tests the service that runs your model and returns information like CPU usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
-
-For more information, see [Profile your model to determine resource utilization](how-to-deploy-profile-model.md).
+For more information, [Work with models in Azure Machine Learning](how-to-manage-models.md).
 
 ### Package and debug models
 
@@ -96,32 +97,30 @@ For more information on ONNX with Machine Learning, see [Create and accelerate m
 
 ### Use models
 
-Trained machine learning models are deployed as web services in the cloud or locally. Deployments use CPU, GPU, or field-programmable gate arrays for inferencing. You can also use models from Power BI.
+Trained machine learning models are deployed as [endpoints](concept-endpoints.md) in the cloud or locally. Deployments use CPU, GPU for inferencing.
 
-When you use a model as a web service, you provide the following items:
+When deploying a model as an endpoint, you provide the following items:
 
 * The models that are used to score data submitted to the service or device.
 * An entry script. This script accepts requests, uses the models to score the data, and returns a response.
 * A Machine Learning environment that describes the pip and conda dependencies required by the models and entry script.
 * Any other assets such as text and data that are required by the models and entry script.
 
-You also provide the configuration of the target deployment platform. Examples include the VM family type, available memory, and the number of cores when you deploy to Azure Kubernetes Service.
-
-When the image is created, components required by Machine Learning are also added. An example is the assets needed to run the web service.
+You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores. When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service.
 
 #### Batch scoring
 
-Batch scoring is supported through machine learning pipelines. For more information, see [Batch predictions on big data](./tutorial-pipeline-batch-scoring-classification.md).
+Batch scoring is supported through batch endpoints. For more information, see [endpoints](concept-endpoints.md).
 
-#### Real-time web services
+#### Online endpoints
 
-You can use your models in web services with the following compute targets:
+You can use your models with an online endpoint. Online endpoints can use the following compute targets:
 
-* Azure Container Instances
+* Managed online endpoints
 * Azure Kubernetes Service
 * Local development environment
 
-To deploy the model as a web service, you must provide the following items:
+To deploy the model to an endpoint, you must provide the following items:
 
 * The model or ensemble of models.
 * Dependencies required to use the model. Examples are a script that accepts requests and invokes the model and conda dependencies.
@@ -131,11 +130,11 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 #### Controlled rollout
 
-When you deploy to Azure Kubernetes Service, you can use controlled rollout to enable the following scenarios:
+When deploying to an online endpoint, you can use controlled rollout to enable the following scenarios:
 
-* Create multiple versions of an endpoint for a deployment.
-* Perform A/B testing by routing traffic to different versions of the endpoint.
-* Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
+* Create multiple versions of an endpoint for a deployment
+* Perform A/B testing by routing traffic to different deployments within the endpoint.
+* Switch between endpoint deployments by updating the traffic percentage in endpoint configuration.
 
 For more information, see [Controlled rollout of machine learning models](./how-to-safely-rollout-managed-endpoints.md).
 
@@ -150,9 +149,9 @@ Machine Learning gives you the capability to track the end-to-end audit trail of
 - Machine Learning [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository, branch, and commit your code came from.
 - [Machine Learning datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for specific input.
-- Machine Learning Run history stores a snapshot of the code, data, and computes used to train a model.
+- Machine Learning Job history stores a snapshot of the code, data, and computes used to train a model.
 - The Machine Learning Model Registry captures all the metadata associated with your model. For example, metadata includes which experiment trained it, where it's being deployed, and if its deployments are healthy.
-- [Integration with Azure](how-to-use-event-grid.md) allows you to act on events in the machine learning lifecycle. Examples are model registration, deployment, data drift, and training (run) events.
+- [Integration with Azure](how-to-use-event-grid.md) allows you to act on events in the machine learning lifecycle. Examples are model registration, deployment, data drift, and training (job) events.
 
 > [!TIP]
 > While some information on models and datasets is automatically captured, you can add more information by using _tags_. When you look for registered models and datasets in your workspace, you can use tags as a filter.
@@ -190,7 +189,7 @@ A theme of the preceding steps is that your retraining should be automated, not 
 
 ## Automate the machine learning lifecycle
 
-You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a data scientist checks a change into the Git repo for a project, Azure Pipelines starts a training run. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
+You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a data scientist checks a change into the Git repo for a project, Azure Pipelines starts a training job. The results of the job can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
 The [Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) makes it easier to work with Azure Pipelines. It provides the following enhancements to Azure Pipelines:
 

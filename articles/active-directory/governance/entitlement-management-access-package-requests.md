@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # View and remove requests for an access package in Azure AD entitlement management
 
-In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for an access package, and remove requests that are no longer needed.
+In Azure AD entitlement management, you can see who has requested access packages, the policy for their request, and the status of their request. This article describes how to view requests for an access package, and remove requests that are no longer needed.
 
 ## View requests
 

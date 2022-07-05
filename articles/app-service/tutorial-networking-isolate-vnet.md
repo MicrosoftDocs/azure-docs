@@ -92,7 +92,7 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 
 ## Create private endpoints
 
-1. In the private endpoint subnet of your virtual network, create a private endpoint for your key vault.
+1. In the private endpoint subnet of your virtual network, create a private endpoint for your Cognitive Service.
 
     ```azurecli-interactive
     # Get Cognitive Services resource ID

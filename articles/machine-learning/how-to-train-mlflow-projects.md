@@ -9,10 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/16/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
 # Train ML models with MLflow Projects and Azure Machine Learning (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -31,7 +34,7 @@ In this article, learn how to enable MLflow's tracking URI and logging API, coll
 
 * Install the `azureml-mlflow` package.
     * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install), which provides the connectivity for MLflow to access your workspace.
-* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+* [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 ## Train MLflow Projects on local compute
@@ -173,7 +176,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 1. In the Azure portal, select **Resource groups** on the far left.
 
-   ![Delete in the Azure portal](./media/how-to-use-mlflow/delete-resources.png)
+   ![Delete in the Azure portal](./v1/media/how-to-use-mlflow/delete-resources.png)
 
 1. From the list, select the resource group you created.
 

@@ -73,7 +73,7 @@ To trigger an alert when there was a violation from a Dynamic Thresholds in 20 m
 
 ## How do you find out why a Dynamic Thresholds alert was triggered?
 
-You can explore triggered alert instances in the alerts view either by clicking on the link in the email or text message, or browser to see the alerts view in the Azure portal. [Learn more about the alerts view](./alerts-overview.md#alerts-experience).
+You can explore triggered alert instances by clicking on the link in the email or text message, or browse to see the alerts in the Azure portal. [Learn more about the alerts view](./alerts-page.md).
 
 The alert view displays:
 

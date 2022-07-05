@@ -102,7 +102,7 @@ requests
 | summarize Request = count() by bin(timestamp, 1h), RequestName = name
 ```
 
-Even though the underlying result set is different. All a user has to do is set the visualization to area, line, bar, or time and Workbooks will take care of the rest.
+Even though the queries return results in different formats, when a user sets the visualization to area, line, bar, or time, Workbooks understands how to handle the data to create the visualization.
 
 [![Screenshot of a log line chart made from a make-series query](./media/workbooks-chart-visualizations/log-chart-line-make-series.png)](./media/workbooks-chart-visualizations/log-chart-line-make-series.png#lightbox)
 
@@ -217,8 +217,3 @@ The series setting tab lets you adjust the labels and colors shown for series in
 - The `Comment` field is useful for template authors, as this comment may be used by translators to localize the display labels.
 
 ![Screenshot of series settings.](./media/workbooks-chart-visualizations/series-settings.png)
-
-## Next steps
-
-- Learn how to create a [tile in workbooks](workbooks-tile-visualizations.md).
-- Learn how to create [interactive workbooks](workbooks-interactive.md).

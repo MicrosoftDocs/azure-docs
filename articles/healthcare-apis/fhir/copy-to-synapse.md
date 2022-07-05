@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/16/2022
+ms.date: 06/06/2022
 ms.author: ginle
 ---
 # Copy data from FHIR service to Azure Synapse Analytics
@@ -196,3 +196,5 @@ Next, you can learn about how you can de-identify your FHIR data while exporting
  
 >[!div class="nextstepaction"]
 >[Exporting de-identified data](./de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

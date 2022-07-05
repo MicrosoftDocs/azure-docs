@@ -1,13 +1,13 @@
 ---
-title: Link your Domain to your Decentralized Identifier (DID) (preview) - Azure Active Directory Verifiable Credentials
+title: Link your Domain to your Decentralized Identifier (DID) (preview) - Microsoft Entra Verified ID
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/22/2022
+ms.date: 06/22/2022
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -15,8 +15,10 @@ ms.author: barclayn
 
 # Link your domain to your Decentralized Identifier (DID) (preview)
 
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+
 > [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview.
+> Microsoft Entra Verified ID is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -35,7 +37,7 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## When do you need to update the domain in your DID?
 
-In the event where the domain associated with your company changes, you would also need to change the domain in your DID document that is also published in the ION network. You can update the domain in your DID directly from the Azure AD Verifiable Credential portal.
+In the event where the domain associated with your company changes, you would also need to change the domain in your DID document. You can update the domain in your DID directly from the Azure AD Verifiable Credential portal
 
 ## How do we link DIDs and domains?
 
@@ -57,7 +59,7 @@ We follow the [Well-Known DID configuration](https://identity.foundation/.well-k
     ]
     ```
 
-2. The verifiable credential service in Azure AD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here is an example of the config doc that is stored at the root domain URL.
+2. The verifiable credential service in Azure AD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here's an example of the config doc that is stored at the root domain URL.
 
 
     ```json
@@ -110,13 +112,13 @@ It is of high importance that you link your DID to a domain recognizable to the 
 ## How do you update the linked domain on your DID?
 
 1. Navigate to the Verifiable Credentials | Getting Started page.  
-1. On the left side of the page select **Domain**.
+1. On the left side of the page, select **Domain**.
 1. In the Domain box, enter your new domain name.
 1. Select **Publish**.
 
 :::image type="content" source="media/how-to-dnsbind/publish-update-domain.png" alt-text="Choose the publish button so your changes become":::
 
-It might take up to two hours for your DID document to be updated in the [ION network](https://identity.foundation/ion) with the new domain information. No other changes to the domain are possible before the changes are published.
+If the trust system is ION, it might take up to two hours for your DID document to be updated in the [ION network](https://identity.foundation/ion) with the new domain information. No other changes to the domain are possible before the changes are published. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
 
 >[!NOTE]
 >If your changes are successful you will need to [verify](#verified-domain) your newly added domain.
@@ -130,7 +132,7 @@ Yes. You need to wait until the config.json file gets updated before you publish
 
 ### How do I know when the linked domain update has successfully completed?
 
-Once the domain changes are publised to ION, the domain section inside the Azure AD Verifiable Credentials service will display `Published` as the status and you should be able to make new changes to the domain. 
+If the trust system is ION, once the domain changes are published to ION, the domain section inside the Azure AD Verifiable Credentials service will display Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
 
 >[!IMPORTANT]
 > No changes to your domain are possible while publishing is in progress.
@@ -156,6 +158,25 @@ Once the domain changes are publised to ION, the domain section inside the Azure
 
 Congratulations, you now have bootstrapped the web of trust with your DID!
 
+## Linked Domain domain made easy for developers
+
+The easiest way for a developer to get a domain to use for linked domain is to use Azure Storage's static website feature. You can't control what the domain name will be, other than it will contain your storage account name as part of it's hostname.
+
+Follow these steps to quickly set up a domain to use for Linked Domain:
+
+1. Create an **Azure Storage account**. During storage account creation, choose StorageV2 (general-purpose v2 account) and Locally redundant storage (LRS).
+1. Go to that Storage Account and select **Static website** in the left hand menu and enable static website. If you can't see the **Static website** menu item, you didn't create a **V2** storage account.
+1. Copy the primary endpoint name that appears after saving. This value is your domain name. It looks something like `https://<your-storageaccountname>.z6.web.core.windows.net/`.
+
+When it comes time to upload the `did-configuration.json` file, take the following steps:
+
+1. Go to that Storage Account and select **Containers** in the left hand menu. Then select the container named `$web`.
+1. Select **Upload** and select on the folder icon to find your file
+1. Before uploaded, open the **Advanced** section and specify `.well-known` in the **Upload to folder** textbox.
+1. Upload the file.
+
+You now have your file publicly available at a URL that looks something like `https://<your-storageaccountname>.z6.web.core.windows.net/.well-known/did-configuration.json`.
+
 ## Next steps
 
-- [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
+- [How to customize your Microsoft Entra Verified ID](credential-design.md)

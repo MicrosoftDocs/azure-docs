@@ -1,16 +1,16 @@
 ---
-title: Azure Container Apps Preview overview
+title: Azure Container Apps overview
 description: Learn about common scenarios and uses for Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 06/23/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Azure Container Apps Preview overview
+# Azure Container Apps overview
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
 
@@ -44,7 +44,7 @@ With Azure Container Apps, you can:
 
 - [**Use internal ingress and service discovery**](connect-apps.md) for secure internal-only endpoints with built-in DNS-based service discovery.
 
-- [**Build microservices with Dapr**](microservices.md) and access its rich set of APIs.
+- [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
 
 - [**Run containers from any registry**](containers.md), public or private, including Docker Hub and Azure Container Registry (ACR).
 

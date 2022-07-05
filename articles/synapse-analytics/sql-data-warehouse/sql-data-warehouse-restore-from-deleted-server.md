@@ -41,7 +41,7 @@ In this article, you learn how to restore a dedicated SQL pool (formerly SQL DW)
 ```powershell
 $SubscriptionID="<YourSubscriptionID>"
 $ResourceGroupName="<YourResourceGroupName>"
-$ServereName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
+$ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 $DatabaseName="<YourDatabaseName>"
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $TargetDatabaseName="<YourDatabaseName>"
