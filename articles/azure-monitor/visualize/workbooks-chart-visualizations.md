@@ -217,8 +217,3 @@ The series setting tab lets you adjust the labels and colors shown for series in
 - The `Comment` field is useful for template authors, as this comment may be used by translators to localize the display labels.
 
 ![Screenshot of series settings.](./media/workbooks-chart-visualizations/series-settings.png)
-
-## Next steps
-
-- Learn how to create a [tile in workbooks](workbooks-tile-visualizations.md).
-- Learn how to create [interactive workbooks](workbooks-interactive.md).

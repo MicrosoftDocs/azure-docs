@@ -6,7 +6,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 06/13/2022
 ---
 # Mount a volume for Windows or Linux VMs 
 
@@ -45,9 +45,21 @@ You can mount an Azure NetApp Files file for Windows or Linux virtual machines (
 
 4. If you want to mount the volume to Windows using NFS:
 
-    a. Mount the volume onto a Unix or Linux VM first.  
-    b. Run a `chmod 777` or `chmod 775` command against the volume.  
-    c. Mount the volume via the NFS client on Windows.
+      > [!NOTE]
+      > One alternative to mounting an NFS volume on Windows is to [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md), allowing the native access of SMB for Windows and NFS for Linux. However, if that is not possible, you can mount the NFS volume on Windows using the steps below.
+
+    * Set the permissions to allow the volume to be mounted on Windows
+      * Follow the steps to [Configure Unix permissions and change ownership mode for NFS and dual-protocol volumes](configure-unix-permissions-change-ownership-mode.md#unix-permissions) and set the permissions to '777' or '775'.
+    * Install NFS client on Windows
+      * Open PowerShell
+      * type: `Install-WindowsFeature -Name NFS-Client`
+    * Mount the volume via the NFS client on Windows
+      * Obtain the 'mount path' of the volume
+      * Open a Command prompt
+      * type: `mount -o anon -o mtype=hard \\$ANFIP\$FILEPATH $DRIVELETTER:\`
+         * `$ANFIP` is the IP address of the Azure NetApp Files volume found in the volume properties blade.
+         * `$FILEPATH` is the export path of the Azure NetApp Files volume.
+         * `$DRIVELETTER` is the drive letter where you would like the volume mounted within Windows.
     
 5. If you want to mount an NFS Kerberos volume, see [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md) for additional details. 
 

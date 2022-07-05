@@ -4,7 +4,7 @@ description: Use data collection endpoints to uniquely configure ingestion setti
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 3/16/2022
+ms.date: 3/16/2022  
 ms.custom: references_region
 ms.reviewer: shseth
 
