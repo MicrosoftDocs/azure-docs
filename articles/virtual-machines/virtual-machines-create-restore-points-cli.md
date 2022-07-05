@@ -17,6 +17,17 @@ You can protect your data and guard against extended downtime by creating [VM re
 
 The [az restore-point](/cli/azure/restore-point) module is used to create and manage restore points from the command line or in scripts.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * [Create a VM restore point collection](#step-1-create-a-vm-restore-point-collection)
+> * [Create a VM restore point](#step-2-create-a-vm-restore-point)
+> * [Track the progress of Copy operation](#step-3-track-the-status-of-the-vm-restore-point-creation)
+> * [Restore a VM](#restore-a-vm-from-vm-restore-point)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+- Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point.
+
 ## Step 1: Create a VM restore point collection
 
 Use the [az restore-point collection create](/cli/azure/restore-point/collection#az-restore-point-collection-create) command to create a VM restore point collection, as shown below:
