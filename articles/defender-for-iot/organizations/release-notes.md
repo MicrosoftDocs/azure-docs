@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 05/25/2022
+ms.date: 07/05/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -50,6 +50,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 **Sensor software version**: 22.2.3
 
 - [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
+- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
@@ -74,18 +75,30 @@ PCAP files are downloaded to your Azure storage.
 
 For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md).
 
+### Bi-directional alert synch between sensors and the Azure portal (Public preview)
+
+For sensors updated to version 22.2.1, alert statuses and learn statuses are now fully synchronized between the sensor console and the Azure portal. For example, this means that you can close an alert on the Azure portal or the sensor console, and the alert status is updated in both locations.
+
+*Learn* an alert from either the Azure portal or the sensor console to ensure that it's not triggered again the next time the same network traffic is detected.
+
+The sensor console is also synchronized with an on-premises management console, so that alert statuses and learn statuses remain up-to-date across your management interfaces.
+
+For more information, see:
+
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+- [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
+- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
 ## June 2022
 
 **Sensor software version**: 22.1.5
-
-- Bug fixes related to OT monitoring software updates and sensor-cloud connections.
-
-## May 2022
 
 We've recently optimized and enhanced our documentation as follows:
 
 - [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
 - [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
+
 
 ### Updated appliance catalog for OT environments
 
