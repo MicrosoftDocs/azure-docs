@@ -20,7 +20,7 @@
   items: 
     - name: Connect to a Microsoft Dev Box by using a remote desktop app.
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-- name: How-tos
+- name: How-to guides
   expanded: true
 - name: Reference
   items:
