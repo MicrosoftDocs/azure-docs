@@ -34,7 +34,7 @@ Azure Cache for Redis currently doesn’t allow adding availability zone support
 
 ### Redeployment considerations
 
-There are extra expenses from running multiple caches simultaneously as you convert your data to the new cache.
+Running multiple caches simultaneously as you convert your data to the new cache creates extra expenses.
 
 ### How to redeploy
 
