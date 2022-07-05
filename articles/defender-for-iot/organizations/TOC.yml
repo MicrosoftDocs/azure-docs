@@ -121,7 +121,7 @@
       href: tutorial-servicenow.md
   - name: System deployment
     items:
-    - name: Manage an Azure subscription
+    - name: Manage plans on Azure subscriptions
       href: how-to-manage-subscriptions.md
     - name: Onboard sensors
       href: onboard-sensors.md
