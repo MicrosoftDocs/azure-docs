@@ -1,4 +1,4 @@
---
+---
 title: 'What is the Azure AD Connect Admin Agent - Azure AD Connect | Microsoft Docs'
 description: Describes the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
@@ -23,9 +23,9 @@ The Azure AD Connect Administration Agent is a new component of Azure Active Dir
 >[!NOTE]
 >The admin agent is not installed and enabled by default.  You must install the agent in order to collect data to assist with support cases.
 
-When installed, the Azure AD Connect Administration Agent waits for specific requests for data from Azure Active Directory, gets the requested data from the sync environment and sends it to Azure Active Directory, where it is presented to the Microsoft support engineer. 
+The Azure AD Connect Administration Agent waits for specific requests for data from Azure Active Directory.  The agent then takes the requested data from the sync environment and sends it to Azure AD, where it is presented to the Microsoft support engineer. 
 
-The information that the Azure AD Connect Administration Agent retrieves from your environment is not stored in any way - it is only displayed to the Microsoft support engineer to assist them in investigating and troubleshooting the Azure Active Directory Connect related support case that you opened 
+The information that the Azure AD Connect Administration Agent retrieves from your environment is not stored.  The information is only displayed to the Microsoft support engineer to assist them in investigating and troubleshooting the Azure Active Directory Connect related support case. 
 The Azure AD Connect Administration Agent is not installed on the Azure AD Connect Server by default. 
 
 ## Install the Azure AD Connect Administration Agent on the Azure AD Connect server 
@@ -36,20 +36,25 @@ Prerequisites:
 
 ![admin agent](media/whatis-aadc-admin-agent/adminagent0.png)
 
-The Azure AD Connect Administration Agent binaries are placed in the AAD Connect server. To install the agent, do the following:
+The Azure AD Connect Administration Agent binaries are placed in the AAD Connect server. To install the agent, use the following steps:
 
 1.    Open powershell in admin mode
 2.    Navigate to the directory where the application is located cd "C:\Program Files\Microsoft Azure Active Directory Connect\Tools"
 3.    Run ConfigureAdminAgent.ps1
 
-When prompted, please enter your Azure AD global admin credentials. This should be the same credentials entered during Azure AD Connect installation.
+When prompted, please enter your Azure AD global admin credentials. These credentials should be the same credentials entered during Azure AD Connect installation.
 
 After the agent is installed, you'll see the following two new programs in the "Add/Remove Programs" list in the Control Panel of your server: 
 
 ![Screenshot that shows the Add/Remove Programs list that includes the new programs you added.](media/whatis-aadc-admin-agent/adminagent1.png)
 
 ## What data in my Sync service is shown to the Microsoft service engineer? 
-When you open a support case  the Microsoft Support Engineer can see, for a given user, the relevant data in Active Directory, the Active Directory connector space in the Azure Active Directory Connect server, the Azure Active Directory connector space in the Azure Active Directory Connect server and the Metaverse in the Azure Active Directory Connect server. 
+When you open a support case, the Microsoft Support Engineer can see, for a given user:
+
+   - the relevant data in Active Directory
+   - the Active Directory connector space in the Azure Active Directory Connect server 
+   - the Azure Active Directory connector space in the Azure Active Directory Connect server
+   - the Metaverse in the Azure Active Directory Connect server. 
 
 The Microsoft Support Engineer cannot change any data in your system and cannot see any passwords. 
 
