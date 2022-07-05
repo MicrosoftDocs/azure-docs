@@ -24,3 +24,5 @@ items:
   items:
     - name: Run tests across multiple operating systems
       href: how-to-cross-platform-tests.md
+    - name: Run Playwright tests in the cloud
+      href: how-to-run-with-playwright-testing.md
