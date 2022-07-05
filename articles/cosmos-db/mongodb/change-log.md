@@ -10,7 +10,7 @@ ms.author: t-khelanmodi
 ---
 
 # Change Log for Azure Cosmos DB API for MongoDB
-The Change Log for the API for MongoDB is meant to inform you about our feature updates. This document covers more granular updates and complements [Azure Updates](https://azure.microsoft.com/en-us/updates/).
+The Change Log for the API for MongoDB is meant to inform you about our feature updates. This document covers more granular updates and complements [Azure Updates](https://azure.microsoft.com/updates/).
 
 ## Cosmos DB's API for MongoDB updates
 
