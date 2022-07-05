@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 07/05/2022
 ms.author: v-bcatherine
 ---
 
@@ -345,7 +345,7 @@ For more information regarding Log Analytics and log queries, see the [Log Analy
 
 Container Apps logs can be queried using the [Azure CLI](/cli/azure/monitor/log-analytics).  
 
-These example Azure CLI queries output a table containing log records for the container app name "album-api".  The table columns are specified by the parameters after the project operator.  The $WORKSPACE_CUSTOMER_ID variable contains the GUID of the Log Analytics workspace.
+These example Azure CLI queries output a table containing log records for the container app name "album-api".  The table columns are specified by the parameters after the `project` operator.  The $WORKSPACE_CUSTOMER_ID variable contains the GUID of the Log Analytics workspace.
 
 
 This example queries the ContainerAppConsoleLogs_CL table:
@@ -360,7 +360,7 @@ This example queries the ContainerAppSystemLogs_CL table:
 az monitor log-analytics query --workspace $WORKSPACE_CUSTOMER_ID --analytics-query "ContainerAppSystemLogs_CL | where ContainerAppName_s == 'album-api' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Message=Log_s, LogLevel_s | take 5" --out table
 ```
 
-For more information about using Azure CLI to view container app logs, see [Viewing Logs](monitor.md#viewing-logs).
+For more information about using Azure CLI to view container app logs, see [V###iewing Logs](monitor.md#viewing-logs).
 
 ## Azure Monitor alerts
 
