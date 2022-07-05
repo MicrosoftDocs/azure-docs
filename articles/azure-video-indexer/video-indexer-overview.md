@@ -106,7 +106,7 @@ Before creating a new account, review [Account types](accounts-overview.md).
 
 You can access Azure Video Indexer capabilities in three ways:
 
-* Azure Video Indexer  portal: An easy to use solution that lets you evaluate the product, manage the account, and customize models.
+* Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models.
 
     For more information about the portal, see [Get started with the Azure Video Indexer website](video-indexer-get-started.md).  
 
