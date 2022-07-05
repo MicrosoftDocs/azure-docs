@@ -64,7 +64,7 @@ The Key Vault recommendations listed here are currently disabled so that they do
 
 The following table lists the alerts that will be deprecated during June 2022.
 
-| Alert name | Description | Tactocs | Severity |
+| Alert name | Description | Tactics | Severity |
 |--|--|--|--|
 | **Docker build operation detected on a Kubernetes node** <br>(VM_ImageBuildOnNode) | Machine logs indicate a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | Defense Evasion | Low |
 | **Suspicious request to Kubernetes API** <br>(VM_KubernetesAPI) | Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container. | LateralMovement | Medium |
@@ -139,7 +139,7 @@ We will be deprecating the following policies to corresponding policies that alr
 | `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
 | `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
 
-### Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters
+### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
 
 **Estimated date for change:** August 2022
 
