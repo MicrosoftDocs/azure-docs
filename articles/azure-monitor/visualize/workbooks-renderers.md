@@ -34,7 +34,7 @@ These rendering options can be used with grids, tiles, and graphs to produce the
 
 ## Link actions
 
-If the **Link** renderer is selected or the **Make this item a link** checkbox is selected, the author can configure a link action to occur when the user selects the cell to taking the user to another view with context coming from the cell, or to open up a url.
+If the **Link** renderer is selected or the **Make this item a link** checkbox is selected, the author can configure a link action to occur when the user selects the cell to taking the user to another view with context coming from the cell, or to open up a url. See link renderer actions for more details.
 
 ## Using thresholds with links
 
