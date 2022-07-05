@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Azure Web PubSub service with a Bicep file'
+title: 'Quickstart: Create an Azure Web PubSub service with a Bicep file'
 description: Learn how to create an Azure Web PubSub service by using a Bicep file to create the resource, and PowerShell or Azure CLI for deployment to a resource group.
 author: grminch
 ms.author: lianwei
