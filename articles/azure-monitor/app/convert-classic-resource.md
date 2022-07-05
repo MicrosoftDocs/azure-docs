@@ -293,7 +293,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via TrackTrace(). |
 
 > [!CAUTION]
-> Do not take a production dependency on the Log Analytics AppRequests, App* tables, until you see new telemetry records show up directly in Log Analytics.
+> Do not take a production dependency on the Log Analytics tables, until you see new telemetry records show up directly in Log Analytics.
 
 ### Table schemas
 
