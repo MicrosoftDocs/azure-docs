@@ -13,36 +13,9 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 <!-- reference of WHAT doc: https://docs.microsoft.com/en-us/azure/applied-ai-services/what-are-applied-ai-services -->
 
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
-
 # Why Security Admin Rules?
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
-
 [add your introductory paragraph]
-
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
 
 ## Benefits
 
@@ -97,9 +70,10 @@ Based on the industry study and suggestions from Microsoft, below is what we rec
 | 5900| TCP | VNC Remote Frame Buffer over HTTP | 
 | 11211	 | UDP	 | Memcached |
 
-### Enforcement and Flexiblity in Practice
-Let’s apply the concepts we’ve discussed so far to an example scenario. A company network administrator wants to enforce a security rule to block inbound SSH traffic for the whole company. As mentioned above, having such enforcement was difficult without AVNM’s security admin rule. If the administrator manages all the NSGs, then management overhead is high, and the administrator can't rapidly respond to product teams’ needs to modify NSG rules. On the other hand, if the product teams manage their own NSGs without security admin rules, then the administrator can't enforce critical security rules, leaving potential security risks open. Using both security admin rules and NSGs can solve this dilemma. In this case, the administrator wants to make an exception for Application 1 as the Application 1 team needs more time to make changes to not rely on SSH. The diagram below visualizes how the administrator can achieve the goal of enforcement with security 
+### Enforcement and flexibility in practice
+Let’s apply the concepts we’ve discussed so far to an example scenario. A company network administrator wants to enforce a security rule to block inbound SSH traffic for the whole company. As mentioned above, having such enforcement was difficult without AVNM’s security admin rule. If the administrator manages all the NSGs, then management overhead is high, and the administrator cannot rapidly respond to product teams’ needs to modify NSG rules. On the other hand, if the product teams manage their own NSGs without security admin rules, then the administrator cannot enforce critical security rules, leaving potential security risks open. Using both security admin rules and NSGs can solve this dilemma. In this case, the administrator wants to make an exception for Application 1 as the Application 1 team needs more time to make changes to not rely on SSH. The diagram below visualizes how the administrator can achieve the goal of enforcement with security admin rules, while leaving an exception open for the Application 1 team to handle SSH traffic through NSGs.
 
+:::image type="content" source="media/concept-security-admins/avnm-sec-admin-rough.png" alt-text="This is a rough mock-up of the sec admin rules flow using an example of SSH traffic.":::
 #### Step 1: Create a network manager instance
 
 The company administrator can create a network manager with the root management group of the firm as the scope of this network manager instance.

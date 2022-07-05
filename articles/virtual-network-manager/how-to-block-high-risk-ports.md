@@ -35,7 +35,7 @@ what the customer will learn, or do, or accomplish. Answer the fundamental “wh
 would I want to do this?” question. Keep it short.
 -->
 
-[Add your introductory paragraph]
+In this article, you will learn to block high risk network ports using Azure Virtual Network Manager and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your vnets with network groups, and create & deploy security admin configurations for your orginization. You'll deploy an general block rule for high risk ports. Then you'll create an exception for managing a specific application's vnet. This is will allow you to manage access to the application vnets using network security groups.
 
 ### Describe Scenario
 
@@ -85,6 +85,8 @@ We’re at the final step, which is to deploy OurSecurityConfig. This is how the
 ## Create a Network Group for Application
 We need to create a network group specifically for the Application 1 team’s VNets so that we can create security admin rules that pertain only to Application 1’s VNets and allow them to handle SSH traffic through their own NSGs. Since we already have OurNetworkManager created, we can go ahead and create another network group.
 
+## Create a Security Admin Rule Collection for Application 1
+We can now create an exception for Application 1’s VNets by adding a new rule collection and security admin rule to our existing security admin configuration.
 
 ## Re-deploy the Security Admin Configuration
 We’re at the final step, which is to redeploy OurSecurityConfig since we’ve modified this configuration by adding a rule collection.
