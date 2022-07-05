@@ -155,11 +155,14 @@ Use `az keyvault create` to create a public KeyVault.
 az keyvault create --name MyKeyVault --resource-group MyResourceGroup 
 ```
 
-Use `az keyvault create` to create a public KeyVault.
+Use `az keyvault show` to export the resource ID of key vault.
 
 ```azurecli
-az keyvault show --name cocotestkeyvaultdudu --query 'id' -o tsv
+export KEYVAULT_RESOURCE_ID=$(az keyvault show --name MyKeyVault --query 'id' -o tsv)
+echo $KEYVAULT_RESOURCE_ID
 ```
+
+The above example stores the key vault resource ID in *KEYVAULT_RESOURCE_ID*.
 
 Use `az keyvault key create` to create a key.
 
@@ -216,7 +219,11 @@ Use `az keyvault set-policy` to create an Azure KeyVault policy.
 az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
-az role assignment create --role “Key Vault Contributor” --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope /subscriptions/8ecadfc9-d1a3-4ea4-b844-0d9f87e4d7c8/resourceGroups/kmsgatest/providers/Microsoft.KeyVault/vaults/kmskeyvaultcoco
+For private key vault, the AKS needs *Key Vault Contributor* to create private link between private key vault and cluster.
+
+```azurecli-interactive
+az role assignment create --role “Key Vault Contributor” --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
+```
 
 ### Create an AKS cluster with private key vault and enable KMS etcd encryption 
 
@@ -244,7 +251,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to rotate the exitsing keys of KMS.
 
 ```azurecli-interactive
-az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $NewKEY_ID 
+az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $NewKEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
 ```
 
 Use below command to update all secrets. Otherwise, the old secrets are still encrypted with the previous key. 
@@ -253,6 +260,13 @@ Use below command to update all secrets. Otherwise, the old secrets are still en
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
+## Disable KMS
+
+Use below command to disable KMS on existing cluster.
+
+```azurecli-interactive
+az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
+```
 
 
 
