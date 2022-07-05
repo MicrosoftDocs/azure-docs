@@ -1,6 +1,6 @@
 ---
 title: 'Configure VPN clients for P2S OpenVPN protocol connections: Azure AD authentication: macOS: Preview'
-description: 'Preview: Learn how to configure a macOS VPN client to connect to a virtual network using point-to-site VPN and Azure Active Directory authentication.'
+description: 'Learn how to configure a macOS VPN client to connect to a virtual network using point-to-site VPN and Azure Active Directory authentication.'
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
