@@ -77,7 +77,7 @@ Mounting blob storage using the NFS v3 protocol does not authenticate using an a
 
 The following example demonstrates how to mount a Blob storage container as a persistent volume using the NFS protocol.
 
-1. Create a file named `azure-blob-nfs-pv.yaml` and copy in the following YAML.
+1. Create a file named `azure-blob-nfs-pv.yaml` and copy in the following YAML. Under `storageClass`, update `resourceGroup`, `storageAccount`, and `containerName`.
 
     ```yml
     apiVersion: v1
@@ -137,65 +137,6 @@ The following example demonstrates how to mount a Blob storage container as a pe
 
 ## Mount Blob storage as a volume using Blobfuse
 
-### Authenticate using a managed identity
-
-The following example demonstrates how to mount a Blob storage container using Blobfuse and authenticate against the storage account using the cluster's system-assigned managed identity. For more information about using managed identities, see [Use managed identities in Azure Kubernetes Service][use-managed-identity].
-
-1. Create a `storageclass-blobfuse-container.yaml` file. Under `storageClass`, update `resourceGroup`, `storageAccount`, and `containerName`. For example:
-
-    ```yml
-    apiVersion: storage.k8s.io/v1
-    kind: StorageClass
-    metadata:
-      name: blob-fuse-custom
-    provisioner: blob.csi.azure.com
-    parameters:
-      resourceGroup: EXISTING_RESOURCE_GROUP_NAME
-      storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
-      containerName: EXISTING_CONTAINER_NAME
-    reclaimPolicy: Retain  # if set as "Delete" container would be removed after pvc deletion
-    volumeBindingMode: Immediate
-    allowVolumeExpansion: true
-    mountOptions:
-      - -o allow_other
-      - --file-cache-timeout-in-seconds=120
-      - --use-attr-cache=true
-      - --cancel-list-on-mount-seconds=60  # prevent billing charges on mounting
-      - -o attr_timeout=120
-      - -o entry_timeout=120
-      - -o negative_timeout=120
-      - --cache-size-mb=1000  # Default will be 80% of available memory, eviction will happen beyond that.
-    ```
-
-2. Run the following command to create the storage class using the `kubectl create` command referencing the YAML file created earlier:
-
-    ```bash
-    kubectl create -f storageclass-blobfuse-container.yaml
-    ```
-
-3. Create a `pv-blobfuse-container.yaml` file with a *PersistentVolume*. For example:
-
-    ```yml
-    ---
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: pvc-blob
-    spec:
-      accessModes:
-        - ReadWriteMany
-      resources:
-        requests:
-          storage: 10Gi
-      storageClassName: blob-fuse
-    ```
-
-4. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
-
-    ```bash
-    kubectl create -f pv-blobfuse-container.yaml
-    ```
-
 ### Authenticate using an Azure access key or SAS tokens
 
 Kubernetes needs credentials to access the Blob storage container created earlier. These credentials are stored in a Kubernetes secret, which is referenced when you create a Kubernetes pod.
@@ -252,7 +193,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
           namespace: default
     ```
 
-3. Run the following command to create the storage class using the `kubectl create` command referencing the YAML file created earlier:
+3. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f pv-blobfuse-container.yaml
@@ -276,7 +217,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
       storageClassName: blob-fuse
     ```
 
-5. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
+5. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f pvc-blobfuse-container.yaml
