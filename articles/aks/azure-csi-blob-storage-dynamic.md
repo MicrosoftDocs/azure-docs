@@ -22,7 +22,7 @@ This article assumes that you have an existing AKS cluster running version 1.21 
 
 If you don't have a storage account that supports the NFS v3 protocol, see [Use Azure Blob storage Container Storage Interface (CSI) driver][blob-storage-csi-driver] (preview) to create one for your AKS cluster.
 
-## Storage class driver dynamic parameters
+## Dynamic provisioning parameters
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | --- |

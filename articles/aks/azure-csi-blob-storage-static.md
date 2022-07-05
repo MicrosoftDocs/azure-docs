@@ -20,7 +20,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 This article assumes that you have an existing AKS cluster running version 1.21 or higher. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-## Storage class for static parameters
+## Static provisioning parameters
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
@@ -221,6 +221,53 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
     ```bash
     kubectl create -f pvc-blobfuse-container.yaml
+    ```
+
+## Use the persistence volume claim
+
+The following YAML creates a pod that uses the persistent volume claim **pvc-blob** created earlier, to mount the Azure Blob storage at the `/mnt/blob' path.
+
+1. Create a file named `nginx-pod-blob.yaml`, and copy in the following YAML. Make sure that the **claimName** matches the PVC created in the previous step when creating a persistent volume for NFS or Blobfuse.
+
+    ```yml
+    kind: Pod
+    apiVersion: v1
+    metadata:
+      name: nginx-blob
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+        - image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
+          name: nginx-blob
+          volumeMounts:
+            - name: blob01
+              mountPath: "/mnt/blob"
+      volumes:
+        - name: blob01
+          persistentVolumeClaim:
+            claimName: pvc-blob
+    ```
+
+2. Run the following command to create the pod and mount the PVC using the `kubectl create` command referencing the YAML file created earlier:
+
+    ```bash
+    kubectl create -f nginx-pod-blob.yaml
+    ```
+
+3. Run the following command to create an interactive shell session with the pod to verify the PVC mount:
+
+    ```bash
+    kubectl exec -it nginx-blob -- df -h
+    ```
+
+    The output from the command resembles the following example:
+
+    ```bash
+    Filesystem      Size  Used Avail Use% Mounted on
+    ...
+    blobfuse         14G   41M   13G   1% /mnt/blob
+    ...
     ```
 
 ## Next steps
