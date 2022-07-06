@@ -90,7 +90,7 @@
   items:
     - name: Event Hubs Capture
       items:
-      - name: Capturing event data in Event Hubs
+      - name: Capture event data in Event Hubs
         href: event-hubs-capture-overview.md
       - name: Explore captured Avro files
         href: explore-captured-avro-files.md
