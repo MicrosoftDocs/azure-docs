@@ -5,9 +5,9 @@ author: dikethir
 ms.author: dikethir
 ms.service: virtual-machines
 ms.subservice: recovery
-ms.topic: how-to
-ms.date: 06/14/2022
-ms.custom: template-how-to
+ms.topic: tutorial
+ms.date: 06/30/2022
+ms.custom: template-tutorial
 ---
 
 
@@ -16,6 +16,17 @@ ms.custom: template-how-to
 You can protect your data and guard against extended downtime by creating [VM restore points](virtual-machines-create-restore-points.md#about-vm-restore-points) at regular intervals. You can create VM restore points, and also [exclude disks](#exclude-disks-when-creating-a-restore-point) while creating the restore point, using Azure CLI. Azure CLI is used to create and manage Azure resources using command line or scripts. Alternatively, you can create VM restore points using the [Azure portal](virtual-machines-create-restore-points-portal.md) or using [PowerShell](virtual-machines-create-restore-points-powershell.md).
 
 The [az restore-point](/cli/azure/restore-point) module is used to create and manage restore points from the command line or in scripts.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * [Create a VM restore point collection](#step-1-create-a-vm-restore-point-collection)
+> * [Create a VM restore point](#step-2-create-a-vm-restore-point)
+> * [Track the progress of Copy operation](#step-3-track-the-status-of-the-vm-restore-point-creation)
+> * [Restore a VM](#restore-a-vm-from-vm-restore-point)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+- Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point.
 
 ## Step 1: Create a VM restore point collection
 

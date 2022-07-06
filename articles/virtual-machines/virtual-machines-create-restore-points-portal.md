@@ -5,9 +5,9 @@ author: dikethir
 ms.author: dikethir
 ms.service: virtual-machines
 ms.subservice: recovery
-ms.topic: how-to
-ms.date: 06/14/2022
-ms.custom: template-how-to
+ms.topic: tutorial
+ms.date: 06/30/2022
+ms.custom: template-tutorial
 ---
 
 
@@ -15,8 +15,21 @@ ms.custom: template-how-to
 
 You can create virtual machine restore points through the Azure portal. You can protect your data and guard against extended downtime by creating [VM restore points](virtual-machines-create-restore-points.md#about-vm-restore-points) at regular intervals. This article shows you how to create VM restore points using the Azure portal. Alternatively, you can create VM restore points using the [Azure CLI](virtual-machines-create-restore-points-cli.md) or using [PowerShell](virtual-machines-create-restore-points-powershell.md).
  
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * [Create a VM restore point collection](#step-1-create-a-vm-restore-point-collection)
+> * [Create a VM restore point](#step-2-create-a-vm-restore-point)
+> * [Track the progress of Copy operation](#step-3-track-the-status-of-the-vm-restore-point-creation)
+> * [Restore a VM](#restore-a-vm-from-a-restore-point)
+
+## Prerequisites
+
+- Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point. 
+
 ## Step 1: Create a VM restore point collection
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Restore Point Collections** in the Azure portal.
 
    :::image type="content" source="./media/virtual-machines-create-restore-points-portal/create-restore-points-search.png" alt-text="Screenshot of search bar in Azure portal.":::
