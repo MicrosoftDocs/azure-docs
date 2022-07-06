@@ -35,4 +35,4 @@ To learn how to display Events metrics in the Azure portal, see
 >[!div class="nextstepaction"]
 >[How to display Events metrics](./events-display-metrics.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

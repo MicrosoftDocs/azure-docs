@@ -52,7 +52,7 @@ You can use the Event Grid filtering feature. There are unique identifiers in th
 
 ### Can I use the same subscriber for multiple workspaces or multiple FHIR accounts?
 
-Yes. We recommend that you use different subscribers for each individual FHIR accounts to process in isolated scopes.
+Yes. We recommend that you use different subscribers for each individual FHIR account to process in isolated scopes.
 
 ### Is Event Grid compatible with HIPAA and HITRUST compliance obligations?
 
@@ -77,4 +77,4 @@ Generally, we recommend that developers ensure idempotency for the event subscri
 
 [FAQs about Azure Health Data Services MedTech service](../iot/iot-connector-faqs.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

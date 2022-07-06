@@ -344,4 +344,4 @@ For more information about FHIR events, see
 >[!div class="nextstepaction"]
 >[What are Events?](./events-overview.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

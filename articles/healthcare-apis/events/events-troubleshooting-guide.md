@@ -61,4 +61,4 @@ To learn about frequently asked questions (FAQs) about Events, see
 >[!div class="nextstepaction"]
 >[Frequently asked questions about Events](./events-faqs.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

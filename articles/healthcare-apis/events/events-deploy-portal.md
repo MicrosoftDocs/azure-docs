@@ -88,4 +88,4 @@ To learn how to export Event Grid system diagnostic logs and metrics, see
 >[!div class="nextstepaction"]
 >[How to export Events diagnostic logs and metrics](./events-display-metrics.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
