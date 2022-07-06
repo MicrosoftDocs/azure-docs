@@ -143,7 +143,7 @@ In general, there are two types of migration regardless of the purpose and scope
 
 ##### Lift and shift
 
-In a lift and shift migration, an existing data model, like a star schema, is migrated unchanged to the new Azure Synapse platform. Lift and shift migration is a good fit for these scenarios:
+In a lift and shift migration, an existing data model, like a star schema, is migrated unchanged to the new Azure Synapse platform. This approach minimizes risk and migration time by reducing the work needed to realize the benefits of moving to the Azure cloud environment. Lift and shift migration is a good fit for these scenarios:
 
 - You have an existing Oracle environment with a single data mart to migrate, or
 - You have an existing Oracle environment with data that's already in a well-designed star or snowflake schema, or
@@ -178,9 +178,9 @@ As mentioned earlier, there are some basic differences in approach between Oracl
 
 #### Multiple databases vs. single database and schemas
 
-The Oracle environment often contains multiple separate databases. For instance, there could be separate databases for: data ingestion and staging tables, core warehouse tables, and data marts&mdash;sometimes referred to as the semantic layer. Processing, such as ETL or ELT pipelines, might implement cross-database joins and move data between the separate databases.
+The Oracle environment often contains multiple separate databases. For instance, there could be separate databases for: data ingestion and staging tables, core warehouse tables, and data marts&mdash;sometimes referred to as the semantic layer. Processing in ETL or ELT pipelines can implement cross-database joins and move data between the separate databases.
 
-In contrast, the Azure Synapse environment contains a single database and uses schemas to separate tables into logically separate groups. We recommend that you use a series of schemas within the target Azure Synapse database to mimic the separate databases migrated from the Oracle environment. If the Oracle environment already uses schemas, you may need to use a new naming convention when you move the existing Oracle tables and views to the new environment. For example, you could concatenate the existing Oracle schema and table names into the new Azure Synapse table name, and use schema names in the new environment to maintain the original separate database names. Although you can use SQL views on top of the underlying tables to maintain the logical structures, there are potential downsides to this approach:
+In contrast, the Azure Synapse environment contains a single database and uses schemas to separate tables into logically separate groups. We recommend that you use a series of schemas within the target Azure Synapse database to mimic the separate databases migrated from the Oracle environment. If the Oracle environment already uses schemas, you may need to use a new naming convention when you move the existing Oracle tables and views to the new environment. For example, you could concatenate the existing Oracle schema and table names into the new Azure Synapse table name, and use schema names in the new environment to maintain the original separate database names. Although you can use SQL views on top of the underlying tables to maintain the logical structures, there are potential downsides to that approach:
 
 - Views in Azure Synapse are read-only, so any updates to the data must take place on the underlying base tables.
 
@@ -193,7 +193,7 @@ In contrast, the Azure Synapse environment contains a single database and uses s
 
 When you migrate tables between different environments, typically only the raw data and the metadata that describes it physically migrate. Other database elements from the source system, such as indexes, usually aren't migrated because they might be unnecessary or implemented differently in the new environment.
 
-Performance optimizations in the source environment, such as indexes, indicate where you might add performance optimization in the new environment. For example, if bit-mapped indexes are frequently used in queries within the source Oracle environment, that suggests that a non-clustered index should be created within Azure Synapse. Other native performance optimization techniques like table replication may be more applicable than straight like-for-like index creation. SSMA for Oracle can be used to provide migration recommendations for table distribution and indexing.
+Performance optimizations in the source environment, such as indexes, indicate where you might add performance optimization in the new environment. For example, if queries in the source Oracle environment frequently use bit-mapped indexes, that suggests that a non-clustered index should be created within Azure Synapse. Other native performance optimization techniques like table replication may be more applicable than straight like-for-like index creation. SSMA for Oracle can be used to provide migration recommendations for table distribution and indexing.
 
 >[!TIP]
 >Existing indexes indicate candidates for indexing in the migrated warehouse.
@@ -350,7 +350,9 @@ Azure Synapse supports stored procedures using T-SQL, so you'll need to recode a
 
 ##### Sequences
 
-In Oracle, a sequence is a named database object, created using `CREATE SEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys. Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using `IDENTITY` columns or SQL code that generates the next sequence number in a series.
+In Oracle, a sequence is a named database object, created using `CREATE SEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys.
+
+Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property) columns or SQL code that generates the next sequence number in a series.
 
 ### Extracting metadata and data from an Oracle environment
 
@@ -412,7 +414,7 @@ This section highlights low-level performance tuning implementation differences 
 
 For performance, Azure Synapse was designed with multi-node architecture and uses parallel processing. To optimize table performance in Azure Synapse, you can define a data distribution option in `CREATE TABLE` statements using the `DISTRIBUTION` statement. For example, you can specify a hash-distributed table, which distributes table rows across compute nodes by using a deterministic hash function. Many Oracle implementations, especially older on-premises systems, don't support this feature.
 
-Unlike Oracle, Azure Synapse supports "local joins" between a small table and a large table through small table replication. For instance, consider a small dimension table and a large fact table within a star schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching, locally available dimension row. The overhead of dimension table replication is relatively low for a small dimension table. For large dimension tables, a hash distribution approach is more appropriate. For more information on data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Unlike Oracle, Azure Synapse supports local joins between a small table and a large table through small table replication. For instance, consider a small dimension table and a large fact table within a star schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching, locally available dimension row. The overhead of dimension table replication is relatively low for a small dimension table. For large dimension tables, a hash distribution approach is more appropriate. For more information on data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 #### Data indexing
 
