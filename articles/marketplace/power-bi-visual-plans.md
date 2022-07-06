@@ -118,7 +118,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 You need to update the license enforcement in your visual.
 
 For information about how to create a visual package, see [Package a Power BI visual](/power-bi/developer/visuals/package-visual).
-For instructions on how to update license enforcement in your visual, see [Licensing API](https://github.com/jennyfel/powerbi-docs/blob/dev/jennyfel/licenseApiDoc/powerbi-docs/developer/visuals/license-api.md).
+For instructions on how to update license enforcement in your visual, see [Licensing API](/power-bi/developer/visuals/licensing-api).
 
 ## Next steps
 
