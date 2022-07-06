@@ -257,7 +257,7 @@ $features = @($SecurityType)
 New-AzGalleryImageDefinition -ResourceGroupName $rgName -GalleryName $galleryName -Name $galleryImageDefinitionName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -HyperVGeneration "V2" -OsState "Generalized" -OsType "Windows" -Description $description -Feature $features
 ```
 
-To create an image version, we can capture an existing Windows based Trusted launch VM. [Generalize the Trusted launch VM](https://docs.microsoft.com/azure/virtual-machines/generalize) before creating the image version.
+To create an image version, we can capture an existing Windows based Trusted launch VM. [Generalize the Trusted launch VM](generalize.md) before creating the image version.
 
 ```azurepowershell-interactive
 $rgName = "MyResourceGroup"
