@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 07/05/2022
 ---
 
 # Chart visualizations
@@ -22,7 +22,7 @@ Azure Monitor logs gives resources owners detailed information about the working
 
 The example below shows the trend of requests to an app over the previous days.
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
 2. Use the **Add query** link to add a log query control to the workbook.
 3. Select the query type as **Log**, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the [KQL](/azure/kusto/query/) for your analysis (for example, trend of requests).
@@ -142,7 +142,7 @@ Most Azure resources emit metric data about state and health (for example, CPU u
 
 The following example will show the number of transactions in a storage account over the prior hour. This allows the storage owner to see the transaction trend and look for anomalies in behavior.
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
 2. Use the **Add metric** link to add a metric control to the workbook.
 3. Select a resource type (for example, Storage Account), the resources to target, the metric namespace and name, and the aggregation to use.
 4. Set other parameters if needed - like time range, split-by, visualization, size, and color palette.
