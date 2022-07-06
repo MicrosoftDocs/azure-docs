@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Playwright Testing?
-description: 'Microsoft Playwright Testing is a fully managed end-to-end testing service. Run Playwright tests across multiple operating systems and browser configurations at scale in the cloud.'
+description: 'Microsoft Playwright Testing is a fully managed web UI testing service. Run Playwright tests across multiple operating systems and browser configurations at scale in the cloud, regardless of where the application is hosted.'
 services: playwright-testing
 ms.service: playwright-testing
 ms.topic: overview
@@ -11,18 +11,33 @@ ms.date: 07/06/2022
 
 # What is Microsoft Playwright Testing Preview?
 
-Microsoft Playwright Testing Preview is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
+Microsoft Playwright Testing Preview is a fully managed web UI testing service. The service enables you to validate that your web application runs correctly
+across operating systems, device and browser configurations, regardless of where the application is hosted. Developers and testers can use it to optimize application quality by testing end-to-end user scenarios.
+
+Quickly configure your existing Playwright test suite to run your tests in the cloud. Microsoft Playwright Testing abstracts the complexity and infrastructure to run tests at scale, across multiple operating systems. Run tests for cloud-hosted applications, on-premise applications, and even *localhost* development servers.
+
+Use the unified reporting dashboard to gain actionable insights and trends across multiple test runs. Leverage the rich test results, such as logs, traces, and videos, to troubleshoot test failures quickly.
+
+To continuously monitor application quality, you can automate your end-to-end tests as part of your continuous integration and continuous deployment (CI/CD) workflow.
+
+<!-- Key scenarios:
+
+- Speed up test execution with high parallelism across operating systems, device and browser configurations.
+- Gain actionable pass/fail insights from a unified reporting dashboard.
+- Troubleshoot test issues through easy access to rich metadata like logs, traces, and video recordings. -->
+
+:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/microsoft-playwright-testing-architecture.png" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Identify performance bottlenecks by using high-scale load tests
+## Run cross-platform, cross-browser tests at scale
 
 Performance problems often remain undetected until an application is under load. You can start a high-scale load test in the Azure portal to learn sooner how your application behaves under stress. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.
 
 After the load test finishes, you can use the dashboard to analyze the test results and identify performance bottlenecks. For Azure-hosted applications, the dashboard shows detailed resource metrics of the Azure application components.
 
-## Enable automated load testing
+## Gain actionable insights 
 
 You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
 
@@ -30,7 +45,9 @@ Azure Load Testing will automatically stop an automated load test in response to
 
 You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
 
-## How does Azure Load Testing work?
+## Troubleshoot test issues with rich test results
+
+## How does Microsoft Playwright Testing work?
 
 Azure Load Testing test engines abstract the required infrastructure for running a high-scale load test. The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL, Azure Load Testing automatically generates a JMeter test script for you. To scale out the load test, you can configure the number of test engines.
 
@@ -44,7 +61,6 @@ Azure Load Testing automatically incorporates best practices for Azure networkin
 
 Data stored in your Azure Load Testing resource is automatically encrypted with keys managed by Microsoft (service-managed keys). This data includes, for example, your Apache JMeter script.
 
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
 
 ## Next steps
 
