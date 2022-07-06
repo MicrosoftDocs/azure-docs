@@ -1041,6 +1041,14 @@ groups:
     title: iOS
   - id: platform-windows
     title: Windows
+- id: acs-plat-android-web
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-android
+    title: Android
+  - id: platform-web
+    title: Web
 - id: acs-plat-ios-android
   title: Platform
   prompt: Choose a platform
