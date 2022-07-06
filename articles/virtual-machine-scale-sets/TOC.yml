@@ -237,6 +237,14 @@
   - name: Security and policy
     href: ../virtual-machines/security-policy.md
     maintainContext: true
+  - name: Azure security baseline
+    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
+    maintainContext: true
+  - name: Hotpatch
+    href: ../automanage/automanage-hotpatch.md
+  - name: Automatic VM guest patching
+    href: ../virtual-machines/automatic-vm-guest-patching.md
+    maintainContext: true
   - name: Automatic OS image upgrades
     href: virtual-machine-scale-sets-automatic-upgrade.md
   - name: Maintenance control
@@ -253,17 +261,6 @@
     - name: Portal
       href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
       maintainContext: true
-  - name: Automatic VM guest patching
-    items:
-    - name: Overview
-      href: ../virtual-machines/automatic-vm-guest-patching.md
-      maintainContext: true
-    - name: Hotpatch
-      href: ../automanage/automanage-hotpatch.md
-      maintainContext: true
-  - name: Azure security baseline
-    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
-    maintainContext: true
 - name: Reference
   items:
   - name: API comparison
