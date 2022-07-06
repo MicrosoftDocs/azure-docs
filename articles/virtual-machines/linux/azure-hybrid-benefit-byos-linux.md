@@ -30,7 +30,7 @@ ms.custom: kr2b-contr-experiment
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-byos-cost.png" alt-text="A screenshot that shows AHB costs for Linux Virtual Machines.":::
 
-## Which Linux Virtual Machines qualify for AHB for BYOS Virtual Machines?
+## Which Linux Virtual Machines qualifies for AHB for BYOS Virtual Machines?
 
 **AHB for BYOS Virtual Machines** is available to all RHEL and SLES custom image Virtual Machines, as well as RHEL and SLES Marketplace BYOS Virtual Machines. Azure Dedicated Host instances and SQL hybrid benefits aren't eligible for AHB if you're already using it with Linux Virtual Machines. Virtual Machine Scale Sets are Reserved Instances (RIs) and can't use AHB BYOS.
 
