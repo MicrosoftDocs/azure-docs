@@ -1,12 +1,12 @@
 ---
 title: Supported versions - Azure Database for MySQL Flexible Server
 description: Learn which versions of the MySQL server are supported in the Azure Database for MySQL Flexible Server
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
+author: Bashar-MSFT
+ms.author: bahusse
+ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
