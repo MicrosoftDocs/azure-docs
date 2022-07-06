@@ -326,6 +326,8 @@ items:
       items:
         - name: Enable logs in SDK
           href: how-to-use-logging.md
+        - name: Troubleshoot the Speech SDK
+          href: troubleshooting.md
         - name: Get Speech-to-text Session ID
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
