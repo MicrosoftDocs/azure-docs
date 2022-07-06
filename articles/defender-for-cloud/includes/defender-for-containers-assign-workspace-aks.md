@@ -2,7 +2,7 @@
 author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 06/16/2022
+ms.date: 07/06/2022
 ms.author: elkrieger
 ---
 
@@ -32,7 +32,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 1. Search for policy ID `64def556-fbad-4622-930e-72d1d5589bf5`.
 
-    :::image type="content" source="../media/defender-for-containers/policy-search-aks.png" alt-text="Screenshot that shows where to search for the policy by I D number." lightbox="../media/defender-for-containers/policy-search-aks.png":::
+    :::image type="content" source="../media/defender-for-containers/policy-search-aks.png" alt-text="Screenshot that shows where to search for the policy by ID number." lightbox="../media/defender-for-containers/policy-search-aks.png":::
 
 1. Select **Configure Azure Kubernetes Service clusters to enable Defender profile**.
 
@@ -44,7 +44,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 #### Create a new assignment with custom workspace
 
-If you policy hasn't been assigned, you'll see `Assignments (0)`.
+If the policy hasn't been assigned, you'll see `Assignments (0)`.
 
 :::image type="content" source="../media/defender-for-containers/no-assignment.png" alt-text="Screenshot showing that no workspace has been assigned." lightbox="../media/defender-for-containers/no-assignment.png":::
 
@@ -64,7 +64,7 @@ If you policy hasn't been assigned, you'll see `Assignments (0)`.
 
 #### Update assignment with custom workspace
 
-If the policy has already been assigned to a workspace you'll see `Assignments (1)`.
+If the policy has already been assigned to a workspace, you'll see `Assignments (1)`.
 
 :::image type="content" source="../media/defender-for-containers/already-assigned.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned." lightbox="../media/defender-for-containers/already-assigned.png":::
 

@@ -2,7 +2,7 @@
 author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 06/19/2022
+ms.date: 07/06/2022
 ms.author: elkrieger
 ---
 
@@ -32,7 +32,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 1. Search for policy ID `708b60a6-d253-4fe0-9114-4be4c00f012c`.
 
-    :::image type="content" source="../media/defender-for-containers/policy-search-arc.png" alt-text="Screenshot that shows where to search for the policy by I D number for ARC." lightbox="../media/defender-for-containers/policy-search-arc.png":::
+    :::image type="content" source="../media/defender-for-containers/policy-search-arc.png" alt-text="Screenshot that shows where to search for the policy by ID number for ARC." lightbox="../media/defender-for-containers/policy-search-arc.png":::
 
 1. Select **Configure Azure Arc enabled Kubernetes clusters to install Microsoft Defender for Cloud extension.**.
 
@@ -44,7 +44,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 #### Create a new assignment with custom workspace 
 
-If policy hasn't been assigned assigned, you'll see `Assignments (0)`.
+If the policy hasn't been assigned, you'll see `Assignments (0)`.
 
 :::image type="content" source="../media/defender-for-containers/no-assignment-arc.png" alt-text="Screenshot showing that no workspace has been assigned for ARC." lightbox="../media/defender-for-containers/no-assignment-arc.png":::
 
@@ -64,7 +64,7 @@ If policy hasn't been assigned assigned, you'll see `Assignments (0)`.
 
 #### Update assignment with custom workspace 
 
-If the policy has already been assigned to a workspace you'll see `Assignments (1)`. 
+If the policy has already been assigned to a workspace, you'll see `Assignments (1)`. 
 
 > [!NOTE]
 > If you have more than one subscription the number may be higher. If you have a number 1 or higher, the assignment may still not be on the relevant scope. If this is the case, you will want to follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps.

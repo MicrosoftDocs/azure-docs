@@ -28,7 +28,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
 Defender for Containers helps with the core aspects of container security:
 
-- [**Environment hardening**](#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. By continuously assessing clusters, Defender for Containers provides visibility into misconfigurations and guidelines to help mitigate identified threats.
+- [**Environment hardening**](#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. Defender for Containers continuously assesses clusters to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
 
 - [**Vulnerability assessment**](#vulnerability-assessment) - Vulnerability assessment and management tools for images **stored** in ACR registries and **running** in Azure Kubernetes Service.
 
@@ -110,7 +110,7 @@ No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale 
 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 
-No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and may result in additional charges.
+No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and may result in extra charges.
 
 ## Learn More
 

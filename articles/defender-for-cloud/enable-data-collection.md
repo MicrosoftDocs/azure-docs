@@ -1,8 +1,8 @@
 ---
-title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
+title: Auto-deploy agents for Microsoft sign for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 06/19/2022
+ms.date: 07/06/2022
 ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
@@ -118,7 +118,7 @@ Any of the agents and extensions described on this page *can* be installed manua
 We recommend enabling auto provisioning, but it's disabled by default.
 
 ## How does auto provisioning work?
-Defender for Cloud's auto provisioning settings have a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
+Defender for Cloud's auto provisioning settings has a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
 
 > [!TIP]
 > Learn more about Azure Policy effects including deploy if not exists in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
