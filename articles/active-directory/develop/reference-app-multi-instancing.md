@@ -36,11 +36,17 @@ The IDP initiated feature exposes two settings for each application.  
 - An “issuer with application id” flag to indicate the issuer should be unique for each application instead of unique for each tenant.  This setting is ignored if no custom signing key is configured for the application.  
 
 ## IDP Initiated Configuration Instructions  
-Graph – see [Claims mapping policy](reference-claims-mapping-policy-type.md)
-Portal – see [Customize app SAML token claims](active-directory-saml-claims-customization.md)
+1. Open any SSO enabled enterprise app and navigate to the SAML single sign on blade.   
+1. Select the ‘Edit’ button on the ‘User Attributes & Claims’ panel.
+![Single Sign-On (SSO) Workflow](./media/reference-app-multi-instancing/userattributesclaimsedit.png)
+1. Open the advanced options blade.
+![Single Sign-On (SSO) Workflow](./media/reference-app-multi-instancing/advancedoptionsblade.png)
+1. Configure both options according to your preferences and hit save.
+![Single Sign-On (SSO) Workflow](./media/reference-app-multi-instancing/advancedclaimsoptions.png)
+
+
 
 ## Next steps
 
-- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
-- To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
+- To explore the claims mapping policy in graph see [Claims mapping policy](https://docs.microsoft.com/graph/api/resources/claimsMappingPolicy?view=graph-rest-1.0)  
+- To learn more about how to configure this policy see [Customize app SAML token claims](active-directory-saml-claims-customization.md)
