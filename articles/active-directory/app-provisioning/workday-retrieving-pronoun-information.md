@@ -1,5 +1,5 @@
 ---
-title: Retrieving pronoun information from Workday
+title: Retrieve pronoun information from Workday
 description: Learn how to retrieve pronoun information from Workday
 services: active-directory
 author: kenwith
@@ -8,18 +8,24 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 06/01/2021
+ms.date: 07/05/2022
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
 ---
 
-# About pronoun information in Workday
+# Configure Azure AD provisioning to retrieve pronoun information from Workday
+This article describes how you can customize the following two HR-driven provisioning apps to fetch pronoun information from Workday.
+
+* [Workday to on-premises Active Directory user provisioning](../saas-apps/workday-inbound-tutorial.md)
+* [Workday to Azure Active Directory user provisioning](../saas-apps/workday-inbound-cloud-only-tutorial.md)
+
+## About pronoun information in Workday
 Workday introduced the ability for workers to [display pronoun information](https://community.workday.com/node/731178) in their worker profile in Workday 2021 R1 release. The ability to fetch pronoun data using Workday Web Services (WWS) API call was introduced in [Get_Workers API version 38.1](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v38.1/Get_Workers.html) in Workday 2022 R1 release. 
 
 >[!NOTE]
 >Links to certain Workday community notes and documents in this article require Workday community account credentials. Please check with your Workday administrator or partner to get the required access.
 
-# Enabling pronoun data in Workday
+## Enabling pronoun data in Workday
 This section describes steps required to enable pronoun data in Workday. We recommend engaging your Workday administrator to complete the steps listed below. 
 1. Ensure that pronoun display and sharing preferences are enabled as per Workday guidelines. Refer Workday documents: 
    
@@ -54,7 +60,7 @@ This section describes steps required to enable pronoun data in Workday. We reco
 
 Once you confirm that pronoun data is available in the *Get_Workers* response, go to the next step of updating your Azure AD provisioning app configuration. 
  
-# Updating Azure AD provisioning app to retrieve pronouns
+## Updating Azure AD provisioning app to retrieve pronouns
 
 To retrieve pronouns using the Azure AD Workday, you'll need to update your app to query Workday using v38.1 of the Workday Web Services. We recommend testing this configuration first in your test/sandbox environment before implementing the change in production. 
 
@@ -63,7 +69,7 @@ To retrieve pronouns using the Azure AD Workday, you'll need to update your app 
 1. In the **Admin Credentials** section, update the **Tenant URL** to include the Workday Web Service version v38.1 as shown below.
 
      >[!div class="mx-imgBorder"] 
-     >![Get Workers response](./media/workday-pronoun-data/update-workday-version.png)
+     >![Update Workday version](./media/workday-pronoun-data/update-workday-version.png)
 
 1. Open the **Attribute mappings** blade. Scroll down and click **Show advanced options**. Click on **Edit attribute list for Workday**.
 1. If your provisioning app is configured to use the default WWS API version v21.1, then [reference this article to review and update the XPATHs for each attribute](workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).
