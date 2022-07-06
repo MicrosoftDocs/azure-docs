@@ -61,11 +61,11 @@ GO
 
 Select Add provider from Azure Monitor for SAP solutions resource, and then:
 
-!["SQL1"](./media/SQL-Server-Provider-Details.png)
+![SQL1](./media/azure-monitor-sap/SQL-Server-Provider.png)
 
 For Type, select Microsoft SQL Server.
 
-!["SQL2"](./media/SQL-Server-Provider.png)
+!["SQL2"](./media/azure-monitor-sap/SQL-Server-Provider-Details.png)
 
 1. Configure providers for each instance of database by entering all required information.
 2. Enter the IP address of the hostname and the port the SQL Server is listening on (default is 1433).
