@@ -342,8 +342,7 @@ var foo = resourceGroup(
   myRgName)
 ```
 
-See [Arrays](./data-types.md#arrays) and [Objects](./data-types.md/#objects) for multiple-line declaration samples.
-
+See [Arrays](./data-types.md#arrays) and [Objects](./data-types.md#objects) for multiple-line declaration samples.
 
 ## Known limitations
 
