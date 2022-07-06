@@ -60,11 +60,11 @@ The [``TableClient.AddEntityAsync<>``](/dotnet/api/azure.data.tables.tableclient
 
 For example, you can create a new object that implements at least all of the required properties in the **ITableEntity** interface:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/251-create-item-itableentity/Program.cs" id="create_object" highlight="4-5":::
+:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/251-create-item-itableentity/Program.cs" id="create_object" highlight="4-5":::
 
 You can then pass this object to the **AddEntityAsync``<>``** method creating a server-side item:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/251-create-item-itableentity/Program.cs" id="create_item" highlight="2":::
+:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/251-create-item-itableentity/Program.cs" id="create_item" highlight="2":::
 
 ## Next steps
 

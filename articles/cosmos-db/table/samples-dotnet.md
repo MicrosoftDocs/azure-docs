@@ -53,7 +53,7 @@ The sample projects are all self-contained and are designed to be ran individual
 | :--- | ---: |
 | [Create an item using TableEntity](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/250-create-item-tableentity/Program.cs#L25-L36) | [``TableClient.AddEntityAsync<>``](/dotnet/api/azure.data.tables.tableclient.addentityasync#azure-data-tables-tableclient-addentityasync-1(-0-system-threading-cancellationtoken)) |
 | [Create an item using ITableEntity](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/251-create-item-itableentity/Program.cs#L25-L37) | [``TableClient.AddEntityAsync<>``](/dotnet/api/azure.data.tables.tableclient.addentityasync#azure-data-tables-tableclient-addentityasync-1(-0-system-threading-cancellationtoken)) |
-| [Point read an item]() | [````]() |
+| [Point read an item](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples/blob/v12/276-read-item-itableentity/Program.cs#L42-L45) | [``TableClient.GetEntityAsync<>``](/dotnet/api/azure.data.tables.tableclient.getentityasync) |
 
 ## Next steps
 
