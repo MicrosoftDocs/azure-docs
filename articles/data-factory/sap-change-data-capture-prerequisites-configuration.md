@@ -2,12 +2,12 @@
 title: SAP change data capture solution (Preview) - prerequisites and configuration
 titleSuffix: Azure Data Factory
 description: This topic introduces and describes the prerequisites and configuration of SAP change data capture (Preview) in Azure Data Factory.
-author: swinarko
+author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/01/2022
-ms.author: sawinark
+ms.author: ulrichchrist
 ---
 
 # SAP change data capture (CDC) solution prerequisites and configuration in Azure Data Factory (Preview)
