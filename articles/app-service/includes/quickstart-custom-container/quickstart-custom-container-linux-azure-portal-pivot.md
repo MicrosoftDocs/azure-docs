@@ -20,9 +20,9 @@ To complete this quickstart, you need:
 
 Clone the [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world) with the following command:
 
-    ```bash
-    git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
-    ```
+```bash
+git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
+```
 
 ## 2 - Push the image to Azure Container Registry
 
