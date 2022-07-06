@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 06/28/2022
+ms.date: 07/05/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,18 +18,12 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [GA support for Arc-enabled Kubernetes clusters](#ga-support-for-arc-enabled-kubernetes-clusters) | July 2022 |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | June 2022 |
 | [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | June 2022 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | July 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | July 2022 |
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
-
-### GA support for Arc-enabled Kubernetes clusters
-
-**Estimated date for change:** July 2022
-
-Defender for Containers is currently a preview feature for Arc-enabled Kubernetes clusters. In July, Arc-enabled Kubernetes clusters will be charged according to the listing on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Customers that already have clusters onboarded to Arc (on the subscription level) will incur charges.
+| [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -63,6 +57,20 @@ The Key Vault recommendations listed here are currently disabled so that they do
 | Validity period of certificates stored in Azure Key Vault should not exceed 12 months | fc84abc0-eee6-4758-8372-a7681965ca44 |
 | Key Vault secrets should have an expiration date | 14257785-9437-97fa-11ae-898cfb24302b |
 | Key Vault keys should have an expiration date | 1aabfa0d-7585-f9f5-1d92-ecb40291d9f2 |
+
+### Deprecating three VM alerts
+
+**Estimated date for change:** June 2022
+
+The following table lists the alerts that will be deprecated during June 2022.
+
+| Alert name | Description | Tactics | Severity |
+|--|--|--|--|
+| **Docker build operation detected on a Kubernetes node** <br>(VM_ImageBuildOnNode) | Machine logs indicate a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | Defense Evasion | Low |
+| **Suspicious request to Kubernetes API** <br>(VM_KubernetesAPI) | Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container. | LateralMovement | Medium |
+| **SSH server is running inside a container** <br>(VM_ContainerSSH) | Machine logs indicate that an SSH server is running inside a Docker container. While this behavior can be intentional, it frequently indicates that a container is misconfigured or breached. | Execution | Medium |
+
+These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
 
 ### Multiple changes to identity recommendations
 
@@ -113,20 +121,6 @@ This update, will rename two recommendations, and revise their descriptions. The
 |Description|User accounts that have been blocked from signing in, should be removed from your subscriptions. <br> These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions.<br> Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
  | Related policy | [Deprecated accounts should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474) | Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions. |
 
-### Deprecating three VM alerts
-
-**Estimated date for change:** June 2022
-
-The following table lists the alerts that will be deprecated during June 2022.
-
-| Alert name | Description | Tactocs | Severity |
-|--|--|--|--|
-| **Docker build operation detected on a Kubernetes node** <br>(VM_ImageBuildOnNode) | Machine logs indicate a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | Defense Evasion | Low |
-| **Suspicious request to Kubernetes API** <br>(VM_KubernetesAPI) | Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container. | LateralMovement | Medium |
-| **SSH server is running inside a container** <br>(VM_ContainerSSH) | Machine logs indicate that an SSH server is running inside a Docker container. While this behavior can be intentional, it frequently indicates that a container is misconfigured or breached. | Execution | Medium |
-
-These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
-
 ### Deprecate API App policies for App Service
 
 **Estimated date for change:** July 2022
@@ -144,6 +138,12 @@ We will be deprecating the following policies to corresponding policies that alr
 | `FTPS only should be required in your API App` | `App Service apps should require FTPS only` |
 | `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
 | `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
+
+### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
+
+**Estimated date for change:** August 2022
+
+Runtime protection is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged for runtime protection. You can view pricing details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions with Kubernetes clusters already onboarded to Arc, will begin to incur charges in August.
 
 ## Next steps
 

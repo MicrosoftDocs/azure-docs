@@ -42,7 +42,7 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
 ## Prerequisites
 
 * Install the `azureml-mlflow` package. 
-* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+* [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
@@ -59,7 +59,7 @@ To track a run that is not running on Azure Machine Learning compute (from now o
 > [!NOTE]
 > When running on Azure Compute (Azure Notebooks, Jupyter Notebooks hosted on Azure Compute Instances or Compute Clusters) you don't have to configure the tracking URI. It's automatically configured for you.
 
-# [Using the Azure ML SDK v2](#tab/amlsdk)
+# [Using the Azure ML SDK v2](#tab/azuremlsdk)
 
 You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
@@ -68,10 +68,10 @@ from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 import mlflow
 
-#Enter details of your AML workspace
+#Enter details of your AzureML workspace
 subscription_id = '<SUBSCRIPTION_ID>'
 resource_group = '<RESOURCE_GROUP>'
-workspace = '<AML_WORKSPACE_NAME>'
+workspace = '<AZUREML_WORKSPACE_NAME>'
 
 ml_client = MLClient(credential=DefaultAzureCredential(),
                      subscription_id=subscription_id, 
