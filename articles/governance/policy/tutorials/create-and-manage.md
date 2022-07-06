@@ -93,7 +93,7 @@ resources missing the tag.
    automatically based on the policy definition. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and
-   [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
+   [how remediation access control works](../how-to/remediate-resources.md#how-remediation-acces-control-works).
 
 1. Select the **Non-compliance messages** tab at the top of the wizard.
 
@@ -575,7 +575,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
    leave it blank. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and
-   [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
+   [how remediation access control works](../how-to/remediate-resources.md#how-remediation-access-control-works).
 
 1. Select the **Review + create** tab at the top of the wizard.
 
