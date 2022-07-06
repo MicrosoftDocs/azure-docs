@@ -11,6 +11,36 @@ ms.topic: troubleshooting
 
 This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities).
 
+## Scenario: When you use a Managed Identity in a Runbook, it cannot authenticate against Azure.
+
+### Issue
+When using a Managed Identity in your runbook, you receive an error as:
+`connect-azaccount : ManagedIdentityCredential authentication failed: Failed to get MSI token for account d94c0db6-5540-438c-9eb3-aa20e02e1226 and resource https://management.core.windows.net/. Status: 500 (Internal Server Error)`
+
+### Cause
+
+This can happen either when :
+
+**Cause 1**
+When you use the Automation account System Managed Identity, which has not yet been created and the `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook in Azure or on a Hybrid Runbook Worker.
+
+**Cause 2**
+When the Automation account has a User managed identity assigned and not a System Managed Identity and the - `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook on an Azure virtual machine Hybrid Runbook Worker using the Azure VM System Managed Identity.
+
+
+### Resolution
+
+**Resolution 1**
+You must create the Automation Account System Managed Identity and grant it access to the Azure Resources.
+
+**Resolution 2**
+As appropriate for your requirements, you can:
+
+- Create the Automation Account System Managed Identity and use it to authenticate.
+            Or 
+- Delete the Automation Account User Assigned Managed Identity.
+
+
 ## Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
 
 ### Issue
