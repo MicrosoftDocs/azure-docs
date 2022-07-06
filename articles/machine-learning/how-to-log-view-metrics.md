@@ -46,6 +46,9 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
     pip install mlflow azureml-mlflow
     ```
 
+> [!IMPORTANT]
+> If you are running outside of any Azure Machine Learning Compute and you want to do remote tracking (running you training routine in other compute but tracking on Azure Machine Learning), you must have MLflow configured to do tracking to your workspace. See [Setup your tracking environment](how-to-use-mlflow-cli-runs.md?#set-up-tracking-environment) for more details.
+
 ## Logging parameters
 
 MLflow supports the logging parameters used by your experiments. Parameters can be of any type, and can be logged using the following syntax:
@@ -115,6 +118,12 @@ MLflow supports two ways of loggin images:
 |Log a trivial file already existing | `mlflow.log_artifact("path/to/file.pkl")`| Files are always logged in the root of the run. If `artifact_path` is provided, then the file is logged in a folder as indicated in that parameter. |
 |Log all the artifacts in an existing folder | `mlflow.log_artifacts("path/to/folder")`| Folder structure is copied to the run, but the root folder indicated is not included. |
 
+## Logging models
+
+MLflow introduces the concept of "models" as a way to package all the artifacts required for a given model to function. Models in MLflow are always a folder with an arbitrary number of files, depending on the framework used to generate the model. Logging models has the advantage of tracking all the elements of the model as a single entity that can be __registered__ and then __deployed__. On top of that, MLflow models enjoy the benefit of [no-code deployment](how-to-deploy-mlflow-models.md) and can be used with the [Responsable AI dashbord](how-to-responsible-ai-dashboard.md) in studio.
+
+To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For frameworks that MLflow doesn't support, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
+
 ## Automatic logging
 
 With Azure Machine Learning and MLFlow, users can log metrics, model parameters and model artifacts automatically when training a model.  A [variety of popular machine learning libraries](https://mlflow.org/docs/latest/tracking.html#automatic-logging) are supported. 
@@ -125,76 +134,16 @@ To enable [automatic logging](https://mlflow.org/docs/latest/tracking.html#autom
 mlflow.autolog()
 ```
 
+> [!TIP]
+> You can control what gets automatically logged wit autolog. For instance, if you indicate `mlflow.autolog(log_models=False)`, MLflow will log everything but models for you. Such control is useful in cases where you want to log models manually but still enjoy automatic logging of metrics and parameters. Also notice that some frameworks may disable automatic logging of models if the trained model goes behond specific boundaries. Such behavior depends on the flavor used and we recommend you to view they documentation if this is your case.
+
 [Learn more about Automatic logging with MLflow](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.autolog). 
 
-## Configure MLflow to track experiments with Azure Machine Learning
+## Configuring experiments and runs in Azure Machine Learning
 
-To set up for logging with MLflow, import `mlflow` and set the tracking URI:
+MLflow organizes the information in experiments and runs (in Azure Machine Learning, runs are called Jobs). There are some differences in how to configure them depending on how you are running your code:
 
-> [!TIP]
-> You do not need to set the tracking URI when using a notebook running on an Azure Machine Learning compute instance.
-
-# [Using the Azure ML SDK v2](#tab/azuremlsdk)
-
-You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
-
-```Python
-from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredential
-import mlflow
-
-#Enter details of your AzureML workspace
-subscription_id = '<SUBSCRIPTION_ID>'
-resource_group = '<RESOURCE_GROUP>'
-workspace_name = '<AZUREML_WORKSPACE_NAME>'
-
-ml_client = MLClient(credential=DefaultAzureCredential(),
-                     subscription_id=subscription_id, 
-                     resource_group_name=resource_group)
-                     
-azureml_mlflow_uri = ml_client.workspaces.get(workspace_name).mlflow_tracking_uri
-mlflow.set_tracking_uri(azureml_mlflow_uri)
-```
-
->[!IMPORTANT]
-> `DefaultAzureCredential` will try to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in `azure.identity` package.
-
-# [Using an environment variable](#tab/environ)
-
-Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your terminal. 
-
-```Azure CLI
-export MLFLOW_TRACKING_URI=$(az ml workspace show --query mlflow_tracking_uri | sed 's/"//g') 
-```
-
->[!IMPORTANT]
-> Make sure you are logged in to your Azure account on your local machine, otherwise the tracking URI returns an empty string. If you are using any Azure ML compute the tracking environment and experiment name is already configured.
-
-# [Building the MLflow tracking URI](#tab/build)
-
-The Azure Machine Learning Tracking URI can be constructed using the subscription ID, region of where the resource is deployed, resource group name and workspace name. The following code sample shows how:
-
-```python
-import mlflow
-
-region = ""
-subscription_id = ""
-resource_group = ""
-workspace_name = ""
-
-azureml_mlflow_uri = f"azureml://{region}.api.azureml.ms/mlflow/v1.0/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}"
-mlflow.set_tracking_uri(azureml_mlflow_uri)
-```
-
-> [!NOTE]
-> You can also get this URL by: 
-> 1. Navigate to [Azure ML studio](https://ml.azure.com)
-> 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
-> 3. Copy the value and used it with `mlflow.set_tracking_uri()`.
-
----
-
-### Training interactively
+# [Training interactively](#tab/interactive)
 
 When training interactively, such as in a Jupyter Notebook, use the following pattern:
 
@@ -242,7 +191,7 @@ with mlflow.start_run(run_name="iris-classifier-random-forest") as run:
 
 For more information on MLflow logging APIs, see the [MLflow reference](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
 
-### Training with jobs
+# [Training with jobs](#tab/jobs)
 
 When running training jobs in Azure Machine Learning you don't need to configure the MLflow tracking URI as it is already configured for you. On top of that, you don't need to call `mlflow.start_run` as runs are automatically started. Hence, you can use mlflow tracking capabilities directly in your training scripts:
 
@@ -260,9 +209,7 @@ mlflow.log_metric('anothermetric',1)
 > [!TIP]
 > When submitting jobs using Azure ML CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
 
-## Log a model
-
-To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For frameworks that MLflow doesn't support, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
+---
 
 ## View job information
 
