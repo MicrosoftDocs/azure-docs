@@ -58,21 +58,12 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## July 2022
 
-- [Enterprise IoT purchase experience and Defender for Endpoint integration in GA](#enterprise-iot-purchase-experience-and-defender-for-endpoint-integration-in-ga)
+|Service area  |Updates  |
+|---------|---------|
+|**Enterprise IoT networks**     | - [Enterprise IoT purchase experience and Defender for Endpoint integration in GA](#enterprise-iot-purchase-experience-and-defender-for-endpoint-integration-in-ga)        |
+|**OT networks**     |Sensor software version 22.2.3:<br><br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)<br><br>To update to version 22.2.3:<br>- From version 22.1.x, update directly to version 22.2.3<br>- From version 10.x, first update to version 21.1.6, and then update again to 22.2.3<br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).        |
+|**Cloud-only features**     |  - [Microsoft Sentinel incident synch with Defender for IoT alerts](#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts) |
 
-**Sensor software version**: 22.2.3
-
-- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
-- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
-- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
-- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
-
-To update to version 22.2.3:
-
-- From version 22.1.x, update directly to version 22.2.3
-- From version 10.x, first update to version 21.1.6, and then update again to 22.2.3
-
-For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
@@ -116,7 +107,7 @@ For more information, see:
 
 Starting in sensor version [22.1.1](#new-support-diagnostics-log), you've been able to download a diagnostic log from the sensor console to send to support when you open a ticket.
 
-Now, for locally-managed sensors, you can upload that diagnostic log directly on the Azure portal.
+Now, for locally managed sensors, you can upload that diagnostic log directly on the Azure portal.
 
 :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the Send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
 
@@ -136,6 +127,20 @@ This version of the sensor provides an improved security for uploading proprieta
 :::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page." lightbox="media/release-notes/horizon.png":::
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
+
+### Microsoft Sentinel incident synch with Defender for IoT alerts
+
+The **IoT OT Threat Monitoring with Defender for IoT** solution now ensures that alerts in Defender for IoT are updated with any related incident **Status** changes from Microsoft Sentinel.
+
+This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
+
+Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected. 
+
+For more information, see:
+
+- [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+- [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
 
 ## June 2022
 

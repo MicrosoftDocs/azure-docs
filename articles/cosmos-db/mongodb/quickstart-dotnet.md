@@ -3,15 +3,17 @@ title: Quickstart - Azure Cosmos DB MongoDB API for .NET with MongoDB drier
 description: Learn how to build a .NET app to manage Azure Cosmos DB MongoDB API account resources in this quickstart.
 author: alexwolfmsft
 ms.author: alexwolf
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2022
+ms.date: 07/06/2022
 ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Azure Cosmos DB MongoDB API for .NET with the MongoDB driver
+
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 Get started with MongoDB to create databases, collections, and docs within your Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
@@ -24,7 +26,7 @@ Get started with MongoDB to create databases, collections, and docs within your 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* [.NET 6.0](https://dotnet.microsoft.com/en-us/download)
+* [.NET 6.0](https://dotnet.microsoft.com/download)
 * [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ### Prerequisite check
@@ -34,7 +36,7 @@ Get started with MongoDB to create databases, collections, and docs within your 
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses the MongoDB NuGet packages. 
+This section walks you through creating an Azure Cosmos account and setting up a project that uses the MongoDB NuGet packages.
 
 ### Create an Azure Cosmos DB account
 
@@ -72,7 +74,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 ### Create a new .NET app
 
-Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-newt) to create a new console app. 
+Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-newt) to create a new console app.
 
 ```console
 dotnet new console -o <app-name>
@@ -100,9 +102,9 @@ Before you start building the application, let's look into the hierarchy of reso
 
 You'll use the following MongoDB classes to interact with these resources:
 
-- [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm) - This class provides a client-side logical representation for the MongoDB API layer on Cosmos DB. The client object is used to configure and execute requests against the service.
-- [``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-- [``Collection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoCollection.htm) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
+* [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm) - This class provides a client-side logical representation for the MongoDB API layer on Cosmos DB. The client object is used to configure and execute requests against the service.
+* [``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+* [``Collection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoCollection.htm) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
 
 ## Code examples
 
@@ -151,7 +153,7 @@ public record Product(
 );
 ```
 
-Create an item in the collection using the `Product` record by calling [``IMongoCollection<TDocument>.InsertOne``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm). 
+Create an item in the collection using the `Product` record by calling [``IMongoCollection<TDocument>.InsertOne``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm).
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_item" :::
 
