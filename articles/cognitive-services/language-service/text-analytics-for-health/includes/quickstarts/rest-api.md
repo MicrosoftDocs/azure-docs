@@ -4,12 +4,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/20/2022
+ms.date: 06/28/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
+[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
 
 
 ## Prerequisites
@@ -34,6 +34,9 @@ To call the API, you need the following information:
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 
 ## Text Analytics for health

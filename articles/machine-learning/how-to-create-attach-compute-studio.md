@@ -30,7 +30,7 @@ In this article, learn how to create and manage compute targets in Azure Machine
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](quickstart-create-resources.md)
 
 ## What's a compute target? 
 
@@ -148,7 +148,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     * Azure Databricks (for use in machine learning pipelines)
     * Azure Data Lake Analytics (for use in machine learning pipelines)
     * Azure HDInsight
-    * [Kubernetes](./how-to-attach-kubernetes-anywhere.md#attach-a-kubernetes-cluster-to-an-azureml-workspace)
+    * [Kubernetes](./how-to-attach-kubernetes-anywhere.md#attach-a-kubernetes-cluster-to-an-azure-ml-workspace)
 
 1. Fill out the form and provide values for the required properties.
 

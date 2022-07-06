@@ -9,13 +9,18 @@ ms.author: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/06/2021
+ms.date: 06/13/2022
 ms.custom: contperf-fy22q2
 ---
 
 # What is Spatial Analysis?
 
-You can use Computer Vision Spatial Analysis to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. The service detects the presence and movements of people in video. It can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. By processing video streams from physical spaces, you are able to learn how people use them and maximize the space's value to your organization. 
+You can use Computer Vision Spatial Analysis to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. The service detects the presence and movements of people in video. It can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. By processing video streams from physical spaces, you're able to learn how people use them and maximize the space's value to your organization. 
+
+Try out the capabilities of Spatial Analysis quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -37,7 +42,7 @@ This feature monitors how long people stay in an area or when they enter through
 ![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
 ### Social distancing and facemask detection 
-This feature analyzes how well people follow social distancing requirements in a space. Using the PersonDistance operation, the system automatically calibrates itself as people walk around in the space. Then it identifies when people violate a specific distance threshold (6 ft. or 10 ft.).
+This feature analyzes how well people follow social distancing requirements in a space. The system uses the PersonDistance operation to automatically calibrates itself as people walk around in the space. Then it identifies when people violate a specific distance threshold (6 ft. or 10 ft.).
 
 ![Spatial Analysis visualizes social distance violation events showing lines between people showing the distance](https://user-images.githubusercontent.com/11428131/139924062-b5e10c0f-3cf8-4ff1-bb58-478571c022d7.gif)
 

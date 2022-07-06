@@ -1,13 +1,13 @@
 ---
-title: Manage alert events
-description: Manage alerts detected in your network. 
+title: Manage alert events from the sensor console - Microsoft Defender for IoT
+description: Manage alerts detected in your network from a Defender for IoT sensor.
 ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
-# Manage alerts
+# Manage alerts from the sensor console
 
-This article describes how to manage alerts.
+This article describes how to manage alerts from the sensor console.
 
 ## About managing alerts
 

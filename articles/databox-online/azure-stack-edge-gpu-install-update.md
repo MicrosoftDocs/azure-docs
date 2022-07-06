@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/16/2022
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -189,7 +189,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2203**.
+    The update listing appears as **Azure Stack Edge Update 2205**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
@@ -225,7 +225,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2203**. 
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2205**. 
 
 
 7. You will now update the Kubernetes software version. Select the remaining three Kubernetes files together (file with the *Kubernetes_Package.0.exe*, *Kubernetes_Package.1.exe*, and *Kubernetes_Package.2.exe* suffix) and repeat the above steps to apply update.   

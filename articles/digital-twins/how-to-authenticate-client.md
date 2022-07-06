@@ -125,7 +125,7 @@ When writing the Azure function, consider adding these variables and code to you
 
     Later, after publishing the function, you'll make sure the function's identity has permission to access the Azure Digital Twins APIs. For instructions on how to do so, skip ahead to [Assign an access role](#assign-an-access-role).    
 
-* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. *Don't* make this variable static inside your class.
+* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. _Don't_ make this variable static inside your class.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
 * **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.

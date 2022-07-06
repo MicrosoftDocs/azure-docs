@@ -56,7 +56,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
 | ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
 | ![Screenshot of a whoiam logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, and email. |
-| ![Screenshot of a xid logo](./media/partner-gallery/xid-logo.png) | [xID](./partner-xID.md) is a digital ID solution that provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified Personal Identification Information (PII) through the xID API. |
+| ![Screenshot of a xid logo](./media/partner-gallery/xid-logo.png) | [xID](./partner-xID.md) is a digital ID solution that provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified personal information through the xID API. |
 
 ## Role-based access control 
  
@@ -66,6 +66,7 @@ Microsoft partners with the following ISVs for role-based access control.
 |:-------------------------|:--------------|
 | ![Screenshot of a n8identity logo](./media/partner-gallery/n8identity-logo.png) | [N8Identity](./partner-n8identity.md) is an Identity-as-a-Service governance platform that provides solution to address customer accounts migration and Customer Service Requests (CSR) administration running on Microsoft Azure. |
 | ![Screenshot of a Saviynt logo](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-Saviynt.md) cloud-native platform promotes better security, compliance, and governance through intelligent analytics and cross application integration for streamlining IT modernization. |
+| ![Screenshot of a WhoIAM Rampart logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM Rampart](./partner-whoiam-rampart.md) provides a fully integrated helpdesk and invitation-gated user registration experience. It allows support specialists to efficiently perform tasks like resetting passwords and multi-factor authentication without using Azure. It also enables apps and role-based access control (RBAC) for end-users of Azure AD B2C. |
 
 ## Secure hybrid access to on-premises application
 

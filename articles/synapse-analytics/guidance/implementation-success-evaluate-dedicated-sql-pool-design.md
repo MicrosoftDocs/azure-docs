@@ -23,7 +23,7 @@ During the [assessment stage](implementation-success-assess-environment.md), you
 
 ## Review the target architecture
 
-To successfully deploy a dedicated SQL pool, it's important to adopt an architecture that's aligned with business requirements. For more information, see [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing.md).
+To successfully deploy a dedicated SQL pool, it's important to adopt an architecture that's aligned with business requirements. For more information, see [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing).
 
 ## Migration path
 

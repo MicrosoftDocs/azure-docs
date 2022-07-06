@@ -7,8 +7,8 @@ ms.author: rohink
 ms.service: dns
 services: dns
 ms.topic: tutorial
-ms.date: 06/09/2022
-ms.custom: template-tutorial
+ms.date: 06/10/2022
+ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to a resource record within the zone.
 ---
 
@@ -23,7 +23,6 @@ In this tutorial, you learn how to:
 > * Create an alias record for the resource record.
 > * Test the alias record.
 
-
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
@@ -32,7 +31,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * A domain name hosted in Azure DNS. If you don't have an Azure DNS zone, you can [create a DNS zone](./dns-delegate-domain-azure-dns.md#create-a-dns-zone), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
 > [!NOTE]
-> In this tutorial, `contoso.com` is used as an example. Replace `contoso.com` with your own domain name.
+> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
 
 ## Sign in to Azure
 
@@ -44,16 +43,16 @@ Create an alias record that points to a resource record in the zone.
 
 ### Create the target resource record
 1. In the Azure portal, enter *contoso.com* in the search box at the top of the portal, and then select **contoso.com** DNS zone from the search results.
-1. In the **Overview** page, select the **+Record set** button.
+1. In the **Overview** page, select the **+ Record set** button.
 1. In the **Add record set**, enter *server* in the **Name**.
 1. Select **A** for the **Type**.
 1. Enter *10.10.10.10* in the **IP address**.
 1. Select **OK**.
 
-    :::image type="content" source="./media/tutorial-alias-rr/add-record-set-inline.png" alt-text="Screentshot of adding the target record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-record-set-expanded.png":::
+    :::image type="content" source="./media/tutorial-alias-rr/add-record-set-inline.png" alt-text="Screenshot of adding the target record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-record-set-expanded.png":::
 
 ### Create the alias record
-1. In the **Overview** page of **contoso.com** DNS zone, select the **+Record set** button.
+1. In the **Overview** page of **contoso.com** DNS zone, select the **+ Record set** button.
 1. In the **Add record set**, enter *test* in the **Name**.
 1. Select **A** for the **Type**.
 1. Select **Yes** for the **Alias record set**, and then select the **Zone record set** for the **Alias type**.
@@ -102,11 +101,17 @@ After adding the alias record, you can verify that it's working by using a tool 
 
 ## Clean up resources
 
-When you no longer need the resources created for this tutorial, delete the **server** and **test** records from your zone.
+When no longer needed, you can delete all records created in this tutorial by following these steps:
+
+1. On the Azure portal menu, select **All resources**.
+1. Select **contoso.com** DNS zone.
+1. On the **Overview** page, select the **server** record.
+1. Select **Delete** and then **Yes**.
+1. Repeat last two steps with **test** record.
 
 ## Next steps
 
-In this tutorial, you learned the basic steps to create an alias record to refer to a resource record within the Azure DNS zone.
+In this tutorial, you learned the basic steps to create an alias record to refer to a resource record within the Azure DNS zone. To learn how to create an alias record that references an Azure public IP address resource, continue with the next tutorial:
 
-- Learn more about [alias records](dns-alias.md).
-- Learn more about [zones and records](dns-zones-records.md).
+> [!div class="nextstepaction"]
+> [Create alias record for public IP address](tutorial-alias-pip.md)

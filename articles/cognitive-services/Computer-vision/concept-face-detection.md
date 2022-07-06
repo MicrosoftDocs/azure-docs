@@ -9,11 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 06/13/2022
 ms.author: pafarley
 ---
 
 # Face detection and attributes
+
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
 This article explains the concepts of face detection and face attribute data. Face detection is the process of locating human faces in an image and optionally returning different kinds of face-related data.
 
@@ -22,6 +24,10 @@ You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/serv
 ## Face rectangle
 
 Each detected face corresponds to a `faceRectangle` field in the response. This is a set of pixel coordinates for the left, top, width, and height of the detected face. Using these coordinates, you can get the location and size of the face. In the API response, faces are listed in size order from largest to smallest.
+
+Try out the capabilities of face detection quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Face ID
 
@@ -38,6 +44,8 @@ The coordinates of the points are returned in units of pixels.
 The Detection_03 model currently has the most accurate landmark detection. The eye and pupil landmarks it returns are precise enough to enable gaze tracking of the face.
 
 ## Attributes
+
+[!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
 
 Attributes are a set of features that can optionally be detected by the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. The following attributes can be detected:
 

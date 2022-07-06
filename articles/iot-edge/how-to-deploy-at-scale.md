@@ -44,8 +44,8 @@ IoT Edge provides two different types of automatic deployments that you can use 
 The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps.
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
-1. On the menu in the left pane, select **IoT Edge** under **Automatic Device Management**.
-1. On the upper bar, select **Create Deployment** or **Create Layered Deployment**.
+1. On the menu in the left pane, select **IoT Edge** under **Device Management**.
+1. On the upper bar, select **Add Deployment** or **Add Layered Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one.
 
@@ -98,9 +98,24 @@ The **Priority** and **Time to live** parameters are optional parameters that yo
 
 For more information about how to create routes, see [Declare routes](module-composition.md#declare-routes).
 
+Select **Next: Target Devices**.
+
+### Step 4: Target devices
+
+Use the tags property from your devices to target the specific devices that should receive this deployment.
+
+Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins.
+
+If multiple deployments target the same device, then only the one with the higher priority is applied. If multiple layered deployments target the same device then they are all applied. However, if any properties are duplicated, like if there are two routes with the same name, then the one from the higher priority layered deployment overwrites the rest.
+
+Any layered deployment targeting a device must have a higher priority than the base deployment in order to be applied.
+
+1. Enter a positive integer for the deployment **Priority**.
+1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`.
+
 Select **Next: Metrics**.
 
-### Step 4: Metrics
+### Step 5: Metrics
 
 Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content.
 
@@ -114,21 +129,6 @@ Metrics provide summary counts of the various states that a device may report ba
    SELECT deviceId FROM devices
      WHERE properties.reported.lastDesiredStatus.code = 200
    ```
-
-Select **Next: Target Devices**.
-
-### Step 5: Target devices
-
-Use the tags property from your devices to target the specific devices that should receive this deployment.
-
-Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins.
-
-If multiple deployments target the same device, then only the one with the higher priority is applied. If multiple layered deployments target the same device then they are all applied. However, if any properties are duplicated, like if there are two routes with the same name, then the one from the higher priority layered deployment overwrites the rest.
-
-Any layered deployment targeting a device must have a higher priority than the base deployment in order to be applied.
-
-1. Enter a positive integer for the deployment **Priority**.
-1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`.
 
 Select **Next: Review + Create** to move on to the final step.
 
