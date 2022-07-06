@@ -12,7 +12,7 @@ ms.custom: conceptual
 
 # Overview of VM restore points
 
-Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbacks across multiple regions. Azure VM restore points can be used use to implement granular backup and retention policies.
+Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbacks across multiple regions. Azure VM restore points can be used to implement granular backup and retention policies.
 
 You can protect your data and guard against extended downtime by creating virtual machine (VM) restore points at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case. You can read about other [Backup and restore options for virtual machines in Azure](backup-recovery.md).
 

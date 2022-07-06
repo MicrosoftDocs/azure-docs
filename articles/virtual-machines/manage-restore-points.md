@@ -1,5 +1,5 @@
 ---
-title: Managing Virtual Machine Restore Points
+title: Manage Virtual Machine restore points
 description: Managing Virtual Machine Restore Points
 author: dikethir
 ms.author: dikethir

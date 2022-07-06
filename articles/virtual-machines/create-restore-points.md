@@ -1,5 +1,5 @@
 ---
-title: Creating Virtual Machine Restore Points
+title: Create Virtual Machine restore points
 description: Creating Virtual Machine Restore Points with API
 author: dikethir
 ms.author: dikethir
@@ -53,5 +53,5 @@ During restore point creation, the `ProvisioningState` will appear as `Creating`
 
 ## Next steps
 - [Learn more](manage-restore-points.md) about managing restore points.
-- Create restore points using the [Azure Portal](virtual-machines-create-restore-points-portal.md), [CLI](virtual-machines-create-restore-points-cli.md), or [PowerShell](virtual-machines-create-restore-points-powershell.md).
+- Create restore points using the [Azure portal](virtual-machines-create-restore-points-portal.md), [CLI](virtual-machines-create-restore-points-cli.md), or [PowerShell](virtual-machines-create-restore-points-powershell.md).
 - [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
