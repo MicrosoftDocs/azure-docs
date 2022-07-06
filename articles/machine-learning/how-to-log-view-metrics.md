@@ -71,13 +71,12 @@ mlflow.log_params(params)
 
 ## Logging metrics
 
-Metrics, as opposite to parameters, are always numeric. The following table describes how to log specific value types:
+Metrics, as opposite to parameters, are always numeric. The following table describes how to log specific numeric types:
 
 |Logged Value|Example code| Notes|
 |----|----|----|
 |Log a numeric value (int or float) | `mlflow.log_metric('my_metric', 1)`| |
 |Log a boolean value | `mlflow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
-|Log a string | `mlflow.log_text('foo', 'my_string')`| Logged as an artifact|
 
 > [!IMPORTANT]
 > __Performance considerations:__ If you need to log multiple metrics (or multiple values for the same metric) avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once.
