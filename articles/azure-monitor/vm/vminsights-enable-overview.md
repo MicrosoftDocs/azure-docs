@@ -82,18 +82,42 @@ VM insights requires a Log Analytics workspace. See [Configure Log Analytics wor
 ## Agents
 When you enable VM insights for a machine, the following agents are installed. See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
 
-- [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md). Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. VM insights support for Azure Monitor agent is currently in public preview. 
+> [!IMPORTANT]
+> VM insights support for Azure Monitor agent is currently in public preview. Azure Monitor agent includes several advantages over Log Analytics agent, and is the preferred agent for virtual machines and virtual machine scale sets. See [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for comparison of the agent and information on migrating.
+
+- [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md). Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. 
 - Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
 
 ## Changes for Azure Monitor agent
-Azure Monitor agent includes several advantages over Log Analytics agent, and is the preferred agent for virtual machines and virtual machine scale sets. See [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for comparison of the agent and information on migrating.
+There are several changes in the process for enabling VM insights when using the Azure Monitor agent.
 
 **Workspace configuration.** You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-configure-workspace.md) since the VMinsights management pack isn't used by Azure Monitor agent.
 
 **Data collection rule.** Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure its data collection. VM insights creates a data collection rule that is automtically deployed if you enable your machine using the Azure portal. If you use other methods to onboard your machines, then you may need to install the data collection rule first.
 
-**Agent deployment.** There are minor changes to the the process for onboarding virtual machines and virtual machine scale sets to VM insights in the Azure portal. Select **Not monitored** tab on the **Overview** page, and then click **Enable** next to the virtual machine you want to enable for monitoring. You must now select which agent you want to use, and you must select a data collection rule for Azure Monitor agent. See [Enable VM insights in the Azure portal](vminsights-enable-portal.md) for details.
+**Agent deployment.** There are minor changes to the the process for onboarding virtual machines and virtual machine scale sets to VM insights in the Azure portal. You must now select which agent you want to use, and you must select a data collection rule for Azure Monitor agent. See [Enable VM insights in the Azure portal](vminsights-enable-portal.md) for details.
 
+
+## Data collection rule (Azure Monitor agent)
+When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. See [Enable VM insights on unmonitored machine](vminsights-enable-portal.md#enable-vm-insights-on-unmonitored-machine) for more information on creating and editing the VM insights data collection rule.
+
+> [!IMPORTANT]
+> It's not recommended to create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. While you can edit this DCR to collect additional data such as Windows and Syslog events, you should create additional DCRs and associate with the machine.
+
+The DCR is defined by the options in the following table. 
+
+| Option | Description |
+|:---|:---|
+| Guest performance | Specifies whether to collect performance data from the guest operating system. This is required for all machines. |
+| Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the map feature in VM insights. This is optional and enables the [VM insights map feature](vminsights-maps.md) for the machine. |
+| Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights will be listed. |
+
+
+
+## Management packs (Log Analytics agent)
+When a Log Analytics workspace is configured for VM insights, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights* and are written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 
+
+The data source used by the *ApplicationDependencyMonitor* management pack is **%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. The data source used by the *VMInsights* management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.
 
 ## Migrate from Log Analytics agent
 The Azure Monitor agent and the Log Analytics agent can both be installed on the same machine during migration. If a virtual machine was already onboarded to VM insights with the Log Analytics agent, it will have a status of **Enabled** but have an option to **Configure using Azure Monitor Agent**. Click this option to add the Azure Monitor agent.
@@ -105,29 +129,7 @@ You should be careful that running both agents may lead to duplication of data a
 
 You must remove the Log Analytics agent yourself from any machines that are using it. Before you do this, ensure that the machine is not relying any other solutions that require the Log Analytics agent. See [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for details. 
 
-After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, disable collection from all 
-
-## Data collection rule (Azure Monitor agent)
-When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. 
-
-> [!IMPORTANT]
-> It's not recommended to create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. While you can edit this DCR to collect additional data such as Windows and Syslog events, you should create additional DCRs and associate with the machine.
-
-The DCR is defined by the options in the following table. VM insights will create a default data collection rule if one doesn't already exist.
-
-| Option | Description |
-|:---|:---|
-| Guest performance | Specifies whether to collect performance data from the guest operating system. This is required for all machines. |
-| Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the map feature in VM insights. This is optional and enables the [VM insights map feature](vminsights-maps.md) for the machine. |
-| Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights will be listed. |
-
-See [Enable VM insights on unmonitored machine](vminsights-enable-portal.md#enable-vm-insights-on-unmonitored-machine) for more information on creating and editing the VM insights data collection rule.
-
-## Management packs (Log Analytics agent)
-When a Log Analytics workspace is configured for VM insights, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights* and are written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 
-
-The data source used by the *ApplicationDependencyMonitor* management pack is **%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. The data source used by the *VMInsights* management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.
-
+After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the VMInsights solution from the workspace](vminsights-configure-workspace.md#remove-vminsights-solution-from-workspace) which is no longer needed.
 ## Diagnostic and usage data
 
 Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to improve the quality, security, and integrity of the service. 

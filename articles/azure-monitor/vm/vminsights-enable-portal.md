@@ -26,53 +26,49 @@ This article describes how to enable VM insights using the Azure portal for the 
 > This process describes enabling VM insights from the **Monitor** menu in the Azure portal. You can perform the same process from the **Insights** menu for a particular virtual machine or virtual machine scale set.
 
 ## View monitored and unmonitored machines
- The **Overview** page lists all of the virtual machines and virtual machine scale sets in the selected subscriptions. Machines will either be included in the **Monitored** or **Not monitored** tab depending on whether the machine is currently being monitored by VM insights. A machine may be listed in **Not monitored** even though it has the Azure Monitor or Log Analytics agent installed but has not been enabled for VM insights.
+Open VM insights by selecting **Virtual Machines** from the **Monitor** menu in the Azure portal. The **Overview** page lists all of the virtual machines and virtual machine scale sets in the selected subscriptions. Machines will either be included in the **Monitored** or **Not monitored** tab depending on whether the machine is currently being monitored by VM insights. 
+
+A machine may be listed in **Not monitored** even though it has the Azure Monitor or Log Analytics agent installed but has not been enabled for VM insights. If a virtual machine has the Log Analytics agent installed but not the Dependency agent, it will be listed as not monitored. In this case, the Azure Monitor agent will be started without being given the option for the Log Analytics agent.
 
 > [!NOTE]
 >  **Data collection rule** column has replaced the **Workspace** column on the **Overview** page to support the [Azure Monitor agent](vminsights-enable-overview.md#agents). This either shows the data collection rules used by the Azure Monitor agent for each machine, or it gives the option to configure with the Azure Monitor agent.
-
-
-> [!NOTE]
-> If a virtual machine has the Log Analytics agent installed but not the Dependency agent, it will be listed as not monitored. In this case, the Azure Monitor agent will be started without being given the option for the Log Analytics agent.
 
 
 >[!NOTE]
 >If you use a manual upgrade model for your virtual machine scale set, upgrade the instances to complete the setup. You can start the upgrades from the **Instances** page, in the **Settings** section.
 
 ## Enable VM insights for Azure Monitor agent
+> [!NOTE]
+> A system-assigned managed identity will be added for a machine as part of the installation process of the Azure Monitor agent if one doesn't already exist.
+
 Use this procedure to enable an unmonitored virtual machine or virtual machine scale set using Azure Monitor agent.
 
-> [!NOTE]
-> A system-assigned managed identity will be added for the machine as part of the installation process if one doesn't already exist.
+1. Select **Virtual Machines** from the **Monitor** menu in the Azure portal.
 
-1. From the **Overview** page for VM insights, select **Not Monitered**. 
+1. From the **Overview** page, select **Not Monitored**. 
  
 2. Click the **Enable** button next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
 
-:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
+    :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
  
 3. Click **Enable** on the introduction page to view the configuration. 
  
 4. Select **Azure Monitor agent** from the **Monitoring configuration** page and then select **Azure Monitor agent**. 
 
-5. Select a [data collection rule (DCR)](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent). If one hasn't already been created for unmonitored machines, then one will be created with the following details. 
+5. If a [data collection rule (DCR)](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) hasn't already been created for unmonitored machines, then one will be created with the following details. 
 
-- **Guest performance** enabled.
--  **Processes and dependencies** disabled.
+    - **Guest performance** enabled.
+    -  **Processes and dependencies** disabled.
 
-> [!NOTE]
-> You can only select data collection rules that are configured for VM insights.
+    1. If you don't need the [map feature of VM insights](vminsights-maps.md), then use the default data collection rule.
+    
+    2. If you require the [map feature of VM insights](vminsights-maps.md) and have a data collection rule created for [already monitored machines ](#enable-azure-monitor-agent-on-monitored-machines), then select that data collection rule from the dropdown. Only data collection rules that are configured for VM insights will be included in this list.
+    
+    3. If you require the [map feature of VM insights](vminsights-maps.md) and have a data collection rule and don't have a data collection rule created for [already monitored machines ](#enable-azure-monitor-agent-on-monitored-machines), click **Create new** to create a new one.
+
+    :::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
 
 6. Click **Configure** to select the Log Analytics workspace.
-
-:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for unmonitored machine.":::
-
-### Create a new data collection rule
-If you want to collect process and dependencies to enable the [map feature of VM insights](vminsights-maps.md), then either create a new data collection rule, or select one that was created for [monitored machines](#enable-azure-monitor-agent-on-monitored-machines).
-
-To create a new data collection rule, click **Create new** and provide the required information.
-
-:::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
 
 It will take several minutes for the agent to be installed and data to start being collected. You'll receive status messages as the configuration is performed.
 
