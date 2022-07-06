@@ -46,9 +46,11 @@ In this article, we'll take you through the different options for availability z
     > [!IMPORTANT]
     > The regions with * against them have restrictive access in an Azure subscription to enable availability zone support. Please work with your Microsoft sales or customer representative.
 
-* Your instance must be in the Premium tier of API Management. Other SKUs such as Standard aren't supported.
 * If you haven't yet created an API Management service instance, see [Create an API Management service instance](../api-management/get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a [Azure virtual network (VNet)](../api-management/api-management-using-with-vnet.md), ensure that you set up a virtual network, subnet, and public IP address in any new location where you plan to enable zone redundancy.
+
+* API Management service must be in the Premium tier. If it isn't, you can [upgrade](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier) to the Premium tier.
+
+* If your API Management instance is deployed (injected) in a [Azure virtual network (VNet)](../api-management/api-management-using-with-vnet.md), check the version of the [compute platform](../api-management/compute-infrastructure.md) (stv1 or stv2) that hosts the service.
 
 > [!NOTE]
 > If you've configured [autoscaling](../api-management/api-management-howto-autoscale.md) for your API Management instance in the primary location, you may need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
@@ -57,56 +59,87 @@ In this article, we'll take you through the different options for availability z
 
 There are no downtime requirements for any of the migration options.
 
-## Migration for API Management in a VNet
+# Considerations
 
-This option is for deployments that are in an Azure virtual network (VNet) that doesn't support availability zones. The option requires you to create a new subnet and public IP address for your API Management service. The procedure will change the service configuration and migrate your API management instance to one that is running on the new VMSS architecture that supports availability zones.
+* Changes can take from 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
 
-Once you've completed the required steps, the API Management service will migrate to VMSS. You'll then own the public IP address, which will remain the same for this service as long as required.
+* Migrating to availability zones or changing the availability zone configuration will trigger a public IP address change.
 
-### Considerations for migrating API Management in a VNet
+* If you've configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
-The public IP address in the location will change, but it must be pre-created in the same subscription and attached to the API Management instance. Another consideration is that there's some administrative overhead of creating a new subnet and allowing the IP in the firewall.
+
+## Option 1: Migrate existing location of API Management instance, not injected in VNet
+
+Use this option to migrate an existing location of your API Management instance to availability zones when it’s not injected (deployed) in a virtual network.
 
 ### How to migrate API Management in a VNet
 
-To migrate to availability zone support by using manual configuration:
+1.	In the Azure portal, navigate to your API Management service.
 
-1. Create new subnet (can be in same VNET as long as address space is available).
+1.	Select **Locations** in the menu, and then select the location to be migrated. The location must [support availability zones](#prerequisites).
 
-1. Create a public IP address in your subscription (Standard SKU. Create in same subscription as the subnet).
+1.	Select the number of scale [Units](../api-management/upgrade-and-scale.md) desired in the location.
 
-1. Allow-list the public IP address in your system, wherever the current API management public IP address is allow-listed.  
+1.	In **Availability zones**, select one or more zones. The number of units selected must be distributed evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
 
-1. In the Azure portal, change the subnet and provide the public IP address to your existing API Management service. Or, you can use an ARM template that uses *apiVersion=2021-01-01-preview* or above. For more information about using an ARM template, see [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones).
+1.	Select **Apply**, and then select **Save**.
 
-1. After the service has been moved to new subnet, you can then enable availability zones for your API Management service.
 
-## Migration for API Management not in a VNet
+## Option 2: Migrate existing location of API Management instance (stv1 platform), injected in  VNet
 
-This option is for deployments that aren't on a VNET.
+Use this option to migrate an existing location of your API Management instance to availability zones when it is currently injected (deployed) in a virtual network. The following steps are needed when the API Management instance is currently hosted on the stv1 platform. Migrating to availability zones will also migrate the instance to the stv2 platform.
 
-In the Azure portal, you can enable zone redundancy when you add a location to your API Management service, or when you update the configuration of an existing location. When you enable zone redundancy, you're migrating the API Management instance to one that is running on the new VMSS architecture. The legacy systems will then give up hosting the workload on its own infrastructure and move it to the new ARM based infrastructure that supports availability zones. This change is permanent. Even if the resource is changed to Standard tier, the service will remain on VMSS and ARM.
+1.	Create a new subnet and public IP address in location to migrate to availability zones. Detailed requirements are in [virtual networking guidance](api-management/api-management-using-with-vnet?tabs=stv2#prerequisites).
 
-### Considerations for migrating API Management not in a VNet
+1.	In the Azure portal, navigate to your API Management service.
 
-The public IP address in the location changes when you enable, add, or remove availability zones. When updating availability zones in a region with network settings, you must configure a different public IP address resource than the one you set up previously.  You'll also need to allow the new IP address on your firewall or other devices, as needed.
+1.	Select **Locations** in the menu, and then select the location to be migrated. The location must [support availability zones](#prerequisites).
 
-> [!NOTE]
-> It can take 15 to 45 minutes to apply the change to your API Management instance.
+1.	Select the number of scale [Units](../api-management/upgrade-and-scale.md) desired in the location.
 
-### How to migrate API Management not in a VNet
+1.	In **Availability zones**, select one or more zones. The number of units selected must be distributed evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
 
-To enable zone redundancy in the Azure portal:
+1.	Select the new subnet and new public IP address in the location. 
 
-1. In the Azure portal, navigate to your API Management service and select **Locations** in the menu.
-1. Select an existing location, or select **+ Add** in the top bar. The location must [support availability zones](#prerequisites).
-1. Select the number of scale **[Units](../api-management/upgrade-and-scale.md)** in the location.
-1. In **Availability zones**, select one or more zones. The number of units selected must distribute evenly across the availability zones. For example, if you selected three units, select three zones so that each zone hosts one unit.
-1. If you deploy your API Management instance in a [virtual network](../api-management/api-management-using-with-vnet.md), select an existing virtual network, subnet, and public IP address that are available in the location. For an existing location, the virtual network and subnet must be configured from the Virtual Network blade.
-1. Select **Apply** and then select **Save**.
+5.	Select **Apply**, and then select **Save**.
 
-:::image type="content" source="../api-management/media/zone-redundancy/add-location-zones.png" alt-text="Enable zone redundancy":::
 
+### Option 3: Migrate existing location of API Management instance (stv2 platform), injected in VNet
+
+Use this option to migrate an existing location of your API Management instance to availability zones when it is currently injected (deployed) in a virtual network. The following steps are used when the API Management instance is already hosted on the stv2 platform.
+
+1.	Create a new subnet and public IP address in location to migrate to availability zones. Detailed requirements are in [virtual networking guidance](api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
+
+1.	In the Azure portal, navigate to your API Management service.
+
+1.	Select **Locations** in the menu, and then select the location to be migrated. The location must [support availability zones](#prerequisites).
+
+1.	Select the number of scale [Units](../api-management/upgrade-and-scale.md) desired in the location.
+
+1.	In **Availability zones**, select one or more zones. The number of units selected must be distributed evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
+
+1.	Select the new public IP address in the location. 
+
+1.	Select **Apply**, and then select **Save**.
+
+
+### Option 4. Add new location for API Management instance (with or without VNet) with availability zones
+
+Use this option to add a new location to your API Management instance and enable availability zones in that location. 
+
+If your API Management instance is deployed in a virtual network in the primary location, ensure that you set up a [virtual network](api-management/api-management-using-with-vnet.md?tabs=stv2), subnet, and public IP address in any new location where you plan to enable zone redundancy.
+
+1.	In the Azure portal, navigate to your API Management service.
+
+1.	Select **+ Add** in the top bar to add a new location. The location must [support availability zones](#prerequisites).
+
+1.	Select the number of scale [Units](../api-management/upgrade-and-scale.md) desired in the location.
+
+1.	In **Availability zones**, select one or more zones. The number of units selected must be distributed evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
+
+1. If your API Management instance is deployed in a [virtual network](api-management/api-management-using-with-vnet.md?tabs=stv2),select the virtual network, subnet, and public IP address that are available in the location. 
+
+1. Select **Add**, and then select **Save**.
 
 ## Next steps
 
