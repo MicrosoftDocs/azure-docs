@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 
 This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities).
 
-## Scenario: Use a Managed Identity in a Runbook and it cannot authenticate against Azure
+## Scenario: Managed Identity in a Runbook cannot authenticate against Azure
 
 ### Issue
 When using a Managed Identity in your runbook, you receive an error as:
@@ -21,9 +21,9 @@ When using a Managed Identity in your runbook, you receive an error as:
 
 This can happen either when:
 
-- **Cause 1**:  You use the Automation account System Managed Identity, which has not yet been created and the `Code Connect-AzAccount -Identity`, tries to authenticate to Azure and run a runbook in Azure or on a Hybrid Runbook Worker.
+- **Cause 1**:  You use the Automation account System Managed Identity, which has not yet been created and the `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook in Azure or on a Hybrid Runbook Worker.
 
-- **Cause 2**: The Automation account has a User managed identity assigned and not a System Managed Identity and the - `Code Connect-AzAccount -Identity`, tries to authenticate to Azure and run a runbook on an Azure virtual machine Hybrid Runbook Worker using the Azure VM System Managed Identity.
+- **Cause 2**: The Automation account has a User managed identity assigned and not a System Managed Identity and the - `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook on an Azure virtual machine Hybrid Runbook Worker using the Azure VM System Managed Identity.
 
 
 ### Resolution
@@ -32,8 +32,8 @@ This can happen either when:
 
 - **Resolution 2**: As appropriate for your requirements, you can:
 
-    - Create the Automation Account System Managed Identity and use it to authenticate.
-                Or 
+    - Create the Automation Account System Managed Identity and use it to authenticate.</br>
+                Or </br> 
     - Delete the Automation Account User Assigned Managed Identity.
 
 
