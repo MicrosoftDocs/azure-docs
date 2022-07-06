@@ -249,4 +249,4 @@ storageclass.storage.k8s.io/blob-fuse created
 [azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md
 [blob-storage-csi-driver]: azure-blob-csi.md
 [azure-blob-storage-nfs-support]: ../storage/blobs/network-file-system-protocol-support.md
-[enable-blob-csi-driver]: azure-blob-cis.md#before-you-begin
+[enable-blob-csi-driver]: azure-blob-csi.md#before-you-begin

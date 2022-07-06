@@ -308,4 +308,4 @@ The following YAML creates a pod that uses the persistent volume claim **pvc-blo
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [manage-blob-storage]: ../storage/blobs/blob-containers-cli.md
 [azure-blob-storage-nfs-support]: ../storage/blobs/network-file-system-protocol-support.md
-[enable-blob-csi-driver]: azure-blob-cis.md#before-you-begin
+[enable-blob-csi-driver]: azure-blob-csi.md#before-you-begin
