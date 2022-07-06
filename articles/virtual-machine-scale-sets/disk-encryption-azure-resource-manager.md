@@ -40,6 +40,9 @@ Then follow these steps:
 2. Fill in the required fields then agree to the terms and conditions.
 3. Click **Purchase** to deploy the template.
 
+> [!NOTE]
+> Virtual machine scale set encryption is supported with API version `2017-03-30` onwards. If you are using templates to enable scale set encryption, update the API version for virtual machine scale sets and the ADE extension inside the template. See this [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-encrypt-running-vmss-windows/azuredeploy.json) for more information.
+
 ## Next steps
 
 - [Azure Disk Encryption for virtual machine scale sets](disk-encryption-overview.md)

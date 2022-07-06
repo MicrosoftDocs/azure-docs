@@ -1,223 +1,227 @@
 ---
-title: Build a web API using Azure Cosmos DB's API for MongoDB and .NET SDK
-description: Presents a .NET code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
-author: gahl-levy
-ms.author: gahllevy
+title: Quickstart - Azure Cosmos DB MongoDB API for .NET with MongoDB drier
+description: Learn how to build a .NET app to manage Azure Cosmos DB MongoDB API account resources in this quickstart.
+author: alexwolfmsft
+ms.author: alexwolf
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/02/2020
+ms.date: 07/05/2022
 ms.custom: devx-track-csharp, mode-api
 ---
 
-# Quickstart: Build a .NET web API using Azure Cosmos DB's API for MongoDB
+# Quickstart: Azure Cosmos DB MongoDB API for .NET with the MongoDB driver
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-> [!div class="op_single_selector"]
-> * [.NET](create-mongodb-dotnet.md)
-> * [Python](create-mongodb-python.md)
-> * [Java](create-mongodb-java.md)
-> * [Node.js](create-mongodb-nodejs.md)
-> * [Golang](create-mongodb-go.md)
->  
+Get started with MongoDB to create databases, collections, and docs within your Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
-This quickstart demonstrates how to:
-1. Create an [Azure Cosmos DB API for MongoDB account](mongodb-introduction.md) 
-2. Build a product catalog web API using the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/)
-3. Import sample data
+> [!NOTE]
+> The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples) are available on GitHub as a .NET project.
 
-## Prerequisites to run the sample app
+[MongoDB API reference documentation](https://www.mongodb.com/docs/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 
-* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
-* [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
-* An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You can also [try Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
+## Prerequisites
 
-## Create a database account
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* [.NET 6.0](https://dotnet.microsoft.com/en-us/download)
+* [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
-[!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount-mongodb.md)]
+### Prerequisite check
 
-## Learn the object model
+* In a terminal or command window, run ``dotnet --list-sdks`` to check that .NET 6.x is one of the available versions.
+* Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
-Before you continue building the application, let's look into the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
+## Setting up
 
-* Azure Cosmos DB API for MongoDB account
-* Databases 
-* Collections 
-* Documents
+This section walks you through creating an Azure Cosmos account and setting up a project that uses the MongoDB NuGet packages. 
 
-To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
+### Create an Azure Cosmos DB account
 
-## Install the sample app template
+This quickstart will create a single Azure Cosmos DB account using the MongoDB API.
 
-This sample is a dotnet project template, which can be installed to create a local copy. Run the following commands in a command window:
+#### [Azure CLI](#tab/azure-cli)
 
-```bash
-mkdir "C:\cosmos-samples"
-cd "C:\cosmos-samples"
-dotnet new -i Microsoft.Azure.Cosmos.Templates
-dotnet new cosmosmongo-webapi
+[!INCLUDE [Azure CLI - create resources](<./includes/azure-cli-create-resource-group-and-resource.md>)]
+
+#### [PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [Powershell - create resource group and resources](<./includes/powershell-create-resource-group-and-resource.md>)]
+
+#### [Portal](#tab/azure-portal)
+
+[!INCLUDE [Portal - create resource](<./includes/portal-create-resource.md>)]
+
+---
+
+### Get MongoDB connection string
+
+#### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+
+#### [PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+
+#### [Portal](#tab/azure-portal)
+
+[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-resource.md>)]
+
+---
+
+### Create a new .NET app
+
+Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-newt) to create a new console app. 
+
+```console
+dotnet new console -o <app-name>
 ```
 
-The preceding commands:
+### Install the NuGet package
 
-1. Create the *C:\cosmos-samples* directory for the sample. Choose a folder appropriate for your operating system.
-1. Change your current directory to the *C:\cosmos-samples* folder.
-1. Install the project template, making it available globally from the dotnet CLI.
-1. Create a local sample app using the project template.
+Add the [MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver) NuGet package to the new .NET project. Use the [``dotnet add package``](/dotnet/core/tools/dotnet-add-package) command specifying the name of the NuGet package.
 
-If you don't wish to use the dotnet CLI, you can also [download the project templates as a ZIP file](https://github.com/Azure/azure-cosmos-dotnet-templates). This sample is in the `Templates/APIForMongoDBQuickstart-WebAPI` folder.
-
-## Review the code
-
-The following steps are optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update the application settings](#update-the-application-settings).
-
-### Setup connection
-
-The following snippet is from the *Services/MongoService.cs* file.
-
-* The following class represents the client and is injected by the .NET framework into services that consume it:
-
-    ```cs
-        public class MongoService
-        {
-            private static MongoClient _client;
-
-            public MongoService(IDatabaseSettings settings)
-            {
-                _client = new MongoClient(settings.MongoConnectionString);
-            }
-
-            public MongoClient GetClient()
-            {
-                return _client;
-            }
-        }
-    ```
-
-### Setup product catalog data service
-
-The following snippets are from the *Services/ProductService.cs* file.
-
-* The following code retrieves the database and the collection and will create them if they don't already exist:
-
-    ```csharp
-    private readonly IMongoCollection<Product> _products;        
-
-    public ProductService(MongoService mongo, IDatabaseSettings settings)
-    {
-        var db = mongo.GetClient().GetDatabase(settings.DatabaseName);
-        _products = db.GetCollection<Product>(settings.ProductCollectionName);
-    }
-    ```
-
-* The following code retrieves a document by sku, a unique product identifier:
-
-    ```csharp
-    public Task<Product> GetBySkuAsync(string sku)
-    {
-        return _products.Find(p => p.Sku == sku).FirstOrDefaultAsync();
-    }
-    ```
-
-* The following code creates a product and inserts it into the collection:
-
-    ```csharp
-    public Task CreateAsync(Product product)
-    {
-        _products.InsertOneAsync(product);
-    }
-    ```
-
-* The following code finds and updates a product:
-
-    ```csharp
-    public Task<Product> UpdateAsync(Product update)
-    {
-        return _products.FindOneAndReplaceAsync(
-            Builders<Product>.Filter.Eq(p => p.Sku, update.Sku), 
-            update, 
-            new FindOneAndReplaceOptions<Product> { ReturnDocument = ReturnDocument.After });
-    }
-    ```
-
-    Similarly, you can delete documents by using the [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) method.
-
-## Update the application settings
-
-From the Azure portal, copy the connection string information:
-
-1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string into the *appsettings.json* file in the next step.
-
-2. Open the *appsettings.json* file.
-
-3. Copy the **primary connection string** value from the portal (using the copy button) and make it the value of the **DatabaseSettings.MongoConnectionString** property in the **appsettings.json** file.
-
-4. Review the **database name** value in the **DatabaseSettings.DatabaseName** property in the **appsettings.json** file.
-
-5. Review the **collection name** value in the **DatabaseSettings.ProductCollectionName** property in the **appsettings.json** file.
-
-> [!WARNING]
-> Never check passwords or other sensitive data into source code.
-
-You've now updated your app with all the info it needs to communicate with Cosmos DB.
-
-## Load sample data
-
-[Download](https://www.mongodb.com/try/download/database-tools) [mongoimport](https://docs.mongodb.com/database-tools/mongoimport/#mongodb-binary-bin.mongoimport), a CLI tool that easily imports small amounts of JSON, CSV, or TSV data. We'll use mongoimport to load the sample product data provided in the `Data` folder of this project.
-
-From the Azure portal, copy the connection information and enter it in the command below: 
-
-```bash
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --db cosmicworks --collection products --ssl --jsonArray --writeConcern="{w:0}" --file Data/products.json
+```console
+dotnet add package MongoDb.Driver
 ```
 
-1. In the [Azure portal](https://portal.azure.com/), select your Azure Cosmos DB API for MongoDB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. 
+### Configure environment variables
 
-1. Copy the **HOST** value from the portal (using the copy button) and enter it in place of **\<HOST\>**.
+[!INCLUDE [Multi-tab](<./includes/environment-variables-connection-string.md>)]
 
-1. Copy the **PORT** value from the portal (using the copy button) and enter it in place of **\<PORT\>**.
+## Object model
 
-1. Copy the **USERNAME** value from the portal (using the copy button) and enter it in place of **\<USERNAME\>**.
+Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and docs.
 
-1. Copy the **PASSWORD** value from the portal (using the copy button) and enter it in place of **\<PASSWORD\>**.
+:::image type="complex" source="media/quickstart-javascript/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, collections, and docs.":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
+:::image-end:::
 
-1. Review the **database name** value and update it if you created something other than `cosmicworks`.
+You'll use the following MongoDB classes to interact with these resources:
 
-1. Review the **collection name** value and update it if you created something other than `products`.
+- [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm) - This class provides a client-side logical representation for the MongoDB API layer on Cosmos DB. The client object is used to configure and execute requests against the service.
+- [``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+- [``Collection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoCollection.htm) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
 
-> [!Note]
-> If you would like to skip this step you can create documents with the correct schema using the POST endpoint provided as part of this web api project.
+## Code examples
 
-## Run the app
+* [Authenticate the client](#authenticate-the-client)
+* [Create a database](#create-a-database)
+* [Create a container](#create-a-collection)
+* [Create an item](#create-an-item)
+* [Get an item](#get-an-item)
+* [Query items](#query-items)
 
-From Visual Studio, select CTRL + F5 to run the app. The default browser is launched with the app.
+The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
-If you prefer the CLI, run the following command in a command window to start the sample app. This command will also install project dependencies and build the project, but won't automatically launch the browser.
+### Authenticate the client
 
-```bash
+From the project directory, open the *Program.cs* file. In your editor, add a using directive for ``MongoDB.Driver``.
+
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="using_directives":::
+
+Define a new instance of the ``MongoClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string you set earlier.
+
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs"  id="client_credentials":::
+
+### Create a database
+
+Use the [``MongoClient.GetDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_database" :::
+
+### Create a collection
+
+The [``MongoDatabase.GetCollection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoDatabase_GetCollection.htm) will create a new collection if it doesn't already exist and return a reference to the collection.
+
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_collection":::
+
+### Create an item
+
+The easiest way to create a new item in a collection is to create a C# [class](/dotnet/csharp/language-reference/keywords/class) or [record](/dotnet/csharp/language-reference/builtin-types/record) type with all of the members you want to serialize into JSON. In this example, the C# record has a unique identifier, a *category* field for the partition key, and extra *name*, *quantity*, and *sale* fields.
+
+```csharp
+public record Product(
+    string Id,
+    string Category,
+    string Name,
+    int Quantity,
+    bool Sale
+);
+```
+
+Create an item in the collection using the `Product` record by calling [``IMongoCollection<TDocument>.InsertOne``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm). 
+
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_item" :::
+
+### Get an item
+
+In Azure Cosmos DB, you can retrieve items by composing queries using Linq. In the SDK, call [``IMongoCollection.FindAsync<>``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_FindAsync__1.htm) and pass in a C# expression to filter the results.
+
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="read_item" :::
+
+### Query items
+
+After you insert an item, you can run a query to get all items that match a specific filter by treating the collection as an `IQueryable`. This example uses an expression to filter products by category. Once the call to `AsQueryable`  is made, call [``MongoQueryable.Where``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_Linq_MongoQueryable_Where__1.htm) to retrieve a set of filtered items.
+
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="query_items" :::
+
+## Run the code
+
+This app creates an Azure Cosmos MongoDb API database and collection. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should return multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
+
+To run the app, use a terminal to navigate to the application directory and run the application.
+
+```dotnetcli
 dotnet run
 ```
 
-After the application is running, navigate to `https://localhost:5001/swagger/index.html` to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
+The output of the app should be similar to this example:
 
-Select the API you would like to test and select "Try it out".
-
-:::image type="content" source="./media/create-mongodb-dotnet/try-swagger.png" alt-text="Screenshot of the web API Swagger UI Try API endpoints page.":::
-
-Enter any necessary parameters and select "Execute."
+```output
+Single product name: 
+Yamba Surfboard
+Multiple products:
+Yamba Surfboard
+Sand Surfboard
+```
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
+When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
 
-## Next steps
+### [Azure CLI / Resource Manager template](#tab/azure-cli)
 
-In this quickstart, you've learned how to create an API for MongoDB account, create a database and a collection with code, and run a web API app. You can now import other data to your database. 
+Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delete the resource group.
 
-Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
+```azurecli-interactive
+az group delete --name $resourceGroupName
+```
 
-> [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
+### [PowerShell](#tab/azure-powershell)
+
+Use the [``Remove-AzResourceGroup``](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to delete the resource group.
+
+```azurepowershell-interactive
+$parameters = @{
+    Name = $RESOURCE_GROUP_NAME
+}
+Remove-AzResourceGroup @parameters
+```
+
+### [Portal](#tab/azure-portal)
+
+1. Navigate to the resource group you previously created in the Azure portal.
+
+    > [!TIP]
+    > In this quickstart, we recommended the name ``msdocs-cosmos-quickstart-rg``.
+1. Select **Delete resource group**.
+
+   :::image type="content" source="media/delete-account-portal/delete-resource-group-option.png" lightbox="media/delete-account-portal/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
+
+1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
+
+   :::image type="content" source="media/delete-account-portal/delete-confirmation.png" lightbox="media/delete-account-portal/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
+
+---

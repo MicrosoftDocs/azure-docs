@@ -20,9 +20,11 @@ Container insights supports the following environments:
    - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  
    - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
 
-
 ## Supported Kubernetes versions
 The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
+
+>[!NOTE]
+> Container insights support for Windows Server 2022 operating system in public preview.
 
 ## Prerequisites
 Before you start, make sure that you've met the following requirements:
