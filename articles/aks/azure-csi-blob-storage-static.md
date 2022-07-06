@@ -28,34 +28,34 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
-|volumeAttributes.resourceGroup | Specify Azure resource group name | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
-|volumeAttributes.storageAccount | Specify existing Azure storage account name | STORAGE_ACCOUNT_NAME | Yes ||
-|volumeAttributes.containerName | Specify existing container name | container | Yes ||
-|volumeAttributes.protocol | Specify blobfuse mount or NFSv3 mount | `fuse`, `nfs` | No | `fuse`|
+|volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
+|volumeAttributes.storageAccount | Specify existing Azure storage account name. | storageAccountName | Yes ||
+|volumeAttributes.containerName | Specify existing container name. | container | Yes ||
+|volumeAttributes.protocol | Specify blobfuse mount or NFS v3 mount. | `fuse`, `nfs` | No | `fuse`|
 |--- | **Following parameters are only for blobfuse** | --- | --- | --- |
-|volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB)| | No ||
-|volumeAttributes.secretNamespace | Specify namespace of secret to store account key | `default` | No | Pvc namespace|
-|nodeStageSecretRef.name | Specify secret name that stores (see examples below):<br>`azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret` | |Existing Kubernetes secret name |  No  |
-|nodeStageSecretRef.namespace | Specify the namespace of secret | k8s namespace | Yes ||
+|volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB).| | No ||
+|volumeAttributes.secretNamespace | Specify namespace of secret to store account key. | `default` | No | Pvc namespace|
+|nodeStageSecretRef.name | Specify secret name that stores (see examples below):<br>`azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |Existing Kubernetes secret name |  No  |
+|nodeStageSecretRef.namespace | Specify the namespace of secret. | k8s namespace | Yes ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
-|volumeAttributes.mountPermissions | Specify mounted folder permissions | `0777` | No ||
+|volumeAttributes.mountPermissions | Specify mounted folder permissions. | `0777` | No ||
 |--- | **Following parameters are only for NFS VNet setting** | --- | --- | --- |
-|vnetResourceGroup | Specify VNet resource group where virtual network is | myResourceGroup | No | If empty, driver will use the `vnetResourceGroup` value specified in the Azure cloud config file.|
-|vnetName | Specify the virtual network name | aksVNet | No | If empty, driver uses the `vnetName` value specified in the Azure cloud config file.|
-|subnetName | Specify the existing subnet name of the agent node | aksSubnet | No | If empty, driver uses the `subnetName` value in Azure cloud config file. |
+|vnetResourceGroup | Specify VNet resource group hosting virtual network. | myResourceGroup | No | If empty, driver uses the `vnetResourceGroup` value specified in the Azure cloud config file.|
+|vnetName | Specify the virtual network name. | aksVNet | No | If empty, driver uses the `vnetName` value specified in the Azure cloud config file.|
+|subnetName | Specify the existing subnet name of the agent node. | aksSubnet | No | If empty, driver uses the `subnetName` value in Azure cloud config file. |
 |--- | **Following parameters are only for feature: blobfuse [Managed Identity and Service Principal Name auth](https://github.com/Azure/azure-storage-fuse#environment-variables)** | --- | --- |--- |
-|volumeAttributes.AzureStorageAuthType | Specify the authentication type | `Key`, `SAS`, `MSI`, `SPN` | No | `Key`|
-|volumeAttributes.AzureStorageIdentityClientID | Specify the Identity Client ID |  | No ||
-|volumeAttributes.AzureStorageIdentityObjectID | Specify the Identity Object ID |  | No ||
-|volumeAttributes.AzureStorageIdentityResourceID | Specify the Identity Resource ID |  | No ||
-|volumeAttributes.MSIEndpoint | Specify the MSI endpoint |  | No ||
-|volumeAttributes.AzureStorageSPNClientID | Specify the Azure Service Principal Name (SPN) Client ID |  | No ||
-|volumeAttributes.AzureStorageSPNTenantID | Specify the Azure SPN Tenant ID |  | No ||
-|volumeAttributes.AzureStorageAADEndpoint | Specify the Azure Active Directory (AAD) Endpoint |  | No ||
+|volumeAttributes.AzureStorageAuthType | Specify the authentication type. | `Key`, `SAS`, `MSI`, `SPN` | No | `Key`|
+|volumeAttributes.AzureStorageIdentityClientID | Specify the Identity Client ID. |  | No ||
+|volumeAttributes.AzureStorageIdentityObjectID | Specify the Identity Object ID. |  | No ||
+|volumeAttributes.AzureStorageIdentityResourceID | Specify the Identity Resource ID. |  | No ||
+|volumeAttributes.MSIEndpoint | Specify the MSI endpoint. |  | No ||
+|volumeAttributes.AzureStorageSPNClientID | Specify the Azure Service Principal Name (SPN) Client ID. |  | No ||
+|volumeAttributes.AzureStorageSPNTenantID | Specify the Azure SPN Tenant ID. |  | No ||
+|volumeAttributes.AzureStorageAADEndpoint | Specify the Azure Active Directory (Azure AD) endpoint. |  | No ||
 |--- | **Following parameters are only for feature: blobfuse read account key or SAS token from key vault** | --- | --- | --- |
-|volumeAttributes.keyVaultURL | Specify Azure Key Vault DNS name | {vault-name}.vault.azure.net | No ||
-|volumeAttributes.keyVaultSecretName | Specify Azure Key Vault secret name | Existing Azure Key Vault secret name | No ||
-|volumeAttributes.keyVaultSecretVersion | Azure Key Vault secret version | Existing version | No |If empty, driver will use current version|
+|volumeAttributes.keyVaultURL | Specify Azure Key Vault DNS name. | {vault-name}.vault.azure.net | No ||
+|volumeAttributes.keyVaultSecretName | Specify Azure Key Vault secret name. | Existing Azure Key Vault secret name. | No ||
+|volumeAttributes.keyVaultSecretVersion | Azure Key Vault secret version. | Existing version | No |If empty, driver uses current version.|
 
 ## Create a Blob storage container
 

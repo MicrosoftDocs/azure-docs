@@ -28,26 +28,26 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | --- |
-|skuName | Specify an Azure storage account type (alias: `storageAccountType`) | `Standard_LRS`, `Premium_LRS`, `Standard_GRS`, `Standard_RAGRS` | No | `Standard_LRS`|
-|location | Specify an Azure location | `eastus` | No | If empty, driver will use the same location name as current cluster.|
-|resourceGroup | Specify an Azure resource group name | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
-|storageAccount | Specify an Azure storage account name| STORAGE_ACCOUNT_NAME | - No for blobfuse mount </br> - Yes for NFSv3 mount |  - For blobfuse mount: if empty, driver will find a suitable storage account that matches `skuName` in the same resource group; if a storage account name is provided, storage account must exist. </br>  - For NFSv3 mount, storage account name must be provided.|
-|protocol | Specify blobfuse mount or NFSv3 mount | `fuse`, `nfs` | No | `fuse`|
-|containerName | Specify the existing container (directory) name | container | No | if empty, driver will create a new container name, starting with `pvc-fuse` for blobfuse or `pvc-nfs` for NFSv3 |
-|containerNamePrefix | Specify Azure storage directory prefix created by driver | my |Can only contain lowercase letters, numbers, hyphens, and length should be fewer than 21 characters. | No |
-|server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.blob.core.windows.net`. | No | If empty, driver will use default `accountname.blob.core.windows.net` or other sovereign cloud account address.|
+|skuName | Specify an Azure storage account type (alias: `storageAccountType`). | `Standard_LRS`, `Premium_LRS`, `Standard_GRS`, `Standard_RAGRS` | No | `Standard_LRS`|
+|location | Specify an Azure location. | `eastus` | No | If empty, driver will use the same location name as current cluster.|
+|resourceGroup | Specify an Azure resource group name. | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
+|storageAccount | Specify an Azure storage account name.| storageAccountName | - No for blobfuse mount </br> - Yes for NFSv3 mount. |  - For blobfuse mount: if empty, driver finds a suitable storage account that matches `skuName` in the same resource group. If a storage account name is provided, storage account must exist. </br>  - For NFSv3 mount, storage account name must be provided.|
+|protocol | Specify blobfuse mount or NFSv3 mount. | `fuse`, `nfs` | No | `fuse`|
+|containerName | Specify the existing container (directory) name. | container | No | If empty, driver creates a new container name, starting with `pvc-fuse` for blobfuse or `pvc-nfs` for NFS v3. |
+|containerNamePrefix | Specify Azure storage directory prefix created by driver. | my |Can only contain lowercase letters, numbers, hyphens, and length should be fewer than 21 characters. | No |
+|server | Specify Azure storage account domain name. | Existing storage account DNS domain name, for example `<storage-account>.privatelink.blob.core.windows.net`. | No | If empty, driver uses default `<storage-account>.blob.core.windows.net` or other sovereign cloud storage account DNS domain name.|
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true`,`false` | No | `false`|
-|storageEndpointSuffix | Specify Azure storage endpoint suffix | `core.windows.net` | No | If empty, driver will use default storage endpoint suffix according to cloud environment.|
-|tags | [tags][az-tags] would be created in new storage account | Tag format: 'foo=aaa,bar=bbb' | No | ""|
-|matchTags | Whether matching tags when driver tries to find a suitable storage account | `true`,`false` | No | `false`|
+|storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net` | No | If empty, driver will use default storage endpoint suffix according to cloud environment.|
+|tags | [tags][az-tags] would be created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | ""|
+|matchTags | Match tags when driver tries to find a suitable storage account. | `true`,`false` | No | `false`|
 |--- | **Following parameters are only for blobfuse** | --- | --- |--- |
 |subscriptionID | Specify Azure subscription ID where blob storage directory will be created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
-|storeAccountKey | Specify store account key to Kubernetes secret <br><br> Note:  <br> `false` means driver uses kubelet identity to get account key. | `true`,`false` | No | `true`|
-|secretName | Specify secret name to store account key | | No |
-|secretNamespace | Specify the namespace of secret to store account key | `default`,`kube-system`, etc. | No | pvc namespace |
-|isHnsEnabled | Enable `Hierarchical namespace` for Azure DataLake storage account | `true`,`false` | No | `false`|
+|storeAccountKey | Specify store account key to Kubernetes secret. <br><br> Note:  <br> `false` means driver uses kubelet identity to get account key. | `true`,`false` | No | `true`|
+|secretName | Specify secret name to store account key. | | No |
+|secretNamespace | Specify the namespace of secret to store account key. | `default`,`kube-system`, etc. | No | pvc namespace |
+|isHnsEnabled | Enable `Hierarchical namespace` for Azure DataLake storage account. | `true`,`false` | No | `false`|
 |--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
-|mountPermissions | Specify mounted folder permissions |The default is `0777`. If set to `0`, driver won't perform `chmod` after mount. | `0777` | No |
+|mountPermissions | Specify mounted folder permissions. |The default is `0777`. If set to `0`, driver won't perform `chmod` after mount. | `0777` | No |
 
 ## Create a persistent volume claim using built-in storage class
 
