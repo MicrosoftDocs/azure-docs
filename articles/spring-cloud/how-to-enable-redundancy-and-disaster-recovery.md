@@ -56,12 +56,12 @@ The following limitations apply when you create an Azure Spring Apps Service ins
 
 ## How to create an instance in Azure Spring Apps with availability zone enabled
 
->[!NOTE]
+> [!NOTE]
 > You can only enable zone redundant when creating your spring app instance. You can't change your zone redundant property after the creation.
 
 You can enable zone redundant in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To create a service in Azure Spring Apps with zone redundant enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service in Azure Spring App.
 
@@ -73,17 +73,19 @@ az spring create \
     --zone-redundant true
 ```
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
-To create a service in Azure Spring Apps with zone redundant enabled using the Azure portal, enable the Zone Redundant option when creating the instance.
+To a service in Azure Spring Apps with zone redundant enabled using the Azure portal, enable the Zone Redundant option when creating the instance.
 
-![Image of where to enable zone redundant using the portal.](media/spring-cloud-availability-zone/availability-zone-portal.png)
+:::image type="content" source="media/spring-cloud-availability-zone/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="media/spring-cloud-availability-zone/availability-zone-portal.png":::
+
+---
 
 ## How to verify zone redundant property of Azure Spring Apps instance
 
 You can verify zone redundant property in Azure Spring Apps instance using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To verify zone redundant property of Azure Spring Apps instance using the Azure CLI, you could use the following command to show the details of an Azure Spring Apps instance, which includes the zone redundant property.
 
@@ -93,11 +95,13 @@ az spring show \
     --name <your-Azure-Spring-Cloud-instance-name> \
 ```
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To verify zone redundant property of Azure Spring Apps instance using the Azure portal, verify that at the service overview blade.
 
-:::image type="content" source="media/spring-cloud-availability-zone/availability-zone-verify-portal.png" alt-text="Screenshot of the Azure portal Overview page showing the Zone Redundant property." lightbox="media/spring-cloud-availability-zone/availability-zone-verify-portal.png":::
+:::image type="content" source="media/spring-cloud-availability-zone/availability-zone-verify-portal.png" alt-text="Screenshot of theA zure portal Overview page showing the Zone Redundant property." lightbox="media/spring-cloud-availability-zone/availability-zone-verify-portal.png":::
+
+---
 
 ## Pricing
 
