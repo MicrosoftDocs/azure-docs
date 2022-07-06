@@ -141,9 +141,9 @@ The `$assignment` variable now contains the principal ID of the managed identity
 
 # [Azure CLI](#tab/azure-cli)
 
-To create an identity during the assignment of the policy, use [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) commands with the parameters **--location**, **--mi-system-assigned**, **--mi-user-assigned**, and **--identity-scope** depending on whether the managed identity should be system-assigned or user-assigned.
+To create an identity during the assignment of the policy, use [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create&preserve-view=true) commands with the parameters **--location**, **--mi-system-assigned**, **--mi-user-assigned**, and **--identity-scope** depending on whether the managed identity should be system-assigned or user-assigned.
 
-To add a system-assigned identity or a user-assigned identity to a policy assignment, follow example [az policy assignment identity assign](/cli/azure/policy/assignment/identity?view=azure-cli-latest#az-policy-assignment-identity-assign) commands.
+To add a system-assigned identity or a user-assigned identity to a policy assignment, follow example [az policy assignment identity assign](/cli/azure/policy/assignment/identity?view=azure-cli-latest#az-policy-assignment-identity-assign&preserve-view=true) commands.
 
 ---
 
@@ -222,7 +222,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 The new managed identity must complete replication through Azure Active Directory before it can be granted the needed roles. Once replication is complete, the roles specified in the policy definition's **roleDefinitionIds** should be granted to the managed identity.
 
-Access the roles specified in the policy definition using the [az policy definition show](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show) command, then iterate over each **roleDefinitionId** to create the role assignment using the [az role assignment create](cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show) command.
+Access the roles specified in the policy definition using the [az policy definition show](cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show&preserve-view=true) command, then iterate over each **roleDefinitionId** to create the role assignment using the [az role assignment create](cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show&preserve-view=true) command.
 
 ---
 
