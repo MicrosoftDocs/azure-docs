@@ -1,4 +1,15 @@
-# Two primary Network considerations for AMS 
+---
+title: Azure Monitor for SAP Solutions Network Considerations | Microsoft Docs
+description: This article provides details to consider network setup while setting up Azure monitor for SAP solutions.
+author: sujaj
+ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
+ms.topic: article
+ms.date: 07/06/2022
+ms.author: sujaj
+
+---
+# Primary Network considerations for AMS 
 
 Before Azure Monitor for SAP solutions (AMS) is deployed for the first time, following two areas regarding Networking must be addressed. 
 
@@ -11,6 +22,8 @@ For more information please read the following.
 
 Please create a new empty subnet that's an IPv4/28 block or larger and ensure there is network connectivity between this new subnet and target systems you wish to monitor. This new subnet will be used to host Azure Functions. Azure Function is the telemetry collection engine for AMS. Please refer [this](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration) article for more details and [learn more](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#subnets) about subnets for Azure functions.
 
+>[!Note]
+> Content below is applicable to Azure Monitor for SAP solutions and not the classic version
 ## 2. _**(Only if applicable)**_ Choose an option to address no-outbound internet access
 
 Many customers choose to lockdown their SAP network environment by restricting or blocking outbound-internet access. If this scenario is applicable for you, please choose one of the following methods to address it. It is highly recommended that you pick one of the following methods, perform the needed actions before trying to deploy first AMS resource. Without addressing this scenario, AMS deployments will likely fail. 

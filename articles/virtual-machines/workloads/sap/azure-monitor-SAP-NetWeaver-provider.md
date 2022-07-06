@@ -1,3 +1,15 @@
+---
+title: Azure Monitor for SAP Solutions providers - SAP NetWeaver | Microsoft Docs
+description: This article provides details to configure SAP NetWeaver  for Azure monitor for SAP solutions.
+author: sujaj
+ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
+ms.topic: article
+ms.date: 07/06/2022
+ms.author: sujaj
+
+---
+
 
 # **SAP NetWeaver Provider**
 
