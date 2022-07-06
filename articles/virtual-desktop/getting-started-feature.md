@@ -277,7 +277,7 @@ If you didn't create a test account or assigned an existing user during deployme
 |--|--|--|--|
 | Resource group | *your prefix*-avd | N/A | This is a predefined name. |
 | Resource group | *your prefix*-deployment | N/A | This is a predefined name. |
-| Automation Account | ebautomation*random string* | *your prefix*-deployment |  |
+| Automation Account | ebautomation*random string* | *your prefix*-deployment | This is a predefined name. |
 | Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
 | Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
 | Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
