@@ -27,12 +27,12 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name 'myVMSSResourceGroup' -Location 'EastUS'
-
 ```
 
 ## Create a virtual machine scale set
 Create the virtual machine scale set using the [New-AzVmss](/powershell/module/azcompute/new-azvmss) command.
-```
+
+```azurepowershell-interactive
 New-AzVmss `
     -ResourceGroup "myVMSSResourceGroup" `
     -Name "myScaleSet" ` 
@@ -41,21 +41,18 @@ New-AzVmss `
     -InstanceCount "3" `
     -ImageName "Win2019Datacenter"
 ```
-### Add a single VM to a scale set
+
+## Add a single VM to a scale set
 
 The following example shows the creation of a Flexible scale set without a VM profile, where the fault domain count is set to 1. A virtual machine is created and then added to the Flexible scale set.
 
 1. Log into Azure PowerShell and specify the subscription and variables for the deployment. 
 
     ```azurepowershell-interactive
-    Connect-AzAccount
-    Set-AzContext `
-        -Subscription "00000000-0000-0000-0000-000000000" 
-    
     $loc = "eastus" 
-    $rgname = "myResourceGroupFlexible" 
-    $vmssName = "myFlexibleVMSS" 
-    $vmname = "myFlexibleVM"
+    $rgname = "myVMSSResourceGroup" 
+    $vmssName = "myScaleSet" 
+    $vmname = "myScaleSetNewVM"
     ```
 
 1. Don't specify VM Profile parameters like networking or VM SKUs.
@@ -65,7 +62,7 @@ The following example shows the creation of a Flexible scale set without a VM pr
     $VmssFlex = new-azvmss -resourcegroupname $rgname -vmscalesetname $vmssName -virtualmachinescaleset $VmssConfigWithoutVmProfile 
     ```
  
-1. Add a VM to the Flexible scale set.
+1. Add a VM to the scale set.
 
     ```azurepowershell-interactive
     $vm = new-azvm -resourcegroupname $rgname -location $loc -name $vmname -credential $cred -domainnamelabel $domainName -vmssid $VmssFlex.id 
