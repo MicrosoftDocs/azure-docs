@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale using Group Policy with service principal encryption
 description: In this article, you learn how to create a Group Policy Object to onboard Active Directory-joined Windows machines to Azure Arc-enabled servers. 
-ms.date: 06/15/2022
+ms.date: 07/06/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
@@ -28,9 +28,9 @@ The Group Policy to onboard Azure Arc-enabled servers requires a remote share wi
     * Make a note of the Service Principal Secret; you'll need this value later.
 
 1. For each of the scripts below, click to go to its Github directory and download the raw script to your local share using your browser's **Save as** function:
-    * `EnableAzureArc.ps1`
-    * `DeployGPO.ps1`
-    * `AzureArcDeployment.psm1`
+    * [`EnableAzureArc.ps1`](https://raw.githubusercontent.com/Azure/ArcEnabledServersGroupPolicy/main/EnableAzureArc.ps1)
+    * [`DeployGPO.ps1`](https://raw.githubusercontent.com/Azure/ArcEnabledServersGroupPolicy/main/DeployGPO.ps1)
+    * [`AzureArcDeployment.psm1`](https://raw.githubusercontent.com/Azure/ArcEnabledServersGroupPolicy/main/AzureArcDeployment.psm1)
 
     > [!NOTE] 
     > The ArcGPO folder must be in the same directory as the downloaded script files above. The ArcGPO folder contains the files that define the Group Policy Object that's created when the DeployGPO script is run. When running the DeployGPO script, make sure you're in the same directory as the ps1 files and ArcGPO folder.
