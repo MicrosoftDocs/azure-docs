@@ -16,7 +16,7 @@ Learn about instances and regions supported for NC2 on Azure Public Preview.
 Nutanix Clusters on Azure supports:
 
 * Minimum of three bare metal nodes per cluster.
-* Maximum of nine bare metal nodes for public preview.
+* Maximum of 16 bare metal nodes for public preview.
 * Only the Nutanix AHV hypervisor on Nutanix clusters running in Azure.
 * Prism Central instance deployed on Nutanix Clusters on Azure to manage the Nutanix clusters in Azure.
 
