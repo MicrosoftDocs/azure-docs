@@ -291,7 +291,7 @@
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-avd.md
-  - name: Configure automatic updates
+  - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
     href: multimedia-redirection.md
