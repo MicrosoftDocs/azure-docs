@@ -187,7 +187,7 @@ The change feed processor lets you hook to relevant events in its [life cycle](#
 
 ## Deployment unit
 
-A single change feed processor deployment unit consists of one or more compute instances with the same `processorName` and lease container configuration but different instance name each. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances.
+A single change feed processor deployment unit consists of one or more compute instances with the same lease container configuration but different `hostName` name each. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances.
 
 For example, you might have one deployment unit that triggers an external API anytime there is a change in your container. Another deployment unit might move data, in real time, each time there is a change. When a change happens in your monitored container, all your deployment units will get notified.
 
@@ -196,7 +196,7 @@ For example, you might have one deployment unit that triggers an external API an
 As mentioned before, within a deployment unit you can have one or more compute instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
 
 1. All instances should have the same lease container configuration.
-1. Each instance needs to have a different instance name (`hostName`).
+1. Each instance needs to have a different `hostName`.
 
 If these three conditions apply, then the change feed processor will, using an equal distribution algorithm, distribute all the leases in the lease container across all running instances of that deployment unit and parallelize compute. One lease can only be owned by one instance at a given time, so the maximum number of instances equals to the number of leases.
 
