@@ -36,7 +36,22 @@ sections:
           How do I verify ledger's authenticity?
         answer: |
           You can verify that the ledger server nodes that your client is communicating with are authentic. For details, see [Authenticating confidential ledger Nodes](authenticate-ledger-nodes.md).
-    
+
+       - question: |
+          Could the communication between a client and ACL be compromised by an Azure Admin, since Azure controls the TLS between client and ACL?
+        answer: |
+          The TLS connection is established between a client and a specific node running inside an enclave. As the connection terminates inside the enclave, neither Azure admins nor anyone else has access to the enclave data by virtue of the security provided by the Intel SGX specialized hardware.
+
+       - question: |
+          Does ACL offers querying on attributes other than the receipt/transaction ID?
+        answer: |
+          Besides querying with the receipt/transaction id, ACL offers historical querying capability to read the data from Genesis(or within a range) for a specific key using the collection id (also called the sub ledger id) parameter. We would be interested to know what other attributes would be useful for querying, as this is an area we are gathering input on for our product roadmap.
+
+       - question: |
+          What about the data on disk. Is that encrypted separately? Where are the keys stored for that??
+        answer: |
+          When storing data on the ledger, you can choose the public or private option. The public option is not encrypted; plain-text and a good fit for certain use cases which require tamper-evident and auditable ledger use. The private option, however, is encrypted. The data is encrypted using three levels of encryption (i.e. Ledger Secrets, Ledger Secret Wrapping Key, and Recovery key Shares), which is explained in detail [here](https://microsoft.github.io/CCF/main/architecture/cryptography.html).
+
   - name: User management
     questions:
 
@@ -62,4 +77,4 @@ additionalContent: |
   ## Next steps
   
   - [Azure confidential ledger](./overview.md)
-  
+
