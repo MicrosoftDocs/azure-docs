@@ -60,7 +60,6 @@ Metadata information about a connected machine is collected after the Connected 
   * Instance ID
   * Image
   * Machine type
-  * OS
   * Project ID
   * Project number
   * Service accounts

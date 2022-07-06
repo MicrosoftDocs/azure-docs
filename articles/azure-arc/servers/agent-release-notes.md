@@ -25,8 +25,9 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### New features
 
 - Added support for Debian 10
-- Logical core count is now collected as part of the [instance metadata](agent-overview.md#instance-metadata)
-- `azcmagent connect` will try to automatically register the [required resource providers](prerequisites.md#azure-resource-providers) if they are not already registered in your subscription
+- Updates to the [instance metadata](agent-overview.md#instance-metadata) collected on each machine:
+  - GCP VM OS is no longer collected
+  - CPU logical core count is now collected
 - Improved error messages and colorization
 
 ### Fixed
