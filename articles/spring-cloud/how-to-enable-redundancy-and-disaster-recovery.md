@@ -10,7 +10,6 @@ ms.custom: devx-track-java
 ---
 # High availability for Azure Spring Apps
 
-
 **The zone redundancy applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
 **The customer-managed disaster recovery applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
@@ -47,13 +46,13 @@ Azure Spring Apps currently supports availability zones in the following regions
 - West US 3
 
 The following limitations apply when you create an Azure Spring Apps Service instance with zone redundant enabled:
+
 - This feature is not available in basic tier.
 - Zone redundant can only be enabled when creating a new Azure Spring Apps Service instance.
 - If you would like to enable your own resource in Azure Spring Apps such as [your own persistent storage](how-to-custom-persistent-storage.md), you should take care the zone redundancy of these resource by your own.
 - This feature promises that the underneath VM nodes will be distributed evenly across all availability zones while no assurance to distribute app instances evenly. If an app instance failed because its located zone went down, Azure Spring Apps will create a new app instance for this app in another available zone.
 - Geo-disaster recovery is not the purpose of this feature. To protect your service from regional outages, please refer to [Customer-managed geo-disaster recovery
 ](#customer-managed-geo-disaster-recovery). 
-
 
 ## How to create an instance in Azure Spring Apps with availability zone enabled
 
@@ -80,8 +79,6 @@ To create a service in Azure Spring Apps with zone redundant enabled using the A
 
 ![Image of where to enable zone redundant using the portal.](media/spring-cloud-availability-zone/availability-zone-portal.png)
 
----
-
 ## How to verify zone redundant property of Azure Spring Apps instance
 
 You can verify zone redundant property in Azure Spring Apps instance using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
@@ -100,8 +97,7 @@ az spring show \
 
 To verify zone redundant property of Azure Spring Apps instance using the Azure portal, verify that at the service overview blade.
 
-![Image of where to verify zone redundant property using the portal.](media/spring-cloud-availability-zone/availability-zone-verify-portal.png)
-
+:::image type="content" source="media/spring-cloud-availability-zone/availability-zone-verify-portal.png" alt-text="Screenshot of the Azure portal Overview page showing the Zone Redundant property." lightbox="media/spring-cloud-availability-zone/availability-zone-verify-portal.png":::
 
 ## Pricing
 
@@ -139,12 +135,14 @@ You will need two service instances of Azure Spring Apps deployed in two differe
 | service-sample-a | East US | gateway / auth-service / account-service |
 | service-sample-b | West Europe | gateway / auth-service / account-service |
 
-2. Set up Custom Domain for Service
+1. Set up Custom Domain for Service
+
 Follow [Custom Domain Document](./tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
 
-3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+1. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Here is the traffic manager profile:
+
 * Traffic Manager DNS Name: `http://asa-bcdr.trafficmanager.net`
 * Endpoint Profiles:
 
@@ -153,9 +151,9 @@ Here is the traffic manager profile:
 | Endpoint A Profile | External Endpoint | service-sample-a.azuremicroservices.io | 1 | host: bcdr-test.contoso.com |
 | Endpoint B Profile | External Endpoint | service-sample-b.azuremicroservices.io | 2 | host: bcdr-test.contoso.com |
 
-4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net.
+1. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net.
 
-5. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
+1. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
 
 ## Next steps
 
