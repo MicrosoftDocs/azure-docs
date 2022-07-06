@@ -17,8 +17,6 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 [add your introductory paragraph]
 
-## Benefits
-
 ### Virtual network enforcement
 Enforcement
 With NSGs alone, widespread enforcement on VNets across several applications, teams, or even entire organizations can be tricky. Often there’s a balancing act between attempts at centralized enforcement across an organization and handing over granular, flexible control to teams. Let’s look at a few common models of security management without security admin rules, and their pros and cons:
