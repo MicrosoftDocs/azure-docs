@@ -4,8 +4,8 @@ description: Learn about the Azure Database for MySQL Flexible server, a relatio
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: overview
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: mvc, references_regions, event-tier1-build-2022
 ms.date: 05/24/2022
 ---

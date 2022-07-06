@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 07/05/2022
 ---
 
 # Tree visualizations
@@ -18,7 +18,7 @@ The following example shows container health metrics of a working set size that 
 
 ## Add a tree grid
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit** on the toolbar.
 1. Select **Add** > **Add query** to add a log query control to the workbook.
 1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
@@ -67,7 +67,7 @@ You can use grouping to build hierarchical views similar to the ones shown in th
 
 ## Add a tree by using grouping
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit** on the toolbar.
 1. Select **Add** > **Add query** to add a log query control to the workbook.
 1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.

@@ -5,8 +5,8 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ms.custom: seo-lt-2019
 ms.date: 02/15/2022
 ---

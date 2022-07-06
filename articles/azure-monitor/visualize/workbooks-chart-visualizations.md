@@ -5,12 +5,12 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 07/05/2022
 ---
 
 # Chart visualizations
 
-Workbooks are able to take the data returned from queries in various formats to create different visualizations from that data, such as area, line, bar, or time visualizations.
+Workbooks can take the data returned from queries in various formats to create different visualizations from that data, such as area, line, bar, or time visualizations.
 
 You can present monitoring data as charts. Supported chart types include:
 
@@ -44,12 +44,12 @@ Azure Monitor logs give you detailed information about your apps and infrastruct
 
 The following example shows the trend of requests to an app over the previous days.
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit** on the toolbar.
 1. Use the **Add query** link to add a log query control to the workbook.
-1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
-1. Use the query editor to enter the [KQL](/azure/kusto/query/) for your analysis. An example is the trend of requests.
+1. For **Query type**, select **Log**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
+1. Use the query editor to enter the [KQL](/azure/kusto/query/) for your analysis. An example is trend of requests.
 1. Set **Visualization** to **Area**, **Bar**, **Bar (categorical)**, **Line**, **Pie**, **Scatter**, or **Time**.
-1. Set other parameters like the time range, size, color palette, and legend, if needed.
+1. Set other parameters like time range, visualization, size, color palette, and legend, if needed.
 
 [![Screenshot that shows a log chart in edit mode.](./media/workbooks-chart-visualizations/log-chart.png)](./media/workbooks-chart-visualizations/log-chart.png#lightbox)
 
@@ -60,7 +60,7 @@ The following example shows the trend of requests to an app over the previous da
 | Query type | The type of query to use. | Logs, Azure Resource Graph |
 | Resource type | The resource type to target. | Application Insights, Log Analytics, or Azure-first |
 | Resources | A set of resources to get the metrics value from. | MyApp1 |
-| Time Range | The time window to view the log chart. | Last hour, last 24 hours |
+| Time range | The time window to view the log chart. | Last hour, last 24 hours |
 | Visualization | The visualization to use. | Area, bar, line, pie, scatter, time, bar (categorical) |
 | Size | The vertical size of the control. | Small, medium, large, or full |
 | Color palette | The color palette to use in the chart. Ignored in multi-metric or segmented mode. | Blue, green, red |
@@ -162,9 +162,9 @@ Most Azure resources emit metric data about their state and health. Examples inc
 
 The following example shows the number of transactions in a storage account over the prior hour. This information allows the storage owner to see the transaction trend and look for anomalies in behavior.
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit** on the toolbar.
 1. Use the **Add metric** link to add a metric control to the workbook.
-1. Select a **Resource type**, for example, **Storage Account**. Select the resources to target, the metric namespace and name, and the aggregation to use.
+1. Select a resource type, for example, **Storage account**. Select the resources to target, the metric namespace and name, and the aggregation to use.
 1. Set other parameters like time range, split by, visualization, size, and color palette, if needed.
 
 [![Screenshot that shows a metric chart in edit mode.](./media/workbooks-chart-visualizations/metric-chart.png)](./media/workbooks-chart-visualizations/metric-chart.png#lightbox)
@@ -178,7 +178,7 @@ The following example shows the number of transactions in a storage account over
 | Namespace | The namespace with the metric. | Storage > Blob |
 | Metric | The metric to visualize. | Storage > Blob > Transactions |
 | Aggregation | The aggregation function to apply to the metric. | Sum, count, average |
-| Time Range | The time window to view the metric in. | Last hour, last 24 hours |
+| Time range | The time window to view the metric in. | Last hour, last 24 hours |
 | Visualization | The visualization to use. | Area, bar, line, scatter, grid |
 | Split by | Optionally split the metric on a dimension. | Transactions by geo type |
 | Size | The vertical size of the control. | Small, medium, or large |

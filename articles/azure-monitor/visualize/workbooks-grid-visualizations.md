@@ -3,7 +3,7 @@ title: Azure Monitor workbook grid visualizations
 description: Learn about all the Azure Monitor workbook grid visualizations.
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 07/05/2022
 ms.author: abbyweisberg
 ---
 
@@ -17,12 +17,12 @@ The following example shows a grid that combines icons, heatmaps, and spark bars
 
 ## Add a log-based grid
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting **Edit** on the toolbar.
 1. Select **Add query** to add a log query control to the workbook.
-1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Log**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis. An example is VMs with memory below a threshold.
 1. Set **Visualization** to **Grid**.
-1. Set other parameters like the time range, size, color palette, and legend, if needed.
+1. Set parameters like time range, size, color palette, and legend, if needed.
 
 [![Screenshot that shows a log-based grid query.](./media/workbooks-grid-visualizations/grid-query.png)](./media/workbooks-grid-visualizations/grid-query.png#lightbox)
 
@@ -33,7 +33,7 @@ The following example shows a grid that combines icons, heatmaps, and spark bars
 |Query type| The type of query to use. | Logs, Azure Resource Graph |
 |Resource type| The resource type to target. | Application Insights, Log Analytics, or Azure-first |
 |Resources| A set of resources to get the metrics value from. | MyApp1 |
-|Time Range| The time window to view the log chart. | Last hour, last 24 hours |
+|Time range| The time window to view the log chart. | Last hour, last 24 hours |
 |Visualization| The visualization to use. | Grid |
 |Size| The vertical size of the control. | Small, medium, large, or full |
 |Query| Any KQL query that returns data in the format expected by the chart visualization. | _requests \| summarize Requests = count() by name_ |
@@ -159,7 +159,7 @@ In the preceding example, a shared palette in green or red and a scale are used 
 
 To get a shared scale:
 
-1. Use regular expressions to select more than one column to apply a setting to. For example, set the column name to `Mean|Median|p80|p95|p99` to select them all.
+1. Use regular expressions to select more than one column to apply a setting to. For example, set the column name to **Mean|Median|p80|p95|p99** to select them all.
 1. Delete default settings for the individual columns.
 
 The new multi-column setting applies its settings to include a shared scale.
@@ -240,3 +240,8 @@ The columns set by % take up their percentage based on the total grid width. Thi
 The columns set with fr split up the remaining grid space based on the number of fractional units they're allotted.
 
 [![Screenshot that shows columns in a grid with an assortment of different width units used.](./media/workbooks-grid-visualizations/custom-column-width-fr3.png)](./media/workbooks-grid-visualizations/custom-column-width-fr3.png#lightbox)
+
+## Next steps
+
+* Learn how to create a [graph in workbooks](workbooks-graph-visualizations.md).
+* Learn how to create a [tile in workbooks](workbooks-tile-visualizations.md).

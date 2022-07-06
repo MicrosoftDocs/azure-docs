@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 07/05/2022
 ---
 
 # Tile visualizations
@@ -51,7 +51,7 @@ The tiles in read mode:
 
 ## Spark lines in tiles
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit** on the toolbar.
 1. Add a time range parameter called `TimeRange`.
     1. Select **Add** > **Add parameters**.
     1. In the parameter control, select **Add Parameter**.
