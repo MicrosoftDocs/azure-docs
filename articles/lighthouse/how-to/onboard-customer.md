@@ -23,13 +23,15 @@ The onboarding process requires actions to be taken from within both the service
 
 ## Gather tenant and subscription details
 
-To onboard a customer's tenant, it must have an active Azure subscription. You'll need to know the following:
+To onboard a customer's tenant, it must have an active Azure subscription. When you [create a template manually[(#create-your-template-manually))], you'll need to know the following:
 
-- The tenant ID of the service provider's tenant (where you will be managing the customer's resources). If you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), this value is provided automatically.
+- The tenant ID of the service provider's tenant (where you will be managing the customer's resources). 
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider).
 - The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider).
 
 If you don't know the ID for a tenant, you can [retrieve it by using the Azure portal, Azure PowerShell, or Azure CLI](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+
+If you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), your tenant ID is provided automatically. You don't need to know the customer's tenant or subscription details in order to create your template in the Azure portal. However, if you plan to onboard one or more resource groups in the customer's tenant (rather than the entire subscription), you'll need to know the names of each resource group.
 
 ## Define roles and permissions
 
@@ -38,7 +40,7 @@ As a service provider, you may want to perform multiple tasks for a single custo
 > [!NOTE]
 > Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to an Azure AD user, group, or service principal in an authorization.
 
-To define authorizations in your template, you must include the ID values for each user, user group, or service principal in the managing tenant to which you want to grant access. You'll also need the role definition ID for each [built-in role](../../role-based-access-control/built-in-roles.md) you want to assign. When you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), you can select the user account and role, and the ID values will be included automatically. If you are [creating a template manually](#create-your-template-manually), you can [retrieve user IDs by using the Azure portal, Azure PowerShell, or Azure CLI](../../role-based-access-control/role-assignments-template.md#get-object-ids) from within the managing tenant.
+To define authorizations in your template, you must include the ID values for each user, user group, or service principal in the managing tenant to which you want to grant access. You'll also need to include the role definition ID for each [built-in role](../../role-based-access-control/built-in-roles.md) you want to assign. When you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), you can select the user account and role, and these ID values will be added automatically. If you are [creating a template manually](#create-your-template-manually), you can [retrieve user IDs by using the Azure portal, Azure PowerShell, or Azure CLI](../../role-based-access-control/role-assignments-template.md#get-object-ids) from within the managing tenant.
 
 > [!TIP]
 > We recommend assigning the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](remove-delegation.md) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
@@ -66,7 +68,7 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](../.
 |**managedByTenantId**     |Your tenant ID.          |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization, and mapped to a built-in **roleDefinitionId** value to specify the level of access.      |
 
-You can create this template in the Azure portal, or by manually modifying the templates provided in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/). 
+You can create this template in the Azure portal, or by manually modifying the templates provided in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/).
 
 > [!IMPORTANT]
 > The process described here requires a separate deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
@@ -77,9 +79,9 @@ You can create this template in the Azure portal, or by manually modifying the t
 
 To create your template in the Azure portal, go to **My customers** and then select **Create ARM Template** from the overview page.
 
-On the **Create ARM Template offer** Page, provide your **Name** and an optional **Description**. These values will be used for the **mspOfferName** and **mspOfferDescription** in your template. The **managedByTenantId** value will be provided automatically, based on the Azure AD tenant to which you are logged in.
+On the **Create ARM Template offer** Page, provide your **Name** and an optional **Description**. These values will be used for the **mspOfferName** and **mspOfferDescription** in your template, and they may be visible to your customer. The **managedByTenantId** value will be provided automatically, based on the Azure AD tenant to which you are logged in.
 
-Next, select either **Subscription** or **Resource group**, depending on the customer scope you want to onboard. If you select **Resource group**, you'll need to provide the name of the resource group to onboard. You can select the **+** icon to add additional resource groups as needed. (All of the resource groups must be in the same customer subscription.)
+Next, select either **Subscription** or **Resource group**, depending on the customer scope you want to onboard. If you select **Resource group**, you'll need to provide the name of the resource group to onboard. You can select the **+** icon to add additional resource groups in the same subscription if needed. (To onboard additional resource groups in a different subscription, you must create and deploy a separate template for that subscription.)
 
 Finally, create your authorizations by selecting **+ Add authorization**. For each of your authorizations, provide the following details:
 
@@ -94,7 +96,10 @@ Finally, create your authorizations by selecting **+ Add authorization**. For ea
 
 After you select **Add**, you'll return to the **Create ARM Template offer** screen. You can select **+ Add authorization** again to add as many authorizations as needed.
 
-When you've added all of your authorizations, select **View template**. On this screen, you'll see a .json file that corresponds to the values you entered. Select **Download** to save a copy of this .json file. This template can then be [deployed in the customer's tenant](#deploy-the-azure-resource-manager-template). You can also edit it manually if you need to make any changes. Note that the file is not stored in the Azure portal.
+When you've added all of your authorizations, select **View template**. On this screen, you'll see a .json file that corresponds to the values you entered. Select **Download** to save a copy of this .json file. This template can then be [deployed in the customer's tenant](#deploy-the-azure-resource-manager-template). You can also edit it manually if you need to make any changes.
+
+> [!IMPORTANT]
+> The generated template file is not stored in the Azure portal. Be sure to download a copy before you navigate away from the **Show template** screen.
 
 ### Create your template manually
 
