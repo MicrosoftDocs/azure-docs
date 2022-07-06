@@ -20,16 +20,16 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in July include:
 
-- [General availability (GA) of the Microsoft Defender containerized agent for AKS clusters](#general-availability-ga-of-the-microsoft-defender-containerized-agent-for-aks-clusters)
-### General availability (GA) of the Microsoft Defender containerized agent for AKS clusters
+- [General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection](#general-availability-ga-of-the-cloud-native-security-agent-for-kubernetes-runtime-protection)
+### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
-We're excited to share that Microsoft Defender containerized agent for AKS clusters is now generally available (GA)!
+We're excited to share that the Cloud-native security agent for Kubernetes runtime protection is now generally available (GA)!
 
-The production deployments of Kubernetes clusters continue to grow as customers continue to containerize their applications. To assist with this growth, the Defender for Containers team has developed a cloud-native Kubernetes oriented agent.
+The production deployments of Kubernetes clusters continue to grow as customers continue to containerize their applications. To assist with this growth, the Defender for Containers team has developed a cloud-native Kubernetes oriented security agent.
 
-The new agent is a DaemonSet, based on eBPF technology and is fully integrated into AKS clusters as part of the AKS Security Profile.
+The new security agent is a Kubernetes DaemonSet, based on eBPF technology and is fully integrated into AKS clusters as part of the AKS Security Profile.
 
-The agent enablement is available through auto-provisioning, recommendations flow, AKS RP or at scale using Azure Policy.
+The security agent enablement is available through auto-provisioning, recommendations flow, AKS RP or at scale using Azure Policy.
 
 You can [deploy the Defender profile](/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#deploy-the-defender-profile) today on your AKS clusters.
 
