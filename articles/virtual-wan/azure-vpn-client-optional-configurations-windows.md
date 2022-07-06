@@ -23,7 +23,7 @@ This article helps you configure optional settings for an Azure VPN Client insta
 
 ## <a name="xml"></a>Edit and import VPN client profile configuration files
 
-The steps in this article may require you to modify and import the Azure VPN Client profile configuration file. To work with VPN client profile configuration files (xml files), do the following:
+The steps in this article require you to modify and import the Azure VPN Client profile configuration file. To work with VPN client profile configuration files (xml files), do the following:
 
 1. Locate the profile configuration file and open it using the editor of your choice.
 1. Modify the file as necessary, then save your changes.
