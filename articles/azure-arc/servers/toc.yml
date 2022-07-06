@@ -70,7 +70,7 @@
        - name: Connect machines using group policy
          href: onboard-group-policy.md
        - name: Connect machines using group policy with service principal encryption
-         href: onboard-group-policy-SP-encryption.md
+         href: onboard-group-policy-service-principal-encryption.md
        - name: Connect machines using Ansible playbooks
          href: onboard-ansible-playbooks.md
        - name: Connect machines from Automation Update Management
