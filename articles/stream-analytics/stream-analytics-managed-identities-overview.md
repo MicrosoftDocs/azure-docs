@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 06/28/2022
 ---
 
 # Managed identities for Azure Stream Analytics
@@ -39,7 +39,7 @@ Below is a table that shows Azure Stream Analytics inputs and outputs that suppo
 |                 | IoT Hubs                      | No (available with a workaround: users can route events to Event Hubs) | No                                       |
 |                 | Blob/ADLS Gen 2               | Yes                                                                    | Yes                                      |
 | Reference Data  | Blob/ADLS Gen 2               | Yes                                                                    | Yes                                      |
-|                 | SQL                           | Yes (preview)                                                          | Yes                                      |
+|                 | SQL                           | Yes                                                                    | Yes                                      |
 | Outputs         | Event Hubs                    | Yes                                                                    | Yes                                      |
 |                 | SQL Database                  | Yes                                                                    | Yes                                      |
 |                 | Blob/ADLS Gen 2               | Yes                                                                    | Yes                                      |
