@@ -250,16 +250,23 @@ Visual Studio connects to your function app and enables remote debugging, if it'
 
 # [Isolated process](#tab/isolated-process) 
 
+To attach a remote debugger to a function app running in a process separate from the Functions host:
+
 1. From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Download publish profile**. This downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated process running in Azure.
 
     > [!CAUTION]
     > The .publishsettings file contains your credentials (unencoded) that are used to administer your function app. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it after it's no longer needed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your function app.
 
-1. Again select the ellipses (**...**) in the **Hosting** section, and this time choose **Open in Azure portal**. This opens the function app in the Azure portal to which your project is deployed. 
+1. Again from the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
 
-1. In the functions app, select **Configuration** under **settings**, choose **General Settings**, set **Remote Debugging** to **On**, choose the appropriate **Remote Visual Studio version**, and select **Save** then **Continue**.
+    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Attach debugger from Visual Studio":::
 
-    ![Azure Portal Remote Debugging Configuration](./media/functions-develop-vs/remote-debugging.png)
+    Visual Studio connects to your function app and enables remote debugging, if it's not already enabled. 
+    
+    > [!NOTE]
+    > Because the remote debugger isn't able to connect to the host process, you'll see an error. This is expected. 
+
+    When you are done, you should [disable remote debugging](#disable-remote-debugging).
 
 1. Back in Visual Studio, copy the URL for the **Site** under **Hosting** in the **Publish** page.
 
