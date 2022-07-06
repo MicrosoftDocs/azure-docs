@@ -22,7 +22,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 Azure Machine Learning supports logging and tracking experiments using [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). You can log models, metrics, parameters, and artifacts with MLflow as it supports local mode to cloud portability.
 
 > [!IMPORTANT]
-> Unlike the Azure Machine Learning SDK v1, there is no logging functionality in the SDK v2 preview.
+> Unlike the Azure Machine Learning SDK v1, there is no logging functionality in the Azure Machine Learning SDK for Python (v2). If you were using Azure Machine Learning SDK v1 before, we recommend you to start leveraging Mlflow for tracking experiments.See [Migrate logging from SDK v1 to MLflow](reference-migrate-sdk-v1-mlflow-tracking.md) for specific guidance.
 
 Logs can help you diagnose errors and warnings, or track performance metrics like parameters and model performance. In this article, you learn how to enable logging in the following scenarios:
 
@@ -79,7 +79,22 @@ Metrics, as opposite to parameters, are always numeric. The following table desc
 |Log a boolean value | `mlflow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
 
 > [!IMPORTANT]
-> __Performance considerations:__ If you need to log multiple metrics (or multiple values for the same metric) avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once.
+> __Performance considerations:__ If you need to log multiple metrics (or multiple values for the same metric) avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once or use `mlflow.log_batch` which accepts multiple type of elements for logging.
+
+### Logging curves or list of values
+
+Curves (or list of numeric values) can be logged with MLflow by logging the same metric multiple times. The following example shows how to do it:
+
+```python
+list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
+from mlflow.entities import Metric
+from mlflow.tracking import MlflowClient
+import time
+
+client = MlflowClient()
+client.log_batch(mlflow.active_run().info.run_id, 
+                 metrics=[Metric(key="sample_list", value=val, timestamp=int(time.time() * 1000), step=0) for val in list_to_log])
+```
 
 ## Logging images
 
