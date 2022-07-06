@@ -1,6 +1,6 @@
 ---
-title: Create a row in Azure Cosmos DB Table API using .NET
-description: Learn how to create a row in your Azure Cosmos DB Table API account using the .NET SDK
+title: Create a item in Azure Cosmos DB Table API using .NET
+description: Learn how to create a item in your Azure Cosmos DB Table API account using the .NET SDK
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
@@ -11,6 +11,6 @@ ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
-# Create a row in Azure Cosmos DB Table API using .NET
+# Create a item in Azure Cosmos DB Table API using .NET
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]

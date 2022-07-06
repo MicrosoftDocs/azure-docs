@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-This article shows you how to connect to Azure Cosmos DB Table API using the .NET SDK. Once connected, you can perform operations on tables and rows.
+This article shows you how to connect to Azure Cosmos DB Table API using the .NET SDK. Once connected, you can perform operations on tables and items.
 
 [Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/) | [Samples](samples-dotnet.md) | [API reference](/dotnet/api/azure.data.tables) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues) |
 
@@ -117,11 +117,12 @@ As you build your application, your code will primarily interact with four types
 
 * Tables, which contain a set of individual items in your account.
 
-* Rows, which represent an individual item in your table.
+* Items, which represent an individual item in your table.
 
 The following diagram shows the relationship between these resources.
 
-:::image type="complex" source="" alt-text="" border="false":::
+:::image type="complex" source="media/how-to-dotnet-get-started/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, tables, and items." border="false":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child table nodes. One of the table nodes includes two child items.
 :::image-end:::
 
 Each type of resource is represented by one or more associated .NET classes or interfaces. Here's a list of the most common types:
@@ -130,7 +131,7 @@ Each type of resource is represented by one or more associated .NET classes or i
 |---|---|
 | [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) | This client class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service. |
 | [``TableClient``](/dotnet/api/azure.data.tables.tableclient) | This client class is a reference to a table that may, or may not, exist in the service yet. The table is validated server-side when you attempt to access it or perform an operation against it. |
-| [``ITableEntity``](/dotnet/api/azure.data.tables.itableentity) | This interface is the base interface for any rows that are created in the table or queried from the table. This interface includes all required properties for rows in the Table API. |
+| [``ITableEntity``](/dotnet/api/azure.data.tables.itableentity) | This interface is the base interface for any items that are created in the table or queried from the table. This interface includes all required properties for items in the Table API. |
 | [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) | This class is a generic implementation of the ``ITableEntity`` interface as a dictionary of key-value pairs. |
 
 The following guides show you how to use each of these classes to build your application.
@@ -138,7 +139,7 @@ The following guides show you how to use each of these classes to build your app
 | Guide | Description |
 |--|---|
 | [Create a table](how-to-dotnet-create-table.md) | Create tables |
-| [Create a row](how-to-dotnet-create-row.md) | Create rows |
+| [Create an item](how-to-dotnet-create-item.md) | Create items |
 
 ## See also
 
