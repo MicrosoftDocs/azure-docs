@@ -23,7 +23,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 ## Account SAS tokens
 
-An **account SAS token** is one [type of SAS token](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-shared-access-signatures) for access delegation provided by Azure Storage. An account SAS token provides access to Azure Storage. The token is only as restrictive as your define it when creating it. Because anyone with the token can use it to access your Storage account, you should define the token with the most restrictive permissions that still allows the token to complete the required tasks.
+An **account SAS token** is one [type of SAS token](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-shared-access-signatures) for access delegation provided by Azure Storage. An account SAS token provides access to Azure Storage. The token is only as restrictive as you define it when creating it. Because anyone with the token can use it to access your Storage account, you should define the token with the most restrictive permissions that still allow the token to complete the required tasks.
 
 [Best practices for token](../common/storage-sas-overview.md#best-practices-when-using-sas) creation include limiting permissions:
 
