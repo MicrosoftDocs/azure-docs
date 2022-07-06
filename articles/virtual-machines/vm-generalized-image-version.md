@@ -552,7 +552,7 @@ galleryName="1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-myDirectShared"
    --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
 ```
 
-Make sure the state of the image is `Specialized`. If you want to use an image with the `Generalized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
+Make sure the state of the image is `Generalized`. If you want to use an image with the `Specialized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
 
 Use the `Id` from the output, appended with `/Versions/latest` to use the latest version, as the value for `--image`` to create a VM. In this example, we are creating a VM from a Linux image that is directly shared to us, and creating SSH keys for authentication.
 
@@ -583,10 +583,8 @@ az vm create\
 1. Under **Instance details**, type a name for the **Virtual machine name**.
 1. For **Security type**, make sure *Standard* is selected.
 1. For your **Image**, select **See all images**. The **Select an image** page will open.
-   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
-1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
-   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
-1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
+1. In the left menu, under **Other Items**, select **Direct Shared Images (PREVIEW)**. The **Other Items | Direct Shared Images (PREVIEW)** page will open.
+1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image you choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
