@@ -29,7 +29,7 @@ When a mesh topology is deployed, all virtual networks have direct connectivity 
 Hub and spoke topology is recommended when you're deploying central infrastructure services in a hub virtual network that are shared by spoke virtual networks. This topology can be more efficient than having these common components in all spoke virtual networks. 
 
 ### Hub and spoke topology with direct connectivity
-This topology combines the two above topologies. It's recommended when you have common central infrastructure in the hub, and you want direct communication between all spokes. Direct connectivity helps you reduce the latency caused by the...
+This topology combines the two above topologies. It's recommended when you have common central infrastructure in the hub, and you want direct communication between all spokes. Direct connectivity helps you reduce the latency caused additional network hops for traffic going through a hub.
 
 ### Maintaining topology
 AVNM automatically maintains the desired topology you defined in the connectivity configuration when changes are made to your infrastructure. For example, when you add new spoke to the topology, AVNM can handle the changes necessary to create the connectivity to the spoke and its virtual networks.
