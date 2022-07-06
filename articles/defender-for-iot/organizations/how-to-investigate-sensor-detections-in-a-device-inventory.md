@@ -21,7 +21,7 @@ Options are available to:
 
  - Create groups for display in the device map.
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 ## View device attributes in the inventory
 
@@ -246,7 +246,7 @@ Deleting inactive devices helps:
 - Better evaluate committed devices when managing subscriptions
 - Reduce clutter on your screen
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 ### View inactive devices
 
