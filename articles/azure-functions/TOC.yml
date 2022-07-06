@@ -413,8 +413,8 @@
           href: functions-move-across-regions.md
     - name: Monitor
       items:
-        - name: Leverage Azure Monitor
-          href: monitor-metrics.md
+        - name: Monitor function apps with Azure Monitor
+          href: monitor-functions.md
           displayName: monitor metrics
         - name: Configure monitoring
           href: configure-monitoring.md
