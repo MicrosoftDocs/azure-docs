@@ -1,5 +1,6 @@
 ---
-title: 'VPN Gateway: VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
+title: 'VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
+titleSuffix: Azure Virtual WAN
 description: Learn how to use P2S VPN to connect to your VNet using Azure AD authentication.
 services: virtual-wan
 author: cherylmc
