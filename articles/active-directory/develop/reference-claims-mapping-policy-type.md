@@ -259,14 +259,14 @@ For each claim schema entry defined in this property, certain information is req
 
 **Value:** The Value element defines a static value as the data to be emitted in the claim.
 
-**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.
-
-**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
-
 **SAMLNameFormat:** The SAML Name Format property specifies the value for the “NameFormat” attribute for this claim. If present, the allowed values are: 
 - urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified 
 - urn:oasis:names:tc:SAML:2.0:attrname-format:uri 
 - urn:oasis:names:tc:SAML:2.0:attrname-format:basic 
+
+**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.
+
+**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
 
 Set the Source element to one of the following values:
 
@@ -280,6 +280,7 @@ Set the Source element to one of the following values:
 If the source is transformation, the **TransformationID** element must be included in this claim definition as well.
 
 The ID element identifies which property on the source provides the value for the claim. The following table lists the values of ID valid for each value of Source.
+
 
 > [!WARNING]
 > Currently, the only available multi-valued claim sources on a user object are multi-valued extension attributes which have been synced from AADConnect.  Other properties, such as OtherMails and tags, are multi-valued but only one value is emitted when selected as a source.
