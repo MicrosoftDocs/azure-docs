@@ -3,8 +3,8 @@ metadata:
   title: FAQ - Azure Database Migration Service
   description: Frequently asked questions about using Azure Database Migration Service to perform database migrations.
   services: database-migration
-  author: pochiraju
-  ms.author: rajpo
+  author: dbamaster
+  ms.author: roblescarlos
   manager: craigg
   ms.reviewer: craigg
   ms.service: dms

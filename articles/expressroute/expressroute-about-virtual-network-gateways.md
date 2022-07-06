@@ -16,18 +16,18 @@ To connect your Azure virtual network and your on-premises network via ExpressRo
 
 ## Gateway types
 
-When you create a virtual network gateway, you need to specify several settings. One of the required settings, '-GatewayType', specifies whether the gateway is used for ExpressRoute, or VPN traffic. The two gateway types are:
+When you create a virtual network gateway, you need to specify several settings. One of the required settings, `-GatewayType`, specifies whether the gateway is used for ExpressRoute, or VPN traffic. The two gateway types are:
 
 * **Vpn** - To send encrypted traffic across the public Internet, you use the gateway type 'Vpn'. This is also referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway.
 
 * **ExpressRoute** - To send network traffic on a private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway and is the type of gateway used when configuring ExpressRoute.
 
-Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType Vpn, and one that uses -GatewayType ExpressRoute.
+Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses `-GatewayType` Vpn, and one that uses `-GatewayType` ExpressRoute.
 
 ## <a name="gwsku"></a>Gateway SKUs
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet or perform the upgrade directly in the ExpressRoute virtual network gateway configuration blade in the Azure portal. The following upgrades are supported:
+If you want to upgrade your gateway to a more powerful gateway SKU, you can use the `Resize-AzVirtualNetworkGateway` PowerShell cmdlet or perform the upgrade directly in the ExpressRoute virtual network gateway configuration blade in the Azure portal. The following upgrades are supported:
 
 - Standard to High Performance
 - Standard to Ultra Performance

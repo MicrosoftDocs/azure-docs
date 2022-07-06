@@ -6,7 +6,7 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 02/25/2022
+ms.date: 06/05/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021, mode-other
 #Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
@@ -81,7 +81,7 @@ In this quickstart, you deploy Bastion from your virtual machine settings in the
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment. 
-1. Select **Bastion** in the left menu. You can view some of the values that will be used when creating the bastion host for your virtual network. Select **Deploy Bastion**.
+1. Select **Bastion** in the left menu. You can view some of the values that will be used when creating the bastion host for your virtual network. Select **Create Azure Bastion using defaults**.
 
    :::image type="content" source="./media/quickstart-host-portal/deploy-bastion.png" alt-text="Screenshot of Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion.png":::
 1. Bastion begins deploying. This can take around 10 minutes to complete.

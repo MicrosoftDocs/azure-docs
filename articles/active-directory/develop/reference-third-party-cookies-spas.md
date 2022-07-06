@@ -1,6 +1,5 @@
 ---
-title: How to handle Intelligent Tracking Protection (ITP) in Safari | Azure
-titleSuffix: Microsoft identity platform
+title: How to handle Intelligent Tracking Protection (ITP) in Safari
 description: Single-page app (SPA) authentication when third-party cookies are no longer allowed.
 services: active-directory
 author: nickludwig

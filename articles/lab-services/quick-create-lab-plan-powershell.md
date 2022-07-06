@@ -52,7 +52,7 @@ New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
     -ResourceGroupName "MyResourceGroup"
 ```
 
-For more information about role assignments, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+For more information about role assignments, see [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 ## Clean up resources
 

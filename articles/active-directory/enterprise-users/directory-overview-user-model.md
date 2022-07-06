@@ -6,7 +6,7 @@ author: curtand
 manager: karenhoran
 ms.author: curtand
 ms.reviewer: krbain
-ms.date: 09/01/2021
+ms.date: 06/23/2022
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is enterprise user management?
 
-This article introduces the Azure AD administrator to the relationship between top [identity management](../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) tasks for users in terms of their groups, licenses, deployed enterprise apps, and administrator roles. As your organization grows, you can use Azure AD groups and administrator roles to:
+This article introduces and administrator for Azure Active Directory (Azure AD), part of Microsoft Entra, to the relationship between top [identity management](../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) tasks for users in terms of their groups, licenses, deployed enterprise apps, and administrator roles. As your organization grows, you can use Azure AD groups and administrator roles to:
 
 * Assign licenses to groups instead of to individually
 * Delegate permissions to distribute the work of Azure AD management to less-privileged roles

@@ -9,7 +9,7 @@ ms.date: 11/02/2021
 ms.custom:
 - ignite-fall-2021
 - mode-other
-- devx-track-azurecli 
+- devx-track-azurecli
 - kr2b-contr-experiment
 ms.devlang: azurecli
 ---
@@ -18,13 +18,13 @@ ms.devlang: azurecli
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
 
-This quickstart demonstrates how to use the Azure CLI commands to configure a multi-region cluster in Azure.  
+This quickstart demonstrates how to use the Azure CLI commands to configure a multi-region cluster in Azure.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * This article requires the Azure CLI version 2.30.0 or higher. If you're using Azure Cloud Shell, the latest version is already installed.
 
-* [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premise environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
+* [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premises environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
 ## Set up the network environment<a id="create-account"></a>
 
@@ -61,7 +61,7 @@ Because all datacenters provisioned with this service must be deployed into dedi
    ```
 
    > [!NOTE]
-   > We explicitly add different IP address ranges to ensure no errors when peering. 
+   > We explicitly add different IP address ranges to ensure no errors when peering.
 
 1. Peer the first VNet to the second VNet:
 
@@ -84,11 +84,11 @@ Because all datacenters provisioned with this service must be deployed into dedi
      --vnet-name vnetEastUs \
      --remote-vnet vnetEastUs2 \
      --allow-vnet-access \
-     --allow-forwarded-traffic  
+     --allow-forwarded-traffic
    ```
 
    > [!NOTE]
-   > If you add more regions, each VNet requires peering from it to all other VNets, and from all other VNets to it. 
+   > If you add more regions, each VNet requires peering from it to all other VNets, and from all other VNets to it.
 
 1. Check the output of the previous command. Make sure the value of "peeringState" is now "Connected". You can also check this result by running the following command:
 
@@ -129,7 +129,7 @@ If you encounter errors when you run `az role assignment create`, you might not 
    location='eastus2'
    delegatedManagementSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2/subnets/dedicated-subnet'
    initialCassandraAdminPassword='myPassword'
-        
+
     az managed-cassandra cluster create \
       --cluster-name $clusterName \
       --resource-group $resourceGroupName \
@@ -147,7 +147,7 @@ If you encounter errors when you run `az role assignment create`, you might not 
    dataCenterName='dc-eastus2'
    dataCenterLocation='eastus2'
    delegatedManagementSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2/subnets/dedicated-subnet'
-        
+
     az managed-cassandra datacenter create \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
@@ -167,14 +167,14 @@ If you encounter errors when you run `az role assignment create`, you might not 
    delegatedManagementSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs/subnets/dedicated-subnet'
    virtualMachineSKU='Standard_D8s_v4'
    noOfDisksPerNode=4
-        
+
     az managed-cassandra datacenter create \
       --resource-group $resourceGroupName \
       --cluster-name $clusterName \
       --data-center-name $dataCenterName \
       --data-center-location $dataCenterLocation \
       --delegated-subnet-id $delegatedManagementSubnetId \
-      --node-count 3 
+      --node-count 3
       --sku $virtualMachineSKU \
       --disk-capacity $noOfDisksPerNode \
       --availability-zone false
@@ -184,14 +184,14 @@ If you encounter errors when you run `az role assignment create`, you might not 
    > The value for `--sku` can be chosen from the following available SKUs:
    >
    > * Standard_E8s_v4
-   > * Standard_E16s_v4 
+   > * Standard_E16s_v4
    > * Standard_E20s_v4
-   > * Standard_E32s_v4 
+   > * Standard_E32s_v4
    > * Standard_DS13_v2
    > * Standard_DS14_v2
    > * Standard_D8s_v4
    > * Standard_D16s_v4
-   > * Standard_D32s_v4 
+   > * Standard_D32s_v4
    >
    > Note also that `--availability-zone` is set to `false`. To enable availability zones, set this to `true`. Availability zones increase the availability SLA of the service. For more information, see [SLA for Azure Managed Instance for Apache Cassandra](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
 
@@ -205,7 +205,7 @@ If you encounter errors when you run `az role assignment create`, you might not 
     ```azurecli-interactive
     resourceGroupName='cassandra-mi-multi-region'
     clusterName='test-multi-region'
-    
+
     az managed-cassandra cluster node-status \
        --cluster-name $clusterName \
        --resource-group $resourceGroupName
@@ -227,8 +227,8 @@ If you encounter errors when you run `az role assignment create`, you might not 
 
 If you encounter an error when applying permissions to your Virtual Network using Azure CLI, you can apply the same permission manually from the Azure portal. An example error might be *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*.  For more information, see [Use Azure portal to add Cosmos DB service principal](add-service-principal.md).
 
-> [!NOTE] 
-> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  
+> [!NOTE]
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.
 
 ## Clean up resources
 

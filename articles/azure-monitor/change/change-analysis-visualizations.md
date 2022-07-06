@@ -8,6 +8,7 @@ ms.contributor: cawa
 ms.date: 04/18/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
+ms.reviewer: cawa
 ---
 
 # Visualizations for Change Analysis in Azure Monitor (preview)

@@ -240,7 +240,7 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 		echo "Applying mitigation; starting REST Server"
 		sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
 	else
-		echo "Rest server already running"
+		echo "REST server already running"
 		exit 0
 	fi
 	```

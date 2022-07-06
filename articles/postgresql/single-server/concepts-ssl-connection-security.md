@@ -6,9 +6,12 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: nlarin
 author: niklarin
-ms.date: 07/08/2020
+ms.date: 06/24/2022
 ---
+
 # Configure TLS connectivity in Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 Azure Database for PostgreSQL prefers connecting your client applications to the PostgreSQL service using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). Enforcing TLS connections between your database server and your client applications helps protect against "man-in-the-middle" attacks by encrypting the data stream between the server and your application.
 
@@ -20,10 +23,9 @@ By default, the PostgreSQL database service is configured to require TLS connect
 > [!IMPORTANT] 
 > SSL root certificate is set to expire starting February 15, 2021 (02/15/2021). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
 
-
 ## Enforcing TLS connections
 
-For all Azure Database for PostgreSQL servers provisioned through the Azure portal and CLI, enforcement of TLS connections is enabled by default. 
+For all Azure Database for PostgreSQL servers provisioned through the Azure portal and CLI, enforcement of TLS connections is enabled by default.
 
 Likewise, connection strings that are pre-defined in the "Connection Strings" settings under your server in the Azure portal include the required parameters for common languages to connect to your database server using TLS. The TLS parameter varies based on the connector, for example "ssl=true" or "sslmode=require" or "sslmode=required" and other variations.
 
@@ -33,7 +35,7 @@ You can optionally disable enforcing TLS connectivity. Microsoft Azure recommend
 
 ### Using the Azure portal
 
-Visit your Azure Database for PostgreSQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then, click **Save**.
+Visit your Azure Database for PostgreSQL server and select **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then, select **Save**.
 
 :::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="Connection Security - Disable Enforce TLS/SSL":::
 
@@ -53,7 +55,7 @@ Some application frameworks that use PostgreSQL for their database services do n
 
 ## Applications that require certificate verification for TLS connectivity
 
-In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. The certificate to connect to an Azure Database for PostgreSQL server is located at https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Download the certificate file and save it to your preferred location. 
+In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. The certificate to connect to an Azure Database for PostgreSQL server is located at https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Download the certificate file and save it to your preferred location.
 
 See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
@@ -84,7 +86,6 @@ Azure Database for PostgreSQL single server provides the ability to enforce the 
 | TLS1_0                           | TLS 1.0, TLS 1.1, TLS 1.2 and higher |
 | TLS1_1                           | TLS 1.1, TLS 1.2 and higher          |
 | TLS1_2                           | TLS version 1.2 and higher           |
-
 
 For example, setting this Minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2+ and all connections with TLS 1.0 and TLS 1.1 will be rejected.
 

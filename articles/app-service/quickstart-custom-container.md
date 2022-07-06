@@ -13,7 +13,6 @@ zone_pivot_groups: app-service-containers-windows-linux-portal
 
 ::: zone pivot="container-windows-vs"
 [!INCLUDE [quickstart-custom-container-windows-visual-studio-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-visual-studio-pivot.md)]
-
 ::: zone-end  
 
 ::: zone pivot="container-linux-vscode"

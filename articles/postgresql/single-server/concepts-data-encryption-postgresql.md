@@ -7,10 +7,12 @@ ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.date: 01/13/2020
+ms.date: 06/24/2022
 ---
 
 # Azure Database for PostgreSQL Single server data encryption with a customer-managed key
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 Azure PostgreSQL leverages [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at-rest by default using Microsoft-managed keys. For Azure PostgreSQL users, it is a very similar to Transparent Data Encryption (TDE) in other databases such as SQL Server. Many organizations require full control on access to the data using a customer-managed key. Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server enables you to bring your own key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you are responsible for, and in a full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
@@ -30,7 +32,6 @@ Data encryption with customer-managed keys for Azure Database for PostgreSQL Sin
 *    Central management and organization of keys in Azure Key Vault.
 *    Enabling encryption does not have any additional performance impact with or without customers managed key (CMK) as PostgreSQL relies on Azure storage layer for data encryption in both the scenarios ,the only difference is when CMK is used **Azure Storage Encryption Key**  which performs actual data encryption is encrypted using CMK.
 *    Ability to implement separation of duties between security officers, and DBA and system administrators.
-
 
 ## Terminology and description
 

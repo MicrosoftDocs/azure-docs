@@ -44,7 +44,7 @@ az sig image-definition list --resource-group myGalleryRG --gallery-name myGalle
 
 **List image versions** 
 
-List image versions in your gallery using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list):
+List image versions in your gallery using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list):
 
 
 ```azurecli-interactive
@@ -55,7 +55,7 @@ az sig image-version list --resource-group myGalleryRG --gallery-name myGallery 
 
 **Get a specific image version**
 
-Get the ID of a specific image version in your gallery using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).  
+Get the ID of a specific image version in your gallery using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).  
 
 ```azurecli-interactive
 az sig image-version show \
@@ -328,7 +328,7 @@ az sig list --query [*]."{Name:name,PublicName:sharingProfile.communityGalleryIn
 > As an end user, to get the public name of a community gallery, you currently need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 
-List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). 
+List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az-sig-image-definition-list-community). 
 
 In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
 
@@ -339,7 +339,7 @@ In this example, we list all of the images in the *ContosoImage* gallery in *Wes
    --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
 ```
 
-List image versions shared in a community gallery using [az sig image-version list-community](/cli/azure/sig/image-version#az_sig_image_version_list_community):
+List image versions shared in a community gallery using [az sig image-version list-community](/cli/azure/sig/image-version#az-sig-image-version-list-community):
 
 ```azurecli-interactive
 az sig image-version list-community \

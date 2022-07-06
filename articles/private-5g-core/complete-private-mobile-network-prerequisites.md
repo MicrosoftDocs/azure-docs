@@ -20,6 +20,10 @@ Contact your trials engineer and ask them to register your Azure subscription fo
 
 Once your trials engineer has confirmed your access, register the Mobile Network resource provider (Microsoft.MobileNetwork) for your subscription, as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
+## Choose the core technology type (5G or 4G)
+
+Choose whether each site in the private mobile network should provide coverage for 5G or 4G user equipment (UEs). A single site cannot support 5G and 4G UEs simultaneously. If you're deploying multiple sites, you can choose to have some sites support 5G UEs and others support 4G UEs.
+
 ## Allocate subnets and IP addresses
 
 Azure Private 5G Core requires a management network, access network, and data network. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
@@ -39,15 +43,15 @@ For each of these networks, allocate a subnet and then identify the listed IP ad
 - Network address in CIDR notation. 
 - Default gateway. 
 - One IP address for port 5 on the Azure Stack Edge Pro device. 
-- One IP address for the packet core instance's N2 signaling interface. 
-- One IP address for the packet core instance's N3 interface.
+- One IP address for the control plane interface. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.
+- One IP address for the user plane interface. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface. 
 
 ### Data network
 
 - Network address in CIDR notation.
 - Default gateway.
 - One IP address for port 6 on the Azure Stack Edge Pro device.
-- One IP address for the packet core instance's N6 interface.
+- One IP address for the user plane interface. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface.
 
 ## Allocate user equipment (UE) IP address pools
 
@@ -73,7 +77,7 @@ For each site you're deploying, do the following:
 For each site you're deploying, do the following. 
 
 - Ensure you have at least one network switch with at least three ports available. You'll connect each Azure Stack Edge Pro device to the switch(es) in the same site as part of the instructions in [Order and set up your Azure Stack Edge Pro device(s)](#order-and-set-up-your-azure-stack-edge-pro-devices).
-- If you're not enabling NAPT as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated for the packet core instance's N6 interface.
+- If you're not enabling NAPT as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated to the packet core instance's user plane interface on the data network.
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
