@@ -5,12 +5,12 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/05/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
 
-# Deploy the MedTech service in the Azure portal
+# Deploy the MedTech service using the Azure portal
 
 In this quickstart, you'll learn how to deploy the MedTech service in the Azure portal using two different methods: with a [quickstart template](#deploy-the-medtech-service-with-a-quickstart-template) or [manually](#deploy-the-medtech-service-manually). The MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 
