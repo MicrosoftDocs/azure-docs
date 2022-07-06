@@ -1,12 +1,13 @@
 ---
 title: Azure Cosmos DB integrated cache frequently asked questions
 description: Frequently asked questions about the Azure Cosmos DB integrated cache.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 
 # Azure Cosmos DB integrated cache frequently asked questions

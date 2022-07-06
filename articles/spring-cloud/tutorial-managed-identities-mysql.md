@@ -33,7 +33,7 @@ The following video describes how to manage secrets using Azure Key Vault.
 
 ## Create a resource group
 
-A resource group is a logical container where Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the command [az group create](/cli/azure/group#az_group_create):
+A resource group is a logical container where Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli
 az group create --location <myLocation> --name <myResourceGroup>
@@ -41,7 +41,7 @@ az group create --location <myLocation> --name <myResourceGroup>
 
 ## Set up your Key Vault
 
-To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az_keyvault_create):
+To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az-keyvault-create):
 
 > [!Important]
 > Each Key Vault must have a unique name. Replace *\<myKeyVaultName>* with the name of your Key Vault in the following examples.
@@ -52,7 +52,7 @@ az keyvault create --name <myKeyVaultName> -g <myResourceGroup>
 
 Make a note of the returned `vaultUri`, which will be in the format `https://<your-keyvault-name>.vault.azure.net`. It will be used in the following step.
 
-You can now place a secret in your Key Vault with the command [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set):
+You can now place a secret in your Key Vault with the command [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
 
 ```azurecli
 az keyvault secret set \

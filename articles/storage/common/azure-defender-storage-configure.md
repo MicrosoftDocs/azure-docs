@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 05/31/2022
 ms.author: tamram
 ms.reviewer: ozgun 
 ms.custom: devx-track-azurepowershell
@@ -63,10 +63,10 @@ Microsoft Defender for Storage is now enabled for all storage accounts in this s
 ### [Portal](#tab/azure-portal)
 
 1. Launch the [Azure portal](https://portal.azure.com/).
-1. Navigate to your storage account. Under **Settings**, select **Advanced security**.
+1. Navigate to your storage account. Under **Security + networking**, select **Security**.
 1. Select **Enable Microsoft Defender for Storage**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot showing how to enable an account for Microsoft Defender for Storage.":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot showing how to enable a storage account for Microsoft Defender for Storage.":::
 
 Microsoft Defender for Storage is now enabled for this storage account.
 

@@ -38,6 +38,7 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 |Node 6|30 April 2019|28 February 2022|
 |Node 8|31 December 2019|28 February 2022|
 |Node 10|30 April 2021|30 September 2022|
+|Node 12|30 Apr 2022|TBA|
 |PowerShell Core 6| 4 September 2020|30 September 2022|
 |Python 3.6 |23 December 2021|30 September 2022|
 

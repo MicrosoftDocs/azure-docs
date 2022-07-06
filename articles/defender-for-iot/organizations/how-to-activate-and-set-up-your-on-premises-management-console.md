@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your on-premises management console 
 description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-ms.date: 11/09/2021
+ms.date: 06/06/2022
 ms.topic: how-to
 ---
 
@@ -26,9 +26,9 @@ If you forgot your password, select the **Recover Password** option. See [Passwo
 
 ## Activate the on-premises management console
 
-After you sign in for the first time, you need to activate the on-premises management console by getting and uploading an activation file.
+After you sign in for the first time, you need to activate the on-premises management console by getting and uploading an activation file. Activation files on the on-premises management console enforces the number of committed devices configured for your subscription and Defender for IoT plan. For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
 
-To activate the on-premises management console:
+**To activate the on-premises management console**:
 
 1. Sign in to the on-premises management console.
 
@@ -46,7 +46,7 @@ To activate the on-premises management console:
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="Screenshot that shows selecting multiple subscriptions." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png":::
 
-   If you haven't already onboarded a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
+   If you haven't already onboarded Defender for IoT to a subscription, see [Onboard a Defender for IoT plan to a subscription](how-to-manage-subscriptions.md#onboard-a-defender-for-iot-plan-to-a-subscription).
 
    > [!Note]
    > If you delete a subscription, you must upload a new activation file to the on-premises management console that was affiliated with the deleted subscription.
@@ -61,13 +61,25 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 If this warning appears, you need to upload a [new activation file](#activate-the-on-premises-management-console).
 
-### Activate an expired license (versions under 10.0)
+### Activation expirations
+
+After activating an on-premises management console, you'll need to apply new activation files on both the on-premises management console and connected sensors as follows:
+
+|Location  |Activation process  |
+|---------|---------|
+|**On-premises management console**     |  Apply a new activation file on your on-premises management console if you've [modified the number of committed devices](how-to-manage-subscriptions.md#edit-a-plan) in your subscription.      |
+|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>However, you'll also need to apply a new activation file when [updating your sensor software](update-ot-software.md#download-and-apply-a-new-activation-file) from a legacy version to version 22.2.x.        |
+|  **Locally-managed**   |   Apply a new activation file to locally-managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
+
+For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
+
+### Activate expired licenses from versions earlier than 10.0
 
 For users with versions prior to 10.0, your license might expire and the following alert will appear:
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="Screenshot that shows the License has expired alert.":::
 
-To activate your license:
+**To activate your license**:
 
 1. Open a case with [support](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
 

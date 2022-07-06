@@ -18,7 +18,7 @@ In this quickstart, you create a secure Container Apps environment and deploy yo
 
 ## Prerequisites
 
-An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Also, please make sure to have the Resource Provider "Microsoft.App" registered.
 
 ## Setup
 

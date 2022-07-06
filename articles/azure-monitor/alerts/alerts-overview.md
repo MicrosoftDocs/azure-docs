@@ -4,9 +4,9 @@ description: Learn about Azure Monitor alerts, alert rules, action processing ru
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: overview 
-ms.date: 04/26/2022
+ms.date: 06/09/2022
 ms.custom: template-overview 
-ms.reviewer: harelb
+ms.reviewer: nolavime    
 ---
 # What are Azure Monitor Alerts?
 
@@ -28,7 +28,7 @@ You create an alert rule by combining:
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
 Once an alert is triggered, the alert is made up of:
- - An **Alert processing rule** allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
+ - An **alert processing rule** allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
  - An **action group** can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods such as email, SMS, and push notifications.
      - Automation Runbooks
@@ -49,17 +49,13 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 
 |Alert type|Description|
 |:---------|:---------|
-|[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics or Application Insights metrics. Metric alerts have several additional features (link), such as the ability to apply multiple conditions and dynamic thresholds.|
+|[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics or Application Insights metrics. Metric alerts have several additional features, such as the ability to apply multiple conditions and dynamic thresholds.|
 |[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
 |[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches the defined conditions.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
 ## Out-of-the-box alert rules (preview)
 
-If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
-
-The system compiles a list of recommended alert rules based on:
-- The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
-- Telemetry that tells us what customers commonly alert on for this resource.
+If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for VMs.
@@ -91,11 +87,15 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 
 ## Manage your alerts programmatically
 
-You can programmatically query for alerts using:
- - [Azure PowerShell](/powershell/module/az.monitor/)
- - [The Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
- - The [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) 
-You can also use [Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade). Resource graphs are good for managing alerts across multiple subscriptions. 
+You can query you alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
+We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For an sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
+
+You can use Azure Resource Graphs:
+ - with [Azure PowerShell](/powershell/module/az.monitor/)
+ - with the [Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
+ - in the Azure portal
+ 
+You can also use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) for lower scale querying or to update fired alerts.
 
 ## Pricing
 See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for information about pricing.

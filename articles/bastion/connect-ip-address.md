@@ -53,7 +53,7 @@ Before you begin these steps, verify that you have the following environment set
 
 1. To connect to a VM using a specified private IP address, you make the connection from Bastion to the VM, not directly from the VM page. On your Bastion page, select **Connect** to open the Connect page.
 
-1. On the Bastion **Connect** page, for **Hostname**, enter the private IP address of the target VM.
+1. On the Bastion **Connect** page, for **IP address**, enter the private IP address of the target VM.
 
     :::image type="content" source="./media/connect-ip-address/ip-address.png" alt-text="Screenshot of the Connect using Azure Bastion page." lightbox="./media/connect-ip-address/ip-address.png":::
 

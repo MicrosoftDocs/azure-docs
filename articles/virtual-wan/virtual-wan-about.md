@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 05/20/2022
+ms.date: 06/07/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -117,7 +117,7 @@ Connectivity between the virtual network connections assumes, by default, a maxi
 
 Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled and BGP is supported in VPN and ExpressRoute connections. This flag can be located in the Azure Virtual WAN settings in Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
 
-### <a name="routing"></a>Custom Routing
+### <a name="routing"></a>Custom routing
 
 Virtual WAN provides advanced routing enhancements. Ability to set up custom route tables, optimize virtual network routing with route association and propagation, logically group route tables with labels and simplify numerous network virtual appliances (NVAs) or shared services routing scenarios.
 
@@ -137,13 +137,14 @@ If you have pre-existing routes in Routing section for the hub in the Azure port
 
 ## Gated public preview
 
-The following features are currently in gated public preview.
+The following features are currently in gated public preview. If, after working with the listed articles, you have questions or require support, please reach out the the contact alias that corresponds to the feature.
 
-| Feature | Description |
-| ---------- | --------- |
-| Routing intent and policies enabling Inter-hub security | This feature allows customers to configure internet-bound, private, or inter-hub traffic flow through the Azure Firewall. For more information, see [Routing intent and policies](../virtual-wan/how-to-routing-policies.md).|
-| Hub-to-hub over ER preview link | This feature allows traffic between 2 hubs traverse through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft edge routers/MSEE). For more information, see [Hub-to-hub over ER preview link](virtual-wan-faq.md#expressroute-bow-tie).|
-| BGP peering with a virtual hub | This feature provides the ability for the virtual hub to pair with and directly exchange routing information through Border Gateway Protocol (BGP) routing protocol. For more information, see [BGP peering with a virtual hub](create-bgp-peering-hub-portal.md) and [How to peer BGP with a virtual hub](scenario-bgp-peering-hub.md).|
+| Feature | Description | Contact alias |
+| ---------- | --------- | ---|
+| Routing intent and policies enabling Inter-hub security | This feature allows you to configure internet-bound, private, or inter-hub traffic flow through the Azure Firewall. For more information, see [Routing intent and policies](../virtual-wan/how-to-routing-policies.md).| previewinterhub@microsoft.com |
+| Hub-to-hub over ER preview link | This feature allows traffic between 2 hubs traverse through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft edge routers/MSEE). For more information, see [Hub-to-hub over ER preview link](virtual-wan-faq.md#expressroute-bow-tie).|  previewpreferh2h@microsoft.com |
+| BGP peering with a virtual hub | This feature provides the ability for the virtual hub to pair with and directly exchange routing information through Border Gateway Protocol (BGP) routing protocol. For more information, see [BGP peering with a virtual hub](create-bgp-peering-hub-portal.md) and [How to peer BGP with a virtual hub](scenario-bgp-peering-hub.md).| previewbgpwithvhub@microsoft.com |
+| Virtual hub routing preference | This features allows you to influence routing decisions for the virtual hub router. For more information, see [Virtual hub routing preference](about-virtual-hub-routing-preference.md). | preview-vwan-hrp@microsoft.com |
 
 ## <a name="faq"></a>FAQ
 

@@ -1,6 +1,5 @@
 ---
 title: Shared device mode for iOS devices
-titleSuffix: Microsoft identity platform | Azure
 description: Learn how to enable shared device mode to allow frontline workers to share an iOS device
 services: active-directory
 author: brandwe

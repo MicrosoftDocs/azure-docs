@@ -3,7 +3,7 @@ title: How to manage the Container insights agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Container insights.
 ms.topic: conceptual
 ms.date: 07/21/2020
-
+ms.reviewer: aul
 ---
 
 # How to manage the Container insights agent

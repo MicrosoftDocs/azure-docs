@@ -66,7 +66,7 @@ Run the following AzureCli command to assign the storage account permissions:
 az role assignment create --assignee "<ObjectID>" --role "Storage Blob Data Contributor" --scope "<StorageAccountResourceID>"
 ```
 
-Learn more about Azure's built-in RBAC roles, check out [Built-in roles](/azure/role-based-access-control/built-in-roles).
+Learn more about Azure's built-in RBAC roles, check out [Built-in roles](../../role-based-access-control/built-in-roles.md).
 
 > Note: Azure Cli has built in helper fucntions that retrieve the storage access keys when permissions are not detected. That functionally does not transfer to the DefaultAzureCredential, which is the reason for assiging RBAC roles to your account.
 

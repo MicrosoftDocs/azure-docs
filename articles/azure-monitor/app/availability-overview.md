@@ -3,6 +3,7 @@ title: Application Insights availability tests
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
 ms.date: 07/13/2021
+ms.reviewer: shyamala
 ---
 
 # Application Insights availability tests
@@ -30,7 +31,7 @@ You can create up to 100 availability tests per Application Insights resource.
 
 ## Troubleshooting
 
-See the dedicated [troubleshooting article](troubleshoot-availability.md).
+See the dedicated [troubleshooting article](https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 
 ## Next steps
 

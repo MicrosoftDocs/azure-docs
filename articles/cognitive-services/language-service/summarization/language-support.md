@@ -1,5 +1,5 @@
 ---
-title: Document summarization language support
+title: Summarization language support
 titleSuffix: Azure Cognitive Services
 description: Learn about which languages are supported by document summarization.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 06/02/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
@@ -36,9 +36,9 @@ Document summarization supports the following languages:
 | Portuguese (Brazil)   | `pt-BR`       | 2021-08-01                      |                    |
 | Portuguese (Portugal) | `pt-PT`       | 2021-08-01                      | `pt` also accepted |
 
-# [Conversation summarization](#tab/conversation-summarization)
+# [Conversation summarization (preview)](#tab/conversation-summarization)
 
-## Languages supported by conversation summarization 
+## Languages supported by conversation summarization (preview)
 
 Conversation summarization supports the following languages:
 
@@ -50,4 +50,4 @@ Conversation summarization supports the following languages:
 
 ## Next steps
 
-[Document summarization overview](overview.md)
+* [Summarization overview](overview.md)

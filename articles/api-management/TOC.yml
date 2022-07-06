@@ -162,8 +162,6 @@
                   href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
                 - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
                   href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
-                - name: Guidance for running on Kubernetes
-                  href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
                 - name: Deploy a self-hosted gateway to Docker
                   href: how-to-deploy-self-hosted-gateway-docker.md
                 - name: Configure custom domain for self-hosted gateway
@@ -172,6 +170,10 @@
                   href: how-to-configure-cloud-metrics-logs.md
                 - name: Configure local metrics and logs for self-hosted gateway
                   href: how-to-configure-local-metrics-logs.md
+                - name: Guidance for running on Kubernetes
+                  href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
+                - name: Migrate to self-hosted gateway v2
+                  href: self-hosted-gateway-migration-guide.md
       - name: Define and manage APIs
         items:
           - name: Create APIs
@@ -190,6 +192,7 @@
                   href: graphql-api.md
                 - name: Import and resolve GraphQL schema
                   href: graphql-schema-resolve-api.md
+                  displayName: synthetic GraphQL
                 - name: Import an App Service web API
                   href: import-app-service-as-api.md
                 - name: Import a Container App web API
@@ -238,6 +241,7 @@
                   href: api-management-policy-expressions.md
                 - name: Reuse policy configurations
                   href: policy-fragments.md
+                  displayName: policy fragments
                 - name: Error handling
                   href: api-management-error-handling-policies.md
                 - name: Advanced monitoring
@@ -263,6 +267,15 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
+            - name: Mitigate OWASP API threats
+              href: mitigate-owasp-api-threats.md
+              displayName: OWASP top 10, vulnerability, vulnerabilities
+          - name: Manage API authorizations
+            items:
+            - name: Authorizations overview
+              href: authorizations-overview.md
+            - name: Configure and use authorization
+              href: authorizations-how-to.md
           - name: Set up backend authentication
             items:
             - name: Mutual certificate authentication
@@ -389,6 +402,8 @@
               href: api-management-transformation-policies.md
             - name: Validation policies
               href: validation-policies.md
+      - name: Authorizations - identity providers
+        href: authorizations-reference.md
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md
@@ -398,6 +413,8 @@
         href: ../event-grid/event-schema-api-management.md?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json
       - name: Virtual network configuration
         href: virtual-network-reference.md
+      - name: Self-hosted gateway configuration
+        href: self-hosted-gateway-settings-reference.md  
 - name: Resources
   items:
       - name: FAQ

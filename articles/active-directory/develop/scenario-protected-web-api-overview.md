@@ -1,6 +1,5 @@
 ---
 title: Protected web API - overview
-titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API (overview).
 services: active-directory
 author: jmprieur

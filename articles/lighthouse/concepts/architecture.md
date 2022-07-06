@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse architecture
 description: Learn about the relationship between tenants in Azure Lighthouse, and the resources created in the customer's tenant that enable that relationship.
-ms.date: 09/13/2021
+ms.date: 06/09/2022
 ms.topic: conceptual
 ---
 

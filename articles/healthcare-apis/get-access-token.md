@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -69,3 +69,5 @@ In this article, you learned how to obtain an access token for the FHIR service 
 
 >[!div class="nextstepaction"]
 >[Access DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

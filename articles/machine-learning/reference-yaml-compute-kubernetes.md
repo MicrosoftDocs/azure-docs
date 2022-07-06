@@ -1,5 +1,5 @@
 ---
-title: 'CLI (v2) Attached Azure Arc-enabled Kubernetes cluster (KubernetesCompute) YAML schema'
+title: 'CLI (v2) Attached Kubernetes cluster (KubernetesCompute) YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Attached Azure Arc-enabled Kubernetes cluster (KubernetesCompute) YAML schema.
 services: machine-learning

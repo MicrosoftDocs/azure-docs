@@ -76,6 +76,16 @@ The following document file types are supported by Document Translation:
 |Tab Separated Values/TAB|tsv/tab| A tab-delimited raw-data file used by spreadsheet programs.|
 |Text|txt| An unformatted text document.|
 
+### Legacy file types
+
+Source file types will be preserved during the document translation with the following **exceptions**:
+
+| Source file extension | Translated file extension|
+| --- | --- |
+| .doc, .odt, .rtf, | .docx |
+| .xls, .ods | .xlsx |
+| .ppt, .odp | .pptx |
+
 ## Supported glossary formats
 
 The following glossary file types are supported by Document Translation:

@@ -2,7 +2,7 @@
 title: Partitioning Service Fabric services 
 description: Learn how to partition Service Fabric stateless and stateful services
 ms.topic: conceptual
-ms.date: 06/30/2017
+ms.date: 06/16/2022
 ms.custom: devx-track-csharp
 ---
 # Partition Service Fabric reliable services
@@ -126,11 +126,11 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     You also need to update the LowKey and HighKey properties of the StatefulService element in the ApplicationManifest.xml as shown below.
    
     ```xml
-    <Service Name="Processing">
-      <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
+    <Service Name="Alphabet.Processing">
+      <StatefulService ServiceTypeName="Alphabet.ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[Processing_PartitionCount]" LowKey="0" HighKey="25" />
       </StatefulService>
-    </Service>
+    </Service>    
     ```
 6. For the service to be accessible, open up an endpoint on a port by adding the endpoint element of ServiceManifest.xml (located in the PackageRoot folder) for the Alphabet.Processing service as shown below:
    

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Azure Cosmos DB Attachments

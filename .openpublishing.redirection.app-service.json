@@ -1,0 +1,19 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/app-service-web/web-sites-restore.md",
+      "redirect_url": "/azure/app-service/manage-backup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/web-sites-restore.md",
+      "redirect_url": "/azure/app-service/manage-backup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/app-service-web-restore-snapshots.md",
+      "redirect_url": "/azure/app-service/manage-backup",
+      "redirect_document_id": false
+    }
+  ]
+}
