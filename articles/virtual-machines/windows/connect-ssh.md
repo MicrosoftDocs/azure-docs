@@ -34,7 +34,7 @@ You can use the Azure RunCommand extension to complete this task.
 
 # [Azure CLI](#tab/azurecli)
 
-```azurecli
+```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVM --command-id RunPowerShellScript --scripts "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
 ```
 
@@ -88,7 +88,7 @@ resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022
 
 # [Azure CLI](#tab/azurecli)
 
-```azurecli
+```azurecli-interactive
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name WindowsOpenSSH --publisher Microsoft.Azure.OpenSSH --version 3.0
 ```
 
@@ -138,7 +138,7 @@ Ensure the appropriate port (by default, TCP 22) is open to allow connectivity t
 
 # [Azure CLI](#tab/azurecli)
 
-```azurecli
+```azurecli-interactive
 az network nsg rule create -g test0 --nsg-name w22NSG -n allow-SSH --priority 1000 --source-address-prefixes 208.130.28.4/32 --destination-port-ranges 22 --protocol TCP
 ```
 
@@ -216,7 +216,7 @@ and making sure the file has correct permissions.
 
 # [Azure CLI](#tab/azurecli)
 
-```azurecli
+```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVM --command-id RunPowerShellScript --scripts "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
 ```
 
@@ -265,13 +265,13 @@ resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022
 
 Connect to Windows machines using `Az SSH` commands.
 
-```azurecli
+```azurecli-interactive
 az ssh vm  -g myResourceGroup -n myVM --local-user myUsername
 ```
 
 It is also possible to create a network tunnel for specific TCP ports through the SSH connection. A good use case for this is Remote Desktop which defaults to port 3389.
 
-```azurecli
+```azurecli-interactive
 az ssh vm  -g myResourceGroup -n myVM --local-user myUsername -- -L 3389:localhost:3389
 ```
 
