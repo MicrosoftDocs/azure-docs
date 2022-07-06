@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/05/2022
+ms.date: 07/06/2022
 
 ---
 
@@ -18,9 +18,11 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster running version 1.21 or higher. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+ - This article assumes that you have an existing AKS cluster running version 1.21 or higher. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-If you don't have a storage account that supports the NFS v3 protocol, see [Use Azure Blob storage Container Storage Interface (CSI) driver][blob-storage-csi-driver] (preview) to create one for your AKS cluster.
+- If you don't have a storage account that supports the NFS v3 protocol, review [NFS v3 support with Azure Blob storage][azure-blob-storage-nfs-support].
+
+- [Enable the Blob storage CSI driver][enable-blob-csi-driver] (preview) on your AKS cluster.
 
 ## Dynamic provisioning parameters
 
@@ -92,7 +94,7 @@ azure-blob-storage   Bound    pvc-b88e36c5-c518-4d38-a5ee-337a7dda0a68   5Gi    
 
 The following YAML creates a pod that uses the persistent volume claim **azure-blob-storage** to mount the Azure Blob storage at the `/mnt/blob' path.
 
-1. Create a file named `azure-blob-nfs-pv`, and copy in the following YAML. Make sure that the claimName matches the PVC created in the previous step.
+1. Create a file named `azure-blob-nfs-pv`, and copy in the following YAML. Make sure that the **claimName** matches the PVC created in the previous step.
 
     ```yml
     kind: Pod
@@ -246,3 +248,5 @@ storageclass.storage.k8s.io/blob-fuse created
 [mount-blob-storage-nfs]: ../storage/blobs/network-file-system-protocol-support-how-to.md
 [azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md
 [blob-storage-csi-driver]: azure-blob-csi.md
+[azure-blob-storage-nfs-support]: ../storage/blobs/network-file-system-protocol-support.md
+[enable-blob-csi-driver]: azure-blob-cis.md#before-you-begin

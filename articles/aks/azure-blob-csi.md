@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 07/05/2022
+ms.date: 07/06/2022
 author: mgoedtel
 
 ---
@@ -33,11 +33,14 @@ Azure Blob storage CSI driver (preview) supports the following features:
 ## Before you begin
 
 - The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
 - Install the aks-preview Azure CLI extension version 0.5.85 or later.
+
+- If the open-source CSI Blob storage driver is installed on your cluster, uninstall it before enabling the preview driver.
 
 ### Uninstall open-source driver
 
-If the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] is installed on your cluster, you'll need to uninstall it.
+Perform the following steps if you previously installed the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] to access Azure Blob storage from your cluster.
 
 1. Copy the following Shell script and create a file named `uninstall-driver.sh`:
 
