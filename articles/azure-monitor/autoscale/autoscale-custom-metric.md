@@ -42,7 +42,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 1. Open the [Azure portal](https://portal.azure.com).
 1. Search for and select **App Service plans**.
 
-    :::image type="content" source="media\autoscale-custom-metric\search-app-service-plan.png" alt-text="Screenshot of the the search bar, searching for app service plans.":::
+    :::image type="content" source="media\autoscale-custom-metric\search-app-service-plan.png" alt-text="Screenshot of the search bar, searching for app service plans.":::
 
 1. Select **Create** from the **App Service plan** page.
 1. Select a **Resource group** or create a new one.
@@ -60,7 +60,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 
 1. Search for and select *App services*.
 
-    :::image type="content" source="media\autoscale-custom-metric\search-app-services.png" alt-text="Screenshot of the the search bar, searching for app service.":::
+    :::image type="content" source="media\autoscale-custom-metric\search-app-services.png" alt-text="Screenshot of the search bar, searching for app service.":::
 
 1. Select **Create** from the **App Services** page.
 1. On the **Basics** tab, enter a **Name** and select a **Runtime stack**.
