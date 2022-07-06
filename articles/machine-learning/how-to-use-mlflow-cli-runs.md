@@ -189,17 +189,6 @@ Open your terminal and use the following to submit the job.
 az ml job create -f job.yml --web
 ```
 
-## Automatic logging
-With Azure Machine Learning and MLFlow, users can log metrics, model parameters and model artifacts automatically when training a model.  A [variety of popular machine learning libraries](https://mlflow.org/docs/latest/tracking.html#automatic-logging) are supported. 
-
-To enable [automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) insert the following code before your training code:
-
-```Python
-mlflow.autolog()
-```
-
-[Learn more about Automatic logging with MLflow](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.autolog). 
-
 
 ## View metrics and artifacts in your workspace
 
