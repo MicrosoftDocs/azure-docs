@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Steps to get your Azure OPC UA data into Azure Digital Twins
 author: danhellem
 ms.author: dahellem # Microsoft employees only
-ms.date: 02/22/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 # Optional fields. Don't forget to remove # if you need a field.

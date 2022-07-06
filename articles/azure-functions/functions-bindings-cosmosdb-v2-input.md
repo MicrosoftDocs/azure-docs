@@ -423,7 +423,24 @@ namespace CosmosDBSamplesV2
 
 # [Isolated process](#tab/isolated-process)
 
-Example pending.
+This section contains examples that require version 3.x of Azure Cosmos DB extension and 5.x of Azure Storage extension. If not already present in your function app, add reference to the following NuGet packages:
+
+  * [Microsoft.Azure.Functions.Worker.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/3.0.9)
+  * [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues/5.0.0)
+
+* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-isolated)
+
+The examples refer to a simple `ToDoItem` type:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDbInputBindingFunction.cs" id="docsnippet_qtrigger_with_cosmosdb_inputbinding_todo_model" :::
+
+<a id="queue-trigger-look-up-id-from-json-isolated"></a>
+
+### Queue trigger, look up ID from JSON
+
+The following example shows a function that retrieves a single document. The function is triggered by a JSON message in the storage queue. The queue trigger parses the JSON into an object of type `ToDoItemLookup`, which contains the ID and partition key value to retrieve. That ID and partition key value are used to return a `ToDoItem` document from the specified database and collection.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDbInputBindingFunction.cs" id="docsnippet_qtrigger_with_cosmosdb_inputbinding" :::
 
 # [C# Script](#tab/csharp-script)
 

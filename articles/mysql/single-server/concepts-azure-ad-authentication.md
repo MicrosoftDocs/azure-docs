@@ -1,12 +1,12 @@
 ---
 title: Active Directory authentication - Azure Database for MySQL
 description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for MySQL
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 07/23/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
 
 # Use Azure Active Directory for authenticating with MySQL
