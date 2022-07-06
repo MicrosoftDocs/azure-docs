@@ -68,7 +68,7 @@ using Azure.AI.TextAnalytics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace LanguageDetectionExample
+namespace Example
 {
     class Program
     {
@@ -186,7 +186,7 @@ using Azure.Core;
 using Azure.AI.Language.Conversations;
 using System.Text.Json;
 
-namespace summarization_july
+namespace Example
 {
     class Program
     {
