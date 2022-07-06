@@ -5,14 +5,14 @@ author: dikethir
 ms.author: dikethir
 ms.service: virtual-machines
 ms.subservice: recovery
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 02/14/2022
-ms.custom: template-how-to
+ms.custom: conceptual
 ---
 
 # Overview of VM restore points
 
-Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbacks across multiple regions. Azure VM restore point APIs are a lightweight option you can use to implement granular backup and retention policies.
+Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbacks across multiple regions. Azure VM restore points can be used use to implement granular backup and retention policies.
 
 You can protect your data and guard against extended downtime by creating virtual machine (VM) restore points at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case. You can read about other [Backup and restore options for virtual machines in Azure](backup-recovery.md).
 
@@ -27,8 +27,6 @@ VM restore points are organized into restore point collections. A restore point 
 The following image illustrates the relationship between restore point collections, VM restore points, and disk restore points.
 
 :::image type="content" source="media/virtual-machines-create-restore-points-api/restore-point-hierarchy.png" alt-text="A diagram illustrating the relationship between the restore point collection parent and the restore point child objects.":::
-
-You can use the APIs to create restore points for your source VM in either the same region, or in other regions. You can also copy existing VM restore points between regions.
 
 VM restore points are incremental. The first restore point stores a full copy of all disks attached to the VM. For each successive restore point for a VM, only the incremental changes to your disks are backed up. To reduce your costs, you can optionally exclude any disk when creating a restore point for your VM.
 
@@ -47,4 +45,5 @@ VM restore points are incremental. The first restore point stores a full copy of
 
 ## Next steps
 
-[Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
+- [Create a VM restore point](create-restore-points.md).
+- [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.

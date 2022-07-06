@@ -5,9 +5,9 @@ author: dikethir
 ms.author: dikethir
 ms.service: virtual-machines
 ms.subservice: recovery
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 06/30/2022
-ms.custom: template-how-to
+ms.custom: template-tutorial
 ---
 
 

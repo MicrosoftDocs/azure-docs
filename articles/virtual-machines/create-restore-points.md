@@ -18,7 +18,8 @@ You can use the APIs to create restore points for your source VM in either the s
 
 ## Prerequisites
 
-- Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point.
+- [Learn more](concepts-restore-points.md) about the requirements for a VM restore point.
+- Consider the [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point.
 
 ## Create VM restore points
 
@@ -51,5 +52,6 @@ Creation of a cross-region VM restore point is a long running operation. The VM 
 During restore point creation, the `ProvisioningState` will appear as `Creating` in the response. If creation fails, `ProvisioningState` will be set to `Failed`.
 
 ## Next steps
-
-[Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
+- [Learn more](manage-restore-points.md) about managing restore points.
+- Create restore points using the [Azure Portal](virtual-machines-create-restore-points-portal.md), [CLI](virtual-machines-create-restore-points-cli.md), or [PowerShell](virtual-machines-create-restore-points-powershell.md).
+- [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
