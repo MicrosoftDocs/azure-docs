@@ -1122,6 +1122,10 @@ items:
     - name: Overview
       displayName: profiling, debugging, code performance, perf
       href: profiler/profiler-overview.md
+    - name: View Profiler data
+      displayName: profiling, debugging, code performance, perf
+      href: profiler/profiler-data.md
+
     - name: Enable Profiler
       items:        
       - name: App Service
