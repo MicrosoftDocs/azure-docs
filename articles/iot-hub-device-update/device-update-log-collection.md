@@ -80,7 +80,7 @@ Replace the following placeholders with your own information:
 * *\<storage_id>*: The resource ID of the storage account where the diagnostics logs will be stored. You can retrieve the resource ID by using the [az storage show](/cli/azure/storage/account#az-storage-account-show) command and querying for the ID value: `az storage account show -n <storage_name> --query id`.
 
 ```azurecli-interactive
-az iot device-update instance update --account <account_name> -instance <instance_name> --set enableDiagnostics=true --diagnostics-storage-id <storage_id>
+az iot device-update instance update --account <account_name> -instance <instance_name> --set enableDiagnostics=true diagnosticStorageProperties.resourceId=<storage_id>
 ```
 
 ---

@@ -3,7 +3,7 @@ title: Configure private endpoints for Device Update for IoT Hub accounts
 description: This article describes how to configure private endpoints for Device Update for IoT Hub account. 
 author: darkoa-msft
 ms.author: darkoa
-ms.date: 06/26/2022
+ms.date: 07/06/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -16,6 +16,30 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) to
 This article describes how to configure private endpoints for accounts.
 
 You can either use the Azure portal or the Azure CLI to create a private endpoint for an account.
+
+## Prerequisites
+
+# [Azure portal](#tab/portal)
+
+No prerequisites for the Azure portal.
+
+# [Azure CLI](#tab/cli)
+
+An Azure CLI environment:
+
+* Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
+
+  [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
+* Or, if you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
+
+  * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
+
+  * Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
+
+  * When prompted, install Azure CLI extensions on first use. The commands in this article use the **azure-iot** extension. Run `az extension update --name azure-iot` to make sure you're using the latest version of the extension.
+
+---
 
 ## Configure private endpoints from the Device Update account
 
@@ -55,7 +79,7 @@ In the Azure portal, you can create a new private endpoint from within the Devic
 
 1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource.
 
-1. On the **Review + create**, review all the settings and select **Create** to create the private endpoint.
+1. On the **Review + create** page, review all the settings and select **Create** to create the private endpoint.
 
 ## Configure private endpoints from the Private Link Center
 
@@ -93,7 +117,7 @@ You can use either the Azure portal or the Azure CLI to create private endpoints
 
 1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource.
 
-1. On the **Review + create**, review all the settings and select **Create** to create the private endpoint.
+1. On the **Review + create** page, review all the settings and select **Create** to create the private endpoint.
 
 # [Azure CLI](#tab/cli)
 
