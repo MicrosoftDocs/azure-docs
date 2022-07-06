@@ -82,13 +82,13 @@ Use the instructions in the following three sections to register Cloudflare with
 
 2. Under **Azure Services**, select **Azure Active Directory**.
 
-   [![Screenshot shows selecting Azure ad services](./media/cloudflare-azure-ad-integration/azure-ad-portal-expanded.png)](./media/cloudflare-azure-ad-integration/azure-ad-portal-expanded.png#lightbox)
+   [ ![Screenshot shows selecting Azure ad services](./media/cloudflare-azure-ad-integration/azure-ad-portal.png)](./media/cloudflare-azure-ad-integration/azure-ad-portal-expanded.png#lightbox)
 
 3. In the left menu, under **Manage**, select **App registrations**.
 
 4. Select the **+ New registration tab**.
 
-   [![Screenshot shows new registration for app](./media/cloudflare-azure-ad-integration/app-registration-expanded.png)](./media/cloudflare-azure-ad-integration/app-registration-expanded.png#lightbox)
+   [ ![Screenshot shows new registration for app](./media/cloudflare-azure-ad-integration/app-registration.png)](./media/cloudflare-azure-ad-integration/app-registration-expanded.png#lightbox)
 
 5. Name your application and enter your [team
     domain](https://developers.cloudflare.com/cloudflare-one/glossary#team-domain), with **callback** at the end of the path: /cdn-cgi/access/callback.
@@ -102,7 +102,7 @@ Use the instructions in the following three sections to register Cloudflare with
 
 1. On the **Cloudflare Access** screen, under **Essentials**, copy and save the Application (client) ID and the Directory (tenant) ID.
 
-   [![Screenshot shows cloudflare access screen](./media/cloudflare-azure-ad-integration/cloudflare-access-expanded.png)](./media/cloudflare-azure-ad-integration/cloudflare-access-expanded.png#lightbox)
+   [ ![Screenshot shows cloudflare access screen](./media/cloudflare-azure-ad-integration/cloudflare-access.png)](./media/cloudflare-azure-ad-integration/cloudflare-access-expanded.png#lightbox)
 
 2. In the left menu, under **Manage**, select **Certificates &
     secrets**.
@@ -127,7 +127,7 @@ Use the instructions in the following three sections to register Cloudflare with
 
 2. Select **+** **Add a permission**.
 
-    [![Screenshot shows Azure AD API permissions](./media/cloudflare-azure-ad-integration/api-permissions.png)](./media/cloudflare-azure-ad-integration/api-permissions-expanded.png#lightbox)
+    [ ![Screenshot shows Azure AD API permissions](./media/cloudflare-azure-ad-integration/api-permissions.png)](./media/cloudflare-azure-ad-integration/api-permissions-expanded.png#lightbox)
 
 3. Under **Select an API**, select **Microsoft Graph**.
 
