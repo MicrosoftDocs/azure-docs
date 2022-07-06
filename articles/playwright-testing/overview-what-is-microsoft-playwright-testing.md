@@ -31,36 +31,38 @@ To continuously monitor application quality, you can automate your end-to-end te
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Run cross-platform, cross-browser tests at scale
+## Run tests at scale
 
-Performance problems often remain undetected until an application is under load. You can start a high-scale load test in the Azure portal to learn sooner how your application behaves under stress. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.
+- test often, immediate feedback -> run tests as fast as possible
+- run tests across all supported configurations (browser, os, device) -> provision test environment
+- run tests for applications regardless of where they run - no need to open up your firewall for inbound connections
+- run interactively from CLI or using VS Code extension, or run automated in CI/CD
 
-After the load test finishes, you can use the dashboard to analyze the test results and identify performance bottlenecks. For Azure-hosted applications, the dashboard shows detailed resource metrics of the Azure application components.
+Playwright tests
+Configuration change to easily run existing Playwright tests in the cloud
+Configure browser-OS configuration for all tests, subset of tests
+Configure number of parallel workers to run your tests at speed, without impact on your developer machine
 
 ## Gain actionable insights 
 
-You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
-
-Azure Load Testing will automatically stop an automated load test in response to specific error conditions. You can also use the AutoStop listener in your Apache JMeter script. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL.
-
-You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
+- See evolution of test quality over time
+- Identify flaky tests
+- Test performance over time
+- Compare test results across different configs (OS, browser, ..)
 
 ## Troubleshoot test issues with rich test results
 
+- rich test results to diagnose failing tests
+- point-in-time info (screenshots, error info)
+- Step through timeline of events and get test & app state (traces)
+- use browser-based experience
+
 ## How does Microsoft Playwright Testing work?
 
-Azure Load Testing test engines abstract the required infrastructure for running a high-scale load test. The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL, Azure Load Testing automatically generates a JMeter test script for you. To scale out the load test, you can configure the number of test engines.
-
-The application can be hosted anywhere: in Azure, on-premises, or in other clouds. During the load test, the service collects the following resource metrics and displays them in a dashboard:
-
-- *Client-side metrics* give you details reported by the test engine. These details include the number of virtual users, the request response time, or the number of requests per second.
-
-- *Server-side metrics* provide information about your Azure application components. Azure Load Testing integrates with Azure Monitor, including Application Insights and Container insights, to capture details from the Azure services. Depending on the type of service, different metrics are available. For example, metrics can be for the number of database reads, the type of HTTP responses, or container resource consumption.
-
-Azure Load Testing automatically incorporates best practices for Azure networking to help make sure that your tests run securely and reliably. Load tests are automatically stopped if the application endpoints or Azure components start throttling requests.
-
-Data stored in your Azure Load Testing resource is automatically encrypted with keys managed by Microsoft (service-managed keys). This data includes, for example, your Apache JMeter script.
-
+Microsoft Playwright Testing provides remote workers (browsers) and unified portal to present test run results
+Playwright Test Runner or library are running on client machine (developer workstation or CI/CD agent machine)
+Playwright uses test spec locally to drive the test execution
+Enable testing of both public endpoints, or private endpoints.
 
 ## Next steps
 
