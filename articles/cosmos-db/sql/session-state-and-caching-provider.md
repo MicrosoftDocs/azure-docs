@@ -65,7 +65,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 Where you specify the database and container you want the session state to be stored and optionally, create them if they don't exist using the `CreateIfNotExists` attribute.
 
 > [!IMPORTANT]
-> If you provide an existing container instead of using `CreateIfNotExists`, make sure it has [time to live enabled](how-to-time-to-live.md)
+> If you provide an existing container instead of using `CreateIfNotExists`, make sure it has [time to live enabled](how-to-time-to-live.md).
 
 You can customize your SDK client configuration by using the `CosmosClientBuilder` or if your application is already using a `CosmosClient` for other operations with Cosmos DB, you can also inject it into the provider:
 
