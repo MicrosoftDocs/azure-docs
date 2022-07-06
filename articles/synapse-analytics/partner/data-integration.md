@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/27/2019
 ms.author: harmeetgill
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 ---
 

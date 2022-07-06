@@ -1,6 +1,5 @@
 ---
 title: How to enable self-service application assignment
-titleSuffix: Azure AD
 description: Enable self-service application access to allow users to find their own applications from their My Apps portal
 services: active-directory
 author: omondiatieno

@@ -2,7 +2,7 @@
 title: Overview - Microsoft Defender for IoT for organizations
 description: Learn about Microsoft Defender for IoT's features for end-user organizations and comprehensive IoT security for OT and Enterprise IoT networks.
 ms.topic: overview
-ms.date: 03/23/2022
+ms.date: 06/02/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -40,6 +40,7 @@ Agentless monitoring in Defender for IoT provides visibility and security into n
 
 A centralized user experience lets the security team visualize and secure all their IT, IoT, and OT devices regardless of where the devices are located.
 
+
 ## Support for cloud, on-premises, and hybrid networks
 
 Defender for IoT can support various network configurations:
@@ -61,15 +62,15 @@ For example, in an environment running MODBUS, you might want to generate an ale
 Use custom, condition-based alert triggering and messaging to help pinpoint specific network activity and effectively update your security, IT, and operational teams.
 Contact [ms-horizon-support@microsoft.com](mailto:ms-horizon-support@microsoft.com) for details about working with the Open Development Environment (ODE) SDK and creating protocol plugins.
 
-## Extend Defender for IoT to enterprise networks
+## Protect enterprise networks
 
-Microsoft Defender for IoT can protect IoT and OT devices, whether they're connected to IT, OT, or dedicated IoT networks. 
+<a name="enterprise"></a>Microsoft Defender for IoT can protect IoT and OT devices, whether they're connected to IT, OT, or dedicated IoT networks. 
 
 Enterprise IoT network protection extends agentless features beyond operational environments, providing coverage for all IoT devices in your environment. For example, an enterprise IoT environment may include printers, cameras, and purpose-built, proprietary, devices.
 
 When you expand Microsoft Defender for IoT into the enterprise network, you can apply Microsoft 365 Defender's features for asset discovery and use Microsoft Defender for Endpoint for a single, integrated package that can secure all of your IoT/OT infrastructure.
 
-Use Microsoft Defender for IoT's sensors as extra data sources, providing visibility in areas of your organization's network where Microsoft Defender for Endpoint isn't deployed, and when employees are accessing information remotely. Microsoft Defender for IoT's sensors provide visibility into both the IoT-to-IoT and the IoT-to-internet communications. Integrating Defender for IoT and Defender for Endpoint synchronizes any devices discovered on the network by either service.
+Use Microsoft Defender for IoT's sensors as extra data sources, providing visibility in areas of your organization's network where Microsoft Defender for Endpoint isn't deployed, and when employees are accessing information remotely. Microsoft Defender for IoT's sensors provide visibility into both the IoT-to-IoT and the IoT-to-internet communications. Integrating Defender for IoT and Defender for Endpoint synchronizes any enterprise IoT devices discovered on the network by either service.
 
 For more information, see the [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) and [Microsoft Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint).
 

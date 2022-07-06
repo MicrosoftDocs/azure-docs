@@ -12,7 +12,7 @@ This article describes an on-premises management console deployment on a virtual
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
-|**Performance** | 	 As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
+|**Performance** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
 
@@ -64,7 +64,7 @@ This procedure describes how to create a virtual machine for your on-premises ma
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing on-premises management console software](../how-to-install-software.md#install-on-premises-management-console-software).
+1. Continue with the [generic procedure for installing on-premises management console software](../how-to-install-software.md#install-ot-monitoring-software).
 
 
 ## Next steps
@@ -73,6 +73,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

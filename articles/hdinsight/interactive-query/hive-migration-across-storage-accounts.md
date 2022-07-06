@@ -6,7 +6,7 @@ ms.author: kevx
 ms.reviewer: 
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 05/26/2022
 ---
 
 # Hive workload migration to new account in Azure Storage

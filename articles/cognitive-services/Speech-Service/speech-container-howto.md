@@ -25,10 +25,10 @@ With Speech containers, you can build a speech application architecture that's o
 
 | Container | Features | Latest | Release status |
 |--|--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.2.0 | Generally available |
-| Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.2.0 | Generally available |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.3.0 | Generally available |
+| Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.3.0 | Generally available |
 | Speech language identification | Detects the language spoken in audio files. | 1.5.0 | Preview |
-| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.1.0 | Generally available |
+| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.2.0 | Generally available |
 
 ## Prerequisites
 
@@ -333,7 +333,7 @@ If you have multiple phrases to add, call `.addPhrase()` for each phrase to add 
 
 # [Custom speech-to-text](#tab/cstt)
 
-The custom speech-to-text container relies on a Custom Speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Speech Studio](https://speech.microsoft.com/customspeech).
+The custom speech-to-text container relies on a Custom Speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 
 The custom speech **Model ID** is required to run the container. For more information about how to get the model ID, see [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 

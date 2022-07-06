@@ -2,11 +2,11 @@
 title: Frequently asked questions about Azure Virtual Network Manager
 description: Find answers to frequently asked questions about Azure Virtual Network Manager.
 services: virtual-network-manager
-author: duongau
+author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: article
 ms.date: 4/18/2022
-ms.author: duau
+ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 ---
 
@@ -48,7 +48,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 * Central India
 
-* All regions that have [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
+* All regions have [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
 
 > [!NOTE]
 > Even if an Azure Virtual Network Manager instance isn't available because all zones are down, configurations applied to resources will still persist.
@@ -126,6 +126,17 @@ Azure SQL Managed Instance has some network requirements. If your security admin
 | ---- | -------- | ------ | ----------- | ------ |
 | 443, 12000 | TCP	| **VirtualNetwork** | AzureCloud | Allow |
 | Any | Any | **VirtualNetwork** | **VirtualNetwork** | Allow |
+
+
+## Can an Azure Virtual WAN hub be part of a network group? 
+
+No, an Azure Virtual WAN hub can't be in a network group at this time.
+
+
+## Can an Azure Virtual WAN be used as the hub in AVNM's hub and spoke topology configuration? 
+
+No, an Azure Virtual WAN hub isn't supported as the hub in a hub and spoke topology at this time.
+
 
 ## Limits
 

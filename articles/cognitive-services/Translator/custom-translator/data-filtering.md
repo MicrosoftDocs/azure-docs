@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator, I want to understand how data is filtered before training a model.
 ---
 
@@ -20,7 +21,7 @@ When you submit documents to be used for training a custom system, the documents
 
 If your document isn't in XLIFF, TMX, or ALIGN format, Custom Translator aligns the sentences of your source and target documents to each other, sentence by sentence. Custom Translator doesn't perform document alignment – it follows your naming of the documents to find the matching document of the other language. Within the document, Custom Translator tries to find the corresponding sentence in the other language. It uses document markup like embedded HTML tags to help with the alignment.  
 
-If you see a large discrepancy between the number of sentences in the source and target side documents, your document may not have been parallel in the first place, or for other reasons couldn't be aligned. The document pairs with a large difference (>10%) of sentences on each side warrant a second look to make sure they're indeed parallel. Custom Translator shows a warning next to the document if the sentence count differs suspiciously.  
+If you see a large discrepancy between the number of sentences in the source and target documents, your documents may not be parallel. The document pairs with a large difference (>10%) of sentences on each side warrant a second look to make sure they're indeed parallel. Custom Translator shows a warning next to the document if the sentence count differs suspiciously.  
 
 ## Deduplication
 

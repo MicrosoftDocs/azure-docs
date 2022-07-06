@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/14/2021
+ms.date: 06/03/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with RStudio Connect SAML Authentication
@@ -144,6 +144,23 @@ IdPMetaData =
 
 IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
+```
+
+If `IdPAttributeProfile = azure`,the profile sets the NameIDFormat to persistent, among other settings and overrides any other specified attributes defined in the configuration [file](https://docs.rstudio.com/connect/admin/authentication/saml/#the-azure-profile).
+
+This becomes an issue if you want to create a user ahead of time using the RStudio Connect API and apply permissions prior to the user logging in the first time. The NameIDFormat should be set to emailAddress or some other unique identifier because when it's set to persistent, then the value gets hashed and you don't know what the value is ahead of time. So using the API will not work.
+API for creating user for SAML: https://docs.rstudio.com/connect/api/#post-/v1/users
+
+So you may want to have this in your configuration file in this situation:
+
+```
+[SAML]
+NameIDFormat = emailAddress
+UniqueIdAttribute = NameID
+UsernameAttribute = http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name
+FirstNameAttribute = http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+LastNameAttribute = http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname
+EmailAttribute = http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailAddress
 ```
 
 Store your **Server Address** in the `Server.Address` value, and the **App Federation Metadata Url** in the `SAML.IdPMetaData` value. Note that this sample configuration uses an unencrypted HTTP connection, while Azure AD requires the use of an encrypted HTTPS connection. You can either use a [reverse proxy](https://docs.rstudio.com/connect/admin/proxy/) in front of RStudio Connect SAML Authentication or configure RStudio Connect SAML Authentication to [use HTTPS directly](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 

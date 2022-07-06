@@ -13,25 +13,7 @@ ms.custom: devx-track-python
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-> [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
-> * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api/cosmos-db/)
-> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-query-getting-started.md)
-> * [Bulk executor - .NET  v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
 | Page| Link |
 |---|---|
@@ -39,10 +21,11 @@ ms.custom: devx-track-python
 |**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/azure.cosmos?preserve-view=true&view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
+|**Samples**|[Python SDK samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/samples)|
 |**Current supported platform**|[Python 3.6+](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> * Versions 4.3.0b2 and higher only support Python 3.6+. Python 2 is not supported.
+> * Versions 4.3.0b2 and higher support Async IO operations and only support Python 3.6+. Python 2 is not supported.
 
 ## Release history
 Release history is maintained in the azure-sdk-for-python repo, for detailed list of releases, see the [changelog file](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md).
@@ -56,6 +39,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| 4.3.0 |May 23, 2022 |--- |
 | 4.2.0 |Oct 09, 2020 |--- |
 | 4.1.0 |Aug 10, 2020 |--- |
 | 4.0.0 |May 20, 2020 |--- |

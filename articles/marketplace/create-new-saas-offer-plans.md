@@ -152,3 +152,7 @@ If you haven't already done so, create a development and test (DEV) offer to tes
 
 - [Sell your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
 - [Test and publish a SaaS offer](test-publish-saas-offer.md).
+
+**Video tutorials**
+
+- [Publishing a Private SaaS plan](https://go.microsoft.com/fwlink/?linkid=2196256)
