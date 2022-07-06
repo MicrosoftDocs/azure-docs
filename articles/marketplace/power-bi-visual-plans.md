@@ -7,7 +7,7 @@ ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 07/19/2022
 ---
 
 # Create Power BI visual plans
@@ -17,7 +17,7 @@ ms.date: 07/18/2022
 
 :::image type="content" source="./media/power-bi-visual/plan-overview-tab.png" alt-text="Screenshot the Plan overview tab in the left-nav of the Plan overview page.":::
 
-You need to define at least one plan, if your offer has app license management enabled. You can create a variety of plans with different options for the same offer. These plans (sometimes referred to as SKUs) can differ in terms of monetization or tiers of service. Later, you will map the Service IDs of each plan in the solution package to enable a runtime license check by the Power BI platform against these plans (we'll walk you through this process later). You’ll map the Service ID of each plan in your solution package.
+You need to define at least one plan, if your offer has app license management enabled. You can create a variety of plans with different options for the same offer. These plans (sometimes referred to as SKUs) can differ in terms of monetization or tiers of service. Later, you will map the Service IDs of each plan in the visual package to enable a runtime license check by the Power BI platform against these plans (we'll walk you through this process later). You’ll map the Service ID of each plan in your visual package.
 
 ## Create a plan
 
@@ -33,8 +33,8 @@ You need to define at least one plan, if your offer has app license management e
 
 On the **Plan listing** tab, you can define the plan name and description as you want them to appear in the commercial marketplace. This information will be shown on the Microsoft AppSource listing page.
 
-1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan.
-1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 3,000 characters.
+1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer.
+1. In the **Plan description** box, explain what makes this plan unique and any differences from other plans within your offer. This description may contain up to 3,000 characters.
 1. Select **Save draft**.
 
 ## Define pricing and availability
@@ -76,7 +76,7 @@ If you select this option, customers are not charged for the first month of use.
 
 ### Choose who can see your plan
 
-You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file. A private plan is not the same as a preview audience.
+You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
 
 > [!NOTE]
 > If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
@@ -117,7 +117,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 You need to update the license enforcement in your visual.
 
-For information about how to create a solution package, see [Package a Power BI visual](/power-bi/developer/visuals/package-visual).
+For information about how to create a visual package, see [Package a Power BI visual](/power-bi/developer/visuals/package-visual).
 For instructions on how to update license enforcement in your visual, see [Licensing API](https://github.com/jennyfel/powerbi-docs/blob/dev/jennyfel/licenseApiDoc/powerbi-docs/developer/visuals/license-api.md).
 
 ## Next steps
