@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/15/2022
+ms.date: 07/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -93,6 +93,14 @@ If you need to submit a support incident, provide the request ID and time and da
 | 53002 | ApplicationUsedIsNotAnApprovedApp |
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
+
+## Service dependencies
+
+In some specific scenarios, users are blocked because there are cloud apps with dependencies on resources that are blocked by Conditional Access policy.
+
+To determine the service dependency check the sign-ins log for the Application and Resource called by the sign-in. In the following screenshot the application called is **Azure Portal** but the resource called is **Windows Azure Service Management API**. To target this appropriately all the applications and resources should be simmilarly combined in Conditional Access policy.
+
+:::image type="content" source="media/troubleshoot-conditional-access/service-dependency-example-sign-in.png" alt-text="Example sign-in log showing an Application calling a Resource. This is also known as a service dependency." lightbox="media/troubleshoot-conditional-access/service-dependency-example-sign-in.png":::
 
 ## What to do if you're locked out of the Azure portal?
 
