@@ -113,7 +113,7 @@ The units of measurement available are:
 
 | Unit of measurement | Definition           |
 |:--------------------|:---------------------|
-| ch                  | characters (default) |ep
+| ch                  | characters (default) |
 | px                  | pixels               |
 | fr                  | fractional units     |
 | %                   | percentage           |
