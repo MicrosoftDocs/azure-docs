@@ -42,10 +42,10 @@ During the preview:
 - You can only share to subscriptions that are also in the preview.
 - You can only share to 30 subscriptions and 5 tenants.
 - Only images can be shared. You can't directly share a [VM application](vm-applications.md) during the preview.
-- The gallery using direct sharing cannot contain encrypted image versions. Encrypted images cannot be created within a gallery that is directly shared.
+- The gallery using direct sharing can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.
 - The user or service principal that will share must be a member of the `Owner` role definition. Only an `Owner` at the scope of the gallery or higher will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
-- PowerShell, Ansible, and Terraform are not supported at this time.
+- PowerShell, Ansible, and Terraform aren't supported at this time.
 
 ## Prerequisites
 

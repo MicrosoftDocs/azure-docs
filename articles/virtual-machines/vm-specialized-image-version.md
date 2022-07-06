@@ -40,7 +40,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
 1. Under **Administrator account**, the username will be greyed out because the username and credentials from the source VM are used.
 1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
-1. When you are finished, select the **Review + create** button at the bottom of the page.
+1. When you're finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
 
 
@@ -62,7 +62,7 @@ Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --speci
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`.
 
-In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+In this example, we're creating a VM from the latest version of the *myImageDefinition* image.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -76,7 +76,7 @@ az vm create --resource-group myResourceGroup \
 
 Once you have a specialized image version, you can create one or more new VMs using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
 
-In this example, we are using the image definition ID to ensure your new VM will use the most recent version of an image. You can also use a specific version by using the image version ID for `Set-AzVMSourceImage -Id`. For example, to use image version *1.0.0* type: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
+In this example, we're using the image definition ID to ensure your new VM will use the most recent version of an image. You can also use a specific version by using the image version ID for `Set-AzVMSourceImage -Id`. For example, to use image version *1.0.0* type: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 
 Be aware that using a specific image version means automation could fail if that specific image version isn't available because it was deleted or removed from the region. We recommend using the image definition ID for creating your new VM, unless a specific image version is required.
 
@@ -190,7 +190,7 @@ To create a VM from a generalized image in a community gallery, see [Create a VM
 
 Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the `--specialized` parameter to indicate that the image is a specialized image.
 
-In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+In this example, we're creating a VM from the latest version of the *myImageDefinition* image.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -220,7 +220,7 @@ To create the VM from community gallery image, you must accept the license agree
    :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
 1. Select an image from the list. Make sure that the **OS state** is *Specialized*. If you want to use a specialized image, see [Create a VM using a generalized image version](vm-generalized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
 
 
 ---
@@ -243,7 +243,7 @@ To create a VM using the latest version of an image shared to your subscription 
 /SharedGalleries/<uniqueID>/Images/<image name>/Versions/latest
 ```
 
-To find the `uniqueID` of a gallery that is shared with you, use [az sig list-shared](/cli/azure/sig/image-definition#az-sig-image-definition-list-shared). In this example, we are looking for galleries in the West US region.
+To find the `uniqueID` of a gallery that is shared with you, use [az sig list-shared](/cli/azure/sig/image-definition#az-sig-image-definition-list-shared). In this example, we're looking for galleries in the West US region.
 
 ```azurecli-interactive
 region=westus
@@ -266,7 +266,7 @@ Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the `--spec
 
 Use the `Id`, appended with `/Versions/latest` to use the latest version, as the value for `--image`` to create a VM. 
 
-In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+In this example, we're creating a VM from the latest version of the *myImageDefinition* image.
 
 ```azurecli
 imgDef="/SharedGalleries/1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-MYDIRECTSHARED/Images/myDirectDefinition/Versions/latest"
@@ -295,7 +295,7 @@ az vm create\
 1. In the left menu, under **Other Items**, select **Direct Shared Images (PREVIEW)**. The **Other Items | Direct Shared Images (PREVIEW)** page will open.
 1. Select an image from the list. Make sure that the **OS state** is *Specialized*. If you want to use a generalized image, see [Create a VM using a generalized image version](vm-generalized-image-version.md). Depending on the image you choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
 
 
 ---

@@ -2015,9 +2015,8 @@
       items:
       - name: Migrate from Amazon Web Services (AWS) to Azure
         href: ./windows/aws-to-azure.md
-      - name: Upload on-prem VM
+      - name: Upload on-premises VM
         href: ./linux/upload-vhd.md
-        displayname: Migrate from Amazon Web Services (AWS) to Azure
       - name: Use Azure Site Recovery
         href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Infrastructure automation

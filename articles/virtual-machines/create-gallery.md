@@ -25,7 +25,7 @@ The gallery is a top-level resource that provides full Azure role-based access c
 
 ## Create a private gallery
 
-Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
+Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name can't contain dashes. Gallery names must be unique within your subscription. 
 
 Choose an option below for creating your gallery:
 
@@ -186,7 +186,7 @@ During the preview, make sure that you create your gallery, image definitions, a
 > 
 > To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
 
-When creating an image to share with the community, you will need to provide contact information. This information will be shown **publicly**, so be careful when providing:
+When creating an image to share with the community, you'll need to provide contact information. This information will be shown **publicly**, so be careful when providing:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
@@ -225,7 +225,7 @@ az sig create \
 
 The output of this command will give you the public name for your community gallery in the `sharingProfile` section, under `publicNames`.
 
-Once you are ready to make the gallery available to the public, enable the community gallery using [az sig share enable-community](/cli/azure/sig/share#az-sig-share-enable-community). Only a user in the `Owner` role definition can enable a gallery for community sharing.
+Once you're ready to make the gallery available to the public, enable the community gallery using [az sig share enable-community](/cli/azure/sig/share#az-sig-share-enable-community). Only a user in the `Owner` role definition can enable a gallery for community sharing.
 
 ```azurecli-interactive
 az sig share enable-community \
@@ -235,7 +235,7 @@ az sig share enable-community \
 
 
 > [!IMPORTANT]
-> If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
+> If you're listed as the owner of your subscription, but you're having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
 
 To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) command.
 
@@ -281,7 +281,7 @@ te/galleries/{galleryName}/share?api-version=2021-07-01
 
 ### [Portal](#tab/portal2)
 
-Making a community gallery available to all Azure users is a two-step process. First you create the gallery with community sharing enabled, when you are ready to make it public, you share the gallery.
+Making a community gallery available to all Azure users is a two-step process. First you create the gallery with community sharing enabled, when you're ready to make it public, you share the gallery.
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
@@ -301,7 +301,7 @@ Making a community gallery available to all Azure users is a two-step process. F
 1. For **Publisher email** type a valid e-mail address that can be used to communicate with you about the gallery.
 1. For **Publisher URL**, type the URL for where users can get more information about the images in your community gallery.
 1. For **Legal Agreement URL**, type the URL where end users can find legal terms for the image.
-1. When you are done, select **Review + create**.
+1. When you're done, select **Review + create**.
 
    :::image type="content" source="media/create-gallery/rbac-community.png" alt-text="Screenshot showing the information that needs to be completed to create a community gallery.":::
 
@@ -310,7 +310,7 @@ Making a community gallery available to all Azure users is a two-step process. F
 
 To see the public name of your gallery, select **Sharing** in the left menu.
 
-When you are ready to make the gallery public:
+When you're ready to make the gallery public:
 
 1. On the page for the gallery, select **Sharing** from the left menu.
 1. Select **Share** from the top of the page.
@@ -319,7 +319,7 @@ When you are ready to make the gallery public:
 
 
 > [!IMPORTANT]
-> If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
+> If you're listed as the owner of your subscription, but you're having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
 
 ---
 
@@ -328,7 +328,7 @@ When you are ready to make the gallery public:
 ## Next steps
 
 - To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
-- To share the gallery publicly with all azure users, see 
+- To share the gallery publicly with all Azure users, see [Community Galleries](./share-gallery-community.md).
 
 - Create an [image definition and an image version](image-version.md).
 

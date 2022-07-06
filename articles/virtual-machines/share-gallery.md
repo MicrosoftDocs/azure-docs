@@ -16,14 +16,14 @@ ms.devlang: azurecli
 
 # Share gallery resources
 
-As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure Roles-based Access Control (RBAC) roles. Using Azure RBAC roles you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access, they can the gallery resources to to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
+As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure Roles-based Access Control (RBAC) roles. Using Azure RBAC roles you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access, they can use the gallery resources to deploy a VM or a Virtual Machine Scale Set.  Here's the sharing matrix that helps understand what the user gets access to:
 
 | Shared with User     | Azure Compute Gallery | Image Definition | Image version |
 |----------------------|----------------------|--------------|----------------------|
 | Azure Compute Gallery | Yes                  | Yes          | Yes                  |
 | Image Definition     | No                   | Yes          | Yes                  |
 
-We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
+We recommend sharing at the Gallery level for the best experience. We don't recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
@@ -46,7 +46,7 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 1. Under **Role**, select **Reader**.
 1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.
 1. Under **Select**, type in the email address of the person that you would like to invite.
-1. If the user is outside of your organization, you will see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
+1. If the user is outside of your organization, you'll see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
 
 
 ### [CLI](#tab/cli)
