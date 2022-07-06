@@ -111,7 +111,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 1. Select **Save draft** before leaving the _Pricing and availability_ page.
 1. In the breadcrumb at the top of the page, select **Plan overview**.
-1. To create another plan for this offer, at the top of the **Plan overview** page, repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Next steps.
+1. To create another plan for this offer, at the top of the **Plan overview** page, repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Integrate your Visual with the Power BI License APIs.
 
 ## Integrate your Visual with the Power BI License APIs
 
