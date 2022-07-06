@@ -49,7 +49,7 @@ The `--save` option lists the library as a dependency in your *package.json* fil
 
 ## Set up the app framework
 
-1. In the project directory, run the following code:
+1. Create a file named `issue-access-token.js` in the project directory and add the following code:
 
     ```javascript
     const { CommunicationIdentityClient } = require('@azure/communication-identity');
@@ -66,7 +66,6 @@ The `--save` option lists the library as a dependency in your *package.json* fil
     })
     ```
 
-1. Save the new file as *issue-access-token.js* in the project directory.
 
 ## Authenticate the client
 

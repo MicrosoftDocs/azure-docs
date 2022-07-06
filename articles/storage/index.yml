@@ -46,7 +46,7 @@ additionalContent:
     - title: Cloud storage solutions
       items:
         # Card
-        - title: Object storage for your applicationss
+        - title: Object storage for your applications
           links:
           - url: ./blobs/storage-blobs-introduction.md
             text: Learn about storage for unstructured data (Blob storage)

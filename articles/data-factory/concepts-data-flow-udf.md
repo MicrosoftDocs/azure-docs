@@ -24,7 +24,8 @@ Whenever you find yourself building the same logic in an expression across multi
 > [!IMPORTANT]
 > User defined functions and mapping data flow libraries are currently in public preview.
 
-[!VIDEO https://www.microsoft.com/videoplayer/embed/RWJd3T]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Zkek]
+> 
 
 ## Getting started
 
