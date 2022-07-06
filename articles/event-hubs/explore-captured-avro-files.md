@@ -1,6 +1,6 @@
 ---
 title: Exploring captured Avro files in Azure Event Hubs
-description: This article show how to explore Avro files captured by Azure Event Hubs. 
+description: This article provides the schema of Avro files captured by Azure Event Hubs and a list of tools to explore them. 
 ms.topic: article
 ms.date: 07/06/2022
 ---
