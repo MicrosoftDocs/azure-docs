@@ -1,50 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1943.8 1595.3" style="enable-background:new 0 0 1943.8 1595.3;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-	.st1{fill:none;stroke:#44546A;stroke-width:10.3125;stroke-miterlimit:8;}
-	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#8497B0;stroke:#44546A;stroke-width:6.875;stroke-miterlimit:8;}
-	.st3{fill:#FFFFFF;stroke:#44546A;stroke-width:10.3125;stroke-miterlimit:8;}
-	.st4{fill:#44546A;}
-	.st5{font-family:'ArialMT';}
-	.st6{font-size:64px;}
-	.st7{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;stroke:#44546A;stroke-width:10.3125;stroke-miterlimit:8;}
-	.st8{font-size:55px;}
-</style>
-<path class="st0" d="M0,0h1943.8v1595.3H0V0z"/>
-<path class="st1" d="M288.2,837.8c0-116,93.8-210,209.5-210s209.5,94,209.5,210s-93.8,210-209.5,210S288.2,953.8,288.2,837.8z"/>
-<path class="st2" d="M405.7,898.3h185v60h-185V898.3z M405.7,808.3h185v60h-185V808.3z M405.7,718.3h185v60h-185V718.3z"/>
-<path class="st3" d="M190.2,988h599v120h-599V988z"/>
-<text transform="matrix(1 0 0 1 413.8016 1070.5925)" class="st4 st5 st6">Table</text>
-<path class="st2" d="M1092.3,285.7c-6.6,0-12,5.4-12,12s5.4,12,12,12c6.6,0,12-5.4,12-12S1098.9,285.7,1092.3,285.7z M1038.1,285.7
-	c-6.6,0-12,5.4-12,12s5.4,12,12,12c6.6,0,12-5.4,12-12S1044.7,285.7,1038.1,285.7z M983.9,285.7c-6.7,0-12,5.4-12,12s5.4,12,12,12
-	c6.6,0,12-5.4,12-12S990.6,285.7,983.9,285.7z M943.7,122.3h124.2l61.8,61.7v178.3h-186V122.3z"/>
-<path class="st1" d="M826.2,241.8c0-116,94-210,210-210s210,94,210,210s-94,210-210,210S826.2,357.8,826.2,241.8z"/>
-<path class="st7" d="M659.3,391.3h720v120l-226.9-1.9l-316,1.7l-177.2,0.1V391.3z"/>
-<text transform="matrix(1 0 0 1 904.0049 473.8125)" class="st4 st5 st6">Account</text>
-<path class="st4" d="M850.2,507.9L819,534.8l6.7,7.8l31.3-26.9L850.2,507.9z M795.5,554.9l-31.3,26.9l6.7,7.8l31.3-26.9L795.5,554.9
-	z M740.7,602l-31.3,26.9l6.7,7.8l31.3-26.9L740.7,602z M686,649l-31.3,26.9l6.7,7.8l31.3-26.9L686,649z M629.4,670.4
-	c-10.8,9.3-12,25.6-2.8,36.4c9.3,10.8,25.6,12,36.4,2.8c10.8-9.3,12-25.6,2.8-36.4C656.5,662.3,640.2,661.1,629.4,670.4z
-	 M462.6,1129.8 M501.1,1111.8l-6.5-8"/>
-<path class="st1" d="M1365.2,837.8c0-116,93.8-210,209.5-210s209.5,94,209.5,210s-93.8,210-209.5,210S1365.2,953.8,1365.2,837.8z"/>
-<path class="st2" d="M1482.7,898.3h185v60h-185V898.3z M1482.7,808.3h185v60h-185V808.3z M1482.7,718.3h185v60h-185V718.3z"/>
-<path class="st3" d="M1271.1,988h599v120h-599V988z"/>
-<text transform="matrix(1 0 0 1 1494.7234 1070.5925)" class="st4 st5 st6">Table</text>
-<path class="st4" d="M1172.2,505.6l33.8,23.6l-5.9,8.5l-33.8-23.6L1172.2,505.6z M1231.3,547l33.8,23.6l-5.9,8.5l-33.8-23.6
-	L1231.3,547z M1290.5,588.4l33.8,23.6l-5.9,8.5l-33.8-23.6L1290.5,588.4z M1349.6,629.7l33.8,23.6l-5.9,8.5l-33.8-23.6L1349.6,629.7
-	z M1408.8,671.1l20.4,14.3l-5.9,8.5l-20.4-14.3L1408.8,671.1z M1441.1,668.5c11.7,8.2,14.5,24.2,6.3,35.9
-	c-8.2,11.7-24.2,14.5-35.9,6.3c-11.7-8.2-14.5-24.2-6.4-35.9S1429.4,660.4,1441.1,668.5L1441.1,668.5z"/>
-<path class="st4" d="M492.1,1111.8v41.2h-10.3v-41.2H492.1z M492.1,1184v41.2h-10.3V1184H492.1z M492.1,1256.2v41.2h-10.3v-41.2
-	H492.1z M492.1,1328.4v41.2h-10.3v-41.2H492.1z M473.1,1391.9h-41.2v-10.3h41.2V1391.9z M400.9,1391.9h-30.7v-10.3h30.7V1391.9z
-	 M370.2,1412.5c-14.2,0-25.8-11.5-25.8-25.8s11.5-25.8,25.8-25.8s25.8,11.5,25.8,25.8S384.5,1412.5,370.2,1412.5z"/>
-<path class="st4" d="M482.1,1111.8v41.2h10.3v-41.2H482.1z M482.1,1184v41.3h10.3V1184H482.1z M482.1,1256.2v41.2h10.3v-41.2H482.1z
-	 M482.1,1328.4v41.2h10.3v-41.2H482.1z M482.1,1400.6v41.2h10.3v-41.2H482.1z M482.1,1472.8v22h29.6v-10.3h-24.4l5.2,5.2v-16.8
-	H482.1z M542.6,1494.7h41.2v-10.3h-41.2V1494.7z M614.8,1494.7H656v-10.3h-41.2V1494.7z M672.9,1515.4c14.2,0,25.8-11.5,25.8-25.8
-	c0-14.2-11.5-25.8-25.8-25.8c-14.2,0-25.8,11.5-25.8,25.8C647.1,1503.8,658.7,1515.4,672.9,1515.4z"/>
-<path class="st3" d="M666.2,1439.1h330v100h-330V1439.1z"/>
-<text transform="matrix(1 0 0 1 779.1691 1508.5104)" class="st4 st5 st8">item</text>
-<path class="st3" d="M34.2,1336.1h330v100h-330V1336.1z"/>
-<text transform="matrix(1 0 0 1 147.2044 1405.5104)" class="st4 st5 st8">item</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1943.8 1595.3">
+  <path fill="#fff" d="M0 0h1943.8v1595.3H0V0Z"/>
+  <path fill="none" stroke="#44546a" stroke-miterlimit="8" stroke-width="10.31" d="M288.2 837.8c0-116 93.8-210 209.5-210s209.5 94 209.5 210-93.8 210-209.5 210-209.5-94-209.5-210Z"/>
+  <path fill="#8497b0" fill-rule="evenodd" stroke="#44546a" stroke-miterlimit="8" stroke-width="6.88" d="M405.7 898.3h185v60h-185v-60Zm0-90h185v60h-185v-60Zm0-90h185v60h-185v-60Z"/>
+  <path fill="#fff" stroke="#44546a" stroke-miterlimit="8" stroke-width="10.31" d="M190.2 988h599v120h-599V988Z"/>
+  <text fill="#44546a" font-family="CascadiaCode-Regular,'Cascadia Code'" font-size="64" style="font-variation-settings:'wght' 400;isolation:isolate" transform="translate(413.8 1070.59)"><tspan x="0" y="0">Table</tspan></text>
+  <path fill="#8497b0" fill-rule="evenodd" stroke="#44546a" stroke-miterlimit="8" stroke-width="6.88" d="M1092.3 285.7c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12Zm-54.2 0c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12Zm-54.2 0c-6.7 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.3-12-12-12Zm-40.2-163.4h124.2l61.8 61.7v178.3h-186v-240Z"/>
+  <path fill="none" stroke="#44546a" stroke-miterlimit="8" stroke-width="10.31" d="M826.2 241.8c0-116 94-210 210-210s210 94 210 210-94 210-210 210-210-94-210-210Z"/>
+  <path fill="#fff" fill-rule="evenodd" stroke="#44546a" stroke-miterlimit="8" stroke-width="10.31" d="M659.3 391.3h720v120l-226.9-1.9-316 1.7-177.2.1V391.3h.1Z"/>
+  <text fill="#44546a" font-family="CascadiaCode-Regular,'Cascadia Code'" font-size="64" style="font-variation-settings:'wght' 400;isolation:isolate" transform="translate(904 473.81)"><tspan x="0" y="0">Account</tspan></text>
+  <path fill="#44546a" d="M850.2 507.9 819 534.8l6.7 7.8 31.3-26.9-6.8-7.8Zm-54.7 47-31.3 26.9 6.7 7.8 31.3-26.9-6.7-7.8ZM740.7 602l-31.3 26.9 6.7 7.8 31.3-26.9-6.7-7.8ZM686 649l-31.3 26.9 6.7 7.8 31.3-26.9-6.7-7.8Zm-56.6 21.4c-10.8 9.3-12 25.6-2.8 36.4 9.3 10.8 25.6 12 36.4 2.8 10.8-9.3 12-25.6 2.8-36.4a25.73 25.73 0 0 0-36.4-2.8Zm-128.3 441.4-6.5-8"/>
+  <path fill="none" stroke="#44546a" stroke-miterlimit="8" stroke-width="10.31" d="M1365.2 837.8c0-116 93.8-210 209.5-210s209.5 94 209.5 210-93.8 210-209.5 210-209.5-94-209.5-210Z"/>
+  <path fill="#8497b0" fill-rule="evenodd" stroke="#44546a" stroke-miterlimit="8" stroke-width="6.88" d="M1482.7 898.3h185v60h-185v-60Zm0-90h185v60h-185v-60Zm0-90h185v60h-185v-60Z"/>
+  <path fill="#fff" stroke="#44546a" stroke-miterlimit="8" stroke-width="10.31" d="M1271.1 988h599v120h-599V988Z"/>
+  <text fill="#44546a" font-family="CascadiaCode-Regular,'Cascadia Code'" font-size="64" style="font-variation-settings:'wght' 400;isolation:isolate" transform="translate(1494.72 1070.59)"><tspan x="0" y="0">Table</tspan></text>
+  <path fill="#44546a" d="m1172.2 505.6 33.8 23.6-5.9 8.5-33.8-23.6 5.9-8.5Zm59.1 41.4 33.8 23.6-5.9 8.5-33.8-23.6 5.9-8.5Zm59.2 41.4 33.8 23.6-5.9 8.5-33.8-23.6 5.9-8.5Zm59.1 41.3 33.8 23.6-5.9 8.5-33.8-23.6 5.9-8.5Zm59.2 41.4 20.4 14.3-5.9 8.5-20.4-14.3 5.9-8.5Zm32.3-2.6c11.7 8.2 14.5 24.2 6.3 35.9s-24.2 14.5-35.9 6.3-14.5-24.2-6.4-35.9 24.3-14.4 36-6.3Zm-949 443.3v41.2h-10.3v-41.2h10.3Zm0 72.2v41.2h-10.3V1184h10.3Zm0 72.2v41.2h-10.3v-41.2h10.3Zm0 72.2v41.2h-10.3v-41.2h10.3Zm-19 63.5h-41.2v-10.3h41.2v10.3Zm-72.2 0h-30.7v-10.3h30.7v10.3Zm-30.7 20.6c-14.2 0-25.8-11.5-25.8-25.8s11.5-25.8 25.8-25.8 25.8 11.5 25.8 25.8-11.5 25.8-25.8 25.8Z"/>
+  <path fill="#44546a" d="M482.1 1111.8v41.2h10.3v-41.2h-10.3Zm0 72.2v41.3h10.3V1184h-10.3Zm0 72.2v41.2h10.3v-41.2h-10.3Zm0 72.2v41.2h10.3v-41.2h-10.3Zm0 72.2v41.2h10.3v-41.2h-10.3Zm0 72.2v22h29.6v-10.3h-24.4l5.2 5.2v-16.8h-10.4v-.1Zm60.5 21.9h41.2v-10.3h-41.2v10.3Zm72.2 0H656v-10.3h-41.2v10.3Zm58.1 20.7c14.2 0 25.8-11.5 25.8-25.8s-11.5-25.8-25.8-25.8-25.8 11.5-25.8 25.8c0 14.2 11.6 25.8 25.8 25.8Z"/>
+  <path fill="#fff" stroke="#44546a" stroke-miterlimit="8" stroke-width="10.31" d="M666.2 1439.1h330v100h-330v-100Z"/>
+  <text fill="#44546a" font-family="CascadiaCode-Regular,'Cascadia Code'" font-size="55" style="font-variation-settings:'wght' 400;isolation:isolate" transform="translate(779.17 1508.51)"><tspan x="0" y="0">item</tspan></text>
+  <path fill="#fff" stroke="#44546a" stroke-miterlimit="8" stroke-width="10.31" d="M34.2 1336.1h330v100h-330v-100Z"/>
+  <text fill="#44546a" font-family="CascadiaCode-Regular,'Cascadia Code'" font-size="55" style="font-variation-settings:'wght' 400;isolation:isolate" transform="translate(147.2 1405.51)"><tspan x="0" y="0">item</tspan></text>
 </svg>
