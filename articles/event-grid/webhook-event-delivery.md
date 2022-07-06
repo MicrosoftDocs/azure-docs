@@ -6,7 +6,7 @@ ms.date: 07/06/2022
 ---
 
 
-# Webhook Event delivery
+# Webhook event delivery
 Webhooks are one of the many ways to receive events from Azure Event Grid. When a new event is ready, Event Grid service POSTs an HTTP request to the configured endpoint with the event in the request body.
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. 
