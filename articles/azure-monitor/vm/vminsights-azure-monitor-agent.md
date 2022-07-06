@@ -33,7 +33,7 @@ There are minor changes to the the process for onboarding virtual machines and v
 
 ## Changes to Overview page
 
-The following changes have been made to the **Overiew** page in VM insights.
+The following changes have been made to the **Overview** page in VM insights.
 
 - **Data collection rule** column has replaced the **Workspace** column. This either shows the data collection rules used by the Azure Monitor agent for each machine, or it gives the option to configure with the Azure Monitor agent.
 

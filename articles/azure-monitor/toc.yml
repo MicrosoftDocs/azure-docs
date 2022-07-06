@@ -1192,8 +1192,6 @@ items:
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
-    - name: Azure Monitor agent (Preview)
-      href: vm/vminsights-azure-monitor-agent.md
     - name: Enable and configure
       items:
       - name: Overview

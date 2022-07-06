@@ -28,24 +28,34 @@ This article describes how to enable VM insights using the Azure portal for the 
 ## View monitored and unmonitored machines
  The **Overview** page lists all of the virtual machines and virtual machine scale sets in the selected subscriptions. Machines will either be included in the **Monitored** or **Not monitored** tab depending on whether the machine is currently being monitored by VM insights. A machine may be listed in **Not monitored** even though it has the Azure Monitor or Log Analytics agent installed but has not been enabled for VM insights.
 
+> [!NOTE]
+>  **Data collection rule** column has replaced the **Workspace** column on the **Overview** page to support the [Azure Monitor agent](vminsights-enable-overview.md#agents). This either shows the data collection rules used by the Azure Monitor agent for each machine, or it gives the option to configure with the Azure Monitor agent.
 
-
-
-## Enable VM insights on unmonitored machine
-Use this process to enable VM insights for machines that are not currently being monitored. The following example shows an Azure virtual machine, but the menu is similar for Azure virtual machine scale set or Azure Arc.
-
-From the **Overview** page for VM insights, select **Not Monitered**. Click the **Enable** button next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
-
-:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
- 
-Click **Enable** on the introduction page to view the configuration. The **Monitoring configuration** page allows you to select whether you will use the **Azure Monitor agent** or the **Log Analytics agent**. Azure Monitor agent is strongly recommended because of its considerable advantages. The Log Analytics agent is on a deprection path as described in [Log Analytics agent overview](../agents/log-analytics-agent.md).
 
 > [!NOTE]
 > If a virtual machine has the Log Analytics agent installed but not the Dependency agent, it will be listed as not monitored. In this case, the Azure Monitor agent will be started without being given the option for the Log Analytics agent.
 
 
-### Azure Monitor agent
-If you select Azure Monitor agent, you need to specify a [data collection rule (DCR)](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent). If one hasn't already been created for unmonitored machines, then one will be created with the following details. Click **Configure** to select the Log Analytics workspace.
+>[!NOTE]
+>If you use a manual upgrade model for your virtual machine scale set, upgrade the instances to complete the setup. You can start the upgrades from the **Instances** page, in the **Settings** section.
+
+## Enable VM insights for Azure Monitor agent
+Use this procedure to enable an unmonitored virtual machine or virtual machine scale set using Azure Monitor agent.
+
+> [!NOTE]
+> A system-assigned managed identity will be added for the machine as part of the installation process if one doesn't already exist.
+
+1. From the **Overview** page for VM insights, select **Not Monitered**. 
+ 
+2. Click the **Enable** button next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
+
+:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
+ 
+3. Click **Enable** on the introduction page to view the configuration. 
+ 
+4. Select **Azure Monitor agent** from the **Monitoring configuration** page and then select **Azure Monitor agent**. 
+
+5. Select a [data collection rule (DCR)](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent). If one hasn't already been created for unmonitored machines, then one will be created with the following details. 
 
 - **Guest performance** enabled.
 -  **Processes and dependencies** disabled.
@@ -53,8 +63,11 @@ If you select Azure Monitor agent, you need to specify a [data collection rule (
 > [!NOTE]
 > You can only select data collection rules that are configured for VM insights.
 
+6. Click **Configure** to select the Log Analytics workspace.
+
 :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for unmonitored machine.":::
 
+### Create a new data collection rule
 If you want to collect process and dependencies to enable the [map feature of VM insights](vminsights-maps.md), then either create a new data collection rule, or select one that was created for [monitored machines](#enable-azure-monitor-agent-on-monitored-machines).
 
 To create a new data collection rule, click **Create new** and provide the required information.
@@ -63,27 +76,32 @@ To create a new data collection rule, click **Create new** and provide the requi
 
 It will take several minutes for the agent to be installed and data to start being collected. You'll receive status messages as the configuration is performed.
 
-> [!NOTE]
-> A system-assigned managed identity will be added for the machine if one doesn't already exist.
-### Log Analytics agent
-If you select Log Analytics agent, you only need to specify the Log Analytics workspace that the agent will use. VM insights will configure the data to collect.
 
-If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../logs/quick-create-workspace.md), then you can select a default for the location where the virtual machine or virtual machine scale set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
+## Enable VM insights for Log Analytics agent
+Use this procedure to enable an unmonitored virtual machine or virtual machine scale set using Log Analytics agent.
 
-> [!NOTE]
-> If you select a workspace that wasn't previously configured for VM insights, the *VMInsights* management pack will be added to this workspace. This will be applied to any agent already connected to the workspace, whether or not it's enabled for VM insights. Performance data will be collected from these virtual machines and stored in the *InsightsMetrics* table.
+1. From the **Overview** page for VM insights, select **Not Monitered**. 
+ 
+2. Click the **Enable** button next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
 
-:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored-configure-log-analytics-agent.png" lightbox="media/vminsights-enable-portal/enable-unmonitored-configure-log-analytics-agent.png" alt-text="Screenshot showing monitoring configuration for Log Analytics agent."::: 
+:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
+ 
+3. Click **Enable** on the introduction page to view the configuration. 
+ 
+4. Select **Azure Monitor agent** from the **Monitoring configuration** page and then select **Log Analytics agent**. 
 
-Click **Configure** to modify the configuration. The only option you can modify is the workspace. You will receive status messages as the configuration is performed.
+5. If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../logs/quick-create-workspace.md), then you can select a default for the location where the virtual machine or virtual machine scale set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
 
+    > [!NOTE]
+    > If you select a workspace that wasn't previously configured for VM insights, the *VMInsights* management pack will be added to this workspace. This will be applied to any agent already connected to the workspace, whether or not it's enabled for VM insights. Performance data will be collected from these virtual machines and stored in the *InsightsMetrics* table.
 
->[!NOTE]
->If you use a manual upgrade model for your virtual machine scale set, upgrade the instances to complete the setup. You can start the upgrades from the **Instances** page, in the **Settings** section.
+6. Click **Configure** to modify the configuration. The only option you can modify is the workspace. You will receive status messages as the configuration is performed.
 
 
 ## Enable Azure Monitor agent on monitored machines
-From the **Monitored** tab, click **Configure using Azure Monitor agent** to enable Azure Monitor agent on machines that already being monitored with the Log Analytics agent. This will initiate the process described in [Enable VM insights on unmonitored machine](#enable-vm-insights-on-unmonitored-machine). If a data collection rule hasn't already been created for monitored machines, then one will be created with the following details. Click **Configure** to select the workspace.
+You can add the Azure Monitor agent to machines that are already enabled with the Log Analytics agent. 
+
+1. From the **Monitored** tab, click **Configure using Azure Monitor agent**. This will initiate the process described in [Enable VM insights on unmonitored machine](#enable-vm-insights-on-unmonitored-machine). If a data collection rule hasn't already been created for monitored machines, then one will be created with the following details. Click **Configure** to select the workspace.
 
 - **Guest performance** enabled.
 - **Processes and dependencies** enabled.
