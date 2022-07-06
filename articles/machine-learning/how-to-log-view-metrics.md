@@ -22,7 +22,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 Azure Machine Learning supports logging and tracking experiments using [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). You can log models, metrics, parameters, and artifacts with MLflow as it supports local mode to cloud portability.
 
 > [!IMPORTANT]
-> Unlike the Azure Machine Learning SDK v1, there is no logging functionality in the Azure Machine Learning SDK for Python (v2). If you were using Azure Machine Learning SDK v1 before, we recommend you to start leveraging Mlflow for tracking experiments.See [Migrate logging from SDK v1 to MLflow](reference-migrate-sdk-v1-mlflow-tracking.md) for specific guidance.
+> Unlike the Azure Machine Learning SDK v1, there is no logging functionality in the Azure Machine Learning SDK for Python (v2). If you were using Azure Machine Learning SDK v1 before, we recommend you to start leveraging MLflow for tracking experiments. See [Migrate logging from SDK v1 to MLflow](reference-migrate-sdk-v1-mlflow-tracking.md) for specific guidance.
 
 Logs can help you diagnose errors and warnings, or track performance metrics like parameters and model performance. In this article, you learn how to enable logging in the following scenarios:
 
@@ -67,7 +67,7 @@ mlflow.log_params(params)
 ```
 
 > [!NOTE] 
-> Azure ML SDK v1 logging capabilities don't have the ability to log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
+> Azure ML SDK v1 logging can't log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
 
 ## Logging metrics
 
@@ -75,8 +75,9 @@ Metrics, as opposite to parameters, are always numeric. The following table desc
 
 |Logged Value|Example code| Notes|
 |----|----|----|
-|Log a numeric value (int or float) | `mlflow.log_metric('my_metric', 1)`| |
-|Log a boolean value | `mlflow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
+|Log a numeric value (int or float) | `mlflow.log_metric("my_metric", 1)`| |
+|Log a numeric value (int or float) over time | `mlflow.log_metric("my_metric", 1, step=1)`| Use parameter `step` to indicate the step at which you are logging the metric value. It can be any integer number. It defaults to zero. |
+|Log a boolean value | `mlflow.log_metric("my_metric", 0)`| 0 = True, 1 = False|
 
 > [!IMPORTANT]
 > __Performance considerations:__ If you need to log multiple metrics (or multiple values for the same metric) avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once or use `mlflow.log_batch` which accepts multiple type of elements for logging.
@@ -98,11 +99,11 @@ client.log_batch(mlflow.active_run().info.run_id,
 
 ## Logging images
 
-MLflow supports two main ways to log images:
+MLflow supports two ways of loggin images:
 
 |Logged Value|Example code| Notes|
 |----|----|----|
-|Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`| `img` should be an instance of `numpy.ndarray` or `PIL.Image.Image`. `figure.png` is the name of the artifact that will be generated inside of the run. It doesn't have to be an existing file.|
+|Log numpy metrics or PIL image objects|`mlflow.log_image(img, "figure.png")`| `img` should be an instance of `numpy.ndarray` or `PIL.Image.Image`. `figure.png` is the name of the artifact that will be generated inside of the run. It doesn't have to be an existing file.|
 |Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`| `figure.png` is the name of the artifact that will be generated inside of the run. It doesn't have to be an existing file. |
 
 ## Logging other types of data
@@ -175,7 +176,10 @@ mlflow.set_tracking_uri(azureml_mlflow_uri)
 ```
 
 > [!NOTE]
-> You can also get this URL by: Navigate to [Azure ML studio](https://ml.azure.com) -> Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+> You can also get this URL by: 
+> 1. Navigate to [Azure ML studio](https://ml.azure.com)
+> 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+> 3. Copy the value and used it with `mlflow.set_tracking_uri()`.
 
 ---
 
@@ -188,7 +192,7 @@ When training interactively, such as in a Jupyter Notebook, use the following pa
 1. Use logging methods to log metrics and other information.
 1. End the job.
 
-For example, the following code snippet demonstrates setting the tracking URI, creating an experiment, and then logging during a job
+For example, the following code snippet demonstrates configuring the experiment, and then logging during a job:
 
 ```python
 import mlflow
@@ -215,6 +219,14 @@ with mlflow.start_run() as run:
     mlflow.log_metric('mymetric', 1)
     mlflow.log_metric('anothermetric',1)
     pass
+```
+
+When starting a new run with `mlflow.start_run`, it may be useful to indicate the parameter `run_name` which will then translate to the name of the run in Azure Machine Learning user interface and help you identify the run quicker:
+
+```python
+with mlflow.start_run(run_name="iris-classifier-random-forest") as run:
+    mlflow.log_metric('mymetric', 1)
+    mlflow.log_metric('anothermetric',1)
 ```
 
 For more information on MLflow logging APIs, see the [MLflow reference](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
