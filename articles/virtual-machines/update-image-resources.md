@@ -203,7 +203,7 @@ Remove-AzGalleryImageVersion `
 
 ## Update resources
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli2)
 There are some limitations on what can be updated. The following items can be updated: 
 
 Azure Compute Gallery:
@@ -276,7 +276,7 @@ az sig image-version update \
    --set publishingProfile.excludeFromLatest=false
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell2)
 
 
 There are some limitations on what can be updated. The following items can be updated: 
@@ -348,7 +348,7 @@ You have to delete resources in reverse order, by deleting the image version fir
 
 Before you can delete a community shared gallery, you need to use [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) to stop sharing the gallery publicly.
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli3)
 
 Delete an image version using [az sig image-version delete](/cli/azure/sig/image-version#az-sig-image-version-delete).
 
