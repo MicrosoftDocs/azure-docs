@@ -35,7 +35,7 @@ If you [create your template in the Azure portal](#create-your-template-in-the-a
 
 ## Define roles and permissions
 
-As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Each authorization includes a **principalId** which refers to an Azure AD user, group, or service principal in the managing tenant.
+As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Each authorization includes a `principalId` which refers to an Azure AD user, group, or service principal in the managing tenant.
 
 > [!NOTE]
 > Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to an Azure AD user, group, or service principal in an authorization.
@@ -59,27 +59,27 @@ To track your impact across customer engagements and receive recognition, associ
 
 ## Create an Azure Resource Manager template
 
-To onboard your customer, you'll need to create an [Azure Resource Manager](../../azure-resource-manager/index.yml) template for your offer with the following information. The **mspOfferName** and **mspOfferDescription** values will be visible to the customer in the [Service providers page](view-manage-service-providers.md) of the Azure portal once the template is deployed in the customer's tenant.
+To onboard your customer, you'll need to create an [Azure Resource Manager](../../azure-resource-manager/index.yml) template for your offer with the following information. The `mspOfferName` and `mspOfferDescription` values will be visible to the customer in the [Service providers page](view-manage-service-providers.md) of the Azure portal once the template is deployed in the customer's tenant.
 
 |Field  |Definition  |
 |---------|---------|
-|**mspOfferName**     |A name describing this definition. This value is displayed to the customer as the title of the offer and must be a unique value.        |
-|**mspOfferDescription**     |A brief description of your offer (for example, "Contoso VM management offer"). This field is optional, but recommended so that customers have a clear understanding of your offer.   |
-|**managedByTenantId**     |Your tenant ID.          |
-|**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization, and mapped to a built-in **roleDefinitionId** value to specify the level of access.      |
+|`mspOfferName`     |A name describing this definition. This value is displayed to the customer as the title of the offer and must be a unique value.        |
+|`mspOfferDescription`     |A brief description of your offer (for example, "Contoso VM management offer"). This field is optional, but recommended so that customers have a clear understanding of your offer.   |
+|`managedByTenantId`     |Your tenant ID.          |
+|`authorizations`     |The `principalId` values for the users/groups/SPNs from your tenant, each with a `principalIdDisplayName` to help your customer understand the purpose of the authorization, and mapped to a built-in `roleDefinitionId` value to specify the level of access.      |
 
 You can create this template in the Azure portal, or by manually modifying the templates provided in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/).
 
 > [!IMPORTANT]
 > The process described here requires a separate deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
 >
-> Separate deployments are also required for multiple offers being applied to the same subscription (or resource groups within a subscription). Each offer applied must use a different **mspOfferName**.
+> Separate deployments are also required for multiple offers being applied to the same subscription (or resource groups within a subscription). Each offer applied must use a different `mspOfferName`.
 
 ### Create your template in the Azure portal
 
 To create your template in the Azure portal, go to **My customers** and then select **Create ARM Template** from the overview page.
 
-On the **Create ARM Template offer** Page, provide your **Name** and an optional **Description**. These values will be used for the **mspOfferName** and **mspOfferDescription** in your template, and they may be visible to your customer. The **managedByTenantId** value will be provided automatically, based on the Azure AD tenant to which you are logged in.
+On the **Create ARM Template offer** Page, provide your **Name** and an optional **Description**. These values will be used for the `mspOfferName` and `mspOfferDescription` in your template, and they may be visible to your customer. The `managedByTenantId` value will be provided automatically, based on the Azure AD tenant to which you are logged in.
 
 Next, select either **Subscription** or **Resource group**, depending on the customer scope you want to onboard. If you select **Resource group**, you'll need to provide the name of the resource group to onboard. You can select the **+** icon to add additional resource groups in the same subscription if needed. (To onboard additional resource groups in a different subscription, you must create and deploy a separate template for that subscription.)
 
@@ -119,7 +119,7 @@ If you want to include [eligible authorizations](create-eligible-authorizations.
 > [!TIP]
 > While you can't onboard an entire management group in one deployment, you can deploy a policy to [onboard each subscription in a management group](onboard-management-group.md). You'll then have access to all of the subscriptions in the management group, although you'll have to work on them as individual subscriptions (rather than taking actions on the management group resource directly).
 
-The following example shows a modified **subscription.parameters.json** file that can be used to onboard a subscription. The resource group parameter files (located in the [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management/rg) folder) are similar, but also include an **rgName** parameter to identify the specific resource group(s) to be onboarded.
+The following example shows a modified **subscription.parameters.json** file that can be used to onboard a subscription. The resource group parameter files (located in the [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management/rg) folder) have a similar format, but they also include an `rgName` parameter to identify the specific resource group(s) to be onboarded.
 
 ```json
 {
@@ -172,7 +172,7 @@ The following example shows a modified **subscription.parameters.json** file tha
 }
 ```
 
-The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more supported Azure built-in roles. The user created in this authorization will be able to assign these roles to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) in the customer tenant, which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md).  The user is also able to create support incidents. No other permissions normally associated with the User Access Administrator role will apply to this **principalId**.
+The last authorization in the example above adds a `principalId` with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the `delegatedRoleDefinitionIds` property and one or more supported Azure built-in roles. The user created in this authorization will be able to assign these roles to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) in the customer tenant, which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). The user is also able to create support incidents. No other permissions normally associated with the User Access Administrator role will apply to this `principalId`.
 
 ## Deploy the Azure Resource Manager template
 
