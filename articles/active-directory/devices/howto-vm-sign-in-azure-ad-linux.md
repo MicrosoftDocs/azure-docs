@@ -439,7 +439,7 @@ Use the following sections to correct common errors that can happen when you try
 
 ### Couldn't retrieve token from local cache
 
-You must run `az login` again and go through an interactive sign-in flow. Review the section [Using Azure Cloud Shell](#using-azure-cloud-shell).
+You must run `az login` again and go through an interactive sign-in flow. Review the section [Using Azure Cloud Shell](#log-in-by-using-azure-cloud-shell).
 
 ### Access denied: Azure role not assigned
 
