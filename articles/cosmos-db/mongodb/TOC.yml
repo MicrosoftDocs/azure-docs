@@ -258,6 +258,8 @@
           href: ../data-residency.md?toc=/azure/cosmos-db/mongodb/toc.json
     - name: Automatic recommendations
       href: ../automated-recommendations.md?toc=/azure/cosmos-db/mongodb/toc.json
+    - name: Change log
+      href: change-log.md
     - name: API version 4.2
       href: feature-support-42.md
     - name: API version 4.0
