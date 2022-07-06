@@ -34,19 +34,19 @@ Make sure you are in the cloned repository's root folder. This repository contai
     az login
     ```
 
-2. Log in to Azure Container Registry.
+1. Log in to Azure Container Registry.
 
     ```azurecli
     az acr login -n <your_registry_name>
     ```
 
-3. Build the container image. We are naming the image **dotnetcore-docs-hello-world-linux**.
+1. Build the container image. We are naming the image **dotnetcore-docs-hello-world-linux**.
 
     ```docker
     docker build -f Dockerfile.linux -t <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-linux . 
     ```
 
-4. Push the container image to Azure Container Registry.
+1. Push the container image to Azure Container Registry.
 
     ```docker
     docker push <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-linux:latest
