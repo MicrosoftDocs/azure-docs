@@ -7,7 +7,7 @@ ms.topic: include
 
 <!-- docutune:disable -->
 
-Defender for IoT can discover all devices, of all types, across all environments. Devices are listed in the Defender for IoT [Device inventory](how-to-manage-device-inventory-for-organizations.md) pages based on a unique IP and MAC address coupling.
+Defender for IoT can discover all devices, of all types, across all environments. Devices are listed in the Defender for IoT **Device inventory** pages based on a unique IP and MAC address coupling.
 
 Defender for IoT identifies single and unique committed devices as follows:
 
