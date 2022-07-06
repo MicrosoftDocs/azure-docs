@@ -54,17 +54,20 @@ Multiple Azure resources are defined in the Bicep file:
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=<admin-user>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters firewallName=<firewall-name>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -adminUsername "<admin-user>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -firewallName "<firewall-name>"
     ```
 
     ---
+
+    > [!NOTE]
+    > Replace **\<firewall-name\>** with the name of the Azure Firewall.
   
 When the deployment finishes, you should see a message indicating the deployment succeeded.
 
