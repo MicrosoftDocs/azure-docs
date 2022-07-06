@@ -13,23 +13,10 @@ ms.author: kenwith
 
 # Onboard an Amazon Web Services (AWS) account
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-> [!NOTE]
-> The Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
-
-
 This article describes how to onboard an Amazon Web Services (AWS) account on Permissions Management.
 
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
-
-
-## View a training video on configuring and onboarding an AWS account
-
-To view a video on how to configure and onboard AWS accounts in Permissions Management, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
 
 ## Onboard an AWS account
 
@@ -110,6 +97,27 @@ To view a video on how to configure and onboard AWS accounts in Permissions Mana
 
 ### 5. Set up an AWS member account
 
+Select **Enable AWS SSO checkbox**, if the AWS account access is configured through AWS SSO. 
+
+Choose from 3 options to manage AWS accounts. 
+
+#### Option 1: Automatically manage 
+
+Choose this option to automatically detect and add to monitored account list, without additional configuration. Steps to detect list of accounts and onboard for collection: 
+
+- Deploy Master account CFT (Cloudformation template) which creates organization account role that grants permission to OIDC role created earlier to list accounts, OUs and SCPs. 
+- If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
+- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. This creates a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
+
+Any current or future accounts found get onboarded automatically. 
+
+To view status of onboarding after saving the configuration: 
+
+- Navigate to data collectors tab.  
+- Click on the status of the data collector.  
+- View accounts on the In Progress page 
+
+#### Option 2: Enter authorization systems
 1. In the **Permissions Management Onboarding - AWS Member Account Details** page, enter the **Member Account Role** and the **Member Account IDs**.
 
      You can enter up to 10 account IDs. Click the plus icon next to the text box to add more account IDs.
@@ -144,6 +152,18 @@ To view a video on how to configure and onboard AWS accounts in Permissions Mana
 1. Return to Permissions Management, and in the **Permissions Management Onboarding - AWS Member Account Details** page, select **Next**.
 
     This step completes the sequence of required connections from Azure AD STS to the OIDC connection account and the AWS member account.
+    
+#### Option 3: Select authorization systems 
+
+This option detects all AWS accounts that are accessible through OIDC role access created earlier.  
+
+- Deploy Master account CFT (Cloudformation template) which creates organization account role that grants permission to OIDC role created earlier to list accounts, OUs and SCPs. 
+- If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
+- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. This creates a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
+- Click Verify and Save. 
+- Navigate to newly create Data Collector row under AWSdata collectors. 
+- Click on Status column when the row has “Pending” status 
+- To onboard and start collection, choose specific ones from the detected list and consent for collection. 
 
 ### 6. Review and save
 

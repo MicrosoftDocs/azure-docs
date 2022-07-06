@@ -59,7 +59,7 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
 1. On the menu of the page for the VM, select **Disks**.
 2. Select the operating system disk for the VM, and then select **Disk Export**.
-1. If the needed, update the value of **URL expires in (seconds)** to give you enough time to complete the download. The default is 3600 seconds (one hour).
+1. If required, update the value of **URL expires in (seconds)** to give you enough time to complete the download. The default is 3600 seconds (one hour).
 3. Select **Generate URL**.
 
 # [PowerShell](#tab/azure-powershell)

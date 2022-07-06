@@ -36,7 +36,7 @@ Automated ML supports model training for computer vision tasks like image classi
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
 * The Azure Machine Learning Python SDK installed.
     To install the SDK you can either, 
