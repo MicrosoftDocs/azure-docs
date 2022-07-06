@@ -39,7 +39,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 
   Right-click on each instance and choose All Tasks -> Restart Service.
 
-    ![](./media/azure-monitor-sap/azure-monitor-providers-NW-Prereq1.png)
+    ![Restart service](./media/azure-monitor-sap/azure-monitor-providers-NW-Prereq1.png)
 
 * 8.2. **On Linux systems**, use the below command where NN is the SAP instance number to restart the host which is logged into.
 
@@ -59,7 +59,7 @@ Logged as a different user
 
 The output should look like this:- 
 
-![](./media/azure-monitor-sap/azure-monitor-providers-NW-SAPControOutput.png)
+![SAPControlOutput](./media/azure-monitor-sap/azure-monitor-providers-NW-SAPControOutput.png)
 
 To conclude and validate, a test query can be done against web methods to validate ( replace the hostname, instance number, and method name ) leverage the below PowerShell script
 
@@ -98,7 +98,7 @@ It is critical that the sapstartsrv service is restarted on each instance of the
     1. Upload "Z_AMS_NETWEAVER_MONITORING.SAP" file into the SAP system by navigating to Transaction code PFCG -> Role Upload. 
     1. Click on Execute (Role gets generated)
 
-   ![image](./media/azure-monitor-sap/azure-monitor-providers-NW-RoleGenerate.png)
+   ![RoleGenerate](./media/azure-monitor-sap/azure-monitor-providers-NW-RoleGenerate.png)
 
     4. Exit the SAP system. 
 
@@ -113,7 +113,7 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
    * Recommended settings for SDF/SMON:
      Login to SAP and TCODE /SDF/SMON – Schedule SDF/SMON as a background job in your Target SAP Client (each Minute). Reference screenshot shared below 
      
-     ![image](https://user-images.githubusercontent.com/74435183/168395025-fd9f8fd6-c859-416e-bebf-3ff97b2a8561.png)
+     ![settings](https://user-images.githubusercontent.com/74435183/168395025-fd9f8fd6-c859-416e-bebf-3ff97b2a8561.png)
      
      _When using SAP internal ACLs to restrict access by IP address, make sure the IP address of sapmon collector VM is added to ACLs_
  
@@ -122,7 +122,7 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
     2. Navigate to Transaction code SICF 
     3. Navigate to Service with Service Path - /default_host/sap/bc/soap/, and activate **wsdl, wsdl11 and RFC**  service: 
 
-    ![image](https://user-images.githubusercontent.com/74435183/171516111-595b93e0-0bd8-45af-86a4-448a8bafe64c.png)
+    ![Activate Service](https://user-images.githubusercontent.com/74435183/171516111-595b93e0-0bd8-45af-86a4-448a8bafe64c.png)
 
 * 9.5 Additional checks to enable the ICF Ports (Optional – Recommended )
 
@@ -130,7 +130,7 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
  
    SAP will start your default browser and navigate to the ping service using the configured port. 
 
-   ![image](https://user-images.githubusercontent.com/74435183/168395183-5badfc27-df27-4e83-96d6-bab2bf1f8b2c.png)
+   ![Configure port](https://user-images.githubusercontent.com/74435183/168395183-5badfc27-df27-4e83-96d6-bab2bf1f8b2c.png)
 
   * If the port could not be reached or the ping test fails, you might need to open the port in the SAP virtual machine by executing the commands below:  
    *Linux:*  
@@ -147,11 +147,11 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
 
 1. Click on the **Providers** Tab on the AMS creation Page, then click on &quot; Add Provider&quot; button to go to the &quot; Add Provider&quot; Page
 
-   ![image](https://user-images.githubusercontent.com/74435183/162337237-8032ac11-bb01-480f-9b01-1b29c5c311a9.png)
+   ![Provider](https://user-images.githubusercontent.com/74435183/162337237-8032ac11-bb01-480f-9b01-1b29c5c311a9.png)
 
 2. Select Type as SAP NetWeaver
 
-   ![image](https://user-images.githubusercontent.com/74435183/168396901-1d292af1-adbc-4121-99cc-e1277a05b402.png)
+   ![Provider Details](https://user-images.githubusercontent.com/74435183/168396901-1d292af1-adbc-4121-99cc-e1277a05b402.png)
 
 * System ID (SID) - Provide the unique SAP system identifier which is a three-character identifier of an SAP system.
 * Application Server - Provide the IP address or the fully qualified domain name (FQDN) of the SAP NetWeaver system to be monitored. 

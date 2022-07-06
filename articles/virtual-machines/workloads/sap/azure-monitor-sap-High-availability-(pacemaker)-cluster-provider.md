@@ -35,12 +35,12 @@ After completing above pre-requisite installation, create a provider for each cl
 Select Add provider from Azure Monitor for SAP solutions resource, and then:
 
 
-<img width="491" alt="image" src="https://user-images.githubusercontent.com/33844181/167706257-2fa23564-cc41-4fc7-a0a2-4d6d0110f563.png">
+<img width="491" alt="Provider" src="https://user-images.githubusercontent.com/33844181/167706257-2fa23564-cc41-4fc7-a0a2-4d6d0110f563.png">
 
 
 For Type, select High-availability cluster (Pacemaker).
 
-Configure providers for each node of cluster by entering endpoint URL in HA Cluster Exporter Endpoint. For SUSE based clusters enter http://<IP address>:9664/metrics. For RHEL based cluster, enter http://<IP address>:44322/metrics?names=ha_cluster
+Configure providers for each node of cluster by entering endpoint URL in HA Cluster Exporter Endpoint. For SUSE based clusters enter http://<'IP address'> :9664/metrics. For RHEL based cluster, enter http://<'IP address'>:44322/metrics?names=ha_cluster
 
 Enter the system ID, host name, and cluster name in the respective boxes.
 
@@ -56,7 +56,7 @@ For SUSE based cluster
 
 
 
-<img width="563" alt="image" src="https://user-images.githubusercontent.com/33844181/167705933-68b0b8c7-5fda-4335-90eb-3354e21c9e1d.png">
+<img width="563" alt="Suse details" src="https://user-images.githubusercontent.com/33844181/167705933-68b0b8c7-5fda-4335-90eb-3354e21c9e1d.png">
 
 
 For RHEL based cluster
@@ -64,7 +64,7 @@ For RHEL based cluster
 
 
 
-<img width="563" alt="image" src="https://user-images.githubusercontent.com/33844181/167706004-9e52da62-a2eb-45df-a36a-346520ea142a.png">
+<img width="563" alt="RHEL Details" src="https://user-images.githubusercontent.com/33844181/167706004-9e52da62-a2eb-45df-a36a-346520ea142a.png">
 
 ## For Azure Monitor for SAP solutions (Classic)
 
