@@ -1,12 +1,12 @@
 ---
-title: Using Virtual Machine Restore Points
-description: Using Virtual Machine Restore Points
+title: Managing Virtual Machine Restore Points
+description: Managing Virtual Machine Restore Points
 author: dikethir
 ms.author: dikethir
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 07/05/2022
 ms.custom: template-how-to
 ---
 

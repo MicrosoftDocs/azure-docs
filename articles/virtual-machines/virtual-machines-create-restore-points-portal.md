@@ -6,7 +6,7 @@ ms.author: dikethir
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 06/30/2022
 ms.custom: template-how-to
 ---
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > * [Create a VM restore point collection](#step-1-create-a-vm-restore-point-collection)
 > * [Create a VM restore point](#step-2-create-a-vm-restore-point)
 > * [Track the progress of Copy operation](#step-3-track-the-status-of-the-vm-restore-point-creation)
-> * [Restore a VM](#restore-a-vm-with-a-restore-point)
+> * [Restore a VM](#restore-a-vm-from-a-restore-point)
 
 ## Prerequisites
 
