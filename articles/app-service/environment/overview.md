@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 03/29/2022
+ms.date: 06/30/2022
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -79,10 +79,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following:
 
-- Send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
 - Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
-- Configure an IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps.
-- Configure a custom domain suffix.
 - Perform a backup and restore operation on a storage account behind a firewall.
 
 ## Pricing

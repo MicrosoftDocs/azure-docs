@@ -3,36 +3,36 @@ title: "Example: Real-time video analysis - Face"
 titleSuffix: Azure Cognitive Services
 description: Use the Face service to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: face-api
+ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 03/01/2018
-ms.author: sbowles
+ms.date: 07/05/2022
+ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Example: How to Analyze Videos in Real-time
+# Example: How to analyze videos in real time
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-This guide will demonstrate how to perform near-real-time analysis on frames taken from a live video stream. The basic components in such a system are:
+This guide will demonstrate how to perform near-real-time analysis on frames taken from a live video stream. The basic steps in this system are:
 
 - Acquire frames from a video source
 - Select which frames to analyze
 - Submit these frames to the API
 - Consume each analysis result that is returned from the API call
 
-These samples are written in C# and the code can be found on GitHub here: [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
+These samples are written in C# and the code can be found [on GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
 
-## The Approach
+## Methods
 
 There are multiple ways to solve the problem of running near-real-time analysis on video streams. We will start by outlining three approaches in increasing levels of sophistication.
 
-### A Simple Approach
+### Using infinite loop
 
 The simplest design for a near-real-time analysis system is an infinite loop, where each iteration grabs a frame, analyzes it, and then consumes the result:
 
@@ -71,7 +71,7 @@ while (true)
 
 This code launches each analysis in a separate Task, which can run in the background while we continue grabbing new frames. With this method we avoid blocking the main thread while waiting for an API call to return, but we have lost some of the guarantees that the simple version provided. Multiple API calls might occur in parallel, and the results might get returned in the wrong order. This could also cause multiple threads to enter the ConsumeResult() function simultaneously, which could be dangerous, if the function is not thread-safe. Finally, this simple code does not keep track of the Tasks that get created, so exceptions will silently disappear. Therefore, the final step is to add a "consumer" thread that will track the analysis tasks, raise exceptions, kill long-running tasks, and ensure that the results get consumed in the correct order.
 
-### A Producer-Consumer Design
+### Producer-consumer design
 
 In our final "producer-consumer" system, we have a producer thread that looks similar to our previous infinite loop. However, instead of consuming analysis results as soon as they are available, the producer simply puts the tasks into a queue to keep track of them.
 
@@ -134,13 +134,13 @@ while (true)
 }
 ```
 
-## Implementing the Solution
+## Implementation
 
-### Getting Started
+### Get sample code
 
 To get your app up and running as quickly as possible, you will use a flexible implementation of the system described above. To access the code, go to [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis).
 
-The library contains the class FrameGrabber, which implements the producer-consumer system discussed above to process video frames from a webcam. The user can specify the exact form of the API call, and the class uses events to let the calling code know when a new frame is acquired or a new analysis result is available.
+The library contains the class **FrameGrabber**, which implements the producer-consumer system discussed above to process video frames from a webcam. The user can specify the exact form of the API call, and the class uses events to let the calling code know when a new frame is acquired or a new analysis result is available.
 
 To illustrate some of the possibilities, there are two sample apps that use the library. The first is a simple console app, and a simplified version of it is reproduced below. It grabs frames from the default webcam, and submits them to the Face service for face detection.
 
@@ -152,7 +152,7 @@ In most modes, there will be a visible delay between the live video on the left,
 
 ![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
 
-### Integrating into your codebase
+### Integrate into your codebase
 
 To get started with this sample, follow these steps:
 
@@ -167,13 +167,12 @@ To get started with this sample, follow these steps:
     - For LiveCameraSample, the keys should be entered into the Settings pane of the app. They will be persisted across sessions as user data.
         
 
-When you're ready to integrate, **reference the VideoFrameAnalyzer library from your own projects.** 
+When you're ready to integrate, reference the **VideoFrameAnalyzer** library from your own projects.
 
-## Summary
+## Next steps
 
 In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how to use our sample code to get started.
 
 Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) or, for broader API feedback, on our [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) site.
 
-## Related Topics
 - [Call the detect API](identity-detect-faces.md)

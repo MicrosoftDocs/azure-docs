@@ -1,19 +1,19 @@
 ---
-title: Use additional context in Microsoft Entra Authenticator notifications (Preview) - Azure Active Directory
+title: Use additional context in Microsoft Authenticator notifications (Preview) - Azure Active Directory
 description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/08/2022
+ms.date: 06/23/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use additional context in Microsoft Entra Authenticator app notifications (Preview) - Authentication Methods Policy
+# How to use additional context in Microsoft Authenticator app notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to improve the security of user sign-in by adding the application and location in Microsoft Entra Authenticator app push notifications.  
+This topic covers how to improve the security of user sign-in by adding the application and location in Microsoft Authenticator app push notifications.  
 
 ## Prerequisites
 
@@ -182,7 +182,7 @@ To turn off additional context, you'll need to PATCH remove **displayAppInformat
 
 To enable additional context in the Azure AD portal, complete the following steps:
 
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Entra Authenticator**.
+1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
 1. Select the target users, click the three dots on the right, and click **Configure**.
    
    ![Screenshot of how to configure number match.](media/howto-authentication-passwordless-phone/configure.png)
@@ -197,5 +197,5 @@ Additional context is not supported for Network Policy Server (NPS).
 
 ## Next steps
 
-[Authentication methods in Azure Active Directory - Microsoft Entra Authenticator app](concept-authentication-authenticator-app.md)
+[Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
 

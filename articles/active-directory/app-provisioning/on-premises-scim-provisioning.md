@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/17/2021
+ms.date: 07/05/2022
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -27,7 +27,6 @@ The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0]
 To provision users to SCIM-enabled apps:
 
  1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that your SCIM endpoint is hosted on.
- 1. Copy the agent onto the virtual machine or server that your SCIM endpoint is hosted on.
  1. Open the provisioning agent installer, agree to the terms of service, and select **Install**.
  1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
  1. Provide credentials for an Azure AD administrator when you're prompted to authorize. Hybrid administrator or global administrator is required.
