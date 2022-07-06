@@ -11,9 +11,9 @@ ms.date: 07/05/2022
 
 # Monitoring Azure Functions data reference
 
-See [Monitoring Azure Functions](monitor-functions.md) for details on collecting and analyzing monitoring data for Azure Functions at the **application** level.
+This reference applies to the use of Azure Monitor for monitoring function apps hosted in Azure Functions. See [Monitoring function app with Azure Monitor](monitor-functions.md) for details on using Azure Monitor to collect and analyze monitoring data from your function apps. 
 
-See [Monitor Azure Functions](functions-monitoring.md) for details on collecting and analysing monitoring data for Azure Functions at the **function** level.
+See [Monitor Azure Functions](functions-monitoring.md) for details on using Application Insights to collect and analyze log data from individual functions in your function app.
 
 ## Metrics
 
@@ -48,17 +48,13 @@ This section lists the types of resource logs you can collect for your function 
 |-|-|
 | FunctionAppLogs | Function app logs |
 
-For the complete list of resource logs you can collect for your function app considering the App Service platform, see [Monitoring *App Service* data reference](../app-service/monitor-app-service-reference.md#resource-logs).
+For more information, see [Monitoring App Service data reference](../app-service/monitor-app-service-reference.md#resource-logs).
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
 
 ## Azure Monitor Logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Functions and available for query by Log Analytics.
-
-<!-- TODO:glenn Same as above -->
-
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+Azure Functions uses Kusto tables from Azure Monitor Logs. You can query the [FunctionAppLogs table](/azure/azure-monitor/reference/tables/functionapplogs) with Log Analytics. For more information, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services).
 
 ## Activity log
 
@@ -66,23 +62,14 @@ The following table lists the operations related to Azure Functions that may be 
 
 | Operation | Description |
 |:---|:---|
-|Create or Update Web App| App was created or updated|
-|Delete Web App| App was deleted |
-|Create Web App Backup| Backup of app|
-|Get Web App Publishing Profile| Download of publishing profile |
-|Publish Web App| App deployed |
-|Restart Web App| App restarted|
-|Start Web App| App started |
-|Stop Web App| App stopped|
-|Swap Web App Slots| Slots were swapped|
-|Get Web App Slots Differences| Slot differences|
-|Apply Web App Configuration| Applied configuration changes|
-|Reset Web App Configuration| Configuration changes reset|
-|Approve Private Endpoint Connections| Approved private endpoint connections|
-|Network Trace Web Apps| Started network trace|
-|Newpassword Web Apps| New password created |
-|Get Zipped Container Logs for Web App| Get container logs |
-|Restore Web App From Backup Blob| App restored from backup|
+|List Web Apps Functions Keys | Return the [keys for the function]functions-bindings-http-webhook-trigger.md#authorization-keys.|
+|List Web Apps Functions Host Keys | Return the [host keys for the function app]functions-bindings-http-webhook-trigger.md#authorization-keys.|
+|Start Web App| Function app started. |
+|Stop Web App| Function app stopped.|
+|Sync Web Apps Function Triggers | [Sync triggers](functions-deployment-technologies.md#trigger-syncing) operation.|
+|Update website| Change a function app setting, such as runtime version or enable remote debugging.|
+
+You may also find logged operations that relate to the underlying App Service behaviors. For more information, see the [Monitoring App Service reference](../app-service/monitor-app-service-reference.md#activity-log).
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
