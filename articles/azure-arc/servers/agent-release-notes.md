@@ -32,7 +32,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Fixed
 
-- Agents configured to use private endpoints will now download extensions over the private endpoint.
+- Agents configured to use private endpoints will now download extensions over the private endpoint
+- The `--use-private-link` flag on [azcmagent check](manage-agent.md#check) has been renamed to `--enable-pls-check` to more accurately represent its function
 
 ## Version 1.19 - June 2022
 
