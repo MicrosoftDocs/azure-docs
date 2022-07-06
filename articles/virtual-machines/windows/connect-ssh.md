@@ -19,6 +19,13 @@ using Secure Shell ubiquitous by providing native support in Windows. The capabi
 Windows Server version 2019 and later, and can be added to older versions of Windows using a virtual
 machine (VM) extension.
 
+The examples below use variables. You can set variables in your environment as follows.
+
+| Shell | Example
+|-|-
+| Bash/ZSH | myResourceGroup='resGroup10'
+| PowerShell | $myResourceGroup='resGroup10'
+
 ## Install SSH
 
 First, you will need to enable SSH in your Windows machine.
