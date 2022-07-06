@@ -116,6 +116,8 @@
     items:
     - name: Resiliency and disaster recovery
       href: concept-disaster-recovery.md
+    - name: Availability zones
+      href: concept-availability-zones.md
   - name: Performance considerations
     href: concept-performance.md
   - name: Billing model
