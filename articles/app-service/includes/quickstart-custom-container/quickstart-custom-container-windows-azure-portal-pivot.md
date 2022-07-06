@@ -21,12 +21,7 @@ To complete this quickstart, you need:
 
 ## 1 - Clone the sample repository
 
-We will clone the code so that we can update the code and then update our container.
-
-1. Go to [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
-1. Select the **Code** button.
-1. Copy the HTTPS URL.
-1. In your command line, run:
+Clone the [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world) with the following command:
 
     ```bash
     git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
@@ -34,10 +29,16 @@ We will clone the code so that we can update the code and then update our contai
 
 ## 2 - Push the image to Azure Container Registry
 
-The cloned repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system, explicitly calling out our Windows base.
+Make sure you are in the cloned repository's root folder. This repository contains a **Dockerfile.windows** file. We will be using Windows Nano Server Long Term Servicing Channel (LTSC) 2022 as the base operating system, explicitly calling out our Windows base.
 
 > [!NOTE]
-> [Even though this is a Windows container, the paths still need to use forward slashes. See [Write a Dockerfile](/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-using-copy-with-windows) for more details.]]
+> [Even though this is a Windows container, the paths still need to use forward slashes. See [Write a Dockerfile](/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-using-copy-with-windows) for more details.]
+
+1. Log in to the Azure CLI.
+
+    ```azurecli
+    az login
+    ```
 
 1. Log in to Azure Container Registry.
 
@@ -57,15 +58,14 @@ The cloned repository contains a **Dockerfile.windows** file. We will be using W
     docker push <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-windows:latest
     ```
 
-> [!NOTE]
-> The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure custom container](../../configure-custom-container.md).
+    > [!NOTE]
+    > The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure custom container](../../configure-custom-container.md).
 
 ## 3 - Deploy to Azure
 
 ### Sign in to Azure portal
 
 Sign in to the Azure portal at https://portal.azure.com.
-
 
 ### Create Azure resources
 
@@ -106,7 +106,6 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
-
 ##  4 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
@@ -118,7 +117,6 @@ Note that the Host operating system appears in the footer, confirming we are run
 ## 5 - Clean up resources
 
 [!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
-
 
 ## Next steps
 
