@@ -13,12 +13,12 @@ compliant state through **Remediation**. Remediation is accomplished through **r
 subscription, resource group, or individual resource. This article shows the steps needed to
 understand and accomplish remediation with Azure Policy.
 
-## How remediation security works
+## How remediation access control works
 
 When Azure Policy starts a template deployment when evaluating **deployIfNotExists** policies or modifies a resource when evaluating **modify** policies, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) that is associated with the policy assignment.
 Policy assignments use [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) for Azure resource authorization. You can use either a system-assigned managed identity that is created by the policy service or a user-assigned identity provided by the user. The managed identity needs to be assigned the minimum role-based access control (RBAC) role(s) required to remediate resources.
-If the managed identity is missing roles, an error is displayed
+If the managed identity is missing roles, an error is displayed in the portal
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
 automatically grants the managed identity the listed roles once assignment starts. When using an Azure software development kit (SDK),
 the roles must manually be granted to the managed identity. The _location_ of the managed identity
@@ -35,9 +35,8 @@ Remediation security can be configured through the following steps:
 
 ## Configure the policy definition
 
-The first step is to define the roles that **deployIfNotExists** and **modify** needs in the policy
-definition to successfully deploy the content of your included template. Under the **details**
-property in the policy definition, add a **roleDefinitionIds** property. This property is an array of strings that match
+As a prerequisite, the policy definition must define the roles that **deployIfNotExists** and **modify** need to successfully deploy the content of the included template. No action is required for a built-in policy definition because these roles are prepopulated. For a custom policy definition, under the **details**
+property, add a **roleDefinitionIds** property. This property is an array of strings that match
 roles in your environment. For a full example, see the [deployIfNotExists
 example](../concepts/effects.md#deployifnotexists-example) or the
 [modify examples](../concepts/effects.md#modify-examples).
@@ -68,7 +67,12 @@ az role definition list --name "Contributor"
 
 ## Configure the managed identity
 
-Each Azure Policy assignment can be associated with only one managed identity. However, the managed identity can be assigned multiple roles.
+Each Azure Policy assignment can be associated with only one managed identity. However, the managed identity can be assigned multiple roles. Configuration occurs in two steps: first create either a system-assigned or user-assigned managed identity, then grant it the necessary roles. 
+
+   > [!NOTE]
+   > When creating a managed identity through the portal, roles will be granted automatically to the managed identity. If **roleDefinitionIds** are later edited in the policy definition, the new permissions must be manually granted, even in the portal.
+
+### Create the managed identity
 
 # [Portal](#tab/azure-portal)
 
@@ -135,11 +139,13 @@ The `$assignment` variable now contains the principal ID of the managed identity
 
 ---
 
-## Grant permissions to the managed identity through defined roles
+### Grant permissions to the managed identity through defined roles
 
 > [!IMPORTANT]
 > 
-> If the managed identity does not have the permissions needed to execute the required remediation task, it will be granted permissions *automatically* only through the portal. For all other methods, the assignment's managed identity must be manually granted access through the addition of roles, or else the remediation deployment will fail.
+> If the managed identity does not have the permissions needed to execute the required remediation task, it will be granted permissions *automatically* only through the portal. You may skip this step if creating a managed identity through the portal.
+>
+> For all other methods, the assignment's managed identity must be manually granted access through the addition of roles, or else the remediation deployment will fail.
 > 
 > Example scenarios that require manual permissions:
 > - If the assignment is created through SDK
@@ -227,7 +233,7 @@ There are three ways to create a remediation task through the portal.
    shown on the **Policies to remediate** tab. Select one with resources
    that are non-compliant to open the **New remediation task** page.
    
-1. Follow steps to [specify remediation task details](#specify-remediation-task-details).
+1. Follow steps to [specify remediation task details](#step-2-specify-remediation-task-details).
 
 #### Option 2. Create a remediation task from a non-compliant policy assignment
 
@@ -237,7 +243,7 @@ There are three ways to create a remediation task through the portal.
 
 1. Select the **Create Remediation Task** button at the top of the page to open the **New remediation task** page.
 
-1. Follow steps to [specify remediation task details](#specify-remediation-task-details).
+1. Follow steps to [specify remediation task details](#step-2-specify-remediation-task-details).
 
 #### Option 3. Create a remediation task during policy assignment
 
@@ -306,7 +312,7 @@ or **modify** policy assignment ID.
 az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-For other remediation commands and examples, see the [az policy
+For more remediation commands and examples, see the [az policy
 remediation](/cli/azure/policy/remediation) commands.
 
 # [PowerShell](#tab/azure-powershell)
@@ -322,7 +328,12 @@ commands. Replace `{subscriptionId}` with your subscription ID and `{myAssignmen
 Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
+You may also choose to adjust remediation settings through these optional parameters:
+- **-FailureThreshold** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
+- **-ParallelDeploymentCount** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number of is 50,000 resources.
+- **-ResourceCount** - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
+
+For more remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.
 
 ---
