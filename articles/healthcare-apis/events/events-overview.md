@@ -53,7 +53,7 @@ Use Events to send FHIR resource change messages to services like [Azure Event H
  
 ## Secure
 
-Built on a platform that supports protected health information and personally identifiable information data compliance with privacy, safety, and security in mind, the Events messages do not transmit sensitive data as part of the message payload.
+Built on a platform that supports protected health information and customer content data compliance with privacy, safety, and security in mind, the Events messages do not transmit sensitive data as part of the message payload.
 
 Use [Azure Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from your Event Grid system topic to the Events message receiving endpoints of your choice. 
 
