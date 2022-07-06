@@ -42,3 +42,7 @@ You'll stop being charged for ExpressRoute Direct's port pairs after you delete 
 ### Does ExpressRoute Direct support overprovisioning? 
 
 Yes, the ExpressRoute Direct resource supports an overprovision factor of 2. As a result, a customer can create up to 20Gb of ExpressRoute circuits on a 10Gb ExpressRoute Direct. Additionally, customers can create 200Gb of ExpressRoute circuits on a 100Gb ExpressRoute Direct. 
+
+### Can I deploy multiple ExpressRoute Circuits to increase my available bandwidth to my ExpressRoute Gateway?
+
+Yes, it is possible to deploy multiple circuits and advertise the same AS path length and IP advertisements to it from your datacenter, however individual flows won’t be able to benefit from the increase bandwidth. If you have multiple flows then they will be able to take advantage of the increased capacity, without jeopardizing resiliency of a single circuit. Keep in mind that traffic won’t necessarily be symmetrical so any form of stateful inspection within your datacenter needs to allow for this configuration. Also, be aware that you are still constrained to the maximum bandwidth of ExpressRoute Gateway Sku.
