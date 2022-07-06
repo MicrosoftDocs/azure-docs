@@ -77,7 +77,7 @@ Select **Profile now** to start a profiling session. This process will take a fe
 
 :::image type="content" source="./media/profiler-cloudservice/profile-now.png" alt-text="Screenshot of selecting Profile Now to start a profiling session.":::
 
-For more instructions on profiling sessions, see the [Profiler overview](./profiler-overview.md#start-a-profiler-on-demand-session).
+For more instructions on profiling sessions, see the [Profiler overview](./profiler-data.md#start-a-profiler-on-demand-session).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
  

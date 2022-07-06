@@ -13,11 +13,14 @@ For Profiler to upload traces, your application must be actively handling reques
 
 Suppose you're running a web performance test. You'll need traces to help you understand how your web app is running under load. By controlling when traces are captured, you'll know when the load test will be running, while the random sampling interval might miss it.
 
-### Generate traffic to your web app by starting a web performance test
+## Generate traffic to your web app by starting a web performance test
 
-If you've newly enabled Profiler, you can run a short [load test](/vsts/load-test/app-service-web-app-performance-test). If your web app already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a Profiler on-demand session.
+If you've newly enabled Profiler, you can run a short [load test](/vsts/load-test/app-service-web-app-performance-test). 
 
-### Start a Profiler on-demand session
+If your web app already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a Profiler on-demand session.
+
+## Start a Profiler on-demand session
+
 1. From the Application Insights overview page, select **Performance** from the left menu. 
 1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
 
@@ -27,7 +30,8 @@ If you've newly enabled Profiler, you can run a short [load test](/vsts/load-tes
 
    :::image type="content" source="./media/profiler-settings/configure-blade-inline.png" alt-text="Profiler page features and settings" lightbox="media/profiler-settings/configure-blade.png":::
 
-### View traces
+## View traces
+
 1. After the Profiler sessions finish running, return to the **Performance** pane. 
 1. Under **Drill into...**, select **Profiler traces** to view the traces.
 
@@ -48,7 +52,7 @@ The trace explorer displays the following information:
 
 ## How to read performance data
 
-The Microsoft service profiler uses a combination of sampling methods and instrumentation to analyze the performance of your application. When detailed collection is in progress, the service profiler samples the instruction pointer of each machine CPU every millisecond. Each sample captures the complete call stack of the thread that's currently executing. It gives detailed information about what that thread was doing, at both a high level and a low level of abstraction. The service profiler also collects other events to track activity correlation and causality, including context switching events, Task Parallel Library (TPL) events, and thread pool events.
+Profiler uses a combination of sampling methods and instrumentation to analyze the performance of your application. When detailed collection is in progress, the service profiler samples the instruction pointer of each machine CPU every millisecond. Each sample captures the complete call stack of the thread that's currently executing. It gives detailed information about what that thread was doing, at both a high level and a low level of abstraction. The service profiler also collects other events to track activity correlation and causality, including context switching events, Task Parallel Library (TPL) events, and thread pool events.
 
 The call stack displayed in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from Microsoft .NET Framework and other frameworks that you reference.
 
@@ -133,16 +137,6 @@ The **When** column is a visualization of the variety of _inclusive_ samples col
 - Nodes with an obvious relationship to consuming a resource (for example, a CPU, disk, or thread). 
 
 For these metrics, you can get a value of greater than 100% by consuming multiple resources. For example, if you use two CPUs during an interval on average, you get 200%.
-
-## Limitations
-
-The default data retention period is five days. 
-
-There are no charges for using the Profiler service. To use it, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
-
-## Overhead and sampling algorithm
-
-Profiler randomly runs two minutes/hour on each virtual machine hosting the application with Profiler enabled for capturing traces. When Profiler is running, it adds from 5-15% CPU overhead to the server.
 
 ## Next steps
 Enable Application Insights Profiler for your Azure application. Also see:
