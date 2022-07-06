@@ -39,10 +39,10 @@ For more information on Kubernetes volumes, see [Storage options for application
 |nodeStageSecretRef.namespace | Specify the namespace of secret | k8s namespace | Yes ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions | `0777` | No ||
-|--- | **Following parameters are only for NFS vnet setting** | --- | --- | --- |
-|vnetResourceGroup | Specify vnet resource group where virtual network is | myResourceGroup | No | If empty, driver will use the `vnetResourceGroup` value specified in the Azure cloud config file.|
-|vnetName | Specify the virtual network name | aksVNet | No | If empty, driver will use the `vnetName` value specified in the Azure cloud config file.|
-|subnetName | Specify the existing subnet name of the agent node | aksSubnet | No | If empty, driver will use the `subnetName` value in azure cloud config file. |
+|--- | **Following parameters are only for NFS VNet setting** | --- | --- | --- |
+|vnetResourceGroup | Specify VNet resource group where virtual network is | myResourceGroup | No | If empty, driver will use the `vnetResourceGroup` value specified in the Azure cloud config file.|
+|vnetName | Specify the virtual network name | aksVNet | No | If empty, driver uses the `vnetName` value specified in the Azure cloud config file.|
+|subnetName | Specify the existing subnet name of the agent node | aksSubnet | No | If empty, driver uses the `subnetName` value in Azure cloud config file. |
 |--- | **Following parameters are only for feature: blobfuse [Managed Identity and Service Principal Name auth](https://github.com/Azure/azure-storage-fuse#environment-variables)** | --- | --- |--- |
 |volumeAttributes.AzureStorageAuthType | Specify the authentication type | `Key`, `SAS`, `MSI`, `SPN` | No | `Key`|
 |volumeAttributes.AzureStorageIdentityClientID | Specify the Identity Client ID |  | No ||
@@ -55,7 +55,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 |--- | **Following parameters are only for feature: blobfuse read account key or SAS token from key vault** | --- | --- | --- |
 |volumeAttributes.keyVaultURL | Specify Azure Key Vault DNS name | {vault-name}.vault.azure.net | No ||
 |volumeAttributes.keyVaultSecretName | Specify Azure Key Vault secret name | Existing Azure Key Vault secret name | No ||
-|volumeAttributes.keyVaultSecretVersion | Azure Key Vault secret version | existing version | No |If empty, driver will use "current version"|
+|volumeAttributes.keyVaultSecretVersion | Azure Key Vault secret version | Existing version | No |If empty, driver will use current version|
 
 ## Create a Blob storage container
 
@@ -77,7 +77,7 @@ Next, create a container for storing blobs following the steps in the [Manage bl
 
 ## Mount Blob storage as a volume using NFS
 
-Mounting blob storage using the NFS v3 protocol does not authenticate using an account key. Your AKS cluster needs to reside in the same or peered virtual network as the agent node. The only way to secure the data in your storage account is by using a virtual network and other network security settings. For more information on how to setup NFS access to your storage account, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md).
+Mounting blob storage using the NFS v3 protocol doesn't authenticate using an account key. Your AKS cluster needs to reside in the same or peered virtual network as the agent node. The only way to secure the data in your storage account is by using a virtual network and other network security settings. For more information on how to set up NFS access to your storage account, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 The following example demonstrates how to mount a Blob storage container as a persistent volume using the NFS protocol.
 
@@ -277,7 +277,7 @@ The following YAML creates a pod that uses the persistent volume claim **pvc-blo
 ## Next steps
 
 - To learn how to use CSI driver for Azure Blob storage, see [Use Azure Blob storage with CSI driver][azure-blob-storage-csi].
-- To learn how to manually setup a dynamic persistent volume, see [Create and use a dynamic volume with Azure Blob storage][azure-csi-blob-storage-dynamic].
+- To learn how to manually set up a dynamic persistent volume, see [Create and use a dynamic volume with Azure Blob storage][azure-csi-blob-storage-dynamic].
 - For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
 <!-- LINKS - external -->
