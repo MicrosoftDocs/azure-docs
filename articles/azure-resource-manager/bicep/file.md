@@ -332,7 +332,7 @@ The preceding example is equivalent to the following JSON.
 
 ## Multiple-line declarations
 
-You can now use multiple lines in function, array and object declarations.
+You can now use multiple lines in function, array and object declarations. This feature requires **Bicep version 0.7.4 or later**.
 
 In the following example, the `resourceGroup()` definition is broken into multiple lines.
 
@@ -343,6 +343,7 @@ var foo = resourceGroup(
 ```
 
 See [Arrays](./data-types.md#arrays) and [Objects](./data-types.md/#objects) for multiple-line declaration samples.
+
 
 ## Known limitations
 

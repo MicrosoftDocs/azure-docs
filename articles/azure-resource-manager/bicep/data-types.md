@@ -23,7 +23,7 @@ Within a Bicep, you can use these data types:
 
 ## Arrays
 
-Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, an array can be declared in single line or multiple lines. Commas (`,`) are used between values in single-line declarations, but not used in multiple-line declarations,  You can mix and match single-line and multiple-line declarations.
+Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, an array can be declared in single line or multiple lines. Commas (`,`) are used between values in single-line declarations, but not used in multiple-line declarations,  You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires **Bicep version 0.7.4 or later**.
 
 ```bicep
 var multiLineArray = [
@@ -91,7 +91,7 @@ Floating point, decimal or binary formats aren't currently supported.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object can be declared in single line or multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but not used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations:
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object can be declared in single line or multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but not used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires **Bicep version 0.7.4 or later**.
 
 ```bicep
 param singleLineObject object = {name: 'test name', id: '123-abc', isCurrent: true, tier: 1}
