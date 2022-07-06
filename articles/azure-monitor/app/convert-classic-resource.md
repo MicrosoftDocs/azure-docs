@@ -1,6 +1,6 @@
 ---
-title: Migrate an Azure Monitor Application Insights classic resource to a workspace-based resource | Microsoft Docs
-description: Learn about the steps required to upgrade your Azure Monitor Application Insights classic resource to the new workspace-based model. 
+title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
+description: Learn about the steps required to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
 ms.date: 09/23/2020 
 ms.custom: devx-track-azurepowershell
@@ -38,7 +38,7 @@ When you migrate to a workspace-based resource, no data is transferred from your
 Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you're able to change the target workspace as often as needed. 
 
-If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
+If you don't need to migrate an existing resource and instead want to create a new workspace-based Application Insights resource, use the [workspace-based resource creation guide](create-workspace-resource.md).
 
 ## Pre-requisites
 
@@ -98,7 +98,7 @@ To write queries against the [new workspace-based table structure/schema](#works
 
 To ensure the queries successfully run, validate that the query's fields align with the [new schema fields](#appmetrics).
 
-If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace but you only want to query data from one specific Application Insights resource, you have two options:
+If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace, but you only want to query data from one specific Application Insights resource, you have two options:
 
 - Option 1: Go to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the selected Application Insights resource.
 - Option 2: Go to the Log Analytics workspace that you configured as the destination for your Application Insights telemetry and open the **Logs** tab. To query data from a specific Application Insights resource, filter for the built-in ```_ResourceId``` property that is available in all application specific tables.
@@ -504,8 +504,10 @@ Legacy table: customMetrics
 |valueCount|int|ValueCount|int|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
-|valueStdDev|real|ValueStdDev|real|
 |valueSum|real|ValueSum|real|
+
+> [!NOTE]
+> Older versions of Application Insights SDKs used to report standard deviation (valueStdDev) in the metrics pre-aggregation. Due to little adoption in metrics analysis, the field was removed and is no longer aggregated by the SDKs. If the value is received by the Application Insights data collection end point, it gets dropped during ingestion and is not sent to the Log Analytics workspace. If you are interested in using standard deviation in your analysis, we recommend using queries against Application Insights raw events.
 
 #### AppPageViews
 
