@@ -97,6 +97,7 @@ The following table lists the .NET Framework types and members allowed in policy
 |System.DateTimeOffset|All|
 |System.Decimal|All|
 |System.Double|All|
+|System.Enum|Parse, TryParse, ToString|
 |System.Exception|All|
 |System.Guid|All|
 |System.Int16|All|
@@ -107,7 +108,7 @@ The following table lists the .NET Framework types and members allowed in policy
 |System.Linq.Enumerable|All|
 |System.Math|All|
 |System.MidpointRounding|All|
-|System.Net.IPAddress|All|
+|System.Net.IPAddress|AddressFamily, Equals, GetAddressBytes, IsLoopback, Parse, TryParse, ToString|
 |System.Net.WebUtility|All|
 |System.Nullable|All|
 |System.Random|All|
