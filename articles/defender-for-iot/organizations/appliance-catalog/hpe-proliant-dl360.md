@@ -47,6 +47,7 @@ The following image shows a view of the HPE ProLiant Dl360 back panel:
 |**Power**            |Two HPE 500-W flex slot platinum hot plug low halogen power supply kit
 |**Rack support**     | HPE 1U Gen10 SFF easy install rail kit        |
 
+
 ## HPE DL360 BOM
 
 |PN	|Description	|Quantity|
@@ -136,6 +137,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 
 1. In the **Create Array** form, select all the options.
 
+> [!NOTE]
+> For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
+>
 
 ### Install iLO remotely from a virtual drive
 
@@ -177,6 +181,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

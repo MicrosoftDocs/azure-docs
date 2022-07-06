@@ -81,7 +81,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Prepare a virtual machine (VM) to receive the downlinked AQUA data
 1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint virtual machine (VM)
-2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md) within the virtual network above. Ensure that this VM has the following specifications:
+2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network above. Ensure that this VM has the following specifications:
 - Operation System: Linux (Ubuntu 18.04 or higher)
 - Size: at least 32 GiB of RAM
 - Ensure that the VM has at least one standard public IP

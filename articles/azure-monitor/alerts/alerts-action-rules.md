@@ -3,6 +3,7 @@ title: Alert processing rules for Azure Monitor alerts
 description: Understanding what alert processing rules in Azure Monitor are and how to configure and manage them.
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: ofmanor
 
 ---
 
@@ -22,14 +23,13 @@ Some common use cases for alert processing rules include:
 
 ### Notification suppression during planned maintenance
 
-Many customers set up a planned maintenance time for their resources, either on a one-off basis or on a regular schedule. The planned maintenance may cover a single resource like a virtual machine, or multiple resources like all virtual machines in a resource group. Those customers may choose to stop receiving alert notifications for those resources during the maintenance window. 
-  
-Other customers do not need to receive alert notifications at all outside of their business hours.
+Many customers set up a planned maintenance time for their resources, either on a one-off basis or on a regular schedule. The planned maintenance may cover a single resource like a virtual machine, or multiple resources like all virtual machines in a resource group. So, you may want to stop receiving alert notifications for those resources during the maintenance window. In other cases, you may prefer to not receive alert notifications at all outside of your business hours. Alert processing rules allow you to achieve that.
 
-You could suppress alert notifications by disabling the alert rules themselves, but this approach has several limitations:
-   * You could disable the relevant alert rule at the beginning of the maintenance window. Once the maintenance is over, you can then re-enable the alert rule. However, this  approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintenance. For example, a single alert rule might cover multiple resources, but only one of those resources is going through maintenance. So, if you disable the alert rule, you will miss valid alerts on the remaining resources covered by that rule.
+You could alternatively suppress alert notifications by disabling the alert rules themselves at the beginning of the maintenance window, and re-enabling them once the maintenance is over. In that case, the alerts won't fire in the first place. However, that approach has several limitations:
+   * This approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintenance. For example, a single alert rule might cover multiple resources, but only a few of those resources are going through maintenance. So, if you disable the alert rule, you will not be alerted when the remaining resources covered by that rule run into issues.
    * You may have many alert rules that cover the resource. Updating all of them is time consuming and error prone.
-   * You might have some alerts that are not created by an alert rule at all.
+   * You might have some alerts that are not created by an alert rule at all, like alerts from Azure Backup.  
+ 
 In all these cases, an alert processing rule provides an easy way to achieve the notification suppression goal.
 
 ### Management at scale
@@ -95,7 +95,7 @@ This action adds one or more action groups to the affected fired alerts.
 
 ### When should this rule apply?
 
-You may optionally control when will the rule apply. By default, the rule is applied unconditionally as long as it is enabled. However, you can select a one-off window for this rule to apply, or have a recurring window such as a weekly recurrence. 
+You may optionally control when will the rule apply. By default, the rule is always active. However, you can select a one-off window for this rule to apply, or have a recurring window such as a weekly recurrence. 
 
 ## Configuring an alert processing rule
 
@@ -115,7 +115,7 @@ In the second tab (**Rule settings**), you select which action to apply on the a
 
 ![Alert processing rules wizard - rule settings tab.](media/alerts-action-rules/action-rules-wizard-rule-settings-tab.png)
 
-In the third tab (**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, as long as it is not disabled. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
+In the third tab (**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, unless you disable it. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
 Let's see an example of a schedule for a one-off, overnight, planned maintenance. It starts in the evening until the next morning, in a specific timezone:
 
 ![Alert processing rules wizard - scheduling tab - one-off schedule.](media/alerts-action-rules/action-rules-wizard-scheduling-tab-once.png)

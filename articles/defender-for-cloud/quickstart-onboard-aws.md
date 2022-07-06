@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 06/15/2022
+ms.date: 06/29/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -29,7 +29,8 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Four AWS projects listed on Defender for Cloud's overview dashboard" lightbox="./media/quickstart-onboard-aws/aws-account-in-overview.png":::
 
-You can learn more from the product manager about Microsoft Defender for Cloud's new AWS connector by watching [New AWS connector](episode-one.md).
+You can learn more by watching this video from the Defender for Cloud in the Field video series: 
+- [New AWS connector](episode-one.md)
 
 
 ::: zone pivot="env-settings"
@@ -87,7 +88,7 @@ You can learn more from the product manager about Microsoft Defender for Cloud's
         > [!NOTE]
         > To enable the Azure Arc auto-provisioning, you'll need an **Owner** permission on the relevant Azure subscription.
         
-        - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that do not have Azure Arc installed.
+        - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
         
     - Additional extensions should be enabled on the Arc-connected machines.
         - Microsoft Defender for Endpoint
@@ -154,7 +155,7 @@ If you have any existing connectors created with the classic cloud connectors ex
     
     - (Optional) Select **Configure**, to edit the configuration as required. 
 
-1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you have fulfilled the  [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
+1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you've fulfilled the  [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
     > [!Note] 
     > Azure Arc-enabled Kubernetes, the Defender Arc extension, and the Azure Policy Arc extension should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
@@ -170,7 +171,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 1. Download the CloudFormation template.
     
-1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen. If you are onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
+1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen. If you're onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
     
 1. Select **Next: Review and generate**.
     
@@ -345,6 +346,51 @@ For other operating systems, the SSM Agent should be installed manually using th
 
 - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
 - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
+
+### For the CSPM plan, what IAM permissions are needed to discover AWS resources?
+
+The following IAM permissions are needed to discover AWS resources:
+
+| DataCollector | AWS Permissions  |
+|--|--|
+| API Gateway | apigateway:GET |
+| Application Auto Scaling | application-autoscaling:Describe* |
+| Auto scaling | autoscaling-plans:Describe* <br> autoscaling:Describe* |
+| Certificate manager | acm-pca:Describe* <br> acm-pca:List* <br> acm:Describe* <br>acm:List* |
+| CloudFormation | cloudformation:Describe* <br> cloudformation:List* |
+| CloudFront | cloudfront:DescribeFunction <br> cloudfront:GetDistribution <br> cloudfront:GetDistributionConfig <br>cloudfront:List* |
+| CloudTrail | cloudtrail:Describe* <br> cloudtrail:GetEventSelectors <br> cloudtrail:List* <br> cloudtrail:LookupEvents |
+| CloudWatch | cloudwatch:Describe* <br> cloudwatch:List* |
+| CloudWatch logs | logs:DescribeLogGroups <br> logs:DescribeMetricFilters |
+| CodeBuild | codebuild:DescribeCodeCoverages <br> codebuild:DescribeTestCases <br> codebuild:List* |
+| Config Service | config:Describe* <br> config:List* |
+| DMS – database migration service | dms:Describe* <br> dms:List* |
+| DAX | dax:Describe* |
+| DynamoDB | dynamodb:Describe* <br> dynamodb:List* |
+| Ec2 | ec2:Describe* <br> ec2:GetEbsEncryptionByDefault |
+| ECR | ecr:Describe* <br> ecr:List* |
+| ECS | ecs:Describe* <br> ecs:List* |
+| EFS | elasticfilesystem:Describe* |
+| EKS | eks:Describe* <br> eks:List* |
+| Elastic Beanstalk | elasticbeanstalk:Describe* <br> elasticbeanstalk:List* |
+| ELB – elastic load balancing (v1/2) | elasticloadbalancing:Describe* |
+| Elastic search | es:Describe* <br> es:List* |
+| EMR – elastic map reduce | elasticmapreduce:Describe* <br> elasticmapreduce:GetBlockPublicAccessConfiguration <br> elasticmapreduce:List* <br> elasticmapreduce:View* |
+| GuardDute | guardduty:DescribeOrganizationConfiguration <br> guardduty:DescribePublishingDestination <br> guardduty:List* |
+| IAM | iam:Generate* <br> iam:Get* <br> iam:List*<br> iam:Simulate* |
+| KMS | kms:Describe* <br> kms:List* |
+| LAMDBA | lambda:GetPolicy <br> lambda:List* |
+| Network firewall | network-firewall:DescribeFirewall <br> network-firewall:DescribeFirewallPolicy <br> network-firewall:DescribeLoggingConfiguration <br> network-firewall:DescribeResourcePolicy <br> network-firewall:DescribeRuleGroup <br> network-firewall:DescribeRuleGroupMetadata <br> network-firewall:ListFirewallPolicies <br> network-firewall:ListFirewalls <br> network-firewall:ListRuleGroups <br> network-firewall:ListTagsForResource |
+| RDS | rds:Describe* <br> rds:List* |
+| RedShift | redshift:Describe* |
+| S3 and S3Control | s3:DescribeJob <br> s3:GetEncryptionConfiguration <br> s3:GetBucketPublicAccessBlock <br> s3:GetBucketTagging <br> s3:GetBucketLogging <br> s3:GetBucketAcl <br> s3:GetBucketLocation <br> s3:GetBucketPolicy <br> s3:GetReplicationConfiguration <br> s3:GetAccountPublicAccessBlock <br> s3:GetObjectAcl <br> s3:GetObjectTagging <br> s3:List* |
+| SageMaker | sagemaker:Describe* <br> sagemaker:GetSearchSuggestions <br> sagemaker:List* <br> sagemaker:Search |
+| Secret manager | secretsmanager:Describe* <br> secretsmanager:List* |
+| Simple notification service – SNS | sns:Check* <br> sns:List* |
+| SSM | ssm:Describe* <br> ssm:List* |
+| SQS | sqs:List* <br> sqs:Receive* |
+| STS | sts:GetCallerIdentity |
+| WAF | waf-regional:Get* <br> waf-regional:List* <br> waf:List* <br> wafv2:CheckCapacity <br> wafv2:Describe* <br> wafv2:List* |
 
 ## Learn more
 
