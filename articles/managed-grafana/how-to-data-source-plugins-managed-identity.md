@@ -52,7 +52,7 @@ You can find all available Grafana data sources by going to your resource and se
    :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
 
 > [!NOTE]
-> These data sources are also listed on the page **Configuration** > **Plugins**. However, some of the data sources and other plugins displayed on this page are not supported by Azure Managed Grafana. To view supported data sources, go to **Configuration** > **Data sources** > **Add a data source**.
+> Installing Grafana plugins listed on the page **Configuration** > **Plugins** isn’t currently supported.
 
 For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 
@@ -64,7 +64,7 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
-1. Azure Monitor should be listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
+1. Azure Monitor is listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
 1. In **Settings**, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration-Azure-Monitor-settings.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
