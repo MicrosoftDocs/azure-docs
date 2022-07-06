@@ -57,7 +57,7 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 
 1. Create the options object. 
     
-    The scope of the abilities of a SAS token are defined by the [AccountSASSignatureValues](/javascript/api/@azure/storage-blob/accountsassignaturevalues). 
+    The scope of the abilities of a SAS token is defined by the [AccountSASSignatureValues](/javascript/api/@azure/storage-blob/accountsassignaturevalues). 
 
     Use the following helper functions provided by the SDK to create the correct value types for the values:
 
