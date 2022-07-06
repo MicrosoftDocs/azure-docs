@@ -107,7 +107,7 @@ For more information, see:
 
 Starting in sensor version [22.1.1](#new-support-diagnostics-log), you've been able to download a diagnostic log from the sensor console to send to support when you open a ticket.
 
-Now, for locally-managed sensors, you can upload that diagnostic log directly on the Azure portal.
+Now, for locally managed sensors, you can upload that diagnostic log directly on the Azure portal.
 
 :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the Send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
 
