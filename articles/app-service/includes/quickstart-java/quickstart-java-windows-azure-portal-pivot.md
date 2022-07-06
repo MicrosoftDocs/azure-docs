@@ -1,10 +1,19 @@
-[Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java app to Azure App Service on Linux using the Azure portal.
+---
+author: cephalin
+ms.service: app-service
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 06/30/2022
+ms.author: cephalin
+---
+
+[Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Windows using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-![Screenshot of the sample app running in Azure, showing 'Hello World!'](../../media/quickstart-java/hello-world-in-browser.png)
+![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../../media/quickstart-java/hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -30,7 +39,7 @@ To complete this quickstart you need:
 
 ## 2 - Deploy to Azure
 
-1. Sign into the Azure portal.
+1. Log in to the Azure portal.
 
 1. Type **app services** in the search. Under **Services**, select **App Services**.
 
@@ -62,7 +71,7 @@ To complete this quickstart you need:
     ![Screenshot of the Deployment section of the Create Web App wizard in the Azure portal. Deployment - the second section - is highlighted. Under GitHub Actions settings, continuous deployment's Enable is also highlighted.](../../media/quickstart-java/create-web-app-deployment-section.png)
 
 1. In the section under **GitHub Actions details**, select the following settings:
-    - GitHub account: Log into your GitHub account.
+    - GitHub account: Log in to your GitHub account.
     - Organization: Select your organization.
     - Repository: Select _java-docs-spring-hello-world_.
     - Branch: Select _main_.
@@ -111,7 +120,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 1. Enter a commit message such as `Hello Azure`. Then, select **Commit and Push**.
 
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted ](../../media/quickstart-java/visual-studio-code-in-browser-commit-push.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted.](../../media/quickstart-java/visual-studio-code-in-browser-commit-push.png)
 
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
@@ -119,7 +128,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 ## 4 - Manage your new Azure app
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
+1. Go to the [Azure portal](https://portal.azure.com) to manage the web app you created. Search for and select **App Services**.
 
     ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](../../media/quickstart-java/azure-portal-search-for-app-services.png)    
 

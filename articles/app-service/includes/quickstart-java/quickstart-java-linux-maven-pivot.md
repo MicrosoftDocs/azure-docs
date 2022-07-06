@@ -1,3 +1,12 @@
+---
+author: cephalin
+ms.service: app-service
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 06/30/2022
+ms.author: cephalin
+---
+
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
 # [Java SE](#tab/javase)
@@ -10,7 +19,7 @@
 
 # [JBoss EAP](#tab/jbosseap)
 
-JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/jboss-sample-in-app-service.png)
 
 ---
 
@@ -22,9 +31,11 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+## 1 - Use Azure Cloud Shell
 
-## Create a Java app
+[!INCLUDE [cloud-shell-try-it-no-header.md](../../../../includes/cloud-shell-try-it-no-header.md)]
+
+## 2 - Create a Java app
 
 # [Java SE](#tab/javase)
 
@@ -56,11 +67,21 @@ cd helloworld
 
 # [JBoss EAP](#tab/jbosseap)
 
-JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+Clone the Pet Store demo application.
+
+```azurecli-interactive
+git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
+```
+
+Change directory to the cloned project.
+
+```azurecli-interactive
+cd agoncal-application-petstore-ee7
+```
 
 ---
 
-## Configure the Maven plugin
+## 3 - Configure the Maven plugin
 
 > [!TIP]
 > The Maven plugin supports **Java 17** and **Tomcat 10.0**. For more information about latest support, see [Java 17 and Tomcat 10.0 are available on Azure App Service](https://devblogs.microsoft.com/java/java-17-and-tomcat-10-0-available-on-azure-app-service/).
@@ -76,24 +97,21 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 
 # [Java SE](#tab/javase)
 
-1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
-1. When prompted with **OS** option, select **Windows** by entering `1`.
+1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-1. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
+1. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
 1. Finally, press enter on the last prompt to confirm your selections.
-
-    Your summary output will look similar to the snippet shown below.
 
     ```
     Please confirm webapp properties
     Subscription Id : ********-****-****-****-************
-    AppName : spring-boot-1599007390755
-    ResourceGroup : spring-boot-1599007390755-rg
+    AppName : spring-boot-1599007116351
+    ResourceGroup : spring-boot-1599007116351-rg
     Region : centralus
     PricingTier : P1v2
-    OS : Windows
-    Java : Java 11
+    OS : Linux
     Web server stack : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
@@ -101,32 +119,29 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 41.118 s
-    [INFO] Finished at: 2020-09-01T17:43:45-07:00
+    [INFO] Total time: 20.925 s
+    [INFO] Finished at: 2020-09-01T17:38:51-07:00
     [INFO] ------------------------------------------------------------------------
     ```
 
 # [Tomcat](#tab/tomcat)
 
-1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
-1. When prompted with **OS** option, select **Windows** by entering `1`.
+1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-1. When prompted with **webContainer** option, select **Tomcat 8.5** by entering `1`.
-1. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
+1. When prompted with **webcontainer** option, select **Tomcat 8.5** by entering `2`.
+1. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
 1. Finally, press enter on the last prompt to confirm your selections.
-
-    Your summary output will look similar to the snippet shown below.
 
     ```
     Please confirm webapp properties
     Subscription Id : ********-****-****-****-************
-    AppName : helloworld-1599003152123
-    ResourceGroup : helloworld-1599003152123-rg
+    AppName : helloworld-1599003744223
+    ResourceGroup : helloworld-1599003744223-rg
     Region : centralus
     PricingTier : P1v2
-    OS : Windows
-    Java : Java 11
+    OS : Linux
     Web server stack : Tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
@@ -134,16 +149,44 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 03:03 min
-    [INFO] Finished at: 2020-09-01T16:35:30-07:00
+    [INFO] Total time: 50.785 s
+    [INFO] Finished at: 2020-09-01T16:43:09-07:00
     [INFO] ------------------------------------------------------------------------
     ```
 
 # [JBoss EAP](#tab/jbosseap)
 
-JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter.
+1. When prompted with **OS** option, select **Linux** by pressing enter.
+1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
+1. When prompted with **webContainer** option, select **Jbosseap 7** by entering `1`
+1. When prompted with **pricingTier** option, select **P1v3** by entering `1`
+1. Finally, press enter on the last prompt to confirm your selections.
+
+    ```
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : petstoreee7-1623451825408
+    ResourceGroup : petstoreee7-1623451825408-rg
+    Region : centralus
+    PricingTier : P1v3
+    OS : Linux
+    Java : Java 11
+    Web server stack: Jbosseap 7
+    Deploy to slot : false
+    Confirm (Y/N) [Y]: y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 01:01 min
+    [INFO] Finished at: 2021-06-11T15:52:25-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
 
 ---
+
 
 You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed below:
 
@@ -163,7 +206,7 @@ Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-15
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
-## Deploy the app
+## 4 - Deploy the app
 
 With all the configuration ready in your pom file, you can deploy your Java app to Azure with one single command.
 
@@ -177,7 +220,10 @@ mvn package azure-webapp:deploy
 ```
 # [JBoss EAP](#tab/jbosseap)
 
-JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+```azurecli-interactive
+# Disable testing, as it requires Wildfly to be installed locally.
+mvn package azure-webapp:deploy -DskipTests
+```
 
 -----
 
@@ -193,7 +239,7 @@ Once deployment is completed, your application will be ready at `http://<appName
 
 # [JBoss EAP](#tab/jbosseap)
 
-JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/jboss-sample-in-app-service.png)
 
 ---
 
@@ -202,7 +248,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
 
-## Clean up resources
+## 5 - Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. If you don't need the resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
 
