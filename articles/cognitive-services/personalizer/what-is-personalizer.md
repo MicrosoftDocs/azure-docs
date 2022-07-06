@@ -7,39 +7,44 @@ ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 07/06/2022
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning 
 ---
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use the Personalizer service to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, your application monitors the user's reaction and reports a reward score back to the Personalizer service. This ensures continuous improvement of the machine learning model, and Personalizer's ability to select the best content item based on the contextual information it receives.
 
-> [!TIP]
-> Content is any unit of information, such as text, images, URL, emails, or anything else that you want to select from and show to your users.
+Azure Personalizer is cloud-based **reinforcement learning** service that helps your applications to make smarter decisions based on the current context (environment). Personalizer can determine the best action (or content) to take in a broad range of scenarios:
+* What product to suggest to customers that maximizes the likelihood of a purchase
+* Where to place a a website advertisement to optimize engagement
+* When to send notifications to maximize likelihood of response
+
+After making a decision, your application provides feedback to Personalizer in the form of a reward score. This enables Personalizer to continuously improve the underlying model and adapt to the dynamics of your business.
 
 This documentation contains the following article types:  
 
-* [**Quickstarts**](quickstart-personalizer-sdk.md) are getting-started instructions to guide you through making requests to the service.  
-* [**How-to guides**](how-to-settings.md) contain instructions for using the service in more specific or customized ways.  
-* [**Concepts**](how-personalizer-works.md) provide in-depth explanations of the service functionality and features.  
-* [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+* [**Quickstarts**](quickstart-personalizer-sdk.md) provide step-by-step instructions to guide you through setup and making sample API requests to the service.  
+* [**How-to guides**](how-to-settings.md) contain instructions for using additional capabilities  of the service and further customization to your scenario. 
+* [**Concepts**](how-personalizer-works.md) give detailed explanations of the service functionalities and features.  
+* [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer guides that walk you through implementation of Personalizer as a part of a broader business solution.  
 
-Before you get started, try out [Personalizer with this interactive demo](https://personalizerdevdemo.azurewebsites.net/).
+You can also try Personalizer with this [interactive demo](https://personalizerdevdemo.azurewebsites.net/).
 
-## How does Personalizer select the best content item?
 
-Personalizer uses **reinforcement learning** to select the best item (_action_) based on collective behavior and reward scores across all users. Actions are the content items, such as news articles, specific movies, or products.
+## How does Personalizer work?
 
-The **Rank** call takes the action item, along with features of the action, and context features to select the top action item:
+Personalizer uses reinforcement learning to select the best action based on the behavior and reward scores given across all users. Actions can be any discrete decision that Personalizer can make such as news articles, movies, products.
 
-* **Actions with features** - content items with features specific to each item
-* **Context features** - features of your users, their context or their environment when using your app
+Personalizer consists of two primary APIs:
 
-The Rank call returns the ID of which content item, __action__, to show to the user, in the **Reward Action ID** field.
+The **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called each time your application has a decision to make. You provide the rank call a set of actions, sets of features that describe each of your actions, and a set of features that describe the current context of the system or users. A call to the rank API is is known as an **event** and noted with a unique _event ID_. Personalizer returns the best action to take as determined by the underlying model to maximize your average reward.
 
-The __action__ shown to the user is chosen with machine learning models, that try to maximize the total amount of rewards over time.
+
+The **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) is called whenever there is feedback from your application that can help Personalizer learn if the action chosen in the *Rank* call was valuable. For example, if a user clicked on the suggested news article, or completed the purchase of a chosen product. The *Reward* call can be in real-time (as soon as the decision is made) or delayed to better fit the logic of your scenario.
+
+You determine the reward score based on your business needs. The reward score can be a real-valued number between 0 and 1. In a simple example, 0 can indicate a 'bad' or undesirable outcome, and 1 can represent a "good" or desired outcome. The reward function can also be generated  by an algorithm or rules in your application that align with your business goals or metrics.
+
 
 ### Sample scenarios
 
@@ -56,28 +61,24 @@ Personalizer used reinforcement learning to select the single best action, known
 * A trained model - information previously received from the personalize service used to improve the machine learning model
 * Current data - specific actions with features and context features
 
-## When to use Personalizer
 
-Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called each time your application presents content. This is known as an **event**, noted with an _event ID_.
-
-Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. The reward score is between 0 and 1. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
-
-## Content requirements
+## Scenario requirements
 
 Use Personalizer when your content:
 
-* Has a limited set of actions or items (max of ~50) to select from in each personalization event. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) to reduce the list down to 50 items for each time you call Rank on the Personalizer service.
-* Has information describing the content you want ranked: _actions with features_ and _context features_.
-* Has a minimum of ~1k/day content-related events for Personalizer to be effective. If Personalizer doesn't receive the minimum traffic required, the service takes longer to determine the single best content item.
+* Has a limited set of actions or items to select from in each personalization event. For lower latency, we recommend using no more than ~50 actions in each Rank API call. If you have a larger set of possible actions, we recommend [using a recommendation engine](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) or another mechanism to reduce the list down before calling the Rank API. 
+* Has information describing each action: _actions with features_
+* Has information descriving the _context_, that is, state of your applications and/or users: _context features_
+* Has a sufficient data/traffic to enable Personalizer to learn. A rule-of-thumb is a minimum of ~1k/day events for Personalizer to be learn effectively. If Personalizer doesn't receive the minimum traffic required, the service takes longer to determine the best actions. 
 
-Since Personalizer uses collective information in near real-time to return the single best content item, the service doesn't:
+Note that since Personalizer uses collective information across all users to learn best actions in near real-time, the service does not:
 * Persist and manage user profile information
 * Log individual users' preferences or history
 * Require cleaned and labeled content
 
 ## How to design for and implement Personalizer
 
-1. [Design](concepts-features.md) and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
+1. [Design](concepts-features.md) and plan **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
 1. Each [Personalizer Resource](how-to-settings.md) you create is considered one Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
 
     |Resource type| Purpose|
