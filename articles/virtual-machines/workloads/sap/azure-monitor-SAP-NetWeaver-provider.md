@@ -178,7 +178,7 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
 * SAP password - SAP password to connect to the SAP system (created as Step 9.2)
 
  For more details refer to the AMS public documentation : 
- https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-sap-quickstart
+ https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-sap-quickstart
 
 ### For Azure Monitor for SAP solutions (Classic)
 

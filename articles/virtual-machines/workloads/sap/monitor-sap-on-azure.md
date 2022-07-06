@@ -40,7 +40,7 @@ The following table provides a quick comparison of the Azure Monitor for SAP sol
 
 Azure Monitor for SAP Solutions uses the [Azure Monitor](../../../azure-monitor/overview.md) capabilities of [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). With it, you can:
 
-- Create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions. 
+- Create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md) by editing the default Workbooks provided by Azure Monitor for SAP Solutions. 
 - Write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md).
 - Create [custom alerts](../../../azure-monitor/alerts/alerts-log.md) by using Azure Log Analytics workspace. 
 - Take advantage of the [flexible retention period](../../../azure-monitor/logs/data-retention-archive.md) in Azure Monitor Logs/Log Analytics. 
@@ -200,7 +200,7 @@ You have several options to deploy Azure Monitor for SAP Solutions and configure
 
 ## Pricing
 Azure Monitor for SAP Solutions is a free product (no license fee). You're responsible for paying the cost of the underlying components in the managed resource group. You're also responsible for consumption costs associated with data use and retention. For more information, see standard Azure pricing documents:
-- [Azure Function Pricing](https://azure.microsoft.com/en-in/pricing/details/functions/#pricing)
+- [Azure Function Pricing](https://azure.microsoft.com/pricing/details/functions/#pricing)
 - [Azure VM pricing (applicable for Azure Monitor for SAP solutions (classic) version)](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
 - [Azure Key vault pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 - [Azure storage account pricing](https://azure.microsoft.com/pricing/details/storage/queues/)
