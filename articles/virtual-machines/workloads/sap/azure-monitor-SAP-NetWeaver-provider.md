@@ -13,6 +13,9 @@ ms.author: sujaj
 
 # **SAP NetWeaver Provider**
 
+> [!Note]
+> This content would apply to both versions of Azure Monitor for SAP solutions.
+
 ### For Azure Monitor for SAP solutions
 #### Prerequisites
 
@@ -25,7 +28,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 5. Select  **Extended Maintenance**  ->  **Change**.
 6. Select the profile parameter &quot;service/protectedwebmethods&quot; and modify to have the following value, then click Copy:
 
- `  service/protectedwebmethods`
+     `  service/protectedwebmethods`
 
    `SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList`
 
@@ -36,13 +39,13 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 
   Right-click on each instance and choose All Tasks -> Restart Service.
 
-![](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/blob/main/Media/8.%20SAP%20Management%20Console.png)
+    ![](./media/azure-monitor-sap/azure-monitor-providers-NW-Prereq1.png)
 
 * 8.2. **On Linux systems**, use the below command where NN is the SAP instance number to restart the host which is logged into.
 
-`RestartService`
+    `RestartService`
 
-`sapcontrol -nr <NN> -function RestartService`
+    `sapcontrol -nr <NN> -function RestartService`
 
 Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command:
 
@@ -56,7 +59,7 @@ Logged as a different user
 
 The output should look like this:- 
 
-![](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/blob/main/Media/9.%20SAP%20Control%20Output.png)
+![](./media/azure-monitor-sap/azure-monitor-providers-NW-SAPControOutput.png)
 
 To conclude and validate, a test query can be done against web methods to validate ( replace the hostname, instance number, and method name ) leverage the below PowerShell script
 
@@ -89,19 +92,19 @@ It is critical that the sapstartsrv service is restarted on each instance of the
    **Note:** RFC metrics are only supported for AS ABAP applications.
 
 * 9.1 Create/Upload role in SAP NW ABAP system – This role is created with the guiding principle of “Least Privilege access” and is needed for AMS to connect to SAP
-1. Log in to SAP System 
-2. Unzip the file attached.
+    1. Log in to SAP System 
+    2. Unzip the file attached.
 [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/files/8710130/Z_AMS_NETWEAVER_MONITORING.zip)
-3. Upload "Z_AMS_NETWEAVER_MONITORING.SAP" file into the SAP system by navigating to Transaction code PFCG -> Role Upload. 
-4. Click on Execute (Role gets generated)
+    1. Upload "Z_AMS_NETWEAVER_MONITORING.SAP" file into the SAP system by navigating to Transaction code PFCG -> Role Upload. 
+    1. Click on Execute (Role gets generated)
 
-   ![image](https://user-images.githubusercontent.com/74435183/168394064-19bcc0b9-2d02-4b3b-ad2e-4de57385d0dc.png)
+   ![image](./media/azure-monitor-sap/azure-monitor-providers-NW-RoleGenerate.png)
 
-4. Exit the SAP system. 
+    4. Exit the SAP system. 
 
 * 9.2 Create a new RFC user and assign the authorization.
-1. Log in to SAP System. 
-2. Create an RFC User and assign the role – “Z_AMS_NETWEAVER_MONITORING” created as part of Step 9.1
+    1. Log in to SAP System. 
+    2. Create an RFC User and assign the role – “Z_AMS_NETWEAVER_MONITORING” created as part of Step 9.1
 * 9.3. Enabling SMON for Monitoring of System Performance 
 Enable SDF/SMON snapshot service and configure SDF/SMON metrics to be aggregated each minute. 
 For SMON capability the version for ST-PI must be SAPK-74005INSTPI
@@ -115,11 +118,11 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
      _When using SAP internal ACLs to restrict access by IP address, make sure the IP address of sapmon collector VM is added to ACLs_
  
 * 9.4 Enable SAP ICF 
-1. Login to SAP System. 
-2. Navigate to Transaction code SICF 
-3. Navigate to Service with Service Path - /default_host/sap/bc/soap/, and activate **wsdl, wsdl11 and RFC**  service: 
+    1. Login to SAP System. 
+    2. Navigate to Transaction code SICF 
+    3. Navigate to Service with Service Path - /default_host/sap/bc/soap/, and activate **wsdl, wsdl11 and RFC**  service: 
 
-![image](https://user-images.githubusercontent.com/74435183/171516111-595b93e0-0bd8-45af-86a4-448a8bafe64c.png)
+    ![image](https://user-images.githubusercontent.com/74435183/171516111-595b93e0-0bd8-45af-86a4-448a8bafe64c.png)
 
 * 9.5 Additional checks to enable the ICF Ports (Optional – Recommended )
 
@@ -130,11 +133,11 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
    ![image](https://user-images.githubusercontent.com/74435183/168395183-5badfc27-df27-4e83-96d6-bab2bf1f8b2c.png)
 
   * If the port could not be reached or the ping test fails, you might need to open the port in the SAP virtual machine by executing the commands below:  
-    Linux:  
+   *Linux:*  
     sudo firewall-cmd --permanent --zone=public --add-port=<your-port>/TCP 
     sudo firewall-cmd --reload 
  
-    Windows: 
+    *Windows:*
     * Select the Start menu, type Windows Defender Firewall, and select it from the list of results. 
     * Select Advanced Settings on the side navigation menu. 
     * Select Inbound Rules. 

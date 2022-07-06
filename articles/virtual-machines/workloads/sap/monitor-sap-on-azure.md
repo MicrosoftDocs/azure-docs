@@ -17,7 +17,7 @@ When you have critical applications and business processes relying on Azure reso
 
 This article describes how to monitor SAP running on Azure using Azure Monitor for SAP Solutions. Azure Monitor for SAP Solutions uses specific parts of the [Azure Monitor](../../../azure-monitor/overview.md) infrastructure.
 
->![Note]:
+> [!Note]
 > There are currently two versions of Azure Monitor for SAP solutions. Old one is Azure Monitor for SAP Solutions (Classic) and new one is Azure Monitor for SAP solutions. This article will talk about both the versions. 
 
 ## Overview
@@ -33,7 +33,7 @@ The following table provides a quick comparison of the Azure Monitor for SAP sol
 |                    | Azure Monitor for SAP solutions             | Azure Monitor for SAP solutions (Classic) |   |   |
 |--------------------|---------------------------------------------|-------------------------------------------|---|---|
 | Architecture Style | Azure Function based Collector architecture | VM based collector architecture           |   |   |
-| Supported Database | Microsoft SQL Server<br>SAP HANA<br>IBM Db2 | Microsoft SQL Server<br>SAP HANA          |   |   |
+| Supported Database | Microsoft SQL Server<br>SAP HANA<br>IBM Db2 | Microsoft SQL Server<br>SAP HANA   
 |     
 
 
@@ -102,7 +102,7 @@ IBM Db2 telemetry:
 
 ## Data sharing with Microsoft
 
->![Note]:
+> [!Note]
 > This feature is only applicable for Azure Monitor for SAP solutions (Classic) version.
 
 Azure Monitor for SAP Solutions collects system metadata to provide improved support for SAP on Azure. No PII/EUII is collected.
@@ -110,7 +110,7 @@ Azure Monitor for SAP Solutions collects system metadata to provide improved sup
 You can enable data sharing with Microsoft when you create Azure Monitor for SAP Solutions resource by choosing *Share* from the drop-down. We recommend that you enable data sharing. Data sharing gives Microsoft support and engineering teams information about your environment, which helps us provide better support for your mission-critical SAP on Azure solution.
 
 ## Architecture overview
->![Note]:
+> [!Note]
 > This content would apply to both versions.
 
 ###### Azure Monitor for SAP solutions

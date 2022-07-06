@@ -409,7 +409,7 @@
   - name: AMS providers
     href: azure-monitor-providers.md
   - name: Network Considerations
-    href: Monitor-sap-on-Azure-Network-considerations.md
+    href: Monitor-SAP-on-Azure-Network-considerations.md
   - name: Configure AMS - Portal
     href: azure-monitor-sap-quickstart.md
   - name: Configure AMS - providers

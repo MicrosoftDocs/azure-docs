@@ -13,11 +13,11 @@ ms.author: sujaj
 
 # **High-availability (pacemaker) cluster Provider**
 
->![Note]
+> [!Note]
 > This content would apply to both new and classic version of Azure Monitor for SAP solutions.
 
-### For Azure Monitor for SAP solutions
-### Prerequisites
+## For Azure Monitor for SAP solutions
+#### Prerequisites
 
 Before adding providers for high-availability (pacemaker) clusters, please install appropriate agent for your environment **in each cluster node**.
 
@@ -30,7 +30,7 @@ For **RHEL** based clusters, ensure **performance co-pilot (PCP)** and **pcp-pmd
 
 After completing above pre-requisite installation, create a provider for each cluster node.
 
-## Provider installation
+#### Provider installation
 
 Select Add provider from Azure Monitor for SAP solutions resource, and then:
 
@@ -66,9 +66,8 @@ For RHEL based cluster
 
 <img width="563" alt="image" src="https://user-images.githubusercontent.com/33844181/167706004-9e52da62-a2eb-45df-a36a-346520ea142a.png">
 
-### For Azure Monitor for SAP solutions (Classic)
+## For Azure Monitor for SAP solutions (Classic)
 
-### High-availability cluster (Pacemaker) provider
 
 Before adding providers for high-availability (pacemaker) clusters, please install appropriate agent for your environment.
 

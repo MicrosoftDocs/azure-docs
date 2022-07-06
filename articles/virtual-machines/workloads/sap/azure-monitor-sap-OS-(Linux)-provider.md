@@ -16,7 +16,7 @@ ms.author: sujaj
 > **Note**       
  > Applicable for Linux OS only 
 
->![Note]
+> [!Note]
 > This content would apply to both new and classic version of Azure Monitor for SAP solutions.
 
 

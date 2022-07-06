@@ -61,7 +61,7 @@ GO
 
 Select Add provider from Azure Monitor for SAP solutions resource, and then:
 
-![SQL1](./media/azure-monitor-sap/SQL-Server-Provider.png)
+![SQL1](./media/azure-monitor-sap/SQL-Server-Provider.jpg)
 
 For Type, select Microsoft SQL Server.
 

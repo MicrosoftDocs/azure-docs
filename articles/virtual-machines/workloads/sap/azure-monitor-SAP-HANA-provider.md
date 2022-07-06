@@ -13,19 +13,21 @@ ms.author: sujaj
 
 # SAP HANA Provider
 
->![Note]
-> This content would apply to both new and classic version of Azure Monitor for SAP solutions.
+> [!Note]
+> This content would apply to both new and classic versions of Azure Monitor for SAP solutions.
 
-### For Azure Monitor for SAP solutions
-#### Add SAP HANA Provider Steps (Using Portal UI):
+### Add SAP HANA Provider Steps (Using Portal UI):
+
+#### For Azure Monitor for SAP solutions
+
 
 1. Click on the **Providers** Tab in the AMS creation blade, then click on &quot; Add Provider&quot; button to go to the &quot; Add Provider&quot; Page
 
-![image](https://user-images.githubusercontent.com/74435183/162337421-67c50f88-c5e8-4c5a-b9bc-ea0096b2827e.png)
+    ![image](https://user-images.githubusercontent.com/74435183/162337421-67c50f88-c5e8-4c5a-b9bc-ea0096b2827e.png)
 
 2. Select Type as SAP HANA
 
-![image](https://user-images.githubusercontent.com/98498799/171365559-80de91c9-601b-41e6-a91a-4ec9b28e0958.png)
+    ![image](https://user-images.githubusercontent.com/98498799/171365559-80de91c9-601b-41e6-a91a-4ec9b28e0958.png)
 
 3. IP address - Provide the IP address or hostname of the server running the SAP HANA instance to be monitored; when using a hostname, please ensure connectivity from within the Vnet.
 4. Database tenant - Provide the HANA database to connect against (we strongly recommend using SYSTEMDB, since tenant databases don&#39;t have all monitoring views). Leave this field blank for legacy single-container HANA 1.0 instances.
@@ -35,9 +37,8 @@ ms.author: sujaj
       a. Provide the password in the plain text.   
       b. Provide the password by selecting an existing or creating a new secret inside an Azure KeyVault.
 
-### For Azure Monitor for SAP solutions (classic)
+#### For Azure Monitor for SAP solutions (classic)
 
-### SAP HANA provider 
 
 1. Select the **Providers** tab to add the providers you want to configure. You can add multiple providers one after another, or add them after you deploy the monitoring resource. 
 
