@@ -43,7 +43,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 |vnetResourceGroup | Specify VNet resource group hosting virtual network. | myResourceGroup | No | If empty, driver uses the `vnetResourceGroup` value specified in the Azure cloud config file.|
 |vnetName | Specify the virtual network name. | aksVNet | No | If empty, driver uses the `vnetName` value specified in the Azure cloud config file.|
 |subnetName | Specify the existing subnet name of the agent node. | aksSubnet | No | If empty, driver uses the `subnetName` value in Azure cloud config file. |
-|--- | **Following parameters are only for feature: blobfuse [Managed Identity and Service Principal Name auth](https://github.com/Azure/azure-storage-fuse#environment-variables)** | --- | --- |--- |
+|--- | **Following parameters are only for feature: blobfuse<br> [Managed Identity and Service Principal Name authentication](https://github.com/Azure/azure-storage-fuse#environment-variables)** | --- | --- |--- |
 |volumeAttributes.AzureStorageAuthType | Specify the authentication type. | `Key`, `SAS`, `MSI`, `SPN` | No | `Key`|
 |volumeAttributes.AzureStorageIdentityClientID | Specify the Identity Client ID. |  | No ||
 |volumeAttributes.AzureStorageIdentityObjectID | Specify the Identity Object ID. |  | No ||
