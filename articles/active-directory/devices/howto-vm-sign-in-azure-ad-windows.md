@@ -40,7 +40,7 @@ There are many security benefits of using Azure AD-based authentication to log i
 > [!NOTE]
 > After you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join them to another domain, like on-premises Active Directory or Azure Active Directory Domain Services. If you need to do so, disconnect the VM from Azure AD by uninstalling the extension.
 
-### Requirements
+## Requirements
 
 ### Supported Azure regions and Windows distributions
 
