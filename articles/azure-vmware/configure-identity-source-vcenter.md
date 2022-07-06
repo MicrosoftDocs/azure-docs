@@ -140,7 +140,7 @@ You'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL 
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
-1. Assuming that the previous execution step was successful now you can [apply a permissions](https://docs.microsoft.com/azure/azure-vmware/concepts-identity#apply-a-custom-role) in vCenter Server using built-in or custom role(s) with  the new identity source added.
+1. Assuming that the previous execution step was successful now you can [apply permissions](https://docs.microsoft.com/azure/azure-vmware/concepts-identity#apply-a-custom-role) in vCenter Server using built-in or custom role(s) using new identity source added.
 
 ## Add Active Directory over LDAP
 
@@ -170,7 +170,7 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
-1. Assuming that the previous execution step was successful now you can [apply a permissions](https://docs.microsoft.com/azure/azure-vmware/concepts-identity#apply-a-custom-role) in vCenter Server using built-in or custom role(s) with  the new identity source added.
+1. Assuming that the previous execution step was successful now you can [apply permissions](https://docs.microsoft.com/azure/azure-vmware/concepts-identity#apply-a-custom-role) in vCenter Server using built-in or custom role(s) using the new identity source added.
 
 
 ## Add existing AD group to cloudadmin group
