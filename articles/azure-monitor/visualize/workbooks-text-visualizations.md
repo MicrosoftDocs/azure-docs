@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 07/05/2022
 ---
 # Text visualizations
 
@@ -21,23 +21,23 @@ Edit Mode:
 
 Preview Mode:
 
-![Screenshot of a text step in edit mode on the preview tab.](./media/workbooks-text-visualizations/text-edit-mode-preview.png)
+![Screenshot of a text component in edit mode on the preview tab.](./media/workbooks-text-visualizations/text-edit-mode-preview.png)
 
 ## Add a text control
 
-1. Switch the workbook to edit mode by clicking on the **Edit** toolbar item.
+1. Switch the workbook to edit mode by clicking on **Edit** in the toolbar.
 2. Use the **Add text** link to add a text control to the workbook.
 3. Add Markdown in the editor field.
 4. Use the *Text Style* option to switch between plain markdown and markdown wrapped with the Azure portal's standard info/warning/success/error styling.
 5. Use the **Preview** tab to see how your content will look. While editing, the preview will show the content inside a scrollbar area to limit its size; however, at runtime the markdown content will expand to fill whatever space it needs, with no scrollbars.
-6. Select the **Done Editing** button to complete editing the step.
+6. Select the **Done Editing** button to complete editing the component.
 
 > [!TIP]
 > Use this [Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to learn about different formatting options.
 
 ## Text styles
 
-The following text styles are available for text step:
+The following text styles are available for text component:
 
 | Style     | Explanation                                                                               |
 |-----------|-------------------------------------------------------------------------------------------|
