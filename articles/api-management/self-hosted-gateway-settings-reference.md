@@ -33,8 +33,8 @@ This article provides a reference for required and optional settings that are us
 | telemetry.metrics.local.statsd.endpoint | StatsD endpoint. | Yes, if `telemetry.metrics.local` is set to `statsd`; otherwise no.  | N/A |
 | telemetry.metrics.local.statsd.sampling | StatsD metrics sampling rate. Value must be between 0 and 1, for example, 0.5. |  No | N/A |
 | telemetry.metrics.local.statsd.tag-format | StatsD exporter [tagging format](https://github.com/prometheus/statsd_exporter#tagging-extensions). Value is one of the following: `ibrato`, `dogStatsD`, `influxDB`. | No | N/A |
-| telemetry.metrics.cloud | Whether or not to [enable emitting metrics to Azure Monitor](how-to-configure-cloud-metrics-logs.md). | No |    `true` |
-| observability.opentelemetry.enabled | Whether or not to enable [emitting metrics to an OpenTelemetry collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) on Kubernetes. | No | `false` |
+| telemetry.metrics.cloud | Indication whether or not to [enable emitting metrics to Azure Monitor](how-to-configure-cloud-metrics-logs.md). | No |    `true` |
+| observability.opentelemetry.enabled | Indication whether or not to enable [emitting metrics to an OpenTelemetry collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) on Kubernetes. | No | `false` |
 | observability.opentelemetry.collector.uri | URI of the OpenTelemetry collector to send metrics to. | Yes, if `observability.opentelemetry.enabled` is set to `true`; otherwise no. | N/A |
 | observability.opentelemetry.histogram.buckets | Histogram buckets in which OpenTelemetry metrics should be reported. Format: "*x,y,z*,...". | No | "5,10,25,50,100,250,500,1000,2500,5000,10000" |
 
