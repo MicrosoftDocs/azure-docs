@@ -86,24 +86,17 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 
 1. Pass the object to the [generateAccountSASQueryParameters](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateaccountsasqueryparameters) function, along with the [SharedKeyCredential](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateaccountsasqueryparameters), to create the SAS token. 
 
+    Before returning the SAS token, prepend the query string delimiter, `?`. 
+
     :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_GetSas":::
 
 1. Secure the SAS token until it is used. 
 
 ## Use Blob service with Account SAS token
 
-1. To use the Account SAS token, use need to combine it with the account name to create the URI. 
-
-    ```javascript
-    // Construct URI to create a new BlobServiceClient
-    const blobServiceClient = new BlobServiceClient(
-        `https://${accountName}.blob.core.windows.net${(sasToken[0] === '?' ? sasToken : `?${sasToken}`)}`
-    );
-    ```
-
-1. Use the blobServiceClient to get the service properties
+1. To use the Account SAS token, you need to combine it with the account name to create the URI. Pass the URI to create the blobServiceClient. Once you have the blobServiceClient, you can use that client to access your Blob service. 
  
-    :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_UseSas":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_UseSas":::
 
 
 ## See also
