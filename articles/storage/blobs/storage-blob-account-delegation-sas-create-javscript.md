@@ -90,7 +90,21 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 
 1. Secure the SAS token until it is used. 
 
-## Use Blob service with SAS token
+## Use Blob service with Account SAS token
+
+1. To use the Account SAS token, use need to combine it with the account name to create the URI. 
+
+    ```javascript
+    // Construct URI to create a new BlobServiceClient
+    const blobServiceClient = new BlobServiceClient(
+        `https://${accountName}.blob.core.windows.net${(sasToken[0] === '?' ? sasToken : `?${sasToken}`)}`
+    );
+    ```
+
+1. Use the blobServiceClient to get the service properties
+ 
+    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="Snippet_UseSas":::
+
 
 ## See also
 
