@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 The [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure virtual machines, scale sets, on premise and multi-cloud servers and Windows client devices. It uploads the data to Azure Monitor destinations where it can be used by different features, insights, and other services such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). All of the data collection configuration is handled via [Data Collection Rules](../essentials/data-collection-rule-overview.md).  
 The Azure Monitor agent is meant to replace the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines. By comparison, it is more **secure, cost-effective, performant, manageable and reliable**. You must migrate from [Log Analytics agent] to [Azure Monitor agent] before **August 2024**. To make this process easier and automated, use agent migration described in this article.
 
-![Flow diagram to demonstrate the steps involved in agent migration](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)
+:::image type="content" source="media/azure-monitor-agent-migration/migration-steps.png" alt-text="Flow diagram to demonstrate the steps involved in agent migration.":::
 
 ## AMA Migration Helper (preview)
 A workbook-based solution in Azure Monitor that helps you discover **what to migrate** and **track progress** as you move from legacy Log Analytics agents to Azure Monitor agent on your virtual machines, scale sets, on premise and Arc-enabled servers in your subscriptions. Use this single glass pane view to expedite your agent migration journey. 
@@ -30,22 +30,22 @@ A workbook-based solution in Azure Monitor that helps you discover **what to mig
 The Azure Monitor agent relies only on [Data Collection rules](../essentials/data-collection-rule-overview.md) for configuration, whereas the legacy agent pulls all its configuration from Log Analytics workspaces. Use this tool to parse legacy agent configuration from your workspaces and automatically generate corresponding rules. You can then associate the rules to machines running the new agent using built-in association policies. 
 
 > [!NOTE]
-> Additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on agent are not yet supported in this tool. These will be available in future versions.
+> Additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on agent are not yet supported in this tool. 
 
 
 1. **Prerequisites**
-	1. Powershell version 7.1.3 or higher is recommended (minimum version 5.1)
-	2. Primarily uses `Az Powershell module` to pull workspace agent configuration information
-	3. You must have read access for the specified workspace resource
-	4. `Connect-AzAccount` and `Select-AzSubscription` will be used to set the context for the script to run so proper Azure credentials will be needed
+	- Powershell version 7.1.3 or higher is recommended (minimum version 5.1)
+	- Primarily uses `Az Powershell module` to pull workspace agent configuration information
+	- You must have read access for the specified workspace resource
+	- `Connect-AzAccount` and `Select-AzSubscription` will be used to set the context for the script to run so proper Azure credentials will be needed
 2. [Download the powershell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools)
 2. Run the script using one of the options below:
-	1. Option 1
+	- Option 1
 		# [PowerShell](#tab/ARMAgentPowerShell)
 		```powershell
 		.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
 		```
-	2. Option 2 (if you are just looking for the DCR payload json)
+	- Option 2 (if you are just looking for the DCR payload json)
 		# [PowerShell](#tab/ARMAgentPowerShell)
 		```powershell
 		$dcrJson = Get-DCRJson -ResourceGroupName $rgName -WorkspaceName $workspaceName -PlatformType $platformType $dcrJson | ConvertTo-Json -Depth 10 | Out-File "<filepath>\OutputFiles\dcr_output.json"
@@ -53,7 +53,7 @@ The Azure Monitor agent relies only on [Data Collection rules](../essentials/dat
 	
 		**Parameters**  
 		
-		| Paremeter | Required? | Description |
+		| Parameter | Required? | Description |
 		|------|------|------|
 		| SubscriptionId | Yes | Subscription Id that contains the target workspace |
 		| ResourceGroupName | Yes | Resource Group that contains the target workspace |
