@@ -277,14 +277,7 @@ To register and view a model from a run, use the following steps:
 
 ## Limitations
 
-The following MLflow methods are not fully supported with Azure Machine Learning. 
-
-* `mlflow.tracking.MlflowClient.create_experiment() `
-* `mlflow.tracking.MlflowClient.rename_experiment()`
-* `mlflow.tracking.MlflowClient.search_runs()`
-* `mlflow.tracking.MlflowClient.download_artifacts()`
-* `mlflow.tracking.MlflowClient.rename_registered_model()`
-
+Some methods available in the MLflow API may not be available when connected to Azure Machine Learning. For details about supported and unsupported operations please read [Support matrix for querying runs and experiments](how-to-track-experiments-mlflow.md#support-matrix-for-querying-runs-and-experiments).
 
 ## Next steps
 
