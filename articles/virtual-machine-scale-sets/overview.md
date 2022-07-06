@@ -28,7 +28,7 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 
 Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
 
-> [!CAUTION]
+> [!IMPORTANT]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
 
 

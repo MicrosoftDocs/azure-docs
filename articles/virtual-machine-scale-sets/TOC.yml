@@ -176,15 +176,13 @@
     items: 
     - name: Maintenance notifications
       href: virtual-machine-scale-sets-maintenance-notifications.md
-    - name: Scheduled events
-      items:
-      - name: Linux
-        href: ../virtual-machines/linux/scheduled-events.md
-        displayname: Scheduled events
-        maintainContext: true
-      - name: Windows
-        href: ../virtual-machines/windows/scheduled-events.md
-        maintainContext: true
+    - name: Scheduled events - Linux
+      href: ../virtual-machines/linux/scheduled-events.md
+      displayname: Scheduled events
+      maintainContext: true
+    - name: Scheduled events - Windows
+      href: ../virtual-machines/windows/scheduled-events.md
+      maintainContext: true
 - name: Disks
   items:
   - name: Select a disk type
@@ -241,17 +239,20 @@
     maintainContext: true
   - name: Automatic OS image upgrades
     href: virtual-machine-scale-sets-automatic-upgrade.md
-    items: 
-    - name: Maintenance control
-      items:
-      - name: Overview
-        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell
-        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
-      - name: CLI
-        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
-      - name: Portal
-        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
+  - name: Maintenance control
+    items:
+    - name: Overview
+      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+      maintainContext: true
+    - name: PowerShell
+      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
+      maintainContext: true
+    - name: CLI
+      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
+      maintainContext: true
+    - name: Portal
+      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
+      maintainContext: true
   - name: Automatic VM guest patching
     items:
     - name: Overview
