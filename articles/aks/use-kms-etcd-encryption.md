@@ -43,7 +43,7 @@ KMS supports [public key vault](Enable KMS with public key vault) and [public ke
 ### Create a key vault and key
 
 > [!WARNING]
-> Deleting the key or the Azure Key Vault is not supported and will cause your cluster to become unstable.
+> Deleting the key or the Azure Key Vault is not supported and will cause the secrets unaccessible in the cluster.
 > 
 > If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
 
@@ -144,47 +144,18 @@ If you enable KMS with private key vault, AKS cluster will create a private endp
 ### Create a private key vault and key
 
 > [!WARNING]
-> Deleting the key or the Azure Key Vault is not supported and will cause your cluster to become unstable.
+> Deleting the key or the Azure Key Vault is not supported and will cause the secrets unaccessible in the cluster.
 > 
 > If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
 
-Without private endpoint, we could not create or update keys in private key vault. Thus we would create a key vault and key first, then update the key vault to private mode. For existing private key vault, you could refer to [Integrate Key Vault with Azure Private Link](private-link-service.md).
 
-Use `az keyvault create` to create a public KeyVault.
-
-```azurecli
-az keyvault create --name MyKeyVault --resource-group MyResourceGroup 
-```
-
-Use `az keyvault show` to export the resource ID of key vault.
+Use `az keyvault create` to create a priate KeyVault.
 
 ```azurecli
-export KEYVAULT_RESOURCE_ID=$(az keyvault show --name MyKeyVault --query 'id' -o tsv)
-echo $KEYVAULT_RESOURCE_ID
+az keyvault create --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disable
 ```
 
-The above example stores the key vault resource ID in *KEYVAULT_RESOURCE_ID*.
-
-Use `az keyvault key create` to create a key.
-
-```azurecli
-az keyvault key create --name MyKeyName --vault-name MyKeyVault
-```
-
-Use `az keyvault key show` to export the Key ID.
-
-```azurecli
-export KEY_ID=$(az keyvault key show --name MyKeyName --vault-name MyKeyVault --query 'key.kid' -o tsv)
-echo $KEY_ID
-```
-
-The above example stores the Key ID in *KEY_ID*.
-
-Use `az keyvault update` to disable public access of existing key vault:
-
-```azurecli
-az keyvault update --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disable
-```
+Without private endpoint, it's not supported to create or update keys in private key vault. To manage private key vault, you could refer to [Integrate Key Vault with Azure Private Link](../key-vault/general/private-link-service.md).
 
 ### Create a user-assigned managed identity
 
