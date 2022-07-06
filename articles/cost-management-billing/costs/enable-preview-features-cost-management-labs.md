@@ -122,7 +122,7 @@ If you don't have a budget yet, you'll see a link to create a new budget. Budget
 
 ## Group related resources in the cost analysis preview
 
-Group related resources, like disks under VMs or web apps under App Service plans, by adding a “costanalysis-parent” tag to the child resources with a value of the parent resource ID. Wait 24 hours for tags to be available in usage and your resources will be grouped. Leave feedback to let us know how we can improve this experience further for you.
+Group related resources, like disks under VMs or web apps under App Service plans, by adding a “cm-resource-parent” tag to the child resources with a value of the parent resource ID. Wait 24 hours for tags to be available in usage and your resources will be grouped. Leave feedback to let us know how we can improve this experience further for you.
 
 
 Some resources have related dependencies that aren't explicit children or nested under the logical parent in Azure Resource Manager. Examples include disks used by a virtual machine or web apps assigned to an App Service plan. Unfortunately, Cost Management isn't aware of these relationships and cannot group them automatically. This experimental feature uses tags to summarize the total cost of your related resources together. You'll see a single row with the parent resource. When you expand the parent resource, you'll see each linked resource listed individually with their respective cost.
