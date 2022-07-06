@@ -258,6 +258,8 @@
           href: ../data-residency.md?toc=/azure/cosmos-db/mongodb/toc.json
     - name: Automatic recommendations
       href: ../automated-recommendations.md?toc=/azure/cosmos-db/mongodb/toc.json
+    - name: Change log
+      href: change-log.md
     - name: API version 4.2
       href: feature-support-42.md
     - name: API version 4.0
@@ -351,6 +353,8 @@
       displayName: custom commands
     - name: Configure role-based access control
       href: how-to-setup-rbac.md
+    - name: Configure account capabilities
+      href: how-to-configure-capabilities.md
     - name: Manage using Resource Manager templates
       href: resource-manager-template-samples.md
       displayName: ARM
