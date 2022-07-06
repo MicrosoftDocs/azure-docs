@@ -54,7 +54,7 @@ In contrast, when working with locally managed sensors:
 
 ### What is a Defender for IoT committed device?
 
-[!INCLUDE [committed-devices](includes/committed-devices.md)]
+[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
 ## Analytics engines
 

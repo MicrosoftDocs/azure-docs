@@ -50,7 +50,7 @@ Azure **Security admin**, **Subscription owners** and **Subscription contributor
 
 When onboarding or editing your Defender for IoT plan, you'll need to know how many devices you want to monitor.
 
-[!INCLUDE [committed-devices](includes/committed-devices.md)]
+[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
 **To calculate the number of devices you need to monitor**:
 
