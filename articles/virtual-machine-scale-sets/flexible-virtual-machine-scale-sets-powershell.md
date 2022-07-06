@@ -1,5 +1,5 @@
 ---
-title: Create virtual machines in a Flexible scale set using Azure PowerShell
+title: Create virtual machines in a scale set using Azure PowerShell
 description: Learn how to create a virtual machine scale set in Flexible orchestration mode using PowerShell.
 author: fitzgeraldsteele
 ms.author: fisteele
@@ -22,68 +22,25 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
 
-## Get started with Flexible scale sets
+## Create resource group
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a virtual machine scale set with Azure PowerShell.
+```azurepowershell-interactive
+New-AzResourceGroup -Name 'myVMSSResourceGroup' -Location 'EastUS'
 
-### Add multiple VMs to a scale set 
+```
 
-In the following example, we specify a virtual machine profile (VM type, networking configuration, storage type, etc.) and number of instances to create (sku capacity = 2). 
-
-1. Create IP address configurations:
-
-    ```azurepowershell-interactive
-    $ipConfig = New-AzVmssIpConfig -Name "myIPConfig"
-    -SubnetId "${vnetid}/subnets/default" `
-    -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id
-    ```
-
-1. Create a config object:
-
-    The config object stores the core information for creating a scale set.
-
-    ```azurepowershell-interactive
-    $vmssConfig = New-AzVmssConfig -Location $loc
-    -SkuCapacity 2 -SkuName "Standard_DS1_v2"
-    -OrchestrationMode 'Flexible' `
-    -PlatformFaultDomainCount 1
-    ```
-
-1. Reference a virtual machine image from the gallery:
-
-    ```azurepowershell-interactive
-    Set-AzVmssStorageProfile $vmssConfig -OsDiskCreateOption "FromImage"
-    -ImageReferencePublisher "Canonical" -ImageReferenceOffer "UbuntuServer"
-    -ImageReferenceSku "18.04-LTS" `
-    -ImageReferenceVersion "latest"
-    ```
-
-1. Set up information for authenticating with the virtual machine:
-
-    ```azurepowershell-interactive
-    Set-AzVmssOsProfile $vmssConfig -AdminUsername $cred.UserName
-    -AdminPassword $cred.Password -ComputerNamePrefix $vmname
-    ```
-
-1. Attach the virtual network to the config object:
-
-    ```azurepowershell-interactive
-    Add-AzVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
-    -Name "network-config" -Primary $true
-    -IPConfiguration $ipConfig `
-    -NetworkApiVersion '2020-11-01'
-    ```
-
-1. Create the scale set with the config object:
-
-    This step might take a few minutes to complete. 
-
-    ```azurepowershell-interactive
-    New-AzVmss -ResourceGroupName $rgname
-    -Name $vmssName `
-    -VirtualMachineScaleSet $vmssConfig
-    ```
-
+## Create a virtual machine scale set
+Create the virtual machine scale set using the [New-AzVmss](/powershell/module/azcompute/new-azvmss) command.
+```
+New-AzVmss `
+    -ResourceGroup "myVMSSResourceGroup" `
+    -Name "myScaleSet" ` 
+    -OrchestrationMode "Flexible" `
+    -Location "East US" `
+    -InstanceCount "3" `
+    -ImageName "Win2019Datacenter"
+```
 ### Add a single VM to a scale set
 
 The following example shows the creation of a Flexible scale set without a VM profile, where the fault domain count is set to 1. A virtual machine is created and then added to the Flexible scale set.
