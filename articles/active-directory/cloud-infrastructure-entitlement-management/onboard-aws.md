@@ -18,11 +18,6 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Pe
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
-
-## View a training video on configuring and onboarding an AWS account
-
-To view a video on how to configure and onboard AWS accounts in Permissions Management, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
-
 ## Onboard an AWS account
 
 1. If the **Data Collectors** dashboard isn't displayed when Permissions Management launches:
