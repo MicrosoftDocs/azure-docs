@@ -120,8 +120,8 @@ Request body parameters:
 | Name | Description | Mandatory |
 |--|--|--|
 | Location | Cluster's location | Yes |
-| Properties.securityProfile.defender.securityMonitoring.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
-| Properties.securityProfile.defender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
+| properties.securityProfile.defender.securityMonitoring.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
+| properties.securityProfile.defender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
