@@ -22,7 +22,7 @@ Defender for Containers protects your clusters whether they're running in:
 
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
-You can learn more by watching these video from the Defender for Cloud in the Field video series:
+You can learn more by watching these videos from the Defender for Cloud in the Field video series:
 - [Microsoft Defender for Containers in a multi-cloud environment](episode-nine.md)
 - [Protect Containers in GCP with Defender for Containers](episode-ten.md)
 
@@ -79,8 +79,12 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
-::: zone pivot="defender-for-container-aks,defender-for-container-arc"
-[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace.md)]
+::: zone pivot="defender-for-container-aks"
+[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace-aks.md)]
+::: zone-end
+
+::: zone pivot="defender-for-container-arc"
+[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace-arc.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
