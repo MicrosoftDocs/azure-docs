@@ -47,7 +47,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
     ```
 
 > [!IMPORTANT]
-> If you are running outside of any Azure Machine Learning Compute and you want to do remote tracking (running you training routine in other compute but tracking on Azure Machine Learning), you must have MLflow configured to do tracking to your workspace. See [Setup your tracking environment](how-to-use-mlflow-cli-runs.md?#set-up-tracking-environment) for more details.
+> If you are running outside of any Azure Machine Learning Compute and you want to do remote tracking (running your training routine in other compute but tracking on Azure Machine Learning), you must have MLflow configured to do tracking to your workspace. See [Setup your tracking environment](how-to-use-mlflow-cli-runs.md?#set-up-tracking-environment) for more details.
 
 ## Logging parameters
 
@@ -102,7 +102,7 @@ client.log_batch(mlflow.active_run().info.run_id,
 
 ## Logging images
 
-MLflow supports two ways of loggin images:
+MLflow supports two ways of logging images:
 
 |Logged Value|Example code| Notes|
 |----|----|----|
@@ -120,7 +120,7 @@ MLflow supports two ways of loggin images:
 
 ## Logging models
 
-MLflow introduces the concept of "models" as a way to package all the artifacts required for a given model to function. Models in MLflow are always a folder with an arbitrary number of files, depending on the framework used to generate the model. Logging models has the advantage of tracking all the elements of the model as a single entity that can be __registered__ and then __deployed__. On top of that, MLflow models enjoy the benefit of [no-code deployment](how-to-deploy-mlflow-models.md) and can be used with the [Responsable AI dashbord](how-to-responsible-ai-dashboard.md) in studio.
+MLflow introduces the concept of "models" as a way to package all the artifacts required for a given model to function. Models in MLflow are always a folder with an arbitrary number of files, depending on the framework used to generate the model. Logging models has the advantage of tracking all the elements of the model as a single entity that can be __registered__ and then __deployed__. On top of that, MLflow models enjoy the benefit of [no-code deployment](how-to-deploy-mlflow-models.md) and can be used with the [Responsible AI dashboard](how-to-responsible-ai-dashboard.md) in studio.
 
 To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For frameworks that MLflow doesn't support, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
 
@@ -181,7 +181,7 @@ with mlflow.start_run() as run:
     pass
 ```
 
-When starting a new run with `mlflow.start_run`, it may be useful to indicate the parameter `run_name` which will then translate to the name of the run in Azure Machine Learning user interface and help you identify the run quicker:
+When you start a new run with `mlflow.start_run`, it may be useful to indicate the parameter `run_name` which will then translate to the name of the run in Azure Machine Learning user interface and help you identify the run quicker:
 
 ```python
 with mlflow.start_run(run_name="iris-classifier-random-forest") as run:
