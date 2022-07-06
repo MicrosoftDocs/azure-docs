@@ -53,7 +53,7 @@ First, verify that the certificate used for LDAPS is valid.
 
 1. Open the **Run command**, then type **mmc** and click the **OK** button.
 
-   :::image type="content" source="media/run-command/ldaps-certificate-run-command.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-run-command.png":::
+   :::image type="content" source="media/run-command/ldaps-certificate-run-command.png" alt-text="Screenshot showing how execute the run command to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-run-command.png":::
 
 1. Click the **File** menu option then **Add/Remove Snap-in**.
 
@@ -69,37 +69,37 @@ First, verify that the certificate used for LDAPS is valid.
 
 1. Keep the first option selected **Local computer...** , and click  **Finish** then **OK**.
     
-    :::image type="content" source="media/run-command/ldaps-certificate-snaps-in-local-computer.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-snaps-in-local-computer.png":::
+    :::image type="content" source="media/run-command/ldaps-certificate-snaps-in-local-computer.png" alt-text="Screenshot showing how execute to open local computer certificates." lightbox="media/run-command/ldaps-certificate-snaps-in-local-computer.png":::
     
-1. Expand the **Personal** folder under the **Certificates (Local Computer)** management console and select the **Certificates** folder to lst the installed certificates.
+1. Expand the **Personal** folder under the **Certificates (Local Computer)** management console and select the **Certificates** folder to list the installed certificates.
     
-    :::image type="content" source="media/run-command/ldaps-certificate-personal-certficates.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-personal-certficates.png":::
+    :::image type="content" source="media/run-command/ldaps-certificate-personal-certficates.png" alt-text="Screenshot showing how to reveal the installed certificates." lightbox="media/run-command/ldaps-certificate-personal-certficates.png":::
     
 1. Double click on the certificate for LDAPS purposes. The **Certificate** General properties will display. Ensure the certificate date **Valid from** and **to** is current and the certificate has a **private key** that correspond to the certificate.
     
-    :::image type="content" source="media/run-command/ldaps-certificate-personal-general.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-personal-general.png":::    
+    :::image type="content" source="media/run-command/ldaps-certificate-personal-general.png" alt-text="Screenshot showing how display the certificate general properties." lightbox="media/run-command/ldaps-certificate-personal-general.png":::    
 
 1. On the same windows, click on the **Certification Path** tab and verify the **Certification path** is valid, which it should include the certificate chain of root CA and optionally intermediate certificates and the **Certificate Status** is OK. Close the window.
     
-    :::image type="content" source="media/run-command/ldaps-certificate-cert-path.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-cert-path.png":::        
+    :::image type="content" source="media/run-command/ldaps-certificate-cert-path.png" alt-text="Screenshot showing how display the certificate chain and status." lightbox="media/run-command/ldaps-certificate-cert-path.png":::        
 
 Now proceed to export the certificate.
 
 1. Right click on the LDAPS certificate and click on **All Tasks** > **Export**. The Certificate Export Wizard will prompt then click on **Next** button.  
 
-    :::image type="content" source="media/run-command/ldaps-certificate-export-wizard.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-export-wizard.png":::        
+    :::image type="content" source="media/run-command/ldaps-certificate-export-wizard.png" alt-text="Screenshot showing how start the Certificate export wizard." lightbox="media/run-command/ldaps-certificate-export-wizard.png":::        
 
 1. In the **Export Private Key** section, select the 2nd option, **No, do not export the private key** and click on the **Next** button.
    
-    :::image type="content" source="media/run-command/ldaps-certificate-export-private-key.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-export-private-key.png":::        
+    :::image type="content" source="media/run-command/ldaps-certificate-export-private-key.png" alt-text="Screenshot showing how to select the correct private key option." lightbox="media/run-command/ldaps-certificate-export-private-key.png":::        
 
 1. In the **Export File Format** section, select the 2nd option, **Base-64 encoded X.509(.CER)** and click on the **Next** button.
 
-    :::image type="content" source="media/run-command/ldaps-certificate-export-format.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-export-format.png":::        
+    :::image type="content" source="media/run-command/ldaps-certificate-export-format.png" alt-text="Screenshot showing how to select the correct certificate format." lightbox="media/run-command/ldaps-certificate-export-format.png":::        
 
 1. In the **File to Export** section, click on the **Browse...** button and select a folder location where to export the certificate, enter a name click on the **Save** button.
 
-    :::image type="content" source="media/run-command/ldaps-certificate-export-location.png" alt-text="Screenshot showing how execute the run commands to open a Microsoft Management Console." lightbox="media/run-command/ldaps-certificate-export-location.png":::        
+    :::image type="content" source="media/run-command/ldaps-certificate-export-location.png" alt-text="Screenshot showing how to select the folder location for the exported certificate." lightbox="media/run-command/ldaps-certificate-export-location.png":::        
 
 
 >[!NOTE]
