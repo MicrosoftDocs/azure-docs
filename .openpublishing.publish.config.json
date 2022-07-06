@@ -931,6 +931,12 @@
       "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
       "branch": "v3",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-mongodb-dotnet",
+      "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples",
+      "branch": "quickstart-test",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

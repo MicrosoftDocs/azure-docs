@@ -123,7 +123,7 @@ sections:
       - question: |
           Can I delete data from a Log Analytics workspace?
         answer: |
-          Data is removed from a workspace according to its [retention period](logs/data-retention-archive.md). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+          Data is removed from a workspace according to its [retention period](logs/data-retention-archive.md). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#exporting-and-deleting-personal-data) for more information.
           
       - question: |
           Is Log Analytics storage immutable?

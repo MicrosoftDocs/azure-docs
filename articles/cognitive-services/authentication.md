@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Authenticate requests to Azure Cognitive Services
 
-Each request to an Azure Cognitive Service must include an authentication header. This header passes along a subscription key or access token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
+Each request to an Azure Cognitive Service must include an authentication header. This header passes along a subscription key or authentication token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
 
 * Authenticate with a [single-service](#authenticate-with-a-single-service-subscription-key) or [multi-service](#authenticate-with-a-multi-service-subscription-key) subscription key
 * Authenticate with a [token](#authenticate-with-an-access-token)
@@ -132,7 +132,7 @@ Some Azure Cognitive Services accept, and in some cases require, an access token
 >[!WARNING]
 > The services that support access tokens may change over time, please check the API reference for a service before using this authentication method.
 
-Both single service and multi-service subscription keys can be exchanged for access tokens in JSON Web Token (JWT) format. Access tokens are valid for 10 minutes.
+Both single service and multi-service subscription keys can be exchanged for authentication tokens. Authentication tokens are valid for 10 minutes. They're stored in JSON Web Token (JWT) format and can be queried programmatically using the [JWT libraries](https://jwt.io/libraries). 
 
 Access tokens are included in a request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`.
 
