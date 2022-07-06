@@ -1,5 +1,5 @@
 ---
-title: Log & view metrics and log files
+title: Log & view parameters, metrics and files
 titleSuffix: Azure Machine Learning
 description: Enable logging on your ML training runs to monitor real-time run metrics with MLflow, and to help diagnose errors and warnings.
 services: machine-learning
