@@ -122,7 +122,7 @@ Download [China cloud IP addresses](https://www.microsoft.com/download/details.a
 ||West US 2|westus2|40.64.134.128/29<br/><br/>|
 ||West US 3|westus3|20.150.241.64/29<br/><br/>|
 
-#### Upcoming regions
+#### Upcoming regions (Azure public cloud)
 
 > [!NOTE]
 > The following regions are not supported yet, but will be added in the near future.
