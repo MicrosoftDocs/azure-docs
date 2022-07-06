@@ -2,12 +2,12 @@
 title: SAP change data capture solution (Preview) - SHIR preparation
 titleSuffix: Azure Data Factory
 description: This article introduces and describes preparation of the self-hosted integration runtime (SHIR) for SAP change data capture (Preview) in Azure Data Factory.
-author: swinarko
+author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/01/2022
-ms.author: sawinark
+ms.author: ulrichchrist
 ---
 
 # Self-hosted integration runtime (SHIR) preparation for the SAP change data capture (CDC) solution in Azure Data Factory (Preview)
