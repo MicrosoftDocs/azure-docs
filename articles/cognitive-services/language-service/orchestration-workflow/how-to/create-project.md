@@ -96,9 +96,9 @@ You can export an orchestration workflow project as a JSON file at any time.
 
 [!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
-### [Rest APIs](#tab/rest-api)
+### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [Rest APIs project details](../includes/rest-api/project-details.md)]
+[!INCLUDE [REST APIs project details](../includes/rest-api/project-details.md)]
 
 ---
 
