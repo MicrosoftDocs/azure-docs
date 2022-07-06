@@ -98,7 +98,9 @@ is selected.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an identity during the assignment of the policy, **Location** must be defined and **Identity** used. The following example gets the definition of the built-in policy **Deploy SQL DB transparent data encryption** sets the target resource group, and then creates the assignment using a **system assigned** managed identity.
+To create an identity during the assignment of the policy, **Location** must be defined and **Identity** used. 
+
+The following example gets the definition of the built-in policy **Deploy SQL DB transparent data encryption** sets the target resource group, and then creates the assignment using a **system assigned** managed identity.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -136,6 +138,12 @@ $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL D
 
 The `$assignment` variable now contains the principal ID of the managed identity along with the standard values returned when creating a policy assignment. It can be accessed through
 `$assignment.Identity.PrincipalId` for system-assigned managed identities and `$assignment.Identity.UserAssignedIdentities[$userassignedidentityid].PrincipalId` for user-assigned managed identities.  
+
+# [Azure CLI](#tab/azure-cli)
+
+To create an identity during the assignment of the policy, use [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) commands with the parameters **--location**, **--mi-system-assigned**, **--mi-user-assigned**, and **--identity-scope** depending on whether the managed identity should be system-assigned or user-assigned.
+
+To add a system-assigned identity or a user-assigned identity to a policy assignment, follow example [az policy assignment identity assign](/cli/azure/policy/assignment/identity?view=azure-cli-latest#az-policy-assignment-identity-assign) commands.
 
 ---
 
@@ -210,6 +218,12 @@ if ($roleDefinitionIds.Count -gt 0)
 }
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+The new managed identity must complete replication through Azure Active Directory before it can be granted the needed roles. Once replication is complete, the roles specified in the policy definition's **roleDefinitionIds** should be granted to the managed identity.
+
+Access the roles specified in the policy definition using the [az policy definition show](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show) command, then iterate over each **roleDefinitionId** to create the role assignment using the [az role assignment create](cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show) command.
+
 ---
 
 ## Create a remediation task
@@ -257,7 +271,7 @@ the **Remediation** tab of the wizard offers a _Create a remediation task_ optio
 
 1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop down.
 
-1. Configure the [managed identity](#configure-a-managed-identity-through-the-azure-portal) and fill out the rest of the wizard. The remediation task will be created when the assignment is created.
+1. Configure the [managed identity](#configure-the-managed-identity) and fill out the rest of the wizard. The remediation task will be created when the assignment is created.
 
 ### Step 2: Specify remediation task details
 
@@ -299,22 +313,6 @@ This step is only applicable when using [Option 1](#option-1-create-a-remediatio
 
 Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the policy assignment details page.
 
-# [Azure CLI](#tab/azure-cli)
-
-To create a **remediation task** with Azure CLI, use the `az policy remediation` commands. Replace
-`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
-or **modify** policy assignment ID.
-
-```azurecli-interactive
-# Login first with az login if not using Cloud Shell
-
-# Create a remediation for a specific assignment
-az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
-```
-
-For more remediation commands and examples, see the [az policy
-remediation](/cli/azure/policy/remediation) commands.
-
 # [PowerShell](#tab/azure-powershell)
 
 To create a **remediation task** with Azure PowerShell, use the `Start-AzPolicyRemediation`
@@ -335,6 +333,22 @@ You may also choose to adjust remediation settings through these optional parame
 
 For more remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.
+
+# [Azure CLI](#tab/azure-cli)
+
+To create a **remediation task** with Azure CLI, use the `az policy remediation` commands. Replace
+`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
+or **modify** policy assignment ID.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+For more remediation commands and examples, see the [az policy
+remediation](/cli/azure/policy/remediation) commands.
 
 ---
 
