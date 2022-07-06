@@ -32,17 +32,16 @@ A Azure AD SCIM agent can be deployed on the same server hosting a SCIM enabled 
  4. For the agent to register itself with your tenant, provide credentials for an Azure AD admin with Hybrid administrator or global administrator permissions.
  5. Select **Confirm** to confirm the installation was successful.
  
-## Provisioning to SCIM-enabled apps
-
-Repeat the below steps for every on-premises application being provisioned via SCIM:
+## Provisioning to SCIM-enabled application
+Once the agent is installed, no further configuration is necesary, and all provisioning configurations are then managed from the portal. Repeat the below steps for every on-premises application being provisioned via SCIM.
  
  1. In the Azure portal navigate to the Enterprise applications and add the **On-premises SCIM app** from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
  2. From the left hand menu navigate to the **Provisioning** option and select **Get started**.
  3. Select **Automatic** from the dropdown list and expand the **On-Premises Connectivity** option.
  4.  Select the agent that you installed from the dropdown list and select **Assign Agent(s)**.
  5.  Now either wait 10 minutes or restart the **Microsoft Azure AD Connect Provisioning Agent** before proceeding to the next step & testing the connection.
- 6.  in the **Tenant URL** field, provide the URL for your application's SCIM provisioning endpoint. The URL must be resolveable by unique to each target application and resolveable by DNS. An example for a scenario where the agent is installed on the same host as the application is https://localhost:8585/scim ![Screenshot that shows assigning an agent.](./media/on-premises-scim-provisioning/scim-2.png)
- 7.  Select **Test Connection**, and save the credentials. Use the steps [here](on-premises-ecma-troubleshoot.md#troubleshoot-test-connection-issues) if you run into connectivity issues. 
+ 6.  In the **Tenant URL** field, provide the SCIM endpoint URL for your application. The URL it typically unique to each target application and must be resolveable by DNS. An example for a scenario where the agent is installed on the same host as the application is https://localhost:8585/scim ![Screenshot that shows assigning an agent.](./media/on-premises-scim-provisioning/scim-2.png)
+ 7.  Select **Test Connection**, and save the credentials. The application SCIM endpoint must be actively listening for inbound provisioning requests, otherwise the test will fail. Use the steps [here](on-premises-ecma-troubleshoot.md#troubleshoot-test-connection-issues) if you run into connectivity issues. 
  8.  Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
  9.  Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
  10.  Test provisioning a few users [on demand](provision-on-demand.md).
