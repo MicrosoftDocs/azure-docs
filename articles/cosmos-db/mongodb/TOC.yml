@@ -351,6 +351,8 @@
       displayName: custom commands
     - name: Configure role-based access control
       href: how-to-setup-rbac.md
+    - name: Configure account capabilities
+      href: how-to-configure-capabilities.md
     - name: Manage using Resource Manager templates
       href: resource-manager-template-samples.md
       displayName: ARM
