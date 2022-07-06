@@ -24,17 +24,8 @@ Nutanix Clusters on Azure supports:
 
 This public preview release supports the following Azure regions:
 
-|Region name |Ready Node for Nutanix AN36 |Ready Node for Nutanix AN36P |
-| :------------------- | -------------------: |:---------------:|
-|East US (Virginia)|​Yes|No|
-|West US 2 (Washington)​|Yes|No|
-|East US 2 (Virginia)|No|Yes|
-|North Central US (Illinois)​|No|Yes|
-|UK South (London)*|No|Yes|
-|Germany West Central (Frankfurt)​|No|Yes|
-|Australia East|No|Yes|
-|West Europe (Amsterdam)No|Yes|
-|Southeast Asia (Singapore)|No|Yes|
+. East US
+. West US 2
 
 ## Next steps
 
