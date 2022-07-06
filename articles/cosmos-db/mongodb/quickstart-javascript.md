@@ -3,15 +3,17 @@ title: Quickstart - Azure Cosmos DB MongoDB API for JavaScript with MongoDB drie
 description: Learn how to build a JavaScript app to manage Azure Cosmos DB MongoDB API account resources in this quickstart.
 author: diberry
 ms.author: diberry
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 06/21/2022
+ms.date: 07/06/2022
 ms.custom: devx-track-js
 ---
 
 # Quickstart: Azure Cosmos DB MongoDB API for JavaScript with MongoDB driver
+
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 Get started with the MongoDB npm package to create databases, collections, and docs within your Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
@@ -34,7 +36,7 @@ Get started with the MongoDB npm package to create databases, collections, and d
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses the MongoDB npm package. 
+This section walks you through creating an Azure Cosmos account and setting up a project that uses the MongoDB npm package.
 
 ### Create an Azure Cosmos DB account
 
@@ -72,7 +74,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 ### Create a new JavaScript app
 
-Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts. 
+Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts.
 
 ```console
 npm init
@@ -94,35 +96,34 @@ npm install mongodb dotenv
 
 Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and docs.
 
-:::image type="complex" source="media/quickstart-javascript/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
-    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
+:::image type="complex" source="media/quickstart-javascript/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, collections, and docs.":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
 :::image-end:::
 
 You'll use the following MongoDB classes to interact with these resources:
 
-- [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html) - This class provides a client-side logical representation for the MongoDB API layer on Cosmos DB. The client object is used to configure and execute requests against the service.
-- [``Db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-- [``Collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
-
+* [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html) - This class provides a client-side logical representation for the MongoDB API layer on Cosmos DB. The client object is used to configure and execute requests against the service.
+* [``Db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+* [``Collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
 
 ## Code examples
 
-- [Authenticate the client](#authenticate-the-client)
-- [Get database instance](#get-database-instance)
-- [Get collection instance](#get-collection-instance)
-- [Chained instances](#chained-instances)
-- [Create an index](#create-an-index)
-- [Create a doc](#create-a-doc)
-- [Get an doc](#get-a-doc)
-- [Query docs](#query-docs)
+* [Authenticate the client](#authenticate-the-client)
+* [Get database instance](#get-database-instance)
+* [Get collection instance](#get-collection-instance)
+* [Chained instances](#chained-instances)
+* [Create an index](#create-an-index)
+* [Create a doc](#create-a-doc)
+* [Get an doc](#get-a-doc)
+* [Query docs](#query-docs)
 
 The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
-For this procedure, the database will not use sharding. 
+For this procedure, the database won't use sharding.
 
 ### Authenticate the client
 
-1. From the project directory, create an *index.js* file. In your editor, add requires statements to reference the MongoDB and DotEnv npm packages. 
+1. From the project directory, create an *index.js* file. In your editor, add requires statements to reference the MongoDB and DotEnv npm packages.
 
     :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="package_dependencies":::
 
@@ -149,18 +150,18 @@ main()
   .catch(console.error)
   .finally(() => client.close());
 ```
-    
+
 The following code snippets should be added into the *main* function in order to handle the async/await syntax.
 
 ### Connect to the database
 
-Use the [``MongoClient.connect``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) method to connect to your Cosmos DB API for MongoDB resource. This method returns a reference to the database.
+Use the [``MongoClient.connect``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) method to connect to your Cosmos DB API for MongoDB resource. The connect method returns a reference to the database.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="connect_client":::
 
 ### Get database instance
 
-Use the [``MongoClient.db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#db) gets a reference to a database. 
+Use the [``MongoClient.db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#db) gets a reference to a database.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_database" :::
 
@@ -172,7 +173,7 @@ The [``MongoClient.Db.collection``](https://mongodb.github.io/node-mongodb-nativ
 
 ### Chained instances
 
-You can chain the client, database, and collection together. This is more convenient if you need to access multiple databases or collections. 
+You can chain the client, database, and collection together. Chaining is more convenient if you need to access multiple databases or collections.
 
 ```javascript
 const db = await client.db(`adventureworks`).collection('products').updateOne(query, update, options)
@@ -189,7 +190,7 @@ Use the [``Collection.createIndex``](https://mongodb.github.io/node-mongodb-nati
 Create a doc with the *product* properties for the `adventureworks` database:
 
 * An _id property for the unique identifier of the product.
-* A *category* property. This can be used as the logical partition key.
+* A *category* property. This property can be used as the logical partition key.
 * A *name* property.
 * An inventory *quantity* property.
 * A *sale* property, indicating whether the product is on sale.
@@ -200,7 +201,7 @@ Create an doc in the collect by calling [``Collection.UpdateOne``](https://mongo
 
 ### Get a doc
 
-In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (``_id``) and partition key (``category``). 
+In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (``_id``) and partition key (``category``).
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="read_doc" :::
 
@@ -232,7 +233,7 @@ The output of the app should be similar to this example:
 
 When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delete the resource group.
 
@@ -240,7 +241,7 @@ Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delet
 az group delete --name $resourceGroupName
 ```
 
-#### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 Use the [``Remove-AzResourceGroup``](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to delete the resource group.
 
@@ -251,7 +252,7 @@ $parameters = @{
 Remove-AzResourceGroup @parameters
 ```
 
-#### [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Navigate to the resource group you previously created in the Azure portal.
 
