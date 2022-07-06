@@ -287,7 +287,7 @@ Another way to verify it is via Graph PowerShell:
 
 ## Log in by using an Azure AD user account to SSH into the Linux VM
 
-### Azure CLI
+### Log in by using the Azure CLI
 
 Enter `az login`. This command opens a browser window, where you can sign in by using your Azure AD account.
 
@@ -305,7 +305,7 @@ If you're prompted, enter your Azure AD login credentials at the login page, per
 
 You're now signed in to the Linux virtual machine with the role permissions as assigned, such as VM User or VM Administrator. If your user account is assigned the Virtual Machine Administrator Login role, you can use sudo to run commands that require root privileges.
 
-### Azure Cloud Shell
+### Log in by using Azure Cloud Shell
 
 You can use Azure Cloud Shell to connect to VMs without needing to install anything locally to your client machine. Start Cloud Shell by selecting the shell icon in the upper-right corner of the Azure portal.
 
@@ -439,7 +439,7 @@ Use the following sections to correct common errors that can happen when you try
 
 ### Couldn't retrieve token from local cache
 
-If you get a message that says the token couldn't be retrieved from the local cache, you must run `az login` again and go through an interactive sign-in flow. Review the section [Using Azure Cloud Shell](#log-in-by-using-azure-cloud-shell).
+If you get a message that says the token couldn't be retrieved from the local cache, you must run `az login` again and go through an interactive sign-in flow. Review the section about [logging in by using Azure Cloud Shell](#log-in-by-using-azure-cloud-shell).
 
 ### Access denied: Azure role not assigned
 
