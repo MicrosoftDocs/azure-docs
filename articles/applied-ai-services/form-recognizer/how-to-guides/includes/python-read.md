@@ -52,7 +52,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE.
 
-2. Open the **form_recognizer_quickstart.py** file and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal**:
+2. Open the **form_recognizer_quickstart.py** file and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**:
 
 ```python
 # import libraries

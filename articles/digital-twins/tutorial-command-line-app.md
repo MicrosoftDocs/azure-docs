@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the sample command-line client application for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Code a client app](tutorial-code.md).
 
-You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you want.
+You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/main/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you want.
 
 In this tutorial, you will...
 > [!div class="checklist"]
@@ -151,7 +151,7 @@ You can also modify the properties of a twin you've created.
 
 Next, you can create some relationships between these twins, to connect them into a [twin graph](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called `contains`, which makes it possible to create a `contains`-type relationship from each Floor twin to the corresponding room that it contains.
+The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called `contains`, which makes it possible to create a `contains`-type relationship from each Floor twin to the corresponding room that it contains.
 
 To add a relationship, use the `CreateRelationship` command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID.
 
@@ -163,7 +163,7 @@ To add a relationship, use the `CreateRelationship` command. Specify the twin th
     ```
 
     >[!TIP]
-    >The `contains` relationship in the [Floor model](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) was also defined with two string properties, `ownershipUser` and `ownershipDepartment`, so you can also provide arguments with the initial values for these when you create the relationships.
+    >The `contains` relationship in the [Floor model](https://github.com/azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/Models/Floor.json) was also defined with two string properties, `ownershipUser` and `ownershipDepartment`, so you can also provide arguments with the initial values for these when you create the relationships.
     > Here's an alternate version of the command above to create relationship0 that also specifies initial values for these properties:
     > ```cmd/sh
     > CreateRelationship floor0 contains room0 relationship0 ownershipUser string MyUser ownershipDepartment string myDepartment

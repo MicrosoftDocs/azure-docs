@@ -126,7 +126,7 @@ To publish the function app to Azure, you'll first need to create a storage acco
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a terminal like PowerShell on your local machine, and navigate to the [Digital Twins samples repo](https://github.com/azure-samples/digital-twins-samples/tree/master/) you downloaded earlier in the tutorial. Inside the downloaded repo folder, navigate to *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp*.
+    1. Open a terminal like PowerShell on your local machine, and navigate to the [Digital Twins samples repo](https://github.com/azure-samples/digital-twins-samples/tree/main/) you downloaded earlier in the tutorial. Inside the downloaded repo folder, navigate to *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp*.
     
     1. In your terminal, run the following command to publish the project:
 
@@ -134,9 +134,9 @@ To publish the function app to Azure, you'll first need to create a storage acco
         dotnet publish -c Release
         ```
 
-        This command publishes the project to the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
+        This command publishes the project to the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
 
-    1. Create a zip of the published files that are located in the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
+    1. Create a zip of the published files that are located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
         
         >[!TIP] 
         >If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:

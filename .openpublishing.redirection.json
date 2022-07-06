@@ -40183,6 +40183,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-app-service-environment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/app-service/how-to-zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-app-service",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-alerts.md",
       "redirect_url": "/azure/azure-sql/database/sql-insights-alerts",
       "redirect_document_id": false

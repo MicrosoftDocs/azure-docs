@@ -11,13 +11,39 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/26/2022
+ms.date: 6/21/2022
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+>[!NOTE] 
+
+>The June Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the June Guest OS. This list is subject to change. 
+
+
+## June 2022 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-06 |  [5014692]  |  Latest Cumulative Update(LCU) | 6.44 | Jun 14, 2022 |
+|  Rel 22-06 |  [5014678]  |  Latest Cumulative Update(LCU) | 7.12 | Jun 14, 2022 |
+|  Rel 22-06 |  [5014702]  |  Latest Cumulative Update(LCU) | 5.68 | Jun 14, 2022 |
+|  Rel 22-06 |  [5013641]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | 6.45 | May 10, 2022 |
+|  Rel 22-06 |  [5013630]  |  .NET Framework 4.8 Security and Quality Rollup | 7.13 | May 10, 2022 |
+|  Rel 22-06 |  [5014026]  |  Servicing Stack update | 5.69 | May 10, 2022 |
+|  Rel 22-06 |  [4494175]  |  Microcode | 5.69 | Sep 1, 2020 |
+|  Rel 22-06 |  [4494174]  |  Microcode | 6.45 | Sep 1, 2020 |
+
+[5014692]: https://support.microsoft.com/kb/5014692
+[5014678]: https://support.microsoft.com/kb/5014678
+[5014702]: https://support.microsoft.com/kb/5014702
+[5013641]: https://support.microsoft.com/kb/5013641
+[5013630]: https://support.microsoft.com/kb/5013630
+[5014026]: https://support.microsoft.com/kb/5014026
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
 
 ## May 2022 Guest OS
 

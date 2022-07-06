@@ -59,6 +59,11 @@
     href: detected-clothing.md
   - name: Audio effects detection
     href: audio-effects-detection.md
+  - name: Transparency notes
+    href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
+    items:
+    - name: Audio Effects Detection
+      href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
   - name: Customizing content models
     items:
     - name: Overview

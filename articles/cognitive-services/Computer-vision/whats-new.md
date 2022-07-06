@@ -18,6 +18,12 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## June 2022
 
+### Vision Studio launch
+
+Vision Studio is UI tool that lets you explore, build, and integrate features from Azure Cognitive Services for Vision into your applications.
+
+Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
+
 ### Face transparency documentation
 * The [transparency documentation](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and identifying and addressing fluctuations in accuracy due to variations in operational conditions.
 
@@ -71,15 +77,6 @@ See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-
 
 ### New Quality Attribute in Detection_01 and Detection_03
 * To help system builders and their customers capture high quality images which are necessary for high quality outputs from Face API, we’re introducing a new quality attribute **QualityForRecognition** to help decide whether an image is of sufficient quality to attempt face recognition. The value is an informal rating of low, medium, or high. The new attribute is only available when using any combinations of detection models `detection_01` or `detection_03`, and recognition models `recognition_03` or `recognition_04`. Only "high" quality images are recommended for person enrollment and quality above "medium" is recommended for identification scenarios. To learn more about the new quality attribute, see [Face detection and attributes](concept-face-detection.md) and see how to use it with [QuickStart](./quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio).
-
-
-## June 2022
-
-### Vision Studio launch
-
-Vision Studio is UI tool that lets you explore, build, and integrate features from Azure Cognitive Services for Vision into your applications.
-
-Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
 
 ## September 2021
 

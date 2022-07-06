@@ -114,6 +114,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Web S
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
 |**Squid Proxy** | `_ASim_WebSession_SquidProxy` (regular) <br> `_Im_WebSession_SquidProxy` (filtering) <br><br>  | `ASimWebSessionSquidProxy` (regular) <br>`vimWebSessionSquidProxy` (filtering) <br><br> |
+| **Vectra AI Streams** |`_ASim_WebSession_VectraAI` (regular)<br> `_Im_WebSession_VectraAI` (filtering)  | `ASimWebSessionVectraAI` (regular)<br> `vimWebSessionVectraAI` (filtering)  |
 | **Zscaler ZIA** |`_ASim_WebSessionZscalerZIA` (regular)<br> `_Im_WebSessionZscalerZIA` (filtering)  | `AsimWebSessionZscalerZIA` (regular)<br> `vimWebSessionSzcalerZIA` (filtering)  |
 
 

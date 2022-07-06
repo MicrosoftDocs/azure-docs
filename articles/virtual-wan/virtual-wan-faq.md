@@ -256,7 +256,9 @@ No. Virtual WAN doesn't require ExpressRoute from each site. Your sites may be c
 
 ### Is there a network throughput or connection limit when using Azure Virtual WAN?
 
-Network throughput is per service in a virtual WAN hub. In each hub, the VPN aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is up to 20 Gbps, and the User VPN/point-to-site VPN aggregate throughput is up to 20 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub. This [limit](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) can be increased opening an online customer support request. For cost implication, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
+Network throughput is per service in a virtual WAN hub. In each hub, the VPN aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is up to 20 Gbps, and the User VPN/point-to-site VPN aggregate throughput is up to 20 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub. 
+
+To secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed, you can set the minimum capacity or modify as needed. See [About virtual hub settings - hub capacity](hub-settings.md#capacity). For cost implications, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 
 When VPN sites connect into a hub, they do so with connections. Virtual WAN supports up to 1000 connections or 2000 IPsec tunnels per virtual hub. When remote users connect into virtual hub, they connect to the P2S VPN gateway, which supports up to 100,000 users depending on the scale unit(bandwidth) chosen for the P2S VPN gateway in the virtual hub.
 

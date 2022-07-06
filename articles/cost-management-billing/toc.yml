@@ -176,10 +176,6 @@
         href: manage/mca-section-invoice.md
       - name: Set up Microsoft Customer Agreement billing account
         href: manage/mca-setup-account.md
-      - name: Sign up with Microsoft 365 account
-        href: manage/microsoft-365-account-for-azure-subscription.md
-      - name: Sign up for Microsoft 365 with Azure account
-        href: manage/azure-account-for-microsoft-365-subscription.md
       - name: Pay using strong customer authentication
         href: manage/open-banking-strong-customer-authentication.md
     - name: Administer subscriptions

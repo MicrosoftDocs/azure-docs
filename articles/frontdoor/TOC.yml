@@ -22,8 +22,10 @@
   expanded: true
   items:
   - name: Front Door
+    expanded: true
     items:
     - name: Standard/Premium
+      expanded: true
       items:
       - name: Create a Front Door - Portal
         href: create-front-door-portal.md
@@ -126,6 +128,8 @@
           href: routing-methods.md
         - name: Routing limits
           href: front-door-routing-limits.md
+      - name: Endpoint
+        href: endpoint.md
       - name: Origin
         href: origin.md?pivots=front-door-standard-premium
       - name: Wildcard domain

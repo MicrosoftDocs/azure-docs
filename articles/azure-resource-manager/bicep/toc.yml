@@ -105,6 +105,8 @@
       href: /azure/azure-sql/database/single-database-create-bicep-quickstart
     - name: SQL Managed Instance
       href: /azure/azure-sql/managed-instance/create-bicep-quickstart
+    - name: SQL Server on Virtual Machines
+      href: /azure/azure-sql/virtual-machines/windows/create-sql-vm-bicep
   - name: DevOps
     items:
     - name: App Configuration
@@ -149,6 +151,8 @@
       href: ../../private-link/create-private-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Private Link service
       href: ../../private-link/create-private-link-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Traffic Manager
+      href: ../../traffic-manager/quickstart-create-traffic-manager-profile-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Security
     items:
     - name: Attestation

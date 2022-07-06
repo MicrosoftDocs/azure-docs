@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 06/21/2022
 ---
 
 # Configure IP firewall rules to allow indexer connections from Azure Cognitive Search
@@ -40,6 +40,16 @@ This article explains how to find the IP address of your search service and conf
    Address:  150.0.0.1
    aliases:  contoso.search.windows.net
    ```
+
+## Get the Azure portal IP address
+
+If you're using the Azure portal or the [Import Data wizard](search-import-data-portal.md) to create an indexer, you'll need an inbound rule for the Azure portal.
+
+To get the portal IP address, perform `nslookup` on `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. 
+
+For nslookup, the IP address be visible in the "Non-authoritative answer" portion of the response. For ping, the request will time out, but the IP address will be visible in the response. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
+
+Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
 
 ## Get IP addresses for "AzureCognitiveSearch" service tag
 
@@ -89,7 +99,7 @@ Now that you have the necessary IP addresses, you can set up the inbound rule. T
 
    :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall.png" alt-text="Screenshot of Azure Storage Firewall and virtual networks page" border="true":::
 
-1. Add the IP addresses obtained previously (one for the search service IP, plus all of the IP ranges for the "AzureCognitiveSearch" service tag) in the address range and select **Save**.
+1. Add the IP addresses obtained previously in the address range and select **Save**. You should have rules for the search service, Azure portal (optional), plus all of the IP ranges for the "AzureCognitiveSearch" service tag for your region
 
    :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall-ip.png" alt-text="Screenshot of the IP address section of the page." border="true":::
 
