@@ -17,7 +17,7 @@ ms.date: 07/19/2022
 
 :::image type="content" source="./media/power-bi-visual/plan-overview-tab.png" alt-text="Screenshot the Plan overview tab in the left-nav of the Plan overview page.":::
 
-You need to define at least one plan, if your offer has app license management enabled. You can create a variety of plans with different options for the same offer. These plans (sometimes referred to as SKUs) can differ in terms of monetization or tiers of service. Later, you will map the Service IDs of each plan in the visual package to enable a runtime license check by the Power BI platform against these plans (we'll walk you through this process later). You’ll map the Service ID of each plan in your visual package.
+You need to define at least one plan, if your offer has app license management enabled. You can create a variety of plans with different options for the same offer. These plans (sometimes referred to as SKUs) can differ in terms of monetization or tiers of service.
 
 ## Create a plan
 
