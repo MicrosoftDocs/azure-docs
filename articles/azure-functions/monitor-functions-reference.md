@@ -38,7 +38,7 @@ Aside from Azure Functions specific metrics, the App Service platform implements
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
-Azure Functions does not have any metrics that contain dimensions.
+Azure Functions doesn't have any metrics that contain dimensions.
 
 ## Resource logs
 
