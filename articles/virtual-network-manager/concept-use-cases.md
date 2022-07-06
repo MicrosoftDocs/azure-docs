@@ -5,10 +5,12 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
 ms.date: 07/06/2022
-ms.custom: template-overview 
+ms.custom: template-overview
+ms.service: virtual-network-manager
 # Customer Intent: As a network admin, I need to know when I should use Azure Virtual Network Manager in my orginization for managing virtual networks across my organization in a scalable, flexible, and secure manner with minimal administrative overhead.
 ---
 
+# Common use cases for Azure Virtual Network Manager
 
 Learn about use cases for Azure Virtual Network Manager including managing connectivity of virtual networks, and securing network traffic.
 
