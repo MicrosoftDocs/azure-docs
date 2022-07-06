@@ -68,4 +68,4 @@ The Azure Monitor agent relies only on [Data Collection rules](../essentials/dat
 	- Windows ARM Template and Parameter Files: will be created if target workspace contains Windows Performance Counters and/or Windows Events
 	- Linux ARM Template and Parameter Files: will be created if target workspace contains Linux Performance Counters and/or Linux Syslog Events
 	
-4. Use the rule association built-in policies to associate generated rules with machines running the new agent. [Learn more](./data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations)
+4. Use the rule association built-in policies and other available methods to associate generated rules with machines running the new agent. [Learn more](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association)
