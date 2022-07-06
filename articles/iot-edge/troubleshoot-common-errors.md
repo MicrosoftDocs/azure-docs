@@ -135,6 +135,25 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+## Could not start module due to OS mismatch
+
+ **Observed behavior:**
+
+The edgeHub module fails to start in IoT Edge version 1.1.
+
+**Root cause:**
+
+Windows module uses a version of Windows that is incompatible with the version of Windows on the host. IoT Edge Windows version 1809 build 17763 is needed as the base layer for the module image, but a different version is in use.
+
+**Resolution:**
+
+Check the version of your various Windows operating systems in [Troubleshoot host and container image mismatches](/virtualization/windowscontainers/deploy-containers/update-containers#troubleshoot-host-and-container-image-mismatches). If the operating systems are different, update them to IoT Edge Windows version 1809 build 17763 and rebuild the Docker image used for that module.
+
+:::moniker-end
+<!-- end 1.1 -->
+
 ## IoT Edge hub fails to start
 
 **Observed behavior:**
@@ -421,7 +440,7 @@ IoT Edge modules that connect directly to cloud services, including the runtime 
 
 **Root cause:**
 
-Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://docs.docker.com/config/containers/container-networking/) in the Docker documentation.
 
 **Resolution:**
 

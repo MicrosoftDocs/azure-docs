@@ -2271,11 +2271,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-mlflow-models.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-mlflow-models",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-functions.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
         "redirect_document_id": false
