@@ -86,7 +86,7 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 
 1. Pass the object to the [generateAccountSASQueryParameters](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateaccountsasqueryparameters) function, along with the [SharedKeyCredential](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateaccountsasqueryparameters), to create the SAS token. 
 
-    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="Snippet_GetSas":::
+    :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_GetSas":::
 
 1. Secure the SAS token until it is used. 
 
@@ -103,7 +103,7 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 
 1. Use the blobServiceClient to get the service properties
  
-    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="Snippet_UseSas":::
+    :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_UseSas":::
 
 
 ## See also
