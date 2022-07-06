@@ -92,7 +92,7 @@ az vm host group create \
    --platform-fault-domain-count 2
 ```
 
-Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information about this topic, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
+Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
 
 Add the `--ultra-ssd-enabled true` (Preview) parameter to enable creation of VMs that can support ultra disks.
 
