@@ -144,6 +144,10 @@ An example of a delegate implementation would be:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
 
+>[!NOTE] 
+> In the above we pass a variable `options` of type `ChangeFeedProcessorOptions`, which can be used to set various values including `setStartFromBeginning`:
+> [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
+
 We assign this to a `changeFeedProcessorInstance`, passing parameters of compute instance name (`hostName`), the monitored container (here called `feedContainer`) and the `leaseContainer`. We then start the change feed processor:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=StartChangeFeedProcessor)]
@@ -156,7 +160,7 @@ We assign this to a `changeFeedProcessorInstance`, passing parameters of compute
 The normal life cycle of a host instance is:
 
 1. Read the change feed.
-1. If there are no changes, sleep for a predefined amount of time (customizable with `WithPollInterval` in the Builder) and go to #1.
+1. If there are no changes, sleep for a predefined amount of time (customizable with `options.setFeedPollDelay` in the Builder) and go to #1.
 1. If there are changes, send them to the **delegate**.
 1. When the delegate finishes processing the changes **successfully**, update the lease store with the latest processed point in time and go to #1.
 
@@ -192,8 +196,7 @@ For example, you might have one deployment unit that triggers an external API an
 As mentioned before, within a deployment unit you can have one or more compute instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
 
 1. All instances should have the same lease container configuration.
-1. All instances should have the same `processorName`.
-1. Each instance needs to have a different instance name (`WithInstanceName`).
+1. Each instance needs to have a different instance name (`hostName`).
 
 If these three conditions apply, then the change feed processor will, using an equal distribution algorithm, distribute all the leases in the lease container across all running instances of that deployment unit and parallelize compute. One lease can only be owned by one instance at a given time, so the maximum number of instances equals to the number of leases.
 
@@ -208,10 +211,6 @@ Change feed read operations on the monitored container will consume [request uni
 Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances using the same lease container, the higher the potential request units consumption will be. Make sure your lease container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors, in some cases where throttling is high, the processors might stop processing completely.
 
 ## Starting time
-
-Note that in the earlier example we passed a variable `options` of type `ChangeFeedProcessorOptions`, which can be used to set various values including `setStartFromBeginning`:
-
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
 
 By default, when a change feed processor starts the first time, it will initialize the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
 
