@@ -45,7 +45,7 @@ Visit the [Azure Global Infrastructure products by region](https://azure.microso
 
 [Azure Lab Services August 2022 Update](lab-services-whats-new.md)) doesn't move or store customer data outside the region it's deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
 
-There are no guarantees customer data will stay in the region it's deployed to when using Azure Lab Services previous to the April 2022 Update.
+There are no guarantees customer data will stay in the region it's deployed to when using Azure Lab Services previous to the August 2022 Update.
 
 ## Next steps
 
