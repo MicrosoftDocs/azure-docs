@@ -5,7 +5,7 @@
  author: roygara
  ms.service: storage
  ms.topic: include
- ms.date: 06/30/2022
+ ms.date: 07/06/2022
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -27,7 +27,7 @@ To access managed disks secured with Azure AD, the requesting user must have eit
 - **Microsoft.Compute/snapshots/download/action**
 - **Microsoft.Compute/snapshots/upload/action**
 
-For detailed steps on assigning a role, see [Assign Azure roles using the Azure portal](../articles/role-based-access-control/role-assignments-portal.md). To create or update a custom role, see [Create or update Azure custom roles using the Azure portal](../articles/role-based-access-control/custom-roles-portal.md).
+For detailed steps on assigning a role, see the following articles for [portal](../articles/role-based-access-control/role-assignments-portal.md), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md). To create or update a custom role, see the following articles for [portal](../articles/role-based-access-control/custom-roles-portal.md), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md).
 
 ### Enable data access authentication mode
 
@@ -50,7 +50,7 @@ New-AzDiskUpdateConfig -DataAccessAuthMode "AzureActiveDirectory" | Update-AzDis
 You'll need to set `**dataAccessAuthMode**` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `--resource-group` and `--Name` before running the script:
 
 ```azurecli
-az disk update --Name yourDiskName --resource-group yourResourceGroup --data-access-auth-mode AzureActiveDirectory
+az disk update --name yourDiskName --resource-group yourResourceGroup --data-access-auth-mode AzureActiveDirectory
 ```
 
 ---

@@ -71,7 +71,7 @@ $diskSas = Grant-AzDiskAccess -ResourceGroupName "yourRGName" -DiskName "yourDis
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-diskSAS=$(az disk grant access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName)
+diskSAS=$(az disk grant-access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName)
 ```
 
 ---
