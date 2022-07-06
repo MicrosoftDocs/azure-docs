@@ -40,7 +40,9 @@ There are many security benefits of using Azure AD-based authentication to log i
 > [!NOTE]
 > After you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join them to another domain, like on-premises Active Directory or Azure Active Directory Domain Services. If you need to do so, disconnect the VM from Azure AD by uninstalling the extension.
 
-## Supported Azure regions and Windows distributions
+### Requirements
+
+### Supported Azure regions and Windows distributions
 
 This feature currently supports the following Windows distributions:
 
@@ -56,7 +58,7 @@ This feature is now available in the following Azure clouds:
 - Azure Government
 - Azure China 21Vianet
 
-## Network requirements
+### Network requirements
 
 To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure that your VM's network configuration permits outbound access to the following endpoints over TCP port 443.
 
@@ -388,7 +390,7 @@ Try these solutions:
 
   Sign in with the user account in a web browser. For instance, open the [Azure portal](https://portal.azure.com) in a private browsing window. If you're prompted to change the password, set a new password. Then try connecting again.
 
-### Multifactor authentication sign-in method required
+### MFA sign-in method required
 
 You might see the following error message when you initiate a remote desktop connection to your VM: "The sign-in method you're trying to use isn't allowed. Try a different sign-in method or contact your system administrator."
 
