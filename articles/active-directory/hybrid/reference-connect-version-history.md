@@ -82,7 +82,8 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 ### Release status
 7/6/2022: Released for download, will be made available for auto-upgrade soon.
 
-> [!NOTE] We have discovered a security vulnerability in the Azure AD Connect Admin Agent. If you have installed the Admin Agent previously it is important that you update your Azure AD Connect server(s) to this version to mitigate the vulnerability.
+> [!IMPORTANT] 
+> We have discovered a security vulnerability in the Azure AD Connect Admin Agent. If you have installed the Admin Agent previously it is important that you update your Azure AD Connect server(s) to this version to mitigate the vulnerability.
 
 ### Functional changes
  - We have removed the public preview functionality for the Admin Agent from Azure AD Connect. We will not provide this functionality going forward.
