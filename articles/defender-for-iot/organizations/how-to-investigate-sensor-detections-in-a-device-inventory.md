@@ -246,6 +246,8 @@ Deleting inactive devices helps:
 - Better evaluate committed devices when managing subscriptions
 - Reduce clutter on your screen
 
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+
 ### View inactive devices
 
 You can filter the inventory to display devices that are inactive:
