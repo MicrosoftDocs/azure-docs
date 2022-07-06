@@ -51,7 +51,7 @@ To connect to a Windows VM from a Mac, you will need to install an RDP client fo
     **Domain controller**: If the VM is a domain controller, enter the user name and password of a domain administrator account for that domain.
 4. Select **Yes** to verify the identity of the virtual machine and finish logging on.
    
-   ![Screenshot showing a message abut verifying the identity of the VM.](./media/connect-logon/cert-warning.png)
+   ![Screenshot showing a message about verifying the identity of the VM.](./media/connect-logon/cert-warning.png)
 
 
    > [!TIP]
