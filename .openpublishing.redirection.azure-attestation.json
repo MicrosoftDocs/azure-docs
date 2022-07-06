@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path": "articles/attestation/audit-logs.md",
+            "source_path_from_root": "/articles/attestation/audit-logs.md",
             "redirect_url": "/azure/attestation/view-logs",
             "redirect_document_id": true
         }
