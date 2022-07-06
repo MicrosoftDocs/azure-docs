@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-## Raw Video
+## Raw video
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
@@ -23,13 +23,13 @@ The Azure Communication Services Calling SDK offers APIs allowing apps to genera
 This quick start builds upon [QuickStart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
 
 
-## Virtual Video Stream Overview
+## Virtual video stream overview
 
 Since the app will be generating the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats the app is capable of generating. This is required to allow the Azure Communication Services Calling SDK to pick the best video format configuration given the network conditions at any giving time.
 
 The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is more appropriate for the current network conditions.
 
-### Supported Video Resolutions
+### Supported video resolutions
 
 | Aspect Ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
@@ -214,13 +214,13 @@ After that, create the ByteBuffer backing the video frame if needed. Then, updat
     }
     ```
 
-## Screen Share Video Stream Overview
+## Screen share video stream overview
 
 Repeat steps `1 to 4` from the previous VirtualRawOutgoingVideoStream tutorial.
 
 Since the Android system generates the frames, you must implement your own foreground service to capture the frames and send them through using our Azure Communication Services Calling API
 
-### Supported Video Resolutions
+### Supported video resolutions
 
 | Aspect Ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
