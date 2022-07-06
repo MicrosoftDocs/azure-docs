@@ -249,26 +249,26 @@ If you didn't create a test account or assigned an existing user during deployme
 | Resource group | *your prefix*-deployment | N/A | This is a predefined name. |
 | Resource group | *your prefix*-prerequisite | N/A | This is a predefined name. |
 | Azure AD DS | *your domain name* | *your prefix*-prerequisite | Deployed with the [Enterprise SKU](https://azure.microsoft.com/pricing/details/active-directory-ds/#pricing). You can [change the SKU](../active-directory-domain-services/change-sku.md) after deployment. |
-| Automation Account | ebautomation*random string* | *your prefix*-deployment |  |
-| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment |  |  |
-| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Note: only created if **Multiple users** is selected for **Users per virtual machine** |
-| Host pool | EB-AVD-HP | *your prefix*-avd |  |
-| Application group | EB-AVD-HP-DAG | *your prefix*-avd |  |
-| Workspace | EB-AVD-WS | *your prefix*-avd |  |
-| Storage account | eb*random string* | *your prefix*-avd |  |
-| Virtual machine | *your prefix*-*number* | *your prefix*-avd |  |
-| Virtual network | avdVnet | *your prefix*-prerequisite | 10.0.0.0/16 |
-| Network interface | *virtual machine name*-nic | *your prefix*-avd |  |
-| Network interface | aadds-*random string*-nic | *your prefix*-prerequisite |  |
-| Network interface | aadds-*random string*-nic | *your prefix*-prerequisite |  |
-| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd |  |
-| Load balancer | aadds-*random string*-lb | *your prefix*-prerequisite |  |
-| Public IP address | aadds-*random string*-pip | *your prefix*-prerequisite |  |
-| Network security group | avdVnet-nsg | *your prefix*-prerequisite |  |
-| Group | AVDValidationUsers | N/A | Created in your new Azure AD tenant and synchronized to Azure AD DS. It contains a new test user (if created) and users you selected. |
+| Automation Account | ebautomation*random string* | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Only created if **Multiple users** is selected for **Users per virtual machine**. This is a predefined name. |
+| Host pool | EB-AVD-HP | *your prefix*-avd | This is a predefined name. |
+| Application group | EB-AVD-HP-DAG | *your prefix*-avd | This is a predefined name. |
+| Workspace | EB-AVD-WS | *your prefix*-avd | This is a predefined name. |
+| Storage account | eb*random string* | *your prefix*-avd | This is a predefined name. |
+| Virtual machine | *your prefix*-*number* | *your prefix*-avd | This is a predefined name. |
+| Virtual network | avdVnet | *your prefix*-prerequisite | The address space used is **10.0.0.0/16**. The address space and name are predefined. |
+| Network interface | *virtual machine name*-nic | *your prefix*-avd | This is a predefined name. |
+| Network interface | aadds-*random string*-nic | *your prefix*-prerequisite | This is a predefined name. |
+| Network interface | aadds-*random string*-nic | *your prefix*-prerequisite | This is a predefined name. |
+| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd | This is a predefined name. |
+| Load balancer | aadds-*random string*-lb | *your prefix*-prerequisite | This is a predefined name. |
+| Public IP address | aadds-*random string*-pip | *your prefix*-prerequisite | This is a predefined name. |
+| Network security group | avdVnet-nsg | *your prefix*-prerequisite | This is a predefined name. |
+| Group | AVDValidationUsers | N/A | Created in your new Azure AD tenant and synchronized to Azure AD DS. It contains a new test user (if created) and users you selected. This is a predefined name. |
 | User | *your test user* | N/A | If you select to create a test user, it will be created in your new Azure AD tenant, synchronized to Azure AD DS, and made a member of the *AVDValidationUsers* security group. |
 
 # [Existing AD DS](#tab/existing-adds)
@@ -278,19 +278,19 @@ If you didn't create a test account or assigned an existing user during deployme
 | Resource group | *your prefix*-avd | N/A | This is a predefined name. |
 | Resource group | *your prefix*-deployment | N/A | This is a predefined name. |
 | Automation Account | ebautomation*random string* | *your prefix*-deployment |  |
-| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment |  |  |
-| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Note: only created if **Multiple users** is selected for **Users per virtual machine** |
-| Host pool | EB-AVD-HP | *your prefix*-avd |  |
-| Application group | EB-AVD-HP-DAG | *your prefix*-avd |  |
-| Workspace | EB-AVD-WS | *your prefix*-avd |  |
-| Storage account | eb*random string* | *your prefix*-avd |  |
-| Virtual machine | *your prefix*-*number* | *your prefix*-avd |  |
-| Network interface | *virtual machine name*-nic | *your prefix*-avd |  |
-| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd |  |
-| Group | AVDValidationUsers | N/A | Created in your AD DS domain and synchronized to Azure AD. It contains a new test user (if created) and users you selected. |
+| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Only created if **Multiple users** is selected for **Users per virtual machine**. This is a predefined name. |
+| Host pool | EB-AVD-HP | *your prefix*-avd | This is a predefined name. |
+| Application group | EB-AVD-HP-DAG | *your prefix*-avd | This is a predefined name. |
+| Workspace | EB-AVD-WS | *your prefix*-avd | This is a predefined name. |
+| Storage account | eb*random string* | *your prefix*-avd | This is a predefined name. |
+| Virtual machine | *your prefix*-*number* | *your prefix*-avd | This is a predefined name. |
+| Network interface | *virtual machine name*-nic | *your prefix*-avd | This is a predefined name. |
+| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd | This is a predefined name. |
+| Group | AVDValidationUsers | N/A | Created in your AD DS domain and synchronized to Azure AD. It contains a new test user (if created) and users you selected. This is a predefined name. |
 | User | *your test user* | N/A | If you select to create a test user, it will be created in your AD DS domain, synchronized to Azure AD, and made a member of the *AVDValidationUsers* security group. |
 
 # [Existing Azure AD DS](#tab/existing-aadds)
@@ -299,20 +299,20 @@ If you didn't create a test account or assigned an existing user during deployme
 |--|--|--|--|
 | Resource group | *your prefix*-avd | N/A | This is a predefined name. |
 | Resource group | *your prefix*-deployment | N/A | This is a predefined name. |
-| Automation Account | ebautomation*random string* | *your prefix*-deployment |  |
-| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment |  |  |
-| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment |  |
-| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Note: only created if **Multiple users** is selected for **Users per virtual machine** |
-| Host pool | EB-AVD-HP | *your prefix*-avd |  |
-| Application group | EB-AVD-HP-DAG | *your prefix*-avd |  |
-| Workspace | EB-AVD-WS | *your prefix*-avd |  |
-| Storage account | eb*random string* | *your prefix*-avd |  |
-| Virtual machine | *your prefix*-*number* | *your prefix*-avd |  |
-| Network interface | *virtual machine name*-nic | *your prefix*-avd |  |
-| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd |  |
-| Group | AVDValidationUsers | N/A | Created in your Azure AD tenant and synchronized to Azure AD DS. It contains a new test user (if created) and users you selected. |
+| Automation Account | ebautomation*random string* | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
+| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Only created if **Multiple users** is selected for **Users per virtual machine**. This is a predefined name. |
+| Host pool | EB-AVD-HP | *your prefix*-avd | This is a predefined name. |
+| Application group | EB-AVD-HP-DAG | *your prefix*-avd | This is a predefined name. |
+| Workspace | EB-AVD-WS | *your prefix*-avd | This is a predefined name. |
+| Storage account | eb*random string* | *your prefix*-avd | This is a predefined name. |
+| Virtual machine | *your prefix*-*number* | *your prefix*-avd | This is a predefined name. |
+| Network interface | *virtual machine name*-nic | *your prefix*-avd | This is a predefined name. |
+| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd | This is a predefined name. |
+| Group | AVDValidationUsers | N/A | Created in your Azure AD tenant and synchronized to Azure AD DS. It contains a new test user (if created) and users you selected. This is a predefined name. |
 | User | *your test user* | N/A | If you select to create a test user, it will be created in your Azure AD tenant, synchronized to Azure AD DS, and made a member of the *AVDValidationUsers* security group. |
 
 ---
