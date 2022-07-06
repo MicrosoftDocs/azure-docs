@@ -44,7 +44,7 @@ const callOptions = {
 callAgent.startCall(userId, callOptions);
 ```
 
-## Swith to custom audio stream during a call
+## Switch to custom audio stream during a call
 
 Developers can switch input device to a custom audio stream instead of using user's microphone device during a call.
 
@@ -80,7 +80,7 @@ call.on('stateChanged', callStateChangedHandler);
 
 ## Stop custom audio stream
 
-Developers can stop sending the custom audio stream after it being set during a call.
+Developers can stop sending the custom audio stream after it has been set during a call.
 
 ```js
 call.stopAudio();
