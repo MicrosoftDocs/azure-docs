@@ -74,11 +74,11 @@ You can also connect the product to your customer relationship management (CRM) 
 > [!NOTE]
 > Connecting to a CRM system is optional.
 
-To configure the lead management in Partner Center:
+To connect your offer to your CRM:
 
 1. In Partner Center, go to the **Offer setup** tab.
 1. Under **Customer leads**, select the **Connect** link.
-1. In the **Connection details** dialog box, select a lead destination from the list.
+1. In the **Connection details** dialog box, select a lead destination.
 1. Complete the fields that appear. For detailed steps, see the following articles:
 
     - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)

@@ -24,8 +24,6 @@ To showcase your visual offer, help users get familiar with the visual. Highligh
 > - The PBIX report must use the same version of the visual as the PBIVIZ.
 > - The PBIX report file must work offline, without any external connections.
 
-Select **Save draft** before skipping in the left-nav menu to the **Offer management** tab.
-
 ## PBIVIZ package
 
 [Pack your Power BI visual](/power-bi/developer/visuals/package-visual) into a PBIVIZ package containing all the required metadata:
@@ -40,9 +38,11 @@ Select **Save draft** before skipping in the left-nav menu to the **Offer manage
 > [!NOTE]
 > If you are updating or resubmitting a visual:
 > - The GUID must remain the same.
-> - The version number should be incremented between package updates.
+> - The version number should be increased between package updates.
+
+Select **Save draft** before continuing to the next tab in the left-nav menu.
 
 ## Next steps
 
-- If you choose to enable app license management through Microsoft, go to [Create Power Bi visual plans](power-bi-visual-plans.md)
+- If you enabled the “Managing license and selling with Microsoft” option on the _Offer setup_ page, go to [Create Power Bi visual plans](power-bi-visual-plans.md)
 - Otherwise, go to [Manage Power BI visual offer names](power-bi-visual-manage-names.md)
