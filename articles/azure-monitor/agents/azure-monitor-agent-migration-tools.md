@@ -20,7 +20,7 @@ A workbook-based solution in Azure Monitor that helps you discover **what to mig
 
 The workbook is available under the *Community Git repo > Azure Monitor* option, linked [here](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/Migration%20Helper%20Workbook)
 
-1. Open Azure Portal > Monitor > Workbooks
+1. Open Azure portal > Monitor > Workbooks
 2. Click ‘+ New’
 3. Click on the ‘Advanced Editor’ </> button
 4. Copy and paste the workbook JSON content here.
@@ -36,11 +36,11 @@ The Azure Monitor agent relies only on [Data Collection rules](../essentials/dat
 
 
 1. **Prerequisites**
-	- Powershell version 7.1.3 or higher is recommended (minimum version 5.1)
+	- PowerShell version 7.1.3 or higher is recommended (minimum version 5.1)
 	- Primarily uses `Az Powershell module` to pull workspace agent configuration information
 	- You must have read access for the specified workspace resource
 	- `Connect-AzAccount` and `Select-AzSubscription` will be used to set the context for the script to run so proper Azure credentials will be needed
-2. [Download the powershell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator)
+2. [Download the PowerShell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator)
 2. Run the script using one of the options below:
 	- Option 1
 		# [PowerShell](#tab/ARMAgentPowerShell)
@@ -57,7 +57,7 @@ The Azure Monitor agent relies only on [Data Collection rules](../essentials/dat
 		
 		| Parameter | Required? | Description |
 		|------|------|------|
-		| SubscriptionId | Yes | Subscription Id that contains the target workspace |
+		| SubscriptionId | Yes | Subscription ID that contains the target workspace |
 		| ResourceGroupName | Yes | Resource Group that contains the target workspace |
 		| WorkspaceName | Yes | Name of the target workspace |
 		| DCRName | Yes | Name of the new generated DCR to create |
