@@ -6,13 +6,13 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 06/23/2022
+ms.date: 07/06/2022
 ms.custom: "mvc, references_regions"
 ---
 
 # Overview - Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
@@ -104,7 +104,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Germany West Central | :x: $$ | :x: $ | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Jio India West | :heavy_check_mark: (v3 only)| :x: | :x: |
