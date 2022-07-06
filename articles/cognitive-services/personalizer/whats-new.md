@@ -16,8 +16,8 @@ Learn what's new in the service. These items may include release notes, videos, 
 
 ## Release notes
 
-### March 2022
-* Thick client for rapid inference (Preview) : Personalizer now supports near-realtime (sub-10ms) inference without the need to wait for network API calls. Using the Thick Client, Personalizer models can be deployed locally for high-speed Rank calls using the [C# SDK (Preview)](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet-preview). This enables even lower latency and higher frequency inference enabling your application to personalize quickly and efficiently. Reward calls continue to train models in Azure, which can be used to seamlessly update to your local model. 
+### April 2022
+* Local inference SDK (Preview) : Personalizer now supports near-realtime (sub-10ms) inference without the need to wait for network API calls. Using the Thick Client, Personalizer models can be deployed locally for high-speed Rank calls using the [C# SDK (Preview)](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet-preview). This enables even lower latency and higher frequency inference enabling your application to personalize quickly and efficiently. Reward calls continue to train models in Azure, which can be used to seamlessly update to your local model. 
 
 ### May 2021  - //Build conference
 
