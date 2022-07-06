@@ -272,12 +272,12 @@ public class Pharmacy {
     }
     @Override
     public String toString() {
-        return "TPharmacy{"
-               "pharmacy_id=" + pharmacy_id
-               ", pharmacy_name='" + pharmacy_name + '\''
-               ", city='" + city + '\''
-                   ", state='" + state + '\''
-                   ", zip_code='" + zip_code + '\''
+        return "TPharmacy{" +
+               "pharmacy_id=" + pharmacy_id +
+               ", pharmacy_name='" + pharmacy_name + '\'' +
+               ", city='" + city + '\'' +
+                   ", state='" + state + '\'' +
+                   ", zip_code='" + zip_code + '\'' +
                '}';
     }
 }
