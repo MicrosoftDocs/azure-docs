@@ -34,20 +34,20 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 
 7. Go back and select  **Profile**  ->  **Save**.
 
-8. After saving the changes for this parameter, please restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux)) 
+8. After saving the changes for this parameter, restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux)) 
 * 8.1. **On Windows systems**, this can be done in a single window using the SAP Microsoft Management Console (MMC) / SAP Management Console(MC). 
 
   Right-click on each instance and choose All Tasks -> Restart Service.
 
     ![Restart service](./media/azure-monitor-sap/azure-monitor-providers-NW-Prereq1.png)
 
-* 8.2. **On Linux systems**, use the below command where NN is the SAP instance number to restart the host which is logged into.
+* 8.2. **On Linux systems**, use the below command where NN is the SAP instance number to restart the host, which is logged into.
 
     `RestartService`
 
     `sapcontrol -nr <NN> -function RestartService`
 
-Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command:
+Once the SAP service is restarted, check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command:
 
 Logged as sidadm
 
@@ -61,26 +61,28 @@ The output should look like this:-
 
 ![SAPControlOutput](./media/azure-monitor-sap/azure-monitor-providers-NW-SAPControOutput.png)
 
-To conclude and validate, a test query can be done against web methods to validate ( replace the hostname, instance number, and method name ) leverage the below PowerShell script
+To conclude and validate, run a test query against web methods to validate (replace the hostname, instance number, and method name ).
 
-`Powershell
+Leverage  below PowerShell script
 
-`$SAPHostName = "<hostname>"`
+    `Powershell
 
-`$InstanceNumber = "<instancenumber>"`
+    `$SAPHostName = "<hostname>"`
 
-`$Function = "ABAPGetWPTable"`
+    `$InstanceNumber = "<instancenumber>"`
 
-`[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}`
+    `$Function = "ABAPGetWPTable"`
 
-`$sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"`
-
-`$sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl`
-
-`$FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")`
-
-`$sapcntrl.$Function($FunctionObject)`
-
+    `[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}`
+    
+    `$sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"`
+    
+    `$sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl`
+    
+    `$FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")`
+    
+    `$sapcntrl.$Function($FunctionObject)`
+    
 \*\*Repeat Steps 3-10 for each instance profile \*\*.
 
   **Important**
@@ -124,7 +126,7 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
 
     ![Activate Service](https://user-images.githubusercontent.com/74435183/171516111-595b93e0-0bd8-45af-86a4-448a8bafe64c.png)
 
-* 9.5 Additional checks to enable the ICF Ports (Optional – Recommended )
+* 9.5 More checks to enable the ICF Ports (Optional – Recommended )
 
    * To find in which port your ICF is running. Right-click the ping service and choose the option – ‘Test Service’.  
  
@@ -132,7 +134,7 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
 
    ![Configure port](https://user-images.githubusercontent.com/74435183/168395183-5badfc27-df27-4e83-96d6-bab2bf1f8b2c.png)
 
-  * If the port could not be reached or the ping test fails, you might need to open the port in the SAP virtual machine by executing the commands below:  
+  * If the port could not be reached, or the ping test fails, you might need to open the port in the SAP virtual machine by executing the commands below:  
    *Linux:*  
     sudo firewall-cmd --permanent --zone=public --add-port=<your-port>/TCP 
     sudo firewall-cmd --reload 
@@ -141,7 +143,7 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
     * Select the Start menu, type Windows Defender Firewall, and select it from the list of results. 
     * Select Advanced Settings on the side navigation menu. 
     * Select Inbound Rules. 
-    * To open a port, select New Rule, add port = <your-port> and protocol = TCP, complete the instructions. 
+    * To open a port, select New Rule, add port = <your-port> and, protocol = TCP, complete the instructions. 
 
 #### **Add SAP NetWeaver Provider Steps (Using Portal UI):**
 
@@ -153,10 +155,10 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
 
    ![Provider Details](https://user-images.githubusercontent.com/74435183/168396901-1d292af1-adbc-4121-99cc-e1277a05b402.png)
 
-* System ID (SID) - Provide the unique SAP system identifier which is a three-character identifier of an SAP system.
+* System ID (SID) - Provide the unique SAP system identifier, which is a three-character identifier of an SAP system.
 * Application Server - Provide the IP address or the fully qualified domain name (FQDN) of the SAP NetWeaver system to be monitored. 
   For example - sapservername.contoso.com where sapservername is the hostname and contoso.com is the subdomain. 
-  When using a hostname, please ensure connectivity from within the similar VNET that you used while creating the AMS resource.
+  When using a hostname, ensure connectivity from within the similar VNET that you used while creating the AMS resource.
 * Instance Number - Specify the instance number of the SAP NetWeaver [00-99]
 * Host file Entries - Provide the DNS mappings for all the SAP virtual machines associated with the above-mentioned SID (see explanation below).
  #### Host file Entries
@@ -173,11 +175,11 @@ For SMON capability the version for ST-PI must be SAPK-74005INSTPI
 
  For all the hostnames returned from the above command ensure that the host file entries are provided.
 * SAP client ID - Provide the SAP Client Id. 
-* SAP HTTP Port - Port your ICF is running – E.g 8110 (Please follow step 9.5) 
+* SAP HTTP Port - Port your ICF is running – For example 8110 ( follow step 9.5) 
 * SAP username - SAP user to connect to the SAP system (created as Step 9.2) 
 * SAP password - SAP password to connect to the SAP system (created as Step 9.2)
 
- For more details refer to the AMS public documentation : 
+ For more information, see the AMS public documentation : 
  https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-sap-quickstart
 
 ### For Azure Monitor for SAP solutions (Classic)
@@ -199,7 +201,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
       SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList
 
 7. Go back and select **Profile** > **Save**.
-8. After saving the changes for this parameter, please restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
+8. After saving the changes for this parameter, restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
    8a. On Windows systems, this can be done in a single window using the SAP Microsoft Management Console (MMC) / SAP Management Console(MC).  Right-click on each instance and choose All Tasks -> Restart Service.
 ![MMC](https://user-images.githubusercontent.com/75772258/126453939-daf1cf6b-a940-41f6-98b5-3abb69883520.png)
 
@@ -208,7 +210,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    ```RestartService
    sapcontrol -nr <NN> -function RestartService
    
-9. Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
+9. Once the SAP service is restarted, check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
 
 **Logged as \<sidadm\>** 
    `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods`
@@ -219,18 +221,20 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    The output should look like :-
    ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
 
-10. To conclude and validate, a test query can be done against web methods to validate ( replace the hostname , instance number and method name ) leverage the below powershell script 
+10. To conclude and validate, run a test query against web methods to validate (replace the hostname , instance number and, method name ) 
+    
+    Use the below PowerShell script 
 
-```Powershell command to test unprotect method 
-$SAPHostName = "<hostname>"
-$InstanceNumber = "<instancenumber>"
-$Function = "ABAPGetWPTable"
-[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
-$sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"
-$sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
-$FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
-$sapcntrl.$Function($FunctionObject)
-```
+    ```Powershell command to test unprotect method 
+    $SAPHostName = "<hostname>"
+    $InstanceNumber = "<instancenumber>"
+    $Function = "ABAPGetWPTable"
+    [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+    $sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"
+    $sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
+    $FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
+    $sapcntrl.$Function($FunctionObject)
+    ```
 11. **Repeat Steps 3-10 for each instance profile **.
 
 >[!Important] 
@@ -261,6 +265,6 @@ To install the NetWeaver provider on the Azure portal:
 >[!Important]
 >If the SAP application servers (ie. virtual machines) are part of a network domain, such as one managed by Azure Active Directory, then it is critical that the corresponding subdomain is provided in the Subdomain text box.  The Azure Monitor for SAP collector VM that exists inside the Virtual Network is not joined to the domain and as such will not be able to resolve the hostname of instances inside the SAP system unless the hostname is a fully qualified domain name.  Failure to provide this will result in missing / incomplete visualizations in the NetWeaver workbook.
  
->For example, if the hostname of the SAP system has a fully qualified domain name of "myhost.mycompany.global.corp" then please enter a Hostname of "myhost" and provide a Subdomain of "mycompany.global.corp".  When the NetWeaver provider invokes the GetSystemInstanceList API on the SAP system, SAP returns the hostnames of all instances in the system.  The collector VM will use this list to make additional API calls to fetch metrics specific to each instance's features (e.g.  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc…). If specified, the collector VM will then use the subdomain  "mycompany.global.corp" to build the fully qualified domain name of each instance in the SAP system.  
+>For example, if the hostname of the SAP system has a fully qualified domain name of "myhost.mycompany.global.corp" then enter a Hostname of "myhost" and provide a Subdomain of "mycompany.global.corp".  When the NetWeaver provider invokes the GetSystemInstanceList API on the SAP system, SAP returns the hostnames of all instances in the system.  The collector VM will use this list to make additional API calls to fetch metrics specific to each instance's features (e.g.  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc…). If specified, the collector VM will then use the subdomain  "mycompany.global.corp" to build the fully qualified domain name of each instance in the SAP system.  
  
 >Please DO NOT specify an IP Address for the hostname field if the SAP system is a part of network domain.

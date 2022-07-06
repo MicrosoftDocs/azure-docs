@@ -13,20 +13,20 @@ ms.author: sujaj
 
 Before Azure Monitor for SAP solutions (AMS) is deployed for the first time, following two areas regarding Networking must be addressed. 
 
-1. _**(Mandatory for all)**_ Create a new subnet within VNET which has network connectivity with source systems you want to monitor
+1. _**(Mandatory for all)**_ Create a new subnet within VNET, which has network connectivity with source systems you want to monitor
 2. _**(Only if applicable)**_ Choose an option to address no-outbound internet access from VNET in which source systems you want to monitor are deployed
 
-For more information please read the following.
+For more information, please read the following.
 
 ## 1. _**(Mandatory for all)**_ Create a new subnet
 
-Please create a new empty subnet that's an IPv4/28 block or larger and ensure there is network connectivity between this new subnet and target systems you wish to monitor. This new subnet will be used to host Azure Functions. Azure Function is the telemetry collection engine for AMS. Please refer [this](https://docs.microsoft.com/azure/app-service/overview-vnet-integration) article for more details and [learn more](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#subnets) about subnets for Azure functions.
+Create a new empty subnet that's an IPv4/28 block or larger and ensure there is network connectivity between this new subnet and target systems you wish to monitor. This new subnet will be used to host Azure Functions. Azure Function is the telemetry collection engine for AMS. Refer [this](https://docs.microsoft.com/azure/app-service/overview-vnet-integration) article for more details and [learn more](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#subnets) about subnets for Azure functions.
 
 >[!Note]
 > Content below is applicable to Azure Monitor for SAP solutions and not the classic version
 ## 2. _**(Only if applicable)**_ Choose an option to address no-outbound internet access
 
-Many customers choose to lockdown their SAP network environment by restricting or blocking outbound-internet access. If this scenario is applicable for you, please choose one of the following methods to address it. It is highly recommended that you pick one of the following methods, perform the needed actions before trying to deploy first AMS resource. Without addressing this scenario, AMS deployments will likely fail. 
+Many customers choose to lockdown their SAP network environment by restricting or blocking outbound-internet access. If this scenario is applicable for you, choose one of the following methods to address it. It is highly recommended that you pick one of the following methods, perform the needed actions before trying to deploy first AMS resource. Without addressing this scenario, AMS deployments will likely fail. 
 
 Following are two methods to address restricted/blocked outbound-internet access from SAP environemnt. You can choose the one that makes most sense for you.
 
@@ -40,10 +40,10 @@ Following section describes both these options for your consideration:
 
 ### Option 1: _**Route All**_ 
 
-Route All is a standard feature in Azure functions, it is a setting of Azure functions that you can enable or disable. Your selection (enable/disable) for route-all setting only affects traffic from Azure functions which is deployed as part of AMS deployment. This selection does _**not**_ affect any other incoming/outgoing traffic within your VNET. [Learn more](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#virtual-network-integration) about Route All in Azure functions.
+Route All is a standard feature in Azure functions, it is a setting of Azure functions that you can enable or disable. Your selection (enable/disable) for route-all setting only affects traffic from Azure functions, which is deployed as part of AMS deployment. This selection does _**not**_ affect any other incoming/outgoing traffic within your VNET. [Learn more](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#virtual-network-integration) about Route All in Azure functions.
 
 _Pre AMS deployment action_:      
-If you choose to go with this option, you need to take an action before/during AMS resource creation. You can select enable/disable for route-all setting while creating your AMS resource with portal 'create' experience. If outbound internet access is not allowed from your environment, please select 'disable' for this field. If outbound internet access is allowed from your environment, you can leave this selection as 'enable'.
+If you choose to go with this option, you need to take an action before/during AMS resource creation. You can select enable/disable for route-all setting while creating your AMS resource with portal 'create' experience. If outbound internet access is not allowed from your environment, select 'disable' for this field. If outbound internet access is allowed from your environment, you can leave this selection as 'enable'.
 
 Note: During private preview, once the selection (enable/disable) is made, it cannot be changed. However, for future milestone we are considering a feature where you can change your selection (enable/disable) for route-all setting.  
 
@@ -52,7 +52,7 @@ Note: During private preview, once the selection (enable/disable) is made, it ca
 If you use Network Security Groups (NSGs), you can create AMS related service tags to allow appropriate traffic flow for successfully deploy AMS. A service tag represents a group of IP address prefixes from a given Azure service. [Learn more](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) about virtual network service tags. 
 
 _Post AMS deployment action_:      
-If you choose to go with this option, please follow the steps mentioned below:
+If you choose to go with this option,  follow the steps mentioned below:
 
 1. Find subnet associated with AMS managed resource group     
       a. Navigate to your AMS resource, overview tab     
@@ -78,7 +78,7 @@ If you choose to go with this option, please follow the steps mentioned below:
         
 ### Option 3: _**Private Endpoints**_ 
 To enable private endpoint, a new subnet is required in the same vnet as the source system (system you wish you monitor). This subnet must not be delegated to any other resource, hence the subnet used by azure function cannot be used to create private endpoints. 
-Once new subnet is created, please follow these steps: 
+Once new subnet is created, follow these steps: 
 
 In Azure monitor for SAP Solutions overview blade, go to managed resource group. 
 ![MRG](https://user-images.githubusercontent.com/33844181/176844395-c98164bf-8754-477e-8425-090b86d6b294.png)
@@ -108,7 +108,7 @@ Select the resource, and target sub-resource for which private endpoint is requi
 Select the vnet, and subnet. (The subnet used for function app cannot be used for endpoint creation). 
 ![VNet](https://user-images.githubusercontent.com/33844181/176844768-8b8f065b-ebaf-4274-a756-5a7fec96d877.png)
 
-Integrate the resource with a private DNS zone and add tags (if required). 
+Integrate the resource with a private DNS zone and add tags (if necessary). 
 ![Private DNS](https://user-images.githubusercontent.com/33844181/176844798-a183ab5f-a215-4a9d-a582-f8d7e6348e4d.png)
 
 Hit review and create. 
@@ -129,7 +129,7 @@ Repeat the above steps for each sub-resource type required. (Table, queue, blob,
 _**Log Analytics Workspace**_ 
 Private endpoint cannot be created for laws directly. To enable private endpoint for Laws, we need to connect it to an Azure Monitor Private Link Scope, and then create a private endpoint for the Azure Monitor Private Link Scope. 
 
-Note: If any system is accessing laws before enabling private endpoint (I.e using public endpoint), that system will continue to use public endpoint until restarted.  
+Note: If any system is accessing laws before enabling private endpoint (that is, using public endpoint), that system will continue to use public endpoint until restarted.  
 
 Thus, private endpoint for laws must be enabled before provider creation else the azure function would not be unable to access laws until restarted. 
 
