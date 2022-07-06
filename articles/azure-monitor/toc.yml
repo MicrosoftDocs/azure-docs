@@ -1320,7 +1320,7 @@ items:
       href: containers/container-insights-troubleshoot.md
   - name: Insights
     items:
-    - name: Azure Cache for Redis (preview)
+    - name: Azure Cache for Redis
       href: insights/redis-cache-insights-overview.md
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
