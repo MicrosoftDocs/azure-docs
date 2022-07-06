@@ -25,7 +25,7 @@ ms.date: 10/23/2020
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 ## Create server with public access
-Create a _mysql-flexible-server-template.json_ file and copy this JSON script to creates a server using public access connectivity method and also creates a database on the server.
+Create a _mysql-flexible-server-template.json_ file and copy this JSON script to create a server using public access connectivity method and also create a database on the server.
 
 ```json
 {
@@ -192,7 +192,7 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script to
 ```
 
 ## Create a server with private access
-Create a _mysql-flexible-server-template.json_ file and copy this JSON script to creates a server using private access connectivity method inside a virtual network.
+Create a _mysql-flexible-server-template.json_ file and copy this JSON script to create a server using private access connectivity method inside a virtual network.
 
 ```json
 {
