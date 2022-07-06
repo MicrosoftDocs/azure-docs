@@ -18,7 +18,7 @@ ms.date: 04/22/2022
 In this how-to, you learn how to:
 
 > [!div class="checklist"]
-> * Export the certificate for LDAPS authentication
+> * Validate and export the certificate for LDAPS authentication
 > * Add Active Directory over LDAP, with or without SSL
 > * Add existing AD group to cloudadmin group
 > * List all existing external identity sources integrated with vCenter Server SSO
@@ -34,7 +34,7 @@ In this how-to, you learn how to:
 - If you require AD authentication with LDAPS:
 
     - You will need access to the Active Directory Domain Controller(s) with Administrator permissions
-    - You will to verify your Active Directory Domain Controller(s) have LDAPS enabled and a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or [third-party CA](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). **Note**: Self-sign certificates are not recommended for production environments.  
+    - You will need to verify that your Active Directory Domain Controller(s) have LDAPS enabled and a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or [third-party CA](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). **Note**: Self-sign certificates are not recommended for production environments.  
     - [Export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
 
 - If you use FQDN, enable DNS resolution on your on-premises AD.
@@ -140,6 +140,7 @@ You'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL 
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
+1. Assuming that the previous execution step was successful now you can [apply a permissions](https://docs.microsoft.com/azure/azure-vmware/concepts-identity#apply-a-custom-role) in vCenter Server using built-in or custom role(s) with  the new identity source added.
 
 ## Add Active Directory over LDAP
 
@@ -168,6 +169,8 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
+
+1. Assuming that the previous execution step was successful now you can [apply a permissions](https://docs.microsoft.com/azure/azure-vmware/concepts-identity#apply-a-custom-role) in vCenter Server using built-in or custom role(s) with  the new identity source added.
 
 
 ## Add existing AD group to cloudadmin group
