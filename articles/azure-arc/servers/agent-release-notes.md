@@ -60,7 +60,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Fixed
 
-- `systemd` is now an official prerequisite on Linux and your package manger will alert you if you try to install the Azure Connected Machine agent on a server without systemd.
+- `systemd` is now an official prerequisite on Linux and your package manager will alert you if you try to install the Azure Connected Machine agent on a server without systemd.
 - Guest configuration policies no longer create unnecessary files in the `/tmp` directory on Linux servers
 - Improved reliability when extracting extensions and guest configuration policy packages
 - Improved reliability for guest configuration policies that have child processes
