@@ -66,11 +66,12 @@ params = {
 mlflow.log_params(params)
 ```
 
-> [!NOTE] Azure ML SDK v1 logging capabilities don't have the ability to log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
+> [!NOTE] 
+> Azure ML SDK v1 logging capabilities don't have the ability to log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
 
 ## Logging metrics
 
-Metrics, as oppoiste to parameters, are always numeric. The following table describes how to log specific value types:
+Metrics, as opposite to parameters, are always numeric. The following table describes how to log specific value types:
 
 |Logged Value|Example code| Notes|
 |----|----|----|
@@ -95,7 +96,7 @@ MLflow supports two main ways to log images:
 |Logged Value|Example code| Notes|
 |----|----|----|
 |Log text in a text file | `mlflow.log_text("text string", "notes.txt")`| Text is persisted inside of the run in a text file with name `notes.txt`. |
-|Log dictionaries as `JSON` and `YAML` files | `mlflow.log_dict(dictionary, "file.yaml"` | `dictionary` is a dictionary object containing all the structure that you wants to persist as `JSON` or `YAML` file. |
+|Log dictionaries as `JSON` and `YAML` files | `mlflow.log_dict(dictionary, "file.yaml"` | `dictionary` is a dictionary object containing all the structure that you want to persist as `JSON` or `YAML` file. |
 |Log a trivial file already existing | `mlflow.log_artifact("path/to/file.pkl")`| Files are always logged in the root of the run. If `artifact_path` is provided, then the file is logged in a folder as indicated in that parameter. |
 |Log all the artifacts in an existing folder | `mlflow.log_artifacts("path/to/folder")`| Folder structure is copied to the run, but the root folder indicated is not included. |
 
