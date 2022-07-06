@@ -5,6 +5,7 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 author: VandhanaMehta
+ms.author: vamehta
 ms.date: 09/29/2020
 ---
 
