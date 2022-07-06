@@ -162,7 +162,7 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 
 ### Considerations for outbound traffic through VNet integration
 
-If you have network security group (NSG), user-defined route table (UDR), or firewall configured on the VNet, you must make sure the VNet allows outbound connections to [the connector IP addresses](../connectors/common/outbound-ip-addresses#azure-logic-apps) in the region, in order for Azure managed connectors to work. 
+If your virtual network uses a network security group (NSG), user-defined route table (UDR), or a firewall, make sure that the virtual network allows outbound connections to [all managed connector IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in the corresponding region. Otherwise, Azure-managed connectors won't work.
 
 Setting up virtual network integration affects only outbound traffic. To secure inbound traffic, which continues to use the App Service shared endpoint, review [Set up inbound traffic through private endpoints](#set-up-inbound).
 
