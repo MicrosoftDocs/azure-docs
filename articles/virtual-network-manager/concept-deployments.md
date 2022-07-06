@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 07/06/2022
 ms.custom: template-concept, ignite-fall-2021
 ---
 
