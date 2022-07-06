@@ -65,4 +65,4 @@ Clicking on the Auto-Refresh button opens a list of intervals to let the user pi
 :::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot of workbooks with auto-refresh with interval set.":::
 
 ## Next Steps
- - [Azure workbooks data sources](workbooks-data-sources.md).
+ - [Azure workbooks data sources](workbooks-data-sources.md)
