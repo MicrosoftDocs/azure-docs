@@ -57,7 +57,7 @@ The below table lists some more service dependencies, where the client apps must
 |                     | SharePoint                                  | Late-bound  |
 | Outlook groups      | Exchange                                    | Early-bound |
 |                     | SharePoint                                  | Early-bound |
-| Power Apps           | Microsoft Azure Management (portal and API) | Early-bound |
+| Power Apps          | Microsoft Azure Management (portal and API) | Early-bound |
 |                     | Windows Azure Active Directory              | Early-bound |
 |                     | SharePoint                                  | Early-bound |
 |                     | Exchange                                    | Early-bound |
