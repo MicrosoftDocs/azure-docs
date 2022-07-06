@@ -216,7 +216,7 @@ By default, when a change feed processor starts the first time, it will initiali
 
 ### Reading from a previous date and time
 
-It's possible to initialize the change feed processor to read changes starting at a **specific date and time**, by setting `setStartTime`. The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
+It's possible to initialize the change feed processor to read changes starting at a **specific date and time**, by setting `setStartTime` in `options`. The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
 
 > [!NOTE]
 > Starting the change feed processor at a specific date and time is not supported in multi-region write accounts.
