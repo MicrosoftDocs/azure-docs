@@ -6,7 +6,7 @@ ms.author: v-eschaffer
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 06/30/2022
+ms.date: 07/06/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
@@ -53,8 +53,6 @@ The following Azure permissions, or scopes, are supported per subscription for b
 - Reader and Cost Management reader: Can view budgets that they have permission to.
 
 For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](assign-access-acm-data.md).
-
-## Review and deploy the Bicep file
 
 ## No filter
 
