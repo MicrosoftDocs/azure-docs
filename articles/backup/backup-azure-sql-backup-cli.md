@@ -2,7 +2,7 @@
 title: Back up SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to back up SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/01/2022
+ms.date: 07/07/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -12,7 +12,7 @@ ms.author: v-amallick
 
 Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This article describes how to back up an SQL database in Azure VM and trigger on-demand backups using Azure CLI. You can also perform these actions using the [Azure portal](backup-sql-server-database-azure-vms.md).
 
-This article assumes that you already have an SQL database installed on an Azure VM. (You can also [create a VM using Azure CLI](../virtual-machines/linux/quick-create-cli.md)). By the end of this article, you'll be able to:
+This article assumes that you already have an SQL database installed on an Azure VM. (You can also [create a VM using Azure CLI](../virtual-machines/linux/quick-create-cli.md)). 
 
 In this article, you'll learn how to:
 > [!div class="checklist"]
@@ -30,7 +30,7 @@ See the [currently supported scenarios](sql-support-matrix.md) for SQL in Azure 
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs or workloads running on Azure VMs - for example, SQL or HANA databases. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Specify the same resource group and location as the VM that you want to protect. Learn how to create a VM using Azure CLI with [this VM quickstart](../virtual-machines/linux/quick-create-cli.md).
+Create a Recovery Services vault with the [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) command. Use the resource group and location as that of the VM you want to protect. Learn how to create a VM using Azure CLI with [this VM quickstart](../virtual-machines/linux/quick-create-cli.md).
 
 For this article, we'll use:
 
@@ -46,7 +46,7 @@ az backup vault create --resource-group SQLResourceGroup \
     --location westus2
 ```
 
-By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Redundant storage ensures your backup data is replicated to a secondary Azure region that's hundreds of miles away from the primary region. If the storage redundancy setting needs to be modified, use the [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) command.
+By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Redundant storage ensures your backup data is replicated to a secondary Azure region even if that's hundreds of miles away from the primary region. If the storage redundancy setting needs to be modified, use the [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) command.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -80,7 +80,7 @@ az backup container register --resource-group SQLResourceGroup \
 
 Registering the SQL server automatically discovers all its current databases. However, to discover any new databases that may be added in the future, see the [Discovering new databases added to the registered SQL server](backup-azure-sql-manage-cli.md#protect-the-new-databases-added-to-a-sql-instance) section.
 
-To verify if the SQL instance is successfully registered with your vault, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command. The response appears as:
+Use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command to verify if the SQL instance is successfully registered with your vault. The response appears as:
 
 ```output
 Name                                                    Friendly Name    Resource Group        Type           Registration Status
@@ -129,7 +129,7 @@ az backup protection enable-for-azurewl --resource-group SQLResourceGroup \
     --output table
 ```
 
-If you have a *SQL Always On Availability Group* and want to identify the protectable datasource within the availability group, you can use the same command. Here, the protectable item type is *SQLAG*.
+You can use the same command, if you have an *SQL Always On Availability Group* and want to identify the protectable datasource within the availability group. Here, the protectable item type is *SQLAG*.
 
 To verify if the above backup configuration is complete, use the [az backup job list](/cli/azure/backup/job#az-backup-job-list) command. The output appears as:
 

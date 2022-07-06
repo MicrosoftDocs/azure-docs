@@ -2,7 +2,7 @@
 title: Manage SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to manage SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/01/2022
+ms.date: 07/07/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -30,11 +30,11 @@ If you've used [Back up an SQL database in Azure using CLI](backup-azure-sql-bac
 * Backed-up database/item named *sqldatabase;mssqlserver;master*
 * Resources in the *westus2* region
 
-Azure CLI eases the process to manage an SQL database running on an Azure VM that's backed-up using Azure Backup. The following sections describe each of the management operations.
+Azure CLI eases the process of managing an SQL database running on an Azure VM that's backed-up using Azure Backup. The following sections describe each of the management operations.
 
 ## Monitor backup and restore jobs
 
-To monitor completed or currently running jobs (backup or restore), use the [az backup job list](/cli/azure/backup/job#az-backup-job-list) command. CLI also allows you to [suspend a currently running job](/cli/azure/backup/job#az-backup-job-stop) or [wait until a job completes](/cli/azure/backup/job#az-backup-job-wait).
+Use the [az backup job list](/cli/azure/backup/job#az-backup-job-list) command to monitor completed or currently running jobs (backup or restore). CLI also allows you to [suspend a currently running job](/cli/azure/backup/job#az-backup-job-stop) or [wait until a job completes](/cli/azure/backup/job#az-backup-job-wait).
 
 ```azurecli-interactive
 az backup job list --resource-group SQLResourceGroup \

@@ -2,7 +2,7 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/01/2022
+ms.date: 07/07/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -10,7 +10,7 @@ ms.author: v-amallick
 
 # Restore SQL databases in an Azure VM using Azure CLI
 
-Azure CLI is used to create and manage Azure resources from the command line or through scripts. This article describes how to restore a backed-up SQL database on an Azure VM using Azure CLI. You can also perform these actions using the [Azure portal](restore-sql-database-azure-vm.md).
+\Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This article describes how to restore a backed-up SQL database on an Azure VM using Azure CLI. You can also perform these actions using the [Azure portal](restore-sql-database-azure-vm.md).
 
 Use [Azure Cloud Shell](../cloud-shell/overview.md) to run CLI commands.
 
@@ -60,7 +60,7 @@ The list above contains three recovery points: each for full, differential, and 
 
 Ensure that the following prerequisites are met before restoring a database:
 
-* You can restore the database only to a SQL instance that's in the same region.
+* You can restore the database only to an SQL instance in the same region.
 * The target instance must be registered with the same vault as the source.
 
 ## Restore a database
@@ -78,9 +78,9 @@ To restore a database, use the [az restore restore-azurewl](/cli/azure/backup/re
 
 ## Restore to alternate location
 
-To restore a database to an alternate location, use **AlternateWorkloadRestore** as the restore mode. You must then choose the restore point, which could be a previous point-in-time or any of the previous restore points.
+To restore a database to an alternate location, use **AlternateWorkloadRestore** as the restore mode. You must then choose the restore point, which could be a previous point-in-time or any previous restore points.
 
-Let's proceed to restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-database) for the database and choose the point you want to restore to. Here, let's use the restore point with the name *7660777527047692711*.
+Let's proceed to restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-database) for the database and choose the point you want to restore. Here, let's use the restore point with the name *7660777527047692711*.
 
 With the above restore point name and the restore mode, create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) command. Check the remaining parameters in this command:
 
@@ -146,7 +146,7 @@ The response provides you the job name. You can use this job name to track the j
 
 To restore to the original location, use **OriginalWorkloadRestore** as the restore mode. You must then choose the restore point, which could be a previous point-in-time or any of the previous restore points.
 
-Let's choose the previous point-in-time "28-11-2019-09:53:00" to restore to. You can provide this restore point in the following formats: *dd-mm-yyyy, dd-mm-yyyy-hh:mm:ss*. To choose a valid point-in-time to restore to, use the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) command, which lists the intervals of unbroken log chain backups.
+As an example, let's choose the previous point-in-time "28-11-2019-09:53:00" to restore to. You can provide this restore point in the following formats: *dd-mm-yyyy, dd-mm-yyyy-hh:mm:ss*. To choose a valid point-in-time to restore, use the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) command, which lists the intervals of unbroken log chain backups.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group SQLResourceGroup \
@@ -178,7 +178,7 @@ The response to the above query is a recovery config object that appears as:
 }
 ```
 
-Now, to restore the database, run the [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) command. To use this command, enter the above json output that's saved to a file named *recoveryconfig.json*.
+Now, to restore the database, run the [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) command. To use this command, enter the above JSON output that's saved to a file named *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group sqlResourceGroup \
@@ -259,9 +259,9 @@ Name                                  Operation           Status      Item Name 
 
 ## Restore as files
 
-To restore the backup data as files instead of a database, use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can be a previous point-in-time or any of the previous restore points. Once the files are dumped to a specified path, you can take these files to any SQL machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
+To restore the backup data as files instead of a database, use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can be a previous point-in-time or any dprevious restore points. Once the files are dumped to a specified path, you can take these files to any SQL machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
 
-Here, choose the previous point-in-time `28-11-2019-09:53:00` to restore to, and the location to dump backup files as `/home/sql/restoreasfiles` on the same SQL server. You can provide this restore point in one of the following formats: **dd-mm-yyyy** or **dd-mm-yyyy-hh:mm:ss**. To choose a valid point-in-time to restore to, use the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) command, which lists the intervals of unbroken log chain backups.
+Here, choose the previous point-in-time `28-11-2019-09:53:00` to restore and the location to dump backup files as `/home/sql/restoreasfiles` on the same SQL server. You can provide this restore point in one of the following formats: **dd-mm-yyyy** or **dd-mm-yyyy-hh:mm:ss**. To choose a valid point-in-time to restore, use the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) command, which lists the intervals of unbroken log chain backups.
 
 With the above restore point name and the restore mode, create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) command. Check each of the remaining parameters in this command:
 
