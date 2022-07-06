@@ -31,7 +31,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Fixed
 
-- Agents configured to use private endpoints will now download extensions over a private endpoint.
+- Agents configured to use private endpoints will now download extensions over the private endpoint.
 
 ## Version 1.19 - June 2022
 
