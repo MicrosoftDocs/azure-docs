@@ -1,12 +1,7 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
-<<<<<<< HEAD
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
 ms.date: 06/30/2022
-=======
-description: Learn how to view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 06/02/2022
->>>>>>> e17ed1f5fea1521e7d14209c17bb1ba0d8bef919
 ms.topic: how-to
 ---
 
@@ -148,7 +143,6 @@ Make sure that you've started with the relevant updates steps for this update. F
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
 
-<<<<<<< HEAD
 ## Understand sensor health (Public preview)
 
 This procedure describes how to view sensor health data from the Azure portal. Sensor health includes data such as whether traffic is stable, the sensor is overloaded, notifications about sensor software versions, and more.
@@ -176,7 +170,7 @@ Defender for IoT will indicate a sensor health issue for any of the following sc
 - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
 
 For more information, see our [Sensor health message reference](sensor-health-messages.md).
-=======
+
 ## Upload a diagnostics log for support (Public preview)
 
 If you need to open a support ticket for a locally managed sensor, upload a diagnostics log to the Azure portal for the support team.
@@ -195,7 +189,6 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
 
->>>>>>> e17ed1f5fea1521e7d14209c17bb1ba0d8bef919
 
 ## Next steps
 
