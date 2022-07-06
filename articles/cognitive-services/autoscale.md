@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/27/2022
 ---
 
-# Cognitive Services autoscale Feature
+# Cognitive Services autoscale feature
 
 This article provides guidance for how customers can access higher rate limits on their Cognitive Service resources.
 
@@ -37,7 +37,7 @@ az resource update --namespace Microsoft.CognitiveServices --resource-type accou
 
 ---
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### Does enabling the autoscale feature mean my resource will never be throttled again?
 
