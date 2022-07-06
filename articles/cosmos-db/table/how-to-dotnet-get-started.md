@@ -81,7 +81,7 @@ dotnet build
 
 In your code editor, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
 
-:::code language="csharp" source="" id="":::
+:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="using_identity_directives":::
 
 #### Create TableServiceClient with default credential implementation
 
@@ -89,11 +89,11 @@ If you're testing on a local machine, or your application will run on Azure serv
 
 For this example, we saved the instance in a variable of type [``TokenCredential``](/dotnet/api/azure.core.tokencredential) as that's a more generic type that's reusable across SDKs.
 
-:::code language="csharp" source="" id="":::
+:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="credential":::
 
 Create a new instance of the **TableServiceClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="" id="":::
+:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="default_credential":::
 
 #### Create TableServiceClient with a custom credential implementation
 
@@ -101,13 +101,13 @@ If you plan to deploy the application out of Azure, you can obtain an OAuth toke
 
 For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
 
-:::code language="csharp" source="" id="":::
+:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/103-client-secret-credential/Program.cs" id="credential":::
 
 You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **TableServiceClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="" id="":::
+:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/103-client-secret-credential/Program.cs" id="secret_credential":::
 
 ## Build your application
 
