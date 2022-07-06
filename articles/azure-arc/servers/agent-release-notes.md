@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 06/06/2022
+ms.date: 07/05/2022
 ms.custom: references_regions
 ---
 
@@ -16,7 +16,29 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
+## Version 1.20 - July 2022
+
+### Known issues
+
+- Some systems may incorrectly report their cloud provider as Azure Stack HCI.
+
+### New features
+
+- Added support for Debian 10
+- Logical core count is now collected as part of the [instance metadata](agent-overview.md#instance-metadata)
+- `azcmagent connect` will try to automatically register the [required resource providers](prerequisites.md#azure-resource-providers) if they are not already registered in your subscription
+- Improved error messages and colorization
+
+### Fixed
+
+- Agents configured to use private endpoints will now download extensions over a private endpoint.
+
 ## Version 1.19 - June 2022
+
+### Known issues
+
+- Agents configured to use private endpoints will incorrectly try to download extensions from a public endpoint. [Upgrade the agent](manage-agent.md#upgrade-the-agent) to version 1.20 or later to restore correct functionality.
+- Some systems may incorrectly report their cloud provider as Azure Stack HCI.
 
 ### New features
 

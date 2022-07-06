@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 05/24/2022
+ms.date: 07/05/2022
 ms.topic: conceptual 
 ---
 
@@ -29,6 +29,7 @@ The following versions of the Windows and Linux operating system are officially 
 * Windows IoT Enterprise
 * Azure Stack HCI
 * Ubuntu 16.04, 18.04, and 20.04 LTS
+* Debian 10
 * CentOS Linux 7 and 8
 * SUSE Linux Enterprise Server (SLES) 12 and 15
 * Red Hat Enterprise Linux (RHEL) 7 and 8
