@@ -1174,6 +1174,8 @@ items:
     items:
     - name: Overview
       href: change/change-analysis.md
+    - name: Enable Change Analysis
+      href: change/change-analysis-enable.md
     - name: Visualizations
       href: change/change-analysis-visualizations.md
     - name: Azure PowerShell
