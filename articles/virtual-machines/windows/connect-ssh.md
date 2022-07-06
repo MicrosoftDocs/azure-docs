@@ -54,7 +54,6 @@ Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -Comma
   "location": "[parameters('location')]",
   "properties": {
     "source": {
-      "commandId": "RunPowerShellScript",
       "script": "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0",
     },
   }
@@ -70,8 +69,7 @@ resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022
   parent: virtualMachine
   properties: {
     source: {
-      commandId: 'RunPowerShellScript'
-      script: "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
+      script: 'Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0'
     }
   }
 }
@@ -139,7 +137,7 @@ Ensure the appropriate port (by default, TCP 22) is open to allow connectivity t
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az network nsg rule create -g test0 --nsg-name w22NSG -n allow-SSH --priority 1000 --source-address-prefixes 208.130.28.4/32 --destination-port-ranges 22 --protocol TCP
+az network nsg rule create -g myResourceGroup --nsg-name myNSG -n allow-SSH --priority 1000 --source-address-prefixes 208.130.28.4/32 --destination-port-ranges 22 --protocol TCP
 ```
 
 # [Azure PowerShell](#tab/azurepowershell-interactive)
@@ -236,7 +234,6 @@ Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -Comma
   "location": "[parameters('location')]",
   "properties": {
     "source": {
-      "commandId": "RunPowerShellScript",
       "script": "MYPUBLICKEY | Add-Content 'C:\\ProgramData\\ssh\\administrators_authorized_keys';icacls.exe 'C:\\ProgramData\\ssh\\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'",
     },
   }
@@ -252,7 +249,6 @@ resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022
   parent: virtualMachine
   properties: {
     source: {
-      commandId: 'RunPowerShellScript'
       script: "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
     }
   }
