@@ -1,5 +1,5 @@
 ---
-title: How to autoscale in Azure using a custom metric.
+title: How to autoscale in Azure using a custom metric
 description: Learn how to scale your web app is custom metric in the Azure portal
 author: EdB-MSFT
 ms.author: edbaynash
@@ -42,7 +42,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 1. Open the [Azure portal](https://portal.azure.com).
 1. Search for and select **App Service plans**.
 
-    :::image type="content" source="media\autoscale-custom-metric\search-app-service-plan.png" alt-text="Screenshot of the the search bar, searching for app service plans":::
+    :::image type="content" source="media\autoscale-custom-metric\search-app-service-plan.png" alt-text="Screenshot of the the search bar, searching for app service plans.":::
 
 1. Select **Create** from the **App Service plan** page.
 1. Select a **Resource group** or create a new one.
@@ -60,7 +60,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 
 1. Search for and select *App services*.
 
-    :::image type="content" source="media\autoscale-custom-metric\search-app-services.png" alt-text="Screenshot of the the search bar, searching for app service":::
+    :::image type="content" source="media\autoscale-custom-metric\search-app-services.png" alt-text="Screenshot of the the search bar, searching for app service.":::
 
 1. Select **Create** from the **App Services** page.
 1. On the **Basics** tab, enter a **Name** and select a **Runtime stack**.
@@ -73,7 +73,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 1. On the **Monitoring** tab, select **Yes** to enable Application Insights.
 1. Select **Review + create**, then **Create**.
 
-    :::image type="content" source="media\autoscale-custom-metric\enable-application-insights.png"alt-text="Screenshot of the Monitoring tab of the Create web app page where you enable Application Insights"::: 
+    :::image type="content" source="media\autoscale-custom-metric\enable-application-insights.png"alt-text="Screenshot of the Monitoring tab of the Create web app page where you enable Application Insights."::: 
 
 
 ## Configure autoscale
@@ -90,7 +90,7 @@ Set up a scale out rule so that Azure spins up an additional instance of the web
 1. Select **Custom autoscale**.
 1.  In the **Rules** section of the default scale condition, select **Add a rule**.
 
-    :::image type="content" source="media/autoscale-custom-metric/autoscale-settings.png" alt-text="A screenshot of the autoscale settings page where you setup the basic autoscale settings":::
+    :::image type="content" source="media/autoscale-custom-metric/autoscale-settings.png" alt-text="A screenshot of the autoscale settings page where you set up the basic autoscale settings.":::
 
 1. From the **Metric source** dropdown, select **Other resource**.
 1. From **Resource Type**, select **Application Insights**.
@@ -102,7 +102,7 @@ Set up a scale out rule so that Azure spins up an additional instance of the web
 1. Under **Actions**, set the **Operation** to *Increase count* and set the **Instance count** to *1*.
 1. Select **Add**.
 
-    :::image type="content" source="media/autoscale-custom-metric/scale-out-rule.png" alt-text="A screenshot of the Scale rule page where you configure the scale out rule":::
+    :::image type="content" source="media/autoscale-custom-metric/scale-out-rule.png" alt-text="A screenshot of the Scale rule page where you configure the scale out rule.":::
 
 
 ### Set up a scale in rule
@@ -118,14 +118,14 @@ Set up a scale in rule so Azure spins down one of the instances when the number 
 1. Under **Actions**, set the **Operation** to **Decrease count** and set the **Instance count** to *1*.
 1. Select **Add**.
 
-    :::image type="content" source="media/autoscale-custom-metric/scale-in-rule.png" alt-text="A screenshot of the Scale rule page where you configure the scale in rule":::
+    :::image type="content" source="media/autoscale-custom-metric/scale-in-rule.png" alt-text="A screenshot of the Scale rule page where you configure the scale in rule.":::
 
 ### Limit the number of instances
 
 1. Set the maximum number of instances that can be spun up in the **Maximum** field of the **Instance limits** section, for example, *4*.
 1. Select **Save**.
 
-  :::image type="content" source="media/autoscale-custom-metric/autoscale-instance-limits.png" alt-text="A screenshot of the autoscale settings page where you setup instance limits":::
+  :::image type="content" source="media/autoscale-custom-metric/autoscale-instance-limits.png" alt-text="A screenshot of the autoscale settings page where you set up instance limits.":::
 
 ## Clean up resources
 
@@ -133,11 +133,11 @@ If you're not going to continue to use this application, delete
 resources with the following steps:
 1. From the App service overview page, select **Delete**.
 
-    :::image type="content" source="media/autoscale-custom-metric/delete-webapp.png" alt-text="A screenshot of the App Service page where you can Delete the web app":::
+    :::image type="content" source="media/autoscale-custom-metric/delete-web-app.png" alt-text="A screenshot of the App Service page where you can Delete the web app.":::
 
 1. From The App Service Plan page, select **Delete**. The autoscale settings are deleted along with the App Service plan.
 
-    :::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text="A screenshot of theApp Service plan page where you can Delete the app service plan":::
+    :::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text="A screenshot of the App Service plan page where you can Delete the app service plan.":::
 
 ## Next steps
 Learn more about autoscale by referring to the following articles:
