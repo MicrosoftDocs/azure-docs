@@ -65,7 +65,6 @@ Yes, you can disable the autoscale feature through Azure portal or CLI and retur
 
 Autoscale feature is available for the following services:
 
-* [Face](computer-vision/overview-identity.md)
 * [Computer Vision](computer-vision/index.yml)
 * [Language](language-service/overview.md)
 
