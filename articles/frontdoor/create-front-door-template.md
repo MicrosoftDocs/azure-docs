@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 
 # Quickstart: Create a Front Door Standard/Premium using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an Azure Front Door Standard/Premium with a Web App as origin
+This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an Azure Front Door Standard/Premium with a Web App as origin.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -38,38 +38,41 @@ In this quickstart, you'll create a Front Door Standard/Premium, an App Service,
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/azuredeploy.json":::
 
-One Azure resource is defined in the template:
+Multiple Azure resources are defined in the template:
 
 * [**Microsoft.Network/frontDoors**](/azure/templates/microsoft.network/frontDoors)
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms) (App service plan to host web apps)
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) (Web app origin servicing request for Front Door)
+* 
 
 ## Deploy the template
 
 1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
-> [!NOTE]
-> If you want to deploy Azure Front Door Premium instead of Standard substitute the value of the sku parameter with `Premium_AzureFrontDoor`. For detailed comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
+    > [!NOTE]
+    > If you want to deploy Azure Front Door Premium instead of Standard substitute the value of the sku parameter with `Premium_AzureFrontDoor`. For detailed comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/azuredeploy.json"
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/azuredeploy.json"
 
-$resourceGroupName = "${projectName}rg"
+    $resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -frontDoorSkuName Standard_AzureFrontDoor
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -frontDoorSkuName Standard_AzureFrontDoor
 
-Read-Host -Prompt "Press [ENTER] to continue ..."
-```
+    Read-Host -Prompt "Press [ENTER] to continue ..."
+    ```
 
-Wait until you see the prompt from the console.
+    Wait until you see the prompt from the console.
 
-2. Select **Copy** from the previous code block to copy the PowerShell script.
+1. Select **Copy** from the previous code block to copy the PowerShell script.
 
-3. Right-click the shell console pane and then select **Paste**.
+1. Right-click the shell console pane and then select **Paste**.
 
-4. Enter the values.
+1. Enter the values.
 
     The template deployment creates a Front Door with a web app as origin
 
@@ -88,11 +91,11 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Resource groups** from the left pane.
+1. Select **Resource groups** from the left pane.
 
-3. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
+1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
 
-4. Select the Front Door you created previously and you'll be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
+1. Select the Front Door you created previously and you'll be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
 
     :::image type="content" source="./media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
 
@@ -110,7 +113,11 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you created a Front Door.
+In this quickstart, you created a:
+
+* Front Door
+* App Service plan
+* Web App
 
 To learn how to add a custom domain to your Front Door, continue to the Front Door tutorials.
 
