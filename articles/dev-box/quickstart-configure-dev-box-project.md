@@ -52,7 +52,7 @@ The dev box pool will be deployed and health checks will be run to ensure the im
 :::image type="content" source="./media/quickstart-dev-box-projects/dev-box-pool-grid-populated.png" alt-text="Screenshot showing a list of existing pools.":::
 
 ## Provide access to a Dev Box Project
-Before users can create Dev Boxes based on the dev box pools in a project, you must provide access for them by assigning a role. The Dev Box User role enables Dev Box Users to create, manage and delete their own dev boxes. 
+Before users can create Dev Boxes based on the dev box pools in a project, you must provide access for them through a role assignment. The Dev Box User role enables Dev Box Users to create, manage and delete their own dev boxes. 
 
 1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/projects).
 
