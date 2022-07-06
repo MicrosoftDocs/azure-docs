@@ -1,7 +1,6 @@
 ---
 title: Overview of the Azure Active Directory application gallery
 description: An overview of using the Azure Active Directory application gallery.
-titleSuffix: Microsoft Entra
 services: active-directory
 author: eringreenlee
 manager: CelesteDG

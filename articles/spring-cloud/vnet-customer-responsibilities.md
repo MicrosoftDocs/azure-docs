@@ -68,8 +68,6 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 
 ## Azure Spring Apps optional FQDN for third-party application performance management
 
-Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
-
 | Destination FQDN                   | Port       | Use                                                          |
 | ---------------------------------- | ---------- | ------------------------------------------------------------ |
 | <i>collector*.newrelic.com</i>     | TCP:443/80 | Required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |

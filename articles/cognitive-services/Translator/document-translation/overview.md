@@ -78,7 +78,7 @@ The following document file types are supported by Document Translation:
 
 ### Legacy file types
 
-Source file types will be preserved during the document translation with the following exceptions:
+Source file types will be preserved during the document translation with the following **exceptions**:
 
 | Source file extension | Translated file extension|
 | --- | --- |

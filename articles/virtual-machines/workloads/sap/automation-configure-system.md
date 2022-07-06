@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure SAP system parameters
 
-Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment.
+Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples/WORKSPACES/SYSTEM' folder.
 
 The automation supports both creating resources (green field deployment) or using existing resources (brownfield deployment).
 
@@ -60,7 +60,6 @@ The table below contains the parameters that define the environment settings.
 > | `use_prefix`            | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
 > | 'name_override_file'    | Name override file                                       | Optional   | see [Custom naming](automation-naming-module.md)                                            |
 
-
 ## Resource group parameters
 
 The table below contains the parameters that define the resource group.
@@ -71,7 +70,18 @@ The table below contains the parameters that define the resource group.
 > | ----------------------- | -------------------------------------------------------- | ---------- |
 > | `resource_group_name`   | Name of the resource group to be created                 | Optional   |  
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
+> | `resource_group_tags`   | Tags to be associated to the resource group              | Optional   |
 
+
+## SAP Virtual Hostname parameters
+
+In the SAP deployment automation framework, the SAP virtual hostname is defined by specifying the `use_secondary_ips` parameter.
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                | Description                                              | Type       |
+> | ----------------------- | -------------------------------------------------------- | ---------- |
+> | `use_secondary_ips`     | Boolean flag indicating if SAP should be installed using Virtual hostnames                 | Optional   |  
 
 ### Database tier parameters
 
@@ -94,8 +104,8 @@ The database tier defines the infrastructure for the database tier, supported da
 > | `database_high_availability`       | Defines if the database tier is deployed highly available.                          | Optional     | See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
 > | `database_server_count`            | Defines the number of database servers.                                             | Optional     | Default value is 1 |
 > | `database_vm_zones`                | Defines the Availability Zones for the database servers.                            | Optional	    |                    |
-> | `database_size`                    | Defines the database sizing information.                                            | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
-> | `db_disk_sizes_filename`           | Defines the custom database sizing.                                                 | Optional     | See [Custom Sizing](automation-configure-extra-disks.md) |
+> | `db_sizing_dictionary_key`         | Defines the database sizing information.                                            | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
+> | `db_disk_sizes_filename`           | Defines the custom database sizing file name.                                       | Optional     | See [Custom Sizing](automation-configure-extra-disks.md) |
 > | `database_vm_use_DHCP`             | Controls if Azure subnet provided IP addresses should be used.                      | Optional     |                    |
 > | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet).                | Optional     |                    |
 > | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet).      | Optional     |                    |
@@ -116,7 +126,7 @@ The Virtual Machine and the operating system image is defined using the followin
   publisher="SUSE"
   offer="sles-sap-15-sp3"
   sku="gen2"
-  version="8.2.2021040902"
+  version="latest"
 }
 ```
 
@@ -130,7 +140,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | ---------------------------------- | --------------------------------------------------------------------------- | -----------| ------ |
 > | `enable_app_tier_deployment`	     | Defines if the application tier is deployed                                 | Optional	  |        |
 > | `sid`	                             |	Defines the SAP application SID                                            | Required	  |        |
-> | `app_tier_vm_sizing`	             | Lookup value defining the VM SKU and the disk layout for tha application tier servers | Optional |
+> | `app_tier_sizing_dictionary_key`   | Lookup value defining the VM SKU and the disk layout for tha application tier servers | Optional |
 > | `app_disk_sizes_filename`	         | Defines the custom disk size file for the application tier servers          | Optional 	| See [Custom Sizing](automation-configure-extra-disks.md) |
 > | `app_tier_authentication_type`     | Defines the authentication type for the application tier virtual machine(s) | Optional	  |       |
 > | `app_tier_use_DHCP`	               | Controls if Azure subnet provided IP addresses should be used (dynamic)     | Optional	  |       |
@@ -205,32 +215,49 @@ The table below contains the networking parameters.
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                         | Description                                                          | Type      | Notes  |
-> | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
-> | `network_logical_name`           | The logical name of the network.                                     | Required  |        |
-> | `network_address_space`          | The address range for the virtual network.                           | Mandatory | For new environment deployments   |
-> | `admin_subnet_name`              | The name of the 'admin' subnet.                                      | Optional  |         |
-> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet.                            | Mandatory | For new environment deployments  |
-> | `admin_subnet_arm_id`  	         | The Azure resource identifier for the 'admin' subnet.                | Mandatory | For existing environment deployments |
-> | `admin_subnet_nsg_name`          | The name of the 'admin' Network Security Group name.                 | Optional	|         |
-> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the 'admin' Network Security Group | Mandatory | For existing environment deployments |
-> | `db_subnet_name`                 | The name of the 'db' subnet.                                         | Optional  |         |
-> | `db_subnet_address_prefix`       | The address range for the 'db' subnet.                               | Mandatory | For new environment deployments  |
-> | `db_subnet_arm_id`	             | The Azure resource identifier for the 'db' subnet.                   | Mandatory | For existing environment deployments |
-> | `db_subnet_nsg_name`             | The name of the 'db' Network Security Group name.                    | Optional	|          |
-> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the 'db' Network Security Group.   | Mandatory | For existing environment deployments |
-> | `app_subnet_name`                | The name of the 'app' subnet.                                        | Optional  |          |
-> | `app_subnet_address_prefix`      | The address range for the 'app' subnet.                              | Mandatory | For new environment deployments  |
-> | `app_subnet_arm_id`	             | The Azure resource identifier for the 'app' subnet.                  | Mandatory | For existing environment deployments |
-> | `app_subnet_nsg_name`            | The name of the 'app' Network Security Group name.                   | Optional	|          |
-> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the 'app' Network Security Group.  | Mandatory | For existing environment deployments |
-> | `web_subnet_name`                | The name of the 'web' subnet.                                        | Optional  |          |
-> | `web_subnet_address_prefix`      | The address range for the 'web' subnet.                              | Mandatory | For new environment deployments  |
-> | `web_subnet_arm_id`	             | The Azure resource identifier for the 'web' subnet.                  | Mandatory | For existing environment deployments |
-> | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name.                   | Optional	|          |
-> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group.  | Mandatory | For existing environment deployments |
+> | Variable                         | Description                                                          | Type      | Notes                        |
+> | -------------------------------- | -------------------------------------------------------------------- | --------- | ---------------------------- |
+> | `network_logical_name`           | The logical name of the network.                                     | Required  |                              |
+> |                                  |                                                                      | Optional  |                              |
+> | `admin_subnet_name`              | The name of the 'admin' subnet.                                      | Optional  |                              |
+> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet.                            | Mandatory | For green field deployments. |
+> | `admin_subnet_arm_id`  	  *      | The Azure resource identifier for the 'admin' subnet.                | Mandatory | For brown field deployments. |
+> | `admin_subnet_nsg_name`          | The name of the 'admin' Network Security Group name.                 | Optional	|                              |
+> | `admin_subnet_nsg_arm_id` *      | The Azure resource identifier for the 'admin' Network Security Group | Mandatory | For brown field deployments. |
+> |                                  |                                                                      | Optional  |                              |
+> | `db_subnet_name`                 | The name of the 'db' subnet.                                         | Optional  |                              |
+> | `db_subnet_address_prefix`       | The address range for the 'db' subnet.                               | Mandatory | For green field deployments. |
+> | `db_subnet_arm_id`	    *        | The Azure resource identifier for the 'db' subnet.                   | Mandatory | For brown field deployments. |
+> | `db_subnet_nsg_name`             | The name of the 'db' Network Security Group name.                    | Optional	|                              |
+> | `db_subnet_nsg_arm_id`  *        | The Azure resource identifier for the 'db' Network Security Group.   | Mandatory | For brown field deployments. |
+> |                                  |                                                                      | Optional  |                              |
+> | `app_subnet_name`                | The name of the 'app' subnet.                                        | Optional  |                              |
+> | `app_subnet_address_prefix`      | The address range for the 'app' subnet.                              | Mandatory | For green field deployments. |
+> | `app_subnet_arm_id`	    *        | The Azure resource identifier for the 'app' subnet.                  | Mandatory | For brown field deployments. |
+> | `app_subnet_nsg_name`            | The name of the 'app' Network Security Group name.                   | Optional	|                              |
+> | `app_subnet_nsg_arm_id` *        | The Azure resource identifier for the 'app' Network Security Group.  | Mandatory | For brown field deployments. |
+> |                                  |                                                                      | Optional  |                              |
+> | `web_subnet_name`                | The name of the 'web' subnet.                                        | Optional  |                              |
+> | `web_subnet_address_prefix`      | The address range for the 'web' subnet.                              | Mandatory | For green field deployments. |
+> | `web_subnet_arm_id`	    *        | The Azure resource identifier for the 'web' subnet.                  | Mandatory | For brown field deployments. |
+> | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name.                   | Optional	|                              |
+> | `web_subnet_nsg_arm_id` *        | The Azure resource identifier for the 'web' Network Security Group.  | Mandatory | For brown field deployments. |
 
-\* = Required for existing environment deployments
+\* = Required For brown field deployments.
+
+## Key Vault Parameters
+
+If you don't want to use the workload zone key vault but another one, this can be added in the system's tfvars file.
+
+The table below defines the parameters used for defining the Key Vault information.
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                            | Description                                                                    | Type         | Notes                               |
+> | ----------------------------------- | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
+> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     | 
+> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     | 
+> | `enable_purge_control_for_keyvaults | Disables the purge protection for Azure key vaults.                            | Optional     | Only use this for test environments |
+
 
 ### Anchor virtual machine parameters
 
@@ -252,12 +279,12 @@ The table below contains the parameters related to the anchor virtual machine.
 The Virtual Machine and the operating system image is defined using the following structure:
 ```python
 {
-os_type=""
-source_image_id=""
-publisher="Canonical"
-offer="0001-com-ubuntu-server-focal"
-sku="20_04-lts"
-version="latest"
+  os_type="linux"
+  source_image_id=""
+  publisher="SUSE"
+  offer="sles-sap-15-sp3"
+  sku="gen2"
+  version="latest"
 }
 ```
 
@@ -268,7 +295,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                          | Type        |
 > | ---------------------------------- | -------------------------------------| ----------- |
-> | `automation_username`              | Administrator account name           | Optional	|
+> | `automation_username`              | Administrator account name           | Optional  	|
 > | `automation_password`              | Administrator password               | Optional    |
 > | `automation_path_to_public_key`    | Path to existing public key          | Optional    |
 > | `automation_path_to_private_key`   | Path to existing private key         | Optional    |
@@ -278,13 +305,15 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                       | Description                           | Type        |
-> | ---------------------------------------------- | ------------------------------------- | ----------- |
+> | Variable                                       | Description                                                                     | Type        |
+> | ---------------------------------------------- | ------------------------------------------------------------------------------- | ----------- |
 > | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks using customer provided keys | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations | Optional |
 > | `license_type`                                 | Specifies the license type for the virtual machines. | Possible values are `RHEL_BYOS` and `SLES_BYOS`. For Windows the possible values are `None`, `Windows_Client` and `Windows_Server`. |
 > | `use_zonal_markers`                            | Specifies if zonal Virtual Machines will include a zonal identifier. 'xooscs_z1_00l###' vs  'xooscs00l###'| Default value is true. |
+> | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups |  |
+> | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups|  |
 
 
 ## NFS support
@@ -306,32 +335,32 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 ### Azure NetApp Files Support
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                            | Type         | Notes  |
-> | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
-> | `ANF_use_for_HANA_data`            | Create Azure NetApp Files volume for HANA data.                        | Optional     |        |
-> | `ANF_use_existing_data_volume`     | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes       |
-> | `ANF_data_volume_name`             | Azure NetApp Files volume name for HANA data.                          | Optional     |        |
-> | `ANF_HANA_data_volume_size`        | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | default size 256      |
-> |                                    |                                                                        |              |        |
-> | `ANF_use_for_HANA_log`             | Create Azure NetApp Files volume for HANA log.                         | Optional     |        |
-> | `ANF_use_existing_log_volume`      | Use existing Azure NetApp Files volume for HANA log.                   | Optional     | Use for pre-created volumes       |
-> | `ANF_log_volume_name`              | Azure NetApp Files volume name for HANA log.                           | Optional     |        |
-> | `ANF_HANA_log_volume_size`         | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | default size 128      |
-> |                                    |                                                                        |              |        |
-> | `ANF_use_for_HANA_shared`          | Create Azure NetApp Files volume for HANA shared.                      | Optional     |        |
-> | `ANF_use_existing_shared_volume`   | Use existing Azure NetApp Files volume for HANA shared.                | Optional     | Use for pre-created volumes       |
-> | `ANF_shared_volume_name`           | Azure NetApp Files volume name for HANA shared.                        | Optional     |        |
-> | `ANF_HANA_shared_volume_size`      | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | default size 128      |
-> |                                    |                                                                        |              |        |
-> | `ANF_use_for_sapmnt`               | Create Azure NetApp Files volume for sapmnt.                           | Optional     |        |
-> | `ANF_use_existing_sapmnt_volume`   | Use existing Azure NetApp Files volume for sapmnt.                     | Optional     | Use for pre-created volumes       |
-> | `ANF_sapmnt_volume_name`           | Azure NetApp Files volume name for sapmnt.                             | Optional     |        |
-> | `ANF_sapmnt_volume_size`           | Azure NetApp Files volume size in GB for sapmnt.                       | Optional     | default size 128      |
-> |                                    |                                                                        |              |        |
-> | `ANF_use_for_usrsap`               | Create Azure NetApp Files volume for usrsap.                           | Optional     |        |
-> | `ANF_use_existing_usrsap_volume`   | Use existing Azure NetApp Files volume for usrsap.                     | Optional     | Use for pre-created volumes       |
-> | `ANF_usrsap_volume_name`           | Azure NetApp Files volume name for usrsap.                             | Optional     |        |
-> | `ANF_usrsap_volume_size`           | Azure NetApp Files volume size in GB for usrsap.                       | Optional     | default size 128      |
+> | Variable                           | Description                                                            | Type         | Notes                       |
+> | ---------------------------------- | -----------------------------------------------------------------------| -----------  | --------------------------- |
+> | `ANF_use_for_HANA_data`            | Create Azure NetApp Files volume for HANA data.                        | Optional     |                             |
+> | `ANF_use_existing_data_volume`     | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes |
+> | `ANF_data_volume_name`             | Azure NetApp Files volume name for HANA data.                          | Optional     |                             |
+> | `ANF_HANA_data_volume_size`        | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | default size 256            |
+> |                                    |                                                                        |              |                             |
+> | `ANF_use_for_HANA_log`             | Create Azure NetApp Files volume for HANA log.                         | Optional     |                             |
+> | `ANF_use_existing_log_volume`      | Use existing Azure NetApp Files volume for HANA log.                   | Optional     | Use for pre-created volumes |
+> | `ANF_log_volume_name`              | Azure NetApp Files volume name for HANA log.                           | Optional     |                             |
+> | `ANF_HANA_log_volume_size`         | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | default size 128            |
+> |                                    |                                                                        |              |                             |
+> | `ANF_use_for_HANA_shared`          | Create Azure NetApp Files volume for HANA shared.                      | Optional     |                             |
+> | `ANF_use_existing_shared_volume`   | Use existing Azure NetApp Files volume for HANA shared.                | Optional     | Use for pre-created volumes |
+> | `ANF_shared_volume_name`           | Azure NetApp Files volume name for HANA shared.                        | Optional     |                             |
+> | `ANF_HANA_shared_volume_size`      | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | default size 128            |
+> |                                    |                                                                        |              |                             |
+> | `ANF_use_for_sapmnt`               | Create Azure NetApp Files volume for sapmnt.                           | Optional     |                             |
+> | `ANF_use_existing_sapmnt_volume`   | Use existing Azure NetApp Files volume for sapmnt.                     | Optional     | Use for pre-created volumes |
+> | `ANF_sapmnt_volume_name`           | Azure NetApp Files volume name for sapmnt.                             | Optional     |                             |
+> | `ANF_sapmnt_volume_size`           | Azure NetApp Files volume size in GB for sapmnt.                       | Optional     | default size 128            |
+> |                                    |                                                                        |              |                             |
+> | `ANF_use_for_usrsap`               | Create Azure NetApp Files volume for usrsap.                           | Optional     |                             |
+> | `ANF_use_existing_usrsap_volume`   | Use existing Azure NetApp Files volume for usrsap.                     | Optional     | Use for pre-created volumes |
+> | `ANF_usrsap_volume_name`           | Azure NetApp Files volume name for usrsap.                             | Optional     |                             |
+> | `ANF_usrsap_volume_size`           | Azure NetApp Files volume size in GB for usrsap.                       | Optional     | default size 128            |
 
 
 ## Oracle parameters

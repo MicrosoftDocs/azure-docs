@@ -1,6 +1,5 @@
 ---
-title: Register a web app that signs in users | Azure
-titleSuffix: Microsoft identity platform
+title: Register a web app that signs in users
 description: Learn how to register a web app that signs in users
 services: active-directory
 author: jmprieur

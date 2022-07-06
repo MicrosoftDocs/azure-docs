@@ -1,13 +1,13 @@
 ---
-title: Gain insight into devices discovered by a specific sensor
-description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 03/09/2022
+title: View your device inventory from a sensor console
+description: The device inventory displays an extensive range of device attributes that a sensor detects.
+ms.date: 06/09/2022
 ms.topic: how-to
 ---
 
-# Investigate sensor detections in an inventory
+# View your device inventory from a sensor console
 
-The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
+The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility of the devices on your network.
 
 :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
@@ -20,23 +20,12 @@ Options are available to:
  - Import Windows registry details.
 
  - Create groups for display in the device map.
- 
-## What is an inventory device?
 
-The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organization's networks and managed endpoints.
-
-Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
-
-- Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
-- Devices composed of multiple backplane components (including all racks/slots/modules)
-- Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
-
-Public internet IP addresses, multicast groups, and broadcast groups aren't considered inventory devices.
-Devices that have been inactive for more than 60 days are classified as inactive inventory devices.
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 ## View device attributes in the inventory
 
-This section describes device details available from the inventory and describes how to work with inventory filters and view contextual information about each device.
+This section describes device details available from the inventory, how to work with inventory filters, and how to view contextual information about each device.
 
 **To view the device inventory:**
 
@@ -47,13 +36,13 @@ The following columns are available for each device.
 | Name | Description |
 |--|--|
 | **Description** | A description of the device |
-| **Discovered** | When this device was first seen in the network. |
+| **Discovered** | When this device was first seen on the network. |
 | **Firmware version** | The device's firmware, if detected. |
 | **FQDN** | The device's FQDN value |
 | **FQDN lookup time** | The device's FQDN lookup time |
 | **Groups** | The groups that this device participates in. |
 | **IP Address** | The IP address of the device. |
-| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
 | **Is Known as Scanner** | Defined as a network scanning device by the user. |
 | **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
 | **Last Activity** | The last activity that the device performed. |
@@ -75,7 +64,7 @@ The following columns are available for each device.
 **To view additional details:**
 
 1. Select an alert from the inventory and the select **View full details** in the dialog box that opens.
-1. Navigate to additional information such as firmware details, and view contextual information such alerts related to the device, or a timeline of events associated with the device.
+1. Navigate to additional information such as firmware details, view contextual information such as alerts related to the device, or a timeline of events associated with the device.
 
 ## Filter the inventory
 
@@ -141,7 +130,7 @@ Certain device properties can be updated manually. Information manually entered 
  
 ## Learn Windows registry details
 
-In addition to learning OT devices, you can discover Microsoft Windows workstations, and servers. These devices are also displayed in Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
+In addition to learning OT devices, you can discover Microsoft Windows workstations and servers. These devices are also displayed in the Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
 
 - Windows version installed
 
@@ -155,7 +144,7 @@ In addition to learning OT devices, you can discover Microsoft Windows workstati
 
 Two options are available for retrieving this information:
 
-- Active polling by using scheduled WMI scans. 
+- Active polling with scheduled WMI scans. For more information, see [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md).
 
 - Local surveying by distributing and running a script on the device. Working with local scripts bypasses the risks of running WMI polling on an endpoint. It's also useful for regulated networks with waterfalls and one-way elements.
 
@@ -173,7 +162,9 @@ You can survey the following Windows operating systems:
 
 - Windows 10
 
-- Windows Server 2003/2008/2012/2016
+- Windows 11
+
+- Windows Server 2003/2008/2012/2016/2019
 
 ### Before you begin
 
@@ -191,7 +182,7 @@ To receive the script, [contact customer support](mailto:support.microsoft.com).
 
 ### Deploy the script
 
-You can deploy the script once or schedule ongoing queries by using standard automated deployment methods and tools.
+You can deploy the script once or schedule ongoing queries using standard automated deployment methods and tools.
 
 ### About the script
 
@@ -227,7 +218,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 Information learned on each endpoint should be imported to the sensor.
 
-Files generated from the queries can be placed in one folder that you can access from sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensor.
+Files generated from the queries can be placed in one folder that you can access from the sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensor.
 
 Don't update file names.
 
@@ -255,6 +246,8 @@ Deleting inactive devices helps:
 - Better evaluate committed devices when managing subscriptions
 - Reduce clutter on your screen
 
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
+
 ### View inactive devices
 
 You can filter the inventory to display devices that are inactive:
@@ -274,9 +267,9 @@ You can filter the inventory to display devices that are inactive:
 
 ### Delete inactive devices
 
-Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
+Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example, Data Mining, Risk Assessment, and Attack Vector reports. 
 
-You'll be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
+You'll be prompted to record a reason for deleting devices. This information, as well as the date/time and number of devices deleted, appears in the Event timeline.
 
 **To delete inactive devices:**
   

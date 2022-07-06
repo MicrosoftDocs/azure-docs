@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 05/31/2022
 ms.custom: ignite-fall-2021, mode-ui
 ---
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal
@@ -18,7 +18,7 @@ This quickstart demonstrates how to use the Azure portal to create an Azure Mana
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## <a id="create-account"></a>Create a managed instance cluster
+## Create a managed instance cluster
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -80,13 +80,26 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. To browse through the cluster nodes, navigate to the cluster resource and open the **Data Center** pane to view them:
 
-   :::image type="content" source="./media/create-cluster-portal/datacenter-1.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-1.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="Screenshot of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter.png" border="true":::
 
-<!-- ## <a id="create-account"></a>Add a datacenter
+## Scale a datacenter
+
+1. Now that you have deployed a cluster with a single data center, you can scale the nodes up or down by highlighting the data center, and selecting the `Scale` button:
+
+   :::image type="content" source="./media/create-cluster-portal/datacenter-scale-1.png" alt-text="Screenshot of scaling datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-1.png" border="true":::
+
+1. Next, move the slider to the desired number, or just edit the value. When finished, hit `Scale`. 
+
+   :::image type="content" source="./media/create-cluster-portal/datacenter-scale-2.png" alt-text="Screenshot of selecting number of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-2.png" border="true":::
+
+   > [!NOTE]
+   > The length of time it takes for nodes to scale depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
+
+## Add a datacenter
 
 1. To add another datacenter, click the add button in the **Data Center** pane:
 
-   :::image type="content" source="./media/create-cluster-portal/add-datacenter.png" alt-text="Click on add datacenter." lightbox="./media/create-cluster-portal/add-datacenter.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter.png" alt-text="Screenshot of adding a datacenter." lightbox="./media/create-cluster-portal/add-datacenter.png" border="true":::
 
    > [!WARNING]
    > If you are adding a datacenter in a different region, you will need to select a different virtual network. You will also need to ensure that this virtual network has connectivity to the primary region's virtual network created above (and any other virtual networks that are hosting datacenters within the managed instance cluster). Take a look at [this article](../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks) to learn how to peer virtual networks using Azure portal. You also need to make sure you have applied the appropriate role to your virtual network before attempting to deploy a managed instance cluster, using the below CLI command.
@@ -105,7 +118,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Location** - Location where your datacenter will be deployed to.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
-   * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
+   * **No. of nodes** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet.  
 
    :::image type="content" source="./media/create-cluster-portal/add-datacenter-2.png" alt-text="Add Datacenter." lightbox="./media/create-cluster-portal/add-datacenter-2.png" border="true":::
@@ -122,7 +135,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
 
 > [!NOTE] 
-> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.   -->
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  
 
 ## Connecting to your cluster
 

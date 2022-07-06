@@ -92,7 +92,7 @@ workspace = Workspace.from_config()
 ```
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](../how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md). For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
 
 ## Create the infrastructure for your pipeline 
 
@@ -174,7 +174,7 @@ The code that you've executed so far has create and controlled Azure resources. 
 
 If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
 
-If you're working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
+If you're working from scratch, create a subdirectory called `keras-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
 
 ```python
 # prepare.py

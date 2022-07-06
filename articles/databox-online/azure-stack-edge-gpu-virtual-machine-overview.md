@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 05/18/2022
 ms.author: alkohli
 ---
 
@@ -51,7 +51,7 @@ To figure out the size and the number of VMs that you can deploy on your device,
 
 For the usable compute and memory on your device, see the [Compute and memory specifications](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) for your device model. 
 
-For a GPU virtual machine, you must use a [VM size from the NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+For a GPU virtual machine, you must use a [VM size from the NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized).
 
 
 ### VM limits
@@ -60,7 +60,7 @@ You can run a maximum of 24 VMs on your device. This is another factor to consid
 
 ### Operating system disks and images
 
-On your device, you can only use Generation 1 VMs with a fixed virtual hard disk (VHD) format. VHDs are used to store the machine operating system (OS) and data. VHDs are also used for the images you use to install an OS. 
+On your device, you can use Generation 1 or Generation 2 VMs with a fixed virtual hard disk (VHD) format. VHDs are used to store the machine operating system (OS) and data. VHDs are also used for the images you use to install an OS. 
 
 The images that you use to create VM images can be generalized or specialized. When creating images for your VMs, you must prepare the images. See the various ways to prepare and use VM images on your device:
 

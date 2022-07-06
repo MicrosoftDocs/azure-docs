@@ -52,6 +52,8 @@ Occasionally, microphone or camera devices won't be released on time, and that c
 
 Incoming video streams won't stop rendering if the user is on iOS 15.2+ and is using SDK version 1.4.1-beta.1+, the unmute/start video steps will still be required to re-start outgoing audio and video. 
 
+For iOS 15.4+, audio and video should be able to auto recover on most of the cases. On some edge cases, to unmute, an api to 'unmute' must be called by the application (can be as a result of user action) to recover the outgoing audio.
+
 ### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
 
 Azure Communication Services Calling SDK version 1.2.3-beta.1 introduced a bug that affects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.

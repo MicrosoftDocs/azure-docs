@@ -1,6 +1,5 @@
 ---
 title: Assign enterprise application owners
-titleSuffix: Microsoft Entra
 description: Learn how to assign owners to applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''

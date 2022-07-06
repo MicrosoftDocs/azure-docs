@@ -42,7 +42,7 @@ sections:
       - question: |
           If I migrate my search service to another subscription or resource group, should I expect any downtime?
         answer: |
-          As long as you follow the [checklist before moving resources](/azure-resource-manager/management/move-resource-group-and-subscription) and make sure each step is completed, there should not be any downtime.
+          As long as you follow the [checklist before moving resources](../azure-resource-manager/management/move-resource-group-and-subscription.md) and make sure each step is completed, there should not be any downtime.
 
   - name: Indexing 
     questions:

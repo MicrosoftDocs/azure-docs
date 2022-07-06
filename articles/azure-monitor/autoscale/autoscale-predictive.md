@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 01/24/2022
 ms.subservice: autoscale
 ms.custom: references_regions
+ms.reviewer: riroloff
 ---
 # Use predictive autoscale to scale out before load demands in virtual machine scale sets (Preview)
 

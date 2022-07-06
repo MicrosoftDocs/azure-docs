@@ -21,7 +21,7 @@ recommendations: false
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
-The current API version is ```2022-01-30-preview```.
+The current API version is ```2022-06-30```.
 
 ::: zone pivot="programming-language-csharp"
 

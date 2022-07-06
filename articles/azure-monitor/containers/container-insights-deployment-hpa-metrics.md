@@ -3,6 +3,7 @@ title: Deployment & HPA metrics with Container insights | Microsoft Docs
 description: This article describes what deployment & HPA (Horizontal pod autoscaler) metrics are collected with Container insights.
 ms.topic: conceptual
 ms.date: 08/09/2020
+ms.reviewer: aul
 ---
 
 # Deployment & HPA metrics with Container insights

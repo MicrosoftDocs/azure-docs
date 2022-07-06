@@ -163,7 +163,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for Key Vault](../../defender-for-cloud/defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  |
 | <li> [Microsoft Defender for Resource Manager](../../defender-for-cloud/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
 | <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
-| <li> [Threat protection for Cosmos DB](../../defender-for-cloud/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                              | Public Preview | Not Available                  |
+| <li> [Threat protection for Cosmos DB](../../defender-for-cloud/other-threat-protections.md#threat-protection-for-azure-cosmos-db)                                              | GA | Not Available                  |
 | <li> [Kubernetes workload protection](../../defender-for-cloud/kubernetes-workload-protections.md)                                                                                      | GA             | GA                             |
 | <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | Public Preview | Public Preview                 |
 | **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                               |                |                                |
@@ -392,7 +392,7 @@ The following tables display the current Microsoft Sentinel feature availability
 
 <sup><a name="footnote1"></a>1</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
-### Microsoft 365 data connectors
+### Microsoft Purview Data Connectors
 
 Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government.
 
@@ -517,7 +517,7 @@ For more information, see Azure Attestation [public documentation](../../attesta
 | TLS 1.2 enforcement   | GA | GA |
 | BCDR support   | GA | - |
 | [Service tag integration](../../virtual-network/service-tags-overview.md) | GA | GA |
-| [Immutable log storage](../../attestation/audit-logs.md) | GA | GA |
+| [Immutable log storage](../../attestation/view-logs.md) | GA | GA |
 | Network isolation using private link | Public Preview | - |
 | [FedRAMP High certification](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | - |
 | Customer lockbox | GA | - |
