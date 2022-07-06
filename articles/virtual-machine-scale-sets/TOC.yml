@@ -6,6 +6,8 @@
     href: overview.md
   - name: Orchestration modes
     href: virtual-machine-scale-sets-orchestration-modes.md
+  - name: API comparison
+    href: orchestration-modes-api-comparison.md
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.yml
   expanded: true
@@ -263,8 +265,6 @@
       maintainContext: true
 - name: Reference
   items:
-  - name: API comparison
-    href: orchestration-modes-api-comparison.md
   - name: Azure CLI
     href: /cli/azure/vmss
   - name: Azure PowerShell
