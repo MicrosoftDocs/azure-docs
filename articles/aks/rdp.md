@@ -62,7 +62,7 @@ The following example creates a virtual machine named *myVM* in the *myResourceG
 
 ### [Azure CLI](#tab/azure-cli)
 
-You'll need to get the subnet ID used by your Windows Server node pool. You'll need to get the subnet ID used by your Windows Server node pool. The commands below will query for the following information:
+You'll need to get the subnet ID used by your Windows Server node pool. The commands below will query for the following information:
 * The cluster's node resource group
 * The virtual network
 * The subnet's name
@@ -78,6 +78,8 @@ SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --
 Now that you've the SUBNET_ID, run the following command in the same Azure Cloud Shell window to create the VM:
 
 ```azurecli-interactive
+PUBLIC_IP_ADDRESS="myVMPublicIP"
+
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -85,6 +87,10 @@ az vm create \
     --admin-username azureuser \
     --admin-password {admin-password} \
     --subnet $SUBNET_ID \
+    --nic-delete-option delete \
+    --os-disk-delete-option delete \
+    --nsg "" \
+    --public-ip-address $PUBLIC_IP_ADDRESS \
     --query publicIpAddress -o tsv
 ```
 
@@ -125,15 +131,18 @@ $ipParams = @{
 New-AzPublicIpAddress @ipParams
 
 $vmParams = @{
-    ResourceGroupName   = 'myResourceGroup'
-    Name                = 'myVM'
-    Image               = 'win2019datacenter'
-    Credential          = Get-Credential azureuser
-    VirtualNetworkName  = $VNET_NAME
-    AddressPrefix       = $ADDRESS_PREFIX
-    SubnetName          = $SUBNET_NAME
-    SubnetAddressPrefix = $SUBNET_ADDRESS_PREFIX
-    PublicIpAddressName = 'myPublicIP'
+    ResourceGroupName            = 'myResourceGroup'
+    Name                         = 'myVM'
+    Image                        = 'win2019datacenter'
+    Credential                   = Get-Credential azureuser
+    VirtualNetworkName           = $VNET_NAME
+    AddressPrefix                = $ADDRESS_PREFIX
+    SubnetName                   = $SUBNET_NAME
+    SubnetAddressPrefix          = $SUBNET_ADDRESS_PREFIX
+    PublicIpAddressName          = 'myPublicIP'
+    OSDiskDeleteOption           = 'Delete'
+    NetworkInterfaceDeleteOption = 'Delete'
+    DataDiskDeleteOption         = 'Delete'
 }
 New-AzVM @vmParams
 
@@ -147,6 +156,64 @@ The following example output shows the VM has been successfully created and disp
 ```
 
 Record the public IP address of the virtual machine. You'll use this address in a later step.
+
+---
+
+## Allow access to the virtual machine
+
+AKS node pool subnets are protected with NSGs (Network Security Groups) by default. To get access to the virtual machine, you'll have to enabled access in the NSG.
+
+> [!NOTE]
+> The NSGs are controlled by the AKS service. Any change you make to the NSG will be overwritten at any time by the control plane.
+
+### [Azure CLI](#tab/azure-cli)
+
+First, get the resource group and name of the NSG to add the rule to:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+```
+
+Then, create the NSG rule:
+
+```azurecli-interactive
+az network nsg rule create \
+ --name tempRDPAccess \
+ --resource-group $CLUSTER_RG \
+ --nsg-name $NSG_NAME \
+ --priority 100 \
+ --destination-port-range 3389 \
+ --protocol Tcp \
+ --description "Temporary RDP access to Windows nodes"
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+First, get the resource group and name of the NSG to add the rule to:
+
+```azurepowershell-interactive
+$CLUSTER_RG = (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).nodeResourceGroup
+$NSG_NAME = (Get-AzNetworkSecurityGroup -ResourceGroupName $CLUSTER_RG).Name 
+```
+
+Then, create the NSG rule:
+
+```azurepowershell-interactive
+$nsgRuleParams = @{
+    Name                     = 'tempRDPAccess'
+    Access                   = 'Allow'
+    Direction                = 'Inbound'
+    Priority                 = 100
+    SourceAddressPrefix      = 'Internet'
+    SourcePortRange          = '*'
+    DestinationAddressPrefix = '*'
+    DestinationPortRange     = '3389'
+    Protocol                 = 'Tcp'
+    Description              = 'Temporary RDP access to Windows nodes'
+}
+Get-AzNetworkSecurityGroup -Name $NSG_NAME -ResourceGroupName $CLUSTER_RG | Add-AzNetworkSecurityRuleConfig @nsgRuleParams | Set-AzNetworkSecurityGroup
+```
 
 ---
 
@@ -222,8 +289,31 @@ You can now run any troubleshooting commands in the *cmd* window. Since Windows 
 When done, exit the RDP connection to the Windows Server node then exit the RDP session to the virtual machine. After you exit both RDP sessions, delete the virtual machine with the [az vm delete][az-vm-delete] command:
 
 ```azurecli-interactive
-az vm delete --resource-group myResourceGroup --name myVM
+# Delete the virtual machine
+az vm delete \
+ --resource-group myResourceGroup \
+ --name myVM
 ```
+
+Delete the public IP associated with the virtual machine:
+
+```azurecli-interactive
+az network public-ip delete \
+ --resource-group myResourceGroup \
+ --name $PUBLIC_IP_ADDRESS
+ ```
+
+Delete the NSG rule:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+az network nsg rule delete \
+ --resource-group $CLUSTER_RG \
+ --nsg-name $NSG_NAME \
+ --name tempRDPAccess
+```
+
 ### [Azure PowerShell](#tab/azure-powershell)
 
 When done, exit the RDP connection to the Windows Server node then exit the RDP session to the virtual machine. After you exit both RDP sessions, delete the virtual machine with the [Remove-AzVM][remove-azvm] command:
@@ -231,6 +321,28 @@ When done, exit the RDP connection to the Windows Server node then exit the RDP 
 ```azurepowershell-interactive
 Remove-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
+
+Delete the public IP associated with the virtual machine:
+
+```azurepowershell-interactive
+Remove-AzPublicIpAddress -ResourceGroupName myResourceGroup -Name myPublicIP
+```
+
+Delete the NSG rule:
+
+```azurepowershell-interactive
+$CLUSTER_RG = (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).nodeResourceGroup
+$NSG_NAME = (Get-AzNetworkSecurityGroup -ResourceGroupName $CLUSTER_RG).Name
+
+Get-AzNetworkSecurityGroup -Name $NSG_NAME -ResourceGroupName $CLUSTER_RG | Remove-AzNetworkSecurityRuleConfig -Name tempRDPAccess | Set-AzNetworkSecurityGroup
+```
+
+Delete the NSG created by default from New-AzVM:
+
+```azurepowershell-interactive
+Remove-AzNetworkSecurityGroup -ResourceGroupName myResourceGroup -Name myVM
+```
+
 ---
 
 ## Connect with Azure Bastion
@@ -239,23 +351,33 @@ Alternatively, you can use [Azure Bastion][azure-bastion] to connect to your Win
 
 ### Deploy Azure Bastion
 
-To deploy Azure Bastion, you'll need to find the virtual network that your AKS cluster is connected to. 
+To deploy Azure Bastion, you'll need to find the virtual network your AKS cluster is connected to. 
 
-1. In the Azure portal, go to **Virtual networks**. Select your virtual network that your AKS cluster is connected to.
-1. Under **Settings**, select **Bastion**, then select **Deploy Bastion**. Wait until the process is complete before proceeding to the next step.
+1. In the Azure portal, go to **Virtual networks**. Select the virtual network your AKS cluster is connected to.
+1. Under **Settings**, select **Bastion**, then select **Deploy Bastion**. Wait until the process is finished before going to the next step.
 
 ### Connect to your Windows Server nodes using Azure Bastion
 
-1. Go to the node resource group of the AKS cluster. Run the command below in the Azure Cloud Shell to get the name of the resource group:
+Go to the node resource group of the AKS cluster. Run the command below in the Azure Cloud Shell to get the name of your node resource group:
+
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az aks show -n myAKSCluster -g myResourceGroup --query 'nodeResourceGroup' -o tsv
 ```
 
+#### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+(Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).nodeResourceGroup  
+```
+
+---
+
 1. Select **Overview**, and select your Windows node pool virtual machine scale set
 1. Under **Settings**, select **Instances**. Select a Windows server node that you'd like to connect to.
 1. Under **Support + troubleshooting**, select **Bastion**.
-1. Enter the credentials that you set up when the AKS cluster was created. Select **Connect**.
+1. Enter the credentials you set up when the AKS cluster was created. Select **Connect**.
 
 You can now run any troubleshooting commands in the *cmd* window. Since Windows Server nodes use Windows Server Core, there's not a full GUI or other GUI tools when you connect to a Windows Server node over RDP.
 
@@ -268,7 +390,7 @@ When you're finished, exit the Bastion session and remove the Bastion resource.
 
 1. In the Azure portal, go to **Bastions** and select the Bastion resource you created.
 1. At the top of the page, select **Delete**. Wait until the process is complete before proceeding to the next step.
-1. In the Azure portal, go to **Virtual networks**. Select your virtual network that your AKS cluster is connected to. 
+1. In the Azure portal, go to **Virtual networks**. Select the virtual network that your AKS cluster is connected to. 
 1. Under **Settings**, select **Subnet**, and delete the **AzureBastionSubnet** subnet that was created for the Bastion resource.
 
 ## Next steps
