@@ -4,13 +4,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/14/2022
+ms.date: 07/06/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
+# [Document summarization](#tab/document-summarization)
+
 [Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.1) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
+# [Conversation summarization](#tab/conversation-summarization)
+
+[Reference documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations/src/) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.1.0-beta.1) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)
+
+---
 
 ## Prerequisites
 
@@ -151,6 +158,25 @@ namespace LanguageDetectionExample
 
 ```
 
+### Output
+
+```console
+AnalyzeActions operation has completed
+
+Created On   : 9/16/2021 8:04:27 PM +00:00
+Expires On   : 9/17/2021 8:04:27 PM +00:00
+Id           : 2e63fa58-fbaa-4be9-a700-080cff098f91
+Status       : succeeded
+
+Extracted the following 3 sentence(s):
+
+Sentence: The extractive summarization feature in uses natural language processing techniques to locate key sentences in an unstructured text document.
+
+Sentence: This feature is provided as an API for developers.
+
+Sentence: They can use it to build intelligent solutions based on the relevant information extracted to support various use cases.
+```
+
 # [Conversation summarization](#tab/conversation-summarization)
 
 ```csharp
@@ -280,26 +306,20 @@ namespace summarization_july
 
 ```
 
+### Output
+
+```console
+Conversations:
+Conversation: #1
+Summaries:
+Text: Customer tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn't work
+Aspect: issue
+Text: Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine
+Aspect: resolution
+```
+
 ---
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
 
-### Output
-
-```console
-AnalyzeActions operation has completed
-
-Created On   : 9/16/2021 8:04:27 PM +00:00
-Expires On   : 9/17/2021 8:04:27 PM +00:00
-Id           : 2e63fa58-fbaa-4be9-a700-080cff098f91
-Status       : succeeded
-
-Extracted the following 3 sentence(s):
-
-Sentence: The extractive summarization feature in uses natural language processing techniques to locate key sentences in an unstructured text document.
-
-Sentence: This feature is provided as an API for developers.
-
-Sentence: They can use it to build intelligent solutions based on the relevant information extracted to support various use cases.
-```
