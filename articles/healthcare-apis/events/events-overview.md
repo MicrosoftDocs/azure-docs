@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/06/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
@@ -62,7 +62,7 @@ Use [Azure Managed identities](../../active-directory/managed-identities-azure-r
 For more information about deploying Events, see
 
 >[!div class="nextstepaction"]
->[Deploying Events in the Azure portal](./events-deploy-portal.md)
+>[Deploying Events using the Azure portal](./events-deploy-portal.md)
 
 For frequently asks questions (FAQs) about Events, see
 
@@ -74,4 +74,4 @@ For Events troubleshooting resources, see
 >[!div class="nextstepaction"]
 >[Events troubleshooting guide](./events-troubleshooting-guide.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
