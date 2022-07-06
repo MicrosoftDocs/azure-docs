@@ -3,7 +3,7 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/27/2022
+ms.date: 07/06/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -242,7 +242,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     # Not recommended for production
     [cert_issuance.est.auth]
     username = "estuser"
-    password = "estpwd"he azure
+    password = "estpwd"
 
     [cert_issuance.est.urls]
     default = "https://localhost:8085/.well-known/est"
