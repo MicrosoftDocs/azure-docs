@@ -84,6 +84,8 @@
       href: ../../azure-functions/functions-create-first-function-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Windows virtual machine scale sets
+      href: ../../virtual-machine-scale-sets/quick-create-bicep-windows.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine
       href: ../../virtual-machines/windows/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Containers

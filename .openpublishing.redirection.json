@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/find-unattached-nics.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/find-unattached-nics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/germany/germany-developer-guide.md",
       "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
       "redirect_document_id": false
