@@ -6,8 +6,6 @@
     href: overview.md
   - name: Orchestration modes
     href: virtual-machine-scale-sets-orchestration-modes.md
-  - name: API comparison
-    href: orchestration-modes-api-comparison.md
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.yml
   expanded: true
@@ -82,7 +80,7 @@
   - name: Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
     maintainContext: true
-  - name: Create a proximity placement group
+  - name: Proximity placement groups
     href: proximity-placement-groups.md
   - name: Capacity reservations
     href: ../virtual-machines/capacity-reservation-overview.md
@@ -118,8 +116,6 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
-    - name: Convert a template to managed disks
-      href: virtual-machine-scale-sets-convert-template-to-md.md 
   - name: Manage fault domains in scale sets
     href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: Understand instance IDs
@@ -248,23 +244,24 @@
     href: ../virtual-machines/automatic-vm-guest-patching.md
     maintainContext: true
   - name: Automatic OS image upgrades
-    href: virtual-machine-scale-sets-automatic-upgrade.md
-  - name: Maintenance control
-    items:
+    items: 
     - name: Overview
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
-      maintainContext: true
-    - name: PowerShell
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
-      maintainContext: true
-    - name: CLI
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
-      maintainContext: true
-    - name: Portal
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
-      maintainContext: true
+      href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: Maintenance control
+      items:
+      - name: PowerShell
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
+        maintainContext: true
+      - name: CLI
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
+        maintainContext: true
+      - name: Portal
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
+        maintainContext: true
 - name: Reference
   items:
+  - name: API comparison
+    href: orchestration-modes-api-comparison.md
   - name: Azure CLI
     href: /cli/azure/vmss
   - name: Azure PowerShell
