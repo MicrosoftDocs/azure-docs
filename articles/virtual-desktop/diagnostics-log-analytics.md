@@ -137,9 +137,8 @@ To find all connections for a single user:
 
 ```kusto
 WVDConnections
-|where UserName == "userupn"
-|take 100
-|sort by TimeGenerated asc, CorrelationId
+| where UserName == "userupn"
+| sort by TimeGenerated asc, CorrelationId
 ```
 
 
@@ -147,10 +146,8 @@ To find the number of times a user connected per day:
 
 ```kusto
 WVDConnections
-|where UserName == "userupn"
-|take 100
-|sort by TimeGenerated asc, CorrelationId
-|summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
+| where UserName == "userupn" and State == "Connected"
+| summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
 
 To find session duration by user:
@@ -159,11 +156,13 @@ To find session duration by user:
 let Events = WVDConnections | where UserName == "userupn" ;
 Events
 | where State == "Connected"
-| project CorrelationId , UserName, ResourceAlias , StartTime=TimeGenerated
-| join (Events
-| where State == "Completed"
-| project EndTime=TimeGenerated, CorrelationId)
-on CorrelationId
+| project CorrelationId, UserName, ResourceAlias, StartTime=TimeGenerated
+| join kind=inner
+(
+    Events
+    | where State == "Completed"
+    | project EndTime=TimeGenerated, CorrelationId
+) on CorrelationId
 | project Duration = EndTime - StartTime, ResourceAlias
 | sort by Duration asc
 ```
@@ -173,15 +172,15 @@ To find errors for a specific user:
 ```kusto
 WVDErrors
 | where UserName == "userupn"
-|take 100
+| take 100
 ```
 
-To find out whether a specific error occurred for other users:
+To find out how many users have been impacted by a given error:
 
 ```kusto
 WVDErrors
-| where CodeSymbolic =="ErrorSymbolicCode"
-| summarize count(UserName) by CodeSymbolic
+| where CodeSymbolic == "ErrorSymbolicCode"
+| summarize UsersImpacted=dcount(UserName) by CodeSymbolic
 ```
 
 
