@@ -24,7 +24,7 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
 
 - **Asynchronous handshake**: In certain cases, you can't return the `validationCode` in response synchronously. For example, if you use a third-party service (like [`Zapier`](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond with the validation code.
 
-   Starting with version 2018-05-01-preview, Event Grid supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, Event Grid sends a `validationUrl` property in the data portion of the subscription validation event. To complete the handshake, find that URL in the event data and do a GET request to it. You can use either a REST client or your web browser.
+   Event Grid supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, Event Grid sends a `validationUrl` property in the data portion of the subscription validation event. To complete the handshake, find that URL in the event data and do a GET request to it. You can use either a REST client or your web browser.
 
    The provided URL is valid for **5 minutes**. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 5 minutes, the provisioning state is set to `Failed`. You'll have to create the event subscription again before starting the manual validation.
 
@@ -76,7 +76,7 @@ And, follow one of these steps:
 
 - You must return an **HTTP 200 OK** response status code. **HTTP 202 Accepted** isn't recognized as a valid Event Grid subscription validation response. The HTTP request must complete within 30 seconds. If the operation doesn't finish within 30 seconds, then the operation will be canceled and it may be reattempted after 5 seconds. If all the attempts fail, then it will be treated as validation handshake error.
 
-    The fact that your application is prepared to handle and return the validation code indicates that you were expecting to receive that event and hence you are the one who created the event subscription that. Imagine the scenario that there is no handshake validation supported and a hacker gets to know your application URL. The hacker can create a topic and an event subscription with your application's URL, and start conducting a DoS attack to your application by sending a lot of events. The handshake validation prevents that to happen. 
+    The fact that your application is prepared to handle and return the validation code indicates that you created the event subscription and expected to receive the event. Imagine the scenario that there is no handshake validation supported and a hacker gets to know your application URL. The hacker can create a topic and an event subscription with your application's URL, and start conducting a DoS attack to your application by sending a lot of events. The handshake validation prevents that to happen. 
 
     Imagine that you already have the validation implemented in your app because you created your own event subscriptions. Even if a hacker creates an event subscription with your app URL, your correct implementation of the validation request event will check for the `aeg-subscription-name` header in the request to ascertain that it's an event subscription that you recognize. 
     
@@ -88,7 +88,7 @@ And, follow one of these steps:
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ## Endpoint validation with CloudEvents v1.0
-CloudEvents v1.0 implements its own abuse protection semantics using the **HTTP OPTIONS** method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
+CloudEvents v1.0 implements its own abuse protection semantics using the **HTTP OPTIONS** method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When you use the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## Event schema compatibility
 When a topic is created, an incoming event schema is defined. And, when a subscription is created, an outgoing event schema is defined. The following table shows you the compatibility allowed when creating a subscription. 
