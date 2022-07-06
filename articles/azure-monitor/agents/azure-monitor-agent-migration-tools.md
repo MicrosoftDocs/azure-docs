@@ -4,7 +4,7 @@ description: This article describes various migration tools and helpers availabl
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 6/22/2022 
+ms.date: 7/6/2022 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -18,10 +18,12 @@ The Azure Monitor agent is meant to replace the Log Analytics agent (also known 
 ## AMA Migration Helper (preview)
 A workbook-based solution in Azure Monitor that helps you discover **what to migrate** and **track progress** as you move from legacy Log Analytics agents to Azure Monitor agent on your virtual machines, scale sets, on premise and Arc-enabled servers in your subscriptions. Use this single glass pane view to expedite your agent migration journey. 
 
+The workbook is available under the *Community Git repo > Azure Monitor* option, linked [here](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/Migration%20Helper%20Workbook)
+
 1. Open Azure Portal > Monitor > Workbooks
 2. Click ‘+ New’
 3. Click on the ‘Advanced Editor’ </> button
-4. Paste the content from the file attached.
+4. Copy and paste the workbook JSON content here.
 5. Click ‘Apply’ to load the workbook. Finally click ‘Done Editing’. You’re now ready to use the workbook
 6. Select subscriptions and workspaces drop-downs to view relevant information
 
@@ -38,7 +40,7 @@ The Azure Monitor agent relies only on [Data Collection rules](../essentials/dat
 	- Primarily uses `Az Powershell module` to pull workspace agent configuration information
 	- You must have read access for the specified workspace resource
 	- `Connect-AzAccount` and `Select-AzSubscription` will be used to set the context for the script to run so proper Azure credentials will be needed
-2. [Download the powershell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools)
+2. [Download the powershell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator)
 2. Run the script using one of the options below:
 	- Option 1
 		# [PowerShell](#tab/ARMAgentPowerShell)
