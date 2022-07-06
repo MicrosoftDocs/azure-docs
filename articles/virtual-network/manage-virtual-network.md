@@ -32,7 +32,6 @@ Complete the following tasks before completing steps in any section of this arti
 ## Create a virtual network
 
 1. Select **+ Create a resource** > **Networking** > **Virtual network**.
-2. Enter or select values for the following settings, then select **Create**:
 2. In **Create virtual network**, enter or select values for the following settings on the *Basics* tab:
     | **Setting** | **Description** |
     | --- | --- |
