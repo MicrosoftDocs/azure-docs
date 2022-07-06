@@ -14,9 +14,8 @@ There are some documents available already to describe the streaming units (SUs)
 
 ## Computation resources of given SUs
 
-Normally, 6 SUs is mapping to one streaming node computation resource. In the above documents, it's also recommended to use one SU, three SUs for a small job. In this case, one Streaming Node will also be provisioned for this small job. But the corresponding computation resource allocated to this streaming node will be relatively smaller than the normal streaming node.
+Every 6 SUs corresponding to one streaming node for your job. Jobs with 1 and 3 SUs also have only one streaming node but with a fraction of the computing resources compared to 6 SUs. The 1 and 3 SU jobs provide a cost-effective option for workloads that require smaller scale. Your job can scale beyond 6 SUs to 12, 18, 24 and more by adding more streaming nodes which provides more distributed computing resources allowing your job to process more data volumes.
 
-So, if your job requires SUs more than 6 SUs, you'll need to assign the SUs with 6 x n (n > 1), such as: 12 SUs, 18 SUs, 24 SUs, etc. so that the corresponding streaming nodes could be allocated for your job.
 
 ## “Embarrassingly Parallel” job
 

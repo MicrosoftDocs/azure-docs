@@ -44,7 +44,7 @@ You can use these metrics to [monitor the performance of your Stream Analytics j
 
 ## Metric dimensions for Stream Analytics
 
-Stream analytics service is a distributed system, which means the job is running on many distributed computer nodes, which the platform automatically manages. The input data are partitioned and allocated to different stream nodes for processing. Metrics can be split by dimensions, like Partition ID or Node name which helps troubleshoot performance issues with your job.    
+Stream Analytics provides a serverless, distributed streaming processing service. Jobs can run on one or more distributed streaming nodes which the service automatically manages. The input data are partitioned and allocated to different streaming nodes for processing. Metrics can be split by dimensions, like Partition ID or Node name which helps troubleshoot performance issues with your job.    
 Azure Stream Analytics provides three important dimensions: “Logic Name”, “Partition ID”, and “Node Name” for metrics splitting and filtering.
 .
 
@@ -52,7 +52,7 @@ Azure Stream Analytics provides three important dimensions: “Logic Name”, �
 | ---------------------- | ---------------------------------------- | 
 | Logic Name       | The input or output name for a given Azure Stream Analytics (ASA) job. |
 | Partition ID     | The ID of the input data partition from input source, for example, if the input source is from event hub, the partition ID is the EH partition ID. The “Partition ID” is the same as it in the output as well. |
-| Node Name        | The streaming node name that the data is processed on a streaming node. A streaming node represents a set of compute resources that is used to process your input data. |
+| Node Name        | Identifier of a streaming node which is provisioned when your job runs. A streaming node represents amount of compute and memory resources allocated to your job. |
 
 :::image type="content" source="./media/stream-analytics-monitoring/05-stream-analytics-monitoring-dimension.png" alt-text="Stream Analytics job metrics dimension" lightbox="./media/stream-analytics-monitoring/05-stream-analytics-monitoring-dimension.png":::
 
