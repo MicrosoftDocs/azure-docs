@@ -214,7 +214,7 @@ az sig image-definition create --resource-group MyResourceGroup --location eastu
 --features SecurityType=TrustedLaunch
 ```
 
-To create an image version, we can capture an existing Linux based Trusted launch VM. [Generalize the Trusted launch VM](https://docs.microsoft.com/azure/virtual-machines/generalize) before creating the image version.
+To create an image version, we can capture an existing Linux based Trusted launch VM. [Generalize the Trusted launch VM](generalize.md) before creating the image version.
 
 ```azurecli-interactive
 az sig image-version create --resource-group MyResourceGroup \
