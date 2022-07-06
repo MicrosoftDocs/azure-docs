@@ -144,7 +144,7 @@ The volume of migrated data in an initial migration should be large enough to de
 
 An initial approach to a migration project is to minimize the risk, effort, and time needed so that you quickly see the benefits of the Azure cloud environment. The following [approaches](#lift-and-shift-migration-vs-phased-approach) limit the scope of the initial migration to just the data marts and doesn't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
 
-#### Lift and shift as-is versus a phased approach incorporating changes
+#### Lift and shift migration vs. Phased approach
 
 Whatever the drive and scope of the intended migration, there are&mdash;broadly speaking&mdash;two types of migration:
 
