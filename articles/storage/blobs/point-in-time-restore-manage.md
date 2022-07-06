@@ -3,12 +3,12 @@ title: Perform a point-in-time restore on block blob data
 titleSuffix: Azure Storage
 description: Learn how to use point-in-time restore to restore a set of block blobs to their previous state at a given point in time.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/29/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
