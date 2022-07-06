@@ -94,29 +94,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 - The "Arc" proxy bypass keyword no longer includes Azure Active Directory endpoints on Linux. Azure Storage endpoints for extension downloads are now included with the "Arc" keyword.
 
-## Version 1.15 - February 2022
-
-### Known issues
-
-- The "Arc" proxy bypass feature on Linux includes some endpoints that belong to Azure Active Directory. As a result, if you only specify the "Arc" bypass rule, traffic destined for Azure Active Directory endpoints will not use the proxy server as expected. This issue will be fixed in an upcoming release.
-
-### New features
-
-- Network check improvements during onboarding:
-  - Added TLS 1.2 check
-  - Azure Arc network endpoints are now required, onboarding will abort if they are not accessible
-  - New `--skip-network-check` flag to override the new network check behavior
-  - On-demand network check now available using `azcmagent check`
-- [Proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) is now available for customers using private endpoints. This allows you to send Azure Active Directory and Azure Resource Manager traffic through a proxy server, but skip the proxy server for traffic that should stay on the local network to reach private endpoints.
-- Oracle Linux 8 is now supported
-
-### Fixed
-
-- Improved reliability when disconnecting the agent from Azure
-- Improved reliability when installing and uninstalling the agent on Active Directory Domain Controllers
-- Extended the device login timeout to 5 minutes
-- Removed resource constraints for Azure Monitor Agent to support high throughput scenarios
-
 ## Next steps
 
 - Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
