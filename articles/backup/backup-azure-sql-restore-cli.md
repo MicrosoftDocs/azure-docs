@@ -259,7 +259,7 @@ Name                                  Operation           Status      Item Name 
 
 ## Restore as files
 
-To restore the backup data as files instead of a database, use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can be a previous point-in-time or any dprevious restore points. Once the files are dumped to a specified path, you can take these files to any SQL machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
+To restore the backup data as files instead of a database, use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can be a previous point-in-time or any previous restore points. Once the files are dumped to a specified path, you can take these files to any SQL machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
 
 Here, choose the previous point-in-time `28-11-2019-09:53:00` to restore and the location to dump backup files as `/home/sql/restoreasfiles` on the same SQL server. You can provide this restore point in one of the following formats: **dd-mm-yyyy** or **dd-mm-yyyy-hh:mm:ss**. To choose a valid point-in-time to restore, use the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) command, which lists the intervals of unbroken log chain backups.
 
