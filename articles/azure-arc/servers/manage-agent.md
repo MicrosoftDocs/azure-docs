@@ -37,9 +37,9 @@ When running a network connectivity check, you must provide the name of the Azur
 
 `azcmagent check --location <regionName> --verbose`
 
-If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--use-private-link` parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
+If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--enable-pls-check` (`--use-private-link` on versions 1.17-1.19) parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
 
-`azcmagent check --location <regionName> --use-private-link --verbose`
+`azcmagent check --location <regionName> --enable-pls-check --verbose`
 
 ### connect
 

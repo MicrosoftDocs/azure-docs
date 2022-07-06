@@ -24,11 +24,6 @@ To add Permissions Management to your Azure AD tenant:
 - You must have an Azure AD user account and an Azure command-line interface (Azure CLI) on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 - You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform these tasks. If you don't have this permission, you can ask someone who has this permission to perform these tasks for you.
 
-
-## View a training video on enabling Permissions Management in your Azure AD tenant
-
-To view a video on how to enable Permissions Management in your Azure AD tenant, select [Enable Permissions Management in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
-
 ## How to onboard an Azure subscription
 
 1. If the **Data Collectors** dashboard isn't displayed when Permissions Management launches:
