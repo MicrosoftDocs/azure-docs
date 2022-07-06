@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 > * [.NET](samples-dotnet.md)
 >
 
-The [cosmos-db-table-api-dotnet-samples](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB Table API resources.
+The [cosmos-db-table-api-dotnet-samples](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB Table API resources.
 
 ## Prerequisites
 
@@ -37,9 +37,23 @@ The sample projects are all self-contained and are designed to be ran individual
 
 | Task | API reference |
 | :--- | ---: |
-| [Create a client with connection string](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples/blob/v12/101-client-connection-string/Program.cs#L11-L13) |[``CosmosClient(string)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-string)) |
-| [Create a client with ``DefaultAzureCredential``](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples/blob/v12/102-client-default-credential/Program.cs#L20-L23) |[``TableServiceClient(Uri, TokenCredential)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-uri-azure-azuresascredential)) |
-| [Create a client with custom ``TokenCredential``](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples/blob/v12/103-client-secret-credential/Program.cs#L25-L28) |[``TableServiceClient(Uri, TokenCredential)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-uri-azure-azuresascredential)) |
+| [Create a client with connection string](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/101-client-connection-string/Program.cs#L11-L13) | [``CosmosClient(string)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-string)) |
+| [Create a client with ``DefaultAzureCredential``](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/102-client-default-credential/Program.cs#L20-L23) | [``TableServiceClient(Uri, TokenCredential)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-uri-azure-azuresascredential)) |
+| [Create a client with custom ``TokenCredential``](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/103-client-secret-credential/Program.cs#L25-L28) | [``TableServiceClient(Uri, TokenCredential)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-uri-azure-azuresascredential)) |
+
+### Tables
+
+| Task | API reference |
+| :--- | ---: |
+| [Create a table](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/200-create-table/Program.cs#L18-L22) | [``TableClient.CreateIfNotExistsAsync``](/dotnet/api/azure.data.tables.tableclient.createifnotexistsasync) |
+
+### Items
+
+| Task | API reference |
+| :--- | ---: |
+| [Create an item using TableEntity](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/250-create-item-tableentity/Program.cs#L25-L36) | [``TableClient.AddEntityAsync<>``](/dotnet/api/azure.data.tables.tableclient.addentityasync#azure-data-tables-tableclient-addentityasync-1(-0-system-threading-cancellationtoken)) |
+| [Create an item using ITableEntity](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/251-create-item-itableentity/Program.cs#L25-L37) | [``TableClient.AddEntityAsync<>``](/dotnet/api/azure.data.tables.tableclient.addentityasync#azure-data-tables-tableclient-addentityasync-1(-0-system-threading-cancellationtoken)) |
+| [Point read an item]() | [````]() |
 
 ## Next steps
 

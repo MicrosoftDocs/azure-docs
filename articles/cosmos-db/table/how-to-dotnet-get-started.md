@@ -57,11 +57,98 @@ To connect to the Table API of Azure Cosmos DB, create an instance of the [``Tab
 
 ### Connect with a connection string
 
+The most common constructor for **TableServiceClient** has a single parameter:
+
+| Parameter | Example value | Description |
+| --- | --- | --- |
+| ``connectionString`` | ``COSMOS_CONNECTION_STRING`` environment variable | Connection string to the Table API account |
+
 #### Retrieve your account connection string
+
+##### [Azure CLI](#tab/azure-cli)
+
+1. Use the [``az cosmosdb list``](/cli/azure/cosmosdb#az-cosmosdb-list) command to retrieve the name of the first Azure Cosmos DB account in your resource group and store it in the *accountName* shell variable.
+
+    ```azurecli-interactive
+    # Retrieve most recently created account name
+    accountName=$(
+        az cosmosdb list \
+            --resource-group $resourceGroupName \
+            --query "[0].name" \
+            --output tsv
+    )
+    ```
+
+1. Find the *PRIMARY CONNECTION STRING* from the list of connection strings for the account with the [`az-cosmosdb-keys-list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+
+    ```azurecli-interactive
+    az cosmosdb keys list \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --type "connection-strings" \
+        --query "connectionStrings[?description == \`Primary Table Connection String\`] | [0].connectionString"
+    ```
+
+##### [PowerShell](#tab/azure-powershell)
+
+1. Use the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet to retrieve the name of the first Azure Cosmos DB account in your resource group and store it in the *ACCOUNT_NAME* shell variable.
+
+    ```azurepowershell-interactive
+    # Retrieve most recently created account name
+    $parameters = @{
+        ResourceGroupName = $RESOURCE_GROUP_NAME
+    }
+    $ACCOUNT_NAME = (
+        Get-AzCosmosDBAccount @parameters |
+            Select-Object -Property Name -First 1
+    ).Name
+    ```
+
+1. Find the *PRIMARY CONNECTION STRING* from the list of connection strings for the account with the [``Get-AzCosmosDBAccountKey``](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
+
+    ```azurepowershell-interactive
+    $parameters = @{
+        ResourceGroupName = $RESOURCE_GROUP_NAME
+        Name = $ACCOUNT_NAME
+        Type = "ConnectionStrings"
+    }    
+    Get-AzCosmosDBAccountKey @parameters |
+        Select-Object -Property "Primary Table Connection String" -First 1    
+    ```
+
+---
+
+To use the **PRIMARY CONNECTION STRING** value within your .NET code, persist it to a new environment variable on the local machine running the application.
+
+#### [Windows](#tab/windows)
+
+```powershell
+$env:COSMOS_CONNECTION_STRING = "<cosmos-account-PRIMARY-CONNECTION-STRING>"
+```
+
+#### [Linux / macOS](#tab/linux+macos)
+
+```bash
+export COSMOS_CONNECTION_STRING="<cosmos-account-PRIMARY-CONNECTION-STRING>"
+```
+
+---
 
 #### Create TableServiceClient with connection string
 
+Create a new instance of the **TableServiceClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the only parameter.
+
+:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/101-client-connection-string/Program.cs" id="connection_string" highlight="3":::
+
 ### Connect using the Microsoft Identity Platform
+
+To connect to your Table API account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
+
+| Where the application runs | Security principal
+|--|--|---|
+| Local machine (developing and testing) | User identity or service principal |
+| Azure | Managed identity |
+| Servers or clients outside of Azure | Service principal |
 
 #### Import Azure.Identity
 
@@ -140,6 +227,7 @@ The following guides show you how to use each of these classes to build your app
 |--|---|
 | [Create a table](how-to-dotnet-create-table.md) | Create tables |
 | [Create an item](how-to-dotnet-create-item.md) | Create items |
+| [Read an item](how-to-dotnet-read-item.md) | Read items |
 
 ## See also
 

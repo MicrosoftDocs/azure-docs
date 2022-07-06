@@ -276,6 +276,8 @@
               items:
                 - name: Create an item
                   href: how-to-dotnet-create-item.md
+                - name: Read an item
+                  href: how-to-dotnet-read-item.md
     - name: Build apps with Table API
       href: table-support.md
     - name: Create a container - Table API
