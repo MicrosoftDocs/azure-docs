@@ -62,9 +62,13 @@ To complete this quickstart you need:
 
 1.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
    
-1.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
+1.  In the Spec Picker, select **Dev/Test** tab, select **See additional options**.
 
-    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](../../media/quickstart-java/azure-portal-create-app-service-select-free-tier-linux.png)   
+    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test and 'See additional options' are highlighted.](../../media/quickstart-java/azure-portal-create-app-service-select-free-tier-linux-1.png)  
+
+1.  Under **Additional pricing tiers**, select **B2**. Select the **Apply** button at the bottom of the page.
+
+    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. B2 and Apply are highlighted.](../../media/quickstart-java/azure-portal-create-app-service-select-free-tier-linux-2.png)  
 
 1. Select the **Review + create** button at the bottom of the page.
 
