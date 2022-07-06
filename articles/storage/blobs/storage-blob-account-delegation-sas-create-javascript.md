@@ -27,7 +27,6 @@ An **account SAS token** is one [type of SAS token](../common/storage-sas-overvi
 
 [Best practices for token](../common/storage-sas-overview.md#best-practices-when-using-sas) creation include limiting permissions:
 
-* Start and end time for the token - a 10 minute interval or shorter is recommended
 * Services: blob, file, queue, table
 * Resource types: service, container, or object
 * Permissions such as create, read, write, update, and delete
