@@ -16,12 +16,6 @@ This article describes the changes in VM insights to support the [Azure Monitor 
 ## Compare agents
 Azure Monitor agent includes several advantages over Log Analytics agent, and is the preferred agent for virtual machines and virtual machine scale sets. See [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for comparison of the agent and information on migrating.
 
-The most significant differences between the agents in relation to VM insights are:
-
-- You have no control over the data that VM insights collects from machines with the Log Analytics agent. You must [configure the Log Analytics workspace](../agents/agent-data-sources.md) if you want to collect additional data, and all machines connecting to the same workspace receive the same configuration. Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) which can apply a unique configuration to different machines. VM insights creates a default DCR that you can modify to collect additional data. You can also create additional DCRs and associate them with different machines.
- 
-- The Log Analytics agent can only send data to a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). The Azure Monitor agent can send data to both [Logs and Metrics](../data-platform.md) allowing you to leverage the advantages of each. 
-
 
 ## Changes to enabling VM insights
 See [Enable VM insights overview](vminsights-enable-overview.md) for a summary of configuration options and requirements. The following sections describe changes in configuration process when using the Azure Monitor agent.

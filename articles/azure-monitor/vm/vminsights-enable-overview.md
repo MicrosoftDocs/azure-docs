@@ -86,17 +86,18 @@ When you enable VM insights for a machine, the following agents are installed. S
 - The dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This is the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
 
 ## Data collection rule (Azure Monitor agent)
-When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. You can edit this DCR to collect additional data such as Windows and Syslog events, or you can create additional DCRs and associate with the machine.
+When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. 
 
-When you 
+> [!IMPORTANT]
+> It's not recommended to create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. While you can edit this DCR to collect additional data such as Windows and Syslog events, you should create additional DCRs and associate with the machine.
+
+The DCR is defined by the options in the following table. VM insights will create a default data collection rule if one doesn't already exist.
 
 | Option | Description |
 |:---|:---|
 | Guest performance | Specifies whether to collect performance data from the guest operating system. This is required for all machines. |
 | Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the map feature in VM insights. This is optional and enables the [VM insights map feature](vminsights-maps.md) for the machine. |
-| Workspace
-
-It's not recommended to create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. If you want to customize the configuration, modify the DCR created by VM insights instead of creating a new one.
+| Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights will be listed. |
 
 See [Enable VM insights on unmonitored machine](vminsights-enable-portal.md#enable-vm-insights-on-unmonitored-machine) for more information on creating and editing the VM insights data collection rule.
 

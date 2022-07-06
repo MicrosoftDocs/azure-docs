@@ -45,20 +45,17 @@ Click **Enable** on the introduction page to view the configuration. The **Monit
 
 
 ### Azure Monitor agent
-If you select Azure Monitor agent, you need to specify a data collection rule (DCR) to use. The data collection rule specifies the data to collect and the Log Analytics workspace the agent will use.
+If you select Azure Monitor agent, you need to specify a [data collection rule (DCR)](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent). If one hasn't already been created for unmonitored machines, then one will be created with the following details. Click **Configure** to select the Log Analytics workspace.
 
-The DCR is defined by the options in the following table. VM insights will create a default data collection rule if one doesn't already exist. This DCR will collect **Guest performance**. If you also want to enable **Processes and dependencies**, then you need to create a new DCR.
+- **Guest performance** enabled.
+-  **Processes and dependencies** disabled.
 
-| Option | Description |
-|:---|:---|
-| Guest performance | Specifies whether to collect performance data from the guest operating system. This is required for all machines. |
-| Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the map feature in VM insights. This is optional and enables the [VM insights map feature](vminsights-maps.md) for the machine. |
-| Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights will be listed. |
+> [!NOTE]
+> You can only select data collection rules that are configured for VM insights.
 
-:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent.":::
+:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for unmonitored machine.":::
 
-
-Click **Configure** to modify this DCR. Note that the DCR will be modified for any machines that use it. The only options you can modify is the workspace and whether to collect processes and dependencies. VM insights requires the collection of guest performance, and you can't modify the set of counters that it collects.
+If you want to collect process and dependencies to enable the [map feature of VM insights](vminsights-maps.md), then either create a new data collection rule, or select one that was created for [monitored machines](#enable-azure-monitor-agent-on-monitored-machines).
 
 To create a new data collection rule, click **Create new** and provide the required information.
 
@@ -86,7 +83,14 @@ Click **Configure** to modify the configuration. The only option you can modify 
 
 
 ## Enable Azure Monitor agent on monitored machines
-From the **Monitored** tab, click **Configure using Azure Monitor agent** to enable Azure Monitor agent on machines that already being monitored with the Log Analytics agent. This will initiate the process described in [Enable VM insights on unmonitored machine](#enable-vm-insights-on-unmonitored-machine).
+From the **Monitored** tab, click **Configure using Azure Monitor agent** to enable Azure Monitor agent on machines that already being monitored with the Log Analytics agent. This will initiate the process described in [Enable VM insights on unmonitored machine](#enable-vm-insights-on-unmonitored-machine). If a data collection rule hasn't already been created for monitored machines, then one will be created with the following details. Click **Configure** to select the workspace.
+
+- **Guest performance** enabled.
+- **Processes and dependencies** enabled.
+ 
+
+:::image type="content" source="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for monitored machine.":::
+ 
 
 Once you've verified that the Azure Monitor agent has been enabled, you should remove the Log Analytics agent from the machine to prevent duplicate data collection. If a machine has both agents installed, you'll have a warning in the Azure portal.
 
