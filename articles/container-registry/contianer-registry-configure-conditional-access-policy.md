@@ -11,9 +11,9 @@ ms.reviewer: cegraybl
 
 # Prerequisites
 
-* What is [Conditional Access Policy](azure/active-directory/conditional-access/overview.md)
-* [Conditional Access Policy Conditions](/azure/active-directory/conditional-access/overview#common-signals)
-* [Conditional Access Policy Decisions](/azure/active-directory/conditional-access/overview#common-decisions)
+* What is [Conditional Access Policy](conditional-access/overview.md)
+* [Conditional Access Policy Conditions](conditional-access/overview.md#common-signals)
+* [Conditional Access Policy Decisions](/azure/active-directory/conditional-access/overview.md#common-decisions)
 
 
 # About the Conditional Access Policy
