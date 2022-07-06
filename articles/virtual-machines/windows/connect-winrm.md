@@ -46,7 +46,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $
 ```
 
 ## Step 3: Upload your self-signed certificate to the Key Vault
-Before uploading the certificate to the Key Vault created in step 1, it needs to converted into a format the Microsoft.Compute resource provider will understand. The below PowerShell script will allow you do that
+Before uploading the certificate to the Key Vault created in step 1, it needs to be converted into a format the Microsoft.Compute resource provider will understand. The below PowerShell script will allow you to do that
 
 ```azurepowershell
 $fileName = "<Path to the .pfx file>"
@@ -139,7 +139,7 @@ $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $Ce
 ```
 
 ## Step 6: Connecting to the VM
-Before you can connect to the VM you'll need to make sure your machine is configured for WinRM remote management. Start PowerShell as an administrator and execute the below command to make sure you're set up.
+Before you can connect to the VM, you'll need to make sure your machine is configured for WinRM remote management. Start PowerShell as an administrator and execute the below command to make sure you're set up.
 
 ```azurepowershell
 Enable-PSRemoting -Force
