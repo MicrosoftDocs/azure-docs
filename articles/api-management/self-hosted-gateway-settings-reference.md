@@ -51,10 +51,11 @@ This article provides a reference for required and optional settings that are us
 | telemetry.logs.local.journal.endpoint  | Journal endpoint.   |Yes if `telemetry.logs.local` is set to `journal`; otherwise no. | N/A |
 | telemetry.logs.local.json.endpoint | UDP endpoint that accepts JSON data, specified as file path, IP:port, or hostname:port. | Yes if `telemetry.logs.local` is set to `json`; otherwise no. | 127.0.0.1:8888  |
 
-## Ciphers
+## Security
 
 | Name  | Description | Required | Default |
 | ------------- | ------------- | ------------- | ----|
+| certificates.local.ca.enabled | Indication whether or not to the self-hosted gateway should use local CA certificates that are mounted. This requires the self-hosted gateway to run as root or with user ID 1001. | No | `false` |
 | net.server.tls.ciphers.allowed-suites |   Comma-separated list of ciphers to use for TLS connection between API client and the self-hosted gateway. | No | N/A |
 | net.client.tls.ciphers.allowed-suites | Comma-separated list of ciphers to use for TLS connection between the self-hosted gateway and the backend. | No | N/A |
 
