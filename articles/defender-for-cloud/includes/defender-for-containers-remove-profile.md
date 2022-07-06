@@ -31,7 +31,7 @@ https://management.azure.com/subscriptions/{{SubscriptionId}}/resourcegroups/{{R
 | SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
-| ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
+| ApiVersion     | API version, must be >= 2021-07-01 and <= 2022-04-01 | Yes       |
 
 Request body:
 
