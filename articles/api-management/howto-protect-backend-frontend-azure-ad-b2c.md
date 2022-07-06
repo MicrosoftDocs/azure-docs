@@ -167,7 +167,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
    ```
 
    > [!TIP]
-   > The c# script function code you just pasted simply logs a line to the functions logs, and returns the text "Hello World" with some dynamic data (the date and time).
+   > The C# script function code you just pasted simply logs a line to the functions logs, and returns the text "Hello World" with some dynamic data (the date and time).
 
 1. Select “Integration” from the left-hand blade, then click the http (req) link inside the 'Trigger' box.
 1. From the 'Selected HTTP methods' dropdown, uncheck the http POST method, leaving only GET selected, then click Save.

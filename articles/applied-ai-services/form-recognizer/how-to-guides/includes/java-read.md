@@ -130,8 +130,8 @@ import java.util.Arrays;
 public class FormRecognizer {
 
     // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-    private static final String endpoint = "https://formrecognizer-jp.cognitiveservices.azure.com/";
-    private static final String key = "092e23363b8b492dbc402cbebbf1c1d9";
+    private static final String endpoint = "<your-endpoint>";
+    private static final String key = "<your-key>";
 
         public static void main(String[] args) {
 
