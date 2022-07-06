@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Quickstart: Use Bicep to deploy Azure Web PubSub Service
+# Quickstart: Use Bicep to deploy Azure Web PubSub service
 
 This quickstart describes how to use Bicep to create an Azure Web PubSub service using Azure CLI or PowerShell.
 
@@ -80,7 +80,7 @@ az group delete --name exampleRG
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name exampleRG
 ```
-
+---
 ## Next steps
 
 For a step-by-step tutorial that guides you through the process of creating a Bicep file using Visual Studio Code, see:
