@@ -140,8 +140,8 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
 
-[!NOTE]
-You can only manage buildpack bindings when the parent builder is not used by any app deployments. To create, update, or delete buildpack bindings of an existing builder, create a new builder and configure new buildpack bindings there.
+> [!NOTE]
+> You can only manage buildpack bindings when the parent builder isn't used by any app deployments. To create, update, or delete buildpack bindings of an existing builder, create a new builder and configure new buildpack bindings there.
 
 ### [Portal](#tab/azure-portal)
 
