@@ -24,8 +24,8 @@ Nutanix Clusters on Azure supports:
 
 This public preview release supports the following Azure regions:
 
-. East US
-. West US 2
+* East US
+* West US 2
 
 ## Next steps
 
