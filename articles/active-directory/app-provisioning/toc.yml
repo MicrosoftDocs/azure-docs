@@ -69,6 +69,10 @@ items:
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: Workday provisioning scenarios
+      items:
+      - name: Retrieve pronoun information
+        href: workday-retrieve-pronoun-information.md
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
