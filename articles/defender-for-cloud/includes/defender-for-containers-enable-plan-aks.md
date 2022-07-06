@@ -95,7 +95,7 @@ Request query parameters:
 | SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
-| ApiVersion     | API version, must be >= 2022-06-01 | Yes       |
+| ApiVersion     | API version, must be >= 2022-06-01 and <= 2022-04-01 | Yes       |
 
 Request Body:
 
@@ -104,11 +104,9 @@ Request Body:
   "location": "{{Location}}",
   "properties": {
     "securityProfile": {
-            "defender": {
+            "azureDefender": {
                 "logAnalyticsWorkspaceResourceId": "{{LAWorkspaceResourceId}}",
-                "securityMonitoring": {
-                    "enabled": true,
-                }
+                "enabled": true
             }
         }
     }
@@ -119,9 +117,9 @@ Request body parameters:
 
 | Name | Description | Mandatory |
 |--|--|--|
-| Location | Cluster's location | Yes |
-| properties.securityProfile.defender.securityMonitoring.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
-| properties.securityProfile.defender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
+| location | Cluster's location | Yes |
+| properties.securityProfile.azureDefender.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
+| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
