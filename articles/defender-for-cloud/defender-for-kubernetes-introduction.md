@@ -68,7 +68,7 @@ No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsof
 
 ### Does the new plan reflect a price increase?
 
-The new comprehensive Container security plan combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. Pricing is dependent on your container architecture and coverage. For example, your price may change depending on the number of images in your Container Registry, or the number of Kubernetes nodes among other reasons.
+The new comprehensive Containers plan combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. Pricing is dependent on your container architecture and coverage. For example, your price may change depending on the number of images in your Container Registry, or the number of Kubernetes nodes among other reasons.
 
 ### How can I calculate my potential price change?
 
