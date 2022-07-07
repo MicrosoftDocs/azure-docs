@@ -1883,7 +1883,7 @@ decodeUriComponent('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | String | The upd string with the decoded escape characters |
+| <*decoded-uri*> | String | The updated string with the decoded escape characters |
 ||||
 
 *Example*
