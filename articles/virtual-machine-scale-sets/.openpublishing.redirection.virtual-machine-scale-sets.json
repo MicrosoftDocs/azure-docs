@@ -36,6 +36,11 @@
             "redirect_document_id": true
           },
         {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-portal",
             "redirect_document_id": false

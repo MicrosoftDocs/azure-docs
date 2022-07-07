@@ -64,6 +64,8 @@
   - name: Configure autoscale - ARM Template
     href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
     maintainContext: true
+  - name: Autoscale using guest metrics
+    href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy
@@ -80,6 +82,8 @@
   - name: Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
     maintainContext: true
+  - name: Placement groups
+    href: virtual-machine-scale-sets-placement-groups.md
   - name: Proximity placement groups
     href: proximity-placement-groups.md
   - name: Capacity reservations
@@ -116,6 +120,10 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
+    - name: Scale set templates
+      href: virtual-machine-scale-sets-mvss-start.md
+    - name: Deploy your application
+      href: virtual-machine-scale-sets-deploy-app.md
   - name: Manage fault domains in scale sets
     href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: Understand instance IDs
@@ -151,7 +159,15 @@
     - name: Application Health extension
       href: virtual-machine-scale-sets-health-extension.md
   - name: Azure Compute Gallery
-    href: ../virtual-machines/azure-compute-gallery.md
+    items: 
+    - name: Overview
+      href: ../virtual-machines/azure-compute-gallery.md
+    - name: Specialized image version
+      href: instance-specialized-image-version.md
+    - name: Share images across tenants
+      href: share-images-across-tenants.md
+    - name: Custom image templates
+      href: virtual-machine-scale-sets-mvss-custom-image.md
 - name: Monitoring
   items:
   - name: Monitor virtual machines
@@ -232,6 +248,8 @@
     href: virtual-machine-scale-sets-mvss-existing-vnet.md
 - name: Security
   items:
+  - name: Policy definitions
+    href: policy-reference.md
   - name: Security and policy
     href: ../virtual-machines/security-policy.md
     maintainContext: true
