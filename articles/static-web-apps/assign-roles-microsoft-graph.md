@@ -219,6 +219,9 @@ The sample application contains a serverless function (*api/GetRoles/index.js*) 
 
 1. When you are logged in, the sample app displays the list of roles that you are assigned based on your identity's Active Directory group membership. Depending on these roles, you are permitted or prohibited to access some of the routes in the app.
 
+> [!NOTE]
+> Some queries against Microsoft Graph return multiple pages of data. When more than one query request is required, Microsoft Graph returns an `@odata.nextLink` property in the response which contains a URL to the next page of results. For more details please refer to [Paging Microsoft Graph data in your app](/graph/paging)
+
 ## Clean up resources
 
 Clean up the resources you deployed by deleting the resource group.
