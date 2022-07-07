@@ -163,7 +163,7 @@ To enable auto provisioning of the Log Analytics agent:
 
         1. From Defender for Cloud's menu, open **Environment settings**.
         1. Select the workspace to which you'll be connecting the agents.
-        1. Select **Enhanced security off** or **Enable all Microsoft Defender plans**.
+        1. Set Security posture management to **on** or select **Enable all** to turn all Microsoft Defender plans on.
 
 1. From the **Windows security events** configuration, select the amount of raw event data to store:
     - **None** – Disable security event storage. This is the default setting.
