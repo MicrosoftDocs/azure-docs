@@ -80,7 +80,7 @@ Defender for IoT’s new purchase experience and the Enterprise IoT integration 
 
 ### Sensor health from the Azure portal (Public preview)
 
-For sensor versions 22.2.x and higher, you can use the new sensor health widgets and table column data to monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
+For sensor versions 22.1.3 and higher, you can use the new sensor health widgets and table column data to monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
 
 We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
 
