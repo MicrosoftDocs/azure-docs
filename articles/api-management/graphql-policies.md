@@ -166,7 +166,150 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 </set-graphql-resolver> 
 ```
 
-### Examples
+### Elements
+
+| Name         | Description                                                                                                                                   | Required |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `set-graphql-resolver` | Root element.                                                                                                                               | Yes      |
+| `http-data-source` | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
+| `http-request` | Specifies a URL and child policies to configure the resolver's HTTP request. Each child element can be specified at most once. | Yes | 
+| `set-method`| Method of the resolver's HTTP request, configured using the [set-method](api-management-advanced-policies.md#SetRequestMethod) policy.  |   Yes    | 
+| `set-url`  |  URL of the resolver's HTTP request. | Yes  | 
+| `set-header`  | Header set in the resolver's HTTP request, configured using the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy.  | No  | 
+| `set-body`  |  Body set in the resolver's HTTP request, configured using the [set-body](api-management-transformation-policies.md#SetBody) policy. | No  | 
+| `authentication-certificate`  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](api-management-authentication-policies.md#ClientCertificate) policy.  | No  | 
+| `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
+| `json-to-xml`   | Transforms the resolver's HTTP response using the [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 
+| `xml-to-json`   | Transforms the resolver's HTTP response using the [xml-to-json](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 
+| `find-and-replace`   | Transforms the resolver's HTTP response using the [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) policy. | No  | 
+
+
+### Attributes
+
+| Name                       | Description                                                                                                                                                            | Required | Default |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| `parent-type`| An object type in the GraphQL schema.  |   Yes    | N/A   |
+| `field`| A field of the specified `parent-type` in the GraphQL schema.  |   Yes    | N/A   |
+
+> [!NOTE]
+> Currently, the values of `parent-type` and `field` aren't validated by this policy. If they aren't valid, the policy is ignored, and the GraphQL query is forwarded to a GraphQL endpoint (if one is configured).
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** backend
+-   **Policy scopes:** all scopes
+
+### GraphQL Context
+
+The `context` variable that is passed through the request and response pipeline is augmented with the GraphQL context when used with `<set-graphql-resolver>` policies.
+
+#### ParentResult
+
+The `context.ParentResult` is set to the parent object for the current resolver execution.  Consider the following partial schema:
+
+``` graphql
+type Comment {
+    id: ID!
+    owner: string!
+    content: string!
+}
+
+type Blog {
+    id: ID!
+    title: string!
+    content: string!
+    comments: [Comment]!
+    comment(id: ID!): Comment
+}
+
+type Query {
+    getBlog(): [Blog]!
+    getBlog(id: ID!): Blog
+}
+```
+
+Also, consider a GraphQL query for all the information for a specific blog:
+
+``` graphql
+query {
+    getBlog(id: 1) {
+        title
+        content
+        comments {
+            id
+            owner
+            content
+        }
+    }
+}
+```
+
+If you set a resolver for `parent-type="Blog" field="comments"`, you will want to understand which blog ID to use.  You can get this using `context.ParentResult.AsJObject()["id"].ToString()`.  The policy for configuring this resolver would resemble:
+
+``` xml
+<set-graphql-resolver parent-type="Blog" field="comments">
+    <http-data-source>
+        <http-request>
+            <set-method>GET</set-method>
+            <set-url>@{
+                var blogId = context.ParentResult.AsJObject()["id"].ToString();
+                return $"https://data.contoso.com/api/blog/{blogId}";
+            }</set-url>
+        </http-request>
+    </http-data-source>
+</set-graphql-resolver>
+```
+
+### Arguments
+
+The arguments for a parameterized GraphQL query are added to the body of the request.  For example, consider the following two queries:
+
+``` graphql
+query($id: Int) {
+    getComment(id: $id) {
+        content
+    }
+}
+
+query {
+    getComment(id: 2) {
+        content
+    }
+}
+```
+
+These queries are two ways of calling the `getComment` resolver.  GraphQL sends the following JSON payload:
+
+``` json
+{
+    "query": "query($id: Int) { getComment(id: $id) { content } }",
+    "variables": { "id": 2 }
+}
+
+{
+    "query": "query { getComment(id: 2) { content } }"
+}
+```
+
+When the resolver is executed, the `arguments` property is added to the body.  You can define the resolver as follows:
+
+``` xml
+<set-graphql-resolver parent-type="Blog" field="comments">
+    <http-data-source>
+        <http-request>
+            <set-method>GET</set-method>
+            <set-url>@{
+                var commentId = context.Request.Body.As<JObject>(true)["arguments"]["id"];
+                return $"https://data.contoso.com/api/comment/{commentId}";
+            }</set-url>
+        </http-request>
+    </http-data-source>
+</set-graphql-resolver>
+```
+   
+### More examples
 
 ### Resolver for GraphQL query
 
@@ -282,40 +425,6 @@ type User {
 </set-graphql-resolver>
 ```
 
-### Elements
 
-| Name         | Description                                                                                                                                   | Required |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `set-graphql-resolver` | Root element.                                                                                                                               | Yes      |
-| `http-data-source` | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
-| `http-request` | Specifies a URL and child policies to configure the resolver's HTTP request. Each child element can be specified at most once. | Yes | 
-| `set-method`| Method of the resolver's HTTP request, configured using the [set-method](api-management-advanced-policies.md#SetRequestMethod) policy.  |   Yes    | 
-| `set-url`  |  URL of the resolver's HTTP request. | Yes  | 
-| `set-header`  | Header set in the resolver's HTTP request, configured using the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy.  | No  | 
-| `set-body`  |  Body set in the resolver's HTTP request, configured using the [set-body](api-management-transformation-policies.md#SetBody) policy. | No  | 
-| `authentication-certificate`  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](api-management-authentication-policies.md#ClientCertificate) policy.  | No  | 
-| `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
-| `json-to-xml`   | Transforms the resolver's HTTP response using the [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 
-| `xml-to-json`   | Transforms the resolver's HTTP response using the [xml-to-json](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 
-| `find-and-replace`   | Transforms the resolver's HTTP response using the [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) policy. | No  | 
-
-
-### Attributes
-
-| Name                       | Description                                                                                                                                                            | Required | Default |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| `parent-type`| An object type in the GraphQL schema.  |   Yes    | N/A   |
-| `field`| A field of the specified `parent-type` in the GraphQL schema.  |   Yes    | N/A   |
-
-> [!NOTE]
-> Currently, the values of `parent-type` and `field` aren't validated by this policy. If they aren't valid, the policy is ignored, and the GraphQL query is forwarded to a GraphQL endpoint (if one is configured).
-
-### Usage
-
-This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
-
--   **Policy sections:** backend
-
--   **Policy scopes:** all scopes
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
