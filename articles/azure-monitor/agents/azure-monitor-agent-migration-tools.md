@@ -36,7 +36,7 @@ AMA Migration Helper is a workbook-based Azure Monitor solution that helps you *
 To set up the AMA Migration Helper workbook in the Azure portal:
 
 1. From the **Monitor** menu, select **Workbooks** > **+ New** > **Advanced Editor** (**</>**).
-1. Copy and paste the content from the [AMA Migration Helper file in the AzureMonitorCommunity GitHub repo] into the editor.
+1. Copy and paste the content from the [AMA Migration Helper file in the Azure Monitor Community GitHub repo](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/Migration%20Helper%20Workbook) into the editor.
 1. Select **Apply** to load the workbook. 
 1. Select **Done Editing**. 
 
