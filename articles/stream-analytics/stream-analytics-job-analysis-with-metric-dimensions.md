@@ -84,6 +84,7 @@ What action would you take further?
 
 ## Next steps
 
-* [Understand job monitoring in Azure Stream Analytics](./stream-analytics-monitoring.md)
-* [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
-* [Stream Analytics streaming unit and streaming node](./stream-analytics-streaming-unit-streaming-node.md)
+* [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
+* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
+* [Azure Stream Analytics job metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
+* [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)

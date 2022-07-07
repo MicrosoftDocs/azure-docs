@@ -12,14 +12,10 @@ ms.date: 06/30/2022
 
 There are some documents available already to describe the streaming units (SUs), such as: [Streaming Units in Azure Stream Analytics](./stream-analytics-streaming-unit-consumption.md) and [Scaling up and out in Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md). There's relationship between streaming units assigned to a job and the streaming node behind.
 
-## Computation resources of given SUs
-
-Every 6 SUs corresponding to one streaming node for your job. Jobs with 1 and 3 SUs also have only one streaming node but with a fraction of the computing resources compared to 6 SUs. The 1 and 3 SU jobs provide a cost-effective option for workloads that require smaller scale. Your job can scale beyond 6 SUs to 12, 18, 24 and more by adding more streaming nodes which provides more distributed computing resources allowing your job to process more data volumes.
-
 
 ## “Embarrassingly Parallel” job
 
-It's recommended to have stream  analytics job to process the similar amount of input data in each of its streaming nodes and make sure each streaming node’s resource utilization (CPU or memory) is in the reasonable range (CPU < 80%, SU < 80%). To achieve this, you'll need to:
+It's recommended to have stream analytics job to process the similar amount of input data in each of its streaming nodes and make sure each streaming node’s resource utilization (CPU or memory) is in the reasonable range (CPU < 80%, SU < 80%). To achieve this, you'll need to:
 1. Partition your input data into several partitions equally in input source, says 10 partitions from event hub.  
 2. Decide how many partitions one streaming node should handle as a starting point, says one streaming node to handle two partitions data that means you'll need 10/2 = 5 streaming nodes  
 3. Calculate how many SUs you should assign to your job based on the partition counts above, says 5 x 6 = 30 SUs based on “one streaming node needs 6 SUs”.

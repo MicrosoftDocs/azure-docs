@@ -1,36 +1,40 @@
 ---
-title: Streaming Units in Azure Stream Analytics
+title: Understand and adjust streaming units
 description: This article describes the Streaming Units setting and other factors that impact performance in Azure Stream Analytics.
-
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
 ---
+# Understand and adjust streaming units
 
-# Understand and adjust Streaming Units
+## Understand streaming unit and streaming node
 
 Streaming Units (SUs) represents the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated for your job. This capacity lets you focus on the query logic and abstracts the need to manage the hardware to run your Stream Analytics job in a timely manner.
+
+Every 6 SUs corresponding to one streaming node for your job. Jobs with 1 and 3 SUs also have only one streaming node but with a fraction of the computing resources compared to 6 SUs. The 1 and 3 SU jobs provide a cost-effective option for workloads that require smaller scale. Your job can scale beyond 6 SUs to 12, 18, 24 and more by adding more streaming nodes which provides more distributed computing resources allowing your job to process more data volumes.
 
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there is enough resource allocated to keep the jobs running 24/7.
 
 The SU % utilization metric, which ranges from 0% to 100%, describes the memory consumption of your workload. For a streaming job with minimal footprint, this metric is usually between 10% to 20%. If SU% utilization is high (above 80%), or if input events get backlogged (even with a low SU% utilization since it does not show CPU usage), your workload likely requires more compute resources, which requires you to increase the number of SUs. It's best to keep the SU metric below 80% to account for occasional spikes. To react to increased workloads and increase streaming units, consider setting an alert of 80%  on the SU Utilization metric. Also, you can use watermark delay and backlogged events metrics to see if there is an impact.
 
-## Configure Stream Analytics Streaming Units (SUs)
+
+
+## Configure Stream Analytics streaming units (SUs)
 1. Sign in to [Azure portal](https://portal.azure.com/)
 
 2. In the list of resources, find the Stream Analytics job that you want to scale and then open it. 
 
 3. In the job page, under the **Configure** heading, select **Scale**. Default number of SUs is 3 when creating a job.
 
-    ![Azure portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
+   :::image type="content" source="./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png" alt-text="Azure portal Stream Analytics job configuration" lightbox="./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png":::
     
-4. Use the slider to set the SUs for the job. Notice that you are limited to specific SU settings. 
+4. Choose the SU option in drop-down list to set the SUs for the job. Notice that you are limited to specific SU settings. 
 5. You can change the number of SUs assigned to your job even when it is running. This is not possible if your job uses a [non-partitioned output](./stream-analytics-parallelization.md#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](./stream-analytics-parallelization.md#multi-step-query-with-different-partition-by-values). You maybe restricted to choosing from a set of SU values when the job is running. 
 
 ## Monitor job performance
-Using the Azure portal, you can track the throughput of a job:
+Using the Azure portal, you can track the performance related metrics of a job. To learn about the metrics definition, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). To learn more about the metrics monitoring in portal, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
 
-![Azure Stream Analytics monitor jobs][img.stream.analytics.monitor.job]
+:::image type="content" source="./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png" alt-text="Azure portal Stream Analytics job configuration" lightbox="./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png":::
 
 Calculate the expected throughput of the workload. If the throughput is less than expected, tune the input partition, tune the query, and add SUs to your job.
 
@@ -141,6 +145,12 @@ When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
+* [Azure Stream Analytics job metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
+* [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
+* [Analyze job with metric dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
+* [Understand job monitoring in Azure Stream Analytics](./stream-analytics-monitoring.md)
+* [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)
 
 <!--Image references-->
 
