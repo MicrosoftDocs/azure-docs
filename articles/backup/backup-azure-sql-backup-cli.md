@@ -185,7 +185,7 @@ The output appears as:
 ```output
 Name                                  ResourceGroup
 ------------------------------------  -------------
-e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
+e0f15dae-7cac-4475-a833-f52c50e5b6c3  sqlResourceGroup
 ```
 
 The response provides you the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
