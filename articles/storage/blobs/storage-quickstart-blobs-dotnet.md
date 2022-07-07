@@ -84,7 +84,7 @@ From the project directory:
 
     :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/app_framework.cs":::
 
-[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credential-free-include.md)]
+[!INCLUDE [storage-quickstart-credentials-free-include](../../../includes/storage-quickstart-credential-free-include.md)]
 
 ## Object model
 

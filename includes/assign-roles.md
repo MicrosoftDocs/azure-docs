@@ -1,4 +1,4 @@
-When developing locally, you need to make sure the user you want to connect to your storage account with has the correct permissions. You can assign security roles to a user using the Azure Portal, CLI, or PowerShell. Roles can be assigned at the following levels:
+When developing locally, make sure the user you want to connect to your storage account with has the correct permissions. You can assign security roles to a user using the Azure Portal, CLI, or PowerShell. Roles can be assigned at the following levels:
 
 * Specific resources, such as a storage account
 * Resource group
@@ -50,3 +50,6 @@ New-AzRoleAssignment -SignInName <yourUserName> `
 ```
 
 --- 
+
+> [!IMPORTANT]
+> It may take a few minutes for your assigned roles to become active on the resource. If you receive authentication errors when you first run your code, wait a few moments and try again.

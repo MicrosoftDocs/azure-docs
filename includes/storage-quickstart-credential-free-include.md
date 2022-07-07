@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: storage
-author: twooley
+author: alexwolfmsft
 ms.service: storage
 ms.topic: include
 ms.date: 02/25/2022
-ms.author: twooley
+ms.author: alexwolf
 ms.custom: include file
 ---
 
@@ -98,7 +98,7 @@ After you add the environment variable in Windows, you must start a new instance
 
 After you add the environment variable, restart any running programs that will need to read the environment variable. For example, restart your development environment or editor before you continue.
 
-### Get the connection string
+### Configure the connection string
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
@@ -111,5 +111,8 @@ string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONN
 // Create a BlobServiceClient object 
 BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 ```
+
+> [!IMPORTANT]
+> Connection strings should be used with caution. If your connection string is lost or accidentally placed in an insecure location, your service may become vulnerable. DefaultAzureCredential provides enhanced security features and benefits and is the recommended approach for managing authentication to Azure services.
 
 ---
