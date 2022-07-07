@@ -2,6 +2,7 @@
 title: Prepare Azure VMware Solution for disaster recovery to Azure Site Recovery
 description: Learn how to prepare Azure VMware Solution servers for disaster recovery to Azure using the Azure Site Recovery service.
 author: v-pgaddala
+manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/29/2020
