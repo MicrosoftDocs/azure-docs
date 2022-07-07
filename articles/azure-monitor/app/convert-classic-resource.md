@@ -79,7 +79,7 @@ This section walks through migrating a classic Application Insights resource to 
 3. Choose the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription, or in a different subscription that shares the same Azure AD tenant. The Log Analytics workspace does not have to be in the same resource group as the Application Insights resource.
 
 > [!NOTE]
-> Migrating to a workspace-based resource can take up to 24 hours, but is usually faster than that. Please rely on the Application Insights data plane while waiting for the migration process to complete.
+> Migrating to a workspace-based resource can take up to 24 hours, but is usually faster than that. Please rely on accessing data through your Application Insights resource while waiting for the migration process to complete. Once completed, you will start seeing new data stored in the Log Analytics workspace tables.
 
 ![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
     
