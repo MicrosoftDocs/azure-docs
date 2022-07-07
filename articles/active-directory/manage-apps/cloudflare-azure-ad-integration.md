@@ -82,13 +82,9 @@ Use the instructions in the following three sections to register Cloudflare with
 
 2. Under **Azure Services**, select **Azure Active Directory**.
 
-   :::image type="content" source="media/cloudflare-azure-ad-integration/azure-ad-portal.png" alt-text="Screenshot shows selecting Azure AD services." lightbox="media/cloudflare-azure-ad-integration/azure-ad-portal.png":::
-
 3. In the left menu, under **Manage**, select **App registrations**.
 
 4. Select the **+ New registration tab**.
-
-   :::image type="content" source="media/cloudflare-azure-ad-integration/app-registration.png" alt-text="Screenshot shows new registration for app." lightbox="media/cloudflare-azure-ad-integration/app-registration.png":::
 
 5. Name your application and enter your [team
     domain](https://developers.cloudflare.com/cloudflare-one/glossary#team-domain), with **callback** at the end of the path: /cdn-cgi/access/callback.
@@ -101,8 +97,6 @@ Use the instructions in the following three sections to register Cloudflare with
 ### Certificates & secrets
 
 1. On the **Cloudflare Access** screen, under **Essentials**, copy and save the Application (client) ID and the Directory (tenant) ID.
-
-   :::image type="content" source="media/cloudflare-azure-ad-integration/cloudflare-access.png" alt-text="Screenshot shows cloudflare access screen." lightbox="media/cloudflare-azure-ad-integration/cloudflare-access.png":::
 
 2. In the left menu, under **Manage**, select **Certificates &
     secrets**.
@@ -127,8 +121,6 @@ Use the instructions in the following three sections to register Cloudflare with
 
 2. Select **+** **Add a permission**.
 
-   :::image type="content" source="media/cloudflare-azure-ad-integration/api-permissions.png" alt-text="Screenshot shows Azure AD API permissions." lightbox="media/cloudflare-azure-ad-integration/api-permissions.png":::
-
 3. Under **Select an API**, select **Microsoft Graph**.
 
     ![Screenshot shows Azure AD API permissions using MS Graph](./media/cloudflare-azure-ad-integration/microsoft-graph.png)
@@ -149,13 +141,13 @@ Use the instructions in the following three sections to register Cloudflare with
 
 - `group.read.all`
 
-   :::image type="content" source="media/cloudflare-azure-ad-integration/request-api-permissions.png" alt-text="Screenshot shows Azure AD request API permissions screen." lightbox="media/cloudflare-azure-ad-integration/request-api-permissions.png":::
-
 5. Under **Manage**, select **+** **Add permissions**.
+
+   ![Screenshot shows Azure AD request API permissions screen](./media/cloudflare-azure-ad-integration/request-api-permissions.png)
 
 6. Select **Grant Admin Consent for ...**.
 
-   :::image type="content" source="media/cloudflare-azure-ad-integration/grant-admin-consent.png" alt-text="Screenshot shows configured api permissions with granting admin consent." lightbox="media/cloudflare-azure-ad-integration/grant-admin-consent.png":::
+  ![Screenshot shows configured API permissions with granting admin consent](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)
 
 7. On the [Cloudflare Zero Trust dashboard](https://dash.teams.cloudflare.com/),
     navigate to **Settings> Authentication**.
