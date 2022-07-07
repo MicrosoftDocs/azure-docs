@@ -180,7 +180,7 @@ In most cases, there's a workaround to the incompatibilities. For example, you c
 >[!TIP]
 >Schema incompatibilities include legacy warehouse DBMS table types and data types that are unsupported on Azure Synapse.
 
-To identify the reports affected by schema incompatibilities, run queries against the system catalog of your legacy data warehouse to identify the tables with unsupported data types. Then, you can use metadata from your BI tool to identify the reports that access data in those tables. For more information about how to identify object type incompatibilities, see [Unsupported Teradata database object types](5-minimize-sql-issues.md#unsupported-teradata-database-object-types).
+To identify the reports affected by schema incompatibilities, run queries against the system catalog of your legacy data warehouse to identify the tables with unsupported data types. Then, you can use metadata from your BI tool to identify the reports that access data in those tables. For more information about how to identify object type incompatibilities, see [Unsupported Teradata database object types](5-minimize-sql-issues.md#unsupported-teradata-data-types).
 
 >[!TIP]
 >Query the system catalog of your legacy warehouse DBMS to identify schema incompatibilities with Azure Synapse.

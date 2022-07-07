@@ -144,7 +144,7 @@ The volume of migrated data in an initial migration should be large enough to de
 
 An initial approach to a migration project is to minimize the risk, effort, and time needed so that you quickly see the benefits of the Azure cloud environment. The following [approaches](#lift-and-shift-migration-vs-phased-approach) limit the scope of the initial migration to just the data marts and doesn't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
 
-#### Lift and shift as-is versus a phased approach incorporating changes
+#### Lift and shift migration vs. Phased approach
 
 Whatever the drive and scope of the intended migration, there are&mdash;broadly speaking&mdash;two types of migration:
 
@@ -283,7 +283,7 @@ SQL Data Manipulation Language (DML) [syntax differences](5-minimize-sql-issues.
 
 #### Functions, stored procedures, triggers, and sequences
 
-When migrating a data warehouse from a mature environment like Teradata, you probably need to migrate elements other than simple tables and views. Examples include functions, stored procedures, triggers, and sequences. Check whether tools within the Azure environment can replace the functionality of functions, stored procedures, and sequences because it's usually more efficient to use built-in Azure tools than to recode them.
+When migrating a data warehouse from a mature environment like Teradata, you probably need to migrate elements other than simple tables and views. Examples include functions, stored procedures, triggers, and sequences. Check whether tools within the Azure environment can replace the functionality of functions, stored procedures, and sequences because it's usually more efficient to use built-in Azure tools than to recode them for Azure Synapse.
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
@@ -317,11 +317,11 @@ Azure Synapse handles sequences in a similar way to Teradata, and you can implem
 
 The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, such as `CREATE TABLE` and `CREATE VIEW`, are common to both Teradata and Azure Synapse but also provide implementation-specific features such as indexing, table distribution, and partitioning options.
 
-You can edit existing Teradata `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#teradata-data-type-mapping) and remove or modify Teradata-specific clauses such as `FALLBACK`.
+You can edit existing Teradata `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](5-minimize-sql-issues.md#unsupported-teradata-data-types) and remove or modify Teradata-specific clauses such as `FALLBACK`.
 
 However, all the information that specifies the current definitions of tables and views within the existing Teradata environment is maintained within system catalog tables. These tables are the best source of this information, as it's guaranteed to be up to date and complete. User-maintained documentation may not be in sync with the current table definitions.
 
-Within the Teradata environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with current table definitions. You can access system catalog information via views into the catalog such as `DBC.ColumnsV`. You can then generate `CREATE TABLE` DDL statements to create equivalent tables in Azure Synapse.
+Within the Teradata environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with current table definitions. By using views into the catalog such as `DBC.ColumnsV`, you can access system catalog information to generate `CREATE TABLE` DDL statements that create equivalent tables in Azure Synapse.
 
 >[!TIP]
 >Use existing Teradata metadata to automate the generation of `CREATE TABLE` and `CREATE VIEW` DDL for Azure Synapse.
