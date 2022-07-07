@@ -22,9 +22,9 @@ This article describes how to integrate partner network ground stations.
 
 ## Request integration resource information
 
-1. Email the [Azure Orbital GSaaS team](azorbitalpm@microsoft.com) to initiate partner network integration by providing the details below:
+1. Email the Azure Orbital GSaaS team at **azorbitalpm@microsoft.com** to initiate partner network integration by providing the details below:
   - Azure Subscription ID
-  - List of partner networks you have contracted with
+  - List of partner networks you've contracted with
   - List of ground station locations included in partner contracts
 2. The Azure Orbital GSaaS team will reply to your message with additional requested information, or, the Contact Profile resource parameters that will enable your partner network integration.
 3. Create a contact profile resource with the parameters provided by the Azure Orbital GSaaS team.
