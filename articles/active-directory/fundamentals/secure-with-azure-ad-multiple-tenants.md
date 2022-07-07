@@ -2,7 +2,7 @@
 title: Resource isolation with multiple tenants to secure with Azure Active Directory 
 description: Introduction to resource isolation with multiple tenants in Azure Active Directory.
 services: active-directory
-author: gargi.sinha
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
@@ -67,7 +67,7 @@ Another approach could have been to utilize the capabilities of Azure AD Connect
 
 ## Multi-tenant resource isolation
 
-A new tenant provides the ability to have a separate set of administrators. Organizations can choose to use corporate identities through [Azure AD B2B collaboration](../external-identities/what-is-b2b.md). Similarly, organizations can implement [Azure Lighthouse](../../lighthouse/overview.md) for cross-tenant management of Azure resources so that non-production Azure subscriptions can be managed by identities in the production counterpart. Azure Lighthouse can't be used to manage services outside of Azure, such as Intune or Microsoft Endpoint Manager. For Managed Service Providers (MSPs), [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide) is an admin portal that helps secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
+A new tenant provides the ability to have a separate set of administrators. Organizations can choose to use corporate identities through [Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b). Similarly, organizations can implement [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) for cross-tenant management of Azure resources so that non-production Azure subscriptions can be managed by identities in the production counterpart. Azure Lighthouse can't be used to manage services outside of Azure, such as Intune or Microsoft Endpoint Manager. For Managed Service Providers (MSPs), [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide) is an admin portal that helps secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
 
 This will allow users to continue to use their corporate credentials, while achieving the benefits of separation as described above.
 
