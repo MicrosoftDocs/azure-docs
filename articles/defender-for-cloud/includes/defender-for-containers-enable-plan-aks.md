@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 07/05/2022
+ms.date: 07/07/2022
 ---
 
 ## Enable the plan
@@ -95,7 +95,7 @@ Request query parameters:
 | SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
-| ApiVersion     | API version, must be >= 2022-06-01 and <= 2022-04-01 | Yes       |
+| ApiVersion     | API version, must be >= 2022-06-01 | Yes       |
 
 Request Body:
 
@@ -104,9 +104,11 @@ Request Body:
   "location": "{{Location}}",
   "properties": {
     "securityProfile": {
-            "azureDefender": {
+            "defender": {
                 "logAnalyticsWorkspaceResourceId": "{{LAWorkspaceResourceId}}",
-                "enabled": true
+                "securityMonitoring": {
+                    "enabled": true,
+                }
             }
         }
     }
@@ -118,8 +120,8 @@ Request body parameters:
 | Name | Description | Mandatory |
 |--|--|--|
 | location | Cluster's location | Yes |
-| properties.securityProfile.azureDefender.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
-| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
+| properties.securityProfile.defender.securityMonitoring.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
+| properties.securityProfile.defender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
@@ -191,17 +193,19 @@ To install the 'SecurityProfile' on an existing cluster with Resource Manager:
 ```
 { 
     "type": "Microsoft.ContainerService/managedClusters", 
-    "apiVersion": "2021-07-01", 
+    "apiVersion": "2022-06-01", 
     "name": "string", 
     "location": "string",
     "properties": {
         …
         "securityProfile": { 
-            "azureDefender": { 
-                "enabled": true, 
-                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId "
+            "defender": { 
+                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId",
+                "securityMonitoring": {
+                    "enabled": true
+                }
             }
-        },
+        }
     }
 }
 ```

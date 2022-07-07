@@ -457,7 +457,7 @@ If your cluster is behind an outbound proxy or firewall, verify that websocket c
 
 ### Cluster Connect feature disabled
 
-If the Cluster Connect feature is disabled on the cluster, then `az connectedk8s proxy` will fail to establish a session with the cluster.
+If the `clusterconnect-agent` and `kube-aad-proxy` pods are missing, then the cluster connect feature is likely disabled on the cluster, and `az connectedk8s proxy` will fail to establish a session with the cluster.
 
 ```azurecli
 az connectedk8s proxy -n AzureArcTest -g AzureArcTest
@@ -467,7 +467,11 @@ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Cannot connect to the hybrid connection because no agent is connected in the target arc resource.
 ```
 
-To resolve this error, [enable the Cluster Connect feature](cluster-connect.md#enable-cluster-connect-feature) on your cluster.
+To resolve this error, enable the Cluster Connect feature on your cluster.
+
+```azurecli
+az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
+```
 
 ## Enable custom locations using service principal
 
