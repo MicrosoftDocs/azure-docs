@@ -29,8 +29,11 @@ Azure Data Factory provides Windows container support for the Self-Hosted Integr
 ## Get started 
 
 1. Install Docker and enable Windows containers.
+
 1. [Download the container image source code from GitHub.](https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container)
+
 1. If you need to use a specific version of the SHIR, you can download it and move it to the *SHIR* folder. Otherwise, skip this step and the container image build process will download the latest version of the SHIR automatically.
+
 1. Open your folder in the shell: 
 
    ```console
@@ -43,7 +46,7 @@ Azure Data Factory provides Windows container support for the Self-Hosted Integr
    docker build . -t "yourDockerImageName" 
    ```
 
-1.	Run the Docker container:
+1. Run the Docker container:
 
    ```console
    docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true -e HA_PORT=8060 "yourDockerImageName"    
@@ -56,17 +59,17 @@ Azure Data Factory provides Windows container support for the Self-Hosted Integr
 
 ## Container health check
 
-After 120 seconds startup period, the health checker will run periodically every 30 seconds. It will provide the IR health status to container engine. 
+After the 120 second startup period, the health check runs periodically every 30 seconds. It provide the SHIR's health status to the container engine.
 
 ## Limitations
 
-Currently we don't support below features when running Self-Hosted Integration Runtime in Windows containers:
+Currently we don't support the below features when running the Self-Hosted Integration Runtime in Windows containers:
 
 - HTTP proxy 
 - Encrypted node-node communication with TLS/SSL certificate 
 - Generate and import backup 
 - Daemon service 
-- Auto update 
+- Auto-update 
 
 ### Next steps
 
