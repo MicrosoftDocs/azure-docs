@@ -193,57 +193,70 @@
   items: 
   - name: Overview
     href: ../virtual-machines/updates-maintenance-overview.md
+    maintainContext: true
   - name: Maintenance notifications
     items:
     - name: Overview
       href: virtual-machine-scale-sets-maintenance-notifications.md
+      maintainContext: true
     - name: CLI
       displayName: Maintenance notifications
-      href: maintenance-notifications-cli.md
+      href: ../virtual-machines/maintenance-notifications-cli.md
+      maintainContext: true
     - name: Portal
       displayName: Maintenance notifications
-      href: maintenance-notifications-portal.md
+      href: ../virtual-machines/maintenance-notifications-portal.md
+      maintainContext: true
     - name: PowerShell
       displayName: Maintenance notifications
-      href: maintenance-notifications-powershell.md
+      href: ../virtual-machines/maintenance-notifications-powershell.md
+      maintainContext: true
   - name: Maintenance configurations
     items:
     - name: Overview
       displayName: Maintenance configurations
-      href: maintenance-configurations.md
+      href: ../virtual-machines/maintenance-configurations.md
+      maintainContext: true
     - name: CLI
       displayName: Maintenance configurations
-      href: maintenance-configurations-cli.md
+      href: ../virtual-machines/maintenance-configurations-cli.md
+      maintainContext: true
     - name: PowerShell
       displayName: Maintenance configurations
-      href: maintenance-configurations-powershell.md
+      href: ../virtual-machines/maintenance-configurations-powershell.md
+      maintainContext: true
     - name: Portal
       displayName: Maintenance configurations
-      href: maintenance-configurations-portal.md
+      href: ../virtual-machines/maintenance-configurations-portal.md
+      maintainContext: true
   - name: Scheduled events
     items:
     - name: Linux
-      href: ./linux/scheduled-events.md
+      href: ../virtual-machines/linux/scheduled-events.md
+      maintainContext: true
       displayname: Scheduled events
     - name: Windows
       items:
       - name: Scheduled events
-        href: ./windows/scheduled-events.md
+        href: ../virtual-machines/windows/scheduled-events.md
+        maintainContext: true
       - name: Monitor scheduled events
-        href: ./windows/scheduled-event-service.md
+        href: ../virtual-machines/windows/scheduled-event-service.md
+        maintainContext: true
   - name: Track and update VMs
     items:
     - name: Linux
       displayName: update, track
-      href: ./linux/tutorial-config-management.md
+      href: ../virtual-machines/linux/tutorial-config-management.md
+      maintainContext: true
     - name: Windows
       displayName: update, track
-      href: ./windows/tutorial-config-management.md
-
+      href: ../virtual-machines/windows/tutorial-config-management.md
+      maintainContext: true
     - name: Scheduled events - Linux
       href: ../virtual-machines/linux/scheduled-events.md
-      displayname: Scheduled events
       maintainContext: true
+      displayname: Scheduled events
     - name: Scheduled events - Windows
       href: ../virtual-machines/windows/scheduled-events.md
       maintainContext: true
