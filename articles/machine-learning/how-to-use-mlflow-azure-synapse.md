@@ -23,10 +23,8 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 
 ## Prerequisites
 
-* Install the `mlflow` package.
-* Install the `azureml-mlflow` packages, which handles the connectivity with Azure Machine Learning, including authentication.
 * An [Azure Synapse Analytics workspace and cluster](/azure/synapse-analytics/quickstart-create-workspace.md).
-* [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
+* An [Azure Machine Learning Workspace](quickstart-create-resources.md).
 
 ## Install libraries
 
