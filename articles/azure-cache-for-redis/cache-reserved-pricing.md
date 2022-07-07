@@ -5,14 +5,15 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 06/01/2021
+
 ---
 
 # Prepay for Azure Cache for Redis compute resources with reserved capacity
 
 Azure Cache for Redis now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Cache for Redis reserved capacity, you make an upfront commitment on cache for one or three years to get a significant discount on the compute costs. To purchase Azure Cache for Redis reserved capacity, you need to specify the Azure region, service tier, and term.
 
-You do not need to assign the reservation to specific Azure Cache for Redis instances. An already running Azure Cache for Redis or ones that are newly deployed will automatically get the benefit of reserved pricing, up to the reserved cache size. By purchasing a reservation, you are pre-paying for the compute costs for one or three years. As soon as you buy a reservation, the Azure Cache for Redis compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover networking or storage charges associated with the cache. At the end of the reservation term, the billing benefit expires and the Azure Cache for Redis is billed at the pay-as-you go price. Reservations do not autorenew. For pricing information, see the [Azure Cache for Redis reserved capacity offering](https://azure.microsoft.com/pricing/details/cache).
+You do not need to assign the reservation to specific Azure Cache for Redis instances. An already running Azure Cache for Redis or ones that are newly deployed will automatically get the benefit of reserved pricing, up to the reserved cache size. By purchasing a reservation, you are pre-paying for the compute costs for one or three years. As soon as you buy a reservation, the Azure Cache for Redis compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover networking or storage charges associated with the cache. At the end of the reservation term, the billing benefit expires and the Azure Cache for Redis is billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Cache for Redis reserved capacity offering](https://azure.microsoft.com/pricing/details/cache).
 
 You can buy Azure Cache for Redis reserved capacity in the [Azure portal](https://portal.azure.com/). To buy the reserved capacity:
 
@@ -22,13 +23,11 @@ You can buy Azure Cache for Redis reserved capacity in the [Azure portal](https:
 
 For the details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) and [understand Azure reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
-
 ## Determine the right cache size before purchase
 
 The size of reservation should be based on the total amount of memory size that is used by the existing or soon-to-be-deployed cache within a specific region, and using the same service tier.
 
 For example, let's suppose that you're running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13-GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either one P2-cache and one P3-cache or three P2-caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
-
 
 ## Buy Azure Cache for Redis reserved capacity
 
@@ -39,9 +38,7 @@ You can buy a reserved VM instance in the [Azure portal](https://portal.azure.co
 3. Select **Add** and then in the Purchase reservations pane, select **Azure Cache for Redis** to purchase a new reservation for your caches.
 4. Fill in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Cache for Redis instances that get the discount depend on the scope and quantity selected.
 
-
 ![Overview of reserved pricing](media/cache-reserved-pricing/cache-reserved-price.png)
-
 
 The following table describes required fields.
 
@@ -70,13 +67,13 @@ If you have questions or need help, [create a support request](https://portal.az
 
 The reservation discount is applied automatically to the Azure Cache for Redis instances that match the reservation scope and attributes. You can update the scope of the reservation through the Azure portal, PowerShell, Azure CLI, or the API.
 
-*  To learn how reserved capacity discounts are applied to Azure Cache for Redis, see [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges.md)
+* To learn how reserved capacity discounts are applied to Azure Cache for Redis, see [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges.md)
 
 * To learn more about Azure Reservations, see the following articles:
 
-    * [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-    * [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
-    * [Understand Azure Reservations discount](../cost-management-billing/reservations/understand-reservation-charges.md)
-    * [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
-    * [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+  * [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+  * [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+  * [Understand Azure Reservations discount](../cost-management-billing/reservations/understand-reservation-charges.md)
+  * [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
+  * [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     * [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

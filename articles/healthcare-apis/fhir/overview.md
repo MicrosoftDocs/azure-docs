@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 06/06/2022
 ms.author: chrupa
 ---
 
@@ -65,7 +65,7 @@ Exchange of data via the FHIR service provides audit logs and access controls th
 
 FHIR capabilities from Microsoft are available in three configurations:
 
-* The FHIR service in Azure Health Data Services is a platform as a service (PaaS) offering in Azure that's easily provisioned in the Azure portal and managed by Microsoft. Includes the ability to provision other datasets, such as DICOM in the same workspace. This is available in Public Preview. 
+* The FHIR service in Azure Health Data Services is a platform as a service (PaaS) offering in Azure that's easily provisioned in the Azure portal and managed by Microsoft. Includes the ability to provision other datasets, such as DICOM in the same workspace. 
 * Azure API for FHIR - A PaaS offering in Azure, easily provisioned in the Azure portal and managed by Microsoft. This implementation only includes FHIR data and is a GA product. 
 * FHIR Server for Azure – an open-source project that can be deployed into your Azure subscription, available on GitHub at https://github.com/Microsoft/fhir-server.
 
@@ -77,3 +77,5 @@ To start working with the FHIR service, follow the 5-minute quickstart to deploy
 
 >[!div class="nextstepaction"]
 >[Deploy FHIR service](fhir-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

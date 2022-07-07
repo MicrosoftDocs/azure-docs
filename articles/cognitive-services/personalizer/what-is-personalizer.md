@@ -1,8 +1,8 @@
 ---
 title: What is Personalizer?
 description: Personalizer is a cloud-based service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -26,7 +26,7 @@ This documentation contains the following article types:
 * [**Concepts**](how-personalizer-works.md) provide in-depth explanations of the service functionality and features.  
 * [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer guides that show you how to use the service as a component in broader business solutions.  
 
-Before you get started, try out [Personalizer with this interactive demo](https://personalizationdemo.azurewebsites.net/).
+Before you get started, try out [Personalizer with this interactive demo](https://personalizerdevdemo.azurewebsites.net/).
 
 ## How does Personalizer select the best content item?
 

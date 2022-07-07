@@ -1,13 +1,13 @@
 ---
 title: Backup and restore - Azure Database for MySQL
 description: Learn about automatic backups and restoring your Azure Database for MySQL server.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 3/27/2020
+author: savjani
+ms.author: pariks
 ms.custom: references_regions
+ms.date: 06/20/2022
 ---
 
 # Backup and restore in Azure Database for MySQL

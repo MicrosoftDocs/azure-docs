@@ -60,7 +60,7 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 | ApplicationId | GUID | Application ID used in bearer authorization. |
 | CallerIpAddress | String | A masked source IP address for the event. |
 | Category | String | Type of operation, either **ServiceOperations** or **DeviceOperations**. |
-| CorrelationId | GUID | Customer provided unique identifier for the event. |
+| CorrelationId | GUID | Unique identifier for the event. |
 | DurationMs | String | How long it took to perform the event in milliseconds. |
 | Level | Int | The logging severity of the event. For example, Information or Error. |
 | OperationName | String | The type of action performed during the event. For example: Query, Get, Upsert, and so on.  |
@@ -158,4 +158,4 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 - See [Monitoring Azure IoT Hub Device Provisioning Service](monitor-iot-dps.md) for a description of monitoring Azure IoT Hub Device Provisioning Service.
 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

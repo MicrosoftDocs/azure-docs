@@ -213,9 +213,9 @@ If you find that you can't establish SignalR client connections to Azure SignalR
 When encountering message related problem, you can take advantage of messaging logs to troubleshoot. Firstly, [enable resource logs](#enable-resource-logs) in service, logs for server and client.
 
 > [!NOTE]
-> For ASP.NET Core, see [here](https://docs.microsoft.com/aspnet/core/signalr/diagnostics) to enable logging in server and client.
+> For ASP.NET Core, see [here](/aspnet/core/signalr/diagnostics) to enable logging in server and client.
 >
-> For ASP.NET, see [here](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing) to enable logging in server and client.
+> For ASP.NET, see [here](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing) to enable logging in server and client.
 
 If you don't mind potential performance impact and no client-to-server direction message, check the `Messaging` in `Log Source Settings/Types` to enable *collect-all* log collecting behavior. For more information about this behavior, see [collect all section](#collect-all).
 
@@ -239,7 +239,7 @@ For **collect all** collecting behavior:
 SignalR service only trace messages in direction **from server to client via SignalR service**. The tracing ID will be generated in server, the message will carry the tracing ID to SignalR service.
 
 > [!NOTE]
-> If you want to trace message and [send messages from outside a hub](https://docs.microsoft.com/aspnet/core/signalr/hubcontext) in your app server, you need to enable **collect all** collecting behavior to collect message logs for the messages which are not originated from diagnostic clients.
+> If you want to trace message and [send messages from outside a hub](/aspnet/core/signalr/hubcontext) in your app server, you need to enable **collect all** collecting behavior to collect message logs for the messages which are not originated from diagnostic clients.
 > Diagnostic clients works for both **collect all** and **collect partially** collecting behaviors. It has higher priority to collect logs. For more information, see [diagnostic client section](#diagnostic-client).
 
 By checking the sign in server and service side, you can easily find out whether the message is sent from server, arrives at SignalR service, and leaves from SignalR service. Basically, by checking if the *received* and *sent* message are matched or not based on message tracing ID, you can tell whether the message loss issue is in server or SignalR service in this direction. For more information, see the [details](#message-flow-detail-for-path3) below.

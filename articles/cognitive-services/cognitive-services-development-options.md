@@ -99,7 +99,7 @@ Power Automate is a service in the [Power Platform](/power-platform/) that helps
 
 ### Continuous integration and deployment
 
-You can use Azure DevOps and GitHub actions to manage your deployments. In the [section below](#continuous-integration-and-delivery-with-devops-and-github-actions), we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
+You can use Azure DevOps and GitHub Actions to manage your deployments. In the [section below](#continuous-integration-and-delivery-with-devops-and-github-actions), we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
 
 * **Target user(s)**: Developers, data scientists, and data engineers
 * **Benefits**: Allows you to continuously adjust, update, and deploy applications and models programmatically. There is significant benefit when regularly using your data to improve and update models for Speech, Vision, Language, and Decision. 
@@ -129,7 +129,7 @@ The tools that you will use to train and configure models are different from tho
 
 ### Continuous integration and delivery with DevOps and GitHub Actions
 
-Language Understanding and the Speech service offer continuous integration and continuous deployment solutions that are powered by Azure DevOps and GitHub actions. These tools are used for automated training, testing, and release management of custom models. 
+Language Understanding and the Speech service offer continuous integration and continuous deployment solutions that are powered by Azure DevOps and GitHub Actions. These tools are used for automated training, testing, and release management of custom models. 
 
 * [CI/CD for Custom Speech](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
 * [CI/CD for LUIS](./luis/luis-concept-devops-automation.md)

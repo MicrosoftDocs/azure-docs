@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot common Cost Management errors
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article describes common Cost Management errors and provides information about solutions.
 author: bandersmsft
 ms.reviewer: micflan

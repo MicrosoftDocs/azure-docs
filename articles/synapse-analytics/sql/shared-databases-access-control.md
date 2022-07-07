@@ -5,6 +5,7 @@ author: Stralle
 reviewer: vvasic-msft, jovanpop-msft, WilliamDAssafMSFT 
 ms.service: synapse-analytics
 ms.subservice: sql
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 12/30/2021
 ms.author: strrodic
@@ -23,16 +24,16 @@ Once these databases and tables are synchronized from Spark to serverless SQL po
 `External table '<table>' is not accessible because content of directory cannot be listed.`
 despite them having access to data on the underlying storage account(s).
 
-Since synchronized databases in serverless SQL pool are read-only, they can’t be modified. Creating a user, or giving other permissions will fail if attempted. To read synchronized databases, one must have privileged server-level permissions (like sysadmin).
-This limitation is also present on external tables in serverless SQL pool when using [Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) and lake databases tables.
+Since synchronized databases in serverless SQL pool are read-only, they can't be modified. Creating a user, or giving other permissions will fail if attempted. To read synchronized databases, one must have privileged server-level permissions (like sysadmin).
+This limitation is also present on external tables in serverless SQL pool when using [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) and lake databases tables.
 
 ## Non-admin access to synchronized databases
 
 A user who needs to read data and create reports usually doesn't have full administrator access (sysadmin). This user is usually data analyst who just needs to read and analyze data using the existing tables. They don't need to create new objects.
 
 A user with minimal permission should be able to:
--	Connect to a database that is replicated from Spark
--	Select data via external tables and access the underlying ADLS data.
+-    Connect to a database that is replicated from Spark
+-    Select data via external tables and access the underlying ADLS data.
 
 After executing the code script below, it will allow non-admin users to have server-level permissions to connect to any database. It will also allow users to view data from all schema-level objects, such as tables or views. Data access security can be managed on the storage layer. 
 

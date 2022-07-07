@@ -187,7 +187,7 @@ Sample not available for this platform/package combination.
 blob_account_name = "azureopendatastorage"
 blob_container_name = "nyctlc"
 blob_relative_path = "yellow"
-blob_sas_token = r"
+blob_sas_token = "r"
 
 # Allow SPARK to read from Blob remotely
 wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)

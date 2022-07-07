@@ -5,7 +5,7 @@ services: container-apps
 author: asw101
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 06/23/2022
 ms.author: aawislan
 ms.custom: ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
@@ -24,7 +24,7 @@ You learn how to:
 > * Deploy two apps that produce and consume messages and persist them in the state store
 > * Verify the interaction between the two microservices.
 
-With Azure Container Apps, you get a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
+With Azure Container Apps, you get a [fully managed version of the Dapr APIs](./dapr-overview.md) when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
 In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes) quickstart. 
 
@@ -116,11 +116,13 @@ az storage account create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
-  -Name $STORAGE_ACCOUNT `
-  -Location $LOCATION `
-  -SkuName Standard_RAGRS
+```azurecli
+az storage account create `
+  --name $STORAGE_ACCOUNT `
+  --resource-group $RESOURCE_GROUP `
+  --location "$LOCATION" `
+  --sku Standard_RAGRS `
+  --kind StorageV2
 ```
 
 ---
@@ -135,10 +137,9 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-$STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -AccountName $STORAGE_ACCOUNT)| Where-Object -Property KeyName -Contains 'key1' | Select-Object -ExpandProperty Value
+```azurecli
+$STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
 ```
-
 
 ---
 
@@ -196,7 +197,7 @@ az containerapp env dapr-component set \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp env dapr-component set `
     --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP `
     --dapr-component-name statestore `
@@ -205,9 +206,10 @@ az containerapp env dapr-component set `
 
 ---
 
-Your state store is configured using the Dapr component described in *statestore.yaml*. The component is scoped to a container app named `nodeapp` and is not available to other container apps.
+Your state store is configured using the Dapr component described in *statestore.yaml*. The component is scoped to a container app named `nodeapp` and isn't available to other container apps.
 
 ## Deploy the service application (HTTP web server)
+
 
 # [Bash](#tab/bash)
 
@@ -218,12 +220,13 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image dapriosamples/hello-k8s-node:latest \
   --target-port 3000 \
-  --ingress 'external' \
+  --ingress 'internal' \
   --min-replicas 1 \
   --max-replicas 1 \
   --enable-dapr \
+  --dapr-app-id nodeapp \
   --dapr-app-port 3000 \
-  --dapr-app-id nodeapp
+  --env-vars 'APP_PORT=3000'
 ```
 
 # [PowerShell](#tab/powershell)
@@ -235,20 +238,23 @@ az containerapp create `
   --environment $CONTAINERAPPS_ENVIRONMENT `
   --image dapriosamples/hello-k8s-node:latest `
   --target-port 3000 `
-  --ingress 'external' `
+  --ingress 'internal' `
   --min-replicas 1 `
   --max-replicas 1 `
   --enable-dapr `
+  --dapr-app-id nodeapp `
   --dapr-app-port 3000 `
-  --dapr-app-id nodeapp
+  --env-vars 'APP_PORT=3000'
 ```
 
 ---
 
+By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-node).
+
 This command deploys:
 
 * the service (Node) app server on `--target-port 3000` (the app port) 
-* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000` for service discovery and invocation
+* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation
 
 ## Deploy the client application (headless client)
 
@@ -284,7 +290,9 @@ az containerapp create `
 
 ---
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
+By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-python).
+
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.  
 
 ## Verify the result
 
@@ -308,7 +316,7 @@ You can confirm that the services are working correctly by viewing data in your 
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. Wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. Wait a few minutes for the analytics to arrive for the first time before you're able to query the logged data.
 
 Use the following CLI command to view logs on the command line.
 
@@ -325,11 +333,14 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
+```azurecli
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`
+(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
 
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
-$queryResults.Results
+az monitor log-analytics query `
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
+  --out table
 ```
 
 ---
@@ -348,7 +359,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Once you are done, run the following command to delete your resource group along with all the resources you created in this tutorial.
+Once you're done, run the following command to delete your resource group along with all the resources you created in this tutorial.
 
 # [Bash](#tab/bash)
 
@@ -359,8 +370,9 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+```azurecli
+az group delete `
+    --resource-group $RESOURCE_GROUP
 ```
 
 ---

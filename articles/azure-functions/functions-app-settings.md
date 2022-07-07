@@ -419,13 +419,15 @@ The above sample value of `1800` sets a timeout of 30 minutes. To learn more, se
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or Windows or Linux Dedicated plans. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+
+Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## WEBSITE\_CONTENTOVERVNET
 
@@ -445,7 +447,7 @@ The file path to the function app code and configuration in an event-driven scal
 |---|------------|
 |WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
-This setting is used for Consumption and Premium plan apps on both Windows and Linux. It's not used for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
 Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
@@ -457,16 +459,6 @@ The following considerations apply when using an Azure Resource Manager (ARM) te
 + When you specify `WEBSITE_CONTENTSHARE`, the value must follow [this guidance for share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names). 
 
 To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
-
-## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
-
-The WEBSITE_CONTENTAZUREFILECONNECTIONSTRING and WEBSITE_CONTENTSHARE settings have additional validation checks to ensure that the app can be properly started. Creation of application settings will fail if the Function App cannot properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation will take place. 
-
-|Key|Sample value|
-|---|------------|
-|WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
-
-If validation is skipped and either the connection string or content share are not valid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
 ## WEBSITE\_DNS\_SERVER
 
@@ -500,6 +492,14 @@ Sets the version of Node.js to use when running your function app on Windows. Yo
 |---|------------|
 |WEBSITE\_NODE\_DEFAULT_VERSION|`~10`|
 
+## WEBSITE\_OVERRIDE\_STICKY\_EXTENSION\_VERSIONS
+
+By default, the version settings for function apps are specific to each slot. This setting is used when upgrading functions by using [deployment slots](functions-deployment-slots.md). This prevents unanticipated behavior due to changing versions after a swap. Set to `0` in production and in the slot to make sure that all version settings are also swapped. For more information, see [Migrate using slots](functions-versions.md#migrate-using-slots). 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE\_OVERRIDE\_STICKY\_EXTENSION\_VERSIONS|`0`|
+
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
 Enables your function app to run from a mounted package file.
@@ -509,6 +509,16 @@ Enables your function app to run from a mounted package file.
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
 Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+
+## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
+
+The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnectionstring) and [WEBSITE_CONTENTSHARE](#website_contentshare) settings have additional validation checks to ensure that the app can be properly started. Creation of application settings will fail if the Function App cannot properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation will take place. 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
+
+If validation is skipped and either the connection string or content share are not valid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
 ## WEBSITE\_TIME\_ZONE
 

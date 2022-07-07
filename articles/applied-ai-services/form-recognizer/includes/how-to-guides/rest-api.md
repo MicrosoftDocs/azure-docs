@@ -991,7 +991,7 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/prebuilt/idDocume
 
 ### Get the Analyze ID Document result
 
-After you've called the **Analyze ID Document** API, call the **[Get Analyze ID Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeBusinessCardResult)** API to get the status of the operation and the extracted data.  Before you run the command, make these changes:
+After you've called the **Analyze ID Document** API, call the **[Get Analyze ID Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7daad1f2612c46f5822)** API to get the status of the operation and the extracted data.  Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
@@ -1000,7 +1000,7 @@ After you've called the **Analyze ID Document** API, call the **[Get Analyze ID 
 #### Request
 
 ```bash
-curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ### Examine the response

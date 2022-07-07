@@ -1,6 +1,5 @@
 ---
 title: Developer guidance for Azure Active Directory Conditional Access
-titleSuffix: Microsoft identity platform
 description: Developer guidance and scenarios for Azure AD Conditional Access and Microsoft identity platform.
 services: active-directory
 keywords:

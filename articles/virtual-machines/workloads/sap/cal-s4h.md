@@ -10,7 +10,7 @@ tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -26,6 +26,8 @@ You will need to authenticate with your S-User or P-User. You can create a P-Use
 
 | Solution | Link |
 | -------------- | :--------- | 
+| **SAP NetWeaver 7.5 SP15 on SAP ASE** January 20 2020  | [Create Instance](https://cal.sap.com/registration?sguid=69efd5d1-04de-42d8-a279-813b7a54c1f6&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|SAP NetWeaver 7.5 SP15 on SAP ASE |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/69efd5d1-04de-42d8-a279-813b7a54c1f6) |
 | **SAP S/4HANA 2020 FPS01** March 22 2022  | [Create Instance](https://cal.sap.com/registration?sguid=4bad009a-cb02-4992-a8b6-28c331a79c66&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |This solution comes as a standard S/4HANA system installation including a remote desktop for easy frontend access. It contains a pre-configured and activated SAP S/4HANA Fiori UI in client 100, with prerequisite components activated as per SAP note 3009827 Rapid Activation for SAP Fiori in SAP S/4HANA 2020 FPS01. See More Information Link. |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/4bad009a-cb02-4992-a8b6-28c331a79c66) |
 | **SAP Financial Services Data Platform 1.15** March 16 2022  | [Create Instance](https://cal.sap.com/registration?sguid=310f0bd9-fcad-4ecb-bfea-c61cdc67152b&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |

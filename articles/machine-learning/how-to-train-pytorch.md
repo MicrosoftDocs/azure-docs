@@ -9,11 +9,13 @@ ms.author: larryfr
 author: blackmist
 ms.date: 02/28/2022
 ms.topic: how-to
-
-#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train PyTorch models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning.
 
@@ -36,6 +38,8 @@ Run this code on either of these environments:
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -86,6 +90,8 @@ shutil.copy('pytorch_train.py', project_folder)
 ### Create a compute target
 
 Create a compute target for your PyTorch job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 

@@ -274,7 +274,8 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
      If you want to mount, format and create swap you can either:
         1. Pass this in as a cloud-init config every time you create a VM through `customdata`. This is the recommended method.
         2. Use a cloud-init directive baked into the image that will do this every time the VM is created.
-           ```
+           
+	```
            echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
            cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
            #cloud-config
@@ -293,7 +294,8 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
              - ["ephemeral0.1", "/mnt"]
              - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
            EOF
-           ```
+	   
+         ```
 	
 1. Deprovision.
    > [!CAUTION]

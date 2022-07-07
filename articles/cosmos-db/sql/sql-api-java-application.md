@@ -1,15 +1,15 @@
 ---
 title: 'Tutorial: Build a Java web app using Azure Cosmos DB and the SQL API'
 description: 'Tutorial: This Java web application tutorial shows you how to use the Azure Cosmos DB and the SQL API to store and access data from a Java application hosted on Azure Websites.'
-author: rothja
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 03/29/2022
-ms.author: jroth
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: devx-track-java
-ms.reviewer: wiassaf
 ---
 
 # Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
