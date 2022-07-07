@@ -31,7 +31,7 @@ The following example will assign the `Storage Blob Data Contributor` role to yo
 
 ### [Azure CLI](#tab/roles-azure-cli)
 
-You can assign roles using the [az role](/cli/azure/role?view=azure-cli-latest) command of the Azure CLI.
+You can assign roles using the [az role](/cli/azure/role) command of the Azure CLI.
 
 ```azurecli
 az role assignment create --assignee "<your-username>" \
