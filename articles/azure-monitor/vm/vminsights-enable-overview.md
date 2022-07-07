@@ -99,7 +99,8 @@ There are several changes in the process for enabling VM insights when using the
 
 
 ## Data collection rule (Azure Monitor agent)
-When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. See [Enable VM insights on unmonitored machine](vminsights-enable-portal.md#enable-vm-insights-on-unmonitored-machine) for more information on creating and editing the VM insights data collection rule.
+When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. See [Enable VM insights for Azure Monitor agent
+](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) for more information on creating and editing the VM insights data collection rule.
 
 > [!IMPORTANT]
 > It's not recommended to create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. While you can edit this DCR to collect additional data such as Windows and Syslog events, you should create additional DCRs and associate with the machine.

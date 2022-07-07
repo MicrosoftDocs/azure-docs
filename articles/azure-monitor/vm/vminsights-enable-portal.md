@@ -107,7 +107,8 @@ Use this procedure to add the Azure Monitor agent to machines that are already e
     :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration too Azure Monitor agent to monitored machine.":::
 
 
-1. Follow the process described in [Enable VM insights on unmonitored machine](#enable-vm-insights-on-unmonitored-machine) to select a data collection rule. The only difference is that the data collection rule hasn't created for monitored machines has **Processes and dependencies** enabled for backward compatibility with the Log Analytics agent.
+1. Follow the process described in [Enable VM insights for Azure Monitor agent
+](#enable-vm-insights-for-azure-monitor-agent) to select a data collection rule. The only difference is that the data collection rule hasn't created for monitored machines has **Processes and dependencies** enabled for backward compatibility with the Log Analytics agent.
  
     :::image type="content" source="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for monitored machine.":::
 
