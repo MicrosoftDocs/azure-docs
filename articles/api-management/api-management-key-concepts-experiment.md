@@ -15,7 +15,7 @@ ms.custom: mvc
 robots: noindex
 ---
 
-# About API Management
+# What is Azure API Management?
 
 This article provides an overview of common scenarios and key components of Azure API Management. Azure API Management is a hybrid, multicloud management platform for APIs across all environments. As a platform-as-a-service, API Management supports the complete API lifecycle.
 
