@@ -1,6 +1,6 @@
 ---
 title: Azure API Management cross-domain policies | Microsoft Docs
-description: Reference for the cross-domain policies available for use in Azure API Management, which enable cross-domain calls from various clients. Provides policy usage, settings, and examples.
+description: Reference for the policies in Azure API Management to enable cross-domain calls from various clients. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
