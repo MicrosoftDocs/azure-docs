@@ -18,7 +18,7 @@ You can present monitoring data as charts. Supported chart types include:
 - Bar
 - Bar categorical
 - Area
-- Scatter plots
+- Scatter plot
 - Pie
 - Time
 
@@ -203,7 +203,7 @@ Average latency as a scatter chart:
 You can use chart settings to customize which fields are used in the:
 
 - Chart axes
-- The axis units
+- Axis units
 - Custom formatting
 - Ranges
 - Grouping behaviors
