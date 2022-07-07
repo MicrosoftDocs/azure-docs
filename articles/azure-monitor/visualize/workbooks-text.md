@@ -6,7 +6,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/05/2022
 ---
 
 # Workbook text parameters
@@ -120,5 +120,4 @@ If data is coming from a query, user can select the option to pre-format the JSO
 
 ## Next steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

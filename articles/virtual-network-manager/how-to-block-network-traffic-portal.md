@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 07/01/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -27,11 +27,11 @@ Before you start to configure security admin rules, confirm that you've done the
 
 ## Create a SecurityAdmin configuration
 
-1. Select **Configurations** under *Settings* and then select **+ Add a configuration**.
+1. Select **Configurations** under *Settings* and then select **+ Create**.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-configuration.png" alt-text="Screenshot of add a security admin configuration.":::
 
-1. Select **SecurityAdmin** from the drop-down menu.
+1. Select **Security admin configuration** from the drop-down menu.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/security-admin-drop-down.png" alt-text="Screenshot of add a configuration drop-down.":::
 
@@ -63,10 +63,12 @@ Before you start to configure security admin rules, confirm that you've done the
     | Action* | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action)
     | Direction* | Select **Inbound** as you want to deny inbound traffic with this rule. |
     | Protocol* | Select the **TCP** protocol. HTTP and HTTPS are TCP ports. |
+    |**Source**| |
     | Source type | Select the source type of either **IP address** or **Service tags**. |
     | Source IP addresses | This field will appear when you select the source type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. Leave blank for this example.|
     | Source service tag | This field will appear when you select the source type of *Service tag*. Select service tag(s) for services you want to specify as the source. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
     | Source port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port, enter *. Leave blank for this example.|
+    |**Desination**| |
     | Destination type | Select the destination type of either **IP address** or **Service tags**. |
     | Destination IP addresses | This field will appear when you select the destination type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. |
     | Destination service tag | This field will appear when you select the destination type of *Service tag*. Select service tag(s) for services you want to specify as the destination. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
@@ -85,11 +87,11 @@ Before you start to configure security admin rules, confirm that you've done the
 
 If you just created a new security admin configuration, make sure to deploy this configuration to apply to virtual networks in the network group.
 
-1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
+1. Select **Deployments** under *Settings*, then select **Deploy configuration**.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/deploy-configuration.png" alt-text="Screenshot of deploy a configuration button.":::
 
-1. Select the configuration type of **Include security admin in your goal state** and the security configuration you created in the last section. Then choose the region(s) you would like to deploy this configuration to.
+1. Select the **Include security admin in your goal state** checkbox and choose the security configuration you created in the last section from the dropdown menu. Then choose the region(s) you would like to deploy this configuration to.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/deploy-security-configuration.png" alt-text="Screenshot of deploy a security configuration page.":::
 

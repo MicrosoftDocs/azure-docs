@@ -32,7 +32,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Azure Databricks - used as a training compute target only in [machine learning pipelines](../how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
+* Azure Machine Learning Kubernetes
 
 To use compute targets managed by Azure Machine Learning, see:
 
@@ -42,7 +42,7 @@ To use compute targets managed by Azure Machine Learning, see:
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 
 * The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
@@ -344,14 +344,9 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## <a id="kubernetes"></a>Kubernetes (preview)
+## <a id="kubernetes"></a>Kubernetes
 
-Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training and inferencing:
-
-* [Azure Kubernetes Service](../../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
-* [Azure Arc Kubernetes](../../azure-arc/kubernetes/overview.md). Use Azure Arc-enabled Kubernetes clusters if your cluster is hosted outside of Azure.
-
-[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+Azure Machine Learning provides you with the option to attach your own Kubernetes clusters for training and inferencing. See [Configure Kubernetes cluster for Azure Machine Learning](../how-to-attach-kubernetes-anywhere.md).
 
 To detach a Kubernetes cluster from your workspace, use the following method:
 

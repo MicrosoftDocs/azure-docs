@@ -3,7 +3,7 @@ title: Authorize REST API in Azure IoT Central
 description: How to authenticate and authorize IoT Central REST API calls
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -83,7 +83,7 @@ Using the REST API:
 1. Use the REST API to retrieve a list of role IDs from your application:
 
     ```http
-    GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=1.0
+    GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-05-31
     ```
 
     The response to this request looks like the following example:
@@ -110,7 +110,7 @@ Using the REST API:
 1. Use the REST API to create an API token for a role. For example, to create an API token called `operator-token` for the operator role:
 
     ```http
-    PUT https://{your app subdomain}.azureiotcentral.com/api/apiToken/operator-token?api-version=1.0
+    PUT https://{your app subdomain}.azureiotcentral.com/api/apiToken/operator-token?api-version=2022-05-31
     ```
 
     Request body:
@@ -143,9 +143,6 @@ Using the REST API:
     This response is the only time you have access to the API token, if you lose it you need to generate a new one.
 
 You can use the REST API to list and delete API tokens in an application.
-
-> [!TIP]
-> The [preview API](/rest/api/iotcentral/1.2-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
 
 ## Use a bearer token
 

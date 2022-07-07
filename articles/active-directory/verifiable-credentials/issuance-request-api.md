@@ -1,6 +1,5 @@
 ---
 title: Specify the Request Service REST API issuance request (preview)
-titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue a verifiable credential that you've issued.
 documentationCenter: ''
 author: barclayn

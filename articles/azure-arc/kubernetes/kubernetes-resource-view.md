@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 10/31/2021
 ms.topic: article
-author: shashankbarsin
-ms.author: shasb
 description: Learn how to interact with Kubernetes resources to manage an Azure Arc-enabled Kubernetes cluster from the Azure portal.
 ---
 

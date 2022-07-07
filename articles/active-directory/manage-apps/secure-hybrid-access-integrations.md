@@ -1,7 +1,6 @@
 ---
 title: Secure hybrid access with Azure AD partner integration
 description: Help customers discover and migrate SaaS applications into Azure AD and connect apps that use legacy authentication methods with Azure AD.
-titleSuffix: Microsoft Entra
 services: active-directory
 author: gargi-sinha
 manager: martinco
