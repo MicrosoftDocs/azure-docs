@@ -2,14 +2,14 @@
 title: Azure Monitor Workbooks link actions 
 description: How to use link actions in Azure Monitor Workbooks
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 07/05/2022
 ms.author: abbyweisberg
 ms.reviewer: gardnerjr
 ---
 
 # Link actions
 
-Link actions can be accessed through Workbook link steps or through column settings of [grids](../visualize/workbooks-grid-visualizations.md), [titles](../visualize/workbooks-tile-visualizations.md), or [graphs](../visualize/workbooks-graph-visualizations.md).
+Link actions can be accessed through Workbook link components or through column settings of [grids](../visualize/workbooks-grid-visualizations.md), [titles](../visualize/workbooks-tile-visualizations.md), or [graphs](../visualize/workbooks-graph-visualizations.md).
 
 ## General link actions
 
@@ -164,6 +164,6 @@ When the workbook link is opened, the new workbook view will be passed all of th
 |Column| When selected, another field will be displayed to let the author select another column in the grid.  The value of that column for the row will be used in the link value. This is commonly used to enable each row of a grid to open a different template, by setting the **Template Id** field to **column**, or to open up the same workbook template for different resources, if the **Workbook resources** field is set to a column that contains an Azure Resource ID. |
 |Parameter| When selected, another field will be displayed to let the author select a parameter. The value of that parameter will be used for the value when the link is clicked |
 |Static value| When selected, another field will be displayed to let the author type in a static value that will be used in the linked workbook. This is commonly used when all of the rows in the grid will use the same value for a field. |
-|Step| Use the value set in the current step of the workbook. This is common in query and metrics steps to set the workbook resources in the linked workbook to those used *in the query/metrics step*, not the current workbook. |
+|component| Use the value set in the current component of the workbook. This is common in query and metrics components to set the workbook resources in the linked workbook to those used in the query/metrics component, not the current workbook. |
 |Workbook| Use the value set in the current workbook. |
 |Default| Use the default value that would be used if no value was specified. This is common for Gallery Type, where the default gallery would be set by the type of the owner resource. |
