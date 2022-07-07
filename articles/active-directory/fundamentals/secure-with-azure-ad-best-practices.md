@@ -2,7 +2,7 @@
 title: Best practices to secure with Azure Active Directory 
 description: Best practices we recommend you follow to secure your isolated environments in Azure Active Directory.
 services: active-directory
-author: gargi.sinha
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
