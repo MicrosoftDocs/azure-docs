@@ -19,7 +19,7 @@ ms.custom: fasttrack-edit
 This article explains what the **capacity** is and how it behaves. It shows how to access **capacity** metrics in the Azure portal and suggests when to consider scaling or upgrading your API Management instance.
 
 > [!IMPORTANT]
-> This article discusses how you can monitor and scale your Azure API Management instance based upon its capacity metric. However, it is equally important to understand what happens when an individual API Management instance has actually *reached* its capacity. Azure API Management will not apply  service-level throttling to prevent a physical overload of the instances. When an instance reaches its physical capacity, it will behave similar to any overloaded web server that is unable to process incoming requests: latency will increase, connections will get dropped, timeout errors will occur, and so on. This means that API clients should be prepared to deal with this possibility as they do with any other external service (for example, by applying retry policies).
+> This article discusses how you can monitor and scale your Azure API Management instance based upon its capacity metric. However, it is equally important to understand what happens when an individual API Management instance has actually *reached* its capacity. Azure API Management will not apply service-level throttling to prevent a physical overload of the instances. When an instance reaches its physical capacity, it will behave similar to any overloaded web server that is unable to process incoming requests: latency will increase, connections will get dropped, timeout errors will occur, and so on. This means that API clients should be prepared to deal with this possibility as they do with any other external service (for example, by applying retry policies).
 
 ## Prerequisites
 
@@ -94,7 +94,7 @@ Low **capacity metric** doesn't necessarily mean that your API Management instan
 + Look at a long-term trend and average.
 + Ignore sudden spikes that are most likely not related to an increase in load (see [Capacity metric behavior](#capacity-metric-behavior) section for explanation).
 + As a general rule, upgrade or scale your instance when the **capacity** value exceeds **60% - 70%** for a long period of time (for example, 30 minutes). Different values may work better for your service or scenario.
-* If your instance is configured with only 1 unit, upgrade or scale your instance when the **capacity** value exceeds **40%** for a long period. This recommendation is based on the need to reserve capacity for guest OS updates in the underlying service platform.
++ If your instance is configured with only 1 unit, upgrade or scale your instance when the **capacity** value exceeds **40%** for a long period. This recommendation is based on the need to reserve capacity for guest OS updates in the underlying service platform.
 
 >[!TIP]  
 > If you are able to estimate your traffic beforehand, test your API Management instance on workloads you expect. You can increase the request load on your tenant gradually and monitor the value of the capacity metric that corresponds to your peak load. Follow the steps from the previous section to use Azure portal to understand how much capacity is used at any given time.
