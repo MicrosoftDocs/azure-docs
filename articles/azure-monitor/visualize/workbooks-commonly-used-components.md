@@ -43,7 +43,7 @@ The example below shows how do setup a traffic light icon per computer based on 
         - Icon: `Success`, Operator: `Default`
         - Icon: `Critical`, Operator: `>`, Value: `80`
         - Icon: `Warning`, Operator: `>`, Value: `60`
-    - _Trend -_ Column renderer: `Spark line`, Color paletter: `Green to Red`, Minimum value: `60`, Maximum value: `80`
+    - _Trend -_ Column renderer: `Spark line`, Color palette: `Green to Red`, Minimum value: `60`, Maximum value: `80`
 9. Select **Save and Close** to commit changes.
 
 :::image type="content" source="media/workbooks-commonly-used-components/workbooks-traffic-light-settings.png" alt-text="Screenshot showing the creation of a grid with traffic light icons.":::
@@ -138,7 +138,7 @@ The simplest case is the selection of a single filter value in each of the dimen
 }
 ```
 
-:::image type="content" source="media/workbooks-commonly-used-components/workbooks-odata-parameters-single-select.png" alt-text="Screenshot showing a drop-down lists with parameter values and a single value selected.":::
+:::image type="content" source="media/workbooks-commonly-used-components/workbooks-odata-parameters-single-select.png" alt-text="Screenshot showing a drop-down list with parameter values and a single value selected.":::
 
 ### Multiple Filter Values
 If the user chooses multiple filter values (e.g. both Android and OS X operating systems), then parameters `Delimiter` and `Quote with` settings kicks in and produces this compound filter:
@@ -150,7 +150,7 @@ If the user chooses multiple filter values (e.g. both Android and OS X operating
 }
 ```
 
-:::image type="content" source="media/workbooks-commonly-used-components/workbooks-odata-parameters-multi-select.png" alt-text="Screenshot showing a drop-down lists with parameter values and multiple values selected.":::
+:::image type="content" source="media/workbooks-commonly-used-components/workbooks-odata-parameters-multi-select.png" alt-text="Screenshot showing a drop-down list with parameter values and multiple values selected.":::
 
 ### No Filter Case
 Another common case is having no filter for that dimension. This is equivalent to including all values of the dimensions as part of the result set. The way to enable it is by having an `All` option on the drop-down and have it return a filter expression that always evaluates to `true` (e.g. _ComplianceState eq '#@?'_).
@@ -161,7 +161,7 @@ Another common case is having no filter for that dimension. This is equivalent t
     "filter": "(OSFamily eq 'OS X' or OSFamily eq 'Android') and (ComplianceState ne '#@?')"
 }
 ```
-:::image type="content" source="media/workbooks-commonly-used-components/workbooks-odata-parameters-no-select.png" alt-text="Screenshot showing a drop-down lists with parameter values and no filter selected.":::
+:::image type="content" source="media/workbooks-commonly-used-components/workbooks-odata-parameters-no-select.png" alt-text="Screenshot showing a drop-down list with parameter values and no filter selected.":::
 
 ## Reusing query data in different visualizations
 
