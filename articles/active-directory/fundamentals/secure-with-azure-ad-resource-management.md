@@ -63,7 +63,7 @@ Subscriptions that enable [delegated resource management](../../lighthouse/conce
 
 It's worth noting that Azure Lighthouse itself is modeled as an Azure resource provider, which means that aspects of the delegation across a tenant can be targeted through Azure Policies.
 
-**Microsoft 365 Lighthouse** - [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide) is an admin portal that helps Managed Service Providers (MSPs) secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
+**Microsoft 365 Lighthouse** - [Microsoft 365 Lighthouse](https://docs.microsoft.com/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide)) is an admin portal that helps Managed Service Providers (MSPs) secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
 
 ## Azure resource management with Azure AD
 
@@ -329,7 +329,7 @@ Conditional Access: A key benefit of using Azure AD for signing into Azure virtu
 
 **Challenges**: The list below highlights key challenges with using this option for identity isolation.
 
-* No central management or configuration of servers. For example, there's no Group Policy that can be applied to a group of servers. Organizations should consider deploying [Update Management in Azure](../../automation/automation-update-management.md) to manage patching and updates of these servers.
+* No central management or configuration of servers. For example, there's no Group Policy that can be applied to a group of servers. Organizations should consider deploying [Update Management in Azure](https://docs.microsoft.com/azure/automation/update-management/overview)) to manage patching and updates of these servers.
 
 * Not suitable for multi-tiered applications that have requirements to authenticate with on-premises mechanisms such as Windows Integrated Authentication across these servers or services. If this is a requirement for the organization, then it's recommended that you explore the Standalone Active Directory Domain Services, or the Azure Active Directory Domain Services scenarios described in this section.
 
