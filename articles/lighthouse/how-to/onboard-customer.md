@@ -187,7 +187,7 @@ When onboarding a subscription (or one or more resource groups within a subscrip
 
 The deployment may be done by using PowerShell, by using Azure CLI, or in the Azure portal, as shown below.
 
-### Deploy using PowerShell
+### Deploy by using PowerShell
 
 To deploy a single template:
 
@@ -227,7 +227,7 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
                  -Verbose
 ```
 
-### Deploy using Azure CLI
+### Deploy by using Azure CLI
 
 To deploy a single template:
 
@@ -291,7 +291,7 @@ After a few minutes, you should see a notification that the deployment has compl
 
 When a customer subscription has successfully been onboarded to Azure Lighthouse, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.  
 
-### Azure portal
+### Confirm in the Azure portal
 
 In the service provider's tenant:
 
@@ -311,7 +311,7 @@ In the customer's tenant:
 > [!NOTE]
 > It may take up to 15 minutes after your deployment is complete before the updates are reflected in the Azure portal. You may be able to see the updates sooner if you update your Azure Resource Manager token by refreshing the browser, signing in and out, or requesting a new token.
 
-### PowerShell
+### Confirm by using PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -324,7 +324,7 @@ Get-AzManagedServicesDefinition
 Get-AzManagedServicesAssignment
 ```
 
-### Azure CLI
+### Confirm by using Azure CLI
 
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell

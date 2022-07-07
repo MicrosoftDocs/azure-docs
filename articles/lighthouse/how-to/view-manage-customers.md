@@ -1,7 +1,7 @@
 ---
 title: View and manage customers and delegated resources in the Azure portal
 description: As a service provider or enterprise using Azure Lighthouse, you can view all of your delegated resources and subscriptions by going to My customers in the Azure portal. 
-ms.date: 09/17/2021
+ms.date: 07/08/2022
 ms.topic: how-to
 ---
 
@@ -12,7 +12,7 @@ Service providers using [Azure Lighthouse](../overview.md) can use the **My cust
 > [!TIP]
 > While we'll refer to service providers and customers here, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to consolidate their management experience.
 
-To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
+To access the **My customers** page in the Azure portal, enter "My customers" in the search box near the top of the Azure portal. You can also select **All services**, then search for **Azure Lighthouse**, or search for "Azure Lighthouse". From the Azure Lighthouse page, select **Manage your customers**.
 
 Keep in mind that the top **Customers** section of the **My customers** page only shows info about customers who have delegated subscriptions or resource groups to your Azure Active Directory (Azure AD) tenant through Azure Lighthouse. If you work with other customers (such as through the [Cloud Solution Provider (CSP) program](/partner-center/csp-overview)), you won’t see info about those customers in the **Customers** section unless you have [onboarded their resources to Azure Lighthouse](onboard-customer.md) (though you may see details about certain CSP customers in the [Cloud Solution Provider (Preview) section](#cloud-solution-provider-preview) lower on the page).
 
