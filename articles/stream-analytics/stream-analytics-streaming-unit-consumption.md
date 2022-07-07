@@ -26,7 +26,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
 
 3. In the job page, under the **Configure** heading, select **Scale**. Default number of SUs is 3 when creating a job.
 
-   :::image type="content" source="./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png" alt-text="Azure portal Stream Analytics job configuration" lightbox="./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png":::
+   :::image type="content" source="./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png" alt-text="Diagram to show Azure portal Stream Analytics job configuration" lightbox="./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png":::
     
 4. Choose the SU option in drop-down list to set the SUs for the job. Notice that you are limited to specific SU settings. 
 5. You can change the number of SUs assigned to your job even when it is running. This is not possible if your job uses a [non-partitioned output](./stream-analytics-parallelization.md#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](./stream-analytics-parallelization.md#multi-step-query-with-different-partition-by-values). You maybe restricted to choosing from a set of SU values when the job is running. 
@@ -34,7 +34,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
 ## Monitor job performance
 Using the Azure portal, you can track the performance related metrics of a job. To learn about the metrics definition, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). To learn more about the metrics monitoring in portal, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
 
-:::image type="content" source="./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png" alt-text="Azure portal Stream Analytics job configuration" lightbox="./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png":::
+:::image type="content" source="./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png" alt-text="Diagram that shows Azure portal Stream Analytics job monitor" lightbox="./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png":::
 
 Calculate the expected throughput of the workload. If the throughput is less than expected, tune the input partition, tune the query, and add SUs to your job.
 

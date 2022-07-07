@@ -75,7 +75,7 @@
     items:
     - name: Stream Analytics metrics
       href: stream-analytics-job-metrics.md
-    - name: Stream Analytics Metric dimensions
+    - name: Stream Analytics Metrics dimensions
       href: stream-analytics-job-metrics-dimensions.md
   - name: Input types for a job
     items:

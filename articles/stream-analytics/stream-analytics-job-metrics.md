@@ -1,6 +1,6 @@
 ---
 title: Azure Stream Analytics job metrics
-description: This article describes how to monitor Azure Stream Analytics jobs in the Azure portal.
+description: This article describes Azure Stream Analytics job metrics.
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
@@ -20,7 +20,9 @@ Or, you can navigate to the **Monitoring** blade in the left panel and click the
 :::image type="content" source="./media/stream-analytics-job-metrics/01-stream-analytics-job-metrics-monitoring.png" alt-text="Diagram that shows Stream Analytics job monitoring dashboard" lightbox="./media/stream-analytics-job-metrics/01-stream-analytics-job-metrics-monitoring.png":::
 
 ## Metrics available for Stream Analytics
+
 Azure Stream Analytics provides the following metrics for you to monitor your job's health.
+
 | Metric                 | Definition                               |
 | ---------------------- | ---------------------------------------- |
 | Backlogged Input Events       | Number of input events that are backlogged. A non-zero value for this metric implies that your job isn't able to keep up with the number of incoming events. If this value is slowly increasing or consistently non-zero, you should scale out your job. You can learn more by visiting [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md). |
