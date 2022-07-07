@@ -10,7 +10,7 @@ ms.author: ellbe
 
 Azure Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
 
-Currently LID supports: English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese (Brazilian). 
+See the list of supported by Azure Video Indexer languages in [supported langues](language-support.md).
 
 Make sure to review the [Guidelines and limitations](#guidelines-and-limitations) section below.
 
@@ -44,7 +44,7 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
 
 * Automatic language identification (LID) supports the following languages: 
 
-    English, Spanish, French, German, Italian, Mandarin Chines, Japanese, Russian, and Portuguese (Brazilian).
+   See the list of supported by Azure Video Indexer languages in [supported langues](language-support.md).
 * Even though Azure Video Indexer supports Arabic (Modern Standard and Levantine), Hindi, and Korean, these languages are not supported in LID.
 * If the audio contains languages other than the supported list above, the result is unexpected.
 * If Azure Video Indexer cannot identify the language with a high enough confidence (`>0.6`), the fallback language is English.
