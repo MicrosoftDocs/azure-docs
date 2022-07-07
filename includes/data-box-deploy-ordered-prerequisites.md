@@ -6,7 +6,7 @@ author: priestlg
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 06/20/2022
+ms.date: 07/07/2022
 ms.author: v-grpr
 ---
 ### For service
