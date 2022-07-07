@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 - Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point. 
 
 ## Step 1: Create a VM restore point collection
+Use the following steps to create a VM restore points collection:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the Search box, enter **Restore Point Collections**.
@@ -47,6 +48,7 @@ In this tutorial, you learn how to:
    :::image type="content" source="./media/virtual-machines-create-restore-points-portal/create-restore-points-review.png" alt-text="Screenshot of validation successful screen.":::
 
 ## Step 2: Create a VM restore point
+Use the following steps to create a VM restore point:
 
 1. Navigate to the restore point collection where you want to create restore points and select **+ Create a restore point** to create new restore point for the VM.
 

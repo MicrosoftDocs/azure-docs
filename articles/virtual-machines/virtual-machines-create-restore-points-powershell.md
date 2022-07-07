@@ -31,6 +31,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point.
+
 ## Step 1: Create a VM restore point collection
 Use the [New-AzRestorePointCollection](/powershell/module/az.compute/get-azrestorepoint) cmdlet to create a VM restore point collection.
 
@@ -72,7 +73,7 @@ New-AzDisk -DiskName “ExampleDataDisk1” (New-AzDiskConfig  -Location eastus 
 New-AzDisk -DiskName “ExampleDataDisk2” (New-AzDiskConfig  -Location eastus -CreateOption Restore -SourceResourceId $dataDisk2RestorePoint) -ResourceGroupName ExampleRg
 
 ```
-Once the disks are created, [create a new VM](/azure/virtual-machines/windows/create-vm-specialized-portal.md) and [attach these restored disks](/azure/virtual-machines/windows/attach-disk-ps.md#using-managed-disks) to the newly created VM.
+After you create the disks, [create a new VM](/azure/virtual-machines/windows/create-vm-specialized-portal.md) and [attach these restored disks](/azure/virtual-machines/windows/attach-disk-ps.md#using-managed-disks) to the newly created VM.
 
 ## Next steps
 [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
