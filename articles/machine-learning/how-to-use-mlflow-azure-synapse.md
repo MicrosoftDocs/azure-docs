@@ -43,16 +43,20 @@ To install libraries on you dedicated cluster in Azure Synapse Analytics:
     ```
 
 3. Navigate to Azure Analytics Workspace portal.
+
 4. Navigate to the **Manage** tab and select **Apache Spark Pools**.
+
 5. Click the three dots next to the cluster name, and select **Packages**.
 
-  ![install mlflow packages in Azure Synapse Analytics](/articles/machine-learning/media/how-to-use-mlflow-azure/install-packages.png)
+    ![install mlflow packages in Azure Synapse Analytics](/articles/machine-learning/media/how-to-use-mlflow-azure/install-packages.png)
 
-6. On the **Requirements files** section, click on **Upload**
+6. On the **Requirements files** section, click on **Upload**.
+
 7. Upload the `requirements.txt` file.
+
 8. Wait for your cluster to restart.
 
-## Track experiments from Azure Synapse Analytics with MLflow
+## Track experiments with MLflow
 
 Azure Synapse Analytics can be configured to track experiments using MLflow to Azure Machine Learning workspace. Azure Machine Learning provides a centralized repository to manage the entire lifecycle of experiments, models and deployments. It also has the advantage of enabling easier path to deployment using Azure Machine Learning deployment options.
 
@@ -123,8 +127,9 @@ You can use then MLflow in Azure Synapse Analytics in the same way as you're use
 Models can be registered in Azure Machine Learning workspace, which offers a centralized repository to manage their lifecycle. The following example logs a model trained with Spark MLLib and also registers it in the registry.
 
 ```python
-mlflow.spark.log_model(model, artifact_path = "model", 
-                       registered_model_name = 'model_name')  
+mlflow.spark.log_model(model, 
+                       artifact_path = "model", 
+                       registered_model_name = "model_name")  
 ```
 
 * **If a registered model with the name doesn’t exist**, the method registers a new model, creates version 1, and returns a ModelVersion MLflow object. 
