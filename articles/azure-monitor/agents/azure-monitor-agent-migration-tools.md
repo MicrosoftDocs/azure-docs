@@ -1,3 +1,4 @@
+---
 title: Tools for migrating to Azure Monitor Agent from legacy agents 
 description: This article describes various migration tools and helpers available for migrating from existing legacy agents to the new Azure Monitor agent (AMA) and data collection rules (DCR).
 ms.topic: conceptual
@@ -25,7 +26,9 @@ To install DCR Config Generator, you need:
 
 1. PowerShell version 5.1 or higher. We recommend using PowerShell version 7.1.3 or higher.
 1. Read access for the specified workspace resources.
+1. The `Az Powershell` module to pull workspace agent configuration information.
 1. The Azure credentials for running `Connect-AzAccount` and `Select-AzSubscription`, which set the context for the script to run.
+
 ## Installing and using AMA Migration Helper (preview)
 
 AMA Migration Helper is a workbook-based Azure Monitor solution that helps you **discover what to migrate** and **track progress** as you move from Log Analytics Agent to Azure Monitor Agent. Use this single pane of glass view to expedite and track the status of your agent migration journey. 
@@ -33,8 +36,8 @@ AMA Migration Helper is a workbook-based Azure Monitor solution that helps you *
 To set up the AMA Migration Helper workbook in the Azure portal:
 
 1. From the **Monitor** menu, select **Workbooks** > **+ New** > **Advanced Editor** (**</>**).
-4. Paste the content from the *AMA Migration Helper* file.
-5. Select **Apply** to load the workbook. 
+1. Copy and paste the content from the the [AMA Migration Helper file in the AzureMonitorCommunity GitHub repo] into the editor.
+1. Select **Apply** to load the workbook. 
 1. Select **Done Editing**. 
 
     You’re now ready to use the workbook.
