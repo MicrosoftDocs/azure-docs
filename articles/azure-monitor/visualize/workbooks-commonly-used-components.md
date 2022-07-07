@@ -95,7 +95,7 @@ The following example shows how to enable this scenario: Let's say you want the 
     - In the **Include in the drop-down** section:
         - Select **All**
         - Select All Value: `OSFamily ne '#@?'`
-    - Use the `Save` button in the toolbar to save this parameter. 
+    - Select **Save** in the toolbar to save this parameter. 
 1. Add another parameter with these settings:
     - Parameter name: `ComplianceStateFilter`
     - Display name: `Complaince State`
@@ -114,20 +114,19 @@ The following example shows how to enable this scenario: Let's say you want the 
     - In the **Include in the drop-down** section:
         - Select **All**
         - Select All Value: `ComplianceState ne '#@?'`
-    - Use the `Save` button in the toolbar to save this parameter. 
+    - Select **Save** in the toolbar to save this parameter. 
 
-1. Use one of the `Add text` links to add a text block. In the `Markdown text to display` block, add:
+1. Select **Add text** to add a text block. In the `Markdown text to display` block, add:
     ```json
     {
         "name": "deviceComplianceTrend",
         "filter": "({OsFilter}) and ({ComplianceStateFilter})"
     }
     ```
-    We will use this block to see the results of parameter selections.
+   
+   This screenshot shows the parameter settings:
 
-
-This screenshot shows the parameter settings:
-:::image type="content" source="media/workbooks-commonly-used-components/workbooks-odata-parameters-settings.png" alt-text="Screenshot showing parameter settings for drop-down lists with parameter values.":::
+   :::image type="content" source="media/workbooks-commonly-used-components/workbooks-odata-parameters-settings.png" alt-text="Screenshot showing parameter settings for drop-down lists with parameter values.":::
 
 ### Single Filter Value
 The simplest case is the selection of a single filter value in each of the dimensions. The drop-down control uses Json input field's value as the parameter's value.
@@ -193,7 +192,7 @@ There are times where you want to visualize the underlying data set in different
 1. In the settings pop-up, set:
     - Merge Type: `Duplicate table`
     - Table: `Cpu data`
-1. Select **Run Merge** in the toolbar. This shows the same result as above:
+1. Select **Run Merge** in the toolbar. You will get the same result as above:
     
    :::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-duplicate.png" alt-text=" Screenshot showing duplicate query results in a workbook.":::
 
@@ -204,7 +203,7 @@ There are times where you want to visualize the underlying data set in different
         - Use the `Delete` button in the query control toolbar.
         - Use the `Run Merge` button to see the result set without the CpuP95 column
 1. Change the order of the columns using the `Move up` or `Move down` buttons in the toolbar.
-1. Add new columns based on values of other columns using the `Add new item` button in the toolbar. This option will be covered in a separate sample.
+1. Add new columns based on values of other columns using the `Add new item` button in the toolbar.
 1. Style the table using the options in the `Column settings` to get the visualization you want.
 1. Add more query controls working against the `Cpu data` result set if needed.
 
@@ -224,7 +223,7 @@ This sample shows you how to use the Azure Resource Manager query control to lis
     - Required: `Checked`
     - Get data from: `Default Subscriptions`
 1. Select **Save**. 
-1. We will use the [Alerts Get All REST call](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts/getall) to get a list of existing alerts for a subscription. 
+1. We will use the [Alerts Get All REST call](/rest/api/monitor/alertsmanagement/alerts/getall) to get a list of existing alerts for a subscription. 
     - Select **Add query** to create a query control,and use these settings.
         - Data source: `Azure Resource Manager (Preview)`
         - Http Method: `GET`
@@ -233,7 +232,7 @@ This sample shows you how to use the Azure Resource Manager query control to lis
         - Parameter: `api-version`
         - Value: `2018-05-05`
         
-    See the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/) for supported api-versions.
+    See the [Azure REST API Reference](/rest/api/azure/) for supported api-versions.
 1. Select a subscription from the created subscription parameter and select **Run Query** to see the results.
 
    This is the raw JSON returned from Azure Resource Manager (ARM).
@@ -269,7 +268,7 @@ For example, if you would like to filter the results to these columns: `TargetRe
 
 :::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-final.png" alt-text="Screenshot showing the final query results in grid format using an ARM provider.":::
 
-See the list of [supported ARM calls](https://docs.microsoft.com/rest/api/azure/).
+See the list of [supported ARM calls](/rest/api/azure/).
 
 ## Next steps
 - [Getting started with Azure Workbooks](workbooks-getting-started.md)
