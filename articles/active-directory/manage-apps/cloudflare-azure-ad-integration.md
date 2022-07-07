@@ -147,7 +147,7 @@ Use the instructions in the following three sections to register Cloudflare with
 
 6. Select **Grant Admin Consent for ...**.
 
-  ![Screenshot shows configured API permissions with granting admin consent](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)
+   ![Screenshot shows configured API permissions with granting admin consent](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)
 
 7. On the [Cloudflare Zero Trust dashboard](https://dash.teams.cloudflare.com/),
     navigate to **Settings> Authentication**.
