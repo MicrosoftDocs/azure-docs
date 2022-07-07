@@ -53,7 +53,7 @@ You can also pin this grid to a dashboard using the **Pin to dashboard** button 
 
 :::image type="content" source="media/workbooks-commonly-used-components/workbooks-traffic-light-pinned.png" alt-text="Screenshot showing a grid with traffic light status using thresholds pinned to a dashboard.":::
 
-## Capturing input to use in a query
+## Capturing user input to use in a query
 
 You may want to capture user input using drop-down lists and use the selection in your queries. For example, you can have a drop-down to accept a set of virtual machines and then filter your KQL to include just the selected machines. In most cases, this is as simple as including the parameter's value in the query: 
 
@@ -181,11 +181,13 @@ There are times where you want to visualize the underlying data set in different
         | summarize CpuAverage = avg(CounterValue), CpuP95 = percentile(CounterValue, 95) by Computer
         | order by CpuAverage desc
         ```
-    - Select **Run Query** to see the results. This is the result data set that we want to reuse in multiple visualizations.
+1. Select **Run Query** to see the results. 
+   
+   This is the result data set that we want to reuse in multiple visualizations.
  
     :::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-resultset.png" alt-text="Screenshot showing the result of a workbooks query.":::
 
-    - Go to the `Advanced settings` tab, and in the name, enter `Cpu data`. 
+1. Go to the `Advanced settings` tab, and in the name, enter `Cpu data`. 
 1. Select **Add query** to create another query control.
 1. For the **Data source**, select `Merge`.
 1. Select **Add Merge**.
@@ -213,7 +215,7 @@ Here is an example that shows Average and P95 CPU utilization side by side.
 
 ##  Using Azure Resource Manager (ARM) to retrieve alerts in a subscription
 
-This sample shows you how to use the Azure Resource Manager query control to list all existing alerts in a subscription. This guide will also use JSON Path transformations to format the results.
+This sample shows you how to use the Azure Resource Manager query control to list all existing alerts in a subscription. This guide will also use JSON Path transformations to format the results. See the [list of supported ARM calls](/rest/api/azure/).
 ### Set up the parameters
 
 1. [Create a new empty workbook](workbooks-create-workbook.md).
@@ -223,16 +225,13 @@ This sample shows you how to use the Azure Resource Manager query control to lis
     - Required: `Checked`
     - Get data from: `Default Subscriptions`
 1. Select **Save**. 
-1. We will use the [Alerts Get All REST call](/rest/api/monitor/alertsmanagement/alerts/getall) to get a list of existing alerts for a subscription. 
-    - Select **Add query** to create a query control,and use these settings.
-        - Data source: `Azure Resource Manager (Preview)`
-        - Http Method: `GET`
-        - Path: `/subscriptions/{Subscription:id}/providers/Microsoft.AlertsManagement/alerts`
-        - Add the api-version parameter in the `Parameters` tab
-        - Parameter: `api-version`
-        - Value: `2018-05-05`
-        
-    See the [Azure REST API Reference](/rest/api/azure/) for supported api-versions.
+1. Select **Add query** to create a query control,and use these settings. For this example, we are using the [Alerts Get All REST call](/rest/api/monitor/alertsmanagement/alerts/getall) to get a list of existing alerts for a subscription. See the [Azure REST API Reference](/rest/api/azure/) for supported api-versions.
+    - Data source: `Azure Resource Manager (Preview)`
+    - Http Method: `GET`
+    - Path: `/subscriptions/{Subscription:id}/providers/Microsoft.AlertsManagement/alerts`
+    - Add the api-version parameter in the `Parameters` tab
+    - Parameter: `api-version`
+    - Value: `2018-05-05`        
 1. Select a subscription from the created subscription parameter and select **Run Query** to see the results.
 
    This is the raw JSON returned from Azure Resource Manager (ARM).
@@ -267,8 +266,6 @@ For example, if you would like to filter the results to these columns: `TargetRe
 | ResolvedTime  | $.monitorConditionResolvedDateTime |
 
 :::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-final.png" alt-text="Screenshot showing the final query results in grid format using an ARM provider.":::
-
-See the list of [supported ARM calls](/rest/api/azure/).
 
 ## Next steps
 - [Getting started with Azure Workbooks](workbooks-getting-started.md)
