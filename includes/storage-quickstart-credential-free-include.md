@@ -20,9 +20,7 @@ Azure Blob Storage also provides the option to authenticate using connection str
 
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for .NET, which you can learn more about on the [Managed Identity Overview](/dotnet/azure/sdk/authentication). `DefaultAzureCredential` supports multiple authentication methods and determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
-The order and locations in which `DefaultAzureCredential` looks for credentials is shown in the diagram and table below.
-
-:::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/authentication-defaultazurecredential.png" alt-text="A diagram of the DefaultAzureCredential order.":::
+The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
 
 For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use Managed Identity once it has been deployed to Azure. No code changes are required for this transition.
 
@@ -42,7 +40,6 @@ You can authenticate your local app to the Blob Storage account you created usin
 
     ```dotnetcli
     dotnet add package Azure.Identity
-    dotnet add package Microsoft.Extensions.Azure
     ```
 
     Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app. 
@@ -86,13 +83,13 @@ After you copy the connection string, write it to a new environment variable on 
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
+After you add the environment variable in Windows, you must start a new instance of the command window.
+
 **Linux**:
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
-
-After you add the environment variable in Windows, you must start a new instance of the command window.
 
 #### Restart programs
 
@@ -102,7 +99,7 @@ After you add the environment variable, restart any running programs that will n
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
-Add this code inside the `Main` method:
+Add following code to the end of the `Program.cs` file:
 
 ```csharp
 // Retrieve the connection string for use with the application. 
