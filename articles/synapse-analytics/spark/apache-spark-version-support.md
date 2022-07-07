@@ -45,24 +45,12 @@ When you create a serverless Apache Spark pool, you will have the option to sele
 ## Supported Azure Synapse runtime releases 
 The following table lists the runtime name, Apache Spark version, and release date for supported Azure Synapse Runtime releases.
 
-|  Runtime name  | Release date |  Release stage | Long term support start | End of life date |
+|  Runtime name  | Release date |  Release stage | End of life announcement date | End of life effective date |
 | ----- | ----- | ----- | ----- | ----- |
 | [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | GA | July 8, 2023 | July 8, 2024 |
-| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | GA | January 26, 2023 | January 26, 2024 |
-| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | End of Life| October 15, 2021 | July 8, 2022 |
+| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | LTS | January 26, 2023 | January 26, 2024 |
+| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __End of Life to be announced__ | __July 15, 2022__ | July 14, 2023 |
 
 ## Runtime release stages
 
 For the complete runtime for Apache Spark lifecycle and support policies, refer to [Synapse runtime for Apache Spark lifecycle and supportability](./runtime-for-apache-spark-lifecycle-and-supportability.md).
-
-### Preview runtimes
-Azure Synapse Analytics provides previews to give you a chance to evaluate and share feedback on features before they become generally available (GA). While a runtime is available in preview, new dependencies and component versions may be introduced. Support SLAs are not applicable for preview runtimes. 
-
-### Generally available runtimes
-Generally available (GA) runtimes are open to all customers and are ready for production use. Once a runtime is generally available, security fixes and stability improvements may be backported. In addition, new components will only be introduced if they do not change underlying dependencies or component versions. 
-
-### Long term support runtimes
-Long term support (LTS) runtimes are open to all customers and are ready for production use, yet customers are encouraged to expedite validation and migration of code base and workloads to the latest GA runtimes. Customers should not be onboarding new workloads into a LTS runtime. Security fixes and stability improvements may be backported reactively on customer request. In addition, no new components or features will be introduced.
-
-### End of life runtimes
-End of life (EOL) runtimes are considered deprecated. Support SLAs are not applicable for preview runtimes and all customers must migrate to GA stage runtime. Once a runtime is EOL, no security fixes and stability improvements will be backported.
