@@ -48,10 +48,7 @@ Get [DMA](/sql/dma/dma-overview), and [perform your package assessment with it](
 
 ## Migration
 
-Depending on the [storage types](#four-storage-types-for-ssis-packages) of source SSIS packages and the migration destination of database workloads, the steps to migrate  **SSIS packages** and **SQL Server Agent jobs** that schedule SSIS package executions may vary. There are two scenarios:
-
-- [**Azure SQL Managed Instance** as database workload destination](#azure-sql-managed-instance-as-database-workload-destination)
-- [**Azure SQL Database** as database workload destination](#azure-sql-database-as-database-workload-destination)
+Depending on the [storage types](#four-storage-types-for-ssis-packages) of source SSIS packages, the steps to migrate  **SSIS packages** and **SQL Server Agent jobs** that schedule SSIS package executions may vary.
 
 It is also a practical way to use [SSIS DevOps Tools](/sql/integration-services/devops/ssis-devops-overview), to do batch package redeployment to the migration destination.  
 
