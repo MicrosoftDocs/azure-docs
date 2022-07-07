@@ -19,7 +19,7 @@ Get started with Table API to create databases, containers, and docs within your
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples) are available on GitHub as a .NET project.
 
-[Table API reference documentation](https://docs.mongodb.com/drivers/node) | [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
+[Table API reference documentation](/azure/storage/tables) | [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
 
 ## Prerequisites
 
@@ -34,11 +34,11 @@ Get started with Table API to create databases, containers, and docs within your
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses the MongoDB NuGet packages. 
+This section walks you through creating an Azure Cosmos account and setting up a project that uses the Table API NuGet packages. 
 
 ### Create an Azure Cosmos DB account
 
-This quickstart will create a single Azure Cosmos DB account using the MongoDB API.
+This quickstart will create a single Azure Cosmos DB account using the Table API.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -98,11 +98,10 @@ Before you start building the application, let's look into the hierarchy of reso
     Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
 :::image-end:::
 
-You'll use the following MongoDB classes to interact with these resources:
+You'll use the following Table API classes to interact with these resources:
 
-- [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html) - This class provides a client-side logical representation for the MongoDB API layer on Cosmos DB. The client object is used to configure and execute requests against the service.
-- [``Db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-- [``Collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
+- [``TableClient``](/dotnet/api/azure.data.tables.tableclient?view=azure-dotnet) - This class provides a client-side logical representation for working with tables on Cosmos DB. The client object is used to configure and execute requests against the service.
+- [``TableEntity``](/dotnet/api/azure.data.tables.tableentity?view=azure-dotnet) - This class is a reference to a row in a table that allows you to manage properties and column data.
 
 ## Code examples
 
@@ -113,63 +112,47 @@ You'll use the following MongoDB classes to interact with these resources:
 * [Get an item](#get-an-item)
 * [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code described in this article creates a table named ``adventureworks``. Each table row contains the details of a product such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 ### Authenticate the client
 
-From the project directory, open the *Program.cs* file. In your editor, add a using directive for ``MongoDB.Driver``.
+From the project directory, open the *Program.cs* file. In your editor, add a using directive for ``Azure.Data.Tables``.
 
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="using_directives":::
+:::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="using_directives":::
 
-Define a new instance of the ``MongoClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string you set earlier.
+Define a new instance of the ``TableClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string you set earlier.
 
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs"  id="client_credentials":::
+:::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs"  id="client_credentials":::
 
-### Create a database
+### Create a table
 
-Use the [``MongoClient.GetDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+Use the [``TableClient.CreateIfNotExistsAsync``](/dotnet/api/azure.data.tables.tableclient.createifnotexistsasync)) method to create a new table if it doesn't already exist. This method will return a reference to the existing or newly created table.
 
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_database" :::
-
-### Create a collection
-
-The [``MongoDatabase.GetCollection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoDatabase_GetCollection.htm) will create a new collection if it doesn't already exist and return a reference to the collection.
-
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_collection":::
+:::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="create_table" :::
 
 ### Create an item
 
-The easiest way to create a new item in a collection is to create a C# [class](/dotnet/csharp/language-reference/keywords/class) or [record](/dotnet/csharp/language-reference/builtin-types/record) type with all of the members you want to serialize into JSON. In this example, the C# record has a unique identifier, a *category* field for the partition key, and extra *name*, *quantity*, and *sale* fields.
+The easiest way to create a new item in a table is to create a new object using the [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) type. You can then add properties to the object to populate columns of data in that table row. 
 
-```csharp
-public record Product(
-    string Id,
-    string Category,
-    string Name,
-    int Quantity,
-    bool Sale
-);
-```
+Create an item in the collection using the `TableEntity` by calling [``TableClient.AddEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.addentityasync). 
 
-Create an item in the collection using the `Product` record by calling [``IMongoCollection<TDocument>.InsertOne``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm). 
-
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_item" :::
+:::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="create_object_add" :::
 
 ### Get an item
 
-In Azure Cosmos DB, you can retrieve items by composing queries using Linq. In the SDK, call [``IMongoCollection.FindAsync<>``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_FindAsync__1.htm) and pass in a C# expression to filter the results.
+Tou can retrieve a specific item from a table using the [``TableEntity.GetEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.getentity) method. Provide the `partitionKey` and `rowKey` as parameters to identify the correct row.
 
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="read_item" :::
+:::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="read_item" :::
 
 ### Query items
 
-After you insert an item, you can run a query to get all items that match a specific filter by treating the collection as an `IQueryable`. This example uses an expression to filter products by category. Once the call to `AsQueryable`  is made, call [``MongoQueryable.Where``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_Linq_MongoQueryable_Where__1.htm) to get retrieve a set of filtered items.
+After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example uses an expression to filter products by category.
 
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="query_items" :::
+:::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="query_items" :::
 
 ## Run the code
 
-This app creates an Azure Cosmos MongoDb API database and collection. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should returns multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
+This app creates an Azure Cosmos Table API table. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should returns multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
