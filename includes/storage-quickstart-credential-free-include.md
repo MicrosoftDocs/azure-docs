@@ -10,7 +10,7 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-## Authenticating the app to Azure
+## Authenticate the app to Azure
 
 Application requests to Azure Blob Storage must be authenticated. `DefaultAzureCredential` is the recommended approach for implementing authentication to Azure services in your code, including Blob Storage. 
 

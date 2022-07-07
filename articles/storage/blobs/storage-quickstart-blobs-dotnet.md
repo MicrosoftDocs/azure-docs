@@ -17,7 +17,7 @@ Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob 
 
 The examples in this quickstart show you how to use the Azure Blob Storage client library v12 for .NET to:
 
-- [Get the connection string](#get-the-connection-string)
+- [Authenticate to Azure](#authenticate-the-app-to-azure)
 - [Create a container](#create-a-container)
 - [Upload a blob to a container](#upload-a-blob-to-a-container)
 - [List blobs in a container](#list-blobs-in-a-container)
