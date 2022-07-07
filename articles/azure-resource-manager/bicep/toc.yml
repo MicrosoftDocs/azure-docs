@@ -134,6 +134,8 @@
     items:
     - name: Cost Management + Billing
       href: ../../cost-management-billing/costs/quick-create-budget-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Microsoft Purview account
+      href: ../../purview/quickstart-bicep-create-azure-purview.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Resource Graph
       href: ../../governance/resource-graph/shared-query-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Role-based access control - role assignment
