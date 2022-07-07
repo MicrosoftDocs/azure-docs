@@ -142,6 +142,5 @@ If your application validates certificate in code, you need to modify it to reco
 
 ## Next steps
 
-- [Azure Cache for Redis development FAQs](cache-development-faq.yml)
 - [Performance testing](cache-best-practices-performance.md)
 - [Failover and patching for Azure Cache for Redis](cache-failover.md)
