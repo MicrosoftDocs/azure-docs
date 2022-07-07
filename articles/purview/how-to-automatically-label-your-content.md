@@ -1,8 +1,8 @@
 ---
 title: How to automatically apply sensitivity labels to your data in Microsoft Purview Data Map
 description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
-author: ankitgup
-ms.author: ankitscribbles
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
