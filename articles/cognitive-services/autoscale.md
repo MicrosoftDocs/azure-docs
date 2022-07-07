@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/27/2022
 ---
 
-# Cognitive Services autoscale Feature
+# Cognitive Services autoscale feature
 
 This article provides guidance for how customers can access higher rate limits on their Cognitive Service resources.
 
@@ -24,7 +24,7 @@ This feature is disabled by default for every new resource. Follow these instruc
 
 Go to your resource's page in the Azure portal, and select the **Overview** tab on the left pane. Under the **Essentials** section, find the **Autoscale** line and select the link to view the **Autoscale Settings** pane and enable the feature.
 
-:::image type="content" source="media/cognitive-services-autoscale/portal-autoscale.png" alt-text="Screenshot of the Azure portal with the autoscale pane on right.":::
+:::image type="content" source="media/cognitive-services-autoscale/portal-autoscale.png" alt-text="Screenshot of the Azure portal with the autoscale pane on right." lightbox="media/cognitive-services-autoscale/portal-autoscale.png":::
 
 #### [Azure CLI](#tab/cli)
 
@@ -37,7 +37,7 @@ az resource update --namespace Microsoft.CognitiveServices --resource-type accou
 
 ---
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### Does enabling the autoscale feature mean my resource will never be throttled again?
 
@@ -65,9 +65,8 @@ Yes, you can disable the autoscale feature through Azure portal or CLI and retur
 
 Autoscale feature is available for the following services:
 
-* [Face](computer-vision/overview-identity.md)
 * [Computer Vision](computer-vision/index.yml)
-* [Language](language-service/overview.md)
+* [Language](language-service/overview.md) (only available for sentiment analysis, key phrase extraction, named entity recognition, and text analytics for health)
 
 ### Can I test this feature using a free subscription?
 
