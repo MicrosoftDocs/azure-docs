@@ -216,7 +216,7 @@ You can authenticate to Windows machines using either username and password or S
 
 ### Copy a public key using the RunCommand extension.
 
-The RunCommand extension provides an easy solution to copying a public key in to Windows machines
+The RunCommand extension provides an easy solution to copying a public key into Windows machines
 and making sure the file has correct permissions.
 
 # [Azure CLI](#tab/azurecli)
@@ -278,7 +278,7 @@ It is also possible to create a network tunnel for specific TCP ports through th
 az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername -- -L 3389:localhost:3389
 ```
 
-### Connect from Azure Portal
+### Connect from Azure portal
 
 1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
 2. Select the virtual machine from the list.
