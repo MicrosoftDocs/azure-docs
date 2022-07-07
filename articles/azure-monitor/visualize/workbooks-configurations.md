@@ -11,7 +11,7 @@ ms.date: 07/05/2022
 ---
 
 # Workbook Configuration Options
-There are several ways you can configure Workbooks to suit your needs.
+There are several ways you can configure Workbooks to suit your needs using the settings in the **Settings** tab. When query or metrics steps are displaying time based data, more settings are available in the **Advanced settings** tab.
 
 ## Workbook settings
 The workbooks settings has these tabs to help you configure your workbook.
@@ -42,6 +42,36 @@ Enable trusted source or mark this workbook as trusted in this browser.
 | ----------- | ----------- |
 | Mark Workbook as trusted      | If enabled, this Workbook will be able to call any endpoint, whether the host is marked as trusted or not. A workbook is trusted if it's a new workbook, an existing workbook is saved, or it's explicitly marked as a trusted workbook   |
 | URL grid   | A grid to explicitly add trusted hosts.        |
+
+## Time Brushing
+
+Time range brushing allows a user to "brush" or "scrub" a range on a chart, and have that range be output as a parameter value.
+
+:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-metrics-settings.png" alt-text="Screenshot showing Workbooks timebrush settings.":::
+
+You can also choose to only export a parameter when a range is explicitly brushed. 
+ - If this setting is unchecked (default), the parameter always has a value. When the parameter is not brushed, the value is the full time range displayed in the chart.
+ - If this setting is checked, the parameter has no value before the user brushes the parameter, and is only set after a user brushes the parameter.
+
+## Brushing in a metrics chart
+
+When time brushing is enabled on a metrics chart, the user can "brush" a time by dragging the mouse on the time chart:
+
+:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-metrics-brushing.png" alt-text="Screenshot of a metrics timebrush in progress.":::
+
+Once the brush has stopped, the metrics chart zooms in to that range, and exports that range as a time range parameter.
+An icon in the toolbar in the upper right corner is active, to reset the time range back to its original, un-zoomed time range.
+
+
+## Brushing in a query chart
+
+When time brushing is enabled on a query chart, indicators appear that the user can drag, or the user can "brush" a range on the time chart:
+
+:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-query-brushing.png" alt-text="Screenshot of timebrushing a query chart.":::
+
+Once the brush has stopped, the query chart shows that range as a time range parameter, but will not zoom in. This behavior is different than the behavior of metrics charts. Because of the complexity of user written queries, it may not be possible for workbooks to correctly update the range used by the query in the query content directly. If the query is using a time range parameter, it is possible to get this behavior by using a [global parameter](workbooks-parameters.md#global-parameters) instead.
+
+An icon in the toolbar in the upper right corner is active, to reset the time range back to its original, un-zoomed time range.
 
 ## Interactivity
 
