@@ -76,14 +76,18 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
 # [PowerShell](#tab/azure-powershell)
 
+Replace `yourRGName` and `yourDiskName` with your values, then run the following command to get your SAS.
+
 ```azurepowershell
 $diskSas = Grant-AzDiskAccess -ResourceGroupName "yourRGName" -DiskName "yourDiskName" -DurationInSecond 86400 -Access 'Read'
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
+Replace `yourRGName` and `yourDiskName` with your values, then run the following command to get your SAS.
+
 ```azurecli
-diskSAS=$(az disk grant-access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName)
+az disk grant-access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName
 ```
 
 ---
@@ -114,13 +118,13 @@ When the download finishes, revoke access to your disk using `Revoke-AzDiskAcces
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following script to download your VHD:
+Replace `yourPathhere` and `sas-URI` with your values, then use the following script to download your VHD:
 
 ```azurecli
 
 #set localFolder to your desired download location
 localFolder=yourPathHere
-az storage blob download -f $localFolder --blob-url $diskSAS
+az storage blob download -f $localFolder --blob-url "sas-URI" --auth-mode login
 ```
 
 When the download finishes, revoke access to your disk using `az disk revoke-access --name diskName --resource-group yourRGName`.

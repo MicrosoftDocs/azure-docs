@@ -33,13 +33,13 @@ For detailed steps on assigning a role, see the following articles for [portal](
 
 # [Portal](#tab/azure-portal)
 
-You'll need to enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or on the **Disk Export** page on the disk after it's been created. In order to enable **data access authentication mode** you must access the Azure portal from the following link: [https://aka.ms/dataAccessAuthenticationMode](https://aka.ms/dataAccessAuthenticationMode)
+Enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or on the **Disk Export** page on the disk after it's been created. In order to enable **data access authentication mode** you must access the Azure portal from the following link: [https://aka.ms/dataAccessAuthenticationMode](https://aka.ms/dataAccessAuthenticationMode)
 
 :::image type="content" source="media/disks-azure-ad-upload-download-portal/disks-data-access-auth-mode.png" alt-text="Screenshot of a disk's data access authentication mode checkbox, tick the checkbox to restrict access to the disk." lightbox="media/disks-azure-ad-upload-download-portal/disks-data-access-auth-mode.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
-You'll need to set `**dataAccessAuthMode**` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `-ResourceGroupName` and `-DiskName` before running the script:
+Set `**dataAccessAuthMode**` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `-ResourceGroupName` and `-DiskName` before running the script:
 
 ```azurepowershell
 New-AzDiskUpdateConfig -DataAccessAuthMode "AzureActiveDirectory" | Update-AzDisk -ResourceGroupName 'yourResourceGroupName' -DiskName 'yourDiskName"
@@ -47,7 +47,7 @@ New-AzDiskUpdateConfig -DataAccessAuthMode "AzureActiveDirectory" | Update-AzDis
 
 # [Azure CLI](#tab/azure-cli)
 
-You'll need to set `**dataAccessAuthMode**` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `--resource-group` and `--Name` before running the script:
+Set `**dataAccessAuthMode**` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `--resource-group` and `--Name` before running the script:
 
 ```azurecli
 az disk update --name yourDiskName --resource-group yourResourceGroup --data-access-auth-mode AzureActiveDirectory
