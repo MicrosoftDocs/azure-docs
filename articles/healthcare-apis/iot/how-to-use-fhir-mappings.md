@@ -18,7 +18,7 @@ This article describes how to configure the MedTech service using the Fast Healt
 
 Below is a conceptual example of what happens during the normalization and transformation process within the MedTech service:
 
-:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
 ## FHIR destination mappings
 
