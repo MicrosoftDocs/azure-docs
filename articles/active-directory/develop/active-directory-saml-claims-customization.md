@@ -138,9 +138,75 @@ You can use the following functions to transform claims.
 | **IfNotEmpty()** | Outputs an attribute or constant if the input is not null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is not empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
 | **Substring() – Fixed Length** (Preview)| Extracts parts of a string claim type, beginning at the character at the specified position, and returns the specified number of characters.<br/>SourceClaim - The claim source which the transform should be executed.<br/>StartIndex - The zero-based starting character position of a substring in this instance.<br/>Length - The length in characters of the substring.<br/>For example:<br/>sourceClaim – PleaseExtractThisNow<br/>StartIndex – 6<br/>Length – 11<br/>Output: ExtractThis |
 | **Substring() – EndOfString** (Preview) | Extracts parts of a string claim type, beginning at the character at the specified position, and returns the rest of the claim from the specified start index. <br/>SourceClaim - The claim source which the transform should be executed.<br/>StartIndex - The zero-based starting character position of a substring in this instance.<br/>For example:<br/>sourceClaim – PleaseExtractThisNow<br/>StartIndex – 6<br/>Output: ExtractThisNow |
-| **RegexReplace()** (Preview) | Regular expression-based claims transformation accepts as input parameters: <br/>- “Parameter 1” is the source user input attribute which will be an input for the regular expression transformation e.g. user.mail which will have user email address as admin@contoso.com.<br/>- Some input user attribute can be multi-value user attribute, if the selected user attribute supports multiple values and the user wants to use multiple values for the transformation, they need to check the “Treat source as multivalued” checkbox. If administrator checks the checkbox, all values will be used for regex match otherwise only first one will be used.  <br/>- Textbox against the “Regex pattern” accepts the regular expression which is to be evaluated against the value of user attribute selected as “parameter 1” e.g. regular expression to extract user alias from the user’s email address would be like, “(?'domain'^.*?)(?i)(\@contoso\.com)$” <br/>- By using the “Add additional parameter” button, an administrator can choose more user attributes which can be used into the transformation. The value of those would then be merged with regex transformation output. Currently, up to 5 additional parameters are supported. <br /> - Textbox against the “Replacement pattern” label accepts the replacement pattern. Replacement pattern is the text template which contains placeholders for regex outcome group name, input parameter group name and static text value. All group names must ne wrapped inside the curly braces i.e. {group-name}. Let’s say, administration wants to use user alias with some other domain name e.g. xyz.com and merge country name with it, in this case the replacement pattern would be “{country}.{domain}@xyz.com”, where {country} will be the value of input parameter and {domain} will be the group output from the regular expression evaluation. In such case, the expected outcome will be “US.swmal@xyz.com”  |
+| **RegexReplace()** (Preview) |  RegexReplace() transformation accepts as input parameters:<br />- a user attribute as regex input<br />- the regular expression itself,<br />- additional input user attributes<br />- and replacement pattern itself. The replacement pattern may contain static text format along with reference pointing to regex output groups and additional input parameters.<br /><br/>Additional instructions on how to use RegexReplace() Transformation described below.   |
 
 If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) under the *SaaS application* category.
+
+## How to use the RegexReplace() Transformation
+:::image type="content" source="./media/active-directory-saml-claims-customization/regexreplace-trasform.png" alt-text="RegexReplace() Transformation Illustration" lightbox="./media/active-directory-saml-claims-customization/regexreplace-trasform.png":::
+
+1. Use edit button with a pen icon to open the claims transformation blade. 
+1. Dropdown against the “Transformation” label will allow you to select the different transformation function, select “RegexReplace()” to use regex-based claims transformation method for claims transformation. 
+1. “Parameter 1” is the source user input attribute which will be an input for the regular expression transformation e.g. user.mail which will have user email address as admin@contoso.com. 
+1. Some input user attribute can be multi-value user attribute, if the selected user attribute supports multiple values and the user wants to use multiple values for the transformation, they need to check the “Treat source as multivalued” checkbox. If administrator checks the checkbox, all values will be used for regex match otherwise only first one will be used. 
+1. Textbox against the “Regex pattern” accepts the regular expression which is to be evaluated against the value of user attribute selected as “parameter 1” e.g. regular expression to extract user alias from the user’s email address would be like, “(?'domain'^.*?)(?i)(\@contoso\.com)$” 
+1. By using the “Add additional parameter” button, an administrator can choose more user attributes which can be used into the transformation. The value of those would then be merged with regex transformation output. Currently, up to 5 additional parameters are supported.  
+ <br />For example, if the user.country attribute is an input parameter, and the value of which might be “US”, to merge this in replacement pattern user need to refer it as {country} inside the replacement pattern. Once user selected the user attribute for the parameter, info balloon against the parameter will explain how parameter can be used inside the replacement pattern.  
+:::image type="content" source="./media/active-directory-saml-claims-customization/regex-replace-info-bubble.png" alt-text="RegexReplace() Info Bubble Illustration" lightbox="./media/active-directory-saml-claims-customization/regex-replace-info-bubble.png":::
+1. Textbox against the “Replacement pattern” label accepts the replacement pattern. Replacement pattern is the text template which contains placeholders for regex outcome group name, input parameter group name and static text value. All group names must ne wrapped inside the curly braces i.e. {group-name}. Let’s say, administration wants to use user alias with some other domain name e.g. xyz.com and merge country name with it, in this case the replacement pattern would be “{country}.{domain}@xyz.com”, where {country} will be the value of input parameter and {domain} will be the group output from the regular expression evaluation. In such case, the expected outcome will be “US.swmal@xyz.com” 
+
+1. RegexReplace() transformation will be evaluated only if the value of the selected user attribute for “Parameter 1” matches with the regular expression provided in “Regex pattern” textbox, otherwise default claim value will be added to the token. To validate regular expression against the input parameter value, test experience is available within a transform blade, however it operates on dummy values only. In case of additional input parameters, name of the parameter will be added to the test result instead of actual value. You can see the sample output in point 18. To access the test section user, need to click on the “Test transformation” button. 
+:::image type="content" source="./media/active-directory-saml-claims-customization/test-regexreplace-transformation.png" alt-text="RegexReplace() Test Transformation" lightbox="./media/active-directory-saml-claims-customization/test-regexreplace-transformation.png":::
+
+1. Regex-based claims transformation can be used as the second level transformation as well, in that case user can use any other transformation method as first transformation.  
+
+1. If regex replace selected as second level transformation, output of first level transformation will be used as an input for second level transformation. Second level regex expression should match the output of first transformation otherwise transformation will not be applied. 
+
+1. Same as point 5 above, “Regex pattern” is the regular expression for the second level transformation. 
+
+1. These are the inputs user attributes for the second level transformations. 
+
+1. User can delete the selected input parameter if they don’t need it anymore.  
+
+1. Once user clicks on the “Test transformation” button, this “Test transformation” section will be displayed and “Test transformation” button goes away. 
+
+1. This cross (X) button will hide the test section and re-render the “Test transformation” button again on the blade. 
+
+1. Textbox against the “Test regex input” accepts the dummy input which will be used as an input for the test regular expression evaluation. In case regex-based claims transformation is configured as a second level transformation, user need to provided dummy value which is an expected output of first transformation. 
+
+1. Once administrator provides the test regex input and configures the “Regex pattern”, “Replacement pattern” and “Input parameters”, they can evaluate the expression by clicking on the “Run test” button. 
+
+1. If evaluation succeeded, output of test transformation will be rendered against the “Test transformation result” label. 
+
+1. Administrator can remove the second level transformation by using “Remove transformation” button. 
+
+1. In case regex input value, which is configured against the “Parameter 1” does not matches the “Regular expression” the transformation is skipped, in such case administrator can configure the alternat user attribute which will be added to the token for the claim. To do this administrator need to check he checkbox against the “Specify output if no match” label.  
+
+1. If administrator want return alternate user attribute in case of no match and checked the “Specify output if no match” checkbox, he/she can select alternat user attribute for using the dropdown which is available against label “Parameter 3 (output if no match)”. 
+
+1. At the bottom of the blade full summer of format is displayed which explains the meaning of transformation in simple text. 
+
+1. Once user configure all settings for the transformation and happy with it, he/she can save add it to claims policy by clicking “Add” button. However, changes won’t be saved unless user does not manually click the “Save” toolbar button available on “Manage Claim” blade. 
+
+RegexReplace() transformation is also available for the group claims transformations. 
+:::image type="content" source="./media/active-directory-saml-claims-customization/regex-replace-group.png" alt-text="RegexReplace() Group Claims Transformation" lightbox="./media/active-directory-saml-claims-customization/regex-replace-group.png":::
+
+### RegexReplace() Transform Validations
+Input parameters with duplicate user attributes are not allowed. If duplicate user attributes selected following validation message will be rendered after user clicked on “Add” or “Run test” button. 
+
+:::image type="content" source="./media/active-directory-saml-claims-customization/validation-duplicate-user.png" alt-text="RegexReplace() Validation Duplicate User" lightbox="./media/active-directory-saml-claims-customization/validation-duplicate-user.png":::
+
+When unused input parameters found, following message will rendered on click of “Add” and “Run test” button click. Defined input parameters should have respective usage into the Replacement pattern text.  
+
+:::image type="content" source="./media/active-directory-saml-claims-customization/validation-input-parameter.png" alt-text="RegexReplace() Validation Input Parameter" lightbox="./media/active-directory-saml-claims-customization/validation-input-parameter.png":::
+
+With test experience, if provided test regex input does not match with the provided regular expression then following message will be displayed. This validation needs input value hence it won’t be applied when user clicks on “Add” button. 
+
+:::image type="content" source="./media/active-directory-saml-claims-customization/validation-regex-input.png" alt-text="RegexReplace() Validation Test Regex Failed Regular Expression" lightbox="./media/active-directory-saml-claims-customization/validation-regex-input.png":::
+
+With test experience, when source for the groups into the replacement pattern not found user will receive following message. This validation won’t be applied when user clicks on “Add” button. 
+
+:::image type="content" source="./media/active-directory-saml-claims-customization/validation-regex-replacement.png" alt-text="RegexReplace() Validation Test Regex Groups Not Found" lightbox="./media/active-directory-saml-claims-customization/validation-regex-replacement.png":::
 
 ## Add the UPN claim to SAML tokens
 
