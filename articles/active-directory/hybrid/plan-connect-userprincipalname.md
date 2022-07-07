@@ -35,13 +35,28 @@ UserPrincipalName is an attribute that is an Internet-style login name for a use
 ### UPN format
 A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix is joined with the suffix using the "\@" symbol. For example, "someone\@example.com". A UPN must be unique among all security principal objects within a directory forest. 
 
+### <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Username policies
+
+The following table outlines the username policies that apply to both on-premises AD DS accounts that are synchronized to Azure AD, and for cloud-only user accounts created directly in Azure AD:
+
+| Property | UserPrincipalName requirements |
+| --- | --- |
+| Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
+| Characters not allowed |<ul> <li>Any "\@\" character that's not separating the username from the domain.</li> <li>Can't contain a period character "." immediately preceding the "\@\" symbol</li></ul> |
+| Length constraints |<ul> <li>The total length must not exceed 113 characters</li><li>There can be up to 64 characters before the "\@\" symbol</li><li>There can be up to 48 characters after the "\@\" symbol</li></ul> |   
+
+
+> [!NOTE]
+> The UPN for guest users follows the same conditions as above. On [guest user invitation](../external-identities/b2b-quickstart-add-guest-users-portal.md) and consequent UPN generation, the e-mail address where the invitation is sent to is used to populate the UPN before the "\@\" sign, followed by the identifier "\#EXT#\". The e-mail is shortened to a maximum of 59 characters, as the "\#EXT#\" identifier counts to the 64 characters limit.
+
+
 ## UPN in Azure AD 
 The UPN is used by Azure AD to allow users to sign-in.  The UPN that a user can use, depends on whether or not the domain has been verified.  If the domain has been verified, then a user with that suffix will be allowed to sign-in to Azure AD.  
 
 The attribute is synchronized by Azure AD Connect.  During installation, you can view the domains that have been verified and the ones that have not.
 
    ![Unverified domains](./media/plan-connect-userprincipalname/unverifieddomain.png) 
-
+   
 ## Alternate login ID
 In some environments, end users may only be aware of their email address and not their UPN.  The use of email address may be due to a corporate policy or an on-premises line-of-business application dependency.
 
