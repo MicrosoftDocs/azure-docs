@@ -22,7 +22,7 @@ Make sure you have the [Azure Account](https://marketplace.visualstudio.com/item
 
 :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/azure-extension.png" alt-text="A screenshot showing the Azure extension.":::
 
-Use the **CTRL + Shift P** shortcut to open the command palette. Search for the **Azure: Sign In** command and follow the prompts to sign-in. Make sure to use the Azure AD account you assigned a role to previously from your blob storage account.
+Use the **CTRL + Shift + P** shortcut to open the command palette. Search for the **Azure: Sign In** command and follow the prompts to authenticate. Make sure to use the Azure AD account you assigned a role to previously from your Blob Storage account.
 
 :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/azure-command.png" alt-text="A screenshot showing the Azure sign-in command.":::
 
