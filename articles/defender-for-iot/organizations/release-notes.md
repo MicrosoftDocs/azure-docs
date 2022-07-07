@@ -143,14 +143,6 @@ For more information, see:
 - [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 
-## Fixed errors
-
-Upgrades, threat intelligence, 
-|Version fixed  |List of b  |
-|---------|---------|
-|22.1.6     |  Fixed issues        |
-|22.1.5     |         |
-
 ## June 2022
 
 **Sensor software version**: 22.1.5
