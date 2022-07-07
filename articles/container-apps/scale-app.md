@@ -32,6 +32,7 @@ There are two scale properties that apply to all rules in your container app:
 - Container Apps implements the KEDA ScaledObject with the following default settings.
   - pollingInterval: 30 seconds
   - cooldownPeriod: 300 seconds
+- There is a default http scale rule if you have ingress enabled and no scale rules defined. 
 
 ## Scale triggers
 
