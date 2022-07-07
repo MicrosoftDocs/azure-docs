@@ -33,31 +33,42 @@ You can view and configure the following settings using the **Resource Menu**. T
 - [Access control (IAM)](#access-control-iam)
 - [Tags](#tags)
 - [Diagnose and solve problems](#diagnose-and-solve-problems)
+- Events <!-- Need some text for this.  -->
 - [Settings](#settings)
   - [Access keys](#access-keys)
   - [Advanced settings](#advanced-settings)
-  - [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
   - [Scale](#scale)
   - [Cluster size](#cluster-size)
   - [Data persistence](#data-persistence)
+  - (Preview)Identity <!-- Need some text for this.  -->
   - [Schedule updates](#schedule-updates)
   - [Geo-replication](#geo-replication)
   - [Virtual Network](#virtual-network)
+  - Private Endpoint <!-- Need some text for this.  -->
   - [Firewall](#firewall)
   - [Properties](#properties)
   - [Locks](#locks)
-  - [Automation script](#automation-script)
 - Administration
   - [Import data](#importexport)
   - [Export data](#importexport)
   - [Reboot](#reboot)
 - [Monitoring](#monitoring)
-  - [Redis metrics](#redis-metrics)
-  - [Alert rules](#alert-rules)
+  - Insights
+  - [Alerts](#alerts)
+  - [Metrics](#metrics)
   - [Diagnostics](#diagnostics)
+  - Advisor recommendations
+  - Workbooks
+- Automation
+  - Tasks (preview)
+  - Export template
 - Support & troubleshooting settings
   - [Resource health](#resource-health)
   - [New support request](#new-support-request)
+
+
+[Automation script](#automation-script)
+ <!-- was this replaced by tasks -->
 
 ## Overview
 
@@ -334,15 +345,15 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 - [Alert rules](#alert-rules)
 - [Diagnostics](#diagnostics)
 
-### Redis metrics
+### Metrics
 
 Select **Redis metrics** to [view metrics](cache-how-to-monitor.md#view-cache-metrics) for your cache.
 
-### Alert rules
+### Alerts
 
 Select **Alert rules** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Alerts](cache-how-to-monitor.md#alerts).
 
-### Diagnostics
+### Diagnostic settings
 
 By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
 
