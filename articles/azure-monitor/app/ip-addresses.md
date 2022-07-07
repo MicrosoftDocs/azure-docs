@@ -1,5 +1,5 @@
 ---
-title: IP addresses used by Azure Monitor
+title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Application Insights.
 ms.topic: conceptual
 ms.date: 01/27/2020
@@ -26,6 +26,8 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com<br/><br/> || 443 |
 | Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/>*Example for {region}: westus2*<br/><br/> |20.49.111.32/29<br/>13.73.253.112/29| 443 |
 
+Find all supported regions in the [Addresses grouped by region (Azure public cloud)](#addresses-grouped-by-region-azure-public-cloud) table.
+
 > [!NOTE]
 > These addresses are listed by using Classless Interdomain Routing notation. As an example, an entry like `51.144.56.112/28` is equivalent to 16 IPs that start at `51.144.56.112` and end at `51.144.56.127`.
 
@@ -33,16 +35,16 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 Status Monitor configuration is needed only when you're making changes.
 
-| Purpose | URL | IP | Ports |
-| --- | --- | --- | --- |
-| Configuration |`management.core.windows.net` | |`443` |
-| Configuration |`management.azure.com` | |`443` |
-| Configuration |`login.windows.net` | |`443` |
-| Configuration |`login.microsoftonline.com` | |`443` |
-| Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
-| Configuration |`auth.gfx.ms` | |`443` |
-| Configuration |`login.live.com` | |`443` |
-| Installation | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
+| Purpose | URL | Ports |
+| --- | --- | --- |
+| Configuration |`management.core.windows.net` |`443` |
+| Configuration |`management.azure.com` |`443` |
+| Configuration |`login.windows.net` |`443` |
+| Configuration |`login.microsoftonline.com` |`443` |
+| Configuration |`secure.aadcdn.microsoftonline-p.com` |`443` |
+| Configuration |`auth.gfx.ms` |`443` |
+| Configuration |`login.live.com` |`443` |
+| Installation | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` |`443` |
 
 ## Availability tests
 
@@ -83,7 +85,11 @@ Download [China cloud IP addresses](https://www.microsoft.com/download/details.a
 
 #### Addresses grouped by region (Azure public cloud)
 
-| Continent/Country | Region | FQDN | IP |
+> [!NOTE]
+> Add the subdomain of the corresponding region to the Live Metrics URL from the [Outgoing ports](#outgoing-ports) table.<br/>
+> Example: eastasia.livediagnostics.monitor.azure.com
+
+| Continent/Country | Region | Subdomain | IP |
 | --- | --- | --- | --- |
 |Asia|East Asia|eastasia|52.229.216.48/28<br/>20.189.111.16/29|
 ||Southeast Asia|southeastasia|52.139.250.96/28<br/>23.98.106.152/29|
