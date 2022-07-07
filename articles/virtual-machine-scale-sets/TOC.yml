@@ -17,7 +17,6 @@
     href: flexible-virtual-machine-scale-sets-cli.md
   - name: Create with Azure PowerShell
     href: flexible-virtual-machine-scale-sets-powershell.md
-    href: quick-create-powershell.md
   - name: Create with Bicep
     displayName: ARM, Template, Resource Manager, Bicep
     href: quick-create-bicep-windows.md
