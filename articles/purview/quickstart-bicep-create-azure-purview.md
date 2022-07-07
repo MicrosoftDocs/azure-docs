@@ -19,7 +19,7 @@ After you've created the account, you can begin registering your data sources an
 
 For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
-To deploy a Microsoft Purview account to your subscription, follow the prerequesites guide below.
+To deploy a Microsoft Purview account to your subscription, follow the prerequisites guide below.
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
