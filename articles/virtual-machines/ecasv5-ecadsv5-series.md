@@ -1,5 +1,5 @@
 ---
-title: Azure ECasv5 and ECadsv5-series (preview)
+title: Azure ECasv5 and ECadsv5-series
 description: Specifications for Azure Confidential Computing's ECasv5 and ECadsv5-series  confidential virtual machines. 
 author: runcai
 ms.author: runcai
@@ -11,13 +11,9 @@ ms.date: 11/15/2021
 
 ---
 
-# ECasv5 and ECadsv5-series (preview)
+# ECasv5 and ECadsv5-series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
-
-> [!IMPORTANT]
-> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The ECasv5-series and ECadsv5-series are [confidential VMs](../confidential-computing/confidential-vm-overview.md) for use in Confidential Computing. 
 
