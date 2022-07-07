@@ -116,7 +116,7 @@ sqldatabase;mssqlserver;msdb        SQLDataBase              MSSQLServer   testS
 
 Now, configure backup for the *sqldatabase;mssqlserver;master* database.
 
-To configure and protect backup on a database, one at a time, use the [az backup protection enable-for-azurewl](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl) command. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) command. For this article, we've used the *testSQLPolicy* policy.
+To configure and protect backups on a database, one at a time, use the [az backup protection enable-for-azurewl](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl) command. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) command. For this article, we've used the *testSQLPolicy* policy.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group SQLResourceGroup \
