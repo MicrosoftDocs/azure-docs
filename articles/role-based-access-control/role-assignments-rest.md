@@ -64,15 +64,7 @@ To assign a role, use the [Role Assignments - Create](/rest/api/authorization/ro
 
 1. Replace *{roleAssignmentId}* with the GUID identifier of the role assignment.
 
-1. Within the request body, replace *{scope}* with the scope for the role assignment.
-
-    > [!div class="mx-tableFixed"]
-    > | Scope | Type |
-    > | --- | --- |
-    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
-    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
+1. Within the request body, replace *{scope}* with the same scope as in the URI.
 
 1. Replace *{roleDefinitionId}* with the role definition identifier.
 
