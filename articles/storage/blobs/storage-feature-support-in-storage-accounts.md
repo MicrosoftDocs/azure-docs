@@ -88,39 +88,40 @@ Use these tables to assess support in your applications and workloads that consu
 
 If you're account has a flat namespace, you can connect to either the Blob service or Data Lake Storage endpoint. These sections help you assess support for each feature across endpoints, APIs, and protocols.
 
-##### Blob service endpoint
+#### Blob service endpoint
 
 Use this table to assess support for applications and workloads that connect to the **blob.core.windows.net** endpoint.
 
-> [!NOTE]
-> All features are unsupported for NFS 3.0 and SFTP as these protocols aren't supported in account that have a flat namespace.
-
-| Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0  | SFTP  |
+| Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0 <sup>1</sup>  | SFTP <sup>1</sup>  |
 |---------------|-------------------|---|---|--|
 | [Access tier - archive](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 | [Access tier - cool](access-tiers-overview.md)	| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 | [Access tier - hot](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png)|
 | [Anonymous public access](anonymous-read-access-configure.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 
-##### Data Lake Storage endpoint
+<sup>1</sup>    NFS 3.0 and SFTP aren't supported in accounts that have a flat namespace.
+
+#### Data Lake Storage endpoint
 
 Use this table to assess support for applications and workloads that connect to the **dfs.core.windows.net** endpoint.
 
 > [!NOTE]
 > All features are unsupported for NFS 3.0 and SFTP as these protocols can't be used to connect to the Data Lake Storage endpoint.
 
-| Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0  | SFTP  |
+| Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |---------------|-------------------|---|---|--|
 | [Access tier - archive](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 | [Access tier - cool](access-tiers-overview.md)	| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 | [Access tier - hot](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png)|
 | [Anonymous public access](anonymous-read-access-configure.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 
+<sup>1</sup>    NFS 3.0 and SFTP aren't supported in accounts that have a flat namespace.
+
 ### Hierarchical namespace
 
 If you're account has a hierarchical namespace, you can connect to either the Blob service or Data Lake Storage endpoint. These sections help you assess support for each feature across endpoints, APIs, and protocols.
 
-##### Blob service endpoint
+#### Blob service endpoint
 
 Use this table to assess support for applications and workloads that connect to the **blob.core.windows.net** endpoint.
 
@@ -131,19 +132,18 @@ Use this table to assess support for applications and workloads that connect to 
 | [Access tier - hot](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Not yet](../media/icons/no-yet-icon.png)| ![Not yet](../media/icons/no-yet-icon.png)|
 | [Anonymous public access](anonymous-read-access-configure.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) |
 
-##### Data Lake Storage endpoint
+#### Data Lake Storage endpoint
 
 Use this table to assess support for applications and workloads that connect to the  **dfs.core.windows.net** endpoint.
 
-> [!NOTE]
-> All features are unsupported for NFS 3.0 and SFTP as these protocols can't be used to connect to the Data Lake Storage endpoint.
-
-| Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0  | SFTP  |
+| Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0 <sup>1</sup>| SFTP <sup>1</sup> |
 |---------------|-------------------|---|---|--|
 | [Access tier - archive](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 | [Access tier - cool](access-tiers-overview.md)	| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 | [Access tier - hot](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png)|
 | [Anonymous public access](anonymous-read-access-configure.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png)|
+
+<sup>1</sup>    NFS 3.0 and SFTP can't be used to connect to the Data Lake Storage endpoint.
 
 
 ## See also
