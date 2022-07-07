@@ -98,6 +98,8 @@ Use the instructions in the following three sections to register Cloudflare with
 
 1. On the **Cloudflare Access** screen, under **Essentials**, copy and save the Application (client) ID and the Directory (tenant) ID.
 
+   ![Screenshot shows cloudflare access screen](./media/cloudflare-azure-ad-integration/cloudflare-access.png)
+
 2. In the left menu, under **Manage**, select **Certificates &
     secrets**.
 
