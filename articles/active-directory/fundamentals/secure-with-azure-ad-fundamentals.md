@@ -2,7 +2,7 @@
 title: Fundamentals of securing with Azure Active Directory 
 description: Fundamentals of securing your tenants in Azure Active Directory.
 services: active-directory
-author: gargi.sinha
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
@@ -59,7 +59,7 @@ Non-production environments are commonly referred to as sandbox environments.
 
 * Devices
 
-**Human identities** are user objects that generally represent people in an organization. These identities are either created and managed directly in Azure AD or are synchronized from an on-premises Active Directory to Azure AD for a given organization. These types of identities are referred to as **local identities**. There can also be user objects invited from a partner organization or a social identity provider using [Azure AD B2B collaboration](../b2b/what-is-b2b.md). In this content, we refer these types of identity as **external identities**.
+**Human identities** are user objects that generally represent people in an organization. These identities are either created and managed directly in Azure AD or are synchronized from an on-premises Active Directory to Azure AD for a given organization. These types of identities are referred to as **local identities**. There can also be user objects invited from a partner organization or a social identity provider using [Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b). In this content, we refer these types of identity as **external identities**.
 
 **Non-human identities** include any identity not associated with a human. This type of identity is an object such as an application that requires an identity to run. In this content, we refer to this type of identity as a **workload identity**. Various terms are used to describe this type of identity, including [application objects and service principals](../../develop/active-directory-how-applications-are-added.md).
 
@@ -73,9 +73,9 @@ Non-production environments are commonly referred to as sandbox environments.
 
 **Service principal objects** are also directory identities that can perform tasks independently from human intervention. The service principal defines the access policy and permissions for a user or application in the Azure AD tenant. This mechanism enables core features such as authentication of the user or application during sign-in and authorization during resource access.
 
-Azure AD allows application and service principal objects to authenticate with a password (also known as an application secret), or with a certificate. The use of passwords for service principals is discouraged and [we recommend using a certificate](../../develop/howto-create-service-principal-portal.md) whenever possible.
+Azure AD allows application and service principal objects to authenticate with a password (also known as an application secret), or with a certificate. The use of passwords for service principals is discouraged and [we recommend using a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) whenever possible.
 
-* **Managed identities for Azure resources**. Managed identities are special service principals in Azure AD. This type of service principal can be used to authenticate against services that support Azure AD authentication without needing to store credentials in your code or handle secrets management. For more information, see [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
+* **Managed identities for Azure resources**. Managed identities are special service principals in Azure AD. This type of service principal can be used to authenticate against services that support Azure AD authentication without needing to store credentials in your code or handle secrets management. For more information, see [What are managed identities for Azure resources?](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
 
 * **Device identity**: A device identity is an identity that verifies that the device being used in the authentication flow has undergone a process to attest that the device is legitimate and meets the technical requirements specified by the organization. Once the device has successfully completed this process, the associated identity can be used to further control access to an organization's resources. With Azure AD, devices can authenticate with a certificate.
 
