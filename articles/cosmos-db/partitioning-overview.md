@@ -1,13 +1,13 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB
 description: Learn about partitioning, logical, physical partitions in Azure Cosmos DB, best practices when choosing a partition key, and how to manage logical partitions
-author: deborahc
-ms.author: dech
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.custom: cosmos-db-video
-ms.reviewer: mjbrown
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
