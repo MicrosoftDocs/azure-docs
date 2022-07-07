@@ -9,10 +9,10 @@ ms.date: 07/05/2022
 ms.reviewer: gardnerjr 
 ---
 
-# Sample Azure Workbook components
-This article includes samples of different Azure Workbook components and how to implement them.
+# Common Workbook use cases
+This article includes commonly used Azure Workbook components and instructions for how to implement them.
 
-## Using traffic light icons
+## Traffic light icons
 
 You may want to summarize status using a simple visual indication instead of presenting the full range of data values. For example, you may want to categorize your computers by CPU utilization as Cold/Warm/Hot or categorize performance as satisfied/tolerating/frustrated. You can do this by showing an indicator or icon representing the status next to the underlying metric. 
 
