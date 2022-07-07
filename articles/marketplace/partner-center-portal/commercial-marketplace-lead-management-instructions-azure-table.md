@@ -4,7 +4,7 @@ description: Learn how to use Azure Table storage to configure leads for Microso
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: durior1
+author: urimsft
 ms.author: uridor
 ms.date: 12/02/2021
 ---
