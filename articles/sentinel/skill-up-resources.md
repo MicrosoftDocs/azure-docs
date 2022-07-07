@@ -348,6 +348,7 @@ The next section on writing rules explains how to use KQL in the specific contex
 
 #### Below is the recommended journey for learning Sentinel KQL:
 * [Pluralsight KQL course](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch) - the basics
+* [Must Learn KQL](https://aka.ms/MustLearnKQL) - A 20-part KQL series that walks through the basics to creating your first Analytics Rule. Includes an assessment and certificate.
 * The Microsoft Sentinel KQL Lab: An interactive lab teaching KQL focusing on what you need for Microsoft Sentinel:
     * [Learning module (SC-200 part 4)](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
     * [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp), [Lab URL](https://aka.ms/lademo)
