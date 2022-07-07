@@ -348,8 +348,6 @@ You have to delete resources in reverse order, by deleting the image version fir
 
 Before you can delete a community shared gallery, you need to use [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) to stop sharing the gallery publicly.
 
-### [CLI](#tab/cli3)
-
 Delete an image version using [az sig image-version delete](/cli/azure/sig/image-version#az-sig-image-version-delete).
 
 ```azurecli-interactive
