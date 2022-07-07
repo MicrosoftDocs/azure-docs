@@ -210,7 +210,7 @@
       items:
       - name: HPE ProLiant DL360
         href: appliance-catalog/hpe-proliant-dl360.md
-    - name: Large enterprise
+    - name: Large enterprises
       items:
       - name: HPE ProLiant DL20/DL20 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
