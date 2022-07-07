@@ -96,22 +96,24 @@ Use this procedure to enable an unmonitored virtual machine or virtual machine s
 
 
 ## Enable Azure Monitor agent on monitored machines
-You can add the Azure Monitor agent to machines that are already enabled with the Log Analytics agent. 
+Use this procedure to add the Azure Monitor agent to machines that are already enabled with the Log Analytics agent. 
 
 1. Select **Virtual Machines** from the **Monitor** menu in the Azure portal.
  
-2. From the **Overview** page , select **Monitored**. 
+2. From the **Overview** page , select **Monitored**.
  
 3. Click **Configure using Azure Monitor agent** next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
 
+    :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration too Azure Monitor agent to monitored machine.":::
+
+
 1. Follow the process described in [Enable VM insights on unmonitored machine](#enable-vm-insights-on-unmonitored-machine) to select a data collection rule. The only difference is that the data collection rule hasn't created for monitored machines has **Processes and dependencies** enabled for backward compatibility with the Log Analytics agent.
  
-
-:::image type="content" source="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for monitored machine.":::
+    :::image type="content" source="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for monitored machine.":::
 
 5. With both agents installed, a warning will displayed indicating that you may be collecting duplicate data.
 
-:::image type="content" source="media/vminsights-azure-monitor-agent/both-agents-installed.png" alt-text="Both agents installed":::
+    :::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot showing warning message for both agents installed":::
 
 4. Once you've verified that the Azure Monitor agent has been enabled, remove the Log Analytics agent from the machine to prevent duplicate data collection. 
 
