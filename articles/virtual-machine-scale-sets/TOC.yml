@@ -64,6 +64,8 @@
   - name: Configure autoscale - ARM Template
     href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
     maintainContext: true
+  - name: Autoscale using guest metrics
+    href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy
@@ -80,7 +82,9 @@
   - name: Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
     maintainContext: true
-  - name: Create a proximity placement group
+  - name: Placement groups
+    href: virtual-machine-scale-sets-placement-groups.md
+  - name: Proximity placement groups
     href: proximity-placement-groups.md
   - name: Capacity reservations
     href: ../virtual-machines/capacity-reservation-overview.md
@@ -116,8 +120,10 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
-    - name: Convert a template to managed disks
-      href: virtual-machine-scale-sets-convert-template-to-md.md 
+    - name: Scale set templates
+      href: virtual-machine-scale-sets-mvss-start.md
+    - name: Deploy your application
+      href: virtual-machine-scale-sets-deploy-app.md
   - name: Manage fault domains in scale sets
     href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: Understand instance IDs
@@ -153,7 +159,15 @@
     - name: Application Health extension
       href: virtual-machine-scale-sets-health-extension.md
   - name: Azure Compute Gallery
-    href: ../virtual-machines/azure-compute-gallery.md
+    items: 
+    - name: Overview
+      href: ../virtual-machines/azure-compute-gallery.md
+    - name: Specialized image version
+      href: instance-specialized-image-version.md
+    - name: Share images across tenants
+      href: share-images-across-tenants.md
+    - name: Custom image templates
+      href: virtual-machine-scale-sets-mvss-custom-image.md
 - name: Monitoring
   items:
   - name: Monitor virtual machines
@@ -176,15 +190,13 @@
     items: 
     - name: Maintenance notifications
       href: virtual-machine-scale-sets-maintenance-notifications.md
-    - name: Scheduled events
-      items:
-      - name: Linux
-        href: ../virtual-machines/linux/scheduled-events.md
-        displayname: Scheduled events
-        maintainContext: true
-      - name: Windows
-        href: ../virtual-machines/windows/scheduled-events.md
-        maintainContext: true
+    - name: Scheduled events - Linux
+      href: ../virtual-machines/linux/scheduled-events.md
+      displayname: Scheduled events
+      maintainContext: true
+    - name: Scheduled events - Windows
+      href: ../virtual-machines/windows/scheduled-events.md
+      maintainContext: true
 - name: Disks
   items:
   - name: Select a disk type
@@ -236,33 +248,34 @@
     href: virtual-machine-scale-sets-mvss-existing-vnet.md
 - name: Security
   items:
+  - name: Policy definitions
+    href: policy-reference.md
   - name: Security and policy
     href: ../virtual-machines/security-policy.md
     maintainContext: true
-  - name: Automatic OS image upgrades
-    href: virtual-machine-scale-sets-automatic-upgrade.md
-    items: 
-    - name: Maintenance control
-      items:
-      - name: Overview
-        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell
-        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
-      - name: CLI
-        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
-      - name: Portal
-        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
-  - name: Automatic VM guest patching
-    items:
-    - name: Overview
-      href: ../virtual-machines/automatic-vm-guest-patching.md
-      maintainContext: true
-    - name: Hotpatch
-      href: ../automanage/automanage-hotpatch.md
-      maintainContext: true
   - name: Azure security baseline
     href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
     maintainContext: true
+  - name: Hotpatch
+    href: ../automanage/automanage-hotpatch.md
+  - name: Automatic VM guest patching
+    href: ../virtual-machines/automatic-vm-guest-patching.md
+    maintainContext: true
+  - name: Automatic OS image upgrades
+    items: 
+    - name: Overview
+      href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: Maintenance control
+      items:
+      - name: PowerShell
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
+        maintainContext: true
+      - name: CLI
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
+        maintainContext: true
+      - name: Portal
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
+        maintainContext: true
 - name: Reference
   items:
   - name: API comparison
