@@ -15,7 +15,9 @@ ms.topic: how-to
 
 This article identifies troubleshooting resources for Azure Arc-enabled data services.
 
-## Logs Upload related errors
+## Uploads 
+
+### Logs Upload related errors
 
 If you deployed Azure Arc data controller in the `direct` connectivity mode using `kubectl`, and have not created a secret for the Log Analytics workspace credentials, you may see the following error messages in the Data Controller CR (Custom Resource):
 
@@ -45,7 +47,7 @@ type: Opaque
 
 ```
 
-## Metrics upload related errors in direct connected mode
+### Metrics upload related errors in direct connected mode
 
 If you configured automatic upload of metrics, in the direct connected mode and the permissions needed for the MSI have not been properly granted (as described in [Upload metrics](upload-metrics.md)), you might see an error in your logs as follows:
 
@@ -55,7 +57,7 @@ If you configured automatic upload of metrics, in the direct connected mode and 
 
 To resolve above error, retrieve the MSI for the Azure Arc data controller extension, and grant the required roles as described in [Upload metrics](upload-metrics.md).
 
-## Usage upload related errors in direct connected mode
+### Usage upload related errors in direct connected mode
 
 If you deployed your Azure Arc data controller in the direct connected mode the permissions needed to upload your usage information are automatically granted for the Azure Arc data controller extension MSI. If the automatic upload process runs into permissions related issues you might see an error in your logs as follows:
 
@@ -69,7 +71,7 @@ To resolve the permissions issue, retrieve the MSI and grant the required roles 
 
 ## Upgrades
 
-#### Incorrect image tag 
+### Incorrect image tag 
 
 If you are using `az` CLI to upgrade and you pass in an incorrect image tag you will see an error within two minutes.
 
