@@ -105,6 +105,9 @@ resource webApp 'Microsoft.Insights/components@2020-02-02' = {
     "alwaysOn": {
       "type": "bool"
     },
+    "currentStack": {
+      "type": "dotnetcore"
+    },
     "phpVersion": {
       "type": "string"
     },
@@ -297,6 +300,9 @@ resource webApp 'Microsoft.Insights/components@2020-02-02' = {
     },
     "alwaysOn": {
       "type": "bool"
+    },
+     "currentStack": {
+      "type": "dotnet"
     },
     "phpVersion": {
       "type": "string"
