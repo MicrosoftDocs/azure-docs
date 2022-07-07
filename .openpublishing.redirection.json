@@ -9567,11 +9567,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md",
-      "redirect_url": "/azure/virtual-machine-scale-sets/overview",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md",
       "redirect_url": "/azure/azure-monitor/platform/autoscale-webhook-email",
       "redirect_document_id": true
