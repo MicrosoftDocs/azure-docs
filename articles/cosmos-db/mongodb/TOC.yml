@@ -13,6 +13,7 @@
     - name: NoSQL vs. relational databases
       href: ../relational-nosql.md?toc=/azure/cosmos-db/mongodb/toc.json
 - name: Quickstarts
+  expanded: true
   items:
     - name: Develop app - .NET
       href: quickstart-dotnet.md
