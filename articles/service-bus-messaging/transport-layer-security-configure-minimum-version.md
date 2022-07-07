@@ -11,7 +11,7 @@ ms.date: 06/06/2022
 ms.author: egrootenboer
 ---
 
-# Configure the minimum TLS version for a Service Bus namespace using ARM (Preview)
+# Configure the minimum TLS version for a Service Bus namespace (Preview)
 
 Azure Service Bus namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Service Bus namespace to require that clients send and receive data with a newer version of TLS. If a Service Bus namespace requires a minimum version of TLS, then any requests made with an older version will fail. For conceptual information about this feature, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md).
 
