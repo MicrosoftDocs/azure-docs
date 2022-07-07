@@ -344,9 +344,9 @@
         href: notebooks-msticpy-advanced.md
       - name: Integrate Azure Synapse Analytics
         href: notebooks-with-synapse.md
-      - name: Export historical log data
+      - name: Export and transform historical log data
         href: notebooks-with-synapse-export-data.md
-      - name: Hunt on historical log data
+      - name: Hunt on large historical datasets
         href: notebooks-with-synapse-hunt.md
     - name: Hunt with bookmarks
       href: bookmarks.md

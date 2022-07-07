@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure Synapse Analytics with notebooks in Microsoft Sentinel
+title: Configure big data analytics settings for Azure Synapse Analytics
 description: Learn how to set up Azure Synapse Analytics with Microsoft Sentinel notebooks to run big data queries.
 author: cwatson-cat
 ms.author: cwatson
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 6/20/2022
 ---
 
-# Integrate Azure Synapse Analytics with notebooks in Microsoft Sentinel
+# Configure big data analytics settings for Azure Synapse Analytics
 
 Enable large-scale security analytics by integrating Microsoft Sentinel notebooks with Azure Synapse analytics.
 
