@@ -14,13 +14,13 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 
 ## Why use auto-upgrade
 
-Auto-upgrade provides a set once and forget mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss out on the latest AKS features, as well as patches from AKS and upstream Kubernetes.
+Auto-upgrade provides a set once and forget mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss the latest AKS features or patches from AKS and upstream Kubernetes.
 
-AKS follows a strict versioning window with regards to supportability. With properly selected auto-upgrade channels, you can avoid clusters falling into an unsupported version. For more on the AKS support window, see [Supported Kubernetes versions][supported-kubernetes-versions].
+AKS follows a strict versioning window with regard to supportability. With properly selected auto-upgrade channels, you can avoid clusters falling into an unsupported version. For more on the AKS support window, see [Supported Kubernetes versions][supported-kubernetes-versions].
 
 ## Using auto-upgrade
 
-Automatically-completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel.
+Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel.
 
 The following upgrade channels are available:
 
@@ -58,7 +58,7 @@ If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start 
 The following best practices will help maximize your success when using auto-upgrade:
 
 - In order to keep your cluster always in a supported version (i.e within the N-2 rule), choose either `stable` or `rapid` channels.
-- If you are interested in getting the latest patches as soon as possible, use the `patch` channel. The `node-image` channel is a good fit if you want your agent pools to always be running the most recent node images.
+- If you're interested in getting the latest patches as soon as possible, use the `patch` channel. The `node-image` channel is a good fit if you want your agent pools to always be running the most recent node images.
 - Follow [Operator best practices][operator-best-practices-scheduler].
 - Follow [PDB best practices][pdb-best-practices].
 
