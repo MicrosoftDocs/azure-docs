@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/06/2022
+ms.date: 07/07/2022
 
 ---
 
@@ -53,7 +53,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container. The following YAML can be used to create a persistent volume claim 5 GB in size with *ReadWriteMany* access, using the built-in storage class. For more information on access modes, see the [Kubernetes persistent volume][kubernetes-volumes] documentation.
 
-1. Create a file named `azure-blob-nfs-pvc.yaml` and copy in the following YAML.
+1. Create a file named `blob-nfs-pvc.yaml` and copy in the following YAML.
 
     ```yml
     apiVersion: v1
@@ -74,7 +74,7 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
 2. Create the persistent volume claim with the kubectl create command:
 
     ```bash
-    kubectl create -f azure-blob-nfs-pvc.yaml
+    kubectl create -f blob-nfs-pvc.yaml
     ```
 
 Once completed, the Blob storage container will be created. You can use the [kubectl get][kubectl-get] command to view the status of the PVC:
@@ -94,7 +94,7 @@ azure-blob-storage   Bound    pvc-b88e36c5-c518-4d38-a5ee-337a7dda0a68   5Gi    
 
 The following YAML creates a pod that uses the persistent volume claim **azure-blob-storage** to mount the Azure Blob storage at the `/mnt/blob' path.
 
-1. Create a file named `azure-blob-nfs-pv`, and copy in the following YAML. Make sure that the **claimName** matches the PVC created in the previous step.
+1. Create a file named `blob-nfs-pv`, and copy in the following YAML. Make sure that the **claimName** matches the PVC created in the previous step.
 
     ```yml
     kind: Pod
@@ -124,7 +124,7 @@ The following YAML creates a pod that uses the persistent volume claim **azure-b
 2. Create the pod with the [kubectl apply][kubectl-apply] command:
 
    ```bash
-   kubectl apply -f azure-blob-nfs-pv.yaml
+   kubectl apply -f blob-nfs-pv.yaml
    ```
 
 3. After the pod is in the running state, run the following command to create a new file called `test.txt`.
@@ -148,72 +148,79 @@ The following YAML creates a pod that uses the persistent volume claim **azure-b
 ## Create a custom storage class
 
 The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. To demonstrate two examples are shown, one based on using the NFS protocol, and the other using blobfuse.
+
+### Storage class using NFS protocol
+
 In this example, the following manifest configures mounting a Blob storage container using the NFS protocol. Use it to add the *tags* parameter.
-Create a file named azure-blob-nfs-sc.yaml, and paste the following example manifest:
 
-```yml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: blob-nfs
-provisioner: blob.csi.azure.com
-parameters:
-  protocol: nfs
-  tags: environment=Development
-volumeBindingMode: Immediate
-mountOptions:
-  - nconnect=8  # only supported on linux kernel version >= 5.3
-```
+1. Create a file named `blob-nfs-sc.yaml`, and paste the following example manifest:
 
-Create the storage class with the [kubectl apply][kubectl-apply] command:
+    ```yml
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: blob-nfs
+    provisioner: blob.csi.azure.com
+    parameters:
+      protocol: nfs
+      tags: environment=Development
+    volumeBindingMode: Immediate
+    mountOptions:
+      - nconnect=8  # only supported on linux kernel version >= 5.3
+    ```
 
-```bash
-kubectl apply -f azure-blob-nfs-sc.yaml
-```
+2. Create the storage class with the [kubectl apply][kubectl-apply] command:
 
-The output of the command resembles the following example:
+    ```bash
+    kubectl apply -f blob-nfs-sc.yaml
+    ```
 
-```bash
-storageclass.storage.k8s.io/blob-nfs created
-```
+    The output of the command resembles the following example:
+
+    ```bash
+    storageclass.storage.k8s.io/blob-nfs created
+    ```
+
+### Storage class using blobfuse
 
 In this example, the following manifest configures using blobfuse and mount a Blob storage container. Use it to update the *skuName* parameter.
-Create a file named `azure-blobfuse-sc.yaml`, and paste the following example manifest:
 
-```yml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: blob-fuse
-provisioner: blob.csi.azure.com
-parameters:
-  skuName: Standard_GRS  # available values: Standard_LRS, Premium_LRS, Standard_GRS, Standard_RAGRS
-reclaimPolicy: Delete
-volumeBindingMode: Immediate
-allowVolumeExpansion: true
-mountOptions:
-  - -o allow_other
-  - --file-cache-timeout-in-seconds=120
-  - --use-attr-cache=true
-  - --cancel-list-on-mount-seconds=10  # prevent billing charges on mounting
-  - -o attr_timeout=120
-  - -o entry_timeout=120
-  - -o negative_timeout=120
-  - --log-level=LOG_WARNING  # LOG_WARNING, LOG_INFO, LOG_DEBUG
-  - --cache-size-mb=1000  # Default will be 80% of available memory, eviction will happen beyond that.
-```
+1. Create a file named `blobfuse-sc.yaml`, and paste the following example manifest:
 
-Create the storage class with the [kubectl apply][kubectl-apply] command:
+    ```yml
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: blob-fuse
+    provisioner: blob.csi.azure.com
+    parameters:
+      skuName: Standard_GRS  # available values: Standard_LRS, Premium_LRS, Standard_GRS, Standard_RAGRS
+    reclaimPolicy: Delete
+    volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    mountOptions:
+      - -o allow_other
+      - --file-cache-timeout-in-seconds=120
+      - --use-attr-cache=true
+      - --cancel-list-on-mount-seconds=10  # prevent billing charges on mounting
+      - -o attr_timeout=120
+      - -o entry_timeout=120
+      - -o negative_timeout=120
+      - --log-level=LOG_WARNING  # LOG_WARNING, LOG_INFO, LOG_DEBUG
+      - --cache-size-mb=1000  # Default will be 80% of available memory, eviction will happen beyond that.
+    ```
 
-```bash
-kubectl apply -f azure-blobfuse-sc.yaml
-```
+2. Create the storage class with the [kubectl apply][kubectl-apply] command:
 
-The output of the command resembles the following example:
+    ```bash
+    kubectl apply -f blobfuse-sc.yaml
+    ```
 
-```bash
-storageclass.storage.k8s.io/blob-fuse created
-```
+    The output of the command resembles the following example:
+
+    ```bash
+    storageclass.storage.k8s.io/blob-fuse created
+    ```
 
 ## Next steps
 

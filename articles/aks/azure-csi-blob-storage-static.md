@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/06/2022
+ms.date: 07/07/2022
 
 ---
 
@@ -81,7 +81,7 @@ Mounting blob storage using the NFS v3 protocol doesn't authenticate using an ac
 
 The following example demonstrates how to mount a Blob storage container as a persistent volume using the NFS protocol.
 
-1. Create a file named `azure-blob-nfs-pv.yaml` and copy in the following YAML. Under `storageClass`, update `resourceGroup`, `storageAccount`, and `containerName`.
+1. Create a file named `pv-blob-nfs.yaml` and copy in the following YAML. Under `storageClass`, update `resourceGroup`, `storageAccount`, and `containerName`.
 
     ```yml
     apiVersion: v1
@@ -113,7 +113,30 @@ The following example demonstrates how to mount a Blob storage container as a pe
 2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
-    kubectl create -f azure-blob-nfs-pv.yaml
+    kubectl create -f pv-blob-nfs.yaml
+    ```
+
+3. Create a `pvc-blob-nfs.yaml` file with a *PersistentVolume*. For example:
+
+    ```yml
+    kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
+      name: pvc-blob
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 10Gi
+      volumeName: pv-blob
+      storageClassName: blob-nfs
+      ```
+
+4. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
+
+    ```bash
+    kubectl create -f pvc-blob-nfs.yaml
     ```
 
 ## Mount Blob storage as a volume using Blobfuse
@@ -143,34 +166,9 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
     ---
 
-2. Create a `pvc-blobfuse-container.yaml` file with a *PersistentVolume*. For example:
+2. Create a `pv-blobfuse.yaml` file. Under `volumeAttributes`, update `containerName`. Under `nodeStateSecretRef`, update `name` with the name of the Secret object created earlier. For example:
 
     ```yml
-    ---
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: pvc-blob
-    spec:
-      accessModes:
-        - ReadWriteMany
-      resources:
-        requests:
-          storage: 10Gi
-      volumeName: pv-blob
-      storageClassName: blob-fuse
-    ```
-
-3. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
-
-    ```bash
-    kubectl create -f pvc-blobfuse-container.yaml
-    ```
-
-4. Create a `pv-blobfuse-container.yaml` file. Under `volumeAttributes`, update `containerName`. Under `nodeStateSecretRef`, update `name` with the name of the Secret object created earlier. For example:
-
-    ```yml
-    ---
     apiVersion: v1
     kind: PersistentVolume
     metadata:
@@ -198,10 +196,33 @@ Kubernetes needs credentials to access the Blob storage container created earlie
           namespace: default
     ```
 
-5. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
+3. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
-    kubectl create -f pv-blobfuse-container.yaml
+    kubectl create -f pv-blobfuse.yaml
+    ```
+
+4. Create a `pvc-blobfuse.yaml` file with a *PersistentVolume*. For example:
+
+    ```yml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: pvc-blob
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 10Gi
+      volumeName: pv-blob
+      storageClassName: blob-fuse
+    ```
+
+5. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
+
+    ```bash
+    kubectl create -f pvc-blobfuse.yaml
     ```
 
 ## Use the persistence volume
