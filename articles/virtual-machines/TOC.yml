@@ -788,12 +788,6 @@
         href: ./linux/ssh-from-windows.md
       - name: Remote Desktop for Linux
         href: ./linux/use-remote-desktop.md
-    - name: Windows
-      items:
-      - name: Remote Desktop for Windows
-        href: ./windows/connect-logon.md
-      - name: WinRM
-        href: ./windows/winrm.md
   - name: Time sync
     items:
     - name: Linux

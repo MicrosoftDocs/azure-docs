@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 ## Step 1: Create a VM restore point collection
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for **Restore Point Collections** in the Azure portal.
+1. In the Search box, enter **Restore Point Collections**.
 
    :::image type="content" source="./media/virtual-machines-create-restore-points-portal/create-restore-points-search.png" alt-text="Screenshot of search bar in Azure portal.":::
 

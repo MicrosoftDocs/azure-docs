@@ -18,7 +18,7 @@ ms.custom: template-tutorial
 You can create Virtual Machine restore points using PowerShell scripts. 
 The [Azure PowerShell Az](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
-You can protect your data and guard against extended downtime by creating [VM restore points](virtual-machines-create-restore-points.md#about-vm-restore-points) at regular intervals. This article shows you how to create VM restore points, and also [exclude disks](#exclude-disks-from-the-restore-point) from the restore point, using the [Az.Compute](/powershell/module/az.compute) module. Alternatively, you can create VM restore points using the [Azure CLI](virtual-machines-create-restore-points-cli.md) or in the [Azure portal](virtual-machines-create-restore-points-portal.md).
+You can protect your data and guard against extended downtime by creating [VM restore points](virtual-machines-create-restore-points.md#about-vm-restore-points) at regular intervals. This article shows you how to create VM restore points, and [exclude disks](#exclude-disks-from-the-restore-point) from the restore point, using the [Az.Compute](/powershell/module/az.compute) module. Alternatively, you can create VM restore points using the [Azure CLI](virtual-machines-create-restore-points-cli.md) or in the [Azure portal](virtual-machines-create-restore-points-portal.md).
 
 In this tutorial, you learn how to:
 
