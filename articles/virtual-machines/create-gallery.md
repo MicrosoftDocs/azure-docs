@@ -21,13 +21,24 @@ An [Azure Compute Gallery](./shared-image-galleries.md) (formerly known as Share
 
 The Azure Compute Gallery lets you share custom VM images and application packages with others in your organization, within or across regions, within a tenant. Choose what you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group resources. 
 
-The gallery is a top-level resource that provides full Azure role-based access control (Azure RBAC). 
+The gallery is a top-level resource that can be shared in multiple ways:
 
-## Create a private gallery
+| Share with\: | Option |
+|----|----|
+| [Specific people, groups, or service principals](#create-a-private-gallery) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
+| [Subscriptions or tenants](#create-a-direct-shared-gallery) | Direct sharing (preview) lets you share to everyone in a subscription or tenant. |
+| [Everyone](#create-a-community-gallery) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
+
+## Naming
 
 Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name can't contain dashes. Gallery names must be unique within your subscription. 
 
-Choose an option below for creating your gallery:
+
+## Create a private gallery
+
+
+
+
 
 ### [Portal](#tab/portal)
 
@@ -98,10 +109,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ---
 
 
-<a name=community></a>
-
-
-## Create a direct sharing gallery
+## Create a direct shared gallery
 
 > [!IMPORTANT]
 > Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -127,6 +135,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 1. After validation passes, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
 
+To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
 
 ### [CLI](#tab/clidirect)
 
@@ -175,7 +184,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ---
 
-## Create a community gallery (preview)
+To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
+
+<a name=community></a>
+## Create a community gallery
 
 A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of public instance of your gallery will be the prefix you provide, plus a unique GUID.
 
@@ -225,21 +237,7 @@ az sig create \
 
 The output of this command will give you the public name for your community gallery in the `sharingProfile` section, under `publicNames`.
 
-Once you're ready to make the gallery available to the public, enable the community gallery using [az sig share enable-community](/cli/azure/sig/share#az-sig-share-enable-community). Only a user in the `Owner` role definition can enable a gallery for community sharing.
-
-```azurecli-interactive
-az sig share enable-community \
-   --gallery-name $galleryName \
-   --resource-group $resourceGroup 
-```
-
-
-> [!IMPORTANT]
-> If you're listed as the owner of your subscription, but you're having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
-
-To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) command.
-
-To delete a gallery shared to community, you must first run `az sig share reset` to stop sharing, then delete the gallery.
+To start sharing the gallery to all Azure users, see [Share images using a community gallery](share-gallery-community.md).
 
 ### [REST](#tab/rest2)
 To create gallery, submit a PUT request: 
@@ -267,17 +265,8 @@ Specify `permissions` as `Community` and information about your gallery in the r
   }
 }
 ```
+To start sharing the gallery to all Azure users, see [Share images using a community gallery](share-gallery-community.md).
 
-To go live with community sharing, send the following POST request. As part of the request, include the property `operationType` with value `EnableCommunity`.  
-
-```rest
-POST 
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compu 
-te/galleries/{galleryName}/share?api-version=2021-07-01 
-{ 
-  "operationType" : "EnableCommunity"
-} 
-```
 
 ### [Portal](#tab/portal2)
 
@@ -310,16 +299,8 @@ Making a community gallery available to all Azure users is a two-step process. F
 
 To see the public name of your gallery, select **Sharing** in the left menu.
 
-When you're ready to make the gallery public:
+To start sharing the gallery to all Azure users, see [Share images using a community gallery](share-gallery-community.md).
 
-1. On the page for the gallery, select **Sharing** from the left menu.
-1. Select **Share** from the top of the page.
-   :::image type="content" source="media/create-gallery/share.png" alt-text="Screenshot showing the Share button for sharing your gallery to the community.":::
-1. When you are done, select **Save**.
-
-
-> [!IMPORTANT]
-> If you're listed as the owner of your subscription, but you're having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
 
 ---
 
@@ -327,13 +308,8 @@ When you're ready to make the gallery public:
 
 ## Next steps
 
-- To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
-- To share the gallery publicly with all Azure users, see [Community Galleries](./share-gallery-community.md).
-
 - Create an [image definition and an image version](image-version.md).
 
 - [Create a VM application](vm-applications-how-to.md) in your gallery.
 
-- You can also create Azure Compute Gallery [create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/) using a template.
 
-- [Azure Image Builder](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./windows/image-builder-gallery-update-image-version.md). 

@@ -203,7 +203,6 @@ Remove-AzGalleryImageVersion `
 
 ## Update resources
 
-### [CLI](#tab/cli2)
 There are some limitations on what can be updated. The following items can be updated: 
 
 Azure Compute Gallery:
@@ -222,6 +221,8 @@ Image version:
 - End of life date
 
 If you plan on adding replica regions, don't delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
+
+### [CLI](#tab/cli2)
 
 Update the description of a gallery using ([az sig update](/cli/azure/sig#az-sig-update). 
 
@@ -279,24 +280,6 @@ az sig image-version update \
 ### [PowerShell](#tab/powershell2)
 
 
-There are some limitations on what can be updated. The following items can be updated: 
-
-Azure Compute Gallery:
-- Description
-
-Image definition:
-- Recommended vCPUs
-- Recommended memory
-- Description
-- End of life date
-
-Image version:
-- Regional replica count
-- Target regions
-- Exclusion from latest
-- End of life date
-
-If you plan on adding replica regions, don`t delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
 To update the description of a gallery, use [Update-AzGallery](/powershell/module/az.compute/update-azgallery).
 
@@ -344,7 +327,10 @@ Update-AzGalleryImageVersion `
 
 ## Delete resources
 
-You have to delete resources in reverse order, by deleting the image version first. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery. 
+You have to delete resources in reverse order, by deleting the image version first. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery.
+
+
+### [CLI](#tab/cli4)
 
 Before you can delete a community shared gallery, you need to use [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) to stop sharing the gallery publicly.
 
@@ -376,7 +362,7 @@ az sig delete \
    --gallery-name myGallery
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell4)
 
 
 

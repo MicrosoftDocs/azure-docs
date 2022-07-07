@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/01/2022
+ms.date: 07/07/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -53,7 +53,7 @@ There are some limitations for sharing your gallery to the community:
 
 ## How sharing with the community works
 
-You [create a gallery resource](create-gallery.md#create-a-community-gallery-preview) under `Microsoft.Compute/Galleries` and choose `community` as a sharing option.
+You [create a gallery resource](create-gallery.md#create-a-community-gallery) under `Microsoft.Compute/Galleries` and choose `community` as a sharing option.
 
 When you are ready, you flag your gallery as ready to be shared publicly. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries`, which are public.
 
@@ -76,6 +76,8 @@ Information from your image definitions will also be publicly available, like wh
 
 ## Start sharing publicly
 
+In order to share a gallery publicly, it needs to be created as a community gallery. For more information, see [Create a community gallery](create-gallery.md#create-a-community-gallery)
+
 ### [CLI](#tab/cli)
 
 Once you are ready to make the gallery available to the public, enable the community gallery using [az sig share enable-community](/cli/azure/sig/share#az-sig-share-enable-community). Only a user in the `Owner` role definition can enable a gallery for community sharing.
@@ -85,6 +87,11 @@ az sig share enable-community \
    --gallery-name $galleryName \
    --resource-group $resourceGroup 
 ```
+
+
+To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) command.
+
+To delete a gallery shared to community, you must first run `az sig share reset` to stop sharing, then delete the gallery.
 
 ### [REST](#tab/rest)
 
@@ -98,6 +105,16 @@ te/galleries/{galleryName}/share?api-version=2021-07-01
   "operationType" : "EnableCommunity"
 } 
 ```
+
+### [Portal](#tab/portal)
+
+When you're ready to make the gallery public:
+
+1. On the page for the gallery, select **Sharing** from the left menu.
+1. Select **Share** from the top of the page.
+   :::image type="content" source="media/create-gallery/share.png" alt-text="Screenshot showing the Share button for sharing your gallery to the community.":::
+1. When you are done, select **Save**.
+
 
 ---
 
