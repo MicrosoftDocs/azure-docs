@@ -439,6 +439,9 @@
             - name: Track Azure Databricks runs with MLflow
               displayName: log, monitor, deploy, metrics, databricks
               href: how-to-use-mlflow-azure-databricks.md
+            - name: Track Azure Synapse Analytics runs with MLflow
+              displayName: log, monitor, deploy, metrics, synapse, analytics
+              href: how-to-use-mlflow-azure-synapse.md
             - name: Train experiments with MLflow Projects
               displayName: log, monitor, metrics, model registry, register
               href: how-to-train-mlflow-projects.md
