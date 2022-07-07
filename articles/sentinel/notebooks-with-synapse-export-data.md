@@ -9,7 +9,8 @@ ms.date: 6/20/2022
 
 # Export and transform historical log data from Microsoft Sentinel for big data analytics
 
-Export, transform, and partition large datasets in your Azure Log Analytics workspace by using a notebook in Microsoft Sentinel. The notebook steps you through a one-time export of historical data from your Log Analytics workspace to Azure Data Lake Storage Gen2 Storage.
+Make your large datasets available for advanced analytics and machine learning by exporting and transforming the data from your Log Analytics workspace. Microsoft Sentinel allows you to orchestrate the export, transformation, and storage of large datasets from your Log Analytics workspace by using a notebook. The notebook steps you through a one-time export and transformation of historical data from your Log Analytics workspace to Azure Data Lake Storage Gen2 Storage.
+
 
 ## Prerequisites
 
