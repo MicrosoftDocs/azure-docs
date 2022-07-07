@@ -13,7 +13,7 @@ Legacy appliances are certified but aren't currently offered as pre-configured a
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Office |
+|**Hardware profile** | L100 |
 |**Performance** | 	Max bandwidth: 30 Mbp/s<br>Max devices: 400 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
