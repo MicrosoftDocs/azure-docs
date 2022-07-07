@@ -2,7 +2,7 @@
 title: Resource isolation in a single tenant to secure with Azure Active Directory 
 description: Introduction to resource isolation in a single tenant in Azure Active Directory.
 services: active-directory
-author: gargi.sinha
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
