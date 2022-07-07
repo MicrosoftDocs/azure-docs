@@ -31,7 +31,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 The following resources are defined in the Bicep file:
 
-* Microsoft.Purview/accounts
+* [**Microsoft.Purview/accounts**](/azure/templates/microsoft.purview/accounts)
 
 The Bicep performs the following tasks:
 
