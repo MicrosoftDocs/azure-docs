@@ -5,7 +5,7 @@ author: hrshelar
 ms.service: orbital
 ms.topic: how-to
 ms.custom: ga
-ms.date: 06/21/2022
+ms.date: 07/07/2022
 ms.author: hrshelar
 ---
 
@@ -85,3 +85,8 @@ Here's how to set up the link flows based on direction on tcp or udp preference.
 | **Output**                     |                            |                                      |                            |                                      |
 | Contact Object destinationIP   | Connect to this IP         | Not applicable                       | Connect to this IP         | Not applicable                       |
 | Contact Object sourceIP        | Not applicable             | Link will come from one of these IPs | Not applicable             | Link will come from one of these IPs |
+
+## Next steps
+
+- [Quickstart: Register Spacecraft](register-spacecraft.md)
+- [Quickstart: Schedule a contact](schedule-contact.md)

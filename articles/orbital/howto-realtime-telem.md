@@ -11,7 +11,7 @@ ms.author: mikailasmith
 
 # Receive real-time telemetry
 
-An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation during a contact. You can configure your contact profile to send such telemetry events to Azure Event Hubs. The steps in this article describe how to create and sent events to Event Hubs.
+An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation during a contact. You can configure your contact profile to send telemetry events to Azure Event Hubs. The steps in this article describe how to create and sent events to Event Hubs.
 
 ## Configure Event Hubs
 
@@ -61,12 +61,143 @@ Event Hubs documentation provides guidance on how to write simple consumer apps 
 - [Java](/azure/event-hubs/event-hubs-java-get-started-send)
 - [JavaScript](/azure/event-hubs/event-hubs-node-get-started-send)
 
-We have provided sample code (to add) based on the Python guide that includes code specific to have to access the expected metadata that Azure Orbital will send with each event and the format of our messages. See the Orbital Telemetry Schema section that documents the format of our event messages.
-
 ## Understanding telemetry points
 
-The ground station provides telemetry using Avro as a schema. The file is located at (to add): 
+The ground station provides telemetry using Avro as a schema. The schema is below:
 
+```json
+{
+  "namespace": "EventSchema",
+  "name": "TelemetryEventSchema",
+  "type": "record",
+  "fields": [
+    {
+      "name": "version",
+      "type": [ "null", "string" ]
+    },
+    {
+      "name": "contactId",
+      "type": [ "null", "string" ]
+    },
+    {
+      "name": "contactPlatformIdentifier",
+      "type": [ "null", "string" ]
+    },
+    {
+      "name": "gpsTime",
+      "type": [ "null", "double" ]
+    },
+    {
+      "name": "utcTime",
+      "type": "string"
+    },
+    {
+      "name": "azimuthDecimalDegrees",
+      "type": [ "null", "double" ]
+    },
+    {
+      "name": "elevationDecimalDegrees",
+      "type": [ "null", "double" ]
+    },
+    {
+      "name": "antennaType",
+      "type": {
+        "name": "antennaTypeEnum",
+        "type": "enum",
+        "symbols": [
+          "Microsoft",
+          "KSAT"
+        ]
+      }
+    },
+    {
+      "name": "links",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "name": "antennaLink",
+            "type": "record",
+            "fields": [
+              {
+                "name": "direction",
+                "type": {
+                  "name": "directionEnum",
+                  "type": "enum",
+                  "symbols": [
+                    "Uplink",
+                    "Downlink"
+                  ]
+                }
+              },
+              {
+                "name": "polarization",
+                "type": {
+                  "name": "polarizationEnum",
+                  "type": "enum",
+                  "symbols": [
+                    "RHCP",
+                    "LHCP",
+                    "linearVertical",
+                    "linearHorizontal"
+                  ]
+                }
+              },
+              {
+                "name": "inputRfPowerDbm",
+                "type": [ "null", "double" ]
+              },
+              {
+                "name": "uplinkEnabled",
+                "type": [ "null", "boolean" ]
+              },
+              {
+                "name": "channels",
+                "type": [
+                  "null",
+                  {
+                    "type": "array",
+                    "items": {
+                      "name": "antennaLinkChannel",
+                      "type": "record",
+                      "fields": [
+                        {
+                          "name": "endpointName",
+                          "type": "string"
+                        },
+                        {
+                          "name": "inputEbN0InDb",
+                          "type": [ "null", "double" ]
+                        },
+                        {
+                          "name": "modemLockStatus",
+                          "type": [
+                            "null",
+                            {
+                              "name": "modemLockStatusEnum",
+                              "type": "enum",
+                              "symbols": [
+                                "Unlocked",
+                                "Locked"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+```
 
 ## Next steps
 
