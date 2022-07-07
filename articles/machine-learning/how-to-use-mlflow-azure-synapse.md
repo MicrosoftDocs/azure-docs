@@ -186,7 +186,6 @@ If you wish to keep your Azure Synapse Analytics workspace, but no longer need t
 
 
 ## Next steps
-* [Deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 
-* [Manage your models](concept-model-management-and-deployment.md).
 * [Track experiment runs with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
-* Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/).
+* [Deploy MLflow models in Azure Machine Learning](how-to-deploy-mlflow-models.md). 
+* [Manage your models with MLflow](how-to-manage-models-mlflow.md).
