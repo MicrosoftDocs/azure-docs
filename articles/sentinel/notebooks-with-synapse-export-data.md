@@ -1,16 +1,23 @@
 ---
 title: Export and transform historical log data from Microsoft Sentinel for big data analytics
-description: Learn how to export large datasets from an Azure Log Analytics workspace to do security analytics.
+description: Learn how to export and transform large datasets from an Azure Log Analytics workspace to do security analytics.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 6/20/2022
+ms.date: 7/07/2022
 ---
 
 # Export and transform historical log data from Microsoft Sentinel for big data analytics
 
 Make your large datasets available for advanced analytics and machine learning by exporting and transforming the data from your Log Analytics workspace. Microsoft Sentinel allows you to orchestrate the export, transformation, and storage of large datasets from your Log Analytics workspace by using a notebook. The notebook steps you through a one-time export and transformation of historical data from your Log Analytics workspace to Azure Data Lake Storage Gen2 Storage.
 
+The following diagram shows how large datasets are exported, transformed, and stored for big data analytics.
+
+:::image type="complex" source="media/notebooks-with-synapse-export-data/export-notebook-process-illustration.png" alt-text="Diagram that shows the highlevel process to get data from Log Analytics to " border="false":::
+
+:::image-end:::
+
+This topic covers how to do a one-time export and transformation of your historical data. We recommend that you set up a continuous log export rule before you export historical logs. For more information, see [Set up continuous data export from Log Analytics](../azure-monitor/logs/logs-data-export.md).
 
 ## Prerequisites
 

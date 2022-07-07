@@ -1,10 +1,10 @@
 ---
 title: Hunt on large firewall logs by using a notebook in Microsoft Sentinel and Azure Synapse Analytics
-description: Learn how to run big data queries in Azure Synapse Analytics with Microsoft Sentinel notebooks.
+description: Learn how to run big data queries in Azure Synapse Analytics with a sample notebook in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 6/20/2022
+ms.date: 7/07/2022
 ---
 
 # Identify network beaconing on large firewall logs by using a sample notebook in Microsoft Sentinel and Azure Synapse Analytics

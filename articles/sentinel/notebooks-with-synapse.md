@@ -4,7 +4,7 @@ description: Learn how to set up Azure Synapse Analytics with Microsoft Sentinel
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 6/20/2022
+ms.date: 7/07/2022
 ---
 
 # Configure big data analytics settings for Azure Synapse Analytics
