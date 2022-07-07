@@ -28,11 +28,13 @@ Azure Data Factory provides Windows container support for the Self-Hosted Integr
 
 ## Get started 
 
-1. Install Docker and enable Windows containers.
+1. [Install Docker and enable Windows containers.](/virtualization/windowscontainers/quick-start/set-up-environment)
 
 1. [Download the container image source code from GitHub.](https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container)
 
-1. If you need to use a specific version of the SHIR, you can download it and move it to the *SHIR* folder. Otherwise, skip this step and the container image build process will download the latest version of the SHIR automatically.
+1. If you need to use a specific version of the SHIR, you can download it and move it to the *SHIR* folder.
+
+   Otherwise, skip this step. The container image build process will download the latest version of the SHIR automatically.
 
 1. Open your folder in the shell: 
 
