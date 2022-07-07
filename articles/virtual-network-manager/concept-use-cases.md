@@ -20,8 +20,8 @@ Learn about use cases for Azure Virtual Network Manager including managing conne
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## Connectivity
-Connectivity configuration allows you to create different network topologies based on your network needs. You create a connectivity configuration by adding new or existing virtual networks into [network groups](concept-network-groups.md) and creating a topology that meets your needs. The connectivity configuration offers three topology options: mesh, hub and spoke, or hub and spoke with direct connectivity.
+## Creating topology and connectivity
+Connectivity configuration allows you to create different network topologies based on your network needs. You create a connectivity configuration by adding new or existing virtual networks into [network groups](concept-network-groups.md) and creating a topology that meets your needs. The connectivity configuration offers three topology options: mesh, hub and spoke, or hub and spoke with direct connectivity between spoke virtual networks.
 
 ### Mesh topology
 When a mesh topology is deployed, all virtual networks have direct connectivity with each other. They don't need to go through other hops on the network to communicate. Mesh topology is useful when all the virtual networks need to communicate directly with each other.
@@ -29,11 +29,11 @@ When a mesh topology is deployed, all virtual networks have direct connectivity 
 ### Hub and spoke topology
 Hub and spoke topology is recommended when you're deploying central infrastructure services in a hub virtual network that are shared by spoke virtual networks. This topology can be more efficient than having these common components in all spoke virtual networks. 
 
-### Hub and spoke topology with direct connectivity
+### Hub and spoke topology with direct connectivity between spoke virtual networks
 This topology combines the two above topologies. It's recommended when you have common central infrastructure in the hub, and you want direct communication between all spokes. Direct connectivity helps you reduce the latency caused by extra network hops when going through a hub.
 
 ### Maintaining topology
-AVNM automatically maintains the desired topology you defined in the connectivity configuration when changes are made to your infrastructure. For example, when you add new spoke to the topology, AVNM can handle the changes necessary to create the connectivity to the spoke and its virtual networks.
+AVNM automatically maintains the desired topology you defined in the connectivity configuration when changes are made to your infrastructure. For example, when you add a new spoke to the topology, AVNM can handle the changes necessary to create the connectivity to the spoke and its virtual networks.
 
 
 ## Security
