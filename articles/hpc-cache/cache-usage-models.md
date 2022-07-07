@@ -83,7 +83,7 @@ You can change usage models by editing the storage target, but some changes are 
 
 You can't change **to** or **from** the model named **Read heavy, infrequent writes**. To change a storage target to this usage model, or to change it from this model to a different usage model, you have to delete the original storage target and create a new one.
 
-This restriction also applies to the usage model **Read heavy, checking the backing server every 3 hours**, which is less commonly used. Also, you can change between between the two "read heavy..." usage models, but not into or out of a different usage model style.
+This restriction also applies to the usage model **Read heavy, checking the backing server every 3 hours**, which is less commonly used. Also, you can change between the two "read heavy..." usage models, but not into or out of a different usage model style.
 
 This restriction is needed because of the way different usage models handle Network Lock Manager (NLM) requests. Azure HPC Cache sits between clients and the back-end storage system. Usually, the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage models **Read heavy, infrequent writes** or **Read heavy, checking the backing server every 3 hours**, or with a standard blob storage target, which doesn't have configurable usage models.
 
