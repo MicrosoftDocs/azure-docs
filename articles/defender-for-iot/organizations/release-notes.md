@@ -96,7 +96,7 @@ Use the following table to understand the mapping between legacy hardware profil
 
 We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1 TB disk sizes.
 
-For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
 
 ### PCAP access from the Azure portal (Public preview)
 
