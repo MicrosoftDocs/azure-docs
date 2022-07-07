@@ -1,10 +1,8 @@
 ---
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
-author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
 ---
 
@@ -286,7 +284,7 @@ env:
   AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
   POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.x'                      # set this to the dotnet version to use
+  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
 
 jobs:
   build-and-deploy:
