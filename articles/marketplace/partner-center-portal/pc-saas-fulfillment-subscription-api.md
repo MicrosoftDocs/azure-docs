@@ -414,7 +414,7 @@ Response body example:
 ```
 
 Code: 404 Not Found.
-SubscriptionId is not found.
+`subscriptionId` is not found.
 
 Code: 403
 Forbidden. The authorization token is invalid, expired, or was not provided.  The request may be attempting to access a SaaS subscription for an offer that's unsubscribed or published with a different Azure AD app ID from the one used to create the authorization token.

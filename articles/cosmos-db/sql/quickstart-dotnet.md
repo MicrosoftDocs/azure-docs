@@ -18,6 +18,12 @@ ms.custom: devx-track-csharp
 > [!div class="op_single_selector"]
 >
 > * [.NET](quickstart-dotnet.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Java](create-sql-api-java.md)
+> * [Spring Data](create-sql-api-spring-data.md)
+> * [Python](create-sql-api-python.md)
+> * [Spark v3](create-sql-api-spark.md)
+> * [Go](create-sql-api-go.md)
 >
 
 Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account. Follow these steps to  install the package and try out example code for basic tasks.
@@ -324,7 +330,7 @@ export COSMOS_KEY="<cosmos-account-PRIMARY-KEY>"
 
 Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, containers, and items.
 
-:::image type="complex" source="media/quickstart-dotnet/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, containers, and items.":::
+:::image type="complex" source="media/quickstart-dotnet/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, containers, and items." border="false":::
     Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
 :::image-end:::
 
