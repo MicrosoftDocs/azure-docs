@@ -43,7 +43,7 @@ You can integrate Microsoft Playwright Testing in your CI/CD pipeline to impleme
 
 Get feedback early and often from your tests by scaling out across many parallel workers. Microsoft Playwright Testing abstracts the complexity to run Playwright tests at scale.
 
-## Troubleshoot test issues with rich test results
+## Troubleshoot issues with rich test results
 
 After your test suite finishes, use the Microsoft Playwright dashboard to analyze the test results and identify application issues. The dashboard shows rich test results to help diagnose failing tests:
 
