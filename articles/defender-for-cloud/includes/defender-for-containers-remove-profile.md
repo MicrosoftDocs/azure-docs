@@ -31,7 +31,7 @@ https://management.azure.com/subscriptions/{{SubscriptionId}}/resourcegroups/{{R
 | SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
-| ApiVersion     | API version, must be >= 2021-07-01 and <= 2022-04-01 | Yes       |
+| ApiVersion     | API version, must be >= 2022-06-01 | Yes       |
 
 Request body:
 
@@ -40,20 +40,22 @@ Request body:
   "location": "{{Location}}",
   "properties": {
     "securityProfile": {
-            "azureDefender": {
-                "enabled": false
-            }
+        "defender": {
+          "securityMonitoring": {
+          "enabled": false
+          }
         }
+      }
     }
-}
+  }
 ```
 
 Request body parameters:
 
-| Name                                                                     | Description                                                                              | Mandatory |
-|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
-| location                                                                 | Cluster's location                                                                       | Yes       |
-| properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
+| Name | Description | Mandatory |
+|--|--|--|
+| location | Cluster's location | Yes |
+| properties.securityProfile.defender.securityMonitoring.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
 
 ### [**Azure CLI**](#tab/k8s-remove-cli)
 
