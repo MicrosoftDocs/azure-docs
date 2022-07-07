@@ -374,7 +374,7 @@ az aks show -n myAKSCluster -g myResourceGroup --query 'nodeResourceGroup' -o ts
 
 ---
 
-1. Select **Overview**, and select your Windows node pool virtual machine scale set
+1. Select **Overview**, and select your Windows node pool virtual machine scale set.
 1. Under **Settings**, select **Instances**. Select a Windows server node that you'd like to connect to.
 1. Under **Support + troubleshooting**, select **Bastion**.
 1. Enter the credentials you set up when the AKS cluster was created. Select **Connect**.
@@ -388,7 +388,7 @@ You can now run any troubleshooting commands in the *cmd* window. Since Windows 
 
 When you're finished, exit the Bastion session and remove the Bastion resource.
 
-1. In the Azure portal, go to **Bastions** and select the Bastion resource you created.
+1. In the Azure portal, go to **Bastion** and select the Bastion resource you created.
 1. At the top of the page, select **Delete**. Wait until the process is complete before proceeding to the next step.
 1. In the Azure portal, go to **Virtual networks**. Select the virtual network that your AKS cluster is connected to. 
 1. Under **Settings**, select **Subnet**, and delete the **AzureBastionSubnet** subnet that was created for the Bastion resource.
