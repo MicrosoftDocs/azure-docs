@@ -196,6 +196,16 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 ## REST API
 
+### Prerequisites
+
+You must use the following versions:
+
+- `2016-07-01` or later to elevate access
+- `2018-07-01-preview` or later to list deny assignments
+- `2015-07-01` or later to list and remove role assignments
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ### Elevate access for a Global Administrator
 
 Use the following basic steps to elevate access for a Global Administrator using the REST API.

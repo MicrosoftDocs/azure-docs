@@ -23,6 +23,12 @@ To remove role assignments, you must have:
 
 - `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner)
 
+For the REST API, you must use the following version:
+
+- `2015-07-01` or later
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ## Azure portal
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.

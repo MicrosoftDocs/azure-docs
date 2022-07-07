@@ -23,11 +23,17 @@ An [Azure role assignment condition](conditions-overview.md) is an additional ch
 
 ## Prerequisites
 
-For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
+You must use the following versions:
+
+- `2020-03-01-preview` or later
+- `2020-04-01-preview` or later if you want to utilize the `description` property for role assignments
+- `2022-04-01` is the first stable version
+
+For more information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
 
 ## Add a condition
 
-To add a role assignment condition, use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API. Set the `api-version` to `2022-04-01` or later. [Role Assignments - Create](/rest/api/authorization/roleassignments/create) includes the following parameters related to conditions.
+To add a role assignment condition, use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API. [Role Assignments - Create](/rest/api/authorization/roleassignments/create) includes the following parameters related to conditions.
 
 | Parameter | Type | Description |
 | --- | --- | --- |
@@ -117,7 +123,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## List a condition
 
-To list a role assignment condition, use the [Role Assignments - List](/rest/api/authorization/roleassignments/list) API. Set the `api-version` to `2022-04-01` or later. For more information, see [List Azure role assignments using the REST API](role-assignments-list-rest.md).
+To list a role assignment condition, use the [Role Assignments - List](/rest/api/authorization/roleassignments/list) API. For more information, see [List Azure role assignments using the REST API](role-assignments-list-rest.md).
 
 ## Delete a condition
 

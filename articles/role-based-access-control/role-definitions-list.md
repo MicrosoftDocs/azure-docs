@@ -329,6 +329,14 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 
 ## REST API
 
+### Prerequisites
+
+You must use the following version:
+
+- `2015-07-01` or later
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ### List role definitions
 
 To list role definitions, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To refine your results, you specify a scope and an optional filter.

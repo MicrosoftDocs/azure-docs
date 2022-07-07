@@ -42,6 +42,16 @@ When using Azure CLI to add or update conditions, you must use the following ver
 
 - [Azure CLI 2.18 or later](/cli/azure/install-azure-cli)
 
+## REST API
+
+When using the REST API to add or update conditions, you must use the following versions:
+
+- `2020-03-01-preview` or later
+- `2020-04-01-preview` or later if you want to utilize the `description` property for role assignments
+- `2022-04-01` is the first stable version
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ## Permissions
 
 Just like role assignments, to add or update conditions, you must be signed in to Azure with a user that has the `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner).

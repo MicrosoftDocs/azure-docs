@@ -30,6 +30,13 @@ To get information about a deny assignment, you must have:
 
 - `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [Azure built-in roles](built-in-roles.md).
 
+You must use the following version:
+
+- `2018-07-01-preview` or later
+- `2022-04-01` is the first stable version
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ## List a single deny assignment
 
 1. Start with the following request:
