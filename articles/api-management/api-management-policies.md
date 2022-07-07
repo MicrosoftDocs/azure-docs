@@ -17,6 +17,10 @@ More information about policies:
 + [Set or edit policies](set-edit-policies.md)
 + [Policy expressions](api-management-policy-expressions.md)
 
+> [!IMPORTANT]
+>  [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) and [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) have a dependency on the subscription key. A subscription key isn't required when using other policies.
+
+
 ## [Access restriction policies](api-management-access-restriction-policies.md)
 -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of an HTTP Header.
 - [Get authorization context](api-management-access-restriction-policies.md#GetAuthorizationContext) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.

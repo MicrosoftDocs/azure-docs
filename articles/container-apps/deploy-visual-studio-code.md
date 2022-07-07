@@ -60,7 +60,7 @@ Container images are stored inside of container registries. You can easily creat
 
 3) Choose the subscription you would like to use to create your container registry and build your image, and then press enter to continue.
 
-4) Select **+ Create new registry**, or if you already have a registry you'd like to use, select that item and skip to step 7.  
+4) Select **+ Create new registry**, or if you already have a registry you'd like to use, select that item and skip to creating and deloying to the container app.  
 
 5) Enter a unique name for the new registry such as *msdocscapps123*, where 123 are unique numbers of your own choosing, and then press enter. Container registry names must be globally unique across all over Azure. 
 

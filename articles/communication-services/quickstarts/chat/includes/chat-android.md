@@ -12,17 +12,20 @@ ms.custom: include file
 ms.author: rifox
 ---
 
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).
-
 ## Prerequisites
 
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Android Studio](https://developer.android.com/studio), we will be using Android Studio to create an Android application for the quickstart to install dependencies.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create **two** Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the userId string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
+- Create **two** Communication Services Users and issue them a [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the user_id string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -97,7 +100,7 @@ import java.util.List;
 Copy the following code into class `MainActivity` in file `MainActivity.java`:
 
 ```java
-    private String endpoint = "https://<resource>.communication.azure.com";
+    private String endpoint = "<replace with your resource endpoint>'";
     private String firstUserId = "<first_user_id>";
     private String secondUserId = "<second_user_id>";
     private String firstUserAccessToken = "<first_user_access_token>";
@@ -543,3 +546,6 @@ readReceiptsPagedAsyncStream.forEach(readReceipt -> {
 ## Run the code
 
 In Android Studio, hit the Run button to build and run the project. In the console, you can view the output from the code and the logger output from the ChatClient.
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).

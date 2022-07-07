@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/22/2022
+ms.date: 07/06/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am looking for information to help me create verifiable credentials for ID tokens. 
@@ -86,6 +86,7 @@ The JSON attestation definition should contain the **idTokens** name, the [OIDC 
 
 The claims mapping in the following example requires that you configure the token as explained in the [Claims in the ID token from the identity provider](#claims-in-the-id-token-from-the-identity-provider) section.
 
+
 ```json
 {
   "attestations": {
@@ -124,9 +125,16 @@ The claims mapping in the following example requires that you configure the toke
         "required": false
       }
     ]
+  },
+  "validityInterval": 2592000,
+  "vc": {
+    "type": [
+      "VerifiedCredentialExpert"
+    ]
   }
 }
 ```
+
 
 ## Application registration
 
