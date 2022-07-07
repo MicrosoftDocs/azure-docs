@@ -324,7 +324,7 @@ SQL DML syntax differences exist between Oracle SQL and Azure Synapse T-SQL. Tho
 
 #### Functions, stored procedures, and sequences
 
-When migrating a data warehouse from a mature environment like Oracle, you probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences, check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions.
+When migrating a data warehouse from a mature environment like Oracle, you probably need to migrate elements other than simple tables and views. Check whether tools within the Azure environment can replace the functionality of functions, stored procedures, and sequences because it's usually more efficient to use built-in Azure tools than to recode them for Azure Synapse.
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
@@ -358,17 +358,17 @@ Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequenc
 
 #### Data Definition Language generation
 
-The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, like `CREATE TABLE` and `CREATE VIEW`, are common to both Oracle and Azure Synapse, but have been extended to provide implementation-specific features such as indexing, table distribution, and partitioning options.
+The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, such as `CREATE TABLE` and `CREATE VIEW`, are common to both Oracle and Azure Synapse but also provide implementation-specific features such as indexing, table distribution, and partitioning options.
 
 You can edit existing Oracle `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#oracle-data-type-mapping) and remove or modify Oracle-specific clauses such as `TABLESPACE`.
 
-Within the Oracle environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with current table definitions. You can access system catalog information using utilities such as Oracle SQL Developer. Oracle SQL Developer can generate `CREATE TABLE` DDL statements that you can edit so they apply to the equivalent tables in Azure Synapse.
+Within the Oracle environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with current table definitions. You can access system catalog information using utilities such as Oracle SQL Developer. Oracle SQL Developer can generate `CREATE TABLE` DDL statements that you can edit to create equivalent tables in Azure Synapse.
 
 Or, you can use SSMA for Oracle to migrate tables from an existing Oracle environment to Azure Synapse. SSMA for Oracle will apply the appropriate data type mappings and recommended table and distribution types, as shown in the following screenshot.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-2.png" border="true" alt-text="Screenshot showing how to migrate tables from and existing Oracle environment to Azure Synapse using SQL Server Migration Assistant for Oracle." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-2-lrg.png":::
 
-You can also use third-party migration and ETL tools that process system catalog information to achieve similar results.
+You can also use [third-party](../../partner/data-integration.md) migration and ETL tools that process system catalog information to achieve similar results.
 
 #### Data extraction from Oracle
 
