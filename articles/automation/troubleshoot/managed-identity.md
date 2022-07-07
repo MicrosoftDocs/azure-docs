@@ -23,7 +23,7 @@ This issue occurs when you don't have the following permissions for the user-ass
 - `Microsoft.ManagedIdentity/userAssignedIdentities/*/read`
 - `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action`
 
-[!NOTE]
+>[!NOTE]
 > The above permissions are granted by default to Managed Identity Operator and Managed Identity Contributor.
 
 ### Resolution
