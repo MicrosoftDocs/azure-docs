@@ -189,10 +189,57 @@
       displayName: Monitor metadata
       href: ../virtual-machines/windows/instance-metadata-service.md
       maintainContext: true
-  - name: Planned maintenance
-    items: 
-    - name: Maintenance notifications
+- name: Updates and maintenance
+  items: 
+  - name: Overview
+    href: ../virtual-machines/updates-maintenance-overview.md
+  - name: Maintenance notifications
+    items:
+    - name: Overview
       href: virtual-machine-scale-sets-maintenance-notifications.md
+    - name: CLI
+      displayName: Maintenance notifications
+      href: maintenance-notifications-cli.md
+    - name: Portal
+      displayName: Maintenance notifications
+      href: maintenance-notifications-portal.md
+    - name: PowerShell
+      displayName: Maintenance notifications
+      href: maintenance-notifications-powershell.md
+  - name: Maintenance configurations
+    items:
+    - name: Overview
+      displayName: Maintenance configurations
+      href: maintenance-configurations.md
+    - name: CLI
+      displayName: Maintenance configurations
+      href: maintenance-configurations-cli.md
+    - name: PowerShell
+      displayName: Maintenance configurations
+      href: maintenance-configurations-powershell.md
+    - name: Portal
+      displayName: Maintenance configurations
+      href: maintenance-configurations-portal.md
+  - name: Scheduled events
+    items:
+    - name: Linux
+      href: ./linux/scheduled-events.md
+      displayname: Scheduled events
+    - name: Windows
+      items:
+      - name: Scheduled events
+        href: ./windows/scheduled-events.md
+      - name: Monitor scheduled events
+        href: ./windows/scheduled-event-service.md
+  - name: Track and update VMs
+    items:
+    - name: Linux
+      displayName: update, track
+      href: ./linux/tutorial-config-management.md
+    - name: Windows
+      displayName: update, track
+      href: ./windows/tutorial-config-management.md
+
     - name: Scheduled events - Linux
       href: ../virtual-machines/linux/scheduled-events.md
       displayname: Scheduled events
