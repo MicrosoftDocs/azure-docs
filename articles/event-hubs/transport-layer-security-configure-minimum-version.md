@@ -1,5 +1,5 @@
 ---
-title: Configure the minimum TLS version for an Event Hubs namespace using ARM
+title: Configure the minimum TLS version for an Event Hubs namespace
 titleSuffix: Event Hubs
 description: Configure an Azure Event Hubs namespace to use a minimum version of Transport Layer Security (TLS).
 services: event-hubs
@@ -11,7 +11,7 @@ ms.date: 07/06/2022
 ms.author: egrootenboer
 ---
 
-# Configure the minimum TLS version for an Event Hubs namespace using ARM (Preview)
+# Configure the minimum TLS version for an Event Hubs namespace (Preview)
 
 Azure Event Hubs namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Event Hubs namespace to require that clients send and receive data with a newer version of TLS. If an Event Hubs namespace requires a minimum version of TLS, then any requests made with an older version will fail. For conceptual information about this feature, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace](transport-layer-security-enforce-minimum-version.md).
 
@@ -74,7 +74,7 @@ Configuring the minimum TLS version requires api-version 2022-01-01-preview or l
 
 ## Check the minimum required TLS version for a namespace
 
-To check the minimum required TLS version for your Event Hubs namespace, you can query the Azure Resource Manager API. You will need a Bearer token to query against the API, which you can retrieve using [ARMClient](https://github.com/projectkudu/ARMClient) by executing the following commands.
+To check the minimum required TLS version for your Event Hubs namespace, you can query the Azure Resource Manager API. You'll need a Bearer token to query against the API, which you can retrieve using the [ARMClient](https://github.com/projectkudu/ARMClient) app by executing the following commands.
 
 ```powershell
 .\ARMClient.exe login
@@ -126,7 +126,7 @@ The response should look something like the below, with the minimumTlsVersion se
 
 To test that the minimum required TLS version for an Event Hubs namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
-When a client accesses an Event Hubs namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Event Hubs namespace.
+When a client accesses an Event Hubs namespace using a TLS version that doesn't meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used isn't permitted for making requests against this Event Hubs namespace.
 
 > [!NOTE]
 > Due to limitations in the confluent library, errors coming from an invalid TLS version will not surface when connecting through the Kafka protocol. Instead a general exception will be shown.
@@ -136,7 +136,7 @@ When a client accesses an Event Hubs namespace using a TLS version that does not
 
 ## Next steps
 
-See the following documentation for more information.
+For more information, see the following articles.
 
 - [Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace](transport-layer-security-enforce-minimum-version.md)
 - [Configure Transport Layer Security (TLS) for an Event Hubs client application](transport-layer-security-configure-client-version.md)
