@@ -125,7 +125,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS will: 
 - add a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version. 
-- [cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified). 
+- [cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge, it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified). 
 - When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded. 
 - This process repeats until all nodes in the cluster have been upgraded. 
 - At the end of the process, the last buffer node will be deleted, maintaining the existing agent node count and zone balance.
