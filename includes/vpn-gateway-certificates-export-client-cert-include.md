@@ -18,7 +18,7 @@ When you generate a client certificate, it's automatically installed on the comp
 
 1. Select **Yes, export the private key**, and then click **Next**.
 
-   :::image type="content" source="./media/vpn-gateway-certificates-export-client-cert-include/yes-export.png" alt-text="Screenshot Yes export the private key selected." lightbox="./media/vpn-gateway-certificates-export-client-cert-include/yes-export.png":::
+   :::image type="content" source="./media/vpn-gateway-certificates-export-client-cert-include/yes-export.png" alt-text="Screenshot showing Yes export the private key selected." lightbox="./media/vpn-gateway-certificates-export-client-cert-include/yes-export.png":::
 
 1. On the **Export File Format** page, leave the defaults selected. Make sure that **Include all certificates in the certification path if possible** is selected. This setting additionally exports the root certificate information that is required for successful client authentication. Without it, client authentication fails because the client doesn't have the trusted root certificate. Then, click **Next**.
 
