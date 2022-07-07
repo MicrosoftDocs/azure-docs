@@ -19,32 +19,93 @@ This article shows you how to perform the following tasks:
 > Application groups are available only in **premium** and **dedicated** tiers. 
 
 ## Create an application group
+This section shows you how to create an application group using Azure portal, CLI, PowerShell, and an Azure Resource Manager (ARM) template. 
 
-You can create an application group using the Azure portal as illustrated below. When you create the application group, you should associate it to either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
+### [Azure portal](#tab/portal)
+You can create an application group using the Azure portal by following these steps. 
 
-:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Screenshot of the Create an application group page in the Azure portal.":::
+1. Navigate to your Event Hubs namespace. 
+1. On the left menu, select **Application Groups** under **Settings**. 
+1. On the **Application Groups** page, select **+ Application Group** on the command bar. 
 
-For example, you can create application group `contosoAppGroup` associating it with SAS policy `contososaspolicy`. 
+    :::image type="content" source="./media/resource-governance-with-app-groups/application-groups-page.png" alt-text="Screenshot of the Application Groups page in the Azure portal.":::
+1. On the **Add application group** page, follow these steps:
+    1. Specify a **name** for the application group.
+    1. Confirm that **Enabled** is selected. To have it in the disabled state first, clear the **Enabled** option. This flag determines whether the clients of an application group can access Event Hubs or not.
+    1. For **Security context type**, select **Shared access policy** or **AAD application**. When you create the application group, you should associate it to either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
+    1. If you selected **Shared access policy**:
+        1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group. You can click on **Add SAS Policy** to add a new policy and then associate with the application group. 
+        1. Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. You can update it if you like. 
+    
+            :::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Screenshot of the Add application group page with Shared access policy option selected.":::
+    1. If you selected **AAD application**:
+        1. For **AAD Application (client) ID**, specify the Azure Active Directory (Azure AD) application or client ID. 
+        1.  Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. You can update it if you like. 
 
-## Apply throttling policies
-You can add zero or more policies when you create an application group or to an existing application group. 
+            :::image type="content" source="./media/resource-governance-with-app-groups/add-app-group-active-directory.png" alt-text="Screenshot of the Add application group page with Azure AD option.":::
+    1. To add a policy, follow these steps:
+        1. Enter a **name** for the policy.
+        1. For **Type**, select **Throttling policy**. 
+        1. For **Metric ID**, select one of the following options: **Incoming messages**, **Outgoing messages**, **Incoming bytes**, **Outgoing bytes**. In the following example, **Incoming messages** is selected. 
+        1. For **Rate limit threshold**, enter the threshold value. In the following example, **10000** is specified as the threshold for the number of incoming messages. 
+        
+            :::image type="content" source="./media/resource-governance-with-app-groups/app-group-policy.png" alt-text="Screenshot of the Add application group page with a policy for incoming messages.":::
+            
+            Here's a screenshot of the page with another policy added. 
 
-For example, you can add throttling policies related to `IncomingMessages`, `IncomingBytes` or `OutgoingBytes` to the `contosoAppGroup`. These policies will get applied to event streaming workloads of client applications that use the SAS policy `contososaspolicy`. 
+			:::image type="content" source="./media/resource-governance-with-app-groups/app-group-policy-2.png" alt-text="Screenshot of the Add application group page with two policies.":::
+    1. Now, on the **Add application group** page, select **Add**.
+1. Confirm that you see the application group in the list of application groups. 
 
-## Publish or consume events 
-Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. For that, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
+	:::image type="content" source="./media/resource-governance-with-app-groups/application-group-list.png" alt-text="Screenshot of the Application groups page with the application group you created.":::    
 
-> [!NOTE]
-> When your client applications are throttled, you should experience a slowness in publishing or consuming data. 
-
-## Enable or disable application groups 
-You can prevent client applications accessing your Event Hubs namespace by disabling the application group that contains those applications. When the application group is disabled, client applications won't be able to publish or consume data. Any established connections from client applications of that application group will also be terminated. 
+    You can delete the application group in the list by selected the trash icon button next to it in the list.  
 
 
-## Create application groups using Resource Manager templates
-You can also create an application group using the Azure Resource Manager (ARM) templates. 
+### [Azure CLI](#tab/cli)
+Use the CLI command: [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group?view=azure-cli-latest#az-eventhubs-namespace-application-group-create) to create an application group in an Event Hubs namespace. 
 
-The following example shows how to create an application group using an ARM template. In this exmaple, the application group is associated with an existing SAS policy name `contososaspolicy` by setting the client `AppGroupIdentifier` as `SASKeyName=contososaspolicy`. The application group policies are also defined in the ARM template. 
+The following example creates an application group named `myAppGroup` in the namespace `mynamespace` in the Azure resource group `MyResourceGroup`. It uses the following configurations.
+
+- Shared access policy is used as the security context
+- Client app group ID is set to `SASKeyName=<NameOfTheSASkey>`.
+- First throttling policy for the `Incoming messages` metric with `10000` as the threshold.
+- Second throttling policy for the `Incoming bytes` metric with `20000` as the threshold. 
+
+```azurecli-interactive
+az eventhubs namespace application-group create --namespace-name mynamespace \
+                                                -g MyResourceGroup \
+                                                --name myAppGroup \
+                                                --client-app-group-identifier SASKeyName=keyname \
+                                                --throttling-policy-config name=policy1 metric-id=IncomingMessages rate-limit-threshold=10000 \
+                                                --throttling-policy-config name=policy2 metric-id=IncomingBytes rate-limit-threshold=20000
+```
+
+To learn more about the CLI command, see [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-create). 
+
+### [Azure PpwerShell](#tab/powershell)
+Use the PowerShell command: [`New-AzEventHubApplicationGroup`](//powershell/module/az.eventhub/new-azeventhubapplicationgroup) to create an application group in an Event Hubs namespace. 
+
+The following example uses the [`New-AzEventHubThrottlingPolicyConfig`](/powershell/module/az.eventhub/new-azeventhubthrottlingpolicyconfig) to create two policies that will be associated with the application.
+
+- First throttling policy for the `Incoming bytes` metric with `12345` as the threshold. 
+- Second throttling policy for the `Incoming messages` metric with `23416` as the threshold.
+
+Then, it creates an application group named `myappgroup` in the namespace `mynamespace` in the Azure resource group `myresourcegroup` by specifying the throttling policies and shared access policy as the secuirty context. 
+
+```azurepowershell-interactive
+$policy1 = New-AzEventHubThrottlingPolicyConfig -Name policy1 -MetricId IncomingBytes -RateLimitThreshold 12345
+
+$policy2 = New-AzEventHubThrottlingPolicyConfig -Name policy2 -MetricId IncomingMessages -RateLimitThreshold 23416
+
+New-AzEventHubApplicationGroup -ResourceGroupName myresourcegroup -NamespaceName mynamespace -Name myappgroup 
+		-ClientAppGroupIdentifier SASKeyName=myauthkey -ThrottlingPolicyConfig $policy1, $policy2
+```
+
+To learn more about the PowerShell command, see [`New-AzEventHubApplicationGroup`](/powershell/module/az.eventhub/new-azeventhubapplicationgroup).
+
+### [ARM template](#tab/arm)
+The following example shows how to create an application group using an ARM template. In this example, the application group is associated with an existing SAS policy name `contososaspolicy` by setting the client `AppGroupIdentifier` as `SASKeyName=contososaspolicy`. The application group policies are also defined in the ARM template. 
 
 
 ```json
@@ -75,6 +136,23 @@ The following example shows how to create an application group using an ARM temp
 	}
 }
 ```
+
+## Apply throttling policies
+You can add zero or more policies when you create an application group or to an existing application group. 
+
+For example, you can add throttling policies related to `IncomingMessages`, `IncomingBytes` or `OutgoingBytes` to the `contosoAppGroup`. These policies will get applied to event streaming workloads of client applications that use the SAS policy `contososaspolicy`. 
+
+
+## Publish or consume events 
+Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. For that, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
+
+> [!NOTE]
+> When your client applications are throttled, you should experience a slowness in publishing or consuming data. 
+
+## Enable or disable application groups 
+You can prevent client applications accessing your Event Hubs namespace by disabling the application group that contains those applications. When the application group is disabled, client applications won't be able to publish or consume data. Any established connections from client applications of that application group will also be terminated. 
+
+
 
 ## Next steps
 For conceptual information on application groups, see [Resource governance with application groups](resource-governance-overview.md). 
