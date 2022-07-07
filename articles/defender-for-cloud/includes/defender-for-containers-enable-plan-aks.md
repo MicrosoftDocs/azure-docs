@@ -193,17 +193,19 @@ To install the 'SecurityProfile' on an existing cluster with Resource Manager:
 ```
 { 
     "type": "Microsoft.ContainerService/managedClusters", 
-    "apiVersion": "2021-07-01", 
+    "apiVersion": "2022-06-01", 
     "name": "string", 
     "location": "string",
     "properties": {
         …
         "securityProfile": { 
-            "azureDefender": { 
-                "enabled": true, 
-                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId "
+            "defender": { 
+                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId",
+                "securityMonitoring": {
+                    "enabled": true
+                }
             }
-        },
+        }
     }
 }
 ```

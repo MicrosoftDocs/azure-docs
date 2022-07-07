@@ -40,14 +40,14 @@ Request body:
   "location": "{{Location}}",
   "properties": {
     "securityProfile": {
-        "defender": {
-          "securityMonitoring": {
-          "enabled": false
-          }
+            "defender": {
+                "securityMonitoring": {
+                    "enabled": false
+                }
+            }
         }
-      }
     }
-  }
+}
 ```
 
 Request body parameters:
@@ -93,16 +93,18 @@ The relevant template and parameters to remove the Defender profile from AKS are
 ```json
 { 
     "type": "Microsoft.ContainerService/managedClusters", 
-    "apiVersion": "2021-07-01", 
+    "apiVersion": "2022-06-01", 
     "name": "string", 
     "location": "string",
     "properties": {
         …
         "securityProfile": { 
-            "azureDefender": { 
-                "enabled": false
+            "defender": { 
+                "securityMonitoring": {
+                    "enabled": false
+                }
             }
-        },
+        }
     }
 }
 ```
