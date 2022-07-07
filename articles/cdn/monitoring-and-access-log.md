@@ -87,7 +87,7 @@ Retention data is defined by the **-RetentionInDays** option in the command.
     $diagname = <your-diagnostic-setting-name>
     $days = '30'
 
-    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile
+    $cdn = Get-AzCdnProfile -ResourceGroupName $rsg -ProfileName $cdnprofile
 
     $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
 
