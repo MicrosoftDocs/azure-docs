@@ -12,9 +12,9 @@ ms.date: 07/05/2022
 
 # Workbook parameters
 
-Parameters allow you to collect input from the consumers and reference it in other parts of the workbook, usually to scope the result set or setting the right visual. It's a key capability that allows authors to build interactive reports and experiences.
+By using parameters, you can collect input from consumers and reference it in other parts of a workbook. It's usually used to scope the result set or set the right visual. You can build interactive reports and experiences by using this key capability.
 
-Workbooks allow you to control how your parameter controls are presented to consumers: text box versus dropdown, single- versus multi-select, and values from text, JSON, KQL, or Azure Resource Graph.
+When you use workbooks, you can control how your parameter controls are presented to consumers. They can be text box versus dropdown list, single- versus multi-select, and values from text, JSON, KQL, or Azure Resource Graph.
 
 Supported parameter types include:
 
@@ -31,14 +31,14 @@ Supported parameter types include:
 
 ## Reference a parameter
 
-You can reference parameters values from other parts of workbooks either by using bindings or value expansions.
+You can reference parameter values from other parts of workbooks either by using bindings or value expansions.
 
 ### Reference a parameter with bindings
 
 This example shows how to reference a time range parameter with bindings:
 
 1. Add a query control to the workbook, and select an Application Insights resource.
-1. Open the **Time Range** dropdown and select the **Time Range** option from the **Parameters** section at the bottom:
+1. Open the **Time Range** dropdown list and select the **Time Range** option from the **Parameters** section at the bottom:
    - This option binds the time range parameter to the time range of the chart.
    - The time scope of the sample query is now **Last 24 hours**.
 1. Run the query to see the results.
@@ -251,7 +251,7 @@ Whenever a time range is brushed in this chart, it also updates the **timerange*
    
  1. After brushing:
 
-    - The time range specified by the time brush is set by this step. It overrides the global value. The **timerange** dropdown now displays that custom time range.
+    - The time range specified by the time brush is set by this step. It overrides the global value. The **timerange** dropdown list now displays that custom time range.
     - Because the global value at the top has changed, and because this chart depends on **timerange** as an input, the time range of the query used in the chart also updates. As a result, the query and the chart will update.
      - Any other steps in the workbook that depend on **timerange** will also update.
 

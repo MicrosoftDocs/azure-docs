@@ -108,7 +108,7 @@ For example, you can query Azure Resource Health to help you view any service pr
 
 You can collect input from consumers and reference it in other parts of the workbook by using parameters. You can use parameters to scope the result set or set the right visual. Parameters help you build interactive reports and experiences.
 
-You can control how your parameter controls are presented to consumers with workbooks. Examples include text box versus dropdown, single- versus multi-select, or values from text, JSON, KQL, or Azure Resource Graph.
+You can control how your parameter controls are presented to consumers with workbooks. Examples include text box versus dropdown list, single- versus multi-select, or values from text, JSON, KQL, or Azure Resource Graph.
 
 ### Add a parameter to an Azure workbook
 
@@ -368,7 +368,7 @@ To turn a larger template into multiple subtemplates:
 1. Create a copy of the shared parameters component. Then use **move into group** to move the copy into the group created in step 1. This parameter allows the subtemplate to work independently of the outer template and is merged out when it's loaded inside the outer template.
     
     > [!NOTE]
-    > Subtemplates don't technically need to have the parameters that get merged out if you never plan on the subtemplates being visible by themselves. If the sub-templates don't have the parameters, they'll be hard to edit or debug if you need to do so later.
+    > Subtemplates don't technically need to have the parameters that get merged out if you never plan on the subtemplates being visible by themselves. If the subtemplates don't have the parameters, they'll be hard to edit or debug if you need to do so later.
 
 1. Move each component in the workbook you want to be in the subtemplate into the group created in step 1.
 1. If the individual components moved in step 3 had conditional visibilities, those visibilities will become the visibility of the outer group (like used in tabs). Remove them from the components inside the group and add that visibility setting to the group itself. Save here to avoid losing changes, or export and save a copy of the JSON content.

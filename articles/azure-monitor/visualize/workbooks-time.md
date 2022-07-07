@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor workbooks time parameters 
+title: Azure Monitor workbook time parameters 
 description: Learn how to set time parameters to allow users to set the time context of analysis. The time parameters are used by almost all reports.
 services: azure-monitor
 manager: carmonm
@@ -12,7 +12,7 @@ ms.date: 07/05/2022
 
 # Workbook time parameters
 
-With time parameters, you can set the time context of analysis, which is used by almost all reports. Time parameters are relatively simple to set up and use. You can use them to specify the time ranges to show in the dropdown. You also have an option for custom time ranges.
+With time parameters, you can set the time context of analysis, which is used by almost all reports. Time parameters are simple to set up and use. You can use them to specify the time ranges to show in a dropdown list. You can also create custom time ranges.
 
 ## Create a time parameter
 
@@ -34,12 +34,12 @@ The workbook in read mode:
 
 ## Reference a time parameter
 
-Review the time parameter options.
+You can reference time parameters.
 
 ### Via bindings
 
 1. Add a query control to the workbook and select an Application Insights resource.
-1. Most workbook controls support a **Time Range** scope picker. Open the **Time Range** dropdown and select the `{TimeRange}` in the **Time Range Parameters** group at the bottom:
+1. Most workbook controls support a **Time Range** scope picker. Open the **Time Range** dropdown list and select the `{TimeRange}` in the **Time Range Parameters** group at the bottom:
 
    * This control binds the time range parameter to the time range of the chart.
    * The time scope of the sample query is now **Last 24 hours**.
@@ -88,4 +88,4 @@ requests
 
 ## Next steps
 
- - [Getting started with Azure Workbooks](workbooks-getting-started.md).
+[Getting started with Azure Workbooks](workbooks-getting-started.md)
