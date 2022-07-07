@@ -2,7 +2,7 @@
 title: Resource management fundamentals in Azure Active Directory 
 description: Introduction to resource management in Azure Active Directory.
 services: active-directory
-author: gargi.sinha
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
@@ -49,7 +49,7 @@ Before any resource management request can be executed by Resource Manager, a se
 
 * **Valid user check** - The user requesting to manage the resource must have an account in the Azure AD tenant associated with the subscription of the managed resource.
 
-* **User permission check** - Permissions are assigned to users using [role-based access control (RBAC)](../../role-based-access-control.md). An RBAC role specifies a set of permissions a user may take on a specific resource. RBAC helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+* **User permission check** - Permissions are assigned to users using [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). An RBAC role specifies a set of permissions a user may take on a specific resource. RBAC helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 * **Azure policy check** - [Azure policies](../../governance/policy/overview.md) specify the operations allowed or explicitly denied for a specific resource. For example, a policy can specify that users are only allowed (or not allowed) to deploy a specific type of virtual machine.
 
