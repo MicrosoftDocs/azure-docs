@@ -36,7 +36,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * Bring your own (BYO) Azure Key Vault from another tenant.
 * Change Azure Key Vault model (public, private) after KMS is enabled.
 
-KMS supports [public key vault](Enable KMS with public key vault) and [public key vault](Enable KMS with private key vault) now. 
+KMS supports [public key vault](Enable KMS with public key vault) and [private key vault](Enable KMS with private key vault) now. 
 
 ## Enable KMS with public key vault
 
