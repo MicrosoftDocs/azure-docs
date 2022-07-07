@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 07/07/2022
 ms.author: jasteppe
 ---
 
@@ -47,7 +47,7 @@ The normalized data model has a few required properties that must be found and e
 
 Below are conceptual examples of what happens during normalization and transformation process within the MedTech service:
 
-:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
 :::image type="content" source="media/concepts-iot-mapping-templates/normalization-example.png" alt-text="IoT data normalization flow example2" lightbox="media/concepts-iot-mapping-templates/normalization-example.png":::
 
@@ -98,4 +98,4 @@ In this article, you learned how to use Device mappings. To learn how to use FHI
 >[!div class="nextstepaction"]
 >[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
