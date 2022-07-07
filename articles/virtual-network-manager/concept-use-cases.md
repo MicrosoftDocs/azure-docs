@@ -32,7 +32,7 @@ When a [mesh topology](concept-connectivity-configuration.md#mesh-network-topolo
 ### Hub and spoke topology with direct connectivity
 This topology combines the two above topologies. It's recommended when you have common central infrastructure in the hub, and you want direct communication between all spokes. [Direct connectivity](concept-connectivity-configuration.md#direct-connectivity) helps you reduce the latency caused by extra network hops when going through a hub.
 
-### Maintaining topology
+### Maintaining virtual network topology
 AVNM automatically maintains the desired topology you defined in the connectivity configuration when changes are made to your infrastructure. For example, when you add new spoke to the topology, AVNM can handle the changes necessary to create the connectivity to the spoke and its virtual networks.
 
 
