@@ -48,5 +48,5 @@ The IDP initiated feature exposes two settings for each application.  
 
 ## Next steps
 
-- To explore the claims mapping policy in graph see [Claims mapping policy](https://docs.microsoft.com/graph/api/resources/claimsMappingPolicy?view=graph-rest-1.0)  
+- To explore the claims mapping policy in graph see [Claims mapping policy](/graph/api/resources/claimsMappingPolicy?view=graph-rest-1.0)  
 - To learn more about how to configure this policy see [Customize app SAML token claims](active-directory-saml-claims-customization.md)
