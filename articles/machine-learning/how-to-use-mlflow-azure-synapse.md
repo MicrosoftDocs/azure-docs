@@ -28,7 +28,7 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 
 ## Install libraries
 
-To install libraries on you dedicated cluster in Azure Synapse Analytics:
+To install libraries on your dedicated cluster in Azure Synapse Analytics:
 
 1. Create a `requirements.txt` file with the packages your experiments requires, but making sure it also includes the following packages:
 
