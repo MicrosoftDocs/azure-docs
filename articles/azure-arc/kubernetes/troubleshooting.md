@@ -457,7 +457,7 @@ If your cluster is behind an outbound proxy or firewall, verify that websocket c
 
 ### Cluster Connect feature disabled
 
-If the Cluster Connect feature is disabled on the cluster, then `az connectedk8s proxy` will fail to establish a session with the cluster.
+If the `clusterconnect-agent` and `kube-aad-proxy` pods are missing, then the cluster connect feature is likely disabled on the cluster, and `az connectedk8s proxy` will fail to establish a session with the cluster.
 
 ```azurecli
 az connectedk8s proxy -n AzureArcTest -g AzureArcTest
