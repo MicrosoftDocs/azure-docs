@@ -31,7 +31,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md",
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/overview",
             "redirect_document_id": true
           },
