@@ -55,7 +55,28 @@ The piloting scenario involves the existence of both Azure AD Connect and Azure 
 
 For an example of this scenario see [Tutorial: Pilot Azure AD Connect cloud sync in an existing synced AD forest](tutorial-pilot-aadc-aadccp.md)
 
+## Merging objects from disconnected sources
+![Diagram for merging objects from disconnected sources](media/plan-cloud-provisioning-topologies/attributes-multiple-sources.png)
+In this scenario, the attributes of a user are contributed to by two disconnected Active Directory forests. 
 
+An example would be:
+
+ - one forest (1) contains most of the attributes
+ - a second forest (2) contains a few attributes
+
+ Since the second forest does not have network connectivity to the Azure AD Connect server, the object cannot be merged through Azure AD Connect. But when deploying Cloud Sync in the second forest, the attribute value can be retrieved from the second forest and merged with the object in Azure AD that is already synced by Azure AD Connect. 
+
+This is an advanced configuration and there are a few caveats to this topology: 
+
+ 1. You must use `msdsConsistencyGuid` as the source anchor in the Cloud Sync configuration.
+ 2. The `msdsConsistencyGuid` of the user object in the second forest must match that of the corresponding object in Azure AD.
+ 3. You must populate the `UserPrincipalName` attribute and the `Alias` attribute in the second forest and it must match the ones that are synced from the first forest. 
+ 4. You must remove all attributes from the attribute mapping in the Cloud Sync configuration that do not have a value or may have a different value in the second forest – you cannot have overlapping attribute mappings between the first forest and the second one. 
+ 5. If there is no matching object in the first forest for an object that is synced from the second forest then Cloud Sync will still create the object in Azure AD, and it will only have the attributes that are defined in the mapping configuration of Cloud Sync for the second forest. 
+ 6. If you delete the object from the second forest, it will be temporarily soft deleted in Azure AD. It will be restored automatically after the next Azure AD Connect sync cycle.  
+ 7. If you delete the object from the first forest, it will be soft deleted from Azure AD and will not be restored unless a change is made to the object in the second forest. After 30 days the object will be hard deleted from Azure AD and if a change is made to the object in the second forest it will be created as a new object in Azure AD. 
+
+ 
 
 ## Next steps 
 
