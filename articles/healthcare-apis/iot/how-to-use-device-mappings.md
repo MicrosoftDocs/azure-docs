@@ -47,9 +47,9 @@ The normalized data model has a few required properties that must be found and e
 
 Below are conceptual examples of what happens during normalization and transformation process within the MedTech service:
 
-:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow example one." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow example zoomed out." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
-:::image type="content" source="media/concepts-iot-mapping-templates/normalization-example.png" alt-text="Diagram of IoT data normalization flow example two." lightbox="media/concepts-iot-mapping-templates/normalization-example.png":::
+:::image type="content" source="media/concepts-iot-mapping-templates/normalization-example.png" alt-text="Diagram of IoT data normalization flow example zoomed in." lightbox="media/concepts-iot-mapping-templates/normalization-example.png":::
 
 The content payload itself is an Azure Event Hubs message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hubs framework with entries automatically populated by it.
 
