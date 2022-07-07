@@ -109,7 +109,7 @@ The DCR is defined by the options in the following table.
 | Option | Description |
 |:---|:---|
 | Guest performance | Specifies whether to collect performance data from the guest operating system. This is required for all machines. |
-| Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the map feature in VM insights. This is optional and enables the [VM insights map feature](vminsights-maps.md) for the machine. |
+| Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the [map feature in VM insights](vminsights-maps.md). This is optional and enables the [VM insights map feature](vminsights-maps.md) for the machine. |
 | Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights will be listed. |
 
 
