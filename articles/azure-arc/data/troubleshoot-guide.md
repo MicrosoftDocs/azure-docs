@@ -7,14 +7,13 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 05/27/2022
+ms.date: 07/07/2022
 ms.topic: how-to
 ---
 
 # Troubleshooting resources
 
 This article identifies troubleshooting resources for Azure Arc-enabled data services.
-
 
 ## Logs Upload related errors
 
@@ -56,7 +55,6 @@ If you configured automatic upload of metrics, in the direct connected mode and 
 
 To resolve above error, retrieve the MSI for the Azure Arc data controller extension, and grant the required roles as described in [Upload metrics](upload-metrics.md).
 
-
 ## Usage upload related errors in direct connected mode
 
 If you deployed your Azure Arc data controller in the direct connected mode the permissions needed to upload your usage information are automatically granted for the Azure Arc data controller extension MSI. If the automatic upload process runs into permissions related issues you might see an error in your logs as follows:
@@ -69,7 +67,7 @@ identified that your data controller stopped uploading usage data to Azure. The 
 
 To resolve the permissions issue, retrieve the MSI and grant the required roles as described in [Upload metrics](upload-metrics.md)).
 
-## Upgrades 
+## Upgrades
 
 #### Incorrect image tag 
 
@@ -95,7 +93,7 @@ Failed to pull image "<registry>/<repository>/arc-bootstrapper:<incorrect image 
 
 To resolve, reference the [Version log](data\version-log.md) for the correct image tag. Re-run the upgrade command with the correct image tag.
 
-### Unable to connect to registry or repository 
+### Unable to connect to registry or repository
 
 If you are trying to upgrade and the upgrade job has not produced an error but runs for longer than fifteen minutes, you can view the progress of the upgrade by watching the pods. Run 
 
