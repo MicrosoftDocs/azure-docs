@@ -24,7 +24,7 @@ To copy an existing VM restore point from one region to another, your first step
 
 ### Step 2: Create the destination VM restore point
 
-After the restore point collection is created, trigger the creation of a restore point in the target restore point collection. Ensure that you've referenced the restore point in the source region that you want to copy. Ensure also that you've specified the source restore point's identifier in the request body. The source VM's location will be inferred from the target restore point collection in which the restore point is being created.
+After the restore point collection is created, trigger the creation of a restore point in the target restore point collection. Ensure that you've referenced the restore point in the source region that you want to copy. Ensure also that you've specified the source restore point's identifier in the request body. The source VM's location is inferred from the target restore point collection in which the restore point is being created.
 Refer to the [Restore Points - Create](/rest/api/compute/restore-points/create) API documentation to create a `RestorePoint`.
 
 ### Step 3: Track copy status
@@ -35,7 +35,7 @@ To track the status of the copy operation, follow the guidance within the [Get r
 
 Creation of a cross-region VM restore point is a long running operation. The VM restore point can be used to restore a VM only after the operation is completed for all disk restore points. To track the operation's status, call the [Restore Point - Get](/rest/api/compute/restore-points/get) API on the target VM restore point and include the `instanceView` parameter. The return will include the percentage of data that has been copied at the time of the request.
 
-During restore point creation, the `ProvisioningState` will appear as `Creating` in the response. If creation fails, `ProvisioningState` will be set to `Failed`.
+During restore point creation, the `ProvisioningState` will appear as `Creating` in the response. If creation fails, `ProvisioningState` is set to `Failed`.
 
 ## Create a disk using disk restore points
 
@@ -51,11 +51,11 @@ After you have the list of disk restore point IDs, you can use the [Disks - Crea
 
 ## Restore a VM with a restore point
 
-To restore a full VM from a VM restore point, first restore individual disks from each disk restore point. This process is described in the [Create a disk](#create-a-disk-using-disk-restore-points) section. After all disks are restored, create a new VM and attach the restored disks to the new VM.
+To restore a full VM from a VM restore point, you must restore individual disks from each disk restore point. This process is described in the [Create a disk](#create-a-disk-using-disk-restore-points) section. After you restore all the disks, create a new VM and attach the restored disks to the new VM.
 
 ## Get a shared access signature for a disk
 
-To create a shared access signature (SAS) for a disk within a VM restore point, pass the ID of the disk restore points via the `BeginGetAccess` API. If no active SAS exists on the restore point snapshot, a new SAS will be created. The new SAS URL will be returned in the response. If an active SAS already exists, the SAS duration will be extended, and the pre-existing SAS URL will be returned in the response.
+To create a Shared Access Signature (SAS) for a disk within a VM restore point, pass the ID of the disk restore points via the `BeginGetAccess` API. If no active SAS exists on the restore point snapshot, a new SAS is created. The new SAS URL is returned in the response. If an active SAS already exists, the SAS duration is extended, and the pre-existing SAS URL is returned in the response.
 
 For more information about granting access to snapshots, see the [Grant Access](/rest/api/compute/snapshots/grant-access) API documentation.
 
