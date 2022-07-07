@@ -1,6 +1,6 @@
 ---
-title: Overview about built-in connectors in Azure Logic Apps
-description: Learn about built-in connectors that run natively to create automated integration workflows in Azure Logic Apps.
+title: Built-in connector overview
+description: Learn about built-in connectors that run natively in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -24,22 +24,46 @@ This article provides a general overview about built-in connectors in Consumptio
 
 ## Built-in connectors in Consumption versus Standard
 
-The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard logic app workflows. An asterisk (**\***) marks [service provider-based built-in connectors](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation).
+The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard logic app workflows. For Standard workflows, an asterisk (**\***) marks [built-in connectors based on the *service provider* model](#service-provider-interface-implementation), which is described in more detail later.
 
 | Consumption | Standard |
 |-------------|----------|
 | Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | Azure Blob* <br>Azure Cosmos DB* <br>Azure Functions <br>Azure Queue* <br>Azure Table Storage* <br>Control <br>Data Operations <br>Date Time <br>DB2* <br>Event Hubs* <br>Flat File <br>FTP* <br>HTTP <br>IBM Host File* <br>Inline Code <br>Liquid operations <br>MQ* <br>Request <br>Schedule <br>Service Bus* <br>SFTP* <br>SQL Server* <br>Variables <br>Workflow operations <br>XML operations |
 |||
 
+<a name="service-provider-interface-implementation"></a>
+
+## Service provider-based built-in connectors
+
+In Standard logic app workflows, a built-in connector that has the following attributes is informally known as a *service provider*:
+
+* Is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
+
+* Provides access from a Standard logic app workflow to a service, such as Azure Blob Storage, Azure Service Bus, Azure Event Hubs, SFTP, and SQL Server.
+
+  Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity.
+
+* Runs in the same process as the redesigned Azure Logic Apps runtime.
+
+These service provider-based built-in connectors are available alongside their [managed connector versions](managed.md).
+
+In contrast, a built-in connector that's *not a service provider* has the following attributes:
+
+* Isn't based on the Azure Functions extensibility model.
+
+* Is directly implemented as a job within the Azure Logic Apps runtime, such as Schedule, HTTP, Request, and XML operations.
+
 <a name="custom-built-in"></a>
 
 ## Custom built-in connectors
 
-For Standard logic apps, if a built-connector isn't available for your scenario, you can create your own built-in connector. You can use the same [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) that's used by service provider-based built-in connectors, such as SQL Server, Service Bus, Blob Storage, Event Hubs, and Blob Storage. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps.
+For Standard logic apps, you can create your own built-in connector with the same [built-in connector extensibility model](../logic-apps/custom-connector-overview.md#built-in-connector-extensibility-model) that's used by service provider-based built-in connectors, such as Azure Blob, Azure Event Hubs, Azure Service Bus, SQL Server, and more. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps.
+
+For Consumption logic apps, you can't create your own built-in connectors, but you create your own managed connectors.
 
 For more information, review the following documentation:
 
-* [Custom connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
+* [Custom connectors in Azure Logic Apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 * [Create custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)
 
 <a name="general-built-in"></a>
@@ -120,19 +144,19 @@ You can use the following built-in connectors to perform general tasks, for exam
 :::row-end:::
 :::row:::
     :::column:::
-        [![FTP icon][ftp-icon]][ftp-doc]
+        ![FTP icon][ftp-icon]
         \
         \
-        [**FTP**][ftp-doc]<br>(*Standard logic app only*)
+        **FTP**<br>(*Standard logic app only*)
         \
         \
         Connect to FTP or FTPS servers you can access from the internet so that you can work with your files and folders.
     :::column-end:::
     :::column:::
-        [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        ![SFTP-SSH icon][sftp-ssh-icon]
         \
         \
-        [**SFTP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
+        **SFTP-SSH**<br>(*Standard logic app only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
@@ -145,9 +169,9 @@ You can use the following built-in connectors to perform general tasks, for exam
 
 <a name="service-built-in"></a>
 
-## Service-based built-in connectors
+## Built-in connectors for specific services and systems
 
-Connectors for some services provide both built-in connectors and managed connectors, which might differ across these versions.
+You can use the following built-in connectors to access specific services and systems. In Standard logic app workflows, some of these built-in connectors are also informally known as *service providers*, which can differ from their managed connector counterparts in some ways.
 
 :::row:::
     :::column:::
@@ -172,23 +196,34 @@ Connectors for some services provide both built-in connectors and managed connec
         When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
-        [![Azure Blob icon icon][azure-blob-storage-icon]][azure-app-services-doc]
+        ![Azure Blob icon][azure-blob-storage-icon]
         \
         \
-        [**Azure Blob**][azure-blob-storage-doc]<br>(*Standard logic app only*)
+        **Azure Blob**<br>(*Standard logic app only*)
         \
         \
         Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
     :::column:::
-        [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        ![Azure Cosmos DB icon][azure-cosmos-db-icon]
         \
         \
-        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Standard logic app only*)
+        **Azure Cosmos DB**<br>(*Standard logic app only*)
         \
         \
         Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
     :::column-end:::
+    :::column:::
+        ![Azure Event Hubs icon][azure-event-hubs-icon]
+        \
+        \
+        **Azure Event Hubs**<br>(*Standard logic app only*)
+        \
+        \
+        Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
+    :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
         \
@@ -198,49 +233,38 @@ Connectors for some services provide both built-in connectors and managed connec
         \
         Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
-        [**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption logic app*) <br><br>-or-<br><br>[**Workflow operations**][nested-logic-app-doc]<br>(*Standard logic app*)
+        [**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption logic app*) <br><br>-or-<br><br>**Workflow operations**<br>(*Standard logic app*)
         \
         \
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
     :::column:::
-        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
+        ![Azure Service Bus icon][azure-service-bus-icon]
         \
         \
-        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard logic app only*)
+        **Azure Service Bus**<br>(*Standard logic app only*)
         \
         \
         Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
     :::column-end:::
     :::column:::
-        [![Azure Table Storage icon][azure-table-storage-icon]][azure-table-storage-doc]
+        ![Azure Table Storage icon][azure-table-storage-icon]
         \
         \
-        [**Azure Table Storage**][azure-table-storage-doc]<br>(*Standard logic app only*)
+        **Azure Table Storage**<br>(*Standard logic app only*)
         \
         \
         Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
     :::column:::
-        [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
+        ![IBM DB2 icon][ibm-db2-icon]
         \
         \
-        [**Event Hubs**][azure-event-hubs-doc]<br>(*Standard logic app only*)
-        \
-        \
-        Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
-    :::column-end:::
-    :::column:::
-        [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
-        \
-        \
-        [**DB2**][ibm-db2-doc]<br>(*Standard logic app only*)
+        **DB2**<br>(*Standard logic app only*)
         \
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
@@ -257,10 +281,10 @@ Connectors for some services provide both built-in connectors and managed connec
         Connect to IBM Host File and generate or parse contents.
     :::column-end:::
     :::column:::
-        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
+        ![IBM MQ icon][ibm-mq-icon]
         \
         \
-        [**MQ**][ibm-mq-doc]<br>(*Standard logic app only*)
+        **IBM MQ**<br>(*Standard logic app only*)
         \
         \
         Connect to IBM MQ on-premises or in Azure to send and receive messages.

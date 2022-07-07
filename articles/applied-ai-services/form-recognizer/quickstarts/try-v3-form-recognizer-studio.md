@@ -39,7 +39,7 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 * [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extract text and key information from driver licenses and international passports.
 * [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extract text and key information from business cards.
 
-After you've completed the prerequisites, navigate to [Form Recognizer Studio General Documents](https://formrecognizer.appliedai.azure.com). 
+After you've completed the prerequisites, navigate to [Form Recognizer Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document). 
 
 In the following example, we use the General Documents feature. The steps to use other pre-trained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 
@@ -49,7 +49,7 @@ In the following example, we use the General Documents feature. The steps to use
 
 1. This step is a one-time process unless you've already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
 
-1. Select the Analyze command to run analysis on the sample document or try your document by using the Add command.
+1. Select the Analyze button to run analysis on the sample document or try your document by using the Add command.
 
 1. Use the controls at the bottom of the screen to zoom in and out and rotate the document view.
 
@@ -80,7 +80,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 1. Start by creating a new CORS entry in the Blob service.
 
-1. Set the **Allowed origins** to **<https://formrecognizer.appliedai.azure.com>**.
+1. Set the **Allowed origins** to `https://formrecognizer.appliedai.azure.com`.
 
    :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 

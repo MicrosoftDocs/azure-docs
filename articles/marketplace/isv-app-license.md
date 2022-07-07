@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers 
-ms.date: 05/25/2022
+ms.date: 06/23/2022
 ---
 
 # ISV app license management for Dynamics 365 apps on Dataverse and Power Apps
