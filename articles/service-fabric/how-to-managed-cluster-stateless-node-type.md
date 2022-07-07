@@ -85,7 +85,7 @@ Sample templates are available: [Service Fabric Stateless Node types template](h
 ## Enabling Spot VMs with Try & Restore
 
 This configuration enables the platform to automatically try to restore the evicted Spot VMs. Refer to the VMSS doc for [details](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot#try--restore)
-This configuration can only be enabled on new Spot nodetypes by specifying the [spotRestoreTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.spotrestorepolicy.restoretimeout?view=azure-dotnet), which is an ISO 8601 time duration. The platform will try to restore the VMs untill this timeout.
+This configuration can only be enabled on new Spot nodetypes by specifying the [spotRestoreTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.spotrestorepolicy.restoretimeout?view=azure-dotnet), which is an ISO 8601 time duration. The platform will try to restore the VMs untill this timeout, after eviction.
 
 ```json
 {
