@@ -40,7 +40,7 @@ Select the **Review + create** button once the fields are filled out.
 
 After the validation has passed, select the **Create** button to begin the deployment.
 
-:::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png" alt-text="Azure portal page displaying validation box and Create button for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png"::: 
+:::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png" alt-text="Screenshot of Azure portal page displaying validation box and Create button for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png"::: 
 
 After a successful deployment, there will be remaining configurations that will need to be completed by you for a fully functional MedTech service:
  * Provide a working device mapping file. For more information, see [How to use device mappings](how-to-use-device-mappings.md).
