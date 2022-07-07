@@ -174,4 +174,4 @@ In this tutorial, you used Fortanix tools to convert your application image to r
 
 To learn more about Azure confidential computing offerings, see [Azure confidential computing overview](overview.md).
 
-You can also learn how to complete similar tasks by using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).
+You can also learn how to complete similar tasks by using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview) and [Scone](https://sconedocs.github.io).

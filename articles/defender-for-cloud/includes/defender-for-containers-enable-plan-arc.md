@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 07/06/2022
 
 ---
 ## Enable the plan
@@ -21,9 +21,9 @@ ms.date: 05/12/2022
 
 1. By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace.
 
-    If you want to disable auto provisioning during the onboading process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable auto provisioning for each component.
+    If you want to disable auto provisioning during the onboarding process, select **Edit configuration** for the **Containers** plan. The Advanced options will appear, and you can disable auto provisioning for each component.
 
-   In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
+   In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
@@ -79,7 +79,7 @@ A dedicated Defender for Cloud recommendation provides:
 
 ### Use Azure CLI to deploy the Defender extension
 
-1. Log in to Azure:
+1. Sign in to Azure:
 
     ```azurecli
     az login
