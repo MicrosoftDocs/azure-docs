@@ -53,6 +53,8 @@ landingContent:
             url: howto-licensing.md
           - text: Update the Spacecraft TLE
             url: update-tle.md
+          - text: Integrate partner network ground stations
+            url: partner-network-integration.md   
 
   # Card
   - title: Azure Space Partner Community

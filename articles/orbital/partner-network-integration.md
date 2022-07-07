@@ -11,13 +11,14 @@ ms.author: apoorvanori
 
 # Integrate partner network ground stations into your Azure Orbital GSaaS solution
 
+This article describes how to integrate partner network ground stations.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active contract with the partner network(s) you wish to integrate with Azure Orbital.
 - KSAT Lite
 - [Viasat RTE](https://azuremarketplace.microsoft.com/marketplace/apps/viasatinc1628707641775.viasat-real-time-earth?tab=overview)
-
 
 ## Request integration resource information
 
@@ -36,4 +37,4 @@ ms.author: apoorvanori
 
 - [Configure a contact profile](./contact-profile.md)
 - [Learn more about the contact profile object](./concepts-contact-profile.md)
-- [SOverview of the Azure Space Partner Community](./space-partner-program-overview.md)
+- [Overview of the Azure Space Partner Community](./space-partner-program-overview.md)
