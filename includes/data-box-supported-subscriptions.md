@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: alkohli 
+ms.author: alkohli
 ---
 
 Before you begin, make sure that:
