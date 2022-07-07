@@ -24,9 +24,9 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
 | Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com<br/><br/> || 443 |
-| Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/>*Example for {region}: westus2*<br/><br/> |20.49.111.32/29<br/>13.73.253.112/29| 443 |
+| Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/><br/>*Example for {region}: westus2<br/>Find all supported regions in [this table](#addresses-grouped-by-region-azure-public-cloud).*|20.49.111.32/29<br/>13.73.253.112/29| 443 |
 
-Find all supported regions in the [Addresses grouped by region (Azure public cloud)](#addresses-grouped-by-region-azure-public-cloud) table.
+
 
 > [!NOTE]
 > These addresses are listed by using Classless Interdomain Routing notation. As an example, an entry like `51.144.56.112/28` is equivalent to 16 IPs that start at `51.144.56.112` and end at `51.144.56.127`.
@@ -86,8 +86,7 @@ Download [China cloud IP addresses](https://www.microsoft.com/download/details.a
 #### Addresses grouped by region (Azure public cloud)
 
 > [!NOTE]
-> Add the subdomain of the corresponding region to the Live Metrics URL from the [Outgoing ports](#outgoing-ports) table.<br/>
-> Example: eastasia.livediagnostics.monitor.azure.com
+> Add the subdomain of the corresponding region to the Live Metrics URL from the [Outgoing ports](#outgoing-ports) table.
 
 | Continent/Country | Region | Subdomain | IP |
 | --- | --- | --- | --- |
