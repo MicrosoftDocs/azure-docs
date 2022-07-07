@@ -66,7 +66,7 @@ The sample code is made up of the following components. Add these components fro
 - [src/index.js](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/index.js) - The JavaScript entry point to your application. This JavaScript file:
   - Mounts the `App` as the root component into the *public/index.html* page's `<div id="root">` element. 
   - Initiates the MSAL `PublicClientApplication` library with the configuration defined in the *authConfig.js* file.  The MSAL React should be instantiated outside of the component tree to prevent it from being reinstantiated on re-renders. 
-  - After instantiation of the MSAL library, the JavaScript code passes the `msalInstance` as props to your application components. For example `<App instance={msalInstance} />`.
+  - After instantiation of the MSAL library, the JavaScript code passes the `msalInstance` as props to your application components. For example, `<App instance={msalInstance} />`.
 
 - [src/App.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/App.jsx) - Defines the **App** and **Pages** components: 
 

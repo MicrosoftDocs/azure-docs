@@ -108,7 +108,7 @@ This sample demonstrates how a React single-page application can use Azure AD B2
   git clone https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial
   ```
 
-In the sample folder, open the *3-Authorization-II/2-call-api-b2c/SPA* folder with Visual Studio Code. 
+Open the *3-Authorization-II/2-call-api-b2c/SPA* folder with Visual Studio Code. 
 
 ### 3.1 Configure the React sample
 
