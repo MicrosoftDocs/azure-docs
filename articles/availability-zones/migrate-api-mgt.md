@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure API Management instances to availab
 author: anaharris-ms
 ms.service: api-management
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 07/07/2022
 ms.author: anaharris
 ms.custom: references_regions
 
@@ -59,7 +59,7 @@ In this article, we'll take you through the different options for availability z
 
 There are no downtime requirements for any of the migration options.
 
-# Considerations
+## Considerations
 
 * Changes can take from 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
 
@@ -84,6 +84,9 @@ Use this option to migrate an existing location of your API Management instance 
 
 1.	Select **Apply**, and then select **Save**.
 
+     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance not injected in VNet" source ="media/migrate-api-mgt/option-one-not-injected-in-vnet.png":::
+    
+
 
 ## Option 2: Migrate existing location of API Management instance (stv1 platform), injected in  VNet
 
@@ -101,10 +104,12 @@ Use this option to migrate an existing location of your API Management instance 
 
 1.	Select the new subnet and new public IP address in the location. 
 
-5.	Select **Apply**, and then select **Save**.
+1.	Select **Apply**, and then select **Save**.
 
 
-### Option 3: Migrate existing location of API Management instance (stv2 platform), injected in VNet
+     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance injected in VNet" source ="media/migrate-api-mgt/option-two-injected-in-vnet.png":::
+
+## Option 3: Migrate existing location of API Management instance (stv2 platform), injected in VNet
 
 Use this option to migrate an existing location of your API Management instance to availability zones when it is currently injected (deployed) in a virtual network. The following steps are used when the API Management instance is already hosted on the stv2 platform.
 
@@ -122,8 +127,9 @@ Use this option to migrate an existing location of your API Management instance 
 
 1.	Select **Apply**, and then select **Save**.
 
+     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance (stv2 platform) injected in VNet" source ="media/migrate-api-mgt/option-three-stv2-injected-in-vnet.png":::
 
-### Option 4. Add new location for API Management instance (with or without VNet) with availability zones
+## Option 4. Add new location for API Management instance (with or without VNet) with availability zones
 
 Use this option to add a new location to your API Management instance and enable availability zones in that location. 
 
@@ -140,6 +146,8 @@ If your API Management instance is deployed in a virtual network in the primary 
 1. If your API Management instance is deployed in a [virtual network](api-management/api-management-using-with-vnet.md?tabs=stv2),select the virtual network, subnet, and public IP address that are available in the location. 
 
 1. Select **Add**, and then select **Save**.
+
+     :::image type="content" alt-text="Screenshot of how to add new location for API Management instance with or without VNet" source ="media/migrate-api-mgt/option-four-add-new-location.png":::
 
 ## Next steps
 
