@@ -44,7 +44,7 @@ To set up the AMA Migration Helper workbook in the Azure portal:
 
 1. Select the **Subscriptions** and **Workspaces** dropdowns to view relevant information.
 
-    :::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the Subscription and Workspace dropdowns and shows the Azure Virtual Machines tab, on which you can track which agent is deployed on each virtual machine.":::
+    :::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the Subscription and Workspace dropdowns and shows the Azure Virtual Machines tab, on which you can track which agent is deployed on each virtual machine.":::
 
 ## Installing and using DCR Config Generator (preview)
 Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) for configuration, whereas Log Analytics Agent inherits its configuration from Log Analytics workspaces. 
