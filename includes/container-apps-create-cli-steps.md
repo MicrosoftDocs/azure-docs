@@ -18,10 +18,10 @@ az login
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az login
 ```
-
+Connect-AzAccount
 ---
 
 Next, install the Azure Container Apps extension for the CLI.
@@ -35,7 +35,7 @@ az extension add --name containerapp --upgrade
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az extension add --name containerapp --upgrade
+Install-Module -Name Az.App
 ```
 
 ---
@@ -54,7 +54,7 @@ az provider register --namespace Microsoft.App
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az provider register --namespace Microsoft.App
+Register-AzResourceProvider -ProviderNamespace Microsoft.App
 ```
 
 ---
@@ -70,7 +70,7 @@ az provider register --namespace Microsoft.OperationalInsights
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az provider register --namespace Microsoft.OperationalInsights
+Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 ```
 
 ---
@@ -108,9 +108,7 @@ az group create \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az group create `
-  --name $RESOURCE_GROUP `
-  --location $LOCATION
+New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 ```
 
 ---
