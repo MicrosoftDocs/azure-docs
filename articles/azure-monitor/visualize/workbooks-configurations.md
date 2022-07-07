@@ -53,7 +53,7 @@ You can also choose to only export a parameter when a range is explicitly brushe
  - If this setting is unchecked (default), the parameter always has a value. When the parameter is not brushed, the value is the full time range displayed in the chart.
  - If this setting is checked, the parameter has no value before the user brushes the parameter, and is only set after a user brushes the parameter.
 
-## Brushing in a metrics chart
+### Brushing in a metrics chart
 
 When time brushing is enabled on a metrics chart, the user can "brush" a time by dragging the mouse on the time chart:
 
@@ -63,7 +63,7 @@ Once the brush has stopped, the metrics chart zooms in to that range, and export
 An icon in the toolbar in the upper right corner is active, to reset the time range back to its original, un-zoomed time range.
 
 
-## Brushing in a query chart
+### Brushing in a query chart
 
 When time brushing is enabled on a query chart, indicators appear that the user can drag, or the user can "brush" a range on the time chart:
 
