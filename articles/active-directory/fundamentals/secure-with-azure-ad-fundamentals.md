@@ -69,7 +69,7 @@ Non-production environments are commonly referred to as sandbox environments.
 
   * **Multi-tenant** applications allow identities from any Azure AD tenant to authenticate.
 
-* **Service principal object**. Although there are [exceptions](https://docs.microsoft.com/en-us/azure/marketplace/manage-aad-apps), application objects can be considered the *definition* of an application. Service principal objects can be considered an instance of an application. Service principals generally reference an application object, and one application object can be referenced by multiple service principals across directories.
+* **Service principal object**. Although there are [exceptions](https://docs.microsoft.com/azure/marketplace/manage-aad-apps), application objects can be considered the *definition* of an application. Service principal objects can be considered an instance of an application. Service principals generally reference an application object, and one application object can be referenced by multiple service principals across directories.
 
 **Service principal objects** are also directory identities that can perform tasks independently from human intervention. The service principal defines the access policy and permissions for a user or application in the Azure AD tenant. This mechanism enables core features such as authentication of the user or application during sign-in and authorization during resource access.
 
