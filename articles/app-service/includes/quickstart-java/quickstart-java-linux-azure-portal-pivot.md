@@ -57,7 +57,7 @@ To complete this quickstart you need:
 
 1. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
 
-    ![Screenshot of the Create a new fork page in GitHub for creating a new fork of agoncal/agoncal-application-petstore-ee7.](../../media/quickstart-java/fork-jboss-eap-sample-repo-agoncal-application-petstore-ee7.png)
+    ![Screenshot of the Create a new fork page in GitHub for creating a new fork of agoncal/agoncal-application-petstore-ee7.](../../media/quickstart-java/fork-details-jboss-eap-sample-repo-agoncal-application-petstore-ee7.png)
 
     >[!NOTE]
     > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/agoncal-application-petstore-ee7
