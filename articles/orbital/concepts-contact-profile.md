@@ -40,7 +40,7 @@ At the moment autotrack is disabled and autotracking options are not applied.
 
 A whole band, unique in direction, and unique in polarity is called a link. Channels, which are children under links, specify center frequency, bandwidth, and endpoints. Typically there's only one channel per link but some applications require multiple channels per link. Refer to the Ground Station manual for a full list of supported bands and antenna capabilities.
 
-You can specify an EIRP and G/T requirement for each link. EIRP applies to uplinks and G/T applies to downlinks. These parameters are not used currenlty but will be used in the future to ensure that antennas in the network can meet your requirements.
+You can specify an EIRP and G/T requirement for each link. EIRP applies to uplinks and G/T applies to downlinks. These parameters are not used currently but will be used in the future to ensure that antennas in the network can meet your requirements.
 
 You can give a name to each link and channel to keep track of these properties. Eventually these names will help links to other features such as real-time telemetry.
 
