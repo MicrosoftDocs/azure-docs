@@ -234,7 +234,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) or [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API to get information about the custom role. For more information, see the earlier [List custom roles](#list-custom-roles) section.
 
-1. Start with the following request. 
+1. Start with the following request:
 
     ```http
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
