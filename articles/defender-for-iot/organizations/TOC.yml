@@ -215,6 +215,7 @@
       - name: HPE ProLiant DL20/DL20 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
     - name: Production line
+      items:
       - name: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
       - name: Dell Edge 5200 (Rugged MIL-STD-810G)
