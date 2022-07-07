@@ -55,7 +55,7 @@ You can also pin this grid to a dashboard using the **Pin to dashboard** button 
 
 ## Capturing input to use in a query
 
-You may want to capture user input using drop down lists and use the selection in your queries. For example, you can have a drop down to accept a set of virtual machines and then filter your KQL to include just the selected machines. In most cases, this is as simple as including the parameter's value in the query: 
+You may want to capture user input using drop-down lists and use the selection in your queries. For example, you can have a drop-down to accept a set of virtual machines and then filter your KQL to include just the selected machines. In most cases, this is as simple as including the parameter's value in the query: 
 
 ```sql
     Perf
@@ -72,7 +72,7 @@ In more advanced scenarios, you may need to transform the parameter results befo
 }
 ```
 
-The following example shows how to enable this scenario: Let's say you want the values of the `OSFamily` and `ComplianceState` filters to come from drop downs in the workbook. The filter could include multiple values as in the `OsFamily` case above. It needs to also support the case where the user wants to include all dimension values, that is to say, with no filters.
+The following example shows how to enable this scenario: Let's say you want the values of the `OSFamily` and `ComplianceState` filters to come from drop-downs in the workbook. The filter could include multiple values as in the `OsFamily` case above. It needs to also support the case where the user wants to include all dimension values, that is to say, with no filters.
 
 ### Setup parameters
 
@@ -80,7 +80,7 @@ The following example shows how to enable this scenario: Let's say you want the 
 1. Select **Add parameter** to create a new parameter. Use the following settings:
     - Parameter name: `OsFilter`
     - Display name: `Operating system`
-    - Parameter type: `Drop down`
+    - Parameter type: `drop-down`
     - Allow multiple selections: `Checked`
     - Delimiter: `or` (with spaces before and after)
     - Quote with: `<empty>`
@@ -92,14 +92,14 @@ The following example shows how to enable this scenario: Let's say you want the 
             { "value": "OSFamily eq 'OS X'", "label": "OS X" }
         ]
         ```
-    - In the **Include in the drop down** section:
+    - In the **Include in the drop-down** section:
         - Select **All**
         - Select All Value: `OSFamily ne '#@?'`
     - Use the `Save` button in the toolbar to save this parameter. 
 1. Add another parameter with these settings:
     - Parameter name: `ComplianceStateFilter`
     - Display name: `Complaince State`
-    - Parameter type: `Drop down`
+    - Parameter type: `drop-down`
     - Allow multiple selections: `Checked`
     - Delimiter: `or` (with spaces before and after)
     - Quote with: `<empty>`
@@ -111,7 +111,7 @@ The following example shows how to enable this scenario: Let's say you want the 
             { "value": "ComplianceState eq 'Non-compliant'", "label": "Non compliant" }
         ]        
         ```
-    - In the **Include in the drop down** section:
+    - In the **Include in the drop-down** section:
         - Select **All**
         - Select All Value: `ComplianceState ne '#@?'`
     - Use the `Save` button in the toolbar to save this parameter. 
@@ -127,10 +127,10 @@ The following example shows how to enable this scenario: Let's say you want the 
 
 
 This screenshot shows the parameter settings:
-:::image type="content" source="media/workbooks-samples/workbooks-odata-parameters-settings.png" alt-text="Screenshot showing parameter settings for drop down lists with parameter values.":::
+:::image type="content" source="media/workbooks-samples/workbooks-odata-parameters-settings.png" alt-text="Screenshot showing parameter settings for drop-down lists with parameter values.":::
 
 ### Single Filter Value
-The simplest case is the selection of a single filter value in each of the dimensions. The drop down control uses Json input field's value as the parameter's value.
+The simplest case is the selection of a single filter value in each of the dimensions. The drop-down control uses Json input field's value as the parameter's value.
 
 ```json
 {
@@ -139,7 +139,7 @@ The simplest case is the selection of a single filter value in each of the dimen
 }
 ```
 
-:::image type="content" source="media/workbooks-samples/workbooks-odata-parameters-single-select.png" alt-text="Screenshot showing a drop down lists with parameter values and a single value selected.":::
+:::image type="content" source="media/workbooks-samples/workbooks-odata-parameters-single-select.png" alt-text="Screenshot showing a drop-down lists with parameter values and a single value selected.":::
 
 ### Multiple Filter Values
 If the user chooses multiple filter values (e.g. both Android and OS X operating systems), then parameters `Delimiter` and `Quote with` settings kicks in and produces this compound filter:
@@ -151,10 +151,10 @@ If the user chooses multiple filter values (e.g. both Android and OS X operating
 }
 ```
 
-:::image type="content" source="media/workbooks-samples/workbooks-odata-parameters-multi-select.png" alt-text="Screenshot showing a drop down lists with parameter values and multiple values selected.":::
+:::image type="content" source="media/workbooks-samples/workbooks-odata-parameters-multi-select.png" alt-text="Screenshot showing a drop-down lists with parameter values and multiple values selected.":::
 
 ### No Filter Case
-Another common case is having no filter for that dimension. This is equivalent to including all values of the dimensions as part of the result set. The way to enable it is by having an `All` option on the drop down and have it return a filter expression that always evaluates to `true` (e.g. _ComplianceState eq '#@?'_).
+Another common case is having no filter for that dimension. This is equivalent to including all values of the dimensions as part of the result set. The way to enable it is by having an `All` option on the drop-down and have it return a filter expression that always evaluates to `true` (e.g. _ComplianceState eq '#@?'_).
 
 ```json
 {
@@ -162,5 +162,5 @@ Another common case is having no filter for that dimension. This is equivalent t
     "filter": "(OSFamily eq 'OS X' or OSFamily eq 'Android') and (ComplianceState ne '#@?')"
 }
 ```
-:::image type="content" source="media/workbooks-samples/workbooks-odata-parameters-no-select.png" alt-text="Screenshot showing a drop down lists with parameter values and no filter selected.":::
+:::image type="content" source="media/workbooks-samples/workbooks-odata-parameters-no-select.png" alt-text="Screenshot showing a drop-down lists with parameter values and no filter selected.":::
 
