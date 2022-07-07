@@ -132,7 +132,7 @@ Download [China cloud IP addresses](https://www.microsoft.com/download/details.a
 > [!NOTE]
 > The following regions are not supported yet, but will be added in the near future.
 
-| Continent/Country | Region | FQDN | IP |
+| Continent/Country | Region | Subdomain | IP |
 | --- | --- | --- | --- |
 |Canada|Canada East|TBD|52.242.40.208/31<br/><br/>|
 |Germany|Germany North|TBD|51.116.75.92/31<br/><br/>|
