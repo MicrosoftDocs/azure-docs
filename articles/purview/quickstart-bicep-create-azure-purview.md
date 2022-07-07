@@ -17,7 +17,7 @@ This quickstart describes the steps to deploy a Microsoft Purview (formerly Azur
 
 After you've created the account, you can begin registering your data sources and using the Microsoft Purview governance portal to understand and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end data linage. Data consumers are able to discover data across your organization and data administrators are able to audit, secure, and ensure right use of your data.
 
-For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md)
+For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
 To deploy a Microsoft Purview account to your subscription, follow the prerequesites guide below.
 
@@ -42,6 +42,9 @@ The Bicep performs the following tasks:
 1. Save the Bicep file as `main.bicep` to your local computer.
 1. Deploy the Bicep file using Azure CLI or Azure PowerShell.
 
+    > [!NOTE]
+    > Replace **\<project-name\>** with a project name that will be used to generate resource names. Replace **\<invitation-email\>** with an email address for receiving data share invitations.
+
     # [CLI](#tab/CLI)
     
     ```azurecli-interactive
@@ -57,9 +60,6 @@ The Bicep performs the following tasks:
     ```
 
     ---
-
-    > [!NOTE]
-    > Replace **\<project-name\>** with a project name that will be used to generate resource names. Replace **\<invitation-email\>** with an email address for receiving data share invitations.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -99,6 +99,8 @@ az group delete --name exampleRG
 ```powershell-interactive
 Remove-AzResourceGroup -Name exampleRG
 ```
+
+---
 
 ## Next steps
 
