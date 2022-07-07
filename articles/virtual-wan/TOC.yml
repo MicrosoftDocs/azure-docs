@@ -171,12 +171,16 @@
       items:
         - name: Azure AD authentication
           items:
-            - name: Windows 10
+            - name: Windows
               href: openvpn-azure-ad-client.md
             - name: macOS
               href: openvpn-azure-ad-client-mac.md
         - name: OpenVPN client software configuration
           href: howto-openvpn-clients.md
+        - name: Azure VPN client optional settings
+          items:
+          - name: Windows
+            href: azure-vpn-client-optional-configurations-windows.md
     - name: Multi-Factor Authentication(MFA)
       href: openvpn-azure-ad-mfa.md   
     - name: Multi-application Azure AD authentication

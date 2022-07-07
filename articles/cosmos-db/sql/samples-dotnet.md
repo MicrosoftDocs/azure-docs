@@ -7,15 +7,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
 # Examples for Azure Cosmos DB SQL API SDK for .NET
+
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](quickstart-dotnet.md)
+>
+> * [.NET](samples-dotnet.md)
+>
 
 The [cosmos-db-sql-api-dotnet-samples](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB SQL API resources.
 
@@ -64,4 +67,4 @@ The sample projects are all self-contained and are designed to be ran individual
 Dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB SQL API resources.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB SQL API and .NET >](how-to-dotnet-get-started.md)
+> [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
