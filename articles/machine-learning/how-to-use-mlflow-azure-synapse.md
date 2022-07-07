@@ -32,21 +32,21 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 
 To install libraries on you dedicated cluster in Azure Synapse Analytics:
 
-1. Create a requirements.txt file with the packages your experiments requires, but making sure it also includes the following packages:
+1. Create a `requirements.txt` file with the packages your experiments requires, but making sure it also includes the following packages:
 
-  __requirements.txt__
+    __requirements.txt__
 
-  ```
-  mlflow
-  azureml-mlflow
-  azure-ai-ml
-  ```
+    ```pip
+    mlflow
+    azureml-mlflow
+    azure-ai-ml
+    ```
 
 3. Navigate to Azure Analytics Workspace portal.
 4. Navigate to the **Manage** tab and select **Apache Spark Pools**.
 5. Click the three dots next to the cluster name, and select **Packages**.
 
-  ![install mlflow packages in Azure Synapse Analytics](./media/how-to-use-mlflow-azure-synapse/install-packages.png)
+  ![install mlflow packages in Azure Synapse Analytics](media/how-to-use-mlflow-azure/install-packages.png)
 
 6. On the **Requirements files** section, click on **Upload**
 7. Upload the `requirements.txt` file.
