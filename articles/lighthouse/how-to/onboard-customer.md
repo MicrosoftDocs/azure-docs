@@ -271,7 +271,7 @@ az deployment sub create --name <deploymentName> \
 
 To deploy a template in the Azure portal, follow the process described below. These steps must be done by a user in the customer tenant with the **Owner** role (or another role with the `Microsoft.Authorization/roleAssignments/write` permission).
 
-1. From the the [Service providers](view-manage-service-providers.md) page in the Azure portal, select **Server provider offers**.
+1. From the [Service providers](view-manage-service-providers.md) page in the Azure portal, select **Server provider offers**.
 1. Near the top of the screen, select the arrow next to **Add offer**, and then select **Add via template**.
 
    :::image type="content" source="../media/add-offer-via-template.png" alt-text="Screenshot showing the Add via template option in the Azure portal.":::
@@ -285,7 +285,7 @@ To deploy a template in the Azure portal, follow the process described below. Th
 After a few minutes, you should see a notification that the deployment has completed.
 
 > [!TIP]
-> Alternately, from our [GitHub repo](https://github.com/Azure/Azure-Lighthouse-samples/), select the **Deploy to Azure** button shown next to the template you want to use (in the **Auto-deploy** column). The template will open in the Azure portal. You can then enter values for **Msp Offer Name**, **Msp Offer Description**, **Managed by Tenant Id**, and **Authorizations**. If you prefer, you can select **Edit parameters** to enter values for `mspOfferName`, `mspOfferDescription`, `managedbyTenantId`, and `authorizations` directly in the parameter file. If you use this process, be sure to update these values rather than using the default values from the template.
+> Alternately, from our [GitHub repo](https://github.com/Azure/Azure-Lighthouse-samples/), select the **Deploy to Azure** button shown next to the template you want to use (in the **Auto-deploy** column). The example template will open in the Azure portal. If you use this process, you must update the values for **Msp Offer Name**, **Msp Offer Description**, **Managed by Tenant Id**, and **Authorizations** before you select **Review and create**.
 
 ## Confirm successful onboarding
 
