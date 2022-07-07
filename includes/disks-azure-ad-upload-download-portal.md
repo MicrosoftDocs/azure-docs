@@ -5,7 +5,7 @@
  author: roygara
  ms.service: storage
  ms.topic: include
- ms.date: 07/06/2022
+ ms.date: 07/07/2022
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -39,7 +39,7 @@ Enable **data access authentication mode** to restrict access to the disk. You c
 
 # [PowerShell](#tab/azure-powershell)
 
-Set `**dataAccessAuthMode**` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `-ResourceGroupName` and `-DiskName` before running the script:
+Set `dataAccessAuthMode` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `-ResourceGroupName` and `-DiskName` before running the script:
 
 ```azurepowershell
 New-AzDiskUpdateConfig -DataAccessAuthMode "AzureActiveDirectory" | Update-AzDisk -ResourceGroupName 'yourResourceGroupName' -DiskName 'yourDiskName"
@@ -47,7 +47,7 @@ New-AzDiskUpdateConfig -DataAccessAuthMode "AzureActiveDirectory" | Update-AzDis
 
 # [Azure CLI](#tab/azure-cli)
 
-Set `**dataAccessAuthMode**` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `--resource-group` and `--Name` before running the script:
+Set `dataAccessAuthMode` to `"AzureActiveDirectory"` on your disk, in order to download it when it's been secured. Use the following script to update an existing disk, replace the values for `--resource-group` and `--Name` before running the script:
 
 ```azurecli
 az disk update --name yourDiskName --resource-group yourResourceGroup --data-access-auth-mode AzureActiveDirectory
