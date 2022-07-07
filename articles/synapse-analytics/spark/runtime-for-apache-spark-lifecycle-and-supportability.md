@@ -31,16 +31,15 @@ The following diagram captures expected lifecycle paths for a Synapse runtime fo
 | Preview | 3 months | Should be used to evaluate new features and for validation of workload migration to new versions. <br/> Must not be used for production workloads. <br/> A Preview runtime may not be elected to move into a GA stage at Microsoft discretion; moving directly to EOLA stage. |
 | Generally Available (GA) | 12 months | Generally available (GA) runtimes are open to all customers and are ready for production use. <br/> A GA runtime may not be elected to move into a LTS stage at Microsoft discretion. |
 | Long Term Support (LTS) | 12 months | Long term support (LTS) runtimes are open to all customers and are ready for production use, yet customers are encouraged to expedite validation and workload migration to latest GA runtimes. |
-| End of Life announced (EOLA) | 12 months for GA or LTS runtimes.<br/>1 month for Preview runtimes. | At the end of a GA or LTS period, an End-of-Life announcement will be made to all customers per [Azure retirements policy](https://docs.microsoft.com/lifecycle/faq/azure). This 12 month period serves as the exit ramp for customers to migrate workloads to a GA runtime. |
+| End of Life announced (EOLA) | 12 months for GA or LTS runtimes.<br/>1 month for Preview runtimes. | At the end of a lifecycle period, given a runtime is chosen to retire; an End-of-Life announcement will be made to all customers per [Azure retirements policy](https://docs.microsoft.com/lifecycle/faq/azure). This additional period serves as the exit ramp for customers to migrate workloads to a GA runtime. |
 | End of Life (EOL) | - | At this stage, the Runtime is retired and no longer supported. |
 
 > [!IMPORTANT]
 >
 > * The expected timelines are provided as best effort based on current Apache Spark releases. If the Apache Spark project changes lifecycle of a specific version affecting a Synapse runtime, changes to the stage dates will be noted within the release notes of a runtime.
-> * A Preview runtime may not be elected to move into a GA stage.
-> * Once a runtime reaches GA stage, it will be at that state for a minimum period of 12 months.
-> * A GA stage runtime may not be elected to move into long term support (LTS).
-> * Both GA and LTS runtimes may be moved into EOL stage faster based on inherited security risks, and runtime customer adoption and usage rates criteria. Proper notification will be performed based on current Azure service policies, please refer to [Lifecycle FAQ - Microsoft Azure](https://docs.microsoft.com/lifecycle/faq/azure) for information.
+> * A Preview runtime may or may not be elected to move into a GA stage.
+> * A GA stage runtime may or may not be elected to move into long term support (LTS).
+> * Both GA and LTS runtimes may be moved into EOL stage faster based on outstanding security risks and usage rates criteria at Microsoft discretion. Proper notification will be performed based on current Azure service policies, please refer to [Lifecycle FAQ - Microsoft Azure](https://docs.microsoft.com/lifecycle/faq/azure) for information.
 >
 
 ## Release stages and support
