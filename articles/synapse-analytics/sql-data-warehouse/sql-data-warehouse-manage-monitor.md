@@ -327,6 +327,8 @@ WHERE
     AND blocking.state = 'Granted'
 ORDER BY 
     ObjectLockRequestTime ASC;
+    
+``` 
 
 ## Retrieve query text from waiting and blocking queries
 

@@ -16,6 +16,8 @@ ms.custom: devx-track-csharp
 
 # Specify a face recognition model
 
+[!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
+
 This guide shows you how to specify a face recognition model for face detection, identification and similarity search using the Azure Face service.
 
 The Face service uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers can specify which version of the face recognition model they'd like to use. They can choose the model that best fits their use case.

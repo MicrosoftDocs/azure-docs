@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to know how to upload document, so that I can start uploading my documents to train my model .
 ---
 
@@ -78,7 +79,7 @@ In upload history page you can view history of all document uploads details like
     ![Upload history tab](media/how-to/how-to-upload-history-1.png)
 
 2. This page shows the status of all of your past uploads. It displays
-    uploads from most recent to least recent. For each upload, it shows the document name, upload status, upload date, number of files uploaded, type of file uploaded, and language pair of the file.
+    uploads from most recent to least recent. For each upload, it shows the document name, upload status, upload date, number of files uploaded, type of file uploaded, and language pairs.
 
     ![Upload history page](media/how-to/how-to-document-history-2.png)
 

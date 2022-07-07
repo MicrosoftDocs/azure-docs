@@ -12,6 +12,9 @@
     href: quick-create-cli.md
   - name: Create with Azure PowerShell
     href: quick-create-powershell.md
+  - name: Create with Bicep
+    displayName: ARM, Template, Resource Manager, Bicep
+    href: quick-create-bicep-windows.md
   - name: Create with ARM template
     items:
     - name: Linux scale set
@@ -352,7 +355,11 @@
       - name: How-to
         href: ../virtual-machines/dedicated-hosts.md
     - name: Azure Spot Virtual Machines
-      href: use-spot.md
+      items:
+      - name: Overview
+        href: use-spot.md
+      - name: VM size recommendation 
+        href: spot-vm-size-recommendation.md
     - name: Azure Hybrid Benefit for Linux
       href: azure-hybrid-benefit-linux.md
   - name: Manage
