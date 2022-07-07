@@ -26,7 +26,7 @@ The SQL Server must be configured with mixed authentication mode, means it must 
 
 #### SQL Server Login and User
 
-A SQL Server Login and User should be created, using the following script. Please ensure to replace \<Database to monitor\> with your SAP database name and \<password\> with the real password of the login. The example login and user AMFSS can be used or replaced with any other SQL login and username of your choice:
+A SQL Server Login and User should be created, using the following script. Please ensure to replace \<Database to monitor\> with your SAP database name and \<password\> with the real password of the login. The example login and user AMS can be used or replaced with any other SQL login and username of your choice:
 
 ```sql
 USE [<Database to monitor>]
