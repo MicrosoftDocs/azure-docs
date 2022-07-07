@@ -8,7 +8,7 @@ az login
 
 ### [Visual Studio](#tab/sign-in-visual-studio)
 
-Click the **Sign in** button in the top right of Visual Studio.
+Select the **Sign in** button in the top right of Visual Studio.
 
 :::image type="content" source="../articles/storage/blobs/media/storage-blobs-introduction/sign-in-visual-studio-small.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
 

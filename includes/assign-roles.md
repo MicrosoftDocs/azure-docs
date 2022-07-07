@@ -1,17 +1,17 @@
-When developing locally, make sure the user you want to connect to your storage account with has the correct permissions. You can assign security roles to a user using the Azure Portal, CLI, or PowerShell. Roles can be assigned at the following levels:
+When developing locally, make sure the user you want to connect to your storage account with has the correct permissions. You can assign security roles to a user using the Azure portal, CLI, or PowerShell. Roles can be assigned at the following levels:
 
 * Specific resources, such as a storage account
 * Resource group
 * Subscription
 * Management group
 
-In this scenario you will assign permissions to your user account at the resource group level. Leveraging a resource group for permissions can be useful if you'd like to grant a user a certain role or access level across multiple resources. However, in a production environment you should also always follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) by giving users only the minimum permissions needed.
+In this scenario, you'll assign permissions to your user account at the resource group level. A resource group can be useful if you want to grant a user a specific role across multiple resources. However, in a production environment you should also always follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) by giving users only the minimum permissions needed.
 
 The following example will assign the `Storage Blob Data Contributor` role to your user account, which is a useful general purpose role for working with storage.
 
-### [Azure Portal](#tab/roles-azure-portal)
+### [Azure portal](#tab/roles-azure-portal)
 
-1. In the Azure Portal, locate your storage account using the main search bar or left navigation.
+1. In the Azure portal, locate your storage account using the main search bar or left navigation.
 
 2. On the storage account overview page, select **Access control (IAM)** from the left-hand menu.	
 
