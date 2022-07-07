@@ -418,3 +418,7 @@ To turn a larger template into multiple sub-templates:
 1. If the individual components moved in step 3 had conditional visibilities, that will become the visibility of the outer group (like used in tabs). Remove them from the components inside the group and add that visibility setting to the group itself. Save here to avoid losing changes and/or export and save a copy of the json content.
 1. If you want that group to be loaded from a template, you can use the **Edit** toolbar button in the group. This will open just the content of that group as a workbook in a new window. You can then save it as appropriate and close this workbook view (don't close the browser, just that view to go back to the previous workbook you were editing).
 1. You can then change the group component to load from template and set the template ID field to the workbook/template you created in step 5. To work with workbooks IDs, the source needs to be the full Azure Resource ID of a shared workbook. Press *Load* and the content of that group will now be loaded from that sub-template instead of saved inside this outer workbook.
+
+
+## Next steps
+- [Common Workbook use cases](workbooks-commonly-used-components.md)
