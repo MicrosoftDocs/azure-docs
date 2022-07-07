@@ -254,7 +254,7 @@ As a final example, let’s consider what happens if Britta has no `user.otherma
 The following table lists advanced options that can be configured for an application. 
 
 | Option | Description |
-|---------|---------|
+|--------|-------------|
 | Append application ID to issuer | Automatically adds the application ID to the issuer claim. This option ensures a unique claim value for each instance when there are multiple instances of the same application. This setting is ignored if a custom signing key isn't configured for the application. |   
 | Override audience claim | Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting is ignored if a custom signing key isn't configured for the application. |
 | Include attribute name format | If selected, Azure Active Directory adds an additional attribute called `NameFormat` that describes the format of the name to restricted, core, and optional claims for the application.  For more information see, [Claims mapping policy type](reference-claims-mapping-policy-type.md#claim-sets) |
