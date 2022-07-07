@@ -49,11 +49,11 @@ To set the auto-upgrade channel on existing cluster, update the *auto-upgrade-ch
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
-## Using cluster auto-upgrade with Planned Maintenance
+## Using auto-upgrade with Planned Maintenance
 
-If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start during your specified maintenance window. For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)][planned-maintenance].
+If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start during your specified maintenance window. For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
 
-## Best Practices for auto-upgrade
+## Best practices for auto-upgrade
 
 The following best practices will help maximize your success when using auto-upgrade:
 
