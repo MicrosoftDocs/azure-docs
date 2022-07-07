@@ -2,7 +2,7 @@
 title: Delegated administration to secure with Azure Active Directory 
 description: Introduction to delegated administration and isolated environments in Azure Active Directory.
 services: active-directory
-author: gargi.sinha
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
