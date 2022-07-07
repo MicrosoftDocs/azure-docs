@@ -4,7 +4,7 @@ description: Targeting monitoring solutions allows you to limit monitoring solut
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/27/2017
+ms.date: 06/08/2022
 
 ---
 
@@ -15,7 +15,6 @@ ms.date: 04/27/2017
 
 When you add a monitoring solution to your subscription, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace.  You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents.  This article describes how to use **Solution Targeting** which is a feature that allows you to apply a scope to your solutions.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## How to target a solution
 There are three steps to targeting a solution as described in the following sections. 

@@ -2,6 +2,7 @@
 title: Configure HCX network extension high availability
 description: Learn how to configure HCX network extension high availability
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 05/06/2022
 ---
 

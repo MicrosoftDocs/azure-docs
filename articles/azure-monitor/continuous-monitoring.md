@@ -4,7 +4,8 @@ description: Describes specific steps for using Azure Monitor to enable Continuo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/12/2018
+ms.date: 06/07/2022
+ms.reviewer: bwren
 
 ---
 

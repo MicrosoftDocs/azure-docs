@@ -15,6 +15,8 @@ ms.topic: how-to
 
 This document explains how to prepare to deploy Azure Arc-enabled data services with Active Directory (AD) authentication. Specifically the article describes Active Directory objects you need to configure before the deployment of Kubernetes resources.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 [The introduction](active-directory-introduction.md#compare-ad-integration-modes) describes two different integration modes:
 - *System-managed keytab* mode allows the system to create and manage the AD accounts for each SQL Managed Instance.
 - *Customer-managed keytab* mode allows you to create and manage the AD accounts for each SQL Managed Instance.

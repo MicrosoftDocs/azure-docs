@@ -5,7 +5,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 06/03/2022
 ms.author: mikaelw
 ---
 
@@ -144,3 +144,5 @@ In this article, you've learned how to export FHIR resources using $export comma
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

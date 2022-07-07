@@ -7,14 +7,75 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/04/2022
+ms.date: 06/14/2022
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurecli
-# Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
+ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
+#Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## June 14, 2022
+
+This release is published June 14, 2022.
+
+### Image tag
+
+`v1.8.0_2022-06-14`
+
+For complete release version information, see [Version log](version-log.md#june-14-2022).
+
+### Miscellaneous
+
+- Canada Central and West US 3 regions are fully supported.
+
+### Data controller
+
+- Control DB SQL instance version is upgraded to latest version.
+- Additional compatibility checks are run prior to executing an upgrade request.
+- Upload status is now shown in the data controller list view in the Azure portal.
+- Show the usage upload message value in the Overview blade banner in the Azure portal if the value is not **Success**.
+
+### SQL Managed Instance
+
+  - You can now configure a SQL managed instance to use an AD connector at the time the SQL managed instance is provisioned from the Azure portal.
+  - BACKUP DATABASE TO URL to S3-compatible storage is introduced for preview. Limited to COPY_ONLY. [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage).
+  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to fail over. Default is `-1` which sets the number of required synchronized secondaries to (# of replicas - 1) / 2.  Allowed values: `-1`, `1`, or `2`.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
+  - Billing estimate in Azure portal is updated to reflect the number of readable secondaries that are selected.
+  - Added SPNs for readable secondary service.
+
+## May 24, 2022
+
+This release is published May 24, 2022.
+
+### Image tag
+
+`v1.7.0_2022-05-24`
+
+For complete release version information, see [Version log](version-log.md#may-24-2022).
+
+### Data controller reminders and warnings
+
+Reminders and warnings are implemented in Azure portal, custom resource status, and through CLI when the billing data related to all resources managed by the data controller has not been uploaded or exported for an extended period.
+
+### SQL Managed Instance
+
+General Availability of Business Critical service tier.  Azure Arc-enabled SQL Managed Instance instances that have a version greater than or equal to v1.7.0 will be charged through Azure billing meters.
+
+### User experience improvements
+
+#### Azure portal
+
+Added ability to create AD Connectors from Azure portal.
+
+Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
+
+#### Azure Data Studio
+
+Added ability to upgrade Azure Arc-enabled SQL Managed Instances from Azure Data Studio in the indirect and direct connectivity modes.
+
+Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
 
 ## May 4, 2022
 
@@ -24,7 +85,7 @@ This release is published May 4, 2022.
 
 `v1.6.0_2022-05-02`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#may-4-2022).
 
 ### Data controller
 
@@ -49,18 +110,18 @@ Separated the availability group and failover group status into two different se
 
 Updated SQL engine binaries to the latest version.
 
-Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure Portal, or Azure Data Studio user experience yet.
+Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure portal, or Azure Data Studio user experience yet.
 
 Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
-- If three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
-- If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
+- If three replicas: `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If one or two replicas: `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
 
 In this release, the default value of the readable secondary service is `Cluster IP`.  The secondary service type can be set in the Kubernetes yaml/json at `spec.services.readableSecondaries.type`. In the next release, the default value will be the same as the primary service type.
 
 ### User experience improvements
 
-Notifications added in Azure Portal if billing data has not been uploaded to Azure recently.
+Notifications added in Azure portal if billing data has not been uploaded to Azure recently.
 
 #### Azure Data Studio
 
@@ -74,7 +135,7 @@ This release is published April 6, 2022.
 
 `v1.5.0_2022-04-05`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#april-6-2022).
 
 ### Data controller
 
@@ -92,7 +153,7 @@ For complete release version information, see [Version log](version-log.md).
 
 You can create a maintenance window on the data controller, and if you have SQL managed instances with a desired version set to `auto`, they will be upgraded in the next maintenance windows after a data controller upgrade. 
 
-Metrics for each replica in a business critical instance are now sent to the Azure portal so you can view them in the monitoring charts.
+Metrics for each replica in a Business Critical instance are now sent to the Azure portal so you can view them in the monitoring charts.
 
 AD authentication connectors can now be set up in an `automatic mode` or *system-managed keytab* which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the *customer-managed keytab* mode.
 
@@ -131,7 +192,7 @@ This release is published March 8, 2022.
 
 `v1.4.1_2022-03-08`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#march-8-2022).
 
 ### Data Controller
 - Fixed the issue "ConfigMap sql-config-[SQL MI] does not exist" from the February 2022 release. This issue occurs when deploying a SQL Managed Instance with service type of `loadBalancer` with certain load balancers. 
@@ -144,7 +205,7 @@ This release is published February 25, 2022.
 
 `v1.4.0_2022-02-25`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#february-25-2022).
 
 > [!CAUTION] 
 > There is a known issue with this release where deployment of Arc SQL MI hangs, and sends the controldb pods of Arc Data Controller into a
@@ -157,7 +218,7 @@ For complete release version information, see [Version log](version-log.md).
     - Set `--readable-secondaries` to any value between 0 and the number of replicas minus 1.
     - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
-- [ReadWriteMany (RWX) capable storage class](/azure/aks/concepts-storage#azure-disks) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
+- [ReadWriteMany (RWX) capable storage class](../../aks/concepts-storage.md#azure-disks) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
 - Billing support when using multiple read replicas.
 
 For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).
@@ -179,19 +240,19 @@ This release is published January 27, 2022.
 
 `v1.3.0_2022-01-27`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#january-27-2022).
 
 ### Data controller
 
 - Initiate an upgrade of the data controller from the portal in the direct connected mode
-- Removed block on data controller upgrade if there are business critical instances that exist
+- Removed block on data controller upgrade if there are Business Critical instances that exist
 - Better handling of delete user experiences in Azure portal
 
 ### SQL Managed Instance
 
-- Azure Arc-enabled SQL Managed Instance business critical instances can be upgraded from the January release and going forward (preview)
+- Azure Arc-enabled SQL Managed Instance Business Critical instances can be upgraded from the January release and going forward (preview)
 - Business critical distributed availability group failover can now be done through a Kubernetes-native experience or the Azure CLI (indirect mode only) (preview)
-- Added support for `LicenseType: DisasterRecovery` which will ensure that instances which are used for business critical distributed availability group secondary replicas:
+- Added support for `LicenseType: DisasterRecovery` which will ensure that instances which are used for Business Critical distributed availability group secondary replicas:
     - Are not billed for
     - Automatically seed the system databases from the primary replica when the distributed availability group is created. (preview)
 - New option added to `desiredVersion` called `auto` - automatically upgrades a given SQL instance when there is a new upgrade available (preview)
@@ -212,7 +273,7 @@ This release is published December 16, 2021.
 - Active Directory authentication in preview for SQL Managed Instance
 - Direct mode upgrade of SQL Managed Instance via Azure CLI
 - Edit memory and CPU configuration in Azure portal in directly connected mode
-- Ability to specify a single replica for a business critical instance using Azure CLI or Kubernetes yaml file
+- Ability to specify a single replica for a Business Critical instance using Azure CLI or Kubernetes yaml file
 - Updated SQL binaries to latest Azure PaaS-compatible binary version
 - Resolved issue where the point in time restore did not respect the configured time zone
 
@@ -248,7 +309,7 @@ The following `sql` commands now support directly connected mode:
 - Automatically upload metrics to Azure Monitor
 - Automatically upload logs to Azure Log Analytics
 - Enable or disable automatic upload of Metrics and/or logs to Azure after deployment of Azure Arc data controller.
-- Upgrade from July 2021 release in-place (only for generally available services such as Azure Arc data controller and general purpose SQL Managed Instance) using Azure CLI.
+- Upgrade from July 2021 release in-place (only for generally available services such as Azure Arc data controller and General Purpose SQL Managed Instance) using Azure CLI.
 - Set the metrics and logs dashboards usernames and passwords separately at DC deployment time using the new environment variables:
 
    ```console
@@ -274,10 +335,10 @@ For complete list, see [Supported regions](overview.md#supported-regions).
 
 ### Azure Arc-enabled SQL Managed Instance
 
-- Upgrade instances of Azure Arc-enabled SQL Managed Instance general purpose in-place
+- Upgrade instances of Azure Arc-enabled SQL Managed Instance General Purpose in-place
 - The SQL binaries are updated to a new version
 - Direct connected mode deployment of Azure Arc enabled SQL Managed Instance using Azure CLI
-- Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the general purpose SQL Managed Instance. Point in time restore for business critical SQL Managed Instance is still under preview.
+- Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the General Purpose SQL Managed Instance. Point in time restore for Business Critical SQL Managed Instance is still under preview.
 - New `--dry-run` option provided for point in time restore
 - Recovery point objective is set to 5 minutes by default and is not configurable
 - Backup retention period is set to 7 days by default. A new option to set the retention period to zero disables automatic backups for development and test instances that do not require backups
@@ -290,7 +351,7 @@ For complete list, see [Supported regions](overview.md#supported-regions).
 #### Data controller upgrade
 
 - At this time, upgrade of a directly connected data controller via CLI or the portal is not supported.
-- You can only upgrade generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
+- You can only upgrade generally available services such as Azure Arc data controller and General Purpose SQL Managed Instance at this time. If you also have Business Critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
 
 #### Commands
 
@@ -341,12 +402,12 @@ az arcdata sql mi-arc update
 
 This release is published July 30, 2021.
 
-This release announces general availability for Azure Arc-enabled SQL Managed Instance [general purpose service tier](service-tiers.md) in indirectly connected mode.
+This release announces general availability for Azure Arc-enabled SQL Managed Instance [General Purpose service tier](service-tiers.md) in indirectly connected mode.
 
    > [!NOTE]
    > In addition, this release provides the following Azure Arc-enabled services in preview: 
    > - SQL Managed Instance in directly connected mode
-   > - SQL Managed Instance [business critical service tier](service-tiers.md)
+   > - SQL Managed Instance [Business Critical service tier](service-tiers.md)
    > - PostgreSQL Hyperscale
 
 ### Breaking changes

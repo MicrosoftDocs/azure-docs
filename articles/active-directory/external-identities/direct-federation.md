@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 05/13/2022
 
 ms.author: mimart
 author: msmimart
@@ -15,12 +15,11 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Federation with SAML/WS-Fed identity providers for guest users (preview)
+# Federation with SAML/WS-Fed identity providers for guest users
 
 > [!NOTE]
 >
 >- *Direct federation* in Azure Active Directory is now referred to as *SAML/WS-Fed identity provider (IdP) federation*.
->- SAML/WS-Fed IdP federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes how to set up federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol. When you set up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
 
@@ -171,7 +170,7 @@ Required claims for the WS-Fed token issued by the IdP:
 
 ## Step 3: Configure SAML/WS-Fed IdP federation in Azure AD
 
-Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure AD portal or the [Microsoft Graph API](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta). It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
+Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure AD portal or the [Microsoft Graph API](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true). It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
 
 - Issuer URI of the partner's IdP
 - Passive authentication endpoint of partner IdP (only https is supported)
@@ -207,7 +206,7 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
 
 ### To configure federation using the Microsoft Graph API
 
-You can use the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta) resource type to set up federation with an identity provider that supports either the SAML or WS-Fed protocol.
+You can use the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true) resource type to set up federation with an identity provider that supports either the SAML or WS-Fed protocol.
 
 ## Step 4: Test SAML/WS-Fed IdP federation in Azure AD
 Now test your federation setup by inviting a new B2B guest user. For details, see [Add Azure AD B2B collaboration users in the Azure portal](add-users-administrator.md).
@@ -256,7 +255,7 @@ To remove a configuration for an IdP in the Azure AD portal:
 
 1. Select **OK** to confirm deletion.
 
-You can also remove federation using the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta) resource type.
+You can also remove federation using the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true ) resource type.
 
 ## Next steps
 

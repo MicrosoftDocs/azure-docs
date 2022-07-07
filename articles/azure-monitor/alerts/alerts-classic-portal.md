@@ -5,6 +5,7 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: harelbr
 ---
 # Create, view, and manage classic metric alerts using Azure Monitor
 

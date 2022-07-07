@@ -20,7 +20,7 @@ Microsoft Defender for IoT provides comprehensive protocol support. In addition 
 - Secure proprietary information by developing on-site as an external plugin. 
 - Localize text for alerts, events, and protocol parameters.
 
-This unique solution for developing protocols as plugins, does not require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
+This unique solution for developing protocols as plugins, doesn't require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
 
 ## Do I have to purchase hardware appliances from Microsoft partners?
 Microsoft Defender for IoT sensor runs on specific hardware specs as described in the [Hardware Specifications Guide](./how-to-identify-required-appliances.md), customers can purchase certified hardware from Microsoft partners or use the supplied bill of materials  (BOM) and purchase it on their own. 
@@ -28,7 +28,7 @@ Microsoft Defender for IoT sensor runs on specific hardware specs as described i
 Certified hardware has been tested in our labs for driver stability, packet drops and network sizing.
 
 
-## Regulation does not allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
+## Regulation doesn't allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
 
 Yes you can! The Microsoft Defender for IoT platform on-premises solution is deployed as a physical or virtual sensor appliance that passively ingests network traffic (via SPAN, RSPAN, or TAP) to analyze, discover, and continuously monitor IT, OT, and IoT networks. For larger enterprises, multiple sensors can aggregate their data to an on-premises management console.
 
@@ -76,9 +76,11 @@ You can work with CLI [commands](references-work-with-defender-for-iot-cli-comma
 
 ## How do I check the sanity of my deployment
 
-After installing the software for your sensor, or on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System statistics](how-to-install-software.md#system).
+After installing the software for your sensor or on-premises management console, you'll want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation).
 
-You can follow these links, if [The appliance isn't responding](how-to-install-software.md#the-appliance-isnt-responding) or [You can't connect by using a web interface](how-to-install-software.md#you-cant-connect-by-using-a-web-interface).
+You can also use our [UI and CLI tools](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) to check system health and review your overall system statistics.
+
+For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
 
 ## Next steps
 

@@ -106,7 +106,7 @@ The following inbound traffic rules are enabled in the **Microsoft.Network/netwo
 If other application ports are needed, you'll need to adjust the **Microsoft.Network/loadBalancers** resource and the **Microsoft.Network/networkSecurityGroups** resource to allow the traffic in.
 
 ### Windows Defender
-By default, the [Windows Defender antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
+By default, the [Windows Defender antivirus program](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
 
 ```json
 {

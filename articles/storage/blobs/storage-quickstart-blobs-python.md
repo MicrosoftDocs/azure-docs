@@ -48,12 +48,6 @@ Create a Python application named *blob-quickstart-v12*.
     cd blob-quickstart-v12
     ```
 
-1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This directory is where the blob data files will be created and stored.
-
-    ```console
-    mkdir data
-    ```
-
 ### Install the package
 
 While still in the application directory, install the Azure Blob Storage client library for Python package by using the `pip install` command.

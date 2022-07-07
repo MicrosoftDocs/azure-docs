@@ -16,7 +16,7 @@ Microsoft Defender for Cloud detects anomalous activities indicating unusual and
 
 To get alerts from the Microsoft Defender plan you'll first need to enable it as [shown below](#enable-enhanced-security).
 
-Learn more about this Microsoft Defender plan in [Introduction to Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
+Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
 ## Enable enhanced security
 

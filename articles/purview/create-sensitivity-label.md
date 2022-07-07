@@ -54,7 +54,7 @@ Sensitivity labels are supported in the Microsoft Purview Data Map for the follo
 |Data type  |Sources  |
 |---------|---------|
 |Automatic labeling for files     |   - Azure Blob Storage</br>- Azure Files</br>- Azure Data Lake Storage Gen 1 and Gen 2</br>- Amazon S3|
-|Automatic labeling for schematized data assets    |  - SQL server</br>- Azure SQL database</br>- Azure SQL Database Managed Instance</br>- Azure Synapse Analytics workspaces</br>- Azure Cosmos Database (SQL API)</br> - Azure database for MySQL</br> - Azure database for PostgreSQL</br> - Azure Data Explorer</br>  |
+|Automatic labeling for schematized data assets    |  - SQL server</br>- Azure SQL database</br>- Azure SQL Managed Instance</br>- Azure Synapse Analytics workspaces</br>- Azure Cosmos Database (SQL API)</br> - Azure database for MySQL</br> - Azure database for PostgreSQL</br> - Azure Data Explorer</br>  |
 | | |
 
 ## Labeling for SQL databases

@@ -72,7 +72,7 @@ The Speech service doesn't offer a global endpoint. Determine if your applicatio
 To get started with the Speech SDK:
 
 1. Download the [Speech SDK](speech-sdk.md).
-1. Work through the Speech service [quickstart guides](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) and [tutorials](how-to-recognize-intents-from-speech-csharp.md). Also look at the [code samples](./speech-sdk.md#sample-source-code) to get experience with the new APIs.
+1. Work through the Speech service [quickstart guides](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) and [tutorials](how-to-recognize-intents-from-speech-csharp.md).
 1. Update your application to use the Speech service.
 
 ## Support
