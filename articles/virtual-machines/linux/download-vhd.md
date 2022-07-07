@@ -71,12 +71,15 @@ $diskSas = Grant-AzDiskAccess -ResourceGroupName "yourRGName" -DiskName "yourDis
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-diskSAS=$(az disk grant-access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName)
+az disk grant-access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName
 ```
 
 ---
       
 ## Download VHD
+
+> [!NOTE]
+> If you're using Azure AD to secure managed disk downloads, the user downloading the VHD must have the appropriate [RBAC permissions](#assign-rbac-role).
 
 # [Portal](#tab/azure-portal)
 
@@ -101,13 +104,17 @@ When the download finishes, revoke access to your disk using `Revoke-AzDiskAcces
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following script to download your VHD:
+Replace `yourPathhere` and `sas-URI` with your values, then use the following script to download your VHD:
+
+> [!NOTE]
+> If you're using Azure AD to secure your managed disk uploads and downloads, add `--auth-mode login` to `az storage blob download`.
 
 ```azurecli
 
 #set localFolder to your desired download location
 localFolder=yourPathHere
-az storage blob download -f $localFolder --blob-url $diskSAS
+#If you're using Azure AD to secure your managed disk uploads and downloads, add --auth-mode login to the following command.
+az storage blob download -f $localFolder --blob-url "sas-URI"
 ```
 
 When the download finishes, revoke access to your disk using `az disk revoke-access --name diskName --resource-group yourRGName`.
