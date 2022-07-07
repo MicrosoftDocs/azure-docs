@@ -163,7 +163,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 | Azure Public| South Central US| 20.188.77.119, 20.97.32.190|
 | Azure Public| South India| 20.44.33.246|
 | Azure Public| Southeast Asia| 40.90.185.46|
-| Azure Public| Switzerland North| 51.107.0.91|
+| Azure Public| Switzerland North| 51.107.246.176, 51.107.0.91|
 | Azure Public| Switzerland West| 51.107.96.8|
 | Azure Public| UAE Central| 20.37.81.41|
 | Azure Public| UAE North| 20.46.144.85|

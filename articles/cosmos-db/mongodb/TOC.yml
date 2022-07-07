@@ -13,16 +13,17 @@
     - name: NoSQL vs. relational databases
       href: ../relational-nosql.md?toc=/azure/cosmos-db/mongodb/toc.json
 - name: Quickstarts
+  expanded: true
   items:
-    - name: .NET
-      href: create-mongodb-dotnet.md
-    - name: Python 
+    - name: Develop app - .NET
+      href: quickstart-dotnet.md
+    - name: Develop app - Python 
       href: create-mongodb-python.md
-    - name: Java
+    - name: Develop app - Java
       href: create-mongodb-java.md
-    - name: Node.js
+    - name: Develop app - Node.js
       href: quickstart-javascript.md
-    - name: Golang
+    - name: Develop app - Golang
       href: create-mongodb-go.md
 - name: Tutorials
   items:
@@ -258,6 +259,8 @@
           href: ../data-residency.md?toc=/azure/cosmos-db/mongodb/toc.json
     - name: Automatic recommendations
       href: ../automated-recommendations.md?toc=/azure/cosmos-db/mongodb/toc.json
+    - name: Change log
+      href: change-log.md
     - name: API version 4.2
       href: feature-support-42.md
     - name: API version 4.0
@@ -351,6 +354,8 @@
       displayName: custom commands
     - name: Configure role-based access control
       href: how-to-setup-rbac.md
+    - name: Configure account capabilities
+      href: how-to-configure-capabilities.md
     - name: Manage using Resource Manager templates
       href: resource-manager-template-samples.md
       displayName: ARM

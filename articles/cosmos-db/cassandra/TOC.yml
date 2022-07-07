@@ -15,6 +15,7 @@
     - name: NoSQL vs. relational databases
       href: ../relational-nosql.md?toc=/azure/cosmos-db/cassandra/toc.json
 - name: Quickstarts
+  expanded: true
   items:
     - name: .NET
       href: manage-data-dotnet.md
@@ -289,6 +290,8 @@
       href: find-request-unit-charge-cassandra.md
     - name: Preventing rate-limiting errors
       href: prevent-rate-limiting-errors.md
+    - name: Materialized View (Preview)
+      href: materialized-views-cassandra.md
     - name: Store and manage Spring Data
       href: access-data-spring-data-app.md
     - name: Troubleshoot common issues
