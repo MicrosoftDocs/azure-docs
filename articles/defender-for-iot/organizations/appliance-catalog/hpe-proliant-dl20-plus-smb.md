@@ -1,11 +1,11 @@
 ---
-title: HPE ProLiant  DL20/DL20 Plus for OT monitoring in SMB deployments- Microsoft Defender for IoT
+title: HPE ProLiant DL20/DL20 Plus (NHP 2LFF) for OT monitoring in SMB deployments- Microsoft Defender for IoT
 description: Learn about the HPE ProLiant  DL20/DL20 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# HPE ProLiant DL20/DL20 Plus for SMB deployments
+# HPE ProLiant DL20/DL20 Plus (NHP 2LFF) for SMB deployments
 
 This article describes the **HPE ProLiant DL20** or **HPE ProLiant DL20 Plus** appliance for OT sensors in an SBM deployment.
 

@@ -78,11 +78,13 @@ Defender for IoT’s new purchase experience and the Enterprise IoT integration 
 > [!NOTE]
 > The Enterprise IoT network sensor and all detections remain in Public Preview.
 
-### OT appliance catalog updates
+### OT appliance hardware profile updates
 
-We've refreshed the naming conventions for our OT appliance catalog for greater transparency and clarity. The new names reflect both the *type* of profile, including *Corporate*, *Enterprise*, and *Production line*, and also the related disk storage size.
+We've refreshed the naming conventions for our OT appliance hardware profiles for greater transparency and clarity.
 
-Use the following table to understand the mapping between legacy names and the current names used in our OT monitoring appliance catalog:
+The new names reflect both the *type* of profile, including *Corporate*, *Enterprise*, and *Production line*, and also the related disk storage size.
+
+Use the following table to understand the mapping between legacy hardware profile names and the current names used in the updated software installation:
 
 |Legacy name  |New name  | Description |
 |---------|---------|---------|
@@ -91,8 +93,6 @@ Use the following table to understand the mapping between legacy names and the c
 |**SMB**    |    **L500**   | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>500 GB disk storage  |
 |**Office**     | **L100**  | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>100 GB disk storage      |
 |**Rugged**     |   **L64** | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>64 GB disk storage     |
-
-<!--where is office in the TOC?-->
 
 We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1 TB disk sizes.
 
