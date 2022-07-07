@@ -257,7 +257,7 @@ SQL DML syntax differences exist between Netezza SQL and Azure Synapse T-SQL. Th
 
 #### Functions, stored procedures, and sequences
 
-When migrating a data warehouse from a mature environment like Netezza, you probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences, check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Netezza functions.
+When migrating a data warehouse from a mature environment like Netezza, you probably need to migrate elements other than simple tables and views. Check whether tools within the Azure environment can replace the functionality of functions, stored procedures, and sequences because it's usually more efficient to use built-in Azure tools than to recode them for Azure Synapse.
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
@@ -287,9 +287,11 @@ Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequenc
 
 #### Data Definition Language (DDL) generation
 
+The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, such as `CREATE TABLE` and `CREATE VIEW`, are common to both Netezza and Azure Synapse, but have been extended to provide implementation-specific features.
+
 You can edit existing Netezza `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#netezza-data-type-mapping) and remove or modify Netezza-specific clauses such as `ORGANIZE ON`.
 
-Within the Netezza environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with current table definitions. You can access system catalog information using utilities such as `nz_ddl_table`. `nz_ddl_table` can generate `CREATE TABLE` DDL statements that you can edit so they apply to the equivalent tables in Azure Synapse.
+Within the Netezza environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with current table definitions. By using utilities such as `nz_ddl_table`, you can access system catalog information to generate `CREATE TABLE` DDL statements that create equivalent tables in Azure Synapse.
 
 You can also use [third-party](../../partner/data-integration.md) migration and ETL tools that process system catalog information to achieve similar results.
 
