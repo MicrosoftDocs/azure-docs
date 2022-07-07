@@ -224,36 +224,7 @@ default 9m22s Normal Surge node/aks-nodepool1-96663640-vmss000002 Created a surg
 
 ## Set auto-upgrade channel
 
-In addition to manually upgrading a cluster, you can set an auto-upgrade channel on your cluster. The following upgrade channels are available:
-
-|Channel| Action | Example
-|---|---|---|
-| `none`| disables auto-upgrades and keeps the cluster at its current version of Kubernetes| Default setting if left unchanged|
-| `patch`| automatically upgrade the cluster to the latest supported patch version when it becomes available while keeping the minor version the same.| For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster is upgraded to *1.17.9*|
-| `stable`| automatically upgrade the cluster to the latest supported patch release on minor version *N-1*, where *N* is the latest supported minor version.| For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster is upgraded to *1.18.6*.
-| `rapid`| automatically upgrade the cluster to the latest supported patch release on the latest supported minor version.| In cases where the cluster is at a version of Kubernetes that is at an *N-2* minor version where *N* is the latest supported minor version, the cluster first upgrades to the latest supported patch version on *N-1* minor version. For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster first is upgraded to *1.18.6*, then is upgraded to *1.19.1*. 
-| `node-image`| automatically upgrade the node image to the latest version available.| Microsoft provides patches and new images for image nodes frequently (usually weekly), but your running nodes won't get the new images unless you do a node image upgrade. Turning on the node-image channel will automatically update your node images whenever a new version is available. |
-
-> [!NOTE]
-> Cluster auto-upgrade only updates to GA versions of Kubernetes and will not update to preview versions.
-
-Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more information, see [Upgrade an AKS cluster][upgrade-cluster].
-
-To set the auto-upgrade channel when creating a cluster, use the *auto-upgrade-channel* parameter, similar to the following example.
-
-```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
-```
-
-To set the auto-upgrade channel on existing cluster, update the *auto-upgrade-channel* parameter, similar to the following example.
-
-```azurecli-interactive
-az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
-```
-
-## Using Cluster Auto-Upgrade with Planned Maintenance
-
-If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start during your specified maintenance window. For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)][planned-maintenance].
+In addition to manually upgrading a cluster, you can set an auto-upgrade channel on your cluster. For more information, see [Auto-upgrading an AKS cluster][aks-auto-upgrade]. 
 
 ## Special considerations for node pools that span multiple Availability Zones
 
@@ -289,3 +260,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
+[aks-auto-upgrade]: auto-upgrade-cluster.md
