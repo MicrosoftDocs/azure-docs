@@ -7,20 +7,33 @@ author: EldertGrootenboer
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 04/25/2022
+ms.date: 07/06/2022
 ms.author: egrootenboer
 ---
 
 # Configure the minimum TLS version for an Event Hubs namespace using ARM (Preview)
 
-To configure the minimum TLS version for an Event Hubs namespace, set the  `MinimumTlsVersion`  version property. When you create an Event Hubs namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
+Azure Event Hubs namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Event Hubs namespace to require that clients send and receive data with a newer version of TLS. If an Event Hubs namespace requires a minimum version of TLS, then any requests made with an older version will fail. For conceptual information about this feature, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace](transport-layer-security-enforce-minimum-version.md).
+
+You can configure the minimum TLS version using the Azure portal or Azure Resource Manager (ARM) template. 
+
+## Specify the minimum TLS version in the Azure portal
+You can specify the minimum TLS version when creating an Event Hubs namespace in the Azure portal on the **Advanced** tab. 
+
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/create-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version when creating a namespace.":::
+
+You can also specify the minimum TLS version for an existing namespace on the **Configuration** page.
+
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version for an existing namespace.":::
+
+## Create a template to configure the minimum TLS version
+
+To configure the minimum TLS version for an Event Hubs namespace with a template, create a template with the  `MinimumTlsVersion`  property set to 1.0, 1.1, or 1.2. When you create an Event Hubs namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
 
 > [!NOTE]
 > Namespaces created using an api-version prior to 2022-01-01-preview will have 1.0 as the value for `MinimumTlsVersion`. This behavior was the prior default, and is still there for backwards compatibility.
 
-## Create a template to configure the minimum TLS version
-
-To configure the minimum TLS version for an Event Hubs namespace with a template, create a template with the  `MinimumTlsVersion`  property set to 1.0, 1.1, or 1.2. The following steps describe how to create a template in the Azure portal.
+The following steps describe how to create a template in the Azure portal.
 
 1. In the Azure portal, choose  **Create a resource**.
 2. In  **Search the Marketplace** , type  **custom deployment** , and then press  **ENTER**.
