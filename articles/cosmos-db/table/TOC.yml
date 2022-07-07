@@ -108,7 +108,6 @@
     - name: Azure Resource Graph queries
       href: ../resource-graph-samples.md?toc=/azure/cosmos-db/table/toc.json
 - name: Concepts
-  expanded: true
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
