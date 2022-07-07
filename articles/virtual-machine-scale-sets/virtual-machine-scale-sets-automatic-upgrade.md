@@ -76,16 +76,35 @@ The following platform SKUs are currently supported (and more are added periodic
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
+| Canonical               | UbuntuServer  | 18.04-LTS-Gen2     |                   
+| Canonical               | UbuntuServer  | 20.04-LTS          |                   
+| Canonical               | UbuntuServer  | 20.04-LTS-Gen2     | 
+| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-1                       
+| MicrosoftCblMariner     | Cbl-Mariner   | 1-Gen2                                
+| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2                        
+| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2-Gen2                  
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gensecond |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gs        |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-containers-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
-| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-smalldisk |
-| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core-with-Containers |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gensecond |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gs |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-containers-gs |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-g2 |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk-g2 |
 
 
 ## Requirements for configuring automatic OS image upgrade
