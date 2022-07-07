@@ -18,63 +18,15 @@ Each client maintains its own reference documentation with links to get support 
 
 Although we do not own or support any client libraries, we do recommend some libraries--based on their popularity and whether there is an active online community to support and answer your questions. We only recommend using the latest available version, and upgrading regularly as new versions become available. These libraries are under active development and often release new versions with improvements to reliability and performance.
 
- 
+|  **Client Library**  |    **Language**   |  **Github** **repo**                                  |          **Documentation**|
+| ---------------------|----------------   |-------------------------------------------------------| --------------------------|
+|  StackExchange.Redis | C#/.NET    |  [Link](https://github.com/StackExchange/StackExchange.Redis) |  [More information here](https://stackexchange.github.io/StackExchange.Redis/) |
+|  Lettuce             |   Java     |  [Link](https://github.com/lettuce-io/)                        | [More information here](https://lettuce.io/) |
+|  Jedis               |  Java      |  [Link](https://github.com/redis/jedis)                         |                                              |
+|  node_redis          |   Node.js  |  [Link](https://github.com/redis/node-redis)                    |                                              |
+|  Redisson            |  Java      |  [Link](https://github.com/redisson/redisson)                  | [More information here](https://redisson.org/) |
+|  ioredis             |  Node.js   |  [Link](https://github.com/luin/ioredis)                        |[More information here](https://ioredis.readthedocs.io/en/stable/API/) |
 
-Client Library 
-
-Language 
-
-Github repo 
-
-Documentation 
-
-StackExchange.Redis 
-
-C#/.NET 
-
-Link 
-
-More information here 
-
-Lettuce 
-
-Java 
-
-Link 
-
-More information here 
-
-Jedis 
-
-Java 
-
-Link 
-
- 
-
-node_redis 
-
-Node.js 
-
-Link 
-
- 
-
-Redisson 
-
-Java 
-
-Link 
-
-More information here 
-
-ioredis 
-
-Node.js 
-
-Link 
-
-More information here 
 
 > [!NOTE]
 > Your application will be able to connect and use your Azure Cache for Redis instance with any client library that can communicate with open-source Redis.
