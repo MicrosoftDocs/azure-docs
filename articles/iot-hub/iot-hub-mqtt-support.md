@@ -290,6 +290,12 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > This `{property_bag}` element uses the same encoding as query strings in the HTTPS protocol.
 
+> [!NOTE]
+> If you are routing D2C messages to a Storage account and you want to levarage JSON encoding you need to specify the Content Type and Content Encoding
+> information including `$.ct=application%2Fjson&$.ce=utf-8` as part of the `{property_bag}` mentioned above. 
+> 
+> These attributes format are protocol-specific and are translated by IoT Hub into the relative System Properties as described [here](/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)
+
 The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub does not support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.

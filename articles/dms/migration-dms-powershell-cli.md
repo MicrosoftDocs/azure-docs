@@ -2,8 +2,8 @@
 title: Migrate databases at scale using Azure PowerShell / CLI
 description: Learn how to use Azure PowerShell or CLI to migrate databases at scale using the capabilities of Azure SQL migration extension in Azure Data Studio with Azure Database Migration Service.
 services: database-migration
-author: mokabiru
-ms.author: mokabiru
+author: dbamaster
+ms.author: roblescarlos
 manager: 
 ms.reviewer: randolph.west
 ms.service: dms

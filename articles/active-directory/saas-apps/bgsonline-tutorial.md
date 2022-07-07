@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with BGS Online, perform the following step
     For test environment, use this pattern `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BGS Online support team](mailTo:bgsdashboardteam@millwardbrown.com) to get these values.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BGS Online support team](mailto:bgsdashboardteam@millwardbrown.com) to get these values.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 

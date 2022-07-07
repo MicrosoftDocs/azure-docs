@@ -108,10 +108,10 @@ You'll also set up read and write permissions to the storage account. In order t
 
     :::image type="content"  source="media/quickstart-3d-scenes-studio/storage-account-id.png" alt-text="Screenshot of Cloud Shell output. The I D of the storage account is highlighted." lightbox="media/quickstart-3d-scenes-studio/storage-account-id.png":::
  
-1. Run the following command to grant yourself the *Storage Blob Data Owner* on the storage account. This level of access will allow you to perform both read and write operations in 3D Scenes Studio. The command contains placeholders for your Azure account and the ID of your storage account from the previous step.
+1. Run the following command to grant yourself the *Storage Blob Data Owner* on the storage account. This level of access will allow you to perform both read and write operations in 3D Scenes Studio. The command contains placeholders for the email associated with your Azure account and the ID of your storage account that you copied in the previous step.
 
     ```azurecli
-    az role assignment create --role "Storage Blob Data Owner" --assignee <your-Azure-account> --scope <ID-of-your-storage-account>
+    az role assignment create --role "Storage Blob Data Owner" --assignee <your-Azure-email> --scope <ID-of-your-storage-account>
     ```
 
     When the command completes successfully, you'll see details of the role assignment in the output.
