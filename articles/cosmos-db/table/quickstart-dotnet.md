@@ -42,15 +42,17 @@ This quickstart will create a single Azure Cosmos DB account using the Table API
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - create resources](<./includes/azure-cli-create-resource-group-and-resource.md>)]
+[!INCLUDE [Azure CLI - create resources](<./includes/quickstart-dotnet/azure-cli-create-resource-group-and-resource.md>)]
+
+[!INCLUDE [azure-cli-create-resource-group-and-resource](../mongodb/includes/quickstart-dotnet/azure-cli-create-resource-group-and-resource.md)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - create resource group and resources](<./includes/powershell-create-resource-group-and-resource.md>)]
+[!INCLUDE [Powershell - create resource group and resources](<./includes/quickstart-dotnet/powershell-create-resource-group-and-resource.md>)]
 
 #### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - create resource](<./includes/portal-create-resource.md>)]
+[!INCLUDE [Portal - create resource](<./includes/quickstart-dotnet/portal-create-resource.md>)]
 
 ---
 
@@ -58,15 +60,15 @@ This quickstart will create a single Azure Cosmos DB account using the Table API
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+[!INCLUDE [Azure CLI - get connection string](<./includes/quickstart-dotnet/azure-cli-get-connection-string.md>)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+[!INCLUDE [Powershell - get connection string](<./includes/quickstart-dotnet/powershell-get-connection-string.md>)]
 
 #### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-resource.md>)]
+[!INCLUDE [Portal - get connection string](<./includes/quickstart-dotnet/portal-get-connection-string-from-resource.md>)]
 
 ---
 
@@ -88,20 +90,20 @@ dotnet add package Azure.Data.Tables
 
 ### Configure environment variables
 
-[!INCLUDE [Multi-tab](<./includes/environment-variables-connection-string.md>)]
+[!INCLUDE [Multi-tab](<./includes/quickstart-dotnet/environment-variables-connection-string.md>)]
 
 ## Object model
 
 Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and docs.
 
-:::image type="complex" source="media/quickstart-javascript/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
+:::image type="complex" source="media/dotnet-quickstart/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
     Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
 :::image-end:::
 
 You'll use the following Table API classes to interact with these resources:
 
-- [``TableClient``](/dotnet/api/azure.data.tables.tableclient?view=azure-dotnet) - This class provides a client-side logical representation for working with tables on Cosmos DB. The client object is used to configure and execute requests against the service.
-- [``TableEntity``](/dotnet/api/azure.data.tables.tableentity?view=azure-dotnet) - This class is a reference to a row in a table that allows you to manage properties and column data.
+- [``TableClient``](/dotnet/api/azure.data.tables.tableclient) - This class provides a client-side logical representation for working with tables on Cosmos DB. The client object is used to configure and execute requests against the service.
+- [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) - This class is a reference to a row in a table that allows you to manage properties and column data.
 
 ## Code examples
 
@@ -201,10 +203,10 @@ Remove-AzResourceGroup @parameters
     > In this quickstart, we recommended the name ``msdocs-cosmos-quickstart-rg``.
 1. Select **Delete resource group**.
 
-   :::image type="content" source="media/delete-account-portal/delete-resource-group-option.png" lightbox="media/delete-account-portal/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
+   :::image type="content" source="media/dotnet-quickstart/delete-resource-group-option.png"  alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
 
 1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
 
-   :::image type="content" source="media/delete-account-portal/delete-confirmation.png" lightbox="media/delete-account-portal/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
+   :::image type="content" source="media/dotnet-quickstart/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
 
 ---
