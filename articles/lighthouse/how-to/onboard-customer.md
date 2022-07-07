@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed by users in your tenant.
-ms.date: 07/06/2022
+ms.date: 07/08/2022
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -187,7 +187,7 @@ When onboarding a subscription (or one or more resource groups within a subscrip
 
 The deployment may be done by using PowerShell, by using Azure CLI, or in the Azure portal, as shown below.
 
-### PowerShell
+### Deploy using PowerShell
 
 To deploy a single template:
 
@@ -227,7 +227,7 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
                  -Verbose
 ```
 
-### Azure CLI
+### Deploy using Azure CLI
 
 To deploy a single template:
 
@@ -267,15 +267,25 @@ az deployment sub create --name <deploymentName> \
                          --verbose
 ```
 
-### Azure portal
+### Deploy in the Azure portal
 
-With this option, you can modify your template directly in the Azure portal and then deploy it. This must be done by a user in the customer tenant.
+To deploy a template in the Azure portal, follow the process described below. These steps must be done by a user in the customer tenant with the **Owner** role (or another role with the `Microsoft.Authorization/roleAssignments/write` permission).
 
-1. In our [GitHub repo](https://github.com/Azure/Azure-Lighthouse-samples/), select the **Deploy to Azure** button shown next to the template you want to use. The template will open in the Azure portal.
-1. Enter your values for **Msp Offer Name**, **Msp Offer Description**, **Managed by Tenant Id**, and **Authorizations**. If you prefer, you can select **Edit parameters** to enter values for `mspOfferName`, `mspOfferDescription`, `managedbyTenantId`, and `authorizations` directly in the parameter file. Be sure to update these values rather than using the default values from the template.
+1. From the the [Service providers](view-manage-service-providers.md) page in the Azure portal, select **Server provider offers**.
+1. Near the top of the screen, select the arrow next to **Add offer**, and then select **Add via template**.
+
+   :::image type="content" source="../media/add-offer-via-template.png" alt-text="Screenshot showing the Add via template option in the Azure portal.":::
+
+1. Upload the template by dragging and dropping it, or select **Browse for files** to find and upload the template.
+1. If applicable, select the **I have a separate parameter file** box, then upload your parameter file.
+1. After you've uploaded your template (and parameter file if needed), select **Upload**.
+1. In the **Custom deployment** screen, review the details that appear. If needed, you can make changes to these values in this screen, or by selecting **Edit parameters**. 
 1. Select **Review and create**, then select **Create**.
 
 After a few minutes, you should see a notification that the deployment has completed.
+
+> [!TIP]
+> Alternately, from our [GitHub repo](https://github.com/Azure/Azure-Lighthouse-samples/), select the **Deploy to Azure** button shown next to the template you want to use (in the **Auto-deploy** column). The template will open in the Azure portal. You can then enter values for **Msp Offer Name**, **Msp Offer Description**, **Managed by Tenant Id**, and **Authorizations**. If you prefer, you can select **Edit parameters** to enter values for `mspOfferName`, `mspOfferDescription`, `managedbyTenantId`, and `authorizations` directly in the parameter file. If you use this process, be sure to update these values rather than using the default values from the template.
 
 ## Confirm successful onboarding
 
