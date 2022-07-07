@@ -185,7 +185,7 @@ There are times where you want to visualize the underlying data set in different
    
    This is the result data set that we want to reuse in multiple visualizations.
  
-    :::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-resultset.png" alt-text="Screenshot showing the result of a workbooks query.":::
+    :::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-resultset.png" alt-text="Screenshot showing the result of a workbooks query." lightbox="media/workbooks-commonly-used-components/workbooks-reuse-data-resultset.png":::
 
 1. Go to the `Advanced settings` tab, and in the name, enter `Cpu data`. 
 1. Select **Add query** to create another query control.
@@ -196,7 +196,7 @@ There are times where you want to visualize the underlying data set in different
     - Table: `Cpu data`
 1. Select **Run Merge** in the toolbar. You will get the same result as above:
     
-   :::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-duplicate.png" alt-text=" Screenshot showing duplicate query results in a workbook.":::
+   :::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-duplicate.png" alt-text=" Screenshot showing duplicate query results in a workbook." lightbox="media/workbooks-commonly-used-components/workbooks-reuse-data-duplicate.png":::
 
 1. Set the table options:
     - Use the `Name After Merge` column to set friendly names for your result columns. For example, you can rename `CpuAverage` to `CPU utilization (avg)`, and then use the `Run Merge` button to update the result set.
@@ -211,7 +211,7 @@ There are times where you want to visualize the underlying data set in different
 
 Here is an example that shows Average and P95 CPU utilization side by side.
 
-:::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png" alt-text="Screenshot showing two workbook controls using the same query.":::  
+:::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png" alt-text="Screenshot showing two workbook controls using the same query." lightbox="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png":::  
 
 ##  Using Azure Resource Manager (ARM) to retrieve alerts in a subscription
 
@@ -236,7 +236,7 @@ This sample shows you how to use the Azure Resource Manager query control to lis
 
    This is the raw JSON returned from Azure Resource Manager (ARM).
 
-   :::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-no-formatting.png" alt-text="Screenshot showing an alert data JSON response in workbooks using an ARM provider.":::
+   :::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-no-formatting.png" alt-text="Screenshot showing an alert data JSON response in workbooks using an ARM provider." lightbox="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-no-formatting.png":::
 
 ### Format the response
 
@@ -247,7 +247,7 @@ You may be satisfied with the information here. However, let us extract some int
 1. In the JSON Path settings, set the JSON Path Table to `$.value.[*].properties.essentials`. This extracts all "value.*.properties.essentials" fields from the returned JSON.
 1. Select **Run Query** to see the grid.
 
-  :::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-grid.png" alt-text="Screenshot showing alert data in a workbook in grid format using an ARM provider.":::
+  :::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-grid.png" alt-text="Screenshot showing alert data in a workbook in grid format using an ARM provider." lightbox="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-grid.png":::
 
 ### Filter the results
 
@@ -265,7 +265,7 @@ For example, if you would like to filter the results to these columns: `TargetRe
 | StartTime  | $.startDateTime |
 | ResolvedTime  | $.monitorConditionResolvedDateTime |
 
-:::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-final.png" alt-text="Screenshot showing the final query results in grid format using an ARM provider.":::
+:::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-final.png" alt-text="Screenshot showing the final query results in grid format using an ARM provider." lightbox="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-final.png":::
 
 ## Next steps
 - [Getting started with Azure Workbooks](workbooks-getting-started.md)
