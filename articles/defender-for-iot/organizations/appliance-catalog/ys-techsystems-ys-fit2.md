@@ -11,7 +11,7 @@ This article describes the **YS-techsystems YS-FIT2** appliance deployment and i
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Office|
+|**Hardware profile** | L100|
 |**Performance** | 	Max bandwidth: 10Mbp/s<br>Max devices: 100|
 |**Physical specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
 |**Status** | Supported; Available as pre-configured |
