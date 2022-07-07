@@ -250,4 +250,4 @@ This section lists common problems that you might encounter and steps for mitiga
 
 ## Next steps
 * [Learn how to create and update Virtual Machines and add license types (RHEL_BYOS, SLES_BYOS) for AHB by using the Azure CLI](/cli/azure/vm)
-* AHB on virtual machine scale sets for RHEL and SLES is is available to all users. You can [learn more about this benefit and how to use it here](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md).
+* AHB on virtual machine scale sets for RHEL and SLES is available to all users. You can [learn more about this benefit and how to use it here](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md).
