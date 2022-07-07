@@ -22,7 +22,7 @@ In this article, you will:
 - Profiler supports .NET Framework, .NET Core, and .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and newer applications.
   - Verify you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. 
   - Confirm that the deployed OS is `Windows Server 2012 R2` or later. 
-- [An Azure Service Fabric managed cluster.](../../service-fabric/quickstart-managed-cluster-portal.md).
+- [An Azure Service Fabric managed cluster](../../service-fabric/quickstart-managed-cluster-portal.md).
 
 ## Create deployment template
 
@@ -66,7 +66,7 @@ Redeploy your application once you've enabled Application Insights.
 
 ## Generate traffic and view Profiler traces
 
-1. Launch an [availability test](../app/monitor-web-app-availability.md)) to generate traffic to your application. 
+1. Launch an [availability test](../app/monitor-web-app-availability.md) to generate traffic to your application. 
 1. Wait 10 to 15 minutes for traces to be sent to the Application Insights instance.
 1. View the [Profiler traces](./profiler-overview.md) via the Application Insights instance the Azure portal.
 
