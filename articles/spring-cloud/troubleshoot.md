@@ -106,18 +106,6 @@ Before you onboard your application, ensure that it meets the following criteria
 * We recommended that you disable or remove the embedded *Config Server* and *Spring Service Registry* services from the application package.
 * If any Azure resources are to be bound via *Service Binding*, make sure the target resources are up and running.
 
-### My application exited with an error code
-
-When you create a deployment unsuccessfully and maybe you get some exit codes.
-![](./media/deploymentError.png)
-
-The exit codes indicate the termination reasons of the application. The detail info are as belows:
-
-* 0 - The application exited because it has run to completion, please replace it with a server application that runs constantly.
-* 1 - The application exited with a non-zero exit code, please debug the code and related services, then redeploy the application.
-* 137 - The application exited because it has requested resources that the hosting platform failed to provide, please update JVM parameters to restrict resource usage, or scale up application resources.
-* 143 - The application exited because it failed to respond to health probing, please make sure the application listens to some port, configure the port for health probing on the hosting platform, or turn off health probing.
-
 ## Configuration and management
 
 ### I encountered a problem with creating an Azure Spring Apps service instance
