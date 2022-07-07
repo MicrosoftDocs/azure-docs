@@ -101,6 +101,52 @@ For example, you can query Azure Resource Health to help you view any service pr
 1. When you're sure you have the query you want in your workbook, select **Done editing**.
 
 
+### Best practices for using resource centric log queries
+
+This video shows you how to use resource level logs queries in Azure Workbooks. It also has tips and tricks on how to enable advanced scenarios and improve performance.
+
+> [!VIDEO https://www.youtube.com/embed/8CvjM0VvOA80]
+
+#### Using a dynamic resource type parameter
+Dynamic resource type parameters use dynamic scopes for more efficient querying. The snippet below uses this heuristic:
+1. _Individual resources_: if the count of selected resource is less than or equal to 5
+2. _Resource groups_: if the number of resources is over 5 but the number of resource groups the resources belong to is less than or equal to 3
+3. _Subscriptions_: otherwise
+
+   ```
+    Resources
+    | take 1
+    | project x = dynamic(["microsoft.compute/virtualmachines", "microsoft.compute/virtualmachinescalesets", "microsoft.resources/resourcegroups", "microsoft.resources/subscriptions"])
+    | mvexpand x to typeof(string)
+    | extend jkey = 1
+    | join kind = inner (Resources 
+    | where id in~ ({VirtualMachines})
+    | summarize Subs = dcount(subscriptionId), resourceGroups = dcount(resourceGroup), resourceCount = count()
+    | extend jkey = 1) on jkey
+    | project x, label = 'x', 
+          selected = case(
+            x in ('microsoft.compute/virtualmachinescalesets', 'microsoft.compute/virtualmachines') and resourceCount <= 5, true, 
+            x == 'microsoft.resources/resourcegroups' and resourceGroups <= 3 and resourceCount > 5, true, 
+            x == 'microsoft.resources/subscriptions' and resourceGroups > 3 and resourceCount > 5, true, 
+            false)
+   ```
+#### Using a static resource scope for querying multiple resource types
+
+```json
+[
+    { "value":"microsoft.compute/virtualmachines", "label":"Virtual machine", "selected":true },
+    { "value":"microsoft.compute/virtualmachinescaleset", "label":"Virtual machine scale set", "selected":true }
+]
+```
+#### Using resource parameters grouped by resource type
+```
+Resources
+| where type =~ 'microsoft.compute/virtualmachines' or type =~ 'microsoft.compute/virtualmachinescalesets' 
+| where resourceGroup in~({ResourceGroups}) 
+| project value = id, label = id, selected = false, 
+      group = iff(type =~ 'microsoft.compute/virtualmachines', 'Virtual machines', 'Virtual machine scale sets') 
+```
+
 ## Adding parameters
 
 You can collect input from consumers and reference it in other parts of the workbook using parameters. Often, you would use parameters to scope the result set or to set the right visual. Parameters help you build interactive reports and experiences. 
