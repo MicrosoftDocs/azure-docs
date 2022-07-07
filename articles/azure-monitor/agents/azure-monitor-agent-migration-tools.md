@@ -36,7 +36,7 @@ AMA Migration Helper is a workbook-based Azure Monitor solution that helps you *
 To set up the AMA Migration Helper workbook in the Azure portal:
 
 1. From the **Monitor** menu, select **Workbooks** > **+ New** > **Advanced Editor** (**</>**).
-1. Copy and paste the content from the the [AMA Migration Helper file in the AzureMonitorCommunity GitHub repo] into the editor.
+1. Copy and paste the content from the [AMA Migration Helper file in the AzureMonitorCommunity GitHub repo] into the editor.
 1. Select **Apply** to load the workbook. 
 1. Select **Done Editing**. 
 
@@ -52,11 +52,11 @@ Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/
 Use the DCR Config Generator tool to parse Log Analytics Agent configuration from your workspaces and generate corresponding data collection rules automatically. You can then associate the rules to machines running the new agent using built-in association policies. 
 
 > [!NOTE]
-> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on Log Analytics Agent. Future versions of DCR Config Generator will support migrating Azure solution and service configuration.
+> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on Log Analytics Agent.
 
 To install DCR Config Generator:
 
-1. [Download the PowerShell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools).
+1. [Download the PowerShell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator).
 
 1. Run the script:
 
