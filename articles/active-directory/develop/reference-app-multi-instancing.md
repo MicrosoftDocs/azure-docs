@@ -38,11 +38,11 @@ The IDP initiated feature exposes two settings for each application.  
 ## IDP Initiated Configuration Instructions  
 1. Open any SSO enabled enterprise app and navigate to the SAML single sign on blade.   
 1. Select the ‘Edit’ button on the ‘User Attributes & Claims’ panel.
-![Single Sign-On (SSO) Workflow](./media/reference-app-multi-instancing/userattributesclaimsedit.png)
+![Edit Configuration](./media/reference-app-multi-instancing/userattributesclaimsedit.png)
 1. Open the advanced options blade.
-![Single Sign-On (SSO) Workflow](./media/reference-app-multi-instancing/advancedoptionsblade.png)
+![Open Advanced Options](./media/reference-app-multi-instancing/advancedoptionsblade.png)
 1. Configure both options according to your preferences and hit save.
-![Single Sign-On (SSO) Workflow](./media/reference-app-multi-instancing/advancedclaimsoptions.png)
+![Configure Options](./media/reference-app-multi-instancing/advancedclaimsoptions.png)
 
 
 
