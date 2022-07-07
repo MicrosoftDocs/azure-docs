@@ -291,7 +291,7 @@
             "redirect_document_id": false
           },
           {
-            "source_path_from_root": "articles/virtual-machine-scale-sets/scripts/cli-sample-enable-autoscale.md",
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-enable-autoscale.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/overview",
             "redirect_document_id": false
           },	  
