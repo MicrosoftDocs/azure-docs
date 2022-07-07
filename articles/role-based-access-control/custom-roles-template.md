@@ -33,6 +33,12 @@ To create a custom role, you must have:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
+You must use the following version:
+
+- `2018-07-01` or later
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ## Review the template
 
 The template used in this article is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/create-role-def). The template has four parameters and a resources section. The four parameters are:
@@ -173,7 +179,7 @@ Here are the changes you would need to make to the previous Quickstart template 
       "resources": [
         {
           "type": "Microsoft.Authorization/roleDefinitions",
-          "apiVersion": "2018-07-01",
+          "apiVersion": "2022-04-01",
           "name": "[parameters('roleDefName')]",
           "properties": {
             ...
