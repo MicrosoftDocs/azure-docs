@@ -104,25 +104,25 @@ You may optionally control when will the rule apply. By default, the rule is alw
 You can access alert processing rules by navigating to the **Alerts** home page in Azure Monitor.  
 Once there, you can click **Alert processing rules** to see and manage your existing rules, or click **Create** --> **Alert processing rules** to open the new alert processing rule wizard.
 
-![Accessing alert processing rules from the Azure Monitor landing page.](media/alerts-action-rules/action-rules-alerts-landing-page.png)
+:::image type="content" source="media/alerts-processing-rules/alerts-page-processing-rules.png" alt-text="Screenshot showing how to access alert processing rules from the Azure Monitor landing page.":::
 
 Lets review the new alert processing rule wizard.  
 In the first tab (**Scope**), you select which fired alerts are covered by this rule. Pick the **scope** of resources whose alerts will be covered - you may choose multiple resources and resource groups, or an entire subscription. You may also optionally add **filters**, as documented above.
 
-![Alert processing rules wizard - scope tab.](media/alerts-action-rules/action-rules-wizard-scope-tab.png)
+:::image type="content" source="media/alerts-processing-rules/alert-processing-rule-scope.png" alt-text="Screenshot of the scope tab of the alert processing rules wizard.":::
 
 In the second tab (**Rule settings**), you select which action to apply on the affected alerts. Choose between **Suppression** or **Apply action group**. If you choose the apply action group, you can either select existing action groups by clicking **Add action groups**, or create a new action group.
 
-![Alert processing rules wizard - rule settings tab.](media/alerts-action-rules/action-rules-wizard-rule-settings-tab.png)
+:::image type="content" source="media/alerts-processing-rules/alert-processing-rule-settings.png" alt-text="Screenshot of the rule settings tab of the alert processing rules wizard.":::
 
 In the third tab (**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, unless you disable it. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
 Let's see an example of a schedule for a one-off, overnight, planned maintenance. It starts in the evening until the next morning, in a specific timezone:
 
-![Alert processing rules wizard - scheduling tab - one-off schedule.](media/alerts-action-rules/action-rules-wizard-scheduling-tab-once.png)
+:::image type="content" source="media/alerts-processing-rules/alert-processing-rule-scheduling-one-time.png" alt-text="Screenshot of the scheduling tab of the alert processing rules wizard with a one time rule.":::
 
 Let's see an example of a more complex schedule, covering an "outside of business hours" case. It has a recurring schedule with two recurrences - a daily one from the afternoon until the morning, and a weekly one covering Saturday and Sunday (full days).
 
-![Alert processing rules wizard - scheduling tab - recurring schedule.](media/alerts-action-rules/action-rules-wizard-scheduling-tab-recurring.png)
+:::image type="content" source="media/alerts-processing-rules/alert-processing-rule-scheduling-recurring.png" alt-text="Screenshot of the scheduling tab of the alert processing rules wizard with a recurring rule.":::
 
 In the fourth tab (**Details**), you give this rule a name, pick where it will be stored, and optionally add a description for your reference. In the fifth tab (**Tags**), you optionally add tags to the rule, and finally in the last tab you can review and create the alert processing rule.
 
@@ -213,7 +213,7 @@ The [PowerShell documentation](/cli/azure/monitor/alert-processing-rule#az-monit
 
 You can view and manage your alert processing rules from the list view:
 
-![List of alert processing rules in the portal.](media/alerts-action-rules/action-rules-new-list-view.png)
+:::image type="content" source="media/alerts-processing-rules/alert-processing-rules-list-view.png" alt-text="Screenshot of the list view of alert processing rules.":::
 
 From here, you can enable, disable, or delete alert processing rules at scale by selecting the check box next to them. Clicking on an alert processing rule will open it for editing - you can enable or disable the rule in the fourth tab (**Details**).
 

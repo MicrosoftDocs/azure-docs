@@ -18,6 +18,12 @@ ms.custom: devx-track-csharp
 > [!div class="op_single_selector"]
 >
 > * [.NET](quickstart-dotnet.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Java](create-sql-api-java.md)
+> * [Spring Data](create-sql-api-spring-data.md)
+> * [Python](create-sql-api-python.md)
+> * [Spark v3](create-sql-api-spark.md)
+> * [Go](create-sql-api-go.md)
 >
 
 Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account. Follow these steps to  install the package and try out example code for basic tasks.
