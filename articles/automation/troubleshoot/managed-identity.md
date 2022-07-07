@@ -11,9 +11,10 @@ ms.topic: troubleshooting
 
 This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities).
 
-## Scenario: Unable to find the user assigned managed identity to add it to the Automation account.
+## Scenario: Unable to find the user assigned managed identity to add it to the Automation account
 
 ### Issue
+
 You want to add a user-assigned managed identity to the Automation account. However, you can't find the account in the Automation blade.
 
 ### Cause
