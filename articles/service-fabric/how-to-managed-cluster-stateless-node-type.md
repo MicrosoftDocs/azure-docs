@@ -52,11 +52,11 @@ Sample templates are available: [Service Fabric Stateless Node types template](h
 
 [Azure Spot Virtual Machines on scale sets](../virtual-machine-scale-sets/use-spot.md) enables users to take advantage of unused compute capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict these Azure Spot Virtual Machine instances. Therefore, Spot VM node types are great for workloads that can handle interruptions and don't need to be completed within a specific time frame. Recommended workloads include development, testing, batch processing jobs, big data, or other large-scale stateless scenarios.
 
-To set one or more stateless node types to use Spot VM, set both **isStateless** and **IsSpotVM** properties to true. When deploying a Service Fabric cluster with stateless node types, it's required to have at least one primary node type, which is not stateless in the cluster. Stateless node types configured to use Spot VMs have Eviction Policy set to 'Delete'.
+To set one or more stateless node types to use Spot VM, set both **isStateless** and **IsSpotVM** properties to true. When deploying a Service Fabric cluster with stateless node types, it's required to have at least one primary node type, which is not stateless in the cluster. Stateless node types configured to use Spot VMs have Eviction Policy set to 'Delete' by default. Customers can choose the 'evictionPolicy' to be 'Delete' or 'Deallocate' but this can only be defined at the time of nodetype creation.
 
 Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-* The Service Fabric managed cluster resource apiVersion should be **2022-02-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-06-01-preview** or later.
 
 ```json
 {
@@ -71,6 +71,37 @@ Sample templates are available: [Service Fabric Stateless Node types template](h
     "isStateless": true,
     "isPrimary": false,
     "IsSpotVM": true,
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    "vmSize": "[parameters('nodeTypeSize')]",
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
+  }
+}
+```
+
+## Enabling Spot VMs with Try & Restore
+
+This configuration enables the platform to automatically try to restore the evicted Spot VMs. Refer to the VMSS doc for [details](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot#try--restore)
+This configuration can only be enabled on new Spot nodetypes by specifying the [spotRestoreTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.spotrestorepolicy.restoretimeout?view=azure-dotnet), which is an ISO 8601 time duration. The platform will try to restore the VMs untill this timeout.
+
+```json
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    "isStateless": true,
+    "isPrimary": false,
+    "IsSpotVM": true,
+    "evictionPolicy": "deallocate",
+    "spotRestoreTimeout": "PT30M",
     "vmImagePublisher": "[parameters('vmImagePublisher')]",
     "vmImageOffer": "[parameters('vmImageOffer')]",
     "vmImageSku": "[parameters('vmImageSku')]",
