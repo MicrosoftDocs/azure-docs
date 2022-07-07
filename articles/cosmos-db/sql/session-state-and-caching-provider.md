@@ -84,7 +84,7 @@ After this, you can use ASP.NET Core sessions like with any other provider and u
 
 ##  Distributed cache scenarios
 
-Given that the Cosmos DB provider implements the [IDistributedCache interface to act as a distributed cache provider](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true), it can also be used for any application that requires distributed cache, not just for web application that require a performant and distributed session state provider.
+Given that the Cosmos DB provider implements the [IDistributedCache interface to act as a distributed cache provider](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true), it can also be used for any application that requires distributed cache, not just for web applications that require a performant and distributed session state provider.
 
 Distributed caches require data consistency to provide independent instances to be able to share that cached data. When using the Cosmos DB provider, you can:
 
