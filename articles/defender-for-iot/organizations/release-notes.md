@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 07/05/2022
+ms.date: 07/07/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -47,6 +47,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | Version | Date released | End support date |
 |--|--|--|
 | 22.2.3 | 07/2022 | 4/2023 |
+| 22.1.6 | 06/2022 | 10/2023 |
 | 22.1.5 | 06/2022 | 10/2023 |
 | 22.1.4 | 04/2022 | 10/2022 |
 | 22.1.3 | 03/2022 | 10/2022 |
@@ -61,9 +62,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 |Service area  |Updates  |
 |---------|---------|
 |**Enterprise IoT networks**     | - [Enterprise IoT purchase experience and Defender for Endpoint integration in GA](#enterprise-iot-purchase-experience-and-defender-for-endpoint-integration-in-ga)        |
-|**OT networks**     |Sensor software version 22.2.3:<br><br>- [OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)<br><br>To update to version 22.2.3:<br>- From version 22.1.x, update directly to version 22.2.3<br>- From version 10.x, first update to version 21.1.6, and then update again to 22.2.3<br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).        |
+|**OT networks**     |**Sensor software version 22.2.3**:<br><br>-[OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)<br><br>To update to version 22.2.3:<br>- From version 22.1.x, update directly to version 22.2.3<br>- From version 10.x, first update to version 21.1.6, and then update again to 22.2.3<br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).  |
 |**Cloud-only features**     |  - [Microsoft Sentinel incident synch with Defender for IoT alerts](#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts) |
-
 
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
@@ -140,6 +140,7 @@ For more information, see:
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 
 
+
 ### Improved security for uploading protocol plugins
 
 This version of the sensor provides an improved security for uploading proprietary plugins you've created using the Horizon SDK.
@@ -164,9 +165,11 @@ For more information, see:
 
 ## June 2022
 
-**Sensor software version**: 22.1.5
+- **Sensor software version 22.1.6**: Minor version with maintenance updates for internal sensor components
 
-We've recently optimized and enhanced our documentation as follows:
+- **Sensor software version 22.1.5**:  Minor version to improve TI installation packages and software updates
+
+We've also recently optimized and enhanced our documentation as follows:
 
 - [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
 - [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
