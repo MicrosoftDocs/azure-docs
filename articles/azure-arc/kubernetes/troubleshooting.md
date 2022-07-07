@@ -467,7 +467,11 @@ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Cannot connect to the hybrid connection because no agent is connected in the target arc resource.
 ```
 
-To resolve this error, [enable the Cluster Connect feature](cluster-connect.md#enable-cluster-connect-feature) on your cluster.
+To resolve this error, enable the Cluster Connect feature on your cluster.
+
+```azurecli
+az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
+```
 
 ## Enable custom locations using service principal
 
