@@ -70,4 +70,4 @@ The following best practices will help maximize your success when using auto-upg
 
 
 <!-- EXTERNAL LINKS -->
-[pdb-best-best-practices]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+[pdb-best-practices]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
