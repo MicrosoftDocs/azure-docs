@@ -16,8 +16,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create data factory - User interface (UI)
-    href: quickstart-create-data-factory-portal.md
+  - name: Create a data factory
+    href: quickstart-create-data-factory.md
   - name: Create data factory - Copy data tool
     href: quickstart-create-data-factory-copy-data-tool.md
     displayName: timeout
