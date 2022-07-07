@@ -206,11 +206,11 @@
   items:
   - name: OT monitoring appliances
     items:
-    - name: Corporate
+    - name: Corporate environments
       items:
       - name: HPE ProLiant DL360
         href: appliance-catalog/hpe-proliant-dl360.md
-    - name: Enterprise
+    - name: Large enterprise
       items:
       - name: HPE ProLiant DL20/DL20 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
