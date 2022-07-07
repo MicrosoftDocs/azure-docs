@@ -33,7 +33,7 @@ recommendations: false
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Later, you'll paste your key and endpoint into the code below:
 
@@ -111,7 +111,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-read` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-1. Open the `FormRecognizer.java` file and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal**.
+1. Open the `FormRecognizer.java` file and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**.
 
 ```java
 import com.azure.ai.formrecognizer.*;
@@ -130,8 +130,8 @@ import java.util.Arrays;
 public class FormRecognizer {
 
     // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-    private static final String endpoint = "https://formrecognizer-jp.cognitiveservices.azure.com/";
-    private static final String key = "092e23363b8b492dbc402cbebbf1c1d9";
+    private static final String endpoint = "<your-endpoint>";
+    private static final String key = "<your-key>";
 
         public static void main(String[] args) {
 

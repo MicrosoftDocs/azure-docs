@@ -54,7 +54,7 @@ Key rotation policy settings:
 -   Notification time: key near expiry event interval for Event Grid notification. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key. 
 
 > [!IMPORTANT]
-> Key rotation generates a new key version of an existing key with new key material. Ensure that your data encryption solution uses versioned key uri to point to the same key material for encrypt/decrypt, wrap/unwrap operations to avoid disruption to your services. All Azure services are currently following that pattern for data encryption.
+> Key rotation generates a new key version of an existing key with new key material. Target services should use versionless key uri to automatically refresh to latest version of the key. Ensure that your data encryption solution stores versioned key uri with data to point to the same key material for decrypt/unwrap as was used for encrypt/wrap operations to avoid disruption to your services. All Azure services are currently following that pattern for data encryption.
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-1.png" alt-text="Rotation policy configuration":::
 

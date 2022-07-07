@@ -14,9 +14,15 @@ ms.custom: ignite-fall-2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Sign in to Language Studio
 
 [!INCLUDE [Sign in to Language studio](../language-studio/sign-in-studio.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Sign-in-to-language-studio" target="_target">I ran into an issue</a>
 
 ## Create a conversational language understanding project
 
@@ -28,6 +34,9 @@ For this quickstart, you can download [this sample project](https://go.microsoft
 
 Once the upload is complete, you will land on **Build schema** page. For this quickstart, the schema is already built, and utterances are already labeled with intents and entities.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Create-a-conversational-language-understanding-project" target="_target">I ran into an issue</a>
+
 ## Train your model
 
 Typically, after you create a project, you should [build schema](../../how-to/build-schema.md) and [label utterances](../../how-to/tag-utterances.md). For this quickstart, we already imported a ready project with built schema and labeled utterances. 
@@ -36,11 +45,17 @@ To train a model, you need to start a training job. The output of a successful t
 
 [!INCLUDE [Train model](../language-studio/train-model.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Train-model" target="_target">I ran into an issue</a>
+
 ## Deploy your model
 
 Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the [prediction API](https://aka.ms/clu-apis).
 
 [!INCLUDE [Deploy model](../language-studio/deploy-model.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Deploy-model" target="_target">I ran into an issue</a>
 
 ## Test model
 
@@ -49,7 +64,13 @@ After your model is deployed, you can start using it to make predictions through
 
 [!INCLUDE [Test model](../language-studio/test-model.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Test-model" target="_target">I ran into an issue</a>
+
 ## Clean up resources
 
 [!INCLUDE [Delete project using Language studio](../language-studio/delete-project.md)]
  
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Clean-up-projects" target="_target">I ran into an issue</a>
+

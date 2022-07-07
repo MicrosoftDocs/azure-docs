@@ -17,7 +17,7 @@ Linux-based HDInsight clusters only expose three ports publicly on the internet:
 
 HDInsight is implemented by several Azure Virtual Machines (cluster nodes) running on an Azure Virtual Network. From within the virtual network, you can access ports not exposed over the internet. If you connect via SSH to the head node, you can directly access services running on the cluster nodes.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > If you do not specify an Azure Virtual Network as a configuration option for HDInsight, one is created automatically. However, you can't join other machines (such as other Azure Virtual Machines or your client development machine) to this virtual network.
 
 To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md).
@@ -58,10 +58,10 @@ All services publicly exposed on the internet must be authenticated:
 
 ## Non-public ports
 
-> [!NOTE]  
+> [!NOTE]
 > Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Some services only run on one headnode at a time. If you attempt to connect to the service on the primary headnode and receive an error, retry using the secondary headnode.
 
 ### Ambari
@@ -141,8 +141,9 @@ Examples:
 | --- | --- | --- | --- | --- |
 | HMaster |Head nodes |16000 |&nbsp; |&nbsp; |
 | HMaster info Web UI |Head nodes |16010 |HTTP |The port for the HBase Master web UI |
-| Region server |All worker nodes |16020 |&nbsp; |&nbsp; |
-| &nbsp; |&nbsp; |2181 |&nbsp; |The port that clients use to connect to ZooKeeper |
+|Region server|All worker nodes |16020 ||&nbsp;|
+|Region server info Web UI&nbsp;|&nbsp;All worker nodes |16030|HTTP|The port for the HBase Region server Web UI|
+||| 2181 ||The port that clients use to connect to ZooKeeper |
 
 ### Kafka ports
 

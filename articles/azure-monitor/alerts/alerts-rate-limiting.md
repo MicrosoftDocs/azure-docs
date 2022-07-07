@@ -5,6 +5,7 @@ author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: dukek
 ---
 
 # Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts

@@ -21,8 +21,6 @@ When sharing ultra disks, they have the following additional limitations:
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) isn't currently supported.
 
-Shared ultra disks are available in all regions that support ultra disks by default, and don't require you to sign up for access to use them.
-
 ### Premium SSDs
 
 - Can only be enabled on data disks, not OS disks.
@@ -35,10 +33,6 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 - Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) isn't currently supported.
 
-#### Premium SSD regional availability
-
-Shared disks on all premium SSD sizes are available in all regions that managed disks are available.
-
 
 ### Standard SSDs
 
@@ -50,7 +44,3 @@ Shared disks on all premium SSD sizes are available in all regions that managed 
 - Azure Site Recovery support isn't yet available.
 - Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) isn't currently supported.
-
-#### Standard SSD regional availability
-
-Shared disks on all standard SSD sizes are available in all regions that managed disks are available.

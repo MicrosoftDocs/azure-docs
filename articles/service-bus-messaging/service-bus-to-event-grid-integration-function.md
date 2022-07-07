@@ -33,7 +33,7 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
 > To learn more about creating and deploying an Azure Functions app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
 
 1. Open **ReceiveMessagesOnEvent.cs** file from the **FunctionApp1** project of the **SBEventGridIntegration.sln** solution. 
-1. Replace `<SERCICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace. It should be the same as the one you used in the **Program.cs** file of the **MessageSender** project in the same solution. 
+1. Replace `<SERVICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace. It should be the same as the one you used in the **Program.cs** file of the **MessageSender** project in the same solution. 
 1. Right-click **FunctionApp1**, and select **Publish**. 
 1. On the **Publish** page, select **Start**. These steps may be different from what you see, but the process of publishing should be similar. 
 1. In the **Publish** wizard, on the **Target** page, select **Azure** for **Target**. 

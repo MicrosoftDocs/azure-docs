@@ -133,4 +133,4 @@ You'll need a business card document. You can use our [sample business card docu
 * Explore our REST API:
 
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
+    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
