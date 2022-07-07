@@ -10,10 +10,13 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Migration tools for Log Analytics agent to Azure Monitor Agent
-The [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure virtual machines, scale sets, on premise and multi-cloud servers and Windows client devices. It uploads the data to Azure Monitor destinations where it can be used by different features, insights, and other services such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). All of the data collection configuration is handled via [Data Collection Rules](../essentials/data-collection-rule-overview.md).  
-The Azure Monitor agent is meant to replace the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines. By comparison, it is more **secure, cost-effective, performant, manageable and reliable**. You must migrate from [Log Analytics agent] to [Azure Monitor agent] before **August 2024**. To make this process easier and automated, use agent migration described in this article.
+The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace the [Log Analytics agent](log-analytics-agent.md) (also known as MMA and OMS) for both Windows and Linux machines. By comparison, it is more **secure, cost-effective, performant, manageable and reliable**. You must migrate to Azure Monitor agent before **August 2024** since the Log Analytics agent will be deprecated.  
+To make this process easier and automated, use agent migration described in this article.
 
-:::image type="content" source="media/azure-monitor-agent-migration/migration-steps.png" alt-text="Flow diagram to demonstrate the steps involved in agent migration.":::
+:::image type="content" source="media/azure-monitor-agent-migration/migration-steps.png" alt-text="Flow diagram to demonstrate the steps involved in agent migration.":::  
+
+> [!IMPORTANT]
+> Do not remove the legacy agents if being used by other [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) (like Microsoft Defender for Cloud, Sentinel, VM Insights, etc). You can use the migration helper to discover which solutions and services you use today that depend on the legacy agents.
 
 ## AMA Migration Helper (preview)
 A workbook-based solution in Azure Monitor that helps you discover **what to migrate** and **track progress** as you move from legacy Log Analytics agents to Azure Monitor agent on your virtual machines, scale sets, on premise and Arc-enabled servers in your subscriptions. Use this single glass pane view to expedite your agent migration journey. 
