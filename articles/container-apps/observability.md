@@ -250,7 +250,7 @@ You can add more scopes to view metrics across multiple container apps.
 
 ## Azure Monitor Log Analytics
 
-Azure Container Apps is integrated with Azure Monitor Log Analytics. You can use Log Analytics to monitor and analyze your container app's logs. Each Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment.  
+Azure Container Apps is integrated with Azure Monitor Log Analytics to monitor and analyze your container app's logs.  Each Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment.  
 
 Log entries are accessible by querying Log Analytics tables through the Azure portal or a command shell using the [Azure CLI](/cli/azure/monitor/log-analytics).
 
@@ -260,29 +260,29 @@ Azure Monitor collects application logs and stores them in a Log Analytics works
 
 There are two types of logs for Container Apps.  
 
-1. System logs, which originate from the container app.
-1. Console logs, which originate from containers and sidecars. 
+1. Console logs, which are emitted by your app.
+1. System logs, which are emitted by the Container Apps service.
 
 
 ### Container Apps System Logs
 
-The Container Apps service provides system log messages at the container app level.  System logs  messages include the following messages:
+The Container Apps service provides system log messages at the container app level.  System logs  emits the following messaages:
 
 | Source | Type | Message |
 |---------|------|---------|
-| Dapr | info | Successfully created dapr component <component-name> with scope <dapr-component-scope> |
-| Dapr | info | Successfully updated dapr component <component-name> with scope <component-type> |
-| Dapr | error | Error creating dapr component <component-name> |
-| Volume Mounts | info | Successfully mounted volume <volume-name> for revision <revision-scope> |
-| Volume Mounts | error | Error mounting volume <volume-name> |
-| Domain Binding | info | Successfully bound Domain <domain> to the container app <container app name> |
+| Dapr | info | Successfully created dapr component /<component-name>/ with scope /<dapr-component-scope>/ |
+| Dapr | info | Successfully updated dapr component /<component-name>/ with scope /<component-type>/ |
+| Dapr | error | Error creating dapr component /<component-name>/ |
+| Volume Mounts | info | Successfully mounted volume /<volume-name>/ for revision /<revision-scope>/ |
+| Volume Mounts | error | Error mounting volume /<volume-name>/ |
+| Domain Binding | info | Successfully bound Domain /<domain>/ to the container app /<container app name>/ |
 | Authentication | info | Auth enabled on app. Creating authentication config |
 | Authentication | info | Auth config created successfully |
-| Traffic weight | info | Setting a traffic weight of <percentage>% for revision <revision-name\> |
-| Revision Provisioning | info | Creating a new revision: <revision-name> |
-| Revision Provisioning | info | Successfully provisioned revision <name> |
+| Traffic weight | info | Setting a traffic weight of /<percentage>% for revision /<revision-name\>/ |
+| Revision Provisioning | info | Creating a new revision: /<revision-name>/ |
+| Revision Provisioning | info | Successfully provisioned revision /<name>/ |
 | Revision Provisioning | info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
-| Revision Provisioning | error | Error provisioning revision <revision-name>. ErrorCode: <[ErrImagePull]\|[Timeout]\|[ContainerCrashing]> |
+| Revision Provisioning | error | Error provisioning revision /<revision-name>. ErrorCode: /<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]>/ |
 
 The system log data is accessible by querying the `ContainerAppSystemlogs_CL` table. The most used Container Apps specific columns in the table are:
 
@@ -304,13 +304,13 @@ The most commonly used Container Apps specific columns in ContainerAppConsoleLog
 
 |Column  |Description |
 |---------|---------|
-| `ContainerAppName_s` | container app name |
-| `ContainerGroupName_g` | replica name |
-| `ContainerId_s` | container identifier |
-| `ContainerImage_s` | container image name |
+| `ContainerAppName_s` | Container app name |
+| `ContainerGroupName_g` | Replica name |
+| `ContainerId_s` | Container identifier |
+| `ContainerImage_s` | Container image name |
 | `EnvironmentName_s` | Container Apps environment name |
-| `Log_s` | log message |
-| `RevisionName_s` | revision name |
+| `Log_s` | Log message |
+| `RevisionName_s` | Revision name |
 
 ### Use Log Analytics to query logs
 
