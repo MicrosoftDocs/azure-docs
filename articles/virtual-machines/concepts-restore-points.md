@@ -11,12 +11,12 @@ ms.custom: template-concept
 
 # Support matrix for VM restore points
 
-This article summarizes support settings and limitations for using [VM restore points](virtual-machines-create-restore-points.md).
+This article summarizes the support matrix and limitations of using [VM restore points](virtual-machines-create-restore-points.md).
 
 
 ## VM restore points support matrix
 
-The following table summarizes the support for local region VM restore points.
+The following table summarizes the support matrix for local region VM restore points.
 
 **Feature/Operation/Configuration/Scenario** | **Support for Local region VM restore points**
 --- | ---
@@ -79,7 +79,7 @@ The following table summarizes the support for local region VM restore points.
 
 - Restore points are supported only for managed disks. 
 - Ultra-disks, Ephemeral OS disks, and Shared disks are not supported. 
-- Restore points APIs require an API of version 2021-03-01 or higher. 
+- Restore points APIs require an API of version 2021-03-01 or later. 
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
 - Concurrent creation of restore points for a VM is not supported. 
 - Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
