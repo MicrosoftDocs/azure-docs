@@ -15,9 +15,9 @@ ms.author: diberry
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **MongoDB** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the MongoDB API](../../introduction.md).
+1. On the **Select API option** page, select the **Create** option within the **Azure Table** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the Table API](../../introduction.md).
 
-   :::image type="content" source="../media/quickstart-javascript/cosmos-api-choices.png" lightbox="../media/quickstart-javascript/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
+    :::image type="content" source="../../media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3.png" alt-text="A screenshot showing how to create a Cosmos DB account using the Table API.":::    
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 
@@ -34,12 +34,10 @@ ms.author: diberry
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="../media/quickstart-javascript/new-cosmos-account-page.png" lightbox="../media/quickstart-javascript/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos D B SQL A P I.":::
+    :::image type="content" source="../../media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4.png" alt-text="A screenshot showing how to create a Cosmos DB account using the Table API.":::    
 
 1. Select **Review + create**.
 
 1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete** before moving on.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
-
-   :::image type="content" source="../media/quickstart-javascript/cosmos-deployment-complete.png" lightbox="../media/quickstart-javascript/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos D B SQL A P I resource.":::

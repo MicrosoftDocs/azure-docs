@@ -14,8 +14,7 @@ ms.author: diberry
         Name = $ACCOUNT_NAME
         Type = "ConnectionStrings"
     }    
-    Get-AzCosmosDBAccountKey @parameters |
-        Select-Object -Property "Primary MongoDB Connection String"    
+    Get-AzCosmosDBAccountKey @parameters | Select-Object -Property "Primary Table Connection String"    
     ```
 
 1. Record the *CONNECTION STRING* value. You'll use these credentials later.

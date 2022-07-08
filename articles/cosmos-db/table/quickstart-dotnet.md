@@ -14,7 +14,7 @@ ms.custom: devx-track-dotnet
 # Quickstart: Azure Cosmos DB Table API for .NET
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-Get started with Table API to create databases, containers, and docs within your Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
+This quickstart shows how to get started with the Azure Cosmos DB Table API from a .NET application. The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples) are available on GitHub as a .NET project.
