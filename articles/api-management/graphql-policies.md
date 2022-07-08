@@ -138,9 +138,6 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 
 * This policy is invoked only when a matching GraphQL query is executed. 
 * The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurrences of this policy in a policy definition.
-* The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
-    * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
-    * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -203,6 +200,10 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ### GraphQL Context
 
+* The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
+  * `context.ParentResult` is set to the parent object for the current resolver execution.
+  * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
+  * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
 The `context` variable that is passed through the request and response pipeline is augmented with the GraphQL context when used with `<set-graphql-resolver>` policies.
 
 #### ParentResult
@@ -246,7 +247,7 @@ query {
 }
 ```
 
-If you set a resolver for `parent-type="Blog" field="comments"`, you will want to understand which blog ID to use.  You can get this using `context.ParentResult.AsJObject()["id"].ToString()`.  The policy for configuring this resolver would resemble:
+If you set a resolver for `parent-type="Blog" field="comments"`, you will want to understand which blog ID to use.  You can get the ID of the blog using `context.ParentResult.AsJObject()["id"].ToString()`.  The policy for configuring this resolver would resemble:
 
 ``` xml
 <set-graphql-resolver parent-type="Blog" field="comments">
@@ -262,7 +263,7 @@ If you set a resolver for `parent-type="Blog" field="comments"`, you will want t
 </set-graphql-resolver>
 ```
 
-### Arguments
+#### Arguments
 
 The arguments for a parameterized GraphQL query are added to the body of the request.  For example, consider the following two queries:
 
@@ -311,11 +312,11 @@ When the resolver is executed, the `arguments` property is added to the body.  Y
    
 ### More examples
 
-### Resolver for GraphQL query
+#### Resolver for GraphQL query
 
 The following example resolves a query by making an HTTP `GET` call to a backend data source.
 
-#### Example schema
+##### Example schema
 
 ```
 type Query {
@@ -328,7 +329,7 @@ type User {
 }
 ```
 
-#### Example policy
+##### Example policy
 
 ```xml
 <set-graphql-resolver parent-type="Query" field="users">
@@ -341,11 +342,11 @@ type User {
 </set-graphql-resolver>
 ```
 
-### Resolver for a GraqhQL query that returns a list, using a liquid template
+#### Resolver for a GraqhQL query that returns a list, using a liquid template
 
 The following example uses a liquid template, supported for use in the [set-body](api-management-transformation-policies.md#SetBody) policy, to return a list in the HTTP response to a query.  It also renames the `username` field in the response from the REST API to `name` in the GraphQL response.
 
-#### Example schema
+##### Example schema
 
 ```
 type Query {
@@ -358,7 +359,7 @@ type User {
 }
 ```
 
-#### Example policy
+##### Example policy
 
 ```xml
 <set-graphql-resolver parent-type="Query" field="users">
@@ -382,7 +383,7 @@ type User {
 </set-graphql-resolver>
 ```
 
-### Resolver for GraphQL mutation
+#### Resolver for GraphQL mutation
 
 The following example resolves a mutation that inserts data by making a `POST` request to an HTTP data source. The policy expression in the `set-body` policy of the HTTP request modifies a `name` argument that is passed in the GraphQL query as its body.  The body that is sent will look like the following JSON:
 
@@ -392,7 +393,7 @@ The following example resolves a mutation that inserts data by making a `POST` r
 }
 ```
 
-#### Example schema
+##### Example schema
 
 ```
 type Query {
@@ -409,7 +410,7 @@ type User {
 }
 ```
 
-#### Example policy
+##### Example policy
 
 ```xml
 <set-graphql-resolver parent-type="Mutation" field="makeUser">
