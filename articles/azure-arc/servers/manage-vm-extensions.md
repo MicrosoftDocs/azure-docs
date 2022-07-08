@@ -130,7 +130,7 @@ The following extensions are available for Windows and Linux machines:
 |Operating system |Azure Monitor agent |Log Analytics agent |Dependency VM Insights |Qualys |Custom Script |Key Vault |Hybrid Runbook |Antimalware Extension |Windows Admin Center |
 |-----------------|--------------------|--------------------|-----------------------|-------|--------------|----------|---------------|----------------------|---------------------|
 |Windows Server 2022 |X |X |X |X |X | |X | |X |
-|Windows Server 2019 |X |X |X |X |X |X | |X |X |
+|Windows Server 2019 |X |X |X |X |X |X | | |X |
 |Windows Server 2016 |X |X |X |X |X |X |X |Built-in |X |
 |Windows Server 2012 R2 |X |X |X |X |X | |X |X | |
 |Windows Server 2012 |X |X |X |X |X |X |X |X | |
