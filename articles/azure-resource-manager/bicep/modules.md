@@ -2,7 +2,7 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 07/08/2022
 ---
 
 # Bicep modules
@@ -51,6 +51,16 @@ The path can be either a local file or a file in a registry. The local file can 
 
 The **name** property is required. It becomes the name of the nested deployment resource in the generated template.
 
+If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and targeted to the same resource group, one deployment may show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name.
+
+The following example concatenates the deployment name to the module name. If you provide a unique name for the deployment, the module name is also unique.
+
+```bicep
+module stgModule 'storageAccount.bicep' = {
+  name: '${deployment().name}-storageDeploy'
+  scope: resourceGroup('demoRG')
+```
+
 If you need to **specify a scope** that is different than the scope for the main file, add the scope property. For more information, see [Set module scope](#set-module-scope).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/scope-definition.bicep" highlight="4" :::
@@ -97,7 +107,7 @@ To link to a public registry module, specify the module path with the following 
 module <symbolic-name> 'br/public:<file-path>:<tag>' = {}
 ```
 
-- **br/public** is the alias for the public module registry.
+- **br/public** is the alias for the public module registry. This alias is predefined in your configuration.
 - **file path** can contain segments that can be separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
@@ -112,7 +122,6 @@ For example:
 > module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {}
 > ```
 >
-> For more information see aliases and configuring aliases later in this section.
 
 #### Private module registry
 
@@ -150,7 +159,7 @@ After creating a [template spec](../bicep/template-specs.md), you can link to th
 module <symbolic-name> 'ts:<sub-id>/<rg-name>/<template-spec-name>:<version>' = {
 ```
 
-However, you can simplify your Bicep file by [creating an alias](bicep-config-modules.md) for the resource group that contains your template specs. When using an alias, the syntax becomes:
+However, you can simplify your Bicep file by [creating an alias](bicep-config-modules.md) for the resource group that contains your template specs. When you use an alias, the syntax becomes:
 
 ```bicep
 module <symbolic-name> 'ts/<alias>:<template-spec-name>:<version>' = {
