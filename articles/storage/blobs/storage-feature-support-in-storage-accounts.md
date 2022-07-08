@@ -11,11 +11,7 @@ ms.author: normesta
 
 # Blob Storage feature support in Azure Storage accounts
 
-Support for Blob Storage features can be impacted by storage account type, namespace type, and the use of specific storage endpoints, APIs, and protocols. 
-
-Use this article to determine whether a feature is fully supported, supported only at the preview level, is not supported, or is not _yet_ supported based on your account configuration and the endpoints, APIs, and protocols you intend to use with your account. 
-
-The tables in this article use the following icons to indicate support level:
+Feature support can be impacted by the type of storage account that you create and which endpoints, APIs, and protocols you use to upload and modify blobs.  Use the tables in this article to assess feature support. The items that appear in these tables will change over time as support continues to expand.  Each table uses the following icons to indicate support level:
 
 ![Yes](../media/icons/yes-icon.png) = Fully supported
 
@@ -25,11 +21,9 @@ The tables in this article use the following icons to indicate support level:
 
 ![Not yet](../media/icons/no-yet-icon.png) = Not _yet_ supported
 
-The items that appear in these tables will change over time as support continues to expand.
+## General support
 
-## Support by account and namespace type
-
-To assess support, begin by perusing the table in this section. It shows support by account and namespace type. Columns are defined as follows:
+This table indicates whether a feature is supported in your account. Columns are defined as follows:
 
 **Standard (flat)** = Standard general-purpose v2 account with a **flat** namespace
 
@@ -38,9 +32,6 @@ To assess support, begin by perusing the table in this section. It shows support
 **Premium (flat)** = Premium block blob account with a **flat** namespace
 
 **Premium (hierarchical)** = Premium block blob account with a **hierarchical** namespace
-
-You can use any feature that appears as supported. These features will behave as expected with data that you upload or modify by using the Azure portal, Azure Storage Explorer, AzCopy, as well as PowerShell and Azure CLI. If you plan to write applications or use protocols such as the Network File System (NFS) 3.0 or SSH File Transfer Protocol (SFTP), see [Support by Endpoint, API, and protocol](#support-by-endpoint-api-and-protocol) section of this article. 
-
 
 | Storage feature | Standard (flat) | Standard (hierarchical)   | Premium (flat)  | Premium (hierarchical)  |
 |---------------|-------------------|---|---|--|
@@ -80,9 +71,12 @@ You can use any feature that appears as supported. These features will behave as
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-## Support by Endpoint, API, and protocol
+> [!NOTE]
+> Features might not be compatible with all storage endpoints, APIs or protocols. If you plan to write applications or use protocols such as the Network File System (NFS) 3.0 or SSH File Transfer Protocol (SFTP), see [Support by Endpoint, API, and protocol](#support-by-endpoint-api-and-protocol) section of this article. 
 
-Use these tables to assess support in your applications and workloads that consume Blob Storage or Data Lake Storage APIs or use protocols such as the Network File System (NFS) 3.0 or SSH File Transfer Protocol (SFTP) to transfer files. 
+## Support by endpoint, API, and protocol
+
+Features might not be compatible with all storage endpoints, APIs or protocols. If you plan to write applications or use protocols such as the Network File System (NFS) 3.0 or SSH File Transfer Protocol (SFTP), use the tables in this section to assess feature support.
 
 ### Flat namespace
 
@@ -90,7 +84,7 @@ If you're account has a flat namespace, you can connect to either the Blob servi
 
 #### Blob service endpoint
 
-Use this table to assess support for applications and workloads that connect to the **blob.core.windows.net** endpoint.
+Use this table to assess support for applications and workloads that connect to the **blob.core.windows.net** endpoint in an account that has a **flat** namespace.
 
 | Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0 <sup>1</sup>  | SFTP <sup>1</sup>  |
 |---------------|-------------------|---|---|--|
@@ -103,7 +97,7 @@ Use this table to assess support for applications and workloads that connect to 
 
 #### Data Lake Storage endpoint
 
-Use this table to assess support for applications and workloads that connect to the **dfs.core.windows.net** endpoint.
+Use this table to assess support for applications and workloads that connect to the **dfs.core.windows.net** endpoint in an account that has a **hierarchical** namespace.
 
 > [!NOTE]
 > All features are unsupported for NFS 3.0 and SFTP as these protocols can't be used to connect to the Data Lake Storage endpoint.
@@ -123,7 +117,7 @@ If you're account has a hierarchical namespace, you can connect to either the Bl
 
 #### Blob service endpoint
 
-Use this table to assess support for applications and workloads that connect to the **blob.core.windows.net** endpoint.
+Use this table to assess support for applications and workloads that connect to the **blob.core.windows.net** endpoint in an account that has a **flat** namespace.
 
 | Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0  | SFTP  |
 |---------------|-------------------|---|---|--|
@@ -134,7 +128,7 @@ Use this table to assess support for applications and workloads that connect to 
 
 #### Data Lake Storage endpoint
 
-Use this table to assess support for applications and workloads that connect to the  **dfs.core.windows.net** endpoint.
+Use this table to assess support for applications and workloads that connect to the  **dfs.core.windows.net** endpoint in an account that has a **hierarchical** namespace.
 
 | Storage feature | Blob APIs | Data Lake Storage APIs   | NFS 3.0 <sup>1</sup>| SFTP <sup>1</sup> |
 |---------------|-------------------|---|---|--|
