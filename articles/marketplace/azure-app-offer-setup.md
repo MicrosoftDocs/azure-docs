@@ -91,3 +91,7 @@ Make sure you update these connections whenever something has changed. You can s
 ## Next steps
 
 - [Configure Azure application properties](azure-app-properties.md)
+
+**Video tutorial**
+
+- [Configuring Partner Center for Azure Managed Applications - Demo](https://go.microsoft.com/fwlink/?linkid=2196410)
