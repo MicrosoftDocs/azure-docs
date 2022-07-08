@@ -963,6 +963,20 @@ groups:
     title: Swift
   - id: programming-language-android
     title: Android
+- id: acs-azcli-js-csharp-java-python
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
 - id: acs-web-ios-android
   title: Platform
   prompt: Choose a platform
@@ -1103,6 +1117,22 @@ groups:
   title: Platform
   prompt: Choose a platform
   pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: acs-azcli-azp-java-net-python-csharp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
   - id: platform-azp
     title: Azure portal
   - id: programming-language-java
