@@ -108,7 +108,7 @@ az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 
 Direct upload also simplifies the process of copying a managed disk. You can either copy within the same region or cross-region (to another region).
 
-The follow script will do this for you, the process is similar to the steps described earlier, with some differences since you're working with an existing disk.
+The following script will do this for you, the process is similar to the steps described earlier, with some differences since you're working with an existing disk.
 
 > [!IMPORTANT]
 > You need to add an offset of 512 when you're providing the disk size in bytes of a managed disk from Azure. This is because Azure omits the footer when returning the disk size. The copy will fail if you don't do this. The following script already does this for you.
