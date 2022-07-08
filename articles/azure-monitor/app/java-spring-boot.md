@@ -52,6 +52,9 @@ And invoke the `attach()` method of the `com.microsoft.applicationinsights.attac
 > ⚠ JRE is not supported.
 
 > [!TIP]
+> ⚠ Read-only file system is not supported.
+
+> [!TIP]
 > ⚠ The invocation must be requested at the beginning of the `main` method.
 
 Example:
