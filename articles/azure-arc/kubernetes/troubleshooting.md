@@ -155,7 +155,7 @@ To resolve this issue, try the following steps.
     cluster-metadata-operator-664bc5f4d-chgkl   2/2     Running            0          4m14s
     clusterconnect-agent-7cb8b565c7-wklsh       2/3     CrashLoopBackOff   0          1m15s
     clusteridentityoperator-76d645d8bf-5qx5c    2/2     Running            0          4m15s
-     config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
+    config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
      ```
 
 3. If the certificate below isn't present, the system assigned managed identity hasn't been installed.
@@ -171,6 +171,18 @@ To resolve this issue, try the following steps.
    To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy.
 
 4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
+
+5. If the `kube-aad-proxy` pod is stuck in `ContainerCreating` state, check whether the kube-aad-proxy certificate has been downloaded onto the cluster.
+
+   ```console
+   kubectl get secret -n azure-arc -o yaml | grep name:
+   ```
+
+   ```output
+   name: kube-aad-proxy-certificate
+   ```
+
+   If the certificate is missing, please contact support.
 
 ### Helm validation error
 
