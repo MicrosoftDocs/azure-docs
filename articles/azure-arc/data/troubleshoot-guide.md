@@ -93,7 +93,7 @@ When you describe the pod you will see
 Failed to pull image "<registry>/<repository>/arc-bootstrapper:<incorrect image tag>": [rpc error: code = NotFound desc = failed to pull and unpack image 
 ```
 
-To resolve, reference the [Version log](data\version-log.md) for the correct image tag. Re-run the upgrade command with the correct image tag.
+To resolve, reference the [Version log](version-log.md) for the correct image tag. Re-run the upgrade command with the correct image tag.
 
 ### Unable to connect to registry or repository
 
