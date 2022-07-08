@@ -11,27 +11,29 @@ ms.author: normesta
 
 # Blob Storage feature support in Azure Storage accounts
 
-Feature support can be impacted by the type of storage account that you create and which endpoints, APIs, and protocols you use to upload and modify blobs.  Use the tables in this article to assess feature support. The items that appear in these tables will change over time as support continues to expand.  Each table uses the following icons to indicate support level:
+Feature support can vary between storage account types. Support is also impacted by the endpoints, APIs, and protocols that you use to transfer data. Use the tables in this article to assess feature support based on all of these factors. The items that appear in these tables will change over time as support continues to expand.  
 
-![Yes](../media/icons/yes-icon.png) = Fully supported
+Each table uses the following icons to indicate support level:
 
-![Yes at preview level](../media/icons/yes-preview-icon.png) = Supported at the preview level
-
-![No](../media/icons/no-icon.png) = Not supported
-
-![Not yet](../media/icons/no-yet-icon.png) = Not _yet_ supported
+| Icon | Description | 
+|---------------|-------------------|
+| ![Yes](../media/icons/yes-icon.png) | Fully supported |
+| ![Yes at preview level](../media/icons/yes-preview-icon.png) | Supported at the preview level |
+| ![No](../media/icons/no-icon.png) | Not supported |
+| ![Not yet](../media/icons/no-yet-icon.png) | Not _yet_ supported |
 
 ## General support
 
-This table indicates whether a feature is supported in your account. Columns are defined as follows:
+This table indicates whether a feature is supported in your account. For more granular information about which endpoints, APIs, or protocols are compatible with a supported feature, see the [Support by endpoint, API, and protocol](#support-by-endpoint-api-and-protocol) section of this article.
 
-**Standard (flat)** = Standard general-purpose v2 account with a **flat** namespace
+Columns are defined as follows:
 
-**Standard (hierarchical)** = Standard general-purpose v2 account with a **hierarchical** namespace
-
-**Premium (flat)** = Premium block blob account with a **flat** namespace
-
-**Premium (hierarchical)** = Premium block blob account with a **hierarchical** namespace
+| Column name | Description | 
+|---------------|-------------------|
+| Standard (flat) | Standard general-purpose v2 account with a **flat** namespace |
+| Standard (hierarchical) | Standard general-purpose v2 account with a **hierarchical** namespace |
+| Premium (flat) | Premium block blob account with a **flat** namespace |
+| Premium (hierarchical) | Premium block blob account with a **hierarchical** namespace |
 
 | Storage feature | Standard (flat) | Standard (hierarchical)   | Premium (flat)  | Premium (hierarchical)  |
 |---------------|-------------------|---|---|--|
@@ -71,12 +73,9 @@ This table indicates whether a feature is supported in your account. Columns are
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-> [!NOTE]
-> Features might not be compatible with all storage endpoints, APIs or protocols. If you plan to write applications or use protocols such as the Network File System (NFS) 3.0 or SSH File Transfer Protocol (SFTP), see [Support by Endpoint, API, and protocol](#support-by-endpoint-api-and-protocol) section of this article. 
-
 ## Support by endpoint, API, and protocol
 
-Features might not be compatible with all storage endpoints, APIs or protocols. If you plan to write applications or use protocols such as the Network File System (NFS) 3.0 or SSH File Transfer Protocol (SFTP), use the tables in this section to assess feature support.
+Features might not be compatible with all storage endpoints, APIs or protocols. Use the tables in this section to assess feature support across these factors.
 
 ### Flat namespace
 
