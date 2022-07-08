@@ -75,7 +75,7 @@ If neither can be determined, Lifecycle Workflows will default the language to E
 
 ## Supported User and query parameters
 
-Lifecycle Workflows support a rich set of user properties that are available on the user profile in Azure AD. Lifecycle Workflows also support many of the advanced query capabilities available in Graph API. This allows you, for example, to filter on the user properties when managing user execution conditions and making API calls. For more information about currently supported user properties, and query parameters, see: [User properties](https://docs.microsoft.com/graph/aad-advanced-queries?tabs=http#user-properties)
+Lifecycle Workflows support a rich set of user properties that are available on the user profile in Azure AD. Lifecycle Workflows also support many of the advanced query capabilities available in Graph API. This allows you, for example, to filter on the user properties when managing user execution conditions and making API calls. For more information about currently supported user properties, and query parameters, see: [User properties](/graph/aad-advanced-queries?tabs=http#user-properties)
 
 
 ## Limits and Constraints

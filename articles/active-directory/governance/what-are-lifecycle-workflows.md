@@ -75,5 +75,5 @@ You can use Lifecycle workflows to address any of the following conditions:
 
 
 ## Next steps
-- [Create a custom workflow using the Azure Portal](tutorial-create-custom-workflow-portal.md)
+- [Create a custom workflow using the Azure Portal](tutorial-onboard-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)

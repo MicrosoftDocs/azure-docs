@@ -232,7 +232,7 @@ The manager attribute is used for email notification tasks.  It's used by the li
 
  :::image type="content" source="media/tutorial-lifecycle-workflows/graph-3.png" alt-text="GET manager" lightbox="media/tutorial-lifecycle-workflows/graph-3.png":::
 
-For more information about updating manager information for a user in Graph API, see [assign manager](https://docs.microsoft.com/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http) documentation. You can also set this attribute in the Azure Admin center. For more details, see [add or change profile information](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
+For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http) documentation. You can also set this attribute in the Azure Admin center. For more details, see [add or change profile information](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
 
 ### Enabling the Temporary Access Pass (TAP) 
 A Temporary Access Pass is a time-limited pass issued by an admin that satisfies strong authentication requirements.  
