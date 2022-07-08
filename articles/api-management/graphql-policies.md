@@ -5,9 +5,8 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/17/2022
+ms.date: 07/08/2022
 ms.author: danlep
-ms.custom: event-tier1-build-2022
 ---
 
 # API Management policies for GraphQL APIs
@@ -431,7 +430,5 @@ type User {
     </http-data-source>
 </set-graphql-resolver>
 ```
-
-
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
