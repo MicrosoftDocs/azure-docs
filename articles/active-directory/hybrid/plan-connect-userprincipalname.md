@@ -35,7 +35,7 @@ UserPrincipalName is an attribute that is an Internet-style login name for a use
 ### UPN format
 A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix is joined with the suffix using the "\@" symbol. For example, "someone\@example.com". A UPN must be unique among all security principal objects within a directory forest. 
 
-### <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Username policies
+### Username policies
 
 The following table outlines the username policies that apply to both on-premises AD DS accounts that are synchronized to Azure AD, and for cloud-only user accounts created directly in Azure AD:
 
