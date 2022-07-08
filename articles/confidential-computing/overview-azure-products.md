@@ -13,11 +13,9 @@ ms.custom: ignite-fall-2021
 
 # Confidential Computing on Azure
 
+ Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
 
 > [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
-
-
- Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
 
 
 Azure Confidential Computing makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the compute cloud infrastructure. Azure confidential computing minimizes trust for the host OS kernel, the hypervisor, the VM admin, and the host admin.
@@ -43,12 +41,12 @@ Azure offers different virtual machines for confidential computing IaaS workload
 
 <!-- ![Screenshot of the Azure trust ladder, showing enclaves with Intel SGX at the top.](media/overview-azure-products/trust-ladder.png) -->
 
-Verifying that applications are running confidentially form the very foundation of confidential computing. This verification is multi-pronged and relies on the following suite of Azure offerings. 
+ 
 <!-- Azure differentiates itself from competitiors by also enabling a rich suite of third party ISVs to integrate into Azure and independently verify and attest to the confidentiality of your organization's resources. -->
 
 
 ## Azure Confidetial Computing offerings
-
+Verifying that applications are running confidentially form the very foundation of confidential computing. This verification is multi-pronged and relies on the following suite of Azure offerings.
 
 - [Microsoft Azure Attestation](../attestation/overview.md), a remote attestation service for validating the trustworthiness of multiple Trusted Execution Environments (TEEs) and verifying integrity of the binaries running inside the TEEs.
 
