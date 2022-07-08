@@ -36,7 +36,7 @@ You can authenticate your local app to the Blob Storage account you created usin
 
     [!INCLUDE [defaultazurecredential-sign-in](defaultazurecredential-sign-in.md)]
 
-2. To implement `DefaultAzureCredential`, add the **Azure.Identity** and the **Microsoft.Extensions.Azure packages** to your application.
+2. To implement `DefaultAzureCredential`, add the **Azure.Identity** to your application.
 
     ```dotnetcli
     dotnet add package Azure.Identity
