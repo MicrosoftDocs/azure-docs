@@ -27,6 +27,7 @@ You can set the parameter `--platform-fault-domain-count` to 1, 2, or 3 (default
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
+  --orchestration-mode Flexible \
   --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
