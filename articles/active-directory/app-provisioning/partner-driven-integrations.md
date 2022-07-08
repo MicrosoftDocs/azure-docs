@@ -14,18 +14,18 @@ ms.collection: M365-identity-device-management
 ---
 # Partner-driven provisioning integrations
 
-The Azure Active Directory Provisioning service allows you to provision users and groups into both [SaaS](.../active-directory/app-provisioning/user-provisioning.md) and [on-premises](.../app-provisioning/on-premises-scim-provisioning.md) applications. There are four integration paths:
+The Azure Active Directory Provisioning service allows you to provision users and groups into both [SaaS](user-provisioning.md) and [on-premises](on-premises-scim-provisioning.md) applications. There are four integration paths:
 
 **Option 1 - Azure AD Application Gallery:**
-Popular 3rd party applications, such as Dropbox, Snowflake, and Workplace by Facebook, are made available for customers through the Azure AD application gallery. New applications can easily be onboaded to the gallery using the [application network portal](.../azuread-dev/howto-app-gallery-listing). 
+Popular 3rd party applications, such as Dropbox, Snowflake, and Workplace by Facebook, are made available for customers through the Azure AD application gallery. New applications can easily be onboaded to the gallery using the [application network portal](.../azuread-dev/howto-app-gallery-listing.md). 
 
 **Option 2 - Implement a SCIM compliant API for your application:**
-If your line-of-business application supports the [SCIM](https://aka.ms/scimoverview) standard, it can easily be integrated with the [Azure AD SCIM client](.../active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
+If your line-of-business application supports the [SCIM](https://aka.ms/scimoverview) standard, it can easily be integrated with the [Azure AD SCIM client](use-scim-to-provision-users-and-groups.md).
 
 <img width="316" alt="Provisioning to a SCIM application" src="https://user-images.githubusercontent.com/36525136/171483159-9470f922-4b89-4ebf-8962-bd05a72f87be.png">
 
 **Option 3 - Leverage Microsoft Graph:**
-Many new applications use [Microsoft Graph](https://docs.microsoft.com/graph/overview) to retrieve [users](.../graph/api/resources/user.md), groups and other resources from Azure Active Directory. You can learn more about what scenarios to use [SCIM and Graph](.../active-directory/app-provisioning/scim-graph-scenarios.md) in. 
+Many new applications use [Microsoft Graph](.../graph/overview.md) to retrieve [users](.../graph/api/resources/user.md), groups and other resources from Azure Active Directory. You can learn more about what scenarios to use [SCIM and Graph](scim-graph-scenarios.md) in. 
 
 **Option 4 - Leverage partner-driven connectors:**
 In cases where an application does not support SCIM, partners have built gateways between the Azure AD SCIM client and target applications. **This document serves as a place for partners to attest to integrations that are compatible with Azure Active Directory, and for customers to discover these partner-driven integrations.** Note that these gateways are built, maintained, and owned by the third-party vendor. 
@@ -88,7 +88,7 @@ UNIFY Solutions is the leading provider of Identity, Access, Security and Govern
 ## How-to add partner-driven integrations to this document
 If you have built a SCIM Gateway and would like to add it to this list, please follow the steps below. 
 
-1. Review the Azure AD SCIM [documentation](.../app-provisioning/use-scim-to-provision-users-and-groups.md) to understand the Azure AD SCIM implementation.
+1. Review the Azure AD SCIM [documentation](use-scim-to-provision-users-and-groups.md) to understand the Azure AD SCIM implementation.
 1. Test compatibility between the Azure AD SCIM client and your SCIM gateway.
 1. Click the pencil at the top of this document to edit the article
 1. Once you are redirected to Github, click the pencil at the top of the article to start making changes
@@ -99,7 +99,7 @@ If you have built a SCIM Gateway and would like to add it to this list, please f
 * Add any new partners in alphabetical order.
 * Limit your entries to 500 words.
 * Ensure that you provide contact information for customers to learn more.
-* To avoid duplication, please only include applications that do not already have out of the box provisioning connectors in the [Azure AD application gallery](.../active-directory/saas-apps/tutorial-list.md). 
+* To avoid duplication, please only include applications that do not already have out of the box provisioning connectors in the [Azure AD application gallery](.../saas-apps/tutorial-list.md). 
 
 ## Disclaimer
 For independent software vendors: The Microsoft Azure Active Directory Application Gallery Terms & Conditions, excluding Sections 2–4, apply to this Partner-Driven Integrations Catalog (https://aka.ms/PartnerDrivenProvisioning, the “Integrations Catalog”). References to the “Gallery” shall be read as the “Integrations Catalog” and references to an “App” shall be read as “Integration”.  
