@@ -11,8 +11,6 @@ The **Service providers** page in the [Azure portal](https://portal.azure.com) g
 
 To access the **Service providers** page in the Azure portal, enter "Service providers" in the search box near the top of the Azure portal. You can also select **All services**, then search for **Azure Lighthouse**, or search for "Azure Lighthouse". From the Azure Lighthouse page, select **View service provider offers**.
 
-To view this page in the Azure portal, select **All services**, then search for **Service providers** and select it. You can also find this page by entering "Service providers" or "Azure Lighthouse" in the search box near the top of the Azure portal.
-
 > [!NOTE]
 > To view the **Service providers** page, a user in the customer's tenant must have the [Reader built-in role](../../role-based-access-control/built-in-roles.md#reader) (or another built-in role which includes Reader access).
 >

@@ -23,7 +23,7 @@ The onboarding process requires actions to be taken from within both the service
 
 ## Gather tenant and subscription details
 
-To onboard a customer's tenant, it must have an active Azure subscription. When you [create a template manually[(#create-your-template-manually))], you'll need to know the following:
+To onboard a customer's tenant, it must have an active Azure subscription. When you [create a template manually](#create-your-template-manually), you'll need to know the following:
 
 - The tenant ID of the service provider's tenant (where you will be managing the customer's resources). 
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider).
