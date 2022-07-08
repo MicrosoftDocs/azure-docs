@@ -70,12 +70,12 @@ To start using AHB for SUSE:
 ### How to enable AHB during virtual machine scale set creation in Azure portal:
 1. Visit [Microsoft Azure portal](https://portal.azure.com/)
 1. Go to 'Create a virtual machine scale set' page on the portal.
-    :::image type="content" source="./media/azure-hybrid-benefit-linux/create-vmss-ahb.png" alt-text="Image shows the virtual machine scale set blade in the Azure portal.":::
+    :::image type="content" source="./media/azure-hybrid-benefit-linux/create-vmss-ahb.png" alt-text="Screenshot of the virtual machine scale set blade in the Azure portal.":::
 1. Click on the checkbox to enable AHB and to use cloud access licenses.
-    :::image type="content" source="./media/azure-hybrid-benefit-linux/create-vmss-ahb-checkbox.png" alt-text="Image shows the check box associated with hybrid benefit during the virtual machine scale set create phase in the Azure portal.":::
+    :::image type="content" source="./media/azure-hybrid-benefit-linux/create-vmss-ahb-checkbox.png" alt-text="Screenshot of the check box associated with hybrid benefit during the virtual machine scale set create phase in the Azure portal.":::
 1. Create a virtual machine scale set following the next set of instructions
 1. Check the **Configuration** blade. You'll see the option enabled.
-    :::image type="content" source="./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png" alt-text="Image shows the virtual machine scale set create page in the Azure portal after the use select the hybrid benefit check box":::
+    :::image type="content" source="./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png" alt-text="Screenshot of the virtual machine scale set create page in the Azure portal after the use select the hybrid benefit check box.":::
 
 ### How to enable AHB in virtual machine scale sets in Azure portal:
 1. Visit [Microsoft Azure portal](https://portal.azure.com/)
