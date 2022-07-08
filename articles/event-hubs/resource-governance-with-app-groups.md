@@ -156,7 +156,7 @@ This section shows you how to enable or disable an application group using Azure
 ### [Azure CLI](#tab/cli)
 Use the [`az eventhubs namespace application-group update`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-update) command with `--is-enabled` set to `false` to disable an application group. Similarly, to enable an application group, set this property to `true` and run the command.  
 
-The following sample command disables the application group named **myappgroup** in the Event Hubs namespace **mynamespace** that's in the resource group **myresourcegroup**. 
+The following sample command disables the application group named `myappgroup` in the Event Hubs namespace `mynamespace` that's in the resource group `myresourcegroup`. 
 
 ```azurecli-interactive
 az eventhubs namespace application-group update --namespace-name mynamespace -g myresourcegroup --name myappgroup --is-enabled false
@@ -165,7 +165,7 @@ az eventhubs namespace application-group update --namespace-name mynamespace -g 
 ### [Azure PowerShell](#tab/powershell)
 Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-IsEnabled` set to `false` to disable an application group. Similarly, to enable an application group, set this property to `true` and run the command.  
 
-The following sample command disables the application group named **myappgroup** in the Event Hubs namespace **mynamespace** that's in the resource group **myresourcegroup**. 
+The following sample command disables the application group named `myappgroup` in the Event Hubs namespace `mynamespace` that's in the resource group `myresourcegroup`. 
 
 ```azurepowershell-interactive
 Set-AzEventHubApplicationGroup -ResourceGroupName myresourcegroup -NamespaceName mynamespace -Name myappgroup -IsEnabled false
@@ -304,7 +304,7 @@ The following ARM template shows how to update an existing namespace (`contosona
 ```
 
 ## Publish or consume events 
-Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. For that, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
+Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. To test, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
 
 > [!NOTE]
 > When your client applications are throttled, you should experience a slowness in publishing or consuming data. 
