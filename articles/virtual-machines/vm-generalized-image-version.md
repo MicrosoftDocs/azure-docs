@@ -19,7 +19,7 @@ Create a VM from a [generalized image version](./shared-image-galleries.md#gener
 This article shows how to create a VM from a a generalized image:
 - [In your own gallery](#create-a-vm-from-your-gallery) 
 - Shared to a [community gallery](#create-a-vm-from-a-community-gallery-image) 
-- Or [directly shared to your subscription or tenant](#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant)
+- [Directly shared to your subscription or tenant](#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant)
 
 
 ## Create a VM from your gallery

@@ -453,7 +453,7 @@ name="1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-myDirectShared"
    --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
 ```
 
-List image versions directly shared to you using [az sig image-version list-community](/cli/azure/sig/image-version#az-sig-image-version-list-community):
+List image versions directly shared to you using [az sig image-version list-shared](/cli/azure/sig/image-version#az-sig-image-version-list-shared):
 
 ```azurecli-interactive
 imgDef="myImageDefinition"
