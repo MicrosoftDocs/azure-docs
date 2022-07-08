@@ -1,5 +1,5 @@
 ---
-title: Create a SaaS offer in the commercial marketplace 
+title: Create an SaaS offer in the commercial marketplace. 
 description: Create a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program in Azure Marketplace. 
 author: mingshen-ms
 ms.author: mingshen
@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 06/29/2022
 ---
 
-# Create a SaaS offer
+# Create an SaaS offer
 
-As a commercial marketplace publisher, you can create a software as a service (SaaS) offer so potential customers can buy your SaaS-based technical solution. This article explains the process to create a SaaS offer for the Microsoft commercial marketplace.
+As a commercial marketplace publisher, you can create a software as a service (SaaS) offer so potential customers can buy your SaaS-based technical solution. This article explains the process to create an SaaS offer for the Microsoft commercial marketplace.
 
 ## Before you begin
 
-If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). It will explain the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer. Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication.
+If you haven’t already, read [Plan a SaaS offer](plan-saas-offer.md). It will explain the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer. Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication.
 
 > [!IMPORTANT]
 > We recommend that you create a separate development/test (DEV) offer and a separate production (PROD) offer. This article describes how to create a PROD offer. For details about creating a DEV offer, see [Plan a test and development SaaS offer](plan-saas-dev-test-offer.md).
 
-## Create a SaaS offer
+## Create an SaaS offer
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -33,14 +33,14 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
     [ ![Illustrates the SaaS offer option in the New offer list.](./media/new-offer-saas-workspaces.png) ](./media/new-offer-saas-workspaces.png#lightbox)
 
-1. In the **New Software as a Service** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. In the **New Software as a Service** dialog box, enter an **Offer ID**. This ID will be visible in the URL of the commercial marketplace listing and in Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
    + Each offer in your account must have a unique offer ID.
-   + Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters.
+   + Use only numbers and lowercase letters. You can include hyphens and underscores, but no spaces, and limit it to 50 characters.
    + The offer ID can't be changed after you select **Create**.
 
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-   + This name isn't visible in the commercial marketplace and it’s different from the offer name and other values shown to customers.
+   + This name isn't visible in the commercial marketplace and is different from the offer name and other values shown to customers.
    + The offer alias can't be changed after you select **Create**.
 
 1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
@@ -50,7 +50,7 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
 1. To generate the offer and continue, select **Create**.
 
-## Configure your SaaS offer setup details
+## Configure your SaaS offer set-up details
 
 On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_, which means that Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. For more information on these options, see [Listing options](plan-saas-offer.md#listing-options) and [Determine your publishing option](determine-your-listing-type.md).
 
