@@ -21,7 +21,9 @@ ms.author: rolyon
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Symptom - Condition is not enforced
+## General issues
+
+### Symptom - Condition is not enforced
 
 **Cause 1**
 
@@ -47,7 +49,7 @@ When you add a condition to a role assignment, it can take up to 5 minutes for t
 
 Wait for 5 minutes and test the condition again.
 
-## Symptom - Condition is not valid error when adding a condition
+### Symptom - Condition is not valid error when adding a condition
 
 When you try to add a role assignment with a condition, you get an error similar to:
 
@@ -61,7 +63,9 @@ Your condition is not formatted correctly.
 
 Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, add the condition using the [visual editor in the Azure portal](conditions-role-assignments-portal.md).
 
-## Symptom - Principal does not appear in Attribute source when adding a condition
+## Issues in the visual editor
+
+### Symptom - Principal does not appear in Attribute source
 
 When you try to add a role assignment with a condition, **Principal** does not appear in the **Attribute source** list.
 
@@ -92,7 +96,7 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
 
 1. Open **Azure Active Directory** > **Custom security attributes** to see if custom security attributes have been defined and which ones you have access to. If you don't see any custom security attributes, ask your Azure AD administrator to add an attribute set that you can manage. For more information, see [Manage access to custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-manage.md) and [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
 
-## Symptom - Principal does not appear in Attribute source when adding a condition using PIM 
+### Symptom - Principal does not appear in Attribute source when using PIM 
 
 When you try to add a role assignment with a condition using [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), **Principal** does not appear in the **Attribute source** list.
 
@@ -102,74 +106,9 @@ When you try to add a role assignment with a condition using [Azure AD Privilege
 
 PIM currently does not support using the principal attribute in a role assignment condition.
 
-## Symptom - Resource attribute is not valid error when adding a condition using Azure PowerShell
+## Error messages in visual editor
 
-When you try to add a role assignment with a condition using Azure PowerShell, you get an error similar to:
-
-```
-New-AzRoleAssignment : Resource attribute
-Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$> is not valid.
-```
-
-**Cause**
-
-If your condition includes a dollar sign ($), you must prefix it with a backtick (\`).
-
-**Solution**
-
-Add a backtick (\`) before each dollar sign. The following shows an example. For more information about rules for quotation marks in PowerShell, see [About Quoting Rules](/powershell/module/microsoft.powershell.core/about/about_quoting_rules).
-
-```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
-```
-
-## Symptom - Resource attribute is not valid error when adding a condition using Azure CLI
-
-When you try to add a role assignment with a condition using Azure CLI, you get an error similar to:
-
-```
-Resource attribute Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$> is not valid.
-```
-
-**Cause**
-
-If your condition includes a dollar sign ($), you must prefix it with a backslash (\\).
-
-**Solution**
-
-Add a backslash (\\) before each dollar sign. The following shows an example. For more information about rules for quotation marks in Bash, see [Double Quotes](https://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html).
-
-```azurecli
-condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
-```
-
-## Symptom - Error when assigning a condition string to a variable in Bash
-
-When you try to assign a condition string to a variable in Bash, you get the `bash: !: event not found` message.
-
-**Cause**
-
-In Bash, if history expansion is enabled, you might see the message `bash: !: event not found` because of the exclamation point (!).
-
-**Solution**
-
-Disable history expansion with the command `set +H`. To re-enable history expansion, use `set -H`.
-
-## Symptom - Unrecognized arguments error when adding a condition using Azure CLI
-
-When you try to add a role assignment with a condition using Azure CLI, you get an error similar to:
-
-`az: error: unrecognized arguments: --description {description} --condition {condition} --condition-version 2.0`
-
-**Cause**
-
-You are likely using an earlier version of Azure CLI that does not support role assignment condition parameters.
-
-**Solution**
-
-Update to the latest version of Azure CLI (2.18 or later). For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-## Symptom - Condition not recognized in visual editor
+### Symptom - Condition not recognized
 
 After using the code editor, you switch to the visual editor and get a message similar to the following:
 
@@ -183,19 +122,7 @@ Updates were made to the condition that the visual editor is not able to parse.
 
 Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, you can delete the condition and try again.
 
-## Symptom - Error when copying and pasting a condition
-
-**Cause**
-
-If you use PowerShell and copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
-
-`The given role assignment condition is invalid.`
-
-**Solution**
-
-If you copied a condition from a rich text editor and you are certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
-
-## Symptom - Attribute does not apply error in visual editor for previously saved condition
+### Symptom - Attribute does not apply error for previously saved condition
 
 When you open a previously saved condition in the visual editor, you get the following message:
 
@@ -216,6 +143,89 @@ If you created a condition with the Read a blob action prior to May 2022, you mi
 **Solution**
 
 Open the **Select an action** pane and reselect the **Read a blob** action.
+
+## Error messages in Azure PowerShell
+
+### Symptom - Resource attribute is not valid error
+
+When you try to add a role assignment with a condition using Azure PowerShell, you get an error similar to:
+
+```
+New-AzRoleAssignment : Resource attribute
+Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$> is not valid.
+```
+
+**Cause**
+
+If your condition includes a dollar sign ($), you must prefix it with a backtick (\`).
+
+**Solution**
+
+Add a backtick (\`) before each dollar sign. The following shows an example. For more information about rules for quotation marks in PowerShell, see [About Quoting Rules](/powershell/module/microsoft.powershell.core/about/about_quoting_rules).
+
+```azurepowershell
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+```
+
+### Symptom - Error when copying and pasting a condition
+
+**Cause**
+
+If you use PowerShell and copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
+
+`The given role assignment condition is invalid.`
+
+**Solution**
+
+If you copied a condition from a rich text editor and you are certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
+
+## Error messages in Azure CLI
+
+### Symptom - Resource attribute is not valid error
+
+When you try to add a role assignment with a condition using Azure CLI, you get an error similar to:
+
+```
+Resource attribute Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$> is not valid.
+```
+
+**Cause**
+
+If your condition includes a dollar sign ($), you must prefix it with a backslash (\\).
+
+**Solution**
+
+Add a backslash (\\) before each dollar sign. The following shows an example. For more information about rules for quotation marks in Bash, see [Double Quotes](https://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html).
+
+```azurecli
+condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
+```
+
+### Symptom - Unrecognized arguments error
+
+When you try to add a role assignment with a condition using Azure CLI, you get an error similar to:
+
+`az: error: unrecognized arguments: --description {description} --condition {condition} --condition-version 2.0`
+
+**Cause**
+
+You are likely using an earlier version of Azure CLI that does not support role assignment condition parameters.
+
+**Solution**
+
+Update to the latest version of Azure CLI (2.18 or later). For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+### Symptom - Error when assigning a condition string to a variable in Bash
+
+When you try to assign a condition string to a variable in Bash, you get the `bash: !: event not found` message.
+
+**Cause**
+
+In Bash, if history expansion is enabled, you might see the message `bash: !: event not found` because of the exclamation point (!).
+
+**Solution**
+
+Disable history expansion with the command `set +H`. To re-enable history expansion, use `set -H`.
 
 ## Next steps
 
