@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 07/08/2022
 ms.author: victorh
 ---
 
