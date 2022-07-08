@@ -98,7 +98,8 @@ Use the instructions in the following three sections to register Cloudflare with
 
 1. On the **Cloudflare Access** screen, under **Essentials**, copy and save the Application (client) ID and the Directory (tenant) ID.
 
-   ![Screenshot shows cloudflare access screen](./media/cloudflare-azure-ad-integration/cloudflare-access.png)
+   [ ![Screenshot shows cloudflare access screen](./media/cloudflare-azure-ad-integration/cloudflare-access.png) ](./media/cloudflare-azure-ad-integration/cloudflare-access.png#lightbox)
+
 
 2. In the left menu, under **Manage**, select **Certificates &
     secrets**.
@@ -145,11 +146,13 @@ Use the instructions in the following three sections to register Cloudflare with
 
 5. Under **Manage**, select **+** **Add permissions**.
 
-   ![Screenshot shows Azure AD request API permissions screen](./media/cloudflare-azure-ad-integration/request-api-permissions.png)
+   [ ![Screenshot shows Azure AD request API permissions screen](./media/cloudflare-azure-ad-integration/request-api-permissions.png) ](./media/cloudflare-azure-ad-integration/request-api-permissions.png#lightbox)
+
 
 6. Select **Grant Admin Consent for ...**.
 
-   ![Screenshot shows configured API permissions with granting admin consent](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)
+   [ ![Screenshot shows configured API permissions with granting admin consent](./media/cloudflare-azure-ad-integration/grant-admin-consent.png) ](./media/cloudflare-azure-ad-integration/grant-admin-consent.png#lightbox)
+
 
 7. On the [Cloudflare Zero Trust dashboard](https://dash.teams.cloudflare.com/),
     navigate to **Settings> Authentication**.
