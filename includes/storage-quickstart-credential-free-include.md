@@ -44,13 +44,13 @@ You can authenticate your local app to the Blob Storage account you created usin
 
     Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app. 
     
-3. Update your code inside of *Program.cs* to match the following code segment. When the above code is run on your local workstation during development, it will use the developer credentials of whatever prioritized tool you're logged into to authenticate to Azure.
+3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of whatever prioritized tool you're logged into to authenticate to Azure.
 
     ```csharp
     using Microsoft.Extensions.Azure;
     using Azure.Identity;
     
-    var blobClient = new BlobServiceClient(
+    var blobServiceClient = new BlobServiceClient(
             new Uri("https://<account-name>.blob.core.windows.net"),
             new DefaultAzureCredential());
     ```

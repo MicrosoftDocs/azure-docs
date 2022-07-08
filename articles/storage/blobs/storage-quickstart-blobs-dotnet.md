@@ -73,12 +73,7 @@ dotnet add package Azure.Storage.Blobs
 
 ### Set up the app framework
 
-From the project directory:
-
-1. Open the *Program.cs* file in your editor.
-1. Add the `using` directives that will be needed for this example.
-
-Your starting code should look like the following example:
+Open the newly created project in your editor of choice. Update the starting code to match the following example, which includes the necessary using statements for this exercise.
 
 ```csharp
 using Azure.Storage.Blobs;
