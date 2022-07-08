@@ -329,7 +329,7 @@ Conditional Access: A key benefit of using Azure AD for signing into Azure virtu
 
 **Challenges**: The list below highlights key challenges with using this option for identity isolation.
 
-* No central management or configuration of servers. For example, there's no Group Policy that can be applied to a group of servers. Organizations should consider deploying [Update Management in Azure](https://docs.microsoft.com/azure/automation/update-management/overview)) to manage patching and updates of these servers.
+* No central management or configuration of servers. For example, there's no Group Policy that can be applied to a group of servers. Organizations should consider deploying [Update Management in Azure](https://docs.microsoft.com/azure/automation/update-management/overview) to manage patching and updates of these servers.
 
 * Not suitable for multi-tiered applications that have requirements to authenticate with on-premises mechanisms such as Windows Integrated Authentication across these servers or services. If this is a requirement for the organization, then it's recommended that you explore the Standalone Active Directory Domain Services, or the Azure Active Directory Domain Services scenarios described in this section.
 
