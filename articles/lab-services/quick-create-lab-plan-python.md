@@ -14,7 +14,7 @@ In this article you, as the admin, use Python and the Azure Python SDK to create
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- [Setup Local Python dev environment for Azure](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd).
+- [Setup Local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
 - [The requirements.txt can be downloaded from the Azure Python samples](https://github.com/RogerBestMsft/azure-samples-python-management/blob/rbest_ALSSample/samples/labservices/requirements.txt)
 
 ## Create a lab plan
