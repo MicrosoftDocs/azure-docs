@@ -66,7 +66,7 @@ If you receive an error, you are likely missing the required permissions. To lea
 In addition, if you are running a Pipeline, then the Workspace MSI must have Storage Blob Data Owner or Storage Blob Data Contributor permissions as well. To learn how to grant your workspace identity this permission, visit: [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
 ## Check the environment configuration file
-An environment configuration file can be used to upgrade the Conda environment. This acceptable file formats for Python pool management are listed [here](./apache-spark-manage-python-packages.md).
+An environment configuration file can be used to upgrade the Conda environment. This acceptable file formats for Python pool management are listed as [Environment Specifications](./apache-spark-manage-pool-packages.md#environment-specification-formats).
 
 It is important to note the following restrictions:
    -  The contents of the requirements file must not include extra blank lines or characters. 
