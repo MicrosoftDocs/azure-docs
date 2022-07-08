@@ -2,7 +2,7 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 07/08/2022
 ---
 
 # Bicep modules
@@ -50,6 +50,16 @@ Use the symbolic name to reference the module in another part of the Bicep file.
 The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM JSON template. For more information, see [Path to module](#path-to-module).
 
 The **name** property is required. It becomes the name of the nested deployment resource in the generated template.
+
+If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and targeted to the same resource group, one deployment may show the wrong output. To avoid this issue, give your a module a unique name if you know it might be deployed concurrently.
+
+The following example concatenates the deployment name to the module name. If you provide a unique name for the deployment, the module name is also unique.
+
+```bicep
+module stgModule 'storageAccount.bicep' = {
+  name: '${deployment().name}-storageDeploy'
+  scope: resourceGroup('test3')
+```
 
 If you need to **specify a scope** that is different than the scope for the main file, add the scope property. For more information, see [Set module scope](#set-module-scope).
 
