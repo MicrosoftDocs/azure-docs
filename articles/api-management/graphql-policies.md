@@ -343,7 +343,7 @@ type User {
 
 ### Resolver for a GraqhQL query that returns a list, using a liquid template
 
-The following example uses a liquid template, supported for use in the [set-body](api-management-transformation-policies.md#SetBody) policy, to return a list in the HTTP response to a query. 
+The following example uses a liquid template, supported for use in the [set-body](api-management-transformation-policies.md#SetBody) policy, to return a list in the HTTP response to a query.  It also renames the `username` field in the response from the REST API to `name` in the GraphQL response.
 
 #### Example schema
 
@@ -372,7 +372,7 @@ type User {
                 [
                     {% JSONArrayFor elem in body %}
                         {
-                            "name": "{{elem.title}}"
+                            "name": "{{elem.username}}"
                         }
                     {% endJSONArrayFor %}
                 ]
@@ -384,7 +384,13 @@ type User {
 
 ### Resolver for GraphQL mutation
 
-The following example resolves a mutation that inserts data by making a `POST` request to an HTTP data source. The policy expression in the `set-body` policy of the HTTP request modifies a `name` argument that is passed in the GraphQL query as its body.
+The following example resolves a mutation that inserts data by making a `POST` request to an HTTP data source. The policy expression in the `set-body` policy of the HTTP request modifies a `name` argument that is passed in the GraphQL query as its body.  The body that is sent will look like the following JSON:
+
+``` json
+{
+    "name": "the-provided-name"
+}
+```
 
 #### Example schema
 
@@ -415,9 +421,9 @@ type User {
                 <value>application/json</value>
             </set-header>
             <set-body>@{
-                var body = context.Request.Body.As<JObject>(true);  
+                var args = context.Request.Body.As<JObject>(true)["arguments"];  
                 JObject jsonObject = new JObject();
-                jsonObject.Add("name", body["name"])
+                jsonObject.Add("name", args["name"])
                 return jsonObject.ToString();
             }</set-body>
         </http-request>
