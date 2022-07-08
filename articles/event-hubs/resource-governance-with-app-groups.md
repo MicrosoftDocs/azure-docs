@@ -218,6 +218,7 @@ The following ARM template shows how to update an existing namespace (`contosona
   ]
 }
 ```
+---
 
 ## Apply throttling policies
 You can add zero or more policies when you create an application group or to an existing application group. For example, you can add throttling policies related to `IncomingMessages`, `IncomingBytes` or `OutgoingBytes` to the `contosoAppGroup`. These policies will get applied to event streaming workloads of client applications that use the SAS policy `contososaspolicy`. 
