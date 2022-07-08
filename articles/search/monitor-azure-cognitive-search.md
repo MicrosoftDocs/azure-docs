@@ -13,9 +13,9 @@ ms.custom: subject-monitoring
 
 # Monitoring Azure Cognitive Search
 
-[Azure Monitor](../azure-monitor/overview.md) is a service that monitors performance and availability for all Azure resources, including Azure Cognitive Search. It's enabled with your Azure subscription. When you sign up for search, Azure Monitor begins collecting activity logs and metrics as you use the service. 
+[Azure Monitor](../azure-monitor/overview.md) is enabled with every Azure subscription, providing performance and availability monitoring or all Azure resources, including Azure Cognitive Search. When you sign up for Azure Cognitive Search, Azure Monitor begins collecting activity logs and metrics as you use the service. 
 
-In addition to built-in activity logs and metrics, you can enable diagnostic settings to collect resource logs. Resource logs provide detailed information about search service operations that you can analyze and visualize in reports. Data retention of resource logs has a dependency on Log Analytics workspace, and optionally on Azure Storage or event hub if you need those destinations. Storage, data ingestion, and queries are billable. See [Azure Monitor cost and usage](/azure/azure-monitor/usage-estimated-costs) for details.
+Optionally, you can enable diagnostic settings to collect resource logs. Resource logs contain detailed information about search service operations that you can analyze and visualize in reports. 
 
 This article explains how monitoring works for Azure Cognitive Search. It also describes the system APIs that return information about your service.
 
@@ -41,10 +41,10 @@ In the search service pages in Azure portal, you can find the current status of 
 
 Cognitive Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service. You can obtain this information programmatically:
 
-* [Service Statistics (REST)](/rest/api/searchservice/get-service-statistics)
-* [Index Statistics (REST)](/rest/api/searchservice/get-index-statistics)
-* [Document Counts (REST)](/rest/api/searchservice/count-documents)
-* [Indexer Status (REST)](/rest/api/searchservice/get-indexer-status)
++ [Service Statistics (REST)](/rest/api/searchservice/get-service-statistics)
++ [Index Statistics (REST)](/rest/api/searchservice/get-index-statistics)
++ [Document Counts (REST)](/rest/api/searchservice/count-documents)
++ [Indexer Status (REST)](/rest/api/searchservice/get-indexer-status)
 
 For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman](search-get-started-rest.md) or another REST client to query your search service.
 
@@ -109,11 +109,11 @@ Resource logging is billable (see the [Pricing model](../azure-monitor/usage-est
 
 1. Select the logs and metrics that are in scope. Selections include "allLogs", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
 
-  * See [Microsoft.Search/searchServices (in Supported categories for Azure Monitor resource logs)](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices)
+   + See [Microsoft.Search/searchServices (in Supported categories for Azure Monitor resource logs)](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices)
 
-  * See [Microsoft.Search/searchServices (in Supported metrics)](../azure-monitor/essentials/metrics-supported.md#microsoftsearchsearchservices)
+   + See [Microsoft.Search/searchServices (in Supported metrics)](../azure-monitor/essentials/metrics-supported.md#microsoftsearchsearchservices)
 
-  * See [Azure Cognitive Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md) for the extended schema 
+   + See [Azure Cognitive Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md) for the extended schema 
 
 1. Select **Send to Log Analytics workspace**. Kusto queries and data exploration will target the workspace.
 
@@ -171,11 +171,8 @@ AzureDiagnostics
 
 ## Next steps
 
-Azure Cognitive Search is integrated with [Azure Monitor](../azure-monitor/overview.md). If you're not familiar with this service, start with [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) to review these concepts:
+The monitoring framework for Azure Cognitive Search is provided by [Azure Monitor](../azure-monitor/overview.md). If you're not familiar with this service, start with [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) to review these concepts:
 
-* What is Azure Monitor and how does it integrate with other Azure services
-* What types of data are collected by Azure Monitor
-* What Azure Monitor tools are used for data analysis
-
-> [!div class="nextstepaction"]
-> [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
++ What is Azure Monitor and how does it integrate with other Azure services
++ What types of data are collected by Azure Monitor
++ What Azure Monitor tools are used for data analysis
