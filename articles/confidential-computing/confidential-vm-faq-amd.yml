@@ -48,7 +48,7 @@ sections:
           How do Azure confidential VMs (DCasv5/ECasv5) protect against host environments? 
         answer: |
           Azure offers a best-in-class VM experience with security and protection. Azure confidential VMs offer a hardware-based TEE (Trusted Execution Environment) leveraging SEV-SNP to isolate and protect data in use. This feature means that both host admins and services (including the hypervisor) can't directly see the memory or CPU state of a VM. 
-          Moreover, with attestation capability, full OS disk encryption, vTPM, CVM persistent state can be protected such neither keys, nor data are exposed in clear to the hosting environment.
+          You can use the attestation capability, full OS disk encryption, and vTPM to protect a confidential VM's persistent state so that keys and data aren't exposed in clear to the hosting environment.
           Customers can delete Azure VM agents to minimize exposure to potential malicious agent attack, and only opt-in to trusted agents needed for specific workloads or features. 
           It is also recommended to customers to turn off serial console to limit the exposure. Today serial console is disabled by default for Azure confidential VMs created from Portal. Recommend only to enable serial console when it is needed. The state of serial console is reflected in platform attestation. 
 
