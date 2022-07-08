@@ -106,7 +106,7 @@ You can navigate to the contact tab of the edit screen to update owners and expe
 
 #### Scan behavior after editing assets
 
- Microsoft Purview works to reflect the truth of the source system whenever possible. For example, if you edit a column and later it's deleted from the source table. A scan will remove teh column metadata from the asset in Microsoft Purview.
+ Microsoft Purview works to reflect the truth of the source system whenever possible. For example, if you edit a column and later it's deleted from the source table. A scan will remove the column metadata from the asset in Microsoft Purview.
 
 Both column-level and asset-level updates such as adding a description, glossary term or classification don't impact scan updates. Scans will update new columns and classifications regardless if these changes are made.
 
@@ -138,7 +138,7 @@ If you're a data curator on the collection containing an asset, you can delete a
 
 Any asset you delete using the delete button is permanently deleted in Microsoft Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Microsoft Purview catalog.
 
-If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset will not get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan. For example, say a user manually deletes a SQL table from the Microsoft Purview Data Map. Later, if the source table has a new column added by a data engineer and Microsoft Purview scans the database, the table will be reingested into the data map and be discoverable in the data catalog.
+If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset won't get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan. For example, say you manually delete a SQL table from the Microsoft Purview Data Map. Later, a data engineer adds a new column to the source table. When Microsoft Purview scans the database, the table will be reingested into the data map and be discoverable in the data catalog.
 
 If you delete an asset, only that asset is deleted. Microsoft Purview doesn't currently support cascaded deletes. For example, if you delete a storage account asset in your catalog - the containers, folders and files within them will still exist in the data map and be discoverable in the data catalog.
 
