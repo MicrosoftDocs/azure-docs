@@ -14,24 +14,21 @@ ms.author: franlanglois
 
 Microsoft Azure Cache for Redis is based on the popular open-source in-memory data store, open-source Redis. Azure Cache for Redis can be accessed by a wide variety of Redis clients for many programming languages. Each client has its own API that makes calls to a Redis server using Redis commands, but the clients are built to talk to any Redis server.
 
-Each client maintains its own reference documentation with links to get support through the client library developer community. The Azure Cache for Redis team doesn't own the development or support for any client libraries.
+Each client maintains its own reference documentation for its library. The clients also provide links to get support through the client library developer community. The Azure Cache for Redis team doesn't own the development, or the support for any client libraries.
 
-Although we do not own or support any client libraries, we do recommend some libraries--based on their popularity and whether there is an active online community to support and answer your questions. We only recommend using the latest available version, and upgrading regularly as new versions become available. These libraries are under active development and often release new versions with improvements to reliability and performance.
+Although we don't own or support any client libraries, we do recommend some libraries. Recommendations are based on popularity and whether there's an active online community to support and answer your questions. We only recommend using the latest available version, and upgrading regularly as new versions become available. These libraries are under active development and often release new versions with improvements to reliability and performance.
 
-|  **Client Library**  |    **Language**   |  **Github** **repo**                                  |          **Documentation**|
-| ---------------------|----------------   |-------------------------------------------------------| --------------------------|
-|  StackExchange.Redis | C#/.NET    |  [Link](https://github.com/StackExchange/StackExchange.Redis) |  [More information here](https://stackexchange.github.io/StackExchange.Redis/) |
-|  Lettuce             |   Java     |  [Link](https://github.com/lettuce-io/)                        | [More information here](https://lettuce.io/) |
-|  Jedis               |  Java      |  [Link](https://github.com/redis/jedis)                         |                                              |
-|  node_redis          |   Node.js  |  [Link](https://github.com/redis/node-redis)                    |                                              |
-|  Redisson            |  Java      |  [Link](https://github.com/redisson/redisson)                  | [More information here](https://redisson.org/) |
-|  ioredis             |  Node.js   |  [Link](https://github.com/luin/ioredis)                        |[More information here](https://ioredis.readthedocs.io/en/stable/API/) |
-
+|  **Client Library**  | **Language** |  **GitHub** **repo**                                  |          **Documentation**|
+| ---------------------|------------- |-------------------------------------------------------| --------------------------|
+|  StackExchange.Redis | C#/.NET     |  [Link](https://github.com/StackExchange/StackExchange.Redis) |  [More information here](https://stackexchange.github.io/StackExchange.Redis/) |
+|  Lettuce             |   Java      |  [Link](https://github.com/lettuce-io/)                       | [More information here](https://lettuce.io/) |
+|  Jedis               |  Java       |  [Link](https://github.com/redis/jedis)                       |                                              |
+|  node_redis          |   Node.js   |  [Link](https://github.com/redis/node-redi                    |                                              |
+|  Redisson            |  Java       |  [Link](https://github.com/redisson/redisson)                 | [More information here](https://redisson.org/) |
+|  ioredis             |  Node.js    |  [Link](https://github.com/luin/ioredis)                      |[More information here](https://ioredis.readthedocs.io/en/stable/API/) |
 
 > [!NOTE]
-> Your application will be able to connect and use your Azure Cache for Redis instance with any client library that can communicate with open-source Redis.
-
-Besides the reference documentation, there are several tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. To access these tutorials, see How to use Azure Cache for Redis and its sibling articles in the table of contents.  
+> Your application can to connect and use your Azure Cache for Redis instance with any client library that can also communicate with open-source Redis.
 
 ## Client library-specific guidance
 
@@ -46,6 +43,19 @@ For information on Client library-specific guidance best practices, see the foll
 - [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
 - [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
+## How to use client libraries
+
+Besides the reference documentation, you can find tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. 
+
+For more information on using some of these client libraries in tutorials, see the following articles:
+
+- [Code a .NET Framework app](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Code a .NET Core app](cache-dotnet-core-quickstart.md)
+- [Code an ASP.NET web app](cache-web-app-howto.md)
+- [Code an ASP.NET Core web app](cache-web-app-aspnet-core-howto.md)
+- [Code a Java app](cache-java-get-started.md)
+- [Code a Node.js app](cache-nodejs-get-started.md)
+- [Code a Python app](cache-python-get-started.md)
 
 ## Next steps
 
