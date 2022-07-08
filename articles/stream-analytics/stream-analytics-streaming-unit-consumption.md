@@ -1,13 +1,13 @@
 ---
-title: Understand and adjust streaming units
-description: This article describes the Streaming Units setting and other factors that affects performance in Azure Stream Analytics.
+title: Understand and adjust Stream Analytics Streaming Units
+description: This article describes the streaming units setting and other factors that affects performance in Azure Stream Analytics.
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/07/2022
 ---
-# Understand and adjust streaming units
+# Understand and adjust Stream Analytics Streaming Units
 
-## Understand streaming unit and streaming node
+## Understand Streaming Unit and Streaming Node
 
 Streaming Units (SUs) represents the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated for your job. This capacity lets you focus on the query logic and abstracts the need to manage the hardware to run your Stream Analytics job in a timely manner.
 
@@ -26,7 +26,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
 
 3. In the job page, under the **Configure** heading, select **Scale**. Default number of SUs is 3 when creating a job.
 
-   :::image type="content" source="./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png" alt-text="Diagram to show Azure portal Stream Analytics job configuration" lightbox="./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png":::
+   :::image type="content" source="./media/stream-analytics-scale-jobs/stream-analytics-preview-portal-job-settings-new-portal.png" alt-text="Diagram to show Azure portal Stream Analytics job configuration." lightbox="./media/stream-analytics-scale-jobs/stream-analytics-preview-portal-job-settings-new-portal.png":::
     
 4. Choose the SU option in drop-down list to set the SUs for the job. Notice that you're limited to specific SU settings. 
 5. You can change the number of SUs assigned to your job even when it's running. This isn't possible if your job uses a [non-partitioned output](./stream-analytics-parallelization.md#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](./stream-analytics-parallelization.md#multi-step-query-with-different-partition-by-values). You maybe restricted to choosing from a set of SU values when the job is running. 
@@ -34,7 +34,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
 ## Monitor job performance
 Using the Azure portal, you can track the performance related metrics of a job. To learn about the metrics definition, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). To learn more about the metrics monitoring in portal, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
 
-:::image type="content" source="./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png" alt-text="Diagram that shows Azure portal Stream Analytics job monitor" lightbox="./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png":::
+:::image type="content" source="./media/stream-analytics-scale-jobs/stream-analytics-job-monitor-new-portal.png" alt-text="Diagram that shows Azure portal Stream Analytics job monitor." lightbox="./media/stream-analytics-scale-jobs/stream-analytics-job-monitor-new-portal.png":::
 
 Calculate the expected throughput of the workload. If the throughput is less than expected, tune the input partition, tune the query, and add SUs to your job.
 
@@ -153,8 +153,6 @@ When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime
 
 <!--Image references-->
 
-[img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
-[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png
