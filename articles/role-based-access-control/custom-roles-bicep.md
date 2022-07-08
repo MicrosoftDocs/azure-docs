@@ -52,7 +52,7 @@ The resource defined in the Bicep file is:
     # [CLI](#tab/CLI)
 
     ```azurecli-interactive
-    myActions ='("action-01", "action-02")'
+    $myActions='("Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read")'
 
     az deployment sub create --location eastus --name customRole --template-file main.bicep --parameters actions=$myActions
     ```
@@ -60,7 +60,7 @@ The resource defined in the Bicep file is:
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell-interactive
-    $myActions = @("action-01", "action-02")
+    $myActions = @("Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read")
 
     New-AzSubscriptionDeployment -Location eastus -Name customRole -TemplateFile ./main.bicep -actions $myActions
     ```
@@ -68,7 +68,7 @@ The resource defined in the Bicep file is:
     ---
 
     > [!NOTE]
-    > Create a variable called **myActions** and then pass that variable. Replace the same actions with the actions for the roleDefinition.
+    > Create a variable called **myActions** and then pass that variable. Replace the sample actions with the actions for the roleDefinition.
 
  When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -123,12 +123,12 @@ Here are the changes you would need to make to the previous Bicep file to update
 
 ---
 
-4. Use Azure CLI or Azure PowerShell to deploy the updated Bicep file, replacing **<\name-id\>** with the roleDefName, and replacing the sample actions with the updated actions for the roleDefinition.
+4. Use Azure CLI or Azure PowerShell to deploy the updated Bicep file, replacing **\<name-id\>** with the roleDefName, and replacing the sample actions with the updated actions for the roleDefinition.
 
     # [CLI](#tab/CLI)
 
     ```azurecli-interactive
-    myActions ='("action-01", "action-02")'
+    $myActions='("Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read")'
 
     az deployment sub create --location eastus --name customrole --template-file main.bicep --parameters actions=$myActions roleDefName="name-id" roleName="Custom Role - RG Reader"
     ```
@@ -136,9 +136,9 @@ Here are the changes you would need to make to the previous Bicep file to update
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell-interactive
-    $actions = @["action-01", "actions-02"]
+    $myActions = @(""Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read"")
 
-    New-AzSubscriptionDeployment -Location eastus -Name customrole -TemplateFile ./main.bicep -actions $actions -roleDefName "name-id" -roleName "Custom Role - RG Reader"
+    New-AzSubscriptionDeployment -Location eastus -Name customrole -TemplateFile ./main.bicep -actions $myActions -roleDefName "name-id" -roleName "Custom Role - RG Reader"
     ```
 
     ---
