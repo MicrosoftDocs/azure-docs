@@ -44,7 +44,7 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
   tasks:
 	- name: Check if the Connected Machine Agent has already been downloaded on Linux servers
 	  stat:
-	  	path: /usr/bin/azvmagent
+	  	path: /usr/bin/azcmagent
 	  	get_attributes: False
 	  	get_checksum: False
 	  	get_mine: azcmagent_downloaded 
@@ -72,7 +72,8 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
         when: (ansible_os_family == 'Windows') and (not azcmagent_downloaded.stat.exists)
       - name: Install the Connected Machine Agent on Linux servers
         become: yes
-        shell: bash ~/install_linux_azcmagent.sh
+        command: 
+		cmd: bash ~/install_linux_azcmagent.sh
         when: (ansible_system == 'Linux') and (not azcmagent_downloaded.stat.exists)
       - name: Install the Connected Machine Agent on Windows servers
         win_package:
@@ -81,11 +82,12 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
 	- name: Check if the Connected Machine Agent has already been connected
 	  become: true 
 	  command:
-	  	cmd: azcmagent show --join
+	  	cmd: azcmagent show
         register: azcmagent_connected
       - name: Connect the Connected Machine Agent on Linux servers to Azure Arc
         become: yes
-        shell: sudo azcmagent connect --service-principal-id {{ azure.service_principal_id }} --service-principal-secret {{ azure.service_principal_secret }} --resource-group {{ azure.resource_group }} --tenant-id {{ azure.tenant_id }} --location {{ azure.location }} --subscription-id {{ azure.subscription_id }}
+        command: 
+		cmd: azcmagent connect --service-principal-id {{ azure.service_principal_id }} --service-principal-secret {{ azure.service_principal_secret }} --resource-group {{ azure.resource_group }} --tenant-id {{ azure.tenant_id }} --location {{ azure.location }} --subscription-id {{ azure.subscription_id }}
         when: (azcmagent_connected.rc == 0) and (ansible_system == 'Linux')
       - name: Connect the Connected Machine Agent on Windows servers to Azure
         win_shell: '& $env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe connect --service-principal-id "{{ azure.service_principal_id }}" --service-principal-secret "{{ azure.service_principal_secret }}" --resource-group "{{ azure.resource_group }}" --tenant-id "{{ azure.tenant_id }}" --location "{{ azure.location }}" --subscription-id "{{ azure.subscription_id }}"'
