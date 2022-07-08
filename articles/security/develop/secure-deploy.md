@@ -35,7 +35,7 @@ Check your application's performance before you launch it or deploy updates to p
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks and cross-site scripting attacks. Preventing these attacks in application code can be challenging. It might require rigorous maintenance, patching, and monitoring at many layers of the application topology. A centralized WAF helps make security management simpler. A WAF solution can also react to a security threat by patching a known vulnerability at a central location versus securing each individual web application.
 
 The [Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md)
-provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9.
+provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
 
 ### Create an incident response plan
 
