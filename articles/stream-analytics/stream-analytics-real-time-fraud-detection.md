@@ -283,7 +283,7 @@ For this transformation, you want a sequence of temporal windows that don't over
     GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
     ```
 
-    This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. (If no field is specified, the windowing operation uses the time that each event arrives at the event hub. See "Arrival Time Vs Application Time" in [Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). 
+    This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. (If no field is specified, the windowing operation uses the time that each event arrives at the event hub. See "Arrival Time vs Application Time" in [Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). 
 
     The projection includes `System.Timestamp`, which returns a timestamp for the end of each window. 
 
@@ -335,7 +335,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 6. Follow the step 5 again with the following options:
    * When you get to Visualization Type, select Line chart.
    * Add an axis and select **windowend**.
-   * Add a value and select **fraudulentcalls**.
+   * Add a value and select **fraudulent calls**.
    * For **Time window to display**, select the last 10 minutes.
 
 7. Your dashboard should look like the example below once both tiles are added. Notice that, if your event hub sender application and Streaming Analytics application are running, your Power BI dashboard periodically updates as new data arrives.
