@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium by using Bicep'
+title: 'Quickstart: Create an Azure Front Door Standard/Premium using Bicep'
 description: This quickstart describes how to create an Azure Front Door Standard/Premium using Bicep.
 services: front-door
 author: schaffererin
@@ -61,7 +61,7 @@ Multiple Azure resources are defined in the Bicep file:
 
     When the deployment finishes, the output is similar to:
 
-    :::image type="content" source=".media/quickstart-create-front-door-bicep/front-door-standard-premium-template-deployment-powershell-output.png" alt-text="Front Door Bicep PowerShell deployment output":::
+    :::image type="content" source=".media/quickstart-create-front-door-bicep/front-door-standard-premium-bicep-deployment-powershell-output.png" alt-text="Front Door Bicep PowerShell deployment output":::
 
 ## Validate the deployment
 
@@ -91,7 +91,7 @@ You can also use the Azure portal to validate the deployment.
 
 1. Select the Front Door you created and you'll be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
 
-    :::image type="content" source="./media/create-front-door-bicep/front-door-bicep-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
+    :::image type="content" source="./media/quickstart-create-front-door-bicep/front-door-bicep-web-app-origin-success" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
 
 ## Clean up resources
 
