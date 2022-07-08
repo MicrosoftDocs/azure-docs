@@ -18,7 +18,7 @@ Azure Blob Storage also provides the option to authenticate using connection str
 
 ## [DefaultAzureCredential (Recommended)](#tab/managed-identity)
 
-`DefaultAzureCredential` is a class provided by the Azure Identity client library for .NET, which you can learn more about on the [Managed Identity Overview](/dotnet/azure/sdk/authentication). `DefaultAzureCredential` supports multiple authentication methods and determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+`DefaultAzureCredential` is a class provided by the Azure Identity client library for .NET, which you can learn more about on the [DefaultAzureCredential overview](/dotnet/azure/sdk/authentication#defaultazurecredential). `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
 
