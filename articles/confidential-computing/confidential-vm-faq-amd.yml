@@ -63,7 +63,7 @@ sections:
           Can I perform attestation for my confidential VMs?
         answer: |
           Azure confidential VMs undergo attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
-          Moreover, Azure confidential VMs has extended to let users perform independent attestation for their confidential VMs. 
+          Confidential VMs also allow users to perform independent attestation for their confidential VMs. 
           This attestation happens using new tooling called [Azure confidential VM Guest Attestation](https://aka.ms/CVMattestation). Guest attestation allows customers to attest that their confidential VMs are running on AMD processors with SEV-SNP enabled.
 
       - question: |
