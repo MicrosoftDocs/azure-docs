@@ -35,7 +35,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Getting started with Azure Virtual Desktop
+  - name: Getting started feature
     href: getting-started-feature.md
 - name: Tutorials
   items:
