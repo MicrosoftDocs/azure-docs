@@ -45,6 +45,7 @@ If you don’t have an Azure subscription, create a free account before you begi
     1. Select **Notebooks** in the studio.
     1. Select the **Samples** tab.
     1. Open the *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook.
+    1. To run each cell in the tutorial, select **Clone this notebook**
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). 
 To get the required packages, 
