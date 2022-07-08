@@ -17,7 +17,7 @@ ms.author: diberry
 
 1. On the **Select API option** page, select the **Create** option within the **Azure Table** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the Table API](../../introduction.md).
 
-    :::image type="content" source="../../media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3.png" alt-text="A screenshot showing how to create a Cosmos DB account using the Table API.":::    
+    :::image type="content" source="../../media/dotnet-quickstart/azure-portal-create-cosmos-db-account-table-api-3.png" alt-text="A screenshot showing how to create a Cosmos DB account using the Table API.":::    
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 
@@ -34,7 +34,7 @@ ms.author: diberry
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-    :::image type="content" source="../../media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4.png" alt-text="A screenshot showing how to create a Cosmos DB account using the Table API.":::    
+    :::image type="content" source="../../media/dotnet-quickstart/azure-portal-create-cosmos-db-account-table-api.png" alt-text="A screenshot showing how to create a Cosmos DB account using the Table API.":::    
 
 1. Select **Review + create**.
 
