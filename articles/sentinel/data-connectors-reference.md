@@ -725,7 +725,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Log Analytics table(s)** | ESETEnterpriseInspector_CL​ |
 | **DCR support** | Not currently supported |
 | **API credentials** | <li>EEI Username<li>EEI Password<li>Base URL |
-| **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.5/en-US/api.html) |
+| **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.6/en-US/api.html) |
 | **Connector deployment instructions** | [Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template |
 | **Supported by** | [ESET](https://support.eset.com/en) |
 
