@@ -84,12 +84,12 @@ To create and manage a logic app resource using other tools, review these other 
    | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). <br><br>This example creates a logic app named **My-First-Logic-App**. |
    |||||
 
-1. Before you continue making selections, under **Plan type**, select **Consumption** so that you view only the settings that apply to the Consumption plan-based logic app type. The **Plan type** property specifies the logic app type and billing model to use.
+1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** so that you view only the settings that apply to the Consumption plan-based logic app type. The **Plan type** property specifies the logic app type and billing model to use.
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). After you select **Consumption**, the **Zone redundancy** section appears. This section offers the choice to enable availability zones for your Consumption logic app. In this example, keep **Enabled** as the setting value. For more information, see [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md). |
    | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
+   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
    |||
 
 1. Now continue making the following selections:
@@ -99,6 +99,14 @@ To create and manage a logic app resource using other tools, review these other 
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. <p>**Note**: If your subscription is associated with an [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md), this list includes those environments. |
    | **Enable log analytics** | Yes | **No** | This option appears and applies only when you select the **Consumption** logic app type. <p><p>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. |
    ||||
+
+   > [!NOTE]
+   >
+   > If you selected an Azure region that supports availability zone redundancy, the **Zone redundancy** 
+   > section is enabled. This preview section offers the choice to enable availability zone redundancy 
+   > for your logic app. However, currently supported Azure regions don't include **West US**, 
+   > so you can ignore this section for this example. For more information, see 
+   > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
    When you're done, your settings look similar to this version:
 

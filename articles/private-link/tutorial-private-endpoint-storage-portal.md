@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/13/2022
+ms.date: 06/22/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
 # Tutorial: Connect to a storage account using an Azure Private Endpoint
 
-Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
+Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to privately and securely communicate with Private Link resources such as Azure Storage.
 
 In this tutorial, you learn how to:
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Azure subscription.
+* An Azure subscription
 
 ## Sign in to Azure
 
@@ -42,14 +42,14 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
 2. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
+    | Setting          | Value                        |
+    |------------------|------------------------------------|
     | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroup** |
+    | Subscription     | Select your Azure subscription.                     |
+    | Resource Group   | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**                                    |
-    | Region           | Select **East US** |
+    | Name             | Enter **myVNet**.                                 |
+    | Region           | Select **East US**. |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -57,7 +57,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16** |
+    | IPv4 address space | Enter **10.1.0.0/16**. |
 
 5. Under **Subnet name**, select the word **default**.
 
@@ -65,8 +65,8 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Subnet name | Enter **mySubnet** |
-    | Subnet address range | Enter **10.1.0.0/24** |
+    | Subnet name | Enter **mySubnet**. |
+    | Subnet address range | Enter **10.1.0.0/24**. |
 
 7. Select **Save**.
 
@@ -76,8 +76,8 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
+    | Bastion name | Enter **myBastionHost**. |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/24**. |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
@@ -97,20 +97,20 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
     | **Project Details** |  |
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroup** |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
-    | Virtual machine name | Enter **myVM** |
-    | Region | Select **(US) East US** |
-    | Availability Options | Select **No infrastructure redundancy required** |
-    | Security type | Select **Standard** |
-    | Image | Select **Windows Server 2019 Datacenter - Gen2** |
-    | Azure Spot instance | Select **No** |
-    | Size | Choose VM size or take default setting |
+    | Virtual machine name | Enter **myVM**. |
+    | Region | Select **(US) East US**. |
+    | Availability Options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Azure Spot instance | Select **No**. |
+    | Size | Choose VM size or take default setting. |
     | **Administrator account** |  |
-    | Username | Enter a username |
-    | Password | Enter a password |
-    | Confirm password | Reenter password |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Reenter password. |
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
@@ -118,11 +118,11 @@ In this section, you'll create a virtual machine that will be used to test the p
 
     | Setting | Value |
     |-|-|
-    | **Network interface** |  |
-    | Virtual network | **myVNet** |
-    | Subnet | **mySubnet** |
+    | **Network interface**. |  |
+    | Virtual network | **myVNet**. |
+    | Subnet | **mySubnet**. |
     | Public IP | Select **None**. |
-    | NIC network security group | **Basic**|
+    | NIC network security group | **Basic**. |
     | Public inbound ports | Select **None**. |
    
 5. Select **Review + create**. 
@@ -142,13 +142,13 @@ In this section, you'll create a storage account and configure the private endpo
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
     | **Project Details** |  |
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroup** |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
     | Storage account name | Enter **mystorageaccount**. If the name is unavailable, enter a unique name. |
-    | Location | Select **(US) East US** |
-    | Performance | Leave the default **Standard** |
-    | Redundancy | Select **Locally-redundant storage (LRS)** |
+    | Location | Select **(US) East US**. |
+    | Performance | Leave the default **Standard**. |
+    | Redundancy | Select **Locally-redundant storage (LRS)**. |
    
 3. Select the **Networking** tab or select the **Next: Networking** button.
 
@@ -160,17 +160,17 @@ In this section, you'll create a storage account and configure the private endpo
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroup** |
-    | Location | Select **East US** |
-    | Name | Enter **myPrivateEndpoint** |
-    | Storage sub-resource | Leave the default **blob** |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
+    | Location | Select **East US**. |
+    | Name | Enter **myPrivateEndpoint**. |
+    | Storage sub-resource | Leave the default **blob**. |
     | **Networking** |  |
-    | Virtual network | Select **myVNet** |
-    | Subnet | Select **mySubnet** |
-    | **Private DNS integration** |
-    | Integrate with private DNS zone | Leave the default **Yes** |
-    | Private DNS Zone | Leave the default **(New) privatelink.blob.core.windows.net** |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **mySubnet**. |
+    | **Private DNS integration**. |
+    | Integrate with private DNS zone | Leave the default **Yes**. |
+    | Private DNS Zone | Leave the default **(New) privatelink.blob.core.windows.net**. |
 
 7. Select **OK**.
 
@@ -230,7 +230,7 @@ In this section, you'll use the virtual machine you created in the previous step
     Aliases:  mystorageaccount.blob.core.windows.net
     ```
 
-    A private IP address of **10.1.0.5** is returned for the storage account name.  This address is in the subnet of the virtual network you created previously.
+    A private IP address of **10.1.0.5** is returned for the storage account name. This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
 
 9. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
 
@@ -246,9 +246,9 @@ In this section, you'll use the virtual machine you created in the previous step
 
 15. Verify the settings are correct in **Summary**.  
 
-16. Select **Connect**, then select **myStorageAccount** from the **Storage Accounts** left-hand menu.
+16. Select **Connect**, then select **mystorageaccount** from the **Storage Accounts** left-hand menu.
 
-17. Under **Blob Containers**, you'll see **mycontainer** that you created in the previous steps.
+17. Under **Blob Containers**, you see **mycontainer** that you created in the previous steps.
 
 18. Close the connection to **myVM**.
 
@@ -268,6 +268,11 @@ If you're not going to continue to use this application, delete the virtual netw
 
 ## Next steps
 
-Learn how to connect to an Azure Cosmos account using an Azure Private Endpoint:
+In this tutorial, you learned how to create:
+* Virtual network and bastion host.
+* Virtual machine.
+* Storage account and a container.
+
+Learn how to connect to an Azure Cosmos DB account using an Azure Private Endpoint:
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos using Private Endpoint](tutorial-private-endpoint-cosmosdb-portal.md)

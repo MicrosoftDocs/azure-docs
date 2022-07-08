@@ -116,7 +116,7 @@ In an ILB ASE, the domain suffix used for app creation is *.&lt;asename&gt;.apps
 
 For information about how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
-The SCM URL is used to access the Kudu console or for publishing your app by using Web Deploy. For information on the Kudu console, see [Kudu console for Azure App Service][Kudu]. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
+The SCM URL is used to access the Kudu console or for publishing your app by using Web Deploy. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
 
 ### DNS configuration 
 
@@ -300,7 +300,6 @@ For more specific examples, use: az find "az appservice ase"
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
-[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md

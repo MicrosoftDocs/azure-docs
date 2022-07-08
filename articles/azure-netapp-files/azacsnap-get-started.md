@@ -31,8 +31,7 @@ Once these downloads are completed, then follow the steps in this guide to insta
 ### Verifying the download
 
 The installer has an associated PGP signature file with an `.asc` filename extension. This file can be used to ensure the installer downloaded is a verified
-Microsoft provided file. The Microsoft PGP Public Key used for signing Linux packages is available here (<https://packages.microsoft.com/keys/microsoft.asc>)
-and has been used to sign the signature file.
+Microsoft provided file. The [Microsoft PGP Public Key used for signing Linux packages](https://packages.microsoft.com/keys/microsoft.asc) has been used to sign the signature file.
 
 The Microsoft PGP Public Key can be imported to a user's local as follows:
 

@@ -40,6 +40,8 @@ items:
           href: storage-quickstart-blobs-java.md
         - name: Java (v8 SDK)
           href: storage-quickstart-blobs-java-legacy.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
       - name: Python
         items:
         - name: Python (v12 SDK)
@@ -592,6 +594,8 @@ items:
           items:
           - name: Get started
             href: storage-blob-javascript-get-started.md
+          - name: Work with SAS tokens
+            href: storage-blob-account-delegation-sas-create-javascript.md
           - name: Work with containers
             items:
             - name: Create a container

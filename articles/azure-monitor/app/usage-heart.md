@@ -215,7 +215,7 @@ To view your saved workbook, navigate to the 'Workbooks' section under 'Monitori
 
 :::image type="content" source="media/usage-overview/workbook-view-faq.png" alt-text="Screenshot highlighting the 'Workbooks' button next to the 'Public templates' tab, where the edited copy of the workbook will be found.":::
 
-For more on editing workbook templates, refer to the [Exploring a Workbook Template](../visualize/workbooks-overview.md#exploring-a-workbook-template) page.
+For more on editing workbook templates, refer to the [Azure Workbook templates](../visualize/workbooks-templates.md) page.
 
 
  

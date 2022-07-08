@@ -3,8 +3,8 @@ title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline using
 titleSuffix: Azure Database Migration Service
 description: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with Azure Database Migration Service (Preview)
 services: dms
-author: mokabiru
-ms.author: mokabiru
+author: dbamaster
+ms.author: roblescarlos
 manager: 
 ms.reviewer: 
 ms.service: dms
@@ -174,7 +174,7 @@ To complete this tutorial, you need to:
 After all database backups are restored on Azure SQL Managed Instance, an automatic migration cutover will be initiated by the Azure DMS to ensure the migrated database in Azure SQL Managed Instance is ready for use and the migration status changes from *in progress* to *Succeeded*.
 
 > [!IMPORTANT]
-> After the migration, availability of SQL Managed Instance with Business Critical service tier can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+> After the migration, availability of SQL Managed Instance with Business Critical service tier can take significantly longer than General Purpose as three secondary replicas have to be seeded for Always On High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
 ## Next steps
 

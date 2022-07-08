@@ -131,6 +131,31 @@ To help diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -
 * If cluster is actively upgrading, wait until the operation finishes. If it succeeded, retry the previously failed operation again.
 * If cluster has failed upgrade, follow steps outlined in previous section.
 
+## I'm receiving an error due to "PodDrainFailure"
+
+This error is due to the requested operation being blocked by a PodDisruptionBudget (PDB) that has been set on the deployments within the cluster. To learn more about how PodDisruptionBudgets work, please visit check out [the official Kubernetes example](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pdb-example).
+
+You may use this command to find the PDBs applied on your cluster:
+
+```
+kubectl get poddisruptionbudgets --all-namespaces
+```
+or
+```
+kubectl get poddisruptionbudgets -n {namespace of failed pod}
+```
+Please view the label selector to see the exact pods that are causing this failure.
+
+There are a few ways this error can occur:
+1. Your PDB may be too restrictive such as having a high minAvailable pod count, or low maxUnavailable pod count. You can change it by updating the PDB with less restrictive.
+2. During an upgrade, the replacement pods may not be ready fast enough. You can investigate your Pod Readiness times to attempt to fix this situation.
+3. The deployed pods may not work with the new upgraded node version, causing Pods to fail and fall below the PDB.
+
+>[!NOTE]
+  > If the pod is failing from the namespace 'kube-system', please contact support. This is a namespace managed by AKS.
+
+For more information about PodDisruptionBudgets, please check out the [official Kubernetes guide on configuring a PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/).
+
 ## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
 
 If you've moved your AKS cluster to a different subscription or the cluster's subscription to a new tenant, the cluster won't function because of missing cluster identity permissions. **AKS doesn't support moving clusters across subscriptions or tenants** because of this constraint.
@@ -233,6 +258,10 @@ If you're using Azure Firewall like on this [example](limit-egress-traffic.md#re
 ## When resuming my cluster after a stop operation, why is my node count not in the autoscaler min and max range?
 
 If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
+
+## Windows containers have connectivity issues after a cluster upgrade operation
+
+For older clusters with Calico network policies applied before Windows Calico support, Windows Calico will be enabled by default after a cluster upgrade. After Windows Calico is enabled on Windows, you may have connectivity issues if the Calico network policies denied ingress/egress. You can mitigate this issue by creating a new Calico policy on the cluster that allows all ingress/egress for Windows using either PodSelector or IPBlock.
 
 ## Azure Storage and AKS Troubleshooting
 
@@ -412,7 +441,6 @@ As a result, to mitigate this issue you can:
 3. Delete the older node pool
 
 AKS is investigating the capability to mutate active labels on a node pool to improve this mitigation.
-
 
 
 <!-- LINKS - internal -->
