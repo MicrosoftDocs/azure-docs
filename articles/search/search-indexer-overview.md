@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/01/2022
+ms.date: 07/08/2022
 ---
 
 # Indexers in Azure Cognitive Search
@@ -18,6 +18,9 @@ An *indexer* in Azure Cognitive Search is a crawler that extracts searchable con
 Indexers are cloud-only, with individual indexers for [supported data sources](#supported-data-sources). When configuring an indexer, you'll specify a data source (origin) and a search index (destination). Several sources, such as Azure Blob Storage, have additional configuration properties specific to that content type.
 
 You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a ['push model'](search-what-is-data-import.md) that simultaneously updates data in both Azure Cognitive Search and your external data source.
+
+Indexers don't have dedicated processing resources. Based on this, indexers' status may show as idle before running (depending on other jobs in the queue) and run times may not be predictable.
+
 
 ## How to use indexers
 
