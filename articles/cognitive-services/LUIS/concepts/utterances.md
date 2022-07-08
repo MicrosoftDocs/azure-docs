@@ -55,7 +55,7 @@ Each intent needs to have example utterances - at least 15. If you have an inten
 
 ## Add small groups of utterances
 
-Each time you [iterate on your model](https://microsoft-my.sharepoint.com/personal/v-babdullah_microsoft_com/Documents/Documents/work/LUIS%20Documentation/Application%20Design%20concepts.docx) to improve it, don't add large quantities of utterances. Consider adding utterances in quantities of 15. Then [Train](/azure/cognitive-services/luis/luis-how-to-train), [publish](/azure/cognitive-services/luis/luis-how-to-publish-app), and [test](/azure/cognitive-services/luis/luis-interactive-test) again.
+Each time you iterate on your model to improve it, don't add large quantities of utterances. Consider adding utterances in quantities of 15. Then [Train](/azure/cognitive-services/luis/luis-how-to-train), [publish](/azure/cognitive-services/luis/luis-how-to-publish-app), and [test](/azure/cognitive-services/luis/luis-interactive-test) again.
 
 LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances isn't valuable because it introduces confusion.
 
