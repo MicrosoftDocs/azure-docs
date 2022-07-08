@@ -28,6 +28,7 @@ SELECT @@version
 ## Create Distribution Advisor Stored Procedures
 
 To run the advisor easily, please run [this script](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql) to create 2 stored procedures:
+
 | **Command** | **Description** |
 |------------ | --------------- |
 |dbo.write_dist_recommendation |	Defines queries that DA will analyse on. Queries can come from user selection or from past workloads |
@@ -63,8 +64,8 @@ The first parameter in dbo.write_dist_recommendation should be set to 0 and the 
 
 dbo.read_dist_recommendation will return recommendations in the following format when execution is completed:
 
-| **Column name**|	**Description**|
-|--------------- | ----------------- |
+| **Column name** |	**Description** |
+|--------------- | --------------- |
 |Table_name	|	The table that DA analyzed. One line per table|
 |Current_Distribution	|	Current table distribution strategy.|
 |Recommended_Distribution	|	Recommended distribution. This can be the same as Current_Distribution if there is no change recommended.|
