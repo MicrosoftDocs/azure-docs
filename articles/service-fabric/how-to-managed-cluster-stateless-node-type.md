@@ -84,7 +84,7 @@ Sample templates are available: [Service Fabric Spot Node types template](https:
 
 ## Enabling Spot VMs with Try & Restore
 
-This configuration enables the platform to automatically try to restore the evicted Spot VMs. Refer to the virtual machine scale set doc for [details](../virtual-machine-scale-sets/use-spot.md#try--restore)
+This configuration enables the platform to automatically try to restore the evicted Spot VMs. Refer to the virtual machine scale set doc for [details](../virtual-machine-scale-sets/use-spot.md#try--restore).
 This configuration can only be enabled on new Spot nodetypes by specifying the **spotRestoreTimeout**, which is an ISO 8601 time duration having a value between 30 & 2880 mins. The platform will try to restore the VMs for this duration, after eviction.
 
 ```json
