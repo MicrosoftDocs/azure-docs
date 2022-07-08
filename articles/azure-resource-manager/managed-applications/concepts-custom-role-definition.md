@@ -1,9 +1,9 @@
 ---
 title: Overview of custom role definitions
-description: Describes the concept of creating custom role definitions for managed applications. 
+description: Describes the concept of creating custom role definitions for managed applications.
 ms.topic: conceptual
-ms.author: jobreen
-author: jjbfour
+ms.author: davidsmatlak
+author: davidsmatlak
 ms.date: 09/16/2019
 ---
 
