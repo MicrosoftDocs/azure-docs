@@ -141,7 +141,7 @@ The following list mentions fields that have specific guidelines for DNS events:
 | **EventType** | Mandatory | Enumerated | Indicates the operation reported by the record. <br><br> For DNS records, this value would be the [DNS op code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `lookup`|
 | **EventSubType** | Optional | Enumerated | Either `request` or `response`. <br><br>For most sources, [only the responses are logged](#guidelines-for-collecting-dns-events), and therefore the value is often **response**.  |
 | <a name=eventresultdetails></a>**EventResultDetails** | Mandatory | Enumerated | For DNS events, this field provides the [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Notes**:<br>- IANA doesn't define the case for the values, so analytics must normalize the case.<br> - If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br>- If this record represents a request and not a response, set to **NA**. <br><br>Example: `NXDOMAIN` |
-| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.3**. |
+| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.4**. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is **Dns**. |
 | **Dvc** fields| -      | -    | For DNS events, device fields refer to the system that reports the DNS event. |
 
@@ -302,6 +302,7 @@ The changes in version 0.1.3 of the schema are:
 - Added optional Geo Location and Risk Level fields.
 
 The changes in version 0.1.4 of the schema are:
+- Added the optional fields `ThreatIpAddr`, `ThreatName`, `ThreatConfidence`, `ThreatOriginalConfidence`, `ThreatOriginalRiskLevel`, `ThreatIsActive`, `ThreatFirstReportedTime`, and `ThreatLastReportedTime`
 
 
 ## Source-specific discrepancies 
