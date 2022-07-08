@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 07/08/2022
 ms.author: victorh
 ---
 
@@ -55,31 +55,6 @@ Run the following Azure PowerShell command to turn off this feature:
 
 ```azurepowershell
 Unregister-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network 
-```
-
-### Azure Firewall Premium performance boost (preview)
-
-As more applications move to the cloud, the performance of the network elements can become a bottleneck. As the central piece of any network design, the firewall needs to support all the workloads. The Azure Firewall Premium performance boost feature allows more scalability for these deployments.
-
-This feature significantly increases the throughput of Azure Firewall Premium. For more information, see [Azure Firewall performance](firewall-performance.md).
-
-To enable the Azure Firewall Premium Performance boost feature, run the following commands in Azure PowerShell. Stop and start the firewall for the feature to take effect immediately. Otherwise, the firewall/s is updated with the feature within several days. 
-
-The Premium performance boost feature can be enabled on both the [hub virtual network](../firewall-manager/vhubs-and-vnets.md) firewall and the [secured virtual hub](../firewall-manager/vhubs-and-vnets.md) firewall. This feature has no effect on Standard Firewalls.
-
-Run the following Azure PowerShell commands to configure the Azure Firewall Premium performance boost:
-
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -Subscription "subscription_id or subscription_name"
-Register-AzProviderFeature -FeatureName AFWEnableAccelnet -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Run the following Azure PowerShell command to turn off this feature:
-
-```azurepowershell
-Unregister-AzProviderFeature -FeatureName AFWEnableAccelnet -ProviderNamespace Microsoft.Network
 ```
 
 ### IDPS Private IP ranges (preview)
