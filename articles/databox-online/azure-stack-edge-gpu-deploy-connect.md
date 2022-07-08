@@ -83,6 +83,8 @@ You're now at the **Overview** page of your device. The next step is to configur
 
 1. Connect the computer to PORT 1 on the first node of your 2-node device. If connecting the computer to the device directly (without a switch), use an Ethernet crossover cable or a USB Ethernet adapter. 
 
+    The backplane of the device may look slightly different depending on the exact model you have received. Use the illustrations in [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device) to identify Port 1 on your device.
+
 1. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
     This action may take a few minutes after you've turned on the device.
 
