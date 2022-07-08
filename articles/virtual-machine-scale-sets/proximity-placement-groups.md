@@ -12,7 +12,7 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
-# Create a proximity placement groups using PowerShell
+# Create a proximity placement group using PowerShell
 
 Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
 
@@ -42,7 +42,7 @@ Proximity placement groups offer colocation in the same data center. However, be
 - When you ask for the first virtual machine in the proximity placement group, the data center is automatically selected. In some cases, a second request for a different virtual machine SKU, may fail if it doesn't exist in that data center. In this case, an **OverconstrainedAllocationRequest** error is returned. To avoid this, try changing the order in which you deploy your SKUs or have both resources deployed using a single ARM template.
 - 	In the case of elastic workloads, where you add and remove VM instances, having a proximity placement group constraint on your deployment may result in a failure to satisfy the request resulting in **AllocationFailure** error. 
 - Stopping (deallocate) and starting your VMs as needed is another way to achieve elasticity. Since the capacity is not kept once you stop (deallocate) a VM, starting it again may result in an **AllocationFailure** error. 
-- VM start and redeploy operations will continue to respect the Proximity Placement Group once sucessfully configured.
+- VM start and redeploy operations will continue to respect the Proximity Placement Group once successfully configured.
 
 ## Planned maintenance and Proximity Placement Groups
 
@@ -54,20 +54,20 @@ You can do the following to check the alignment status of your proximity placeme
 
 - Proximity placement group colocation status can be viewed using the portal, CLI, and PowerShell.
 
-    -   When using PowerShell, colocation status can be obtained using Get-AzProximityPlacementGroup cmdlet by including the optional parameter ‘-ColocationStatus`.
+    -   For PowerShell, colocation status can be obtained using Get-AzProximityPlacementGroup cmdlet by including the optional parameter ‘-ColocationStatus`.
 
-    -   When using CLI, colocation status can be obtained using `az ppg show` by including the optional parameter ‘--include-colocation-status`.
+    -   For CLI, colocation status can be obtained using `az ppg show` by including the optional parameter ‘--include-colocation-status`.
 
 - For each proximity placement group, a **colocation status** property
     provides the current alignment status summary of the grouped resources. 
 
     - **Aligned**: Resource is within the same latency envelop of the proximity placement group.
 
-    - **Unknown**: at least one of the VM resources are deallocated. Once starting them back successfully, the status should go back to **Aligned**.
+    - **Unknown**: at least one of the VM resources are deallocated. Once they start successfully, the status will go back to **Aligned**.
 
     - **Not aligned**: at least one VM resource is not aligned with the proximity placement group. The specific resources which are not aligned will also be called out separately in the membership section
 
-- For Availability Sets, you can see information about alignment of individual VMs in the the Availability Set Overview page.
+- For Availability Sets, you can see information about alignment of individual VMs in the Availability Set Overview page.
 
 - For scale sets, information about alignment of individual instances can be seen in the **Instances** tab of the **Overview** page for the scale set. 
 

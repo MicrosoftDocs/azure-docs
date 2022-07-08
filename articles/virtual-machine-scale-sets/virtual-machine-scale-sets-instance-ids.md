@@ -1,6 +1,6 @@
 ---
-title: Understand instance IDs for Azure VM scale set VMs
-description: Understand instance IDs for Azure VM scale sets virtual machines and the various ways that they surface.
+title: Understand instance IDs for Azure virtual machine scale set VMs
+description: Understand instance IDs for Azure virtual machine scale sets virtual machines and the various ways that they surface.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.reviewer: jushiman
 ms.custom: mimckitt
 
 ---
-# Understand instance IDs for Azure VM scale set VMs
+# Understand instance IDs for Azure virtual machine scale set VMs
 
 > [!NOTE]
 > This article focuses on virtual machine scale sets running in Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
