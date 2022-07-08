@@ -1,32 +1,16 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
+title: Adding or removing address space on peered virtual networks without a downtime
 description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+author: mbender-ms
+ms.author: mbender
+ms.service: virtual-network
+ms.topic: conceptual 
+ms.date: 07/08/2022
+ms.custom: template-concept 
+#Customer Intent: 
 ---
 
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
-
-# [H1 heading here]
+# Adding or removing address space on peered virtual networks without a downtime 
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
@@ -41,10 +25,23 @@ Follow the H2 headings with a sentence about how the section contributes to the 
 -->
 
 ## [Section 1 heading]
-<!-- add your content here -->
+You can update (add or remove) address space on a virtual network that is peered with another virtual network in the same region or across regions. Address space update on virtual networks also works if the virtual network has peered with another virtual network across subscriptions. This feature introduces two new properties on the virtualNetworkPeerings object of the virtual network: 
 
-## [Section 2 heading]
-<!-- add your content here -->
+- **remoteVirtualNetworkAddressSpace**: Contains the most current address space of the peered virtual network. This address may or may not be the same as the peered address contained in the remoteAddressSpace property. 
+
+- **peeringSyncLevel**: Indicates if the address contained in the remoteVirtualNetworkAddressSpace property is the same as the address that is actually peered with the virtual network. 
+
+When the address space on a virtual network (1) is updated, the corresponding peering links on the remote virtual networks towards this virtual network (1) need to be synced with the new address space. The status of the peering links between the two virtual networks indicates which side of the peering link needs to be synced with the new address space. 
+
+LocalNotInSync: When you update the address space on the first virtual network (1), the peering status of the link from the second virtual network (2) to the first virtual network (1) is LocalNotInSync. At this stage, while the peering is active across the old address space of the virtual network, the new address space has not peered with the remote virtual network. 
+
+RemoteNotInSync: When you update address space on the first virtual network (1), the peering status of the link from the first virtual network to the second virtual network (2) is RemoteNotInSync. A sync operation on the peering link from the virtual network (2) to the virtual network (1) will synchronize the address space across the peering. 
+
+## Unsupported scenarios
+This feature does not support the following scenarios if the virtual network to be updated is peered with:  
+
+* A classic virtual network
+* A managed virtual network such as the Azure VWAN hub 
 
 ## [Section n heading]
 <!-- add your content here -->
