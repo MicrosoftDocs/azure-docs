@@ -37,7 +37,7 @@ sections:
       - question: |
           What are AMD SEV-SNP technologies and how do they relate to Azure confidential VMs?
         answer: |
-          AMD SEV-SNP technology, Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP), offer multiple protections. 
+          AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) technology offers multiple protections. 
           For example, memory encryption, unique CPU keys, encryption for the processor register state, strong integrity protection, firmware rollback prevention, side channel hardening, and restrictions on interrupt and exceptions behavior. 
           Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. 
           Confidential VMs combine AMD SEV-SNP with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md). 
