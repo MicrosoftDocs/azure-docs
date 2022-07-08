@@ -28,7 +28,7 @@ You may learn more about running a workflow on-demand [here](on-demand-workflow.
 
 ## Before you begin
 
-As part of the prerequisites for completing this tutorial, you will need an account that has group and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azuread-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you'll need an account that has group and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azuread-user-accounts.md).
 
 The leaver scenario can be broken down into the following:
 
@@ -51,16 +51,16 @@ Use the following steps to create a leaver on-demand workflow that will execute 
  6. From the templates, select **Select** under **Real-time employee termination**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-2.png" alt-text="Leaver workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-2.png":::
 
- 7. Next, you will configure the workflow details and trigger details. Select **Next:Review tasks** when you are done with this step. 
+ 7. Next, you'll configure the workflow details and trigger details. Select **Next:Review tasks** when you're done with this step. 
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-3.png" alt-text="Configure workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-3.png":::
  
- 8. On the following page, you may inspect the tasks if desired but no additional configuration is needed.
+ 8. On the following page, you may inspect the tasks if desired but no other configuration is needed.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-4.png" alt-text="Review workflow task" lightbox="media/tutorial-lifecycle-workflows/portal-2-4.png":::
 
- 9. Once you are satisfied with the settings for the task, select **Save** to save your configurations.
+ 9. Once you're satisfied with the settings for the task, select **Save** to save your configurations.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-5.png" alt-text="Save workflow task" lightbox="media/tutorial-lifecycle-workflows/portal-2-5.png":::
 
- 10. Select **Next: Select users** when you are finished.
+ 10. Select **Next: Select users** when you're finished.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-6.png" alt-text="Select next" lightbox="media/tutorial-lifecycle-workflows/portal-2-6.png":::
 
  11. For the user selection, select **Select users**. This allows you to select users for which the workflow will be executed immediately after creation. Regardless of the selection, you can run the workflow on-demand later at any time as needed.
@@ -69,20 +69,20 @@ Use the following steps to create a leaver on-demand workflow that will execute 
  12. Next, select on **+Add users** to designate the users to be executed on this workflow.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-8.png" alt-text="Add users" lightbox="media/tutorial-lifecycle-workflows/portal-2-8.png":::
  
- 13. A panel with the list of available users will pop-up on the right side of the screen. Select **Select** when you are done with your selection.
+ 13. A panel with the list of available users will pop up on the right side of the screen. Select **Select** when you're done with your selection.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-10.png" alt-text="Selected users" lightbox="media/tutorial-lifecycle-workflows/portal-2-10.png":::
 
- 14. Select **Next: Review and create** when you are satisfied with your selection.
+ 14. Select **Next: Review and create** when you're satisfied with your selection.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-11.png" alt-text="Select next and review" lightbox="media/tutorial-lifecycle-workflows/portal-2-11.png":::
 
- 15. Finally, review the workflow and select **Create** when you are ready to create the workflow.
+ 15. Finally, review the workflow and select **Create** when you're ready to create the workflow.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-12.png" alt-text="Create workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-12.png":::
 
 ## Check tasks and workflow status
 
 At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are two different data pivots, users and runs, which are currently available in private preview. You may learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md).
 
-To begin, select the **Workflow history (Preview)** tab to view the user summary and associated workflow tasks and statuses. Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
+To begin, select the **Workflow history (Preview)** tab to view the user summary and associated workflow tasks and statuses. Once the **Workflow history (Preview)** tab has been selected, you'll land on the workflow history page as shown.
 
   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-13.png" alt-text="Workflow history" lightbox="media/tutorial-lifecycle-workflows/portal-2-13.png":::
 
