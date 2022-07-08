@@ -226,6 +226,10 @@ You can create [SOAP pass-through](import-soap-api.md) and [SOAP-to-REST](restif
 
 * For an open-source tool to resolve and merge `wsdl:import`, `xsd:import`, and `xsd:include` dependencies in a WSDL file, see this [GitHub repo](https://github.com/Azure-Samples/api-management-schema-import).
 
+### WS-* specifications
+
+Import of WSDL files incoporating WS-* specifications to SOAP messages is not supported.
+
 ### Messages with multiple parts 
 This message type is not supported.
 
