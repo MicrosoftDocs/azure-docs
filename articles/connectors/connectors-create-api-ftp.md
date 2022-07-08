@@ -176,24 +176,39 @@ When you save your workflow, this step automatically publishes your updates to y
 
 ## Add an FTP action
 
-A Consumption logic app workflow has only the FTP managed connector. However, a Standard logic app workflow can use the FTP managed connector and the FTP built-in connector. Each version has multiple actions.
+A Consumption logic app workflow can use only the FTP managed connector. However, a Standard logic app workflow can use the FTP managed connector and the FTP built-in connector. Each version has multiple actions. For example, both managed and built-in connector versions have their own actions to get file metadata and get file content.
 
 * Managed connector actions: These actions run in a Consumption or Standard logic app workflow.
 
-* Built-in connector trigger: These actions run only in a Standard logic app workflow.
+* Built-in connector actions: These actions run only in a Standard logic app workflow.
 
-For example, both connector types have their versions for the **Get file metadata** and **Get file content** actions. You can use an FTP trigger to monitor an FTP folder for new files that describe customer orders. If a newly added file exists, the trigger returns the file properties or metadata. To get these properties, you can use the **Get file metadata** action. You can then follow with the **Get file content** action and use the returned property values for the file to get the content for further processing and store that order in an orders database. For more information about these actions, review the following documentation:
-
-* [Get file metadata - managed connector version](/connectors/ftp/#get-file-metadata)
-* [Get file metadata - built-in connector version](#get-file-metadata)
-* [Get file content - managed connector version](/connectors/ftp/#get-file-content)
-* [Get file content - built-in connector version](#get-file-content)
-
-The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
+To show how to add an FTP action, the following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
 * Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
 * Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+
+Before you can use an FTP action, your workflow must already start with a trigger, which can be any kind that you choose. For example, you can use the generic **Recurrence** built-in trigger to set up a schedule for when your workflow runs.
+
+> [!NOTE]
+>
+> By default, triggers that return an array have a **Split On** setting already enabled. The enabled setting lets 
+> your trigger *debatch* the array so that each array item gets processed in parallel by a new workflow instance. 
+> However, in managed connector triggers, this setting has an issue where the behavior is opposite than expected. 
+> 
+> This issue might be fixed at any time. However, as a workaround, you can either disable the **Split On** setting 
+> or add an extra action to handle the array items individually. For example, the FTP managed connector trigger 
+> named **When a file is added or modified (properties only)** returns the metadata or properties for the new or 
+> updated files in list format. To get the metadata separately for each file, you might use a **For each** loop 
+> to process the array, the **Get file metadata** action to get each file's metadata, and then follow with the 
+> **Get file content** action to get each file's content. For more information about these actions, review the 
+> following documentation:
+>
+> * [Create loops that repeat workflow actions or process arrays in Azure Logic Apps](../logic-apps/logic-apps-control-flow-loops.md)
+> * [Get file metadata - managed connector version](/connectors/ftp/#get-file-metadata)
+> * [Get file metadata - built-in connector version](#get-file-metadata)
+> * [Get file content - managed connector version](/connectors/ftp/#get-file-content)
+> * [Get file content - built-in connector version](#get-file-content)
 
 ### [Consumption](#tab/consumption)
 
