@@ -44,7 +44,11 @@ ACSS runs quality checks for all VIS resources. These quality checks validate th
 
 The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
 
+:::image type="content" source="media/get-quality-insights-vis/advisor-recommendation.png" lightbox="media/get-quality-insights-vis/advisor-recommendation.png" alt-text="Screenshot of the Advisor Recommendations tab, showing overview of recommendations for all instances in the VIS.":::
+
 Select an instance name to see all recommendations, including which action to take to resolve an issue.
+
+:::image type="content" source="media/get-quality-insights-vis/recommendation-detail.png" lightbox="media/get-quality-insights-vis/recommendation-detail.png" alt-text="Screenshot of detailed advisor recommendations for an instance and which actions to take to resolve each issue.":::
 
 The following checks are run for each VIS:
 
