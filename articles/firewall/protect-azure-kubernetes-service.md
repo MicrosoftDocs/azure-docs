@@ -29,13 +29,13 @@ See the following video by Abhinav Sriram for a quick overview on how this works
 
 \<video gets embedded here like Jorge Cortes video on the current page\>
 
-You can download a zip file that contains a bash script file and a yaml file to automatically configure the sample environment used in the video. It configures Azure Firewall to protect both ingress and egress traffic. The guide(s) below walk through each step of the script in more detail so you can set up a custom configuration. 
+You can download a zip file from the [Microsoft Download Center](https://download.microsoft.com/download/0/1/3/0131e87a-c862-45f8-8ee6-31fa103a03ff/aks-azfw-protection-setup.zip) that contains a bash script file and a yaml file to automatically configure the sample environment used in the video. It configures Azure Firewall to protect both ingress and egress traffic. The following guides  walk through each step of the script in more detail so you can set up a custom configuration. 
 
 The following diagram shows the sample environment from the video that the script and guide configure:
 
 :::image type="content" source="media/protect-azure-kubernetes-service/aks-firewall.png" alt-text="A K S cluster with Azure Firewall for ingress egress filtering":::
 
-There is one difference between the script and the guide below. The script uses managed identities, but the guide below use a service principal. This shows you two different ways to create an identity to manage and create cluster resources.
+There is one difference between the script and the following guide. The script uses managed identities, but the guide uses a service principal. This shows you two different ways to create an identity to manage and create cluster resources.
 
 ## Restrict Egress Traffic Using Azure Firewall
 
