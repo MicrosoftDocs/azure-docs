@@ -15,7 +15,7 @@ Azure Stream Analytics provides plenty of performance metrics that can be used t
 
 :::image type="content" source="./media/stream-analytics-job-metrics/02-stream-analytics-job-metrics-monitoring-block.png" alt-text="Diagram that shows the Stream Analytics job monitoring section" lightbox="./media/stream-analytics-job-metrics/02-stream-analytics-job-metrics-monitoring-block.png":::
 
-Or, you can navigate to the **Monitoring** blade in the left panel and click the **Metrics**, then the metric page will be shown for adding the specific metric you'd like to check:
+You can also navigate to the **Monitoring** section and click **Metrics**. The metric page will be shown for adding the specific metric you'd like to check.
 
 :::image type="content" source="./media/stream-analytics-job-metrics/01-stream-analytics-job-metrics-monitoring.png" alt-text="Diagram that shows Stream Analytics job monitoring dashboard" lightbox="./media/stream-analytics-job-metrics/01-stream-analytics-job-metrics-monitoring.png":::
 
@@ -40,7 +40,7 @@ Azure Stream Analytics provides the following metrics for you to monitor your jo
 | Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Output Events          | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
 | Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputting results) |
-| SU % Utilization       | The percentage of memory utilized by your job. If SU % utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units. High utilization indicates that the job is using close to the maximum allocated resources. |
+| SU (Memory) % Utilization       | The percentage of memory utilized by your job. If SU % utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units. High utilization indicates that the job is using close to the maximum allocated resources. |
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 
 You can use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
