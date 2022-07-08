@@ -50,7 +50,7 @@ Before introducing the API call to create this workflow, you may want to review 
 |isEnabled     |   A boolean value that denotes whether the workflow is set to run or not. If set to “true" then the workflow can run as on schedule, or be run on demand.      |
 |IsSchedulingEnabled     |  A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnbaled, a workflow can still be run on demand if this value is set to false.      |
 |executionConditions     |    Defines when and for who the workflow will run    |
-|tasks     |  An argument in a workflow that has a unique displayName and a description. It defines the specific tasks to be executed in the workflow. The specified task is outlined by the taskDefinitionID and its parameters. For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](manage-lifecycle-workflows.md#supported-task-definitions).      |
+|tasks     |  An argument in a workflow that has a unique displayName and a description. It defines the specific tasks to be executed in the workflow. The specified task is outlined by the taskDefinitionID and its parameters. For a list of supported tasks, and their corresponding IDs, see [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md).      |
 
 For the purpose of this tutorial, the following three tasks will be introduced in this workflow:
 
@@ -173,7 +173,7 @@ To run a workflow on-demand for users using the GRAPH API do the following steps
 
 ## Check tasks and workflow status
 
-At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are two different data pivots, users and runs, which are currently available in private preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow). In the course of this tutorial, we will look at the status using the user focused reports.
+At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are two different data pivots, users and runs, which are currently available in private preview. You may learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md). In the course of this tutorial, we will look at the status using the user focused reports.
 
 To begin, you will just need the ID of the workflow and the date range for which you want to see the summary of the status. You may obtain the workflow ID from the response code of the POST API call that was used to create the workflow.
 

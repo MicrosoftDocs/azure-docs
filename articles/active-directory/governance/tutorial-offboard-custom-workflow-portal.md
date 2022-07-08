@@ -46,7 +46,7 @@ Use the following steps to create a leaver on-demand workflow that will execute 
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
  5.  On the **Overview (Preview)** page, select **New workflow**. 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-1.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-1.png":::
 
  6. From the templates, select **Select** under **Real-time employee termination**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-2.png" alt-text="Leaver workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-2.png":::
@@ -73,14 +73,14 @@ Use the following steps to create a leaver on-demand workflow that will execute 
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-10.png" alt-text="Selected users" lightbox="media/tutorial-lifecycle-workflows/portal-2-10.png":::
 
  14. Select **Next: Review and create** when you are satisfied with your selection.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-11.png" alt-text="Select next" lightbox="media/tutorial-lifecycle-workflows/portal-2-11.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-11.png" alt-text="Select next and review" lightbox="media/tutorial-lifecycle-workflows/portal-2-11.png":::
 
  15. Finally, review the workflow and select **Create** when you are ready to create the workflow.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-12.png" alt-text="Create workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-12.png":::
 
 ## Check tasks and workflow status
 
-At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are two different data pivots, users and runs, which are currently available in private preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow).
+At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are two different data pivots, users and runs, which are currently available in private preview. You may learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md).
 
 To begin, select the **Workflow history (Preview)** tab to view the user summary and associated workflow tasks and statuses. Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
 

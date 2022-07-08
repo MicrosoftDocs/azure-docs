@@ -53,7 +53,7 @@ Lifecycle Workflows currently support the following task definitions:
 
 ## Specific task parameters and arguments (preview)
 
-Below are the parameters for each task currently supported by Lifecycle Workflows. The parameters are noted as they appear both in the Azure portal, and within Microsoft Graph. For information about editing Lifecycle Workflow tasks in general, see: [Manage workflow Versions]([manage-workflow-tasks.md).
+Below are the parameters for each task currently supported by Lifecycle Workflows. The parameters are noted as they appear both in the Azure portal, and within Microsoft Graph. For information about editing Lifecycle Workflow tasks in general, see: [Manage workflow Versions](manage-workflow-tasks.md).
 
 
 ### Send welcome email to new hire

@@ -58,7 +58,7 @@ If you are using the Azure portal to create a workflow, you can customize existi
 1. To view your rule syntax, select the **View rule syntax** button.
     :::image type="content" source="media/create-lifecycle-workflow/lcw-template-syntax.png" alt-text="LCW rule syntax":::
 
-1. You can copy and paste multiple user property rules on this screen. For more detailed information on which properties that can be included see: [User Properties](https://docs.microsoft.com/en-us/graph/aad-advanced-queries?tabs=http#user-properties) 
+1. You can copy and paste multiple user property rules on this screen. For more detailed information on which properties that can be included see: [User Properties](/graph/aad-advanced-queries?tabs=http#user-properties) 
 
 1. To Add a task to the template, select **Add task**.
 
@@ -92,7 +92,7 @@ The table below shows the parameters that must be defined during workflow creati
 |isEnabled     |   A boolean value that denotes whether the workflow is set to run or not.  If set to “true" then the workflow will run.      |
 |IsSchedulingEnabled     |   A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnbaled, a workflow can still be run on demand if this value is set to false.     |
 |executionConditions     |  An argument that contains: A time-based attribute and an integer parameter defining when a workflow will run between -60 and a scope attribute defining who the workflow runs for.   |
-|tasks     |  An argument in a workflow that has a unique displayName and a description. It defines the specific tasks to be executed in the workflow. The specified task is outlined by the taskDefinitionID and its parameters. For a list of supported tasks, and their corresponding IDs, see  [Supported Task Definitions](manage-lifecycle-workflows.md#supported-task-definitions).      |
+|tasks     |  An argument in a workflow that has a unique displayName and a description. It defines the specific tasks to be executed in the workflow. The specified task is outlined by the taskDefinitionID and its parameters. For a list of supported tasks, and their corresponding IDs, see  [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md).      |
 
 
 

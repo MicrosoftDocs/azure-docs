@@ -23,7 +23,7 @@ You can update the following basic information without creating a new workflow.
    - description
    - whether or not it is enabled.
 
-If you change any other parameters, a new version is required to be created as outlined in the [Managing workflow versions](managing-workflow-tasks.md) article. 
+If you change any other parameters, a new version is required to be created as outlined in the [Managing workflow versions](manage-workflow-tasks.md) article. 
 
 If done via the Azure portal, the new version is created automatically. If done using Microsoft Graph, you will have to manually create a new version of the workflow.  For more information, see [Edit the properties of a workflow using Microsoft Graph](#edit-the-properties-of-a-workflow-using-microsoft-graph).
 

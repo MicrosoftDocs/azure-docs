@@ -15,7 +15,7 @@ ms.custom: template-concept
 
 
 
-Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of the built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to an external system as part of a Lifecycle workflow. By calling out to the external systems, you're able to create custom tasks for workflows. Lifecycle workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
+Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of the built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to an external system as part of a Lifecycle workflow. By calling out to the external systems, you're able to create custom tasks for workflows. Lifecycle workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
 
 
 ## Custom App deployment scenarios with Lifecycle Workflows

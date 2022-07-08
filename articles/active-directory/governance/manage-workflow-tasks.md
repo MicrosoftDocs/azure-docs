@@ -67,7 +67,7 @@ To edit the execution conditions of a workflow using the Azure portal, you'll do
 1. Select the **Scope** tab.
     :::image type="content" source="media/manage-workflow-tasks/lcw-execution-conditions-scope.png" alt-text="lcw execution conditions scope tab":::
 
-1. On this screen you can define rules for who the workflow will run. In the template **Scope type** is set as Rule-Based, and you define the rule using expressions on user properties. For more information on supported user properties. see: [supported queries on user properties](https://docs.microsoft.com/en-us/graph/aad-advanced-queries#user-properties).
+1. On this screen you can define rules for who the workflow will run. In the template **Scope type** is set as Rule-Based, and you define the rule using expressions on user properties. For more information on supported user properties. see: [supported queries on user properties](/graph/aad-advanced-queries#user-properties).
 
 1. After making changes, select **save** to capture changes to the execution conditions.
 
