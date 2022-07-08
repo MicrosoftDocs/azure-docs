@@ -39,6 +39,17 @@ In this article, you'll learn to:
 * An Azure ML workspace with computer cluster to run your batch scoring job.
 * The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
+### Clone examples repository
+
+To run the examples, first clone the examples repository and change into the `sdk` directory:
+
+```bash
+git clone --depth 1 https://github.com/Azure/azureml-examples
+cd azureml-examples/sdk
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
 ## Connect to Azure Machine Learning workspace
 

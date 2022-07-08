@@ -140,7 +140,7 @@ Your self-hosted integration runtime machine needs to connect to several resourc
 
 * The Microsoft Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
-* The managed Storage account and Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
+* The managed Storage account and optional Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
 
 There are two firewalls to consider:
 
