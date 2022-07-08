@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Azure Stream Analytics job metrics
 
-Azure Stream Analytics provides plenty of performance metrics that can be used to monitor and troubleshoot your query and job performance. These metrics data can be viewed through Azure portal in the **Monitoring** section on the **Overview** page.  
+Azure Stream Analytics provides plenty of metrics that can be used to monitor and troubleshoot your query and job performance. These metrics data can be viewed through Azure portal in the **Monitoring** section on the **Overview** page.  
 
 :::image type="content" source="./media/stream-analytics-job-metrics/02-stream-analytics-job-metrics-monitoring-block.png" alt-text="Diagram that shows the Stream Analytics job monitoring section" lightbox="./media/stream-analytics-job-metrics/02-stream-analytics-job-metrics-monitoring-block.png":::
 
