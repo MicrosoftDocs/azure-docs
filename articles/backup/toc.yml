@@ -224,6 +224,14 @@
         href: restore-sql-database-azure-vm.md
       - name: Manage
         href: manage-monitor-sql-database-backup.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-azure-sql-backup-cli.md
+      - name: Restore
+        href: backup-azure-sql-restore-cli.md
+      - name: Manage
+        href: backup-azure-sql-manage-cli.md
     - name: With REST API
       items:
       - name: Backup

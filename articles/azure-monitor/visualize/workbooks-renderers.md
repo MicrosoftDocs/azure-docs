@@ -3,7 +3,7 @@ title: Azure Workbook rendering options
 description: Learn about all the Azure Monitor workbook rendering options.
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 07/05/2022
 ms.author: abbyweisberg
 ---
 
@@ -34,7 +34,7 @@ These rendering options can be used with grids, tiles, and graphs to produce the
 
 ## Link actions
 
-If the **Link** renderer is selected or the **Make this item a link** checkbox is selected, the author can configure a link action to occur when the user selects the cell to taking the user to another view with context coming from the cell, or to open up a url.
+If the **Link** renderer is selected or the **Make this item a link** checkbox is selected, the author can configure a link action to occur when the user selects the cell to taking the user to another view with context coming from the cell, or to open up a url. See link renderer actions for more details.
 
 ## Using thresholds with links
 

@@ -1094,6 +1094,12 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+      - name: Conversation summarization
+        items:
+        - name: .NET
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?preserve-view=true&view=azure-dotnet-preview
+        - name: Python
+          href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview
 - name: Concepts
   items:
   - name: Data limits

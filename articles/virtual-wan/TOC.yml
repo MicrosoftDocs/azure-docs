@@ -157,6 +157,8 @@
           href: virtual-wan-point-to-site-azure-ad.md
     - name: Generate certificates
       href: certificates-point-to-site.md
+    - name: Install client certificates
+      href: install-client-certificates.md
     - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
     - name: VPN client profiles
