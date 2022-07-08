@@ -1,13 +1,13 @@
 ---
-title: Understand and adjust Stream Analytics Streaming Units
+title: Understand and adjust Azure Stream Analytics streaming units
 description: This article describes the streaming units setting and other factors that affects performance in Azure Stream Analytics.
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/07/2022
 ---
-# Understand and adjust Stream Analytics Streaming Units
+# Understand and adjust Stream Analytics streaming units
 
-## Understand Streaming Unit and Streaming Node
+## Understand streaming unit and streaming node
 
 Streaming Units (SUs) represents the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated for your job. This capacity lets you focus on the query logic and abstracts the need to manage the hardware to run your Stream Analytics job in a timely manner.
 
