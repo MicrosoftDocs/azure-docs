@@ -59,6 +59,8 @@
     items:
     - name: Create hierarchies of IoT Edge devices
       href: tutorial-nested-iot-edge.md
+  - name: Configure EST server
+    href: tutorial-configure-est-server.md
   - name: End-to-end example of machine learning at the edge
     items:
     - name: Introduction

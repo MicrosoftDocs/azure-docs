@@ -6,7 +6,7 @@ keywords: security, secure element, enclave, TEE, IoT Edge
 author: PatAltimore
 ms.author: patricka
 ms.reviewer: eustacea
-ms.date: 09/17/2021
+ms.date: 05/27/2022
 ms.topic: conceptual
 ms.service: iot-edge
 ---
@@ -94,7 +94,9 @@ The IoT Edge security daemon is responsible for the logical security operations 
 :::moniker range=">=iotedge-2020-11"
 ## The IoT Edge module runtime
 
-The IoT Edge module runtime delegates trust from the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem to protect the IoT Edge container runtime environment. The module runtime is responsible for the logical security operations of the security manager. It represents a significant portion of the trusted computing base of the IoT Edge device. The module runtime uses security services from the IoT Identity Service, which is in turn hardened by the device manufacturer's choice of hardware security module (HSM). We strongly recommend the use of HSMs for device hardening.
+The IoT Edge module runtime delegates trust from the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem to protect the IoT Edge container runtime environment. One service, now delegated to Azure IoT Identity Service, is the automated certificate enrollment and renewal service through an EST server. To see how this works and create a sample EST server made for an IoT Edge device, try the [Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md) tutorial.
+
+The module runtime is responsible for the logical security operations of the security manager. It represents a significant portion of the trusted computing base of the IoT Edge device. The module runtime uses security services from the IoT Identity Service, which is in turn hardened by the device manufacturer's choice of hardware security module (HSM). We strongly recommend the use of HSMs for device hardening.
 :::moniker-end
 
 ### Design principles
