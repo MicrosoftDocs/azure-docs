@@ -105,7 +105,7 @@ You can detach Galleries from DevCenters so that their images can no longer be u
 3. From the left menu, select **Azure compute galleries** to list the galleries attached to this DevCenter.
 
 4. Select the Gallery you wish to remove, and then select **Remove**.
-   :::image type="content" source="media/how-to-configure-azure-compute-gallery/remove-gallery-from-devcenter.png" alt-text="Populated Gallery Grid.":::
+   :::image type="content" source="media/how-to-configure-azure-compute-gallery/remove-gallery-from-devcenter.png" alt-text="Remove Populated Gallery Grid.":::
 
 6. Select **Continue** from the confirmation dialog.
 
