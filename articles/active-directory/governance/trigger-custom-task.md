@@ -19,7 +19,7 @@ Lifecycle Workflows can be used to trigger custom tasks via an extension to Azur
 The steps in this guide for Triggering a Logic app based on custom task extension are as follows:
 
 - Create an Azure Logic App
-- Configure the Azure Logic App so its compatible with Lifecycle workflows
+- Configure the Azure Logic App so it's compatible with Lifecycle workflows
 - Build your custom business logic within your Azure Logic App
 - Create a lifecycle workflow customTaskExtension  holding necessary information about the Azure Logic App
 - Update or create a Lifecycle workflow with the “Run a custom task extension” task, referencing your created customTaskExtension
@@ -31,12 +31,12 @@ For more information about Lifecycle Workflows extensibility, see: [Workflow Ext
 
 First you must create a Logic App so it can be integrated into your Lifecycle workflow. If you already have an existing Logic App, you may skip this section and configure it for use with Lifecycle Workflows here: Configure Logic Apps for LCW use.
 
-To create a Logic App you'd follow these steps:
+To create a Logic App, you'd follow these steps:
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-1. On the Azure Portal page select **Logic Apps**.
+1. On the Azure Portal page, select **Logic Apps**.
 
 1. On the Logic Apps page, select **Add**.
     :::image type="content" source="media/trigger-custom-task/lcw-add-logic-app.png" alt-text="Add Logic App LCW":::
@@ -51,7 +51,7 @@ To create a Logic App you'd follow these steps:
 
 ## Configure Logic Apps for LCW use
 
-Once you have a Logic app you want to use with Lifecycle Workflows, you must make it compatible to run with the **Create a Custom Task Extension** task. This requires:
+Once you have a Logic app you want to use with Lifecycle Workflows, you must make it compatible to run with the **Create a Custom Task Extension** task, this requires:
 
 - Configuring the logic app trigger
 - Configure the callback action (only applicable to the callback scenario)
@@ -231,7 +231,7 @@ To configure those you'll follow these steps:
 ```
 1. Select Save.
 
-1. Switch to the **Logic app designer** and inspect the configured trigger and callback action. To build your custom business logic add additional actions between the trigger and callback action. If you are only interested in the fire-and-forget scenario you may remove the callback action.
+1. Switch to the **Logic app designer** and inspect the configured trigger and callback action. To build your custom business logic, add other actions between the trigger and callback action. If you're only interested in the fire-and-forget scenario, you may remove the callback action.
 
 1. On the left of the screen select **Identity**. 
 
@@ -239,7 +239,7 @@ To configure those you'll follow these steps:
 
 1. Select Save.    
 
-1. For Logic Apps authorization policy, we will need the managed identities **Application ID**. Since the Azure Portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
+1. For Logic Apps authorization policy, we'll need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
  :::image type="content" source="media/trigger-custom-task/lcw-enterprise-applications-portal.png" alt-text="lcw enterprise applications portal":::
 1. Go back to the logic app you created, and select **Authorization**.
 
@@ -259,14 +259,14 @@ To configure those you'll follow these steps:
 > [!CAUTION]
 > Please pay attention to the details as minor differences can lead to problems later.
 -	For Issuer, ensure you did include the slash after your Tenant ID
--	For Audience, ensure you are using the Application ID and not the Object ID of your Managed Identity
+-	For Audience, ensure you're using the Application ID and not the Object ID of your Managed Identity
 -	For appid, ensure the custom claim is “appid” in all lowercase. The appid value represents Lifecycle Workflows and is always the same.
 
   
 
 ## Linking Lifecycle Workflows with Logic Apps using Microsoft Graph
 
-After creating and configuring a Logic App we can now integrate it with Lifecycle Workflows. As outlined in the high-level steps we first need to create the customTaskExtension and afterwards we can reference the customTaskExtension in our “Run a custom task extension” task.
+After creating and configuring a Logic App, we can now integrate it with Lifecycle Workflows. As outlined in the high-level steps we first need to create the customTaskExtension and afterwards, we can reference the customTaskExtension in our “Run a custom task extension” task.
 
 The API call for creating a customTaskExtension is as follows:
 ```http
@@ -304,7 +304,7 @@ For detailed information about the parameters required for the custom task exten
 
 
 
-After the task is created, you can run the following GET call to retrieve it's details:
+After the task is created, you can run the following GET call to retrieve its details:
 
 ```http
 GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/customTaskExtensions
@@ -350,7 +350,7 @@ An example response is as follows:
 
 ```
 
-You will then take the custom extension **id**, and use it as the value in the customTaskExtensionId parameter for the custom task example here:
+You'll then take the custom extension **id**, and use it as the value in the customTaskExtensionId parameter for the custom task example here:
 
 > [!NOTE]
 > The new “Run a Custom Task Extension” task is already available in the Private Preview UI.
@@ -374,10 +374,10 @@ You will then take the custom extension **id**, and use it as the value in the c
 
 ```
 
-With the custom task created, you are able to add it as a task in your workflow.
+With the custom task created, you're able to add it as a task in your workflow.
 
 
 ## Next steps
 
-- [RLifecycle workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
+- [Lifecycle workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
 - [Manage Workflow Versions](manage-workflow-tasks.md)
