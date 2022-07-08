@@ -18,19 +18,19 @@ Azure SignalR Service supports the same formats as ASP.NET Core SignalR: [JSON](
 
 ## Message size
 
-Azure SignalR Service has following limit for messages:
+The following limits apply for Azure SignalR Service messages:
 
-* Client message:
-  * Long polling or Server Side Event, client cannot send a message larger than 1MB.
-  * There is no limitation for Websockets for service.
-  * App server can set a limitation for client message size, see [document](https://docs.microsoft.com/aspnet/core/signalr/security?#buffer-management), by default, it is 32KB.
-  * Serverless, it is limited by upstream implementation, but we do not recommented it larger than 1MB.
-* Server message:
-  * There is no limitation for server message, but we do not recommented it larger than 16MB.
-  * App server can also set a limitation for server messages, see [document](https://docs.microsoft.com/aspnet/core/signalr/security?#buffer-management), by default, it is 32KB.
+* Client messages:
+  * For long polling or server side events, the client cannot send messages larger than 1MB.
+  * There is no size limit for Websockets for service.
+  * App server can set a limit for client message size. Default is 32KB. For more information, see [Security considerations in ASP.NET Core SignalR](/aspnet/core/signalr/security?#buffer-management).
+  * For serverless, the message size is limited by upstream implementation, but under 1MB is recommended.
+* Server messages:
+  * There is no limit to server message size, but under 16MB is recommended.
+  * App server can set a limit for client message size. Default is 32KB. For more information, see [Security considerations in ASP.NET Core SignalR](/aspnet/core/signalr/security?#buffer-management).
   * Serverless:
     * Rest API: 1MB for message body, 16KB for headers.
-    * There is no limitation for Websockets, [management SDK persistent mode](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md), but we do not recommanded it larger than 16MB.
+    * There is no limit for Websockets, [management SDK persistent mode](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md), but under 16MB is recommended.
 
 For Websockets clients, large messages are split into smaller messages that are no more than 2 KB each and transmitted separately. SDKs handle message splitting and assembling. No developer efforts are needed.
 
