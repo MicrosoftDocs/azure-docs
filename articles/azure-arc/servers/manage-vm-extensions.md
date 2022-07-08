@@ -127,24 +127,22 @@ The following extensions are available for Windows and Linux machines:
 
 ### Windows extension availability
 
-|Operating system |Azure Monitor agent |Log Analytics agent |Dependency VM Insights |Qualys |Custom Script |Key Vault |Hybrid Runbook |Antimalware Extension |Connected Machine agent |Windows Admin Center |
-|-----------------|--------------------|--------------------|-----------------------|-------|--------------|----------|---------------|----------------------|------------------------|---------------------|
-|Windows Server 2022 | | | | | | | | | |X |
-|Windows Server 2019 |X |X |X |X |X |X | |X |X |X |
-|Windows Server 2019 Core |X | | |X |X |X |X | |X |X |
-|Windows Server 2016 |X |X |X |X |X |X |X |Built-in |X |X |
-|Windows Server 2016 Core |X | | |X |X |X | |Built-in |X |X |
-|Windows Server 2012 R2 |X |X |X |X |X | |X |X |X | |
-|Windows Server 2012 |X |X |X |X |X |X |X |X |X | |
-|Windows Server 2008 R2 SP1 |X |X |X |X |X | |X |X | | |
-|Windows Server 2008 R2 | | | |X |X | |X |X |X | |
-|Windows Server 2008 SP2 | |X | |X |X | |X | | | |
-|Windows 11 client OS |X | | |X | | | | | | |
-|Windows 10 1803 (RS4) and higher |X | | |X |X | | | |X | |
-|Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only) |X |X |X |X |X | |X | |X | |
-|Windows 8 Enterprise and Pro (Server scenarios only) | |X |X |X | | |X | | | |
-|Windows 7 SP1 (Server scenarios only) | |X |X |X | | |X | | | |
-|Azure Stack HCI (Server scenarios only) | |X | |X | | |X | |X | |
+|Operating system |Azure Monitor agent |Log Analytics agent |Dependency VM Insights |Qualys |Custom Script |Key Vault |Hybrid Runbook |Antimalware Extension |Windows Admin Center |
+|-----------------|--------------------|--------------------|-----------------------|-------|--------------|----------|---------------|----------------------|---------------------|
+|Windows Server 2022 |X |X |X |X |X | |X | |X |
+|Windows Server 2019 |X |X |X |X |X |X | |X |X |
+|Windows Server 2016 |X |X |X |X |X |X |X |Built-in |X |
+|Windows Server 2012 R2 |X |X |X |X |X | |X |X | |
+|Windows Server 2012 |X |X |X |X |X |X |X |X | |
+|Windows Server 2008 R2 SP1 |X |X |X |X |X | |X |X | |
+|Windows Server 2008 R2 | | | |X |X | |X |X | |
+|Windows Server 2008 SP2 | |X | |X |X | |X | | |
+|Windows 11 client OS |X | | |X | | | | | |
+|Windows 10 1803 (RS4) and higher |X | | |X |X | | | | |
+|Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only) |X |X |X |X |X | |X | | |
+|Windows 8 Enterprise and Pro (Server scenarios only) | |X |X |X | | |X | | |
+|Windows 7 SP1 (Server scenarios only) | |X |X |X | | |X | | |
+|Azure Stack HCI (Server scenarios only) | |X | |X | | |X | | |
 
 ### Linux extension availability
 
