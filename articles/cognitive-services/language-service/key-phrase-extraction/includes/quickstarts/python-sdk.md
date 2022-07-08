@@ -62,7 +62,7 @@ client = authenticate_client()
 def key_phrase_extraction_example(client):
 
     try:
-        documents = ["My cat might need to see a veterinarian."]
+        documents = ["Dr. Smith has a very modern medical office, and she has great staff."]
 
         response = client.extract_key_phrases(documents = documents)[0]
 
@@ -86,6 +86,7 @@ key_phrase_extraction_example(client)
 
 ```console
 Key Phrases:
-    cat
-    veterinarian
+    modern medical office
+    Dr. Smith
+    great staff
 ```
