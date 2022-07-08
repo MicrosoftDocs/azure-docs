@@ -44,7 +44,7 @@ The table in this article provides information on the Peering Service connectivi
 | [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia, Europe |
 | [Atman](https://www.atman.pl/en/atman-internet-maps/) |Europe|
 | [LINX](https://www.linx.net/services/microsoft-azure-peering/) |Europe|
-| [Converge ICT] (https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
+| [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
 
 
 
