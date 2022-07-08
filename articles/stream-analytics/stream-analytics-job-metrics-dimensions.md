@@ -10,7 +10,7 @@ ms.date: 06/30/2022
 ---
 # Azure Stream Analytics metrics dimensions
 
-Stream Analytics provides a serverless, distributed streaming processing service. Jobs can run on one or more distributed streaming nodes which the service automatically manages. The input data are partitioned and allocated to different streaming nodes for processing. Azure Stream Analytics has many metrics available to monitor job's health. Metrics can be split by dimensions, like Partition ID or Node name which helps troubleshoot performance issues with your job. To get the  metrics full list, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). 
+Stream Analytics provides a serverless, distributed streaming processing service. Jobs can run on one or more distributed streaming nodes, which the service automatically manages. The input data are partitioned and allocated to different streaming nodes for processing. Azure Stream Analytics has many metrics available to monitor job's health. Metrics can be split by dimensions, like Partition ID or Node name that helps troubleshoot performance issues with your job. To get the  metrics full list, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). 
 
 ## Stream Analytics metrics dimensions
 
@@ -20,7 +20,7 @@ Azure Stream Analytics provides three important dimensions: “Logic Name”, �
 | ---------------------- | ---------------------------------------- | 
 | Logic Name       | The input or output name for a given Azure Stream Analytics (ASA) job. |
 | Partition ID     | The ID of the input data partition from input source, for example, if the input source is from event hub, the partition ID is the EH partition ID. For embarrassingly parallel job, the “Partition ID” in output is the same as the input partition ID. |
-| Node Name        | Identifier of a streaming node which is provisioned when your job runs. A streaming node represents amount of compute and memory resources allocated to your job. |
+| Node Name        | Identifier of a streaming node that is provisioned when your job runs. A streaming node represents amount of compute and memory resources allocated to your job. |
 
 :::image type="content" source="./media/stream-analytics-monitoring/05-stream-analytics-monitoring-dimension.png" alt-text="Stream Analytics job metrics dimension" lightbox="./media/stream-analytics-monitoring/05-stream-analytics-monitoring-dimension.png":::
 

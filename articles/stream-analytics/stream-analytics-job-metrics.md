@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 07/07/2022
 ms.custom: seodec18
 ---
 

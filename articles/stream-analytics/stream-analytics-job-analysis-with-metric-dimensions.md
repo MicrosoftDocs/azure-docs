@@ -23,14 +23,14 @@ If your embarrassingly parallel job’s watermark delay is steadily increased, y
 
    :::image type="content" source="./media/stream-analytics-job-analysis-with-metric-dimensions/01-watermark-delay-splitting-with-partition-id.png" alt-text="Diagram that show the watermark delay splitting with Partition ID for the case of no input in certain partition" lightbox="./media/stream-analytics-job-analysis-with-metric-dimensions/01-watermark-delay-splitting-with-partition-id.png":::
 
-2. You can then check if there's any input data missing for this partition. To do this, you can select Input Events metric and filter it to this specific partition id. 
+2. You can then check if there's any input data missing for this partition. To do this, you can select Input Events metric and filter it to this specific partition ID. 
 
    :::image type="content" source="./media/stream-analytics-job-analysis-with-metric-dimensions/02-input-events-splitting-with-partition-id.png" alt-text="Diagram that shows the Input Events splitting with Partition ID for the case of no input in certain partition" lightbox="./media/stream-analytics-job-analysis-with-metric-dimensions/02-input-events-splitting-with-partition-id.png":::
 
 
 What action could you take further?
 
--	As you can see, the watermark delay for this partition is increasing as there is no input events flowing into this partition. If your job's late arrival tolerance window is several hours and no input data is flowing into a partition, it is expected that the watermark delay for that partition continues to increase till the late arrival window is reached. For example, if your late arrival tolerance is 6 hours and input data isn't flowing into input partition 1, watermark delay for output partition 1 will increase till it reaches 6 hours. You can check if your input source is producing data as expected.
+-	As you can see, the watermark delay for this partition is increasing as there's no input events flowing into this partition. If your job's late arrival tolerance window is several hours and no input data is flowing into a partition, it's expected that the watermark delay for that partition continues to increase until the late arrival window is reached. For example, if your late arrival tolerance is 6 hours and input data isn't flowing into input partition 1, watermark delay for output partition 1 will increase until it reaches 6 hours. You can check if your input source is producing data as expected.
 
 
 ## Input data-skew causes high watermark delay
@@ -57,7 +57,7 @@ Streaming nodes that process partitions with higher data skew will exhibit highe
 
 ## Overloaded CPU/memory causes watermark delay increasing
 
-When a embarrassingly parallel job has watermark delay increasing, it may not just happen on one or several partitions, but all of the partitions. How to confirm my job is falling into this case? 
+When an embarrassingly parallel job has watermark delay increasing, it may not just happen on one or several partitions, but all of the partitions. How to confirm my job is falling into this case? 
 1. First, split the watermark delay with “Partition ID” dimension, same as the case above. For example, the below job:
 
    :::image type="content" source="./media/stream-analytics-job-analysis-with-metric-dimensions/06-watermark-delay-splitting-with-partition-id-all-increasing.png" alt-text="Diagram that shows the watermark delay splitting with Partition ID for the case of overloaded cpu and memory" lightbox="./media/stream-analytics-job-analysis-with-metric-dimensions/06-watermark-delay-splitting-with-partition-id-all-increasing.png":::
@@ -77,7 +77,7 @@ When a embarrassingly parallel job has watermark delay increasing, it may not ju
 
 What action could you take further?
 
-1. Naturally, you’d think to reduce the partition count for each streaming node to reduce the input data for each streaming node. To achieve this, you can double the SUs to have each streaming node to handle two partitions data or four times the SUs to have each streaming node to handle one partition data. Refer to [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md) for the relationship between SUs assignment and streaming node count.
+1. Naturally, you’d think to reduce the partition count for each streaming node to reduce the input data for each streaming node. To achieve this, you can double the SUs to have each streaming node to handle two partitions data, or four times the SUs to have each streaming node to handle one partition data. Refer to [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md) for the relationship between SUs assignment and streaming node count.
 2. What should I do if the watermark delay is still increasing when one streaming node is handling one partition data? Repartition your input with more partitions to reduce the amount of data in each partition. Refer to this document for details: [Use repartitioning to optimize Azure Stream Analytics jobs](./repartition.md)
 
 
