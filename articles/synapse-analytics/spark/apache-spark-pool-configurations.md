@@ -51,9 +51,6 @@ A Spark pool can be defined with node sizes that range from a Small compute node
 Apache Spark pools provide the ability to automatically scale up and down compute resources based on the amount of activity.  When the autoscale feature is enabled, you can set the minimum and maximum number of nodes to scale.
 When the autoscale feature is disabled, the number of nodes set will remain fixed.  This setting can be altered after pool creation although the instance may need to be restarted.
 
-## Elastic pool storage
-Apache Spark pools utilize temporary disk storage while the pool is instantiated. For many Spark jobs, it is difficult to estimate cluster storage requirements, in some cases this causes your Spark jobs to fail if the worker nodes exhausts this temporary storage. Enabling Elastic pool storage allows the Spark engine to monitor worker node temporary cluster storage, and attach additional disks if additional cluster storage is needed. Elastic pool storage is enabled by default.
-
 ## Automatic pause
 
 The automatic pause feature releases resources after a set idle period reducing the overall cost of an Apache Spark pool.  The number of minutes of idle time can be set once this feature is enabled.  The automatic pause feature is independent of the autoscale feature. Resources can be paused whether the autoscale is enabled or disabled.  This setting can be altered after pool creation although active sessions  will need to be restarted.
