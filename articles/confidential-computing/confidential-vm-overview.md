@@ -57,7 +57,7 @@ Azure confidential VMs boot only after successful attestation of the platform's 
 - Platform firmware measurements
 - OS measurements
 
-Customers can initialize attestation request inside of confidential VM to verify customers' confidential VMs are running hardware instance with AMD SEV-SNP enabled processors. For more information, see [Azure confidential VM guest attestation](https://aka.ms/CVMattestation).
+You can initialize an attestation request inside of a confidential VM to verify that your confidential VMs are running a hardware instance with AMD SEV-SNP enabled processors. For more information, see [Azure confidential VM guest attestation](https://aka.ms/CVMattestation).
 
 Azure confidential VMs feature a virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM, and complies with the TPM2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Confidential VMs have their own dedicated vTPM instance, which runs in a secure environment outside the reach of any VM. 
 
