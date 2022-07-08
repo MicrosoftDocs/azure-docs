@@ -393,7 +393,7 @@ This section shows you how to use the Python SDK to create, start, and monitor a
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
     pipelines_to_run.append(TriggerPipelineReference(pipeline_reference, pipeline_parameters))
-    tr_properties = ScheduleTrigger(description='My scheduler trigger', pipelines = pipelines_to_run, recurrence=scheduler_recurrence)    
+    tr_properties = TriggerResource(properties=ScheduleTrigger(description='My scheduler trigger', pipelines = pipelines_to_run, recurrence=scheduler_recurrence))
     adf_client.triggers.create_or_update(rg_name, df_name, tr_name, tr_properties)
 
     # Start the trigger
