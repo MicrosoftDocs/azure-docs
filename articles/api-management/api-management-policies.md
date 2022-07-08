@@ -76,7 +76,7 @@ More information about policies:
 - [Validate GraphQL request](graphql-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
 - [Set GraphQL resolver](graphql-policies.md#set-graphql-resolver) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
 
-##  [Transformation policies](api-management-transformation-policies.md)
+## Transformation policies
 -   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converts request or response body from JSON to XML.
 -   [Convert XML to JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - Converts request or response body from XML to JSON.
 -   [Find and replace string in body](api-management-transformation-policies.md#Findandreplacestringinbody) - Finds a request or response substring and replaces it with a different substring.
