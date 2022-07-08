@@ -67,14 +67,14 @@
   - name: Configure autoscale - ARM Template
     href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
     maintainContext: true
-  - name: Autoscale using guest metrics
-    href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy
     href: virtual-machine-scale-sets-scale-in-policy.md 
   - name: Instance protection
     href: virtual-machine-scale-sets-instance-protection.md
+  - name: Working with large uniform scale sets
+    href: virtual-machine-scale-sets-placement-groups.md
 - name: Availability
   items: 
   - name: Design considerations
@@ -85,10 +85,6 @@
   - name: Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
     maintainContext: true
-  - name: Placement groups
-    href: virtual-machine-scale-sets-placement-groups.md
-  - name: Proximity placement groups
-    href: proximity-placement-groups.md
   - name: Capacity reservations
     href: ../virtual-machines/capacity-reservation-overview.md
   - name: Automatic instance repairs
@@ -119,18 +115,29 @@
       href: virtual-machine-scale-sets-manage-powershell.md
     - name: Modify a scale set
       href: virtual-machine-scale-sets-upgrade-scale-set.md
-    - name: Networking for scale sets
-      href: virtual-machine-scale-sets-networking.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
     - name: Scale set templates
       href: virtual-machine-scale-sets-mvss-start.md
+    - name: Autoscale using guest metrics
+      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
     - name: Deploy your application
       href: virtual-machine-scale-sets-deploy-app.md
+    - name: Custom image templates
+      href: virtual-machine-scale-sets-mvss-custom-image.md
   - name: Manage fault domains in scale sets
     href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: Understand instance IDs
     href: virtual-machine-scale-sets-instance-ids.md
+  - name: Azure Compute Gallery
+    items: 
+    - name: Overview
+      href: ../virtual-machines/azure-compute-gallery.md
+      maintainContext: true
+    - name: Specialized image version
+      href: instance-specialized-image-version.md
+    - name: Generalized image version
+      href: instance-generalized-image-version.md
   - name: Run Command
     items:
     - name: Overview
@@ -149,6 +156,8 @@
     - name: Managed Run Commands for Windows
       href: ../virtual-machines/windows/run-command-managed.md
       maintainContext: true
+  - name: Proximity placement groups
+    href: proximity-placement-groups.md
   - name: Extensions
     items:
     - name: Extensions Overview
@@ -161,17 +170,6 @@
       href: virtual-machine-scale-sets-extension-sequencing.md
     - name: Application Health extension
       href: virtual-machine-scale-sets-health-extension.md
-  - name: Azure Compute Gallery
-    items: 
-    - name: Overview
-      href: ../virtual-machines/azure-compute-gallery.md
-      maintainContext: true
-    - name: Specialized image version
-      href: instance-specialized-image-version.md
-    - name: Share images across tenants
-      href: share-images-across-tenants.md
-    - name: Custom image templates
-      href: virtual-machine-scale-sets-mvss-custom-image.md
 - name: Monitoring
   items:
   - name: Monitor virtual machines
@@ -194,9 +192,6 @@
       maintainContext: true
 - name: Updates and maintenance
   items: 
-  - name: Overview
-    href: ../virtual-machines/updates-maintenance-overview.md
-    maintainContext: true
   - name: Maintenance notifications
     items:
     - name: Overview
@@ -246,23 +241,6 @@
       - name: Monitor scheduled events
         href: ../virtual-machines/windows/scheduled-event-service.md
         maintainContext: true
-  - name: Track and update VMs
-    items:
-    - name: Linux
-      displayName: update, track
-      href: ../virtual-machines/linux/tutorial-config-management.md
-      maintainContext: true
-    - name: Windows
-      displayName: update, track
-      href: ../virtual-machines/windows/tutorial-config-management.md
-      maintainContext: true
-    - name: Scheduled events - Linux
-      href: ../virtual-machines/linux/scheduled-events.md
-      maintainContext: true
-      displayname: Scheduled events
-    - name: Scheduled events - Windows
-      href: ../virtual-machines/windows/scheduled-events.md
-      maintainContext: true
 - name: Disks
   items:
   - name: Select a disk type
@@ -276,9 +254,6 @@
     maintainContext: true
   - name: Scalability targets for disks
     href: ../virtual-machines/disks-scalability-targets.md
-    maintainContext: true
-  - name: Backup and disaster recovery for disks
-    href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
     maintainContext: true
   - name: Use data disks with scale sets
     href: virtual-machine-scale-sets-attached-disks.md
@@ -304,11 +279,9 @@
   - name: Networking Overview
     href: ../virtual-network/network-overview.md
     maintainContext: true
-  - name: Network performance
-    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md
-    maintainContext: true
   - name: Default outbound access in Azure
     href: ../virtual-network/ip-services/default-outbound-access.md
+    maintainContext: true
   - name: Networking for scale sets
     href: virtual-machine-scale-sets-networking.md
   - name: Use an existing virtual network
@@ -321,7 +294,7 @@
     href: ../virtual-machines/security-policy.md
     maintainContext: true
   - name: Azure security baseline
-    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
+    href: ../security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline.md
     maintainContext: true
   - name: Hotpatch
     href: ../automanage/automanage-hotpatch.md

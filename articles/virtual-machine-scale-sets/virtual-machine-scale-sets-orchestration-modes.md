@@ -168,6 +168,72 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | VM Insights  | Can be installed into individual VMs | Yes | Yes |
 
 
+### Unsupported parameters
+
+The following virtual machine scale set parameters are not currently supported with virtual machine scale sets in Flexible orchestration mode:
+- Single placement group - you must choose `singlePlacementGroup=False`
+- Deployment using Specialty SKUs: G, H, L, M, N series VM families
+- Ultra disk configuration: `diskIOPSReadWrite`, `diskMBpsReadWrite`
+- Virtual machine scale set Overprovisioning
+- Image-based Automatic OS Upgrades
+- Application health via SLB health probe - use Application Health Extension on instances
+- Virtual machine scale set upgrade policy - must be null or empty
+- Deployment onto Azure Dedicated Host
+- Unmanaged disks
+- Virtual machine scale set Scale in Policy
+- Virtual machine scale set Instance Protection
+- Basic Load Balancer
+- Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules to specific instances
+
+
+## Troubleshoot scale sets with Flexible orchestration
+Find the right solution to your troubleshooting scenario.
+
+<!-- error -->
+### InvalidParameter. The specified fault domain count 3 must fall in the range 1 to 2.
+
+```
+InvalidParameter. The specified fault domain count 3 must fall in the range 1 to 2.
+```
+
+**Cause:** The `platformFaultDomainCount` parameter is invalid for the region or zone selected.
+
+**Solution:** You must select a valid `platformFaultDomainCount` value. For zonal deployments, the maximum `platformFaultDomainCount` value is 1. For regional deployments where no zone is specified, the maximum `platformFaultDomainCount` varies depending on the region. See [Manage the availability of VMs for scripts](../virtual-machines/availability.md) to determine the maximum fault domain count per region.
+
+
+<!-- error -->
+### OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.
+
+```
+OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.
+```
+
+**Cause:** Trying to delete a scale set in Flexible orchestration mode that is associated with one or more virtual machines.
+
+**Solution:** Delete all of the virtual machines associated with the scale set in Flexible orchestration mode, then you can delete the scale set.
+
+
+<!-- error -->
+### InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
+
+```
+InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
+```
+**Cause:** The `singlePlacementGroup` parameter is set to *True*.
+
+**Solution:** The `singlePlacementGroup` must be set to *False*.
+
+
+<!-- error -->
+### OutboundConnectivityNotEnabledOnVM. No outbound connectivity configured for virtual machine.
+
+```
+OutboundConnectivityNotEnabledOnVM. No outbound connectivity configured for virtual machine.
+```
+**Cause:** Trying to create a Virtual Machine Scale Set in Flexible Orchestration Mode with no outbound internet connectivity.
+
+**Solution:** Enable secure outbound access for your virtual machine scale set in the manner best suited for your application. Outbound access can be enabled with a NAT Gateway on your subnet, adding instances to a Load Balancer backend pool, or adding an explicit public IP per instance. For highly secure applications, you can specify custom User Defined Routes through your firewall or virtual network applications. See [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md) for more details.
+
 ## Get started with Flexible orchestration mode
 
 Register and get started with [Flexible orchestration mode](..\virtual-machines\flexible-virtual-machine-scale-sets.md) for your virtual machine scale sets. 
