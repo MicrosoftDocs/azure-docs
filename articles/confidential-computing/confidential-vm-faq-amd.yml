@@ -7,7 +7,7 @@ metadata:
   ms.workload: infrastructure
   ms.service: virtual-machines
   ms.subservice: confidential-computing
-  ms.date: 7/1/2022
+  ms.date: 7/01/2022
   ms.author: RunCai
 title: Azure DCasv5/ECasv5-series confidential virtual machines FAQ 
 summary: |
