@@ -12,7 +12,9 @@
   - name: What is identity lifecycle management?
     href: what-is-identity-lifecycle-management.md
   - name: What is provisioning?
-    href: what-is-provisioning.md  
+    href: what-is-provisioning.md
+  - name: What are Lifecycle workflows? (Preview)
+    href: what-are-lifecycle-workflows.md  
 - name: Tutorials
   expanded: true
   items:
@@ -24,6 +26,10 @@
         href: entitlement-management-group-licenses.md
       - name: Onboard external users to Azure AD through an approval process
         href: entitlement-management-onboard-external-user.md
+      - name: On-boarding users to your organization using Lifecycle workflows with Azure portal (Preview)
+        href: tutorial-onboard-custom-workflow-portal.md
+      - name: Off-boarding users from your organization using Lifecycle workflows with Azure portal (Preview)
+        href: tutorial-offboard-custom-workflow-portal.md
     - name: API tutorials
       items:
       - name: Manage access to resources - Microsoft Graph
@@ -40,6 +46,12 @@
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
         href: identity-governance-applications-existing-users.md
+      - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
+        href: tutorial-prepare-azuread-user-accounts.md  
+      - name: On-boarding users from your organization using Lifecycle workflows with Microsoft Graph (Preview)
+        href: tutorial-onboard-custom-workflow-graph.md 
+      - name: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (Preview)
+        href: tutorial-offboard-custom-workflow-graph.md  
 - name: Concepts
   expanded: true
   items:
@@ -57,6 +69,14 @@
       href: conditional-access-exclusion.md
   - name:  Review and remove users from external organizations
     href: access-reviews-external-users.md
+  - name: Lifecycle workflows 
+    items:
+    - name: Manage lifecycle with workflow (Preview)
+      href: manage-lifecycle-workflows.md
+    - name: Lifecycle Workflow tasks and definitions (Preview)
+      href: lifecycle-workflow-tasks.md   
+    - name: Lifecycle workflow extensibility (Preview)
+      href: lifecycle-workflow-extensibility.md    
 - name: How-to guides
   expanded: true
   items:
@@ -164,6 +184,30 @@
         href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
         href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Lifecycle workflows
+      items:
+      - name: Create
+        items: 
+        - name: Create a Lifecycle Workflow (Preview)
+          href: create-lifecycle-workflow.md
+        - name: Trigger Logic Apps based on custom task extensions (Preview)  
+          href: trigger-custom-task.md
+      - name: Manage
+        items:
+        - name: Manage workflow properties (Preview)
+          href: manage-workflow-properties.md
+        - name: Manage workflow versions (Preview)
+          href: manage-workflow-tasks.md
+        - name: Run a workflow on-demand (Preview)
+          href: on-demand-workflow.md
+        - name: Check the status of a workflow (Preview)
+          href: check-status-workflow.md
+        - name: Customize the schedule of workflows (Preview)
+          href: customize-workflow-schedule.md         
+      - name: Delete
+        items: 
+        - name: Delete a Lifecycle workflow (Preview)
+          href: delete-lifecycle-workflow.md
 - name: Reference
   expanded: true
   items:
@@ -171,3 +215,5 @@
     href: /graph/api/resources/accessreviewsv2-overview
   - name: Entitlement management - Microsoft Graph API
     href: /graph/api/resources/entitlementmanagement-overview
+  - name: Lifecycle Workflows - FAQs (Preview)
+    href: workflows-faqs.md  
