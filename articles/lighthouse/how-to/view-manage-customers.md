@@ -80,13 +80,13 @@ You can change the default subscription at any time by following the steps above
 > [!IMPORTANT]
 > Checking the **Select all** box sets the filter to show all of the subscriptions to which you *currently* have access. If you later gain access to additional subscriptions—for example, after you've onboarded a new customer to Azure Lighthouse—these subscriptions will not automatically be added to your filter. You'll need to return to **Directories + subscriptions** and select the additional subscriptions (or uncheck and then recheck **Select all** again).
 
-You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within an individual service.
+You can also work on delegated subscriptions or resource groups by selecting the subscription or resource group from within an individual service (as long as that service supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md#enhanced-services-and-scenarios)).
 
 ## Cloud Solution Provider (Preview)
 
 A separate **Cloud Solution Provider (Preview)** section of the **My customers** page shows billing info and resources for your CSP customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started). For more information, see [Get started with your Microsoft Partner Agreement billing account](../../cost-management-billing/understand/mpa-overview.md).
 
-Such CSP customers will appear in this section whether or not you have also onboarded them to Azure Lighthouse. Similarly, a CSP customer does not have to appear in the **Cloud Solution Provider (Preview)** section of **My customers** in order for you to onboard them to Azure Lighthouse.
+These CSP customers appear in this section whether or not you have also onboarded them to Azure Lighthouse. Similarly, a CSP customer does not have to appear in the **Cloud Solution Provider (Preview)** section of **My customers** in order for you to onboard them to Azure Lighthouse.
 
 ## Next steps
 
