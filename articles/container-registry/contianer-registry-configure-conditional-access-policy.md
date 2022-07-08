@@ -62,7 +62,6 @@ You can use Azure CLI version 2.0.76 or later, run `az --version` to find the ve
 az policy assignment list --query "[?contains(displayName,'Container Registries')].{name:displayName, ID:id}" --output table
 ```
 
-
 ## Clean up resources
 
 To remove the assignment created, use the following command:
@@ -70,7 +69,6 @@ To remove the assignment created, use the following command:
 ```azurecli-interactive
 az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
-
 
 ## Next steps
 
