@@ -53,6 +53,9 @@ If you have an MLflow model logged inside of a run and you want to register it i
 mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
 ```
 
+> [!NOTE]
+> Models can only be registered to the registry in the same workspace where the run was tracked. Cross-workspace operations are not supported by the moment in Azure Machine Learning.
+
 ### Creating models from assets
 
 If you have a folder with an MLModel MLflow model, then you can register it directly. There's no need for the model to be always in the context of a run. To do that you can use the URI schema `file://path/to/model` to register MLflow models stored in the local file system. Let's create a simple model using `Scikit-Learn` and save it in MLflow format in the local storage:
@@ -131,15 +134,15 @@ client.get_model_version_stages(model_name, version="latest")
 
 You can see what model's version is on each stage by getting the model from the registry. The following example gets the model's version currently in the stage `Staging`.
 
-> [!WARNING]
-> Stage names are case sensitive.
-
 ```python
 client.get_latest_versions(model_name, stages=["Staging"])
 ```
 
 > [!NOTE]
 > Multiple versions can be in the same stage at the same time in Mlflow, however, this method returns the latest version (greater version) among all of them.
+
+> [!WARNING]
+> Stage names are case sensitive.
 
 ### Transitioning models
 
