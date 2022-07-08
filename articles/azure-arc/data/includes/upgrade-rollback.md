@@ -16,9 +16,10 @@ When you set the desired version, which can be done through Kubernetes, CLI, the
    kubectl get pods -n <namespace>
    ```
 1. To look at Events to see if there is an error, run 
-```console
-kubectl describe pod <pod name> -n <namespace>
-```
+
+   ```console
+   kubectl describe pod <pod name> -n <namespace>
+   ```
 1. To get a list of the containers in the pods, run 
 
    ```console 
