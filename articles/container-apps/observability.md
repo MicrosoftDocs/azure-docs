@@ -266,7 +266,7 @@ There are two types of logs for Container Apps.
 
 ### Container Apps System Logs
 
-The Container Apps service provides system log messages at the container app level.  System logs  emits the following messaages:
+The Container Apps service provides system log messages at the container app level.  System logs emits the following messages:
 
 | Source | Type | Message |
 |---------|------|---------|
