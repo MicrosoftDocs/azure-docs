@@ -7,12 +7,11 @@ manager: rkarlin
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/29/2022
+ms.date: 07/1/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-
 # Partner-driven provisioning integrations
 
 The Azure Active Directory Provisioning service allows you to provision users and groups into both [SaaS](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) and [on-premises](https://docs.microsoft.com/azure/active-directory/app-provisioning/on-premises-scim-provisioning) applications. There are four integration paths:
@@ -23,7 +22,7 @@ Popular 3rd party applications, such as Dropbox, Snowflake, and Workplace by Fac
 **Option 2 - Implement a SCIM compliant API for your application:**
 If your line-of-business application supports the [SCIM](https://aka.ms/scimoverview) standard, it can easily be integrated with the [Azure AD SCIM client](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
 
-<img width="316" alt="image" src="https://user-images.githubusercontent.com/36525136/171483159-9470f922-4b89-4ebf-8962-bd05a72f87be.png">
+<img width="316" alt="Provisioning to a SCIM application" src="https://user-images.githubusercontent.com/36525136/171483159-9470f922-4b89-4ebf-8962-bd05a72f87be.png">
 
 **Option 3 - Leverage Microsoft Graph:**
 Many new applications use [Microsoft Graph](https://docs.microsoft.com/graph/overview) to retrieve [users](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0), groups and other resources from Azure Active Directory. You can learn more about what scenarios to use [SCIM and Graph](https://docs.microsoft.com/azure/active-directory/app-provisioning/scim-graph-scenarios) in. 
@@ -31,7 +30,7 @@ Many new applications use [Microsoft Graph](https://docs.microsoft.com/graph/ove
 **Option 4 - Leverage partner-driven connectors:**
 In cases where an application does not support SCIM, partners have built gateways between the Azure AD SCIM client and target applications. **This document serves as a place for partners to attest to integrations that are compatible with Azure Active Directory, and for customers to discover these partner-driven integrations.** Note that these gateways are built, maintained, and owned by the third-party vendor. 
 
-<img width="371" alt="image" src="https://user-images.githubusercontent.com/36525136/171484637-acc3436c-d99e-4ab4-8ae5-d0eeb07bb650.png">
+<img width="371" alt="Provisioning to a SCIM application via a SCIM gateway" src="https://user-images.githubusercontent.com/36525136/171484637-acc3436c-d99e-4ab4-8ae5-d0eeb07bb650.png">
 
 # Available partner-driven integrations
 ## Aquera
@@ -47,30 +46,27 @@ The Aquera Identity Integration Platform as a Service closes the connectivity ga
 * Concur
 * Calendly
 
-## IDM Works
+## IDMWORKS
 ### Description
 We Are Experts In Identity & Access Management and Data Center Management.
-The Azure AD platform is integrated with IDMWORKS IdentityForge (IDF) Gateway for user life cycle management for Mainframe systems (RACF, Top Secret, ACF2), Midrange system (AS400), Healthcare applications (EPIC/Cerner), Linux/Unix servers, Databases, and dozens of on-prem and cloud applications. IdentityForge provides a central, standardized integration engine and modern identity store that serves as a trusted source for all life-cycle management.
+The Azure AD platform is integrated with IDMWORKS IdentityForge (IDF) Gateway for user lifecycle management for Mainframe systems (RACF, Top Secret, ACF2), Midrange system (AS400), Healthcare applications (EPIC/Cerner), Linux/Unix servers, Databases, and dozens of on-prem and cloud applications. IdentityForge provides a central, standardized integration engine and modern identity store that serves as a trusted source for all lifecycle management.
 The IDF Gateway for Azure AD provides lifecycle management for import sources and provisioning target systems that are not covered by the Azure AD connector portfolio like Mainframe systems (RACF, Top Secret, ACF2) or Healthcare applications (EPIC/Cerner). The IDF Gateway powers Azure AD identity lifecycle management (LCM) to continuously synchronize user account information from Mainframe/Healthcare sources and to automate the account provisioning lifecycle use cases like create, read (import), update, deactivate, delete user accounts and perform group management.
 
 ### Contact information
-* Company website: https://www.idmworks.com/
-* Contact information: 
+* Company website: https://www.idmworks.com/identity-forge
 * Contact information: https://www.idmworks.com/contacts/
 
-### Applications supported
-* Cerner
-* Epic
-* RACF
-* Top Secret
-* ACF2
-* AWS
-* AS/400 (IBMi)
-* HP Non stop
-* Technology apps
-*    x3270
-*    SSH
-*    Database
+### Popular Applications supported
+
+Leading provider of Mainframe, Healthcare and ERP integrations.  More can be found at https://www.idmworks.com/identity-forge/
+
+* IBM RACF
+* CA Top Secret
+* CA ACF2
+* IBM i (AS/400)
+* HP NonStop
+* EPIC
+* SAP ECC
 
 ## UNIFY Solutions
 ### Description
