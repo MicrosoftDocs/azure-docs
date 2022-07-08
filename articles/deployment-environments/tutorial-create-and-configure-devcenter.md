@@ -1,9 +1,9 @@
 ---
-author: megha-anand
-ms.author: anandmeg
+
 title: Set up an Azure Deployment Environment
 description: This tutorial helps to create a DevCenter using the Azure portal.
-ms.service: Azure
+author: meghaanand
+ms.author: anandmeg
 ms.topic: tutorial
 ms.date: 07/07/2022
 ---
@@ -28,9 +28,9 @@ The following steps illustrate how to use the Azure portal to create and configu
     ![Screenshot of sign in page.](https://user-images.githubusercontent.com/68404454/123879160-162cd480-d906-11eb-8a9a-0b640b23aeb1.png)
 
 1. Select on '+ Create' and in the **Basics** tab of **Create a Azure Deployment Environment DevCenter** window, do the following actions:
-    1. For **Subscription**, select the subscription in which you want to create the DevCenter. Kindly note that you need to use the whitelisted subscription
+    1. For **Subscription**, select the subscription in which you want to create the DevCenter.
     2. For **Resource group**, either use an existing resource group or select **Create new**, and enter a name for the resource group.
-    3. For **Name**, enter a name for the DevCenter
+    3. For **Name**, enter a name for the DevCenter.
     4. For **Location**, select the location/region you want the DevCenter to be created in.
 
     ![Screenshot of Basics tab of Create a Azure Deployment Environment DevCenter.](https://user-images.githubusercontent.com/68404454/123877585-17103700-d903-11eb-96f0-10100fdee30a.png)
