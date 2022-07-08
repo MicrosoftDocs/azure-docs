@@ -49,7 +49,7 @@ During the preview:
 
 ## Prerequisites
 
-You need to create a [new gallery with direct sharing enabled](./create-gallery.md#create-a-direct-sharing-gallery). Direct sharing means that the `sharingProfile.permissions` property is set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+You need to create a [new gallery with direct sharing enabled](./create-gallery.md#create-a-direct-shared-gallery). Direct sharing means that the `sharingProfile.permissions` property is set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 ### [Portal](#tab/portaldirect)
 
 1. Sign in to the Azure portal at https://portal.azure.com.

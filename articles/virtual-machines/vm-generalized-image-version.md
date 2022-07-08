@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/01/2022
+ms.date: 07/07/2022
 ms.author: saraic
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -14,7 +14,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Create a VM from a generalized image version
 
-Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
+Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md).
+
+This article shows how to create a VM from a a generalized image:
+- [In your own gallery](#create-a-vm-from-your-gallery) 
+- Shared to a [community gallery](#create-a-vm-from-a-community-gallery-image) 
+- Or [directly shared to your subscription or tenant](#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant)
 
 
 ## Create a VM from your gallery
@@ -661,4 +666,5 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 
 **Next steps**
 
-[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md).
+- [Create an Azure Compute Gallery](create-gallery.md)
+- [Create an image in an Azure Compute Gallery](image-version.md)

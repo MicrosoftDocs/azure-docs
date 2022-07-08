@@ -155,7 +155,7 @@ As a content publisher, you might want to share a gallery to the community:
 
 #### How sharing with the community works
 
-You [create a gallery resource](create-gallery.md#create-a-community-gallery-preview) under `Microsoft.Compute/Galleries` and choose `community` as a sharing option.
+You [create a gallery resource](create-gallery.md#create-a-community-gallery) under `Microsoft.Compute/Galleries` and choose `community` as a sharing option.
 
 When you are ready, you flag your gallery as ready to be shared publicly. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries`, which are public.
 

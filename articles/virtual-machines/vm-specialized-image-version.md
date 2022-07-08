@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 07/07/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -18,30 +18,18 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If you want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
 
+This article shows how to create a VM from a a specialized [image in your own gallery](#create-a-vm-from-your-gallery), a [community gallery](#create-a-vm-from-a-community-gallery-image), or [directly shared to your subscription or tenant](#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant).
+
 > [!IMPORTANT]
 > 
 > When you create a new VM from a specialized image, the new VM retains the computer name of the original VM. Other computer-specific information, like the CMID, is also kept. This duplicate information can cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
 
-Replace resource names as needed in these examples. 
+
+Replace resource names as needed in these examples.
+
 
 ## Create a VM from your gallery
 
-### [Portal](#tab/portal)
-
-Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
-
-1. Go to your image definition. You can use the resource filter to show all image definitions available.
-1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
-1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
-1. In **Virtual machine name**, type *myVM*.
-1. For **Region**, select *East US*.
-1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
-1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
-1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
-1. Under **Administrator account**, the username will be greyed out because the username and credentials from the source VM are used.
-1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
-1. When you're finished, select the **Review + create** button at the bottom of the page.
-1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
 
 
 ### [CLI](#tab/cli)
@@ -156,6 +144,24 @@ New-AzVM `
    -VM $vmConfig
 
 ```
+
+### [Portal](#tab/portal)
+
+Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
+
+1. Go to your image definition. You can use the resource filter to show all image definitions available.
+1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
+1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
+1. In **Virtual machine name**, type *myVM*.
+1. For **Region**, select *East US*.
+1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
+1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
+1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
+1. Under **Administrator account**, the username will be greyed out because the username and credentials from the source VM are used.
+1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
+1. When you're finished, select the **Review + create** button at the bottom of the page.
+1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
+
 ---
 
 ## Create a VM from a community gallery image
@@ -303,8 +309,6 @@ az vm create\
 
 **Next steps**
 
-You can also create Azure Compute Gallery resource using templates. There are several quickstart templates available: 
+- [Create an Azure Compute Gallery](create-gallery.md)
+- [Create an image in an Azure Compute Gallery](image-version.md)
 
-- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
