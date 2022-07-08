@@ -872,13 +872,13 @@ items:
             href: /rest/api/cognitiveservices/questionanswering/question-answering-projects
           - name: Runtime API 
             href: /rest/api/cognitiveservices/questionanswering/question-answering/get-answers
-- name: Sentiment analysis and Opinion mining
+- name: Sentiment analysis and opinion mining
   items:
-  - name: Sentiment analysis and Opinion mining overview
+  - name: Sentiment analysis and opinion mining overview
     href: sentiment-opinion-mining/overview.md
-  - name: Sentiment analysis and Opinion mining quickstart
+  - name: Sentiment analysis and opinion mining quickstart
     href: sentiment-opinion-mining/quickstart.md
-  - name: Sentiment analysis and Opinion mining language support
+  - name: Sentiment analysis and opinion mining language support
     href: sentiment-opinion-mining/language-support.md
   - name: Samples
     items:
