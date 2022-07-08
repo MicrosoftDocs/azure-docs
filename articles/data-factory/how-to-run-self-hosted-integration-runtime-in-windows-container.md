@@ -61,7 +61,7 @@ Azure Data Factory provides Windows container support for the Self-Hosted Integr
 
 ## Container health check
 
-After the 120 second startup period, the health check runs periodically every 30 seconds. It provide the SHIR's health status to the container engine.
+After the 120 second startup period, the health check runs periodically every 30 seconds. It provides the SHIR's health status to the container engine.
 
 ## Limitations
 
