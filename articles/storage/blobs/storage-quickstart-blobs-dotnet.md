@@ -76,13 +76,20 @@ dotnet add package Azure.Storage.Blobs
 From the project directory:
 
 1. Open the *Program.cs* file in your editor.
-1. Remove the `Console.WriteLine("Hello World!");` statement.
-1. Add `using` directives.
-1. Update the `Main` method declaration to support async.
+1. Add the `using` directives that will be needed for this example.
 
-    Here's the code:
+Your starting code should look like the following example:
 
-    :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/app_framework.cs":::
+```csharp
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+
+// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
+```
 
 [!INCLUDE [storage-quickstart-credentials-free-include](../../../includes/storage-quickstart-credential-free-include.md)]
 
@@ -117,37 +124,77 @@ Decide on a name for the new container. The code below appends a GUID value to t
 
 Create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. Then, call the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) method to create the container in your storage account.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `Program.cs` class:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_CreateContainer":::
+```csharp
+//Create a unique name for the container
+string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
+
+// Create the container and return a container client object
+BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
+```
 
 ### Upload a blob to a container
 
-The following code snippet:
+Add the following code to the end of the `Program.cs` class:
+
+```csharp
+// Create a local file in the ./data/ directory for uploading and downloading
+string localPath = "./data/";
+string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
+string localFilePath = Path.Combine(localPath, fileName);
+
+// Write text to the file
+await File.WriteAllTextAsync(localFilePath, "Hello, World!");
+
+// Get a reference to a blob
+BlobClient blobClient = containerClient.GetBlobClient(fileName);
+
+Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri);
+
+// Upload data from the local file
+await blobClient.UploadAsync(localFilePath, true);
+```
+
+The code snippet completes the following steps:
 
 1. Creates a text file in the local *data* directory.
 1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
 1. Uploads the local text file to the blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_String_System_Boolean_System_Threading_CancellationToken_) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
-Add this code to the end of the `Main` method:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_UploadBlobs":::
-
 ### List blobs in a container
 
 List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
-Add this code to the end of the `Main` method:
+Add the following code to the end of the `Program.cs` class:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_ListBlobs":::
+```csharp
+Console.WriteLine("Listing blobs...");
+
+// List all blobs in the container
+await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
+{
+    Console.WriteLine("\t" + blobItem.Name);
+}
+```
 
 ### Download a blob
 
 Download the previously created blob by calling the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
 
-Add this code to the end of the `Main` method:
+Add the following code to the end of the `Program.cs` class:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_DownloadBlobs":::
+```csharp
+// Download the blob to a local file
+// Append the string "DOWNLOADED" before the .txt extension 
+// so you can compare the files in the data directory
+string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
+
+Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
+
+// Download the blob's contents and save it to a file
+await blobClient.DownloadToAsync(downloadFilePath);
+```
 
 ### Delete a container
 
@@ -155,9 +202,22 @@ The following code cleans up the resources the app created by deleting the entir
 
 The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
 
-Add this code to the end of the `Main` method:
+Add the following code to the end of the `Program.cs` class:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_DeleteContainer":::
+```csharp
+// Clean up
+Console.Write("Press any key to begin clean up");
+Console.ReadLine();
+
+Console.WriteLine("Deleting blob container...");
+await containerClient.DeleteAsync();
+
+Console.WriteLine("Deleting the local source and downloaded files...");
+File.Delete(localFilePath);
+File.Delete(downloadFilePath);
+
+Console.WriteLine("Done");
+```
 
 ## Run the code
 
