@@ -18,7 +18,7 @@ A common use of text boxes is as internal variables used by other workbook contr
 ## Create a text parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
+1. Select **Add parameters** from the links in the workbook.
 1. Select the **Add Parameter** button.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `SlowRequestThreshold`
@@ -41,7 +41,7 @@ The text parameter supports the following field styles:
 
      :::image type="content" source="./media/workbooks-text/standard-text.png" alt-text="Screenshot that shows a standard text field.":::
 
-- **Password**: A single line password field. The password value is only hidden on the UI when the user types. The value is fully accessible as a parameter value when referred. It's stored unencrypted when the workbook is saved.
+- **Password**: A single line password field. The password value is only hidden in the UI when you type. The value is fully accessible as a parameter value when referred. It's stored unencrypted when the workbook is saved.
 
      :::image type="content" source="./media/workbooks-text/password-text.png" alt-text="Screenshot that shows a password field.":::
 
@@ -90,7 +90,7 @@ The text parameter supports the following field styles:
 ## Set default values by using queries
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
+1. Select **Add parameters** from the links in the workbook.
 1. Select the **Add Parameter** button.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `SlowRequestThreshold`

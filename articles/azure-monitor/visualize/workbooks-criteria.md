@@ -26,7 +26,7 @@ let metric = dynamic({Counter});
 print tostring((metric.object == 'Network Adapter' and (metric.counter == 'Bytes Received/sec' or metric.counter == 'Bytes Sent/sec')) or (metric.object == 'Network' and (metric.counter == 'Total Bytes Received' or metric.counter == 'Total Bytes Transmitted')))
 ```
 
-If the user is focused on the `metric.counter` object, the value of the parameter `isNetworkCounter` should be true if the parameter `Counter` has `Bytes Received/sec`, `Bytes Sent/sec`, `Total Bytes Received`, or `Total Bytes Transmitted`.
+If you're focused on the `metric.counter` object, the value of the parameter `isNetworkCounter` should be true if the parameter `Counter` has `Bytes Received/sec`, `Bytes Sent/sec`, `Total Bytes Received`, or `Total Bytes Transmitted`.
 
 This can be translated to a criteria text parameter:
 
@@ -37,7 +37,7 @@ In the preceding screenshot, the conditions will be evaluated from top to bottom
 ## Set up criteria
 
 1. Start with a workbook with at least one existing parameter in edit mode.
-    1. Select **Add parameters** from the links within the workbook.
+    1. Select **Add parameters** from the links in the workbook.
     1. Select the **Add Parameter** button.
     1. In the new parameter pane that opens, enter:
         - **Parameter name**: `rand`

@@ -23,8 +23,8 @@ You can specify the list by:
 ## Create a static options group parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
-1. Select **Add Parameter**.
+1. Select **Add parameters** from the links in the workbook.
+1. Select the **Add Parameter** button.
 1. In the new parameter pane that opens, enter:
     - **Parameter name**: `Environment`
     - **Parameter type**: `Options Group`

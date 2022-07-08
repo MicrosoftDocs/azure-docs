@@ -9,14 +9,14 @@ ms.date: 07/05/2022
 
 # Workbook resource parameters
 
-Resource parameters allow picking of resources in workbooks. This functionality is useful in setting the scope from which to get the data. An example is allowing users to select the set of VMs, which charts will use later when they present the data.
+Resource parameters allow picking of resources in workbooks. This functionality is useful in setting the scope from which to get the data. An example would be allowing you to select the set of VMs, which charts use later when presenting the data.
 
 Values from resource pickers can come from the workbook context, static list, or Azure Resource Graph queries.
 
 ## Create a resource parameter (workbook resources)
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
+1. Select **Add parameters** from the links in the workbook.
 1. Select the **Add Parameter** button.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `Applications`
@@ -32,7 +32,7 @@ Values from resource pickers can come from the workbook context, static list, or
 ## Create an Azure Resource Graph resource parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
+1. Select **Add parameters** from the links in the workbook.
 1. Select the **Add Parameter** button.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `Applications`
@@ -61,7 +61,7 @@ Values from resource pickers can come from the workbook context, static list, or
 ## Create a JSON list resource parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
+1. Select **Add parameters** from the links in the workbook.
 1. Select the **Add Parameter** button.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `Applications`
