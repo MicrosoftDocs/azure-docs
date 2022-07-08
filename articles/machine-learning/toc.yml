@@ -411,21 +411,18 @@
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
           - name: Reinforcement learning
             href: how-to-use-reinforcement-learning.md
-          - name: Train experiments with MLflow Projects
-            displayName: log, monitor, metrics, model registry, register
-            href: how-to-train-mlflow-projects.md
           - name: Track & monitor training
             items:
-              - name: Track, monitor, and analyze runs
+              - name: Monitor training jobs
                 displayName: cancel, fail, status, child run
                 href: how-to-track-monitor-analyze-runs.md
-              - name: Log & view metrics and log files
+              - name: Log & view metrics, parameters and files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
               - name: Visualize runs with TensorBoard
                 displayName: log, monitor, metrics
                 href: how-to-monitor-tensorboard.md
-              - name: Migrate from SDK v1 logging to SDK v2
+              - name: Migrate from SDK v1 logging to MLflow
                 href: reference-migrate-sdk-v1-mlflow-tracking.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
@@ -442,8 +439,16 @@
             - name: Track Azure Databricks runs with MLflow
               displayName: log, monitor, deploy, metrics, databricks
               href: how-to-use-mlflow-azure-databricks.md
+            - name: Track Azure Synapse Analytics runs with MLflow
+              displayName: log, monitor, deploy, metrics, synapse, analytics
+              href: how-to-use-mlflow-azure-synapse.md
+            - name: Train experiments with MLflow Projects
+              displayName: log, monitor, metrics, model registry, register
+              href: how-to-train-mlflow-projects.md
             - name: Manage experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
+            - name: Migrate from SDK v1 logging to MLflow
+              href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items: 
