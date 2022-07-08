@@ -207,7 +207,8 @@ Set the `--type` argument to `Kubernetes`. Use the `identity_type` argument to e
 
 > [!IMPORTANT]
 > `--user-assigned-identities` is only required for `UserAssigned` managed identities. Although you can provide a list of comma-separated user managed identities, only the first one is used when you attach your cluster.
-
+>
+> Compute attach won't create the Kubernetes namespace for you, or validate whether the kubernetes namespace existed. You need to make sure that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
 ### [Python](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -247,7 +248,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 1. Enter a compute name and select your Kubernetes cluster from the dropdown.
 
-    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster.
+    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace for you, or validate whether the kubernetes namespace existed. You need to make sure that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) .
 
