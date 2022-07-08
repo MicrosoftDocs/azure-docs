@@ -61,7 +61,7 @@ Multiple Azure resources are defined in the Bicep file:
 
     When the deployment finishes, the output is similar to:
 
-    :::image type="content" source="./media/create-front-door-bicep/front-door-standard-premium-bicep-deployment-powershell-output.png" alt-text="Front Door Bicep PowerShell deployment output":::
+    :::image type="content" source="./media/create-front-door-bicep/front-door-standard-premium-bicep-deployment-powershell-output.png" alt-text="Screenshot of Front Door Bicep PowerShell deployment output.":::
 
 ## Validate the deployment
 
