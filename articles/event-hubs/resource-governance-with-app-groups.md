@@ -31,10 +31,10 @@ You can create an application group using the Azure portal by following these st
     :::image type="content" source="./media/resource-governance-with-app-groups/application-groups-page.png" alt-text="Screenshot of the Application Groups page in the Azure portal.":::
 1. On the **Add application group** page, follow these steps:
     1. Specify a **name** for the application group.
-    1. Confirm that **Enabled** is selected. To have it in the disabled state first, clear the **Enabled** option. This flag determines whether the clients of an application group can access Event Hubs or not.
-    1. For **Security context type**, select **Shared access policy** or **AAD application**. When you create the application group, you should associate it to either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
+    1. Confirm that **Enabled** is selected. To have the application group in the disabled state first, clear the **Enabled** option. This flag determines whether the clients of an application group can access Event Hubs or not.
+    1. For **Security context type**, select **Shared access policy** or **AAD application**. When you create the application group, you should associate with either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
     1. If you selected **Shared access policy**:
-        1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group. You can click on **Add SAS Policy** to add a new policy and then associate with the application group. 
+        1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group. You can select **Add SAS Policy** to add a new policy and then associate with the application group. 
         1. Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. You can update it if you like. 
     
             :::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Screenshot of the Add application group page with Shared access policy option selected.":::
@@ -59,7 +59,7 @@ You can create an application group using the Azure portal by following these st
 
 	:::image type="content" source="./media/resource-governance-with-app-groups/application-group-list.png" alt-text="Screenshot of the Application groups page with the application group you created.":::    
 
-    You can delete the application group in the list by selected the trash icon button next to it in the list.  
+    You can delete the application group in the list by selecting the trash icon button next to it in the list.  
 
 
 ### [Azure CLI](#tab/cli)
@@ -229,10 +229,11 @@ You can also add policies after an application group is created.
 
 ### [Azure portal](#tab/portal)
 1. On the **Event Hubs Namespace** page, select **Application Groups** on the left menu. 
-1. Select the application group for which you want to add, update, or delete a policy.
-1. On the **Edit application group** page, you can do the following steps:
-    1. Delete an existing policy by selecting the trash icon button next to the policy. 
-    1. Update settings (including threshold values) for policies
+1. Select the application group that you want to add, update, or delete a policy.
+
+    :::image type="content" source="./media/resource-governance-with-app-groups/select-application-group.png" alt-text="Screenshot showing the Application Groups page with an application group selected.":::
+1. On the **Edit application group** page, you can do the following steps:    
+    1. Update settings (including threshold values) for existing policies
     1. Add a new policy
 
 ### [Azure CLI](#tab/cli)
@@ -314,4 +315,7 @@ Once you successfully add throttling policies to the application group, you can 
 
 
 ## Next steps
-For conceptual information on application groups, see [Resource governance with application groups](resource-governance-overview.md). 
+
+- For conceptual information on application groups, see [Resource governance with application groups](resource-governance-overview.md). 
+- See [Azure PowerShell reference for Event Hubs](/powershell/module/az.eventhub#event-hub)
+- See [Azure CLI reference for Event Hubs](/cli/azure/eventhubs)
