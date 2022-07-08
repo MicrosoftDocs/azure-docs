@@ -66,4 +66,4 @@ Here's an example screenshot of metrics showing input and output events.
 Now you know how to use the Stream Analytics no code editor to create a job that captures Event Hubs data to Azure Data Lake Storage Gen2 in Parquet format. Next, you can learn more about Azure Stream Analytics and how to monitor the job that you created.
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Monitor Stream Analytics jobs](stream-analytics-monitoring.md)
+* [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md)
