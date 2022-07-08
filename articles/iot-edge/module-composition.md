@@ -172,15 +172,16 @@ The edgeHub module and custom modules also have three properties that tell the I
   Startup order is helpful if some modules depend on others. For example, you may want the edgeHub module to start first so that it's ready to route messages when the other modules start. Or you may want to start a storage module before the modules that send data to it. However, you should always design your modules to handle failures of other modules. It's the nature of containers that they may stop and restart at any time, and any number of times.
 
   > [!NOTE]
-  > Changes to a module's properties will result in that module restarting. For example, a restart will happen if you change the:
-  >    * properties in the module image
+  > Changes to a module's properties will result in that module restarting. For example, a restart will happen if you change properties for the:
+  >    * module image
   >    * Docker create options
   >    * environment variables
   >    * restart policy
   >    * image pull policy
   >    * version
+  >    * startup order
   >
-  > However, if you reorder your modules' startup order, this will **not** result in a module restart.
+  > If no module property is changed, the module will **not** restart.
 
 ## Declare routes
 
