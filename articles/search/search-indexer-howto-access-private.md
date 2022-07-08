@@ -35,6 +35,9 @@ Private endpoints created through Azure Cognitive Search APIs are referred to as
 
 + Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multi-tenant environment.
 
++ If you're using the [Azure portal](https://portal.azure.com/), make sure that access to all public networks is enabled in the data source resource firewall while going through the instructions below. Otherwise, you need to enable access to all public networks during this setup and then disable it again, or instead, you must use REST API from a device with an authorized IP in the firewall rules, to perform these operations. If the supported data source resource has public networks access disabled, there will be errors when connecting from the portal to it.
+
+
 > [!NOTE]
 > When using Private Link for data sources, Azure portal access (from Cognitive Search to your content) - such as through the [Import data](search-import-data-portal.md) wizard - is not supported.
 
@@ -277,6 +280,11 @@ After the indexer is created successfully, it should connect to the Azure resour
 + In the portal, it's expected to get "No Access" when viewing the search private endpoint on your data source's **Networking** page. If you want to manage the shared private link for search in the portal, use the **Networking** page of your search service.
 
 + If you get an error when creating a shared private link, check [service limits](search-limits-quotas-capacity.md) to verify that you're under the quota for your tier.
+
++ If you have created a shared private link mapped to your storage account, any indexer in your search service that doesn't have a [skillset](cognitive-search-working-with-skillsets.md) will be able to access the storage account.
+
++ If your indexers do not have [skillsets](cognitive-search-working-with-skillsets.md) and connect to your data source using a shared private link, you don't have to configure the indexer `executionEnvironment` configuration property to `private`. This is only necessary when running skillsets.
+
 
 ## Next steps
 
