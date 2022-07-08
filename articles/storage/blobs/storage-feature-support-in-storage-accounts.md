@@ -11,7 +11,7 @@ ms.author: normesta
 
 # Blob Storage feature support in Azure Storage accounts
 
-Feature support can vary between storage account types. Support is also impacted by the endpoints, APIs, and protocols that you use to transfer data. Use the tables in this article to assess feature support based on all of these factors. The items that appear in these tables will change over time as support continues to expand.  
+Feature support can vary between storage account types, and can be impacted by the use of certain endpoints, APIs, and protocols. You can use the tables in this article to assess feature support based on these factors. The items that appear in these tables will change over time as support continues to expand.  
 
 Each table uses the following icons to indicate support level:
 
@@ -24,7 +24,7 @@ Each table uses the following icons to indicate support level:
 
 ## General support
 
-This table indicates whether a feature is supported in your account. For more granular information about which endpoints, APIs, or protocols are compatible with a supported feature, see the [Support by endpoint, API, and protocol](#support-by-endpoint-api-and-protocol) section of this article.
+This table indicates whether a feature is supported in your account. To assess which endpoints, APIs, or protocols are compatible with a supported feature, see the [Support by endpoint, API, and protocol](#support-by-endpoint-api-and-protocol) section of this article.
 
 Columns are defined as follows:
 
@@ -75,7 +75,7 @@ Columns are defined as follows:
 
 ## Support by endpoint, API, and protocol
 
-Features might not be compatible with all storage endpoints, APIs or protocols. Use the tables in this section to assess feature support across these factors.
+Use the tables in this section to assess which endpoints, APIs, or protocols are compatible with each feature.
 
 ### Flat namespace
 
