@@ -51,7 +51,7 @@ The path can be either a local file or a file in a registry. The local file can 
 
 The **name** property is required. It becomes the name of the nested deployment resource in the generated template.
 
-If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and targeted to the same resource group, one deployment may show the wrong output. To avoid this issue, give your module a unique name if you know it might be deployed concurrently.
+If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and targeted to the same resource group, one deployment may show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name.
 
 The following example concatenates the deployment name to the module name. If you provide a unique name for the deployment, the module name is also unique.
 
