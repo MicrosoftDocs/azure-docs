@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 7/8/2022
+ms.date: 7/08/2022
 ---
 
 # DCasv5 and ECasv5 series confidential VMs 
