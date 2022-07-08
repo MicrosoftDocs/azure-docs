@@ -13,6 +13,9 @@ ms.custom: mimckitt
 ---
 # Understand instance IDs for Azure VM scale set VMs
 
+> [!NOTE]
+> This article focuses on virtual machine scale sets running in Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
 This article describes instance IDs for scale sets and the various ways they surface.
 
 ## Scale set instance IDs

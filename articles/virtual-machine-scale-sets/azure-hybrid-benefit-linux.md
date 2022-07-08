@@ -17,13 +17,12 @@ ms.custom: kr2b-contr-experiment
 
 # Explore Azure Hybrid Benefit for Linux virtual machine scale sets
 
+> [!NOTE]
+> This article focuses on virtual machine scale sets running in Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
 **Azure Hybrid Benefit for Linux virtual machine scale set is generally available now**. *Azure Hybrid Benefit (AHB)* can reduce the cost of running your *Red Hat Enterprise Linux (RHEL)* and *SUSE Linux Enterprise Server (SLES)* [virtual machine scale sets](./overview.md). AHB is available for all RHEL and SLES Marketplace pay-as-you-go (PAYG) images. 
 
 When you enable AHB, the only fee that you incur is the cost of your scale set infrastructure.
-
-
->[!NOTE]
-> This article explores AHB for Linux *virtual machine scale sets (VMSS)*. A separate article discusses [AHB for Linux Virtual Machines](../virtual-machines/linux/azure-hybrid-benefit-linux.md), a service available to Azure customers since November 2020.
 
 ## What is AHB for Linux virtual machine scale sets?
 AHB allows you to switch your virtual machine scale sets to *bring-your-own-subscription (BYOS)* billing. You can use your cloud access licenses from Red Hat or SUSE for this. You can also switch PAYG instances to BYOS without the need to redeploy.

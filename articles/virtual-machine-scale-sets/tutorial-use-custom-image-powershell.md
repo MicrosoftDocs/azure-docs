@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 # Tutorial: Create and use a custom image for virtual machine scale sets with Azure PowerShell
 
 > [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 

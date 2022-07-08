@@ -165,6 +165,7 @@
     items: 
     - name: Overview
       href: ../virtual-machines/azure-compute-gallery.md
+      maintainContext: true
     - name: Specialized image version
       href: instance-specialized-image-version.md
     - name: Share images across tenants
@@ -175,8 +176,10 @@
   items:
   - name: Monitor virtual machines
     href: ../virtual-machines/monitor-vm.md
+    maintainContext: true
   - name: VM insights
     href: ../azure-monitor/vm/vminsights-overview.md
+    maintainContext: true
   - name: Terminate notifications
     href: virtual-machine-scale-sets-terminate-notification.md
   - name: Instance Metadata service
@@ -281,6 +284,7 @@
     href: virtual-machine-scale-sets-attached-disks.md
   - name: Server-side disk Encryption
     href: ../virtual-machines/disk-encryption.md
+    maintainContext: true
   - name: Azure Disk Encryption
     href: disk-encryption-overview.md
   - name: Encrypt disks in scale sets
@@ -321,6 +325,7 @@
     maintainContext: true
   - name: Hotpatch
     href: ../automanage/automanage-hotpatch.md
+    maintainContext: true
   - name: Automatic VM guest patching
     href: ../virtual-machines/automatic-vm-guest-patching.md
     maintainContext: true
