@@ -338,3 +338,5 @@ Deepen your expertise of SDK design patterns and class specifications with the [
 > Automated machine learning capabilities are also available in other Microsoft solutions such as, 
 [ML.NET](/dotnet/machine-learning/automl-overview), 
 [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
+
+   
