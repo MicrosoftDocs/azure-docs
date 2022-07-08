@@ -1,11 +1,11 @@
 ---
-title: HPE ProLiant  DL20/DL20 Plus for OT monitoring in SMB deployments- Microsoft Defender for IoT
+title: HPE ProLiant DL20/DL20 Plus (NHP 2LFF) for OT monitoring in SMB deployments- Microsoft Defender for IoT
 description: Learn about the HPE ProLiant  DL20/DL20 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# HPE ProLiant DL20/DL20 Plus for SMB deployments
+# HPE ProLiant DL20/DL20 Plus (NHP 2LFF) for SMB deployments
 
 This article describes the **HPE ProLiant DL20** or **HPE ProLiant DL20 Plus** appliance for OT sensors in an SBM deployment.
 
@@ -13,7 +13,7 @@ The HPE ProLiant DL20 Plus is also available for the on-premises management cons
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | SMB|
+|**Hardware profile** | L500|
 |**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 4x RJ45|
 |**Status** | Supported; Available as pre-configured |
@@ -168,6 +168,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)
