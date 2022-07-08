@@ -8,8 +8,6 @@ ms.custom: mode-other
 ---
 # Connect your non-Azure machines to Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Defender for Cloud can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure.
 
 You can connect your non-Azure computers in any of the following ways:
@@ -33,7 +31,7 @@ A machine with Azure Arc-enabled servers becomes an Azure resource and - when yo
 In addition, Azure Arc-enabled servers provides enhanced capabilities such as the option to enable guest configuration policies on the machine, simplify deployment with other Azure services, and more. For an overview of the benefits, see [Supported cloud operations](../azure-arc/servers/overview.md#supported-cloud-operations).
 
 > [!NOTE]
-> Defender for Cloud's auto-deploy tools for deploying the Log Analytics agent don't support machines running Azure Arc. When you've connected your machines using Azure Arc, use the relevant Defender for Cloud recommendation to deploy the agent and benefit from the full range of protections offered by Defender for Cloud:
+> Defender for Cloud's auto-deploy tools for deploying the Log Analytics agent works with machines running Azure Arc however this capability is currently in preview . When you've connected your machines using Azure Arc, use the relevant Defender for Cloud recommendation to deploy the agent and benefit from the full range of protections offered by Defender for Cloud:
 >
 > - [Log Analytics agent should be installed on your Linux-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
 > - [Log Analytics agent should be installed on your Windows-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)

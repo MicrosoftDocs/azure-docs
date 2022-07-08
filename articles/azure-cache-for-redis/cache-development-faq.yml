@@ -8,7 +8,7 @@ metadata:
   ms.topic: faq
   ms.devlang: csharp
   ms.custom: devx-track-csharp
-  ms.date: 08/06/2020
+  ms.date: 03/25/2022
 title: Azure Cache for Redis development FAQs
 summary: This article provides answers to common questions about how to develop for Azure Cache for Redis.
 
@@ -51,7 +51,7 @@ sections:
           * **Timeout values**
             * Consider your workload and set the values to match. If you're storing large values, set the timeout to a higher value.
             * Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
-            * Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+            * Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request. For an example of how to manage a connection, see the `RedisConnection`` class in [Connect to the cache with RedisConnection](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache-with-redisconnection).
             * Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
             * Use multiple `ConnectionMultiplexer` instances for custom workloads.
               * You can follow this model if you have varying load in your application. For example:

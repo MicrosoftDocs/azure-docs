@@ -535,4 +535,4 @@ As the backup job is a long running operation, it needs to be tracked as explain
 
 ## Next steps
 
-- Learn how to [restore SQL databases using Rest API](restore-azure-sql-vm-rest-api.md).
+- Learn how to [restore SQL databases using REST API](restore-azure-sql-vm-rest-api.md).

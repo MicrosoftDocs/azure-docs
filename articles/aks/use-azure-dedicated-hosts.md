@@ -61,56 +61,61 @@ az provider register --namespace Microsoft.ContainerService
 The following limitations apply when you integrate Azure Dedicated Host with Azure Kubernetes Service:
 
 * An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
-* It is not supported to update agent pool from host group A to host group B.
-* Fault domain count can only be 1.
+* It isn't supported to update agent pool from host group A to host group B.
+* Using ADH across subscriptions.
 
 ## Add a Dedicated Host Group to an AKS cluster
 
-A host group is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts:
+A host group is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are more options. You can use one or both of the following options with your dedicated hosts:
 
-* Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
+* Span across multiple availability zones. In this case, you're required to have a host group in each of the zones you wish to use.
 * Span across multiple fault domains, which are mapped to physical racks.
 
-In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
+In either case, you need to provide the fault domain count for your host group. If you don't want to span fault domains in your group, use a fault domain count of 1.
 
 You can also decide to use both availability zones and fault domains.
 
 Not all host SKUs are available in all regions, and availability zones. You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
 
 ```azurecli-interactive
-az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
+az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 ```
+
+> [!NOTE]
+> First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure your host group fault domain count and capacity is enough.
+> Secondly, only change fault domain count from the default of 1 to any other number if you know what they are doing as a misconfiguration could lead to a unscalable configuration.
 
 ## Create a Host Group
 
-Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
+Now create a dedicated host in the host group. In addition to a name for the host, you're required to provide the SKU for the host. Host SKU captures the supported VM series and the hardware generation for your dedicated host.
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
 
-Use az vm host create to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
+Use az vm host create to create a host. If you set a fault domain count for your host group, you'll be asked to specify the fault domain for your host.
 
-In this example, we will use [az vm host group create][az-vm-host-group-create] to create a host group using both availability zones and fault domains.
+In this example, we'll use [az vm host group create][az-vm-host-group-create] to create a host group using both availability zones and fault domains.
 
 ```azurecli-interactive
 az vm host group create \
 --name myHostGroup \
 -g myDHResourceGroup \
 -z 1\
---platform-fault-domain-count 1
+--platform-fault-domain-count 5
+--automatic-placement true
 ```
 
 ## Create a Dedicated Host
 
-Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
+Now create a dedicated host in the host group. In addition to a name for the host, you're required to provide the SKU for the host. Host SKU captures the supported VM series and the hardware generation for your dedicated host.
 
-If you set a fault domain count for your host group, you will need to specify the fault domain for your host.
+If you set a fault domain count for your host group, you'll need to specify the fault domain for your host.
 
 ```azurecli-interactive
 az vm host create \
 --host-group myHostGroup \
 --name myHost \
 --sku DSv3-Type1 \
---platform-fault-domain 1 \
+--platform-fault-domain 0 \
 -g myDHResourceGroup
 ```
 
@@ -137,7 +142,7 @@ az role assignment create --assignee <id> --role "Contributor" --scope <Resource
 Create an AKS cluster, and add the Host Group you just configured.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --location westus2 --kubernetes-version 1.20.13 --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
+az aks create -g MyResourceGroup -n MyManagedCluster --location eastus --kubernetes-version 1.20.13 --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
 ```
 
 ## Add a Dedicated Host Node Pool to an existing AKS cluster
@@ -165,5 +170,5 @@ In this article, you learned how to create an AKS cluster with a Dedicated host,
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[dedicated-hosts]: /azure/virtual-machines/dedicated-hosts.md
+[dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
 [az-vm-host-group-create]: /cli/azure/vm/host/group#az_vm_host_group_create

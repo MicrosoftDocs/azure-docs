@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/29/2021
-ms.custom: references_regions
+
 ---
 # Add spell check to queries in Cognitive Search
 

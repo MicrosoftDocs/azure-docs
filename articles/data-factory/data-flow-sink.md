@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/10/2022
+ms.date: 06/23/2022
 ---
 
 # Sink transformation in mapping data flow
@@ -62,6 +62,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [Dataverse](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics 365](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics CRM](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
+| [SFTP](connector-sftp.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/✓ <br>✓/✓ <br>✓/✓ <br>✓/✓<br>✓/✓|
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |
 
@@ -126,13 +127,19 @@ By default, data is written to multiple sinks in a nondeterministic order. The e
 
 You can group sinks together by applying the same order number for a series of sinks. The service will treat those sinks as groups that can execute in parallel. Options for parallel execution will surface in the pipeline data flow activity.
 
-## Error row handling
+## Errors
+
+On the sink errors tab you can configure error row handling to capture and redirect output for database driver errors and failed assertions.
 
 When writing to databases, certain rows of data may fail due to constraints set by the destination. By default, a data flow run will fail on the first error it gets. In certain connectors, you can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Currently, this capability is only available in Azure SQL Database and Azure Synapse. For more information, see [error row handling in Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
 
 Below is a video tutorial on how to use database error row handling automatically in your sink transformation.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
+
+For assert failure rows, you can use the Assert transformation upstream in your data flow and then redirect failed assertions to an output file here in the sink errors tab. You also have an option here to ignore rows with assertion failures and not output those rows at all to the sink destination data store.
+
+:::image type="content" source="media/data-flow/assert-errors.png" alt-text="Assert failure rows":::
 
 ## Data preview in sink
 

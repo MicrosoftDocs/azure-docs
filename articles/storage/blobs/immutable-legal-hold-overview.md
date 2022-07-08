@@ -3,12 +3,12 @@ title: Legal holds for immutable blob data
 titleSuffix: Azure Storage
 description: A legal hold stores blob data in a Write-Once, Read-Many (WORM) format until it is explicitly cleared. Use a legal hold when the period of time that the data must be kept in a WORM state is unknown.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/01/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ---
 

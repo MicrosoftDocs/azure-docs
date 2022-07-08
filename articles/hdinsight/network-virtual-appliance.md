@@ -41,7 +41,7 @@ You can optionally enable one or more of the following service endpoints which w
 
 You can get the list of dependent FQDNs (mostly Azure Storage and Azure Service Bus) for configuring your network virtual appliance [in this repo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/). For the regional list see [here](https://github.com/Azure-Samples/hdinsight-fqdn-lists/tree/main/Public). These dependencies are used by HDInsight resource provider(RP) to create and monitor/manage clusters successfully. These include telemetry/diagnostic logs, provisioning metadata, cluster-related configurations, scripts, etc. This FQDN dependency list might change with releasing future HDInsight updates.
 
-The list below only gives a few FQDNs that may be needed for OS and security patching or certificate validations *after* the cluster is created and during the lifetime of cluster operations:
+The list below only gives a few FQDNs that may be needed for OS and security patching or certificate validations during the cluster create process and during the lifetime of cluster operations:
 
 | **Runtime Dependencies FQDNs**                                                          |
 |---|

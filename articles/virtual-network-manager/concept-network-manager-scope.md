@@ -37,7 +37,7 @@ In this article, you'll learn about how Azure Virtual Network Manager uses the c
 A *scope* within Azure Virtual Network Manager is a set of resources where features can be applied to. When specifying a scope, you're limiting the access to which Network Manager can manage resources for. The value for the scope can be at the management group level or at the subscription level. See [Azure management groups](../governance/management-groups/overview.md), to learn how to manage your resource hierarchy. When you select a management group as the scope, all child resources are included within the scope. 
 
 > [!NOTE]
-> You can't create multiple Azure Virtual Network Manager with an overlapping scope of the same hierarchy and the same features selected.
+> You can't create multiple Azure Virtual Network Manager instances with an overlapping scope of the same hierarchy and the same features selected.
 > 
 
 ## Features

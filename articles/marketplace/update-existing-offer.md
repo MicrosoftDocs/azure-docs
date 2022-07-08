@@ -6,13 +6,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 07/09/2021
+ms.date: 04/21/2022
 ms.custom: contperf-fy21q2
 ---
 
 # Update existing offers in the commercial marketplace
 
 This article explains how to make updates to existing offers and plans, and also how to remove an offer from the commercial marketplace. You can view your offers in the [Commercial Marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935.) in Partner Center.
+
+## Request access to manage an offer
+
+If you see an offer you need to update but don’t have access, contact the publisher owner(s) associated with the offer. On the [**Marketplace offers**](https://partner.microsoft.com/dashboard/marketplace-offers/overview) page, the owner list for an inaccessible offer is available by selecting **Request access** in the **Status** column of the table. A publisher owner can grant you the _developer_ or _manager_ role for the offer by following the instructions to [add existing users](add-manage-users.md#add-existing-users) to their account.
+
+> [!NOTE]
+> Requesting access to an offer will give you access permissions to all the offers associated with the same publisher.
 
 ## Update a published offer
 
@@ -25,7 +32,7 @@ Use these steps to update an offer that's been successfully published to Preview
 1. When you're ready to publish your updated offer, select **Review and publish** from any page. The **Review and publish** page will open. On this page you'll see the completion status for the sections of the offer that you updated: 
     - **Unpublished changes**: The section has been updated and is complete. All required data has been provided and there were no errors introduced in the updates.
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
-2. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
+1. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 
 > [!IMPORTANT]
 > You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
@@ -73,19 +80,23 @@ Complete these steps to update available images in a plan for an offer that you'
 
 ## Offer a virtual machine plan at a new price
 
-After a virtual machine plan is published, its price can’t be changed. To offer the same plan at a different price, you must hide the plan and create a new one with the updated price. First, hide the plan with the price you want to change:
+See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
+
+To change the price of a plan that is hidden or in Azure Government, hide the old plan and create a new one with the updated price.
+
+To hide the plan with the old price:
 
 1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
 1. Select the **Hide plan** checkbox. Save the draft before you continue.
 
-Now that you have hidden the plan with the old price, create a copy of that plan with the updated price:
+Now create a copy of that plan but with the updated price:
 
 1. In Partner Center, go back to **Plan overview**.
-2. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
+1. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
 1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](azure-vm-plan-overview.md) to learn more.
     > [!IMPORTANT]
     > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop distribution of the parent plan later. Don’t use this option if you want to stop distribution of the parent plan.
-3. Complete all the required sections for the new plan, including the new price.
+1. Complete all the required sections for the new plan, including the new price.
 1. Select **Save draft**.
 1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](review-publish-offer.md) for more details.
 

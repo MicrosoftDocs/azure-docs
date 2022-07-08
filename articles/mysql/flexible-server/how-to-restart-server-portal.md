@@ -1,10 +1,11 @@
 ---
 title: Restart server - Azure portal - Azure Database for MySQL - Flexible Server
 description: This article describes how you can restart an Azure Database for MySQL Flexible Server using the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: Bashar-MSFT
+ms.author: bahusse
 ms.date: 10/26/2020
 ---
 

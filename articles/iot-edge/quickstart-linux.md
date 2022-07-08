@@ -1,8 +1,8 @@
 ---
 title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs
 description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal.
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.date: 01/21/2022
 ms.topic: quickstart
 ms.service: iot-edge
@@ -269,7 +269,7 @@ Follow these steps to start the **Set Modules** wizard to deploy your first modu
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
 
-1. From the menu on the left, under **Automatic Device Management**, select **IoT Edge**.
+1. From the menu on the left, under **Device Management**, select **IoT Edge**.
 
 1. Select the device ID of the target device from the list of devices.
 

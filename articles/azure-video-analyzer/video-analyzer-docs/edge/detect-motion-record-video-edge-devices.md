@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021, mode-other
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This quickstart shows you how to use Azure Video Analyzer to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 
 ## Prerequisites

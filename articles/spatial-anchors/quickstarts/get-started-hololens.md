@@ -11,9 +11,10 @@ ms.service: azure-spatial-anchors
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
-# Quickstart: Create a HoloLens app with Azure Spatial Anchors, in C++/WinRT and DirectX
 
-This quickstart covers how to create a HoloLens app using [Azure Spatial Anchors](../overview.md) in C++/WinRT and DirectX. Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app that can save and recall a spatial anchor.
+# Run the sample app: HoloLens - Visual Studio (C++/WinRT)
+
+This quickstart covers how to run the [Azure Spatial Anchors](../overview.md) sample app for HoloLens using Visual Studio (C++/WinRT and DirectX). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app that can save and recall a spatial anchor.
 
 You'll learn how to:
 
@@ -31,6 +32,8 @@ To complete this quickstart, make sure you have:
 - The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 - A HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 May 2020 Update](/windows/mixed-reality/whats-new/release-notes-may-2020). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
 - Your app must set the **spatialPerception** capability in its AppX manifest.
+
+## Create a Spatial Anchors resource
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

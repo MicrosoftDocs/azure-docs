@@ -1,6 +1,6 @@
 ---
-title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
-description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
+title: Edit and manage logic apps using Visual Studio
+description: Edit, update, manage, add to source control, and deploy logic apps using Visual Studio with Cloud Explorer.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -10,6 +10,8 @@ ms.date: 01/28/2022
 ---
 
 # Manage logic apps with Visual Studio
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Although you can create, edit, manage, and deploy logic apps in the [Azure portal](https://portal.azure.com), you can also use Visual Studio when you want to add your logic apps to source control, publish different versions, and create [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates for various deployment environments. With Visual Studio Cloud Explorer, you can find and manage your logic apps along with other Azure resources. For example, you can open, download, edit, run, view run history, disable, and enable logic apps that are already deployed in the Azure portal. If you're new to working with Azure Logic Apps in Visual Studio, learn [how to create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 

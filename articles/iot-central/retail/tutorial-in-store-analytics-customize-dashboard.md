@@ -6,9 +6,9 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
-ms.author: timlt
-author: timlt
-ms.date: 08/24/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/14/2022
 ---
 
 # Tutorial: Customize the dashboard and manage devices in Azure IoT Central

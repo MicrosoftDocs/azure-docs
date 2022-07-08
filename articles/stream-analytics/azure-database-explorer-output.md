@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 04/27/2022
 ---
 
 # Azure Data Explorer output from Azure Stream Analytics (Preview)
@@ -17,10 +17,6 @@ Azure Data Explorer supports several ingestion methods, including connectors to 
 For more information about Azure Data Explorer, visit the [What is Azure Data Explorer documentation.](/azure/data-explorer/data-explorer-overview/)
 
 To learn more about how to create an Azure Data Explorer and cluster by using the Azure portal, visit: [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal/)
-
-
-> [!NOTE] 
-> Test connection is currently not supported on multi-tenant clusters.
 
 ## Output configuration
 
@@ -67,11 +63,10 @@ You can significantly grow the scope of real-time analytics by leveraging ASA an
 
 ## Limitation
 
-For Ingestion to successfully work, you need to make sure that:
-
 * The number of columns in Azure Stream Analytics job query should match with Azure Data Explorer table and should be in the same order.
 * The name of the columns & data type should match between Azure Stream Analytics SQL query and Azure Data Explorer table.
 * Azure Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The policy is configured to 5 minutes, 1000 items or 1 GB of data by default, so you may experience a latency. See [batching policy](/azure/data-explorer/kusto/management/batchingpolicy) for aggregation options.
+* Test connection to Azure Data Explorer is not supported in jobs running in Shared multi-tenant environment.
 
 ## Next steps
 

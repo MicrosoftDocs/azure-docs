@@ -1,8 +1,8 @@
 ---
 title: Server parameters – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Parameters in the Hyperscale (Citus) SQL API
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
@@ -10,6 +10,8 @@ ms.date: 02/18/2022
 ---
 
 # Server parameters
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 There are various server parameters that affect the behavior of Hyperscale
 (Citus), both from standard PostgreSQL, and specific to Hyperscale (Citus).

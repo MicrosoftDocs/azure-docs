@@ -60,10 +60,11 @@ There might be various reasons for the pod being stuck in that mode. You might l
 For more information about how to troubleshoot pod problems, see [Debugging Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) in the Kubernetes documentation.
 
 ## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
-AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
+AKS has HA control planes that scale vertically and horizontally according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
 
-- **Are all your API commands timing out consistently or only a few?** If it's only a few, your `tunnelfront` pod or `aks-link` pod, responsible for node -> control plane communication, might not be in a running state. Make sure the nodes hosting this pod aren't over-utilized or under stress. Consider moving them to their own [`system` node pool](use-system-pools.md).
-- **Have you opened all required ports, FQDNs, and IPs noted on the [AKS restrict egress traffic docs](limit-egress-traffic.md)?** Otherwise several commands calls can fail.
+- **Are all your API commands timing out consistently or only a few?** If it's only a few, your `konnectivity-agent` pod, `tunnelfront` pod or `aks-link` pod, responsible for node -> control plane communication, might not be in a running state. Make sure the nodes hosting this pod aren't over-utilized or under stress. Consider moving them to their own [`system` node pool](use-system-pools.md).
+- **Have you opened all required ports, FQDNs, and IPs noted on the [AKS restrict egress traffic docs](limit-egress-traffic.md)?** Otherwise several commands calls can fail. The AKS secure, tunneled communication between api-server and kubelet (through the *konnectivity-agent*) will require some of these to work.
+- **Have you blocked the Application-Layer Protocol Negotiation TLS extension?** *konnectivity-agent* requires this extension to establish a connection between the control plane and nodes.
 - **Is your current IP covered by [API IP Authorized Ranges](api-server-authorized-ip-ranges.md)?** If you're using this feature and your IP is not included in the ranges your calls will be blocked. 
 - **Do you have a client or application leaking calls to the API server?** Make sure to use watches instead of frequent get calls and that your third-party applications aren't leaking such calls. For example, a bug in the Istio mixer causes a new API Server watch connection to be created every time a secret is read internally. Because this behavior happens at a regular interval, watch connections quickly accumulate, and eventually cause the API Server to become overloaded no matter the scaling pattern. https://github.com/istio/istio/issues/19481
 - **Do you have many releases in your helm deployments?** This scenario can cause both tiller to use too much memory on the nodes, as well as a large amount of `configmaps`, which can cause unnecessary spikes on the API server. Consider configuring `--history-max` at `helm init` and leverage the new Helm 3. More details on the following issues: 
@@ -129,6 +130,31 @@ To help diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -
 
 * If cluster is actively upgrading, wait until the operation finishes. If it succeeded, retry the previously failed operation again.
 * If cluster has failed upgrade, follow steps outlined in previous section.
+
+## I'm receiving an error due to "PodDrainFailure"
+
+This error is due to the requested operation being blocked by a PodDisruptionBudget (PDB) that has been set on the deployments within the cluster. To learn more about how PodDisruptionBudgets work, please visit check out [the official Kubernetes example](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pdb-example).
+
+You may use this command to find the PDBs applied on your cluster:
+
+```
+kubectl get poddisruptionbudgets --all-namespaces
+```
+or
+```
+kubectl get poddisruptionbudgets -n {namespace of failed pod}
+```
+Please view the label selector to see the exact pods that are causing this failure.
+
+There are a few ways this error can occur:
+1. Your PDB may be too restrictive such as having a high minAvailable pod count, or low maxUnavailable pod count. You can change it by updating the PDB with less restrictive.
+2. During an upgrade, the replacement pods may not be ready fast enough. You can investigate your Pod Readiness times to attempt to fix this situation.
+3. The deployed pods may not work with the new upgraded node version, causing Pods to fail and fall below the PDB.
+
+>[!NOTE]
+  > If the pod is failing from the namespace 'kube-system', please contact support. This is a namespace managed by AKS.
+
+For more information about PodDisruptionBudgets, please check out the [official Kubernetes guide on configuring a PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/).
 
 ## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
 
@@ -233,6 +259,10 @@ If you're using Azure Firewall like on this [example](limit-egress-traffic.md#re
 
 If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
+## Windows containers have connectivity issues after a cluster upgrade operation
+
+For older clusters with Calico network policies applied before Windows Calico support, Windows Calico will be enabled by default after a cluster upgrade. After Windows Calico is enabled on Windows, you may have connectivity issues if the Calico network policies denied ingress/egress. You can mitigate this issue by creating a new Calico policy on the cluster that allows all ingress/egress for Windows using either PodSelector or IPBlock.
+
 ## Azure Storage and AKS Troubleshooting
 
 ### Failure when setting uid and `GID` in mountOptions for Azure Disk
@@ -271,7 +301,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+  image: mcr.microsoft.com/dotnet/runtime-deps:6.0
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>
@@ -411,7 +441,6 @@ As a result, to mitigate this issue you can:
 3. Delete the older node pool
 
 AKS is investigating the capability to mutate active labels on a node pool to improve this mitigation.
-
 
 
 <!-- LINKS - internal -->

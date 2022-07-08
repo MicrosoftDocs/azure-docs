@@ -42,7 +42,7 @@ These tables summarize the failure scenarios for a physical hardware component a
 
 | Node A            | Node B      | Cluster survives | Failover | Details                                                                   |
 |-------------------|-------------|------------------|----------|---------------------------------------------------------------------------|
-| I PSU fails       | No failures | Yes              | No       | Another power supply failure on node A will result in failover to node B. |
+| 1 PSU fails       | No failures | Yes              | No       | Another power supply failure on node A will result in failover to node B. |
 | 1 PSU fails       | 1 PSU fails | Yes              | No       | Another power supply failure on either node will result in failover.      |
 | 2 PSUs fail       | No failures | Yes              | Yes      | VMs on node A fail over to node B.                                        |
 | 2 PSUs fail (TBC) | 1 PSU fails | Yes              | Yes      | VMs on node A fail over to node B.                                        |

@@ -11,7 +11,10 @@ ms.custom: devx-track-azurepowershell
 
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---
-# Manage storage account keys with Key Vault and Azure PowerShell
+# Manage storage account keys with Key Vault and Azure PowerShell (legacy)
+> [!IMPORTANT]
+> Key Vault Managed Storage Account Keys (legacy) is supported as-is with no more updates planned. Only Account SAS are supported with SAS definitions signed storage service version no later than 2018-03-28.
+
 > [!IMPORTANT]
 > We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault).
 > Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Azure AD authentication is not possible.
@@ -159,10 +162,10 @@ Tags                :
 
 ### Enable key regeneration
 
-If you want Key Vault to regenerate your storage account keys periodically, you can use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount) cmdlet to set a regeneration period. In this example, we set a regeneration period of three days. When it is time to rotate, Key Vault regenerates the key that is not active, and then sets the newly created key as active. Only one of the keys are used to issue SAS tokens at any one time. This is the active key.
+If you want Key Vault to regenerate your storage account keys periodically, you can use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount) cmdlet to set a regeneration period. In this example, we set a regeneration period of thirty days. When it is time to rotate, Key Vault regenerates the key that is not active, and then sets the newly created key as active. Only one of the keys are used to issue SAS tokens at any one time. This is the active key.
 
 ```azurepowershell-interactive
-$regenPeriod = [System.Timespan]::FromDays(3)
+$regenPeriod = [System.Timespan]::FromDays(30)
 
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
@@ -176,7 +179,7 @@ AccountName         : sacontoso
 Account Resource Id : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso
 Active Key Name     : key1
 Auto Regenerate Key : True
-Regeneration Period : 3.00:00:00
+Regeneration Period : 30.00:00:00
 Enabled             : True
 Created             : 11/19/2018 11:54:47 PM
 Updated             : 11/19/2018 11:54:47 PM
@@ -190,7 +193,6 @@ You can also ask Key Vault to generate shared access signature tokens. A shared 
 The commands in this section complete the following actions:
 
 - Set an account shared access signature definition.
-- Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
 - Verify that the shared access signature was saved in your key vault as a secret.
 
@@ -207,28 +209,36 @@ $keyVaultName = <YourKeyVaultName>
 $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1 #(or "Primary" for Classic Storage Account)
 ```
 
-### Create a shared access signature token
+### Define a shared access signature definition template
 
-Create a shared access signature definition using the Azure PowerShell [New-AzStorageAccountSASToken](/powershell/module/az.storage/new-azstorageaccountsastoken) cmdlets.
+Key Vault uses SAS definition template to generate tokens for client applications. 
 
+SAS definition template example:
 ```azurepowershell-interactive
-$start = [System.DateTime]::Now.AddDays(-1)
-$end = [System.DateTime]::Now.AddMonths(1)
-
-$sasToken = New-AzStorageAccountSasToken -Service blob,file,Table,Queue -ResourceType Service,Container,Object -Permission "racwdlup" -Protocol HttpsOnly -StartTime $start -ExpiryTime $end -Context $storageContext
-```
-The value of $sasToken will look similar to this.
-
-```console
-?sv=2018-11-09&sig=5GWqHFkEOtM7W9alOgoXSCOJO%2B55qJr4J7tHQjCId9S%3D&spr=https&st=2019-09-18T18%3A25%3A00Z&se=2019-10-19T18%3A25%3A00Z&srt=sco&ss=bfqt&sp=racupwdl
+$sasTemplate="sv=2018-03-28&ss=bfqt&srt=sco&sp=rw&spr=https"
 ```
 
-### Generate a shared access signature definition
+#### Account SAS parameters required in SAS definition template for Key Vault
+|SAS Query Parameter|Description|  
+|-------------------------|-----------------|  
+|`SignedVersion (sv)`|Required. Specifies the signed storage service version to use to authorize requests made with this account SAS. Must be set to version 2015-04-05 or later. **Key Vault supports versions no later than 2018-03-28**|  
+|`SignedServices (ss)`|Required. Specifies the signed services accessible with the account SAS. Possible values include:<br /><br /> - Blob (`b`)<br />- Queue (`q`)<br />- Table (`t`)<br />- File (`f`)<br /><br /> You can combine values to provide access to more than one service. For example, `ss=bf` specifies access to the Blob and File endpoints.|  
+|`SignedResourceTypes (srt)`|Required. Specifies the signed resource types that are accessible with the account SAS.<br /><br /> - Service (`s`): Access to service-level APIs (*e.g.*, Get/Set Service Properties, Get Service Stats, List Containers/Queues/Tables/Shares)<br />- Container (`c`): Access to container-level APIs (*e.g.*, Create/Delete Container, Create/Delete Queue, Create/Delete Table, Create/Delete Share, List Blobs/Files and Directories)<br />- Object (`o`): Access to object-level APIs for  blobs, queue messages,  table entities, and files(*e.g.* Put Blob, Query Entity, Get Messages, Create File, etc.)<br /><br /> You can combine values to provide access to more than one resource type. For example, `srt=sc` specifies access to service and container resources.|  
+|`SignedPermission (sp)`|Required. Specifies the signed permissions for the account SAS. Permissions are only valid if they match the specified signed resource type; otherwise they are ignored.<br /><br /> - Read (`r`): Valid for all signed resources types (Service, Container, and Object). Permits read permissions to the specified resource type.<br />- Write (`w`): Valid for all signed resources types (Service, Container, and Object). Permits write permissions to the specified resource type.<br />- Delete (`d`): Valid for Container and Object resource types, except for queue messages.<br />- Permanent Delete (`y`): Valid for Object resource type of Blob only.<br />- List (`l`): Valid for Service and Container resource types only.<br />- Add (`a`): Valid for the following Object resource types only: queue messages, table entities, and append blobs.<br />- Create (`c`): Valid for the following Object resource types only: blobs and files. Users can create new blobs or files, but may not overwrite existing blobs or files.<br />- Update (`u`): Valid for the following Object resource types only: queue messages and table entities.<br />- Process (`p`): Valid for the following Object resource type only: queue messages.<br/>- Tag (`t`): Valid for the following Object resource type only: blobs. Permits blob tag operations.<br/>- Filter (`f`): Valid for the following Object resource type only: blob. Permits filtering by blob tag.<br/>- Set Immutability Policy (`i`): Valid for the following Object resource type only: blob. Permits set/delete immutability policy and legal hold on a blob.|
+|`SignedProtocol (spr)`|Optional. Specifies the protocol permitted for a request made with the account SAS. Possible values are both HTTPS and HTTP (`https,http`) or HTTPS only (`https`).  The default value is `https,http`.<br /><br /> Note that HTTP only is not a permitted value.|    
+
+For more information about account SAS, see:
+[Create an account SAS](/rest/api/storageservices/create-account-sas)
+
+> [!NOTE]
+> Key Vault ignores lifetime parameters like 'Signed Expiry', 'Signed Start' and parameters introduced after 2018-03-28 version
+
+### Set shared access signature definition in Key Vault
 
 Use the the Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition) cmdlet to create a shared access signature definition.  You can provide the name of your choice to the `-Name` parameter.
 
 ```azurepowershell-interactive
-Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
+Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasTemplate -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(1))
 ```
 
 ### Verify the shared access signature definition
@@ -254,13 +264,7 @@ Tags         :
 You can now use the [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet with the `VaultName` and `Name` parameters to view the contents of that secret.
 
 ```azurepowershell-interactive
-$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
-$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
-try {
-   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
-} finally {
-   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
-}
+$secretValueText = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName> -AsPlainText
 Write-Output $secretValueText
 ```
 

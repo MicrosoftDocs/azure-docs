@@ -4,9 +4,9 @@ description: Learn how to use a Marketo CRM system to manage leads from Microsof
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
-ms.date: 03/30/2020
+author: urimsft
+ms.author: uridor
+ms.date: 06/08/2022
 ---
 
 # Use Marketo to manage commercial marketplace leads

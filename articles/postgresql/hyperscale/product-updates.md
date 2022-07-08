@@ -1,16 +1,18 @@
 ---
 title: Product updates for Azure Database for PostgreSQL - Hyperscale (Citus)
 description: New features and features in preview
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 10/15/2021
+ms.date: 06/17/2022
 ---
 
 # Product updates for PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## Updates feed
 
@@ -35,6 +37,9 @@ Here are the features currently available for preview:
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
+* **[Cross-region
+  replication](concepts-read-replicas.md#cross-region-replication-preview)**.
+  Create asynchronous read replicas for a server group in different regions.
 
 ## Contact us
 

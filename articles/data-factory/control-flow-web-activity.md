@@ -44,6 +44,7 @@ To use a Web activity in a pipeline, complete the following steps:
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "httpRequestTimeout": "00:01:00"
       "connectVia": {
           "referenceName": "<integrationRuntimeName>",
           "type": "IntegrationRuntimeReference"
@@ -82,17 +83,20 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the web activity | String | Yes
 type | Must be set to **WebActivity**. | String | Yes
-method | Rest API method for the target endpoint. | String. <br/><br/>Supported Types: "GET", "POST", "PUT" | Yes
-url | Target endpoint and path | String (or expression with resultType of string). The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint. | Yes
-headers | Headers that are sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | String (or expression with resultType of string) | Yes, Content-type header is required. `"headers":{ "Content-Type":"application/json"}`
-body | Represents the payload that is sent to the endpoint.  | String (or expression with resultType of string). <br/><br/>See the schema of the request payload in [Request payload schema](#request-payload-schema) section. | Required for POST/PUT methods.
-authentication | Authentication method used for calling the endpoint. Supported Types are "Basic, or ClientCertificate." For more information, see [Authentication](#authentication) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No
+method | REST API method for the target endpoint. | String. <br/><br/>Supported Types: "GET", "POST", "PUT", "PATCH", "DELETE" | Yes
+url | Target endpoint and path | String (or expression with resultType of string). The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint. You can increase this response timeout up to 10 mins by updating the httpRequestTimeout property | Yes
+httpRequestTimeout | Response timeout duration | hh:mm:ss with the max value as 00:10:00. If not explicitly specified defaults to 00:01:00 | No
+headers | Headers that are sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | String (or expression with resultType of string) | No
+body | Represents the payload that is sent to the endpoint.  | String (or expression with resultType of string). <br/><br/>See the schema of the request payload in [Request payload schema](#request-payload-schema) section. | Required for POST/PUT/PATCH methods.
+authentication | Authentication method used for calling the endpoint. Supported Types are "Basic, Client Certificate, System-assigned Managed Identity, User-assigned Managed Identity, Service Principal." For more information, see [Authentication](#authentication) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No
+turnOffAsync | Option to disable invoking HTTP GET on location field in the response header of a HTTP 202 Response. If set true, it stops invoking HTTP GET on http location given in response header. If set false then it continues to invoke HTTP GET call on location given in http response headers. | Allowed values are false (default) and true. | No
+disableCertValidation | Removes server side certificate validation (not recommended unless you are connecting to a trusted server that does not use a standard CA cert). | Allowed values are false (default) and true. | No
 datasets | List of datasets passed to the endpoint. | Array of dataset references. Can be an empty array. | Yes
 linkedServices | List of linked services passed to endpoint. | Array of linked service references. Can be an empty array. | Yes
 connectVia | The [integration runtime](./concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | The integration runtime reference. | No 
 
 > [!NOTE]
-> REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint.
+> REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint. For endpoints that support [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply), the web activity will continue to wait without timeing out (upto 7 day) or till the endpoints signals completion of the job. 
 
 The following table shows the requirements for JSON content:
 

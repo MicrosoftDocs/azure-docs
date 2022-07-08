@@ -5,7 +5,7 @@ author: stevebus
 
 ms.author: stevebus
 ms.reviewer: kgremban
-ms.date: 10/25/2021
+ms.date: 03/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -32,12 +32,13 @@ This article explains how IoT Edge certificates can work in production, developm
 * The **workload CA certificate** was deprecated. Now the IoT Edge security manager generates the IoT Edge hub server certificate directly from the edge CA certificate, without the intermediate workload CA certificate between them.
 
 :::moniker-end
+<!-- end-1.2 -->
 
 ## IoT Edge certificates
 
 There are two common scenarios for setting up certificates on an IoT Edge device. Sometimes the end user, or operator, of a device purchases a generic device made by a manufacturer then manages the certificates themselves. Other times, the manufacturer works under contract to build a custom device for the operator and does some initial certificate signing before handing off the device. The IoT Edge certificate design attempts to take both scenarios into account.
 
-The following figure illustrates IoT Edge's usage of certificates. There may be zero, one, or many intermediate signing certificates between the root CA certificate and the device CA certificate, depending on the number of entities involved. Here we show one case.
+The following figure illustrates IoT Edge's usage of certificates. There may be zero, one, or many intermediate signing certificates between the root CA certificate and the edge CA certificate, depending on the number of entities involved. Here we show one case.
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
@@ -73,7 +74,7 @@ In a typical manufacturing process for creating secure devices, root CA certific
 
 * A customer buying a root CA and deriving a signing certificate for the manufacturer to sign the devices they make on that customer's behalf.
 
-In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the device CA certificate placed on the end device. Generally, these intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.
+In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the edge CA certificate placed on the end device. Generally, these intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
@@ -170,12 +171,12 @@ You can see the hierarchy of certificate depth represented in the screenshot:
 |--|--|
 | Root CA Certificate | Azure IoT Hub CA Cert Test Only |
 | Intermediate CA Certificate | Azure IoT Hub Intermediate Cert Test Only |
-| Device CA Certificate | iotgateway.ca ("iotgateway" was passed in as the CA cert name to the convenience scripts) |
+| Edge CA Certificate | iotgateway.ca ("iotgateway" was passed in as the CA cert name to the convenience scripts) |
 | IoT Edge Hub Server Certificate | iotedgegw.local  (matches the 'hostname' from the config file) |
 :::moniker-end
 
 ## Next steps
 
-[Understand Azure IoT Edge modules](iot-edge-modules.md)
-
-[Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md)
+* For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
+* [Understand Azure IoT Edge modules](iot-edge-modules.md)
+* [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md)

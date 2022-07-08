@@ -58,8 +58,7 @@ sections:
           |---|---|---|---|
           |1|Invalid virtual hard disk (VHD)|If the specified cookie value in the VHD footer is incorrect, the VHD will be considered invalid.|Re-create the image and submit the request.|
           |2|Invalid blob type|VM provisioning failed because the used blob is a block type instead of a page type.|Re-create the image as page type and submit the request.|
-          |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request.|
-          |
+          |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request. |
           
           > [!NOTE]
           > For more information about VM generalization, see:
@@ -97,7 +96,6 @@ sections:
           Unique ID|16
           Saved State|1
           Reserved|427
-          |
           
       - question: |
           VHD specifications
@@ -146,7 +144,6 @@ sections:
           |8|Client Alive Interval|Set ClientAliveInterval to 180. On the application need, it can be set from 30 to 235. If you're enabling the SSH for your end users, this value must be set as explained.|
           |9|OS architecture|Only 64-bit operating systems are supported.|
           |10|Auto Update|Identifies whether Linux Agent Auto Update is enabled.|
-          |
           
           ### Common test-case errors
 
@@ -158,7 +155,6 @@ sections:
           | 2 | Bash history test case | An error occurs if the size of the Bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your Bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the `.bash_history` files. |
           | 3 | Required kernel parameter test case | You'll receive this error when the value for `console` isn't set to `ttyS0`. Check by running the following command: <br /> `cat /proc/cmdline` | Set the value for `console` to `ttyS0`, and resubmit the request. |
           | 4 | ClientAlive interval test case | If the toolkit gives you a failed result for this test case, there's an inappropriate value for `ClientAliveInterval`. | Set the value for `ClientAliveInterval` to less than or equal to 235, and then resubmit the request. |
-          |
           
           ### Windows test cases
 
@@ -183,7 +179,6 @@ sections:
           |15|SNMP Services|The Simple Network Management Protocol (SNMP) Services feature isn't yet supported. The application shouldn't be dependent on this feature.|
           |16|Windows Internet Name Service|Windows Internet Name Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
           |17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
-          |
           
           If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. For more information, contact the Support team.
           
@@ -203,7 +198,6 @@ sections:
           |---|---|
           |Linux|1 GB to 1023 GB|
           |Windows|30 GB to 250 GB|
-          |
           
           Because VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Disks aren't expandable without downtime. Use a disk size from 30 GB to 50 GB.
           
@@ -211,7 +205,6 @@ sections:
           |---|---|---|
           |>500 tebibytes (TiB)|n/a|Contact the Support team for an exception approval.|
           |250-500 TiB|>200 gibibytes (GiB) difference from blob size|Contact the Support team for an exception approval.|
-          |
           
           > [!NOTE]
           > Larger disk sizes incur higher costs and will result in a delay during the setup and replication process. Because of this delay and cost, the Support team might seek justification for the exception approval.
@@ -232,7 +225,6 @@ sections:
           |Windows Server 2012 R2|6.3.9600.18604|
           |Windows Server 2016|10.0.14393.953|
           |Windows Server 2019|NA|
-          |
           
           > [!NOTE]
           > Windows Server 2019 doesn't have any mandatory version requirements.
@@ -294,7 +286,6 @@ sections:
           ||stretch (security)|4.9.168-1+deb9u3|
           ||Debian GNU/Linux 10 (buster)|Debian 6.3.0-18+deb9u1|
           ||buster, sid (stretch backports)|4.19.37-5|
-          |
           
       - question: |
           Image size should be in multiples of megabytes
@@ -338,7 +329,6 @@ sections:
           |Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
           |HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
           |Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
-          |
           
       - question: |
           VM images must have 1 MB of free space
@@ -482,7 +472,35 @@ sections:
           1. Generalize the VM, take the image VHD, and stop the VM.
           
           1. Resubmit the generalized image.
+
+      - question: |
+          Network Virtual Appliance validations
+        answer: |
+          During Marketplace image certification, a VM offer that is a Network Virtual Appliance (NVA) is validated using tests that are generic to any VM offer, as well as NVA testcases listed in the table below.  The goal of these NVA specific validations is to verify how well the NVA image orchestrates with SDN stack.
           
+          |Test case|Steps to run test case|Solution|
+          |---|---|---|
+          |VHD Access|Ensure the correct SAS URL for the VHD is provided, the permissions are set to allow access and the NVA image is [generalized](../virtual-machines/generalize.md).|Verify the NVA image and the URL provided.|
+          |NVA Deployment|Deploy a VM using the NVA with 1 NIC. Verify that the deployment is completed in 20 minutes.|If the deployment is not completed within 20 minutes, then verify the NVA image.|
+          |NVA Reboot|Deploy a VM using the NVA with 1 NIC. Then, go to the VM in Azure portal, and under section **Support + troubleshooting** in the left pane, click on **Redeploy + Reapply** and redeploy the VM. After redeployment is completed, verify that the status of the VM is *Running* and the NIC port 22 is reachable using Netcat command.|If VM doesn't come up after reboot, then there may be an issue with the NVA image.<br><br>If the Netcat test fails, then it could be because the NIC failed to come up after the reboot even though the VM was running. Please wait for few minutes and try again. If after 20 mins it still fails, then there may be an issue with the NVA image|
+          |NVA Redeployment|Deploy a VM using the NVA with 1 NIC. Then, redeploy the VM. Verify that the status of the VM is *Running* and the NIC port 22 is reachable using Netcat command.|If the redeploy does not complete within 15 minutes, then there may be an issue with the NVA image.<br><br>If the Netcat test fails, then it could be because the NIC failed to come up after the reboot even though the VM was running. Please wait for few minutes and try again. If after 20 mins it still fails, then there may be an issue with the NVA image|
+          |High Availability|Deploy a VM using the NVA with 1 NIC. Either No public IP should be attached to NIC or if Public IP is attached then SKU should be standard and IP allocation method should be static. In the same virtual network, setup an Azure Internal [load balancer](../virtual-machines/linux/tutorial-load-balancer.md) using configuration below.<br> - Load balancer using *Standard SKU*<br> - Frontend IP using private IP allocation method as dynamic<br> - Health probes using TCP, port 22 with a retry interval of 15 seconds<br> - A load balancing rule with protocol as *all* and enable floating IP set to False.<br> - Backend pool pointing to NVA VM.<br><br>Once the setup is ready, verify that the NVA VM is reachable across the load balancer, using Netcat command.|If the NVA is unreachable across the load balancer, then verify the setup of the VM, load balancer and HA ports feature. If everything is accurate, then there may be an issue with the NVA image.|
+          |VNET Peering|Deploy a virtual machine VM1 using the NVA image, with 1 NIC in a virtual network VNET1. In another virtual network VNET2, deploy a virtual machine VM2 using any Linux image, say ubuntu, with 1 NIC, and VM settings as Dynamic IP allocation method and basic SKU. Create [VNET peering](../virtual-network/virtual-network-manage-peering.md) between VNET1 and VNET2 and **Traffic to remote virtual network** is configured as *Allow (default)*<br><br>Once the setup is ready, verify that from VM2 we can reach private IP of the NIC on the NVA VM1, using Netcat command.|If the NVA VM1 is unreachable from VM2, then verify that the VNET peering is configured correctly and try again. If it still doesn't work, then there may be an issue with the NVA image.|
+          |Accelerated Networking (AN)|Deploy a VM with the NVA and 1 [AN enabled NIC](../virtual-network/create-vm-accelerated-networking-cli.md). You can enable AN on a NIC while creating the VM, or on the NIC properties after creating the VM. Verify that the VM will be up and running.|If the deployment fails, then please verify that the NVA image supports Accelerated Networking.|
+          |Multi-NIC Basic|Deploy a VM using the NVA with 3 NICs with Dynamic IP allocation method and basic SKU. Get private IP and MAC address for all the NICs (refer to [view Network Interface](../virtual-network/virtual-network-network-interface.md) for instructions). Then, redeploy the VM, and verify that the private IP and MAC address for all the NICs remain the same as before redeploying.|If the private IP and MAC address for all the NICs change after redeploying, then there may be an issue with the NVA image.|
+          |Network Disruption|Deploy a VM using the NVA with 1 NIC. Then, create and apply a [Network Security Group](../virtual-network/manage-network-security-group.md) (NSG) to block all traffic to the NVA VM. Then, verify that the status of the VM is *Running*.|If after applying NSG the VM goes down, then there may be an issue with the NVA image.|
+          
+          For further information or questions, please open an Azure Support case.
+          
+          #### Netcat overview:
+          
+          Netcat is a command capable of establishing a TCP or UDP connection between two computers, meaning it can write and read through an open port. During NVA validations, we execute the Netcat command from a VM which is in the same virtual network as the NVA VM, to test if TCP port 22 is reachable. The command syntax is 
+          `nc <destination_ip_address> <destination_port>`, where
+             - *destination_ip_address* is the private IP address assigned to VM NIC, 
+             - *destination_port* is the port number on the NVA. We use *22* in NVA test cases.
+             
+          For example, `nc 192.168.1.1 22`
+             
       - question: |
           Request an exception on VM images for select tests
         answer: |
@@ -544,7 +562,7 @@ sections:
 
           To complete these steps, prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
 
-                    1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+          1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           1. On the Home page, select the **Marketplace offers** tile.
           1. In the **Offer alias** column, select the offer.
           1. Select the **Plan overview** tab, and then select the appropriate plan.

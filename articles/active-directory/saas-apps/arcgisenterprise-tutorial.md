@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ArcGIS Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with ArcGIS Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and ArcGIS Enterprise.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 03/16/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with ArcGIS Enterprise
+# Tutorial: Azure AD SSO integration with ArcGIS Enterprise
 
 In this tutorial, you'll learn how to integrate ArcGIS Enterprise with Azure Active Directory (Azure AD). When you integrate ArcGIS Enterprise with Azure AD, you can:
 
@@ -73,11 +73,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** Initiated mode:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a value using the following pattern:
     `<EXTERNAL_DNS_NAME>.portal`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
+    `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 

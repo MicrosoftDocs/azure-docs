@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB API for MongoDB 4.2 server version supp
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 04/05/2022
 author: gahl-levy
 ms.author: gahllevy
 ---
@@ -431,7 +431,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | No |
+| Partial | Only supported with unique indexes |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |
@@ -458,7 +458,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 
 | Command | Supported |
 |---------|---------|
-| $expr | No |
+| $expr | Yes |
 | $jsonSchema | No |
 | $mod | Yes |
 | $regex | Yes |
@@ -569,7 +569,7 @@ The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enab
 
 ## Client-side field level encryption
 
-Client-level field encryption is a driver feature and is compatible with the API for MongoDB. Explicit encryption - were the driver explicitly encrypts each field when written is supported. Explicit decryption and automatic decryption is supported.
+Client-level field encryption is a driver feature and is compatible with the API for MongoDB. Explicit encryption - were the driver explicitly encrypts each field when written is supported. Automatic encryption is not supported. Explicit decryption and automatic decryption is supported.
 
 The mongocryptd should not be run since it is not needed to perform any of the supported operations.  
 
@@ -581,9 +581,16 @@ Azure Cosmos DB supports GridFS through any GridFS-compatible Mongo driver.
 
 Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Cosmos DB does not support manual replication commands.
 
-## Retryable Writes
+## Retryable Writes (preview)
+Retryable writes enables MongoDB drivers to automatically retry certain write operations in case of failure, but results in more stringent requirements for certain operations, which match MongoDB protocol requirements. With this feature enabled, update operations, including deletes, in sharded collections will require the shard key to be included in the query filter or update statement.
 
-Cosmos DB does not yet support retryable writes. Client drivers must add the 'retryWrites=false' URL parameter to their connection string. More URL parameters can be added by prefixing them with an '&'. 
+For example, with a sharded collection, sharded on key “country”: To delete all the documents with the field city = "NYC", the application will need to execute the operation for all shard key (country) values if Retryable writes is enabled. 
+
+db.coll.deleteMany({"country": "USA", "city": "NYC"}) – Success 
+
+db.coll.deleteMany({"city": "NYC"})- Fails with error ShardKeyNotFound(61) 
+
+To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. 
 
 ## Sharding
 
@@ -595,7 +602,7 @@ Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Time-to-live (TTL)
 
-Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure portal](https://portal.azure.com).
 
 ## Transactions
 
@@ -615,5 +622,5 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 - Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB API for MongoDB.
 - Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB API for MongoDB.
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md). 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md). 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md).

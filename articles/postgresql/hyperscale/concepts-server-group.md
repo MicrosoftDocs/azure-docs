@@ -1,8 +1,8 @@
 ---
 title: Server group - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: What is a server group in Azure Database for PostgreSQL - Hyperscale (Citus)
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 01/13/2022
 ---
 
 # Hyperscale (Citus) server group
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## Nodes
 

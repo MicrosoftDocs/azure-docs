@@ -2,7 +2,8 @@
 title: Monitor health of Log Analytics workspace in Azure Monitor
 description: Describes how to monitor the health of your Log Analytics workspace using data in the Operation table.
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.reviewer: shemers
+ms.date: 03/21/2022
 
 ---
 
@@ -55,10 +56,10 @@ Note, after reaching the set limit, your data collection will automatically stop
 Recommended Actions: 
 *	Check _LogOperation table for collection stopped and collection resumed events.</br>
 `_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Data collection"`
-*	[Create an alert](./manage-cost-storage.md#alert-when-daily-cap-is-reached) on "Data collection stopped" Operation event, this alert will allow you to get notified when the collection limit was reached.
+*	[Create an alert](daily-cap.md#alert-when-daily-cap-is-reached) on "Data collection stopped" Operation event, this alert will allow you to get notified when the collection limit was reached.
 *	Data collected after the daily collection limit is reached will be lost, use ‘workspace insights’ blade to review usage rates from each source. 
-Or, you can decide to ([Manage your maximum daily data volume](./manage-cost-storage.md#manage-your-maximum-daily-data-volume) \ [change the pricing tier](./manage-cost-storage.md#changing-pricing-tier) to one that will suite your collection rates pattern). 
-* Data collection rate is calculated per day, and will reset at the start of the next day, you can also monitor collection resume event by [Create an alert](./manage-cost-storage.md#alert-when-daily-cap-is-reached) on "Data collection resumed" Operation event.
+Or, you can decide to ([Manage your maximum daily data volume](daily-cap.md) \ [change the pricing tier](cost-logs.md#commitment-tiers) to one that will suite your collection rates pattern). 
+* Data collection rate is calculated per day, and will reset at the start of the next day, you can also monitor collection resume event by [Create an alert](./daily-cap.md#alert-when-daily-cap-is-reached) on "Data collection resumed" Operation event.
 
 #### Operation: Ingestion rate
 "The data ingestion volume rate crossed the threshold in your workspace: {0:0.00} MB per one minute and data has been dropped." 
@@ -67,13 +68,13 @@ Recommended Actions:
 *	Check _LogOperation table for ingestion rate event 
 `_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Ingestion rate"` 
       Note: Operation table in the workspace every 6 hours while the threshold continues to be exceeded. 
-*	[Create an alert](./manage-cost-storage.md#alert-when-daily-cap-is-reached) on "Data collection stopped" Operation event, this alert will allow you to get notified when the limit is reached.
+*	[Create an alert](daily-cap.md#alert-when-daily-cap-is-reached) on "Data collection stopped" Operation event, this alert will allow you to get notified when the limit is reached.
 *	Data collected while ingestion rate reached 100% will be dropped and lost. 
 
 'workspace insights' blade to review your usage patterns and try to reduce them.</br>
 For further information: </br>
 [Azure Monitor service limits](../service-limits.md#data-ingestion-volume-rate) </br>
-[Manage usage and costs for Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-is-reached)  
+[Analyze usage in Log Analytics workspace](analyze-usage.md)  
 
  
 #### Operation: Maximum table column count

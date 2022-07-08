@@ -1,9 +1,9 @@
 ---
 title: Develop modules for Azure IoT Edge | Microsoft Docs 
 description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and IoT Hub
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 09/03/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -53,6 +53,9 @@ With the IoT Edge MQTT broker, you can publish messages on any user-defined topi
 #### Receive messages on a user-defined topic
 
 With the IoT Edge MQTT broker, receiving messages is similar. First make sure that your module is authorized to subscribe to specific topics, then get a token from the workload API to use as a password when connecting to the MQTT broker, and finally subscribe to messages on the authorized topics with the MQTT client of your choice.
+
+> [!NOTE]
+> IoT Edge MQTT broker (currently in preview) will not move to general availability and will be removed from the future version of IoT Edge Hub. We appreciate the feedback we received on the preview, and we are continuing to refine our plans for an MQTT broker. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like [Mosquitto](https://mosquitto.org/) as an IoT Edge module.
 
 ::: moniker-end
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 03/29/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -262,7 +262,6 @@ This procedure shows how to add a single user to Azure AD.
       -FirstName Elwood `
       -LastName Folk `
       -AlternateEmailAddresses "Elwood.Folk@contoso.com" `
-      -LicenseAssignment "samlp2test:ENTERPRISEPACK" `
       -UsageLocation "US" 
     ```
 

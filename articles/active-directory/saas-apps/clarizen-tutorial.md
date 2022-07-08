@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Clarizen One | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Clarizen One'
 description: Learn how to configure single sign-on between Azure Active Directory and Clarizen One.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/08/2021
+ms.date: 03/24/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Clarizen One
+# Tutorial: Azure AD SSO integration with Clarizen One
 
 In this tutorial, you'll learn how to integrate Clarizen One with Azure Active Directory (Azure AD). When you integrate Clarizen One with Azure AD, you can:
 
@@ -26,6 +26,8 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Clarizen One single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
@@ -71,13 +73,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type the value:
     `Clarizen`
 
-    b. In the **Reply URL** text box, type the URL:
-    `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
+
+    > [!NOTE]
+	> This value is not real. Update this value with the actual Reply URL. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

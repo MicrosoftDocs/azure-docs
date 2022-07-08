@@ -204,9 +204,9 @@ This table lists the methods that you can use to create a NAT gateway resource.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](./nat-gateway/tutorial-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure PowerShell](./nat-gateway/tutorial-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure CLI](./nat-gateway/tutorial-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gateway_create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure portal](./nat-gateway/quickstart-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure PowerShell](./nat-gateway/quickstart-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure CLI](./nat-gateway/quickstart-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
 | [Template](./nat-gateway/quickstart-create-nat-gateway-template.md) | Creates a virtual network, subnet, public IP, and NAT gateway resource. |
 
 ## Azure Bastion 
@@ -221,7 +221,7 @@ This table lists the methods you can use to create an Azure Bastion deployment.
 | ------ | ----------- |
 | [Azure portal](../bastion/quickstart-host-portal.md) | Creates a virtual network, subnets, public IP, bastion host, and virtual machines. |
 | [Azure PowerShell](../bastion/bastion-create-host-powershell.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host. |
-| [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host. |
+| [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create the bastion host. |
 | [Template](../virtual-network/template-samples.md) | For an example of a template deployment that integrates an Azure Bastion host with a sample deployment, see [Quickstart: Create a public load balancer to load balance VMs by using an ARM template](../load-balancer/quickstart-load-balancer-standard-public-template.md). |
 
 ## Next steps

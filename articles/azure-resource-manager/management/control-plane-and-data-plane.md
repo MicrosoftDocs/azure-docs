@@ -27,7 +27,7 @@ All requests for control plane operations are sent to the Azure Resource Manager
 * For Azure Germany, the URL is `https://management.microsoftazure.de/`.
 * For Microsoft Azure China 21Vianet, the URL is `https://management.chinacloudapi.cn`.
 
-To discover which operations use the Azure Resource Manager URL, see the [Azure REST API](/rest/api/azure/). For example, the [create or update operation](/rest/api/mysql/singleserver/databases/create-or-update) for MySql is a control plane operation because the request URL is:
+To discover which operations use the Azure Resource Manager URL, see the [Azure REST API](/rest/api/azure/). For example, the [create or update operation](/rest/api/mysql/singleserver/databases/create-or-update) for MySQL is a control plane operation because the request URL is:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01

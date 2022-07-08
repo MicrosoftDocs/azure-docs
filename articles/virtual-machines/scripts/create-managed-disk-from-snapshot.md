@@ -9,7 +9,7 @@ manager: kavithag
 tags: azure-service-management
 
 ms.assetid:
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
@@ -33,7 +33,7 @@ This script creates a managed disk from a snapshot. Use it to restore a virtual 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-managed-disks-from-snapshot/create-managed-disks-from-snapshot.sh" range="3-30":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-managed-disks-from-snapshot/create-managed-disks-from-snapshot.sh" id="FullScript":::
 
 ## Clean up resources
 

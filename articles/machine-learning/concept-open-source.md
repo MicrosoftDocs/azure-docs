@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: ssalgadodev
 ms.author: ssalgado
-ms.custom: mktng-kw-nov2021
+ms.custom: mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 11/04/2021
 ---
 
@@ -87,7 +87,7 @@ For more information on ONNX and how to consume ONNX models, see the following a
 
 ### Package and deploy models as containers
 
-Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-container.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
+Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-container.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./v1/how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
 
 ### Secure deployments with homomorphic encryption
 
@@ -97,6 +97,6 @@ Securing deployments is an important part of the deployment process. To [deploy 
 
 Machine Learning Operations (MLOps), commonly thought of as DevOps for machine learning allows you to build more transparent, resilient, and reproducible machine learning workflows. See the [what is MLOps article](./concept-model-management-and-deployment.md) to learn more about MLOps. 
 
-Using DevOps practices like continuous integration (CI) and continuous deployment (CD), you can automate the end-to-end machine learning lifecycle and capture governance data around it. You can define your [machine learning CI/CD pipeline in GitHub actions](./how-to-github-actions-machine-learning.md) to run Azure Machine Learning training and deployment tasks. 
+Using DevOps practices like continuous integration (CI) and continuous deployment (CD), you can automate the end-to-end machine learning lifecycle and capture governance data around it. You can define your [machine learning CI/CD pipeline in GitHub Actions](./how-to-github-actions-machine-learning.md) to run Azure Machine Learning training and deployment tasks. 
 
 Capturing software dependencies, metrics, metadata, data and model versioning are an important part of the MLOps process in order to build transparent, reproducible, and auditable pipelines. For this task, you can [use MLFlow in Azure Machine Learning](how-to-use-mlflow.md) as well as when [training machine learning models in Azure Databricks](./how-to-use-mlflow-azure-databricks.md). You can also [deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md).

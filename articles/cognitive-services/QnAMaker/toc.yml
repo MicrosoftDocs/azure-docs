@@ -10,8 +10,6 @@
     href: https://aka.ms/qnamaker-pricing
   - name: What's new
     href: whats-new.md
-  - name: Custom question answering (preview)
-    href: custom-question-answering.md
   - name: Migrate to custom question answering
     href: ../language-service/question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Quickstarts
@@ -124,7 +122,7 @@
   items:
   - name: Create FAQ Bot with Azure Bot Service
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
-  - name: Integrate with Power Virtual Agent
+  - name: Integrate with Power Virtual Agents
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Customize your FAQ bot
     items:

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-author: cartacioS
-ms.author: sacartac
+author: blackmist
+ms.author: larryfr
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
@@ -230,7 +230,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
 
 1. Select **VotingEnsemble** to open the model-specific page.
 
-1. Select the **Deploy** button in the top-left.
+1. Select the **Deploy** menu in the top-left and select **Deploy to web service**.
 
 1. Populate the **Deploy a model** pane as follows:
 
@@ -238,7 +238,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
     ----|----
     Deployment name| my-automl-deploy
     Deployment description| My first automated machine learning experiment deployment
-    Compute type | Select Azure Compute Instance (ACI)
+    Compute type | Select Azure Container Instance (ACI)
     Enable authentication| Disable. 
     Use custom deployments| Disable. Allows for the default driver file (scoring script) and environment file to be auto-generated. 
     

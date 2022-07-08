@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # Get report API
@@ -27,11 +27,11 @@ This API gets all the reports that have been scheduled.
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token in the form `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 
-**Path Parameter**
+**Path parameter**
 
 None
 
-**Query Parameter**
+**Query parameter**
 
 | **Parameter Name** | **Required** | **Type** | **Description** |
 | --- | --- | --- | --- |

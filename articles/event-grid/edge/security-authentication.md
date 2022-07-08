@@ -6,13 +6,17 @@ manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
 # Security and authentication
 
 Security and authentication is an advanced concept and it requires familiarity with Event Grid basics first. Start [here](concepts.md) if you are new to Event Grid on IoT Edge. Event Grid module builds on the existing security infrastructure on IoT Edge. Refer to [this documentation](../../iot-edge/security.md) for details and setup.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 The following sections describe in detail how these settings are secured and authenticated:
 

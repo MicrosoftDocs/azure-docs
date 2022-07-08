@@ -5,11 +5,11 @@ author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 12/10/2021
+ms.date: 03/22/2022
 ms.author: memccror
 ---
 
-# Azure Automanage for Machines Best Practices - Windows Server
+# Azure Automanage for Machines Best Practices - Windows
 
 These Azure services are automatically onboarded for you when you use Automanage Machine Best Practices on a Windows Server VM. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
@@ -17,13 +17,14 @@ For all of these services, we will auto-onboard, auto-configure, monitor for dri
 
 ## Supported Windows Server versions
 
-Automanage supports the following Windows Server versions:
+Automanage supports the following Windows versions:
 
-- Windows Server 2012/R2
+- Windows Server 2012 R2
 - Windows Server 2016
 - Windows Server 2019
 - Windows Server 2022
 - Windows Server 2022 Azure Edition
+- Windows 10 
 
 ## Participating services
 
@@ -35,7 +36,7 @@ Automanage supports the following Windows Server versions:
 |[Microsoft Antimalware](../security/fundamentals/antimalware.md)    |Microsoft Antimalware for Azure is a free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. **Note:** Microsoft Antimalware requires that there be no other antimalware software installed, or it may fail to work. |Production, Dev/Test    |
 |[Update Management](../automation/update-management/overview.md)    |You can use Update Management in Azure Automation to manage operating system updates for your machines. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.    |Production, Dev/Test    |
 |[Change Tracking & Inventory](../automation/change-tracking/overview.md) |Change Tracking and Inventory combines change tracking and inventory functions to allow you to track virtual machine and server infrastructure changes. The service supports change tracking across services, daemons software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items.    |Production, Dev/Test    |
-|[Guest configuration](../governance/policy/concepts/guest-configuration.md) | Guest configuration policy is used to monitor the configuration and report on the compliance of the machine. The Automanage service will install the [Windows security baselines](/windows/security/threat-protection/windows-security-baselines) using the guest configuration extension. For Windows machines, the guest configuration service will automatically reapply the baseline settings if they are out of compliance.    |Production, Dev/Test    |
+|[Guest configuration](../governance/policy/concepts/guest-configuration.md) | Guest configuration policy is used to monitor the configuration and report on the compliance of the machine. The Automanage service will install the [Windows security baselines](/windows/security/threat-protection/windows-security-baselines) using the guest configuration extension. For Windows machines, the guest configuration service will install the baseline in audit-only mode. You will be able to see where your VM is out of compliance with the baseline, but noncompliance won't be automatically remediated. Learn [more](../governance/policy/concepts/guest-configuration.md). To modify the audit mode for Windows machines, use a custom profile to choose your audit mode setting. [Learn more](virtual-machines-custom-profile.md)    |Production, Dev/Test    |
 |[Boot Diagnostics](../virtual-machines/boot-diagnostics.md)    | Boot diagnostics is a debugging feature for Azure virtual machines (VM) that allows diagnosis of VM boot failures. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. This will only be enabled for machines that are using managed disks. |Production, Dev/Test    |
 |[Windows Admin Center](/windows-server/manage/windows-admin-center/azure/manage-vm)    | Use Windows Admin Center (preview) in the Azure portal to manage the Windows Server operating system inside an Azure VM. This is only supported for machines using Windows Server 2016 or higher. Automanage configures Windows Admin Center over a Private IP address. If you wish to connect with Windows Admin Center over a Public IP address, please open an inbound port rule for port 6516. Automanage onboards Windows Admin Center for the Dev/Test profile by default. Use the preferences to enable or disable Windows Admin Center for the Production and Dev/Test environments. |Production, Dev/Test    |
 |[Azure Automation Account](../automation/automation-create-standalone-account.md)    |Azure Automation supports management throughout the lifecycle of your infrastructure and applications.    |Production, Dev/Test    |

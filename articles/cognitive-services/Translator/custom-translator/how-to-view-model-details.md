@@ -1,5 +1,5 @@
 ---
-title: View model details - Custom Translator
+title: "Legacy: View the model details - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: Models tab under any project shows details of each model such as model name, model status, BLEU score, training, tuning, testing sentence count.
 author: laujan
@@ -9,10 +9,11 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
-#Customer intent: As a Custom Translator user, I want to understand how to view model details, so that I can review details of each translation model.
+ms.custom: cogserv-non-critical-translator
+#Customer intent: As a Custom Translator user, I want to understand how to view the model details, so that I can review details of each translation model.
 ---
 
-# View model details
+# View the model details
 
 The Models tab under project shows all models in that project. All models trained for that project are listed in this tab.
 
@@ -21,10 +22,10 @@ For each model in the project, these details are displayed.
 1. Model Name: Shows the model name of a given model.
 
 2. Status: Shows status of a given model. Your new training will have a status
-    of Submitted until it is accepted. The status will change to Data processing
+    of Submitted until it's accepted. The status will change to Data processing
     while the service evaluates the content of your documents. When the
-    evaluation of your documents is complete the status will change to Running
-    and you will be able the see the number of sentences that are part of the
+    evaluation of your documents is complete, the status will change to Running.
+    You'll be able the see the number of sentences that are part of the
     training, including the tuning and testing sets that are created for you
     automatically. Below is a list of model status that describes state of the models.
 
@@ -76,7 +77,7 @@ For each model in the project, these details are displayed.
 >[!Note]
 >To compare consecutive trainings for the same systems, it is important to keep the tuning set and testing set constant.
 
-## View model training details
+## View the model training details
 
 When your training is complete, you can review details about the training from the details page. Select a project, locate and select the models tab, and choose a model.
 

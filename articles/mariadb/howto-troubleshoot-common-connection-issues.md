@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot connection issues - Azure Database for MariaDB
 description: Learn how to troubleshoot connection issues to Azure Database for MariaDB, including transient errors requiring retries, firewall issues, and outages.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ---
 
 # Troubleshoot connection issues to Azure Database for MariaDB
@@ -24,9 +24,6 @@ Generally, connection issues to Azure Database for MariaDB can be classified as 
 
 * Transient errors (short-lived or intermittent)
 * Persistent or non-transient errors (errors that regularly recur)
-
-> [!WARNING]
-> The MySQL 8.0.27 client is incompatible with Azure Database for MariaDB - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27).
 
 ## Troubleshoot transient errors
 

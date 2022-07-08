@@ -2,6 +2,7 @@
 title: Tutorial - Delete an Azure VMware Solution private cloud
 description: Learn how to delete an Azure VMware Solution private cloud that you no longer need.
 ms.topic: tutorial
+ms.service: azure-vmware
 ms.date: 03/13/2021
 ---
 
@@ -22,7 +23,7 @@ When you delete a private cloud, all VMs, their data, clusters, and network addr
 
 ## Prerequisites
 
-If you require the VMs and their data later, make sure to back up the data before you delete the private cloud.  Unfortunately, there's no way to recover the VMs and their data.
+If you require the VMs and their data later, make sure to backup the data before you delete the private cloud.  Unfortunately, there's no way to recover the VMs and their data.
 
 
 ## Delete the private cloud

@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 01/07/2021
+ms.date: 02/28/2022
 ms.author: alkohli
 ---
 
@@ -41,4 +41,4 @@ To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub reso
 
 It can take 20-30 minutes to configure compute because, behind the scenes, virtual machines and a Kubernetes cluster are being created.
 
-After you have successfully configured compute in the Azure portal, a Kubernetes cluster and a default user associated with the IoT namespace (a system namespace controlled by Azure Stack Edge Pro) exist.
+After you have successfully configured compute in the Azure portal, a Kubernetes cluster and a default user associated with the IoT namespace (a system namespace controlled by Azure Stack Edge) exist.

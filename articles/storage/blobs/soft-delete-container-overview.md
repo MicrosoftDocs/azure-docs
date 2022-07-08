@@ -3,12 +3,12 @@ title: Soft delete for containers
 titleSuffix: Azure Storage
 description: Soft delete for containers protects your data so that you can more easily recover your data when it's erroneously modified or deleted by an application or by another storage account user.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2022
-ms.author: tamram
+ms.date: 06/22/2022
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -26,6 +26,9 @@ Blob soft delete is part of a comprehensive data protection strategy for blob da
 - Blob soft delete, to restore a blob, snapshot, or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
 
 To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
+
+> [!CAUTION]
+> After you enable blob versioning for a storage account, every write operation to a blob in that account results in the creation of a new version. For this reason, enabling blob versioning may result in additional costs. To minimize costs, use a lifecycle management policy to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
 
 ## How container soft delete works
 
@@ -61,14 +64,7 @@ Version 2019-12-12 or higher of the Azure Storage REST API supports container so
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Pricing and billing
 

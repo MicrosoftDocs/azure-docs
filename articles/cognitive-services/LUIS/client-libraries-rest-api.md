@@ -2,7 +2,7 @@
 title: "Quickstart: Language Understanding (LUIS) SDK client libraries and REST API"
 description: Create and query a LUIS app with the LUIS SDK client libraries and REST API.
 ms.topic: quickstart
-ms.date: 10/20/2021
+ms.date: 03/07/2022
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme

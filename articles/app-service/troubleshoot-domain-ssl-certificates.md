@@ -15,7 +15,7 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 This article lists common problems that you might encounter when you configure a domain or TLS/SSL certificate for your web apps in Azure App Service. It also describes possible causes and solutions for these problems.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [Microsoft Q & A and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

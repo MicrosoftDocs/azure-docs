@@ -19,7 +19,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 ## Prerequisites
 
 - [Create an Azure API Management instance](get-started-create-service-instance.md)
-- [Create an Azure Kubernetes cluster](../aks/kubernetes-walkthrough-portal.md)
+- Create an Azure Kubernetes cluster [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 - [Provision a gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 
 ## Deploy the self-hosted gateway to AKS
@@ -68,7 +68,6 @@ This article provides the steps for deploying self-hosted gateway component of A
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Learn [how to deploy API Management self-hosted gateway to Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).
+* Learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * Learn more about guidance to [run the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
 * Learn more about [Azure Kubernetes Service](../aks/intro-kubernetes.md).
-* Learn [how to configure and persist logs in the cloud](how-to-configure-cloud-metrics-logs.md).
-* Learn [how to configure and persist logs locally](how-to-configure-local-metrics-logs.md).

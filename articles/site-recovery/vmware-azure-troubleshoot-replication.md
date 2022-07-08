@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
 description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
-author: mayurigupta13
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/2/2019
-ms.author: mayg
+ms.date: 05/02/2022
+ms.author: v-pgaddala
 
 ---
 # Troubleshoot replication issues for VMware VMs and physical servers
@@ -50,7 +50,7 @@ When you try to select the source machine to enable replication by using Site Re
 
 ### Troubleshoot protected virtual machines greyed out in the portal
 
-Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. To learn how to delete stale entries and resolve the issue, refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. [Learn more](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) about deleting stale entries and resolving the issue.
 
 ## No crash consistent recovery point available for the VM in the last 'XXX' minutes
 

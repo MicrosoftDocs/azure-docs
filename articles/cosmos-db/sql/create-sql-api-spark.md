@@ -1,13 +1,14 @@
 ---
 title: Quickstart - Manage data with Azure Cosmos DB Spark 3 OLTP Connector for SQL API
 description: This quickstart presents a code sample for the Azure Cosmos DB Spark 3 OLTP Connector for SQL API that you can use to connect to and query data in your Azure Cosmos DB account
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/15/2022
-ms.author: mjbrown
+ms.date: 03/01/2022
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
@@ -15,31 +16,33 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V3](create-sql-api-dotnet.md)
-> * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java SDK v4](create-sql-api-java.md)
-> * [Spring Data v3](create-sql-api-spring-data.md)
-> * [Spark 3 OLTP connector](create-sql-api-spark.md)
+>
+> * [.NET](quickstart-dotnet.md)
 > * [Node.js](create-sql-api-nodejs.md)
+> * [Java](create-sql-api-java.md)
+> * [Spring Data](create-sql-api-spring-data.md)
 > * [Python](create-sql-api-python.md)
+> * [Spark v3](create-sql-api-spark.md)
+> * [Go](create-sql-api-go.md)
+>
 
-This tutorial is a quick start guide to show how to use Cosmos DB Spark Connector to read from or write to Cosmos DB. Cosmos DB Spark Connector is based on Spark 3.1.x.
+This tutorial is a quick start guide to show how to use Cosmos DB Spark Connector to read from or write to Cosmos DB. Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x.
 
-Throughout this quick tutorial, we rely on [Azure Databricks Runtime 8.0 with Spark 3.1.1](/azure/databricks/release-notes/runtime/8.0) and a Jupyter Notebook to show how to use the Cosmos DB Spark Connector.
+Throughout this quick tutorial, we rely on [Azure Databricks Runtime 8.0 with Spark 3.1.1](/azure/databricks/release-notes/runtime/8.0) and a Jupyter Notebook to show how to use the Cosmos DB Spark Connector, but you can also use [Azure Databricks Runtime 10.3 with Spark 3.2.1](/azure/databricks/release-notes/runtime/10.3).
 
-You can use any other Spark 3.1.1 spark offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
+You can use any other Spark 3.1.1 or 3.2.1 spark offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
 
 ## Prerequisites
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/try/cosmosdb/). Alternatively, you can use the [use Azure Cosmos DB Emulator](../local-emulator.md) for development and testing.
 
-* [Azure Databricks](/azure/databricks/release-notes/runtime/8.0) runtime 8.0 with Spark 3.1.1.
+* [Azure Databricks](/azure/databricks/release-notes/runtime/8.0) runtime 8.0 with Spark 3.1.1 or [Azure Databricks](/azure/databricks/release-notes/runtime/10.3) runtime 10.3 with Spark 3.2.1.
 
 * (Optional) [SLF4J binding](https://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
 
 SLF4J is only needed if you plan to use logging, also download an SLF4J binding, which will link the SLF4J API with the logging implementation of your choice. See the [SLF4J user manual](https://www.slf4j.org/manual.html) for more information.
 
-Install Cosmos DB Spark Connector, in your spark Cluster [azure-cosmos-spark_3-1_2-12-4.3.1.jar](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-1_2-12/4.3.1/jar)
+Install Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.1.x](https://aka.ms/azure-cosmos-spark-3-1-download) or [using the latest version for Spark 3.2.x](https://aka.ms/azure-cosmos-spark-3-2-download).
 
 The getting started guide is based on PySpark however you can use the equivalent scala version as well, and you can run the following code snippet in an Azure Databricks PySpark notebook.
 
@@ -159,7 +162,13 @@ For more information related to schema inference, see the full [schema inference
 
 The Azure Cosmos DB Spark 3 OLTP Connector for SQL API has a complete configuration reference that provides additional and advanced settings writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
 
+## Migrate to Spark 3 Connector
+
+If you are using our older Spark 2.4 Connector, you can find out how to migrate to the Spark 3 Connector [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/docs/migration.md).
+
 ## Next steps
 
 * Azure Cosmos DB Apache Spark 3 OLTP Connector for Core (SQL) API: [Release notes and resources](sql-api-sdk-java-spark-v3.md)
 * Learn more about [Apache Spark](https://spark.apache.org/).
+* Learn how to configure [throughput control](throughput-control-spark.md).
+* Check out more [samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).

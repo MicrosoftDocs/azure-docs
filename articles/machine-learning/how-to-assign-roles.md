@@ -9,9 +9,8 @@ ms.topic: how-to
 ms.reviewer: Blackmist
 ms.author: johwu
 author: johnwu0604
-ms.date: 10/21/2021
-ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-
+ms.date: 03/23/2022
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022
 ---
 
 
@@ -52,6 +51,20 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 - [Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [REST API](../role-based-access-control/role-assignments-rest.md)
 - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
+
+## Use Azure AD security groups to manage workspace access
+
+You can use Azure AD security groups to manage access to workspaces. This approach has following benefits:
+ * Team or project leaders can manage user access to workspace as security group owners, without needing Owner role on the workspace resource directly.
+ * You can organize, manage and revoke users' permissions on workspace and other resources as a group, without having to manage permissions on user-by-user basis.
+ * Using Azure AD groups helps you to avoid reaching the [subscription limit](../role-based-access-control/troubleshooting.md#azure-role-assignments-limit) on role assignments. 
+
+To use Azure AD security groups:
+ 1. [Create a security group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+ 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner is not required to be group member, or have direct RBAC role on the workspace.
+ 3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader or Contributor. 
+ 4. [Add group members](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md). The members consequently gain access to the workspace.
+
 
 ## Create custom role
 
@@ -151,19 +164,29 @@ The following table is a summary of Azure Machine Learning activities and the pe
 
 | Activity | Subscription-level scope | Resource group-level scope | Workspace-level scope |
 | ----- | ----- | ----- | ----- |
-| Create new workspace | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
+| Create new workspace <sub>1</sub> | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
 | Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role </br>allowing `/locations/updateQuotas/action`</br> at subscription scope | Not Authorized | Not Authorized |
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Submitting any type of run | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | Publishing pipelines and endpoints | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Attach an AKS resource <sub>2</sub> | Not required | Owner or contributor on the resource group that contains AKS | 
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
 | Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action", "/workspaces/listNotebookAccessToken/read"`|
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
+| Create/manage online endpoints and deployments | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*` |
+| Retrieve authentication credentials for online endpoints | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`.
 
-> [!TIP]
-> If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
+1: If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
+
+2: When attaching an AKS cluster, you also need to the [Azure Kubernetes Service Cluster Admin Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
+
+### Create a workspace using a customer-managed key
+
+When using a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
+
+Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](../key-vault/general/security-features.md#controlling-access-to-key-vault-data).
 
 ### User-assigned managed identity with Azure ML compute cluster
 
@@ -419,10 +442,11 @@ Allows you to define a role scoped only to labeling data:
     "Actions": [
         "Microsoft.MachineLearningServices/workspaces/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"   
     ],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+    "NotActions": [        
     ],
     "AssignableScopes": [
         "/subscriptions/<subscription_id>"

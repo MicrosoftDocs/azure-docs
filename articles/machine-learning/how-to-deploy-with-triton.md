@@ -5,16 +5,20 @@ description: 'Learn to deploy your model with NVIDIA Triton Inference Server in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/03/2021
+ms.date: 06/10/2022
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
-ms.custom: deploy, devplatv2, devx-track-azurecli 
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# High-performance serving with Triton Inference Server (Preview) 
+# High-performance serving with Triton Inference Server (Preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+
 
 Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [Managed online endpoints](concept-endpoints.md#managed-online-endpoints).
 
@@ -22,10 +26,9 @@ Triton is multi-framework, open-source software that is optimized for inference.
 
 In this article, you will learn how to deploy Triton and a model to a managed online endpoint. Information is provided on using both the CLI (command line) and Azure Machine Learning studio.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 > [!NOTE]
-> [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
+> * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
+> * While Azure Machine Learning online endpoints are generally available, _using Triton with an online endpoint deployment is still in preview_. 
 
 ## Prerequisites
 
@@ -85,7 +88,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
 1. Create a YAML configuration file for the deployment. The following example configures a deployment named __blue__ to the endpoint created in the previous step. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-deployment.yml` in the azureml-examples repo you cloned earlier:
 
     > [!IMPORTANT]
-    > For Triton no-code-deployment (NCD) to work, setting **`model_format`** to **`Triton`** is required. For more information, [check CLI (v2) model YAML schema](reference-yaml-model.md).
+    > For Triton no-code-deployment (NCD) to work, setting **`type`** to **`triton_model​`** is required, `type: triton_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
     >
     > This deployment uses a Standard_NC6s_v3 VM. You may need to request a quota increase for your subscription before you can use this VM. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
@@ -146,8 +149,8 @@ This section shows how you can deploy Triton to managed online endpoint using [A
     ```yml
     name: densenet-onnx-model
     version: 1
-    local_path: ./models
-    model_format: Triton
+    path: ./models
+    type: triton_model​
     description: Registering my Triton format model.
     ```
 
@@ -164,7 +167,7 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
     # [Endpoints page](#tab/endpoint)
 
-    1. From the __Endpoints__ page, Select **+Create (preview)**.
+    1. From the __Endpoints__ page, select **Create**.
 
         :::image type="content" source="media/how-to-deploy-with-triton/create-option-from-endpoints-page.png" lightbox="media/how-to-deploy-with-triton/create-option-from-endpoints-page.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
 
@@ -181,9 +184,9 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
     # [Models page](#tab/models)
 
-    1. Select the Triton model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint (preview)__.
+    1. Select the Triton model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint__.
 
-        :::image type="content" source="media/how-to-deploy-with-triton/deploy-from-models-page.png" lightbox="media/how-to-deploy-with-triton/deploy-from-models-page.png" alt-text="Screenshot showing how to deploy model from Models UI":::
+        :::image type="content" source="media/how-to-deploy-with-triton/deploy-from-models-page.png" lightbox="media/how-to-deploy-with-triton/deploy-from-models-page.png" alt-text="Screenshot showing how to deploy model from Models UI.":::
 
     1. Complete the wizard to deploy the model to the endpoint.
 
@@ -193,10 +196,10 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
 To learn more, review these articles:
 
-- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Deploy models with REST](how-to-deploy-with-rest.md)
+- [Create and use managed online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Safe rollout for online endpoints ](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
-- [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Access Azure resources with a managed online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)

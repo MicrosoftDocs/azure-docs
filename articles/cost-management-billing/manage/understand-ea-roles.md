@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 05/04/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -85,7 +85,15 @@ Users with this role have the highest level of access. They can:
 - View and manage all reservation orders and reservations that apply to the Enterprise Agreement.
   - Enterprise administrator (read-only) can view reservation orders and reservations. They can't manage them.
 
-You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
+You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. 
+
+The EA administrator role automatically inherits all access and privilege of the department administrator role. So there’s no need to manually give an EA administrator the department administrator role. Avoid giving the EA administrator the department administrator role because, as a department administrator, the EA administrator:
+
+- Won't have access to the Enrollment tab in the EA portal
+- Won't have access to the Usage Summary Page under the Reports tab
+
+
+The enterprise administrator role can be assigned to multiple accounts.
 
 ### EA purchaser
 
@@ -120,6 +128,8 @@ Users with this role can:
 - View usage for subscriptions.
 
 Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
+
+There can be only one account owner per account. However, there can be multiple accounts in an EA enrollment. Each account has a unique account owner.
 
 ### Service administrator
 

@@ -426,7 +426,7 @@ overview](../overview.md).
    following built-in policy definitions by selecting the checkbox next to the policy definition:
 
    - Allowed locations
-   - Monitor missing Endpoint Protection in Azure Security Center
+   - Endpoint protection should be installed on machines
    - Non-internet-facing virtual machines should be protected with network security groups
    - Azure Backup should be enabled for Virtual Machines
    - Disk encryption should be applied on virtual machines

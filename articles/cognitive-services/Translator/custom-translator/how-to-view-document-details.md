@@ -1,5 +1,5 @@
 ---
-title: Document details - Custom Translator
+title: "Legacy: Document details - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: The document list page shows the first 10 document in your workspace. For each of the documents, it displays the name, pairing, type, language, upload time stamp, and the email address of the user who uploaded the document.  
 author: laujan
@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to understand how to view  document details, so that I can to review list of extracted sentences in a document.
 ---
 
@@ -27,7 +28,7 @@ Select an individual document to view the document details page. The document de
 
 ## Delete a document
 
-User must be a workspace owner to delete document to delete a document. Additionally, if a document is in use by a model, that is in any part of the training process or any part of the deployment process, the document can't be deleted.
+User must be a workspace owner to delete document to delete a document. Additionally, if a document is in use by a model, it can't be deleted.
 
 1. Go to document page
 2. Hover on any document record and select the **trash bin** icon.

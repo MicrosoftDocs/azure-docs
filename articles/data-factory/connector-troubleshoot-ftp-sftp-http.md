@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 07/08/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -171,6 +171,31 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
     As a compromise, an option is provided to simulate the input in the background instead of your real manual input, which is equivalent to changing the "keyboard-interactive" to "password". If you can accept this security concern, follow the steps below to enable it:<br/> 
     1. On the ADF portal, hover on the SFTP linked service, and open its payload by selecting the code button.
     1. Add `"allowKeyboardInteractiveAuth": true` in the "typeProperties" section.
+
+### Unable to connect to SFTP due to key exchange algorithms provided by SFTP are not supported in ADF
+
+- **Symptoms**: You are unable to connect to SFTP via ADF and meet the following error message: `Failed to negotiate key exchange algorithm.`
+
+- **Cause**: The key exchange algorithms provided by the SFTP server are not supported in ADF. The key exchange algorithms supported by ADF are:
+    - diffie-hellman-group-exchange-sha256
+    - diffie-hellman-group-exchange-sha1
+    - diffie-hellman-group14-sha1
+    - diffie-hellman-group1-sha1
+
+### Error Code: SftpInvalidHostKeyFingerprint
+
+- **Message**: `Host key finger-print validation failed. Expected fingerprint is '<value in linked service>', real finger-print is '<server real value>'`
+
+- **Cause**: Azure Data Factory now supports more secure host key algorithms in SFTP connector. For the newly added algorithms, it requires to get the corresponding fingerprint in the SFTP server.
+
+    The newly supported algorithms are:
+    
+    - ssh-ed25519
+    - ecdsa-sha2-nistp256
+    - ecdsa-sha2-nistp384
+    - ecdsa-sha2-nistp521
+
+- **Recommendation**: Get a valid fingerprint using the Host Key Name in `real finger-print` from the error message in the SFTP server. You can run the command to get the fingerprint on your SFTP server. For example: run `ssh-keygen -E md5 -lf <keyFilePath>` in Linux server to get the fingerprint. The command may vary among different server types.
 
 ## HTTP
 

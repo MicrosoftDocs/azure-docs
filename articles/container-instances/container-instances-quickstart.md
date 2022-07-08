@@ -2,7 +2,11 @@
 title: Quickstart - Deploy Docker container to container instance - Azure CLI
 description: In this quickstart, you use the Azure CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: seo-python-october2019, seodec18, mvc, devx-track-js, devx-track-azurecli, mode-api
 ---
 
@@ -118,7 +122,7 @@ When you're done with the container, remove it using the [az container delete][a
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az_container_list) command:
+To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az-container-list) command:
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
@@ -159,4 +163,4 @@ To try out options for running containers in an orchestration system on Azure, s
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[container-service]: ../aks/kubernetes-walkthrough.md
+[container-service]: ../aks/intro-kubernetes.md

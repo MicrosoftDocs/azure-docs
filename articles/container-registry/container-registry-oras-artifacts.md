@@ -49,14 +49,14 @@ IMAGE=$REGISTRY/${REPO}:$TAG
 
 ### Create a resource group
 
-If needed, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group for the registry.
+If needed, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group for the registry.
 
 ```azurecli
 az group create --name $ACR_NAME --location southcentralus
 ```
 ### Create ORAS Artifact enabled registry
 
-Preview support for ORAS Artifacts requires Zone Redundancy, which requires a Premium service tier, in the South Central US region. Run the [az acr create](/cli/azure/acr#az_acr_create) command to create an ORAS Artifacts enabled registry. See the `az acr create` command help for more registry options.
+Preview support for ORAS Artifacts requires Zone Redundancy, which requires a Premium service tier, in the South Central US region. Run the [az acr create](/cli/azure/acr#az-acr-create) command to create an ORAS Artifacts enabled registry. See the `az acr create` command help for more registry options.
 
 ```azurecli
 az acr create \
@@ -69,7 +69,7 @@ az acr create \
 
 In the command output, note the `zoneRedundancy` property for the registry. When enabled, the registry is zone redundant, and ORAS Artifact enabled:
 
-```JSON
+```output
 {
   [...]
   "zoneRedundancy": "Enabled",
@@ -80,7 +80,7 @@ In the command output, note the `zoneRedundancy` property for the registry. When
 
 [Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with your identity to push and pull artifacts from the container registry.
 
-Then, use the Azure CLI command [az acr login](/cli/azure/acr#az_acr_login) to access the registry.
+Then, use the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login) to access the registry.
 
 ```azurecli
 az login
@@ -98,14 +98,14 @@ Run  `oras login` to authenticate with the registry. You may pass [registry cred
 
 - Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to use an AD token.
 
-  ```bash
+  ```azurecli
   USER_NAME="00000000-0000-0000-0000-000000000000"
   PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
   ```
 
 - Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview) to use non-AD based tokens.
 
-  ```bash
+  ```azurecli
   USER_NAME="oras-token"
   PASSWORD=$(az acr token create -n $USER_NAME \
                     -r $ACR_NAME \
@@ -116,7 +116,7 @@ Run  `oras login` to authenticate with the registry. You may pass [registry cred
 
 - Authenticate with an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
 
-  ```bash
+  ```azurecli
   SERVICE_PRINCIPAL_NAME="oras-sp"
   ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
   PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
@@ -364,7 +364,7 @@ The signature is untagged, but tracked as a `oras.artifact.manifest` reference t
 
 Support for the ORAS Artifacts specification enables deleting the graph of artifacts associated with the root artifact. Use the [az acr repository delete][az-acr-repository-delete] command to delete the signature, SBoM and the signature of the SBoM.
 
-```bash
+```azurecli
 az acr repository delete \
   -n $ACR_NAME \
   -t ${REPO}:$TAG -y

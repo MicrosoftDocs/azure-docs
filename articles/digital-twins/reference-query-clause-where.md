@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language WHERE clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: WHERE clause
 
-This document contains reference information on the **WHERE clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the *WHERE clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The WHERE clause is the last part of a query. It's used to filter the items that are returned based on specific conditions.
 

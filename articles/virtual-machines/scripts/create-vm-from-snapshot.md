@@ -9,7 +9,7 @@ editor: ramankum
 tags: azure-service-management
 
 ms.assetid:
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
@@ -33,7 +33,7 @@ This script creates a virtual machine from a snapshot of an OS disk.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh" range="3-39":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh" id="FullScript":::
 
 ## Clean up resources
 

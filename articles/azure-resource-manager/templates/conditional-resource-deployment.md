@@ -13,7 +13,7 @@ Sometimes you need to optionally deploy a resource in an Azure Resource Manager 
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [conditional deployments](../bicep/conditional-resource-deployment.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [conditional deployments](../bicep/conditional-resource-deployment.md).
 
 ## Deploy condition
 

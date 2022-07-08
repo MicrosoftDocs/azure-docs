@@ -90,7 +90,7 @@ Before you create the `ALIAS` record, you first need to validate that you own th
     |--|--|
     | Type | `ALIAS` |
     | Host | Enter **@** |
-    | Value | Paste the generated code value you copied from the Azure portal. Make sure to remove the `https://` prefix from your URL. |
+    | Value | Paste the generated URL you copied from the Azure portal. Make sure to remove the `https://` prefix from your URL. |
     | TTL (if applicable) | Leave as default value. |
 
 1. Save changes to your DNS record.

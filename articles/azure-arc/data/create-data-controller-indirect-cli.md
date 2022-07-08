@@ -80,7 +80,7 @@ The following sections provide instructions for specific types of Kubernetes pla
 - [Google Cloud Kubernetes Engine Service (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
 
 > [!TIP]
-> If you have no Kubernetes cluster, you can create one on Azure. Follow the instructions at [Quickstart: Deploy Azure Arc-enable data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md) to walk through the entire process. 
+> If you have no Kubernetes cluster, you can create one on Azure. Follow the instructions at [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md) to walk through the entire process. 
 >
 > Then follow the instructions under [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks).
 
@@ -300,10 +300,10 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 > [!NOTE]
->  The example commands below assume that you created a data controller and Kubernetes namespace with the name `arc`. If you used a different namespace/data controller name, you can replace `arc` with your name.
+> The example commands below assume that you created a data controller named `arc-dc` and Kubernetes namespace named `arc`. If you used different values update the script accordingly.
 
 ```console
-kubectl get datacontroller/arc --namespace arc
+kubectl get datacontroller/arc-dc --namespace arc
 ```
 
 ```console

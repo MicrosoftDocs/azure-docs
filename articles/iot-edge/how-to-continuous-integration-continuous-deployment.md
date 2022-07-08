@@ -1,9 +1,9 @@
 ---
 title: Continuous integration and continuous deployment to Azure IoT Edge devices - Azure IoT Edge
 description: Set up continuous integration and continuous deployment using YAML - Azure IoT Edge with Azure DevOps, Azure Pipelines
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
@@ -143,6 +143,5 @@ Continue to the next section to build the release pipeline.
 
 ## Next steps
 
-* IoT Edge DevOps sample in [Azure DevOps Starter for IoT Edge](how-to-devops-starter.md)
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
 * Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).

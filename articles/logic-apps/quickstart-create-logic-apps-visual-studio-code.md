@@ -3,7 +3,7 @@ title: Quickstart - Create integration workflows with Azure Logic Apps in Visual
 description: Create and manage workflow definitions with multi-tenant Azure Logic Apps in Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: azla
+ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
 ms.date: 02/02/2022
@@ -11,6 +11,8 @@ ms.date: 02/02/2022
 ---
 
 # Quickstart: Create and manage logic app workflow definitions with multi-tenant Azure Logic Apps and Visual Studio Code
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This quickstart shows how to create and manage logic app workflows that help you automate tasks and processes that integrate apps, data, systems, and services across organizations and enterprises by using multi-tenant [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio Code. You can create and edit the underlying workflow definitions, which use JavaScript Object Notation (JSON), for logic apps through a code-based experience. You can also work on existing logic apps that are already deployed to Azure. For more information about multi-tenant versus single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 

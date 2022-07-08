@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 05/31/2022
 
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage to pods in AKS.
@@ -21,7 +21,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster with 1.21 or later version. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -33,7 +33,7 @@ Each AKS cluster includes four pre-created storage classes, two of them configur
 
 * The *default* storage class provisions a standard SSD Azure disk.
     * Standard storage is backed by Standard SSDs and delivers cost-effective storage while still delivering reliable performance. 
-* The *managed-premium* storage class provisions a premium Azure disk.
+* The *managed-csi-premium* storage class provisions a premium Azure disk.
     * Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. If the AKS nodes in your cluster use premium storage, select the *managed-premium* class.
     
 If you use one of the default storage classes, you can't update the volume size after the storage class is created. To be able to update the volume size after a storage class is created, add the line `allowVolumeExpansion: true` to one of the default storage classes, or you can create you own custom storage class. Note that it's not supported to reduce the size of a PVC (to prevent data loss). You can edit an existing storage class by using the `kubectl edit sc` command. 
@@ -48,8 +48,8 @@ Use the [kubectl get sc][kubectl-get] command to see the pre-created storage cla
 $ kubectl get sc
 
 NAME                PROVISIONER                AGE
-default (default)   kubernetes.io/azure-disk   1h
-managed-premium     kubernetes.io/azure-disk   1h
+default (default)   disk.csi.azure.com         1h
+managed-csi         disk.csi.azure.com         1h
 ```
 
 > [!NOTE]
@@ -59,7 +59,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
-Create a file named `azure-premium.yaml`, and copy in the following manifest. The claim requests a disk named `azure-managed-disk` that is *5GB* in size with *ReadWriteOnce* access. The *managed-premium* storage class is specified as the storage class.
+Create a file named `azure-pvc.yaml`, and copy in the following manifest. The claim requests a disk named `azure-managed-disk` that is *5GB* in size with *ReadWriteOnce* access. The *managed-csi* storage class is specified as the storage class.
 
 ```yaml
 apiVersion: v1
@@ -69,19 +69,19 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
-  storageClassName: managed-premium
+  storageClassName: managed-csi
   resources:
     requests:
       storage: 5Gi
 ```
 
 > [!TIP]
-> To create a disk that uses standard storage, use `storageClassName: default` rather than *managed-premium*.
+> To create a disk that uses premium storage, use `storageClassName: managed-csi-premium` rather than *managed-csi*.
 
-Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-premium.yaml* file:
+Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-pvc.yaml* file:
 
 ```console
-$ kubectl apply -f azure-premium.yaml
+$ kubectl apply -f azure-pvc.yaml
 
 persistentvolumeclaim/azure-managed-disk created
 ```
@@ -283,8 +283,9 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-disk-show]: /cli/azure/disk#az_disk_show
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md

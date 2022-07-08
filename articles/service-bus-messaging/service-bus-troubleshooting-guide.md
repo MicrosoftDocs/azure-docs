@@ -2,7 +2,7 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
-ms.date: 03/03/2021 
+ms.date: 06/17/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -12,7 +12,7 @@ This article provides troubleshooting tips and recommendations for a few issues 
 ## Connectivity, certificate, or timeout issues
 The following steps may help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
 
-- Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues, which are common when using java SDK.
+- Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues, which are common when using Java SDK.
 
     An example of successful message:
     
