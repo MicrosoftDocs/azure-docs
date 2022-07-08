@@ -34,7 +34,7 @@ You can add a new service provider offer from the **Service provider offers** pa
 
 To add an offer from the marketplace, select the **Add offer** button in the middle of the page, or select **Add offer** near the top of the page and then choose **Add via marketplace**. If [Managed Service offers](../concepts/managed-services-offers.md) have been published specifically for this customer, select **Private offers** to view them. Select an offer to review details. To add the offer, select **Create**.
 
-To add an offer from a template, select select **Add offer** near the top of the page and then choose **Add via marketplace**. This will allow you to upload a template from your service provider and onboard your subscription (or resource group). For more information, see [Deploy in the Azure portal](onboard-customer.md#deploy-in-the-azure-portal).
+To add an offer from a template, select **Add offer** near the top of the page and then choose **Add via marketplace**. This will allow you to upload a template from your service provider and onboard your subscription (or resource group). For more information, see [Deploy in the Azure portal](onboard-customer.md#deploy-in-the-azure-portal).
 
 ## Update service provider offers
 
