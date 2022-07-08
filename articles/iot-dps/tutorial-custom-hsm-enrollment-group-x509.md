@@ -526,7 +526,9 @@ In this section you create the device certificates and the full chain device cer
 
 1. Create the device certificate CSR.
 
-    The subject common name (CN) of the device certificate must be set to the [Registration ID](./concepts-service.md#registration-id) that your device will use to register with DPS. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format. For group enrollments, the registration ID is also used as the device ID in IoT Hub. The subject common name is set in the `-subj` parameter in the following command.
+    The subject common name (CN) of the device certificate must be set to the [Registration ID](./concepts-service.md#registration-id) that your device will use to register with DPS. The registration ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format. DPS supports registration IDs up to 128 characters long; however, the maximum length of the subject common name in an X.509 certificate is 64 characters. The registration ID, therefore, is limited to 64 characters when using X.509 certificates. For group enrollments, the registration ID is also used as the device ID in IoT Hub.
+
+    The subject common name is set in the `-subj` parameter in the following command.
 
     # [Windows](#tab/windows)
 
