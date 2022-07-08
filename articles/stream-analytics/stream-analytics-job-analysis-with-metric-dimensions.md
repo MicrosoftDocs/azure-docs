@@ -77,7 +77,7 @@ When an embarrassingly parallel job has watermark delay increasing, it may not j
 
 What action could you take further?
 
-1. Naturally, you’d think to reduce the partition count for each streaming node to reduce the input data for each streaming node. To achieve this, you can double the SUs to have each streaming node to handle two partitions data, or four times the SUs to have each streaming node to handle one partition data. Refer to [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md) for the relationship between SUs assignment and streaming node count.
+1. Naturally, you’d think to reduce the partition count for each streaming node to reduce the input data for each streaming node. To achieve this, you can double the SUs to have each streaming node to handle two partitions data, or four times the SUs to have each streaming node to handle one partition data. Refer to [Understand and adjust Streaming Units](./stream-analytics-streaming-unit-consumption.md) for the relationship between SUs assignment and streaming node count.
 2. What should I do if the watermark delay is still increasing when one streaming node is handling one partition data? Repartition your input with more partitions to reduce the amount of data in each partition. Refer to this document for details: [Use repartitioning to optimize Azure Stream Analytics jobs](./repartition.md)
 
 
@@ -87,4 +87,4 @@ What action could you take further?
 * [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
 * [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
 * [Azure Stream Analytics job metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
-* [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)
+* [Understand and adjust Streaming Units](./stream-analytics-streaming-unit-consumption.md)

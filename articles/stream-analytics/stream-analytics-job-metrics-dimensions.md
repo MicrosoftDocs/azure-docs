@@ -54,7 +54,7 @@ The “Logic Name” is the input or output name for a given Azure Stream Analyt
 
 ## "Node Name" dimension
 
-A streaming node represents a set of compute resources that is used to process your input data. Every six Streaming Units (SUs) translates to one node, which the service automatically manages on your behalf. For more information for the relationship between streaming unit and streaming node, see [Stream Analytics streaming unit and streaming node](./stream-analytics-streaming-unit-streaming-node.md).
+A streaming node represents a set of compute resources that is used to process your input data. Every six Streaming Units (SUs) translates to one node, which the service automatically manages on your behalf. For more information for the relationship between streaming unit and streaming node, see [Understand and adjust Streaming Units](./stream-analytics-streaming-unit-consumption.md).
 
 The “Node Name” is “Streaming Node” level dimension that could help you to drill down certain metrics to the specific streaming node level. For example, the CPU utilization metrics could be split into streaming node level to check the CPU utilization of an individual streaming node.
 
@@ -90,4 +90,4 @@ When streaming data is ingested into Azure Stream Analytics service for processi
 * [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
 * [Analyze Stream Analytics job performance with metrics dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
 * [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
-* [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)
+* [Understand and adjust Streaming Units](./stream-analytics-streaming-unit-consumption.md)
