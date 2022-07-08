@@ -6,7 +6,7 @@ ms.date: 10/07/2020
 ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
 ---
 
-# Continuous delivery by using GitHub Action
+# Continuous delivery by using GitHub Actions
 
 Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
 
@@ -210,7 +210,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub Actions'
       uses: actions/checkout@v2
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
@@ -248,7 +248,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub Actions'
       uses: actions/checkout@v2
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
@@ -290,7 +290,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub Actions'
       uses: actions/checkout@v2
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
@@ -331,7 +331,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub Actions'
       uses: actions/checkout@v2
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
@@ -373,7 +373,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub Actions'
       uses: actions/checkout@v2
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
@@ -414,7 +414,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub Actions'
       uses: actions/checkout@v2
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
@@ -457,7 +457,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub Actions'
       uses: actions/checkout@v2
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
