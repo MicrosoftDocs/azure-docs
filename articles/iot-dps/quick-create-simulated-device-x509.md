@@ -234,7 +234,7 @@ Perform the steps in this section in your Git Bash prompt.
 
     A public key certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-    The certificate file has its subject common name (CN) set to `my-x509-device`. For X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    The certificate file has its subject common name (CN) set to `my-x509-device`. For X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format. DPS supports registration IDs up to 128 characters long; however, the maximum length of the subject common name in an X.509 certificate is 64 characters. The registration ID, therefore, is limited to 64 characters when using X.509 certificates.
 
 5. The certificate file is Base64 encoded. To view the subject common name (CN) and other properties of the certificate file, enter the following command:
 
