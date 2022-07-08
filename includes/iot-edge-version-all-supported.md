@@ -1,5 +1,5 @@
 ---
- title: IoT Edge all versions supported - 1.1 (LTS) and 1.2 (Preview)
+ title: IoT Edge all versions supported - 1.1 (LTS) and 1.3 
  description: include file
  services: iot-edge
  author: PatAltimore
@@ -10,4 +10,4 @@
  ms.custom: include file
 ---
 
-**Applies to:** ![yes icon](./media/iot-edge-version/yes-icon.png) IoT Edge 1.1 ![yes icon](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2
+**Applies to:** ![yes icon](./media/iot-edge-version/yes-icon.png) IoT Edge 1.1 ![yes icon](./media/iot-edge-version/yes-icon.png) IoT Edge 1.3
