@@ -14,7 +14,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
+ms.date: 07/08/2022
 ms.author: terrylan
 
 ---
@@ -59,8 +59,6 @@ The following table lists the most important types of logs available in Azure:
 ## Next steps
 
 - [Auditing and logging](management-monitoring-overview.md): Protect data by maintaining visibility and responding quickly to timely security alerts.
-
-- [Security logging and audit-log collection within Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): Enforce these settings to ensure that your Azure instances are collecting the correct security and audit logs.
 
 - [Configure audit settings for a site collection](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): If you're a site collection administrator, retrieve the history of individual users' actions and the history of actions taken during a particular date range.
 
