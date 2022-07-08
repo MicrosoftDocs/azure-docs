@@ -303,6 +303,7 @@ The following ARM template shows how to update an existing namespace (`contosona
 }
 
 ```
+---
 
 ## Publish or consume events 
 Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. To test, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
