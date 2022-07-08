@@ -20,13 +20,8 @@ This article describes the configurations available for your Azure Cache for Red
 
 ## Configure Azure Cache for Redis settings
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-browse.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-<!-- Seems redundant. -->
-<!-- Azure Cache for Redis settings are viewed and configured using the Resource Menu. -->
-
-<!-- :::image type="content" source="media/cache-configure/redis-cache-settings.png" alt-text="Azure ache for Redis Settings":::
- -->
 You can view and configure the following settings using the **Resource Menu**. The settings that you see depend on the tier of your cache. For example, you don't see **Reboot** when using the Enterprise tier.
 
 - [Overview](#overview)
