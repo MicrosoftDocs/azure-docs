@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 07/08/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -61,13 +61,13 @@ Spring Cloud Gateway for Kubernetes is configured using the following sections a
 
 Spring Cloud Gateway for Kubernetes metadata is used to automatically generate OpenAPI version 3 documentation so that the [API portal](./how-to-use-enterprise-api-portal.md) can gather information to show the route groups. The available metadata options are described in the following table.
 
-| Property | Description |
-| - | - |
-| title | A title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`) |
-| description | A detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.`) |
-| documentation | The location of more documentation for the APIs available on the Gateway instance |
-| version | The version of APIs available on this Gateway instance (default: `unspecified`) |
-| serverUrl | The base URL that API consumers will use to access APIs on the Gateway instance |
+| Property      | Description                                                                                                                                                                                                                                                 |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title         | A title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)                                                                                                                                      |
+| description   | A detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.`) |
+| documentation | The location of more documentation for the APIs available on the Gateway instance                                                                                                                                                                           |
+| version       | The version of APIs available on this Gateway instance (default: `unspecified`)                                                                                                                                                                             |
+| serverUrl     | The base URL that API consumers will use to access APIs on the Gateway instance                                                                                                                                                                             |
 
 > [!NOTE]
 > `serverUrl` is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md).
@@ -76,14 +76,14 @@ Spring Cloud Gateway for Kubernetes metadata is used to automatically generate O
 
 Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. The available CORS configuration options are described in the following table.
 
-| Property | Description |
-| - | - |
-| allowedOrigins | Allowed origins to make cross-site requests |
-| allowedMethods | Allowed HTTP methods on cross-site requests |
-| allowedHeaders |  Allowed headers in cross-site request |
-| maxAge | How long, in seconds, the response from a pre-flight request can be cached by clients |
-| allowCredentials | Whether user credentials are supported on cross-site requests |
-| exposedHeaders | HTTP response headers to expose for cross-site requests |
+| Property         | Description                                                                           |
+|------------------|---------------------------------------------------------------------------------------|
+| allowedOrigins   | Allowed origins to make cross-site requests                                           |
+| allowedMethods   | Allowed HTTP methods on cross-site requests                                           |
+| allowedHeaders   | Allowed headers in cross-site request                                                 |
+| maxAge           | How long, in seconds, the response from a pre-flight request can be cached by clients |
+| allowCredentials | Whether user credentials are supported on cross-site requests                         |
+| exposedHeaders   | HTTP response headers to expose for cross-site requests                               |
 
 > [!NOTE]
 > Be sure you have the correct CORS configuration if you want to integrate with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see the [Configuring Spring Cloud Gateway Example](#configuring-spring-cloud-gateway-example) section.
@@ -92,12 +92,12 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 
 Spring Cloud Gateway for Kubernetes supports authentication and authorization using Single Sign-on (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
 
-| Property | Required? | Description |
-| - | - | - |
-| issuerUri | Yes | The URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
-| clientId | Yes | The OpenID Connect client ID provided by your IdP |
-| clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
-| scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
+| Property     | Required? | Description                                                                                                                                                                                                                                                                                                        |
+|--------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| issuerUri    | Yes       | The URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
+| clientId     | Yes       | The OpenID Connect client ID provided by your IdP                                                                                                                                                                                                                                                                  |
+| clientSecret | Yes       | The OpenID Connect client secret provided by your IdP                                                                                                                                                                                                                                                              |
+| scope        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider                                                                                                                                                                                      |
 
 To set up SSO with Azure AD, see [How to set up Single Sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set-up-sso-with-azure-ad.md).
 
@@ -125,7 +125,7 @@ Use the following steps to assign an endpoint to Spring Cloud Gateway and config
 
    Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted.":::
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
    You can also use CLI to do it, as shown in the following command:
 
@@ -146,7 +146,7 @@ Use the following steps to assign an endpoint to Spring Cloud Gateway and config
 
    You can also view or edit those properties in the portal.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing.":::
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
 
 1. Use the following command to configure SSO properties for Spring Cloud Gateway for Kubernetes:
 
@@ -158,11 +158,10 @@ Use the following steps to assign an endpoint to Spring Cloud Gateway and config
         --scope <scope>
     ```
 
-   You can also view or edit those properties in the portal.
+   You can also view or edit those properties in the portal, as shown in the following screenshot:
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing including Single Sign On Configuration.":::
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing including Single Sign On Configuration." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
 
 ## Next steps
 
-- [Azure Spring Apps](index.yml)
 - [How to Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md)

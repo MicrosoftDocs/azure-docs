@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 07/08/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -91,17 +91,17 @@ The following is an example of a JSON file that is passed to the `--routes-file`
 
 The following tables list the route definitions. All the properties are optional.
 
-| Property | Description |
-| - | - |
-| title | A title to apply to methods in the generated OpenAPI documentation |
-| description | A description to apply to methods in the generated OpenAPI documentation  |
-| uri | The full URI, which will override the name of app that requests route to. |
-| ssoEnabled | A value that indicates whether to enable SSO validation. See [Using Single Sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso) |
-| tokenRelay | Passes the currently authenticated user's identity token to the application |
-| predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) |
-| filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) |
-| order | The route processing order - a lower order is processed with higher precedence, same as [Spring Cloud Gateway OSS](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) |
-| tags | Classification tags that will be applied to methods in the generated OpenAPI documentation |
+| Property    | Description                                                                                                                                                                                  |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title       | A title to apply to methods in the generated OpenAPI documentation                                                                                                                           |
+| description | A description to apply to methods in the generated OpenAPI documentation                                                                                                                     |
+| uri         | The full URI, which will override the name of app that requests route to.                                                                                                                    |
+| ssoEnabled  | A value that indicates whether to enable SSO validation. See [Using Single Sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso)                      |
+| tokenRelay  | Passes the currently authenticated user's identity token to the application                                                                                                                  |
+| predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates)        |
+| filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters)                 |
+| order       | The route processing order - a lower order is processed with higher precedence, same as [Spring Cloud Gateway OSS](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) |
+| tags        | Classification tags that will be applied to methods in the generated OpenAPI documentation                                                                                                   |
 
 > [!NOTE]
 > Not all the filters/predicates are supported in Azure Spring Apps because of security or compatibility reasons. The following aren't supported:
@@ -121,7 +121,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted.":::
+   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted." lightbox="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
    You can also use CLI to do it, as shown in the following command:
 
@@ -165,7 +165,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
       You can also view the routes in the portal.
 
-      :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane.":::
+      :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane." lightbox="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png":::
 
 1. Use the following command to access the `animal rescue backend` API through the gateway endpoint:
 
