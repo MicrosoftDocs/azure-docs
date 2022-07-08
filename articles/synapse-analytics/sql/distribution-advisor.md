@@ -15,6 +15,10 @@ In Azure Synapse Analytics, each table is distributed as chosen by the customer.
 
 Distribution Advisor (DA)  in Synapse SQL analyzes customer queries and recommends the best distribution strategies for tables to improve query performance. Queries to be considered by the advisor can be provided by the customer or pulled from historic queries available in DMV. 
 
+> [!NOTE]
+>Distribution Advisor is in Public Preview. To sign up for this feature, reach out to [Distribution Advisor Team](distribution-advisor@microsoft.com).
+
+
 ## Prerequisite
 
 - Run the following to ensure that you are on version 10.0.15665 or higher.
