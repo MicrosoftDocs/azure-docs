@@ -81,8 +81,8 @@ NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway sub
 When you try to associate NAT gateway to a subnet that contains a virtual machine network interface (NIC) in a failed state, you will receive an error message indicating that this action cannot be performed. You must first get the VM NIC out of the failed state before you can attach NAT gateway to the subnet.
 
 To troubleshoot NICs in a failed state, follow these steps
-1. Determine the provisioning state of your NICs using the [Get-AzNetworkInterface Powershell command](/powershell/module/az.network/get-aznetworkinterface?view=azps-8.1.0#example-2-get-all-network-interfaces-with-a-specific-provisioning-state) and setting the value of the "provisioningState" to "Succeeded".
-2. Perform [GET/SET powershell commands](/powershell/module/az.network/set-aznetworkinterface?view=azps-8.1.0#example-1-configure-a-network-interface) on the network interface to update the provisioning state.
+1. Determine the provisioning state of your NICs using the [Get-AzNetworkInterface Powershell command](/powershell/module/az.network/get-aznetworkinterface#example-2-get-all-network-interfaces-with-a-specific-provisioning-state) and setting the value of the "provisioningState" to "Succeeded".
+2. Perform [GET/SET powershell commands](/powershell/module/az.network/set-aznetworkinterface#example-1-configure-a-network-interface) on the network interface to update the provisioning state.
 3. Check the results of this operation by checking the provisioining state of your NICs again (follow commands from step 1).
 
 ## SNAT exhaustion due to NAT gateway configuration
