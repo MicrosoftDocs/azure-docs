@@ -18,7 +18,7 @@ This article describes the resiliency strategy for Azure Spring Apps, including 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Availability zones
 
@@ -51,23 +51,22 @@ Azure Spring Apps currently supports availability zones in the following regions
 
 The following limitations apply when you create an Azure Spring Apps Service instance with zone redundancy enabled:
 
-- This feature is not available in basic tier.
+- Zone redundancy is not available in basic tier.
 - Zone redundancy can only be enabled when you create a new Azure Spring Apps Service instance.
-- If you would like to enable your own resource in Azure Spring Apps such as [your own persistent storage](how-to-custom-persistent-storage.md), you should take care the zone redundancy of these resource by your own.
-- This feature promises that the underneath VM nodes will be distributed evenly across all availability zones while no assurance to distribute app instances evenly. If an app instance failed because its located zone went down, Azure Spring Apps will create a new app instance for this app in another available zone.
-- Geo-disaster recovery is not the purpose of this feature. To protect your service from regional outages, please refer to [Customer-managed geo-disaster recovery
-](#customer-managed-geo-disaster-recovery). 
+- If you enable your own resource in Azure Spring Apps, such as your own persistent storage, make sure to enable zone redundancy for the resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md).
+- Zone redundancy ensures that underlying VM nodes are distributed evenly across all availability zones but does not guarantee even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app in another available zone.
+- Geo-disaster recovery is not the purpose of zone redundancy. To protect your service from regional outages, see [Customer-managed geo-disaster recovery](#customer-managed-geo-disaster-recovery). 
 
 ## Creating an Azure Spring Apps instance with zone redundancy enabled
 
 > [!NOTE]
-> You can only enable zone redundant when creating your spring app instance. You can't change your zone redundant property after the creation.
+> You can only enable zone redundancy when creating your spring app instance. You can't change your zone redundant property after creation.
 
-You can enable zone redundant in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
+You can enable zone redundancy in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a service in Azure Spring Apps with zone redundant enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service in Azure Spring App.
+To create a service in Azure Spring Apps with zone redundancy enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service:
 
 ```azurecli
 az spring create \
@@ -79,19 +78,19 @@ az spring create \
 
 ### [Azure portal](#tab/portal)
 
-To a service in Azure Spring Apps with zone redundant enabled using the Azure portal, enable the Zone Redundant option when creating the instance.
+To create a service in Azure Spring Apps with zone redundancy enabled using the Azure portal, select the Zone Redundant option when you create the instance.
 
 :::image type="content" source="media/spring-cloud-availability-zone/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="media/spring-cloud-availability-zone/availability-zone-portal.png":::
 
 ---
 
-## How to verify zone redundant property of Azure Spring Apps instance
+## Verifying the Zone Redundant property setting
 
-You can verify zone redundant property in Azure Spring Apps instance using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
+You can verify the Zone Redundant property setting in an Azure Spring Apps instance using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
 ### [Azure CLI](#tab/azure-cli)
 
-To verify zone redundant property of Azure Spring Apps instance using the Azure CLI, you could use the following command to show the details of an Azure Spring Apps instance, which includes the zone redundant property.
+To verify the Zone Redundant property setting using the Azure CLI, use the following command to show the details of the Azure Spring Apps instance, including the Zone Redundant property.
 
 ```azurecli
 az spring show \
@@ -101,7 +100,7 @@ az spring show \
 
 ### [Azure portal](#tab/portal)
 
-To verify zone redundant property of Azure Spring Apps instance using the Azure portal, verify that at the service overview blade.
+To verify the Zone Redundant property of an Azure Spring Apps instance using the Azure portal, verify the setting on the service Overview page.
 
 :::image type="content" source="media/spring-cloud-availability-zone/availability-zone-verify-portal.png" alt-text="Screenshot of the Azure portal Overview page showing the Zone Redundant property." lightbox="media/spring-cloud-availability-zone/availability-zone-verify-portal.png":::
 
@@ -109,59 +108,69 @@ To verify zone redundant property of Azure Spring Apps instance using the Azure 
 
 ## Pricing
 
-There's no additional cost associated with enabling the zone redundancy feature. You only need to pay for the tier where this feature is available.
+There's no additional cost associated with enabling zone redundancy. You only need to pay for the tier that includes zone redundancy.
 
 ## Customer-managed geo-disaster recovery
 
-Azure Spring Apps do not provide geo-disaster recovery feature at this moment, but we will provide some strategies that you can use to protect your applications in Azure Spring Apps from experiencing downtime. Any region or data center may experience downtime caused by regional disasters, but careful planning can mitigate impact on your customers.
+Azure Spring Apps don't provide geo-disaster recovery, but careful planning can protect customers from experiencing downtime.
 
-## Plan your application deployment
+### Planning your application deployment
 
-Applications in Azure Spring Apps run in a specific region. Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography, containing one or more data centers. Most Azure region is paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair is updated at a time. In the event of an outage affecting multiple regions, at least one region in each pair will be prioritized for recovery.
+To plan your application, it is helpful to understand Azure regions and geographies:
 
-Ensuring high availability and protection from disasters requires that you deploy your Spring applications to multiple regions. Azure provides a list of [paired regions](../availability-zones/cross-region-replication-azure.md) so that you can plan your Spring app deployments to regional pairs. We recommend that you consider three key factors when designing your architecture: region availability, Azure paired regions, and service availability.
+- Azure Spring Apps applications run in a specific region.
+- Azure operates in multiple geographies around the world.
+- An Azure geography is a defined area of the world that contains at least one Azure region.
+- An Azure region is an area within a geography containing one or more data centers.
 
-* Region availability: Choose a geographic area close to your users to minimize network lag and transmission time, a region that support Spring app zone redundancy is even better.
-* Azure paired regions: Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
-* Service availability: Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
+Most Azure regions are paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair is updated at a time. In the event of an outage affecting multiple regions, at least one region in each pair is prioritized for recovery.
 
-## Use Azure Traffic Manager to route traffic
+To ensure high availability and protection from disasters, deploy your Spring Apps applications to multiple regions. Azure provides a list of paired regions so that you can plan your Spring app deployments accordingly. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md)
 
-[Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) provides DNS-based traffic load-balancing and can distribute network traffic across multiple regions. Use Azure Traffic Manager to direct customers to the closest Azure Spring Apps service instance to them. For best performance and redundancy, direct all application traffic through Azure Traffic Manager before sending it to your Azure Spring Apps service.
+ Consider three key factors when you design your architecture: 
 
-If you have applications in Azure Spring Apps running in multiple regions, use Azure Traffic Manager to control the flow of traffic to your applications in each region. Define an Azure Traffic Manager endpoint for each service using the service IP. Customers should connect to an Azure Traffic Manager DNS name pointing to the Azure Spring Apps service. Azure Traffic Manager load balances traffic across the defined endpoints. If a disaster strikes a data center, Azure Traffic Manager will direct traffic from that region to its pair, ensuring service continuity.
+- **Region availability**. Choose a region that supports Spring App zone redundancy, or a geographic area close to your users to minimize network lag and transmission time.
+- **Azure paired regions**. Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
+- **Service availability**. Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
 
-## Create Azure Traffic Manager for Azure Spring Apps
+### Using Azure Traffic Manager to route traffic
+
+Azure Traffic Manager provides DNS-based traffic load-balancing and can distribute network traffic across multiple regions. Use Azure Traffic Manager to direct customers to the closest Azure Spring Apps service instance to them. For best performance and redundancy, direct all application traffic through Azure Traffic Manager before sending it to your Azure Spring Apps service. For more information, see the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
+
+If you have applications in Azure Spring Apps running in multiple regions, Azure Traffic Manager can control the flow of traffic to your applications in each region. Define an Azure Traffic Manager endpoint for each service using the service IP. Customers should connect to an Azure Traffic Manager DNS name pointing to the Azure Spring Apps service. Azure Traffic Manager load balances traffic across the defined endpoints. If a disaster strikes a data center, Azure Traffic Manager directs traffic from that region to its pair, ensuring service continuity.
+
+To create an Azure Traffic Manager for Azure Spring Apps:
 
 1. Create Azure Spring Apps in two different regions.
-You will need two service instances of Azure Spring Apps deployed in two different regions (East US and West Europe). Launch an existing application in Azure Spring Apps using the Azure portal to create two service instances. Each will serve as primary and fail-over endpoint for Traffic.
 
-**Two service instances info:**
+   Create two service instances of Azure Spring Apps deployed in two different regions (East US and West Europe). Launch an existing application in Azure Spring Apps using the Azure portal to create two service instances. Each serves as a primary and fail-over endpoint for traffic.
 
-| Service Name | Location | Application |
-|--|--|--|
-| service-sample-a | East US | gateway / auth-service / account-service |
-| service-sample-b | West Europe | gateway / auth-service / account-service |
+   | Service Name | Location | Application |
+   |--|--|--|
+   | service-sample-a | East US | gateway / auth-service / account-service |
+   | service-sample-b | West Europe | gateway / auth-service / account-service |
+ 
+1. Set up a custom domain for service.
 
-1. Set up Custom Domain for Service
+   To set up a custom domain for these two existing service instances, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md). After successful set up, both service instances will bind to the custom domain bcdr-test.contoso.com.
 
-Follow [Custom Domain Document](./tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
+1. Create a traffic manager and two endpoints.
 
-1. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+   For instructions, see [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
-Here is the traffic manager profile:
+   Here is the traffic manager profile:
 
-* Traffic Manager DNS Name: `http://asa-bcdr.trafficmanager.net`
-* Endpoint Profiles:
+   - Traffic Manager DNS Name: `http://asa-bcdr.trafficmanager.net`
+   * Endpoint Profiles:
 
-| Profile | Type | Target | Priority | Custom Header Settings |
-|--|--|--|--|--|
-| Endpoint A Profile | External Endpoint | service-sample-a.azuremicroservices.io | 1 | host: bcdr-test.contoso.com |
-| Endpoint B Profile | External Endpoint | service-sample-b.azuremicroservices.io | 2 | host: bcdr-test.contoso.com |
+     |-Profile | Type | Target | Priority | Custom Header Settings |
+     |--|--|--|--|--|
+     | Endpoint A Profile | External Endpoint | service-sample-a.azuremicroservices.io | 1 | host: bcdr-test.contoso.com |
+     | Endpoint B Profile | External Endpoint | service-sample-b.azuremicroservices.io | 2 | host: bcdr-test.contoso.com |
 
 1. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net.
 
-1. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
+The environment is now set up. Customers should be able to access the app using bcdr-test.contoso.com.
 
 ## Next steps
 
