@@ -42,8 +42,6 @@ This quickstart will create a single Azure Cosmos DB account using the Table API
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - create resources](<./includes/quickstart-dotnet/azure-cli-create-resource-group-and-resource.md>)]
-
 [!INCLUDE [azure-cli-create-resource-group-and-resource](./includes/quickstart-dotnet/azure-cli-create-resource-group-and-resource.md)]
 
 #### [PowerShell](#tab/azure-powershell)
