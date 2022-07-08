@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/13/2021
+ms.date: 07/08/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -52,7 +52,11 @@ If your enterprise administrator can't assist you, create an [Azure support requ
 - Enrollment number
 - Email address to add, and authentication type (work, school, or Microsoft account)
 - Email approval from an existing enterprise administrator
-  - If the existing enterprise administrator isn't available, contact your partner or software advisor to request that they change the contact details through the Volume Licensing Service Center (VLSC) tool.
+
+>[!NOTE]
+>  - We recommend that you have at least one active Enterprise Administrator at all times. If no active Enterprise Administrator is available, contact your partner to change the contact information on the Volume License agreement. Your partner can make changes to the customer contact information by using the Contact Information Change Request (CICR) process available in the eAgreements (VLCM) tool.
+>  - Any new EA administrator account created using the CICR process is assigned read-only permissions to the enrollment in the EA portal and Azure portal. To elevate access, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 
 ## Create an Azure Enterprise department
 
