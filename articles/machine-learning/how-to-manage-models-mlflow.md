@@ -25,6 +25,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 | Registering models in MLflow format | **&check;** | **&check;** | **&check;** | **&check;** |
 | Registering models not in MLflow format |  |  | **&check;** | **&check;** |
 | Registering models from runs outputs/artifacts | **&check;** | **&check;**<sup>1</sup> | **&check;**<sup>2</sup> | **&check;** |
+| Registering models from runs outputs/artifacts in a different tracking server/workspace | **&check;** |  |  |  |
 | Listing registered models | **&check;** | **&check;** | **&check;** | **&check;** |
 | Retrieving details of registered model's versions | **&check;** | **&check;** | **&check;** | **&check;** |
 | Editing registered model's versions description | **&check;** | **&check;** | **&check;** | **&check;** |
