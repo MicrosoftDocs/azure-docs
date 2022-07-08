@@ -18,9 +18,21 @@ Azure SignalR Service supports the same formats as ASP.NET Core SignalR: [JSON](
 
 ## Message size
 
-Azure SignalR Service has no size limit for messages.
+Azure SignalR Service has following limit for messages:
 
-Large messages are split into smaller messages that are no more than 2 KB each and transmitted separately. SDKs handle message splitting and assembling. No developer efforts are needed.
+* Client message:
+  * Long polling or Server Side Event, client cannot send a message larger than 1MB.
+  * There is no limitation for Websockets for service.
+  * App server can set a limitation for client message size, see [document](https://docs.microsoft.com/aspnet/core/signalr/security?#buffer-management), by default, it is 32KB.
+  * Serverless, it is limited by upstream implementation, but we do not recommented it larger than 1MB.
+* Server message:
+  * There is no limitation for server message, but we do not recommented it larger than 16MB.
+  * App server can also set a limitation for server messages, see [document](https://docs.microsoft.com/aspnet/core/signalr/security?#buffer-management), by default, it is 32KB.
+  * Serverless:
+    * Rest API: 1MB for message body, 16KB for headers.
+    * There is no limitation for Websockets, [management SDK persistent mode](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md), but we do not recommanded it larger than 16MB.
+
+For Websockets clients, large messages are split into smaller messages that are no more than 2 KB each and transmitted separately. SDKs handle message splitting and assembling. No developer efforts are needed.
 
 Large messages do negatively affect messaging performance. Use smaller messages whenever possible, and test to determine the optimal message size for each use-case scenario.
 
