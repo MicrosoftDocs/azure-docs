@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: diberry
 ---
-1. From the Azure Cosmos DB SQL API account page, select the **Connection String** navigation menu option.
+1. From the Azure Cosmos DB Table API account page, select the **Connection String** navigation menu option.
 
 1. Record the values for the **PRIMARY CONNECTION STRING** field. You'll use this value in a later step.
 

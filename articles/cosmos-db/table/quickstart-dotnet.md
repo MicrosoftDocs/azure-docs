@@ -14,7 +14,7 @@ ms.custom: devx-track-dotnet
 # Quickstart: Azure Cosmos DB Table API for .NET
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-This quickstart shows how to get started with the Azure Cosmos DB Table API from a .NET application. The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
+This quickstart shows how to get started with the Azure Cosmos DB Table API from a .NET application. The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. You'll learn how to create tables, rows, and perform basic tasks within your Cosmos DB resource using the the [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/).
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples) are available on GitHub as a .NET project.
@@ -34,7 +34,7 @@ This quickstart shows how to get started with the Azure Cosmos DB Table API from
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses the Table API NuGet packages. 
+This section walks you through how to create an Azure Cosmos account and set up a project that uses the Table API NuGet packages. 
 
 ### Create an Azure Cosmos DB account
 
@@ -92,19 +92,6 @@ dotnet add package Azure.Data.Tables
 
 [!INCLUDE [Multi-tab](<./includes/quickstart-dotnet/environment-variables-connection-string.md>)]
 
-## Object model
-
-Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and docs.
-
-:::image type="complex" source="media/dotnet-quickstart/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
-    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
-:::image-end:::
-
-You'll use the following Table API classes to interact with these resources:
-
-- [``TableClient``](/dotnet/api/azure.data.tables.tableclient) - This class provides a client-side logical representation for working with tables on Cosmos DB. The client object is used to configure and execute requests against the service.
-- [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) - This class is a reference to a row in a table that allows you to manage properties and column data.
-
 ## Code examples
 
 * [Authenticate the client](#authenticate-the-client)
@@ -115,6 +102,11 @@ You'll use the following Table API classes to interact with these resources:
 * [Query items](#query-items)
 
 The sample code described in this article creates a table named ``adventureworks``. Each table row contains the details of a product such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+
+You'll use the following Table API classes to interact with these resources:
+
+- [``TableClient``](/dotnet/api/azure.data.tables.tableclient) - This class provides a client-side logical representation for working with tables on Cosmos DB. The client object is used to configure and execute requests against the service.
+- [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) - This class is a reference to a row in a table that allows you to manage properties and column data.
 
 ### Authenticate the client
 
