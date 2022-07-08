@@ -1,6 +1,6 @@
 ---
 title: Proximity placement groups for virtual machine scale sets
-description: Learn about creating and using proximity placement groups for Windows virtual machine scale sets in Azure. 
+description: Learn about creating  proximity placement groups for Windows virtual machine scale sets in Azure. 
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
-# Creating and using proximity placement groups using PowerShell
+# Create a proximity placement groups using PowerShell
 
 Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
 

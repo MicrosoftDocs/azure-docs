@@ -294,7 +294,7 @@
     href: ../virtual-machines/security-policy.md
     maintainContext: true
   - name: Azure security baseline
-    href: ../security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline.md
+    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
     maintainContext: true
   - name: Hotpatch
     href: ../automanage/automanage-hotpatch.md
