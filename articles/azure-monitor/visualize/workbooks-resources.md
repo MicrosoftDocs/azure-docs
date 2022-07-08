@@ -27,7 +27,7 @@ Values from resource pickers can come from the workbook context, static list, or
     1. **Include only resource types**: `Application Insights`
 1. Select **Save** on the toolbar to create the parameter.
 
-   ![Screenshot that shows the creation of a resource parameter using workbook resources](./media/workbooks-resources/resource-create.png)
+   ![Screenshot that shows the creation of a resource parameter using workbook resources.](./media/workbooks-resources/resource-create.png)
 
 ## Create an Azure Resource Graph resource parameter
 
@@ -39,7 +39,7 @@ Values from resource pickers can come from the workbook context, static list, or
     1. **Parameter type**: `Resource picker`
     1. **Required**: `checked`
     1. **Allow multiple selections**: `checked`
-1. **Get data from**: `Query`
+    1. **Get data from**: `Query`
     1. **Query Type**: `Azure Resource Graph`
     1. **Subscriptions**: `Use default subscriptions`
     1. In the query control, add this snippet:
@@ -51,12 +51,12 @@ Values from resource pickers can come from the workbook context, static list, or
 
 1. Select **Save** on the toolbar to create the parameter.
 
-   ![Screenshot that shows the creation of a resource parameter using Azure Resource Graph](./media/workbooks-resources/resource-query.png)
+   ![Screenshot that shows the creation of a resource parameter using Azure Resource Graph.](./media/workbooks-resources/resource-query.png)
 
 > [!NOTE]
 > Azure Resource Graph isn't yet available in all clouds. Ensure that it's supported in your target cloud if you choose this approach.
 
-[Azure Resource Graph documentation](../../governance/resource-graph/overview.md)
+For more information on Azure Resource Graph, see [What is Azure Resource Graph?](../../governance/resource-graph/overview.md).
 
 ## Create a JSON list resource parameter
 
@@ -68,7 +68,7 @@ Values from resource pickers can come from the workbook context, static list, or
     1. **Parameter type**: `Resource picker`
     1. **Required**: `checked`
     1. **Allow multiple selections**: `checked`
-1. **Get data from**: `JSON`
+    1. **Get data from**: `JSON`
     1. In the content control, add this JSON snippet:
 
         ```json
@@ -77,6 +77,7 @@ Values from resource pickers can come from the workbook context, static list, or
             { "value":"/subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeweb", "label": "acmeweb", "selected":false, "group":"Acme Frontend" }
         ]
         ```
+
     1. Select the **Update** button.
 1. Optionally, set `Include only resource types` to **Application Insights**.
 1. Select **Save** on the toolbar to create the parameter.
@@ -95,7 +96,7 @@ Values from resource pickers can come from the workbook context, static list, or
 
 1. Run the query to see the results.
 
-   ![Screenshot that shows a resource parameter referenced in a query control](./media/workbooks-resources/resource-reference.png)
+   ![Screenshot that shows a resource parameter referenced in a query control.](./media/workbooks-resources/resource-reference.png)
 
 This approach can be used to bind resources to other controls like metrics.
 
