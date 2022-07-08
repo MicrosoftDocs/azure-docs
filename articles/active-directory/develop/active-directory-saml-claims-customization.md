@@ -143,7 +143,7 @@ You can use the following functions to transform claims.
 If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) under the *SaaS application* category.
 
 ## How to use the RegexReplace() Transformation
-:::image type="content" source="./media/active-directory-saml-claims-customization/regexreplace-trasform.png" alt-text="RegexReplace() Transformation Illustration" lightbox="./media/active-directory-saml-claims-customization/regexreplace-trasform.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/regexreplace-trasform.png" alt-text="Screenshot of RegexReplace() Transformation Illustration." lightbox="./media/active-directory-saml-claims-customization/regexreplace-trasform.png":::
 
 1. Use edit button with a pen icon to open the claims transformation blade. 
 1. Dropdown against the “Transformation” label will allow you to select the different transformation function, select “RegexReplace()” to use regex-based claims transformation method for claims transformation. 
@@ -152,11 +152,11 @@ If you need additional transformations, submit your idea in the [feedback forum 
 1. Textbox against the “Regex pattern” accepts the regular expression which is to be evaluated against the value of user attribute selected as “parameter 1” e.g. regular expression to extract user alias from the user’s email address would be like, “(?'domain'^.*?)(?i)(\@contoso\.com)$” 
 1. By using the “Add additional parameter” button, an administrator can choose more user attributes which can be used into the transformation. The value of those would then be merged with regex transformation output. Currently, up to 5 additional parameters are supported.  
  <br />For example, if the user.country attribute is an input parameter, and the value of which might be “US”, to merge this in replacement pattern user need to refer it as {country} inside the replacement pattern. Once user selected the user attribute for the parameter, info balloon against the parameter will explain how parameter can be used inside the replacement pattern.  
-:::image type="content" source="./media/active-directory-saml-claims-customization/regex-replace-info-bubble.png" alt-text="RegexReplace() Info Bubble Illustration" lightbox="./media/active-directory-saml-claims-customization/regex-replace-info-bubble.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/regex-replace-info-bubble.png" alt-text="Screenshot of RegexReplace() Info Bubble Illustration." lightbox="./media/active-directory-saml-claims-customization/regex-replace-info-bubble.png":::
 1. Textbox against the “Replacement pattern” label accepts the replacement pattern. Replacement pattern is the text template which contains placeholders for regex outcome group name, input parameter group name and static text value. All group names must ne wrapped inside the curly braces i.e. {group-name}. Let’s say, administration wants to use user alias with some other domain name e.g. xyz.com and merge country name with it, in this case the replacement pattern would be “{country}.{domain}@xyz.com”, where {country} will be the value of input parameter and {domain} will be the group output from the regular expression evaluation. In such case, the expected outcome will be “US.swmal@xyz.com” 
 
 1. RegexReplace() transformation will be evaluated only if the value of the selected user attribute for “Parameter 1” matches with the regular expression provided in “Regex pattern” textbox, otherwise default claim value will be added to the token. To validate regular expression against the input parameter value, test experience is available within a transform blade, however it operates on dummy values only. In case of additional input parameters, name of the parameter will be added to the test result instead of actual value. You can see the sample output in point 18. To access the test section user, need to click on the “Test transformation” button. 
-:::image type="content" source="./media/active-directory-saml-claims-customization/test-regexreplace-transformation.png" alt-text="RegexReplace() Test Transformation" lightbox="./media/active-directory-saml-claims-customization/test-regexreplace-transformation.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/test-regexreplace-transformation.png" alt-text="Screenshot of RegexReplace() Test Transformation." lightbox="./media/active-directory-saml-claims-customization/test-regexreplace-transformation.png":::
 
 1. Regex-based claims transformation can be used as the second level transformation as well, in that case user can use any other transformation method as first transformation.  
 
@@ -189,24 +189,24 @@ If you need additional transformations, submit your idea in the [feedback forum 
 1. Once user configure all settings for the transformation and happy with it, he/she can save add it to claims policy by clicking “Add” button. However, changes won’t be saved unless user does not manually click the “Save” toolbar button available on “Manage Claim” blade. 
 
 RegexReplace() transformation is also available for the group claims transformations. 
-:::image type="content" source="./media/active-directory-saml-claims-customization/regex-replace-group.png" alt-text="RegexReplace() Group Claims Transformation" lightbox="./media/active-directory-saml-claims-customization/regex-replace-group.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/regex-replace-group.png" alt-text="Screenshot of RegexReplace() Group Claims Transformation." lightbox="./media/active-directory-saml-claims-customization/regex-replace-group.png":::
 
 ### RegexReplace() Transform Validations
 Input parameters with duplicate user attributes are not allowed. If duplicate user attributes selected following validation message will be rendered after user clicked on “Add” or “Run test” button. 
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/validation-duplicate-user.png" alt-text="RegexReplace() Validation Duplicate User" lightbox="./media/active-directory-saml-claims-customization/validation-duplicate-user.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/validation-duplicate-user.png" alt-text="Screenshot of RegexReplace() Validation Duplicate User." lightbox="./media/active-directory-saml-claims-customization/validation-duplicate-user.png":::
 
 When unused input parameters found, following message will rendered on click of “Add” and “Run test” button click. Defined input parameters should have respective usage into the Replacement pattern text.  
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/validation-input-parameter.png" alt-text="RegexReplace() Validation Input Parameter" lightbox="./media/active-directory-saml-claims-customization/validation-input-parameter.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/validation-input-parameter.png" alt-text="Screenshot of RegexReplace() Validation Input Parameter." lightbox="./media/active-directory-saml-claims-customization/validation-input-parameter.png":::
 
 With test experience, if provided test regex input does not match with the provided regular expression then following message will be displayed. This validation needs input value hence it won’t be applied when user clicks on “Add” button. 
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/validation-regex-input.png" alt-text="RegexReplace() Validation Test Regex Failed Regular Expression" lightbox="./media/active-directory-saml-claims-customization/validation-regex-input.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/validation-regex-input.png" alt-text="Screenshot of RegexReplace() Validation Test Regex Failed Regular Expression." lightbox="./media/active-directory-saml-claims-customization/validation-regex-input.png":::
 
 With test experience, when source for the groups into the replacement pattern not found user will receive following message. This validation won’t be applied when user clicks on “Add” button. 
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/validation-regex-replacement.png" alt-text="RegexReplace() Validation Test Regex Groups Not Found" lightbox="./media/active-directory-saml-claims-customization/validation-regex-replacement.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/validation-regex-replacement.png" alt-text="Screenshot of RegexReplace() Validation Test Regex Groups Not Found." lightbox="./media/active-directory-saml-claims-customization/validation-regex-replacement.png":::
 
 ## Add the UPN claim to SAML tokens
 
@@ -242,11 +242,11 @@ For example, Britta Simon is a guest user in the Contoso tenant. She belongs to 
 
 First, the Microsoft identity platform verifies if Britta's user type is **All guests**. Since, this is true then the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies if Britta's user type is **AAD guests**, since this is also true then the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Claims conditional configuration" lightbox="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Screenshot of claims conditional configuration." lightbox="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png":::
 
 As another example, consider when Britta Simon tries to sign in and the following configuration is used. Azure AD first evaluates all conditions with source `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with value `user.othermail` for Britta.
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="More claims conditional configuration" lightbox="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration." lightbox="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png":::
 
 As a final example, let’s consider what happens if Britta has no `user.othermail` configured or it is empty. In both cases the condition entry is ignored, and the claim will fall back to `user.extensionattribute1` instead.
 

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 SAML Request Signature Verification is a functionality that validates the signature of signed authentication requests. An App Admin now can enable and disable the enforcement of signed requests and upload the public keys that should be used to do the validation. 
 
-If enabled AAD will validate the requests against the public keys configured. There are some scenarios where the authentication requests can fail: 
+If enabled Azure Active Directory will validate the requests against the public keys configured. There are some scenarios where the authentication requests can fail: 
 
 - Protocol not allowed for signed requests. Only SAML protocol is supported. 
 - Request not signed, but verification is enabled. 
