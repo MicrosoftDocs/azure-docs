@@ -25,7 +25,7 @@ If your line-of-business application supports the [SCIM](https://aka.ms/scimover
 <img width="316" alt="Provisioning to a SCIM application" src="https://user-images.githubusercontent.com/36525136/171483159-9470f922-4b89-4ebf-8962-bd05a72f87be.png">
 
 **Option 3 - Leverage Microsoft Graph:**
-Many new applications use [Microsoft Graph](graph/overview) to retrieve [users](graph/api/resources/user), groups and other resources from Azure Active Directory. You can learn more about what scenarios to use [SCIM and Graph](scim-graph-scenarios.md) in. 
+Many new applications use Microsoft Graph to retrieve users, groups and other resources from Azure Active Directory. You can learn more about what scenarios to use [SCIM and Graph](scim-graph-scenarios.md) in. 
 
 **Option 4 - Leverage partner-driven connectors:**
 In cases where an application does not support SCIM, partners have built gateways between the Azure AD SCIM client and target applications. **This document serves as a place for partners to attest to integrations that are compatible with Azure Active Directory, and for customers to discover these partner-driven integrations.** Note that these gateways are built, maintained, and owned by the third-party vendor. 
@@ -63,7 +63,7 @@ UNIFY Solutions is the leading provider of Identity, Access, Security and Govern
 * Company website: https://unifysolutions.net/identity/unifyconnect
 * Contact information: https://unifysolutions.net/contact/
 
-#### Applications supported
+#### Popular applications supported
 * Aurion People & Payroll
 * Frontier Software chris21
 * TechnologyOne HR
