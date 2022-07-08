@@ -52,7 +52,12 @@ It's recommended that you follow the [swing migration](how-to-upgrade-previous-v
 >[!NOTE]  
 > If you are using an older build of group writeback in Azure AD Connect, the M365 groups being written back as universal distribution groups, will continue to be written back.  The new version of group writeback is backwards compatible.   
 
-## Enable group writeback using Azure AD Connect
+## Enable group writeback
+Enabling group writeback is a two step process.  One step is done via Azure AD Connect and the second one is done using PowerShell.  To enable group writeback complete the steps under each of the following setctions:
+   - [Enable group writeback using Azure AD Connect](#enable-group-writeback-using-azure-ad-connect)
+   - [Enabling group writeback using PowerShell](#enable-group-writeback-using-powershell)
+
+### Enable group writeback using Azure AD Connect
 
 To enable group writeback, use the following steps:
 
@@ -86,7 +91,7 @@ To enable group writeback, use the following steps:
 
 For more information on configuring the Microsoft 365 groups, see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
-## Enabling group writeback using PowerShell
+### Enable group writeback using PowerShell
 
 To enable group writeback via PowerShell:
 
