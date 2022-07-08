@@ -242,7 +242,7 @@ To check reset status and to see which document keys are queued up for processin
 
 Reset APIs are used to inform the scope of the next indexer run. For actual processing, you'll need to invoke an on-demand indexer run or allow a scheduled job to complete the work. After the run is finished, the indexer returns to normal processing, whether that is on a schedule or on-demand processing.
 
-After you reset and rerun indexer jobs, you can monitor status from the search service, or obtain detailed information through diagnostic logging.
+After you reset and rerun indexer jobs, you can monitor status from the search service, or obtain detailed information through resource logging.
 
 + [Indexer operations (REST)](/rest/api/searchservice/indexer-operations)
 + [Monitor search indexer status](search-howto-monitor-indexers.md)

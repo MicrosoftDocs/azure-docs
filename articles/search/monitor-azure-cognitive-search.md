@@ -7,38 +7,41 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/06/2022
+ms.date: 07/08/2022
 ms.custom: subject-monitoring
 ---
 
 # Monitoring Azure Cognitive Search
 
-[Azure Monitor](../azure-monitor/overview.md) is a service that monitors performance and availability. It's enabled with each new Azure subscription. Activity log and platform metrics are automatically collected free of charge for any new Azure resource that you create, including Azure Cognitive Search. This data is collected automatically and stored internally for up to 30 days. Data becomes available for analysis as soon as you create the resource.
+[Azure Monitor](../azure-monitor/overview.md) is an Azure-wide resource that monitors performance and availability. It's enabled the moment you create a new Azure subscription. It collects activity logs and platform metrics for any new resource that you sign up for. Activity logs and metrics data become available for analysis as soon as you create your search service. 
 
-You can also extend monitoring by creating diagnostic settings that collect more detailed information that you can query or consume in reports. Diagnostic logging requires extra Azure services (storage account, event hub, or Log Analytics), which are billable. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing) for details.
+Optionally, you can enable diagnostic settings to collect resource logs, which provide more detailed information useful for analysis in queries and reports. Resource logging requires extra Azure resources (a storage account, event hub, or Log Analytics workspace). Storage, data ingestion, and queries are billable. See [Azure Monitor cost and usage](/azure/azure-monitor/usage-estimated-costs) for details.
 
-This article explains how monitoring works for Azure Cognitive Search. This article also describes system APIs that return information about your service.
+This article explains how monitoring works for Azure Cognitive Search. It also describes the system APIs that return information about your service.
+
+> [!NOTE]
+> Monitoring applies to search service operations. Cognitive Search doesn't monitor individual user access to content on the search service. If you require this level of monitoring, you'll need to implement it in your client application.
 
 ## Monitoring in Azure portal
 
-In the search services pages in Azure portal, you can find current status of service operations and resource availability.
+In the search service pages in Azure portal, you can find the current status of service operations and resource availability.
 
   ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png "Azure Monitor integration in a search service")
 
 On the **Overview** page, the **Monitoring** tab summarizes key [query metrics](search-monitor-queries.md), including query volume, latency, and throttled queries. 
 
-On the **Overview** page, the **Usage** tab reports on available capacity and the quantity of indexes, indexers, data sources, and skillsets relative to the maximum allowed for your [service tier](search-sku-tier.md).
+On the next tab over, **Usage** reports on available capacity and the quantity of indexes, indexers, data sources, and skillsets relative to the maximum allowed for your [service tier](search-sku-tier.md).
 
-From the menu on the left, open the standard **Activity log** page to view search activity at the subscription level. Service administration and control plane operations through Azure Resource Manager are reflected in the activity log.
+From the menu on the left, open the standard **Activity log** page to view search activity at the subscription level. 
 
-From the menu on the left, the **Monitoring** section includes actions for Azure Monitor, filtered for an Azure Cognitive Search service. You can enable diagnostics, persistance, and alerts.
+Also on the left menu, the **Monitoring** section includes actions for Azure Monitor, filtered for your search service. Here, you can enable diagnostics and resource logging, alerts, and specify how you want the data stored.
 
 > [!NOTE]
-> Cognitive Search doesn't monitor individual user access to search data (sometimes referred to as document-level or row-level access). Indexing and query requests originate from a client application that presents either an admin or query API key on the request.
+> Because portal pages are refreshed every few minutes, the numbers reported are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page. If precision is a requirement, consider using APIs.
 
 ## Get system data from REST APIs
 
-Cognitive Search REST APIs provide the **Usage** data that's visible in the portal. You can obtain this information programmatically:
+Cognitive Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service. You can obtain this information programmatically:
 
 * [Service Statistics (REST)](/rest/api/searchservice/get-service-statistics)
 * [Index Statistics (REST)](/rest/api/searchservice/get-index-statistics)
@@ -47,100 +50,41 @@ Cognitive Search REST APIs provide the **Usage** data that's visible in the port
 
 For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman](search-get-started-rest.md) or another REST client to query your search service.
 
-## Expand monitoring with Azure Monitor
+## Monitor activity logs
 
-Azure Cognitive Search is integrated with [Azure Monitor](../azure-monitor/overview.md). If you're not familiar with this service, start with [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) to review these concepts:
+For all Azure resources, [**activity logs**](/azure/azure-monitor/agents/data-sources#azure-activity-log) are collected automatically at the subscription level with no configuration requirement. [Data retention](/azure/azure-monitor/essentials/activity-log#retention-period) is 90 days, but you can configure storage for longer retention. Activity logs are collected free of charge (see the [Pricing model](/azure/azure-monitor/usage-estimated-costs#pricing-model) for details).
 
-* What is Azure Monitor and how does it integrate with other Azure services
-* What types of data are collected by Azure Monitor
-* What Azure Monitor tools are used for data analysis
+1. In the Azure portal, find your search service. From the menu on the left, select **Activity logs** to view the logs for your search service.
 
-The following sections build on this article by describing the specific data gathered from Azure Cognitive Search and providing examples for configuring diagnostic settings and analyzing this data with Azure tools.
+1. A search service activity log will often include numerous entries for **Get Admin Key**, one entry for every call that [provided an admin key](search-security-api-keys.md) on the request. There are no details about the call itself. For insights into content (or data plane) operations, you'll need to enable diagnostic settings and collect resource logs.
 
-### Data collection and routing
+1. See [Azure Monitor activity log](/azure/azure-monitor/essentials/activity-log) for general guidance on working with activity logs.
 
-Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
+1. See [Management REST API reference](/rest/api/searchmanagement/) for control plane operations that might appear in the log.
 
-See the [data reference](monitor-azure-cognitive-search-data-reference.md) for detailed information on the metrics and logs metrics created by Azure Cognitive Search.
+## Monitor platform metrics
 
-Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations. Log data ingestion and retention are billable under consumption-based pricing. Billing doesn't start until you create a diagnostic setting.
+Cognitive Search provides [**platform metrics**](/azure/azure-monitor/essentials/data-platform-metrics) for query execution, indexing, and skillset invocation.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Azure Cognitive Search* are listed in [Azure Cognitive Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#resource-logs).
+Metrics are collected automatically with no configuration requirement. [Data retention](/azure/azure-monitor/faq#is-there-a-maximum-amount-of-data-that-i-can-collect-in-azure-monitor-) is about 90 days. Metric data is collected free of charge (see the [Pricing model](/azure/azure-monitor/usage-estimated-costs#pricing-model) for details).
 
-The metrics and logs you can collect are discussed in the following sections.
+1. In the Azure portal, find your search service. From the menu on the left, select **Monitoring / Metrics** to open metrics explorer.
 
-## Analyzing metrics
+1. See [Tutorial: Analyze metrics for an Azure resource](/azure/azure-monitor/essentials/tutorial-metrics) for general guidance on using metrics explorer.
 
-You can analyze metrics for Azure Cognitive Search with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+1. See [Microsoft.Search/searchServices (Azure Monitor)](/azure/azure-monitor/essentials/metrics-supported#microsoftsearchsearchservices) for the full list of platform metrics for Azure Cognitive Search.
 
-For a list of the platform metrics collected for Azure Cognitive Search, see [Azure Cognitive Search monitoring data reference (metrics)](monitor-azure-cognitive-search-data-reference.md#metrics).  
+1. See [Azure Cognitive Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md) for supplemental descriptions and dimensions.
 
-## Analyzing logs
+## Set up alerts
 
-Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
+Alerts allow you to identify and address issues before they become a problem for application users. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [resource logs](../azure-monitor/alerts/alerts-unified-log.md), and [activity logs](../azure-monitor/alerts/activity-log-alerts.md). Alerts are billable (see the [Pricing model](/azure/azure-monitor/usage-estimated-costs#pricing-model) for details).
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md). The extended schema for Azure Cognitive Search resource logs is found in the [Azure Cognitive Search monitoring data reference (schemas)](monitor-azure-cognitive-search-data-reference.md#schemas).
+1. In the Azure portal, find your search service. From the menu on the left, select **Monitoring / Alerts** to open metrics explorer.
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log within Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+1. See [Tutorial: Create a metric alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-metric-alert) for general guidance on setting up alerts.
 
-For a list of the types of resource logs collected for Azure Cognitive Search, see [Azure Cognitive Search monitoring data reference (resource logs)](monitor-azure-cognitive-search-data-reference.md#resource-logs).
-
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Azure Cognitive Search monitoring data reference (Azure Monitor Logs Tables)](monitor-azure-cognitive-search-data-reference.md#azure-monitor-logs-tables).
-
-> [!NOTE]
-> Because portal pages are refreshed every few minutes, the numbers reported are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page. If precision is a requirement, consider using APIs.
-
-### Sample Kusto queries
-
-> [!IMPORTANT]
-> When you select **Logs** from the Azure Cognitive Search menu, Log Analytics is opened with the query scope set to the current search service. This means that log queries will only include data from that resource. If you want to run a query that includes data from other search services or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
-
-Following are queries that you can use to help you monitor your search service. See the [**Azure Cognitive Search monitoring data reference**](monitor-azure-cognitive-search-data-reference.md) for descriptions of schema elements.
-
-#### List metrics by name
-
-Return a list of metrics and the associated aggregation. The query is scoped to the current search service over the time range that you specify.
-
-```kusto
-AzureMetrics
-| project MetricName, Total, Count, Maximum, Minimum, Average
-```
-
-#### List operations by name
-
-Return a list of operations and a count of each one.
-
-```kusto
-AzureDiagnostics
-| summarize count() by OperationName
-```
-
-#### Long-running queries
-
-This Kusto query against AzureDiagnostics returns `Query.Search` operations, sorted by duration (in milliseconds). 
-
-```Kusto
-AzureDiagnostics
-| project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
-| where OperationName == "Query.Search"
-| sort by DurationMs   
-```
-
-#### Indexer status
-
-This Kusto query returns the status of indexer operations. Results include the operation name, description of the request (which includes the name of the indexer), result status (Success or Failure), and the [HTTP status code](/rest/api/searchservice/http-status-codes).
-
-```Kusto
-AzureDiagnostics
-| project OperationName, Description_s, Documents_d, ResultType, resultSignature_d
-| where OperationName == "Indexers.Status"
-```
-
-## Alerts
-
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
-
-The following table lists common and recommended alert rules for Azure Cognitive Search. On a search service, throttling or query latency that exceeds a given threshold are the most commonly used alerts, but you might also want to be notified if a search service is deleted.
+The following table describes several rules. On a search service, throttling or query latency that exceeds a given threshold are the most commonly used alerts, but you might also want to be notified if a search service is deleted.
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
@@ -151,9 +95,89 @@ The following table lists common and recommended alert rules for Azure Cognitive
 > [!NOTE]
 > Currently, there are no storage-related alerts (storage consumption data isn't aggregated or logged into the **AzureMetrics** table). To get storage alerts, you could [build a custom solution](../azure-monitor/insights/solutions.md) that emits resource-related notifications, where your code checks for storage size and handles the response.
 
+## Enable resource logging
+
+In Azure Cognitive Search, [resource logs](../azure-monitor/essentials/resource-logs.md) capture indexing and query operations on the search service itself.
+
+Resource Logs aren't collected and stored until you create a diagnostic setting. A diagnostic setting specifies data collection and storage. You can create multiple settings if you want to keep metrics and operational data separate, or if you want more than one of each type of destination.
+
+Resource logging is billable (see the [Pricing model](../azure-monitor/usage-estimated-costs.md#pricing-model) for details). Billing doesn't start until you create a diagnostic setting. See [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for general guidance.
+
+1. In the Azure portal, find your search service. From the menu on the left, select **Diagnostic settings**.
+
+1. Select **+ Add diagnostic setting**.
+
+1. Give the diagnostic setting a name. For example, it might be the name of your search service if you're collecting all logs and metrics.
+
+1. Select the logs and metrics that are in scope. Selections include "allLogs", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
+
+   * See [Microsoft.Search/searchServices (in Supported categories for Azure Monitor resource logs)](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices)
+
+   * See [Microsoft.Search/searchServices (in Supported metrics)](../azure-monitor/essentials/metrics-supported.md#microsoftsearchsearchservices)
+
+   * See [Azure Cognitive Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md) for the extended schema 
+
+1. Select **Send to Log Analytics workspace**. Kusto queries and data exploration will target the workspace.
+
+1. Optionally, select [other destinations](../azure-monitor/essentials/diagnostic-settings.md#destinations).
+
+1. Select **Save**.
+
+Once the workspace contains data, you can run a log query. See [Tutorial: Collect and analyze resource logs from an Azure resource](../azure-monitor/essentials/tutorial-resource-logs.md) for details.
+
+## Sample Kusto queries
+
+> [!IMPORTANT]
+> When you select **Logs** from the Azure Cognitive Search menu, Log Analytics is opened with the query scope set to the current search service. This means that log queries will only include data from that resource. If you want to run a query that includes data from other search services or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
+
+Kusto is the query language used for Log Analytics. Below are some queries to get you started. See the [**Azure Cognitive Search monitoring data reference**](monitor-azure-cognitive-search-data-reference.md) for descriptions of schema elements that you can include in a query.
+
+### List metrics by name
+
+Return a list of metrics and the associated aggregation. The query is scoped to the current search service over the time range that you specify.
+
+```kusto
+AzureMetrics
+| project MetricName, Total, Count, Maximum, Minimum, Average
+```
+
+### List operations by name
+
+Return a list of operations and a count of each one.
+
+```kusto
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+### Long-running queries
+
+This Kusto query against AzureDiagnostics returns `Query.Search` operations, sorted by duration (in milliseconds). For more examples of `Query.Search` queries, see [Analyze performance in Azure Cognitive Search](search-performance-analysis.md).
+
+```Kusto
+AzureDiagnostics
+| project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+| where OperationName == "Query.Search"
+| sort by DurationMs   
+```
+
+### Indexer status
+
+This Kusto query returns the status of indexer operations. Results include the operation name, description of the request (which includes the name of the indexer), result status (Success or Failure), and the [HTTP status code](/rest/api/searchservice/http-status-codes). For more information about indexer execution, see [Monitor indexer status](search-howto-monitor-indexers.md).
+
+```Kusto
+AzureDiagnostics
+| project OperationName, Description_s, Documents_d, ResultType, resultSignature_d
+| where OperationName == "Indexers.Status"
+```
+
 ## Next steps
 
-Fluency with Azure Monitor is essential for oversight of any Azure service, including resources like Azure Cognitive Search. If you aren't familiar with Azure Monitor, take the time to review articles related to resource logging. The following article is a good place to start.
+Azure Cognitive Search is integrated with [Azure Monitor](../azure-monitor/overview.md). If you're not familiar with this service, start with [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) to review these concepts:
+
+* What is Azure Monitor and how does it integrate with other Azure services
+* What types of data are collected by Azure Monitor
+* What Azure Monitor tools are used for data analysis
 
 > [!div class="nextstepaction"]
 > [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
