@@ -172,15 +172,15 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Canada East | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | China East 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | China North 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| France South | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| France South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
@@ -191,10 +191,10 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| South India | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| South India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: 
+| Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: 
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |

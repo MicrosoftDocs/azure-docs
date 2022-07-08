@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/13/2022
+ms.date: 06/30/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
