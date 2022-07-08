@@ -99,7 +99,7 @@ To resolve, reference the [Version log](version-log.md) for the correct image ta
 
 If you are trying to upgrade and the upgrade job has not produced an error but runs for longer than fifteen minutes, you can view the progress of the upgrade by watching the pods. Run 
 
-```kubectl
+```console
 kubectl get pods -n <namespace>
 ```
 
@@ -112,7 +112,7 @@ ErrImagePull
 
 Describe the bootstrap job pod to view the Events. 
 
-```kubectl
+```console
 kubectl describe pod <pod name> -n <namespace>
 ```
 
@@ -124,7 +124,7 @@ failed to resolve reference "<registry>/<repository>/arc-bootstrapper:<image tag
 
 This is common if your image was deployed from a private registry, you're using Kubernetes to upgrade via a yaml file, and the yaml file references mcr.microsoft.com instead of the private registry. To resolve, cancel the upgrade job. To find the registry you deployed from, run 
 
-```kubectl
+```console
 kubectl describe pod <controller in format control-XXXXX> -n <namespace>
 ```
 
@@ -134,7 +134,7 @@ Look for Containers.controller.Image, where you will see the registry and reposi
 
 If you are trying to upgrade and the upgrade job has not produced an error but runs for longer than fifteen minutes, you can view the progress of the upgrade by watching the pods. Run 
 
-```kubectl
+```console
 kubectl get pods -n <namespace>
 ```
 
@@ -152,13 +152,13 @@ metricsdb-0                             1/2     Running            0            
 
 Describe the pod to see Events. 
 
-```kubectl
+```console
 kubectl describe pod <pod name> -n <namespace>
 ```
 
 If there are no events, get the container names and view the logs for the containers.
 
-```kubectl
+```console
 kubectl get pods <pod name> -n <namespace> -o jsonpath='{.spec.containers[*].name}*'
 
 kubectl logs <pod name> <container name> -n <namespace>
