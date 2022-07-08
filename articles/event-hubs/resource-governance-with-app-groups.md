@@ -63,7 +63,7 @@ You can create an application group using the Azure portal by following these st
 
 
 ### [Azure CLI](#tab/cli)
-Use the CLI command: [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group?view=azure-cli-latest#az-eventhubs-namespace-application-group-create) to create an application group in an Event Hubs namespace. 
+Use the CLI command: [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-create) to create an application group in an Event Hubs namespace. 
 
 The following example creates an application group named `myAppGroup` in the namespace `mynamespace` in the Azure resource group `MyResourceGroup`. It uses the following configurations.
 
@@ -83,7 +83,7 @@ az eventhubs namespace application-group create --namespace-name mynamespace \
 
 To learn more about the CLI command, see [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-create). 
 
-### [Azure PpwerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell)
 Use the PowerShell command: [`New-AzEventHubApplicationGroup`](//powershell/module/az.eventhub/new-azeventhubapplicationgroup) to create an application group in an Event Hubs namespace. 
 
 The following example uses the [`New-AzEventHubThrottlingPolicyConfig`](/powershell/module/az.eventhub/new-azeventhubthrottlingpolicyconfig) to create two policies that will be associated with the application.
@@ -91,7 +91,7 @@ The following example uses the [`New-AzEventHubThrottlingPolicyConfig`](/powersh
 - First throttling policy for the `Incoming bytes` metric with `12345` as the threshold. 
 - Second throttling policy for the `Incoming messages` metric with `23416` as the threshold.
 
-Then, it creates an application group named `myappgroup` in the namespace `mynamespace` in the Azure resource group `myresourcegroup` by specifying the throttling policies and shared access policy as the secuirty context. 
+Then, it creates an application group named `myappgroup` in the namespace `mynamespace` in the Azure resource group `myresourcegroup` by specifying the throttling policies and shared access policy as the security context. 
 
 ```azurepowershell-interactive
 $policy1 = New-AzEventHubThrottlingPolicyConfig -Name policy1 -MetricId IncomingBytes -RateLimitThreshold 12345
@@ -136,21 +136,178 @@ The following example shows how to create an application group using an ARM temp
 	}
 }
 ```
+---
+
+## Enable or disable an application group
+You can prevent client applications accessing your Event Hubs namespace by disabling the application group that contains those applications. When the application group is disabled, client applications won't be able to publish or consume data. Any established connections from client applications of that application group will also be terminated. 
+
+This section shows you how to enable or disable an application group using Azure portal, PowerShell, CLI, and ARM template. 
+
+### [Azure portal](#tab/portal)
+
+1. On the **Event Hubs Namespace** page, select **Application Groups** on the left menu. 
+1. Select the application group that you want to enable or disable. 
+
+    :::image type="content" source="./media/resource-governance-with-app-groups/select-application-group.png" alt-text="Screenshot showing the Application Groups page with an application group selected.":::
+1. On the **Edit application group** page, clear checkbox next to **Enabled** to disable an application group, and then select **Update** at the bottom of the page. Similarly, select the checkbox to enable an application group. 
+
+	:::image type="content" source="./media/resource-governance-with-app-groups/disable-app-group.png" alt-text="Screenshot showing the Edit application group page with Enabled option deselected.":::
+
+### [Azure CLI](#tab/cli)
+Use the [`az eventhubs namespace application-group update`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-update) command with `--is-enabled` set to `false` to disable an application group. Similarly, to enable an application group, set this property to `true` and run the command.  
+
+The following sample command disables the application group named **myappgroup** in the Event Hubs namespace **mynamespace** that's in the resource group **myresourcegroup**. 
+
+```azurecli-interactive
+az eventhubs namespace application-group update --namespace-name mynamespace -g myresourcegroup --name myappgroup --is-enabled false
+```
+
+### [Azure PowerShell](#tab/powershell)
+Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-IsEnabled` set to `false` to disable an application group. Similarly, to enable an application group, set this property to `true` and run the command.  
+
+The following sample command disables the application group named **myappgroup** in the Event Hubs namespace **mynamespace** that's in the resource group **myresourcegroup**. 
+
+```azurepowershell-interactive
+Set-AzEventHubApplicationGroup -ResourceGroupName myresourcegroup -NamespaceName mynamespace -Name myappgroup -IsEnabled false
+```
+
+### [ARM template](#tab/arm)
+The following ARM template shows how to update an existing namespace (`contosonamespace`) to disable an application group by setting the `isEnabled` property to `false`. The identifier for the app group is `SASKeyName=RootManageSharedAccessKey`. 
+
+> [!NOTE]
+> The following sample also adds two throttling policies
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "namespace_name": {
+      "defaultValue": "contosonamespace",
+      "type": "String"
+    },
+    "client-app-group-identifier": {
+      "defaultValue": "SASKeyName=RootManageSharedAccessKey",
+      "type": "String"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.EventHub/namespaces/applicationGroups",
+      "apiVersion": "2022-01-01-preview",
+      "name": "[concat(parameters('namespace_name'), '/contosoappgroup')]",
+      "properties": {
+        "clientAppGroupIdentifier": "[parameters('client-app-group-identifier')]",
+        "isEnabled": false,
+		"policies": [
+			{
+				"type": "ThrottlingPolicy",
+				"name": "incomingmsgspolicy",
+				"metricId": "IncomingMessages",
+				"rateLimitThreshold": 10000
+			},
+			{
+				"type": "ThrottlingPolicy",
+				"name": "incomingbytespolicy",
+				"metricId": "IncomingBytes",
+				"rateLimitThreshold": 20000
+			}
+		]
+      }
+    }
+  ]
+}
+```
 
 ## Apply throttling policies
-You can add zero or more policies when you create an application group or to an existing application group. 
+You can add zero or more policies when you create an application group or to an existing application group. For example, you can add throttling policies related to `IncomingMessages`, `IncomingBytes` or `OutgoingBytes` to the `contosoAppGroup`. These policies will get applied to event streaming workloads of client applications that use the SAS policy `contososaspolicy`. 
 
-For example, you can add throttling policies related to `IncomingMessages`, `IncomingBytes` or `OutgoingBytes` to the `contosoAppGroup`. These policies will get applied to event streaming workloads of client applications that use the SAS policy `contososaspolicy`. 
+To learn how to add policies while creating an application group, see the [Create an application group](#create-an-application-group) section.
 
+You can also add policies after an application group is created.  
+
+### [Azure portal](#tab/portal)
+1. On the **Event Hubs Namespace** page, select **Application Groups** on the left menu. 
+1. Select the application group for which you want to add, update, or delete a policy.
+1. On the **Edit application group** page, you can do the following steps:
+    1. Delete an existing policy by selecting the trash icon button next to the policy. 
+    1. Update settings (including threshold values) for policies
+    1. Add a new policy
+
+### [Azure CLI](#tab/cli)
+Use the [`az eventhubs namespace application-group policy add`](/cli/azure/eventhubs/namespace/application-group/policy#az-eventhubs-namespace-application-group-policy-add) to add a policy to an existing application group.
+
+**Example:**
+
+```azurecli-interactive
+az eventhubs namespace application-group policy add --namespace-name mynamespace -g MyResourceGroup --name myAppGroup --throttling-policy-config name=policy1 metric-id=OutgoingMessages rate-limit-threshold=10500 --throttling-policy-config name=policy2 metric-id=IncomingBytes rate-limit-threshold=20000
+```
+
+### [Azure PowerShell](#tab/powershell)
+Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-ThrottingPolicyConfig` set to appropriate values. 
+
+**Example:**
+```azurepowershell-interactive
+$policyToBeAppended = New-AzEventHubThrottlingPolicyConfig -Name policy1 -MetricId IncomingBytes -RateLimitThreshold 12345
+
+$appGroup = Get-AzEventHubApplicationGroup -ResourceGroupName myresourcegroup -NamespaceName mynamespace -Name myappgroup
+
+$appGroup.ThrottlingPolicyConfig += $policyToBeAppended
+
+Set-AzEventHubApplicationGroup -ResourceGroupName myresourcegroup -NamespaceName mynamespace -Name myappgroup -ThrottlingPolicyConfig $appGroup.ThrottlingPolicyConfig
+```
+
+### [ARM template](#tab/arm)
+The following ARM template shows how to update an existing namespace (`contosonamespace`) to add throttling policies. The identifier for the app group is `SASKeyName=RootManageSharedAccessKey`. 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "namespace_name": {
+      "defaultValue": "contosonamespace",
+      "type": "String"
+    },
+    "client-app-group-identifier": {
+      "defaultValue": "SASKeyName=RootManageSharedAccessKey",
+      "type": "String"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.EventHub/namespaces/applicationGroups",
+      "apiVersion": "2022-01-01-preview",
+      "name": "[concat(parameters('namespace_name'), '/contosoappgroup')]",
+      "properties": {
+        "clientAppGroupIdentifier": "[parameters('client-app-group-identifier')]",
+        "isEnabled": true,
+		"policies": [
+			{
+				"type": "ThrottlingPolicy",
+				"name": "incomingmsgspolicy",
+				"metricId": "IncomingMessages",
+				"rateLimitThreshold": 10000
+			},
+			{
+				"type": "ThrottlingPolicy",
+				"name": "incomingbytespolicy",
+				"metricId": "IncomingBytes",
+				"rateLimitThreshold": 20000
+			}
+		]
+      }
+    }
+  ]
+}
+
+```
 
 ## Publish or consume events 
 Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. For that, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
 
 > [!NOTE]
 > When your client applications are throttled, you should experience a slowness in publishing or consuming data. 
-
-## Enable or disable application groups 
-You can prevent client applications accessing your Event Hubs namespace by disabling the application group that contains those applications. When the application group is disabled, client applications won't be able to publish or consume data. Any established connections from client applications of that application group will also be terminated. 
 
 
 
