@@ -17,36 +17,43 @@ This article steps through using the Azure CLI to create a virtual machine scale
 
 Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](/cli/azure/reference-index).
 
-## Get started with Flexible scale sets
 
-Create a virtual machine scale set with Azure CLI.
+## Launch Azure Cloud Shell
 
-### Add multiple VMs to a scale set
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
-In the following example, we specify a virtual machine profile (VM type, networking configuration, etc.) and number of instances to create (instance count = 2).  
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/cli](https://shell.azure.com/cli). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+
+
+## Create a resource group
+
+Create a resource group with [az group create](/cli/azure/group) as follows:
 
 ```azurecli-interactive
-az vmss create
---name $vmssName
---resource-group $rg
---image UbuntuLTS
---instance-count 2
---orchestration-mode flexible
+az group create --name myResourceGroup --location eastus
+```
+## Create a virtual machine scale set
+Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss). The following example creates a scale set with an instance count of *2*, and generates SSH keys.
+
+```azurecli-interactive
+az vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --orchestration-mode Flexible \
+  --image UbuntuLTS \
+  --upgrade-policy-mode automatic \
+  --instance-count 2 \
+  --admin-username azureuser \
+  --generate-ssh-keys
 ```
 
-### Add a single VM to a scale set
+## Clean up resources
 
-The following example shows the creation of a Flexible scale set without a VM profile, where the fault domain count is set to 1. A virtual machine is created and then added to the Flexible scale set.
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
-vmoname="my-vmss-vmo"
-vmname="myVM"
-rg="my-resource-group"
-
-az group create -n "$rg" -l $location
-az vmss create -n "$vmoname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 1
-az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmoname --image UbuntuLTS
-``` 
+az group delete --name myResourceGroup --yes --no-wait
+```
 
 
 ## Next steps

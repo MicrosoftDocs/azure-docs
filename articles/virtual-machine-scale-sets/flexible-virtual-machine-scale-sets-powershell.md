@@ -42,31 +42,13 @@ New-AzVmss `
     -ImageName "Win2019Datacenter"
 ```
 
-## Add a single VM to a scale set
+## Clean up resources
+When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
-The following example shows the creation of a Flexible scale set without a VM profile, where the fault domain count is set to 1. A virtual machine is created and then added to the Flexible scale set.
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
+```
 
-1. Log into Azure PowerShell and specify the subscription and variables for the deployment. 
-
-    ```azurepowershell-interactive
-    $loc = "eastus" 
-    $rgname = "myVMSSResourceGroup" 
-    $vmssName = "myScaleSet" 
-    $vmname = "myScaleSetNewVM"
-    ```
-
-1. Don't specify VM Profile parameters like networking or VM SKUs.
-
-    ```azurepowershell-interactive
-    $VmssConfigWithoutVmProfile = new-azvmssconfig -location $loc -platformfaultdomain 1 `
-    $VmssFlex = new-azvmss -resourcegroupname $rgname -vmscalesetname $vmssName -virtualmachinescaleset $VmssConfigWithoutVmProfile 
-    ```
- 
-1. Add a VM to the scale set.
-
-    ```azurepowershell-interactive
-    $vm = new-azvm -resourcegroupname $rgname -location $loc -name $vmname -credential $cred -domainnamelabel $domainName -vmssid $VmssFlex.id 
-    ```
 
 
 ## Next steps
