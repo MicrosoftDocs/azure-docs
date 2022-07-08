@@ -53,7 +53,7 @@ For further assistance, try our [Microsoft Q&A question page for Azure Stream An
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Azure Stream Analytics job metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
 * [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)
-* [Analyze job with metric dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
+* [Analyze Stream Analytics job performance with metrics dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
 * [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 

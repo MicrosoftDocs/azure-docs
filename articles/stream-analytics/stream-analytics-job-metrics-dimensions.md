@@ -10,10 +10,6 @@ ms.date: 06/30/2022
 ---
 # Azure Stream Analytics metrics dimensions
 
-A typical Azure Stream Analytics architecture is illustrated below:
-
-:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/01-stream-analytics-typical-architecture.png" alt-text="Diagram shows Azure Stream Analytics typic architecture":::
-
 Stream Analytics provides a serverless, distributed streaming processing service. Jobs can run on one or more distributed streaming nodes which the service automatically manages. The input data are partitioned and allocated to different streaming nodes for processing. Azure Stream Analytics has many metrics available to monitor job's health. Metrics can be split by dimensions, like Partition ID or Node name which helps troubleshoot performance issues with your job. To get the  metrics full list, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). 
 
 ## Stream Analytics metrics dimensions
@@ -92,6 +88,6 @@ When streaming data is ingested into Azure Stream Analytics service for processi
 ## Next steps
 
 * [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
-* [Analyze job with metric dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
+* [Analyze Stream Analytics job performance with metrics dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
 * [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
 * [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)

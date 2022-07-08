@@ -38,6 +38,6 @@ There's another case that different streaming nodes are handling different numbe
 
 ## Next steps
 
-* [Analyze job with metric dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
-* [Understand job monitoring in Azure Stream Analytics](./stream-analytics-monitoring.md)
+* [Analyze Stream Analytics job performance with metrics dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
+* [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
 * [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
