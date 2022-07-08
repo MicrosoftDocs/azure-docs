@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor for SAP Solutions Network Considerations | Microsoft Docs
 description: This article provides details to consider network setup while setting up Azure monitor for SAP solutions.
-author: sujaj
+author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
