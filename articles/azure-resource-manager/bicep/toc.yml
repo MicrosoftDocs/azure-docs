@@ -164,6 +164,8 @@
       href: ../../firewall-manager/quick-secure-virtual-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Front Door - Standard/Premium
+      href: ../../frontdoor/create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Load Balancer - internal
       href: ../../load-balancer/quickstart-load-balancer-standard-internal-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: NAT gateway
