@@ -1,11 +1,8 @@
 ---
 title: US Population by ZIP code
-titleSuffix: Azure Open Datasets
 description: Learn how to use the US Population by ZIP code dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

@@ -1,11 +1,12 @@
 ---
 title: Copy data from Blob Storage to SQL Database - Azure
 description: This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline to copy data from Blob storage to SQL database.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Tutorial: Copy data from Blob Storage to SQL Database using Data Factory
@@ -35,7 +36,7 @@ Before you begin this tutorial, you must have the following prerequisites:
 
 * **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
 * **Azure Storage Account**. You use the blob storage as a **source** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article for steps to create one.
-* **Azure SQL Database**. You use Azure SQL Database as a **destination** data store in this tutorial. If you don't have a database in Azure SQL Database that you can use in the tutorial, See [How to create and configure a database in Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) to create one.
+* **Azure SQL Database**. You use Azure SQL Database as a **destination** data store in this tutorial. If you don't have a database in Azure SQL Database that you can use in the tutorial, See [How to create and configure a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) to create one.
 * **SQL Server 2012/2014 or Visual Studio 2013**. You use SQL Server Management Studio or Visual Studio to create a sample database and to view the result data in the database.  
 
 ## Collect blob storage account name and key
@@ -44,13 +45,13 @@ You need the account name and account key of your Azure storage account to do th
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **All services** on the left menu and select **Storage Accounts**.
 
-    ![Browse - Storage accounts](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
+    :::image type="content" source="media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png" alt-text="Browse - Storage accounts":::
 3. In the **Storage Accounts** blade, select the **Azure storage account** that you want to use in this tutorial.
 4. Select **Access keys** link under **SETTINGS**.
 5. Click **copy** (image) button next to **Storage account name** text box and save/paste it somewhere (for example: in a text file).
 6. Repeat the previous step to copy or note down the **key1**.
 
-    ![Storage access key](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    :::image type="content" source="media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png" alt-text="Storage access key":::
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names
@@ -95,9 +96,9 @@ Now, prepare your Azure blob storage and Azure SQL Database for the tutorial by 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../../azure-sql/database/single-database-manage.md) to connect to your server and run the SQL script.
+    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](/azure/azure-sql/database/single-database-manage) to connect to your server and run the SQL script.
 
-    If your client is not allowed to access the logical SQL server, you need to configure firewall for your server to allow access from your machine (IP Address). See [this article](../../azure-sql/database/firewall-configure.md) for steps to configure the firewall for your server.
+    If your client is not allowed to access the logical SQL server, you need to configure firewall for your server to allow access from your machine (IP Address). See [this article](/azure/azure-sql/database/firewall-configure) for steps to configure the firewall for your server.
 
 ## Create a data factory
 You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the options in the drop-down list at the top or the following links to perform the tutorial.     

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
-description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 05/01/2021
+description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise-wide design principles.
+ms.date: 08/17/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create and manage policies to enforce compliance
@@ -426,7 +426,7 @@ overview](../overview.md).
    following built-in policy definitions by selecting the checkbox next to the policy definition:
 
    - Allowed locations
-   - Monitor missing Endpoint Protection in Azure Security Center
+   - Endpoint protection should be installed on machines
    - Non-internet-facing virtual machines should be protected with network security groups
    - Azure Backup should be enabled for Virtual Machines
    - Disk encryption should be applied on virtual machines

@@ -1,13 +1,14 @@
 ---
 title: Fortanix Confidential Computing Manager in an Azure managed application
 description: Learn how to deploy Fortanix Confidential Computing Manager (CCM) in a managed application in the Azure portal.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.author: jencook
+ms.author: stempesta
+ms.custom: ignite-fall-2021
 ---
 
 # Fortanix Confidential Computing Manager in an Azure managed application
@@ -28,7 +29,7 @@ Fortanix is a third-party software vendor with products and services built on to
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/azure-portal.png" alt-text="Azure portal.":::
+    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/Azure-portal.png" alt-text="Azure portal.":::
 
 2. In the Search Bar, search "Fortanix Confidential Computing Manager" and you will find the Marketplace listing for Fortanix CCM. Select **Fortanix Confidential Computing Manager on Azure**.
 
@@ -112,9 +113,8 @@ The user also can delete a CCM node agent from the Confidential Computing Node A
 
 ## Next steps
 
-In this quickstart, you enrolled a node using an Azure managed app to Fortanix's Confidential Computing Manager. The node enrollment allows you to convert your application image to run on top of a confidential computing virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md).
+In this quickstart, you enrolled a node using an Azure managed app to Fortanix's Confidential Computing Manager. The node enrollment allows you to convert your application image to run on top of a confidential computing virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions-sgx.md).
 
 To learn more about Azure's confidential computing offerings, see [Azure confidential computing](overview.md).
 
-Learn how to complete similar tasks using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).
-
+Learn how to complete similar tasks using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview) and [Scone](https://sconedocs.github.io).

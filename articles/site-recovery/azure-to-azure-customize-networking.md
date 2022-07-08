@@ -2,12 +2,12 @@
 title: Customize networking configurations for a failover VM  | Microsoft Docs
 description: Provides an overview of customize networking configurations for a failover VM in the replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-author: sideeksh
-manager: rochakm
+author: v-pgaddala
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/21/2019
-ms.author: sideeksh
+ms.date: 10/01/2021
+ms.author: v-pgaddala
 
 ---
 # Customize networking configurations of the target Azure VM
@@ -24,6 +24,7 @@ You can provide the following key resource configurations for the failover VM wh
 
 - [Internal load balancer](../load-balancer/load-balancer-overview.md)
 - [Public IP](../virtual-network/public-ip-addresses.md)
+- [Secondary IP](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md)
 - [Network security group](../virtual-network/manage-network-security-group.md) both for the subnet and for the NIC
 
 ## Prerequisites
@@ -35,14 +36,14 @@ You can provide the following key resource configurations for the failover VM wh
 
 1. Go to **Replicated Items**. 
 2. Select the desired Azure VM.
-3. Select **Compute and Network** and select **Edit**. Notice that the NIC configuration settings include the corresponding resources at the source. 
+3. Select **Network** and select **Edit**. Notice that the NIC configuration settings include the corresponding resources at the source. 
 
-     ![Customize the failover networking configurations](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+    :::image type="content" source="./media/azure-to-azure-customize-networking/edit-networking-properties.png" alt-text="Customize the failover networking configurations" lightbox="./media/azure-to-azure-customize-networking/edit-networking-properties-expanded.png":::
 
 4. Select a test failover virtual network.
-5. Failover network is Select **Edit** near the NIC you want to configure. In the next blade that opens, select the corresponding pre-created resources in the test failover and failover location.
+5. Select the NIC tab you want to configure. Now, select the corresponding pre-created resources in the test failover and failover location.
 
-    ![Edit the NIC configuration](media/azure-to-azure-customize-networking/nic-drilldown.png) 
+    :::image type="content" source="./media/azure-to-azure-customize-networking/nic-drilldown.png" alt-text="Edit the NIC configuration" lightbox="./media/azure-to-azure-customize-networking/nic-drilldown-expanded.png":::
 
 6. Select **OK**.
 

@@ -1,19 +1,21 @@
 ---
-title: Quickstart - Create a Windows VM using the Azure CLI 
+title: Quickstart - Create a Windows VM using the Azure CLI
 description: In this quickstart, you learn how to use the Azure CLI to create a Windows virtual machine
 author: cynthn
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 08/09/2021
 ms.author: cynthn
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create a Windows virtual machine with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a virtual machine (VM) in Azure that runs Windows Server 2016. To see your VM in action, you then RDP to the VM and install the IIS web server.
+**Applies to:** :heavy_check_mark: Windows VMs
+
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a virtual machine (VM) in Azure that runs Windows Server 2019. To see your VM in action, you then RDP to the VM and install the IIS web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,17 +38,21 @@ az group create --name myResourceGroup --location eastus
 Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name. 
 
 You will need to supply a password that meets the [password requirements for Azure VMs](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
-). Using the example below, you will be prompted to enter a password at the command line. You could also add the the `--admin-password` parameter with a value for your password. The user name and password will be used later, when you connect to the VM.
+). 
+
+Using the example below, you will be prompted to enter a password at the command line. You could also add the the `--admin-password` parameter with a value for your password. The user name and password will be used later, when you connect to the VM.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image win2016datacenter \
+    --image Win2022AzureEditionCore \
+    --public-ip-sku Standard \
     --admin-username azureuser 
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
+
 
 ```output
 {
@@ -63,7 +69,13 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+## Install web server
+
+To see your VM in action, install the IIS web server.
+
+```azurecli-interactive
+az vm run-command invoke -g MyResourceGroup -n MyVm --command-id RunPowerShellScript --scripts "Install-WindowsFeature -name Web-Server -IncludeManagementTools"
+```
 
 ## Open port 80 for web traffic
 
@@ -72,24 +84,6 @@ By default, only RDP connections are opened when you create a Windows VM in Azur
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
-
-## Connect to virtual machine
-
-Use the following command to create a remote desktop session from your local computer. Replace the IP address with the public IP address of your VM. When prompted, enter the credentials used when the VM was created:
-
-```powershell
-mstsc /v:publicIpAddress
-```
-
-## Install web server
-
-To see your VM in action, install the IIS web server. Open a PowerShell prompt on the VM and run the following command:
-
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-When done, close the RDP connection to the VM.
 
 ## View the web server in action
 

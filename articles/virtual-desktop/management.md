@@ -1,26 +1,29 @@
 ---
-title: Azure Virtual Desktop management - Azure
-description: How to manage your Azure Virtual Desktop environment.
+title: Microsoft Endpoint Manager for Azure Virtual Desktop
+description: Recommended ways for you to manage your Azure Virtual Desktop environment.
 author: heidilohr
 
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 06/29/2022
 ms.author: helohr
 manager: femila
 ---
-# Azure Virtual Desktop management recommendations
+# Microsoft Endpoint Manager for Azure Virtual Desktop
 
-We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpointmanager) to manage your Azure Virtual Desktop environment after deployment. Microsoft Endpoint Manager is a unified management platform that includes Microsoft Endpoint Configuration Manager and Microsoft Intune.
+We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpointmanager) to manage your Azure Virtual Desktop environment. Microsoft Endpoint Manager is a unified management platform that includes Microsoft Endpoint Configuration Manager and Microsoft Intune.
 
 ## Microsoft Endpoint Configuration Manager
 
-Microsoft Endpoint Configuration Manager versions 1906 and later can manage your Azure Virtual Desktop devices. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-virtual-desktop).
+Microsoft Endpoint Configuration Manager versions 1906 and later can manage your domain-joined and Hybrid Azure Active Directory (AD)-joined session hosts. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#azure-virtual-desktop).
 
 ## Microsoft Intune
 
-Intune supports Windows 10 Enterprise virtual machines (VMs) for Azure Virtual Desktop. For more information about support, see [Using Windows 10 Enterprise with Intune](/mem/intune/fundamentals/windows-virtual-desktop).
+Microsoft Intune can manage your Azure AD-joined and Hybrid Azure AD-joined session hosts. To learn more about using Intune to manage Windows 11 and Windows 10 single session hosts, see [Using Azure Virtual Desktop with Intune](/mem/intune/fundamentals/windows-virtual-desktop).
 
-Intune support for Windows 10 Enterprise multi-session VMs on Azure Virtual Desktop is currently in public preview. To see what the public preview version currently supports, check out [Using Windows 10 Enterprise multi-session with Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+For Windows 11 and Windows 10 multi-session hosts, Intune currently supports device-based configurations. User scope configurations are also currently in preview on Windows 11. To learn more about using Intune to manage multi-session hosts, see [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+
+> [!NOTE]
+> Managing Azure Virtual Desktop session hosts using Intune is currently supported in the Azure Public and Azure Government clouds.
 
 ## Licensing
 

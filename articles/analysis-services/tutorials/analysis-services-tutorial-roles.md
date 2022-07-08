@@ -4,7 +4,7 @@ description: In this tutorial, learn how to configure Azure Analysis Services ad
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 10/12/2021
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to my server by using SQL Server Management Studio to configure server administrator and model database user roles.
@@ -55,7 +55,7 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
     ![Connect in SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > Choosing Active Directory Universal with MFA Support is recommended. This type of authentication type supports [non-interactive and multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-overview.md). 
+    > Choosing Active Directory Universal with MFA Support is recommended. This type of authentication type supports [non-interactive and multi-factor authentication](/azure/azure-sql/database/authentication-mfa-ssms-overview). 
 
 3. In **Object Explorer**, expand to see server objects. Right-click to see server properties.
    

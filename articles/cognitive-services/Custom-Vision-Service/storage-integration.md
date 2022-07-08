@@ -9,6 +9,7 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 06/25/2021
 ms.author: pafarley
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Integrate Azure storage for notifications and backup
@@ -34,7 +35,7 @@ Next, go to your storage resource in the Azure portal. Go to the **Access contro
 * If you plan to use the model backup feature, select the **Storage Blob Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
 * If you plan to use the notification queue feature, then select the **Storage Queue Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
 
-For help with role assignments, see [Assign Azure roles using the Azure portal](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+For help with role assignments, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### Get integration URLs
 
@@ -200,6 +201,6 @@ The `"exportStatus"` field may be either `"ExportCompleted"` or `"ExportFailed"`
 
 ## Next steps
 
-In this guide, you learned how to copy and move a project between Custom Vision resources. Next, explore the API reference docs to see what else you can do with Custom Vision.
+In this guide, you learned how to copy and back up a project between Custom Vision resources. Next, explore the API reference docs to see what else you can do with Custom Vision.
 * [REST API reference documentation (training)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
 * [REST API reference documentation (prediction)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)

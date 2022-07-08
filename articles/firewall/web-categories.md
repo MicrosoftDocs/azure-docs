@@ -81,7 +81,7 @@ Web categories lets administrators allow or deny user access to web site categor
 
 |Category   |Description  |
 |---------|---------|
-|Advertisements + pop-ups    |  Sites that provide advertising graphics or other ad content files that appear on Web pages.       |
+|Advertisements + popups    |  Sites that provide advertising graphics or other ad content files that appear on Web pages.       |
 |Chat    |   Sites that enable web-based exchange of real-time messages through chat services or chat rooms.       |
 |Cults   |   Sites relating to non-traditional religious practice typically known as "cults," that is, considered to be false, unorthodox, extremist, or coercive, with members often living under the direction of a charismatic leader.       |
 |Games    |    Sites relating to computer or other games, information about game producers, or how to obtain cheat codes. Game-related publication sites.      |

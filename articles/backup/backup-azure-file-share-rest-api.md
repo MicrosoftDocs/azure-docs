@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/16/2020
 ---
 
-# Backup Azure file share using Azure Backup via Rest API
+# Backup Azure file share using Azure Backup via REST API
 
 This article describes how to back up an Azure File share using Azure Backup via REST API.
 
@@ -84,7 +84,7 @@ Track the resulting operation using the "Location" header with a simple *GET* co
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/operationResults/cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01
 ```
 
-Once all the Azure Storage accounts  are discovered, the GET command returns a 200 (No Content) response. The vault is now able to discover any storage account with file shares that can be backed up  within the subscription.
+Once all the Azure Storage accounts  are discovered, the GET command returns a 204 (No Content) response. The vault is now able to discover any storage account with file shares that can be backed up  within the subscription.
 
 ```http
 HTTP/1.1 200 NoContent
@@ -539,4 +539,4 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 ## Next steps
 
-- Learn how to [restore Azure file shares using Rest API](restore-azure-file-share-rest-api.md).
+- Learn how to [restore Azure file shares using REST API](restore-azure-file-share-rest-api.md).

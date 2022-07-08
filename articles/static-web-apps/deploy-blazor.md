@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 04/09/2021
+ms.date: 11/08/2021
 ms.author: cshoe
 ---
 
@@ -22,23 +22,23 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Application overview
 
-Azure Static Web Apps allows you to create static web applications supported by a serverless backend. The following tutorial demonstrates how to deploy C# Blazor web application that returns weather data.
+Azure Static Web Apps allows you to create static web applications supported by a serverless backend. The following tutorial demonstrates how to deploy C# Blazor WebAssembly application that display weather data returned by a serverless API.
 
 :::image type="content" source="./media/deploy-blazor/blazor-app-complete.png" alt-text="Complete Blazor app":::
 
 The app featured in this tutorial is made up from three different Visual Studio projects:
 
-- **Api**: The C# Azure Functions application which implements the API endpoint that provides weather information to the static app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.
+- **Api**: The C# Azure Functions application which implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.
 
-- **Client**: The front-end Blazor web assembly project. A [fallback route](#fallback-route) is implemented to ensure all routes are served the _index.html_ file.
+- **Client**: The front-end Blazor WebAssembly project. A [fallback route](#fallback-route) is implemented to ensure client-side routing is functional.
 
 - **Shared**: Holds common classes referenced by both the Api and Client projects which allows data to flow from API endpoint to the front-end web app. The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among both apps.
 
-Together, these projects make up the parts required create a Blazor web assembly application running in the browser supported by an API backend.
+Together, these projects make up the parts required create a Blazor WebAssembly application running in the browser supported by an Azure Functions API backend.
 
 ## Fallback route
 
-The application exposes URLs like _/counter_ and _/fetchdata_ which map to specific routes of the application. Since this app is implemented as a single page application, each route is served the _index.html_ file. To ensure that request for any path return _index.html_ a [fallback route](./configuration.md#fallback-routes) is implemented in the _staticwebapp.config.json_ file found in the _wwwroot_ folder of the Client project.
+The application exposes URLs like _/counter_ and _/fetchdata_ which map to specific routes of the application. Since this app is implemented as a single page application, each route is served the _index.html_ file. To ensure that requests for any path return _index.html_ a [fallback route](./configuration.md#fallback-routes) is implemented in the _staticwebapp.config.json_ file found in the Client project's root folder.
 
 ```json
 {
@@ -52,7 +52,7 @@ The above configuration ensures that requests to any route in the app returns th
 
 ## Create a repository
 
-This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app deployed to Azure Static Web Apps.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app that can be deployed to Azure Static Web Apps.
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
@@ -88,13 +88,19 @@ Now that the repository is created, create a static web app from the Azure porta
     | _Repository_ | Select **my-first-static-blazor-app**. |
     | _Branch_ | Select **main**. |
 
-1. In the _Build Details_ section, select **Blazor** from the _Build Presets_ drop-down and keep the default values.
+1. In the _Build Details_ section, select **Blazor** from the _Build Presets_ drop-down and the following values are populated.
 
+    | Property | Value | Description |
+    | --- | --- | --- |
+    | App location | **Client** | Folder containing the Blazor WebAssembly app |
+    | API location | **Api** | Folder containing the Azure Functions app |
+    | Output location | **wwwroot** | Folder in the build output containing the published Blazor WebAssembly application |
+    
 ### Review and create
 
 1. Select the **Review + Create** button to verify the details are all correct.
 
-1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
 
 1. Once the deployment completes click, **Go to resource**.
 
@@ -106,7 +112,7 @@ Now that the repository is created, create a static web app from the Azure porta
 
 There are two aspects to deploying a static app. The first provisions the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
 
-Before you can navigate to your new static site, the deployment build must first finish running.
+Before you can navigate to your new static web app, the deployment build must first finish running.
 
 The Static Web Apps overview window displays a series of links that help you interact with your web app.
 

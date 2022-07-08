@@ -1,19 +1,20 @@
 ---
-title: 'Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server (Preview) in virtual network'
-description:  Deploy Django app with App Serice and Azure Database for PostgreSQL - Flexible Server (Preview)  in virtual network
-author: mksuni
-ms.author: sumuth
+title: Tutorial on how to Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server in virtual network
+description:  Deploy Django app with App Serice and Azure Database for PostgreSQL - Flexible Server  in virtual network
 ms.service: postgresql
+ms.subservice: flexible-server
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server (Preview)
+# Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server 
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 In this tutorial you will learn how to deploy a Django application in Azure using App Services and Azure Database for PostgreSQL - Flexible Server in a virtual network.
 
@@ -38,6 +39,8 @@ az account set --subscription <subscription id>
 
 # [Git clone](#tab/clone)
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 Clone the sample repository:
 
 ```terminal
@@ -51,6 +54,8 @@ cd djangoapp
 ```
 
 # [Download](#tab/download)
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp), select **Clone**, and then select **Download ZIP**.
 
@@ -74,6 +79,8 @@ These changes are specific to configuring Django to run in any production enviro
 Create a private flexible server and a database inside a virtual network (VNET) using the following command:
 ```azurecli
 # Create Flexible server in a VNET
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 az postgres flexible-server create --resource-group myresourcegroup --location westus2
 
@@ -100,20 +107,30 @@ In this section, you create app host in App Service app, connect this app to the
 
 In the terminal, make sure you're in the repository root (`djangoapp`) that contains the app code.
 
-Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
+Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
 ```azurecli
 
 # Create a web app
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 az webapp up --resource-group myresourcegroup --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
 
 # Enable VNET integration for web app.
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 # Replace <vnet-name> and <subnet-name> with the virtual network and subnet name that the flexible server is using.
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
 
 # Configure database information as environment variables
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 # Use the postgres server name , database name , username , password for the database created in the previous steps
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>"
 ```
@@ -124,7 +141,7 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 - Enable default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
 - **az webapp vnet-integration** command adds the web app in the same virtual network as the postgres server.
-- The app code expects to find database information in a number of environment variables. To set environment variables in App Service, you create "app settings" with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+- The app code expects to find database information in a number of environment variables. To set environment variables in App Service, you create "app settings" with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 > [!TIP]
 > Many Azure CLI commands cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify all the same parameter with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters.
@@ -175,16 +192,26 @@ In a terminal window, run the following commands. Be sure to follow the prompts 
 
 ```bash
 # Configure the Python virtual environment
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 python3 -m venv venv
 source venv/bin/activate
 
 # Install packages
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 pip install -r requirements.txt
 # Run Django migrations
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 python manage.py migrate
 # Create Django superuser (follow prompts)
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 python manage.py createsuperuser
 # Run the dev server
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 python manage.py runserver
 ```
 Once the web app is fully loaded, the Django development server provides the local app URL in the message, "Starting development server at http://127.0.0.1:8000/. Quit the server with CTRL-BREAK".
@@ -211,6 +238,8 @@ In `polls/models.py`, locate the line that begins with `choice_text` and change 
 
 ```python
 # Find this lie of code and set max_length to 100 instead of 200
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 choice_text = models.CharField(max_length=100)
 ```
 
@@ -248,8 +277,12 @@ Open an SSH session again in the browser by navigating to *https://\<app-name>.s
 cd site/wwwroot
 
 # Activate default virtual environment in App Service container
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 source /antenv/bin/activate
 # Run database migrations
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 python manage.py migrate
 ```
 

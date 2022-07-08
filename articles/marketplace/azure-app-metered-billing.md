@@ -4,12 +4,12 @@ description: This documentation is a guide for ISVs publishing Azure application
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/15/2021
 ms.author: mingshen
 author: mingshen-ms
 ---
 
-# Managed application metered billing 
+# Managed application metered billing
 
 With the Marketplace metering service, you can create managed application plans for Azure Application offers that are charged according to non-standard units. Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed. Customers then pay according to their consumption of these dimensions.  Your system will inform Microsoft via the Marketplace metering service API of billable events as they occur.
 
@@ -28,9 +28,12 @@ When it comes to defining the offer along with its pricing models, it is importa
 
 * Each Azure Application offer can have Solution template or managed application plans.
 * Metered billing is implemented only with managed application plans.
-* Each managed application plan has a pricing model associated with it. 
+* Each managed application plan has a pricing model associated with it.
 * Pricing model has a monthly recurring fee, which can be set to $0.
 * In addition to the recurring fee, the plan can also include optional dimensions used to charge customers for usage not included in the flat rate. Each dimension represents a billable unit that your service will communicate to Microsoft using the [Marketplace metering service API](marketplace-metering-service-apis.md).
+
+    > [!IMPORTANT]
+    > You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
 
 ## Sample offer
 
@@ -65,25 +68,26 @@ The attributes, which define the dimension itself, are shared across all plans f
 * Name
 * Unit of measure
 
-The other attributes of a dimension are specific to each plan and can have different values from plan to plan.  Before you publish the plan, you can edit these values and only this plan will be affected. Once you publish the plan, these attributes will no longer be editable. The attributes are:
+The other attributes of a dimension are specific to each plan and can have different values from plan to plan. Before you publish the plan, you can edit these values and only this plan will be affected. Once you publish the plan, the following attributes will no longer be editable:
 
-* Price per unit
-* Included quantity for monthly customers 
-* Included quantity for annual customers 
+* Included quantity for monthly customers
+* Included quantity for annual customers
 
 Dimensions also have two special concepts, "enabled" and "infinite":
 
 * **Enabled** indicates that this plan participates in this dimension.  You might want to leave this option un-checked if you are creating a new plan that does not send usage events based on this dimension. Also, any new dimensions added after a plan was first published will show up as "not enabled" on the already published plan.  A disabled dimension will not show up in any lists of dimensions for a plan seen by customers.
 * **Infinite**, represented by the infinity symbol "∞", indicates that this plan participates in this dimension, without metered usage against this dimension. If you want to indicate to your customers that the functionality represented by this dimension is included in the plan, but with no limit on usage.  A dimension with infinite usage will show up in lists of dimensions for a plan seen by customers.  This plan will never incur a charge.
 
->[!Note] 
->The following scenarios are explicitly supported:  <br> - You can add a new dimension to a new plan.  The new dimension will not be enabled for any already published plans. <br> - You can publish a plan with a fixed monthly fee and without any dimensions, then add a new plan and configure a new dimension for that plan. The new dimension will not be enabled for already published plans.
+>[!Note]
+>The following scenarios are explicitly supported:
+>- You can add a new dimension to a new plan. The new dimension will not be enabled for any already published plans.
+>- You can publish a plan with a fixed monthly fee and without any dimensions, then add a new plan and configure a new dimension for that plan. The new dimension will not be enabled for already-published plans.
 
 ## Constraints
 
 ### Locking behavior
 
-A dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service.  All details of a dimension are no longer editable once an offer is published.  Before publishing your offer, it's important that you have your dimensions fully defined.
+A dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service.  All details of a dimension are no longer editable once an offer is published. Before publishing your offer, it's important that you have your dimensions fully defined.
 
 Once an offer is published with a dimension, the offer-level details for that dimension can no longer be changed:
 
@@ -93,7 +97,6 @@ Once an offer is published with a dimension, the offer-level details for that di
 
 Once a plan is published, the plan-level details can no longer be changed:
 
-* Price per unit
 * Included quantity for monthly term
 * Whether the dimension is enabled for the plan
 
@@ -117,3 +120,7 @@ Follow the instruction in [Support for the commercial marketplace program in Par
 ## Next steps
 
 - See [Marketplace metering service APIs](marketplace-metering-service-apis.md) for more information.
+
+**Video tutorial**
+
+- [Metered Billing for Azure Managed Applications Overview](https://go.microsoft.com/fwlink/?linkid=2196310)

@@ -1,18 +1,19 @@
 ---
-title: 'Debug errors when running a Custom Commands application'
+title: 'Troubleshooting guide for a Custom Commands application at runtime'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn how to debug runtime errors in a Custom Commands application.
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
-# Debug errors when running a Custom Commands application
+# Troubleshoot a Custom Commands application at runtime
 
 This article describes how to debug when you see errors while running Custom Commands application. 
 

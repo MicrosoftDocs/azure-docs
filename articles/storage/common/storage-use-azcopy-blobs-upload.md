@@ -12,7 +12,7 @@ ms.reviewer: dineshm
 
 # Upload files to Azure Blob storage by using AzCopy
 
-You can upload files and directories to Blob storage by using the AzCopy v10 command-line utility. 
+You can upload files and directories to Blob storage by using the AzCopy v10 command-line utility.
 
 To see examples for other types of tasks such as downloading blobs, synchronizing with Blob storage, or copying blobs between accounts, see the links presented in the [Next Steps](#next-steps) section of this article.
 
@@ -20,7 +20,7 @@ To see examples for other types of tasks such as downloading blobs, synchronizin
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-> [!NOTE] 
+> [!NOTE]
 > The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -79,7 +79,7 @@ You can also upload a file by using a wildcard symbol (*) anywhere in the file p
 
 ## Upload a directory
 
-Upload a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command. 
+Upload a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
 This example copies a directory (and all of the files in that directory) to a blob container. The result is a directory in the container by the same name.
 
@@ -127,7 +127,7 @@ Upload the contents of a directory by using the [azcopy copy](storage-ref-azcopy
 
 **Syntax**
 
-`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'`
 
 **Example**
 
@@ -154,9 +154,9 @@ You can upload specific files by using complete file names, partial names with w
 
 Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
 
-**Syntax** 
+**Syntax**
 
-`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` 
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>`
 
 **Example**
 
@@ -176,11 +176,11 @@ You can also exclude files by using the `--exclude-path` option. To learn more, 
 
 ### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`). 
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
 
 **Syntax**
 
-`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` 
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>`
 
 **Example**
 
@@ -198,15 +198,15 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
-### Upload files that were modified before or after a date and time 
+### Upload files that were modified before or after a date and time
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
 
 The following examples upload files that were modified on or after the specified date.
 
 **Syntax**
 
-`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>`
 
 **Example**
 
@@ -224,12 +224,12 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 ## Upload with index tags
 
-You can upload a file and add [blob index tags(preview)](../blobs/storage-manage-find-blobs.md) to the target blob.  
+You can upload a file and add [blob index tags(preview)](../blobs/storage-manage-find-blobs.md) to the target blob.
 
 If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
 
 To add tags, use the `--blob-tags` option along with a URL encoded key-value pair. 
-For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter. 
+For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter.
 
 Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 
@@ -286,4 +286,5 @@ See these articles to configure settings, optimize performance, and troubleshoot
 
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

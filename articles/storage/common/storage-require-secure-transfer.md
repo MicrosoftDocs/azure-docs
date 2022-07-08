@@ -11,7 +11,8 @@ ms.date: 06/01/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Require secure transfer to ensure secure connections
@@ -26,8 +27,8 @@ Connecting to an Azure file share over SMB without encryption fails when secure 
 
 > [!NOTE]
 > Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name.
-> 
-> This secure transfer setting does not apply to TCP. Connections via NFS 3.0 protocol support in Azure Blob Storage using TCP, which is not secured, will succeed.  
+>
+> This secure transfer setting does not apply to TCP. Connections via NFS 3.0 protocol support in Azure Blob Storage using TCP, which is not secured, will succeed.
 
 ## Require secure transfer in the Azure portal
 
@@ -50,15 +51,15 @@ You can turn on the **Secure transfer required** property when you create a stor
 
 ## Require secure transfer from code
 
-To require secure transfer programmatically, set the _enableHttpsTrafficOnly_ property to _True_ on the storage account. You can set this property by using the Storage Resource Provider REST API, client libraries, or tools:
+To require secure transfer programmatically, set the *enableHttpsTrafficOnly* property to *True* on the storage account. You can set this property by using the Storage Resource Provider REST API, client libraries, or tools:
 
-* [REST API](/rest/api/storagerp/storageaccounts)
-* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
-* [CLI](/cli/azure/storage/account)
-* [NodeJS](https://www.npmjs.com/package/@azure/arm-storage/)
-* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
-* [Python SDK](https://pypi.org/project/azure-mgmt-storage)
-* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)
+- [REST API](/rest/api/storagerp/storageaccounts)
+- [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+- [CLI](/cli/azure/storage/account)
+- [NodeJS](https://www.npmjs.com/package/@azure/arm-storage/)
+- [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+- [Python SDK](https://pypi.org/project/azure-mgmt-storage)
+- [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)
 
 ## Require secure transfer with PowerShell
 

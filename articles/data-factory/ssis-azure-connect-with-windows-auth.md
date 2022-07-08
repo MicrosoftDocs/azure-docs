@@ -1,22 +1,20 @@
 ---
 title: Access data stores and file shares with Windows authentication
 description: Learn how to configure SSIS catalog in Azure SQL Database and Azure-SSIS Integration Runtime in Azure Data Factory to run packages that access data stores and file shares with Windows authentication.
-ms.date: "10/27/2020"
+ms.date: 02/15/2022
 ms.topic: conceptual
-ms.prod: sql
-ms.prod_service: "integration-services"
-ms.custom: ""
-ms.technology: integration-services
-author: swinarko
-ms.author: sawinark
+ms.service: data-factory
+ms.subservice: integration-services
+author: chugugrace
+ms.author: chugu
 ms.reviewer: jburchel
 ---
 
 # Access data stores and file shares with Windows authentication from SSIS packages in Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-You can use Windows authentication to access data stores, such as SQL Servers, file shares, Azure Files, etc. from SSIS packages running on your Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). Your data stores can be on premises, hosted on Azure Virtual Machines (VMs), or running in Azure as managed services. If they are on premises, you need to join your Azure-SSIS IR to a Virtual Network (Microsoft Azure Virtual Network) connected to your on-premises network, see [Join Azure-SSIS IR to a Microsoft Azure Virtual Network](./join-azure-ssis-integration-runtime-virtual-network.md). There are four methods to access data stores with Windows authentication from SSIS packages running on your Azure-SSIS IR:
+You can use Windows authentication to access data stores, such as SQL Servers, file shares, Azure Files, etc. from SSIS packages running on your Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) and Azure Synapse. Your data stores can be on premises, hosted on Azure Virtual Machines (VMs), or running in Azure as managed services. If they are on premises, you need to join your Azure-SSIS IR to a Virtual Network (Microsoft Azure Virtual Network) connected to your on-premises network, see [Join Azure-SSIS IR to a Microsoft Azure Virtual Network](./join-azure-ssis-integration-runtime-virtual-network.md). There are four methods to access data stores with Windows authentication from SSIS packages running on your Azure-SSIS IR:
 
 | Connection method | Effective scope | Setup step | Access method in packages | Number of credential sets and connected resources | Type of connected resources | 
 |---|---|---|---|---|---|

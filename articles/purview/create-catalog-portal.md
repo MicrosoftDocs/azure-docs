@@ -1,194 +1,88 @@
 ---
-title: 'Quickstart: Create an Azure Purview account in the Azure portal (preview)'
-description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
+title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account'
+description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 10/23/2020
+ms.date: 06/20/2022
 ms.topic: quickstart
 ms.service: purview
-ms.subservice: purview-data-catalog
-ms.custom:
-  - mode-portal
-# Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
+ms.custom: mode-ui
 ---
-# Quickstart: Create an Azure Purview account in the Azure portal
+# Quickstart: Create an account in the Microsoft Purview governance portal
 
-> [!IMPORTANT]
-> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+This quickstart describes the steps to Create a Microsoft Purview (formerly Azure Purview) account through the Azure portal. Then we'll get started on the process of classifying, securing, and discovering your data in the Microsoft Purview Data Map!
 
-In this quickstart, you create an Azure Purview account.
+The Microsoft Purview governance portal surfaces tools like the Microsoft Purview Data Map and Microsoft Purview Data Catalog that help you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your data estate. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-## Prerequisites
+For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview governance services across your organization, [see our deployment best practices](deployment-best-practices.md).
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
-* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+## Create an account
 
-* Your account must have permission to create resources in the subscription
+1. Search for **Microsoft Purview** in the [Azure portal](https://portal.azure.com).
 
-* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
-EventHub namespace.
+    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure portal":::
 
-    > [!important]
-    > You don't have to follow this step if you don't have Azure Policy or an existing Azure Policy is not blocking the creation of **Storage account** and **EventHub namespace**.
+1. Select **Create** to create a new Microsoft Purview account.
 
-    1. Navigate to the Azure portal and search for **Policy**
-    1. Follow [Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
+   :::image type="content" source="media/create-catalog-portal/select-create.png" alt-text="Screenshot of the Microsoft Purview accounts page with the create button highlighted in the Azure portal.":::
+  
+      Or instead, you can go to the marketplace, search for **Microsoft Purview**, and select **Create**.
 
-        ```json
-        {
-          "mode": "All",
-          "policyRule": {
-            "if": {
-              "anyOf": [
-              {
-                "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-                },
-                {
-                  "not": {
-                    "field": "tags['<resourceBypass>']",
-                    "exists": true
-                  }
-                }]
-              },
-              {
-                "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.EventHub/namespaces"
-                },
-                {
-                  "not": {
-                    "field": "tags['<resourceBypass>']",
-                    "exists": true
-                  }
-                }]
-              }]
-            },
-            "then": {
-              "effect": "deny"
-            }
-          },
-          "parameters": {}
-        }
-        ```
-        
-        > [!Note]
-        > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Purview in latter steps as long as the policy can detect the tag.
+     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Screenshot showing Microsoft Purview in the Azure Marketplace, with the create button highlighted.":::
 
-        :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
+1. On the new Create Microsoft Purview account page under the **Basics** tab, select the Azure subscription where you want to create your account.
 
-    1. [Create a policy assignment](../governance/policy/assign-policy-portal.md) using the custom policy created.
+1. Select an existing **resource group** or create a new one to hold your account.
 
-       :::image type="content" source="./media/create-catalog-portal/policy-assignment.png" alt-text="Screenshot showing how to create policy assignment" lightbox="./media/create-catalog-portal/policy-assignment.png":::
+    To learn more about resource groups, see our article on [using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
-## Sign in to Azure
+1. Enter a **Microsoft Purview account name**. Spaces and symbols aren't allowed.
+    The name of the Microsoft Purview account must be globally unique. If you see the following error, change the name of Microsoft Purview account and try creating again.
 
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+    :::image type="content" source="media/create-catalog-portal/name-error.png" alt-text="Screenshot showing the Create Microsoft Purview account screen with an account name that is already in use, and the error message highlighted.":::
 
-## Configure your subscription
+1. Choose a **location**.
+    The list shows only locations that support the Microsoft Purview governance portal. The location you choose will be the region where your Microsoft Purview account and meta data will be stored. Sources can be housed in other regions.
 
-If necessary, follow these steps to configure your subscription to enable Azure Purview to run in your subscription:
+      > [!Note]
+      > The Microsoft Purview, formerly Azure Purview, does not support moving accounts across regions, so be sure to deploy to the correction region. You can find out more information about this in [move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 
-   1. In the Azure portal, search for and select **Subscriptions**.
+1. You can choose to enable the optional Event Hubs namespace by selecting the toggle. It's disabled by default. Enable this option if you want to be able to programmatically monitor your Microsoft Purview account using Event Hubs and Atlas Kafka**:
+    - [Use Event Hubs and .NET to send and receive Atlas Kafka topics messages](manage-kafka-dotnet.md)
+    - [Publish and consume events for Microsoft Purview with Atlas Kafka](concept-best-practices-automation.md#streaming-atlas-kafka)
 
-   1. From the list of subscriptions, select the subscription you want to use. Administrative access permission for the subscription is required.
+    :::image type="content" source="media/create-catalog-portal/event-hubs-namespace.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted under the Managed resources section of the Create Microsoft Purview account page.":::
 
-      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Screenshot showing how to select a subscription in the Azure portal.":::
+    >[!NOTE]
+    > This option can be enabled or disabled after you have created your account in **Managed Resources** under settings on your Microsoft Purview account page in the Azure Portal.
+    >
+    > :::image type="content" source="media/create-catalog-portal/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure Portal.":::
 
-   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search and register all three resource providers: 
-       1. **Microsoft.Purview**
-       1. **Microsoft.Storage**
-       1. **Microsoft.EventHub** 
-      
-      If they are not registered, register it by selecting **Register**.
+1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created account will appear in the list on your **Microsoft Purview accounts** page.
 
-      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::
+    :::image type="content" source="media/create-catalog-portal/create-resource.png" alt-text="Screenshot showing the Create Microsoft Purview account screen with the Review + Create button highlighted":::
 
-## Create an Azure Purview account instance
+## Open the Microsoft Purview governance portal
 
-1. Go to the **Purview accounts** page in the Azure portal, and then select **Add** to create a new Azure Purview account. Alternatively, you can go to marketplace search for **Purview Accounts** and select **Create**. Note that you can add only one Azure Purview account at a time.
+After your account is created, you'll use the Microsoft Purview governance portal to access and manage it. There are two ways to open the Microsoft Purview governance portal:
 
-   :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
+* Open your Microsoft Purview account in the [Azure portal](https://portal.azure.com). Select the "Open Microsoft Purview governance portal" tile on the overview page.
+    :::image type="content" source="media/create-catalog-portal/open-purview-studio.png" alt-text="Screenshot showing the Microsoft Purview account overview page, with the Microsoft Purview governance portal tile highlighted.":::
 
-    > [!Note] 
-    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
-
-1. On the **Basics** tab, do the following:
-    1. Select a **Resource group**.
-    1. Enter a **Purview account name** for your catalog. Spaces and symbols aren't allowed.
-    1. Choose a  **Location**, and then select **Next: Configuration**.
-1. On the **Configuration** tab, select the desired **Platform size** - the allowed values are 4 capacity units (CU) and 16 CU. Optionally, provide a different name for the Azure Purview managed Resource Group. Select **Next: Tags**.
-
-    > [!Note] 
-    > The [managed Resource Group](create-catalog-portal.md#azure-purview-managed-resources) will contain a managed Storage account and an EventHub namespace dedicated and used by Azure Purview account.
-
-3. On the **Tags** tab, you can optionally add one or more tags. These tags are for use only in the Azure portal, not Azure Purview. 
-
-    > [!Note] 
-    > If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:
-    > :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Add tag to Purview account.":::
-
-1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created Azure Purview account instance appears in the list on your **Purview accounts** page.
-1. When the new account provisioning is complete select **Go to resource**.
-
-    > [!Note]
-    > If the provisioning failed with `Conflict` status, that means there is an Azure policy blocking Purview from creating a **Storage account** and **EventHub namespace**. You need to go through the **Prerequisites** steps to add exceptions.
-    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Purview conflict error message":::
-
-1. Select **Launch purview account**.
-
-   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
-
-## Add a security principal to a data plane role
-
-Before you or your team can begin to use Azure Purview, one or more security principals must be added to one of the pre-defined Data Plane roles: **Purview Data Reader**, **Purview Data Curator** or **Purview Data Source Administrator**. For more information on Azure Purview Data Catalog permissions, see [Catalog permissions](catalog-permissions.md).
-
-To add a security principal to the **Purview Data Curator** data plane role in an Azure Purview account:
-
-1. Go to the [**Purview accounts**](https://aka.ms/purviewportal) page in the Azure portal.
-
-1. Select the Azure Purview account you want to modify.
-
-1. On the **Purview account** page, select the tab **Access control (IAM)**
-
-1. Click **+ Add**
-
-If upon clicking Add you see two choices showing both marked (disabled) then this means you do not have the right permissions to add anyone to a data plane role on the Azure Purview account. You must find an Owner, User Access Administrator or someone else with role assignment authority on your Azure Purview account. You can look for the right people by selecting **Role assignments** tab and then scrolling down to look for Owner or User Access Administrator and contacting those people.
-
-1. Select **Add role assignment**.
-
-1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the security principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) and [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) for details).
-
-1. For **Assign access to** leave the default, **User, group, or service principal**.
-
-1. For **Select** enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.
-
-1. Click on **Save**.
-
-## Azure Purview managed resources
-During the deployment of an Azure Purview account, a new managed Resource Group with a new Azure Storage Account and a new EventHub namespace are also deployed along with Azure Purview account inside your Azure subscription. You can optionally choose a different naming convention for the managed Resource Group during the deployment.
-
-These resources are essential for operation of the Azure Purview account and are used to contain temporary data until the information is ingested into Azure Purview data Catalog. 
-
-A deny assignment is automatically added to the managed Resource Group for all principals, with Azure Purview managed identity as the only exclusion to allow Azure Purview to manage the resources (storage account, event hub namespace) inside the Resource Group, therefore, you cannot remove or modify the managed Resource Group, managed resources or their content in data plane, however, the managed resource group and its content will be deleted automatically when the purview account is deleted. 
-
-## Clean up resources
-
-If you no longer need this Azure Purview account, delete it with the following steps:
-
-1. Go to the **Purview accounts** page in the Azure portal.
-
-2. Select the Azure Purview account that you created at the beginning of this quickstart. Select **Delete**, enter the name of the account, and then select **Delete**.
+* Alternatively, you can browse to [https://web.purview.azure.com](https://web.purview.azure.com), select your Microsoft Purview account name, and sign in to your workspace.
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Purview account.
+In this quickstart, you learned how to create a Microsoft Purview (formerly Azure Purview) account, and how to access it.
 
-Advance to the next article to learn how to allow users to access your Azure Purview Account. 
+Next, you can create a user-assigned managed identity (UAMI) that will enable your new Microsoft Purview account to authenticate directly with resources using Azure Active Directory (Azure AD) authentication.
 
-> [!div class="nextstepaction"]
-> [Add users to your Azure Purview Account](catalog-permissions.md)
+To create a UAMI, follow our [guide to create a user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity).
+
+Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to the Microsoft Purview Data Map:
+
+* [Using the Microsoft Purview governance portal](use-azure-purview-studio.md)
+* [Create a collection](quickstart-create-collection.md)
+* [Add users to your Microsoft Purview account](catalog-permissions.md)

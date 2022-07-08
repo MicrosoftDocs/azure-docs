@@ -140,12 +140,11 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> This shows how to handle the encoding of the body in javascript. If you want to see a sample in C#, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Unzip the master.zip file. The Visual Studio solution *SimulatedDevice*'s Program.cs file shows how to encode and submit messages to an IoT Hub. This is the same sample used for testing the message routing, as explained in the [Message Routing tutorial](tutorial-routing.md). At the bottom of Program.cs, it also has a method to read in one of the encoded files, decode it, and write it back out as ASCII so you can read it. 
-
+> This shows how to handle the encoding of the body in JavaScript. If you want to see a sample in C#, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Unzip the master.zip file. The Visual Studio solution *SimulatedDevice*'s Program.cs file shows how to encode and submit messages to an IoT Hub. This is the same sample used for testing the message routing, as explained in the [Message Routing tutorial](tutorial-routing.md). At the bottom of Program.cs, it also has a method to read in one of the encoded files, decode it, and write it back out as ASCII so you can read it. 
 
 ### Query expressions
 
-A query on message body needs to be prefixed with the `$body`. You can use a body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with message system properties, and message application properties reference. For example, the following are all valid query expressions: 
+A query on a message body needs to be prefixed with `$body`. You can use a body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with message system properties, and message application properties reference. For example, the following are all valid query expressions:
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -163,9 +162,21 @@ length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
-> [!NOTE] 
+> [!NOTE]
+> To filter a twin notification payload based on what changed, run your query on the message body. For example, to filter when there is a desire property change on `sendFrequency` and the value is bigger than 10:
+>
+> ```sql
+> $body.properties.desired.telemetryConfig.sendFrequency > 10
+> ```
+> To filter messages that contains a property change, no matter the value of the property, you can use the `is_defined()` function (when the value is a primitive type):
+>
+> ```sql
+> is_defined($body.properties.desired.telemetryConfig.sendFrequency)
+> ```
+
+> [!NOTE]
 > You can run queries and functions only on properties in the body reference. You can't run queries or functions on the entire body reference. For example, the following query is *not* supported and will return `undefined`:
-> 
+>
 > ```sql
 > $body[0] = 'Feb'
 > ```
@@ -203,9 +214,12 @@ Message routing enables you to query on [Device Twin](iot-hub-devguide-device-tw
 } 
 ```
 
+> [!NOTE]
+> Modules do not inherit twin tags from their corresponding devices. Twin queries for messages originating from device modules (for example from IoT Edge modules) query against the module twin and not the corresponding device twin.
+
 ### Query expressions
 
-A query on message twin needs to be prefixed with the `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, message system properties, and message application properties reference. We recommend using unique names in tags and properties as the query is not case-sensitive. This applies to both device twins and module twins. Also refrain from using `twin`, `$twin`, `body`, or `$body`, as a property names. For example, the following are all valid query expressions: 
+A query on a device or module twin needs to be prefixed with `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, a message system properties reference, and/or a message application properties reference. We recommend using unique names in tags and properties as the query is not case-sensitive. This applies to both device twins and module twins. Also refrain from using `twin`, `$twin`, `body`, or `$body`, as a property names. For example, the following are all valid query expressions: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
@@ -219,7 +233,10 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
-Routing query on body or device twin with a period in the payload or property name is not supported.
+## Limitations
+
+Routing queries don't support using whitespace or any of the following characters in property names, the message body path, or the device/module twin path: `()<>@,;:\"/?={}`.
+
 
 ## Next steps
 

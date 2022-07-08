@@ -1,8 +1,12 @@
 ---
 title: Troubleshoot common issues
 description: Learn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
-ms.topic: article
-ms.date: 06/25/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -40,7 +44,7 @@ If you specify an image that Azure Container Instances doesn't support, an `OsVe
 }
 ```
 
-This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
+This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](./container-instances-faq.yml).
 
 ### Unable to pull image
 
@@ -92,6 +96,10 @@ This error indicates that due to heavy load in the region in which you are attem
 * Deploy at a later time
 
 ## Issues during container group runtime
+### Container had an isolated restart without explicit user input
+
+There are two broad categories for why a container group may restart without explicit user input. First, containers may experience restarts caused by an application process crash. The ACI service recommends leveraging observability solutions such as [Application Insights SDK](../azure-monitor/app/app-insights-overview.md), [container group metrics](container-instances-monitor.md), and [container group logs](container-instances-get-logs.md) to determine why the application experienced issues. Second, customers may experience restarts initiated by the ACI infrastructure due to maintenance events. To increase the availability of your application, run multiple container groups behind an ingress component such as an [Application Gateway](../application-gateway/overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+
 ### Container continually exits and restarts (no long-running process)
 
 Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
@@ -182,7 +190,7 @@ Another way to reduce the impact of the image pull on your container's startup t
 
 #### Cached images
 
-Azure Container Instances uses a caching mechanism to help speed container startup time for images built on common [Windows base images](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported), including `nanoserver:1809`, `servercore:ltsc2019`, and `servercore:1809`. Commonly used Linux images such as `ubuntu:1604` and `alpine:3.6` are also cached. For both Windows and Linux images, avoid using the `latest` tag. Review Container Registry's [Image tag best practices](../container-registry/container-registry-image-tag-version.md) for guidance. For an up-to-date list of cached images and tags, use the [List Cached Images][list-cached-images] API.
+Azure Container Instances uses a caching mechanism to help speed container startup time for images built on common [Windows base images](./container-instances-faq.yml), including `nanoserver:1809`, `servercore:ltsc2019`, and `servercore:1809`. Commonly used Linux images such as `ubuntu:1604` and `alpine:3.6` are also cached. For both Windows and Linux images, avoid using the `latest` tag. Review Container Registry's [Image tag best practices](../container-registry/container-registry-image-tag-version.md) for guidance. For an up-to-date list of cached images and tags, use the [List Cached Images][list-cached-images] API.
 
 > [!NOTE]
 > Use of Windows Server 2019-based images in Azure Container Instances is in preview.
@@ -209,7 +217,7 @@ If you want to confirm that Azure Container Instances can listen on the port you
     --environment-variables 'PORT'='9000'
     ```
 1. Find the IP address of the container group in the command output of `az container create`. Look for the value of **ip**. 
-1. After the container is provisioned successfully, browse to the IP address and port of the container app in your browser, for example: `192.0.2.0:9000`. 
+1. After the container is provisioned successfully, browse to the IP address and port of the container application in your browser, for example: `192.0.2.0:9000`. 
 
     You should see the "Welcome to Azure Container Instances!" message displayed by the web app.
 1. When you're done with the container, remove it using the `az container delete` command:

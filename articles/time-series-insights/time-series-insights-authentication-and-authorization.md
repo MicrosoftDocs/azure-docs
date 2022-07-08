@@ -10,10 +10,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.custom: seodec18, has-adal-ref, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 Depending on your business needs, your solution might include one or more client applications that you use to interact with your Azure Time Series Insights environment's [APIs](/rest/api/time-series-insights/reference-data-access-overview). Azure Time Series Insights performs authentication using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your client(s), you'll need to get a bearer token with the right permissions, and pass it along with your API calls. This document describes several methods for getting credentials that you can use to get a bearer token and authenticate, including using managed identity and Azure Active Directory app registration.
 
@@ -145,7 +147,7 @@ Required request headers are described below.
 
 | Required request header | Description |
 | --- | --- |
-| Authorization | To authenticate with Azure Time Series Insights, a valid OAuth 2.0 Bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2020-12-01/authorization-server/create-or-update). |
+| Authorization | To authenticate with Azure Time Series Insights, a valid OAuth 2.0 Bearer token must be passed in the [Authorization header](/rest/api/apimanagement/current-preview/authorization-server/create-or-update). |
 
 > [!TIP]
 > Read the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to learn how to authenticate with the Azure Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
@@ -183,7 +185,7 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 | Optional query parameter | Description | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) and [Get Environment Aggregates](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | Gen1 |
+| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](/rest/api/time-series-insights/dataaccessgen2/query/get-availability) and [Get Environment Aggregates](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | Gen1 |
 | `storeType=<storeType>` | For Gen2 environments with warm store enabled, the query can be executed either on the `WarmStore` or `ColdStore`. This parameter in the query defines which store the query should be executed on. If not defined, the query will be executed on the cold store. To query the warm store, **storeType** needs to be set to `WarmStore`. If not defined, the query will be executed against the cold store. | Gen2 |
 
 ## Next steps

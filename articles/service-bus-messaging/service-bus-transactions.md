@@ -2,7 +2,8 @@
 title: Overview of transaction processing in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/21/2022
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -17,7 +18,7 @@ This article discusses the transaction capabilities of Microsoft Azure Service B
 
 A *transaction* groups two or more operations together into an *execution scope*. By nature, such a transaction must ensure that all operations belonging to a given group of operations either succeed or fail jointly. In this respect transactions act as one unit, which is often referred to as *atomicity*.
 
-Service Bus is a transactional message broker and ensures transactional integrity for all internal operations against its message stores. All transfers of messages inside of Service Bus, such as moving messages to a [dead-letter queue](service-bus-dead-letter-queues.md) or [automatic forwarding](service-bus-auto-forwarding.md) of messages between entities, are transactional. As such, if Service Bus accepts a message, it has already been stored and labeled with a sequence number. From then on, any message transfers within Service Bus are coordinated operations across entities, and will neither lead to loss (source succeeds and target fails) or to duplication (source fails and target succeeds) of the message.
+Service Bus is a transactional message broker and ensures transactional integrity for all internal operations against its message stores. All transfers of messages in Service Bus, such as moving messages to a [dead-letter queue](service-bus-dead-letter-queues.md) or [automatic forwarding](service-bus-auto-forwarding.md) of messages between entities, are transactional. As such, if Service Bus accepts a message, it has already been stored and labeled with a sequence number. From then on, any message transfers within Service Bus are coordinated operations across entities, and will neither lead to loss (source succeeds and target fails) or to duplication (source fails and target succeeds) of the message.
 
 Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction. For example, you can send several messages to one queue from within a transaction scope, and the messages will only be committed to the queue's log when the transaction successfully completes.
 
@@ -25,12 +26,19 @@ Service Bus supports grouping operations against a single messaging entity (queu
 
 The operations that can be performed within a transaction scope are as follows:
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send`, `SendAsync`, `SendBatch`, `SendBatchAsync`
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: `Complete`, `CompleteAsync`, `Abandon`, `AbandonAsync`, `Deadletter`, `DeadletterAsync`, `Defer`, `DeferAsync`, `RenewLock`, `RenewLockAsync` 
+- Send
+- Complete
+- Abandon
+- Deadletter
+- Defer
+- Renew lock
 
-Receive operations are not included, because it is assumed that the application acquires messages using the [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, inside some receive loop or with an [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) callback, and only then opens a transaction scope for processing the message.
+Receive operations aren't included, because it's assumed that the application acquires messages using the peek-lock mode, inside some receive loop or with a callback, and only then opens a transaction scope for processing the message.
 
 The disposition of the message (complete, abandon, dead-letter, defer) then occurs within the scope of, and dependent on, the overall outcome of the transaction.
+
+> [!IMPORTANT]
+> Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
 
 ## Transfers and "send via"
 
@@ -44,61 +52,38 @@ If you need to receive from a topic subscription and then send to a queue or top
 
 To set up such transfers, you create a message sender that targets the destination queue via the transfer queue. You also have a receiver that pulls messages from that same queue. For example:
 
-```csharp
-var connection = new ServiceBusConnection(connectionString);
-
-var sender = new MessageSender(connection, QueueName);
-var receiver = new MessageReceiver(connection, QueueName);
-```
-
-A simple transaction then uses these elements, as in the following example. To refer the full example, refer the [source code on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
+A simple transaction then uses these elements, as in the following example. To refer the full example, refer the [source code on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md#transactions-across-entities):
 
 ```csharp
-var receivedMessage = await receiver.ReceiveAsync();
+var options = new ServiceBusClientOptions { EnableCrossEntityTransactions = true };
+await using var client = new ServiceBusClient(connectionString, options);
+
+ServiceBusReceiver receiverA = client.CreateReceiver("queueA");
+ServiceBusSender senderB = client.CreateSender("queueB");
+
+ServiceBusReceivedMessage receivedMessage = await receiverA.ReceiveMessageAsync();
 
 using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    try
-    {
-        // do some processing
-        if (receivedMessage != null)
-            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
-
-        var myMsgBody = new MyMessage
-        {
-            Name = "Some name",
-            Address = "Some street address",
-            ZipCode = "Some zip code"
-        };
-
-        // send message
-        var message = myMsgBody.AsMessage();
-        await sender.SendAsync(message).ConfigureAwait(false);
-        Console.WriteLine("Message has been sent");
-
-        // complete the transaction
-        ts.Complete();
-    }
-    catch (Exception ex)
-    {
-        // This rolls back send and complete in case an exception happens
-        ts.Dispose();
-        Console.WriteLine(ex.ToString());
-    }
+    await receiverA.CompleteMessageAsync(receivedMessage);
+    await senderB.SendMessageAsync(new ServiceBusMessage());
+    ts.Complete();
 }
 ```
+
+To learn more about the `EnableCrossEntityTransactions` property, see the following reference [ServiceBusClientBuilder.enableCrossEntityTransactions Method](/java/api/com.azure.messaging.servicebus.servicebusclientbuilder.enablecrossentitytransactions). 
+
 
 ## Timeout
 A transaction times out after 2 minutes. The transaction timer starts when the first operation in the transaction starts. 
 
 ## Next steps
 
-See the following articles for more information about Service Bus queues:
+For more information about Service Bus queues, see the following articles:
 
 * [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Chaining Service Bus entities with autoforwarding](service-bus-auto-forwarding.md)
-* [Autoforward sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
-* [Atomic Transactions with Service Bus sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
-* [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
-
+* [Autoforward sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward) (`Microsoft.ServiceBus.Messaging` library)
+* [Atomic Transactions with Service Bus sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions) (`Microsoft.ServiceBus.Messaging` library)
+* [Working with transactions sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md) (`Azure.Messaging.ServiceBus` library)
+* [Azure Queue Storage and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

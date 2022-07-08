@@ -2,11 +2,11 @@
 title: Determine what Azure reservation you should purchase
 description: This article helps you determine which reservation you should purchase.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/23/2022
 ms.author: banders
 ---
 
@@ -22,7 +22,7 @@ Use the following sections to help analyze your daily usage data to determine yo
 
 ### Analyze usage for a VM reserved instance purchase
 
-Identify the right VM size for your purchase. For example, a reservation purchased for ES series VMs don't apply to E series VMs, and vice-versa.
+Identify the right VM size for your purchase. For example, a reservation purchased for ES series VMs doesn't apply to E series VMs, and vice-versa.
 
 Promo series VMs don't get a reservation discount, so remove them from your analysis.
 
@@ -40,14 +40,13 @@ If you want to analyze at the instance size family level, you can get the instan
 
 Reserved capacity applies to Azure Synapse Analytics DWU pricing. It doesn't apply to Azure Synapse Analytics license cost or any costs other than compute.
 
-To narrow eligible usage, apply follow filters on your usage data:
-
+To narrow eligible usage, apply the following filters to your usage data:
 
 - Filter **MeterCategory** for **SQL Database**.
 - Filter **MeterName** for **vCore**.
 - Filter **MeterSubCategory** for all usage records that have _Compute_ in the name.
 
-From **AdditionalInfo** , get the **vCores** value. It tells you how many vCores were used. The quantity is **vCores** multiplied by the number of hours the database was used.
+From **AdditionalInfo**, get the **vCores** value. It tells you how many vCores were used. The quantity is **vCores** multiplied by the number of hours the database was used.
 
 The data informs you about the consistent usage for:
 
@@ -58,7 +57,7 @@ The data informs you about the consistent usage for:
 
 ### Analysis for Azure Synapse Analytics
 
-Reserved capacity applies to Azure Synapse Analytics DWU usage and is purchased in increments on 100 DWU. To narrow eligible  usage, apply the follow filters on your usage data:
+Reserved capacity applies to Azure Synapse Analytics DWU usage and is purchased in increments on 100 DWU. To narrow eligible  usage, apply the following filters on your usage data:
 
 - Filter **MeterName** for **100 DWUs**.
 - Filter **Meter Sub-Category** for **Compute Optimized Gen2**.
@@ -81,6 +80,7 @@ Note the following points:
 - Recommendations are calculated for individual sizes, not for the instance size family.
 - The recommended quantity for a scope is reduced on the same day that you purchase reservations for the scope.
     - However, an update for the reservation quantity recommendation across scopes can take up to 25 days. For example, if you purchase based on shared scope recommendations, the single subscription scope recommendations can take up to 25 days to adjust down.
+- Currently, Azure doesn't generate recommendations for the management group scope.
 
 ## Recommendations in the Azure portal
 
@@ -92,7 +92,7 @@ Learn more about [recommendations](reserved-instance-purchase-recommendations.md
 
 ## Recommendations in the Cost Management Power BI app
 
-Enterprise Agreement customers can use the VM RI Coverage reports for VMs and purchase recommendations. The coverage reports show you total usage and the usage that's covered by reserved instances.
+Enterprise Agreement customers can use the VM RI Coverage reports for VMs and purchase recommendations. The coverage reports show total usage and the usage that's covered by reserved instances.
 
 1. Get the [Cost Management App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 2. Go to the VM RI Coverage report – Shared or Single scope, depending on which scope you want to purchase at.
@@ -103,7 +103,7 @@ Enterprise Agreement customers can use the VM RI Coverage reports for VMs and pu
 Reservation purchase recommendations are available in [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
 
 - Advisor has only single-subscription scope recommendations.
-- Advisor recommendations are calculated using 30-day look-back period. The projected savings are for a 3-year reservation term.
+- Advisor recommendations are calculated using 30-day look-back period. The projected savings are for a three-year reservation term.
 - If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to 30 days to disappear.
 
 ## Recommendations using APIs

@@ -3,12 +3,13 @@ title: Using Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 ms.topic: conceptual
 ms.date: 07/30/2019
+ms.reviewer: saars
 
 ---
 
 # Using Search in Application Insights
 
-Search is a feature of [Application Insights](./app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
+Transaction search is a feature of [Application Insights](./app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
 (For more complex queries over your data, use [Analytics](../logs/log-analytics-tutorial.md).)
 
@@ -16,7 +17,7 @@ Search is a feature of [Application Insights](./app-insights-overview.md) that y
 
 ### In the Azure portal
 
-You can open diagnostic search from the Application Insights Overview tab of your application (located at in the top bar) or under investigate on the left.
+You can open transaction search from the Application Insights Overview tab of your application (located at in the top bar) or under investigate on the left.
 
 ![Search tab](./media/diagnostic-search/view-custom-events.png)
 
@@ -133,7 +134,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 
 ### <a name="limits"></a>How much data is retained?
 
-See the [Limits summary](./pricing.md#limits-summary).
+See the [Limits summary](../service-limits.md#application-insights).
 
 ### How can I see POST data in my server requests?
 

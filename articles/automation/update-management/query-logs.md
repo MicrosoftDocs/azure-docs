@@ -107,7 +107,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | CorrelationId | Unique identifier of the runbook job run for the update. |
 | EndTime | The time when the synchronization process ended. *This property is currently not used. See TimeGenerated.* |
 | ErrorResult | Windows Update error code generated if an update fails to install. |
-| InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `FailedToStart` - unable to start the job on machine.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `InstallFailed` - update failed to install successfully.<br> `NotIncluded`<br> `Excluded` |
+| InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `InstallFailed` - update failed to install successfully.<br> `NotIncluded` - the corresponding update's classification doesn't match with customer's entries in input classification list.<br> `Excluded` - user enters a KBID in excluded list. While patching, if KBID in excluded list matches with the system detected update KB ID, it is marked as excluded.  |
 | KBID | Knowledge base article ID for the Windows update. |
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | OSType | Type of operating system. Values are Windows or Linux. |
@@ -190,7 +190,7 @@ On a Windows computer, you can review the following information to verify agent 
 
 1. Open the Windows Event Log. Go to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and Event ID 5002 from the source **Service Connector**. These events indicate that the computer has registered with the Log Analytics workspace and is receiving configuration.
 
-If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../../azure-monitor/agents/agent-windows.md) or [Network configuration for Linux agent](../../azure-monitor/vm/quick-collect-linux-computer.md).
+If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../../azure-monitor/agents/agent-windows.md) or [Network configuration for Linux agent](../../azure-monitor/vm/monitor-virtual-machine.md).
 
 > [!NOTE]
 > If your Linux systems are configured to communicate with a proxy or Log Analytics Gateway and you're enabling Update Management, update the `proxy.conf` permissions to grant the omiuser group read permission on the file by using the following commands:

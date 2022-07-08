@@ -1,96 +1,187 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Configure custom domain name for Azure API Management instance
 titleSuffix: Azure API Management
-description: This topic describes how to configure a custom domain name for your Azure API Management instance.
+description: How to configure a custom domain name and choose certificates for the endpoints of your Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: vladvino
-manager: anneta
-editor: ''
+author: dlepow
 
 ms.service: api-management
-ms.workload: integration
-ms.topic: article
-ms.date: 01/13/2020
-ms.author: apimpm
+ms.topic: how-to
+ms.date: 01/11/2022
+ms.author: danlep
 ---
 
 # Configure a custom domain name for your Azure API Management instance
 
-When you create an Azure API Management service instance, Azure assigns it a subdomain of `azure-api.net` (for example, `apim-service-name.azure-api.net`). However, you can expose your API Management endpoints using your own custom domain name, such as **contoso.com**. This tutorial shows you how to map an existing custom DNS name to endpoints exposed by an API Management instance.
+When you create an Azure API Management service instance in the Azure cloud, Azure assigns it a `azure-api.net` subdomain (for example, `apim-service-name.azure-api.net`). You can also expose your API Management endpoints using your own custom domain name, such as **`contoso.com`**. This article shows you how to map an existing custom DNS name to endpoints exposed by an API Management instance.
 
 > [!IMPORTANT]
-> API Management accepts only requests with [host header](https://tools.ietf.org/html/rfc2616#section-14.23) values matching the default domain name or any of the configured custom domain names.
-
-> [!WARNING]
-> Customers who wish to use certificate pinning to improve the security of their applications must use a custom domain name and certificate which they manage, not the default certificate. Customers that pin the default certificate instead will be taking a hard dependency on the properties of the certificate they don't control, which is not a recommended practice.
+> API Management only accepts requests with [host header](https://tools.ietf.org/html/rfc2616#section-14.23) values matching:
+>
+>* The Gateway's default domain name
+>* Any of the Gateway's configured custom domain names
 
 ## Prerequisites
 
-To perform the steps described in this article, you must have:
-
--   An active Azure subscription.
-
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+-   An active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 -   An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
--   A custom domain name that is owned by you or your organization. This topic does not provide instructions on how to procure a custom domain name.
--   A CNAME record hosted on a DNS server that maps the custom domain name to the default domain name of your API Management instance. This topic does not provide instructions on how to host a CNAME record.
--   You must have a valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over TLS).
+-   A custom domain name that is owned by you or your organization. This article does not provide instructions on how to procure a custom domain name.
+-   Optionally, a valid certificate with a public and private key (.PFX). The subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over TLS). 
 
-## Use the Azure portal to set a custom domain name
+    See [Domain certificate options](#domain-certificate-options).
+
+- DNS records hosted on a DNS server to map the custom domain name to the default domain name of your API Management instance. This topic does not provide instructions on how to host the DNS records. 
+
+    For more information about required records, see [DNS configuration](#dns-configuration), later in this article. 
+ 
+## Endpoints for custom domains
+
+There are several API Management endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
+
+| Endpoint | Default |
+| -------- | ----------- |
+| **Gateway** | Default is: `<apim-service-name>.azure-api.net`. Gateway is the only endpoint available for configuration in the Consumption tier.<br/><br/>The default Gateway endpoint configuration remains available after a custom Gateway domain is added. |
+| **Developer portal (legacy)** | Default is: `<apim-service-name>.portal.azure-api.net` |
+| **Developer portal** | Default is: `<apim-service-name>.developer.azure-api.net` |
+| **Management** | Default is: `<apim-service-name>.management.azure-api.net` |
+| **SCM** | Default is: `<apim-service-name>.scm.azure-api.net` |
+
+### Considerations
+* You can update any of the endpoints supported in your service tier. Typically, customers update **Gateway** (this URL is used to call the APIs exposed through API Management) and **Developer portal** (the developer portal URL).
+* Only API Management instance owners can use **Management** and **SCM** endpoints internally. These endpoints are less frequently assigned a custom domain name.
+* The **Premium** and **Developer** tiers support setting multiple hostnames for the **Gateway** endpoint.
+* Wildcard domain names, like `*.contoso.com`, are supported in all tiers except the Consumption tier.
+
+## Domain certificate options
+
+API Management supports custom TLS certificates or certificates imported from Azure Key Vault. You can also enable a free, managed certificate.
+
+> [!WARNING]
+> If you wish to improve the security of your applications with certificate pinning, you should use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
+
+# [Custom](#tab/custom)
+
+If you already have a private certificate from a third-party provider, you can upload it to your API Management instance. It must meet the following requirements. (If you enable the free certificate managed by API Management, it already meets these requirements.)
+
+* Exported as a PFX file, encrypted using triple DES, and optionally password protected.
+* Contains private key at least 2048 bits long
+* Contains all intermediate certificates and the root certificate in the certificate chain.
+
+# [Key Vault](#tab/key-vault)
+
+We recommend using Azure Key Vault to [manage your certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
+
+If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/certificates/create-certificate/create-certificate), not a _secret_.
+
+To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
+* When you use the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
+* When you use command-line tools or management API, these permissions must be granted manually, in two steps:
+    1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal Id on that page. 
+    1. Give the list and get secrets permissions to this principal Id on the Azure Key Vault containing the certificate.
+
+If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
+
+For more information, see [Use managed identities in Azure API Management](api-management-howto-use-managed-service-identity.md).    
+
+# [Managed](#tab/managed)
+
+API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed automatically.
+
+> [!NOTE]
+> The free, managed TLS certificate is available for all API Management service tiers. It is currently in preview.
+
+#### Limitations
+
+* Currently can be used only with the Gateway endpoint of your API Management service
+* Not supported in the following Azure regions: France South and South Africa West
+* Currently available only in the Azure cloud
+* Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
+* Can only be configured when updating an existing API Management instance, not when creating an instance
+---
+
+## Set a custom domain name - portal
+
+Choose the steps according to the [domain certificate](#domain-certificate-options) you want to use.
+
+# [Custom](#tab/custom)
+1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
+1. In the left navigation, select **Custom domains**.
+1. Select **+Add**, or select an existing [endpoint](#endpoints-for-custom-domains) that you want to update.
+1. In the window on the right, select the **Type** of endpoint for the custom domain.
+1. In the **Hostname** field, specify the name you want to use. For example, `api.contoso.com`.
+1. Under **Certificate**, select **Custom**
+1. Select **Certificate file** to select and upload a certificate.
+1. Upload a valid .PFX file and provide its **Password**, if the certificate is protected with a password.
+1. When configuring a Gateway endpoint, select or deselect [other options as necessary](#clients-calling-with-server-name-indication-sni-header), including **Negotiate client certificate** or **Default SSL binding**.
+    :::image type="content" source="media/configure-custom-domain/gateway-domain-custom-certificate.png" alt-text="Configure gateway domain with custom certificate":::
+1. Select **Add**, or select **Update** for an existing endpoint.
+1. Select **Save**.
+
+# [Key Vault](#tab/key-vault)
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
-1. Select **Custom domains**.
+1. In the left navigation, select **Custom domains**.
+1. Select **+Add**, or select an existing [endpoint](#endpoints-for-custom-domains) that you want to update.
+1. In the window on the right, select the **Type** of endpoint for the custom domain.
+1. In the **Hostname** field, specify the name you want to use. For example, `api.contoso.com`.
+1. Under **Certificate**, select **Key Vault** and then **Select**.
+    1. Select the **Subscription** from the dropdown list.
+    1. Select the **Key vault** from the dropdown list.
+    1. Once the certificates have loaded, select the **Certificate** from the dropdown list. Click **Select**.
+    1. In **Client identity**, select a system-assigned identity or a user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) enabled in the instance to access the key vault.
+1. When configuring a Gateway endpoint, select or deselect [other options as necessary](#clients-calling-with-server-name-indication-sni-header), including **Negotiate client certificate** or **Default SSL binding**.
+    :::image type="content" source="media/configure-custom-domain/gateway-domain-key-vault-certificate.png" alt-text="Configure gateway domain with Key Vault certificate":::
+1. Select **Add**, or select **Update** for an existing endpoint.
+1. Select **Save**.
 
-    There are a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
+# [Managed](#tab/managed)
 
-    - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
-    - **Developer portal (legacy)** (default is: `<apim-service-name>.portal.azure-api.net`),
-    - **Developer portal** (default is: `<apim-service-name>.developer.azure-api.net`).
-    - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`),
-
-    > [!NOTE]
-    > Only the **Gateway** endpoint is available for configuration in the Consumption tier.
-    > You can update all of the endpoints or some of them. Commonly, customers update **Gateway** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL).
-    > **Management** and **SCM** endpoints are used internally by the API Management instance owners only and thus are less frequently assigned a custom domain name.
-    > The **Premium** tier supports setting multiple host names for the **Gateway** endpoint.
-
-1. Select the endpoint that you want to update.
-1. In the window on the right, click **Custom**.
-
-    - In the **Custom domain name**, specify the name you want to use. For example, `api.contoso.com`.
-    - In the **Certificate**, select a certificate from Key Vault. You can also upload a valid .PFX file and provide its **Password**, if the certificate is protected with a password.
-
-    > [!NOTE]
-    > Wildcard domain names, e.g. `*.contoso.com` are supported in all tiers except the Consumption tier.
-
-    > [!TIP]
-    > We recommend using [Azure Key Vault for managing certificates](../key-vault/certificates/about-certificates.md) and setting them to autorenew.
-    > If you use Azure Key Vault to manage the custom domain TLS/SSL certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/createcertificate/createcertificate), not a _secret_.
-    >
-    > To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. When using Azure portal all the necessary configuration steps will be completed automatically. When using command line tools or management API, these permissions must be granted manually. This is done in two steps. First, use Managed identities page on your API Management instance to make sure that Managed Identity is enabled and make a note of the principal id shown on that page. Second, give permission list and get secrets permissions to this principal id on the Azure Key Vault containing the certificate.
-    >
-    > If the certificate is set to autorenew, API Management will pick up the latest version automatically without any downtime to the service (if your API Management tier has SLA - i. e. in all tiers except the Developer tier).
-
-1. Click Apply.
-
-    > [!NOTE]
-    > The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer SKU has downtime, Basic and higher SKUs do not have downtime.
+1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
+1. In the left navigation, select **Custom domains**.
+1. Select **+Add**, or select an existing [endpoint](#endpoints-for-custom-domains) that you want to update.
+1. In the window on the right, select the **Type** of endpoint for the custom domain.
+1. In the **Hostname** field, specify the name you want to use. For example, `api.contoso.com`.
+1. Under **Certificate**, select **Managed** to enable a free certificate managed by API Management. The managed certificate is available in preview for the Gateway endpoint only.
+1. Copy the following values and use them to [configure DNS](#dns-configuration):
+    * **TXT record**
+    * **CNAME record**
+1. When configuring a Gateway endpoint, select or deselect [other options as necessary](#clients-calling-with-server-name-indication-sni-header), including **Negotiate client certificate** or **Default SSL binding**.
+    :::image type="content" source="media/configure-custom-domain/gateway-domain-free-certifcate.png" alt-text="Configure gateway domain with free certificate":::
+1. Select **Add**, or select **Update** for an existing endpoint.
+1. Select **Save**.
+---
+    
+> [!NOTE]
+> The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer tier has downtime, while Basic and higher tiers do not.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 ## DNS configuration
 
-When configuring DNS for your custom domain name, you have two options:
-
--   Configure a CNAME-record that points to the endpoint of your configured custom domain name.
--   Configure an A-record that points to your API Management gateway IP address.
+* Configure a CNAME record for your custom domain. 
+* When using API Management's free, managed certificate, also configure a TXT record to establish your ownership of the domain.
 
 > [!NOTE]
-> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [the IP documentation article](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](api-management-faq.yml#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-).
+> The free certificate is issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
+
+### CNAME record
+
+Configure a CNAME record that points from your custom domain name (for example, `api.contoso.com`) to your API Management service hostname (for example, `<apim-service-name>.azure-api.net`). A CNAME record is more stable than an A-record in case the IP address changes. For more information, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](./api-management-faq.yml#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-).
+
+> [!NOTE]
+> Some domain registrars only allow you to map subdomains when using a CNAME record, such as `www.contoso.com`, and not root names, such as `contoso.com`. For more information on CNAME records, see the documentation provided by your registrar or [IETF Domain Names - Implementation and Specification](https://tools.ietf.org/html/rfc1035).
+
+### TXT record 
+
+When enabling the free, managed certificate for API Management, also configure a TXT record in your DNS zone to establish your ownership of the domain name. 
+
+* The name of the record is your custom domain name prefixed by `apimuid`. Example: `apimuid.api.contoso.com`.
+* The value is a domain ownership identifier provided by your API Management instance.
+
+When you use the portal to configure the free, managed certificate for your custom domain, the name and value of the necessary TXT record are automatically displayed.
+
+You can also get a domain ownership identifier by calling the [Get Domain Ownership Identifier](/rest/api/apimanagement/current-ga/api-management-service/get-domain-ownership-identifier) REST API.
 
 ## Next steps
 

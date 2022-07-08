@@ -3,8 +3,8 @@ title: Runbook execution in Azure Automation
 description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/27/2021
-ms.topic: conceptual 
+ms.date: 09/15/2021
+ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -16,7 +16,7 @@ Automation executes your runbooks based on the logic defined inside them. If a r
 
 Starting a runbook in Azure Automation creates a job, which is a single execution instance of the runbook. Each job accesses Azure resources by making a connection to your Azure subscription. The job can only access resources in your datacenter if those resources are accessible from the public cloud.
 
-Azure Automation assigns a worker to run each job during runbook execution. While workers are shared by many Azure accounts, jobs from different Automation accounts are isolated from one another. You can't control which worker services your job requests.
+Azure Automation assigns a worker to run each job during runbook execution. While workers are shared by many Automation accounts, jobs from different Automation accounts are isolated from one another. You can't control which worker services your job requests.
 
 When you view the list of runbooks in the Azure portal, it shows the status of each job that has been started for each runbook. Azure Automation stores job logs for a maximum of 30 days.
 
@@ -30,11 +30,11 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 Runbooks in Azure Automation can run on either an Azure sandbox or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). 
 
-When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox, which is a shared environment that multiple jobs can use. Jobs using the same sandbox are bound by the resource limitations of the sandbox. The Azure sandbox environment does not support interactive operations. It prevents access to all out-of-process COM servers, and it does not support making [WMI calls](/windows/win32/wmisdk/wmi-architecture) to the Win32 provider in your runbook.  These scenarios are only supported by running the runbook on a Windows Hybrid Runbook Worker.
+When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox. Azure Automation assigns a worker to run each job during runbook execution in the sandbox. While workers are shared by many Automation accounts, jobs from different Automation accounts are isolated from one another.  Jobs using the same sandbox are bound by the resource limitations of the sandbox. The Azure sandbox environment does not support interactive operations. It prevents access to all out-of-process COM servers, and it does not support making [WMI calls](/windows/win32/wmisdk/wmi-architecture) to the Win32 provider in your runbook.  These scenarios are only supported by running the runbook on a Windows Hybrid Runbook Worker.
 
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
 
-Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](../azure-sql/database/firewall-configure.md) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
+Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 >[!NOTE]
 >To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
@@ -69,10 +69,10 @@ Your runbooks must include logic to deal with [resources](/rest/api/resources/re
 
 ## Security
 
-Azure Automation uses the [Azure Security Center (ASC)](../security-center/security-center-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
+Azure Automation uses the [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
 [Introduction to authentication in Azure Automation](automation-security-overview.md).
 
-ASC places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
+Defender for Cloud places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
 
 ## Subscriptions
 
@@ -95,19 +95,9 @@ The [Log Analytics agent for Windows](../azure-monitor/agents/agent-windows.md) 
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](../azure-monitor/agents/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with a **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
+The [Log Analytics agent for Linux](../azure-monitor/agents/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
 
-The **nxautomation** account with the corresponding sudo permissions must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
-
-Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account and the permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
-
-The logs available for the Log Analytics agent and the **nxautomation** account are:
-
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log
-* /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automation worker log
-
->[!NOTE]
->The **nxautomation** user enabled as part of Update Management executes only signed runbooks.
+The Log Analytics agent log is located at `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
 ## Runbook permissions
 
@@ -234,7 +224,7 @@ External services, for example, Azure DevOps Services and GitHub, can start a ru
 
 To share resources among all runbooks in the cloud, Azure uses a concept called fair share. Using fair share, Azure temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes Stopped.
 
-For long-running Azure Automation tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the three-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
+For long-running Azure Automation tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the three-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
 
 Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, for example, with a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Child runbooks execute in parallel in separate processes.
 
@@ -242,7 +232,7 @@ Using child runbooks decreases the total amount of time for the parent runbook t
 
 ## Next steps
 
-* To get started with a PowerShell runbook, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To get started with a PowerShell runbook, see [Tutorial: Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
 * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation#automation).

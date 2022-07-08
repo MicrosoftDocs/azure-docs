@@ -1,17 +1,16 @@
 ---
 title: Install Visual Studio 2019 
 description: Install Visual Studio and SQL Server Development Tools (SSDT) for Synapse SQL
-services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 05/11/2020
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.author: wiassaf
+ms.reviewer: wiassaf
 ---
 
 # Getting started with Visual Studio 2019
@@ -36,8 +35,8 @@ There are times when feature releases for Synapse SQL may not include support fo
 
 - [Workload management](sql-data-warehouse-workload-management.md) - workload groups and classifiers
 - [Row-level security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (including table-valued functions)
-  - Submit a [support ticket or vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) to get the feature supported.
-  - Submit a [support ticket or vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) to get the feature supported.
+  - Submit a [support ticket or vote](https://feedback.azure.com/d365community/idea/a9192b4c-0b25-ec11-b6e6-000d3a4f07b8) to get the feature supported.
+  - Submit a [support ticket or vote](https://feedback.azure.com/d365community/idea/ab192b4c-0b25-ec11-b6e6-000d3a4f07b8) to get the feature supported.
 - Certain T-SQL features, such as:
    - *WITHIN GROUP* clause in the [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) string function.
 

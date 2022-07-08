@@ -54,6 +54,11 @@ Metrics are configured on a per-named-service-instance basis when you’re creat
 Any metric has some properties that describe it: a name, a weight, and a default load.
 
 * Metric Name: The name of the metric. The metric name is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
+
+> [!NOTE]
+> Custom metric Name should not be any of the system metric names i.e servicefabric:/_CpuCores or servicefabric:/_MemoryInMB as it can lead to undefined behavior. Starting with Service Fabric version 9.1, for existing services with these custom metric names, a health warning is issued to indicate that the metric name is incorrect.
+>
+
 * Weight: Metric weight defines how important this metric is relative to the other metrics for this service.
 * Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
   * For stateless services, each metric has a single property named DefaultLoad
@@ -114,7 +119,7 @@ serviceDescription.Metrics.Add(totalCountMetric);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ConnectionCount,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
@@ -258,7 +263,7 @@ Let’s take our previous example and see what happens when we add some custom m
 
 Let’s presume that we initially created the stateful service with the following command:
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("MemoryInMb,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)

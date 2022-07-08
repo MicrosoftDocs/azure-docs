@@ -1,20 +1,19 @@
 ---
-title: SAML token encryption in Azure Active Directory
+title: SAML token encryption
 description: Learn how to configure Azure Active Directory SAML token encryption.
 services: active-directory
-author: davidmu1
+author: AllisonAm
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.date: 05/27/2022
+ms.author: alamaral
 ms.collection: M365-identity-device-management
 ---
 
-# How to: Configure Azure AD SAML token encryption
+# Configure Azure Active Directory SAML token encryption
 
 > [!NOTE]
 > Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
@@ -134,7 +133,7 @@ When you configure a keyCredential using Graph, PowerShell, or in the applicatio
 
 1. From the Azure portal, go to **Azure Active Directory > App registrations**.
 
-1. Select **All apps** from the dropdown to show all apps, and then select the enterprise application that you want to configure.
+1. Select the **All apps** tab to show all apps, and then select the application that you want to configure.
 
 1. In the application's page, select **Manifest** to edit the [application manifest](../develop/reference-app-manifest.md).
 

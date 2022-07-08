@@ -3,14 +3,13 @@ title: Troubleshoot Azure RBAC
 description: Troubleshoot issues with Azure role-based access control (Azure RBAC).
 services: azure-portal
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/06/2021
+ms.date: 06/21/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -20,10 +19,10 @@ This article answers some common questions about Azure role-based access control
 
 ## Azure role assignments limit
 
-Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription.
+Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
-> The **2000** role assignments limit per subscription is fixed and cannot be increased.
+> Starting November 2021, the role assignments limit for all Azure subscriptions is being automatically increased from **2000** to **4000**. There is no action that you need to take for your subscription. The limit increase will take several months.
 
 If you are getting close to this limit, here are some ways that you can reduce the number of role assignments:
 
@@ -40,6 +39,13 @@ $scope = "/subscriptions/<subscriptionId>"
 $ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
 $ras.Count
 ```
+
+## Azure role assignments limit for management groups
+
+Azure supports up to **500** role assignments per management group. This limit is different than the role assignments limit per subscription.
+
+> [!NOTE]
+> The **500** role assignments limit per management group is fixed and cannot be increased.
 
 ## Problems with Azure role assignments
 
@@ -67,6 +73,8 @@ $ras.Count
 
 - If you attempt to remove the last Owner role assignment for a subscription, you might see the error "Cannot delete the last RBAC admin assignment." Removing the last Owner role assignment for a subscription is not supported to avoid orphaning the subscription. If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
+    You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are the Global Administrator for the tenant. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
+
 ## Problems with custom roles
 
 - If you need steps for how to create a custom role, see the custom role tutorials using the [Azure portal](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md), or [Azure CLI](tutorial-custom-role-cli.md).
@@ -74,6 +82,10 @@ $ras.Count
 - If you are unable to delete a custom role and get the error message "There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)", then there are role assignments still using the custom role. Remove those role assignments and try to delete the custom role again.
 - If you get the error message "Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)" when you try to create a new custom role, delete any custom roles that aren't being used. Azure supports up to **5000** custom roles in a directory. (For Azure Germany and Azure China 21Vianet, the limit is 2000 custom roles.)
 - If you get an error similar to "The client has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/{subscriptionid}', however the linked subscription was not found" when you try to update a custom role, check whether one or more [assignable scopes](role-definitions.md#assignablescopes) have been deleted in the directory. If the scope was deleted, then create a support ticket as there is no self-service solution available at this time.
+- When you attempt to create or update a custom role, you get an error similar to "The client '&lt;clientName&gt;' with object id '&lt;objectId&gt;' has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/&lt;subscriptionId&gt;'; however, it does not have permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on the linked scope(s)'/subscriptions/&lt;subscriptionId1&gt;,/subscriptions/&lt;subscriptionId2&gt;,/subscriptions/&lt;subscriptionId3&gt;' or the linked scope(s)are invalid". This error usually indicates that you do not have permissions to one or more of the [assignable scopes](role-definitions.md#assignablescopes) in the custom role. You can try the following:
+    - Review [Who can create, delete, update, or view a custom role](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role) and check that you have permissions to create or update the custom role for all assignable scopes.
+    - If you don't have permissions, ask your administrator to assign you a role that has the `Microsoft.Authorization/roleDefinitions/write` action, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator), at the scope of the assignable scope.
+    - Check that all the assignable scopes in the custom role are valid. If not, remove any invalid assignable scopes.
 
 ## Custom roles and management groups
 
@@ -118,7 +130,7 @@ If you recently invited a user when creating a role assignment, this security pr
 
 However, if this security principal is not a recently invited user, it might be a deleted security principal. If you assign a role to a security principal and then you later delete that security principal without first removing the role assignment, the security principal will be listed as **Identity not found** and an **Unknown** type.
 
-If you list this role assignment using Azure PowerShell, you might see an empty `DisplayName` and an `ObjectType` set to **Unknown**. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following output:
+If you list this role assignment using Azure PowerShell, you might see an empty `DisplayName` and `SignInName`, or a value for `ObjectType` of `Unknown`. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following output:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -128,11 +140,11 @@ SignInName         :
 RoleDefinitionName : Storage Blob Data Contributor
 RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
 ObjectId           : 33333333-3333-3333-3333-333333333333
-ObjectType         : Unknown
+ObjectType         : User
 CanDelegate        : False
 ```
 
-Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) returns a role assignment that is similar to the following output:
+Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following output:
 
 ```
 {

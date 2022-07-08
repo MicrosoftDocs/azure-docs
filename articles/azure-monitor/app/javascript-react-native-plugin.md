@@ -1,17 +1,18 @@
 ---
-title: Native React plugin for Application Insights JavaScript SDK 
-description: How to install and use the Native React plugin for Application Insights JavaScript SDK. 
+title: React Native plugin for Application Insights JavaScript SDK 
+description: How to install and use the React Native plugin for Application Insights JavaScript SDK. 
 services: azure-monitor
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
+ms.devlang: javascript
+ms.reviewer: mmcc
 ---
 
-# Native React plugin for Application Insights JavaScript SDK
+# React Native plugin for Application Insights JavaScript SDK
 
-The Native React plugin for Application Insights JavaScript SDK collects device information, by default this plugin automatically collects:
+The React Native plugin for Application Insights JavaScript SDK collects device information, by default this plugin automatically collects:
 
 - **Unique Device ID** (Also known as Installation ID.)
 - **Device Model Name** (Such as iPhone X, Samsung Galaxy Fold, Huawei P30 Pro etc.)
@@ -51,6 +52,16 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 
 ```
+
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+
+### PageView
+
+If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
 
 ## Next steps
 

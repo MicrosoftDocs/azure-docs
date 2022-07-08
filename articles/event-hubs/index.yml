@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 07/23/2021 #Required; mm/dd/yyyy format.
+  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -49,7 +49,19 @@ landingContent:
             url: event-hubs-quickstart-powershell.md
           - text: Azure Resource Manager template
             url: event-hubs-resource-manager-namespace-event-hub.md
-  
+
+  # Card
+  - title: Learn modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Explore Azure Event Hubs
+            url: /learn/modules/azure-event-hubs/
+          - text: Enable reliable messaging for Big Data applications using Azure Event Hubs
+            url: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+          - text: Choose a messaging model in Azure to loosely connect your services
+            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+
   # Card
   - title: Create a dedicated cluster
     linkLists:
@@ -187,4 +199,6 @@ landingContent:
           - text: Use private endpoints
             url: private-link-service.md            
           - text: Configure customer-managed keys for encrypting data at rest
-            url: configure-customer-managed-key.md            
+            url: configure-customer-managed-key.md     
+          - text: Enforce minimum required TLS version
+            url: transport-layer-security-enforce-minimum-version.md    

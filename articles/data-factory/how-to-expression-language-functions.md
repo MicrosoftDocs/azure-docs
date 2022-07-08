@@ -5,8 +5,9 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 03/08/2020
+ms.date: 01/21/2022
 ---
 
 # How to use parameters, expressions and functions in Azure Data Factory
@@ -18,9 +19,9 @@ ms.date: 03/08/2020
 
 In this document, we will primarily focus on learning fundamental concepts with various examples to explore the ability to create parameterized data pipelines within Azure Data Factory. Parameterization and dynamic expressions are such notable additions to ADF because they can save a tremendous amount of time and allow for a much more flexible Extract, Transform, Load (ETL) or Extract, Load, Transform (ELT) solution, which will dramatically reduce the cost of solution maintenance and speed up the implementation of new features into existing pipelines. These gains are because parameterization minimizes the amount of hard coding and increases the number of reusable objects and processes in a solution.
 
-## Azure data factory UI and parameters
+## Azure Data Factory UI and parameters
 
-If you are new to Azure data factory parameter usage in ADF user interface, please review [Data factory UI for linked services with parameters](./parameterize-linked-services.md#data-factory-ui)  and [Data factory UI for metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md#data-factory-ui) for visual explanation.
+If you are new to Azure Data Factory parameter usage in ADF user interface, please review [Data Factory UI for linked services with parameters](./parameterize-linked-services.md#ui-experience)  and [Data Factory UI for metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md#data-factory-ui) for a visual explanation.
 
 ## Parameter and expression concepts 
 
@@ -304,9 +305,9 @@ These functions are useful inside conditions, they can be used to evaluate any t
 
 ## Detailed examples for practice
 
-### Detailed Azure data factory copy pipeline with parameters 
+### Detailed Azure Data Factory copy pipeline with parameters 
 
-This [Azure Data factory copy pipeline parameter passing tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
+This [Azure Data Factory copy pipeline parameter passing tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
 
 ### Detailed  Mapping data flow pipeline with parameters 
 

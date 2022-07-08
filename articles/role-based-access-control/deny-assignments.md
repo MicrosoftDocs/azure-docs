@@ -4,15 +4,14 @@ description: Learn about Azure deny assignments in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/26/2020
+ms.date: 03/25/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -25,7 +24,7 @@ This article describes how deny assignments are defined.
 
 ## How deny assignments are created
 
-Deny assignments are created and managed by Azure to protect resources. Azure Blueprints and Azure managed apps use deny assignments to protect system-managed resources. Azure Blueprints and Azure managed apps are the only way that deny assignments can be created. You can't directly create your own deny assignments. For more information about how Blueprints uses deny assignments to lock resources, see [Understand resource locking in Azure Blueprints](../governance/blueprints/concepts/resource-locking.md).
+Deny assignments are created and managed by Azure to protect resources. Azure Blueprints and Azure managed apps use deny assignments to protect system-managed resources. Azure Blueprints and Azure managed apps are the only way that deny assignments are used within Azure. You can't directly create your own deny assignments. Azure Blueprints uses deny assignments to lock resources, but just for resources deployed as part of a blueprint. For more information, see [Understand resource locking in Azure Blueprints](../governance/blueprints/concepts/resource-locking.md).
 
 > [!NOTE]
 > You can't directly create your own deny assignments.
@@ -53,10 +52,10 @@ Deny assignments follow a similar pattern as role assignments, but also have som
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Yes | String | The display name of the deny assignment. Names must be unique for a given scope. |
 > | `Description` | No | String | The description of the deny assignment. |
-> | `Permissions.Actions` | At least one Actions or one DataActions | String[] | An array of strings that specify the management operations to which the deny assignment blocks access. |
-> | `Permissions.NotActions` | No | String[] | An array of strings that specify the management operations to exclude from the deny assignment. |
-> | `Permissions.DataActions` | At least one Actions or one DataActions | String[] | An array of strings that specify the data operations to which the deny assignment blocks access. |
-> | `Permissions.NotDataActions` | No | String[] | An array of strings that specify the data operations to exclude from the deny assignment. |
+> | `Permissions.Actions` | At least one Actions or one DataActions | String[] | An array of strings that specify the control plane actions to which the deny assignment blocks access. |
+> | `Permissions.NotActions` | No | String[] | An array of strings that specify the control plane action to exclude from the deny assignment. |
+> | `Permissions.DataActions` | At least one Actions or one DataActions | String[] | An array of strings that specify the data plane actions to which the deny assignment blocks access. |
+> | `Permissions.NotDataActions` | No | String[] | An array of strings that specify the data plane actions to exclude from the deny assignment. |
 > | `Scope` | No | String | A string that specifies the scope that the deny assignment applies to. |
 > | `DoNotApplyToChildScopes` | No | Boolean | Specifies whether the deny assignment applies to child scopes. Default value is false. |
 > | `Principals[i].Id` | Yes | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent all principals. |
@@ -84,5 +83,4 @@ All Principals can be combined with `ExcludePrincipals` to deny all principals e
 
 ## Next steps
 
-* [Tutorial: Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md)
 * [List Azure deny assignments using the Azure portal](deny-assignments-portal.md)

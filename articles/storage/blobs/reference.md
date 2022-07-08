@@ -1,16 +1,16 @@
 ---
-title: Azure Blob Storage reference
+title: Azure Blob Storage API reference
 description: Find Azure Blob Storage API reference, readme files, and client library packages.
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: reference
 ---
 
-# Azure Blob Storage reference
+# Azure Blob Storage API reference
 
 Find Blob Storage API reference, library packages, readme files, and getting started articles.
 
@@ -109,4 +109,4 @@ The following list contains links to libraries for other programming languages a
 
 ## Azure CLI
 
-[Azure CLI reference](/cli/azure/storage)
+[Azure CLI reference](/cli/azure/azure-cli-reference-for-storage)

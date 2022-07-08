@@ -1,11 +1,11 @@
 ---
 title: Configuring Azure Files network endpoints | Microsoft Docs
 description: Learn how to configure Azure File network endpoints.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/02/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -116,7 +116,7 @@ IP4Address : 192.168.0.5
 
 If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint has been set up correctly with the following commands:
 
-```bash
+```azurecli
 httpEndpoint=$(az storage account show \
         --resource-group $storageAccountResourceGroupName \
         --name $storageAccountName \

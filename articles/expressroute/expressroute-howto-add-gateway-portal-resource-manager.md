@@ -45,11 +45,6 @@ The steps for this task use a VNet based on the values in the following configur
 
 You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) of these steps before beginning your configuration.
 
-> [!IMPORTANT]
-> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines for [IPv6 for Azure VNet](../virtual-network/ipv6-overview.md).
-> 
-> 
-
 ## Create the gateway subnet
 
 1. In the [portal](https://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
@@ -84,13 +79,11 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
     | Public IP address name | Provide a name for the public IP address. |
 
     > [!IMPORTANT]
-    > If you plan to use IPv6-based private peering over ExpressRoute, please refer to the [PowerShell documentation](./expressroute-howto-add-gateway-resource-manager.md) for creating your gateway with a Public IP address of type Standard, Static.
+    > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
     > 
     > 
 
 1. Select **Review + Create**, and then **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
-
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Create virtual network gateway page fields":::
 
 ## Clean up resources
 

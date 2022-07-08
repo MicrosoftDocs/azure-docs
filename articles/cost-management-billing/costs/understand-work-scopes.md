@@ -1,9 +1,10 @@
 ---
-title: Understand and work with Azure Cost Management scopes
+title: Understand and work with Cost Management scopes
+titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/05/2021
+ms.date: 12/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -35,7 +36,7 @@ Cost Management works at all scopes above resources to allow organizations to ma
 
 Azure supports three scopes for resource management. Each scope supports managing access and governance, including but not limited to, cost management.
 
-- [**Management groups**](../../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
+- [**Management groups**](../../governance/management-groups/overview.md) - Hierarchical containers, used to organize Azure subscriptions. A management group tree can support up to six levels of depth. The limit doesn't include the Root level or the subscription level.
 
     Resource type: [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
@@ -63,12 +64,17 @@ Cost Management supports the following built-in roles for each of the following 
 
 Cost Management Contributor is the recommended least-privilege role. The role allows people to create and manage budgets and exports to more effectively monitor and report on costs. Cost Management Contributors might also require additional roles to support complex cost management scenarios. Consider the following scenarios:
 
-- **Reporting on resource usage** – Azure Cost Management shows cost in the Azure portal. It includes usage as it pertains to cost in the full usage patterns. This report can also show API and download charges, but you may also want to drill into detailed usage metrics in Azure Monitor to get a deeper understanding. Consider granting [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) on any scope where you also need to report detailed usage metrics.
+- **Reporting on resource usage** – Cost Management shows cost in the Azure portal. It includes usage as it pertains to cost in the full usage patterns. This report can also show API and download charges, but you may also want to drill into detailed usage metrics in Azure Monitor to get a deeper understanding. Consider granting [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) on any scope where you also need to report detailed usage metrics.
 - **Act when budgets are exceeded** – Cost Management Contributors also need access to create and manage action groups to automatically react to overages. Consider granting [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) to a resource group that contains the action group to use when budget thresholds are exceeded. Automating specific actions requires additional roles for the specific services used, such as Automation and Azure Functions.
 - **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
 - **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../../role-based-access-control/built-in-roles.md#all) if you want to act on a cost-based recommendation.
 
-Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Azure Active Directory subscriptions, can't view costs. If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Azure AD** and **My Org**. Move your Azure AD subscription to the **Azure AD** management group and then view and manage costs using the **My Org** management group.
+> [!NOTE]
+> Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement subscriptions.
+
+Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Azure Active Directory subscriptions, can't view costs. 
+
+If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Azure AD** and **My Org**. Move your Azure AD subscription to the **Azure AD** management group and then view and manage costs using the **My Org** management group.
 
 ### Feature behavior for each role
 
@@ -196,6 +202,9 @@ Customer Agreement billing scopes support the following roles:
 
 Azure subscriptions are nested under invoice sections, like how they are under EA enrollment accounts. Billing users have access to cost data for the subscriptions and resource groups that are under their respective scopes. However, they don't have access to see or manage resources in the Azure portal. Billing users can view costs by navigating to **Cost Management + Billing** in the Azure portal list of services. Then, filter costs to the specific subscriptions and resource groups they need to report on.
 
+> [!NOTE]
+> Management group scopes aren't supported for Microsoft Customer Agreement accounts at this time.
+
 Billing users don't have access to management groups because they don't explicitly fall under the billing account. However, when management groups are enabled for the organization, all subscription costs are rolled-up to the billing account and to the root management group because they're both constrained to a single directory. Management groups only include purchases that are usage-based. Purchases like reservations and third-party Marketplace offerings aren't included in management groups. So, the billing account and root management group may report different totals. To view these costs, use the billing account or respective billing profile.
 
 ### Feature behavior for each role
@@ -263,7 +272,7 @@ The following scopes are supported for CSPs with customers on a Microsoft Custom
 
 Only the users with *Global admin* and *Admin agent* roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
-Azure Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who aren't yet on a Microsoft Customer Agreement, see [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
+Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who aren't yet on a Microsoft Customer Agreement, see [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Management groups in CSP scopes aren't supported by Cost Management. If you have a CSP subscription and you set the scope to a management group in cost analysis, you'll see an error similar to:
 

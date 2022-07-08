@@ -3,13 +3,14 @@ title: 'Custom Commands concepts and definitions - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn about concepts and definitions for Custom Commands applications.
 services: cognitive-services
-author: singhsaumya
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.author: sausin
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Custom Commands concepts and definitions
@@ -46,12 +47,24 @@ Note that, if you configured a **required parameter** to have a **Default value*
 ### Type
 Custom Commands supports the following parameter types:
 
+* Age
+* Currency
 * DateTime
+* Dimension
+* Email
 * Geography
 * Number
+* Ordinal
+* Percentage
+* PersonName
+* PhoneNumber
 * String
+* Temperature
+* Url
 
-All these parameter types except for Geography, support default value configuration, which you can configure from the portal.
+Every locale supports the "String" parameter type, but availability of all other types differs by locale. Custom Commands uses LUIS's prebuilt entity resolution, so the availability of a parameter type in a locale depends on LUIS's prebuilt entity support in that locale. You can find [more details on LUIS's prebuilt entity support per locale](../luis/luis-reference-prebuilt-entities.md). Custom LUIS entities (such as machine learned entities) are currently not supported.
+
+Some parameter types like Number, String and DateTime support default value configuration, which you can configure from the portal.
 
 ### Configuration
 Configuration is a parameter property defined only for the type String. The following values are supported:
@@ -111,7 +124,6 @@ The post-execution state is the dialog state after processing the current input 
 * **Complete the command**: Complete the command and no additional rules of the command will be processed.
 * **Execute completion rules**: Execute all the valid completion rules.
 * **Wait for user's input**: Wait for the next user input.
-
 
 
 ## Next steps

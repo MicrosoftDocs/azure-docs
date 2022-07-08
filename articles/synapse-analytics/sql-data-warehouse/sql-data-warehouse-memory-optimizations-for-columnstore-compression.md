@@ -1,15 +1,14 @@
 ---
 title: Improve columnstore index performance for dedicated SQL pool
 description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup in dedicated SQL pool.
-services: synapse-analytics
-author: julieMSFT 
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 03/22/2019
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.date: 10/18/2021
+ms.author: wiassaf
+ms.reviewer: 
 ms.custom: azure-synapse
 ---
 
@@ -78,9 +77,7 @@ The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = N
 
 ## How to estimate memory requirements
 
-<!--
-To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
--->
+To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, consider creating the sample view [dbo.vCS_mon_mem_grant](..\sql\data-load-columnstore-compression.md). This query shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
 
 The maximum required memory to compress one rowgroup is approximately
 
@@ -93,9 +90,6 @@ The maximum required memory to compress one rowgroup is approximately
 > Short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes.
 
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
-
-For an in-depth discussion of columnstore memory requirements, see the
-video [Dedicated SQL pool scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## Ways to reduce memory requirements
 

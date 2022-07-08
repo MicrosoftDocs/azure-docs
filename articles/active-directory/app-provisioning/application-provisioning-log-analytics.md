@@ -3,7 +3,7 @@ title: Understand how Provisioning integrates with Azure Monitor logs in Azure A
 description: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -29,7 +29,7 @@ Once you've configured Azure monitoring, you can enable logs for application pro
 
 > [!NOTE]
 > If you have just recently provisioned a workspace, it can take some time before you can send logs to it. If you receive an error that the subscription is not registered to use *microsoft.insights* then check back after a few minutes.
- 
+
 ## Understanding the data
 The underlying data stream that Provisioning sends log viewers is almost identical. Azure Monitor logs gets nearly the same stream as the Azure portal UI and Azure API. There are only a few **differences** in the log fields as outlined in the following table. To learn more about these fields, see [List provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 

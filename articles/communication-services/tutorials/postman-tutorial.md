@@ -1,13 +1,15 @@
 ---
-title: Tutorial - Sign and make requests to ACS' SMS API with Postman
+title: Tutorial - Sign and make requests to Azure Communication Services' SMS API with Postman
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to sign and makes requests for ACS with Postman to send an SMS Message.
+description: Learn how to sign and makes requests for Azure Communication Services with Postman to send an SMS Message.
 author: ProbablePrime
 services: azure-communication-services
+
 ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: tutorial
 ms.service: azure-communication-services
+ms.subservice: sms
 ---
 # Tutorial: Sign and make requests with Postman
 In this tutorial, we'll be setting up and using Postman to make a request against Azure Communication Services using HTTP. By the end of this tutorial, you'll have successfully sent an SMS message using Communication Services and Postman. You'll then be able to use Postman to explore other APIs within Azure Communication Services.
@@ -22,7 +24,7 @@ In this tutorial we'll be:
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). The free account gives you $200 in Azure credits to try out any combination of services.
 - An active Communication Services resource and connection string. [Learn how to create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- An ACS Telephone number that can send SMS messages, see our [Get a phone number](../quickstarts/telephony-sms/get-phone-number.md) to get one.
+- An Azure Communication Services Telephone number that can send SMS messages, see our [Get a phone number](../quickstarts/telephony/get-phone-number.md) to get one.
 
 ## Downloading and installing Postman
 
@@ -38,7 +40,7 @@ Postman, can organize requests in many ways. For the purposes of this tutorial. 
 
 :::image type="content" source="media/postman/collections-tab.png" alt-text="Postman's main screen with the Collections tab highlighted.":::
 
-Once selected, click "Create new Collection", to start the collection creation process. A new tab will open in the center area of Postman. Name the collection whatever you'd like. Here the collection is named "ACS":
+Once selected, click "Create new Collection", to start the collection creation process. A new tab will open in the center area of Postman. Name the collection whatever you'd like. Here the collection is named "Azure Communication Services":
 
 :::image type="content" source="media/postman/acs-collection.png" alt-text="Postman with a Communication Services Collection opened and the name of the collection highlighted.":::
 
@@ -168,7 +170,7 @@ pm.request.headers.upsert({
 
 Enter or paste this final script, into the text area within the Pre-request Script Tab:
 
-:::image type="content" source="media/postman/finish-pre-request.png" alt-text="Postman with an ACS Collection's Pre-request script entered.":::
+:::image type="content" source="media/postman/finish-pre-request.png" alt-text="Postman with an Azure Communication Services Collection's Pre-request script entered.":::
 
 Once entered, press CTRL + S or press the save button this will save the script to the collection. 
 
@@ -196,7 +198,7 @@ In the text area below you'll need to enter a request body, it should be in the 
 
 ```JSON
 {
-    "from":"<Your ACS Telephone Number>",
+    "from":"<Your Azure Communication Services Telephone Number>",
     "message":"<The message you'd like to send>",
     "smsRecipients": [
         {
@@ -206,7 +208,7 @@ In the text area below you'll need to enter a request body, it should be in the 
 }
 ```
 
-For the "from" value, you'll need to [get a telephone number](../quickstarts/telephony-sms/get-phone-number.md) in the Azure Communication Services Portal as previously mentioned. Enter it without any spaces and prefixed by your country code. For example: `+15555551234`. Your "message" can be whatever you'd like to send but `Hello from ACS` is a good example. The "to" value should be a phone you have access to that can receive SMS messages. Using your own mobile is a good idea.
+For the "from" value, you'll need to [get a telephone number](../quickstarts/telephony/get-phone-number.md) in the Azure Communication Services Portal as previously mentioned. Enter it without any spaces and prefixed by your country code. For example: `+15555551234`. Your "message" can be whatever you'd like to send but `Hello from Azure Communication Services` is a good example. The "to" value should be a phone you have access to that can receive SMS messages. Using your own mobile is a good idea.
 
 Once entered, we need to save this request into the Communication Services Collection that we previously created. This will ensure that it picks up the variables and pre-request script that we previously created. To do, this click the "save" button in the top right of the request area.
 

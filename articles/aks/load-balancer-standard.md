@@ -26,12 +26,11 @@ This document covers the integration with Public Load balancer. For internal Loa
 
 ## Before you begin
 
-Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster. Use the *Standard* SKU to have access to added functionality, such as a larger backend pool, [**multiple node pools**](use-multiple-node-pools.md), and [**Availability Zones**](availability-zones.md). It's the recommended Load Balancer SKU for AKS.
+Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended Load Balancer SKU for AKS.
 
 For more information on the *Basic* and *Standard* SKUs, see [Azure load balancer SKU comparison][azure-lb-comparison].
 
-This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer and walks through how to use and configure some of the capabilities and features of the load balancer. 
-If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer and walks through how to use and configure some of the capabilities and features of the load balancer. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
 > If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have your own gateway, firewall or proxy for that purpose you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**Outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md). The Outbound type defines the egress method for a cluster and it defaults to type: load balancer.
@@ -125,7 +124,7 @@ Requirements for using your own public IP or prefix:
 
 - Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS cannot be reused as a bring your own custom IP as it can cause management conflicts.
 - You must ensure the AKS cluster identity (Service Principal or Managed Identity) has permissions to access the outbound IP. As per the [required public IP permissions list](kubernetes-service-principal.md#networking).
-- Make sure you meet the [pre-requisites and constraints](../virtual-network/public-ip-address-prefix.md#limitations) necessary to configure Outbound IPs or Outbound IP prefixes.
+- Make sure you meet the [pre-requisites and constraints](../virtual-network/ip-services/public-ip-address-prefix.md#limitations) necessary to configure Outbound IPs or Outbound IP prefixes.
 
 #### Update the cluster with your own outbound public IP
 
@@ -191,17 +190,16 @@ az aks create \
 ### Configure the allocated outbound ports
 
 > [!IMPORTANT]
-> If you have applications on your cluster which are expected to establish a large number of connection to small set of destinations, eg. many frontend instances connecting to an SQL DB, you have a scenario very susceptible to encounter SNAT Port exhaustion (run out of ports to connect from). For these scenarios it's highly recommended to increase the allocated outbound ports and outbound frontend IPs on the load balancer. The increase should consider that one (1) additional IP address adds 64k additional ports to distribute across all cluster nodes.
+> If you have applications on your cluster which can establish a large number of connections to small set of destinations, for example many instances of a frontend application connecting to a database, you may have a scenario very susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario where you may encounter SNAT port exhaustion, it is highly recommended that you increase the allocated outbound ports and outbound frontend IPs on the load balancer to prevent SNAT port exhaustion. See below for information on how to properly calculate outbound ports and outbound frontend IP values.
 
-
-Unless otherwise specified, AKS will use the default value of Allocated Outbound Ports that Standard Load Balancer defines when configuring it. This value is **null** on the AKS API or **0** on the SLB API as shown by the below command:
+By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster is increased, fewer ports will be available per node. To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`. For example:
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az network lb outbound-rule list --resource-group $NODE_RG --lb-name kubernetes -o table
 ```
 
-The previous commands will list the outbound rule for your load balancer, for example:
+The following example output shows that automatic outbound port assignment based on backend pool size is enabled for the cluster:
 
 ```console
 AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name             Protocol    ProvisioningState    ResourceGroup
@@ -209,11 +207,31 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-This output does not mean that you have 0 ports but instead that you are leveraging the [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports], so for example if a cluster has 50 or less nodes, 1024 ports for each node are allocated, as you increase the number of nodes from there you'll gradually get fewer ports per node.
+To configure a specific value for *AllocatedOutboundPorts* and outbound IP address when creating or updating a cluster, use `load-balancer-outbound-ports` and either `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips`, or `load-balancer-outbound-ip-prefixes`. Before setting a specific value or increasing an existing value for either for outbound ports and outbound IP address, you must calculate the appropriate number of outbound ports and IP address. Use the following equation for this calculation rounded to the nearest integer: `64,000 ports per IP / <outbound ports per node> * <number of outbound IPs> = <maximum number of nodes in the cluster>`.
 
+When calculating the number of outbound ports and IPs and setting the values, remember:
+* The number of outbound ports is fixed per node based on the value you set.
+* The value for outbound ports must be a multiple of 8.
+* Adding more IPs does not add more ports to any node. It provides capacity for more nodes in the cluster.
+* You must account for nodes that may be added as part of upgrades, including the count of nodes specified via [maxSurge values][maxsurge].
 
-To define or increase the number of Allocated Outbound ports, you can follow the below example:
+The following examples show how the number of outbound ports and IP addresses are affected by the values you set:
+- If the default values are used and the cluster has 48 nodes, each node will have 1024 ports available.
+- If the default values are used and the cluster scales from 48 to 52 nodes, each node will be updated from 1024 ports available to 512 ports available.
+- If outbound ports is set to 1,000 and outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes: `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes`.
+- If outbound ports is set to 1,000 and outbound IP count is set to 7, then the cluster can support a maximum of 448 nodes: `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes`.
+- If outbound ports is set to 4,000 and outbound IP count is set to 2, then the cluster can support a maximum of 32 nodes: `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes`.
+- If outbound ports is set to 4,000 and outbound IP count is set to 7, then the cluster can support a maximum of 112 nodes: `64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes`.
 
+> [!IMPORTANT]
+> After calculating the number outbound ports and IPs, verify you have additional outbound port capacity to handle node surge during upgrades. It is critical to allocate sufficient excess ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade operations. If using [maxSurge values][maxsurge], multiply the outbound ports per node by your maxSurge value to determine the number of ports required. For example if you calculated you needed 4000 ports per node with 7 IP address on a cluster with a maximum of 100 nodes and a max surge of 2:
+> * 2 surge nodes * 4000 ports per node = 8000 ports needed for node surge during upgrades.
+> * 100 nodes * 4000 ports per node = 400,000 ports required for your cluster.
+> * 7 IPs * 64000 ports per IP = 448,000 ports available for your cluster.
+>
+> The above example shows the cluster has an excess capacity of 48,000 ports, which is sufficient to handle the 8000 ports needed for node surge during upgrades.
+
+Once the values have been calculated and verified, you can apply those values using `load-balancer-outbound-ports` and either `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips`, or `load-balancer-outbound-ip-prefixes` when creating or updating a cluster. For example:
 
 ```azurecli-interactive
 az aks update \
@@ -223,30 +241,10 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-This example would give you 4000 Allocated Outbound Ports for each node in my cluster, and with 7 IPs you would have *4000 ports per node * 100 nodes = 400k total ports <  = 448k total ports = 7 IPs * 64k ports per IP*. This would allow you to safely scale to 100 nodes and have a default upgrade operation. It is critical to allocate sufficient ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade, in this example this requires 4000 free ports at any given point in time. If using [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade), multiply the outbound ports per node by your maxSurge value.
-
-To safely go above 100 nodes, you'd have to add more IPs.
-
-
-> [!IMPORTANT]
-> You must [calculate your required quota and check the requirements][requirements] before customizing *allocatedOutboundPorts* to avoid connectivity or scaling issues.
-
-You can also use the **`load-balancer-outbound-ports`** parameters when creating a cluster, but you must also specify either **`load-balancer-managed-outbound-ip-count`**, **`load-balancer-outbound-ips`**, or **`load-balancer-outbound-ip-prefixes`** as well.  For example:
-
-```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --load-balancer-sku standard \
-    --load-balancer-managed-outbound-ip-count 2 \
-    --load-balancer-outbound-ports 1024 
-```
-
 ### Configure the load balancer idle timeout
 
 When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load Balancer reclaims SNAT ports when the flow closes and the AKS-configured load balancer uses a 30-minute idle timeout for reclaiming SNAT ports from idle flows.
 You can also use transport (for example, **`TCP keepalives`**) or **`application-layer keepalives`** to refresh an idle flow and reset this idle timeout if necessary. You can configure this timeout following the below example: 
-
 
 ```azurecli-interactive
 az aks update \
@@ -261,16 +259,7 @@ If you expect to have numerous short lived connections, and no connections that 
 > AKS enables TCP Reset on idle by default and recommends you keep this configuration on and leverage it for more predictable application behavior on your scenarios.
 > TCP RST is only sent during TCP connection in ESTABLISHED state. Read more about it [here](../load-balancer/load-balancer-tcp-reset.md).
 
-### Requirements for customizing allocated outbound ports and idle timeout
-
-- The value you specify for *allocatedOutboundPorts* must also be a multiple of 8.
-- You must have enough outbound IP capacity based on the number of your node VMs and required allocated outbound ports. To validate you have enough outbound IP capacity, use the following formula: 
- 
-*outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
- 
-For example, if you have 3 *nodeVMs*, and 50,000 *desiredAllocatedOutboundPorts*, you need to have at least 3 *outboundIPs*. It is recommended that you incorporate additional outbound IP capacity beyond what you need. Additionally, you must account for the cluster autoscaler and the possibility of node pool upgrades when calculating outbound IP capacity. For the cluster autoscaler, review the current node count and the maximum node count and use the higher value. For upgrading, account for an additional node VM for every node pool that allows upgrading.
-
-- When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads will need an outbound connection. Also consider the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
+When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads will need an outbound connection. Also consider the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
 
 > [!WARNING]
 > Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and should not be done lightly, without understanding the tradeoffs and your application's connection patterns, check the [SNAT Troubleshooting section below][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
@@ -293,6 +282,8 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+This example updates the rule to allow inbound external traffic only from the `MY_EXTERNAL_IP_RANGE` range. If you replace `MY_EXTERNAL_IP_RANGE` with the internal subnet IP address, traffic is restricted to only cluster internal IPs. If traffic is restricted to cluster internal IPs, clients outside your Kubernetes cluster won't be able to access the load balancer.
 
 > [!NOTE]
 > Inbound, external traffic flows from the load balancer to the virtual network for your AKS cluster. The virtual network has a Network Security Group (NSG) which allows all inbound traffic from the load balancer. This NSG uses a [service tag][service-tags] of type *LoadBalancer* to allow traffic from the load balancer.
@@ -328,7 +319,7 @@ Below is a list of annotations supported for Kubernetes services with type `Load
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group            | Specify the resource group of load balancer public IPs that aren't in the same resource group as the cluster infrastructure (node resource group).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags][service-tags] separated by comma.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time, in minutes, for TCP connection idle timeouts to occur on the load balancer. Default and minimum value is 4. Maximum value is 30. Must be an integer.
-|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Disable `enableTcpReset` for SLB
+|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Disable `enableTcpReset` for SLB. Deprecated in Kubernetes 1.18 and removed in 1.20. 
 
 
 ## Troubleshooting SNAT
@@ -354,9 +345,6 @@ Use connection pools to shape your connection volume.
 - Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, state remains allocated at intermediate systems and endpoints and makes SNAT ports unavailable for other connections. This pattern can trigger application failures and SNAT exhaustion.
 - Don't change OS-level TCP close related timer values without expert knowledge of impact. While the TCP stack will recover, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Wishing to change timers is usually a sign of an underlying design problem. Review following recommendations.
 
-
-The above example updates the rule to only allow inbound external traffic from the *MY_EXTERNAL_IP_RANGE* range. If you replace *MY_EXTERNAL_IP_RANGE* with the internal subnet IP address, traffic is restricted to cluster internal IPs only. This will not allow clients from outside of your Kubernetes cluster to access the load balancer.
-
 ## Moving from a basic SKU load balancer to standard SKU
 
 If you have an existing cluster with the Basic SKU Load Balancer, there are important behavioral differences to note when migrating to use a cluster with the Standard SKU Load Balancer.
@@ -378,7 +366,6 @@ The following limitations apply when you create and manage AKS clusters that sup
 * You can only use one type of load balancer SKU (Basic or Standard) in a single cluster.
 * *Standard* SKU Load Balancers only support *Standard* SKU IP Addresses.
 
-
 ## Next steps
 
 Learn more about Kubernetes services at the [Kubernetes services documentation][kubernetes-services].
@@ -391,14 +378,14 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-aks-create]: /cli/azure/aks#az_aks_create
@@ -413,7 +400,7 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 [az-network-public-ip-show]: /cli/azure/network/public-ip#az_network_public_ip_show
 [az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[azure-lb]: ../load-balancer/load-balancer-overview.md
+[azure-lb]: ../load-balancer/load-balancer-overview.md#securebydefault
 [azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-connections.md#outboundrules
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md
@@ -425,7 +412,7 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
-[requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
+[maxsurge]: upgrade-cluster.md#customize-node-surge-upgrade

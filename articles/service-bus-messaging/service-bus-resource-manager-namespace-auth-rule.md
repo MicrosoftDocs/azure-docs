@@ -4,9 +4,10 @@ description: Create a Service Bus authorization rule for namespace and queue usi
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
+ms.date: 09/27/2021
 ms.author: spelluru 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 

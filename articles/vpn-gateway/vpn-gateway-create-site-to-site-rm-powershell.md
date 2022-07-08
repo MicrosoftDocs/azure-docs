@@ -221,7 +221,7 @@ Next, create the Site-to-Site VPN connection between your virtual network gatewa
    ```azurepowershell-interactive
    New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
    -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   -ConnectionType IPsec -SharedKey 'abc123'
    ```
 
 After a short while, the connection will be established.

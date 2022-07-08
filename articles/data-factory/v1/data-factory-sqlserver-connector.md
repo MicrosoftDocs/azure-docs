@@ -1,11 +1,12 @@
 ---
 title: Move data to and from SQL Server 
 description: Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 robots: noindex
 ---
 # Move data to and from SQL Server using Azure Data Factory
@@ -533,12 +534,12 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 ## Troubleshooting connection issues
 1. Configure your SQL Server to accept remote connections. Launch **SQL Server Management Studio**, right-click **server**, and click **Properties**. Select **Connections** from the list and check **Allow remote connections to the server**.
 
-    ![Enable remote connections](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
+    :::image type="content" source="./media/data-factory-sqlserver-connector/AllowRemoteConnections.png" alt-text="Enable remote connections":::
 
     See [Configure the remote access Server Configuration Option](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option) for detailed steps.
 2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/IP by right-clicking **TCP/IP** and clicking **Enable**.
 
-    ![Enable TCP/IP](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
+    :::image type="content" source="./media/data-factory-sqlserver-connector/EnableTCPProptocol.png" alt-text="Enable TCP/IP":::
 
     See [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol) for details and alternate ways of enabling TCP/IP protocol.
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.

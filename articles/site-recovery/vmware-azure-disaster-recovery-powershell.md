@@ -1,11 +1,11 @@
 ---
 title: Set up VMware disaster recovery using PowerShell in Azure Site Revoery
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.date: 05/27/2021 
 ms.custom: devx-track-azurepowershell
 
@@ -313,7 +313,7 @@ Errors           : {}
 
 ## Create storage accounts for replication
 
-**To write to managed disk, use [Powershell Az.RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) onwards.** It only requires creation of a log storage account. It is recommended to use a standard account type and LRS redundancy since it is used to store only temporary logs. Ensure that the storage account is created in the same Azure region as the vault.
+**To write to managed disk, use [PowerShell Az.RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) onwards.** It only requires creation of a log storage account. It is recommended to use a standard account type and LRS redundancy since it is used to store only temporary logs. Ensure that the storage account is created in the same Azure region as the vault.
 
 If you are using a version of Az.RecoveryServices module older than 2.0.0, use the following steps to create storage accounts. These storage accounts are used later to replicate virtual machines. Ensure that the storage accounts are created in the same Azure region as the vault. You can skip this step if you plan to use an existing storage account for replication.
 

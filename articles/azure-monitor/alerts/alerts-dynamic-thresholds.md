@@ -4,7 +4,7 @@ description: Create Alerts with machine learning based Dynamic Thresholds
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 2/23/2022
 ---
 
 # Metric Alerts with Dynamic Thresholds in Azure Monitor
@@ -68,9 +68,12 @@ To trigger an alert when there was a violation from a Dynamic Thresholds in 20 m
 
 **Ignore data before** - Users may also optionally define a start date from which the system should begin calculating the thresholds from. A typical use case may occur when a resource was a running in a testing mode and is now promoted to serve a production workload, and therefore the behavior of any metric during the testing phase should be disregarded.
 
+> [!NOTE]
+> An alert fires when the rule is evaluated and the result shows an anomaly. The alert is resolved if the rule is evaluated and does not show an anomaly three times in a row.
+
 ## How do you find out why a Dynamic Thresholds alert was triggered?
 
-You can explore triggered alert instances in the alerts view either by clicking on the link in the email or text message, or browser to see the alerts view in the Azure portal. [Learn more about the alerts view](./alerts-overview.md#alerts-experience).
+You can explore triggered alert instances by clicking on the link in the email or text message, or browse to see the alerts in the Azure portal. [Learn more about the alerts view](./alerts-page.md).
 
 The alert view displays:
 

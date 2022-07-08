@@ -2,13 +2,11 @@
 title: What is Azure Data Lake Storage Gen1? | Microsoft Docs
 description: Overview of Data Lake Storage Gen1 (previously known as Azure Data Lake Store), and the value it provides over other data stores
 
-services: data-lake-store
-author: twooley
-
+author: normesta
 ms.service: data-lake-store
 ms.topic: overview
 ms.date: 04/17/2019
-ms.author: twooley
+ms.author: normesta
 
 ---
 
@@ -50,7 +48,7 @@ Data Lake Storage Gen1 also provides enterprise-grade security for the stored da
 
 Data Lake Storage Gen1 can store any data in its native format, without requiring any prior transformations. Data Lake Storage Gen1 does not require a schema to be defined before the data is loaded, leaving it up to the individual analytic framework to interpret the data and define a schema at the time of the analysis. The ability to store files of arbitrary sizes and formats makes it possible for Data Lake Storage Gen1 to handle structured, semi-structured, and unstructured data.
 
-Data Lake Storage Gen1 containers for data are essentially folders and files. You operate on the stored data using SDKs, the Azure portal, and Azure Powershell. If you put your data into the store using these interfaces and using the appropriate containers, you can store any type of data. Data Lake Storage Gen1 does not perform any special handling of data based on the type of data it stores.
+Data Lake Storage Gen1 containers for data are essentially folders and files. You operate on the stored data using SDKs, the Azure portal, and Azure PowerShell. If you put your data into the store using these interfaces and using the appropriate containers, you can store any type of data. Data Lake Storage Gen1 does not perform any special handling of data based on the type of data it stores.
 
 ## <a name="DataLakeStoreSecurity"></a>Securing data
 

@@ -5,13 +5,12 @@ services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/27/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -67,7 +66,7 @@ The following sections discuss these phases in detail.
 
 ### Authentication Agent installation
 
-Only global administrators can install an Authentication Agent (by using Azure AD Connect or standalone) on an on-premises server. Installation adds two new entries to the **Control Panel** > **Programs** > **Programs and Features** list:
+Only global administrators or Hybrid Identity administrators can install an Authentication Agent (by using Azure AD Connect or standalone) on an on-premises server. Installation adds two new entries to the **Control Panel** > **Programs** > **Programs and Features** list:
 - The Authentication Agent application itself. This application runs with [NetworkService](/windows/win32/services/networkservice-account) privileges.
 - The Updater application that's used to auto-update the Authentication Agent. This application runs with [LocalSystem](/windows/win32/services/localsystem-account) privileges.
 
@@ -84,7 +83,7 @@ The Authentication Agents use the following steps to register themselves with Az
 
 ![Agent registration](./media/how-to-connect-pta-security-deep-dive/pta1.png)
 
-1. Azure AD first requests that a global administrator sign in to Azure AD with their credentials. During sign-in, the Authentication Agent acquires an access token that it can use on behalf of the global administrator.
+1. Azure AD first requests that a global administrator or hybrid identity administrator sign in to Azure AD with their credentials. During sign-in, the Authentication Agent acquires an access token that it can use on behalf of the global administrator or hybrid identity administrator.
 2. The Authentication Agent then generates a key pair: a public key and a private key.
     - The key pair is generated through standard RSA 2048-bit encryption.
     - The private key stays on the on-premises server where the Authentication Agent resides.
@@ -92,7 +91,7 @@ The Authentication Agents use the following steps to register themselves with Az
     - The access token acquired in step 1.
     - The public key generated in step 2.
     - A Certificate Signing Request (CSR or Certificate Request). This request applies for a digital identity certificate, with Azure AD as its certificate authority (CA).
-4. Azure AD validates the access token in the registration request and verifies that the request came from a global administrator.
+4. Azure AD validates the access token in the registration request and verifies that the request came from a global administrator or hybrid identity administrator.
 5. Azure AD then signs and sends a digital identity certificate back to the Authentication Agent.
     - The root CA in Azure AD is used to sign the certificate. 
 
@@ -170,12 +169,12 @@ To renew an Authentication Agent's trust with Azure AD:
     - A Certificate Signing Request (CSR or Certificate Request). This request applies for a new digital identity certificate, with Azure AD as its certificate authority.
 4. Azure AD validates the existing certificate in the certificate renewal request. Then it verifies that the request came from an Authentication Agent registered on your tenant.
 5. If the existing certificate is still valid, Azure AD then signs a new digital identity certificate, and issues the new certificate back to the Authentication Agent. 
-6. If the existing certificate has expired, Azure AD deletes the Authentication Agent from your tenant’s list of registered Authentication Agents. Then a global administrator needs to manually install and register a new Authentication Agent.
+6. If the existing certificate has expired, Azure AD deletes the Authentication Agent from your tenant’s list of registered Authentication Agents. Then a global administrator or hybrid identity administrator needs to manually install and register a new Authentication Agent.
     - Use the Azure AD root CA to sign the certificate.
     - Set the certificate’s subject (Distinguished Name or DN) to your tenant ID, a GUID that uniquely identifies your tenant. The DN scopes the certificate to your tenant only.
 6. Azure AD stores the new public key of the Authentication Agent in a database in Azure SQL Database that only it has access to. It also invalidates the old public key associated with the Authentication Agent.
 7. The new certificate (issued in step 5) is then stored on the server in the Windows certificate store (specifically in the [CERT_SYSTEM_STORE_CURRENT_USER](/windows/win32/seccrypto/system-store-locations#CERT_SYSTEM_STORE_CURRENT_USER) location).
-    - Because the trust renewal procedure happens non-interactively (without the presence of the global administrator), the Authentication Agent no longer has access to update the existing certificate in the CERT_SYSTEM_STORE_LOCAL_MACHINE location. 
+    - Because the trust renewal procedure happens non-interactively (without the presence of the global administrator or hybrid identity administrator), the Authentication Agent no longer has access to update the existing certificate in the CERT_SYSTEM_STORE_LOCAL_MACHINE location. 
     
    > [!NOTE]
    > This procedure does not remove the certificate itself from the CERT_SYSTEM_STORE_LOCAL_MACHINE location.

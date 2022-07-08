@@ -3,19 +3,18 @@ title: Azure Resource Manager template samples for virtual network | Microsoft D
 description: Learn about different Azure Resource Manager templates available for you to deploy Azure virtual networks with.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 manager: mtillman
 editor: ''
 tags:
 
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/22/2019
-ms.author: kumud
+ms.author: mbender
 
 ---
 # Azure Resource Manager template samples for virtual network

@@ -4,22 +4,22 @@ description: Explains how to add new users or delete existing users in Azure Act
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 12/02/2020
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
-#Customer intent: As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my Azure AD organization’s user-created groups. 
+ms.custom: it-pro, mode-other
 ms.collection: M365-identity-device-management
+#Customer intent: As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my Azure AD organization’s user-created groups.
 ---
 
 # Quickstart: Naming policy for groups in Azure Active Directory
 
-In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) organization for user-created Microsoft 365 groups, to help you sort and search your organization’s groups. For example, you could use the naming policy to:
+In this quickstart, in Azure Active Directory (Azure AD), part of Microsoft Entra, you will set up naming policy in your Azure AD organization for user-created Microsoft 365 groups, to help you sort and search your groups. For example, you could use the naming policy to:
 
 * Communicate the function of a group, membership, geographic region, or who created the group.
 * Help categorize groups in the address book.

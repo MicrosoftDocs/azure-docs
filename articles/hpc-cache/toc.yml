@@ -1,12 +1,10 @@
 items:
 - name: Azure HPC Cache documentation
   href: index.yml
-
 - name: Overview
   items:
   - name: What is Azure HPC Cache?
     href: hpc-cache-overview.md
-
 - name: Concepts
   items:
   - name: Decide if HPC Cache is the right solution
@@ -19,6 +17,8 @@ items:
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json
+    - name: Security information
+      href: hpc-cache-security-info.md
 - name: How-to guides
   items:
   - name: Prerequisites
@@ -33,9 +33,9 @@ items:
       href: add-namespace-paths.md
     - name: Move data to storage targets (if needed)
       items:
-      - name: Preload new Blob storage
+      - name: Move data to blob storage
         href: hpc-cache-ingest.md
-      - name: Alternate data ingest methods
+      - name: Additional data ingest methods
         items:
         - name: Populate the cache with parallel copy
           href: hpc-cache-ingest-parallelcp.md
@@ -45,7 +45,7 @@ items:
           href: hpc-cache-ingest-manual.md
     - name: Edit storage targets
       href: hpc-cache-edit-storage.md
-    - name: Manage storage targets
+    - name: View and manage storage targets
       href: manage-storage-targets.md
   - name: Connect to the cache
     href: hpc-cache-mount.md
@@ -71,21 +71,45 @@ items:
 
 - name: Resources
   items:
-  - name: Open a support ticket
+  - name: Contact support
     href: hpc-cache-support-ticket.md
-  - name: Set up Azure CLI for Azure HPC Cache
-    href: az-cli-prerequisites.md
-  - name: Work around Blob storage account firewall settings
-    href: hpc-cache-blob-firewall-fix.md
-  - name: Troubleshoot NFS storage target creation
-    href: troubleshoot-nas.md
-  - name: Use NFS-mounted blob storage with Azure HPC Cache
-    href: nfs-blob-considerations.md
-  - name: Recover from a regional outage
-    href: hpc-region-recovery.md
+
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot NFS storage target creation
+      href: troubleshoot-nas.md
+    - name: Work around Blob storage account firewall settings
+      href: hpc-cache-blob-firewall-fix.md
+    - name: Recover from a regional outage
+      href: hpc-region-recovery.md
+    - name: Move a cache
+      href: move-resource.md
+
+  - name: Storage options
+    items:
+    - name: Use NFS-mounted blob storage with Azure HPC Cache
+      href: nfs-blob-considerations.md
+    - name: Use Azure NetApp Files with Azure HPC Cache
+      href: hpc-cache-netapp.md
+
   - name: Use customer-managed encryption keys
     href: customer-keys.md
-  - name: Use Azure NetApp Files with Azure HPC Cache
-    href: hpc-cache-netapp.md
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?service=hpc-cache
+
+  - name: Load balance client traffic
+    href: client-load-balancing.md
+
+  - name: Customize file write-back
+    href: custom-flush-script.md
+
+  - name: Prime the cache
+    href: prime-cache.md
+
+  - name: Set up Azure CLI for Azure HPC Cache
+    href: az-cli-prerequisites.md
+
+  - name: Product overview
+    href: https://azure.microsoft.com/services/hpc-cache/
+  - name: Pricing and purchasing options
+    href: https://azure.microsoft.com/pricing/details/hpc-cache/
+  - name: Product FAQs
+    href: https://azure.microsoft.com/services/hpc-cache/#faq

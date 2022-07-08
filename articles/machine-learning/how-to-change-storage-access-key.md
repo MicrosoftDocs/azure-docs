@@ -4,18 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Learn how to change the access keys for the Azure Storage account used by your workspace. Azure Machine Learning uses an Azure Storage account to store data and models. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/19/2020
-
-
+ms.date: 10/21/2021
+ms.custom: cliv1, sdkv1, event-tier1-build-2022
 ---
 
 # Regenerate storage account access keys
-
+[!INCLUDE [cli v1](../../includes/machine-learning-dev-v1.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
@@ -26,11 +25,11 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create workspace resources](quickstart-create-resources.md) article.
 
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 
-* The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning CLI extension v1](v1/reference-azure-machine-learning-cli.md).
 
 > [!NOTE]
 > The code snippets in this document were tested with version 1.0.83 of the Python SDK.

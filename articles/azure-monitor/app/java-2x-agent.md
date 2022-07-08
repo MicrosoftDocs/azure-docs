@@ -3,9 +3,9 @@ title: Java web apps performance monitoring - Azure Application Insights
 description: Extended performance and usage monitoring of your Java website with Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-author: MS-jgol
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jgol
+ms.reviewer: mmcc
 ---
 
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps
@@ -34,7 +34,7 @@ If you have [instrumented your Java web app with Application Insights SDK][java]
 To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java]. 
 
 ## Install the Application Insights agent for Java
-1. On the machine running your Java server, [download the 2.x agent](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.2). Please make sure the version of the 2.x Java Agent that you use matches the version of the 2.x Application Insights Java SDK that you use.
+1. On the machine running your Java server, [download the 2.x agent](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.4). Please make sure the version of the 2.x Java Agent that you use matches the version of the 2.x Application Insights Java SDK that you use.
 2. Edit the application server startup script, and add the following JVM argument:
    
     `-javaagent:<full path to the agent JAR file>`
@@ -49,7 +49,7 @@ Create a file named `AI-Agent.xml` and place it in the same folder as the agent 
 
 Set the content of the xml file. Edit the following example to include or omit the features you want.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
@@ -87,7 +87,7 @@ For Azure App Services, do the following:
 * Under App Settings, add a new key value pair:
 
 Key: `JAVA_OPTS`
-Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.2.jar`
+Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.4.jar`
 
 The agent must be packaged as a resource in your project such that it ends up in the D:/home/site/wwwroot/ directory. You can confirm that your agent is in the correct App Service directory by going to **Development Tools** > **Advanced Tools** > **Debug Console** and examining the contents of the site directory.    
 

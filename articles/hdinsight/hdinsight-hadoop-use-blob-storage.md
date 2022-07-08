@@ -4,7 +4,7 @@ description: Learn how to query data from Azure storage and Azure Data Lake Stor
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 03/31/2022
 ---
 
 # Use Azure storage with Azure HDInsight clusters
@@ -32,7 +32,7 @@ We don't recommend that you use the default blob container for storing business 
 Sharing one blob container as the default file system for multiple clusters isn't supported.
 
 > [!NOTE]  
-> The Archive access tier is an offline tier that has a several hour retrieval latency and isn't recommended for use with HDInsight. For more information, see [Archive access tier](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+> The Archive access tier is an offline tier that has a several hour retrieval latency and isn't recommended for use with HDInsight. For more information, see [Archive access tier](../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ## Access files from within cluster
 

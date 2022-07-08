@@ -81,7 +81,7 @@ Azure Service Fabric is a distributed systems platform. This platform makes it e
 * Provisioning
 * Deploying
 * Monitoring
-* Upgrading/patching
+* Upgrading/Patching
 * Deleting
 
 Apps, which run on a shared pool of machines, can start small and scale to hundreds or thousands of machines as needed.
@@ -98,13 +98,13 @@ Azure Spring Cloud is a serverless microservices platform that enables you to bu
 
 * Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
 * Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
-* Manage application lifecycle (e.g.: deploy, start, stop, scale) on top of Azure Kubernetes Service.
+* Manage application lifecycle (for example, deploy, start, stop, scale) on top of Azure Kubernetes Service.
 * Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
 * Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
 
-> **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure. 
+> **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure.
 >
-> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/quickstart.md).
+> **Get started:** [Deploy your first Spring Boot app in Azure Spring Cloud](../../spring-cloud/quickstart.md).
 
 
 ### Enhance your applications with Azure services
@@ -125,13 +125,13 @@ Most applications must store data, so however you decide to host your applicatio
 
   > **When to use**: When your app stores nonrelational data, such as key-value pairs (tables), blobs, files shares, or messages (queues).
   >
-  > **Get started**: Choose from one of these types storage: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Get started**: Choose from one of these types of storage: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 * **Azure SQL Database**: An Azure-based version of the Microsoft SQL Server engine for storing relational tabular data in the cloud. SQL Database provides predictable performance, scalability with no downtime, business continuity, and data protection.
 
   > **When to use**: When your application requires data storage with referential integrity, transactional support, and support for TSQL queries.
   >
-  > **Get started**: [Create a database in Azure SQL Database in minutes by using the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
+  > **Get started**: [Create a database in Azure SQL Database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
 
 You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../app-service/app-service-hybrid-connections.md) in Azure App Service lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
@@ -163,7 +163,7 @@ Azure provides several ways to use containers in your applications.
 
 It's crucial to not only know who is using your applications, but also to prevent unauthorized access to your resources. Azure provides several ways to authenticate your app clients.
 
-* **Azure Active Directory (Azure AD)**: The Microsoft multitenant, cloud-based identity and access management service. You can add single-sign on (SSO) to your applications by integrating with Azure AD. You can access directory properties by using the Azure AD Graph API directly or the Microsoft Graph API. You can integrate with Azure AD support for the OAuth2.0 authorization framework and Open ID Connect by using native HTTP/REST endpoints and the multiplatform Azure AD authentication libraries.
+* **Azure Active Directory (Azure AD)**: The Microsoft multitenant, cloud-based identity and access management service. You can add single-sign on (SSO) to your applications by integrating with Azure AD. You can access directory properties by using the Microsoft Graph API. You can integrate with Azure AD support for the OAuth2.0 authorization framework and Open ID Connect by using native HTTP/REST endpoints and the multiplatform Azure AD authentication libraries.
 
   > **When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
   >
@@ -231,7 +231,7 @@ Azure provides a rich set of experiences for you to create and manage your Azure
 
 Azure provides two ways to manage your applications and services from the command line. You can use tools like Bash, Terminal, the command prompt, or your command-line tool of choice. Usually, you can do the same tasks from the command line as in the Azure portal—such as creating and configuring virtual machines, virtual networks, web apps, and other services.
 
-* [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
+* [Azure CLI](/cli/azure/install-azure-cli): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
 
 * [Azure PowerShell](/powershell/azure/): Provides a set of modules with cmdlets that enable you to manage Azure resources by using Windows PowerShell.
 
@@ -241,7 +241,9 @@ The [Azure portal](https://portal.azure.com) is a web-based application. You can
 
 * A configurable dashboard
 * Azure resource management tools
-* Access to subscription settings and billing information. For more information, see the [Azure portal overview](https://azure.microsoft.com/features/azure-portal/).
+* Access to subscription settings and billing information
+
+For more information, see the [Azure portal overview](https://azure.microsoft.com/features/azure-portal/).
 
 ### REST APIs
 
@@ -260,7 +262,7 @@ Along with REST APIs, many Azure services also let you programmatically manage r
 * [Go](/azure/go)
 
 Services such as [Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library)
-and [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
+and [Azure Media Services](/azure/media-services/previous/media-services-dotnet-how-to-use) provide client-side SDKs to let you access services from web and mobile client apps.
 
 ### Azure Resource Manager
 
@@ -336,4 +338,4 @@ Azure provides a set of Billing REST APIs that give access to resource consumpti
 
 Although it's challenging to estimate costs ahead of time, Azure has tools that can help. It has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate the cost of deployed resources. You can also use the Billing resources in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
 
->**Get started**: See [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md).
+>**Get started**: To learn more, see [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md).

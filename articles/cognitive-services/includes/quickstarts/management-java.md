@@ -10,13 +10,14 @@ ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
-[Reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[Reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/src/main/java/com/azure/resourcemanager/cognitiveservices) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
 ## Java prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-* The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* The current version of the [Java Development Kit(JDK)](https://www.microsoft.com/openjdk)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
 * [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 

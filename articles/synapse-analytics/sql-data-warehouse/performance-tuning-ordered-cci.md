@@ -1,7 +1,6 @@
 ---
 title: Performance tuning with ordered clustered columnstore index 
 description: Recommendations and considerations you should know as you use ordered clustered columnstore index to improve your query performance in dedicated SQL pools.
-services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/13/2021
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
+ms.reviewer: nibruno; wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -54,7 +53,6 @@ A query's performance gain from an ordered CCI depends on the query patterns, th
 Queries with all these patterns typically run faster with ordered CCI.  
 1. The queries have equality, inequality, or range predicates
 1. The predicate columns and the ordered CCI columns are the same.  
-1. The predicate columns are used in the same order as the column ordinal of ordered CCI columns.  
  
 In this example, table T1 has a clustered columnstore index ordered in the sequence of Col_C, Col_B, and Col_A.
 
@@ -65,7 +63,7 @@ ORDER (Col_C, Col_B, Col_A);
 
 ```
 
-The performance of query 1 can benefit more from ordered CCI than the other three queries. 
+The performance of query 1 and query 2 can benefit most from ordered CCI than the other queries as they reference all the ordered CCI columns. 
 
 ```sql
 -- Query #1: 

@@ -1,27 +1,27 @@
 ---
 title: Restart/Stop/start - Azure portal - Azure Database for MySQL Flexible Server
 description: This article describes how to restart/stop/start operations in Azure Database for MySQL through the Azure CLI.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: Bashar-MSFT
+ms.author: bahusse
 ms.date: 03/30/2021
 ---
 
-# Restart/Stop/Start an Azure Database for MySQL - Flexible Server (Preview)
+# Restart/Stop/Start an Azure Database for MySQL Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article shows you how to perform restart, start and stop flexible server using Azure CLI.
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+- An Azure account with an active subscription. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
--  Login to Azure account using [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+-  Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
     ```azurecli-interactive
     az login

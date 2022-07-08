@@ -1,21 +1,22 @@
 ---
-title: Explainability in automated ML (preview)
+title: Model explainability in automated ML (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your automated ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, responsible-ml
+ms.custom: automl, responsible-ml, mktng-kw-nov2021, sdkv1, event-tier1-build-2022
 ms.author: mithigpe
 author: minthigpen
-ms.date: 07/09/2020
+ms.date: 10/21/2021
 ---
 
-# Interpretability: model explanations in automated machine learning (preview)
+# Interpretability: Model explainability in automated ML (preview)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn how to get explanations for automated machine learning (automated ML) in Azure Machine Learning using the Python SDK. Automated ML helps you understand feature importance of the models that are generated. 
+In this article, you learn how to get explanations for automated machine learning (automated ML) models in Azure Machine Learning using the Python SDK. Automated ML helps you understand feature importance of the models that are generated. 
 
 All SDK versions after 1.0.85 set `model_explainability=True` by default. In SDK version 1.0.85 and earlier versions users need to set `model_explainability=True` in the `AutoMLConfig` object in order to use model interpretability. 
 
@@ -318,4 +319,4 @@ For more information on the explanation dashboard visualizations and specific pl
 
 ## Next steps
 
-For more information about how you can enable model explanations and feature importance in areas of the Azure Machine Learning SDK other than automated machine learning, see the [concept article on interpretability](how-to-machine-learning-interpretability.md).
+For more information about how you can enable model explanations and feature importance in areas other than automated ML, see [more techniques for model interpretability](how-to-machine-learning-interpretability.md).

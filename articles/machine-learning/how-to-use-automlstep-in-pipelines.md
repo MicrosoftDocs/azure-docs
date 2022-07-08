@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: The AutoMLStep allows you to use automated machine learning in your pipelines.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: laobri
-author: lobrien
+ms.subservice: automl
+ms.author: larryfr
+author: blackmist
 manager: cgronlun
-ms.date: 02/28/2020
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, automl
-
+ms.custom: devx-track-python, automl, sdkv1, event-tier1-build-2022
 ---
 
 # Use automated ML in an Azure Machine Learning pipeline in Python
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Azure Machine Learning's automated ML capability helps you discover high-performing models without you reimplementing every possible approach. Combined with Azure Machine Learning pipelines, you can create deployable workflows that can quickly discover the algorithm that works best for your data. This article will show you how to efficiently join a data preparation step to an automated ML step. Automated ML can quickly discover the algorithm that works best for your data, while putting you on the road to MLOps and model lifecycle operationalization with pipelines.
 
@@ -23,7 +23,7 @@ Azure Machine Learning's automated ML capability helps you discover high-perform
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).  
 
 * Familiarity with Azure's [automated machine learning](concept-automated-ml.md) and [machine learning pipelines](concept-ml-pipelines.md) facilities and SDK.
 
@@ -45,7 +45,7 @@ To make things concrete, this article creates a simple pipeline for a classifica
 
 ### Retrieve initial dataset
 
-Often, an ML workflow starts with pre-existing baseline data. This is a good scenario for a registered dataset. Datasets are visible across the workspace, support versioning, and can be interactively explored. There are many ways to create and populate a dataset, as discussed in [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). Since we'll be using the Python SDK to create our pipeline, use the SDK to download baseline data and register it with the name 'titanic_ds'.
+Often, an ML workflow starts with pre-existing baseline data. This is a good scenario for a registered dataset. Datasets are visible across the workspace, support versioning, and can be interactively explored. There are many ways to create and populate a dataset, as discussed in [Create Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md). Since we'll be using the Python SDK to create our pipeline, use the SDK to download baseline data and register it with the name 'titanic_ds'.
 
 ```python
 from azureml.core import Workspace, Dataset
@@ -98,20 +98,26 @@ compute_target = ws.compute_targets[compute_name]
 
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
-After that, the code checks if the AML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md). 
+After that, the code checks if the AzureML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md). 
 
 The code blocks until the target is provisioned and then prints some details of the just-created compute target. Finally, the named compute target is retrieved from the workspace and assigned to `compute_target`. 
 
 ### Configure the training run
 
-The AutoMLStep configures its dependencies automatically during job submission. The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
+The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
+
+# Specify CondaDependencies obj, add necessary packages
+aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+    conda_packages=['pandas','scikit-learn'], 
+    pip_packages=['azureml-sdk[automl]', 'pyarrow'])
 ```
 
 ## Prepare data for automated machine learning
@@ -484,4 +490,4 @@ Finally, the actual metrics and model are downloaded to your local machine, as w
 - Run this Jupyter notebook showing a [complete example of automated ML in a pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) that uses regression to predict taxi fares
 - [Create automated ML experiments without writing code](how-to-use-automated-ml-for-ml-models.md)
 - Explore a variety of [Jupyter notebooks demonstrating automated ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
-- Read about integrating your pipeline in to [End-to-end MLOps](./concept-model-management-and-deployment.md#automate-the-ml-lifecycle) or investigate the [MLOps GitHub repository](https://github.com/Microsoft/MLOpspython)
+- Read about integrating your pipeline in to [End-to-end MLOps](./concept-model-management-and-deployment.md#automate-the-machine-learning-lifecycle) or investigate the [MLOps GitHub repository](https://github.com/Microsoft/MLOpspython)

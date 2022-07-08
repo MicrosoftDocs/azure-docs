@@ -1,6 +1,6 @@
 ### YamlMime:Hub
 
-title: Azure Video Analyzer documentation # < 60 chars
+title: Azure Video Analyzer documentation # < 60 chars 
 summary: With Azure Video Analyzer developers can quickly build an AI-powered video analytics solution to extract actionable insights from videos, whether stored or streaming. Organizations can enhance workspace safety, in-store experiences, digital asset management, media archives, and more by understanding audio and visual video content without video nor machine learning expertise. Azure Video Analyzer delivers the developer platform for video analytics, and Azure Video Analyzer for Media delivers AI solutions targeted at Media scenarios.
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
@@ -25,10 +25,6 @@ highlightedContent:
     - title: Azure Video Analyzer documentation
       itemType: overview
       url: ./video-analyzer-docs/overview.md 
-    # Card
-    - title: Azure Video Analyzer for Media documentation
-      itemType: overview
-      url: ./video-analyzer-for-media-docs/video-indexer-overview.md
 
 additionalContent:
   sections:

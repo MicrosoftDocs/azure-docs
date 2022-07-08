@@ -2,9 +2,9 @@
 title: Quickstart - Add calling to an iOS app using Azure Communication Services
 description: In this quickstart, you learn how to use the Azure Communication Services Calling SDK for iOS.
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ---
 
@@ -20,9 +20,15 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  
 ## Setting up
 
 ### Creating the Xcode project
@@ -33,9 +39,11 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 ### Install the package and dependencies with CocoaPods
 
-1. To create a Podfile for your application open the terminal and navigate to the project folder and run 
-```pod init```
-3. Add the following code to the Podfile and save (make sure that "target" matches the name of your project):
+1. To create a Podfile for your application open the terminal and navigate to the project folder and run:
+
+   `pod init`
+
+1. Add the following code to the Podfile and save (make sure that "target" matches the name of your project):
 
    ```
    platform :ios, '13.0'
@@ -46,8 +54,9 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
    end
    ```
 
-3. Run `pod install`.
-3. Open the `.xcworkspace` with Xcode.
+1. Run `pod install`.
+
+1. Open the `.xcworkspace` with Xcode.
 
 ### Request access to the microphone
 

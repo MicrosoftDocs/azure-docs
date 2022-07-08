@@ -4,8 +4,8 @@ description: Restore deleted users in bulk in the Azure AD admin center in Azure
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 12/02/2020
+manager: karenhoran
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk restore deleted users in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user restore operations and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user restore operations and supports downloading lists of users, groups, and group members.
 
 ## Understand the CSV template
 

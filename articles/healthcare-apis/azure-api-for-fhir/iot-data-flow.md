@@ -6,11 +6,16 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 06/03/2022
 ms.author: rabhaiya
 ---
 
 # Azure IoT Connector for FHIR (preview) data flow
+
+> [!IMPORTANT]
+> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and replaced with the [MedTech service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md) for enhanced service quality and functionality.
+> 
+> All new users are directed to deploy and use the MedTech service feature within the Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md).
 
 This article provides an overview of data flow in Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*. You'll learn about different data processing stages within Azure IoT Connector for FHIR that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
@@ -54,9 +59,9 @@ Once the Observation FHIR resource is generated in the Transform stage, resource
 
 ## Next steps
 
-Click below next step to learn how to create device and FHIR mapping templates.
+For more information about how to create device and FHIR mapping templates, see
 
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR mapping templates](iot-mapping-templates.md)
 
-*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7. 
+*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

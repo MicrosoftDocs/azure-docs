@@ -9,7 +9,7 @@ ms.date: 07/29/2021
 
 ---
 
-# Monitoring Azure Kubernetes Service (AKS) machines with Azure Monitor
+# Monitoring Azure Kubernetes Service (AKS) with Azure Monitor
 This scenario describes how to use Azure Monitor to monitor the health and performance of Azure Kubernetes Service (AKS). It includes collection of telemetry critical for monitoring, analysis and visualization of collected data to identify trends, and how to configure alerting to be proactively notified of critical issues.
 
 The [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) defines the [primary monitoring objectives](/azure/cloud-adoption-framework/strategy/monitoring-strategy#formulate-monitoring-requirements) you should focus on for your Azure resources. This scenario focuses on Health and Status monitoring using Azure Monitor.
@@ -17,13 +17,13 @@ The [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) de
 ## Scope of the scenario
 This scenario is intended for customers using Azure Monitor to monitor AKS. It does not include the following, although this content may be added in subsequent updates to the scenario.
 
-- Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc enabled Kubernetes. 
+- Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc-enabled Kubernetes. 
 - Monitoring of AKS with tools other than Azure Monitor except to fill gaps in Azure Monitor and Container Insights.
 
 > [!NOTE]
-> Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Azure Sentinel](../sentinel/overview.md) and [Azure Security Center](../security-center/security-center-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](../azure-monitor/vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
+> Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Microsoft Sentinel](../sentinel/overview.md) and [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](../azure-monitor/vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
 >
-> For information on using the security services to monitor AKS, see [Azure Defender for Kubernetes - the benefits and features](../security-center/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Azure Sentinel](../sentinel/connect-azure-kubernetes-service.md).
+> For information on using the security services to monitor AKS, see [Microsoft Defender for Kubernetes - the benefits and features](../defender-for-cloud/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks).
 ## Container insights
 AKS generates [platform metrics and resource logs](monitor-aks-reference.md), like any other Azure resource, that you can use to monitor its basic health and performance. Enable [Container insights](../azure-monitor/containers/container-insights-overview.md) to expand on this monitoring. Container insights is a feature in Azure Monitor that monitors the health and performance of managed Kubernetes clusters hosted on AKS in addition to other cluster configurations. Container insights provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios. 
 
@@ -37,11 +37,11 @@ Learn more about using Container insights at [Container insights overview](../az
 ## Configure monitoring
 The following sections describe the steps required to configure full monitoring of your AKS cluster using Azure Monitor.
 ### Create Log Analytics workspace
-You require at least one Log Analytics workspace to support Container insights and to collect and analyze other telemetry about your AKS cluster. There is no cost for the workspace, but you do incur ingestion and retention costs when you collect data. See [Manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md) for details.
+You require at least one Log Analytics workspace to support Container insights and to collect and analyze other telemetry about your AKS cluster. There is no cost for the workspace, but you do incur ingestion and retention costs when you collect data. See [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md) for details.
 
-If you're just getting started with Azure Monitor, then start with a single workspace and consider creating additional workspaces as your requirements evolve. Many environments will use a single workspace for all the Azure resources they monitor. You can even share a workspace used by [Azure Security Center and Azure Sentinel](../azure-monitor/vm/monitor-virtual-machine-security.md), although many customers choose to segregate their availability and performance telemetry from security data. 
+If you're just getting started with Azure Monitor, then start with a single workspace and consider creating additional workspaces as your requirements evolve. Many environments will use a single workspace for all the Azure resources they monitor. You can even share a workspace used by [Microsoft Defender for Cloud and Microsoft Sentinel](../azure-monitor/vm/monitor-virtual-machine-security.md), although many customers choose to segregate their availability and performance telemetry from security data. 
 
-See [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md) for details on logic that you should consider for designing a workspace configuration.
+See [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md) for details on logic that you should consider for designing a workspace configuration.
 
 ### Enable container insights
 When you enable Container insights for your AKS cluster, it deploys a containerized version of the [Log Analytics agent](../agents/../azure-monitor/agents/log-analytics-agent.md) that sends data to Azure Monitor. There are multiple methods to enable it depending whether you're working with a new or existing AKS cluster. See [Enable Container insights](../azure-monitor/containers/container-insights-onboard.md) for prerequisites and configuration options.
@@ -56,13 +56,13 @@ The logs for AKS control plane components are implemented in Azure as [resource 
 
 You need to create a diagnostic setting to collect resource logs. Create multiple diagnostic settings to send different sets of logs to different locations. See [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md) to create diagnostic settings for your AKS cluster. 
 
-There is a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. Send logs to an Azure storage account to reduce costs if you need to retain the information but don't require it to be readily available for analysis.  See [Resource logs](/monitor-aks-reference.md#resource-logs) for a description of the categories that are available for AKS and [Manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md) for details on the cost of ingesting and retaining log data. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs.
+There is a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. Send logs to an Azure storage account to reduce costs if you need to retain the information but don't require it to be readily available for analysis.  See [Resource logs](monitor-aks-reference.md#resource-logs) for a description of the categories that are available for AKS and See [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md) for details for details on the cost of ingesting and retaining log data. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs.
 
 If you're unsure about which resource logs to initially enable, use the recommendations in the following table which are based on the most common customer requirements. Enable the other categories if you later find that you require this information.
 
 | Category | Enable? | Destination |
 |:---|:---|:---|
-| cluster-autoscale       | Enable if autoscale is enabled | Log Analytics workspace |
+| cluster-autoscaler      | Enable if autoscale is enabled | Log Analytics workspace |
 | guard                   | Enable if Azure Active Directory is enabled | Log Analytics workspace |
 | kube-apiserver          | Enable | Log Analytics workspace |
 | kube-audit              | Enable | Azure storage. This keeps costs to a minimum yet retains the audit logs if they're required by an auditor. |
@@ -116,7 +116,7 @@ Use **Node** workbooks in Container Insights to analyze disk capacity and IO in 
 :::image type="content" source="media/monitor-aks/container-insights-node-workbooks.png" alt-text="Container insights node workbooks" lightbox="media/monitor-aks/container-insights-node-workbooks.png":::
 
 
-For troubleshooting scenarios, you may need to access the AKS nodes directly for maintenance or immediate log collection. For security purposes, the AKS nodes aren't exposed to the internet but you can `kubectl debug` to SSH to the AKS nodes. See [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](/ssh.md) for details on this process.
+For troubleshooting scenarios, you may need to access the AKS nodes directly for maintenance or immediate log collection. For security purposes, the AKS nodes aren't exposed to the internet but you can `kubectl debug` to SSH to the AKS nodes. See [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](ssh.md) for details on this process.
 
 
 
@@ -132,7 +132,7 @@ Azure Monitor and container insights don't yet provide full monitoring for the A
 
 :::image type="content" source="media/monitor-aks/grafana-api-server.png" alt-text="Grafana API server" lightbox="media/monitor-aks/grafana-api-server.png":::
 
-Use the **Kubelet** workbook to view the health and performance of each kubelet. See [Resource Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#resource-monitoring-workbooks) for details on this workbooks. For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](/kubelet-logs.md).
+Use the **Kubelet** workbook to view the health and performance of each kubelet. See [Resource Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#resource-monitoring-workbooks) for details on this workbooks. For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](kubelet-logs.md).
 
 :::image type="content" source="media/monitor-aks/container-insights-kubelet-workbook.png" alt-text="Container insights kubelet workbook" lightbox="media/monitor-aks/container-insights-kubelet-workbook.png":::
 
@@ -197,7 +197,7 @@ Monitor external components such as Service Mesh, Ingress, Egress with Prometheu
 ## Analyze metric data with metrics explorer
 Use metrics explorer when you want to perform custom analysis of metric data collected for your containers. Metrics explorer allows you plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. Create a metrics alert to proactively notify you when a metric value crosses a threshold, and pin charts to dashboards for use by different members of your organization.
 
-See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this feature. For a list of the platform metrics collected for AKS, see [Monitoring AKS data reference metrics](/monitor-aks-reference.md#metrics). When Container insights is enabled for a cluster, [addition metric values](../azure-monitor/containers/container-insights-update-metrics.md) are available.
+See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this feature. For a list of the platform metrics collected for AKS, see [Monitoring AKS data reference metrics](monitor-aks-reference.md#metrics). When Container insights is enabled for a cluster, [addition metric values](../azure-monitor/containers/container-insights-update-metrics.md) are available.
 
 :::image type="content" source="media/monitor-aks/metrics-explorer.png" alt-text="Metrics explorer" lightbox="media/monitor-aks/metrics-explorer.png":::
 
@@ -208,11 +208,11 @@ Use Log Analytics when you want to analyze resource logs or dig deeper into the 
 
 See [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md) for details on using log queries to analyze data collected by Container insights. See [Using queries in Azure Monitor Log Analytics](../azure-monitor/logs/queries.md) for information on using these queries and [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md) for a complete tutorial on using Log Analytics to run queries and work with their results.
 
-For a list of the tables collected for AKS that you can analyze in metrics explorer, see [Monitoring AKS data reference logs](/monitor-aks-reference.md#azure-monitor-logs-tables).
+For a list of the tables collected for AKS that you can analyze in metrics explorer, see [Monitoring AKS data reference logs](monitor-aks-reference.md#azure-monitor-logs-tables).
 
 :::image type="content" source="media/monitor-aks/log-analytics-queries.png" alt-text="Log Analytics queries for Kubernetes" lightbox="media/monitor-aks/log-analytics-queries.png":::
 
-In addition to Container insights data, you can use log queries to analyze resource logs from AKS. For a list of the log categories available, see [AKS data reference resource logs](/monitor-aks-reference.md#resource-logs). You must create a diagnostic setting to collect each category as described in [Configure monitoring](#configure-monitoring) before that data will be collected. 
+In addition to Container insights data, you can use log queries to analyze resource logs from AKS. For a list of the log categories available, see [AKS data reference resource logs](monitor-aks-reference.md#resource-logs). You must create a diagnostic setting to collect each category as described in [Configure monitoring](#configure-monitoring) before that data will be collected. 
 
 
 
@@ -249,4 +249,3 @@ For those conditions where Azure Monitor either doesn't have the data required f
 ## Next steps
 
 - See [Monitoring AKS data reference](monitor-aks-reference.md) for a reference of the metrics, logs, and other important values created by AKS.
-

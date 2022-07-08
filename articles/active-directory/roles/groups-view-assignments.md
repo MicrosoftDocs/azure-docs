@@ -1,14 +1,14 @@
 ---
 title: View roles assigned to a group in Azure Active Directory | Microsoft Docs
-description: Learn how the roles assigned to a group can be viewed using Azure AD admin center. Viewing groups and assigned roles are default user permissions.
+description: Learn how the roles assigned to a group can be viewed using the Azure portal. Viewing groups and assigned roles are default user permissions.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # View roles assigned to a group in Azure Active Directory
 
-This section describes how the roles assigned to a group can be viewed using Azure AD admin center. Viewing groups and assigned roles are default user permissions.
+This section describes how the roles assigned to a group can be viewed using the Azure portal. Viewing groups and assigned roles are default user permissions.
 
 ## Prerequisites
 
@@ -30,9 +30,11 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
-1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select the group that you are interested in.
+1. Select **Azure Active Directory** > **Groups**.
+
+1. Select a role-assignable group that you are interested in.
 
 1. Select **Assigned roles**. You can now see all the Azure AD roles assigned to this group.
 
@@ -56,14 +58,18 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>"
 
 ### Get object ID of the group
 
+Use the [Get group](/graph/api/group-get) API to get a group.
+
 ```http
-GET https://graph.microsoft.com/beta/groups?$filter=displayName+eq+'Contoso_Helpdesk_Administrator'
+GET https://graph.microsoft.com/v1.0/groups?$filter=displayName+eq+'Contoso_Helpdesk_Administrator'
 ```
 
 ### Get role assignments to a group
 
+Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get the role assignment.
+
 ```http
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments?$filter=principalId eq
 ```
 
 ## Next steps

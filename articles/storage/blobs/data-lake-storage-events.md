@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
+ms.devlang: csharp, python
 ms.custom: devx-track-csharp
 ---
 
@@ -20,21 +21,21 @@ You'll build a small solution that enables a user to populate a Databricks Delta
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create an Event Grid subscription that calls an Azure Function.
-> * Create an Azure Function that receives a notification from an event, and then runs the job in Azure Databricks.
-> * Create a Databricks job that inserts a customer order into a Databricks Delta table that is located in the storage account.
+> - Create an Event Grid subscription that calls an Azure Function.
+> - Create an Azure Function that receives a notification from an event, and then runs the job in Azure Databricks.
+> - Create a Databricks job that inserts a customer order into a Databricks Delta table that is located in the storage account.
 
 We'll build this solution in reverse order, starting with the Azure Databricks workspace.
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
+- Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
    See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+- Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
@@ -66,17 +67,17 @@ First, create a csv file that describes a sales order, and then upload that file
 
 4. Save this file to your local computer and give it the name **data.csv**.
 
-5. In Storage Explorer, upload this file to the **input** folder.  
+5. In Storage Explorer, upload this file to the **input** folder.
 
 ## Create a job in Azure Databricks
 
 In this section, you'll perform these tasks:
 
-* Create an Azure Databricks workspace.
-* Create a notebook.
-* Create and populate a Databricks Delta table.
-* Add code that inserts rows into the Databricks Delta table.
-* Create a Job.
+- Create an Azure Databricks workspace.
+- Create a notebook.
+- Create and populate a Databricks Delta table.
+- Add code that inserts rows into the Databricks Delta table.
+- Create a Job.
 
 ### Create an Azure Databricks workspace
 
@@ -106,8 +107,8 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     Accept all other default values other than the following:
 
-    * Enter a name for the cluster.
-    * Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    - Enter a name for the cluster.
+    - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
 4. Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
@@ -127,11 +128,11 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 ### Create and populate a Databricks Delta table
 
-1. In the notebook that you created, copy and paste the following code block into the first cell, but don't run this code yet.  
+1. In the notebook that you created, copy and paste the following code block into the first cell, but don't run this code yet.
 
    Replace the `appId`, `password`, `tenant` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial.
 
-    ```Python
+    ```python
     dbutils.widgets.text('source_file', "", "Source File")
 
     spark.conf.set("fs.azure.account.auth.type", "OAuth")
@@ -154,9 +155,8 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 3. Copy and paste the following code block into a different cell, and then press the **SHIFT + ENTER** keys to run the code in this block.
 
-   ```Python
+   ```python
    from pyspark.sql.types import StructType, StructField, DoubleType, IntegerType, StringType
-
 
    inputSchema = StructType([
    StructField("InvoiceNo", IntegerType(), True),
@@ -189,7 +189,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 1. Copy and paste the following code block into a different cell, but don't run this cell.
 
-   ```Python
+   ```python
    upsertDataDF = (spark
      .read
      .option("header", "true")
@@ -252,7 +252,7 @@ Create an Azure Function that runs the Job.
 2. Click the **Generate new token** button, and then click the **Generate** button.
 
    Make sure to copy the token to safe place. Your Azure Function needs this token to authenticate with Databricks so that it can run the Job.
-  
+
 3. Select the **Create a resource** button found on the upper left corner of the Azure portal, then select **Compute > Function App**.
 
    ![Create an Azure function](./media/data-lake-storage-events/function-app-create-flow.png "Create Azure function")

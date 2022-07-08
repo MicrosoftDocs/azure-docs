@@ -2,12 +2,12 @@
 title: Tutorial - Synchronize device state from Azure IoT Hub | Microsoft Docs
 description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
-ms.devlang: dotnet
+ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 06/21/2019
+ms.date: 10/13/2021
 ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
@@ -67,7 +67,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub connection-string show --name $hubname --policy-name service -o table
+az iot hub connection-string show --hub-name $hubname --policy-name service -o table
 
 ```
 
@@ -251,7 +251,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## Next steps
 
-In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
+In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement the device update process.
 
 > [!div class="nextstepaction"]
-> [Implement a device firmware update process](tutorial-firmware-update.md)
+> [Implement a device update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).

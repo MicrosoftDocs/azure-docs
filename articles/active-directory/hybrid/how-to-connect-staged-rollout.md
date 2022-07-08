@@ -2,11 +2,11 @@
 title: 'Azure AD Connect: Cloud authentication via staged rollout | Microsoft Docs'
 description: This article explains how to migrate from federated authentication, to cloud authentication, by using a staged rollout.
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 06/15/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Migrate to cloud authentication using staged rollout
 
-Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
+Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
     
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
@@ -33,9 +33,10 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   You have an Azure Active Directory (Azure AD) tenant with federated domains.
 
--   You have decided to move to either of two options:
-    - **Option A** - *password hash synchronization (sync)*.  For more information, see [What is password hash sync](whatis-phs.md) 
-    - **Option B** - *pass-through authentication*.  For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
+-   You have decided to move one of the following options:
+    - **Password hash synchronization (sync)**. For more information, see [What is password hash sync](whatis-phs.md) 
+    - **Pass-through authentication**. For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
+    - **Azure AD Certificate-based authentication (CBA) settings**. For more information, see [What is pass-through authentication](../authentication/concept-certificate-based-authentication.md) 
     
     For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
     For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
@@ -64,6 +65,8 @@ The following scenarios are supported for staged rollout. The feature works only
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user’s UPN is routable and domain suffix is verified in Azure AD.
 
+- Autopilot enrollment is supported in Staged rollout with Windows 10 version 1909 or later. 
+
 ## Unsupported scenarios
 
 The following scenarios are not supported for staged rollout:
@@ -83,7 +86,7 @@ The following scenarios are not supported for staged rollout:
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
-- While users are in Staged Rollout, password expiration policy is set to 90 days with no option to customize it. 
+- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "EnforceCloudPasswordPolicyForPasswordSyncedUsers". When "EnforceCloudPasswordPolicyForPasswordSyncedUsers" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. To learn how to set 'EnforceCloudPasswordPolicyForPasswordSyncedUsers' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#enforcecloudpasswordpolicyforpasswordsyncedusers).
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of staged rollout.
 
@@ -94,7 +97,7 @@ The following scenarios are not supported for staged rollout:
 - If you have a Windows Hello for Business hybrid certificate trust with certs that are issued via your federation server acting as Registration Authority or smartcard users, the scenario isn't supported on a staged rollout. 
 
   >[!NOTE]
-  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) and [Migrate from federation to pass-through authentication](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).
+  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md) and [Migrate from federation to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md).
   
 ## Get started with staged rollout
 
@@ -162,11 +165,12 @@ To roll out a specific feature (*pass-through authentication*, *password hash sy
 
 ### Enable a staged rollout of a specific feature on your tenant
 
-You can roll out one of these options:
+You can roll out these options:
 
-- **Option A** - *password hash sync* + *seamless SSO*
-- **Option B** - *pass-through authentication* + *seamless SSO*
-- **Not supported** - *password hash sync* + *pass-through authentication* + *seamless SSO*
+- **Password hash sync** + **Seamless SSO**
+- **Pass-through authentication** + **Seamless SSO**
+- **Not supported** - **Password hash sync** + **Pass-through authentication** + **Seamless SSO**
+- **Certificate-based authentication settings**
 
 Do the following:
 
@@ -174,7 +178,7 @@ Do the following:
 
 2. Select the **Enable staged rollout for managed user sign-in** link.
 
-   For example, if you want to enable *Option A*, slide the **Password Hash Sync** and **Seamless single sign-on** controls to **On**, as shown in the following images.
+   For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
 
    
 
@@ -237,6 +241,9 @@ To test sign-in with *seamless SSO*:
 1. Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
    To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
+   
+    >[!NOTE]
+    >While users are in Staged rollout with PHS, changing passwords might take up to 2 minutes to take effect due to sync time. Make sure to set expectations with your users to avoid helpdesk calls after they changed their password.
 
 ## Monitoring
 You can monitor the users and groups added or removed from staged rollout and users sign-ins while in staged rollout, using the new Hybrid Auth workbooks in the Azure portal.
@@ -263,7 +270,6 @@ A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD 
 
 ## Next steps
 - [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
-- [Change the sign-in method to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
-- [Change sign-in method to pass-through authentication](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Change the sign-in method to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md)
+- [Change sign-in method to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md)
 - [Staged rollout interactive guide](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)
-

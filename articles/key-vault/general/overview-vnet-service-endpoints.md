@@ -40,8 +40,10 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure Backup|Allow backup and restore of relevant keys and secrets during Azure Virtual Machines backup, by using [Azure Backup](../../backup/backup-overview.md).|
 |Exchange Online & SharePoint Online|Allow access to customer key for Azure Storage Service Encryption with [Customer Key](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
-|Azure App Service|[Deploy Azure Web App Certificate through Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md).|
+|Azure App Service|App Service is trusted only for [Deploying Azure Web App Certificate through Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html), for individual app itself, the outbound IPs can be added in Key Vault's IP-based rules|
+|Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/transparent-data-encryption-byok-overview).|
+| Azure Database for MySQL | [Data encryption for Azure Database for MySQL](../../mysql/howto-data-encryption-cli.md) |
+| Azure Database for PostgreSQL Single server | [Data encryption for Azure Database for PostgreSQL Single server](../../postgresql/howto-data-encryption-cli.md) |
 |Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) with a customer-managed key.|
 |Azure Synapse Analytics|[Encryption of data using customer-managed keys in Azure Key Vault](../../synapse-analytics/security/workspaces-encryption.md)|
@@ -53,7 +55,10 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure Import/Export| [Use customer-managed keys in Azure Key Vault for Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/container-registry-customer-managed-keys.md)
 |Azure Application Gateway |[Using Key Vault certificates for HTTPS-enabled listeners](../../application-gateway/key-vault-certs.md)
-|Azure Front Door|[Using Key Vault certificates for HTTPS](../../frontdoor/front-door-custom-domain-https.md#prepare-your-azure-key-vault-account-and-certificate)
+|Azure Front Door Standard/Premium|[Using Key Vault certificates for HTTPS](../../frontdoor/standard-premium/how-to-configure-https-custom-domain.md#prepare-your-key-vault-and-certificate)
+|Azure Front Door Classic|[Using Key Vault certificates for HTTPS](../../frontdoor/front-door-custom-domain-https.md#prepare-your-key-vault-and-certificate)
+|Microsoft Purview|[Using credentials for source authentication in Microsoft Purview](../../purview/manage-credentials.md)
+|Azure Machine Learning|[Secure Azure Machine Learning in a virtual network](../../machine-learning/how-to-secure-workspace-vnet.md)|
 
 > [!NOTE]
 > You must set up the relevant Key Vault access policies to allow the corresponding services to get access to Key Vault.

@@ -1,20 +1,20 @@
 ---
-title: Plan a Managed Service offer for the Microsoft commercial marketplace 
-description: How to plan a new Managed Service offer for Azure Marketplace using the commercial marketplace program in Microsoft Partner Center. 
+title: Plan a Managed Service offer for the commercial marketplace 
+description: Plan a Managed Service offer for Azure Marketplace in Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
-ms.date: 12/23/2020
+ms.date: 06/29/2022
 ---
 
-# How to plan a Managed Service offer for the Microsoft commercial marketplace
+# Plan a Managed Service offer
 
-This article introduces the requirements for publishing a Managed Service offer to the Microsoft commercial marketplace through Partner Center.
+This article introduces the requirements for publishing a Managed Service offer to the commercial marketplace using Partner Center.
 
-Managed Services are Azure Marketplace offers that enable cross-tenant and multi-tenant management with Azure Lighthouse. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md) When a customer purchases a Managed Service offer, they’re able to delegate one or more subscription or resource group. You can then work on those resources by using the [Azure delegated resource management](../lighthouse/concepts/architecture.md) capabilities of Azure Lighthouse.
+Managed Services are Azure Marketplace offers that enable cross-tenant and multi-tenant management with Azure Lighthouse. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md) When a customer purchases a Managed Service offer, they’re able to delegate one or more subscription or resource group. You can then work on those resources by using [Azure Lighthouse](../lighthouse/overview.md).
 
 ## Eligibility requirements
 
@@ -24,7 +24,9 @@ Offers must meet all applicable [commercial marketplace certification policies](
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports different kinds of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -65,13 +67,13 @@ Here's an example of how the offer listing appears in the Azure portal:
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
-**Name**: this will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 50 characters.
+**Name**: this will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 200 characters.
 
 **Search results summary**: describe the purpose or goal of your offer in 100 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
-**Short description**: provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in Azure portal.
+**Short description**: provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in the Azure portal.
 
-**Description**: describe your offer in 3,000 characters or less. This description will be displayed in the commercial marketplace listing. Consider including a value proposition, key benefit, category or industry associations, and any necessary disclosures.
+**Description**: describe your offer in 5,000 characters or less. This description will be displayed in the commercial marketplace listing. Consider including a value proposition, key benefit, category or industry associations, and any necessary disclosures.
 
 Here are some tips for writing your description:
 
@@ -93,9 +95,9 @@ You can use HTML tags to format your description. For information about HTML for
 
 **Marketplace media – logos**: provide a PNG file for the large-size logo of your offer. Partner Center will use it to create medium and small logos. You can optionally replace these logos with a different image later.
 
-* The large logo (from 216 x 216 to 350 x 350 px) appears on your offer listing on Azure Marketplace.
-* The medium logo (90 x 90 px) is shown when a new resource is created.
-* The small logo (48 x 48 px) is used on the Azure Marketplace search results.
+* The large logo (from 216x216 to 350x350 px) appears on your offer listing on Azure Marketplace.
+* The medium logo (90x90 px) is shown when a new resource is created.
+* The small logo (48x48 px) is used in Azure Marketplace search results.
 
 Follow these guidelines for your logos:
 
@@ -105,9 +107,9 @@ Follow these guidelines for your logos:
 * If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
 * The look and feel of your logo should be flat. Avoid gradients. Don't place text on the logo, not even your company or brand name.
 
-**Marketplace media – screenshots** (optional): Add up to five images that demonstrate how your offer works. All images must be 1280 x 720 pixels in size and in .PNG format.
+**Marketplace media – screenshots** (optional): Add up to five images that demonstrate how your offer works. All images must be 1280x720 pixels in size and in .PNG format.
 
-**Marketplace media – videos** (optional): upload up to five videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280 x 720 PNG file).
+**Marketplace media – videos** (optional): upload up to five videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280x720 PNG file).
 
 ## Preview audience
 

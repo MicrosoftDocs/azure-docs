@@ -1,17 +1,18 @@
 ---
 title: Set up Message Passing Interface (MPI) for HPC - Azure Virtual Machines | Microsoft Docs
 description: Learn how to set up MPI for HPC on Azure. 
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/16/2021
-ms.author: amverma
+ms.date: 01/10/2022
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Set up Message Passing Interface for HPC
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) is an open library and de-facto standard for distributed memory parallelization. It is commonly used across many HPC workloads. HPC workloads on the [RDMA capable](../../sizes-hpc.md#rdma-capable-instances) [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs can use MPI to communicate over the low latency and high bandwidth InfiniBand network.
 - The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used with Mellanox OFED.
@@ -47,7 +48,7 @@ make -j 8 && make install
 ```
 
 > [!NOTE]
-> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-and-ndv2) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
+> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-hbv3-and-ndv2) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
 
 ## HPC-X
 
@@ -56,7 +57,7 @@ The [HPC-X software toolkit](https://www.mellanox.com/products/hpc-x-toolkit) co
 ```bash
 HPCX_VERSION="v2.6.0"
 HPCX_DOWNLOAD_URL=https://azhpcstor.blob.core.windows.net/azhpc-images-store/hpcx-v2.6.0-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64.tbz
-get --retry-connrefused --tries=3 --waitretry=5 $HPCX_DOWNLOAD_URL
+wget --retry-connrefused --tries=3 --waitretry=5 $HPCX_DOWNLOAD_URL
 tar -xvf hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64.tbz
 mv hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64 ${INSTALL_PREFIX}
 HPCX_PATH=${INSTALL_PREFIX}/hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64

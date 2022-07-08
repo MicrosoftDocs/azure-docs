@@ -7,6 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Connect a Renesas RX65N Cloud Kit to IoT Central
@@ -16,9 +17,9 @@ ms.date: 06/04/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RX65N_Cloud_Kit)
 
-In this quickstart, you use Azure RTOS to connect the Renesas RX65N Cloud Kit (hereafter, the Renesas RX65N) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect the Renesas RX65N Cloud Kit (from now on, the Renesas RX65N) to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming a Renesas RX65N in C
 * Build an image and flash it onto the Renesas RX65N
@@ -26,12 +27,12 @@ You will complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
     * The [Renesas RX65N Cloud Kit](https://www.renesas.com/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-cloud-kit-renesas-rx65n-cloud-kit) (Renesas RX65N)
-    * 2 USB 2.0 A male to Mini USB male cables
+    * two USB 2.0 A male to Mini USB male cables
     * WiFi 2.4 GHz
 
 ## Prepare the development environment
@@ -69,7 +70,7 @@ To install the tools:
    *%USERPROFILE%\AppData\Roaming\GCC for Renesas RX 8.3.0.202004-GNURX-ELF\rx-elf\rx-elf\bin*
 
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
-1. Run the following commands to confirm that CMake version 3.14 or later is installed and the RX compiler path is set up correctly.
+1. Run the following commands to confirm that CMake version 3.14 or later is installed. Make certain that the RX compiler path is set up correctly.
 
     ```shell
     cmake --version
@@ -265,6 +266,9 @@ Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Troubleshoot
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
@@ -290,4 +294,3 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-

@@ -1,25 +1,23 @@
 ---
 title: Manage read replicas - Azure portal - Azure Database for MySQL - Flexible Server
 description: Learn how to set up and manage read replicas in Azure Database for MySQL flexible server using the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 06/17/2021 
+author: VandhanaMehta
+ms.author: vamehta
+ms.date: 06/17/2021
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL Flexible Server using the Azure portal
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Read replicas in Azure Database for MySQL - Flexible Server is in preview.
-
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure portal.
 
 > [!Note]
 >
-> * Replica is not supported on high availability enabled server. 
+> * Replica is not supported on high availability enabled server.
 >
 > * If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
@@ -44,7 +42,7 @@ A read replica server can be created using the following steps:
 
    :::image type="content" source="./media/how-to-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL - Replication":::
 
-5. Enter a name for the replica server.
+5. Enter a name for the replica server. If your region support Availability Zones, you can select Availability zone of your choice.
 
     :::image type="content" source="./media/how-to-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL - Replica name":::
 
@@ -64,7 +62,7 @@ Once the replica server has been created, it can be viewed from the **Replicatio
 
 To stop replication between a source and a replica server from the Azure portal, use the following steps:
 
-1. In the Azure portal, select your source Azure Database for MySQL flexible server. 
+1. In the Azure portal, select your source Azure Database for MySQL flexible server.
 
 2. Select **Replication** from the menu, under **SETTINGS**.
 
@@ -96,7 +94,7 @@ To delete a read replica server from the Azure portal, use the following steps:
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL - Delete replica":::
 
-5. Type the name of the replica and click **Delete** to confirm deletion of the replica.  
+5. Type the name of the replica and click **Delete** to confirm deletion of the replica.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL - Delete replica confirm":::
 
@@ -113,7 +111,7 @@ To delete a source server from the Azure portal, use the following steps:
 
    [:::image type="content" source="./media/how-to-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL - Delete source":::](./media/how-to-read-replica-portal/delete-master-overview.png#lightbox)
 
-3. Type the name of the source server and click **Delete** to confirm deletion of the source server.  
+3. Type the name of the source server and click **Delete** to confirm deletion of the source server.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - Delete source confirm":::
 
@@ -138,3 +136,5 @@ To delete a source server from the Azure portal, use the following steps:
 ## Next steps
 
 - Learn more about [read replicas](concepts-read-replicas.md)
+- You can also monitor the replication latency by following the steps mentioned [here](../single-server/how-to-troubleshoot-replication-latency.md#monitoring-replication-latency).
+- To troubleshoot high replication latency observed in Metrics, visit the [link](../single-server/how-to-troubleshoot-replication-latency.md#common-scenarios-for-high-replication-latency).

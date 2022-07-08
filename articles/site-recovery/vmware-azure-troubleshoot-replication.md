@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
 description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
-author: mayurigupta13
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/2/2019
-ms.author: mayg
+ms.date: 05/02/2022
+ms.author: v-pgaddala
 
 ---
 # Troubleshoot replication issues for VMware VMs and physical servers
@@ -44,11 +44,13 @@ When you try to select the source machine to enable replication by using Site Re
 * **vCenter not connected**: Check if vCenter is in connected state. To verify, go to Recovery Services vault > Site Recovery Infrastructure > Configuration Servers > Click on respective configuration server > a blade opens on your right with details of associated servers. Check if vCenter is connected. If it's in a "Not Connected" state, resolve the issue and then [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine will be listed on the portal.
 * **ESXi powered off**: If ESXi host under which the virtual machine resides is in powered off state, then virtual machine will not be listed or will not be selectable on the Azure portal. Power on the ESXi host, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine will be listed on the portal.
 * **Pending reboot**: If there is a pending reboot on the virtual machine, then you will not be able to select the machine on Azure portal. Ensure to complete the pending reboot activities, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine will be listed on the portal.
-* **IP not found**: If the virtual machine doesn't have a valid IP address associated with it, then you will not be able to select the machine on Azure portal. Ensure to assign a valid IP address to the virtual machine, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine will be listed on the portal.
+* **IP not found or Machine does not have IP address**: If the virtual machine doesn't have a valid IP address associated with it, then you will not be able to select the machine on Azure portal. Ensure to assign a valid IP address to the virtual machine, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). It could also be caused if the machine does not have a valid IP address associated with one of its NIC's. Either assign a valid IP address to all NIC's or remove the NIC that's missing the IP. After this, virtual machine will be listed on the portal.
+
+
 
 ### Troubleshoot protected virtual machines greyed out in the portal
 
-Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. To learn how to delete stale entries and resolve the issue, refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. [Learn more](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) about deleting stale entries and resolving the issue.
 
 ## No crash consistent recovery point available for the VM in the last 'XXX' minutes
 
@@ -142,7 +144,7 @@ Some of the most common issues are listed below
 **How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 #### Cause 4: App-Consistency not enabled on Linux servers
-**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](/azure/site-recovery/site-recovery-faq#replication) are the steps to enable it.
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.yml) are the steps to enable it.
 
 ### More causes due to VSS related issues:
 

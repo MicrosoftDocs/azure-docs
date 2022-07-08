@@ -3,19 +3,17 @@ title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn how Azure provides isolation against both malicious and non-malicious users and offers various isolation choices to architects.
 services: security
 documentationcenter: na
-author: UnifyCloud
+author: TomSh
 manager: rkarlin
-editor: TomSh
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
-ms.author: TomSh
+ms.date: 08/30/2021
+ms.author: terrylan
 
 ---
 
@@ -39,9 +37,9 @@ Azure tenancy (Azure Subscription) refers to a “customer/billing” relationsh
 
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. An Azure AD tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Azure AD runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
-- Access to data in Azure AD requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
+:::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
 
-![Azure Tenancy](./media/isolation-choices/azure-isolation-fig1.png)
+- Access to data in Azure AD requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
 
 - Tenants are discrete containers and there is no relationship between these.
 
@@ -87,7 +85,7 @@ Some other capabilities for Azure Active Directory include:
 
 - Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronization, and replication with on-premises directories.
 
-- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
+- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Multi-Factor Authentication Server, and also with custom applications and directories using the SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
@@ -128,7 +126,7 @@ Each node also has one special Root VM, which runs the Host OS. A critical bound
 
 The Azure platform uses a virtualized environment. User instances operate as standalone virtual machines that do not have access to a physical host server.
 
-The Azure hypervisor acts like a micro-kernel and passes all hardware access requests from guest virtual machines to the host for processing by using a shared-memory interface called VMBus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
+The Azure hypervisor acts like a micro-kernel and passes all hardware access requests from guest virtual machines to the host for processing by using a shared-memory interface called VM Bus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
 
 ### Advanced VM placement algorithm & protection from side channel attacks
 
@@ -258,7 +256,7 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 ### SQL Database Application Model
 
-[Microsoft SQL Database](../../azure-sql/database/single-database-create-quickstart.md) is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
+[Microsoft SQL Database](/azure/azure-sql/database/single-database-create-quickstart) is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
 
 From an application perspective, SQL Database provides the following hierarchy:
 Each level has one-to-many containment of levels below.
@@ -315,6 +313,6 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 ## Next Steps
 
-- Learn about [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allow list of IP addresses.
+- Learn about [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allowlist of IP addresses.
 
 - Learn about [virtual machine isolation in Azure](../../virtual-machines/isolation.md). Azure Compute offers virtual machine sizes that are isolated to a specific hardware type and dedicated to a single customer.

@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Write app authentication code
 titleSuffix: Azure Digital Twins
-description: See how to write authentication code in a client application
+description: Learn how to write authentication code in a client application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/7/2020
+ms.date: 02/22/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -17,17 +17,17 @@ ms.service: digital-twins
 
 # Write client app authentication code
 
-After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-portal.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, you'll need to **write code in that client app to authenticate it** against the Azure Digital Twins instance.
+After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-portal.md), you can create a client application that you'll use to interact with the instance. Once you have set up a starter client project, you'll need to **write code in that client app to authenticate it** against the Azure Digital Twins instance.
 
-Azure Digital Twins performs authentication using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your SDK, you'll need to get a bearer token with the right permissions to Azure Digital Twins, and pass it along with your API calls. 
+Azure Digital Twins authenticates using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your SDK, you'll need to get a bearer token with the right permissions to Azure Digital Twins, and pass it along with your API calls. 
 
-This article describes how to obtain credentials using the `Azure.Identity` client library. While this article shows code examples in C#, such as what you'd write for the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), you can use a version of `Azure.Identity` regardless of what SDK you're using (for more on the SDKs available for Azure Digital Twins, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md)).
+This article describes how to obtain credentials using the `Azure.Identity` client library. While this article shows code examples in C#, such as what you'd write for the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), you can use a version of `Azure.Identity` regardless of what SDK you're using (for more on the SDKs available for Azure Digital Twins, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
 
 ## Prerequisites
 
-First, complete the setup steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). This will ensure that you have an Azure Digital Twins instance and that your user has access permissions. After that setup, you are ready to write client app code.
+First, complete the setup steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). This setup will ensure you have an Azure Digital Twins instance and your user has access permissions. After that setup, you're ready to write client app code.
 
-To proceed, you will need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
+To continue, you'll need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 
 ## Authenticate using Azure.Identity library
 
@@ -42,15 +42,15 @@ Three common credential-obtaining methods in `Azure.Identity` are:
 
 * [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) provides a default `TokenCredential` authentication flow for applications that will be deployed to Azure, and is **the recommended choice for local development**. It also can be enabled to try the other two methods recommended in this article; it wraps `ManagedIdentityCredential` and can access `InteractiveBrowserCredential` with a configuration variable.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md), and is a good candidate for working with Azure Functions and deploying to Azure services.
-* [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) is intended for interactive applications, and can be used to create an authenticated SDK client
+* [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) is intended for interactive applications, and can be used to create an authenticated SDK client.
 
-The rest of this article shows how to use these with the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+The rest of this article shows how to use these methods with the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 ### Add Azure.Identity to your .NET project
 
 To set up your .NET project to authenticate with `Azure.Identity`, complete the following steps:
 
-1. Include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity` package in your project. Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
+1. Include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity` package in your project. Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command-line tool. 
 
 1. Add the following using statements to your project code:
 
@@ -64,9 +64,11 @@ Next, add code to obtain credentials using one of the methods in `Azure.Identity
 
 To use the default Azure credentials, you'll need the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-Here is a code sample to add a `DefaultAzureCredential` to your project:
+Here's a code sample to add a `DefaultAzureCredential` to your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
+
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
 
 #### Set up local Azure credentials
 
@@ -74,11 +76,11 @@ Here is a code sample to add a `DefaultAzureCredential` to your project:
 
 ### ManagedIdentityCredential method
 
-The [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) method works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md)—for example, when working with Azure Functions.
+The [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) method works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md)—for example, when [authenticating with Azure Functions](#authenticate-azure-functions).
 
 This means that you may use `ManagedIdentityCredential` in the same project as `DefaultAzureCredential` or `InteractiveBrowserCredential`, to authenticate a different part of the project.
 
-To use the default Azure credentials, you'll need the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)). You may also need an [app registration](./how-to-create-app-registration-portal.md) and the registration's [Application (client) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id).
+To use the default Azure credentials, you'll need the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)). You may also need an [app registration](./how-to-create-app-registration.md) and the registration's [Application (client) ID](./how-to-create-app-registration.md#collect-client-id-and-tenant-id).
 
 In an Azure function, you can use the managed identity credentials like this:
 
@@ -86,14 +88,14 @@ In an Azure function, you can use the managed identity credentials like this:
 
 ### InteractiveBrowserCredential method
 
-The [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method is intended for interactive applications and will bring up a web browser for authentication. You can use this instead of `DefaultAzureCredential` in cases where you require interactive authentication.
+The [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method is intended for interactive applications and will bring up a web browser for authentication. You can use this method instead of `DefaultAzureCredential` in cases where you require interactive authentication.
 
-To use the interactive browser credentials, you will need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [Create an app registration](./how-to-create-app-registration-portal.md). Once the app registration is set up, you'll need...
-* [the app registration's Application (client) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
-* [the app registration's Directory (tenant) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
+To use the interactive browser credentials, you'll need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration.md). Once the app registration is set up, you'll need...
+* [the app registration's Application (client) ID](./how-to-create-app-registration.md#collect-client-id-and-tenant-id)
+* [the app registration's Directory (tenant) ID](./how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 * [the Azure Digital Twins instance's URL](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
-Here is an example of the code to create an authenticated SDK client using `InteractiveBrowserCredential`.
+Here's an example of the code to create an authenticated SDK client using `InteractiveBrowserCredential`.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="InteractiveBrowserCredential":::
 
@@ -102,16 +104,47 @@ Here is an example of the code to create an authenticated SDK client using `Inte
 
 ## Authenticate Azure Functions
 
-See [Set up an Azure function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
+This section contains some of the important configuration choices in the context of authenticating with Azure Functions. First, you'll read about recommended class-level variables and authentication code that will allow the function to access Azure Digital Twins. Then, you'll read about some final configuration steps to complete for your function after its code is published to Azure. 
 
-Also, to use authentication in a function, remember to:
-* [Enable managed identity](../app-service/overview-managed-identity.md?tabs=dotnet)
-* Use [environment variables](/sandbox/functions-recipes/environment-variables?tabs=csharp) as appropriate
-* Assign permissions to the functions app that enable it to access the Digital Twins APIs. For more information on Azure Functions processes, see [Set up an Azure function for processing data](how-to-create-azure-function.md).
+### Write application code
+
+When writing the Azure function, consider adding these variables and code to your function:
+
+* **Code to read the Azure Digital Twins service URL as an environment variable or configuration setting.** It's a good practice to read the service URL from an [application setting/environment variable](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal), rather than hard-coding it in the function. In an Azure function, that code to read the environment variable might look like this: 
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
+
+    Later, after publishing the function, you'll create and set the value of the environment variable for this code to read. For instructions on how to do so, skip ahead to [Configure application settings](#configure-application-settings).
+
+* **A static variable to hold an HttpClient instance.** HttpClient is relatively expensive to create, so you'll probably want to create it once with the authentication code to avoid creating it for every function invocation.
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
+
+* **Managed identity credentials.** Create a managed identity credential that your function will use to access Azure Digital Twins.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
+
+    Later, after publishing the function, you'll make sure the function's identity has permission to access the Azure Digital Twins APIs. For instructions on how to do so, skip ahead to [Assign an access role](#assign-an-access-role).    
+
+* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. _Don't_ make this variable static inside your class.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
+
+* **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.
+
+After these variables are added to a function, your function code might look like the following example.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
+
+When you're finished with your function code, including adding authentication and the function's logic, [publish the app to Azure](../azure-functions/functions-develop-vs.md#publish-to-azure)
+
+### Configure published app
+
+Finally, complete the following configuration steps for a published Azure function to make sure it can access your Azure Digital Twins instance.
+
+[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
 
 ## Authenticate across tenants
 
-Azure Digital Twins is a service that only supports one  [Azure Active Directory (Azure AD) tenant](../active-directory/develop/quickstart-create-new-tenant.md): the main tenant from the subscription where the Azure Digital Twins instance is located.
+Azure Digital Twins is a service that only supports one [Azure Active Directory (Azure AD) tenant](../active-directory/develop/quickstart-create-new-tenant.md): the main tenant from the subscription where the Azure Digital Twins instance is located.
 
 [!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
 
@@ -125,7 +158,7 @@ You can also specify the home tenant in the credential options in your code.
 
 ## Other credential methods
 
-If the highlighted authentication scenarios above do not cover the needs of your app, you can explore other types of authentication offered in the [Microsoft identity platform](../active-directory/develop/v2-overview.md#getting-started). The documentation for this platform covers additional authentication scenarios, organized by application type.
+If the highlighted authentication scenarios above don't cover the needs of your app, you can explore other types of authentication offered in the [Microsoft identity platform](../active-directory/develop/v2-overview.md#getting-started). The documentation for this platform covers more authentication scenarios, organized by application type.
 
 ## Next steps
 

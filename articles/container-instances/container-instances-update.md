@@ -1,8 +1,12 @@
 ---
 title: Update container group
 description: Learn how to update running containers in your Azure Container Instances container groups.
-ms.topic: article
-ms.date: 04/17/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Update containers in Azure Container Instances
@@ -58,6 +62,9 @@ Applications based on larger container images like Windows Server Core can see s
 * The IP address of a container group is typically retained between updates, but isn't guaranteed to remain the same. As long as the container group is deployed to the same underlying host, the container group retains its IP address. Although rare, there are some Azure-internal events that can cause redeployment to a different host. To mitigate this issue, we recommend using a DNS name label for your container instances.
 * Terminated or deleted container groups can't be updated. Once a container group is stopped (is in the *Terminated* state) or deleted, the group is deployed as new.
 
+> [!NOTE]
+> The update command might not work if the Azure Container Group is attached to an Azure Storage profile.
+
 ## Properties that require container delete
 
 Not all container group properties can be updated. For example, to change the restart policy of a container, you must first delete the container group, then create it again.
@@ -68,6 +75,9 @@ Changes to these properties require container group deletion prior to redeployme
 * CPU, memory, or GPU resources
 * Restart policy
 * Network profile
+* Availability zone
+
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 When you delete a container group and recreate it, it's not "redeployed," but created new. All image layers are pulled fresh from the registry, not from those cached by a previous deployment. The IP address of the container might also change due to being deployed to a different underlying host.
 

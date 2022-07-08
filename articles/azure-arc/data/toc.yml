@@ -1,3 +1,4 @@
+items:
 - name: Azure Arc-enabled data services documentation
   href: index.yml
 - name: Overview
@@ -12,10 +13,15 @@
       href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
   items:
-    - name: Plan Azure Arc-enabled data services deployment 
-      href: plan-azure-arc-data-services.md
+    - name: Directly connected | Azure portal example
+      href: create-complete-managed-instance-directly-connected.md
+    - name: Indirectly connected | Azure CLI example
+      href: create-complete-managed-instance-indirectly-connected.md
 - name: Concepts
+  expanded: true
   items:
+    - name: Plan an Azure Arc-enabled data services deployment 
+      href: plan-azure-arc-data-services.md
     - name: Connectivity modes and requirements
       href: connectivity.md
     - name: Storage configuration
@@ -50,8 +56,10 @@
             href: create-data-controller-direct-prerequisites.md
           - name: Azure portal
             href: create-data-controller-direct-azure-portal.md
-          - name: az CLI
+          - name: Azure CLI
             href: create-data-controller-direct-cli.md
+        - name: Configure monitor certificates
+          href: monitor-certificates.md
     - name: Common experiences across Azure Arc-enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
@@ -66,6 +74,8 @@
           href: uninstall-azure-arc-data-controller.md
     - name: Manage
       items:
+        - name: Upload usage data
+          href: upload-usage-data.md
         - name: Monitor with Grafana & Kibana
           href: monitor-grafana-kibana.md
         - name: Upload to Azure Monitor
@@ -76,20 +86,124 @@
               href: upload-logs.md
             - name: Upload metrics
               href: upload-metrics.md
-            - name: Upload usage data
-              href: upload-usage-data.md
         - name: Inventory database instances
           href: view-arc-data-services-inventory-in-azure-portal.md
-        - name: Get data controller username & password
-          href: retrieve-the-username-password-for-data-controller.md
         - name: Update service principal credentials
           href: update-service-principal-credentials.md
+    - name: Upgrade
+      items:
+        - name: Indirect connectivity mode
+          items:
+            - name: Data controller indirect - CLI
+              href: upgrade-data-controller-indirect-cli.md
+            - name: Data controller indirect - Kubernetes tools
+              href: upgrade-data-controller-indirect-kubernetes-tools.md
+        - name: Direct connectivity mode
+          items:
+            - name: Data controller direct - CLI
+              href: upgrade-data-controller-direct-cli.md
+            - name: Data controller direct - portal
+              href: upgrade-data-controller-direct-portal.md
     - name: Troubleshooting
       items:
         - name: Guide
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
+- name: Azure Arc-enabled SQL Managed Instance
+  items:
+    - name: Overview
+      items:
+        - name: What is Azure Arc-enabled SQL Managed Instance
+          href: managed-instance-overview.md
+        - name: Features
+          href: managed-instance-features.md
+        - name: Limitations
+          href: limitations-managed-instance.md
+        - name: Service tiers
+          href: service-tiers.md
+    - name: How-to
+      items:
+        - name: Create & connect
+          items:
+            - name: Create with CLI
+              href: create-sql-managed-instance.md
+            - name: Create with Azure Data Studio
+              href: create-sql-managed-instance-azure-data-studio.md
+            - name: Create using Kubernetes tools
+              href: create-sql-managed-instance-using-kubernetes-native-tools.md
+            - name: Connect
+              href: connect-managed-instance.md
+        - name: Manage
+          items:
+            - name: Configure
+              href: configure-managed-instance.md
+            - name: Monitor, log analytics, & billing information - portal
+              href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: Reserved capacity
+              href: reserved-capacity-overview.md
+            - name: Rotate certificates
+              href: rotate-user-tls-certificate.md
+            - name: Delete
+              href: delete-managed-instance.md
+        - name: Upgrade
+          items:
+            - name: Automatic upgrade
+              href: upgrade-sql-managed-instance-auto.md
+            - name: Maintenance windows
+              href: maintenance-window.md
+            - name: Direct connectivity mode
+              items:
+                - name: SQL Managed Instance direct - CLI
+                  href: upgrade-sql-managed-instance-direct-cli.md
+            - name: Indirect connectivity mode
+              items:
+                - name: SQL Managed Instance indirect - CLI
+                  href: upgrade-sql-managed-instance-cli.md
+                - name: SQL Managed Instance indirect - Kubernetes tools
+                  href: upgrade-sql-managed-instance-indirect-kubernetes-tools.md
+        - name: Migrate
+          items:
+            - name: Migrate to SQL Managed Instance (Azure Arc)
+              href: migrate-to-managed-instance.md
+            - name: Restore AdventureWorks
+              href: restore-adventureworks-sample-db.md
+        - name: Active Directory
+          items:
+            - name: Introduction
+              href: active-directory-introduction.md
+            - name: Prerequisites
+              href: active-directory-prerequisites.md
+            - name: Deploy connector
+              items:
+                - name: System-managed keytab
+                  href: deploy-system-managed-keytab-active-directory-connector.md
+                - name: Customer-managed keytab
+                  href: deploy-customer-managed-keytab-active-directory-connector.md
+                - name: Deploy AD connector - CLI
+                  href: deploy-active-directory-connector-cli.md
+                - name: Deploy AD connector - portal
+                  href: deploy-active-directory-connector-portal.md
+            - name: Deploy SQL Managed Instance
+              href: deploy-active-directory-sql-managed-instance.md
+            - name: Deploy SQL Managed Instance - CLI
+              href: deploy-active-directory-sql-managed-instance-cli.md
+            - name: Connect SQL Managed Instance
+              href: connect-active-directory-sql-managed-instance.md
+        - name: Transparent data encryption
+          items:
+            - name: Turn on transparent data encryption manually
+              href: configure-transparent-data-encryption-manually.md
+        - name: Business continuity
+          items:
+            - name: Overview
+              href: managed-instance-business-continuity-overview.md
+            - name: Point in time restore
+              href: point-in-time-restore.md
+            - name: High availability
+              href: managed-instance-high-availability.md
+            - name: Disaster recovery
+              href: managed-instance-disaster-recovery.md
 - name: Azure Arc-enabled PostgreSQL Hyperscale (preview) 
   items:
     - name: Overview
@@ -122,7 +236,7 @@
       items:
         - name: Manage
           items:
-            - name: Backup & restore
+            - name: Back up & restore
               href: backup-restore-postgresql-hyperscale.md
             - name: Change PostgreSQL port
               href: change-postgresql-port.md
@@ -150,83 +264,21 @@
               href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Migrate
           items:
-            - name: Migrate PostgreSQL data into a Postgres Hyperscale server group
+            - name: Migrate PostgreSQL data into a PostgreSQL Hyperscale server group
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
             - name: Import the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-hyperscale-server-group.md
-- name: Azure Arc-enabled SQL Managed Instance
-  items:
-    - name: Overview
-      items:
-        - name: What is Azure Arc-enabled SQL Managed Instance
-          href: managed-instance-overview.md
-        - name: Features
-          href: managed-instance-features.md
-        - name: Service tiers
-          href: service-tiers.md
-    - name: Quickstarts
-      items:
-        - name: Create SQL Managed Instance
-          href: create-sql-managed-instance.md
-        - name: Create SQL Managed Instance (Azure Data Studio)
-          href: create-sql-managed-instance-azure-data-studio.md
-        - name: Create using Kubernetes tools
-          href: create-sql-managed-instance-using-kubernetes-native-tools.md
-        - name: Connect
-          href: connect-managed-instance.md
-    - name: How-to
-      items:
-        - name: Manage
-          items:
-            - name: Configure
-              href: configure-managed-instance.md
-            - name: Monitoring, log analytics, billing information, (portal)
-              href: monitoring-log-analytics-azure-portal-managed-instance.md
-            - name: High availability
-              href: managed-instance-high-availability.md
-            - name: Point in time restore
-              href: point-in-time-restore.md
-            - name: Delete
-              href: delete-managed-instance.md
-        - name: Migrate
-          items:
-            - name: Migrate to SQL Managed Instance (Azure Arc)
-              href: migrate-to-managed-instance.md
-            - name: Restore AdventureWorks
-              href: restore-adventureworks-sample-db.md
 - name: Reference
   items:
-  - name: az arcdata extension
-    items:
-    - name: Overview
-      href: ./reference/overview.md
-    - name: arcdata dc
-      href: ./reference/reference-az-arcdata-dc.md
-    - name: arcdata dc config
-      href: ./reference/reference-az-arcdata-dc-config.md
-    - name: arcdata dc endpoint
-      href: ./reference/reference-az-arcdata-dc-endpoint.md
-    - name: arcdata dc status
-      href: ./reference/reference-az-arcdata-dc-status.md
-    - name: arcdata resource-kind
-      href: ./reference/reference-az-arcdata-resource-kind.md
-    - name: postgres arc-server
-      href: ./reference/reference-az-postgres-arc-server.md
-    - name: postgres arc-server endpoint
-      href: ./reference/reference-az-postgres-arc-server-endpoint.md
-    - name: sql mi-arc
-      href: ./reference/reference-az-sql-mi-arc.md
-    - name: sql mi-arc endpoint
-      href: ./reference/reference-az-sql-mi-arc-endpoint.md
-    - name: sql mi-arc config
-      href: ./reference/reference-az-sql-mi-arc-config.md
-    - name: sql mi-arc dag
-      href: ./reference/reference-az-sql-mi-arc-dag.md
+  - name: Release version log
+    href: version-log.md
+  - name: arcdata 
+    href: about-arcdata-extension.md
 - name: Resources
   items:
-    - name: Plan for deployment
-      href: plan-azure-arc-data-services.md
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io
+    - name: Pre-release testing
+      href: preview-testing.md

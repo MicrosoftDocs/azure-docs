@@ -1,6 +1,5 @@
 ---
-title: Configure a web app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Configure a web app that calls web APIs
 description: Learn how to configure the code of a web app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -49,7 +48,7 @@ In the following example, the `GraphBeta` section specifies these settings.
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common"
+    "TenantId": "common",
 
    // To call an API
    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
@@ -70,7 +69,7 @@ Instead of a client secret, you can provide a client certificate. The following 
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common"
+    "TenantId": "common",
 
    // To call an API
    "ClientCertificates": [
@@ -92,7 +91,7 @@ Instead of a client secret, you can provide a client certificate. The following 
 
 ## Startup.cs
 
-Your web app will need to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`. This line exposes the `ITokenAcquisition` service that you can use in your controller and page actions. However, as you'll see in the following two options, it can be done more simply. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
+Your web app will need to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApp(Configuration)`. This line exposes the `ITokenAcquisition` service that you can use in your controller and page actions. However, as you'll see in the following two options, it can be done more simply. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -104,7 +103,7 @@ Your web app will need to acquire a token for the downstream API. You specify it
      {
      // ...
      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                .AddInMemoryTokenCaches();
       // ...
@@ -134,7 +133,7 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
      {
      // ...
      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
                .AddInMemoryTokenCaches();
@@ -379,7 +378,7 @@ The use of client assertions is an advanced scenario, detailed in [Client assert
 ## Token cache
 
 > [!IMPORTANT]
-> The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](scenario-desktop-acquire-token.md#file-based-token-cache).
+> The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](msal-net-token-cache-serialization.md).
 > For security and performance reasons, it's important to ensure that for web apps and web APIs there is one token cache per user account. You must serialize the token cache for each account.
 
 # [ASP.NET Core](#tab/aspnetcore)
@@ -417,13 +416,13 @@ For details about the token-cache providers, see also Microsoft.Identity.Web's [
 
 # [ASP.NET](#tab/aspnet)
 
-The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](scenario-desktop-acquire-token.md#file-based-token-cache).
+The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](msal-net-token-cache-serialization.md).
 
 The web-app implementation can use the ASP.NET session or the server memory. For example, see how the cache implementation is hooked after the creation of the MSAL.NET application in [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58):
 
 
 First, to use these implementations:
-- add the Microsoft.Identity.Web Nuget package. These token cache serializers are not brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
+- add the Microsoft.Identity.Web NuGet package. These token cache serializers are not brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
 - In your code, use the Microsoft.Identity.Web namespace:
 
   ```csharp

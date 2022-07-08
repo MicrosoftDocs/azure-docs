@@ -4,7 +4,7 @@ description: Describes columns that are common to multiple data types in Azure M
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2021
+ms.date: 02/18/2022
 
 ---
 
@@ -20,10 +20,13 @@ Workspace-based applications in Application Insights store their data in a Log A
 ## TenantId
 The **TenantId** column holds the workspace ID for the Log Analytics workspace.
 
-## TimeGenerated and timestamp
-The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) columns contain the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](../logs/data-ingestion-time.md) for more details.
+## TimeGenerated
+The **TimeGenerated**  column contains the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](../logs/data-ingestion-time.md) for more details.
 
-**TimeGenerated** and **timestamp** provide a common column to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results. 
+**TimeGenerated** provides a common column to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses **TimeGenerated** to filter the results. 
+
+> [!NOTE]
+> Tables supporting classic Application Insights resources use the **timestamp** column instead of the **TimeGenerated** column.
 
 ### Examples
 
@@ -36,16 +39,6 @@ Event
 | summarize count() by bin(TimeGenerated, 1day) 
 | sort by TimeGenerated asc 
 ```
-
-The following query returns the number of exceptions created for each day in the previous week.
-
-```Kusto
-exceptions
-| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
-| summarize count() by bin(TimeGenerated, 1day) 
-| sort by timestamp asc 
-```
-
 ## \_TimeReceived
 The **\_TimeReceived** column contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](../logs/data-ingestion-time.md) for more details.
 
@@ -64,8 +57,11 @@ Event
 | summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
 ``` 
 
-## Type and itemType
-The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) columns hold the name of the table that the record was retrieved from which can also be thought of as the record type. This column is useful in queries that combine records from multiple tables, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
+## Type
+The **Type** column holds the name of the table that the record was retrieved from which can also be thought of as the record type. This column is useful in queries that combine records from multiple tables, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some queries.
+
+> [!NOTE]
+> Tables supporting classic Application Insights resources use the **itemType** column instead of the **Type** column.
 
 ### Examples
 The following query returns the count of records by type collected over the past hour.
@@ -141,7 +137,7 @@ The following query examines performance data for computers of a specific subscr
 ```Kusto
 Perf 
 | where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
-| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| where _SubscriptionId == "ebb79bc0-aa86-44a7-8111-cabbe0c43993"
 | summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
 ```
 
@@ -184,7 +180,7 @@ union withsource = tt *
 ```
 
 ## \_BilledSize
-The **\_BilledSize** column specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true.
+The **\_BilledSize** column specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true. See [Data size calculation](cost-logs.md#data-size-calculation) to learn more about the details of how the billed size is calculated. 
 
 
 ### Examples

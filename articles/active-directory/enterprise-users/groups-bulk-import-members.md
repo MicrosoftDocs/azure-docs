@@ -4,8 +4,8 @@ description: Add group members in bulk in the Azure Active Directory admin cente
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: daveba
-ms.date: 12/02/2020
+manager: karenhoran
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk add group members in Azure Active Directory
 
-Using Azure Active Directory (Azure AD) portal, you can add a large number of members to a group by using a comma-separated values (CSV) file to bulk import group members.
+You can add multiple members to a group by using a comma-separated values (CSV) file to bulk import group members in the portal for Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 ## Understand the CSV template
 

@@ -3,14 +3,14 @@ title: Create and use password policies in Azure AD Domain Services | Microsoft 
 description: Learn how and why to use fine-grained password policies to secure and control account passwords in an Azure AD DS managed domain.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 08/11/2021
 ms.author: justinha
 
 ---
@@ -101,10 +101,7 @@ To create a custom password policy, you use the Active Directory Administrative 
 
     Set the precedence for your custom password policy to override the default, such as *1*.
 
-1. Edit other password policy settings as desired. Remember the following key points:
-
-    * Settings like password complexity, age, or expiration time only to users manually created in a managed domain.
-    * Account lockout settings apply to all users, but only take effect within the managed domain and not in Azure AD itself.
+1. Edit other password policy settings as desired. Account lockout settings apply to all users, but only take effect within the managed domain and not in Azure AD itself.
 
     ![Create a custom fine-grained password policy](./media/password-policy/custom-fgpp.png)
 

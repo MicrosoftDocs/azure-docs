@@ -13,7 +13,7 @@ ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 05/14/2021
 ---
 
-# Azure Machine Learning inference HTTP server (Preview)
+# Azure Machine Learning inference HTTP server (preview)
 
 The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
 
@@ -118,7 +118,7 @@ The following table contains the parameters accepted by the server:
 
 The following steps explain how the Azure Machine Learning inference HTTP server works handles incoming requests:
 
-1. A python CLI wrapper sits around the server's network stack and is used to start the server.
+1. A Python CLI wrapper sits around the server's network stack and is used to start the server.
 1. A client sends a request to the server.
 1. When a request is received, it goes through the [WSGI](https://www.fullstackpython.com/wsgi-servers.html) server and is then dispatched to one of the workers.
     - [Gunicorn](https://docs.gunicorn.org/) is used on __Linux__.
@@ -127,6 +127,15 @@ The following steps explain how the Azure Machine Learning inference HTTP server
 1. Finally, the request is sent to your entry script. The entry script then makes an inference call to the loaded model and returns a response.
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagram of the HTTP server process":::
+
+## How to integrate with Visual Studio Code
+
+There are two ways to use Visual Studio Code (VSCode) and [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) to debug with [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package. 
+
+1. User starts the AzureML Inference Server in a command line and use VSCode + Python Extension to attach to the process.
+1. User sets up the `launch.json` in the VSCode and start the AzureML Inference Server within VSCode.
+
+In both ways, user can set breakpoint and debug step by step.
 
 ## Frequently asked questions
 

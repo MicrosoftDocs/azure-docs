@@ -1,18 +1,16 @@
 ---
-title: Azure Sentinel data source schema reference
-description: This article lists Azure and third-party data source schemas supported by Azure Sentinel, with links to their reference documentation.
+title: Microsoft Sentinel data source schema reference
+description: This article lists Azure and third-party data source schemas supported by Microsoft Sentinel, with links to their reference documentation.
 author: batamig
 ms.author: bagol
-manager: rkarlin
-ms.assetid: 
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: reference
-ms.custom: 
-ms.date: 01/14/2021
+ms.custom: ignite-fall-2021
+ms.date: 11/09/2021
 ---
 
 # Data source schema reference
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article lists supported Azure and third-party data source schemas, with links to their reference documentation.
 
@@ -30,7 +28,7 @@ This article lists supported Azure and third-party data source schemas, with lin
 | **Network**                          | VMinsights             | VMConnection           | [Azure Monitor VMConnection reference](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | Wire Data Solution     | WireData               | [Azure Monitor WireData reference](/azure/azure-monitor/reference/tables/wiredata) |
 | **Network**                          | NSG Flow Logs          | AzureNetworkAnalytics  | [Schema and data aggregation in Traffic Analytics](../network-watcher/traffic-analytics-schema.md) |
-| | | | |
+
 
 > [!NOTE]
 > For more information, see the entire [Azure Monitor data reference](/azure/azure-monitor/reference/).
@@ -55,15 +53,15 @@ The following table lists supported third-party vendors and their Syslog or Comm
 | **Network** |	Citrix	|Web App Firewall	| CommonSecurityLog|	[Common Event Format (CEF) Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146) <br>  [NetScaler 12.0 Syslog Message Reference](https://developer-docs.citrix.com/projects/netscaler-syslog-message-reference/en/12.0/)   |
 |**Host** |Symantec | Symantec Endpoint Protection Manager (SEPM) | CommonSecurityLog|[External Logging settings and log event severity levels for Endpoint Protection Manager](https://support.symantec.com/us/en/article.tech171741.html)|
 |**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
-| | | | | |
+
 
 > [!NOTE]
 > For more information, see also [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
 > 
 ## Next steps
 
-Learn more supported Azure Sentinel connectors, such as CEF, Syslog, direct, agent, and custom connectors:
+Learn more supported Microsoft Sentinel connectors, such as CEF, Syslog, direct, agent, and custom connectors:
 
 - [Connect data sources](connect-data-sources.md)
 
-- [Azure Sentinel Syslog, CEF, and other 3rd-party connectors](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-syslog-cef-and-other-3rd-party-connectors-grand/ba-p/803891)
+- [Microsoft Sentinel Syslog, CEF, and other 3rd-party connectors](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-syslog-cef-and-other-3rd-party-connectors-grand/ba-p/803891)

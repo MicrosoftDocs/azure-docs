@@ -3,14 +3,14 @@ title: Header-based single sign-on for on-premises apps with Azure AD App Proxy
 description: Learn how to provide single sign-on for on-premises applications that are secured with header-based authentication.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Header-based single sign-on for on-premises apps with Azure AD App Proxy
@@ -45,7 +45,7 @@ The following table lists common capabilities required for header-based authenti
 
 ## How it works
 
-:::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png" alt-text="How header-based single sign-on works with Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png":::
+:::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png" alt-text="How header-based single sign-on works with Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png":::
 
 1. The Admin customizes the attribute mappings required by the application in the Azure AD portal. 
 2. When a user accesses the app, Application Proxy ensures the user is authenticated by Azure AD 
@@ -86,7 +86,7 @@ When you've completed all these steps, your app should be running and available.
 ## Considerations
 
 - Application Proxy is used to provide remote access to apps on-premises or on private cloud. Application Proxy is not recommended to handle traffic originating internally from the corporate network.
-- Access to header-based authentication applications should be restricted to only traffic from the connector or other permitted header-based authentication solution. This is commonly done through restricting network access to the application using a firewall or IP restriction on the application server.
+- **Access to header-based authentication applications should be restricted to only traffic from the connector or other permitted header-based authentication solution**. This is commonly done through restricting network access to the application using a firewall or IP restriction on the application server to avoid exposing to the attackers.
 
 ## Next steps
 

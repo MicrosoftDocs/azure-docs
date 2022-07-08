@@ -4,11 +4,10 @@ description: Learn how to list, create, update, or delete Azure custom roles usi
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -36,7 +35,7 @@ To create custom roles, you need:
 
 ## List custom roles
 
-To list custom roles that are available for assignment, use [az role definition list](/cli/azure/role/definition#az_role_definition_list). The following example lists all the custom roles in the current subscription.
+To list custom roles that are available for assignment, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). The following example lists all the custom roles in the current subscription.
 
 ```azurecli
 az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -61,7 +60,7 @@ az role definition list --custom-role-only true --output json --query '[].{roleN
 
 ## List a custom role definition
 
-To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az_role_definition_list). This is the same command you would use for a built-in role.
+To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This is the same command you would use for a built-in role.
 
 ```azurecli
 az role definition list --name {roleName}
@@ -135,13 +134,13 @@ az role definition list --name "Virtual Machine Operator" --output json --query 
 
 ## Create a custom role
 
-To create a custom role, use [az role definition create](/cli/azure/role/definition#az_role_definition_create). The role definition can be a JSON description or a path to a file containing a JSON description.
+To create a custom role, use [az role definition create](/cli/azure/role/definition#az-role-definition-create). The role definition can be a JSON description or a path to a file containing a JSON description.
 
 ```azurecli
 az role definition create --role-definition {roleDefinition}
 ```
 
-The following example creates a custom role named *Virtual Machine Operator*. This custom role assigns access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and assigns access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
+The following example creates a custom role named *Virtual Machine Operator*. This custom role assigns access to all read actions of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and assigns access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
 vmoperator.json
 
@@ -178,13 +177,13 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ## Update a custom role
 
-To update a custom role, first use [az role definition list](/cli/azure/role/definition#az_role_definition_list) to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use [az role definition update](/cli/azure/role/definition#az_role_definition_update) to save the updated role definition.
+To update a custom role, first use [az role definition list](/cli/azure/role/definition#az-role-definition-list) to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use [az role definition update](/cli/azure/role/definition#az-role-definition-update) to save the updated role definition.
 
 ```azurecli
 az role definition update --role-definition {roleDefinition}
 ```
 
-The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role. Adding a management group to `AssignableScopes` is currently in preview.
+The following example adds the *Microsoft.Insights/diagnosticSettings/* action to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role. Adding a management group to `AssignableScopes` is currently in preview.
 
 vmoperator.json
 
@@ -223,7 +222,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## Delete a custom role
 
-To delete a custom role, use [az role definition delete](/cli/azure/role/definition#az_role_definition_delete). To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+To delete a custom role, use [az role definition delete](/cli/azure/role/definition#az-role-definition-delete). To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition delete --name {roleNameOrId}

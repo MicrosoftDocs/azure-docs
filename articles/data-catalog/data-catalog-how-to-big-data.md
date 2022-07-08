@@ -1,19 +1,17 @@
 ---
 title: How to catalog big data in Azure Data Catalog
 description: How-to article highlighting patterns for using Azure Data Catalog  with 'big data' data sources, including Azure Blob Storage, Azure Data Lake, and Hadoop HDFS.
-author: JasonWHowell
-ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 08/01/2019
+ms.date: 02/14/2022
 ---
 # How to catalog big data in Azure Data Catalog
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 
-**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. It is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data sources, including big data.
+**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. It's all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data sources, including big data.
 
 **Azure Data Catalog** supports the registration of Azure Storage blobs and directories as well as Hadoop HDFS files and directories. The semi-structured nature of these data sources provides great flexibility. However, to get the most value from registering them with **Azure Data Catalog**, users must consider how the data sources are organized.
 
@@ -40,7 +38,7 @@ An example of this pattern might be:
 
 In this example, vehicle_maintenance_events and location_tracking_events represent logical data sets. Each of these folders contains data files that are organized by year and month into subfolders. Each of these folders could potentially contain hundreds or thousands of files.
 
-In this pattern, registering individual files with **Azure Data Catalog** probably does not make sense. Instead, register the directories that represent the data sets that be meaningful to the users working with the data.
+In this pattern, registering individual files with **Azure Data Catalog** probably doesn't make sense. Instead, register the directories that represent the data sets that be meaningful to the users working with the data.
 
 ## Reference data files
 
@@ -60,7 +58,7 @@ In this pattern, it makes sense to register the individual reference data files 
 
 ## Alternate patterns
 
-The patterns described in the preceding section are just two possible ways a big data store may be organized, but each implementation is different. Regardless of how your data sources are structured, when registering big data sources with **Azure Data Catalog**, focus on registering the files and directories that represent the data sets that are of value to others within your organization. Registering all files and directories can clutter the catalog, making it harder for users to find what they need.
+The patterns described in the preceding sections are two possible ways a big data store may be organized, but each implementation is different. Regardless of how your data sources are structured, when registering big data sources with **Azure Data Catalog**, focus on registering the files and directories that represent the data sets that are of value to others within your organization. Registering all files and directories can clutter the catalog, making it harder for users to find what they need.
 
 ## Summary
 

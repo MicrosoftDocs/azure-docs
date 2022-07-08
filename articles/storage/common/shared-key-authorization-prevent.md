@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 04/01/2022
 ms.author: tamram
-ms.reviewer: dineshm 
-ms.custom: devx-track-azurepowershell
+ms.reviewer: nachakra 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Prevent Shared Key authorization for an Azure Storage account
@@ -118,7 +119,7 @@ To disallow Shared Key authorization for a storage account in the Azure portal, 
 
 1. Navigate to your storage account in the Azure portal.
 1. Locate the **Configuration** setting under **Settings**.
-1. Set **Allow shared key access** to **Disabled**.
+1. Set **Allow storage account key access** to **Disabled**.
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for account":::
 
@@ -233,6 +234,10 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 | Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Connect your Microsoft Azure Files storage](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
 
+## Disallow Shared Key authorization to use Azure AD Conditional Access
+
+To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account. Follow the steps described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to analyze the potential impact of this change for existing storage accounts before disallowing Shared Key authorization.
+
 ## Transition Azure Files and Table storage workloads
 
 Azure Storage supports Azure AD authorization for requests to Blob and Queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files or Table storage that use Shared Key authorization will fail. Because the Azure portal always uses Shared Key authorization to access file and table data, if you disallow authorization with Shared Key for the storage account, you will not be able to access file or table data in the Azure portal.
@@ -243,6 +248,6 @@ Disallowing Shared Key access for a storage account does not affect SMB connecti
 
 ## Next steps
 
-- [Authorize access to data in Azure Storage](storage-auth.md)
+- [Authorize access to data in Azure Storage](./authorize-data-access.md)
 - [Authorize access to blobs and queues using Azure Active Directory](authorize-data-access.md)
 - [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key)

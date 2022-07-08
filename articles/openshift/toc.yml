@@ -1,4 +1,4 @@
-- name: Azure Red Hat OpenShift
+- name: Azure Red Hat OpenShift 
   href: index.yml
 - name: Overview
   expanded: true
@@ -8,48 +8,62 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: 1 - Create an ARO cluster
+    - name: 1 - Create an Azure Red Hat OpenShift cluster
       href: tutorial-create-cluster.md
-    - name: 2 - Connect to an ARO cluster
+    - name: 2 - Connect to an Azure Red Hat OpenShift cluster
       href: tutorial-connect-cluster.md
-    - name: 3 - Delete an ARO cluster
+    - name: 3 - Delete an Azure Red Hat OpenShift cluster
       href: tutorial-delete-cluster.md
+- name: Quickstarts
+  items:
+    - name: Deploy an Azure Red Hat OpenShift cluster with Azure portal 
+      href: quickstart-portal.md
+    - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
+      href: quickstart-openshift-arm-bicep-template.md
 - name: How-to guides
   items:
     - name: Cluster operations
       items:
-        - name: Upgrade an ARO cluster
+        - name: Upgrade an Azure Red Hat OpenShift cluster
           href: howto-upgrade.md
-    - name: Networking
+        - name: Use spot nodes
+          href: howto-spot-nodes.md
+    - name: Networking 
       items:
-        - name: Create a private ARO cluster
+        - name: Create a private Azure Red Hat OpenShift cluster
           href: howto-create-private-cluster-4x.md
         - name: Configure custom DNS
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
+        - name: Configure OVN-Kubernetes network provider
+          href: howto-configure-ovn-kubernetes.md
         - name: Restrict egress traffic
           href: howto-restrict-egress.md
     - name: Storage
       items:
-        - name: Encrypt PVCs with customer-managed key (preview)
-          href: howto-encrypt-data-disks.md
+        - name: Encrypt cluster data with customer-managed key
+          href: howto-byok.md
         - name: Create an Azure Files Storageclass
           href: howto-create-a-storageclass.md
         - name: Use the built-in container registry
           href: built-in-container-registry.md
-        - name: Use Azure Container registry
+        - name: Use Azure Container registry 
           href: howto-use-acr-with-aro.md
-    - name: Security and authentication
+    - name: Security and authentication 
       items:
-        - name: Configure Azure Active Directory authentication (CLI)
-          href: configure-azure-ad-cli.md
+        - name: Secure OpenShift with Azure Front Door
+          href: howto-secure-openshift-with-front-door.md
+        - name: Create and use a service principal
+          href: howto-create-service-principal.md
         - name: Configure Azure Active Directory authentication (Portal)
           href: configure-azure-ad-ui.md
-        - name: Update pull secret for an ARO cluster
+        - name: Update pull secret for an Azure Red Hat OpenShift cluster
           href: howto-add-update-pull-secret.md
-        - name: Rotate service principal credentials for an Azure Red Hat OpenShift (ARO) cluster
+        - name: Rotate service principal credentials for an Azure Red Hat OpenShift cluster
           href: howto-service-principal-credential-rotation.md
+        - name: Enable FIPS on a cluster
+          href: howto-enable-fips-openshift.md
     - name: Back up and restore
       items:
         - name: Create a backup of a cluster application with Velero
@@ -60,9 +74,9 @@
       items:
         - name: Azure Monitor for containers
           items:
-            - name: Configure Azure Monitor for containers for ARO 4 (preview)
+            - name: Configure Azure Monitor for containers for Azure Red Hat OpenShift 4 (preview)
               href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
-            - name: Disable Azure Monitor for containers in ARO 4 (preview)
+            - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 4 (preview)
               href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Develop and run applications
       items:
@@ -70,8 +84,10 @@
           href: howto-deploy-with-s2i.md
         - name: Deploy an application using OpenShift Serverless
           href: howto-deploy-with-serverless.md
-        - name: Deploy an Open Liberty/WebSphere Liberty app
+        - name: Deploy an Open Liberty/WebSphere Liberty Java app
           href: howto-deploy-java-liberty-app.md
+        - name: Deploy a JBoss EAP Java app
+          href: howto-deploy-java-jboss-enterprise-application-platform-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
         - name: Set up your Azure Red Hat OpenShift dev environment for Azure Red Hat OpenShift 3.11
@@ -109,7 +125,10 @@
   items:
     - name: Networking
       href: concepts-networking.md
-    - name: Migrate from ARO 3.11 to ARO 4
+      items:
+      - name: Overview of egress lockdown
+        href: concepts-egress-lockdown.md
+    - name: Migrate from Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
       href: migration.md
 - name: Reference
   items:
@@ -118,16 +137,18 @@
     - name: Azure Red Hat OpenShift REST APIs
       href: /rest/api/openshift
     - name: Azure CLI
-      href: /cli/azure/openshift
+      href: ./index.yml
 - name: Resources
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
+    - name: Azure Red Hat OpenShift service definition
+      href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
-    - name: Support policies for ARO 4
+    - name: Support policies for Azure Red Hat OpenShift 4
       href: support-policies-v4.md
-    - name: Support lifecycle for ARO 4
+    - name: Support lifecycle for Azure Red Hat OpenShift 4
       href: support-lifecycle.md
     - name: Responsibility matrix
       href: responsibility-matrix.md

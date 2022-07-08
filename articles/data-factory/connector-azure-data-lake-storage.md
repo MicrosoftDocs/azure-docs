@@ -1,24 +1,26 @@
 ---
 title: Copy and transform data in Azure Data Lake Storage Gen2
-description: Learn how to copy data to and from Azure Data Lake Storage Gen2, and transform data in Azure Data Lake Storage Gen2 by using Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data to and from Azure Data Lake Storage Gen2, and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 07/19/2021
+ms.custom: synapse
+ms.date: 03/29/2022
 ---
 
-# Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory
+# Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) is a set of capabilities dedicated to big data analytics built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). You can use it to interface with your data by using both file system and object storage paradigms.
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Data Lake Storage Gen2, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity to copy data from and to Azure Data Lake Storage Gen2, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!TIP]
->For data lake or data warehouse migration scenario, learn more from [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
+>For data lake or data warehouse migration scenario, learn more in [Migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
 
 ## Supported capabilities
 
@@ -44,7 +46,31 @@ For Copy activity, with this connector you can:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide information about properties that are used to define Data Factory entities specific to Data Lake Storage Gen2.
+## Create an Azure Data Lake Storage Gen2 linked service using UI
+
+Use the following steps to create an Azure Data Lake Storage Gen2 linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Azure Data Lake Storage Gen2 and select the Azure Data Lake Storage Gen2 connector.
+
+    :::image type="content" source="media/connector-azure-data-lake-storage/azure-data-lake-storage-connector.png" alt-text="Select Azure Data Lake Storage Gen2 connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-data-lake-storage/configure-data-lake-storage-linked-service.png" alt-text="Screenshot of configuration for Azure Data Lake Storage Gen2 linked service.":::
+
+## Connector configuration details
+
+The following sections provide information about properties that are used to define Data Factory and Synapse pipeline entities specific to Data Lake Storage Gen2.
 
 ## Linked service properties
 
@@ -54,10 +80,10 @@ The Azure Data Lake Storage Gen2 connector supports the following authentication
 - [Service principal authentication](#service-principal-authentication)
 - [System-assigned managed identity authentication](#managed-identity)
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
-- 
+
 >[!NOTE]
 >- If want to use the public Azure integration runtime to connect to the Data Lake Storage Gen2 by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
->- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Synapse. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
+>- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Azure Synapse. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
 
 ### Account key authentication
 
@@ -67,7 +93,7 @@ To use storage account key authentication, the following properties are supporte
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureBlobFS**. |Yes |
 | url | Endpoint for Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes |
-| accountKey | Account key for Data Lake Storage Gen2. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| accountKey | Account key for Data Lake Storage Gen2. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If this property isn't specified, the default Azure integration runtime is used. |No |
 
 >[!NOTE]
@@ -111,7 +137,7 @@ To use service principal authentication, follow these steps.
     - **As sink**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->If you use Data Factory UI to author and the service principal is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a path with **Read + Execute** permission to continue.
+>If you use UI to author and the service principal is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a path with **Read + Execute** permission to continue.
 
 These properties are supported for the linked service:
 
@@ -121,10 +147,10 @@ These properties are supported for the linked service:
 | url | Endpoint for Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. | Yes |
-| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> This property is still supported as-is for `servicePrincipalId` + `servicePrincipalKey`. As ADF adds new service principal certificate authentication, the new model for service principal authentication is  `servicePrincipalId` + `servicePrincipalCredentialType` + `servicePrincipalCredential`. | No |
+| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> This property is still supported as-is for `servicePrincipalId` + `servicePrincipalKey`. As ADF adds new service principal certificate authentication, the new model for service principal authentication is  `servicePrincipalId` + `servicePrincipalCredentialType` + `servicePrincipalCredential`. | No |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
 
 **Example: using service principal key authentication**
@@ -184,11 +210,11 @@ You can also store service principal key in Azure Key Vault.
 
 ### <a name="managed-identity"></a> System-assigned managed identity authentication
 
-A data factory can be associated with a [system-assigned managed identity](data-factory-service-identity.md), which represents this specific data factory. You can directly use this system-assigned managed identity for Data Lake Storage Gen2 authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from your Data Lake Storage Gen2.
+A data factory or Synapse workspace can be associated with a [system-assigned managed identity](data-factory-service-identity.md).  You can directly use this system-assigned managed identity for Data Lake Storage Gen2 authentication, similar to using your own service principal. It allows this designated factory or workspace to access and copy data to or from your Data Lake Storage Gen2.
 
 To use system-assigned managed identity authentication, follow these steps.
 
-1. [Retrieve the Data Factory system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your factory.
+1. [Retrieve the system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your data factory or Synapse workspace.
 
 2. Grant the system-assigned managed identity proper permission. See examples on how permission works in Data Lake Storage Gen2 from [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -232,7 +258,7 @@ To use user-assigned managed identity authentication, follow these steps:
     - **As source**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
     - **As sink**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
     
-2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
 These properties are supported for the linked service:
 
@@ -255,7 +281,7 @@ These properties are supported for the linked service:
             "credential": {
                 "referenceName": "credential1",
                 "type": "CredentialReference"
-                },
+                }
             },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -269,7 +295,7 @@ These properties are supported for the linked service:
 >If you use Data Factory UI to author and the managed identity is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a path with **Read + Execute** permission to continue.
 
 >[!IMPORTANT]
->If you use PolyBase or COPY statement to load data from Data Lake Storage Gen2 into Azure Synapse Analytics, when you use managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 to 3 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Synapse.
+>If you use PolyBase or COPY statement to load data from Data Lake Storage Gen2 into Azure Synapse Analytics, when you use managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 to 3 in [this guidance](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Azure Synapse.
 
 ## Dataset properties
 
@@ -340,7 +366,7 @@ The following properties are supported for Data Lake Storage Gen2 under `storeSe
 | ***Additional settings:*** |  | |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are **true** (default) and **false**.<br>This property doesn't apply when you configure `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you will see some files have already been copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary files copy scenario. The default value: false. |No |
-| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. <br>The files will be selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
+| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. <br>The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
@@ -494,13 +520,13 @@ When you copy files from Amazon S3/Azure Blob/Azure Data Lake Storage Gen2 to Az
 When you copy files from Azure Data Lake Storage Gen1/Gen2 to Gen2, you can choose to preserve the POSIX access control lists (ACLs) along with data. Learn more from [Preserve ACLs from Data Lake Storage Gen1/Gen2 to Gen2](copy-activity-preserve-metadata.md#preserve-acls).
 
 >[!TIP]
->To copy data from Azure Data Lake Storage Gen1 into Gen2 in general, see [Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) for a walk-through and best practices.
+>To copy data from Azure Data Lake Storage Gen1 into Gen2 in general, see [Copy data from Azure Data Lake Storage Gen1 to Gen2](load-azure-data-lake-storage-gen2-from-gen1.md) for a walk-through and best practices.
 
 ## Mapping data flow properties
 
 When you're transforming data in mapping data flows, you can read and write files from Azure Data Lake Storage Gen2 in the following formats:
 * [Avro](format-avro.md#mapping-data-flow-properties)
-* [Common Data Model (preview)](format-common-data-model.md#mapping-data-flow-properties)
+* [Common Data Model](format-common-data-model.md#mapping-data-flow-properties)
 * [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
 * [Delta](format-delta.md#mapping-data-flow-properties)
 * [Excel](format-excel.md#mapping-data-flow-properties)
@@ -513,7 +539,7 @@ Format specific settings are located in the documentation for that format. For m
 
 In the source transformation, you can read from a container, folder, or individual file in Azure Data Lake Storage Gen2. The **Source options** tab lets you manage how the files get read. 
 
-![Source options](media/data-flow/sourceOptions1.png "Source options")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
 
 **Wildcard path:** Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
 
@@ -535,11 +561,11 @@ Wildcard examples:
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you wish to read.
 
-![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Partition source file settings":::
 
 Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that ADF will add the resolved partitions found in each of your folder levels.
 
-![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Partition root path":::
 
 **List of files:** This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
 
@@ -551,15 +577,15 @@ To move source files to another location post-processing, first select "Move" fo
 
 If you have a source path with wildcard, your syntax will look like this below:
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 You can specify "from" as
 
-```/data/sales```
+`/data/sales`
 
 And "to" as
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
 
@@ -568,11 +594,15 @@ In this case, all files that were sourced under /data/sales are moved to /backup
 
 **Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. 
 
+**Enable change data capture:** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. For more details, see [Change data capture](#change-data-capture).
+
+:::image type="content" source="media/data-flow/enable-change-data-capture.png" alt-text="Screenshot showing Enable change data capture.":::
+
 ### Sink properties
 
 In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen2. the **Settings** tab lets you manage how the files get written.
 
-![sink options](media/data-flow/file-sink-settings.png "sink options")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="sink options":::
 
 **Clear the folder:** Determines whether or not the destination folder gets cleared before the data is written.
 
@@ -584,6 +614,34 @@ In the sink transformation, you can write to either a container or folder in Azu
    * **Output to a single file**: Combine the partitioned output files into a single named file. The path is relative to the dataset folder. Please be aware that te merge operation can possibly fail based upon node size. This option is not recommended for large datasets.
 
 **Quote all:** Determines whether to enclose all values in quotes
+    
+### ```umask```
+
+You can optionally set the ```umask``` for files using POSIX read, write, execute flags for owner, user and group.
+    
+### Pre-processing and post-processing commands
+    
+You can optionally execute Hadoop filesystem commands before or after writing to an ADLS Gen2 sink. The following commands are supported:
+    
+* ```cp```
+* ```mv```
+* ```rm```
+* ```mkdir```
+
+Examples:
+
+* ```mkdir /folder1```
+* ```mkdir -p folder1```
+* ```mv /folder1/*.* /folder2/```
+* ```cp /folder1/file1.txt /folder2```
+* ```rm -r /folder1```
+
+Parameters are also supported through expression builder, for example:
+
+`mkdir -p {$tempPath}/commands/c1/c2`
+`mv {$tempPath}/commands/*.* {$tempPath}/commands/c1/c2`
+
+By default, folders are created as user/root. Refer to the top level container with ‘/’.
 
 ## Lookup activity properties
 
@@ -609,10 +667,10 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 | type | The type property of the dataset must be set to **AzureBlobFSFile**. |Yes |
 | folderPath | Path to the folder in Data Lake Storage Gen2. If not specified, it points to the root. <br/><br/>Wildcard filter is supported. Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your actual folder name has a wildcard or this escape char is inside. <br/><br/>Examples: filesystem/folder/. See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). |No |
 | fileName | Name or wildcard filter for the files under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, the wildcards allowed are `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has a wildcard or this escape char is inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the file name with the following pattern: "*Data.[activity run ID GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", for example, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". If you copy from a tabular source using a table name instead of a query, the name pattern is "*[table name].[format].[compression if configured]*", for example, "MyTable.csv". |No |
-| modifiedDatetimeStart | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
-| modifiedDatetimeEnd | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
+| modifiedDatetimeStart | Files filter based on the attribute Last Modified. The files are selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
+| modifiedDatetimeEnd | Files filter based on the attribute Last Modified. The files are selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [ORC format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. |No (only for binary copy scenario) |
-| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
+| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are ```**GZip**, **Deflate**, **BZip2**, and **ZipDeflate**```.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
 >[!TIP]
 >To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a given name, specify **folderPath** with a folder part and **fileName** with a file name.<br>To copy a subset of files under a folder, specify **folderPath** with a folder part and **fileName** with a wildcard filter. 
@@ -726,7 +784,16 @@ To learn details about the properties, check [Delete activity](delete-activity.m
     }
 ]
 ```
+## Change data capture
+
+Azure Data Factory can get new or changed files only from Azure Data Lake Storage Gen2 by enabling **Enable change data capture** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice.
+ 
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can always be recorded from the last run to get changes from there. If you change your pipeline name or activity name, the checkpoint will be reset, and you will start from the beginning in the next run.
+
+When you debug the pipeline, the **Enable change data capture** works as well. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the result from debug run, you can publish and trigger the pipeline. It will always start from the beginning regardless of the previous checkpoint recorded by debug run. 
+
+In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changes are always gotten from the checkpoint record in your selected pipeline run. 
 
 ## Next steps
 
-For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

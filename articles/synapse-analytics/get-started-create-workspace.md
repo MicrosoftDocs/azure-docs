@@ -1,11 +1,9 @@
 ---
 title: 'Quickstart: Get started - create a Synapse workspace' 
 description: In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool.
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
@@ -41,7 +39,7 @@ Fill in the following fields:
 1. **Region** - Pick the region where you have placed your client applications/services (for example, Azure VM, Power BI, Azure Analysis Service) and storages that contain data (for example Azure Data Lake storage, Azure Cosmos DB analytical storage).
 
 > [!NOTE]
-> A workspace that is not colocated with the client applications or storage can be the root cause of many performance issues. If you data or the clients are placed in multiple regions, you can create separate workspaces in different regions colocated with your data and clients.
+> A workspace that is not co-located with the client applications or storage can be the root cause of many performance issues. If your data or the clients are placed in multiple regions, you can create separate workspaces in different regions co-located with your data and clients.
 
 Under **Select Data Lake Storage Gen 2**:
 

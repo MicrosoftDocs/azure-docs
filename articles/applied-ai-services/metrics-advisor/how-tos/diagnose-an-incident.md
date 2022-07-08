@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbullwin
 ---

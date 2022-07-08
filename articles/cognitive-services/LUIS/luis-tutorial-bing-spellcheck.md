@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 01/05/2022
 
 ---
 
@@ -65,11 +65,6 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
-## Enable spell check from UI 
-You can enable spellcheck for your example query using the [Luis portal](https://www.luis.ai). Select **Manage** at the top of the screen, and **Azure Resources** in the left navigation. After you associate a prediction resource to your application, you can select **Change query parameters** from the bottom of the page and paste the resource key in the **Enable spell check** field.
-    
-   > [!div class="mx-imgBorder"]
-   > ![Enable spell check](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
 
 
 ## Adding the key to the endpoint URL
@@ -105,6 +100,5 @@ Two solutions are:
 * Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
 * Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances.
 
-
-> [!div class="nextstepaction"]
-> [Learn more about example utterances](./luis-how-to-add-entities.md)
+## Next steps
+[Learn more about example utterances](./how-to/entities.md)

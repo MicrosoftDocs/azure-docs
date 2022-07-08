@@ -1,13 +1,13 @@
 ---
 title: Configure a managed application plan
-description: Configure a managed application plan for your Azure application offer in Partner Center (Azure Marketplace). 
-author: aarathin
-ms.author: aarathin
+description: Configure a managed application plan for an Azure application offer in Partner Center. 
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 06/28/2022
 ---
 
 # Configure a managed application plan
@@ -59,11 +59,6 @@ Prices are set in USD (USD = United States Dollar) are converted into the local 
 ### Set custom prices (optional)
 
 Prices set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet.
-
-Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published.
-
-> [!NOTE]
-> After a price for a market in your plan is published, it can't be changed later.
 
 To set custom prices in an individual market, export, modify, and then import the pricing spreadsheet. You're responsible for validating this pricing and owning these settings. For detailed information, see [Custom prices](plans-pricing.md#custom-prices).
 
@@ -151,6 +146,8 @@ To learn more about deployment modes, see [Azure Resource Manager deployment mod
 
 In the **Notification Endpoint URL** box, provide an HTTPS Webhook endpoint to receive notifications about all CRUD operations on managed application instances of this plan version.
 
+Azure appends `/resource` to the end of your webhook URI before calling it. So, your webhook URL must end in `/resource`, but don't include `/resource` in the URL you enter into the **Notification Endpoint URL** box. For more information about the webhook URL, see [Plan a managed application](plan-azure-app-managed-app.md#notification-endpoint-url).
+
 ### Customize allowed customer actions (optional)
 
 1. To specify which actions customers can perform on the managed resources in addition to the "`*/read`" actions that is available by default, select the **Customize allowed customer actions** box.
@@ -163,7 +160,7 @@ Indicate who should have management access to this managed application in each s
 Complete the following steps for Global Azure and Azure Government Cloud, as applicable.
 
 1. In the **Azure Active Directory Tenant ID** box, enter the Azure AD Tenant ID (also known as directory ID) containing the identities of the users, groups, or applications you want to grant permissions to.
-1. In the **Principal ID** box, provide the Azure AD object ID of the user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) on the Azure portal.
+1. In the **Principal ID** box, provide the Azure AD object ID of the user, group, or application that you want to be granted permission to the managed resource group. Select a user from the list at the [Azure Active Directory users blade](https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers) and copy the Object ID value of that user.
 1. From the **Role definition** list, select an Azure AD built-in role. The role you select describes the permissions the principal will have on the resources in the customer subscription.
 1. To add another authorization, select the **Add authorization (max 100)** link, and repeat steps 1 through 3.
 
@@ -173,7 +170,7 @@ You can configure a maximum of five policies, and only one instance of each Poli
 
 1. Under **Policy settings**, select the **+ Add policy (max 5)** link.
 1. In the **Name** box, enter the policy assignment name (limited to 50 characters).
-1. From the **Policies** list box, select the Azure policy that will be applied to resources created by the managed application in the customer subscription.
+1. From the **Policies** list box, select the Azure Policy definition that will be applied to resources created by the managed application in the customer subscription.
 1. In the **Policy parameters** box, provide the parameter on which the auditing and diagnostic settings policies should be applied.
 1. From the **Policy SKU** list box, select the policy SKU type.
 

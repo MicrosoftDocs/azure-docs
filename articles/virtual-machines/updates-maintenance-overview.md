@@ -5,11 +5,14 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 03/08/2021
+ms.date: 08/10/2021
 ms.reviewer: cynthn
 ---
 
 # Updates and maintenance overview
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article provides an overview of the various update and maintenance options for Azure virtual machines (VMs).
 
 ## Automatic OS image upgrade
@@ -28,7 +31,7 @@ Enabling [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-mac
 - Automatic OS image upgrade can be enabled on a scale set of any size.
 
 
-## Automatic VM guest patching (Preview)
+## Automatic VM guest patching 
 
 Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
 
@@ -40,12 +43,12 @@ Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your 
 - Works for all VM sizes.
 
 
-## Automatic extension upgrade (Preview)
+## Automatic extension upgrade
 
-[Automatic Extension Upgrade](automatic-extension-upgrade.md) is available in preview for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
+[Automatic Extension Upgrade](automatic-extension-upgrade.md) is available for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
 
  Automatic Extension Upgrade has the following features:
-- Supported for Azure VMs and Azure Virtual Machine Scale Sets. Service Fabric Virtual Machine Scale Sets are currently not supported.
+- Supported for Azure VMs and Azure Virtual Machine Scale Sets.
 - Upgrades are applied in an availability-first deployment model.
 - For a Virtual Machine Scale Set, no more than 20% of the scale set virtual machines will be upgraded in a single batch. The minimum batch size is one virtual machine.
 - Works for all VM sizes, and for both Windows and Linux extensions.
@@ -69,13 +72,13 @@ You can use [Update Management in Azure Automation](../automation/update-managem
 
 ## Maintenance control
 
-Manage platform updates, that don't require a reboot, using [maintenance control](maintenance-control.md). Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window.
+Manage platform updates, that don't require a reboot, using [maintenance control](maintenance-configurations.md). Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window.
 
 Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts.
 
-With [maintenance control](maintenance-control.md), you can:
+With [maintenance control](maintenance-configurations.md), you can:
 - Batch updates into one update package.
-- Wait up to 35 days to apply updates.
+- Wait up to 35 days to apply updates for Host machines.
 - Automate platform updates by configuring a maintenance schedule or by using [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Maintenance configurations work across subscriptions and resource groups.
 

@@ -4,8 +4,8 @@ titleSuffix: Azure Machine Learning
 description: Learn what type of distributed training Azure Machine Learning supports and the open source framework integrations available for distributed training.
 services: machine-learning
 ms.service: machine-learning
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
@@ -19,11 +19,12 @@ In distributed training the workload to train a model is split up and shared amo
 
 ## Deep learning and distributed training 
 
-There are two main types of distributed training: [data parallelism](#data-parallelism) and [model parallelism](#model-parallelism). For distributed training on deep learning models, the [Azure Machine Learning SDK in Python](/python/api/overview/azure/ml/intro) supports integrations with popular frameworks, PyTorch and TensorFlow. Both frameworks employ data parallelism for distributed training, and can leverage [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) for optimizing compute speeds. 
+There are two main types of distributed training: [data parallelism](#data-parallelism) and [model parallelism](#model-parallelism). For distributed training on deep learning models, the [Azure Machine Learning SDK in Python](/python/api/overview/azure/ml/intro) supports integrations with popular frameworks, PyTorch and TensorFlow. Both frameworks employ data parallelism for distributed training, and can leverage [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) for optimizing compute speeds.
 
-* [Distributed training with PyTorch](how-to-train-pytorch.md#distributed-training)
 
-* [Distributed training with TensorFlow](how-to-train-tensorflow.md#distributed-training)
+* [Distributed training with PyTorch](how-to-train-distributed-gpu.md#pytorch)
+
+* [Distributed training with TensorFlow](how-to-train-distributed-gpu.md#tensorflow)
 
 For ML models that don't require distributed training, see [train models with Azure Machine Learning](concept-train-machine-learning-model.md#python-sdk) for the different ways to train models using the Python SDK.
 
@@ -47,5 +48,4 @@ In model parallelism, worker nodes only need to synchronize the shared parameter
 
 * Learn how to [use compute targets for model training](how-to-set-up-training-targets.md) with the Python SDK.
 * For a technical example, see the [reference architecture  scenario](/azure/architecture/reference-architectures/ai/training-deep-learning).
-* [Train ML models with TensorFlow](how-to-train-tensorflow.md).
-* [Train ML models with PyTorch](how-to-train-pytorch.md).
+* Find tips for MPI, TensorFlow, and PyTorch in the [Distributed GPU training guide](how-to-train-distributed-gpu.md) 

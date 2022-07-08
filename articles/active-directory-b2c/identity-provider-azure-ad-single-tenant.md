@@ -3,14 +3,14 @@ title: Set up sign-in for an Azure AD organization
 titleSuffix: Azure AD B2C
 description: Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/17/2021
-ms.author: mimart
+ms.date: 06/08/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
@@ -32,16 +32,25 @@ This article shows you how to enable sign-in for users from a specific Azure AD 
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
+### Verify the application's publisher domain
+As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../active-directory/develop/howto-configure-publisher-domain.md) ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../active-directory/develop/publisher-verification-overview.md) about this change.) Note that for Azure AD B2C user flows, the publisher’s domain appears only when using a [Microsoft account](../active-directory-b2c/identity-provider-microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, do the following:
+
+1. [Verify your company identity using your Microsoft Partner Network (MPN) account](/partner-center/verification-responses). This process verifies information about your company and your company’s primary contact.
+1. Complete the publisher verification process to associate your MPN account with your app registration using one of the following options:
+   - If the app registration for the Microsoft account identity provider is in an Azure AD tenant, [verify your app in the App Registration portal](../active-directory/develop/mark-app-as-publisher-verified.md).
+   - If your app registration for the Microsoft account identity provider is in an Azure AD B2C tenant, [mark your app as publisher verified using Microsoft Graph APIs](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (for example, using Graph Explorer). The UI for setting an app’s verified publisher is currently disabled for Azure AD B2C tenants.
+
 ## Register an Azure AD app
 
 To enable sign-in for users with an Azure AD account from a specific Azure AD organization, in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, contoso.com). Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Under **Azure services**, select **App registrations** or search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
-1. Accept the default selection of **Accounts in this organizational directory only** for this application.
+1. Accept the default selection of **Accounts in this organizational directory only (Default Directory only - Single tenant)** for this application.
 1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
 
     ```
@@ -67,7 +76,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Select **Add optional claim**.
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name` and `given_name`.
-1. Click **Add**.
+1. Select **Add**. If **Turn on the Microsoft Graph email permission (required for claims to appear in token)** appears, enable it, and then select **Add** again.
 
 ## [Optional] Verify your app authenticity
 
@@ -77,7 +86,8 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 
 ## Configure Azure AD as an identity provider
 
-1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *Contoso Azure AD*.
@@ -87,11 +97,10 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
-    For example, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
+ For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. If you use a custom domain, replace `contoso.com` with your custom domain in `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
-1. For **Client secret**, enter the client secret that you previously recorded.
+1. For **Client secret**, enter the client secret value that you previously recorded.
 1. For **Scope**, enter `openid profile`.
 1. Leave the default values for **Response type**, and **Response mode**.
 1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
@@ -101,7 +110,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
     - **Display name**: *name*
     - **Given name**: *given_name*
     - **Surname**: *family_name*
-    - **Email**: *preferred_username*
+    - **Email**: *email*
 
 1. Select **Save**.
 
@@ -111,7 +120,8 @@ At this point, the Azure AD identity provider has been set up, but it's not yet 
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Azure AD identity provider.
-1. Under the **Social identity providers**, select **Contoso Azure AD**.
+1. Under **Settings**, select **Identity providers**
+1. Under **Custom identity providers**, select **Contoso Azure AD**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`. 
@@ -128,13 +138,14 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 You need to store the application key that you created in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy keys** and then select **Add**.
 1. For **Options**, choose `Manual`.
 1. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key when it's created, so its reference in the XML in following section is to *B2C_1A_ContosoAppSecret*.
-1. In **Secret**, enter your client secret that you recorded earlier.
+1. In **Secret**, enter your client secret value that you recorded earlier.
 1. For **Key usage**, select `Signature`.
 1. Select **Create**.
 

@@ -3,7 +3,8 @@ title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 07/07/2021
+ms.service: azure-vmware
+ms.date: 09/27/2021
 
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
 
@@ -11,7 +12,7 @@ ms.date: 07/07/2021
 
 # Request host quota for Azure VMware Solution
 
-In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing private cloud. 
+In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
 
 If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
@@ -20,10 +21,11 @@ If you have an existing Azure VMware Solution private cloud and want more hosts 
 
 ## Eligibility criteria
 
-You'll need an Azure account in an Azure subscription. The Azure subscription must adhere to one of the following criteria:
+You'll need an Azure account in an Azure subscription that adheres to one of the following criteria:
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
+- A [Microsoft Customer Agreement](../cost-management-billing/understand/mca-overview.md) with Microsoft.
 
 ## Request host quota for EA customers
 
@@ -37,8 +39,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
    - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
 
 1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
-
-   - POC or Production 
+ 
    - Region Name
    - Number of hosts
    - Any other details
@@ -80,7 +81,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. Expand customer details and select **Microsoft Azure Management Portal**.
    
-   1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
+   1. In the Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
       - **Issue type:** Technical
       - **Subscription:** Select your subscription
       - **Service:** All services > Azure VMware Solution
@@ -91,7 +92,6 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
    
-      - POC or Production 
       - Region Name
       - Number of hosts
       - Any other details
@@ -105,4 +105,4 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
 ## Next steps
 
-Before you can deploy Azure VMware Solution, you must first [register the resource provider](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider) with your subscription to enable the service.   
+Before deploying Azure VMware Solution, you must first [register the resource provider](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider) with your subscription to enable the service.   

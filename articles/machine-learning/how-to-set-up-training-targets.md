@@ -8,12 +8,14 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/18/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Configure and submit training runs
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to configure and submit Azure Machine Learning runs to train your models. Snippets of code explain the key parts of configuration and submission of a training script.  Then use one of the [example notebooks](#notebooks) to find the full end-to-end working examples.
 
@@ -56,7 +58,7 @@ Or you can:
 
 ## Create an experiment
 
-Create an experiment in your workspace.
+Create an [experiment](v1/concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize run submissions and keep track of code.
 
 ```python
 from azureml.core import Experiment
@@ -76,7 +78,7 @@ The example code in this article assumes that you have already created a compute
 
 [!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
-## Create an environment
+## <a name="environment"></a> Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
 You can either define your own environment, or use an Azure ML curated environment. [Curated environments](./how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. See [Azure Machine Learning Curated Environments](./resource-curated-environments.md) for the full list of available curated environments.
@@ -108,7 +110,7 @@ myenv.python.user_managed_dependencies = True
 
 ## Create the script run configuration
 
-Now that you have a compute target (`my_compute_target`) and environment (`myenv`), create a script run configuration that runs your training script (`train.py`) located in your `project_folder` directory:
+Now that you have a compute target (`my_compute_target`, see [Prerequisites](#prerequisites) and environment (`myenv`, see [Create an environment](#environment)), create a script run configuration that runs your training script (`train.py`) located in your `project_folder` directory:
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -130,7 +132,7 @@ If you have command-line arguments you want to pass to your training script, you
 If you want to override the default maximum time allowed for the run, you can do so via the **`max_run_duration_seconds`** parameter. The system will attempt to automatically cancel the run if it takes longer than this value.
 
 ### Specify a distributed job configuration
-If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
+If you want to run a [distributed training](how-to-train-distributed-gpu.md) job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
@@ -149,7 +151,7 @@ run.wait_for_completion(show_output=True)
 >
 > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 > 
-> For more information about snapshots, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
+> For more information about snapshots, see [Snapshots](v1/concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
 > **Special Folders**
@@ -228,7 +230,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Next steps
 
-* [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
+* [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
 * See how to train models with specific ML frameworks, such as [Scikit-learn](how-to-train-scikit-learn.md), [TensorFlow](how-to-train-tensorflow.md), and [PyTorch](how-to-train-pytorch.md).
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).

@@ -2,12 +2,12 @@
 title: Azure Site Recovery Deployment Planner Version History
 description: Known different Site Recovery Deployment Planner Versions fixes and known limitations along with their release dates.
 services: site-recovery
-author: Daya-Patil
+author: v-pgaddala
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
 ms.date: 6/4/2020
-ms.author: dapatil
+ms.author: v-pgaddala
 ---
 # Azure Site Recovery Deployment Planner Version History
 
@@ -40,7 +40,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Fixes:**
 
-- For VMware virtual machines and physical machines, recommendation is updated to be based on replication to Managed Disks.
+- For VMware virtual machines, recommendation is updated to be based on replication to Managed Disks.
 - Added support for Windows 10 (x64), Windows 8.1 (x64), Windows 8 (x64), Windows 7 (x64) SP1 or later
 
 ## Version 2.4

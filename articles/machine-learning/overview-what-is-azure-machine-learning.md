@@ -5,10 +5,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-ms.author: cgronlun
-author: cjgronlund
+ms.author: sgilley
+author: sdgilley
 ms.date: 08/03/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, event-tier1-build-2022
 adobe-target: true
 ---
 
@@ -43,11 +43,11 @@ Developers find familiar interfaces in Azure Machine Learning, such as:
 
 - [Python SDK](/python/api/overview/azure/ml/)
 - [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
-- [CLI v2 (preview)](/cli/azure/ml)
+- [CLI v2 ](/cli/azure/ml)
 
 ### Studio UI 
 
-The Azure Machine Learning studio is a graphical user interface for a project workspace. In the studio, you can:
+The [Azure Machine Learning studio](https://ml.azure.com) is a graphical user interface for a project workspace. In the studio, you can:
 
 - View runs, metrics, logs, outputs, and so on.
 - Author and edit notebooks and files.
@@ -61,9 +61,11 @@ The Azure Machine Learning studio is a graphical user interface for a project wo
 
 Plus, the designer has a drag-and-drop interface where you can train and deploy models. 
 
+If you're a ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Machine Learning studio](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
+
 ## Enterprise-readiness and security
 
-Azure Machine Learning integrates with te Azure cloud platform to add security to ML projects. 
+Azure Machine Learning integrates with the Azure cloud platform to add security to ML projects. 
 
 Security integrations include:
 
@@ -81,6 +83,10 @@ Other integrations with Azure services support a machine learning project from e
 - Azure Arc, where you can run Azure services in a Kubernetes environment
 - Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
 - Azure App Service allowing you to deploy and manage ML-powered apps
+
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
 
 
 ## Machine learning project workflow
@@ -137,7 +143,7 @@ See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
 
-Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clusters:
+Supported via Azure ML Kubernetes and Azure ML compute clusters:
 
 - PyTorch
 - TensorFlow
@@ -195,6 +201,6 @@ Also, Azure Machine Learning includes features for monitoring and auditing:
 ## Next steps
 
 Start using Azure Machine Learning:
-- [Set up an Azure Machine Learning workspace](/quickstart-create-resources.md)
+- [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
 - [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
 - [Preview: Run model training jobs with the v2 CLI](how-to-train-cli.md)

@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 05/10/2022
 ms.author: tamram
-ms.reviewer: dineshm
+ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ---
@@ -35,7 +35,7 @@ A service SAS is signed with the account access key. Use the [StorageSharedKeyCr
 To create a service SAS for a container, call the [CloudBlobContainer.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) method.
 
 ```csharp
-private static string GetContainerSasUri(CloudBlobContainer container, 
+private static string GetContainerSasUri(CloudBlobContainer container,
                                          string storedPolicyName = null)
 {
     string sasContainerToken;

@@ -1,13 +1,14 @@
 ---
 title: Move an Azure Cosmos DB account to another region
 description: Learn how to move an Azure Cosmos DB account to another region.
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 05/13/2021
-ms.author: mjbrown
+ms.date: 03/15/2022
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Move an Azure Cosmos DB account to another region
@@ -36,9 +37,15 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
     To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account).
 
+> [!NOTE]
+> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
+
 ## Migrate Azure Cosmos DB account metadata
 
-Azure Cosmos DB does not natively support migrating account metadata from one region to another. To migrate both the account metadata and customer data from one region to another, you must create a new account in the desired region and then copy the data manually. 
+Azure Cosmos DB does not natively support migrating account metadata from one region to another. To migrate both the account metadata and customer data from one region to another, you must create a new account in the desired region and then copy the data manually.
+
+> [!IMPORTANT]
+> It is not necessary to migrate the account metadata if the data is stored or moved to a different region. The region in which the account metadata resides has no impact on the performance, security or any other operational aspects of your Azure Cosmos DB account.
 
 A near-zero-downtime migration for the SQL API requires the use of the [change feed](change-feed.md) or a tool that uses it. If you're migrating the MongoDB API, the Cassandra API, or another API, or to learn more about options for migrating data between accounts, see [Options to migrate your on-premises or cloud data to Azure Cosmos DB](cosmosdb-migrationchoices.md). 
 

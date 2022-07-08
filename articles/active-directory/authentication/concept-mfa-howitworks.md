@@ -6,59 +6,65 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/07/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
 # How it works: Azure AD Multi-Factor Authentication
 
-Multi-factor authentication is a process where a user is prompted during the sign-in process for an additional form of identification, such as to enter a code on their cellphone or to provide a fingerprint scan.
+Multi-factor authentication is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or  a fingerprint scan.
 
-If you only use a password to authenticate a user, it leaves an insecure vector for attack. If the password is weak or has been exposed elsewhere, is it really the user signing in with the username and password, or is it an attacker? When you require a second form of authentication, security is increased as this additional factor isn't something that's easy for an attacker to obtain or duplicate.
+If you only use a password to authenticate a user, it leaves an insecure vector for attack. If the password is weak or has been exposed elsewhere, an attacker could be using it to gain access. When you require a second form of authentication, security is increased because this additional factor isn't something that's easy for an attacker to obtain or duplicate.
 
-![Conceptual image of the different forms of multi-factor authentication](./media/concept-mfa-howitworks/methods.png)
+![Conceptual image of the various forms of multi-factor authentication.](./media/concept-mfa-howitworks/methods.png)
 
 Azure AD Multi-Factor Authentication works by requiring two or more of the following authentication methods:
 
 * Something you know, typically a password.
-* Something you have, such as a trusted device that is not easily duplicated, like a phone or hardware key.
+* Something you have, such as a trusted device that's not easily duplicated, like a phone or hardware key.
 * Something you are - biometrics like a fingerprint or face scan.
 
-Users can register themselves for both self-service password reset and Azure AD Multi-Factor Authentication in one step to simplify the on-boarding experience. Administrators can define what forms of secondary authentication can be used. Azure AD Multi-Factor Authentication can also be required when users perform a self-service password reset to further secure that process.
+Azure AD Multi-Factor Authentication can also further secure password reset. When users register themselves for Azure AD Multi-Factor Authentication, they can also register for self-service password reset in one step. Administrators can choose forms of secondary authentication and configure challenges for MFA based on configuration decisions. 
 
-![Authentication methods in use at the sign-in screen](media/concept-authentication-methods/overview-login.png)
+You don't need to change apps and services to use Azure AD Multi-Factor Authentication. The verification prompts are part of the Azure AD sign-in, which automatically requests and processes the MFA challenge when needed. 
 
-Azure AD Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md). Users may or may not be challenged for MFA based on configuration decisions that an administrator makes.
+>[!NOTE]
+>The prompt language is determined by browser locale settings. If you use custom greetings but don’t have one for the language identified in the browser locale, English is used by default. Network Policy Server (NPS) will always use English by default, regardless of custom greetings. English is also used by default if the browser locale can't be identified. 
 
-Your applications or services don't need to make any changes to use Azure AD Multi-Factor Authentication. The verification prompts are part of the Azure AD sign-in event, which automatically requests and processes the MFA challenge when required.
+![MFA sign-in screen.](media/concept-mfa-howitworks/sign-in-screen.png)
 
 ## Available verification methods
 
-When a user signs in to an application or service and receive an MFA prompt, they can choose from one of their registered forms of additional verification. An administrator could require registration of these Azure AD Multi-Factor Authentication verification methods, or the user can access their own [My Profile](https://myprofile.microsoft.com) to edit or add verification methods.
+When users sign in to an application or service and receive an MFA prompt, they can choose from one of their registered forms of additional verification. Users can access [My Profile](https://myprofile.microsoft.com) to edit or add verification methods.
 
 The following additional forms of verification can be used with Azure AD Multi-Factor Authentication:
 
 * Microsoft Authenticator app
-* OATH Hardware token
+* Windows Hello for Business
+* FIDO2 security key
+* OATH hardware token (preview)
+* OATH software token
 * SMS
 * Voice call
 
 ## How to enable and use Azure AD Multi-Factor Authentication
 
-Users and groups can be enabled for Azure AD Multi-Factor Authentication to prompt for additional verification during the sign-in event. [Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) are available for all Azure AD tenants to quickly enable the use of the Microsoft Authenticator app for all users.
+You can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) in Azure AD tenants to quickly enable Microsoft Authenticator for all users. You can enable Azure AD Multi-Factor Authentication to prompt users and groups for additional verification during sign-in. 
 
-For more granular controls, [Conditional Access](../conditional-access/overview.md) policies can be used to define events or applications that require MFA. These policies can allow regular sign-in events when the user is on the corporate network or a registered device, but prompt for additional verification factors when remote or on a personal device.
+For more granular controls, you can use [Conditional Access](../conditional-access/overview.md) policies to define events or applications that require MFA. These policies can allow regular sign-in when the user is on the corporate network or a registered device but prompt for additional verification factors when the user is remote or on a personal device.
 
-![Overview diagram of how Conditional Access works to secure the sign-in process](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
+![Diagram that shows how Conditional Access works to secure the sign-in process.](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
 ## Next steps
 
 To learn about licensing, see [Features and licenses for Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
+
+To learn more about different authentication and validation methods, see [Authentication methods in Azure Active Directory](concept-authentication-methods.md).
 
 To see MFA in action, enable Azure AD Multi-Factor Authentication for a set of test users in the following tutorial:
 

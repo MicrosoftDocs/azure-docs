@@ -1,20 +1,19 @@
 ---
 title: Best practices for dedicated SQL pools
 description: Recommendations and best practices you should know as you work with dedicated SQL pools. 
-services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 03/17/2021
+ms.date: 11/02/2021
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
 # Best practices for dedicated SQL pools in Azure Synapse Analytics
 
-This article provides a collection of best practices to help you achieve optimal performance for dedicated SQL pools in Azure Synapse Analytics. Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
+This article provides a collection of best practices to help you achieve optimal performance for dedicated SQL pools in Azure Synapse Analytics. If you're working with serverless SQL pool, see [Best practices for serverless SQL pools](best-practices-serverless-sql-pool.md) for specific guidance. Below, you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
 
 ## Dedicated SQL pools loading
 
@@ -22,24 +21,23 @@ For dedicated SQL pools loading guidance, see [Guidance for loading data](data-l
 
 ## Reduce cost with pause and scale
 
-For more information about reducing costs through pausing and scaling, see [Manage compute](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+For more information about reducing costs through pausing and scaling, see [Manage compute](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?context=/azure/synapse-analytics/context/context).
 
 ## Maintain statistics
 
 Dedicated SQL pool can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  
 
-We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up to date..
+We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up-to-date.
 
 To shorten statistics maintenance time, be selective about which columns have statistics, or need the most frequent updating. For example, you might want to update date columns where new values may be added daily. Focus on having statistics for columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
 Additional information on statistics can be found in the [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles.
 
-## Tune query performance with new product enhancements
+## Tune query performance
 
 - [Performance tuning with materialized views](../sql-data-warehouse/performance-tuning-materialized-views.md)
 - [Performance tuning with ordered clustered columnstore index](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 - [Performance tuning with result set caching](../sql-data-warehouse/performance-tuning-result-set-caching.md)
-
 
 ## Group INSERT statements into batches
 
@@ -52,31 +50,31 @@ One way to solve this issue is to develop one process that writes to a file, and
 Dedicated SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  
 
 > [!NOTE]
-> Polybase is the best choice when you are loading or exporting large volumes of data, or you need faster performance.
+> PolyBase is the best choice when you are loading or exporting large volumes of data, or you need faster performance.
 
 PolyBase loads can be run using CTAS or INSERT INTO. CTAS will minimize transaction logging and is the fastest way to load your data. Azure Data Factory also supports PolyBase loads and can achieve performance similar to CTAS. PolyBase supports various file formats including Gzip files.
 
-To maximize throughput when using Gzip text files, break up files into 60 or more files to maximize parallelism of your load. For faster total throughput, consider loading data concurrently. Additional information for the topics relevant to this section is included in the following articles:
+To maximize throughput when using Gzip text files, break up files into 60 or more files to maximize parallelism of your load. For faster total throughput, consider loading data concurrently. Additional information relevant to this section is included in the following articles:
 
-- [Load data](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Load data](../sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context)
 - [Guide for using PolyBase](data-loading-best-practices.md)
 - [Dedicated SQL pool loading patterns and strategies](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
-- [Load Data with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Load Data with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context)
+- [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?context=/azure/synapse-analytics/context/context)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)
-- [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)
 
 ## Load then query external tables
 
-Polybase isn't optimal for queries. Polybase tables for dedicated SQL pools currently only support Azure blob files and Azure Data Lake storage. These files don't have any compute resources backing them. As a result, dedicated SQL pools can't offload this work and must read the entire file by loading it to tempdb so it can read the data.
+PolyBase isn't optimal for queries. PolyBase tables for dedicated SQL pools currently only support Azure blob files and Azure Data Lake storage. These files don't have any compute resources backing them. As a result, dedicated SQL pools cannot offload this work and must read the entire file by loading it to `tempdb` so it can read the data.
 
-If you have several queries for querying this data, it's better to load this data once and have queries use the local table. Further Polybase guidance is included in the  [Guide for using PolyBase](data-loading-best-practices.md) article.
+If you have several queries for querying this data, it's better to load this data once and have queries use the local table. Further PolyBase guidance is included in the  [Guide for using PolyBase](data-loading-best-practices.md) article.
 
 ## Hash distribute large tables
 
-By default, tables are Round Robin distributed.   This default makes it easy for users to start creating tables without having to decide how their tables should be distributed. Round Robin tables may perform sufficiently for some workloads. But, in most cases, a distribution column provides better performance.  
+By default, tables are Round Robin distributed. This default makes it easy for users to start creating tables without having to decide how their tables should be distributed. Round Robin tables may perform sufficiently for some workloads. But, in most cases, a distribution column provides better performance.  
 
-The most common example of a table distributed by a column outperforming a Round Robin table is when two large fact tables are joined.  
+The most common example of a table distributed by a column outperforming a round robin table is when two large fact tables are joined.  
 
 For example, if you have an orders table distributed by order_id, and a transactions table also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query. Data movement operations are then eliminated. Fewer steps mean a faster query. Less data movement also makes for faster queries.
 
@@ -86,7 +84,7 @@ For example, if you have an orders table distributed by order_id, and a transact
 The article links provided below will give you additional details about improving performance via selecting a distribution column. Also, you'll find information about how to define a distributed table in the WITH clause of your CREATE TABLE statement:
 
 - [Table overview](develop-tables-overview.md)
-- [Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)
 - [Selecting table distribution](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service)
 - [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
 - [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
@@ -95,11 +93,11 @@ The article links provided below will give you additional details about improvin
 
 While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on dedicated SQL pool.  
 
-Having too many partitions can reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. dedicated SQL pools automatically partition your data into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions. Each workload is different, so the best advice is to experiment with partitioning to see what works best for your workload.  
+Having too many partitions can reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. Dedicated SQL pools automatically partition your data into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions. Each workload is different, so the best advice is to experiment with partitioning to see what works best for your workload.  
 
 One option to consider is using a granularity that is lower than what you've implemented using SQL Server. For example, consider using weekly or monthly partitions instead of daily partitions.
 
-More information about partitioning is detailed in the [Table partitioning](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
+More information about partitioning is detailed in the [Table partitioning](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context) article.
 
 ## Minimize transaction sizes
 
@@ -110,14 +108,14 @@ INSERT, UPDATE, and DELETE statements run in a transaction. When they fail, they
 
 Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly. Then you can switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  
 
-For unpartitioned tables, consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it's much safer to run since it has minimal transaction logging and can be canceled quickly if needed.
+For tables that are not partitioned, consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it's much safer to run since it has minimal transaction logging and can be canceled quickly if needed.
 
 Further information on content related to this section is included in the articles below:
 
-- [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)
 - [Understanding transactions](develop-transactions.md)
-- [Optimizing transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Table partitioning](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Optimizing transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context)
+- [Table partitioning](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)
 - [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
@@ -137,13 +135,13 @@ When you're temporarily landing data on dedicated SQL pools, heap tables will ge
 
 Loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session that created it. Consequently, they may only work in limited scenarios. Heap tables are defined in the WITH clause of a CREATE TABLE.  If you do use a temporary table, remember to create statistics on that temporary table too.
 
-For additional guidance, refer to the [Temporary tables](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true), and [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) articles.
+For more information, see the [Temporary tables](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true), and [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) articles.
 
 ## Optimize clustered columnstore tables
 
 Clustered columnstore indexes are one of the most efficient ways you can store your data in dedicated SQL pool.  By default, tables in dedicated SQL pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
 
-Segment quality can be measured by the number of rows in a compressed Row Group. See the [Causes of poor columnstore index quality](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) in the [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
+Segment quality can be measured by the number of rows in a compressed Row Group. See the [Causes of poor columnstore index quality](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context#causes-of-poor-columnstore-index-quality) in the [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
 Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
@@ -157,9 +155,9 @@ If you partition your data, each partition will need to have 1 million rows to b
 If your table doesn't have 6 billion rows, you have two main options. Either reduce the number of partitions or consider using a heap table instead.  It also may be worth experimenting to see if better performance can be gained by using a heap table with secondary indexes rather than a columnstore table.
 
 When querying a columnstore table, queries will run faster if you select only the columns you need.  Further information on table and columnstore indexes and can be found in the articles below:
-- [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)
 - [Columnstore indexes guide](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true)
-- [Rebuilding columnstore indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) 
+- [Rebuilding columnstore indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuild-indexes-to-improve-segment-quality) 
 - [Performance tuning with ordered clustered columnstore index](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 
 ## Use larger resource class to improve query performance
@@ -168,7 +166,7 @@ SQL pools use resource groups as a way to allocate memory to queries. Initially,
 
 Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, such as pure scans, will see no benefit. Utilizing larger resource classes impacts concurrency. So, you'll want to keep these facts in mind before moving all of your users to a large resource class.
 
-For additional information on resource classes, refer to the [Resource classes for workload management](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
+For additional information on resource classes, refer to the [Resource classes for workload management](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context) article.
 
 ## Use smaller resource class to increase concurrency
 
@@ -180,7 +178,7 @@ The [Resource classes for workload management](../sql-data-warehouse/resource-cl
 
 Dedicated SQL pools have several DMVs that can be used to monitor query execution.  The monitoring article below walks you through step-by-step instructions on how to view details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help. For additional detailed information, please see the articles included in the list below:
 
-- [Monitor your workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Monitor your workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context)
 
 - [LABEL](develop-label.md)
 - [OPTION](/sql/t-sql/queries/option-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -194,10 +192,9 @@ Dedicated SQL pools have several DMVs that can be used to monitor query executio
 
 ## Next steps
 
-Also see the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for common issues and solutions.
+Also see the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?context=/azure/synapse-analytics/context/context) article for common issues and solutions.
 
 If you need information not provided in this article, search the [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics Product Group.  
 
 We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-synapse).
 
-For feature requests, use the [Azure Synapse Analytics Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page.  Adding your requests or up-voting other requests helps us to focus on the most in-demand features.

@@ -11,6 +11,9 @@
   items:
   - name: Share data - Azure portal
     href: share-your-data-portal.md
+  - name: Share data - Bicep
+    displayName: ARM, Resource Manager, Template 
+    href: share-your-data-bicep.md
   - name: Share data - ARM template
     displayName: Resource Manager
     href: share-your-data-arm.md
@@ -68,6 +71,8 @@
     href: disaster-recovery.md
   - name: Troubleshoot
     href: data-share-troubleshoot.md
+  - name: Move Data Share account to new region
+    href: move-to-new-region.md
 
 - name: Reference
   items:
@@ -90,7 +95,7 @@
   - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/
   - name: Product feedback
-    href: https://feedback.azure.com/forums/922759-azure-data-share-public-preview
+    href: https://feedback.azure.com/d365community/forum/4444c9d4-ed24-ec11-b6e6-000d3a4f0da0
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-share/
   - name: Service updates

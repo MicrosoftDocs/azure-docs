@@ -1,11 +1,11 @@
 ---
 title: Manage registered servers with Azure File Sync | Microsoft Docs
 description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.author: rogarana
+ms.date: 06/15/2022
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
@@ -30,7 +30,7 @@ To register a server with a Storage Sync Service, you must first prepare your se
 
 * Ensure that the Azure PowerShell module is installed on your server. If your server is a member of a Failover Cluster, every node in the cluster will require the Az module. More details on how to install the Az module can be found on the [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
-    > [!Note]  
+    > [!NOTE]
     > We recommend using the newest version of the Az PowerShell module to register/unregister a server. If the Az package has been previously installed on this server (and the PowerShell version on this server is 5.* or greater), you can use the `Update-Module` cmdlet to update this package. 
 * If you utilize a network proxy server in your environment, configure proxy settings on your server for the sync agent to utilize.
     1. Determine your proxy IP address and port number
@@ -45,7 +45,7 @@ To register a server with a Storage Sync Service, you must first prepare your se
         * if this is setup after the agent is installed, then restart our sync agent:
             net stop filesyncsvc
     
-```XML
+```xml
     Figure 1:
     <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -69,7 +69,7 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 
 4. If the server has not been previously registered, the server registration UI will pop up immediately after completing the installation.
 
-> [!Important]  
+> [!IMPORTANT]  
 > If the server is a member of a Failover Cluster, the Azure File Sync agent needs to be installed on every node in the cluster.
 
 #### Register the server using the server registration UI
@@ -86,7 +86,7 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 
     ![Sign in dialog](media/storage-sync-files-server-registration/server-registration-ui-3.png)
 
-> [!Important]  
+> [!IMPORTANT]  
 > If the server is a member of a Failover Cluster, each server needs to run the Server Registration. When you view the registered servers in the Azure Portal, Azure File Sync automatically recognizes each node as a member of the same Failover Cluster, and groups them together appropriately.
 
 #### Register the server with PowerShell
@@ -99,7 +99,7 @@ Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -St
 ### Unregister the server with Storage Sync Service
 There are several steps that are required to unregister a server with a Storage Sync Service. Let's take a look at how to properly unregister a server.
 
-> [!Warning]  
+> [!WARNING]  
 > Do not attempt to troubleshoot issues with sync, cloud tiering, or any other aspect of Azure File Sync by unregistering and registering a server, or removing and recreating the server endpoints unless explicitly instructed to by a Microsoft engineer. Unregistering a server and removing server endpoints is a destructive operation, and tiered files on the volumes with server endpoints will not be "reconnected" to their locations on the Azure file share after the registered server and server endpoints are recreated, which will result in sync errors. Also note, tiered files that exist outside of a server endpoint namespace may be permanently lost. Tiered files may exist within server endpoints even if cloud tiering was never enabled.
 
 #### (Optional) Recall all tiered data
@@ -110,7 +110,7 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
-> [!Warning]  
+> [!WARNING]  
 > If the local volume hosting the server endpoint does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet will fail.  
 
 #### Remove the server from all sync groups
@@ -145,16 +145,27 @@ Now that all data has been recalled and the server has been removed from all syn
 
     ![Unregister server](media/storage-sync-files-server-registration/unregister-server-1.png)
 
+#### Unregister the server with PowerShell
+You can also unregister the server via PowerShell by using the `Unregister-AzStorageSyncServer` cmdlet.
+
+> [!WARNING]  
+> Unregistering a server will result in cascading deletes of all server endpoints on the server. You should only run this cmdlet when you are certain that no path on the server is to be synced anymore.
+
+```powershell
+$RegisteredServer = Get-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
+Unregister-AzStorageSyncServer -Force -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>" -ServerId $RegisteredServer.ServerId
+```
+
 ## Ensuring Azure File Sync is a good neighbor in your datacenter 
 Since Azure File Sync will rarely be the only service running in your datacenter, you may want to limit the network and storage usage of Azure File Sync.
 
-> [!Important]  
+> [!IMPORTANT]  
 > Setting limits too low will impact the performance of Azure File Sync synchronization and recall.
 
 ### Set Azure File Sync network limits
 You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets.
 
-> [!Note]  
+> [!NOTE]  
 > Network limits do not apply when a tiered file is accessed.
 
 For example, you can create a new throttle limit to ensure that Azure File Sync does not use more than 10 Mbps between 9 am and 5 pm (17:00h) during the work week: 
@@ -163,6 +174,8 @@ For example, you can create a new throttle limit to ensure that Azure File Sync 
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
+> [!NOTE]  
+> To apply the network limit for 24 hours, use 0 for the -StartHour and -EndHour parameters.
 
 You can see your limit by using the following cmdlet:
 

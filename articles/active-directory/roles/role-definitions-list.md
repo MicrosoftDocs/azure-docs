@@ -3,12 +3,12 @@ title: List Azure AD role definitions - Azure AD
 description: Learn how to list Azure built-in and custom roles.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 07/23/2021
+ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: absinh
 ms.custom: it-pro
@@ -30,9 +30,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) and select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select **Roles and administrators** to see the list of all available roles.
+1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
     ![list of roles in Azure portal](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
 
@@ -78,18 +78,18 @@ Follow these instructions to list Azure AD roles using the Microsoft Graph API i
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **GET** as the HTTP method from the dropdown. 
-3. Select the API version to **beta**.
-4. Add the following query to use the [List roleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API.
+3. Select the API version to **v1.0**.
+4. Add the following query to use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API.
 
-   ```HTTP
-   GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
+   ```http
+   GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
    ```
 
 5. Select **Run query** to list the roles.
 6. To view permissions of a role, use the following API.
 
-   ```HTTP
-   GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=DisplayName eq 'Conditional Access Administrator'&$select=rolePermissions
+   ```http
+   GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions?$filter=DisplayName eq 'Conditional Access Administrator'&$select=rolePermissions
    ```
 
 ## Next steps

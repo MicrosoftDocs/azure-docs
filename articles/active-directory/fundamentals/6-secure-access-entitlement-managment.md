@@ -2,14 +2,14 @@
 title: Manage external access with Azure Active Directory Entitlement Management 
 description: How to use Azure Active Directory Entitlement Management as a part of your overall external access security plan.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -91,13 +91,13 @@ For more information about access reviews, see [Planning an Azure AD Access Revi
 
 You can perform [Entitlement Management functions by using Microsoft Graph](/graph/tutorial-access-package-api), including
 
-* [Manage access packages](/graph/api/resources/accesspackage?view=graph-rest-beta&preserve-view=true)
+* [Manage access packages](/graph/api/resources/accesspackage)
 
-* [Manage access reviews](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)
+* [Manage access reviews](/graph/api/resources/accessreviewsv2-overview)
 
-* [Manage connected organizations](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true)
+* [Manage connected organizations](/graph/api/resources/connectedorganization)
 
-* [Manage Entitlement Management settings](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta&preserve-view=true)
+* [Manage Entitlement Management settings](/graph/api/resources/entitlementmanagementsettings)
 
 ## Recommendations 
 
@@ -107,7 +107,7 @@ We recommend the practices to govern external access with Entitlement Management
 
 * If you already have B2B users in your directory, you can also directly assign them to the appropriate access packages.
 
-* You can assign access in the [Azure portal](../governance/entitlement-management-access-package-assignments.md), or via [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta&preserve-view=true).
+* You can assign access in the [Azure portal](../governance/entitlement-management-access-package-assignments.md), or via [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest).
 
 **Use your Identity Governance settings to remove users from your directory when their access packages expire**.
 

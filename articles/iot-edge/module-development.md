@@ -1,10 +1,10 @@
 ---
 title: Develop modules for Azure IoT Edge | Microsoft Docs 
 description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and IoT Hub
-author: kgremban
-manager: philmea
-ms.author: kgremban
-ms.date: 11/10/2020
+author: PatAltimore
+
+ms.author: patricka
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -54,6 +54,9 @@ With the IoT Edge MQTT broker, you can publish messages on any user-defined topi
 
 With the IoT Edge MQTT broker, receiving messages is similar. First make sure that your module is authorized to subscribe to specific topics, then get a token from the workload API to use as a password when connecting to the MQTT broker, and finally subscribe to messages on the authorized topics with the MQTT client of your choice.
 
+> [!NOTE]
+> IoT Edge MQTT broker (currently in preview) will not move to general availability and will be removed from the future version of IoT Edge Hub. We appreciate the feedback we received on the preview, and we are continuing to refine our plans for an MQTT broker. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like [Mosquitto](https://mosquitto.org/) as an IoT Edge module.
+
 ::: moniker-end
 
 ### IoT Hub primitives
@@ -72,12 +75,12 @@ When writing a module, you can connect to the IoT Edge hub and use IoT Hub primi
 
 An IoT Edge module can send messages to the cloud via the IoT Edge hub that acts as a local broker and propagates messages to the cloud. To enable complex processing of device-to-cloud messages, an IoT Edge module can also intercept and process messages sent by other modules or devices to its local IoT Edge hub and send new messages with processed data. Chains of IoT Edge modules can thus be created to build local processing pipelines.
 
-To send device-to-cloud telemetry messages using routing, use the the ModuleClient of the Azure IoT SDK. With the Azure IoT SDK, each module has the concept of module *input* and *output* endpoints, which map to special MQTT topics. Use the `ModuleClient.sendMessageAsync` method and it will send messages on the output endpoint of your module. Then configure a route in edgeHub to send this output endpoint to IoT Hub.
+To send device-to-cloud telemetry messages using routing, use the ModuleClient of the Azure IoT SDK. With the Azure IoT SDK, each module has the concept of module *input* and *output* endpoints, which map to special MQTT topics. Use the `ModuleClient.sendMessageAsync` method and it will send messages on the output endpoint of your module. Then configure a route in edgeHub to send this output endpoint to IoT Hub.
 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-Sending device-to-cloud telemetry messages with the MQTT broker is similar to publishing messages on user-defined topics, but using the following IoT Hub special topic for your module: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be setup appropriately. The MQTT bridge must also be configured to forward the messages on this topic to the cloud.
+Sending device-to-cloud telemetry messages with the MQTT broker is similar to publishing messages on user-defined topics, but using the following IoT Hub special topic for your module: `devices/<device_name>/modules/<module_name>/messages/events`. Authorizations must be set up appropriately. The MQTT bridge must also be configured to forward the messages on this topic to the cloud.
 
 ::: moniker-end
 
@@ -86,20 +89,20 @@ To process messages using routing, first set up a route to send messages coming 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-Processing messages using the MQTT broker is similar to subscribing to messages on user-defined topics, but using the IoT Edge special topics of your module's output queue: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be setup appropriately. Optionally you can send new messages on the topics of your choice.
+Processing messages using the MQTT broker is similar to subscribing to messages on user-defined topics, but using the IoT Edge special topics of your module's output queue: `devices/<device_name>/modules/<module_name>/messages/events`. Authorizations must be set up appropriately. Optionally you can send new messages on the topics of your choice.
 
 ::: moniker-end
 
 #### Twins
 
-Twins are one of the primitives provided by IoT Hub. There are JSON documents that store state information including metadata, configurations and conditions. Each module or device has its own twin.
+Twins are one of the primitives provided by IoT Hub. There are JSON documents that store state information including metadata, configurations, and conditions. Each module or device has its own twin.
 
 To get a module twin with the Azure IoT SDK, call the `ModuleClient.getTwin` method.
 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-To get a module twin with any MQTT client, a little bit more work is involved since getting a twin is not a typical MQTT pattern. The module must first subscribe to IoT Hub special topic `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all devices/modules need to subscribe to the same topic. It does not mean that devices receive the twin of each other. IoT Hub and edgeHub knows which twin should be delivered where, even if all devices listen to the same topic name. Once the subscription is made, the module needs to ask for the twin by publishing a message to the following IoT Hub special topic with a request ID `$iothub/twin/GET/?$rid=1234`. This request ID is an arbitrary ID (that is, a GUID), which will be sent back by IoT Hub along with the requested data. This is how a client can pair its requests with the responses. The result code is a HTTP-like status code, where successful is encoded as 200.
+To get a module twin with any MQTT client, slightly more work is involved since getting a twin is not a typical MQTT pattern. The module must first subscribe to IoT Hub special topic `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all devices/modules need to subscribe to the same topic. It does not mean that devices receive the twin of each other. IoT Hub and edgeHub know which twin should be delivered where, even if all devices listen to the same topic name. Once the subscription is made, the module needs to ask for the twin by publishing a message to the following IoT Hub special topic with a request ID `$iothub/twin/GET/?$rid=1234`. This request ID is an arbitrary ID (that is, a GUID), which will be sent back by IoT Hub along with the requested data. This is how a client can pair its requests with the responses. The result code is a HTTP-like status code, where successful is encoded as 200.
 
 ::: moniker-end
 
@@ -108,7 +111,7 @@ To receive a module twin patch with the Azure IoT SDK, implement a callback func
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-To receive a module twin patch with any MQTT client, the process is very similar to receiving full twins: a client needs to subscribe to special IoT Hub topic `$iothub/twin/PATCH/properties/desired/#`. After the subscription is made, when IoT Hub sends a change of the desired section of the twin, the client receives it.
+To receive a module twin patch with any MQTT client, the process is similar to receiving full twins: a client needs to subscribe to special IoT Hub topic `$iothub/twin/PATCH/properties/desired/#`. After the subscription is made, when IoT Hub sends a change of the desired section of the twin, the client receives it.
 
 ::: moniker-end
 
@@ -140,7 +143,9 @@ For all languages in the following table, IoT Edge supports development for AMD6
 | Python | Visual Studio Code |
 
 >[!NOTE]
->Develop and debugging support for ARM64 Linux containers is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>For cross-platform compilation, like compiling an ARM32 IoT Edge module on an AMD64 development machine, you need to configure the development machine to compile code on target device architecture matching the IoT Edge module. For more information, see [Build and debug IoT Edge modules on your remote device](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) to configure the development machine to compile code on target device architecture matching the IoT Edge module.
+>
+>In addition, support for ARM64 Linux containers is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ### Windows
 
@@ -164,6 +169,25 @@ For information about developing with Windows containers, refer to the [IoT Edge
 
 :::moniker-end
 <!-- end 1.2 -->
+
+## Module security
+
+You should develop your modules with security in mind. To learn more about securing your modules, see [Docker security](https://docs.docker.com/engine/security/).
+
+To help improve module security, IoT Edge disables some container features by default. You can override the defaults to provide privileged capabilities to your modules if necessary.
+
+### Allow elevated Docker permissions
+
+In the config file on an IoT Edge device, there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag as well as any additional capabilities that you define in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md).
+
+>[!NOTE]
+>Currently, this flag is **true** by default, which allows deployments to grant privileged permissions to modules. We recommend that you set this flag to false to improve device security. In the future, this flag will be set to **false** by default.
+
+### Enable CAP_CHOWN and CAP_SETUID
+
+The Docker capabilities **CAP_CHOWN** and **CAP_SETUID** are disabled by default. These capabilities can be used to write to secure files on the host device and potentially gain root access.
+
+If you need these capabilities, you can manually re-enable them using CapADD in the container create options.
 
 ## Next steps
 

@@ -18,12 +18,12 @@ AzCopy is a command-line tool for copying data to or from Azure Blob storage, Az
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a storage account. 
-> * Use AzCopy to upload all your data.
-> * Modify the data for test purposes.
-> * Create a scheduled task or cron job to identify new files to upload.
+> - Create a storage account.
+> - Use AzCopy to upload all your data.
+> - Modify the data for test purposes.
+> - Create a scheduled task or cron job to identify new files to upload.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Follow these steps to create a container:
 2. Select **Blobs** under **Services**, and then select **Container**.
 
    ![Screenshot showing container creation](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
- 
+
 Container names must start with a letter or number. They can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ## Download AzCopy
@@ -76,33 +76,33 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 You can use AzCopy to upload all files in a folder to Blob storage on [Windows](./storage-use-azcopy-v10.md) or [Linux](./storage-use-azcopy-v10.md). To upload all blobs in a folder, enter the following AzCopy command:
 
-```AzCopy
+```azcopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Replace the `<local-folder-path>` placeholder with the path to a folder that contains files (For example: `C:\myFolder` or `/mnt/myFolder`).
+- Replace the `<local-folder-path>` placeholder with the path to a folder that contains files (For example: `C:\myFolder` or `/mnt/myFolder`).
 
-* Replace the `<storage-account-name>` placeholder with the name of your storage account.
+- Replace the `<storage-account-name>` placeholder with the name of your storage account.
 
-* Replace the `<container-name>` placeholder with the name of the container that you created.
+- Replace the `<container-name>` placeholder with the name of the container that you created.
 
 To upload the contents of the specified directory to Blob storage recursively, specify the `--recursive` option. When you run AzCopy with this option, all subfolders and their files are uploaded as well.
 
 ## Upload modified files to Blob storage
 
-You can use AzCopy to upload files based on their last-modified time. 
+You can use AzCopy to upload files based on their last-modified time.
 
 To try this, modify or create new files in your source directory for test purposes. Then, use the AzCopy `sync` command.
 
-```AzCopy
+```azcopy
 azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Replace the `<local-folder-path>` placeholder with the path to a folder that contains files (For example: `C:\myFolder` or `/mnt/myFolder`.
+- Replace the `<local-folder-path>` placeholder with the path to a folder that contains files (For example: `C:\myFolder` or `/mnt/myFolder`.
 
-* Replace the `<storage-account-name>` placeholder with the name of your storage account.
+- Replace the `<storage-account-name>` placeholder with the name of your storage account.
 
-* Replace the `<container-name>` placeholder with the name of the container that you created.
+- Replace the `<container-name>` placeholder with the name of the container that you created.
 
 To learn more about the `sync` command, see [Synchronize files](./storage-use-azcopy-v10.md#transfer-data).
 
@@ -110,7 +110,7 @@ To learn more about the `sync` command, see [Synchronize files](./storage-use-az
 
 You can create a scheduled task or cron job that runs an AzCopy command script. The script identifies and uploads new on-premises data to cloud storage at a specific time interval.
 
-Copy the AzCopy command to a text editor. Update the parameter values of the AzCopy command to the appropriate values. Save the file as `script.sh` (Linux) or `script.bat` (Windows) for AzCopy. 
+Copy the AzCopy command to a text editor. Update the parameter values of the AzCopy command to the appropriate values. Save the file as `script.sh` (Linux) or `script.bat` (Windows) for AzCopy.
 
 These examples assume that your folder is named `myFolder`, your storage account name is `mystorageaccount` and your container name is `mycontainer`.
 
@@ -173,16 +173,22 @@ To validate that the scheduled task/cron job runs correctly, create new files in
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, follow this link:
 
-* [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+- [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 For more information about AzCopy, see any of these articles:
 
-* [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
 
-* [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-data)
+- [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-data)
 
-* [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
-* [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
- 
-* [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+
+- [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
+
+- [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
+
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

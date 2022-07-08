@@ -12,9 +12,9 @@ ms.reviewer: dineshm
 
 # Synchronize with Azure Blob storage by using AzCopy
 
-You can synchronize local storage with Azure Blob storage by using the AzCopy v10 command-line utility. 
+You can synchronize local storage with Azure Blob storage by using the AzCopy v10 command-line utility.
 
-You can synchronize the contents of a local file system with a blob container. You can also synchronize containers and virtual directories with one another. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs. The examples presented in this section also work with accounts that have a hierarchical namespace. 
+You can synchronize the contents of a local file system with a blob container. You can also synchronize containers and virtual directories with one another. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs. The examples presented in this section also work with accounts that have a hierarchical namespace.
 
 > [!NOTE]
 > The current release of AzCopy doesn't synchronize between other sources and destinations (For example: File storage or Amazon Web Services (AWS) S3 buckets).
@@ -25,7 +25,7 @@ To see examples for other types of tasks such as uploading files, downloading bl
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-> [!NOTE] 
+> [!NOTE]
 > The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -37,7 +37,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 - If you set the `--delete-destination` flag to `true`, AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
 - If you plan to set the `--delete-destination` flag to `prompt` or `false`, consider using the [copy](storage-ref-azcopy-copy.md) command instead of the 
-[sync](storage-ref-azcopy-sync.md) command and set the `--overwrite` parameter to `ifSourceNewer`. The [copy](storage-ref-azcopy-copy.md) command consumes less memory and incurs less billing costs because a copy operation doesn't have to index the source or destination prior to moving files. 
+[sync](storage-ref-azcopy-sync.md) command and set the `--overwrite` parameter to `ifSourceNewer`. The [copy](storage-ref-azcopy-copy.md) command consumes less memory and incurs less billing costs because a copy operation doesn't have to index the source or destination prior to moving files.
 
 - To prevent accidental deletions, make sure to enable the [soft delete](../blobs/soft-delete-blob-overview.md) feature before you use the `--delete-destination=prompt|true` flag.
 
@@ -45,7 +45,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 ## Update a container with changes to a local file system
 
-In this case, the container is the destination, and the local file system is the source. 
+In this case, the container is the destination, and the local file system is the source.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -79,7 +79,7 @@ azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myD
 
 ## Update a container with changes in another container
 
-The first container that appears in this command is the source. The second one is the destination. Make sure to append a a SAS token to each source URL.  
+The first container that appears in this command is the source. The second one is the destination. Make sure to append a a SAS token to each source URL.
 
 If you provide authorization credentials by using Azure Active Directory (Azure AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
@@ -98,7 +98,7 @@ azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-0
 
 ## Update a directory with changes to a directory in another container
 
-The first directory that appears in this command is the source. The second one is the destination. Make sure to append a a SAS token to each source URL.  
+The first directory that appears in this command is the source. The second one is the destination. Make sure to append a a SAS token to each source URL.
 
 If you provide authorization credentials by using Azure Active Directory (Azure AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
@@ -128,7 +128,7 @@ You can tweak your sync operation by using optional flags. Here's a few examples
 For a complete list of flags, see [options](storage-ref-azcopy-sync.md#options).
 
 > [!NOTE]
-> The `--recursive` flag is set to `true` by default. The `--exclude-pattern` and `--include-pattern` flags apply to only to file names and not other parts of the file path. 
+> The `--recursive` flag is set to `true` by default. The `--exclude-pattern` and `--include-pattern` flags apply to only to file names and not other parts of the file path.
 
 ## Next steps
 
@@ -146,5 +146,5 @@ See these articles to configure settings, optimize performance, and troubleshoot
 
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
-
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

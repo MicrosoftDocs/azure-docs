@@ -2,13 +2,10 @@
 title: Azure Monitor workbook graph visualizations
 description: Learn about all the Azure Monitor workbook graph visualizations.
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.author: lagayhar
+ms.date: 07/05/2022
 ---
 
 # Graph visualizations
@@ -98,7 +95,7 @@ Graphs authors can specify what content goes to the different parts of a node: t
 3. Select the query type as **Log**, resource type (for example, Application Insights), and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis.
 
-     ```kusto
+    ```kusto
     let data = dependencies
     | summarize Calls = count() by App = appName, Request = operation_Name, Dependency = name
     | extend RequestId = strcat(App, '::', Request);

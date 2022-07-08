@@ -3,11 +3,11 @@ title: Azure custom roles - Azure RBAC
 description: Learn how to create Azure custom roles with Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/15/2021
+ms.date: 06/28/2022
 ms.author: rolyon
 ---
 
@@ -28,7 +28,7 @@ Here are the basic steps to create a custom role.
 
 1. Determine the permissions you need.
 
-    When you create a custom role, you need to know the operations that are available to define your permissions. Typically, you start with an existing built-in role and then modify it for your needs. You will add the operations to the `Actions` or `NotActions` properties of the [role definition](role-definitions.md). If you have data operations, you will add those to the `DataActions` or `NotDataActions` properties.
+    When you create a custom role, you need to know the actions that are available to define your permissions. Typically, you start with an existing built-in role and then modify it for your needs. You will add the actions to the `Actions` or `NotActions` properties of the [role definition](role-definitions.md). If you have data actions, you will add those to the `DataActions` or `NotDataActions` properties.
 
     For more information, see the next section [How to determine the permissions you need](#how-to-determine-the-permissions-you-need).
 
@@ -60,13 +60,13 @@ Azure has thousands of permissions that you can potentially include in your cust
 
     When you create a custom role using the Azure portal, you can also determine the resource providers by searching for keywords. This search functionality is described in [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md#step-4-permissions).
 
-    ![Add permissions pane with resource provider](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Add permissions pane with resource provider](./media/shared/add-permissions-provider.png)
 
 - Search the [available permissions](resource-provider-operations.md) to find permissions you want to include.
 
     When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. You can also download all of the permissions as a CSV file and then search this file. This search functionality is described in [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md#step-4-permissions).
 
-    ![Add permissions list](./media/custom-roles-portal/add-permissions-list.png)
+    ![Add permissions list](./media/shared/add-permissions-list.png)
 
 ## Custom role example
 
@@ -142,25 +142,21 @@ The following shows the same custom role as displayed using Azure CLI.
 ]
 ```
 
-When you create a custom role, it appears in the Azure portal with an orange resource icon.
-
-![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
-
 ## Custom role properties
 
 The following table describes what the custom role properties mean.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Azure AD directory. This display name must be unique at the scope of the Azure AD directory. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 128. |
+| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Azure AD directory. This display name must be unique at the scope of the Azure AD directory. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 512. |
 | `Id`</br>`name` | Yes | String | The unique ID of the custom role. For Azure PowerShell and Azure CLI, this ID is automatically generated when you create a new role. |
 | `IsCustom`</br>`roleType` | Yes | String | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
-| `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 1024. |
-| `Actions`</br>`actions` | Yes | String[] | An array of strings that specifies the management operations that the role allows to be performed. For more information, see [Actions](role-definitions.md#actions). |
-| `NotActions`</br>`notActions` | No | String[] | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
-| `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role cannot be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
-| `NotDataActions`</br>`notDataActions` | No | String[] | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes`</br>`assignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
+| `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 2048. |
+| `Actions`</br>`actions` | Yes | String[] | An array of strings that specifies the control plane actions that the role allows to be performed. For more information, see [Actions](role-definitions.md#actions). |
+| `NotActions`</br>`notActions` | No | String[] | An array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
+| `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role cannot be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions`</br>`notDataActions` | No | String[] | An array of strings that specifies the data plane actions that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes`</br>`assignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Maximum number of `AssignableScopes` is 2,000. You can define only one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
 
 Permission strings are case-insensitive. When you create your custom roles, the convention is to match the case that you see for permissions in [Azure resource provider operations](resource-provider-operations.md).
 
@@ -182,15 +178,17 @@ Instead of adding all of these strings, you could just add a wildcard string. Fo
 Microsoft.CostManagement/exports/*
 ```
 
+It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard.
+
 ## Who can create, delete, update, or view a custom role
 
 Just like built-in roles, the `AssignableScopes` property specifies the scopes that the role is available for assignment. The `AssignableScopes` property for a custom role also controls who can create, delete, update, or view the custom role.
 
-| Task | Operation | Description |
+| Task | Action | Description |
 | --- | --- | --- |
-| Create/delete a custom role | `Microsoft.Authorization/ roleDefinitions/write` | Users that are granted this operation on all the `AssignableScopes` of the custom role can create (or delete) custom roles for use in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of management groups, subscriptions, and resource groups. |
-| Update a custom role | `Microsoft.Authorization/ roleDefinitions/write` | Users that are granted this operation on all the `AssignableScopes` of the custom role can update custom roles in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of management groups, subscriptions, and resource groups. |
-| View a custom role | `Microsoft.Authorization/ roleDefinitions/read` | Users that are granted this operation at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
+| Create/delete a custom role | `Microsoft.Authorization/ roleDefinitions/write` | Users that are granted this action on all the `AssignableScopes` of the custom role can create (or delete) custom roles for use in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of management groups, subscriptions, and resource groups. |
+| Update a custom role | `Microsoft.Authorization/ roleDefinitions/write` | Users that are granted this action on all the `AssignableScopes` of the custom role can update custom roles in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of management groups, subscriptions, and resource groups. |
+| View a custom role | `Microsoft.Authorization/ roleDefinitions/read` | Users that are granted this action at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
 
 ## Custom role limits
 
@@ -205,7 +203,7 @@ The following list describes the limits for custom roles.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
 
-For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## Input and output formats
 

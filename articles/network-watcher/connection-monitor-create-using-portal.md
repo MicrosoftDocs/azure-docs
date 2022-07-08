@@ -6,7 +6,6 @@ services: network-watcher
 documentationcenter: na
 author: vinynigam
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -19,12 +18,15 @@ ms.author: vinigam
 > [!IMPORTANT]
 > Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You will also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
 
+> [!IMPORTANT]
+> Connection Monitor will now support end to end connectivity checks from and to *Azure Virtual Machine Scale Sets*, enabling faster performance monitoring and network troubleshooting across scale sets 
+
 Learn how to use Connection Monitor to monitor communication between your resources. This article describes how to create a monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
 
 
 ## Before you begin 
 
-In connection monitors that you create by using Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
+In connection monitors that you create by using Connection Monitor, you can add both on-premises machines, Azure VMs and Azure Virtual Machine scale sets as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
 
 Here are some definitions to get you started:
 
@@ -43,6 +45,8 @@ Here are some definitions to get you started:
 
 :::image type="content" source="./media/connection-monitor-2-preview/cm-tg-2.png" alt-text="Diagram that shows a connection monitor and defines the relationship between test groups and tests.":::
 
+ > [!NOTE]
+ > Connection Monitor now supports auto enablement of monitoring extensions for Azure & Non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of Connection Monitor. 
 
 ## Create a connection monitor
 
@@ -95,6 +99,9 @@ Connection Monitor creates the connection monitor resource in the background.
 
 ## Create test groups in a connection monitor
 
+ >[!NOTE]
+ >> Connection Monitor now supports auto enablement of monitoring extensions for Azure & Non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of Connection Monitor. 
+
 Each test group in a connection monitor includes sources and destinations that get tested on network parameters. They're tested for the percentage of checks that fail and the RTT over test configurations.
 
 In the Azure portal, to create a test group in a connection monitor, you specify values for the following fields:
@@ -102,17 +109,17 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 * **Disable test group**: You can select this check box to disable monitoring for all sources and destinations that the test group specifies. This selection is cleared by default.
 * **Name**: Name your test group.
 * **Sources**: You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
-   * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs that are bound to the region that you specified when you created the connection monitor. By default, VMs are grouped into the subscription that they belong to. These groups are collapsed. 
+   * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs or Virtual Machine scale sets that are bound to the region that you specified when you created the connection monitor. By default, VMs and Virtual Machine scale sets are grouped into the subscription that they belong to. These groups are collapsed. 
    
        You can drill down from the **Subscription** level to other levels in the hierarchy:
 
-      **Subscription** > **Resource group** > **VNET** > **Subnet** > **VMs with agents**
+      **Subscription** > **Resource group** > **VNET** > **Subnet** > **VMs with agents** 
 
       You can also change the **Group by** selector to start the tree from any other level. For example, if you group by virtual network, you see the VMs that have agents in the hierarchy **VNET** > **Subnet** > **VMs with agents**.
 
-       When you select a VNET, subnet, or single VM, the corresponding resource ID is set as the endpoint. By default, all VMs in the selected VNET or subnet that have the Azure Network Watcher extension participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
+       When you select a VNET, subnet, a single VM or a virtual machine scale set the corresponding resource ID is set as the endpoint. By default, all VMs in the selected VNET or subnet participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
 
-      :::image type="content" source="./media/connection-monitor-2-preview/add-azure-sources.png" alt-text="Screenshot that shows the Add Sources pane and the Azure endpoints tab in Connection Monitor.":::
+      :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the Add Sources pane and the Azure endpoints including V M S S tab in Connection Monitor.":::
 
    * To choose on-premises agents, select the **Non–Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have the Network Performance Monitor configured. 
    
@@ -123,6 +130,9 @@ In the Azure portal, to create a test group in a connection monitor, you specify
       :::image type="content" source="./media/connection-monitor-2-preview/add-non-azure-sources.png" alt-text="Screenshot that shows the Add Sources pane and the Non-Azure endpoints tab in Connection Monitor.":::
 
    * To choose recently used endpoints, you can use the **Recent endpoint** tab 
+   
+   * You need not choose the endpoints with monitoring agents enabled only. You can select Azure or Non-Azure endpoints without the agent enabled and proceed with the creation of Connection Monitor. During the creation process, the monitoring agents for the endpoints will be automatically enabled. 
+      :::image type="content" source="./media/connection-monitor-2-preview/unified-enablement.png" alt-text="Screenshot that shows the Add Sources pane and the Non-Azure endpoints tab in Connection Monitor with unified enablement.":::
    
    * When you finish setting up sources, select **Done** at the bottom of the tab. You can still edit basic properties like the endpoint name by selecting the endpoint in the **Create Test Group** view. 
 
@@ -169,6 +179,13 @@ In the Azure portal, to create a test group in a connection monitor, you specify
        
    :::image type="content" source="./media/connection-monitor-2-preview/add-test-config.png" alt-text="Screenshot that shows where to set up a test configuration in Connection Monitor.":::
        
+* **Test Groups**: You can add one or more Test Groups to a Connection Monitor. These test groups can consist of multiple Azure or Non-Azure endpoints.
+    * For selected Azure VMs or Azure virtual machine scale sets and Non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the NPM solution for Non-Azure endpoints will be auto enablement once the creation of Connection Monitor begins.
+    * In case the virtual machine scale set selected is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale set as endpoints. In-case the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
+    * In the scenario mentioned above, user can consent to auto upgradation of virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for Virtual Machine scale sets with manual upgradation. This would eliminate the need for the user to manually upgrade the virtual machine scale set after installing the Network Watcher extension.   
+
+   :::image type="content" source="./media/connection-monitor-2-preview/consent-vmss-auto-upgrade.png" alt-text="Screenshot that shows where to set up a test groups and consent for auto-upgradation of V M S S in Connection Monitor.":::
+
 ## Create alerts in Connection Monitor
 
 You can set up alerts on tests that are failing based on the thresholds set in test configurations.
@@ -187,7 +204,10 @@ In the Azure portal, to create alerts for a connection monitor, you specify valu
 
 - **Enable rule upon creation**: Select this check box to enable the alert rule based on the condition. Disable this check box if you want to create the rule without enabling it. 
 
-:::image type="content" source="./media/connection-monitor-2-preview/create-alert-filled.png" alt-text="Screenshot that shows the Create alert tab in Connection Monitor.":::
+:::image type="content" source="./media/connection-monitor-2-preview/unified-enablement-create.png" alt-text="Screenshot that shows the Create alert tab in Connection Monitor.":::
+
+Once all the steps are completed, the process will proceed with unified enablement of monitoring extensions for all endpoints without monitoring agents enabled, followed by creation of Connection Monitor. 
+Once the creation process is successful , it will take ~ 5 mins for the connection monitor to show up on the dashboard.  
 
 ## Scale limits
 

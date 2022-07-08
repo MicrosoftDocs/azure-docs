@@ -2,11 +2,8 @@
 title: Log-based and pre-aggregated metrics in Azure Application Insights | Microsoft Docs
 description: Why to use log-based versus pre-aggregated metrics in Azure Application Insights
 ms.topic: conceptual
-author: vgorbenko
-ms.author: vitalyg
 ms.date: 09/18/2018
-
-ms.reviewer: mbullwin
+ms.reviewer: vitalyg
 ---
 
 # Log-based and pre-aggregated metrics in Application Insights
@@ -69,10 +66,17 @@ There are several [ways of sending custom metrics from the Application Insights 
 
 ## Custom metrics dimensions and pre-aggregation
 
-All metrics that you send using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. However, while the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](./pricing.md) tab by checking "Enable alerting on custom metric dimensions": 
+All metrics that you send using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. However, while the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](../usage-estimated-costs.md#usage-and-estimated-costs) tab by checking "Enable alerting on custom metric dimensions": 
 
 ![Usage and estimated cost](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
+## Quotas
+
+Pre-aggregated metrics are stored as time series in Azure Monitor, and [Azure Monitor quotas on custom metrics](../essentials/metrics-custom-overview.md#quotas-and-limits) apply.
+
+> [!NOTE]
+> Going over the quota might have unintended consequences. Azure Monitor might become unreliable in your subscription or region. To learn how to avoid exceeding the quota, see [Design limitations and considerations](../essentials/metrics-custom-overview.md#design-limitations-and-considerations).
+  
 ## Why is collection of custom metrics dimensions turned off by default?
 
 The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights, while storing the non-dimensional custom metrics will remain free (up to a quota). You can learn about the upcoming pricing model changes on our official [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
@@ -85,7 +89,7 @@ Use [Azure Monitor Metrics Explorer](../essentials/metrics-getting-started.md) t
 
 ## Pricing models for Application Insights metrics
 
-Ingesting metrics into Application Insights, whether log-based or pre-aggregated, will generate costs based on the size of the ingested data, as described [here](./pricing.md#pricing-model). Your custom metrics, including all its dimensions, are always stored in the Application Insights log-store; additionally, a pre-aggregated version of your custom metrics (with no dimensions) is forwarded to the metrics store by default.
+Ingesting metrics into Application Insights, whether log-based or pre-aggregated, will generate costs based on the size of the ingested data, as described in [Azure Monitor Logs pricing details](../logs/cost-logs.md#application-insights-billing). Your custom metrics, including all its dimensions, are always stored in the Application Insights log-store; additionally, a pre-aggregated version of your custom metrics (with no dimensions) is forwarded to the metrics store by default.
 
 Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dimensions-and-pre-aggregation) option to store all dimensions of the pre-aggregated metrics in the metric store, can generate **additional** costs based on [Custom Metrics pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

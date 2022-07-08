@@ -1,8 +1,12 @@
 ---
 title: Mount emptyDir volume to container group
 description: Learn how to mount an emptyDir volume to share data between the containers in a container group in Azure Container Instances
-ms.topic: article
-ms.date: 01/31/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Mount an emptyDir volume in Azure Container Instances
@@ -35,7 +39,7 @@ First, populate the `volumes` array in the container group `properties` section 
 For example, the following Resource Manager template creates a container group consisting of two containers, each of which mounts the *emptyDir* volume:
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
-[!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
+[!code-json[volume-emptydir](~/resourcemanager-templates/container-instances/aci-deploy-volume-emptydir.json)]
 
 To see examples of container group deployment, see [Deploy a multi-container group using a Resource Manager template](container-instances-multi-container-group.md) and [Deploy a multi-container group using a YAML file](container-instances-multi-container-yaml.md).
 

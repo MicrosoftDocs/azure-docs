@@ -3,6 +3,7 @@ title: Use the Azure portal to create a data factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
@@ -31,7 +32,7 @@ In this tutorial, you perform the following steps:
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
-* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
+* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one.
 
 ### Create a blob and a SQL table
 
@@ -105,13 +106,13 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. On the home page, select **Orchestrate**.
 
-   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
 
 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 
-    ![Copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/drag-drop-copy-activity.png" alt-text="Copy activity":::
 
 ### Configure source
 
@@ -135,7 +136,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. Select **OK**. It automatically navigates to the pipeline page. In **Source** tab, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**.
 
-    ![Source dataset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/source-dataset-selected.png" alt-text="Source dataset":::
 
 ### Configure sink
 >[!TIP]
@@ -164,13 +165,13 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     g. Select **Create** to deploy the linked service.
 
-    ![Save new linked service](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png" alt-text="Save new linked service":::
 
 1. It automatically navigates to the **Set Properties** dialog box. In **Table**, select **[dbo].[emp]**. Then select **OK**.
 
 1. Go to the tab with the pipeline, and in **Sink Dataset**, confirm that **OutputSqlDataset** is selected.
 
-    ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+    :::image type="content" source="./media/tutorial-copy-data-portal/pipeline-tab-2.png" alt-text="Pipeline tab":::       
 
 You can optionally map the schema of the source to corresponding schema of destination by following [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md).
 
@@ -195,11 +196,11 @@ In this step, you manually trigger the pipeline you published in the previous st
 
 1. Go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
-    [![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox" alt-text="Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)":::
 
 1. To see activity runs associated with the pipeline run, select the **CopyPipeline** link under the **PIPELINE NAME** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
-    [![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox" alt-text="Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)":::
 
 1. Verify that two more rows are added to the **emp** table in the database.
 
@@ -237,7 +238,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
 1. Go to the **Monitor** tab on the left to see the triggered pipeline runs.
 
-    [![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox" alt-text="Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)":::
 
 1. To switch from the **Pipeline Runs** view to the **Trigger Runs** view, select **Trigger Runs** on the left side of the window.
 

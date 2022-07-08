@@ -29,7 +29,7 @@ landingContent:
             url: semantic-search-overview.md
           - text: What is AI enrichment?
             url: cognitive-search-concept-intro.md
-          - text: What is an indexer?
+          - text: What are indexers?
             url: search-indexer-overview.md
           - text: What are Azure Applied AI Services?
             url: ../applied-ai-services/what-are-applied-ai-services.md
@@ -37,6 +37,40 @@ landingContent:
         links:
           - text: Use AI in search solutions
             url: https://youtu.be/M4Rf1s0WcWQ?t=19
+
+  # Card
+  - title: Develop apps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Add search to web apps
+            url: tutorial-csharp-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Develop in .NET
+            url: search-howto-dotnet-sdk.md
+          - text: Call REST APIs in Postman
+            url: search-get-started-rest.md
+      - linkListType: reference
+        links:
+          - text: Azure SDK for .NET
+            url: /dotnet/api/overview/azure/search.documents-readme
+          - text: Azure SDK for Python
+            url: /python/api/overview/azure/search-documents-readme
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a service
+            url: search-create-service-portal.md
+          - text: Create an index
+            url: search-get-started-portal.md
+          - text: Create a demo app
+            url: search-create-app-portal.md
+          - text: Create a skillset for AI enrichment
+            url: cognitive-search-quickstart-blob.md
 
   # Card
   - title: Index data
@@ -59,54 +93,16 @@ landingContent:
             url: search-howto-index-cosmosdb.md
 
   # Card
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a service
-            url: search-create-service-portal.md
-          - text: Create an index
-            url: search-get-started-portal.md
-          - text: Create a demo app
-            url: search-create-app-portal.md
-          - text: Extract text from images and app files
-            url: cognitive-search-quickstart-blob.md
-            
-  # Card
-  - title: Develop apps
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Add search to web apps
-            url: tutorial-csharp-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Develop in .NET
-            url: search-howto-dotnet-sdk.md
-          - text: Call REST APIs in VS Code
-            url: search-get-started-vs-code.md
-          - text: Call REST APIs in Postman
-            url: search-get-started-rest.md
-      - linkListType: reference
-        links:
-          - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/search.documents-readme
-          - text: Azure SDK for Python
-            url: /python/api/overview/azure/search-documents-readme
-          - text: REST API Reference
-            url: /rest/api/searchservice/index
-
-  # Card
   - title: Enrich with AI
     linkLists:
       - linkListType: concept
         links:
           - text: Skillsets
-            url: cognitive-search-defining-skillset.md
+            url: cognitive-search-working-with-skillsets.md
           - text: Knowledge stores
             url: knowledge-store-concept-intro.md
           - text: Projections
-            url: knowledge-store-projections-examples.md
+            url: knowledge-store-projection-overview.md
       - linkListType: how-to-guide
         links:
           - text: Attach Cognitive Services
@@ -115,10 +111,6 @@ landingContent:
             url: cognitive-search-defining-skillset.md
           - text: Create a knowledge store
             url: knowledge-store-create-portal.md
-      - linkListType: reference
-        links:
-          - text: Built-in skills
-            url: cognitive-search-predefined-skills.md
          
   # Card
   - title: Query data
@@ -143,15 +135,3 @@ landingContent:
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
             url: /rest/api/searchservice/search-documents
-
-  # Card
-  - title: Help and feedback
-    linkLists: 
-      - linkListType: reference
-        links: 
-          - text: FAQ
-            url: search-faq-frequently-asked-questions.yml
-          - text: Ask questions on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/azure-search
-          - text: Request a feature
-            url: https://feedback.azure.com/forums/263029-azure-search

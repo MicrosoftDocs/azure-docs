@@ -1,14 +1,14 @@
 ---
 title: Enable and manage soft delete for containers
-titleSuffix: Azure Storage 
+titleSuffix: Azure Storage
 description: Enable container soft delete to more easily recover your data when it is erroneously modified or deleted.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/06/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ---
 
@@ -41,14 +41,14 @@ To enable container soft delete with PowerShell, first install the [Az.Storage](
 ```azurepowershell-interactive
 Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
-    -RetentionDays 7 
+    -RetentionDays 7
 ```
 
 To disable container soft delete, call the **Disable-AzStorageContainerDeleteRetentionPolicy** command.
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable container soft delete with Azure CLI, first install Azure CLI, version 2.26.0 or later. Next, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command and specify the number of days for the retention period. Remember to replace the values in angle brackets with your own values:
+To enable container soft delete with Azure CLI, first install Azure CLI, version 2.26.0 or later. Next, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command and specify the number of days for the retention period. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli-interactive
 az storage account blob-service-properties update \
@@ -62,12 +62,12 @@ To disable container soft delete, specify `false` for the `--enable-container-de
 
 # [Template](#tab/template)
 
-To enable container soft delete with an Azure Resource Manager template, create a template that sets the **containerDeleteRetentionPolicy** property. The following steps describe how to create a template in the Azure portal.
+To enable container soft delete with an Azure Resource Manager template, create a template that sets the **containerDeleteRetentionPolicy** property. The following steps describe how to create a template in the Azure portal.
 
-1. In the Azure portal, choose **Create a resource**.
-1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-1. Choose **Template deployment**, choose **Create**, and then choose **Build your own template in the editor**.
-1. In the template editor, paste in the following JSON. Replace the `<account-name>` placeholder with the name of your storage account.
+1. In the Azure portal, choose **Create a resource**.
+1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+1. Choose **Template deployment**, choose **Create**, and then choose **Build your own template in the editor**.
+1. In the template editor, paste in the following JSON. Replace the `<account-name>` placeholder with the name of your storage account.
 
     ```json
     {
@@ -93,7 +93,7 @@ To enable container soft delete with an Azure Resource Manager template, create 
 
 1. Specify the retention period. The default value is 7.
 1. Save the template.
-1. Specify the resource group of the account, and then choose the **Review + create** button to deploy the template and enable container soft delete.
+1. Specify the resource group of the account, and then choose the **Review + create** button to deploy the template and enable container soft delete.
 
 ---
 

@@ -1,29 +1,28 @@
 ---
 title: Create an access review of an access package in Azure AD entitlement management
-description: Learn how to create an access review policy for entitlement management access packages in Azure Active Directory access reviews (Preview).
+description: Learn how to set up an access review in a policy for entitlement management access packages in Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 10/26/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an administrator, I want to create an access review policy for my access packages so I can review the active assignments of my users to ensure everyone has the appropriate access.
+#Customer intent: As an administrator, I want to create an access review for my access packages so I can review the active assignments of my users to ensure everyone has the appropriate access.
 
 ---
 # Create an access review of an access package in Azure AD entitlement management
 
-To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in Azure AD entitlement management. You can enable reviews when you create a new access package or edit an existing access package. This article describes how to enable access reviews of access packages.
+To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in Azure AD entitlement management. You can enable reviews when you create a new access package or edit an existing access package assignment policy. This article describes how to enable access reviews of access packages.
 
 ## Prerequisites
 
@@ -36,11 +35,35 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Create an access review of an access package
 
-You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package](entitlement-management-access-package-lifecycle-policy.md) policy. Follow these steps to enable access reviews of an access package:
+You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package assignment policy](entitlement-management-access-package-lifecycle-policy.md) policy. If you have multiple policies, for different communities of users to request access, you can have independent access review schedules for each policy. Follow these steps to enable access reviews of an access package's assignments:
 
-1. Open the **Lifecycle** tab for an access package and scroll down to **Access Reviews**.
+1. Open the **Lifecycle** tab for an access package assignment policy to specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
 
-1. Move the **Require access reviews** toggle to **Yes**.
+1. In the **Expiration** section, set Access package assignments expires to **On date**, **Number of days**, **Number of hours**, or **Never**.
+
+    For **On date**, select an expiration date in the future.
+
+    For **Number of days**, specify a number between 0 and 3660 days.
+
+    For **Number of hours**, specify a number of hours.
+
+    Based on your selection, a user's assignment to the access package expires on a certain date, a certain number of days after they are approved, or never.
+    
+    ![Access package - Lifecycle Expiration settings](./media/entitlement-management-access-reviews/expiration.png)
+
+1. Click Show advanced expiration settings to show additional settings.
+
+1. To allow user to extend their assignments, set **Allow users to extend access** to **Yes**.
+
+    If extensions are allowed in the policy, the user will receive an email 14 days and also one day before their access package assignment is set to expire, prompting them to extend the assignment. The user must still be in the scope of the policy at the time they request an extension. Also, if the policy has an explicit end date for assignments, and a user submits a request to extend access, the extension date in the request must be at or before when assignments expire, as defined in the policy that was used to grant the user access to the access package. For example, if the policy indicates that assignments are set to expire on June 30, the maximum extension a user can request is June 30.
+
+    If a user's access is extended, they will not be able to request the access package after the specified extension date (date set in the time zone of the user who created the policy).
+
+1. To require approval to grant an extension, set **Require approval to grant extension** to **Yes**.
+
+    The same approval settings that were specified on the Requests tab will be used.
+
+1. Next, move the **Require access reviews** toggle to **Yes**.
 
     ![Add the access review](./media/entitlement-management-access-reviews/access-reviews-pane.png)
 
@@ -54,6 +77,7 @@ This setting determines how often access reviews will occur.
 1. Next to **Reviewers**, select **Self-review** if you want users to perform their own access review or select **Specific reviewer(s)** if you want to designate a reviewer. You can also select **Manager** if you want to designate the reviewee’s manager to be the reviewer. If you select this option, you need to add a **fallback** to forward the review to in case the manager cannot be found in the system.
 
 1. If you selected **Specific reviewer(s)**, specify which users will do the access review:
+
     ![Select Add reviewers](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
     1. Select **Add reviewers**.
@@ -69,7 +93,20 @@ This setting determines how often access reviews will occur.
 
     ![Add the fallback reviewers](./media/entitlement-management-access-reviews/access-reviews-select-manager.png)
 
-1. Click **Review + Create** if you are creating a new access package or **Update** if you are editing an access package, at the bottom of the page.
+1. There are other advanced settings you can configure. To configure other advanced access review settings, click **Show advanced access review settings**:
+    1. If you want specify what happens to users' access when a reviewer doesn't respond, click **If reviewers don't respond**, and then select one of the following: 
+        - **No change** if you don't want a decision made on the users' access.
+        - **Remove access** if you want the users' access removed.
+        - **Take recommendations** if you want a decision to be made based on recommendations from MyAccess.
+        
+        ![Add advanced access review settings](./media/entitlement-management-access-reviews/advanced-access-reviews.png)
+        
+    1. If you want to see system recommendations, click **Show reviewer decision helpers**. The system's recommendations are based on the users' activity. The reviewers will see one of the following recommendations: 
+        - **approve** the review if the user has signed-in at least once during the last 30 days. 
+        - **deny** the review if the user hasn't signed-in during the last 30 days.
+    1. If you want the reviewer to share their reasons for their approval decision, click **Require reviewer justification**. Their justification is visible to other reviewers and the requestor.
+
+1. Click **Review + Create** or click **next** if you are creating a new access package. Click **Update** if you are editing an access package, at the bottom of the page.
 
 ## View the status of the access review
 

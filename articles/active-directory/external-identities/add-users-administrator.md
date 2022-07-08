@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 09/10/2021
 
 ms.author: mimart
 author: msmimart
@@ -28,7 +28,7 @@ After you add a guest user to the directory, you can either send the guest user 
 
 ## Before you begin
 
-Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. By default, all users and admins can invite guests. But your organization's external collaboration policies might be configured to prevent certain types of users or admins from inviting guests. To find out how to view and set these policies, see [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md).
+Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. By default, all users and admins can invite guests. But your organization's external collaboration policies might be configured to prevent certain types of users or admins from inviting guests. To find out how to view and set these policies, see [Enable B2B external collaboration and manage who can invite guests](external-collaboration-settings-configure.md).
 
 ## Add guest users to the directory
 
@@ -63,14 +63,24 @@ If you need to manually add B2B collaboration users to a group, follow these ste
 2. Search for and select **Azure Active Directory** from any page.
 3. Under **Manage**, select **Groups**.
 4. Select a group (or select **New group** to create a new one). It's a good idea to include in the group description that the group contains B2B guest users.
-5. Select the link under **Members**.
-6. Do one of the following:
+5. Under **Manage**, select **Members**.
+6. Select **Add members**.
+7. Do one of the following:
 
-     - If the guest user already exists in the directory, search for the B2B user. Select the user, and then select **Select** to add the user to the group.
-     - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then choosing **Invite**. The invitation automatically goes out to the invited user.
-   
-![Add invite button to add guest members](./media/add-users-administrator/group-invite.png)
- 
+   - *If the guest user is already in the directory:*
+      
+       a. On the **Add members** page, start typing the name or email address of the guest user.
+       
+       b. In the search results, choose the user, and then choose **Select**.
+
+   - *If the guest user isn't currently in the directory:*
+      
+       a. On the **Add members** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite** to send an invitation.
+       
+       b. Choose **Select**.
+       
+       c. Now add the user to the group: On the **Members** page, choose **Add members**. Type the user's name or email address in the search box, choose the user in the results, and then choose **Select**.
+
 You can also use dynamic groups with Azure AD B2B collaboration. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](use-dynamic-groups.md).
 
 ## Add guest users to an application
@@ -82,19 +92,38 @@ To add B2B collaboration users to an application, follow these steps:
 3. Under **Manage**, select **Enterprise applications**.
 4. On the **All applications** page, select the application to which you want to add guest users.
 5. Under **Manage**, select **Users and groups**.
-6. Select **Add user**.
-7. Under **Add Assignment**, select **User and groups**.
+6. Select **Add user/group**.
+7. On the **Add Assignment** page, select the link under **Users**.
 8. Do one of the following:
-   - If the guest user already exists in the directory, search for the B2B user. Select the user, choose **Select**, and then select **Assign** to add the user to the app.
-   - If the guest user does not already exist in the directory, under **Select member or invite an external user**, type the user's email address. In the message box, type an optional personal message. Under the message box, select **Invite**.
-               ![Screenshot that highlights where to add the user's email address, the personalized message, and also highlights the Invite button.](./media/add-users-administrator/app-invite-users.png)
 
-10.  The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If the application provides different roles and you want to change the user's role, do the following:
-   - Select the check box next to the guest user, and then select the **Edit** button. 
-   - On the **Edit Assignment** page, choose the link under **Select a role**, and select the role you want to assign to the user.
-   - Choose **Select**.
-   - Select **Assign**.
- 
+   - *If the guest user is already in the directory:*
+      
+       a. On the **Users** page, start typing the name or email address of the guest user.
+      
+       b. In the search results, choose the user, and then choose **Select**.
+       
+       c. On the **Add Assignment** page, choose **Assign** to add the user to the app.
+
+   - *If the guest user isn't currently in the directory:*
+      
+       a. On the **Users** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite**.
+       
+       b. Choose **Select**.
+       
+       c. Now add the invited user to the application: On the **Add Assignment** page, choose the link under **Users**. Type the invited user's name or email address in the search box, choose the user in the results, and then choose **Select**.
+       
+       d. On the **Add Assignment** page, choose **Assign**.
+
+9. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If the application provides different roles and you want to change the user's role, do the following:
+
+    a. Select the check box next to the guest user, and then select the **Edit** button. 
+    
+    b. On the **Edit Assignment** page, choose the link under **Select a role**, and select the role you want to assign to the user.
+    
+    c. Choose **Select**.
+    
+    d. Select **Assign**.
+
 ## Resend invitations to guest users
 
 If a guest user has not yet redeemed their invitation, you can resend the invitation email.

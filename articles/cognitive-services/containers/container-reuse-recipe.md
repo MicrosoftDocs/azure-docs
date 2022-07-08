@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: conceptual
-ms.date: 04/01/2020
+ms.topic: how-to
+ms.date: 10/28/2021
 ms.author: aahi
 #Customer intent: As a potential customer, I want to know how to configure containers so I can reuse them.
 
@@ -53,7 +53,7 @@ This example:
 
 ### Reuse recipe: store billing settings with container
 
-This example shows how to build the Text Analytics' sentiment container from a Dockerfile.
+This example shows how to build the Language service's sentiment container from a Dockerfile.
 
 ```Dockerfile
 FROM mcr.microsoft.com/azure-cognitive-services/sentiment:latest
@@ -148,8 +148,7 @@ Follow these steps to use the Dockerfile and place the new image in your private
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create and use Azure Container Instance](azure-container-instance-recipe.md)
+[Create and use Azure Container Instance](azure-container-instance-recipe.md)
 
 <!--
 ## Store input and output configuration settings

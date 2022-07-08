@@ -3,11 +3,11 @@ title: Monitor and debug with insights in Azure Cosmos DB
 description: Use metrics in Azure Cosmos DB to debug common issues and monitor the database.
 ms.author: esarroyo
 author: StefArroyo 
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 11/08/2021
 ms.custom: devx-track-csharp
 ---
 # Monitor and debug with insights in Azure Cosmos DB
@@ -21,13 +21,13 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
 1. Sign into [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
 
-1. You can view your account metrics either from the **Metrics** pane or the **Insights (Preview)** pane.
+1. You can view your account metrics either from the **Metrics** pane or the **Insights** pane.
 
    * **Metrics:** This pane provides numerical metrics that are collected at regular intervals and describe some aspect of a system at a particular time. For example, you can view and monitor the [server side latency metric](monitor-server-side-latency.md), [normalized request unit usage metric](monitor-normalized-request-units.md) etc.
 
-   * **Insights (Preview):** This pane provides a customized monitoring experience for Azure Cosmos DB. They use the same metrics and logs that are collected in Azure Monitor and shows an aggregated view for your account.
+   * **Insights:** This pane provides a customized monitoring experience for Azure Cosmos DB. They use the same metrics and logs that are collected in Azure Monitor and shows an aggregated view for your account.
 
-1. Open the **Insights (Preview)** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and account management metrics for ever container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
+1. Open the **Insights** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and account management metrics for ever container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
 
    :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB performance metrics in Azure portal" lightbox="./media/use-metrics/performance-metrics.png" :::
 
@@ -59,7 +59,7 @@ The most common error status code is 429 (rate limiting/throttling). This error 
 
 ## Determine the throughput consumption by a partition key range
 
-Having a good cardinality of your partition keys is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partition key range IDs, navigate to the **Insights (Preview)** pane. Open the **Throughput** tab, the normalized RU/s consumption across different partition key ranges is shown in the chart.
+Having a good cardinality of your partition keys is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partition key range IDs, navigate to the **Insights** pane. Open the **Throughput** tab, the normalized RU/s consumption across different partition key ranges is shown in the chart.
 
 :::image type="content" source="media/use-metrics/throughput-consumption-partition-key-range.png" alt-text="Normalized throughput consumption by partition key range IDs" lightbox="media/use-metrics/throughput-consumption-partition-key-range.png":::
 
@@ -67,7 +67,7 @@ With the help of this chart, you can identify if there is a hot partition. An un
 
 ## Determine the data and index usage
 
-It's important to determine the storage distribution of any partitioned container by data usage, index usage, and document usage. You can minimize the index usage, maximize the data usage and optimize your queries. To get this data, navigate to the **Insights (Preview)** pane and open the **Storage** tab:
+It's important to determine the storage distribution of any partitioned container by data usage, index usage, and document usage. You can minimize the index usage, maximize the data usage and optimize your queries. To get this data, navigate to the **Insights** pane and open the **Storage** tab:
 
 :::image type="content" source="media/use-metrics/data-index-consumption.png" alt-text="Data, index, and document consumption" lightbox="media/use-metrics/data-index-consumption.png" :::
 

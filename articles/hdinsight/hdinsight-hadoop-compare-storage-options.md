@@ -4,7 +4,7 @@ description: Provides an overview of storage types and how they work with Azure 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 05/30/2022
 ---
 
 # Compare storage options for use with Azure HDInsight clusters
@@ -35,7 +35,7 @@ The following table summarizes the Azure Storage services that are supported wit
 
 For more information on Azure Storage account types, see [Azure storage account overview](../storage/common/storage-account-overview.md)
 
-For more information on Azure Storage access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../storage/blobs/storage-blob-storage-tiers.md)
+For more information on Azure Storage access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../storage/blobs/access-tiers-overview.md)
 
 You can create clusters using combinations of services for primary and optional secondary storage. The following table summarizes the cluster storage configurations that are currently supported in HDInsight:
 

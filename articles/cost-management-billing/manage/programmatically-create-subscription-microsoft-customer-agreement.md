@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -25,7 +25,7 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. You can also give the same role to a service principal name (SPN). For more information about roles and assigning permission to them, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true) or [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list). 
+If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). 
 
 If you don't know whether you have access to a Microsoft Customer Agreement account, see [Check access to a Microsoft Customer Agreement](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 
@@ -387,7 +387,7 @@ An in-progress status is returned as an `Accepted` state under `provisioningStat
 
 To install the latest version of the module that contains the `New-AzSubscriptionAlias` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
 
-Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
+Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscriptionalias) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
 
 ```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload "Production"
@@ -411,7 +411,7 @@ You get the subscriptionId as part of the response from the command.
 
 First, install the extension by running `az extension add --name account` and `az extension add --name alias`.
 
-Run the [az account alias create](/cli/azure/account/alias#az_account_alias_create) following command.
+Run the [az account alias create](/cli/azure/account/alias#az-account-alias-create) following command.
 
 ```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
@@ -433,9 +433,9 @@ You get the subscriptionId as part of the response from the command.
 
 ---
 
-## Use ARM template
+## Use ARM template or Bicep
 
-The previous section showed how to create a subscription with PowerShell, CLI, or REST API. If you need to automate creating subscriptions, consider using an Azure Resource Manager template (ARM template).
+The previous section showed how to create a subscription with PowerShell, CLI, or REST API. If you need to automate creating subscriptions, consider using an Azure Resource Manager template (ARM template) or [Bicep file](../../azure-resource-manager/bicep/overview.md).
 
 The following template creates a subscription. For `billingScope`, provide the invoice section ID. The subscription is created in the root management group. After creating the subscription, you can move it to another management group.
 
@@ -474,7 +474,29 @@ The following template creates a subscription. For `billingScope`, provide the i
 }
 ```
 
-Deploy the template at the [management group level](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Or, use a Bicep file to create the subscription.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+Deploy the template at the [management group level](../../azure-resource-manager/templates/deploy-to-management-group.md). The following examples show deploying the JSON ARM template, but you can deploy a Bicep file instead.
 
 ### [REST](#tab/rest)
 
@@ -529,7 +551,7 @@ az deployment mg create \
 
 ---
 
-To move a subscription to a new management group, use the following template.
+To move a subscription to a new management group, use the following ARM template.
 
 ```json
 {
@@ -560,6 +582,23 @@ To move a subscription to a new management group, use the following template.
         }
     ],
     "outputs": {}
+}
+```
+
+Or, the following Bicep file.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

@@ -3,11 +3,11 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/05/2021
+ms.date: 05/31/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: ruturajd
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
 ---
 
@@ -38,7 +38,7 @@ To view the usage summary reports and graphs:
    To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.  
    ![Create and view usage summary and download reports in custom view](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. To view additional details, you can select a period or month on the graph.
-   - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and Azure Marketplace charges.
+   - The graph shows month-over-month usage with a breakdown of utilized usage, service overage, charges billed separately, and Azure Marketplace charges.
    - For the selected month, you can use the fields below the graph to filter by departments, accounts, and subscriptions.
    - You can toggle between **Charge by Services** and **Charge by Hierarchy**.
    - View details from **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** by expanding the relevant sections.
@@ -204,7 +204,7 @@ If an Amendment M503 is signed, you can move any agreement from any frequency to
 
 ### Request an invoice copy
 
-To request a copy of your invoice, contact your partner.
+If you're an indirect enterprise agreement customer, contact your partner to request a copy of your invoice.
 
 ## Credits and adjustments
 
@@ -311,7 +311,7 @@ The combined invoice shows Azure usage first, followed by any Azure Marketplace 
 
 If there's no overage usage at the end of the standard billing cycle, charges billed separately are invoiced separately. This process applies to customers in Australia, Japan, and Singapore.
 
-The following services are billed separately:
+The following services are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 - Canonical
 - Citrix XenApp Essentials

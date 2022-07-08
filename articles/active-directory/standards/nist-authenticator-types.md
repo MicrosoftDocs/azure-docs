@@ -6,9 +6,9 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-author: barbaraselden
-ms.author: baselden
-manager: mtillman
+author: gargi-sinha
+ms.author: gasinh
+manager: martinco
 ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
@@ -22,7 +22,7 @@ The authentication process begins when a claimant asserts its control of one of 
 | The National Institute of Standards and Technology (NIST) authenticator type| Azure Active Directory (Azure AD) authentication methods |
 | - | - |
 |  Memorized secret <br> (something you know)|  Password (Cloud accounts)  <br>Password (Federated)<br> Password (Password Hash Sync)<br>Password (Passthrough Authentication) |
-|Look-up secret <br> (something you have)| None. A lookup secret is by definition data not held in a system. |
+|Lookup secret <br> (something you have)| None. A lookup secret is by definition data not held in a system. |
 |Out-of-band <br>(something you have)| Phone (SMS) - not recommended |
 | Single-factor one-time password <br>‎(something you have)| Microsoft Authenticator App (One-time password)  <br>Single factor one-time password ‎(through OTP manufacturers)<sup data-htmlnode="">1</sup> | 
 | Multifactor one-time password<br>(something you have + something you know or something you are)| Multifactor one-time password ‎(through OTP manufacturers) <sup data-htmlnode="">1</sup>| 

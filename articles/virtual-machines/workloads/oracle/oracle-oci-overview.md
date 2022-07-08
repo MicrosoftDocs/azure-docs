@@ -12,6 +12,8 @@ ms.author: kegorman
 ---
 # Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 Microsoft and Oracle have partnered to provide low latency, high throughput cross-cloud connectivity, allowing you to take advantage of the best of both clouds. 
 
 Using this cross-cloud connectivity, you can partition a multi-tier application to run your database tier on Oracle Cloud Infrastructure (OCI), and the application and other tiers on Microsoft Azure. The experience is similar to running the entire solution stack in a single cloud. 
@@ -45,7 +47,10 @@ Cross-cloud connectivity is limited to the following regions:
 * Azure West Europe (WestEurope) & OCI Amsterdam (Netherlands Northwest)
 * Azure Japan East (JapanEast) & OCI Tokyo (Japan East)
 * Azure West US (WestUS) & OCI San Jose (US West)
-* Germany West Central (Frankfurt) & OCI Germany Central (Frankfurt)
+* Azure Germany West Central & OCI Germany Central (Frankfurt)
+* Azure West US 3 & OCI US West ((Phoenix)
+* Azure Korea Central region & OCI South Korea Central (Seoul)
+* Azure Southeast Asia region & OCI Singapore (Singapore)
 
 
 ## Networking

@@ -1,13 +1,15 @@
 ---
 title: Deploy Azure Blockchain Workbench Preview
 description: How to deploy Azure Blockchain Workbench Preview
-ms.date: 07/16/2020
+ms.date: 02/18/2022
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 #Customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---
 # Deploy Azure Blockchain Workbench Preview
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azure Blockchain Workbench Preview is deployed using a solution template in the Azure Marketplace. The template simplifies the deployment of components needed to create blockchain applications. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.
 
@@ -69,27 +71,14 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
 1. Select **OK** to finish the basic setting configuration section.
 
-1. In **Advanced Settings**, choose if you want to create a new blockchain network or use an existing proof-of-authority blockchain network.
+1. In **Advanced Settings**, choose the existing Ethereum proof-of-authority blockchain network, Active Directory settings, and preferred VM size for Blockchain Workbench components.
 
-    For **Create new**:
-
-    The *create new* option deploys an Azure Blockchain Service Quorum ledger with the default basic sku.
-
-    ![Advanced settings for new blockchain network](media/deploy/advanced-blockchain-settings-new.png)
-
-    | Setting | Description  |
-    |---------|--------------|
-    | Azure Blockchain Service pricing tier | Choose **Basic** or **Standard** Azure Blockchain Service tier that is used for Blockchain Workbench |
-    | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
-    | VM selection | Select preferred storage performance and VM size for your blockchain network. Choose a smaller VM size such as *Standard DS1 v2* if you are on a subscription with low service limits like Azure free tier. |
-
-    For **Use existing**:
-
-    The *use existing* option allows you to specify an Ethereum Proof-of-Authority (PoA) blockchain network. Endpoints have the following requirements.
+    The Ethereum RPC endpoint has the following requirements:
 
    * The endpoint must be an Ethereum Proof-of-Authority (PoA) blockchain network.
    * The endpoint must be publicly accessible over the network.
    * The PoA blockchain network should be configured to have gas price set to zero.
+   * The endpoint starts with `https://` or `http://` and ends with a port number. For example, `http<s>://<network-url>:<port>` 
 
      > [!NOTE]
      > Blockchain Workbench accounts are not funded. If funds are required, the transactions fail.
@@ -98,7 +87,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
      | Setting | Description  |
      |---------|--------------|
-     | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with https:// or http:// and ends with a port number. For example, `http<s>://<network-url>:<port>` |
+     | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. |
      | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
      | VM selection | Select preferred storage performance and VM size for your blockchain network. Choose a smaller VM size such as *Standard DS1 v2* if you are on a subscription with low service limits like Azure free tier. |
 

@@ -4,12 +4,11 @@ description: Learn how to delegate access governance from IT administrators to d
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 7/6/2021
@@ -96,7 +95,7 @@ The following table lists the tasks that the entitlement management roles can do
 | [Add a connected organization](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
 | [Create a new catalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
 | [Add a resource to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Add a catalog owner](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Add a catalog owner](entitlement-management-catalog-create.md#add-more-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Edit a catalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Delete a catalog](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Delegate to an access package manager](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
@@ -139,7 +138,7 @@ To determine the least privileged role for a task, you can also reference [Admin
 
 ## Manage role assignments programmatically (preview)
 
-You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta&preserve-view=true) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true) to those role definitions.
+You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments) to those role definitions.
 
 For example, to view the entitlement management-specific roles which a particular user or group has been assigned, use the Graph query to list role assignments, and provide the user or group's ID as the value of the `principalId` query filter, as in
 

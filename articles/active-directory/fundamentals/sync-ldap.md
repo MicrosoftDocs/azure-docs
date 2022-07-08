@@ -2,15 +2,15 @@
 title: LDAP synchronization with Azure Active Directory
 description: Architectural guidance on achieving LDAP synchronization with Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 10/10/2020
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -36,7 +36,7 @@ You need to synchronize identity data between your on-premises LDAP v3 directori
 
 * **Web app**: Application with dependencies on LDAP v3 directories.
 
-* **Azure AD**: Azure AD synchronizes identity information (users, groups, passwords) from organization’s on-premises LDAP directories via Azure AD Connect. 
+* **Azure AD**: Azure AD synchronizes identity information (users, groups) from organization’s on-premises LDAP directories via Azure AD Connect. 
 
 * **Azure AD Connect**: is a tool for connecting on premises identity infrastructures to Microsoft Azure AD. The wizard and guided experiences help to deploy and configure pre-requisites and components required for the connection. 
 

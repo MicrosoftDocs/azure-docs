@@ -4,21 +4,21 @@ description: View activity and audit history for privileged access group assignm
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
 # Audit activity history for privileged access group assignments (preview) in Privileged Identity Management
 
-With Privileged Identity Management (PIM), you can view activity, activations, and audit history for Azure privileged access group members and owners within your Azure Active Directory (Azure AD) organization.
+With Privileged Identity Management (PIM), you can view activity, activations, and audit history for Azure privileged access group members and owners within your organization in Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 > [!NOTE]
 > If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.

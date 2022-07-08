@@ -44,6 +44,8 @@ For more information on login options via the CLI, see [sign in with Azure CLI](
 > [!NOTE]
 > All the commands below show two usage methods. One using **--hsm-name** and **--name** (for key name) parameters and another using **--id** parameter where you can specify entire url including including key name where appropriate. The latter method is useful when the caller (a user or an application) has no read access on the control plane and only restricted access on the data plane.
 
+> [!NOTE]
+> Some interactions with key material require specific Local RBAC permissions. For a full list of of built-in Local RBAC roles and permissions, see [Managed HSM local RBAC built-in roles](./built-in-roles.md). To assign these permissions to a user, see [Secure access to your managed HSMs](./secure-your-managed-hsm.md)
 ## Create an HSM key
 
 > [!NOTE]
@@ -53,7 +55,7 @@ Use `az keyvault key create` command to create a key.
 
 ### Create an RSA key
 
-The example below shows how to create a 3072-bit **RSA** key that will be only used for **wrapKey, unwrapKey** operations (--ops). 
+The example below shows how to create a 3072-bit **RSA** key that will be only used for **wrapKey, unwrapKey** operations (--ops).
 
 
 ```azurecli-interactive
@@ -173,7 +175,7 @@ az keyvault key purge --hsm-name ContosoHSM --name myrsakey
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
+az keyvault key purge --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
 
 ```
 
@@ -199,12 +201,12 @@ Use `az keyvault key restore` to restore a single key. The source HSM where the 
 > The restore will not succeed if a key with same name exists in active or deleted state.
 
 ```azurecli-interactive
-az keyvault key restore --hsm-name ContosoHSM --name myrsakey --file myrsakey.bakup
+az keyvault key restore --hsm-name ContosoHSM --name myrsakey --file myrsakey.backup
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --file myrsakey.bakup
+az keyvault key restore --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --file myrsakey.backup
 
 ```
 
@@ -221,7 +223,7 @@ az keyvault key import --hsm-name ContosoHSM --name myrsakey --pem-file mycert.k
 az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --pem-file mycert.key --password 'mypassword'
 ```
 
-To import a key from your on-premise HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md)
+To import a key from your on-premises HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md)
 
 ## Next steps
 

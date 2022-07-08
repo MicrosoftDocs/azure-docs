@@ -3,7 +3,7 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/28/2021
+ms.date: 11/01/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -25,9 +25,6 @@ When you create an Automation account, Azure Automation imports some modules by 
 
 When Automation executes runbook and DSC compilation jobs, it loads the modules into sandboxes where the runbooks can run and the DSC configurations can compile. Automation also automatically places any DSC resources in modules on the DSC pull server. Machines can pull the resources when they apply the DSC configurations.
 
->[!NOTE]
->Be sure to import only the modules that your runbooks and DSC configurations require. We don’t recommend importing the root Az module. It includes many other modules that you might not need, which can cause performance problems. Import individual modules, such as Az.Compute, instead.
-
 Cloud sandbox supports a maximum of 48 system calls, and restricts all other calls for security reasons. Other functionality such as credential management and some networking is not supported in the cloud sandbox.
 
 Due to the number of modules and cmdlets included, it's difficult to know beforehand which of the cmdlets will make unsupported calls. Generally, we have seen issues with cmdlets which require elevated access, require a credential as a parameter, or cmdlets related to networking. Any cmdlets that perform full stack network operations are not supported in the sandbox, including [Connect-AipService](/powershell/module/aipservice/connect-aipservice) from the AIPService PowerShell module and [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) from the DNSClient module.
@@ -39,19 +36,28 @@ These are known limitations with the sandbox. The recommended workaround is to d
 
 ## Default modules
 
-The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules.
+All new Automation accounts have the latest version of the PowerShell Az module imported by default. The Az module replaces AzureRM and is the recommended module to use with Azure. **Default modules** in the new Automation account includes the existing 24 AzureRM modules and 60+ Az modules.
 
-The default modules are also known as global modules. In the Azure portal,  the **Global module** property will be **true** when viewing a module that was imported when the account was created.
+There is a native option to update modules to the latest Az module by the user for Automation accounts. The operation will handle all the module dependencies at the backend thereby removing the hassles of updating the modules [manually](../automation-update-azure-modules.md#update-az-modules) or executing the runbook to [update Azure modules](../automation-update-azure-modules.md#update-az-modules-through-runbook).  
+
+If the existing Automation account has only AzureRM modules, the [Update Az modules](../automation-update-azure-modules.md#update-az-modules) option will update the Automation account with the user selected version of the Az module.  
+
+If the existing Automation account has AzureRM and some Az modules, the option will import the remaining Az modules to the Automation account. The existing Az modules will take preference and the update operation will not update those modules. This is to ensure the update module operation doesn't lead to any runbook execution failure by inadvertently updating a module being used by a runbook. The recommended way for this scenario is to first delete the existing Az modules and then perform the update operations to get the latest Az module imported in the Automation account. Such module types, not imported by default, are referred to as **Custom**.  **Custom** modules will always take preference over **default** modules.  
+
+For example: If you already have the `Az.Aks` module imported with version 2.3.0 which is provided by Az module 6.3.0 and you try to update the Az module to the latest 6.4.0 version. The update operation will import all the Az modules from 6.4.0 package, except `Az.Aks`. To have the latest version of `Az.Aks`, first delete the existing module and then perform the update operation, or you can also update this module separately as described in [Import Az modules](#import-az-modules) to import a different version of a specific module.  
+
+The following table lists the modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version.
+
+The default modules are also known as global modules. In the Azure portal, the **Global module** property will be **true** when viewing a module that was imported when the account was created.
 
 ![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
-
-Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrate-to-az-modules).
 
 > [!NOTE]
 > We don't recommend altering modules and runbooks in Automation accounts used for deployment of the [Start/Stop VMs during off-hours](../automation-solution-vm-management.md) feature.
 
 |Module name|Version|
 |---|---|
+|Az.* | See full list under **Package Details** at [PowerShell Gallery](https://www.powershellgallery.com/packages/Az)|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
 | Azure.Storage | 1.0.3 |
@@ -76,10 +82,6 @@ Automation doesn't import the root Az module automatically into any new or exist
 | xDSCDomainjoin | 1.1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
-
-## Az modules
-
-For Az.Automation, the majority of the cmdlets have the same names as those used for the AzureRM modules, except that the `AzureRM` prefix has been changed to `Az`. For a list of Az modules that don't follow this naming convention, see the [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 ## Internal cmdlets
 
@@ -117,8 +119,8 @@ This section tells how to migrate to the Az modules in Automation. For more info
 
 We don't recommend running AzureRM modules and Az modules in the same Automation account. When you're sure you want to migrate from AzureRM to Az, it's best to fully commit to a complete migration. Automation often reuses sandboxes within the Automation account to save on startup times. If you don't make a full module migration, you might start a job that uses only AzureRM modules, and then start another job that uses only Az modules. The sandbox soon crashes, and you receive an error stating that the modules aren’t compatible. This situation results in randomly occurring crashes for any particular runbook or configuration.
 
->[!NOTE]
->When you create a new Automation account, even after migration to Az modules, Automation installs the AzureRM modules by default. You can still update the tutorial runbooks with the AzureRM cmdlets. However, you shouldn't run these runbooks.
+> [!NOTE]
+> When you create a new Automation account, even after migration to Az modules, Automation will still install the AzureRM modules by default.
 
 ### Test your runbooks and DSC configurations prior to module migration
 
@@ -143,21 +145,31 @@ Importing an Az module into your Automation account doesn't automatically import
 * When a runbook imports the module explicitly with the [using module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) statement. The using statement is supported starting with Windows PowerShell 5.0 and supports classes and enum type import.
 * When a runbook imports another dependent module.
 
-You can import the Az modules into the Automation account from the Azure portal. Remember to import only the Az modules that you need, not every Az module that's available. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
+You can import the Az modules into the Automation account from the Azure portal. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
+
+> [!NOTE]
+>  With the introduction of **PowerShell 7.1 (preview)** support, the **Browse gallery** option has been updated with the following changes:
+
+-  **Browse gallery** is available on  **Process Automation** > **Modules** blade. 
+-  The **Modules** page displays two new columns - **Module version** and **Runtime version**
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Search for and select **Automation Accounts**.
 1. On the **Automation Accounts** page, select your Automation account from the list.
 1. From your Automation account, under **Shared Resources**, select **Modules**.
-1. Select **Browse Gallery**.  
-1. In the search bar, enter the module name (for example, `Az.Accounts`).
-1. On the PowerShell Module page, select **Import** to import the module into your Automation account.
+1. Select **Add a module**. In the **Add a module** page, you can select either of the following options:
+      1. **Browse for file** - selects a file from your local machine.
+      1. **Browse from Gallery** - you can browse and select an existing module from gallery.
+1. Click **Select** to select a module.
+1. Select **Runtime version** and click **Import**.
 
-    ![Screenshot of importing modules into your Automation account](../media/modules/import-module.png)
+      :::image type="content" source="../media/modules/import-module.png" alt-text="Screenshot of importing modules into your Automation account.":::
+
+1. On the **Modules** page, you can view the imported module under the Automation account.
 
 You can also do this import through the [PowerShell Gallery](https://www.powershellgallery.com), by searching for the module to import. When you find the module, select it, and choose the **Azure Automation** tab. Select **Deploy to Azure Automation**.
 
-![Screenshot of importing modules directly from PowerShell Gallery](../media/modules/import-gallery.png)
+:::image type="content" source="../media/modules/import-gallery.png" alt-text="Screenshot of importing modules directly from PowerShell Gallery.":::
 
 ### Test your runbooks
 

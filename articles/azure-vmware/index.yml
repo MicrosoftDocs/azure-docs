@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure VMware Solution documentation
-summary: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
+summary: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure
 
 metadata:
   title: Azure VMware Solution documentation 
-  description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
+  description: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
-  author: shortpatti 
-  ms.author: v-patsho 
-  ms.date: 08/02/2021 
+  author: suzizuber
+  ms.author: v-szuber 
+  ms.date: 04/22/2022 
 
 
 # card 1
@@ -23,48 +23,28 @@ landingContent:
             url: introduction.md
           - text: Platform updates
             url: azure-vmware-solution-platform-updates.md
+          - text: FAQ
+            url: ./faq.yml
       - linkListType: concept
         links:
-          - text: Private cloud and clusters
-            url: concepts-private-clouds-clusters.md
-          - text: Networking and interconnectivity
-            url: concepts-networking.md
-          - text: Storage 
-            url: concepts-storage.md
-          - text: Access and identity 
+          - text: Access and identity
             url: concepts-identity.md
-          - text: Monitor and protection
-            url: concepts-monitor-protection.md
           - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
-
-# card 2
-  - title: FAQ
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: General
-          url: /azure/azure-vmware/faq
-        - text: Customer communication
-          url: /azure/azure-vmware/faq#customer-communication
-        - text: Configuration and setup 
-          url: /azure/azure-vmware/faq#configuration-and-setup
-        - text: VMware software 
-          url: /azure/azure-vmware/faq#vmware-software
-        - text: Compute
-          url: /azure/azure-vmware/faq#compute
-        - text: Networking and interconnectivity
-          url: /azure/azure-vmware/faq#networking-and-interconnectivity
-        - text: Storage
-          url: /azure/azure-vmware/faq#storage
-        - text: Hosts, clusters, and private clouds
-          url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
-        - text: Identity management
-          url: /azure/azure-vmware/faq#identity-management
-        - text: Billing and support
-          url: /azure/azure-vmware/faq#billing-and-support
+          - text: Internet connectivity design considerations
+            url: concepts-design-public-internet-access.md
+          - text: Network design considerations
+            url: concepts-network-design-considerations.md
+          - text: Networking and interconnectivity
+            url: concepts-networking.md
+          - text: Private clouds and clusters
+            url: concepts-private-clouds-clusters.md
+          - text: Run command
+            url: concepts-run-command.md
+          - text: Storage
+            url: concepts-storage.md
 
 # card 3
   - title: Get started
@@ -83,28 +63,54 @@ landingContent:
           url: configure-vmware-hcx.md
       - linkListType: tutorial
         links:
-          - text: Network planning checklist 
-            url: tutorial-network-checklist.md
-          - text: Create a private cloud
-            url: tutorial-create-private-cloud.md
-          - text: Access a private cloud 
-            url: tutorial-access-private-cloud.md
-          - text: Configure networking
-            url: tutorial-configure-networking.md
-          - text: Create a network segment 
-            url: tutorial-nsx-t-network-segment.md
-          - text: Expand or shrink clusters in a private cloud 
-            url: tutorial-scale-private-cloud.md
-          - text: Delete a private cloud
-            url: tutorial-delete-private-cloud.md
+        - text: 1 - Network planning checklist
+          url: tutorial-network-checklist.md
+        - text: 2 - Create a private cloud
+          url: tutorial-create-private-cloud.md
+        - text: 3 - Access a private cloud
+          url: tutorial-access-private-cloud.md
+        - text: 4 - Configure networking
+          url: tutorial-configure-networking.md
+        - text: 5 - Create an NSX-T network segment
+          url: tutorial-nsx-t-network-segment.md
+        - text: 6 - Peer on-premises to private cloud
+          url: tutorial-expressroute-global-reach-private-cloud.md
+        - text: 7 - Scale in a private cloud
+          url: tutorial-scale-private-cloud.md
+        - text: 8 - Delete a private cloud
+          url: tutorial-delete-private-cloud.md     
+
+# card 2
+  - title: Enterprise-Scale for Azure VMware Solution
+    linkLists:
+      - linkListType: architecture
+        links:
+        - text: Enterprise-Scale for Azure VMware Solution
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
+        - text: Identity and access management
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-identity-and-access-management
+        - text: Network topology and connectivity
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
+        - text: Management and monitoring
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
+        - text: Enterprise-scale business continuity and disaster recovery
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
+        - text: Enterprise-scale security, governance, and compliance
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
+        - text: Platform automation and DevOps
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
+        - text: Enterprise-Scale for Azure VMware Solution automation
+          url: https://github.com/Azure/Enterprise-Scale-for-AVS
 
 # card 12
   - title: Identity management
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: Access and identity for private clouds
+        - text: Access and identity
           url: concepts-identity.md
+        - text: Configure identity source for vCenter
+          url: configure-identity-source-vcenter.md
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
 
@@ -130,8 +136,6 @@ landingContent:
             url: configure-dns-azure-vmware-solution.md
           - text: Configure port mirroring 
             url: configure-port-mirroring-azure-vmware-solution.md
-          - text: Configure GitHub Enterprise Server
-            url: ./configure-github-enterprise-server.md
           - text: Enable public internet access
             url: enable-public-internet-access.md
           - text: Configure a site-to-site VPN in vWAN
@@ -139,7 +143,11 @@ landingContent:
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
           - text: Connect multiple private clouds in same region 
-            url: connect-multiple-private-clouds-same-region.md            
+            url: connect-multiple-private-clouds-same-region.md  
+          - text: Configure storage policies
+            url: configure-storage-policy.md
+          - text: Create placement policy 
+            url: create-placement-policy.md          
 
 # card 5
   - title: Azure native integration
@@ -148,10 +156,8 @@ landingContent:
         links:
           - text: Protect, monitor, and manage VMs
             url: integrate-azure-native-services.md
-          - text: Integrate Azure Security Center
+          - text: Integrate Microsoft Defender for Cloud
             url: azure-security-integration.md
-          - text: Integrate Azure NetApp Files
-            url: netapp-files-with-azure-vmware-solution.md
           - text: Protect web apps with Azure Application Gateway
             url: protect-azure-vmware-solution-with-application-gateway.md
           - text: Deploy Traffic Manager to balance workloads
@@ -160,6 +166,10 @@ landingContent:
             url: configure-alerts-for-azure-vmware-solution.md
           - text: Attach disk pools to Azure VMware Solution hosts
             url: attach-disk-pools-to-azure-vmware-solution-hosts.md
+          - text: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
+            url: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
+          - text: Attach Azure NetApp Files to Azure VMware Solution VMs
+            url: netapp-files-with-azure-vmware-solution.md
 
 # card 6 == backup and restore
   - title: Backup with Azure Backup Server
@@ -170,12 +180,24 @@ landingContent:
           url: set-up-backup-server-for-azure-vmware-solution.md
         - text: Back up private cloud VMs with Backup Server
           url: backup-azure-vmware-solution-virtual-machines.md
+      - linkListType: deploy
+        links:
+        - text: Deploy JetStream DR
+          url: deploy-disaster-recovery-using-jetstream.md
+        - text: Deploy VMware HCX for disaster recovery
+          url: deploy-disaster-recovery-using-vmware-hcx.md
+        - text: Deploy VMware SRM for disaster recovery
+          url: disaster-recovery-using-vmware-site-recovery-manager.md          
 
 # card 7
   - title: VMware solutions
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Configure HCX network extension
+            url: configure-hcx-network-extension.md
+          - text: Configure HCX network extension high availability
+            url: configure-hcx-network-extension-high-availability.md
           - text: Configure vRealize Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
@@ -190,14 +212,22 @@ landingContent:
             url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html           
 
 # card 8
-  - title: VMware ecosystem
+  - title: Partner solutions ecosystem
     linkLists:
       - linkListType: reference
         links:
+          - text: Operating system support for VMs
+            url: ecosystem-os-vms.md
           - text: Backup solutions for VMs
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs
             url: ecosystem-migration-vms.md
+          - text: Security solutions for Azure VMware Solution
+            url: ecosystem-security-solutions.md
+          - text: Application performance monitoring and troubleshooting solutions
+            url: ecosystem-app-monitoring-solutions.md
+          - text: Bitnami appliance deployment
+            url: bitnami-appliances-deployment.md
 
 # card 9
   - title: Resources
@@ -210,8 +240,12 @@ landingContent:
             url: /cli/azure/vmware
           - text: Azure PowerShell
             url: /powershell/module/az.vmware
+          - text: Resource Manager template
+            url: /azure/templates/microsoft.avs/privateclouds
           - text: Terraform Azure provider
             url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
+          - text: Enterprise-Scale for Azure VMware Solution automation
+            url: https://github.com/Azure/Enterprise-Scale-for-AVS
       - linkListType: video
         links:
           - text: Playlist
@@ -222,8 +256,7 @@ landingContent:
             url: https://youtu.be/BoQYvqzb6Y8
           - text: Migration and capacity planning
             url: https://youtu.be/NoNG-hkksrA
-          - text: Rotate vCenter & NSX-T passwords using Azure Logic App
-            url: https://youtu.be/cK1qY3knj88
+
                             
 # Move resources (card 10)
   - title: Move Azure VMware Solution resources

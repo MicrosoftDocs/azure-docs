@@ -3,12 +3,12 @@ title: Add or edit Azure role assignment conditions using the Azure portal (prev
 description: Learn how to add, edit, view, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 05/16/2022
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -45,9 +45,9 @@ There are two ways that you can add a condition. You can add a condition when yo
 
 1. Follow the steps to [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
-1. On the **Condition** tab, click **Add condition**.
+1. On the **Conditions (optional)** tab, click **Add condition**.
 
-    If you don't see the Condition tab, be sure you selected a role that supports conditions.
+    If you don't see the Conditions (optional) tab, be sure you selected a role that supports conditions.
 
    ![Screenshot of Add role assignment page with Add condition tab for preview experience.](./media/shared/condition.png)
 
@@ -107,20 +107,30 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     The Expressions section expands.
 
-1. In the Attribute source list, select where the attribute can be found.
+1. In the **Attribute source** list, select where the attribute can be found.
 
     - **Resource** indicates that the attribute is on the resource, such as container name.
     - **Request** indicates that the attribute is part of the action request, such as setting the blob index tag.
+    - **Principal** indicates that the attribute is an Azure AD custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.
 
-1. In the Attribute list, select an attribute for the left side of the expression. For more information, see [Azure role assignment condition format and syntax](conditions-format.md#attributes).
+1. In the **Attribute** list, select an attribute for the left side of the expression.
 
-    Depending on the attribute you select, boxes might be added to specify additional attribute details.
+    Depending on the attribute you select, boxes might be added to specify additional attribute details. For more information, see [Attributes](conditions-format.md#attributes).
 
-1. In the Operator list, select an operator.
+1. In the **Operator** list, select an operator.
 
-1. In the Value box, enter a value for the right side of the expression.
+    For more information, see [Azure role assignment condition format and syntax](conditions-format.md).
+
+1. In the **Value** box, enter a value for the right side of the expression.
 
     ![Build expression section with values for blob index tags.](./media/shared/condition-expressions.png)
+
+1. Add additional expressions as needed.
+
+    If you add three or more expressions, you might need to group them with parentheses. Add check marks next to the expressions you want to group and then click **Group**. To remove grouping, click **Ungroup**. 
+
+    ![Build expression section with multiple expressions to group.](./media/conditions-role-assignments-portal/condition-group.png)
+
 
 ## Step 6: Review and add condition
 

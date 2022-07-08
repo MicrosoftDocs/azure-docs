@@ -296,7 +296,7 @@ If you want to upgrade with a hotfix, use the following script, which will upgra
 
 #### Use the bash file from the Azure portal
 
-1. Launch the [Azure portal](https://ms.portal.azure.com), and then select your cluster.
+1. Launch the [Azure portal](https://portal.azure.com), and then select your cluster.
 2. Complete a [script action](../hdinsight-hadoop-customize-cluster-linux.md) with the following parameters.
 
     |Property |Value |

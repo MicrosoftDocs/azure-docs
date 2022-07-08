@@ -1,18 +1,18 @@
 ---
-title: How to plan a consulting service offer for the Microsoft commercial marketplace 
-description: How to plan a new consulting service offer for Microsoft AppSource or Azure Marketplace using the commercial marketplace program in Microsoft Partner Center.
+title: Plan a consulting service offer for the commercial marketplace 
+description: Plan a consulting service offer for Microsoft AppSource or Azure Marketplace in Partner Center.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 06/29/2022
 ---
 
-# How to plan a consulting service offer in the commercial marketplace
+# Plan a consulting service offer
 
-This article introduces the different options and requirements for publishing consulting service offers to the Microsoft commercial marketplace. Read this article to prepare your offer for publishing with Partner Center.
+This article introduces the different options and requirements for publishing a consulting service offer to the commercial marketplace. Read this article to prepare your offer for publishing using Partner Center.
 
 ## What’s a consulting service?
 
@@ -85,13 +85,13 @@ The commercial marketplace supports five types of consulting service:
 * **Proof of concept**: a limited-scope implementation to determine whether a solution meets the customer’s requirements.
 * **Workshop**: an interactive engagement conducted on the customer’s premises. It can involve training, briefings, assessments, or demos built on the customer’s data or environment.
 
-Your service should have a fixed and predetermined duration of up to 10 weeks. The service duration must be made explicit in the offer listing.
+Your service should have a predetermined duration of up to 12 months. The service duration must be explicitly defined in the offer listing.
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports different kinds of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
 
-You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Offer listing details
 
@@ -110,7 +110,7 @@ When you create your consulting service offer in Partner Center, you’ll enter 
 7. Offer name
 8. Search result summary
 9. Description
-10. Screenshots/videos
+10. Promotional media
 11. Supporting documents
 
 > [!NOTE]
@@ -118,14 +118,13 @@ When you create your consulting service offer in Partner Center, you’ll enter 
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
-**Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 50 characters. The name must include the duration and service type of the offer to maximize search engine optimization (SEO). The required format is *Name: Duration + type*. Don’t include your company name unless it’s also the product name. Here are some examples:
+**Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 200 characters. The name must include the duration and service type of the offer to maximize search engine optimization (SEO). The required format is *Name: Duration + type*. Don’t include your company name unless it’s also the product name. Here are some examples:
 
 |Don't say |Say |
 |---|---|
 |Getting Started with Azure IoT in Manufacturing |Manufacturing IoT: 2-Day Assessment |
 |Workshop on Smart Toasters |Smart Toasters: 1-Week Workshop |
 |SQL Server Migration PoC by Contoso |SQL Migration: 3-Wk Proof of Concept |
-| | |
 
 **Search results summary**: Describe the purpose or goal of your offer in 200 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
@@ -140,7 +139,6 @@ When writing the description, follow these criteria, according to your service t
 |Implementation |Include a detailed agenda for implementations longer than a day, and describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Proof of concept |Describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Workshop |Include a detailed daily, weekly, or monthly agenda depending on the duration of your offer. Articulate the learning goals or other deliverables of your workshop. |
-| | |
 
 Here are some tips for writing your description:
 
@@ -151,11 +149,11 @@ Here are some tips for writing your description:
 * If the price of your offer is estimated, explain what variables will determine the final price.
 * Use industry-specific vocabulary.
 
-You can use HTML tags to format your description. You can enter up to 2,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](./supported-html-tags.md).
+You can use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](./supported-html-tags.md).
 
 **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**.
 
-**Duration**: your consulting service offer must have a predetermined duration of up to 10 weeks.
+**Duration**: your consulting service offer must have a predetermined duration of up to 12 months.
 
 **Contact information**: in Partner Center, you’ll be asked to provide name, email address, and phone number of two people in your company (you can be one of the two contacts). We'll use this information to communicate with you about your offer. This information isn’t shown to customers but may be provided to Cloud Solution Provider (CSP) partners.
 
@@ -163,8 +161,8 @@ You can use HTML tags to format your description. You can enter up to 2,000 char
 
 **Marketplace media – logos**: Provide a PNG file for the large-size logo. Partner Center will use it to create a small logo. You can optionally replace the small logo with a different image later.
 
-* Large (from 216 x 216 to 350 x 350 px, required)
-* Small (48 x 48 px, optional)
+* Large (from 216x216 to 350x350 pixels, required)
+* Small (48x48 pixels, optional)
 
 The large logo appears on your offer listing page in Azure Marketplace or AppSource. The small logo appears in Azure Marketplace search results or on the AppSource main page and search results page.
 
@@ -175,14 +173,13 @@ Follow these guidelines for your logos:
 * If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
 * Avoid gradients in the logo or background. Don't place text on the logo, not even your company or brand name.
 
-**Marketplace media – screenshots**: Add at least one and up to five images that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
+**Marketplace media – promotional images**: Add at least one and up to five images that highlight your service’s value proposition, differentiation, and customer success. This could include snapshots from a slide deck, fact sheet, case study, or marketing one-pager summarizing your service. All images must be 1280x720 pixels in size and in PNG format.
 
-**Marketplace media – videos** (optional): you can add up to four videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280 x 720 PNG file).
+**Marketplace media – videos** (optional): you can add up to four videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280x720 pixel PNG file).
 
 ## Pricing and availability
 
 Your consulting service offer can be made available in one or more countries or regions. In Partner Center, you can decide the price for each market you select. For the complete list of supported markets and currencies, see [Geographic availability and currency support for the commercial marketplace](./marketplace-geo-availability-currencies.md).
-
 
 ## Next steps
 

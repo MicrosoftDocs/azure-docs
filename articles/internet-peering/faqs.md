@@ -3,11 +3,11 @@ title: Internet peering - FAQs
 titleSuffix: Azure
 description: Internet peering - FAQs
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: reference
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: halkazwini
 ---
 
 # Internet peering - FAQs
@@ -24,7 +24,7 @@ Peering connection set up using Azure PowerShell is managed as an Azure resource
 
 **When New-AzPeeringDirectConnectionObject is called, what IP addresses are given to Microsoft and Peer devices?**
 
-When calling New-AzPeeringDirectConnectionObject cmdlet, a /31 address (a.b.c.d/31) or a /30 address (a.b.c.d/30) is entered. The first IP address (a.b.c.d+0) is given to Peer's device and second IP address (a.b.c.d+1) is given to Microsoft device.
+When calling New-AzPeeringDirectConnectionObject cmdlet, a `/31` address (`a.b.c.d/31`) or a `/30` address (`a.b.c.d/30`) is entered. The first IP address (`a.b.c.d+0`) is given to Peer's device and second IP address (`a.b.c.d+1`) is given to Microsoft device.
 
 **What is MaxPrefixesAdvertisedIPv4 and MaxPrefixesAdvertisedIPv6 parameters in New-AzPeeringDirectConnectionObject cmdlet?**
 

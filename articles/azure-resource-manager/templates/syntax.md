@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 12/01/2021
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -10,6 +10,11 @@ ms.date: 06/22/2021
 This article describes the structure of an Azure Resource Manager template (ARM template). It presents the different sections of a template and the properties that are available in those sections.
 
 This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
+
+> [!TIP]
+> Bicep is a new language that offers the same capabilities as ARM templates but with a syntax that's easier to use. If you're considering infrastructure as code options, we recommend looking at Bicep.
+>
+> To learn about the elements of a Bicep file, see [Understand the structure and syntax of Bicep files](../bicep/file.md).
 
 ## Template format
 
@@ -78,6 +83,8 @@ The available properties for a parameter are:
 
 For examples of how to use parameters, see [Parameters in ARM templates](./parameters.md).
 
+In Bicep, see [parameters](../bicep/file.md#parameters).
+
 ## Variables
 
 In the `variables` section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](data-types.md).
@@ -112,6 +119,8 @@ The following example shows the available options for defining a variable:
 For information about using `copy` to create several values for a variable, see [Variable iteration](copy-variables.md).
 
 For examples of how to use variables, see [Variables in ARM template](./variables.md).
+
+In Bicep, see [variables](../bicep/file.md#variables).
 
 ## Functions
 
@@ -158,6 +167,8 @@ When defining a user function, there are some restrictions:
 
 For examples of how to use custom functions, see [User-defined functions in ARM template](./user-defined-functions.md).
 
+In Bicep, user-defined functions aren't supported. Bicep does support a variety of [functions](../bicep/bicep-functions.md) and [operators](../bicep/operators.md).
+
 ## Resources
 
 In the `resources` section, you define the resources that are deployed or updated.
@@ -179,6 +190,12 @@ You define resources with the following structure:
       "tags": {
           "<tag-name1>": "<tag-value1>",
           "<tag-name2>": "<tag-value2>"
+      },
+      "identity": {
+        "type": "<system-assigned-or-user-assigned-identity>",
+        "userAssignedIdentities": {
+          "<resource-id-of-identity>": {}
+        }
       },
       "sku": {
           "name": "<sku-name>",
@@ -229,6 +246,7 @@ You define resources with the following structure:
 | location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. See [Set resource location](resource-location.md). |
 | dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources aren't dependent on each other, they're deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that aren't defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Define the order for deploying resources in ARM templates](./resource-dependency.md). |
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
+| identity | No | Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration. You can set whether the identity is user-assigned or system-assigned. For user-assigned identities, provide a list of resource IDs for the identities. Set the key to the resource ID and the value to an empty object. For more information, see [Configure managed identities for Azure resources on an Azure VM using templates](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md). |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
 | scope | No | The scope property is only available for [extension resource types](../management/extension-resource-types.md). Use it when specifying a scope that is different than the deployment scope. See [Setting scope for extension resources in ARM templates](scope-extension-resources.md). |
@@ -236,6 +254,8 @@ You define resources with the following structure:
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
+
+In Bicep, see [resources](../bicep/file.md#resources).
 
 ## Outputs
 
@@ -267,6 +287,8 @@ The following example shows the structure of an output definition:
 
 For examples of how to use outputs, see [Outputs in ARM template](./outputs.md).
 
+In Bicep, see [outputs](../bicep/file.md#outputs).
+
 <a id="comments"></a>
 
 ## Comments and metadata
@@ -296,6 +318,8 @@ For inline comments, you can use either `//` or `/* ... */`.
 In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect an ARM template and change the language mode. If you see **Azure Resource Manager Template** at the bottom-right corner of Visual Studio Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
 ![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
+
+In Bicep, see [comments](../bicep/file.md#comments).
 
 ### Metadata
 
@@ -396,6 +420,8 @@ You can break a string into multiple lines. For example, see the `location` prop
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
+
+In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
 
 ## Next steps
 

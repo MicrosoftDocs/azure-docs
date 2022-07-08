@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure File Sync | Microsoft Docs
 description: Review how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.author: rogarana
+ms.date: 01/3/2022
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -39,17 +39,17 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 | Metric name | Description |
 |-|-|
-| Bytes synced | Size of data transferred (upload and download).<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Bytes synced | Size of data transferred (upload and download).<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Cloud tiering cache hit rate | Percentage of bytes, not whole files, that have been served from the cache vs. recalled from the cloud.<br><br>Unit: Percentage<br>Aggregation Type: Average<br>Applicable dimensions: Server Endpoint Name, Server Name, Sync Group Name |
-| Cloud tiering recall size | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Name, Sync Group Name |
-| Cloud tiering recall size by application | Size of data recalled by application.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Application Name, Server Name, Sync Group Name |
+| Cloud tiering recall size | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Server Name, Sync Group Name |
+| Cloud tiering recall size by application | Size of data recalled by application.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Application Name, Server Name, Sync Group Name |
 | Cloud tiering recall success rate | Percentage of recall requests that were successful.<br><br>Unit: Percentage<br>Aggregation Type: Average<br>Applicable dimensions: Server Endpoint Name, Server Name, Sync Group Name |
-| Cloud tiering recall throughput | Size of data recall throughput.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Name, Sync Group Name |
-| Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Types: Average, Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Files synced | Count of files transferred (upload and download).<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Server cache size | Size of data cached on the server.<br><br>Unit: Bytes<br>Aggregation Type: Average<br>Applicable dimension: Server Endpoint Name, Server Name, Sync Group Name |
-| Server online status | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
-| Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Cloud tiering recall throughput | Size of data recall throughput.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum, Maximum, Minimum<br>Applicable dimensions: Server Name, Sync Group Name |
+| Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Types: Average<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Files synced | Count of files transferred (upload and download).<br><br>Unit: Count<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Server cache size | Size of data cached on the server.<br><br>Unit: Bytes<br>Aggregation Type: Average, Maximum, Minimum<br>Applicable dimension: Server Endpoint Name, Server Name, Sync Group Name |
+| Server online status | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Average, Count, Sum, Maximum, Minimum<br>Applicable dimension: Server Name |
+| Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Average, Count, Sum, Maximum, Minimum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 
 ### Alerts
 
@@ -66,6 +66,9 @@ Alerts proactively notify you when important conditions are found in your monito
 4. Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 5. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
 6. Click **Create alert rule** to create the alert.  
+
+  > [!Note]  
+  > If you configure an alert using the Server Name dimension and the server is renamed, the alert will need to be updated to monitor the new server name.
 
 The following table lists some example scenarios to monitor and the proper metric to use for the alert:
 
@@ -145,7 +148,7 @@ Sync health
 
 - Event ID 9121 is logged for each per-item error once the sync session completes. Use this event to determine the number of files that are failing to sync with this error (**PersistentCount** and **TransientCount**). Persistent per-item errors should be investigated, see [How do I see if there are specific files or folders that are not syncing?](file-sync-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- Event ID 9302 is logged every 5 to 10 minutes if there’s an active sync session. Use this event to determine how many items are to be synced (**TotalItemCount**), number of items that have synced so far (**AppliedItemCount**) and number of items that have failed to sync due to a per-item error (**PerItemErrorCount**). If sync is not making progress (**AppliedItemCount=0**), the sync session will eventually fail and an Event ID 9102 will be logged with the error. For more information, see the [sync progress documentation](file-sync-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Event ID 9302 is logged every 5 to 10 minutes if there's an active sync session. Use this event to determine how many items are to be synced (**TotalItemCount**), number of items that have synced so far (**AppliedItemCount**) and number of items that have failed to sync due to a per-item error (**PerItemErrorCount**). If sync is not making progress (**AppliedItemCount=0**), the sync session will eventually fail and an Event ID 9102 will be logged with the error. For more information, see the [sync progress documentation](file-sync-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Registered server health
 

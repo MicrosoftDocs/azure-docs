@@ -1,22 +1,20 @@
 ---
 title: Configure server parameters - Azure CLI - Azure Database for MySQL Flexible Server
 description: This article describes how to configure the service parameters in Azure Database for MySQL flexible server using the Azure CLI command line utility.
-author: savjani
-ms.author: pariks
 ms.service: mysql
-ms.devlang: azurecli
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 11/10/2020 
-ms.custom: devx-track-azurecli
+author: code-sidd
+ms.author: sisawant
+ms.devlang: azurecli
+ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.date: 11/10/2020
 ---
 # Configure server parameters in Azure Database for MySQL Flexible Server using the Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
-
-You can list, show, and update parameters for an Azure Database for MySQL flexible server by using Azure CLI, the Azure command-line utility. The server parameters are configured with the default and recommended value when you create the server.  
+You can list, show, and update parameters for an Azure Database for MySQL flexible server by using Azure CLI, the Azure command-line utility. The server parameters are configured with the default and recommended value when you create the server.
 
 This article describes how to list, show, and update server parameters by using the Azure CLI.
 
@@ -49,8 +47,7 @@ This example shows details of the **slow\_query\_log** server parameter for serv
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## Modify a server parameter value
-
-You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) command. 
+You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) command.
 
 To update the **slow\_query\_log** server parameter of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
@@ -60,7 +57,7 @@ If you want to reset the value of a parameter, omit the optional `--value` param
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
-This code resets the **slow\_query\_log** to the default value **OFF**. 
+This code resets the **slow\_query\_log** to the default value **OFF**.
 
 ## Setting non-modifiable server parameters
 
@@ -107,7 +104,7 @@ az mysql flexible-server parameter set --name time_zone --resource-group myresou
 
 ### Setting the session level time zone
 
-The session level time zone can be set by running the `SET time_zone` command from a tool like the MySQL command line or MySQL Workbench. The example below sets the time zone to the **US/Pacific** time zone.  
+The session level time zone can be set by running the `SET time_zone` command from a tool like the MySQL command line or MySQL Workbench. The example below sets the time zone to the **US/Pacific** time zone.
 
 ```sql
 SET time_zone = 'US/Pacific';

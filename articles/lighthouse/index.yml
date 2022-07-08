@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Lighthouse documentation
-summary: Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants.
+summary: Azure Lighthouse enables multi-tenant management with enhanced automation, scalability, and governance across resources and tenants.
 
 metadata:
   title: Azure Lighthouse Documentation
-  description: Azure Lighthouse lets service providers manage Azure resources across all their customers with higher automation, scalability, and enhanced governance.
+  description: Azure Lighthouse lets service providers manage Azure resources in multiple customer tenants, with enhanced automation, scalability, and governance.
   ms.service: lighthouse
   ms.topic: landing-page
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/07/2021
+  ms.date: 06/20/2022
   
 landingContent:
   - title: About Azure Lighthouse
@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage Azure Sentinel workspaces
+          - text: Manage Microsoft Sentinel workspaces
             url: ./how-to/manage-sentinel-workspaces.md
           - text: Use Azure Monitor Logs
             url: ./how-to/monitor-at-scale.md
@@ -111,7 +111,7 @@ landingContent:
           - text: Python
             url: /python/api/azure-mgmt-managedservices
           - text: Terraform
-            url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+            url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lighthouse_assignment
           - text: Ansible
             url: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
   
@@ -119,8 +119,8 @@ landingContent:
     linkLists:
       - linkListType: download
         links:
-          - text: OpenAPI - 2019-06-01
-            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+          - text: OpenAPI - 2019-09-01
+            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-09-01
           - text: SDK for .NET - NuGet
             url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
           - text: SDK for Python - PyPi
@@ -133,4 +133,4 @@ landingContent:
           - text: Microsoft Q&A for Azure Lighthouse
             url: /answers/topics/azure-lighthouse.html
           - text: Request product features
-            url: https://feedback.azure.com/forums/922753
+            url: https://feedback.azure.com/d365community/forum/cd8dfdcb-f824-ec11-b6e6-000d3a4f0da0

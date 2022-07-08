@@ -7,6 +7,7 @@ metadata:
   title: Azure Monitor documentation
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
   ms.topic: landing-page
+  ms.service: azure-monitor
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
@@ -23,12 +24,12 @@ landingContent:
         links:
           - text: What is Azure Monitor?
             url: overview.md
+          - text: What can you Monitor?
+            url: monitor-reference.md  
           - text: What is Azure Monitor Logs / Log Analytics?
             url: ./logs/data-platform-logs.md
           - text: What is Application Insights?
             url: app/app-insights-overview.md
-          - text: Application Insights content hub page
-            url: azure-monitor-app-hub.yml
 
   # Card 
   - title: About monitoring data   
@@ -49,12 +50,6 @@ landingContent:
             url: alerts/alerts-metric.md
           - text: Analyze logs
             url: ./logs/log-analytics-tutorial.md
-          - text: Azure VMs in Log Analytics
-            url: ./vm/quick-collect-azurevm.md
-          - text: Linux VMs in Log Analytics
-            url: ./vm/quick-collect-linux-computer.md
-          - text: Windows VMs in Log Analytics
-            url: ./vm/quick-collect-windows-computer.md
           - text: Alert on Subscription events
             url: ./alerts/alerts-activity-log.md
 

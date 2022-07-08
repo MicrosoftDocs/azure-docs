@@ -1,8 +1,38 @@
 {
   "redirections": [
     {
-      "source_path": "how-to-create-app-registration.md",
-      "redirect_url": "/azure/digital-twins/how-to-create-app-registration-portal",
+      "source_path": "how-to-create-app-registration-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-app-registration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-create-app-registration-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-app-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-set-up-instance-powershell.md",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "troubleshoot-alerts.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor-alerts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "troubleshoot-diagnostics.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor-diagnostics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "troubleshoot-metrics.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor-metrics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "troubleshoot-resource-health.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor-resource-health",
       "redirect_document_id": true
     },
     {
@@ -108,6 +138,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "how-to-set-up-instance-scripted.md",
+      "redirect_url": "https://github.com/Azure-Samples/digital-twins-samples/tree/master/scripts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-configure-postman.md",
       "redirect_url": "/azure/digital-twins/how-to-use-postman",
       "redirect_document_id": true
@@ -115,6 +150,11 @@
     {
       "source_path": "about-digital-twins.md",
       "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-create-azure-function.md",
+      "redirect_url": "/azure/digital-twins/how-to-send-twin-to-twin-events",
       "redirect_document_id": true
     },
     {

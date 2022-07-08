@@ -15,3 +15,6 @@
      - name: Reference
        tocHref: /WindowsServerDocs/remote/remote-desktop-services/virtual-machine-recs
        topicHref: /azure/virtual-desktop/index
+     - name: Troubleshoot
+       tocHref: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds
+       topicHref: /azure/virtual-desktop/index

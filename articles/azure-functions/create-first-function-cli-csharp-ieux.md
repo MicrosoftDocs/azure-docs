@@ -1,9 +1,10 @@
 ---
-title: Create a C# function from the command line - Azure Functions
-description: Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions.
+title: "Create a C# function from the command line - Azure Functions"
+description: "Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions."
 ms.date: 10/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell]
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -35,7 +36,7 @@ There is also a [Visual Studio Code-based version](create-first-function-vs-code
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
 ---
 
@@ -57,7 +58,7 @@ Verify your prerequisites, which depend on whether you are using the Azure CLI o
 
 +**Run** `func --version` to check that the Azure Functions Core Tools are version 3.x.
 
-+ **Run** `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
++ **Run** `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
 
 + **Run** `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 
@@ -69,7 +70,7 @@ Verify your prerequisites, which depend on whether you are using the Azure CLI o
 
 In this section, you create a local <abbr title="A logical container for one or more individual functions that can be deployed and managed together.">Azure Functions project</abbr> in C#. Each function in the project responds to a specific <abbr title="An event that invokes the function’s code, such as an HTTP request, a queue message, or a specific time.">trigger</abbr>.
 
-1. Run the `func init` command to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
+1. Run the `func init` command to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ```csharp
     func init LocalFunctionProj --dotnet
@@ -83,24 +84,24 @@ In this section, you create a local <abbr title="A logical container for one or 
     <br/>
 
 1. Add a function to your project by using the following command:
-    
+
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ``` 
+    ```
     The `--name` argument is the unique name of your function (HttpExample).
 
     The `--template` argument specifies the function's trigger (HTTP).
 
-    
-    <br/>   
-    <details>  
-    <summary><strong>Optional: Code for HttpExample.cs</strong></summary>  
-    
+
+    <br/>
+    <details>
+    <summary><strong>Optional: Code for HttpExample.cs</strong></summary>
+
     *HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior.
 
     :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
-        
-    The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) that returns a response message as either an [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) or a [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=csharp).  
+
+    The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) that returns a response message as either an [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) or a [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=csharp).
     </details>
 
 <br/>
@@ -115,7 +116,7 @@ In this section, you create a local <abbr title="A logical container for one or 
     func start
     ```
 
-    Toward the end of the output, the following lines should appear: 
+    Toward the end of the output, the following lines should appear:
 
     <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     ...
@@ -147,7 +148,7 @@ In this section, you create a local <abbr title="A logical container for one or 
 <br/>
 
 ---
-    
+
 ## 5. Create supporting Azure resources for your function
 
 Before you can deploy your function code to Azure, you need to create a <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>, a <abbr title="An account that contains all your Azure storage data objects. The storage account provides a unique namespace for your storage data.">storage account</abbr>, and a <abbr title="The cloud resource that hosts serverless functions in Azure, which provides the underlying compute environment in which functions run.">function app</abbr> by using the following commands:
@@ -160,7 +161,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     ```
 
 
-    # [Azure PowerShell](#tab/azure-powershell) 
+    # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
     Connect-AzAccount
     ```
@@ -168,7 +169,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
 
     ---
 
-1. Create a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region. 
+1. Create a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region.
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -176,7 +177,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
 
-    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. You generally create your resource group and resources in a <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.">region</abbr> near you, using an available region returned from the `az account list-locations` command.
+    The [az group create](/cli/azure/group#az-group-create) command creates a resource group. You generally create your resource group and resources in a <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.">region</abbr> near you, using an available region returned from the `az account list-locations` command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -188,7 +189,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     ---
 
     You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsQuickstart-rg` with a Windows function app or web app, you must use a different resource group.
-    
+
 1. Create a general-purpose Azure Storage account in your resource group and region:
 
     # [Azure CLI](#tab/azure-cli)
@@ -215,24 +216,24 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
 **Replace** '<APP_NAME>' with a globally unique name.
 
     # [Azure CLI](#tab/azure-cli)
-        
+
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-    
-    
+
+
     # [Azure PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location 'West Europe'
     ```
-    
-    
+
+
     ---
-    
+
     Replace `<STORAGE_NAME>` with the name of the account you used in the previous step.
 
-    Replace `<APP_NAME>` with a <abbr title="A name that must be unique across all Azure customers globally. For example, you can use a combination of your personal or organization name, application name, and a numeric identifier, as in contoso-bizapp-func-20.">unique name</abbr>. The `<APP_NAME>` is also the default DNS domain for the function app. 
+    Replace `<APP_NAME>` with a <abbr title="A name that must be unique across all Azure customers globally. For example, you can use a combination of your personal or organization name, application name, and a numeric identifier, as in contoso-bizapp-func-20.">unique name</abbr>. The `<APP_NAME>` is also the default DNS domain for the function app.
 
     <br/>
     <details>
@@ -281,7 +282,7 @@ Functions in msdocs-azurefunctions-qs:
 
 ## 7. Invoke the function on Azure
 
-Copy the complete **Invoke URL** shown in the output of the `publish` command into a browser address bar. **Append** the query parameter **&name=Functions**. 
+Copy the complete **Invoke URL** shown in the output of the `publish` command into a browser address bar. **Append** the query parameter **&name=Functions**.
 
 ![The output of the function run on Azure in a browser](../../includes/media/functions-run-remote-azure-cli/function-test-cloud-browser.png)
 

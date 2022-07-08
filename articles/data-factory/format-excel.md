@@ -1,19 +1,22 @@
 ---
 title: Excel format in Azure Data Factory 
-description: 'This topic describes how to deal with Excel format in Azure Data Factory.'
+titleSuffix: Azure Data Factory & Azure Synapse
+description: This topic describes how to deal with Excel format in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 03/25/2022
 ms.author: jianleishen
 ---
 
-# Excel format in Azure Data Factory
+# Excel file format in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Follow this article when you want to **parse the Excel files**. Azure Data Factory supports both ".xls" and ".xlsx".
+Follow this article when you want to **parse the Excel files**. The service supports both ".xls" and ".xlsx".
 
-Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It is supported as source but not sink. 
+Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It is supported as source but not sink. 
 
 >[!NOTE]
 >".xls" format is not supported while using [HTTP](connector-http.md).
@@ -96,7 +99,7 @@ The following properties are supported in the copy activity ***\*source\**** sec
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 
@@ -116,7 +119,7 @@ The below table lists the properties supported by an Excel source. You can edit 
 
 The below image is an example of an Excel source configuration in mapping data flows using dataset mode.
 
-![Excel source](media/data-flow/excel-source.png)
+:::image type="content" source="media/data-flow/excel-source.png" alt-text="Excel source":::
 
 The associated data flow script is:
 
@@ -128,7 +131,7 @@ source(allowSchemaDrift: true,
 
 If you use inline dataset, you see the following source options in mapping data flow.
 
-![Excel source inline dataset](media/data-flow/excel-source-inline-dataset.png)
+:::image type="content" source="media/data-flow/excel-source-inline-dataset.png" alt-text="Excel source inline dataset":::
 
 The associated data flow script is:
 
@@ -142,6 +145,15 @@ source(allowSchemaDrift: true,
     sheetName: 'worksheet',
     firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
+
+## Handling very large Excel files
+
+The Excel connector does not support streaming read for the Copy activity and must load the entire file into memory before data can be read.  To import schema, preview data, or refresh an Excel dataset, the data must be returned before the http request timeout (100s). For large Excel files, these operations may not finish within that timeframe, causing a timeout error.  If you want to move large Excel files (>100MB) into another data store, you can use one of following options to work around this limitation:
+
+- Use the self-hosted integration runtime (SHIR), then use the Copy activity to move the large Excel file into another data store with the SHIR.
+- Split the large Excel file into several smaller ones, then use the Copy activity to move the folder containing the files.
+- Use a dataflow activity to move the large Excel file into another data store. Dataflow supports streaming read for Excel and can move/transfer large files quickly.
+- Manually convert the large Excel file to CSV format, then use a Copy activity to move the file.
 
 ## Next steps
 

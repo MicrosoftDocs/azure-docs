@@ -4,7 +4,7 @@ description: Learn how to configure a policy for a Service Fabric service setup 
 author: athinanthny
 
 ms.topic: conceptual
-ms.date: 03/21/2018
+ms.date: 05/19/2022
 ms.author: atsenthi
 ---
 # Run a service startup script as a local user or system account
@@ -193,7 +193,7 @@ In the PowerShell file, add the following to set a system environment variable:
 ```
 
 ## Debug a startup script locally using console redirection
-Occasionally, it's useful for debugging purposes to see the console output from running a setup script. You can set a console redirection policy on the setup entry point in the service manifest, which writes the output to a file. The file output is written to the application folder called **log** on the cluster node where the application is deployed and run. 
+Occasionally, it's useful for debugging purposes to see the console output from running a setup script. You can set a console redirection policy on the setup entry point in the service manifest, which writes the output to a file. The file output is written to the application folder called **log** on the cluster node where the application is deployed and run, found in `C:\SfDeployCluster\_App\{application-name}\log`. You may see a number after your applications name in the path. This number increments on each deployment. The files written to the log folder include Code_{service-name}Pkg_S_0.err, which is the standard error output, and Code_{service-name}Pkg_S_0.out, which is the standard output. You may see more than one set of files depending on service activation attempts.
 
 > [!WARNING]
 > Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  

@@ -18,11 +18,8 @@ The following sections discuss the creation of a new ASP.NET WebAPI backend. Thi
 - **Register for notifications by using the WebAPI backend**: You add a controller to handle new registrations for a client device to receive notifications. The authenticated username is automatically added to the registration as a [tag](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
 - **Send notifications to clients**: You add a controller to provide a way for users to trigger a secure push to devices and clients associated with the tag.
 
-Create the new ASP.NET WebAPI backend by doing the following actions:
+Create the new ASP.NET Core 6.0 web API backend by doing the following actions:
 
-> [!IMPORTANT]
-> If you are using Visual Studio 2015 or earlier, before starting this tutorial, ensure that you have installed the latest version of NuGet Package Manager for Visual Studio.
->
 >To check, start Visual Studio. On the **Tools** menu, select **Extensions and Updates**. Search for **NuGet Package Manager** in your version of Visual Studio, and make sure you have the latest version. If your version is not the latest version, uninstall it, and then reinstall the NuGet Package Manager.
 
 ![Screenshot of the Extensions and Updates dialog box with the NuGet Package manage for Visual Studios package highlighted.][B4]
@@ -34,27 +31,35 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
 
 2. Select **Server Explorer**, and sign in to your Azure account. To create the web site resources on your account, you must be signed in.
 
-3. In Visual Studio, right-click Visual Studio solution, point to **Add**, and click **New Project**.
-4. Expand **Visual C#**, select **Web**, and click **ASP.NET Web Application**.
+3. In Visual Studio's **File** menu, select **New** > **Project**.
 
-5. In the **Name** box, type **AppBackend**, and then select **OK**.
+4. Enter **Web API** in the search box.
 
-    ![The New Project window][B1]
+5. Select the **ASP.NET Core Web API** project template and select **Next**.
 
-6. In the **New ASP.NET Project** window, select the **Web API** check box, and then select **OK**.
+6. In the **Configure your new project** dialog, name the project **AppBackend** and select **Next**.
 
-    ![The New ASP.NET Project window][B2]
+7. In the **Additional information** dialog:
+   * Confirm the **Framework** is **.NET 6.0 (Long-term support)**.
+   * Confirm the checkbox for **Use controllers(uncheck to use minimal APIs)** is checked.
+   * Uncheck **Enable OpenAPI support**.
+   * Select **Create**.
 
-7. In the **Configure Microsoft Azure Web App** window, select a subscription and then, in the **App Service plan** list, do either of the following actions:
+## Remove the WeatherForecast template files
+1. Remove the *WeatherForecast.cs* and *Controllers/WeatherForecastController.cs* example files from the new *AppBackend* project.
+2. Open *Properties\launchSettings.json*.
+3. Change **launchUrl** properties from **weatherforcast** to **appbackend**.
 
-    * Select an app service plan that you've already created.
-    * Select **Create a new app service plan**, and then create one.
+In the **Configure Microsoft Azure Web App** window, select a subscription and then, in the **App Service plan** list, do either of the following actions:
+
+   * Select an Azure App Service plan that you've already created.
+   * Select **Create a new app service plan**, and then create one.
 
    You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
 
-    ![The Configure Microsoft Azure Web App window][B5]
+   ![The Configure Microsoft Azure Web App window][B5]
 
-    If you don't see this page for configure app service plan, continue with the tutorial. You can configure it while publishing the app later. 
+   If you don't see this page for configure app service plan, continue with the tutorial. You can configure it while publishing the app later.
 
 ## Authenticate clients to the WebAPI backend
 
@@ -136,7 +141,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
 
     > [!NOTE]
     > Security note: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.
-5. To register the message handler, add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class:
+5. To register the message handler, add the following code at the end of the `Register` method in the *Program.cs* file:
 
     ```csharp
     config.MessageHandlers.Add(new AuthenticationTestHandler());
@@ -185,13 +190,11 @@ In this section, you add a new controller to the WebAPI backend to handle reques
     
 7. Next, create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**.
 
-8. Select **Web API 2 Controller - Empty**, and then select **Add**.
-
-    ![The Add Scaffold window][B7]
+8. Select **API Controller - Empty**, and then select **Add**.
 
 9. In the **Controller name** box, type **RegisterController** to name the new class, and then select **Add**.
 
-    ![The Add Controller window][B8]
+    :::image type="content" source="media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png" alt-text="The Add Controller window." lightbox="media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png":::
 
 10. In RegisterController.cs, add the following `using` statements:
 
@@ -404,7 +407,6 @@ The URL uses the web app name that you specified earlier, with the format http:/
 [B5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
 [B6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
-[B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG

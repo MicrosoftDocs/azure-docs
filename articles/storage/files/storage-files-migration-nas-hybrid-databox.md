@@ -1,11 +1,11 @@
 ---
 title: On-premises NAS migration to Azure File Sync via Data Box
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to a hybrid cloud deployment by using Azure File Sync via Azure Data Box.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/5/2021
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -114,13 +114,15 @@ When your Data Box arrives, it will have pre-provisioned SMB shares available fo
 Follow the steps in the Azure Data Box documentation:
 
 1. [Connect to Data Box](../../databox/data-box-deploy-copy-data.md).
-1. Copy data to Data Box.
+1. Copy data to Data Box. </br>You can use Robocopy (follow instruction below) or the new [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md).
 1. [Prepare your Data Box for upload to Azure](../../databox/data-box-deploy-picked-up.md).
 
-The linked Data Box documentation specifies a Robocopy command. That command isn't suitable for preserving the full file and folder fidelity. Use this command instead:
+> [!TIP]
+> As an alternative to Robocopy, Data Box has created a data copy service. You can use this service to load files onto your Data Box with full fidelity. [Follow this data copy service tutorial](../../databox/data-box-deploy-copy-data-via-copy-service.md) and make sure to set the correct Azure file share target.
+
+Data Box documentation specifies a Robocopy command. That command isn't suitable for preserving the full file and folder fidelity. Use this command instead:
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
-
 
 ## Phase 6: Deploy the Azure File Sync cloud resource
 
@@ -214,6 +216,19 @@ Create a share on the Windows Server folder and possibly adjust your DFS-N deplo
 You've finished migrating a share or group of shares into a common root or volume (depending on your mapping from Phase 1).
 
 You can try to run a few of these copies in parallel. We recommend that you process the scope of one Azure file share at a time.
+
+## Deprecated option: "offline data transfer"
+
+Before Azure File Sync agent version 13 released, Data Box integration was accomplished through a process called "offline data transfer". This process is deprecated. With agent version 13, it was replaced with the much simpler and faster steps described in this article. If you know you want to use the deprecated "offline data transfer" functionality, you can still do so. It is still available by using a specific, [older AFS PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync/1.4.0):
+
+```powershell
+Install-Module Az.StorageSync -RequiredVersion 1.4.0
+Import-module Az.StorageSync -RequiredVersion 1.4.0
+# Verify the specific version is loaded:
+Get-module Az.StorageSync
+```
+> [!WARNING]
+> After May 15, 2022 you will no longer be able to create a server endpoint in the "offline data transfer" mode. Migrations in progress with this method must finish before July 15, 2022. If your migration continues to run with an "offline data transfer" enabled server endpoint, the server will begin to upload remaining files from the server on July 15, 2022 and no longer leverage files transferred with Azure Data Box to the staging share.
 
 ## Troubleshooting
 

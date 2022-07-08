@@ -1,6 +1,5 @@
 ---
-title: Application model | Azure
-titleSuffix: Microsoft identity platform
+title: Application model
 description: Learn about the process of registering your application so it can integrate with the Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -10,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
-ms.reviewer: jmprieur, saeeda, sureshja, hirsin
+ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an application developer, I want to understand how to register an application so it can integrate with the Microsoft identity platform.
 ---

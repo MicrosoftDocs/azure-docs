@@ -1,5 +1,5 @@
 ---
-title: What is the Anomaly Detector API?
+title: What is Anomaly Detector?
 titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API's algorithms to apply anomaly detection on your time series data.
 services: cognitive-services
@@ -8,21 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 02/16/2021
+ms.date: 07/06/2022
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
 ---
 
-# What is the Anomaly Detector univariate API?
+# What is Anomaly Detector?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+Anomaly Detector is an AI service with a set of APIs, which enables you to monitor and detect anomalies in your time series data with little ML knowledge, either batch validation or real-time inference.
 
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
-
-![Detect pattern changes in service requests](./media/anomaly_detection2.png)
-
-Using the Anomaly Detector doesn't require any prior experience in machine learning, and the RESTful API enables you to easily integrate the service into your applications and processes.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -32,15 +27,19 @@ This documentation contains the following types of articles:
 
 ## Features
 
-With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time.
+With the Anomaly Detector, you can either detect anomalies in one variable using Univariate Anomaly Detector, or detect anomalies in multiple variables with Multivariate Anomaly Detector.
 
 |Feature  |Description  |
 |---------|---------|
-|Anomaly detection in real-time. | Detect anomalies in your streaming data by using previously seen data points to determine if your latest one is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data as it's created. |
-|Detect anomalies throughout your data set as a batch. | Use your time series to detect any anomalies that might exist throughout your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.         |
-|Detect change points throughout your data set as a batch. | Use your time series to detect any trend change points that exist in your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.    |
-| Get additional information about your data. | Get useful details about your data and any observed anomalies, including expected values, anomaly boundaries, and positions. |
-| Adjust anomaly detection boundaries. | The Anomaly Detector API automatically creates boundaries for anomaly detection. Adjust these boundaries to increase or decrease the API's sensitivity to data anomalies, and better fit your data. |
+|Univariate Anomaly Detector | Detect anomalies in one variable, like revenue, cost, etc. The model was selected automatically based on your data pattern. |
+|Multivariate Anomaly Detector| Detect anomalies in multiple variables with correlations, which are usually gathered from equipment or other complex system. The underlying model used is Graph attention network.|
+
+### When to use **Univariate Anomaly Detector** v.s. **Multivariate Anomaly Detector**
+
+If your goal is to detect anomalies out of a normal pattern on each individual time series purely based on their own historical data, use univariate anomaly detection APIs. For example, you want to detect daily revenue anomalies based on revenue data itself, or you want to detect a CPU spike purely based on CPU data.
+
+If your goal is to detect system level anomalies from a group of time series data, use multivariate anomaly detection APIs. Particularly, when any individual time series won't tell you much, and you have to look at all signals (a group of time series) holistically to determine a system level issue. For example, you have an expensive physical asset like aircraft, equipment on an oil rig, or a satellite. Each of these assets has tens or hundreds of different types of sensors. You would have to look at all those time series signals from those sensors to decide whether there is system level issue.
+
 
 ## Demo
 
@@ -53,30 +52,6 @@ To learn how to call the Anomaly Detector API, try this [Notebook](https://aka.m
 
 To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
 
-## Workflow
-
-The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON.
-
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
-
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
-
-After signing up:
-
-1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/anomaly-detection-best-practices.md) when preparing your data to get the best results.
-1. Send a request to the Anomaly Detector API with your data.
-1. Process the API response by parsing the returned JSON message.
-
-## Algorithms
-
-* See the following technical blogs for information about the algorithms used:
-    * [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
-    * [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
-
-You can read the paper [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepted by KDD 2019) to learn more about the SR-CNN algorithms developed by Microsoft.
-
-> [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
-
 ## Service availability and redundancy
 
 ### Is the Anomaly Detector service zone resilient?
@@ -87,16 +62,9 @@ Yes. The Anomaly Detector service is zone-resilient by default.
 
 No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Anomaly Detector resources is available by default and managed by the service itself.
 
-## Deploy on premises using Docker containers
-
-[Use Anomaly Detector containers](anomaly-detector-container-howto.md) to deploy API features on-premises. Docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
-
-## Join the Anomaly Detector community
-
-* Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
 
 ## Next steps
 
-* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](quickstarts/client-libraries.md)
-* The Anomaly Detector API [online demo](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
-* The Anomaly Detector [REST API reference](https://aka.ms/anomaly-detector-rest-api-ref)
+* [What is Univariate Anomaly Detector?](./overview-univariate.md)
+* [What is Multivariate Anomaly Detector?](./overview-multivariate.md)
+* Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin) for better support and any updates!

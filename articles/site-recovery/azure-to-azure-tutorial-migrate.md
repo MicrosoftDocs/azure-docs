@@ -2,11 +2,11 @@
 title: Move Azure VMs to a different Azure region with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure VMs from one Azure region to another.
 services: site-recovery
-author: Sharmistha-Rai
+author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.custom: MVC 
 ---
 
@@ -79,7 +79,7 @@ In this tutorial, you learn how to:
     To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
     - [Network security groups](../virtual-network/manage-network-security-group.md)
     - [Load balancers](../load-balancer/index.yml)
-    -  [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+    -  [Public IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     - For any other networking components, see the [networking documentation](../index.yml?pivot=products&panel=network).
 
 

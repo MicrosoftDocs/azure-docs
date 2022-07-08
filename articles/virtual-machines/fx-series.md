@@ -1,17 +1,17 @@
 ---
 title: FX-series
 description: Specifications for the FX-series VMs.
-author: brbell
+author: priyashan-19
 ms.service: virtual-machines
-ms.subservice: vm-sizes-compute
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/10/2021
-ms.author: jushiman
+ms.author: priyashan
 ---
 
 # FX-series
 
-The FX-series runs on the Intel® Xeon® Gold 6246R (Cascade Lake) processors. It features an all-core-turbo frequency of 4.0 GHz, 21 GB RAM per vCPU, up to 1 TB total RAM, and local temporary storage. The FX-series will benefit workloads that require a high CPU clock speed and high memory to CPU ratio, workloads with high per-core licensing costs, and applications requiring high a single-core performance. A typical use case for FX-series is the Electronic Design Automation (EDA) workload.
+The FX-series runs on the Intel® Xeon® Gold 6246R (Cascade Lake) processors. It features an all-core-turbo frequency of 4.0 GHz, 21 GB RAM per vCPU, up to 1 TB total RAM, and local temporary storage. The FX-series will benefit workloads that require a high CPU clock speed and high memory to CPU ratio, workloads with high per-core licensing costs, and applications requiring a high single-core performance. A typical use case for FX-series is the Electronic Design Automation (EDA) workload.
 
 FX-series VMs feature [Intel® Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel® Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), and [Intel® Advanced Vector Extensions 512 (Intel® AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
@@ -23,6 +23,7 @@ FX-series VMs feature [Intel® Turbo Boost Technology 2.0](https://www.intel.com
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
@@ -47,7 +48,7 @@ FX-series VMs feature [Intel® Turbo Boost Technology 2.0](https://www.intel.com
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types: [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types: [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps

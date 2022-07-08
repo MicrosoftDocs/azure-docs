@@ -4,22 +4,19 @@ description: Quickstart showing how to create an Azure Key Vault using the Azure
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-ui
 ms.date: 12/08/2020
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Create a key vault using the Azure portal
 
 Azure Key Vault is a cloud service that provides a secure store for [keys](../keys/index.yml), [secrets](../secrets/index.yml), and [certificates](../certificates/index.yml). For more information on Key Vault, see [About Azure Key Vault](overview.md); for more information on what can be stored in a key vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 In this quickstart, you create a key vault with the [Azure portal](https://portal.azure.com). 
 
@@ -44,11 +41,11 @@ Sign in to the Azure portal at https://portal.azure.com.
 Take note of the two properties listed below:
 
 * **Vault Name**: In the example, this is **Contoso-Vault2**. You will use this name for other steps.
-* **Vault URI**: In the example, this is https://contoso-vault2.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+* **Vault URI**: In the example, this is `https://contoso-vault2.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
-![Output after Key Vault creation completes](../media/quick-create-portal/vault-properties.png)
+:::image type="content" source="../media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes":::
 
 ## Clean up resources
 

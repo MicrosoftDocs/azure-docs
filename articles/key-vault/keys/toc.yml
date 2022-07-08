@@ -1,3 +1,4 @@
+items:
 - name: Keys
   href: index.yml
 
@@ -19,10 +20,16 @@
     href: quick-create-net.md
   - name: Node.js
     href: quick-create-node.md
+    displayName: az ad sp create-for-rbac, az keyvault set-policy
   - name: Python
     href: quick-create-python.md
+  - name: Go
+    href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
+  - name: Bicep
+    displayName: Azure Resource Manager, ARM
+    href: quick-create-bicep.md
   - name: ARM template
     displayName: Resource Manager
     href: quick-create-template.md
@@ -42,13 +49,20 @@
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
 
-- name: Concepts 
+- name: Concepts
   items:
   - name: Key types, algorithms, and operations
     href: about-keys-details.md
 
+- name: How-to guides
+  items:
+  - name: Configure automated key rotation
+    href: how-to-configure-key-rotation.md
+
 - name: Reference
   items:
+  - name: Secure key release policy grammar
+    href: policy-grammar.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
@@ -91,4 +105,4 @@
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

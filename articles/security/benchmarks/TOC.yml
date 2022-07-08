@@ -108,7 +108,7 @@
     href: /azure/databricks/scenarios/security-baseline
   - name: Azure DDOS Protection Standard security baseline
     href: ../fundamentals/ddos-protection-security-baseline.md
-  - name: Azure Defender for IoT security baseline
+  - name: Microsoft Defender for IoT security baseline
     href: ../../defender-for-iot/security-baseline.md
   - name: Azure DevTest Labs security baseline
     href: ../../devtest-labs/security-baseline.md
@@ -152,12 +152,12 @@
     href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
   - name: Azure Resource Manager security baseline
     href: ../../azure-resource-manager/management/security-baseline.md
-  - name: Azure Sentinel security baseline
+  - name: Microsoft Sentinel security baseline
     href: ../../sentinel/security-baseline.md
   - name: Azure SignalR Service security baseline
     href: ../../azure-signalr/security-baseline.md
   - name: Azure SQL Database security baseline
-    href: ../../azure-sql/database/security-baseline.md
+    href: /security/benchmark/azure/baselines/sql-database-security-baseline
   - name: Azure Stack Edge security baseline
     href: ../../databox-online/security-baseline.md
   - name: Azure Storage security baseline
@@ -200,7 +200,7 @@
     href: ../../governance/policy/samples/guest-configuration-baseline-linux.md?toc=/azure/security/benchmarks/toc.json
   - name: Logic Apps security baseline
     href: ../../logic-apps/security-baseline.md
-  - name: Microsoft Cloud App Security baseline
+  - name: Microsoft Defender for Cloud Apps baseline
     href: /cloud-app-security/security-baseline
   - name: Microsoft Defender for Identity security baseline
     href: /defender-for-identity/security-baseline
@@ -208,7 +208,7 @@
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline
     href: /security/benchmark/azure/baselines/power-bi-security-baseline
-  - name: Security Center baseline
+  - name: Defender for Cloud baseline
     href: ../../security-center/security-baseline.md
   - name: Service Bus baseline
     href: ../../service-bus-messaging/security-baseline.md
@@ -248,8 +248,7 @@
     href: ../fundamentals/index.yml
   - name: Shared responsibility in the cloud
     href: ../fundamentals/shared-responsibility.md
-  - name: Azure Security Center
+  - name: Microsoft Defender for Cloud
     href: ../../security-center/index.yml
   - name: Azure Security Benchmark Foundation blueprint sample
     href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md
-

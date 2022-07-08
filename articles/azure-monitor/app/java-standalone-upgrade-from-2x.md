@@ -3,9 +3,9 @@ title: Upgrading from 2.x - Azure Monitor Application Insights Java
 description: Upgrading from Azure Monitor Application Insights Java 2.x
 ms.topic: conceptual
 ms.date: 11/25/2020
-author: MS-jgol
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jgol
+ms.reviewer: mmcc
 ---
 
 # Upgrading from Application Insights Java 2.x SDK
@@ -21,6 +21,8 @@ that was pointing to the 2.x agent.
 The rest of this document describes limitations and changes that you may encounter
 when upgrading from 2.x to 3.x, as well as some workarounds that you may find helpful.
 
+
+
 ## TelemetryInitializers and TelemetryProcessors
 
 The 2.x SDK TelemetryInitializers and TelemetryProcessors will not be run when using the 3.x agent.
@@ -30,10 +32,9 @@ or configuring [telemetry processors](./java-standalone-telemetry-processors.md)
 
 ## Multiple applications in a single JVM
 
-Currently, Application Insights Java 3.x only supports a single
-[connection string and role name](./java-standalone-config.md#connection-string-and-role-name)
-per running process. In particular, you can't have multiple tomcat web apps in the same tomcat deployment
-using different connection strings or different role names yet.
+This use case is supported in Application Insights Java 3.x using [Instrumentation key overrides (preview)](./java-standalone-config.md#instrumentation-key-overrides-preview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Operation names
 
@@ -126,36 +127,6 @@ The telemetry processors perform the following actions (in order):
 }
 ```
 
-## Dependency names
-
-Dependency names in Application Insights Java 3.x have also changed,
-again to generally provide a better aggregated view in the Application Insights Portal U/X.
-
-Again, for some applications, you may still prefer the aggregated view in the U/X
-that was provided by the previous dependency names, in which case you can use similar
-techniques as above to replicate the previous behavior.
-
-## Operation name on dependencies
-
-Previously in the Application Insights Java 2.x SDK,
-the operation name from the request telemetry was also set on the dependency telemetry.
-Application Insights Java 3.x no longer populates operation name on dependency telemetry.
-If you want to see the operation name for the request that is the parent of the dependency telemetry,
-you can write a Logs (Kusto) query to join from the dependency table to the request table, e.g.
-
-```
-let start = datetime('...');
-let end = datetime('...');
-dependencies
-| where timestamp between (start .. end)
-| project timestamp, type, name, operation_Id
-| join (requests
-    | where timestamp between (start .. end)
-    | project operation_Name, operation_Id)
-    on $left.operation_Id == $right.operation_Id
-| summarize count() by operation_Name, type, name
-```
-
 ## 2.x SDK logging appenders
 
 Application Insights Java 3.x [auto-collects logging](./java-standalone-config.md#auto-collected-logging)
@@ -166,7 +137,7 @@ as they will be suppressed by the Application Insights Java 3.x anyways.
 ## 2.x SDK spring boot starter
 
 There is no Application Insights Java 3.x spring boot starter.
-3.x setup and configuration follows the same [simple steps](./java-in-process-agent.md#quickstart)
+3.x setup and configuration follows the same [simple steps](./java-in-process-agent.md#get-started)
 whether you are using spring boot or not.
 
 When upgrading from the Application Insights Java 2.x SDK spring boot starter,

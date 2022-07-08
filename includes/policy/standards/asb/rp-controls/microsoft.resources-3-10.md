@@ -1,9 +1,9 @@
 ---
-author: DCtheGeek
+author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/16/2021
-ms.author: dacoulte
+ms.date: 06/16/2022
+ms.author: timwarner
 ms.custom: generated
 ---
 

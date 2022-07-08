@@ -1,16 +1,13 @@
 ---
-title: Query exported data from Azure Monitor using Azure Data Explorer (preview)
+title: Query exported data from Azure Monitor using Azure Data Explorer
 description: Use Azure Data Explorer to query data that was exported from your Log Analytics workspace to an Azure storage account.
-author: osalzberg
-ms.author: bwren
-ms.reviewer: bwren
 ms.topic: conceptual
-ms.date: 10/13/2020 
+ms.reviewer: osalzberg
+ms.date: 03/22/2022
 ms.custom: devx-track-azurepowershell
-
 ---
 
-# Query exported data from Azure Monitor using Azure Data Explorer (preview)
+# Query exported data from Azure Monitor using Azure Data Explorer
 Exporting data from Azure Monitor to an Azure storage account enables low-cost retention and the ability to reallocate logs to different regions. Use Azure Data Explorer to query data that was exported from your Log Analytics workspaces. Once configured, supported tables that are sent from your workspaces to an Azure storage account will be available as a data source for Azure Data Explorer.
 
 The process flow is as follows: 
@@ -26,7 +23,7 @@ The process flow is as follows:
 ## Send data to Azure storage
 Azure Monitor logs can be exported to an Azure Storage Account using any of the following options.
 
-- To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor (preview)](./logs-data-export.md)
+- To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor](./logs-data-export.md)
 - Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces)  See [Archive data from Log Analytics workspace to Azure storage using Logic App](./logs-export-logic-app.md).
 - One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](./logicapp-flow-connector.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
@@ -76,6 +73,10 @@ $SecondCommand = @()
 foreach ($record in $output) {
     if ($record.DataType -eq 'System.DateTime') {
         $dataType = 'datetime'
+    } elseif ($record.DataType -eq 'System.Int32') {
+        $dataType = 'int32'
+    } elseif ($record.DataType -eq 'System.Double') {
+        $dataType = 'double'
     } else {
         $dataType = 'string'
     }
@@ -99,7 +100,7 @@ with
    docstring = "Docs",
    folder = "ExternalTables"
 )
-'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName, $resourcegroupname,$WorkspaceId
+'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName.ToLower(), $resourcegroupname.ToLower(),$WorkspaceId
 
 $createMapping = @'
 .create external table {0} json mapping "{1}" '[{2}]'
@@ -110,11 +111,9 @@ write-host -ForegroundColor Green $CreateExternal
 Write-Host -ForegroundColor Green $createMapping
 ```
 
-The following image shows and example of the output.
+The following image shows an example of the output.
 
 :::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="ExternalTable create command output.":::
-
-[![Example output](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
 >* Copy, paste, and then run the output of the script in your Azure Data Explorer client tool to create the table and mapping.

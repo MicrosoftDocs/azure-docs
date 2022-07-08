@@ -5,7 +5,7 @@ author: rahulg1190
 ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 05/11/2021 
+ms.date: 08/20/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -146,9 +146,10 @@ You can specify the replication properties as follows.
  Target VM size | Mandatory | Specify the Azure VM size to be used for the replicating VM by using (`TargetVMSize`) parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for (`TargetVMSize`) as "Standard_D2_v2". 
  License | Mandatory | To use Azure Hybrid Benefit for your Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, specify the value for (`LicenseType`) parameter as **WindowsServer**. Otherwise, specify the value as **NoLicenseType**. 
  OS Disk | Mandatory | Specify the unique identifier of the disk that has the operating system bootloader and installer. The disk ID to be used is the unique identifier (UUID) property for the disk retrieved using the [Get-AzMigrateDiscoveredServer](/powershell/module/az.migrate/get-azmigratediscoveredserver) cmdlet.
- Disk Type | Mandatory | Specify the name of the load balancer to be created. 
+ Disk Type | Mandatory | Specify the type of disk to be used. 
  Infrastructure redundancy | Optional | Specify infrastructure redundancy option as follows. <br/><br/> - **Availability Zone** to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. This option is only available if the target region selected for the migration supports Availability Zones. To use availability zones, specify the availability zone value for (`TargetAvailabilityZone`) parameter. <br/> - **Availability Set** to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set ID for (`TargetAvailabilitySet`) parameter. 
  Boot Diagnostic Storage Account | Optional | To use a boot diagnostic storage account, specify the ID for (`TargetBootDiagnosticStorageAccount`) parameter. <br/> - The storage account used for boot diagnostics should be in the same subscription that you're migrating your VMs to. <br/> - By default, no value is set for this parameter. 
+ Tags | Optional | Add tags to your migrated virtual machines, disks, and NICs. <br/>  Use (`Tag`) to add tags to virtual machines, disks, and NICs. <br/> or <br/> Use (`VMTag`) for adding tags to your migrated virtual machines.<br/> Use (`DiskTag`) for adding tags to disks. <br/> Use (`NicTag`) for adding tags to network interfaces. <br/> For example, add the required tags to a variable $tags and pass the variable in the required parameter.  $tags = @{Organization=”Contoso”}
 
 
 
@@ -327,7 +328,7 @@ $job = Get-AzMigrateJob -InputObject $job
 
 ## 10. Update properties of a replicating VM
 
-[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
+[Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
 
 The following properties can be updated for a VM.
 
@@ -341,7 +342,9 @@ Resource Group | Optional | IC configuration can be specified using the [New-AzM
 Network Interface | Optional | Specify the name of the Azure VM to be created by using the [`TargetVMName`] parameter. 
 Availability Zone | Optional | To use availability zones, specify the availability zone value for [`TargetAvailabilityZone`] parameter. 
 Availability Set | Optional | To use availability set, specify the availability set ID for [`TargetAvailabilitySet`] parameter. 
-
+Tags | Optional | For updating tags, use the following parameters [`UpdateTag`] or [`UpdateVMTag`], [`UpdateDiskTag`], [`UpdateNicTag`], and type of update tag operation [`UpdateTagOperation`] or [`UpdateVMTagOperation`], [`UpdateDiskTagOperation`], [`UpdateNicTagOperation`].   The update tag operation takes the following values – Merge, Delete, and Replace. <br/> Use [`UpdateTag`] to update all tags across virtual machines, disks, and NICs. <br/> Use [`UpdateVMTag`] for updating virtual machine tags. <br/> Use [`UpdateDiskTag`] for updating disk tags. <br/> Use [`UpdateNicTag`] for updating NIC tags. <br/> Use [`UpdateTagOperation`] to update the operation for all tags across virtual machines, disks, and NICs. <br/>  Use [`UpdateVMTagOperation`] for updating virtual machine tags. <br/> Use [`UpdateDiskTagOperation`] for updating disk tags. <br/> Use [`UpdateNicTagOperation`] for updating NIC tags. <br/> <br/> The *replace* option replaces the entire set of existing tags with a new set. <br/> The *merge* option allows adding tags with new names and updating the values of tags with existing names. <br/> The *delete* option allows selectively deleting tags based on given names or name/value pairs. 
+Disk(s) | Optional | For the OS disk: <br/> Update the name of the OS disk by using the [`TargetDiskName`] parameter.  <br/><br/> For updating multiple disks: <br/>  Use [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping) to set the disk names to a variable *$DiskMapping* and then use the [`DiskToUpdate`] parameter and pass along the variable. <br/> <br/> **Note:** The disk ID to be used in [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping) is the unique identifier (UUID) property for the disk retrieved using the [Get-AzMigrateDiscoveredServer](/powershell/module/az.migrate/get-azmigratediscoveredserver) cmdlet. 
+NIC(s) name | Optional | Use [New-AzMigrateNicMapping](/powershell/module/az.migrate/new-azmigratenicmapping) to set the NIC names to a variable *$NICMapping* and then use the [`NICToUpdate`] parameter and pass the variable.
 
 The [Get-AzMigrateServerReplication](/powershell/module/az.migrate/get-azmigrateserverreplication) cmdlet returns a job which can be tracked for monitoring the status of the operation.
 
@@ -358,13 +361,13 @@ $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $Replicating
 Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic
 ```
 
-In the following example, we'll update the NIC configuration by making the first NIC as primary and assigning a static IP to it. we'll discard the second NIC for migration and update the target VM name and size.
+In the following example, we'll update the NIC configuration by making the first NIC as primary and assigning a static IP to it. we'll discard the second NIC for migration, update the target VM name & size, and customizing NIC names.
 
 ```azurepowershell-interactive
 # Specify the NIC properties to be updated for a replicating VM.
 $NicMapping = @()
-$NicMapping1 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[0].NicId -TargetNicIP ###.###.###.### -TargetNicSelectionType Primary
-$NicMapping2 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[1].NicId -TargetNicSelectionType DoNotCreate
+$NicMapping1 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[0].NicId -TargetNicIP ###.###.###.### -TargetNicSelectionType Primary TargetNicName "ContosoNic_1"
+$NicMapping2 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[1].NicId -TargetNicSelectionType DoNotCreate - TargetNicName "ContosoNic_2"
 
 $NicMapping += $NicMapping1
 $NicMapping += $NicMapping2
@@ -373,6 +376,32 @@ $NicMapping += $NicMapping2
 # Update the name, size and NIC configuration of a replicating server
 $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -TargetVMSize Standard_DS13_v2 -TargetVMName MyMigratedVM -NicToUpdate $NicMapping
 ```
+
+In the following example, we'll customize the disk name.
+
+```azurepowershell-interactive
+# Customize the Disk names for a replicating VM
+$OSDisk = Set-AzMigrateDiskMapping -DiskID "6000C294-1217-dec3-bc18-81f117220424" -DiskName "ContosoDisk_1" 
+$DataDisk1= Set-AzMigrateDiskMapping -DiskID "6000C292-79b9-bbdc-fb8a-f1fa8dbeff84" -DiskName "ContosoDisk_2" 
+$DiskMapping = $OSDisk, $DataDisk1 
+```
+
+```azurepowershell-interactive
+# Update the disk names for a replicating server
+$UpdateJob = Set-AzMigrateServerReplication InputObject $ReplicatingServer DiskToUpdate $DiskMapping 
+ ```
+
+In the following example, we'll add tags to the replicating VMs.
+
+```azurepowershell-interactive
+# Update all tags across virtual machines, disks, and NICs.
+Set-azmigrateserverreplication UpdateTag $UpdateTag UpdateTagOperation Merge/Replace/Delete
+
+# Update virtual machines tags
+Set-azmigrateserverreplication UpdateVMTag $UpdateVMTag UpdateVMTagOperation Merge/Replace/Delete 
+```
+Use the following example to track the job status
+
 ```azurepowershell-interactive
 # Track job status to check for completion
 while (($UpdateJob.State -eq 'InProgress') -or ($UpdateJob.State -eq 'NotStarted')){
@@ -383,8 +412,6 @@ while (($UpdateJob.State -eq 'InProgress') -or ($UpdateJob.State -eq 'NotStarted
 # Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
 Write-Output $UpdateJob.State
 ```
-
-
 
 ## 11. Run a test migration
 
@@ -471,8 +498,7 @@ Write-Output $MigrateJob.State
    # Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
    Write-Output $StopReplicationJob.State
    ```
-
-1. Install the [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines if the machine has Linux OS. We automatically install the VM agent for Windows VMs during migration.
+   
 1. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 1. Cut over traffic to the migrated Azure VM instance.
@@ -486,9 +512,9 @@ Write-Output $MigrateJob.State
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
-    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
+    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
 -  Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

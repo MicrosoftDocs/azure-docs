@@ -40,7 +40,7 @@ In your module level build.gradle add the dependency on the chat sdk.
 
 ## Add the Teams UI layout
 
-Replace the code in activity_main.xml with the following snippet. It adds inputs for the thread id and for sending messages, a button for sending the typed message and a basic chat layout.
+Replace the code in activity_main.xml with the following snippet. It adds inputs for the thread ID and for sending messages, a button for sending the typed message and a basic chat layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -263,7 +263,7 @@ Add the `sendMessage()` method to `MainActivity`. It will use the `ChatThreadCli
         // Set request options and send message
         SendChatMessageOptions options = new SendChatMessageOptions();
         options.setContent(messageBody.getText().toString());
-        options.setSenderDisplayName("ACS User");
+        options.setSenderDisplayName("Test User");
         chatThreadAsyncClient.sendMessage(options);
         // Clear the text box
         messageBody.setText("");
@@ -363,7 +363,7 @@ Finally, we will add the method for querying all accessible messages on the thre
             TextView messageView = new TextView(this);
             messageView.setText(message);
             // Compare with sender identifier and align LEFT/RIGHT accordingly
-            // ACS users are of type CommunicationUserIdentifier
+            // Azure Communication Services users are of type CommunicationUserIdentifier
             CommunicationIdentifier senderId = chatMessage.getSenderCommunicationIdentifier();
             if (senderId instanceof CommunicationUserIdentifier
                 && InitiatorId.equals(((CommunicationUserIdentifier) senderId).getId())) {
@@ -385,8 +385,9 @@ Display names of the chat thread participants are not set by the Teams client. T
 
 ## Get a Teams meeting chat thread for a Communication Services user
 
-The Teams meeting link and chat can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
-With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadId`. The response will have a `chatInfo` object that contains the `threadID`. 
+The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They are returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+
+With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response will have a `chatInfo` object that contains the `threadID`.
 
 You can also get the required meeting information and thread ID from the **Join Meeting** URL in the Teams meeting invite itself.
 A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The `threadId` will be where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`

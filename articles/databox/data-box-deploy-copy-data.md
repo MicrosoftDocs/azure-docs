@@ -7,9 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 03/17/2022
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -64,7 +63,8 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 |-------------------|--------------------------------------------------------------------------------|
 | Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
+| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        | 
+| Azure Block blobs (Archive)   | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_BlockBlobArchive>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |     
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
@@ -84,6 +84,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     - Azure Block blob - `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
     - Azure Page blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure Files - `\\10.126.76.138\utSAC1_202006051000_AzFile`
+    - Azure Blob blob (Archive) - `\\10.126.76.138\utSAC0_202202241054_BlockBlobArchive`
 
 4. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
 
@@ -118,10 +119,10 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
 * While copying data, make sure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 * If you want to preserve metadata (ACLs, timestamps, and file attributes) when transferring data to Azure Files, follow the guidance in [Preserving file ACLs, attributes, and timestamps with Azure Data Box](data-box-file-acls-preservation.md)  
 * If data that is being uploaded by Data Box is also being uploaded by another application, outside Data Box, at the same time, this could result in upload job failures and data corruption.
-* We recommend that:
-  * You don't use both SMB and NFS at the same time.
-  * Copy the same data to same end destination on Azure.
-  In these cases, the final outcome can't be determined.
+* If you use both the SMB and NFS protocols for data copies, we recommend that you:
+  * Use different storage accounts for SMB and NFS.
+  * Don't copy the same data to the same end destination in Azure using both SMB and NFS. In these cases, the final outcome can't be determined.
+  * Although copying via both SMB and NFS in parallel can work, we don't recommend doing that as it's prone to human error. Wait until your SMB data copy is complete before you start an NFS data copy.
 
 > [!IMPORTANT]
 > Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
@@ -129,7 +130,7 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
 After you connect to the SMB share, begin the data copy. You can use any SMB-compatible file copy tool, such as Robocopy, to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
 
 ```console
-robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
+robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /B /Log+:<LogFile>
 ```
 
 The attributes are described in the following table.
@@ -145,7 +146,7 @@ The attributes are described in the following table.
 |/np     |Specifies that the progress of the copying operation (the number of files or directories copied so far) will not be displayed. Displaying the progress significantly lowers the performance.         |
 |/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
 |/fft     | Use to reduce the time stamp granularity for any file system.        |
-|/b     | Copies files in Backup mode.        |
+|/B     | Copies files in Backup mode.        |
 |/z    | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
 | /zb     | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
 |/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |

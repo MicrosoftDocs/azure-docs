@@ -2,11 +2,10 @@
 title: How to use Micrometer with Azure Application Insights Java SDK
 description: A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications.
 ms.topic: conceptual
-author: MS-jgol
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jgol
 ms.date: 11/01/2018
-
+ms.reviewer: mmcc
 ---
 
 # How to use Micrometer with Azure Application Insights Java SDK (not recommended)
@@ -20,17 +19,17 @@ Micrometer application monitoring measures metrics for JVM-based application cod
 
 ## Using Spring Boot 1.5x
 Add the following dependencies to your pom.xml or build.gradle file: 
-* [Application Insights spring-boot-starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter)
+* Application Insights spring-boot-starter
   2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
-* [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
+* [Micrometer Spring Legacy](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
 * [ApplicationInsights Resource](./create-new-resource.md)
 
 Steps
 
 1. Update the pom.xml file of your Spring Boot application and add the following dependencies in it:
 
-    ```XML
+    ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
@@ -54,7 +53,9 @@ Steps
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. Build your application and run
-2. The above should get you up and running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter/README.md).
+2. The above should get you up and running with pre-aggregated metrics auto collected to Azure Monitor.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Using Spring 2.x
 
@@ -68,7 +69,7 @@ Steps:
 
 1. Update the pom.xml file of your Spring Boot application and add the following dependency in it:
 
-    ```XML
+    ```xml
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
@@ -127,7 +128,7 @@ Steps:
 
 1. Add the following dependencies in your pom.xml or build.gradle file:
 
-    ```XML
+    ```xml
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-azure-monitor</artifactId>
@@ -143,7 +144,7 @@ Steps:
 
 2. Put `ApplicationInsights.xml` file in the resources folder:
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
@@ -250,7 +251,7 @@ Steps:
 
 To learn more about metrics, refer to the [Micrometer documentation](https://micrometer.io/docs/).
 
-Other sample code on how to create different types of metrics can be found in[the official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Other sample code on how to create different types of metrics can be found in the [official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## How to bind additional metrics collection
 

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot replication of Azure VMs with Azure Site Recovery
 description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery
-author: sideeksh
+author: v-pgaddala
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
@@ -65,7 +65,7 @@ A spike in data change rate might come from an occasional data burst. If the dat
   1. Go to **Disks** of the affected replicated machine and copy the replica disk name.
   1. Go to this replica of the managed disk.
   1. You might see a banner in **Overview** that says an SAS URL has been generated. Select this banner and cancel the export. Ignore this step if you don't see the banner.
-  1. As soon as the SAS URL is revoked, go to **Configuration** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
+  1. As soon as the SAS URL is revoked, go to **Size + Performance** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
 
 ## Network connectivity problems
 
@@ -103,7 +103,7 @@ Following are some of the most common issues.
 
 ### App-consistency not enabled on Linux servers
 
-**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](/azure/site-recovery/site-recovery-faq#replication) are the steps to enable it.
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.yml) are the steps to enable it.
 
 ### More causes because of VSS-related issues:
 

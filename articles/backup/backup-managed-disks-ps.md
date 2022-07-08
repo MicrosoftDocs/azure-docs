@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks using Azure PowerShell
 description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: conceptual
-ms.date: 03/26/2021 
+ms.date: 09/17/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -108,7 +108,7 @@ Azure Disk Backup offers multiple backups per day. If you require more frequent 
    >[!NOTE]
    > Although the selected vault may have the global-redundancy setting, currently Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to backup vault storage.
 
-To know more details about policy creation, refer to the [azure disk backup policy](backup-managed-disks.md#create-backup-policy) document.
+To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
 
 If you want to edit the hourly frequency or the retention period, use the [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject?view=azps-5.7.0&preserve-view=true) and/or [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject?view=azps-5.7.0&preserve-view=true) commands. Once the policy object has all the desired values, proceed to create a new policy from the policy object using the [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy?view=azps-5.7.0&preserve-view=true).
 
@@ -150,7 +150,50 @@ The Backup vaults require permissions on disk and the snapshot resource group to
 
 ### Assign permissions
 
-The user needs to assign few permissions via RBAC to vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Portal or PowerShell. All related permissions are detailed in points 1,2,3 in [this section](backup-managed-disks.md#configure-backup).
+The user needs to assign few permissions via RBAC to vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Portal or PowerShell.
+
+Backup vault uses managed identity to access other Azure resources. To configure backup of managed disks, Backup vault’s managed identity requires a set of permissions on the source disks and resource groups, where snapshots are created and managed.
+
+A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+
+To configure backup of managed disks, ensure the following prerequisites:
+
+- Assign the **Disk Backup Reader** role to Backup vault’s managed identity on the Source disk that needs to be backed up.
+
+  1. Go to the disk that needs to be backed up.
+  1. Go to **Access control (IAM)** and select **Add role assignments**.
+  1. In the right context pane, select **Disk Backup Reader** in the **Role** drop-down list.
+  1. Select the Backup vault’s managed identity and click **Save**.
+  
+     >[!Tip]
+     >Type the Backup vault name to select the vault’s managed identity.
+
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-inline.png" alt-text="Screenshot showing the process to assign the Disk Backup Reader role to Backup vault’s managed identity on the Source disk that needs to be backed up." lightbox="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-expanded.png":::
+
+- Assign the **Disk Snapshot Contributor** role to the Backup vault’s managed identity on the Resource group, where backups are created and managed by the Azure Backup service. The disk snapshots are stored in a resource group within your subscription. To allow Azure Backup service to create, store, and manage snapshots, you need to provide permissions to the backup vault.
+
+  1. Go to the Resource group. For example, the resource group is _SnapshotRG_, which is in the same subscription as that of the disk to be backed up.
+  1. Go to **Access control (IAM)** and select **Add role assignments**.
+  1. In the right context pane, select **Disk Snapshot Contributor** in the **Role** drop-down list. 
+  1. Select the Backup vault’s managed identity and click **Save**.
+  
+     >[!Tip]
+     >Type the backup vault name to select the vault’s managed identity.
+
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-inline.png" alt-text="Screenshot showing the process to assign the Disk Snapshot Contributor role to the Backup vault’s managed identity on the resource group." lightbox="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-expanded.png":::
+
+- Verify that the backup vault's managed identity has the right set of role assignments on the source disk and resource group that serves as the snapshot datastore.
+
+  1. Go to **Backup vault** -> **Identity** and select **Azure role assignments**.
+ 
+     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments-inline.png" alt-text="Screenshot showing the selection of Azure role assignments." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments-expanded.png":::
+
+  1. Verify that the role, resource name, and resource type are correct.
+ 
+     :::image type="content" source="./media/backup-managed-disks-ps/verify-role-assignment-details-inline.png" alt-text="Screenshot showing the verification of role, resource name, and resource type." lightbox="./media/backup-managed-disks-ps/verify-role-assignment-details-expanded.png":::
+
+>[!Note]
+>While the role assignments are reflected correctly in the portal, it may take approximately 15 - 30 minutes for the permission to be applied on the backup vault’s managed identity.
 
 ### Prepare the request
 

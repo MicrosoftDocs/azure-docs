@@ -1,12 +1,13 @@
 ---
 title: Plan and manage costs for Azure Cosmos DB
 description: Learn how to plan for and manage costs for Azure Cosmos DB by using cost analysis in Azure portal.
-author: SnehaGunda
-ms.author: sngun
-ms.custom: subject-cost-optimization
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
+ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 10/08/2021
 ---
 
 # Plan and manage costs for Azure Cosmos DB
@@ -30,9 +31,23 @@ Cost analysis in Cost Management supports most Azure account types, but not all 
 
 Azure Cosmos DB is available in two different capacity modes: provisioned throughput and serverless. You can perform the exact same database operations in both modes, but the way you get billed for these operations is different.
 
+### Capacity planning
+
+As an aid for estimating costs, it can be helpful to do capacity planning for a migration to Azure Cosmos DB. If you are planning a migration from an existing database cluster to Azure Cosmos DB, you can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+
+![Migrate a replica set with 3 replicas of a four-core SKU to Azure Cosmos DB](media/convert-vcore-to-request-unit/one-replica-set.png)
+
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+
 ### Estimate provisioned throughput costs
 
-If you plan to use Azure Cosmos DB in provisioned throughput mode, use the [Azure Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/) to estimate costs before you create the resources in an Azure Cosmos account. The capacity calculator is used to get an estimate of the required throughput and cost of your workload. Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimize the cost and performance. You have to input details such as API type, number of regions, item size, read/write requests per second, total data stored to get a cost estimate. To learn more about the capacity calculator, see the [estimate](estimate-ru-with-capacity-planner.md) article.
+If you plan to use Azure Cosmos DB in provisioned throughput mode, use the [Azure Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/) to estimate costs before you create the resources in an Azure Cosmos account. The capacity calculator is used to get an estimate of the required throughput and cost of your workload. The capacity calculator is currently available for SQL API, Cassandra API, and API for MongoDB only.
+
+Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimize the cost and performance. You have to input details such as API type, number of regions, item size, read/write requests per second, total data stored to get a cost estimate. To learn more about the capacity calculator, see the [estimate](estimate-ru-with-capacity-planner.md) article.
+
+> [!TIP]
+> To make sure you never exceed the provisioned throughput you've budgeted, [limit your account's total provisioned throughput](./limit-total-account-throughput.md)
 
 The following screenshot shows the throughput and cost estimation by using the capacity calculator:
 
@@ -144,6 +159,9 @@ The following are some best practices you can use to reduce the costs:
 
 See the following articles to learn more on how pricing works in Azure Cosmos DB:
 
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 * [Pricing model in Azure Cosmos DB](how-pricing-works.md)
 * Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

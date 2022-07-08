@@ -1,71 +1,80 @@
 ---
 title: 'How to: browse the Data Catalog'
-description: This article gives an overview of how to browse the Azure Purview data catalog by asset type
+description: This article gives an overview of how to browse the Microsoft Purview data catalog by asset type
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 10/01/2021
 ---
 
-# Browse the Azure Purview Data catalog
+# Browse the Microsoft Purview data catalog
 
-This article describes how to discover data in your Azure Purview Data Catalog using the data source hierarchical namespace.
+Searching a data catalog is a great tool for data discovery if a data consumer knows what they are looking for, but often users don't know exactly how their data estate is structured. The Microsoft Purview data catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog.
 
-## Browse experience
+To access the browse experience, select “Browse assets” from the data catalog home page.
 
-A data consumer can discover data using the familiar hierarchical namespace for each of the data sources using an explorer view. Once the data source is registered and scanned, the Data map extracts information about the structure (hierarchical namespace) of the data source. This information is used to build the browsing experience for data discovery.
+:::image type="content" source="media/how-to-browse-catalog/studio-home-page.png" alt-text="Microsoft Purview home page" border="true":::
 
-For example, you can easily find a dataset called *DateDimension* under a folder called *Dimensions* in Azure Data lake Storage Gen 2. You can use the 'Browse by Asset Type' experience to navigate to the ADLS Gen 2 storage account, then browse to the service > container > folder(s) to reach the specific *Dimensions* folder and then see the *DateDimension* table.
+## Browse by collection
 
-A native browsing experience with hierarchical namespace is provided for each of the corresponding data source.
+Browse by collection allows you to explore the different collections you are a data reader or curator for.
 
 > [!NOTE]
-> After a successful scan, there may be delay before newly scanned assets appear in the browse experience. This delay may take up to a few hours.
+> You will only see collections you have access to. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
 
-## Browse the Data Catalog by asset type
+:::image type="content" source="media/how-to-browse-catalog/browse-by-collection.png" alt-text="Screenshot showing the browse by collection page" border="true":::
 
-1. You can browse data assets, by selecting the **Browse by asset type** on the homepage.
+Once a collection is selected, you will get a list of assets in that collection with the facets and filters available in search. As a collection can have thousands of assets, browse uses the Microsoft Purview search relevance engine to boost the most important assets to the top.
 
-    :::image type="content" source="media/how-to-browse-catalog/studio-home-page.png" alt-text="Purview home page" border="true":::
+:::image type="content" source="media/how-to-browse-catalog/browse-collection-results.png" alt-text="Screenshot showing the browse by collection results" border="true":::
 
-1. On the **Browse asset types** page, tiles are categorized by data sources. To further explore assets in each data source, select the corresponding tile.
+For certain annotations, you can click on the ellipses to choose between an AND condition or an OR condition. 
 
-    :::image type="content" source="media/how-to-browse-catalog/browse-asset-types.jpg" alt-text="Browse asset types page" border="true":::
+:::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
 
-> [!TIP]
-> Certain tiles are groupings of a collection of data sources. For example, the Azure Storage Account tile contains all Azure Blob Storage and Azure Data Lake Storage Gen2 accounts. The Azure SQL Server tile will display the Azure SQL Server assets that contain Azure SQL Database and Azure Dedicated SQL Pool instances ingested into the catalog. 
+If the selected collection doesn’t contain the data you are looking for, you can easily navigate to related collections or go back and view the entire collections tree.
 
-1. On the next page, top-level assets under your chosen data type are listed. Pick one of the assets to further explore its contents.
+:::image type="content" source="media/how-to-browse-catalog/browse-collection-navigation.png" alt-text="Screenshot showing how to navigate between collections" border="true":::
 
-    :::image type="content" source="media/how-to-browse-catalog/asset-type-specific-browse.jpg" alt-text="Asset type specific browse page. Example shown is Azure Storage account" border="true":::
+Once you find the asset you are looking for, you can select it to view additional details such as schema, lineage, and a detailed classification list. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
+
+:::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
+
+## Browse by source type
+
+Browse by source type allows data consumers to explore the hierarchies of data sources using an explorer view. Select a source type to see the list of scanned sources.
+
+For example, you can easily find a dataset called *DateDimension* under a folder called *Dimensions* in Azure Data lake Storage Gen 2. You can use the 'Browse by source type' experience to navigate to the ADLS Gen 2 storage account, then browse to the service > container > folder(s) to reach the specific *Dimensions* folder and then see the *DateDimension* table.
+
+A native browsing experience with hierarchical namespace is provided for each corresponding data source.
+
+> [!NOTE]
+> After a successful scoped scan, there may be delay before newly scanned assets appear in the browse experience.
+
+
+1. On the **Browse by source types** page, tiles are categorized by data sources. To further explore assets in each data source, select the corresponding tile.
+
+    :::image type="content" source="media/how-to-browse-catalog/browse-asset-types.png" alt-text="Browse asset types page" border="true":::
+
+   > [!TIP]
+   > Certain tiles are groupings of a collection of data sources. For example, the Azure Storage Account tile contains all Azure Blob Storage and Azure Data Lake Storage Gen2 accounts. The Azure SQL Server tile will display the Azure SQL Server assets that contain Azure SQL Database and Azure Dedicated SQL Pool instances ingested into the catalog. 
+
+1. On the next page, top-level assets under your chosen data type are listed. Pick one of the assets to further explore its contents. For example, after selecting "Azure SQL Database", you will see a list of databases with assets in the data catalog.
+
+    :::image type="content" source="media/how-to-browse-catalog/asset-type-specific-browse.png" alt-text="Azure SQL Database browse page" border="true":::
 
 1. The explorer view will open. Start browsing by selecting the asset on the left panel. Child assets will be listed on the right panel of the page.
 
-    :::image type="content" source="media/how-to-browse-catalog/explorer-view.jpg" alt-text="Explorer view" border="true":::
+    :::image type="content" source="media/how-to-browse-catalog/explorer-view.png" alt-text="Explorer view" border="true":::
 
 1. To view the details of an asset, select the name or the ellipses button on the far right.
 
-    :::image type="content" source="media/how-to-browse-catalog/view-asset-detail-click-ellipses.jpg" alt-text="Select the ellipses button to see asset details page" border="true":::
-
-## View related data assets
-
-Once you are on the asset detail page, you can also view other related data assets. For example, you can navigate to the parent folder of *DateDimension* to see the *Dimensions* folder or even navigate to the container to see the assets under the specific hierarchy.
-
-1. From the asset detail page, select the **Related** tab to see other related assets.
-
-    :::image type="content" source="media/how-to-browse-catalog/launch-related-tab.jpg" alt-text="Launch Related tab" border="true":::
-
-1. The current asset's full hierarchy will be listed on the left.
-
-    :::image type="content" source="media/how-to-browse-catalog/hierarchical-structure.jpg" alt-text="Hierarchical structure" border="true":::
-
-1. Select any level in the hierarchy to list the immediate assets under that level.
-
-    :::image type="content" source="media/how-to-browse-catalog/select-different-hierarchy.jpg" alt-text="Select different hierarchy" border="true":::
+    :::image type="content" source="media/how-to-browse-catalog/view-asset-detail-click-ellipses-inline.png" alt-text="Select the ellipses button to see asset details page" lightbox="media/how-to-browse-catalog/view-asset-detail-click-ellipses-expanded.png" border="true":::
 
 ## Next steps
 
 - [How to create, import, and export glossary terms](how-to-create-import-export-glossary.md)
 - [How to manage term templates for business glossary](how-to-manage-term-templates.md)
+- [How to search the Microsoft Purview data catalog](how-to-search-catalog.md)

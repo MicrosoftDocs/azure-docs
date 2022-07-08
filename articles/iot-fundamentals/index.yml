@@ -54,9 +54,25 @@ conceptualContent:
   summary: Azure IoT offers you cloud and edge IoT platforms as well as fully-managed IoT solutions
   items:
     # Card
-    - title: Build your own IoT cloud solution
+    - title: Start with a solution development environment (aPaaS)
       links:
-        - url: ../iot-hub/about-iot-hub.md
+        - url: ../iot-central/core/overview-iot-central.md
+          itemType: overview
+          text: What is Azure IoT Central?
+        - url: ../iot-central/core/quick-deploy-iot-central.md
+          itemType: quickstart
+          text: Use your smartphone as a device to connect to IoT Central
+        - url: iot-solution-apaas-paas.md
+          itemType: concept
+          text: What's the difference between PaaS and aPaaS?
+      # footerLink
+      footerLink:
+        url: ../iot-central/index.yml
+        text: See more
+    # Card
+    - title: Build a custom IoT cloud solution (PaaS)
+      links:
+        - url: ../iot-hub/iot-concepts-and-iot-hub.md
           itemType: overview
           text: What is Azure IoT Hub?
         - url: ../iot-hub/quickstart-send-telemetry-cli.md
@@ -65,27 +81,8 @@ conceptualContent:
         - url: ../iot-hub/quickstart-control-device.md
           itemType: quickstart
           text: Control a device from the cloud
-        - url: /azure-stack/operator/iot-hub-rp-overview
-          itemType: overview
-          text: Explore IoT Hub on Azure Stack Hub
       footerLink:
         url: ../iot-hub/index.yml
-        text: See more
-    # Card
-    - title: Deploy a fully managed IoT solution
-      links:
-        - url: ../iot-central/core/overview-iot-central.md
-          itemType: overview
-          text: What is Azure IoT Central?
-        - url: ../iot-central/core/quick-deploy-iot-central.md
-          itemType: quickstart
-          text: Create an IoT Central application
-        - url: ../iot-central/core/tutorial-connect-device.md
-          itemType: tutorial
-          text: Connect a device
-      # footerLink
-      footerLink:
-        url: ../iot-central/index.yml
         text: See more
     # Card
     - title: Run cloud intelligence on edge devices
@@ -128,7 +125,7 @@ conceptualContent:
         - url: ../iot-dps/quick-setup-auto-provision-cli.md
           itemType: quickstart
           text: Set up the service
-        - url: ../iot-dps/quick-create-simulated-device.md
+        - url: ../iot-dps/quick-create-simulated-device-tpm.md
           itemType: quickstart
           text: Provision a TPM device
       # footerLink
@@ -199,19 +196,6 @@ conceptualContent:
       footerLink:
         url: ../azure-maps/index.yml
         text: See more
-    # Card
-    - title: Customize a pre-built IoT solution
-      links:
-        - url: ../iot-accelerators/about-iot-accelerators.md
-          itemType: overview
-          text: What are Azure IoT solution accelerators?
-        - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
-          itemType: quickstart
-          text: Try a connected factory solution
-      # footerLink
-      footerLink:
-        url: ../iot-accelerators/index.yml
-        text: See more
 
 tools:
   title: Azure IoT SDKs
@@ -219,21 +203,25 @@ tools:
   items:
     # Card
     - title: Azure IoT SDK for C reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
+      imageSrc: /media/logos/logo_c.svg
       url: /azure/iot-hub/iot-c-sdk-ref/
     # Card
     - title: Azure IoT SDK for Python
-      imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+      imageSrc: /media/logos/logo_python.svg
       url: https://github.com/Azure/azure-iot-sdk-python
     # Card
     - title: Azure IoT SDK for Node.js reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+      imageSrc: /media/logos/logo_nodejs.svg
       url: /javascript/api/overview/azure/iot-hub
     # Card
     - title: Azure IoT SDK for Java reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+      imageSrc: /media/logos/logo_java.svg
       url: /java/api/com.microsoft.azure.sdk.iot.service
     # Card
     - title: Azure IoT SDK for .NET reference
-      imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+      imageSrc: /media/logos/logo_NET.svg
       url: /dotnet/api/overview/azure/iot
+    # Card
+    - title: Azure IoT Central REST API reference
+      imageSrc: /media/logos/logo_REST.svg
+      url: /rest/api/iotcentral

@@ -3,7 +3,7 @@ title: Understand concepts of the device models repository | Microsoft Docs
 description: As a solution developer or an IT professional, learn about the basic concepts of the device models repository.
 author: rido-min
 ms.author: rmpablos
-ms.date: 11/17/2020
+ms.date: 01/20/2022
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
@@ -13,7 +13,15 @@ services: iot-develop
 
 The device models repository (DMR) enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-The DMR defines a pattern to store DTDL interfaces in a folder structure based on the device twin model identifier (DTMI). You can locate an interface in the DMR by converting the DTMI to a relative path. For example, the `dtmi:com:example:Thermostat;1` DTMI translates to `/dtmi/com/example/thermostat-1.json`.
+The DMR defines a pattern to store DTDL interfaces in a folder structure based on the device twin model identifier (DTMI). You can locate an interface in the DMR by converting the DTMI to a relative path. For example, the `dtmi:com:example:Thermostat;1` DTMI translates to `/dtmi/com/example/thermostat-1.json` and can be obtained from the public base URL `devicemodels.azure.com` at the URL [https://devicemodels.azure.com/dtmi/com/example/thermostat-1.json](https://devicemodels.azure.com/dtmi/com/example/thermostat-1.json).
+
+## Index, expanded and metadata
+
+The DMR conventions include additional artifacts for simplifying consumption of hosted models. These features are _optional_ for custom or private repositories.
+
+- _Index_. All available DTMIs are exposed through an *index* composed by a sequence of json files, for example: [https://devicemodels.azure.com/index.page.2.json](https://devicemodels.azure.com/index.page.2.json)
+- _Expanded_. A file with all the dependencies is available for each interface, for example: [https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json)
+- _Metadata_. This file exposes key attributes of a repository and is refreshed periodically with the latest published models snapshot. It includes features that a repository implements such as whether the model index or expanded model files are available. You can access the DMR metadata at [https://devicemodels.azure.com/metadata.json](https://devicemodels.azure.com/metadata.json)
 
 ## Public device models repository
 
@@ -50,8 +58,8 @@ The client accepts a `DTMI` as input and returns a dictionary with all required 
 using Azure.IoT.ModelsRepository;
 
 var client = new ModelsRepositoryClient();
-IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
-models.Keys.ToList().ForEach(k => Console.WriteLine(k));
+ModelResult models = client.GetModel("dtmi:com:example:TemperatureController;1");
+models.Content.Keys.ToList().ForEach(k => Console.WriteLine(k));
 ```
 
 The expected output should display the `DTMI` of the three interfaces found in the dependency chain:
@@ -66,7 +74,6 @@ The `ModelsRepositoryClient` can be configured to query a custom model repositor
 
 - Disabled. Returns the specified interface only, without any dependency.
 - Enabled. Returns all the interfaces in the dependency chain
-- TryFromExpanded. Use the `.expanded.json` file to retrieve the pre-calculated dependencies 
 
 > [!Tip] 
 > Custom repositories might not expose the `.expanded.json` file, when not available the client will fallback to process each dependency locally.
@@ -77,12 +84,13 @@ The next sample code shows how to initialize the `ModelsRepositoryClient` by usi
 using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
 
 var client = new ModelsRepositoryClient(
-    new Uri("https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main"),
-    new ModelsRepositoryClientOptions(dependencyResolution: ModelDependencyResolution.Enabled));
+    new Uri("https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main"));
 
-IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
+ModelResult model = await client.GetModelAsync(
+    "dtmi:com:example:TemperatureController;1", 
+    dependencyResolution: ModelDependencyResolution.Enabled);
 
-models.Keys.ToList().ForEach(k => Console.WriteLine(k));
+model.Content.Keys.ToList().ForEach(k => Console.WriteLine(k));
 ```
 
 There are more samples available within the source code in the Azure SDK GitHub repository: [Azure.Iot.ModelsRepository/samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/modelsrepository/Azure.IoT.ModelsRepository/samples)
@@ -100,7 +108,7 @@ There are more samples available within the source code in the Azure SDK GitHub 
 1. From your fork, create a pull request that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
 1. Review the [pull request requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-The pull request triggers a set of GitHub actions that validate the submitted interfaces, and makes sure your pull request satisfies all the requirements.
+The pull request triggers a set of GitHub Actions that validate the submitted interfaces, and makes sure your pull request satisfies all the requirements.
 
 Microsoft will respond to a pull request with all checks in three business days.
 
@@ -114,11 +122,7 @@ The tools used to validate the models during the PR checks can also be used to a
 ### Install `dmr-client`
 
 ```bash
-curl -L https://aka.ms/install-dmr-client-linux | bash
-```
-
-```powershell
-iwr https://aka.ms/install-dmr-client-windows -UseBasicParsing | iex
+dotnet tool install --global Microsoft.IoT.ModelsRepository.CommandLine --version 1.0.0-beta.6
 ```
 
 ### Import a model to the `dtmi/` folder
@@ -167,6 +171,27 @@ Models can be exported from a given repository (local or remote) to a single fil
 
 ```bash
 dmr-client export --dtmi "dtmi:com:example:TemperatureController;1" -o TemperatureController.expanded.json
+```
+
+### Create the repository `index`
+
+The DMR can include an *index* with a list of all the DTMIs available at the time of publishing. This file can be split in to multiple files as described in the [DMR Tools Wiki](https://github.com/Azure/iot-plugandplay-models-tools/wiki/Model-Index).
+
+To generate the index in a custom or private DMR, use the index command:
+
+```bash
+dmr-client index -r . -o index.json
+```
+
+> [!NOTE]
+> The public DMR is configured to provide an updated index available at: https://devicemodels.azure.com/index.json
+
+### Create *expanded* files
+
+Expanded files can be generated using the command:
+
+```bash
+dmr-client expand -r .
 ```
 
 ## Next steps

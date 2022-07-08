@@ -2,12 +2,12 @@
 title: Deprecation of IPConfig parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig | Microsoft Docs
 description: Details about deprecation of IPConfig parameters of the cmdlet New-AzRecoveryServicesAsrVMNicConfig and information about the use of new cmdlet New-AzRecoveryServicesAsrVMNicIPConfig
 services: site-recovery
-author: rishjai-msft
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/30/2021
-ms.author: rishjai 
+ms.author: v-pgaddala 
 
 ---
 # Deprecation of IP Config parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig
@@ -16,7 +16,7 @@ This article describes the deprecation, the corresponding implications, and the 
 
 Configuring Primary IP Config settings for Failover or Test Failover. 
 
-This cmdlet impacts all the customers of Azure to Azure DR scenario using the cmdlet New-AzRecoveryServicesAsrVMNicConfig in Version _Az Powershell 5.9.0 and above_.
+This cmdlet impacts all the customers of Azure to Azure DR scenario using the cmdlet New-AzRecoveryServicesAsrVMNicConfig in Version _Az PowerShell 5.9.0 and above_.
 
 > [!IMPORTANT]
 > Customers are advised to take the remediation steps at the earliest to avoid any disruption to their environment. 

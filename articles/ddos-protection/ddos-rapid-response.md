@@ -3,14 +3,13 @@ title: Azure DDoS Rapid Response
 description: Learn how to engage DDoS experts during an active attack for specialized support.
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
-ms.author: yitoh
+ms.author: abell
 
 ---
 # Azure DDoS Rapid Response
@@ -44,7 +43,7 @@ You should only engage DRR if:
 
 5. Complete additional details and submit the support request.
 
-DRR follows the Azure Rapid Response support model. Refer to [Support scope and responsiveness](https://azure.microsoft.com/en-us/support/plans/response/) for more information on Rapid Response.
+DRR follows the Azure Rapid Response support model. Refer to [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/) for more information on Rapid Response.
 
 To learn more, read the [DDoS Protection Standard documentation](./ddos-protection-overview.md).
 

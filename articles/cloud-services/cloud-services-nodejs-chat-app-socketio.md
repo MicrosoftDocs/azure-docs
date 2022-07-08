@@ -12,8 +12,7 @@ ms.custom:
 
 # Build a Node.js chat application with Socket.IO on an Azure Cloud Service (classic)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Socket.IO provides real time communication between your Node.js
 server and clients. This tutorial walks you through hosting a
@@ -143,7 +142,7 @@ Azure emulator:
    >
    > Reinstall AzureAuthoringTools v 2.7.1 and AzureComputeEmulator v 2.7 - make sure that version matches.
 
-2. Open a browser and navigate to **http://127.0.0.1**.
+2. Open a browser and navigate to `http://127.0.0.1`.
 3. When the browser window opens, enter a nickname and then hit enter.
    This will allow you to post messages as a specific nickname. To test
    multi-user functionality, open additional browser windows using the
@@ -167,14 +166,14 @@ Azure emulator:
    > [!IMPORTANT]
    > Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.
    >
-   > If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](./cloud-services-nodejs-develop-deploy-app.md)
    >
    >
 
    ![A browser window displaying the service hosted on Azure][completed-app]
 
    > [!NOTE]
-   > If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](./cloud-services-nodejs-develop-deploy-app.md)
    >
    >
 

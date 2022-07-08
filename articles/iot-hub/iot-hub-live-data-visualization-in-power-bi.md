@@ -1,14 +1,14 @@
 ---
 title: Real-time data visualization of data from Azure IoT Hub – Power BI
 description: Use Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
-author: robinsh
+author: kgremban
 keywords: real time data visualization, live data visualization, sensor data visualization
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 7/23/2021
-ms.author: robinsh
+ms.author: kgremban
 ---
 
 # Tutorial: Visualize real-time sensor data from Azure IoT Hub using Power BI
@@ -28,7 +28,7 @@ In this tutorial, you perform the following tasks:
 
 ## Prerequisites
 
-* Complete the one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or one of the [Embedded device](/azure/iot-develop/quickstart-devkit-mxchip-az3166) quickstarts. These articles cover the following requirements:
+* Complete the one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or one of the [Embedded device](../iot-develop/quickstart-devkit-mxchip-az3166.md) quickstarts. These articles cover the following requirements:
   
   * An active Azure subscription.
   * An Azure IoT hub in your subscription.
@@ -137,7 +137,7 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 ## Create and publish a Power BI report to visualize the data
 
-The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](/power-bi/consumer/service-new-look).
+The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](/power-bi/fundamentals/desktop-latest-update).
 
 1. Make sure the client app is running on your device.
 
@@ -201,7 +201,7 @@ If you don't need the IoT hub or the other resources you created any longer, you
 
 ### Use the Azure CLI to clean up Azure resources
 
-To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name {your resource group}

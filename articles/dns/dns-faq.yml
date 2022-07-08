@@ -5,10 +5,9 @@ metadata:
   services: dns
   author: rohinkoul
   ms.service: dns
-  ms.topic: article
+  ms.topic: faq
   ms.date: 01/11/2021
   ms.author: rohink
-    
 title: Azure DNS FAQ
 summary: |
 
@@ -75,28 +74,28 @@ sections:
         answer: |
           No. Azure DNS doesn't currently support the option to buy domain names. To buy domains, you must use a third-party domain name registrar. The registrar typically charges a small annual fee. The domains then can be hosted in Azure DNS for management of DNS records. For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
           
-          The feature to buy domain names is tracked in the Azure backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
+          The feature to buy domain names is tracked in the Azure backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/d365community/idea/9e9f97ea-8526-ec11-b6e6-000d3a4f0789).
           
       - question: |
           Does Azure DNS support DNSSEC?
         answer: |
           No. Azure DNS doesn't currently support the Domain Name System Security Extensions (DNSSEC).
           
-          The DNSSEC feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
+          The DNSSEC feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/d365community/idea/d403899e-8526-ec11-b6e6-000d3a4f0789).
           
       - question: |
           Does Azure DNS support zone transfers (AXFR/IXFR)?
         answer: |
           No. Azure DNS doesn't currently support zone transfers. DNS zones can be [imported into Azure DNS by using the Azure CLI](dns-import-export.md). DNS records are managed via the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
           
-          The zone transfer feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
+          The zone transfer feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/d365community/idea/7992f535-8726-ec11-b6e6-000d3a4f0789).
           
       - question: |
           Does Azure DNS support URL redirects?
         answer: |
           No. URL redirect services aren't a DNS service. They work at the HTTP level rather than the DNS level. Some DNS providers bundle a URL redirect service as part of their overall offering. This service isn't currently supported by Azure DNS.
           
-          The URL redirect feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+          The URL redirect feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/d365community/idea/d8c8ab1c-8926-ec11-b6e6-000d3a4f0789).
           
       - question: |
           Does Azure DNS support the extended ASCII encoding (8-bit) set for TXT record sets?

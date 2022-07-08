@@ -1,3 +1,5 @@
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+
 In this quickstart, you'll learn how to start a 1:1 video call using the Azure Communication Services Calling SDK for Windows.
 
 ## Prerequisites
@@ -6,8 +8,14 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload. 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -30,7 +38,7 @@ Check `Microphone` to access the audio feed of the microphone.
 Check `WebCam` to access the camera of the device. 
 
 Add the following code to your `Package.appxmanifest` by right-clicking and choosing View Code. 
-```XML
+```xml
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>
@@ -100,6 +108,7 @@ namespace CallingQuickstart
         {
             this.InitializeComponent();
             this.InitCallAgentAndDeviceManager();
+            remoteParticipantDictionary = new Dictionary<string, RemoteParticipant>();
         }
         
         private async void InitCallAgentAndDeviceManager()
@@ -127,6 +136,7 @@ namespace CallingQuickstart
         Call call;
         DeviceManager deviceManager;
         LocalVideoStream[] localVideoStream;
+        Dictionary<String, RemoteParticipant> remoteParticipantDictionary;
     }
 }
 ```
@@ -157,8 +167,7 @@ private async void InitCallAgentAndDeviceManager()
     deviceManager = await callClient.GetDeviceManager();
 
     CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
-    callClient = new CallClient();
-
+    
     CallAgentOptions callAgentOptions = new CallAgentOptions()
     {
         DisplayName = "<DISPLAY_NAME>"
@@ -187,7 +196,7 @@ private async void CallButton_ClickAsync(object sender, RoutedEventArgs e)
         localVideoStream = new LocalVideoStream[1];
         localVideoStream[0] = new LocalVideoStream(videoDeviceInfo);
 
-        Uri localUri = await localVideoStream[0].CreateBindingAsync();
+        Uri localUri = await localVideoStream[0].MediaUriAsync();
 
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
@@ -225,7 +234,7 @@ private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall
         localVideoStream = new LocalVideoStream[1];
         localVideoStream[0] = new LocalVideoStream(videoDeviceInfo);
 
-        Uri localUri = await localVideoStream[0].CreateBindingAsync();
+        Uri localUri = await localVideoStream[0].MediaUriAsync();
 
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
@@ -252,6 +261,8 @@ private async void Agent_OnCallsUpdated(object sender, CallsUpdatedEventArgs arg
     {
         foreach (var remoteParticipant in call.RemoteParticipants)
         {
+            String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+            remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
             await AddVideoStreams(remoteParticipant.VideoStreams);
             remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
         }
@@ -264,6 +275,8 @@ private async void Call_OnRemoteParticipantsUpdated(object sender, ParticipantsU
 {
     foreach (var remoteParticipant in args.AddedParticipants)
     {
+        String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+        remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
         await AddVideoStreams(remoteParticipant.VideoStreams);
         remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
     }
@@ -280,14 +293,13 @@ private async Task AddVideoStreams(IReadOnlyList<RemoteVideoStream> streams)
 
     foreach (var remoteVideoStream in streams)
     {
-        var remoteUri = await remoteVideoStream.CreateBindingAsync();
+        var remoteUri = await remoteVideoStream.Start();
 
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
             RemoteVideo.Source = remoteUri;
             RemoteVideo.Play();
         });
-        remoteVideoStream.Start();
     }
 }
 ```
@@ -304,7 +316,7 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 LocalVideo.Source = null;
-                RemoteVideo = null;
+                RemoteVideo.Source = null;
             });
             break;
         default:
@@ -331,5 +343,7 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
+
+Note: Calling `8:echo123` will stop the video stream because echo bot does not support video streaming. 
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../access-tokens.md) guide. 

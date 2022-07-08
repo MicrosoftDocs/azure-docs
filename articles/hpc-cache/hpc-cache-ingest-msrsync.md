@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: v-erkel
+ms.author: v-erinkelly
 ---
 
 # Azure HPC Cache data ingest - msrsync method
@@ -27,7 +27,7 @@ Follow these instructions to use ``msrsync`` to populate Azure Blob storage with
 1. Install ``msrsync`` and its prerequisites (``rsync`` and Python 2.6 or later)
 1. Determine the total number of files and directories to be copied.
 
-   For example, use the utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   For example, use the utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading <https://github.com/Azure/Avere/blob/main/src/clientapps/dataingestor/prime.py>).
 
    If not using ``prime.py``, you can calculate the number of items with the GNU ``find`` tool as follows:
 
@@ -47,4 +47,4 @@ Follow these instructions to use ``msrsync`` to populate Azure Blob storage with
 
    For example, this command is designed to move 11,000 files in 64 processes from /test/source-repository to /mnt/hpccache/repository:
 
-   ``mrsync -P --stats -p64 -f170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/hpccache/repository``
+   `mrsync -P --stats -p64 -f170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/hpccache/repository`

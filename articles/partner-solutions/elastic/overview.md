@@ -1,11 +1,10 @@
 ---
 title: Elastic integration overview - Azure partner solutions
 description: Learn about using the Elastic Cloud-Native Observability Platform in the Azure Marketplace.
-author: tfitzmac
 ms.topic: conceptual
-ms.service: partner-services
-ms.date: 05/19/2021
-ms.author: tomfitz
+ms.date: 09/02/2021
+author: davidsmatlak
+ms.author: davidsmatlak
 ---
 
 # What is Elastic integration with Azure?
@@ -17,6 +16,9 @@ Elastic's Cloud-Native Observability Platform centralizes log, metric, and traci
 With the Elastic offering, you can manage the solution through the Azure portal. You implement Elastic as a monitoring solution for your cloud workloads through a streamlined workflow.
 
 You can now provision the Elastic resources through a resource provider named **Microsoft.Elastic**. You create, provision, and manage Elastic resources through the Azure portal. Elastic owns and runs the SaaS application including the Elastic accounts created.
+
+> [!IMPORTANT]
+> The Elastic service on Azure only stores and processes customer data in the region where the service was deployed. No data is stored outside of that region.
 
 ## Capabilities
 
@@ -31,7 +33,7 @@ Here are the key capabilities provided by the Elastic integration with Azure:
 
 ## Elastic links
 
-For more help with using the Elastic service, see the [Elastic documentation](https://azure-native-02.docs-preview.app.elstc.co/guide/en/cloud/master/ec-azure-marketplace-native.html) for Azure integration.
+For more help with using the Elastic service, see the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
 
 ## Next steps
 

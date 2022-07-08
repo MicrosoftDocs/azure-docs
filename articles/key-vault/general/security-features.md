@@ -34,8 +34,11 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 
 - The Key Vault front end (data plane) is a multi-tenant server. This means that key vaults from different customers can share the same public IP address. In order to achieve isolation, each HTTP request is authenticated and authorized independently of other requests.
 - You may identify older versions of TLS to report vulnerabilities but because the public IP address is shared, it is not possible for key vault service team to disable old versions of TLS for individual key vaults at transport level.
-- The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the most recent version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. The fact that Key Vault still supports older TLS versions won’t impair the security of connections using newer TLS versions.
+- The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the most recent version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. Applications that are communicating with or authenticating against Azure Active Directory might not work as expected if they are NOT able to use TLS 1.2 or recent version to communicate.
 - Despite known vulnerabilities in TLS protocol, there is no known attack that would allow a malicious agent to extract any information from your key vault when the attacker initiates a connection with a TLS version that has vulnerabilities. The attacker would still need to authenticate and authorize itself, and as long as legitimate clients always connect with recent TLS versions, there is no way that credentials could have been leaked from vulnerabilities at old TLS versions.
+
+> [!NOTE]
+> For Azure Key Vault, ensure that the application accessing the Keyvault service should be running on a platform that supports TLS 1.2 or recent version. If the application is dependent on .Net framework, it should be updated as well. You can also make the registry changes mentioned in [this article](/troubleshoot/azure/active-directory/enable-support-tls-environment) to explicitly enable the use of TLS 1.2 at OS level and for .Net framework. To meet with compliance obligations and to improve security posture, Key Vault connections via TLS 1.0 & 1.1 are considered a security risk, and any connections using old TLS protocols will be disallowed in 2023.
 
 ## Key Vault authentication options
 
@@ -71,6 +74,12 @@ A security principal is an object that represents a user, group, service, or app
 
 For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md).
 
+## Conditional access 
+
+Key Vault provides support for Azure Azure Active Directory Conditional Access policies. By using Conditional Access policies, you can apply the right access controls to Key Vault when needed to keep your organization secure and stay out of your user's way when not needed.
+
+For more information, see [Conditional Access overview](../../active-directory/conditional-access/overview.md)
+
 ## Privileged access
 
 Authorization determines which operations the caller can perform. Authorization in Key Vault uses a combination of [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and Azure Key Vault access policies.
@@ -87,7 +96,7 @@ The following table shows the endpoints for the management and data planes.
 | Access&nbsp;plane | Access endpoints | Operations | Access&nbsp;control mechanism |
 | --- | --- | --- | --- |
 | Management plane | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 | Create, read, update, and delete key vaults<br><br>Set Key Vault access policies<br><br>Set Key Vault tags | Azure RBAC |
-| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Keys: encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, recover, backup, restore, purge<br><br> Certificates: managecontacts, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recover, backup, restore, purge<br><br>  Secrets: get, list, set, delete,recover, backup, restore, purge | Key Vault access policy or Azure RBAC |
+| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Keys: encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, recover, backup, restore, purge, rotate (preview), getrotationpolicy (preview), setrotationpolicy (preview), release(preview) <br><br> Certificates: managecontacts, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recover, backup, restore, purge<br><br>  Secrets: get, list, set, delete,recover, backup, restore, purge | Key Vault access policy or Azure RBAC |
 
 ### Managing administrative access to Key Vault
 

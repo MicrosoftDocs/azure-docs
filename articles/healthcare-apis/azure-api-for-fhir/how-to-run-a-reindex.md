@@ -1,16 +1,16 @@
 ---
 title:  How to run a reindex job in Azure API for FHIR 
-description: This article describes how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.   
+description: This article describes how to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database.   
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/23/2021
-ms.author: cavoeg
+ms.date: 06/03/2022
+ms.author: mikaelw
 ---
 # Running a reindex job in Azure API for FHIR
 
-There are scenarios where you may have search or sort parameters in the Azure API for FHIR that haven't yet been indexed. This is particularly relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.
+There are scenarios where you may have search or sort parameters in the Azure API for FHIR that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database.
 
 > [!Warning]
 > It's important that you read this entire article before getting started. A reindex job can be very performance intensive. This article includes options for how to throttle and control the reindex job.
@@ -89,7 +89,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 
  ## How to check the status of a reindex job
 
-Once you’ve started a reindex job, you can check the status of the job using the following:
+Once you’ve started a reindex job, you can check the status of the job using the following call:
 
 `GET {{FHIR URL}}/_operations/reindex/{{reindexJobId}`
 
@@ -163,9 +163,9 @@ The following information is shown in the reindex job result:
 
 * **progress**: Reindex job percent complete. Equals resourcesSuccessfullyReindexed/totalResourcesToReindex x 100.
 
-* **status**: This will state if the reindex job is queued, running, complete, failed, or canceled.
+* **status**: States if the reindex job is queued, running, complete, failed, or canceled.
 
-* **resources**: This lists all the resource types impacted by the reindex job.
+* **resources**: Lists all the resource types impacted by the reindex job.
 
 ## Delete a reindex job
 
@@ -180,14 +180,14 @@ A reindex job can be quite performance intensive. We’ve implemented some throt
 > [!NOTE]
 > It is not uncommon on large datasets for a reindex job to run for days. For a database with 30,000,000 million resources, we noticed that it took 4-5 days at 100K RUs to reindex the entire database.
 
-Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speed up the process (use more compute) or slow down the process (use less compute). For example, you could run the reindex job on a low traffic time and increase your compute to get it done quicker. Instead, you could use the settings to ensure a very low usage of compute and have it run for days in the background. 
+Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speedup the process (use more compute) or slow down the process (use less compute). For example, you could run the reindex job on a low traffic time and increase your compute to get it done quicker. Instead, you could use the settings to ensure a low usage of compute and have it run for days in the background. 
 
-| **Parameter**                     | **Description**              | **Default**        | **Recommended Range**           |
+| **Parameter**                     | **Description**              | **Default**        | **Available Range**           |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| QueryDelayIntervalInMilliseconds  | This is the delay between each batch of resources being kicked off during the reindex job. | 500 MS (.5 seconds) | 50 to 5000: 50 will speed up the reindex job and 5000 will slow it down from the default. |
-| MaximumResourcesPerQuery  | This is the maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-500 |
-| MaximumConcurrency  | This is the number of batches done at a time.  | 1 | 1-5 |
-| targetDataStoreUsagePercentage | This allows you to specify what percent of your data store to use for the reindex job. For example, you could specify 50% and that would ensure that at most the reindex job would use 50% of available RUs on Cosmos DB.  | No present, which means that up to 100% can be used. | 1-100 |
+| QueryDelayIntervalInMilliseconds  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speed up the job while a higher number will slow it down. | 500 MS (.5 seconds) | 50-500000 |
+| MaximumResourcesPerQuery  | The maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-5000 |
+| MaximumConcurrency  | The number of batches done at a time.  | 1 | 1-10 |
+| targetDataStoreUsagePercentage | Allows you to specify what percent of your data store to use for the reindex job. For example, you could specify 50% and that would ensure that at most the reindex job would use 50% of available RUs on Cosmos DB.  | Not present, which means that up to 100% can be used. | 0-100 |
 
 If you want to use any of the parameters above, you can pass them into the Parameters resource when you start the reindex job.
 
@@ -222,5 +222,4 @@ In this article, you’ve learned how to start a reindex job. To learn how to de
 >[!div class="nextstepaction"]
 >[Defining custom search parameters](how-to-do-custom-search.md)
 
-         
-     
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

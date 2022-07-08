@@ -4,11 +4,10 @@ description: Use Access Reviews to extend of remove access from members of partn
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
@@ -24,7 +23,7 @@ This article describes features and methods that allow you to pinpoint and selec
 
 ## Why review users from external organizations in your tenant?
 
-In most organizations, end-users initiate the process of inviting business partners and vendors for collaboration. The need to collaborate drives organizations to provide resource owners and end users with a way to evaluate and attest external users regularly. Often the process of onboarding new collaboration partners is planned and accounted for, but with many collaborations not having a clear end date, it is not always obvious when a user no longer needs access. Also, identity life-cycle management drives enterprises to keep Azure AD clean and remove users who no longer need access to the organization’s resources. Keeping only the relevant identity references for partners and vendors in the directory helps reduce the risk of your employees, inadvertently selecting and granting access to external users that should have been removed. This document walks you through several options that range from recommended proactive suggestions to reactive and clean-up activities to govern external identities.
+In most organizations, end-users initiate the process of inviting business partners and vendors for collaboration. The need to collaborate drives organizations to provide resource owners and end users with a way to evaluate and attest external users regularly. Often the process of onboarding new collaboration partners is planned and accounted for, but with many collaborations not having a clear end date, it is not always obvious when a user no longer needs access. Also, identity life-cycle management drives enterprises to keep Azure AD clean and remove users who no longer need access to the organization’s resources. Keeping only the relevant identity references for partners and vendors in the directory helps reduce the risk of your employees, inadvertently selecting and granting access to external users that should have been removed. This document walks you through several options that range from recommended proactive suggestions to reactive and cleanup activities to govern external identities.
 
 ## Use Entitlement Management to grant and revoke access
 
@@ -66,11 +65,11 @@ In addition to the option of removing unwanted external identities from resource
 
 ![upon completion settings](media/access-reviews-external-users/upon-completion-settings.png)
 
-When creating a new Access Review, in the “Upon completion settings” section, for **Action to apply on denied users** you can define **Block users from signing-in for 30 days, then remove user from the tenant**.
+When creating a new Access Review, choose the **Select Teams + groups** option and limit the scope to **Guest users only**. In the “Upon completion settings” section, for **Action to apply on denied users** you can define **Block users from signing-in for 30 days, then remove user from the tenant**.
 
 This setting allows you to identify, block, and delete external identities from your Azure AD tenant. External identities who are reviewed and denied continued access by the reviewer will be blocked and deleted, irrespective of the resource access or group membership they have. This setting is best used as a last step after you have validated that the external users in-review no longer carries resource access and can safely be removed from your tenant or if you want to make sure they are removed, irrespective of their standing access. The “Disable and delete” feature blocks the external user first, taking away their ability to signing into your tenant and accessing resources. Resource access is not revoked in this stage, and in case you wanted to reinstantiate the external user, their ability to log on can be reconfigured. Upon no further action, a blocked external identity will be deleted from the directory after 30 days, removing the account as well as their access.
 
 ## Next steps
 
-- [Access reviews - Graph API](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)
-- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-root)
+- [Access reviews - Graph API](/graph/api/resources/accessreviewsv2-overview)
+- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-overview)

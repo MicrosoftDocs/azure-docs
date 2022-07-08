@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ms.author: tomfitz
 ---
 # Bicep deployment what-if operation
@@ -11,6 +11,10 @@ ms.author: tomfitz
 Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+
+### Microsoft Learn
+
+If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif/) on **Microsoft Learn**.
 
 ## Install Azure PowerShell module
 
@@ -89,17 +93,17 @@ The preceding commands return a text summary that you can manually inspect. To g
 
 To preview changes before deploying a Bicep file, use:
 
-* [az deployment group what-if](/cli/azure/deployment/group#az_deployment_group_what_if) for resource group deployments
-* [az deployment sub what-if](/cli/azure/deployment/sub#az_deployment_sub_what_if) for subscription level deployments
-* [az deployment mg what-if](/cli/azure/deployment/mg#az_deployment_mg_what_if) for management group deployments
-* [az deployment tenant what-if](/cli/azure/deployment/tenant#az_deployment_tenant_what_if) for tenant deployments
+* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) for resource group deployments
+* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) for subscription level deployments
+* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) for management group deployments
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) for tenant deployments
 
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
-* [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)
-* [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create).
-* [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create)
-* [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create)
+* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
+* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
 For example, use `az deployment group create --confirm-with-what-if` or `-c` for resource group deployments.
 
@@ -190,7 +194,11 @@ The following results show the two different output formats:
 
 ### Set up environment
 
-To see how what-if works, let's runs some tests. First, deploy a [Bicep file that creates a virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.bicep). You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
+To see how what-if works, let's runs some tests. First, deploy a Bicep file that creates a virtual network. You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-before.bicep":::
+
+To deploy the Bicep file, use:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -218,7 +226,11 @@ az deployment group create \
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. This time you deploy a [Bicep file that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.bicep). It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
+
+To view the changes, use:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -368,6 +380,24 @@ Are you sure you want to execute the deployment?
 ```
 
 You see the expected changes and can confirm that you want the deployment to run.
+
+## Clean up resources
+
+When you no longer need the example resources, use Azure CLI or Azure PowerShell to delete the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli
+az group delete --name ExampleGroup
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name ExampleGroup
+```
+
+---
 
 ## SDKs
 

@@ -2,11 +2,12 @@
 title: Transform data using Hive in Azure Virtual Network
 description: Use Azure PowerShell to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet).
 ms.service: data-factory
+ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.custom: seo-dt-2019, devx-track-azurepowershell
-ms.date: 01/22/2018
+ms.custom: devx-track-azurepowershell
+ms.date: 01/28/2022
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
@@ -33,10 +34,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 - **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account. In this sample, HDInsight cluster uses this Azure Storage account as the primary storage. 
 - **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/quick-create-portal.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
 
-	![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
+	:::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png" alt-text="Create virtual network":::
 - **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md). Here is a sample configuration of HDInsight in a virtual network. 
 
-	![HDInsight in a virtual network](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
+	:::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png" alt-text="HDInsight in a virtual network":::
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### Upload Hive script to your Blob Storage account
@@ -146,13 +147,13 @@ In this section, you create a self-hosted integration runtime and associate it w
 3. Create an Azure VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/quick-create-portal.md#create-virtual-machines). Join them into an Azure Virtual Network. 
 4. On the Azure VM, download [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). Use the Authentication Key obtained in the previous step to manually register the self-hosted integration runtime. 
 
-   ![Register integration runtime](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
+   :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png" alt-text="Register integration runtime":::
 
    You see the following message when the self-hosted integration runtime is registered successfully: 
-   ![Registered successfully](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
+   :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png" alt-text="Registered successfully":::
 
    You see the following page when the node is connected to the cloud service: 
-   ![Node is connected](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
+   :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png" alt-text="Node is connected":::
 
 ## Author linked services
 

@@ -2,34 +2,46 @@
 title: Azure Communication Services Call Recording overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Call Recording feature and APIs.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
 
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Calling Recording overview
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
-> Call Recording is available for Communication Services resources created in the US, UK, Europe, Asia and Australia regions.
+>  Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
 
-Call Recording provides a set of APIs to start, stop, pause and resume recording. These APIs can be accessed from server-side business logic or via events triggered by user actions. Recorded media output is in MP4 Audio+Video format, which is the same format that Teams uses to record media. Notifications related to media and metadata are emitted via Event Grid. Recordings are stored for 48 hours on built-in temporary storage for retrieval and movement to a long-term storage solution of choice. 
+Call Recording provides a set of APIs to start, stop, pause and resume recording. These APIs can be accessed from server-side business logic or via events triggered by user actions. Recorded media output is in MP4 Audio+Video format, which is the same format that Teams uses to record media. Notifications related to media and metadata are emitted via Event Grid. Recordings are stored for 48 hours on built-in temporary storage for retrieval and movement to a long-term storage solution of choice. Call Recording supports all ACS data regions.
 
 ![Call recording concept diagram](../media/call-recording-concept.png)
 
 ## Media output types
-Call recording currently supports mixed audio+video MP4 output format. The output media matches meeting recordings produced via Microsoft Teams recording.
+Call recording currently supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats in Public Preview. The mixed audio+video output media matches meeting recordings produced via Microsoft Teams recording. 
 
-| Channel Type | Content Format | Video | Audio |
-| :----------- | :------------- | :---- | :--------------------------- |
-| audioVideo | mp4 | 1920x1080 8 FPS video of all participants in default tile arrangement | 16kHz mp4a mixed audio of all participants |
+| Content Type | Content Format | Channel Type | Video | Audio |
+| :----------- | :------------- | :----------- | :---- | :--------------------------- |
+| audioVideo | mp4 | mixed | 1920x1080 8 FPS video of all participants in default tile arrangement | 16kHz mp4a mixed audio of all participants |
+| audioOnly| mp3/wav | mixed | N/A | 16kHz mp3/wav mixed audio of all participants |
+| audioOnly| wav | unmixed | N/A | 16kHz wav, 0-5 channels for each participant |
 
+## Channel types
+> [!NOTE]
+> **Unmixed audio-only** is still in a **Private Preview** and NOT enabled for Teams Interop meetings.
+
+| Channel type              | Content format               | Output                                                                                | Scenario                                                |
+|---------------------|-----------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------|
+| Mixed audio-video   | Mp4                         | Single file, single channel                                                           | Keeping records and meeting notes Coaching and Training |
+| Mixed audio-only    | Mp3 (lossy)/ wav (lossless) | Single file, single channel                                                           | Compliance & Adherence Coaching and Training            |
+| **Unmixed audio-only**  | Mp3/wav                     | Single file, multiple channels maximum number of channels is 6 for mp3 and 50 for wav | Quality Assurance  Analytics                            |
 
 ## Run-time Control APIs
 Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. Call Recording APIs are [Out-of-Call APIs](./call-automation-apis.md#out-of-call-apis), using the `serverCallId` to initiate recording. When creating a call, a `serverCallId` is returned via the `Microsoft.Communication.CallLegStateChanged` event after a call has been established. The `serverCallId` can be found in the `data.serverCallId` field. See our [Call Recording Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn about retrieving the `serverCallId` from the Calling Client SDK. A `recordingOperationId` is returned when recording is started, which is then used for follow-on operations like pause and resume.   
@@ -50,7 +62,7 @@ Run-time control APIs can be used to manage recording via internal business logi
 An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (e.g. meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
 
 ### Notification Schema Reference
-```
+```typescript
 {
     "id": string, // Unique guid for event
     "topic": string, // Azure Communication Services resource id
@@ -83,7 +95,10 @@ Many countries and states have laws and regulations that apply to the recording 
 
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the MRIs in the `participants` array with your internal user identities to identify participants in a call. An example of a recording metadata file is provided below for reference.
 
+## Availability
+Currently, Azure Communication Services Call Recording APIs are available in C# and Java.
+
 ## Next steps
-Check out the [Call Recoding Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
+Check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
 
 Learn more about [Call Automation APIs](./call-automation-apis.md).

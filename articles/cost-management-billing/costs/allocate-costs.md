@@ -3,7 +3,7 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2021
+ms.date: 04/08/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,7 +12,7 @@ ms.reviewer: benshy
 
 # Create and manage Azure cost allocation rules (Preview)
 
-Large enterprises often have Azure services or resources that are centrally managed but are utilized by different internal departments or business units. Typically, the centrally managing team wants to reallocate the cost of the shared services back out to the internal departments or organizational business units who are actively using the services. This article helps you understand and use cost allocation in Azure Cost Management.
+Large enterprises often have Azure services or resources that are centrally managed but are utilized by different internal departments or business units. Typically, the centrally managing team wants to reallocate the cost of the shared services back out to the internal departments or organizational business units who are actively using the services. This article helps you understand and use cost allocation in Cost Management.
 
 With cost allocation, you can reassign or distribute the costs of shared services from subscriptions, resource groups or tags to other subscriptions, resource groups or tags in your organization. Cost allocation shifts costs of the shared services to another subscription, resource groups, or tags owned by the consuming internal departments or business units. In other words, cost allocation helps to manage and show _cost accountability_ from one place to another.
 
@@ -21,7 +21,7 @@ Cost allocation doesn't affect your billing invoice. Billing responsibilities ar
 Allocated costs are shown in cost analysis. They're shown as additional items associated with the targeted subscriptions, resource groups, or tags that you specify when you create a cost allocation rule.
 
 > [!NOTE]
-> Azure Cost Management's cost allocation feature is currently in public preview. Some features in Cost Management might not be supported or might have limited capabilities.
+> Cost Management's cost allocation feature is currently in public preview. Some features in Cost Management might not be supported or might have limited capabilities.
 
 ## Prerequisites
 
@@ -117,14 +117,14 @@ Currently, cost allocation is supported in Cost Management by Cost analysis, bud
 
 The following items are currently unsupported by the cost allocation public preview:
 
-- Data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API
 - Billing subscriptions area
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
+Cost allocation data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API is supported by the 2021-10-01 version or later. However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
 
 ## Next steps
 
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about cost allocation.
-- Create or update allocation rules using the [Cost allocation Rest API](/rest/api/cost-management/costallocationrules)
-- Learn more about [How to optimize your cloud investment with Azure Cost Management](cost-mgt-best-practices.md)
+- Create or update allocation rules using the [Cost allocation REST API](/rest/api/cost-management/costallocationrules)
+- Learn more about [How to optimize your cloud investment with Cost Management](cost-mgt-best-practices.md)

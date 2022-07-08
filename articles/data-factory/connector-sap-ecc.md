@@ -1,21 +1,23 @@
 ---
 title: Copy data from SAP ECC
-description: Learn how to copy data from SAP ECC to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
-ms.author: jingwang
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from SAP ECC to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+author: jianleishen
+ms.author: ulrichchrist
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 10/28/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
-# Copy data from SAP ECC by using Azure Data Factory
+# Copy data from SAP ECC using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from SAP Enterprise Central Component (ECC). For more information, see [Copy activity overview](copy-activity-overview.md).
 
 >[!TIP]
->To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
+>To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
 
 ## Supported capabilities
 
@@ -43,7 +45,7 @@ The version 7.0 or later refers to SAP NetWeaver version instead of SAP ECC vers
 1. Use SAP GUI to connect to the SAP System. 
 2. Go to **System** -> **Status**. 
 3. Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
-      ![Check SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="Check SAP_BASIS":::
 
 >[!TIP]
 >To copy data from SAP ECC via an SAP table or view, use the [SAP table](connector-sap-table.md) connector, which is faster and more scalable.
@@ -62,7 +64,31 @@ To use this SAP ECC connector, you need to expose the SAP ECC entities via OData
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define the Data Factory entities specific to the SAP ECC connector.
+## Create a linked service to SAP ECC using UI
+
+Use the following steps to create a linked service to SAP ECC in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for SAP and select the SAP ECC connector.
+
+    :::image type="content" source="media/connector-sap-ecc/sap-ecc-connector.png" alt-text="Screenshot of the SAP ECC connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-sap-ecc/configure-sap-ecc-linked-service.png" alt-text="Screenshot of linked service configuration for SAP ECC.":::
+
+## Connector configuration details
+
+The following sections provide details about properties that are used to define the entities specific to the SAP ECC connector.
 
 ## Linked service properties
 
@@ -181,9 +207,9 @@ The following properties are supported in the copy activity's `source` section:
 
 ## Data type mappings for SAP ECC
 
-When you're copying data from SAP ECC, the following mappings are used from OData data types for SAP ECC data to Azure Data Factory interim data types. To learn how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you're copying data from SAP ECC, the following mappings are used from OData data types for SAP ECC data to interim data types the service uses internally. To learn how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| OData data type | Data Factory interim data type |
+| OData data type | Interim service data type |
 |:--- |:--- |
 | `Edm.Binary` | `String` |
 | `Edm.Boolean` | `Bool` |
@@ -210,4 +236,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Next steps
 
-For a list of the data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of the data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

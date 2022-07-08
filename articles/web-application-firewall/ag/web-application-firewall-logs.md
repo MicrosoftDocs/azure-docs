@@ -20,7 +20,7 @@ You can monitor Web Application Firewall resources using logs. You can save perf
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../../azure-resource-manager/management/view-activity-logs.md) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access Resource log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.
 * **Performance Resource log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](../../application-gateway/application-gateway-metrics.md) for performance data.
 * **Firewall Resource log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall.
@@ -77,7 +77,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 ### Activity log
 
-Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../../azure-resource-manager/management/view-activity-logs.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../../azure-monitor/essentials/activity-log.md) article.
 
 ### Access log
 
@@ -228,7 +228,7 @@ The firewall log is generated only if you have enabled it for each application g
 |ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
 |ruleId     | Rule ID of the triggering event.        |
 |message     | User-friendly message for the triggering event. More details are provided in the details section.        |
-|action     |  Action taken on the request. Available values are Blocked and Allowed (for custom rules), Matched (when a rule matches a part of the request), and Detected and Blocked (these are both for mandatory rules, depending on if the WAF is in detection or prevention mode).      |
+|action     |  Action taken on the request. Available values are: </br>**Blocked and Allowed** (for custom rules) </br>**Matched** (when a rule matches a part of the request) </br>**Detected and Blocked** (these are both for mandatory rules, depending on if the WAF is in detection or prevention mode).      |
 |site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
 |details     | Details of the triggering event.        |
 |details.message     | Description of the rule.        |
@@ -280,7 +280,7 @@ The firewall log is generated only if you have enabled it for each application g
 
 You can view and analyze activity log data by using any of the following methods:
 
-* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md) article.
+* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../../azure-monitor/essentials/activity-log.md) article.
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](/power-bi/service-template-apps-overview), you can analyze your data.
 
 ### View and analyze the access, performance, and firewall logs

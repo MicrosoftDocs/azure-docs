@@ -1,44 +1,38 @@
 ---
 title: Text-to-speech API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the text-to-speech REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
+description: Learn how to use the REST API to convert text into synthesized speech. 
 services: cognitive-services
-author: nitinme
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 07/01/2021
-ms.author: nitinme
+ms.topic: reference
+ms.date: 01/24/2022
+ms.author: eur
 ms.custom: references_regions
 ---
 
 # Text-to-speech REST API
 
-The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region using a set of REST APIs. Each available endpoint is associated with a region. A subscription key for the endpoint/region you plan to use is required.
+The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region by using a REST API. In this article, you'll learn about authorization options, query options, how to structure a request, and how to interpret a response.
 
-The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
+The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A subscription key for the endpoint or region that you plan to use is required. Here are links to more information:
 
-* For a complete list of voices, see [language support](language-support.md#text-to-speech).
-* For information about regional availability, see [regions](regions.md#text-to-speech).
+- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
+- For information about regional availability, see [Speech service supported regions](regions.md#text-to-speech).
+- For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
 > [!IMPORTANT]
-> Costs vary for standard, custom, and neural voices. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Costs vary for prebuilt neural voices (called *Neural* on the pricing page) and custom neural voices (called *Custom Neural* on the pricing page). For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Before using this API, understand:
+Before you use the text-to-speech REST API, understand that you need to complete a token exchange as part of authentication to access the service.
 
-* The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
-
-> [!TIP]
-> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Get a list of voices
 
-The `voices/list` endpoint allows you to get a full list of voices for a specific region/endpoint.
-
-### Regions and endpoints
+You can use the `voices/list` endpoint to get a full list of voices for a specific region or endpoint:
 
 | Region | Endpoint |
 |--------|----------|
@@ -46,37 +40,45 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 | Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| China East 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/voices/list` |
+| China North 2 | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/voices/list` |
 | East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Germany West Central | `https://germanywestcentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Jio India West | `https://jioindiawest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| South Africa North | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norway East | `https://norwayeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Switzerland North | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Switzerland West | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US Gov Arizona | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/voices/list` |
+| US Gov Virginia | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/voices/list` |
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 > [!TIP]
-> [Voices in preview](language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
+> [Voices in preview](language-support.md#prebuilt-neural-voices-in-preview) are available in only these three regions: East US, West Europe, and Southeast Asia.
 
 ### Request headers
 
-This table lists required and optional headers for text-to-speech requests.
+This table lists required and optional headers for text-to-speech requests:
 
-| Header | Description | Required / Optional |
+| Header | Description | Required or optional |
 |--------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
+| `Ocp-Apim-Subscription-Key` | Your subscription key for the Speech service. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
-
-
 
 ### Request body
 
@@ -84,7 +86,7 @@ A body isn't required for `GET` requests to this endpoint.
 
 ### Sample request
 
-This request only requires an authorization header.
+This request requires only an authorization header:
 
 ```http
 GET /cognitiveservices/voices/list HTTP/1.1
@@ -98,25 +100,23 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 This response has been truncated to illustrate the structure of a response.
 
 > [!NOTE]
-> Voice availability varies by region/endpoint.
+> Voice availability varies by region or endpoint.
 
 ```json
 [
 
     {
-    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
-    "DisplayName": "Aria",
-    "LocalName": "Aria",
-    "ShortName": "en-US-AriaNeural",
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+    "DisplayName": "Jenny",
+    "LocalName": "Jenny",
+    "ShortName": "en-US-JennyNeural",
     "Gender": "Female",
     "Locale": "en-US",
     "StyleList": [
       "chat",
       "customerservice",
       "newscast-casual",
-      "newscast-formal",
-      "cheerful",
-      "empathetic"
+      "assistant",
     ],
     "SampleRateHertz": "24000",
     "VoiceType": "Neural",
@@ -163,7 +163,7 @@ This response has been truncated to illustrate the structure of a response.
     "Locale": "ga-IE",
     "SampleRateHertz": "24000",
     "VoiceType": "Neural",
-    "Status": "Preview"
+    "Status": "GA"
   },
 
   ...
@@ -188,24 +188,10 @@ This response has been truncated to illustrate the structure of a response.
     ],
     "SampleRateHertz": "24000",
     "VoiceType": "Neural",
-    "Status": "Preview"
-  },
-
-    ...
-
-   {
-    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-    "DisplayName": "Hoda",
-    "LocalName": "هدى",
-    "ShortName": "ar-EG-Hoda",
-    "Gender": "Female",
-    "Locale": "ar-EG",
-    "SampleRateHertz": "16000",
-    "VoiceType": "Standard",
     "Status": "GA"
   },
 
-...
+    ...
 
 ]
 ```
@@ -217,100 +203,113 @@ The HTTP status code for each response indicates success or common errors.
 | HTTP status code | Description | Possible reason |
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
-| 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. |
-| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
-| 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
+| 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
+| 401 | Unauthorized | The request is not authorized. Make sure your subscription key or token is valid and in the correct region. |
+| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
 
 
-## Convert text-to-speech
+## Convert text to speech
 
-The `v1` endpoint allows you to convert text-to-speech using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
+The `v1` endpoint allows you to convert text to speech by using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
 
 ### Regions and endpoints
 
-These regions are supported for text-to-speech using the REST API. Make sure that you select the endpoint that matches your subscription region.
+These regions are supported for text-to-speech through the REST API. Be sure to select the endpoint that matches your subscription region.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ### Request headers
 
-This table lists required and optional headers for text-to-speech requests.
+This table lists required and optional headers for text-to-speech requests:
 
-| Header | Description | Required / Optional |
+| Header | Description | Required or optional |
 |--------|-------------|---------------------|
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required |
 | `Content-Type` | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`. | Required |
-| `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [audio outputs](#audio-outputs). | Required |
-| `User-Agent` | The application name. The value provided must be less than 255 characters. | Required |
-
-### Audio outputs
-
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech service supports 24 kHz, 16 kHz, and 8 kHz audio outputs.
-
-```output
-raw-16khz-16bit-mono-pcm            riff-16khz-16bit-mono-pcm
-raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
-raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
-raw-8khz-8bit-mono-mulaw            riff-8khz-8bit-mono-mulaw
-raw-8khz-8bit-mono-alaw             riff-8khz-8bit-mono-alaw
-audio-16khz-32kbitrate-mono-mp3     audio-16khz-64kbitrate-mono-mp3
-audio-16khz-128kbitrate-mono-mp3    audio-24khz-48kbitrate-mono-mp3
-audio-24khz-96kbitrate-mono-mp3     audio-24khz-160kbitrate-mono-mp3
-audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
-raw-16khz-16bit-mono-truesilk       raw-24khz-16bit-mono-truesilk
-webm-16khz-16bit-mono-opus          webm-24khz-16bit-mono-opus
-ogg-16khz-16bit-mono-opus           ogg-24khz-16bit-mono-opus
-ogg-48khz-16bit-mono-opus
-```
-
-> [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary.
-> ogg-24khz-16bit-mono-opus can be decoded with [opus codec](https://opus-codec.org/downloads/)
+| `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [Audio outputs](#audio-outputs). | Required |
+| `User-Agent` | The application name. The provided value must be fewer than 255 characters. | Required |
 
 ### Request body
 
-The body of each `POST` request is sent as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech returned by the text-to-speech service. For a complete list of supported voices, see [language support](language-support.md#text-to-speech).
-
-> [!NOTE]
-> If using a custom voice, the body of a request can be sent as plain text (ASCII or UTF-8).
+If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
 
 ### Sample request
 
-This HTTP request uses SSML to specify the voice and language. If the body length is long, and the resulting audio exceeds 10 minutes - it is truncated to 10 minutes. In other words, the audio length cannot exceed 10 minutes.
+This HTTP request uses SSML to specify the voice and language. If the body length is long, and the resulting audio exceeds 10 minutes, it's truncated to 10 minutes. In other words, the audio length can't exceed 10 minutes.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
 
-X-Microsoft-OutputFormat: raw-24khz-16bit-mono-pcm
+X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
 Host: westus.tts.speech.microsoft.com
-Content-Length: 225
+Content-Length: <Length>
 Authorization: Bearer [Base64 access_token]
+User-Agent: <Your application name>
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-AriaNeural'>
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Male'
+    name='en-US-ChristopherNeural'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
+<sup>*</sup> For the Content-Length, you should use your own content length. In most cases, this value is calculated automatically.
 
 ### HTTP status codes
 
-The HTTP status code for each response indicates success or common errors.
+The HTTP status code for each response indicates success or common errors:
 
 | HTTP status code | Description | Possible reason |
 |------------------|-------------|-----------------|
-| 200 | OK | The request was successful; the response body is an audio file. |
-| 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. |
-| 415 | Unsupported Media Type | It's possible that the wrong `Content-Type` was provided. `Content-Type` should be set to `application/ssml+xml`. |
-| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
-| 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
+| 200 | OK | The request was successful. The response body is an audio file. |
+| 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
+| 401 | Unauthorized | The request is not authorized. Make sure your subscription key or token is valid and in the correct region. |
+| 415 | Unsupported media type | It's possible that the wrong `Content-Type` value was provided. `Content-Type` should be set to `application/ssml+xml`. |
+| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred, saved to a buffer, or saved to a file.
+
+## Audio outputs
+
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
+
+|Streaming                         |Non-Streaming            |
+|----------------------------------|-------------------------|
+|audio-16khz-16bit-32kbps-mono-opus|riff-8khz-8bit-mono-alaw |
+|audio-16khz-32kbitrate-mono-mp3   |riff-8khz-8bit-mono-mulaw|
+|audio-16khz-64kbitrate-mono-mp3   |riff-8khz-16bit-mono-pcm |
+|audio-16khz-128kbitrate-mono-mp3  |riff-24khz-16bit-mono-pcm|
+|audio-24khz-16bit-24kbps-mono-opus|riff-48khz-16bit-mono-pcm|
+|audio-24khz-16bit-48kbps-mono-opus|                         |
+|audio-24khz-48kbitrate-mono-mp3   |                         |
+|audio-24khz-96kbitrate-mono-mp3   |                         |
+|audio-24khz-160kbitrate-mono-mp3  |                         |
+|audio-48khz-96kbitrate-mono-mp3   |                         |
+|audio-48khz-192kbitrate-mono-mp3  |                         |
+|ogg-16khz-16bit-mono-opus         |                         |
+|ogg-24khz-16bit-mono-opus         |                         |
+|ogg-48khz-16bit-mono-opus         |                         |
+|raw-8khz-8bit-mono-alaw           |                         |
+|raw-8khz-8bit-mono-mulaw          |                         |
+|raw-8khz-16bit-mono-pcm           |                         |
+|raw-16khz-16bit-mono-pcm          |                         |
+|raw-16khz-16bit-mono-truesilk     |                         |
+|raw-24khz-16bit-mono-pcm          |                         |
+|raw-24khz-16bit-mono-truesilk     |                         |
+|raw-48khz-16bit-mono-pcm          |                         |
+|webm-16khz-16bit-mono-opus        |                         |
+|webm-24khz-16bit-24kbps-mono-opus |                         |
+|webm-24khz-16bit-mono-opus        |                         |
+
+> [!NOTE]
+> en-US-AriaNeural, en-US-JennyNeural and zh-CN-XiaoxiaoNeural are available in public preview in 48Khz output. Other voices support 24khz upsampled to 48khz output.
+
+> [!NOTE]
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. You can decode the `ogg-24khz-16bit-mono-opus` format by using the [Opus codec](https://opus-codec.org/downloads/).
 
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Asynchronous synthesis for long-form audio](./long-audio-api.md)
-- [Get started with Custom Neural Voice](how-to-custom-voice.md)
+- [Get started with custom neural voice](how-to-custom-voice.md)

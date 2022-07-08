@@ -1,8 +1,12 @@
 ---
 title: Collect & analyze resource logs
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
-ms.topic: article
-ms.date: 07/13/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 # Container group and instance logging with Azure Monitor logs
 
@@ -46,6 +50,9 @@ The following examples demonstrate two ways to create a container group that con
 
 To deploy with the Azure CLI, specify the `--log-analytics-workspace` and `--log-analytics-workspace-key` parameters in the [az container create][az-container-create] command. Replace the two workspace values with the values you obtained in the previous step (and update the resource group name) before running the following command.
 
+> [!NOTE]
+> The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
+
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
@@ -58,6 +65,9 @@ az container create \
 ### Deploy with YAML
 
 Use this method if you prefer to deploy container groups with YAML. The following YAML defines a container group with a single container. Copy the YAML into a new file, then replace `LOG_ANALYTICS_WORKSPACE_ID` and `LOG_ANALYTICS_WORKSPACE_KEY` with the values you obtained in the previous step. Save the file as **deploy-aci.yaml**.
+
+> [!NOTE]
+> The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: 2019-12-01

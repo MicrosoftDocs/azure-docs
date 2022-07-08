@@ -2,12 +2,12 @@
 title: Troubleshoot Hyper-V disaster recovery with Azure Site Recovery 
 description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery
 services: site-recovery
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
-ms.author: sharrai
+ms.author: v-pgaddala
 
 ---
 # Troubleshoot Hyper-V to Azure replication and failover
@@ -125,7 +125,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
         - This data churn rate will increase or remain at a high level, depending on how busy the VM or its apps are.
         - The average source disk data churn is 2 MB/s for standard storage for Site Recovery. [Learn more](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - In addition you can [verify storage scalability targets](../storage/common/scalability-targets-standard-account.md).
-8. Make sure that if you're using a Linux based server, then you have enabled app-consistency on it. [Learn more](/azure/site-recovery/site-recovery-faq#replication)
+8. Make sure that if you're using a Linux based server, then you have enabled app-consistency on it. [Learn more](./site-recovery-faq.yml)
 9. Run the [Deployment Planner](hyper-v-deployment-planner-run.md).
 10. Review the recommendations for [network](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

@@ -9,11 +9,13 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/27/2021
-ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.date: 12/21/2021
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
@@ -144,13 +146,19 @@ Here's a description of how the control script works:
 
 ## <a name="submit"></a> Submit and run your code in the cloud
 
-Select **Save and run script in terminal** to run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](quickstart-create-resources.md).
+1. Select **Save and run script in terminal** to run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](quickstart-create-resources.md).
 
-In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
+1. In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
 
-> [!TIP]
-> If you just finished creating the compute cluster, you may see the error "UserError: Required Docker image not found..." Wait about 5 minutes or so, and try again.  The compute cluster may need more time before it is ready to spin up nodes.
+1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the run.
 
+    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
+## View the output
+
+1. In the page that opens, you'll see the run status.
+1. When the status of the run is **Completed**, select **Output + logs** at the top of the page.
+1. Select **std_log.txt** to view the output of your run.
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
@@ -165,7 +173,7 @@ Follow the link.  At first, you'll see a status of **Queued** or **Preparing**. 
 
 Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
 
-Wait about 10 minutes.  You'll see a message that the run has completed. Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
+Wait about 10 minutes.  You'll see a message that the run has completed. Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `std_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

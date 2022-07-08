@@ -7,15 +7,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.reviewer: peterlu
-ms.date: 10/29/2020
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: deploy, studio, designer
+ms.custom: deploy, studio, designer, event-tier1-build-2022
 ---
 
 # Use the studio to deploy models trained in the designer
 
-In this article, you learn how to deploy a designer model as a real-time endpoint in Azure Machine Learning studio.
+In this article, you learn how to deploy a designer model as an online (real-time) endpoint in Azure Machine Learning studio.
 
 Once registered or downloaded, you can use designer trained models just like any other model. Exported models can be deployed in use cases such as internet of things (IoT) and local deployments.
 
@@ -32,26 +31,26 @@ Models trained in the designer can also be deployed through the SDK or command-l
 
 ## Prerequisites
 
-* [An Azure Machine Learning workspace](how-to-manage-workspace.md)
+* [An Azure Machine Learning workspace](quickstart-create-resources.md)
 
-* A completed training pipeline containing one of following modules:
-    - [Train Model module](./algorithm-module-reference/train-model.md)
-    - [Train Anomaly Detection Model module](./algorithm-module-reference/train-anomaly-detection-model.md)
-    - [Train Clustering Model module](./algorithm-module-reference/train-clustering-model.md)
-    - [Train Pytorch Model module](./algorithm-module-reference/train-pytorch-model.md)
-    - [Train SVD Recommender module](./algorithm-module-reference/train-svd-recommender.md)
-    - [Train Vowpal Wabbit Model module](./algorithm-module-reference/train-vowpal-wabbit-model.md)
-    - [Train Wide & Deep Model module](./algorithm-module-reference/train-wide-and-deep-recommender.md)
+* A completed training pipeline containing one of following components:
+    - [Train Model Component](./algorithm-module-reference/train-model.md)
+    - [Train Anomaly Detection Model component](./algorithm-module-reference/train-anomaly-detection-model.md)
+    - [Train Clustering Model component](./algorithm-module-reference/train-clustering-model.md)
+    - [Train Pytorch Model component](./algorithm-module-reference/train-pytorch-model.md)
+    - [Train SVD Recommender component](./algorithm-module-reference/train-svd-recommender.md)
+    - [Train Vowpal Wabbit Model component](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [Train Wide & Deep Model component](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## Register the model
 
 After the training pipeline completes, register the trained model to your Azure Machine Learning workspace to access the model in other projects.
 
-1. Select the [Train Model module](./algorithm-module-reference/train-model.md).
+1. Select the [Train Model component](./algorithm-module-reference/train-model.md).
 1. Select the **Outputs + logs** tab in the right pane.
 1. Select the **Register Model** icon ![Screenshot of the gear icon](./media/how-to-deploy-model-designer/register-model-icon.png).
 
-    ![Screenshot of right pane of Train Model module](./media/how-to-deploy-model-designer/train-model-right-pane.png)
+    ![Screenshot of right pane of Train Model component](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
 1. Enter a name for your model, then select **Save**.
 
@@ -63,13 +62,13 @@ After registering your model, you can find it in the **Models** asset page in th
 
 You need the following files to deploy a model in Azure Machine Learning studio:
 
-- **Entry script file** - loads the trained model, processes input data from requests, does real-time inferences, and returns the result. The designer automatically generates a `score.py` entry script file when the **Train Model** module completes.
+- **Entry script file** - loads the trained model, processes input data from requests, does real-time inferences, and returns the result. The designer automatically generates a `score.py` entry script file when the **Train Model** component completes.
 
-- **Conda dependencies file** - specifies which pip and conda packages your webservice depends on. The designer automatically creates a `conda_env.yaml` file when the **Train Model** module completes.
+- **Conda dependencies file** - specifies which pip and conda packages your webservice depends on. The designer automatically creates a `conda_env.yaml` file when the **Train Model** component completes.
 
-You can download these two files in the right pane of the **Train Model** module:
+You can download these two files in the right pane of the **Train Model** component:
 
-1. Select the **Train Model** module.
+1. Select the **Train Model** component.
 1. In the **Outputs + logs** tab, select the folder `trained_model_outputs`.
 1. Download the `conda_env.yaml` file and `score.py` file.
 
@@ -86,7 +85,7 @@ Alternatively, you can download the files from the **Models** asset page after r
     ![Screenshot of download files for deployment in model detail page](./media/how-to-deploy-model-designer/download-artifacts-in-models-page.png)
 
 > [!NOTE]
-> The `score.py` file provides nearly the same functionality as the **Score Model** modules. However, some modules like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. You can also change those parameters in the entry script.
+> The `score.py` file provides nearly the same functionality as the **Score Model** components. However, some components like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. You can also change those parameters in the entry script.
 >
 >For more information on setting parameters in the `score.py` file, see the section, [Configure the entry script](#configure-the-entry-script).
 
@@ -95,29 +94,30 @@ Alternatively, you can download the files from the **Models** asset page after r
 After downloading the necessary files, you're ready to deploy the model.
 
 1. In the **Models** asset page, select the registered model.
-1. Select the **Deploy** button.
+1. Select **Deploy** and select **Deploy to web service**.
+    ![Screenshot of deploy button in model asset page](./media/how-to-deploy-model-designer/open-deploy-wizard.png)
 1. In the configuration menu, enter the following information:
 
     - Input a name for the endpoint.
-    - Select to deploy the model to [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Azure Container Instance](how-to-deploy-azure-container-instance.md).
+    - Select to deploy the model to [Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md) or [Azure Container Instance](v1/how-to-deploy-azure-container-instance.md).
     - Upload the `score.py` for the **Entry script file**.
     - Upload the `conda_env.yml` for the **Conda dependencies file**. 
 
     >[!TIP]
     > In **Advanced** setting, you can set CPU/Memory capacity and other parameters for deployment. These settings are important for certain models such as PyTorch models, which consume considerable amount of memery (about 4 GB).
 
-1. Select **Deploy** to deploy your model as a real-time endpoint.
+1. Select **Deploy** to deploy your model as an online endpoint.
 
     ![Screenshot of deploy model in model asset page](./media/how-to-deploy-model-designer/deploy-model.png)
 
-## Consume the real-time endpoint
+## Consume the online endpoint
 
-After deployment succeeds, you can find the real-time endpoint in the **Endpoints** asset page. Once there, you will find a REST endpoint, which clients can use to submit requests to the real-time endpoint. 
+After deployment succeeds, you can find the endpoint in the **Endpoints** asset page. Once there, you will find a REST endpoint, which clients can use to submit requests to the endpoint. 
 
 > [!NOTE]
 > The designer also generates a sample data json file for testing, you can download `_samples.json` in the **trained_model_outputs** folder.
 
-Use the following code sample to consume a real-time endpoint.
+Use the following code sample to consume an online endpoint.
 
 ```python
 
@@ -140,9 +140,9 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
-### Consume computer vision related real-time endpoints
+### Consume computer vision related online endpoints
 
-When consuming computer vision related real-time endpoints, you need to convert images to bytes, since web service only accepts string as input. Following is the sample code:
+When consuming computer vision related online endpoints, you need to convert images to bytes, since web service only accepts string as input. Following is the sample code:
 
 ```python
 import base64
@@ -175,7 +175,7 @@ image_transform = [
 ]
 transform = ImageTransformationDirectory.create(transforms=image_transform).torch_transform
 
-# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model module
+# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model component
 sample_file_path = '_samples.json'
 with open(sample_file_path, 'r') as f:
     sample_data = json.load(f)
@@ -198,7 +198,7 @@ with open(data_file_path, 'w') as f:
 
 ## Configure the entry script
 
-Some modules in the designer like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. 
+Some components in the designer like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. 
 
 In this section, you learn how to update these parameters in the entry script file too.
 
@@ -238,7 +238,7 @@ def run(data):
 
     data_frame_directory = create_dfd_from_dict(input_entry, schema_data)
 
-    # The parameter names can be inferred from Score Wide and Deep Recommender module parameters:
+    # The parameter names can be inferred from Score Wide and Deep Recommender component parameters:
     # convert the letters to lower cases and replace whitespaces to underscores.
     score_params = dict(
         trained_wide_and_deep_recommendation_model=model,
@@ -297,6 +297,6 @@ score_params = dict(
 * [Train a model in the designer](tutorial-designer-automobile-price-train-score.md)
 * [Deploy models with Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
+* [Deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)

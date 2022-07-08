@@ -4,6 +4,7 @@ description:  This tutorial provides step-by-step instructions for using data fl
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/04/2021
@@ -50,31 +51,31 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 1. On the home page, select **Orchestrate**.
 
-   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the ADF home page.":::
 
 1. In the **General** tab for the pipeline, enter **DeltaLake** for **Name** of the pipeline.
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
 
-    ![Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.":::
 1. In the **Adding Data Flow** pop-up, select **Create new Data Flow** and then name your data flow **DeltaLake**. Click Finish when done.
 
-    ![Screenshot that shows where you name your data flow when you create a new data flow.](media/tutorial-data-flow/activity2.png)
+    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="Screenshot that shows where you name your data flow when you create a new data flow.":::
 1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-    ![Screenshot that shows where is the Data flow debug slider.](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Screenshot that shows where is the Data flow debug slider.":::
 
 ## Build transformation logic in the data flow canvas
 
-You will generate two data flows in this tutorial. The fist data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file from above. Lastly, you'll create this flow design below to update data in Delta Lake.
+You will generate two data flows in this tutorial. The first data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file from above. Lastly, you'll create this flow design below to update data in Delta Lake.
 
-![Final flow](media/data-flow/data-flow-tutorial-6.png "Final flow")
+:::image type="content" source="media/data-flow/data-flow-tutorial-6.png" alt-text="Final flow":::
 
 ### Tutorial objectives
 
-1. Take the MoviesCSV dataset source from above, form a new Delta Lake from it
-1. Build the logic to updated ratings for 1988 movies to '1'
-1. Delete all movies from 1950
-1. Insert new movies for 2021 by duplicating the movies from 1960
+1. Take the MoviesCSV dataset source from above, and form a new Delta Lake from it.
+1. Build the logic to updated ratings for 1988 movies to '1'.
+1. Delete all movies from 1950.
+1. Insert new movies for 2021 by duplicating the movies from 1960.
 
 ### Start from a blank data flow canvas
 
@@ -90,7 +91,7 @@ You will generate two data flows in this tutorial. The fist data flow is a simpl
 1. Add a sink transformation
 1. Delta is an inline dataset type. You will need to point to your ADLS Gen2 storage account.
    
-   ![Inline dataset](media/data-flow/data-flow-tutorial-5.png "Inline dataset")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-5.png" alt-text="Inline dataset":::
 
 1. Choose a folder name in your storage container where you would like ADF to create the Delta Lake
 1. Go back to the pipeline designer and click Debug to execute the pipeline in debug mode with just this data flow activity on the canvas. This will generate your new Delta Lake in ADLS Gen2.
@@ -102,23 +103,23 @@ You will generate two data flows in this tutorial. The fist data flow is a simpl
 1. In that same derived column, create movies for 2021 by taking an existing year and change the year to 2021. Let’s pick 1960.
 1. This is what your three derived columns will look like
 
-   ![Derived column](media/data-flow/data-flow-tutorial-2.png "Derived column")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-2.png" alt-text="Derived column":::
    
 1. ```Update, insert, delete, and upsert``` policies are created in the alter Row transform. Add an alter row transformation after your derived column.
 1. Your alter row policies should look like this.
 
-   ![Alter row](media/data-flow/data-flow-tutorial-3.png "Alter row")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-3.png" alt-text="Alter row":::
    
 1. Now that you’ve set the proper policy for each alter row type, check that the proper update rules have been set on the sink transformation
 
-   ![Sink](media/data-flow/data-flow-tutorial-4.png "Sink")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-4.png" alt-text="Sink":::
    
 1. Here we are using the Delta Lake sink to your ADLS Gen2 data lake and allowing inserts, updates, deletes. 
-1. Note that the Key Columns is a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
+1. Note that the Key Columns are a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
 
 ### Download completed sample
 [Here is a sample solution for the Delta pipeline with a data flow for update/delete rows in the lake:](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/DeltaPipeline.zip)
 
 ## Next steps
 
-Learn more about the [data flow expression language](data-flow-expression-functions.md).
+Learn more about the [data flow expression language](data-transformation-functions.md).

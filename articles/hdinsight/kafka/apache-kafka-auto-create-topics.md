@@ -5,7 +5,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/28/2020
+ms.date: 05/06/2022
 ---
 
 # How to configure Apache Kafka on HDInsight to automatically create topics
@@ -57,13 +57,14 @@ When creating a Kafka cluster using an Azure Resource Manager template, you can 
 "clusterDefinition": {
     "kind": "kafka",
     "configurations": {
-    "gateway": {
-        "restAuthCredential.isEnabled": true,
-        "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
-        "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-    },
-    "kafka-broker": {
-        "auto.create.topics.enable": "true"
+        "gateway": {
+            "restAuthCredential.isEnabled": true,
+            "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+            "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+        },
+        "kafka-broker": {
+            "auto.create.topics.enable": "true"
+        }
     }
 }
 ```

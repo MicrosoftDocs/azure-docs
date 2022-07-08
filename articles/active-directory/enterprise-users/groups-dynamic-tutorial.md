@@ -4,12 +4,12 @@ description: In this tutorial, you use groups with user membership rules to add 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/02/2020
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Add or remove group members automatically
 
-In Azure Active Directory (Azure AD), you can automatically add or remove users to security groups or Microsoft 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your Azure AD organization to see if the change should add or remove members.
+In Azure Active Directory (Azure AD), part of Microsoft Entra, you can automatically add or remove users to security groups or Microsoft 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your Azure AD organization to see if the change should add or remove members.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

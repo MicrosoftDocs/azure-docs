@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 06/14/2021
+ms.date: 02/15/2022
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -32,8 +32,8 @@ The following environment variables are related to the app environment in genera
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for websocket's concurrent requests. For **Standard** tier and above, the value is `-1`, but there's still a per VM limit based on your VM size (see [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)). ||
 | `WEBSITE_PRIVATE_EXTENSIONS` | Set to `0` to disable the use of private site extensions. ||
 | `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [TimeZone](/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)). If the specified value isn't recognized, UTC is used. | `Atlantic Standard Time` |
-| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | In the case of a storage volume failover or reconfiguration, your app is switched over to a standby storage volume. The default setting of `1` prevents your worker process from recycling when the storage infrastructure changes. If you are running a Windows Communication Foundation (WCF) app, disable it by setting it to `0`. The setting is slot-specific, so you should set it in all slots. ||
-| `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VN instance has triggered one of these rules, the recovery process is an overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
+| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the app setting value to `1`on all slots (default is`0`). However, do not set this value if you are running a Windows Communication Foundation (WCF) application. For more information, see [Troubleshoot swaps](deploy-staging-slots.md#troubleshoot-swaps)||
+| `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance has triggered one of these rules, the recovery process is an overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
 | `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance, and collects a memory dump when the worker process crashes again. This memory dump is then analyzed and the call stack of the thread that caused the crash is logged in your App Service’s logs. Set to `false` to disable this automatic monitoring behavior. The default is `true`. For more information, see [Proactive Crash Monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). ||
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the SAS URI.  ||
 | `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`. This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. ||
@@ -41,8 +41,6 @@ The following environment variables are related to the app environment in genera
 | `REMOTEDEBUGGINGVERSION` | Remote debugging version. ||
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage account instead, set to the connection string of your storage account. For functions, see [App settings reference for Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring). | `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
 | `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name you want. If a file share with the specified name doesn't exist, App Service creates it for you. | `myapp123` |
-| `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. ||
-| `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. ||
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). ||
 | `WEBSITE_SCM_SEPARATE_STATUS` | Read-only. Shows whether the Kudu app is running in a separate process (`1`) or not (`0`). ||
 
@@ -71,8 +69,14 @@ The following table shows environment variables prefixes that App Service uses f
 | `POSTGRESQLCONNSTR_` | Signifies a PostgreSQL connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `CUSTOMCONNSTR_` | Signifies a custom connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `MYSQLCONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `AZUREFILESSTORAGE_` | A connection string to a custom Azure File storage for a container app. |
-| `AZUREBLOBSTORAGE_` | A connection string to a custom Azure Blobs storage for a container app. |
+| `AZUREFILESSTORAGE_` | A connection string to a custom share for a custom container in Azure Files. |
+| `AZUREBLOBSTORAGE_` | A connection string to a custom storage account for a custom container in Azure Blob Storage. |
+| `NOTIFICATIONHUBCONNSTR_` | Signifies a connection string to a notification hub in Azure Notification Hubs. |
+| `SERVICEBUSCONNSTR_` | Signifies a connection string to an instance of Azure Service Bus. |
+| `EVENTHUBCONNSTR_` | Signifies a connection string to an event hub in Azure Event Hubs. |
+| `DOCDBCONNSTR_` | Signifies a connection string to a database in Azure Cosmos DB. |
+| `REDISCACHECONNSTR_` | Signifies a connection string to a cache in Azure Cache for Redis. |
+| `FILESHARESTORAGE_` | Signifies a connection string to a custom file share. |
 
 ## Deployment
 
@@ -86,7 +90,7 @@ The following environment variables are related to app deployment. For variables
 | `WEBSITE_RUN_FROM_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. | 
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Set to `false` for WebDeploy to stop using the Kudu deployment engine. The default is `true`. To deploy to Linux apps using Visual Studio (WebDeploy/MSDeploy), set it to `false`. |
 | `MSDEPLOY_RENAME_LOCKED_FILES` | Set to `1` to attempt to rename DLLs if they can't be copied during a WebDeploy deployment. This setting is not applicable if `WEBSITE_WEBDEPLOY_USE_SCM` is set to `false`. |
-| `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `false`) is a legacy mode that's no longer fully supported. |
+| `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `true`) is a legacy mode that's no longer fully supported. |
 | `WEBSITE_ENABLE_SYNC_UPDATE_SITE` | Set to `1` ensure that REST API calls to update `site` and `siteconfig` are completely applied to all instances before returning. The default is `1` if deploying with an ARM template, to avoid race conditions with subsequent ARM calls. |
 | `WEBSITE_START_SCM_ON_SITE_CREATION` | In an ARM template deployment, set to `1` in the ARM template to pre-start the Kudu app as part of app creation. |
 | `WEBSITE_START_SCM_WITH_PRELOAD` | For Linux apps, set to `true` to force preloading the Kudu app when Always On is enabled by pinging its URL. The default is `false`. For Windows apps, the Kudu app is always preloaded. |
@@ -141,6 +145,10 @@ This section shows the configurable runtime settings for each supported language
 | `HOME` | Read-only. Directory that points to shared storage (`/home`). |
 | `DUMP_DIR` | Read-only. Directory for the crash dumps (`/home/logs/dumps`). |
 | `APP_SVC_RUN_FROM_COPY` | Linux apps only. By default, the app is run from `/home/site/wwwroot`, a shared directory for all scaled-out instances. Set this variable to `true` to copy the app to a local directory in your container and run it from there. When using this option, be sure not to hard-code any reference to `/home/site/wwwroot`. Instead, use a path relative to `/home/site/wwwroot`. |
+| `MACHINEKEY_Decryption` | For Windows native apps or Windows containerized apps, this variable is injected into app environment or container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `decryption` value, configure it as an App Service app setting, or set it directly in the `machineKey` element of the *Web.config* file. |
+| `MACHINEKEY_DecryptionKey` | For Windows native apps or Windows containerized apps, this variable is injected into the app environment or container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `decryptionKey` value, configure it as an App Service app setting, or set it directly in the `machineKey` element of the *Web.config* file.|
+| `MACHINEKEY_Validation` | For Windows native apps or Windows containerized apps, this variable is injected into the app environment or container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `validation` value, configure it as an App Service app setting, or set it directly in the `machineKey` element of the *Web.config* file.|
+| `MACHINEKEY_ValidationKey` | For Windows native apps or Windows containerized apps, this variable is injected into the app environment or container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `validationKey` value, configure it as an App Service app setting, or set it directly in the `machineKey` element of the *Web.config* file.|
 <!-- | `USE_DOTNET_MONITOR` | if =true then /opt/dotnetcore-tools/dotnet-monitor collect --urls "http://0.0.0.0:50051" --metrics true --metricUrls "http://0.0.0.0:50050" > /dev/null 2>&1 & -->
 
 # [Java](#tab/java)
@@ -253,18 +261,39 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 -----
 
+## WordPress
+
+> [!div class="mx-tdCol5BreakAll"]
+> |Application Setting | Scope | Value | Max | Description
+> |-------------|-------------|-------------|---------------|--------------------|
+> |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
+> |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
+> |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
+> |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
+> |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
+> |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
+> |POST_MAX_SIZE|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
+> |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
+> |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
+> |MAX_INPUT_VARS|PHP|10000|10000|-|
+> |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
+> |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
+> |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
+> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
+
 ## Domain and DNS
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITE_DNS_SERVER` | IP address of primary DNS server for outgoing connections (such as to a back-end service). The default DNS server for App Service is Azure DNS, whose IP address is `168.63.129.16`. If your app uses [VNet integration](web-sites-integrate-with-vnet.md) or is in an [App Service environment](environment/intro.md), it inherits the DNS server configuration from the VNet by default. | `10.0.0.1` |
+| `WEBSITE_DNS_SERVER` | IP address of primary DNS server for outgoing connections (such as to a back-end service). The default DNS server for App Service is Azure DNS, whose IP address is `168.63.129.16`. If your app uses [VNet integration](./overview-vnet-integration.md) or is in an [App Service environment](environment/intro.md), it inherits the DNS server configuration from the VNet by default. | `10.0.0.1` |
 | `WEBSITE_DNS_ALT_SERVER` | IP address of fallback DNS server for outgoing connections. See `WEBSITE_DNS_SERVER`. | |
+| `WEBSITE_ENABLE_DNS_CACHE` | Allows successful DNS resolutions to be cached. By Default expired DNS cache entries will be flushed & in addition to the existing cache to be flushed every 4.5 mins. | |
 
 <!-- 
 DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
  -->
 
-## TSL/SSL
+## TLS/SSL
 
 For more information, see [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md).
 
@@ -283,9 +312,9 @@ For more information on deployment slots, see [Set up staging environments in Az
 | Setting name| Description | Example |
 |-|-|-|
 |`WEBSITE_SLOT_NAME`| Read-only. Name of the current deployment slot. The name of the production slot is `Production`. ||
-|`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| By default, the versions for site extensions are specific to each slot. This prevents unanticipated application behavior due to changing extension versions after a swap. If you want the extension versions to swap as well, set to `1` on *all slots*. ||
+|`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| By default, the versions for site extensions are specific to each slot. This prevents unanticipated application behavior due to changing extension versions after a swap. If you want the extension versions to swap as well, set to `0` on *all slots*. ||
 |`WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS`| Designates certain settings as [sticky or not swappable by default](deploy-staging-slots.md#which-settings-are-swapped). Default is `true`. Set this setting to `false` or `0` for *all deployment slots* to make them swappable instead. There's no fine-grain control for specific setting types. ||
-|`WEBSITE_SWAP_WARMUP_PING_PATH`| Path to ping to warm up the target slot in a swap, beginning with a slash. The default is `/`, which pings the root path. | `/statuscheck` |
+|`WEBSITE_SWAP_WARMUP_PING_PATH`| Path to ping to warm up the target slot in a swap, beginning with a slash. The default is `/`, which pings the root path over HTTP. | `/statuscheck` |
 |`WEBSITE_SWAP_WARMUP_PING_STATUSES`| Valid HTTP response codes for the warm-up operation during a swap. If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid. | `200,202` |
 | `WEBSITE_SLOT_NUMBER_OF_TIMEOUTS_BEFORE_RESTART` | During a slot swap, maximum number of timeouts after which we force restart the site on a specific VM instance. The default is `3`. ||
 | `WEBSITE_SLOT_MAX_NUMBER_OF_TIMEOUTS` | During a slot swap, maximum number of timeout requests for a single URL to make before giving up. The default is `5`. ||
@@ -306,15 +335,13 @@ For more information on custom containers, see [Run a custom container in Azure]
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable is not passed on to the container. | `https://<server-name>.azurecr.io` |
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
 | `DOCKER_REGISTRY_SERVER_PASSWORD` | Password to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
+| `DOCKER_ENABLE_CI` | Set to `true` to enable the continuous deployment for custom containers. The default is `false` for custom containers. ||
+| `WEBSITE_PULL_IMAGE_OVER_VNET` | Connect and pull from a registry inside a Virtual Network or on-premise. Your app will need to be connected to a Virtual Network using VNet integration feature. This setting is also needed for Azure Container Registry with Private Endpoint. ||
 | `WEBSITES_WEB_CONTAINER_NAME` | In a Docker Compose app, only one of the containers can be internet accessible. Set to the name of the container defined in the configuration file to override the default container selection. By default, the internet accessible container is the first container to define port 80 or 8080, or, when no such container is found, the first container defined in the configuration file. |  |
-| `WEBSITES_PORT` | For a custom container, the custom port number on the container to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. ||
+| `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting is *not* injected into the container as an environment variable. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||
 | `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
-| `MACHINEKEY_Decryption` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `decryption` value, set it as an app setting. ||
-| `MACHINEKEY_DecryptionKey` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `decryptionKey` value, set it as an app setting. ||
-| `MACHINEKEY_Validation` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `validation` value, set it as an app setting. ||
-| `MACHINEKEY_ValidationKey` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `validationKey` value, set it as an app setting. ||
-| `CONTAINER_WINRM_ENABLED` | For a Windows container app, set to `1` to enable Windows Remote Management (WIN-RM). ||
+| `CONTAINER_WINRM_ENABLED` | For a Windows containerized app, set to `1` to enable Windows Remote Management (WIN-RM). ||
 
 <!-- 
 CONTAINER_ENCRYPTION_KEY
@@ -387,7 +414,7 @@ The following are 'fake' environment variables that don't exist if you enumerate
 | Setting name| Description |
 |-|-|
 | `WEBSITE_LOCAL_CACHE_OPTION` | Whether local cache is enabled. Available options are: <br/>- `Default`: Inherit the stamp-level global setting.<br/>- `Always`: Enable for the app.<br/>- OnStorageUnavailability<br/>- `Disabled`: Disabled for the app. |
-| `WEBSITE_LOCAL_CACHE_READWRITE_OPTION` | Read-write options of the local cache. Available options are: <br/>- `ReadOnly`: Cache is read-only.<br/>- `WriteWithCopyBack`: Allow writes to local cache and copy periodically to shared storage. Applicable only for single instance apps as the SCM site points to local cache.<br/>- `WriteButDiscardChanges`: Allow writes to local cache but discard changes made locally. |
+| `WEBSITE_LOCAL_CACHE_READWRITE_OPTION` | Read-write options of the local cache. Available options are: <br/>- `ReadOnly`: Cache is read-only.<br/>- `WriteButDiscardChanges`: Allow writes to local cache but discard changes made locally. |
 | `WEBSITE_LOCAL_CACHE_SIZEINMB` | Size of the local cache in MB. Default is `1000` (1 GB). |
 | `WEBSITE_LOCALCACHE_READY` | Read-only flag indicating if the app using local cache. |
 | `WEBSITE_DYNAMIC_CACHE` | Due to network file shared nature to allow access for multiple instances, the dynamic cache improves performance by caching the recently accessed files locally on an instance. Cache is invalidated when file is modified. The cache location is `%SYSTEMDRIVE%\local\DynamicCache` (same `%SYSTEMDRIVE%\local` quota is applied). By default, full content caching is enabled (set to `1`), which includes both file content and directory/file metadata (timestamps, size, directory content). To conserve local disk use, set to `2` to cache only directory/file metadata (timestamps, size, directory content). To turn off caching, set to `0`. |
@@ -420,14 +447,14 @@ NEGOTIATE_CLIENT_CERT
 
 ## Networking
 
-The following environment variables are related to [hybrid connections](app-service-hybrid-connections.md) and [VNET integration](web-sites-integrate-with-vnet.md).
+The following environment variables are related to [hybrid connections](app-service-hybrid-connections.md) and [VNET integration](./overview-vnet-integration.md).
 
 | Setting name | Description |
 |-|-|
 | `WEBSITE_RELAYS` | Read-only. Data needed to configure the Hybrid Connection, including endpoints and service bus data. |
 | `WEBSITE_REWRITE_TABLE` | Read-only. Used at runtime to do the lookups and rewrite connections appropriately. | 
-| `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional VNet Integration](web-sites-integrate-with-vnet.md#regional-vnet-integration), your app only routes RFC1918 traffic into your VNet. Set to `1` to route all outbound traffic into your VNet and be subject to the same NSGs and UDRs. The setting lets you access non-RFC1918 endpoints through your VNet, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
-| `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app when [integrated with a VNet](web-sites-integrate-with-vnet.md). For Regional VNet Integration, the value is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP is used by the app to connect to the resources through the VNet. Also, it can change within the described address range. |
+| `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional VNet Integration](./overview-vnet-integration.md#regional-virtual-network-integration), your app only routes RFC1918 traffic into your VNet. Set to `1` to route all outbound traffic into your VNet and be subject to the same NSGs and UDRs. The setting lets you access non-RFC1918 endpoints through your VNet, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
+| `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app when [integrated with a VNet](./overview-vnet-integration.md). For Regional VNet Integration, the value is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP is used by the app to connect to the resources through the VNet. Also, it can change within the described address range. |
 | `WEBSITE_PRIVATE_PORTS` | Read-only. In VNet integration, shows which ports are useable by the app to communicate with other nodes. |
 
 <!-- | WEBSITE_SLOT_POLL_WORKER_FOR_CHANGE_NOTIFICATION | Poll worker before pinging the site to detect when change notification has been processed. |
@@ -483,6 +510,8 @@ The following environment variables are related to [App Service authentication](
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` or `false`. The default value is `true`. This value should never be set to `false` except when temporarily debugging [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) validation failures that occur during interactive logins. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.validateNonce` configuration value. |
 | `WEBSITE_AUTH_V2_CONFIG_JSON` | This environment variable is populated automatically by the Azure App Service platform and is used to configure the integrated authentication module. The value of this environment variable corresponds to the V2 (non-classic) authentication configuration for the current app in Azure Resource Manager. It's not intended to be configured explicitly. |
 | `WEBSITE_AUTH_ENABLED` | Read-only. Injected into a Windows or Linux app to indicate whether App Service authentication is enabled. |
+| `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_DecryptionKey` setting. |
+| `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_ValidationKey` setting. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION
@@ -566,6 +595,9 @@ The following environment variables are related to the [push notifications](/pre
 | `WEBSITE_PUSH_TAG_WHITELIST` | Read-only. Contains the tags in the notification registration. |
 | `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Read-only. Contains a list of tags in  the notification registration that requires user authentication. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. | 
+
+>[!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 <!-- 
 ## WellKnownAppSettings

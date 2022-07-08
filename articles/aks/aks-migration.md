@@ -48,7 +48,7 @@ In this article we will summarize migration details for:
 Azure Migrate offers a unified platform to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. For AKS, you can use Azure Migrate for the following tasks:
 
 * [Containerize ASP.NET applications and migrate to AKS](../migrate/tutorial-app-containerization-aspnet-kubernetes.md)
-* [Containerize Java web applications and migrate to AKS](/azure/migrate/tutorial-app-containerization-java-kubernetes)
+* [Containerize Java web applications and migrate to AKS](../migrate/tutorial-app-containerization-java-kubernetes.md)
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets
 
@@ -131,8 +131,8 @@ Stateless application migration is the most straightforward case:
 
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
-* If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-an-persistent-volume).
-* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-volume).
+* If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-a-persistent-volume).
+* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-a-volume).
 * If neither of those approaches work, you can use a backup and restore options. See [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md).
 
 #### Azure Files

@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Set up and use metrics and logs with an Azure IoT hub
 description: Tutorial - Learn how to set up and use metrics and logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 10/29/2020
-ms.author: robinsh
+ms.date: 10/19/2021
+ms.author: kgremban
 ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 #Customer intent: As a developer, I want to know how to set up and check metrics and logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
 # 4.17/2021 Updated this to "guide the new alerts experience" at request of John Lian. 1577857. They added metrics
@@ -314,7 +314,7 @@ In the [Set up resources](#set-up-resources) section, you registered a device id
 >
 > Alerts can take up to 10 minutes to be fully configured and enabled by IoT Hub. Wait at least 10 minutes between the time you configure your last alert and running the simulated device app.
 
-Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This link downloads a repo with several applications in it; the one you are looking for is in iot-hub/Quickstarts/simulated-device/.
+Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). This link downloads a repo with several applications in it; the one you are looking for is in iot-hub/Quickstarts/simulated-device/.
 
 1. In a local terminal window, navigate to the root folder of the solution. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
 
@@ -404,7 +404,7 @@ In the [Collect logs for connections and device telemetry](#collect-logs-for-con
 
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics charts to the dashboard, you'll have to remove them manually by clicking on the three dots in the upper right-hand corner of each chart and selecting **Remove**. Be sure to save your changes after doing deleting the charts.
 
-To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name ContosoResources

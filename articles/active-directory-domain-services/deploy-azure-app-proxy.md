@@ -3,14 +3,14 @@ title: Deploy Azure AD Application Proxy for Azure AD Domain Services | Microsof
 description: Learn how to provide secure access to internal applications for remote workers by deploying and configuring Azure Active Directory Application Proxy in an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 03/07/2022
 ms.author: justinha
 
 ---
@@ -82,7 +82,7 @@ With a VM ready to be used as the Azure AD Application Proxy connector, now copy
 
 ## Enable resource-based Kerberos constrained delegation
 
-If you want to use single sign-on to your applications using Integrated Windows Authentication (IWA), grant the Azure AD Application Proxy connectors permission to impersonate users and send and receive tokens on their behalf. To grant these permissions, you configure Kerberos constrained delegation (KCD) for the connector to access resources on the managed domain. As you don't have domain administrator privileges in a managed domain, traditional account-level KCD cannot be configured on a managed domain. Instead, use resource-based KCD.
+If you want to use single sign-on to your applications using integrated Windows authentication (IWA), grant the Azure AD Application Proxy connectors permission to impersonate users and send and receive tokens on their behalf. To grant these permissions, you configure Kerberos constrained delegation (KCD) for the connector to access resources on the managed domain. As you don't have domain administrator privileges in a managed domain, traditional account-level KCD cannot be configured on a managed domain. Instead, use resource-based KCD.
 
 For more information, see [Configure Kerberos constrained delegation (KCD) in Azure Active Directory Domain Services](deploy-kcd.md).
 

@@ -4,6 +4,7 @@ description: Create an Azure data factory and then use the Copy Data tool to inc
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2021
@@ -36,7 +37,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 1. Create a container named **source**.  Create a folder path as **2021/07/15/06** in your container. Create an empty text file, and name it as **file1.txt**. Upload the file1.txt to the folder path **source/2021/07/15/06** in your storage account.  You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 
-    ![upload files](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png" alt-text="upload files":::
 
     > [!NOTE]
     > Please adjust the folder name with your UTC time.  For example, if the current UTC time is 6:10 AM on July 15, 2021, you can create the folder path as **source/2021/07/15/06/** by the rule of **source/{Year}/{Month}/{Day}/{Hour}/**.
@@ -47,7 +48,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
-   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
@@ -77,7 +78,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 1. On the Azure Data Factory home page, select the **Ingest** title to launch the Copy Data tool.
 
-   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
 
 2. On the **Properties** page, take the following steps:
     1. Under **Task type**, choose **Built-in copy task**.
@@ -88,7 +89,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     1. Select **Next**.
 
-    ![Properties page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/copy-data-tool-properties-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/copy-data-tool-properties-page.png" alt-text="Properties page":::
 3. On the **Source data store** page, complete the following steps:
 
     a. Select **+ New connection** to add a connection.
@@ -97,7 +98,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
     
     c. On the **New connection (Azure Blob Storage)** page, enter a name for the connection. Select your Azure subscription, and select your storage account from the **Storage account name** list. Test connection and then select **Create**.
 
-    ![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-connection.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-connection.png" alt-text="Source data store page":::
 
     d. On the **Source data store** page, select the newly created connection in the **Connection** section.
 
@@ -129,21 +130,21 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 6. On the **Summary** page, review the settings, and then select **Next**.
 
-    ![Summary page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/summary-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/summary-page.png" alt-text="Summary page":::
 
 7. On the **Deployment** page, select **Monitor** to monitor the pipeline (task).
-    ![Deployment page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png" alt-text="Deployment page":::
 
 8. Notice that the **Monitor** tab on the left is automatically selected.  You need wait for the pipeline run when it is triggered automatically (about after one hour). When it runs, select the pipeline name link **DeltaCopyFromBlobPipeline** to view activity run details or rerun the pipeline. Select **Refresh** to refresh the list.
 
-    ![Screenshot shows the Pipeline runs pane.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png" alt-text="Screenshot shows the Pipeline runs pane.":::
 9. There's only one activity (copy activity) in the pipeline, so you see only one entry. Adjust the column width of the **Source** and **Destination** columns (if necessary) to display more details, you can see the source file (file1.txt) has been copied from  *source/2021/07/15/06/* to *destination/2021/07/15/06/* with the same file name. 
 
-    ![Screenshot shows pipeline run details.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png" alt-text="Screenshot shows pipeline run details.":::
 
     You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files.
 
-    ![Screenshot shows pipeline run details for the destination.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png" alt-text="Screenshot shows pipeline run details for the destination.":::
 
 10. Create another empty text file with the new name as **file2.txt**. Upload the file2.txt file to the folder path **source/2021/07/15/07** in your storage account. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -152,7 +153,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 11. To go back to the **Pipeline runs** view, select **All pipelines runs**, and wait for the same pipeline being triggered again automatically after another one hour.  
 
-    ![Screenshot shows the All pipeline runs link to return to that page.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png" alt-text="Screenshot shows the All pipeline runs link to return to that page.":::
 
 12. Select the new **DeltaCopyFromBlobPipeline** link for the second pipeline run when it comes, and do the same to review details. You will see the source file (file2.txt) has been copied from  **source/2021/07/15/07/**  to **destination/2021/07/15/07/** with the same file name. You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files in **destination** container.
 

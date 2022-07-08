@@ -11,7 +11,7 @@ ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
@@ -66,7 +66,7 @@ One potential problem with the **package.json** file is that it only specifies t
 >
 >
 
-### Using a npm-shrinkwrap.json file
+### Using an npm-shrinkwrap.json file
 The **npm-shrinkwrap.json** file is an attempt to address the module versioning limitations of the **package.json** file. While the **package.json** file only includes versions for the top-level modules, the **npm-shrinkwrap.json** file contains the version requirements for the full module dependency chain.
 
 When your application is ready for production, you can lock down version requirements and create an **npm-shrinkwrap.json** file by using the **npm shrinkwrap** command. This command will use the versions currently installed in the **node\_modules** folder, and record these versions to the **npm-shrinkwrap.json** file. After the application has been deployed to the hosting environment, the **npm install** command is used to parse the **npm-shrinkwrap.json** file and install all the dependencies listed. For more information, see [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
@@ -87,4 +87,3 @@ For more information, see the [Node.js Developer Center](/azure/developer/javasc
 
 [specify the Node.js version]: ./app-service/overview.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
-[Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

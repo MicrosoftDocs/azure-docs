@@ -59,7 +59,7 @@ An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import fo
     hdfs dfs -put $TARGET_FILE /bacpacs/
     ```
 
-4. Import the BACPAC file to a new database with steps listed [here](../../azure-sql/database/database-import.md).
+4. Import the BACPAC file to a new database with steps listed [here](/azure/azure-sql/database/database-import).
 
 5. The new database is ready to be [configured as external metastore DB on a new HDInsight cluster](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation).
 

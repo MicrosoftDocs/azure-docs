@@ -23,7 +23,7 @@ Update 1.3 corresponds to software version 10.0.10319.0.
 
 ## What's new in Update 1.3
 
-This update contains the following improvements:KB4540725
+This update contains the following improvements:
 
 - Transport Layer Security (TLS) 1.2 is a mandatory update and must be installed. From this release onward, TLS 1.2 becomes the standard protocol for all Azure portal communication.
   

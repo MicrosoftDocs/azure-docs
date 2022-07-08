@@ -4,13 +4,13 @@ description: Management concepts and how-tos for managing a domain name in Azure
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 06/23/2022
 ms.author: curtand
 ms.reviewer: sumitp
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # Managing custom domain names in your Azure Active Directory
 
-A domain name is an important part of the identifier for many Azure Active Directory (Azure AD) resources: it's part of a user name or email address for a user, part of the address for a group, and is sometimes part of the app ID URI for an application. A resource in Azure AD can include a domain name that's owned by the Azure AD organization (sometimes called a tenant) that contains the resource. Only a Global Administrator can manage domains in Azure AD.
+A domain name is an important part of the identifier for resources in many Azure Active Directory (Azure AD), part of Microsoft Entra: it's part of a user name or email address for a user, part of the address for a group, and is sometimes part of the app ID URI for an application. A resource in Azure AD can include a domain name that's owned by the Azure AD organization (sometimes called a tenant) that contains the resource. Only a Global Administrator can manage domains in Azure AD.
 
 ## Set the primary domain name for your Azure AD organization
 
@@ -69,7 +69,7 @@ You must change or delete any such resource in your Azure AD organization before
 
 ### ForceDelete option
 
-You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad.portal.azure.com) or using [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.”
+You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad.portal.azure.com) or using [Microsoft Graph API](/graph/api/domain-forcedelete). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.”
 
 To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists. For more information, see [Removing mail-enabled security groups](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). Also, the **ForceDelete** operation won't succeed if either of the following is true:
 
@@ -115,4 +115,4 @@ Most management tasks for domain names in Azure Active Directory can also be com
 
 * [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 * [Remove Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Azure AD](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true)
-* [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true)
+* [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete)

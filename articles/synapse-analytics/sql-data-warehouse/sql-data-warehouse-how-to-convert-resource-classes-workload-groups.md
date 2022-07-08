@@ -1,7 +1,6 @@
 ---
 title: Convert resource class to a workload group 
 description: Learn how to create a workload group that is similar to a resource class in a dedicated SQL pool.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: rortloff
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 ---
 
@@ -22,7 +21,7 @@ Workload groups provide a mechanism to isolate and contain system resources.  Ad
 
 ## Understanding the existing resource class configuration
 
-Workload groups require a parameter called `REQUEST_MIN_RESOURCE_GRANT_PERCENT` that specifies the percentage of overall system resources allocated per request.  Resource allocation is done for [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) by allocating concurrency slots.  To determine the value to specify for `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, use the sys.dm_workload_management_workload_groups_stats <link tbd> DMV.  For example, the below query query returns a value that can be used for the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parameter to create a workload group similar to staticrc40.
+Workload groups require a parameter called `REQUEST_MIN_RESOURCE_GRANT_PERCENT` that specifies the percentage of overall system resources allocated per request.  Resource allocation is done for [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) by allocating concurrency slots.  To determine the value to specify for `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, use the [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) DMV.  For example, the below query query returns a value that can be used for the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parameter to create a workload group similar to staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -37,7 +36,7 @@ Because workload groups operate based on percentage of overall system resources,
 
 ## Create Workload Group
 
-With the known `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, you can use the CREATE WORKLOAD GROUP <link> syntax to create the workload group.  You can optionally specify a `MIN_PERCENTAGE_RESOURCE` that is greater than zero to isolate resources for the workload group.  Also, you can optionally specify `CAP_PERCENTAGE_RESOURCE` less than 100 to limit the amount of resources the workload group can consume.  
+With the known `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, you can use the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true) syntax to create the workload group.  You can optionally specify a `MIN_PERCENTAGE_RESOURCE` that is greater than zero to isolate resources for the workload group.  Also, you can optionally specify `CAP_PERCENTAGE_RESOURCE` less than 100 to limit the amount of resources the workload group can consume.  
 
 Using mediumrc as a basis for an example, the below code sets the `MIN_PERCENTAGE_RESOURCE` to dedicate 10% of the system resources to `wgDataLoads` and guarantees one query will be able to run all the times.  Additionally, `CAP_PERCENTAGE_RESOURCE` is set to 40% and limits this workload group to four concurrent requests.  By setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter to 3600, any query that runs for more than 1 hour will be automatically canceled.
 

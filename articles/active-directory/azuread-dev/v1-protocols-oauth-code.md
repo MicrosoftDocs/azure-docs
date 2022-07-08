@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: ryanwi
-ms.reviewer: hirsin
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ---
@@ -77,13 +77,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Type | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application ID assigned to your app when you registered it with Azure AD. You can find this in the Azure Portal. Click **Azure Active Directory** in the services sidebar, click **App registrations**, and choose the application. |
+| client_id |required |The Application ID assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. Click **Azure Active Directory** in the services sidebar, click **App registrations**, and choose the application. |
 | response_type |required |Must include `code` for the authorization code flow. |
-| redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. For native & mobile apps, you should use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`. |
+| redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be URL-encoded. For native & mobile apps, you should use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`. |
 | response_mode |optional |Specifies the method that should be used to send the resulting token back to your app. Can be `query`, `fragment`, or `form_post`. `query` provides the code as a query string parameter on your redirect URI. If you're requesting an ID token using the implicit flow, you cannot use `query` as specified in the [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). If you're requesting just the code, you can use `query`, `fragment`, or `form_post`. `form_post` executes a POST containing the code to your redirect URI. The default is `query` for a code flow.  |
 | state |recommended |A value included in the request that is also returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. |
-| scope | **ignored** | For v1 Azure AD apps, scopes must be statically configured in the Azure Portal under the applications **Settings**, **Required Permissions**. |
+| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. |
+| scope | **ignored** | For v1 Azure AD apps, scopes must be statically configured in the Azure portal under the applications **Settings**, **Required Permissions**. |
 | prompt |optional |Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to reauthenticate. <p> *select_account*: The user is prompted to select an account, interrupting single sign on. The user may select an existing signed-in account, enter their credentials for a remembered account, or choose to use a different account altogether. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
 | login_hint |optional |Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time. Often apps use this parameter during reauthentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
 | domain_hint |optional |Provides a hint about the tenant or domain that the user should use to sign in. The value of the domain_hint is a registered domain for the tenant. If the tenant is federated to an on-premises directory, AAD redirects to the specified tenant federation server. |
@@ -95,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 >
 >
 
-At this point, the user is asked to enter their credentials and consent to the permissions requested by the app in the Azure Portal. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request with the code.
+At this point, the user is asked to enter their credentials and consent to the permissions requested by the app in the Azure portal. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request with the code.
 
 ### Successful response
 A successful response could look like this:
@@ -166,11 +166,11 @@ grant_type=authorization_code
 | grant_type |required |Must be `authorization_code` for the authorization code flow. |
 | code |required |The `authorization_code` that you acquired in the previous section |
 | redirect_uri |required | A `redirect_uri`registered on the client application. |
-| client_secret |required for web apps, not allowed for public clients |The application secret that you created in the Azure Portal for your app under **Keys**. It cannot be used in a native app (public client), because client_secrets cannot be reliably stored on devices. It is required for web apps and web APIs (all confidential clients), which have the ability to store the `client_secret` securely on the server side. The client_secret should be URL-encoded before being sent. |
-| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. If in both the authorization request and the token request, the     resource` parameters must match. | 
+| client_secret |required for web apps, not allowed for public clients |The application secret that you created in the Azure portal for your app under **Keys**. It cannot be used in a native app (public client), because client_secrets cannot be reliably stored on devices. It is required for web apps and web APIs (all confidential clients), which have the ability to store the `client_secret` securely on the server side. The client_secret should be URL-encoded before being sent. |
+| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. If in both the authorization request and the token request, the     resource` parameters must match. | 
 | code_verifier | optional | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
-To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**.
+To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**.
 
 ### Successful response
 Azure AD returns an [access token](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) upon a successful response. To minimize network calls from the client application and their associated latency, the client application should cache access tokens for the token lifetime that is specified in the OAuth 2.0 response. To determine the token lifetime, use either the `expires_in` or `expires_on` parameter values.

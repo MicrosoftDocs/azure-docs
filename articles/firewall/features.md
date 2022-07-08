@@ -1,19 +1,19 @@
 ---
-title: Azure Firewall features
+title: Azure Firewall Standard features
 description: Learn about Azure Firewall features
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 06/06/2022
 ms.author: victorh
 ---
 
-# Azure Firewall features
+# Azure Firewall Standard features
 
-[Azure Firewall](overview.md) is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
+[Azure Firewall](overview.md) Standard is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
 
-![Firewall overview](media/overview/firewall-threat.png)
+:::image type="content" source="media/features/firewall-standard.png" alt-text="Azure Firewall Standard features":::
 
 Azure Firewall includes the following features:
 
@@ -25,6 +25,10 @@ Azure Firewall includes the following features:
 - FQDN tags
 - Service tags
 - Threat intelligence
+- DNS proxy
+- Custom DNS
+- FQDN in network rules
+- Deployment without public IP address in Forced Tunnel Mode
 - Outbound SNAT support
 - Inbound DNAT support
 - Multiple public IP addresses
@@ -43,7 +47,7 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-There's no additional cost for a firewall deployed in an Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no additional cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md)
 
@@ -78,6 +82,30 @@ A [service tag](service-tags.md) represents a group of IP address prefixes to he
 
 [Threat intelligence](threat-intel.md)-based filtering can be enabled for your firewall to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
+## DNS proxy
+
+With DNS proxy enabled, Azure Firewall can process and forward DNS queries from a Virtual Network(s) to your desired DNS server. This functionality is crucial and required to have reliable FQDN filtering in network rules. You can enable DNS proxy in Azure Firewall and Firewall Policy settings. To learn more about DNS proxy, see [Azure Firewall DNS settings](dns-settings.md).
+
+## Custom DNS
+
+Custom DNS allows you to configure Azure Firewall to use your own DNS server, while ensuring the firewall outbound dependencies are still resolved with Azure DNS. You may configure a single DNS server or multiple servers in Azure Firewall and Firewall Policy DNS settings. Learn more about Custom DNS, see [Azure Firewall DNS settings](dns-settings.md).
+
+Azure Firewall can also resolve names using Azure Private DNS. The virtual network where the Azure Firewall resides must be linked to the Azure Private Zone. To learn more, see [Using Azure Firewall as DNS Forwarder with Private Link](https://github.com/adstuart/azure-privatelink-dns-azurefirewall).
+
+## FQDN in network rules
+
+You can use fully qualified domain names (FQDNs) in network rules based on DNS resolution in Azure Firewall and Firewall Policy. 
+
+The specified FQDNs in your rule collections are translated to IP addresses based on your firewall DNS settings. This capability allows you to filter outbound traffic using FQDNs with any TCP/UDP protocol (including NTP, SSH, RDP, and more). As this capability is based on DNS resolution, it is highly recommended you enable the DNS proxy to ensure name resolution is consistent with your protected virtual machines and firewall.
+
+## Deploy Azure Firewall without public IP address in Forced Tunnel mode
+
+The Azure Firewall service requires a public IP address for operational purposes. While secure, some deployments prefer not to expose a public IP address directly to the Internet. 
+
+In such cases, you can deploy Azure Firewall in Forced Tunnel mode. This configuration creates a management NIC which is used by Azure Firewall for its operations. The Tenant Datapath network can be configured without a public IP address, and Internet traffic can be forced tunneled to another firewall or completely blocked.
+
+Forced Tunnel mode cannot be configured at run time. You can either redeploy the Firewall or use the stop and start facility to reconfigure an existing Azure Firewall in Forced Tunnel mode. Firewalls deployed in Secure Hubs are always deployed in Forced Tunnel mode.
+
 ## Outbound SNAT support
 
 All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. Azure Firewall doesn't SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
@@ -97,7 +125,7 @@ You can associate [multiple public IP addresses](deploy-multi-public-ip-powershe
 This enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
-- **SNAT** - More ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/public-ip-address-prefix.md) to simplify this configuration.
+- **SNAT** - More ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md) to simplify this configuration.
 
 ## Azure Monitor logging
 

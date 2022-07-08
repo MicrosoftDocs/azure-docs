@@ -1,6 +1,6 @@
 ---
-title: 'Configure an OpenID/OAuth application from the Azure AD app gallery | Microsoft Docs'
-description: Steps to configure an OpenID/OAuth application from the Azure AD app gallery.
+title: 'Configure an OpenID Connect OAuth application from Azure AD app gallery'
+description: Steps to Configure an OpenID Connect OAuth application from Azure AD app gallery.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 02/02/2022
 ms.author: jeedes
-ms.custom: has-adal-ref
+ms.custom: 
 ---
-# Configure an OpenID/OAuth application from the Azure AD app gallery
+# Configure an OpenID Connect OAuth application from Azure AD app gallery
 
 ## Process of adding an OpenID application from the gallery
 
@@ -138,7 +138,7 @@ As an administrator, you can also consent to an application's delegated permissi
 ![Grant Permissions button](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Granting explicit consent by using the **Grant admin consent** button is now required for single-page applications (SPAs) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+> Granting explicit consent by using the **Grant admin consent** button is now required for single-page applications (SPAs) that use MSAL.js. Otherwise, the application fails when the access token is requested.
 
 App-only permissions always require a tenant administrator's consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message appears. The message says the user isn't able to consent.
 

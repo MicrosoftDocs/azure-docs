@@ -2,22 +2,32 @@
 title: Azure Front Door - URL Redirect | Microsoft Docs
 description: This article helps you understand how Azure Front Door supports URL redirection for their routing rules.
 services: front-door
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 03/09/2022
 ms.author: duau
+zone_pivot_groups: front-door-tiers
 ---
 
 # URL redirect
+
 Azure Front Door can redirect traffic at each of the following levels: protocol, hostname, path, query string. These functionalities can be configured for individual microservices since the redirection is path-based. This can simplify application configuration by optimizing resource usage, and supports new redirection scenarios including global and path-based redirection.
-</br>
+
+::: zone pivot="front-door-standard-premium"
+
+In Azure Front Door Standard/Premium tier, you can configure URL redirect using a Rule Set.
+
+:::image type="content" source="./media/front-door-url-redirect/front-door-url-redirect-rule-set.png" alt-text="Screenshot of creating url redirect with Rule Set." lightbox="./media/front-door-url-redirect/front-door-url-redirect-expanded.png":::
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
 
 :::image type="content" source="./media/front-door-url-redirect/front-door-url-redirect.png" alt-text="Azure Front Door URL Redirect":::
+
+::: zone-end
 
 ## Redirection types
 A redirect type sets the response status code for the clients to understand the purpose of the redirect. The following types of redirection are supported:
@@ -48,5 +58,6 @@ The destination fragment is the portion of URL after '#', which is used by the b
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn [how Front Door works](front-door-routing-architecture.md).
+* Learn how to [create a Front Door](quickstart-create-front-door.md).
+* Learn more about [Azure Front Door Rule Set](front-door-rules-engine.md).
+* Learn [how Front Door works](front-door-routing-architecture.md).

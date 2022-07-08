@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
+ms.reviewer: Xema Pathak
 
 ---
 
@@ -21,7 +22,7 @@ This article describes the details of onboarding and using Service Map. The prer
 * The [Dependency agent](vminsights-enable-overview.md#agents) installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in VM insights, which includes additional features to monitor VM health and performance. To learn more, see [VM insights overview](../vm/vminsights-overview.md). To learn about the differences between the Service Map solution and VM insights Map feature, see the following [FAQ](/azure/azure-monitor/faq#vm-insights).
+>If you have already deployed Service Map, you can now also view your maps in VM insights, which includes additional features to monitor VM health and performance. To learn more, see [VM insights overview](../vm/vminsights-overview.md). To learn about the differences between the Service Map solution and VM insights Map feature, see the following [FAQ](../faq.yml).
 
 ## Sign in to Azure
 
@@ -279,8 +280,6 @@ Linux:
 - Memory(*)\\% Used Memory
 - Network Adapter(*)\\Bytes Sent/sec
 - Network Adapter(*)\\Bytes Received/sec
-
-To get the network performance data, you must also have enabled the Wire Data 2.0 solution in your workspace.
  
 ## Security integration
 
@@ -598,4 +597,4 @@ Check the `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (W
 
 ## Suggestions
 
-Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.
+Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=ad4304e4-1925-ec11-b6e6-000d3a4f09d0), where you can suggest features or vote up existing suggestions.

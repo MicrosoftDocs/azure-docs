@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Clebex | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Clebex'
 description: Learn how to configure single sign-on between Azure Active Directory and Clebex.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/22/2021
+ms.date: 05/23/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Clebex
+# Tutorial: Azure AD SSO integration with Clebex
 
 In this tutorial, you'll learn how to integrate Clebex with Azure Active Directory (Azure AD). When you integrate Clebex with Azure AD, you can:
 
@@ -37,8 +37,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Clebex supports **Just In Time** user provisioning.
 
+* Clebex supports [Automated user provisioning](clebex-provisioning-tutorial.md).
 
-## Adding Clebex from the gallery
+
+## Add Clebex from the gallery
 
 To configure the integration of Clebex into Azure AD, you need to add Clebex from the gallery to your list of managed SaaS apps.
 
@@ -121,7 +123,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Clebex SSO
 
-1. Log in to your Clebex website as an administrator.
+1. To automate the configuration within Clebex, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up Clebex** will direct you to the Clebex application. From there, provide the admin credentials to sign into Clebex. The browser extension will automatically configure the application for you and automate steps 3-10.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Clebex manually, in a different web browser window, sign in to your Clebex company site as an administrator.
 
 1. Go to the COMPANY ADMIN -> **Connectors** -> **Single Sign On (SSO)** and click **select**.
 
@@ -147,6 +157,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called Britta Simon is created in Clebex. Clebex supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Clebex, a new one is created after authentication.
 
+Clebex also supports automatic user provisioning, you can find more details [here](./clebex-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -155,9 +167,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Clebex Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Clebex tile in the My Apps, this will redirect to Clebex Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Clebex tile in the My Apps, this will redirect to Clebex Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps
 
-Once you configure Clebex you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Clebex you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -2,12 +2,15 @@
 title: Authenticate an application to access Azure Service Bus entities
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Service Bus  entities (queues, topics, etc.)
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 01/06/2022
 ms.custom: subject-rbac-steps
 ---
 
 # Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities
 Azure Service Bus supports using Azure Active Directory (Azure AD) to authorize requests to Service Bus entities (queues, topics, subscriptions, or filters). With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
+
+> [!IMPORTANT]
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure Active Directory authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 
 ## Overview
 When a security principal (a user, group, or application) attempts to access a Service Bus entity, the request must be authorized. With Azure AD, access to a resource is a two-step process. 
@@ -47,7 +50,7 @@ The following list describes the levels at which you can scope access to Service
 > [!NOTE]
 > Keep in mind that Azure role assignments may take up to five minutes to propagate. 
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 
 ## Assign Azure roles using the Azure portal  
@@ -97,27 +100,21 @@ The application needs a client secret to prove its identity when requesting a to
     ![Client secret](./media/authenticate-application/client-secret.png)
 
 ### Permissions for the Service Bus API
-If your application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the **required permissions** set. Native applications also need a **redirect-URI** in Azure AD, which serves as an identifier; the URI does not need to be a network destination. Use `https://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
+If your application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the **required permissions** set. Native applications also need a **redirect-uri** in Azure AD, which serves as an identifier; the URI does not need to be a network destination. Use `https://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
 
-### Authenticating the Service Bus client   
+### Authenticating the Service Bus client
 Once you've registered your application and granted it permissions to send/receive data in Azure Service Bus, you can authenticate your client with the client secret credential, which will enable you to make requests against Azure Service Bus.
 
 For a list of scenarios for which acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.
 
-<!-- TAB -- # [.NET](#tab/dotnet) -  -->
-
-If you're using the latest [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) library, you can authenticate the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) with a [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), which is defined in the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) library.
+Using the latest [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) library, you can authenticate the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) with a [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), which is defined in the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) library.
 
 ```cs
 TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>");
 var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
 ```
 
-If you're using the older .NET packages, see these samples:
-- [RoleBasedAccessControl in Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl)
-- [RoleBasedAccessControl in WindowsAzure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
-
-<!-- CLOSE TAB --- -->
+If you're using the older .NET packages, please refer to the RoleBasedAccessControl samples in the [azure-service-bus samples repository](https://github.com/Azure/azure-service-bus).
 
 ## Next steps
 - To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?

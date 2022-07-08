@@ -2,18 +2,19 @@
 title: Create a content library to deploy VMs in Azure VMware Solution
 description: Create a content library to deploy a VM in an Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.service: azure-vmware
+ms.date: 04/11/2022
 ---
 
 # Create a content library to deploy VMs in Azure VMware Solution
 
-A content library stores and manages content in the form of library items. A single library item consists of one or more files you use to deploy virtual machines (VMs). 
+A content library stores and manages content in the form of library items. A single library item consists of files you use to deploy virtual machines (VMs).
 
 In this article, you'll create a content library in the vSphere Client and then deploy a VM using an ISO image from the content library.
 
 ## Prerequisites
 
-An NSX-T segment and a managed DHCP service are required to complete this tutorial.  For more information, see [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).  
+An NSX-T Data Center segment and a managed DHCP service are required to complete this tutorial.  For more information, see [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).  
 
 ## Create a content library
 
@@ -25,7 +26,7 @@ An NSX-T segment and a managed DHCP service are required to complete this tutori
 
    :::image type="content" source="media/content-library/create-new-content-library.png" alt-text="Screenshot showing how to create a new content library in vSphere.":::
 
-1. Provide a name and confirm the IP address of the vCenter server and select **Next**.
+1. Provide a name and confirm the IP address of the vCenter Server and select **Next**.
 
    :::image type="content" source="media/content-library/new-content-library-step-1.png" alt-text="Screenshot showing the name and vCenter Server IP for the new content library.":::
 
@@ -33,17 +34,17 @@ An NSX-T segment and a managed DHCP service are required to complete this tutori
 
    :::image type="content" source="media/content-library/new-content-library-step-2.png" alt-text="Screenshot showing the Local content library option selected for the new content library.":::
 
-1. Select the datastore that will store your content library, and then select **Next**.
+1. Select the datastore for storing your content library, and then select **Next**.
 
    :::image type="content" source="media/content-library/new-content-library-step-3.png" alt-text="Screenshot showing the vsanDatastore storage location selected.":::
 
-1. Review the content library settings, and select **Finish**.
+1. Review the content library settings and select **Finish**.
 
    :::image type="content" source="media/content-library/new-content-library-step-4.png" alt-text="Screenshot showing the settings for the new content library.":::
 
 ## Upload an ISO image to the content library
 
-Now that the content library has been created, you can add an ISO image to deploy a VM to a private cloud cluster. 
+Now that you've created the content library, you can add an ISO image to deploy a VM to a private cloud cluster. 
 
 1. From the vSphere Client, select **Menu** > **Content Libraries**.
 

@@ -1,8 +1,8 @@
 ---
 title: Verify X.509 CA certificates with Azure IoT Hub Device Provisioning Service
 description: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service (DPS)
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 06/29/2021
 ms.topic: conceptual
 ms.service: iot-dps
@@ -68,7 +68,7 @@ Now, you need to sign the *Verification Code* with the private key associated wi
 Microsoft provides tools and samples that can help you create a signed verification certificate: 
 
 - The **Azure IoT Hub C SDK** provides PowerShell (Windows) and Bash (Linux) scripts to help you create CA and leaf certificates for development and to perform proof-of-possession using a verification code. You can download the [files](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevant to your system to a working folder and follow the instructions in the [Managing CA certificates readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to perform proof-of-possession on a CA certificate. 
-- The **Azure IoT Hub C# SDK** contains the [Group Certificate Verification Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), which you can use to do proof-of-possession.
+- The **Azure IoT Hub C# SDK** contains the [Group Certificate Verification Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/service/GroupCertificateVerificationSample), which you can use to do proof-of-possession.
  
 > [!IMPORTANT]
 > In addition to performing proof-of-possession, the PowerShell and Bash scripts cited previously also allow you to create root certificates, intermediate certificates, and leaf certificates that can be used to authenticate and provision devices. These certificates should be used for development only. They should never be used in a production environment. 
@@ -87,4 +87,4 @@ The PowerShell and Bash scripts provided in the documentation and SDKs rely on [
 ## Next steps
 
 - To learn about how to use the portal to create an enrollment group, see [Managing device enrollments with Azure portal](how-to-manage-enrollments.md).
-- To learn about how to use the service SDKs to create an enrollment group, see [Managing device enrollments with service SDKs](./quick-enroll-device-x509-java.md).
+- To learn about how to use the service SDKs to create an enrollment group, see [Managing device enrollments with service SDKs](./quick-enroll-device-x509.md).

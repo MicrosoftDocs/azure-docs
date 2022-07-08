@@ -3,22 +3,27 @@ title: Indexer connection to SQL Server on Azure VMs
 titleSuffix: Azure Cognitive Search
 description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Cognitive Search.
 
-author: markheff
-ms.author: maheff
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
+
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 06/07/2022
 ---
 
 # Indexer connections to SQL Server on an Azure virtual machine
 
-When configuring an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq) to extract content from a database on an Azure virtual machine, additional steps are required for secure connections. 
+When configuring an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) to extract content from a database on an Azure virtual machine, additional steps are required for secure connections. 
 
 A connection from Azure Cognitive Search to SQL Server on a virtual machine is a public internet connection. In order for secure connections to succeed, complete the following steps:
 
 + Obtain a certificate from a [Certificate Authority provider](https://en.wikipedia.org/wiki/Certificate_authority#Providers) for the fully qualified domain name of the SQL Server instance on the virtual machine
 
 + Install the certificate on the virtual machine, and then enable and configure encrypted connections on the VM using the instructions in this article.
+
+> [!NOTE]
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
 
 ## Enable encrypted connections
 
@@ -38,7 +43,7 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
      The `[MSSQL13.MSSQLSERVER]` part varies based on version and instance name. 
 
-   + Set the value of the **Certificate** key to the **thumbprint** of the TLS/SSL certificate you imported to the VM.
+   + Set the value of the **Certificate** key to the **thumbprint** (without spaces) of the TLS/SSL certificate you imported to the VM.
 
      There are several ways to get the thumbprint, some better than others. If you copy it from the **Certificates** snap-in in MMC, you will probably pick up an invisible leading character [as described in this support article](https://support.microsoft.com/kb/2023869/), which results in an error when you attempt a connection. Several workarounds exist for correcting this problem. The easiest is to backspace over and then retype the first character of the thumbprint to remove the leading character in the key value field in regedit. Alternatively, you can use a different tool to copy the thumbprint.
 
@@ -52,7 +57,7 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
 After you set up the encrypted connection required by Azure Cognitive Search, there are additional configuration steps intrinsic to SQL Server on Azure VMs. If you haven't done so already, the next step is to finish configuration using either one of these articles:
 
-+ For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
++ For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql). 
 
 + For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 
@@ -79,16 +84,15 @@ We strongly recommend that you restrict the access to the IP address of your sea
 
 You can find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service. Although it is possible for the search service IP address to change, it's unlikely that it will change. The IP address tends to be static for the lifetime of the service.
 
-You can find out the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) by either using [Downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
+You can find out the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) by either using [Downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). The IP address range is updated weekly.
 
 ### Include the Azure Cognitive Search portal IP addresses
 
 If you are using the Azure portal to create an indexer, you must grant the portal inbound access to your SQL Azure virtual machine. An inbound rule in the firewall requires that you provide the IP address of the portal.
 
-To get the portal IP address, ping `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. The request will time out, but the IP address be visible in the status message. Fo example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
+To get the portal IP address, ping `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. The request will time out, but the IP address be visible in the status message. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
 
-> [!NOTE]
-> Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
+Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
 
 ## Next steps
 

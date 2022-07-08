@@ -1,12 +1,10 @@
 ---
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
-ms.date: 07/30/2021
+ms.date: 06/30/2022
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, mode-ui
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files, so I can use them to deploy Azure resources.
-
 ---
 
 # Quickstart: Create Bicep files with Visual Studio Code
@@ -28,6 +26,9 @@ VS Code with the Bicep extension simplifies development by providing pre-defined
 In *main.bicep*, type **vnet**. Select **res-vnet** from the list, and then Tab or Enter.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-snippet.png" alt-text="Add snippet for virtual network":::
+
+> [!TIP]
+> If you don't see those intellisense options in VS Code, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you will not have intellisense options until it starts. A notification in the lower right corner indicates that the service is starting. When that notification disappears, the service is running.
 
 Your Bicep file now contains the following code:
 
@@ -69,17 +70,15 @@ You could deploy this Bicep file, but we'll add a parameter and storage account 
 
 ## Add parameter
 
-Now, we'll add a parameter to use for the storage account name. Add a couple of lines above the virtual network, and type:
+Now, we'll add a parameter for the storage account name. At the top of file, add:
 
 ```bicep
 param storageName
 ```
 
-When you add a space after **storageName**, notice that intellisense offers the data types that are available for the parameter.
+When you add a space after **storageName**, notice that intellisense offers the data types that are available for the parameter. Select **string**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-param.png" alt-text="Add string type to parameter":::
-
-Select **string**.
 
 You have the following parameter:
 
@@ -110,7 +109,7 @@ You can also add a description for the parameter. Include information that helps
 param storageName string
 ```
 
-Okay, your parameter is ready to use.
+Your parameter is ready to use.
 
 ## Add resource
 
@@ -128,11 +127,11 @@ When you add a space after the symbolic name, a list of resource types is displa
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-resource-type.png" alt-text="Select storage accounts for resource type":::
 
-After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select the latest version.
+After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select **2021-02-01**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-api-version.png" alt-text="Select API version for resource type":::
 
-After the single quote for the resource type, add **=** and a space. You're presented with options for adding properties to the resource. Select **required-properties**.
+After the single quote for the resource type, add `=` and a space. You're presented with options for adding properties to the resource. Select **required-properties**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-required-properties.png" alt-text="Add required properties":::
 
@@ -152,7 +151,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 You're almost done. Just provide values for those properties.
 
-Again, intellisense helps you. Set `name` to `storageName`, which is the parameter that contains a name for the storage account. For `location`, set it to `eastus`. When adding SKU name and kind, intellisense presents the valid options.
+Again, intellisense helps you. Set `name` to `storageName`, which is the parameter that contains a name for the storage account. For `location`, set it to `'eastus'`. When adding SKU name and kind, intellisense presents the valid options.
 
 When you've finished, you have:
 
@@ -203,7 +202,7 @@ For more information about the Bicep syntax, see [Bicep structure](./file.md).
 
 You can view a representation of the resources in your file.
 
-From the upper left corner, select the visualizer button to open the Bicep Visualizer.
+From the upper right corner, select the visualizer button to open the Bicep Visualizer.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer.png" alt-text="Bicep Visualizer":::
 
@@ -211,14 +210,19 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
 ## Deploy the Bicep file
 
-To deploy the file you've created, open PowerShell or Azure CLI. If you want to use the integrated Visual Studio Code terminal, select the `ctrl` + ```` ` ```` key combination. Change the current directory to where the Bicep file is located.
+1. Right-click the Bicep file inside the VSCode, and then select **Deploy Bicep file**.
+1. From the **Select Resource Group** listbox on the top, select **Create new Resource Group**.
+1. Enter **exampleRG** as the resource group name, and then press **[ENTER]**.
+1. Enter a unique storage account name, and then press **[ENTER]**. If you get an error message indicating the storage account is already taken, the storage name you provided is in use. Provide a name that is more likely to be unique.
+
+You can also deploy the Bicep file by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
 
 ```azurecli
 az group create --name exampleRG --location eastus
 
-az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageName={your-unique-name}
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageName=uniquename
 ```
 
 # [PowerShell](#tab/PowerShell)
@@ -226,15 +230,12 @@ az deployment group create --resource-group exampleRG --template-file main.bicep
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location eastus
 
-New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageName "{your-unique-name}"
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageName "uniquename"
 ```
 
 ---
 
-> [!NOTE]
-> Replace **{your-unique-name}**, including the curly braces, with a unique storage account name.
-
-When the deployment finishes, you should see a message indicating the deployment succeeded. If you get an error message indicating the storage account is already taken, the storage name you provided is in use. Provide a name that is more likely to be unique.
+When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Clean up resources
 

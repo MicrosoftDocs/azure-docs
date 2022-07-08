@@ -4,7 +4,7 @@ description: Use the Azure Toolkit for IntelliJ to develop Spark applications wr
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
+ms.date: 04/28/2022
 ---
 
 # Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster
@@ -25,11 +25,11 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md). Only HDinsight clusters in public cloud are supported while other secure cloud types (e.g. government clouds) are not.
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md). Only HDInsight clusters in public cloud are supported while other secure cloud types (e.g. government clouds) are not.
 
 * [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  This article uses Java version 8.0.202.
 
-* IntelliJ IDEA. This article uses [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA. This article uses [IntelliJ IDEA Community 2018.3.4](https://www.jetbrains.com/idea/download/).
 
 * Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/).
 
@@ -231,7 +231,7 @@ After creating a Scala application, you can submit it to the cluster.
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
     |Job configurations|You can change the default keys and, or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html).|
     |Command-line arguments|You can enter arguments separated by space for the main class if needed.|
-    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen 2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md).|
+    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen 2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](../../storage/blobs/quickstart-storage-explorer.md).|
     |Job Upload Storage|Expand to reveal additional options.|
     |Storage Type|Select **Use Azure Blob to upload** from the drop-down list.|
     |Storage Account|Enter your storage account.|

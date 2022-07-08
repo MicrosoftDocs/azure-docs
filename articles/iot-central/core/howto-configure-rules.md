@@ -3,7 +3,7 @@ title: Configure rules and actions in Azure IoT Central | Microsoft Docs
 description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/06/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -23,11 +23,14 @@ Use the target devices section to select on what kind of devices this rule will 
 
 ## Use multiple conditions
 
-Conditions are what rules trigger on. Currently, when you add multiple conditions to a rule, they're logically AND'd together. In other words, all conditions must be met for the rule to evaluate as true.  
+Conditions are what rules trigger on. You can add multiple conditions to a rule and specify if the rule should trigger when all the conditions are true or any of the conditions are true.  
 
-In the following screenshot, the conditions check when the temperature is greater than 70&deg; F and the humidity is less than 10. When both of these statements are true, the rule evaluates to true and triggers an action.
+In the following screenshot, the conditions check when the temperature is greater than 70&deg; F and the humidity is less than 10. When any of these statements are true, the rule evaluates to true and triggers an action.
 
-:::image type="content" source="media/howto-configure-rules/conditions.png" alt-text="Screenshot shows a refrigerator monitor with conditions specified for temperature and humidity.":::
+:::image type="content" source="media/howto-configure-rules/conditions.png" alt-text="Screenshot shows a refrigerator monitor with conditions specified for temperature and humidity." lightbox="media/howto-configure-rules/conditions.png":::
+
+> [!NOTE]
+> Currently only Telemetry Conditions are supported.  
 
 ### Use a cloud property in a value field
 
@@ -37,7 +40,7 @@ If you choose an event type telemetry value, the **Value** drop-down includes th
 
 ## Use aggregate windowing
 
-Rules evaluate aggregate time windows as tumbling windows. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of data. The data is only evaluated once in the window to which it corresponds.
+You can specify a time aggregation to trigger your rule based on a time window. Rule conditions evaluate aggregate time windows on telemetry data as tumbling windows. If there are any property filters in the rule, they're applied at the end of the time window. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of telemetry data. The data is only evaluated once in the window to which it corresponds.
 
 :::image type="content" source="media/howto-configure-rules/tumbling-window.png" alt-text="A diagram showing how tumbling windows are defined.":::
 
@@ -209,7 +212,7 @@ The following table summarizes the information sent to the supported action type
 | Email       | Standard IoT Central email template |
 | SMS         | Azure IoT Central alert: ${applicationName} - "${ruleName}" triggered on "${deviceName}" at ${triggerDate} ${triggerTime} |
 | Voice       | Azure I.O.T Central alert: rule "${ruleName}" triggered on device "${deviceName}" at ${triggerDate} ${triggerTime}, in application ${applicationName} |
-| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](howto-create-webhooks.md#payload)}} |
+| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](howto-configure-rules.md#payload)}} |
 
 The following text is an example SMS message from an action group:
 

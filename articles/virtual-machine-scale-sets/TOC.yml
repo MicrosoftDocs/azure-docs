@@ -12,6 +12,9 @@
     href: quick-create-cli.md
   - name: Create with Azure PowerShell
     href: quick-create-powershell.md
+  - name: Create with Bicep
+    displayName: ARM, Template, Resource Manager, Bicep
+    href: quick-create-bicep-windows.md
   - name: Create with ARM template
     items:
     - name: Linux scale set
@@ -63,8 +66,6 @@
     items:
     - name: Create a virtual machine scale set
       href: ./scripts/cli-sample-create-simple-scale-set.md
-    - name: Create and manage virtual machine scale set
-      href: ./scripts/cli-sample-manage-scale-set.md
     - name: Create a scale set from a custom VM image
       href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
     - name: Install applications to a scale set
@@ -160,18 +161,50 @@
     - name: Benchmark scores
       href: ../virtual-machines/windows/compute-benchmark-scores.md
       maintainContext: true
+    - name: Capacity reservation (preview)
+      items:
+      - name: Overview
+        displayName: on-demand capacity reservation 
+        href: ../virtual-machines/capacity-reservation-overview.md
+        maintainContext: true
+      - name: Create a capacity reservation
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-create.md
+        maintainContext: true
+      - name: Overallocating capacity reservation
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-overallocate.md
+        maintainContext: true
+      - name: Modify a capacity reservation
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-modify.md
+        maintainContext: true
+      - name: Associate a virtual machine scale set
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-associate-virtual-machine-scale-set.md
+        maintainContext: true
+      - name: Remove a virtual machine scale set 
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-remove-virtual-machine-scale-set.md
+        maintainContext: true
     maintainContext: true
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
-  - name: Orchestration modes (preview) 
-    href: virtual-machine-scale-sets-orchestration-modes.md
+  - name: Orchestration modes
+    items:
+    - name: Overview 
+      href: virtual-machine-scale-sets-orchestration-modes.md
+    - name: API comparison
+      href: orchestration-modes-api-comparison.md
+    - name: Flexible orchestration
+      href: ../virtual-machines/flexible-virtual-machine-scale-sets.md
   - name: Maintenance and updates
     items:
     - name: Overview
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: Automatic extension upgrade (preview) 
+    - name: Automatic extension upgrade 
       href: ../virtual-machines/automatic-extension-upgrade.md
       maintainContext: true
   - name: Disk storage
@@ -197,7 +230,7 @@
       href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
       maintainContext: true
   - name: Networking
-    href: ../virtual-machines/network-overview.md
+    href: ../virtual-network/network-overview.md
     maintainContext: true
   - name: Infrastructure automation
     href: ../virtual-machines/infrastructure-automation.md
@@ -232,58 +265,36 @@
       href: virtual-machine-scale-sets-design-overview.md
     - name: Understand instance IDs
       href: virtual-machine-scale-sets-instance-ids.md
-  - name: Use Images
-    displayName: SIG, AMI, image
+  - name: Azure Compute Gallery
     items:
-    - name: Shared Image Galleries
+    - name: Overview
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, Azure Compute Gallery
+      href: ../virtual-machines/shared-image-galleries.md
+    - name: Create a gallery
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, Azure Compute Gallery
+      href: ../virtual-machines/create-gallery.md
+    - name: Share a gallery
+      href: ../virtual-machines/share-gallery.md
+    - name: Create an image
+      displayName: VM, image, VHD, storage account
+      href: ../virtual-machines/image-version.md
+    - name: Capture a VM in the portal
+      href: ../virtual-machines/capture-image-portal.md
+    - name: Create a scale-set
       items:
-      - name: PowerShell
-        items:
-        - name: Create a gallery
-          href: ../virtual-machines/shared-images-powershell.md
-        - name: Create an image
-          items:
-          - name: From a VM
-            href: ../virtual-machines/image-version-vm-powershell.md
-          - name: Migrate from a managed image
-            href: ../virtual-machines/image-version-managed-image-powershell.md
-          - name: Copy from another gallery
-            href: ../virtual-machines/image-version-another-gallery-powershell.md
-        - name: Create a scale-set
-          items:
-          - name: Specialized
-            href: instance-specialized-image-version-powershell.md
-          - name: Generalized
-            href: instance-generalized-image-version-powershell.md
-        - name: Update image resources
-          href: ../virtual-machines/update-image-resources-powershell.md
-      - name: CLI
-        items:
-        - name: Create a gallery
-          href: ../virtual-machines/shared-images-cli.md
-        - name: Create an image
-          items:
-          - name: From a VM
-            href: ../virtual-machines/image-version-vm-cli.md
-          - name: Migrate from a managed image
-            href: ../virtual-machines/image-version-managed-image-cli.md
-          - name: Copy from another gallery
-            href: ../virtual-machines/image-version-another-gallery-cli.md
-        - name: Create a scale-set
-          items:
-          - name: Specialized
-            href: instance-specialized-image-version-cli.md
-          - name: Generalized
-            href: instance-generalized-image-version-cli.md
-        - name: Update image resources
-          href: ../virtual-machines/update-image-resources-cli.md
-      - name: Troubleshoot shared images
-        href: ../virtual-machines/troubleshooting-shared-images.md
-      - name: Using customer-managed keys
-        displayName: SSE, CMK, encrypt
-        href: ../virtual-machines/image-version-encryption.md
-      - name: App registration for sharing
-        href: share-images-across-tenants.md
+      - name: Specialized
+        href: instance-specialized-image-version.md
+      - name: Generalized
+        href: instance-generalized-image-version.md
+    - name: Update image resources
+      href: ../virtual-machines/update-image-resources.md
+    - name: Troubleshoot shared images
+      href: ../virtual-machines/troubleshooting-shared-images.md
+    - name: Using customer-managed keys
+      displayName: SSE, CMK, encrypt
+      href: ../virtual-machines/image-version-encryption.md
+    - name: App registration for sharing
+      href: share-images-across-tenants.md
   - name: Create a template
     items:
     - name: Learn about scale set templates
@@ -337,17 +348,18 @@
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Use dedicated hosts
+      displayName: sole-tenant, sole tenant, isolated, isolation
       items:
       - name: Overview
         href: ../virtual-machines/dedicated-hosts.md
-      - name: CLI
-        href: ../virtual-machines/linux/dedicated-hosts-cli.md
-      - name: PowerShell
-        href: ../virtual-machines/windows/dedicated-hosts-powershell.md
-      - name: Portal
-        href: ../virtual-machines/dedicated-hosts-portal.md
+      - name: How-to
+        href: ../virtual-machines/dedicated-hosts.md
     - name: Azure Spot Virtual Machines
-      href: use-spot.md
+      items:
+      - name: Overview
+        href: use-spot.md
+      - name: VM size recommendation 
+        href: spot-vm-size-recommendation.md
     - name: Azure Hybrid Benefit for Linux
       href: azure-hybrid-benefit-linux.md
   - name: Manage
@@ -424,7 +436,7 @@
     href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
-  - name: Azure Quickstart templates
+  - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux

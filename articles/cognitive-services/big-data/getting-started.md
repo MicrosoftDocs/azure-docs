@@ -5,9 +5,11 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
-ms.date: 07/06/2020
+ms.topic: how-to
+ms.date: 10/28/2021
 ms.author: marhamil
+ms.devlang: python
+ms.custom: mode-other
 ---
 
 # Getting started
@@ -77,7 +79,7 @@ If you're using containerized Cognitive Services, one popular option for deployi
 
 To get started on Azure Kubernetes Service, follow these steps:
 
-1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/kubernetes-walkthrough-portal.md)
+1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
 1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
 1. [Install a cognitive service container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
@@ -103,7 +105,7 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 from mmlspark.cognitive import *
 from pyspark.sql.functions import col
 
-# Add your subscription key from Text Analytics (or a general Cognitive Service key)
+# Add your subscription key from the Language service (or a general Cognitive Service key)
 service_key = "ADD-SUBSCRIPTION-KEY-HERE"
 
 df = spark.createDataFrame([
@@ -127,7 +129,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 
 ```
 
-1. Get your subscription key from the **Keys and Endpoint** menu from your Text Analytics dashboard in the Azure portal.
+1. Get your subscription key from the **Keys and Endpoint** menu from your Language resource in the Azure portal.
 1. Replace the subscription key placeholder in your Databricks notebook code with your subscription key.
 1. Select the play, or triangle, symbol in the upper right of your notebook cell to run the sample. Optionally, select **Run All** at the top of your notebook to run all cells. The answers will display below the cell in a table.
 

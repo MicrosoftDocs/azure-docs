@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 06/4/2021
 ms.author: damaerte
@@ -109,9 +108,9 @@ Read more to learn how to mount a [new or existing storage account](persisting-s
 
 Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell](./features.md).
 
-## Complaince
+## Compliance
 ### Encryption at rest
-All Cloud Shell infrastructure is complaint with double encryption at rest by default. No action is required by users.
+All Cloud Shell infrastructure is compliant with double encryption at rest by default. No action is required by users.
 
 ## Pricing
 

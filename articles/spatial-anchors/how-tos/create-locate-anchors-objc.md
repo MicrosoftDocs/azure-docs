@@ -1,11 +1,11 @@
 ---
 title: Create & locate anchors in Objective-C
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Objective-C.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors

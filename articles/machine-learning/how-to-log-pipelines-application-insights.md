@@ -6,21 +6,23 @@ services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 08/11/2020
+ms.subservice: mlops
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 ---
+
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
-The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
+The [OpenCensus](https://opencensus.io/quickstart/python/) Python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
 
 Having your logs in once place will provide a history of exceptions and error messages. Since Application Insights integrates with Azure Alerts, you can also create alerts based on Application Insights queries.
 
 ## Prerequisites
 
-* Follow the steps to create an [Azure Machine Learning](./how-to-manage-workspace.md) workspace and [create your first pipeline](./how-to-create-machine-learning-pipelines.md)
+* Follow the steps to create an [Azure Machine Learning workspace](quickstart-create-resources.md) and [create your first pipeline](./how-to-create-machine-learning-pipelines.md)
 * [Configure your development environment](./how-to-configure-environment.md) to install the Azure Machine Learning SDK.
 * Install the [OpenCensus Azure Monitor Exporter](https://pypi.org/project/opencensus-ext-azure/) package locally:
   ```python
@@ -72,7 +74,7 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 import logging
 ```
 
-Next, add the AzureLogHandler to the python logger.
+Next, add the AzureLogHandler to the Python logger.
 
 ```python
 logger = logging.getLogger(__name__)
@@ -158,6 +160,6 @@ Some of the queries below use 'customDimensions.Level'. These severity levels co
 
 ## Next Steps
 
-Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md#what-you-can-alert-on) based on query results.
+Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md) based on query results.
 
 You can also add results from queries to an [Azure Dashboard](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query) for additional insights.

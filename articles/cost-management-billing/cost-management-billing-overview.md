@@ -1,23 +1,24 @@
 ---
-title: Overview of Azure Cost Management + Billing
-description: You use Azure Cost Management + Billing features to conduct billing administrative tasks and manage billing access to costs. You also use the features to monitor and control Azure spending and to optimize Azure resource use.
+title: Overview of Cost Management + Billing
+titleSuffix: Microsoft Cost Management
+description: You use Cost Management + Billing features to conduct billing administrative tasks and manage billing access to costs. You also use the features to monitor and control Azure spending and to optimize Azure resource use.
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2021
+ms.date: 04/08/2022
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
 ---
 
-# What is Azure Cost Management + Billing?
+# What is Cost Management + Billing?
 
-By using the Microsoft cloud, you can significantly improve the technical performance of your business workloads. It can also reduce your costs and the overhead required to manage organizational assets. However, the business opportunity creates a risk because of the potential for waste and inefficiencies that are introduced into your cloud deployments. Azure Cost Management + Billing is a suite of tools provided by Microsoft that help you analyze, manage, and optimize the costs of your workloads. Using the suite helps ensure that your organization is taking advantage of the benefits provided by the cloud.
+By using the Microsoft cloud, you can significantly improve the technical performance of your business workloads. It can also reduce your costs and the overhead required to manage organizational assets. However, the business opportunity creates a risk because of the potential for waste and inefficiencies that are introduced into your cloud deployments. Cost Management + Billing is a suite of tools provided by Microsoft that help you analyze, manage, and optimize the costs of your workloads. Using the suite helps ensure that your organization is taking advantage of the benefits provided by the cloud.
 
-You can think of your Azure workloads like the lights in your home. When you leave to go out for the day, are you leaving the lights on? Could you use different bulbs that are more efficient to help reduce your monthly energy bill? Do you have more lights in one room than are needed? You can use Azure Cost Management + Billing to apply a similar thought process to the workloads used by your organization.
+You can think of your Azure workloads like the lights in your home. When you leave to go out for the day, are you leaving the lights on? Could you use different bulbs that are more efficient to help reduce your monthly energy bill? Do you have more lights in one room than are needed? You can use Cost Management + Billing to apply a similar thought process to the workloads used by your organization.
 
-With Azure products and services, you only pay for what you use. As you create and use Azure resources, you’re charged for the resources. Because of the deployment ease for new resources, the costs of your workloads can jump significantly without proper analysis and monitoring. You use Azure Cost Management + Billing features to:
+With Azure products and services, you only pay for what you use. As you create and use Azure resources, you’re charged for the resources. Because of the deployment ease for new resources, the costs of your workloads can jump significantly without proper analysis and monitoring. You use Cost Management + Billing features to:
 
 - Conduct billing administrative tasks such as paying your bill
 - Manage billing access to costs
@@ -26,7 +27,7 @@ With Azure products and services, you only pay for what you use. As you create a
 - Set spending thresholds
 - Identify opportunities for workload changes that can optimize your spending
 
-To learn more about how to approach cost management as an organization, take a look at the [Azure Cost Management best practices](./costs/cost-mgt-best-practices.md) article.
+To learn more about how to approach cost management as an organization, take a look at the [Cost Management best practices](./costs/cost-mgt-best-practices.md) article.
 
 ![Diagram of the Cost Management + Billing optimization process.](./media/cost-management-optimization-process.png)
 
@@ -46,15 +47,15 @@ The Azure portal currently supports the following types of billing accounts:
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an account with pay-as-you-go rates or upgrade their [Azure Free Account](./manage/create-free-services.md) may have a billing account for a Microsoft Customer Agreement as well.
 
-## Understand Azure Cost Management
+## Understand Cost Management
 
 Although related, billing differs from cost management. Billing is the process of invoicing customers for goods or services and managing the commercial relationship.
 
-Cost Management shows organizational cost and usage patterns with advanced analytics. Reports in Cost Management show the usage-based costs consumed by Azure services and third-party Marketplace offerings. Costs are based on negotiated prices and factor in reservation and Azure Hybrid Benefit discounts. Collectively, the reports show your internal and external costs for usage and Azure Marketplace charges. Other charges, such as reservation purchases, support, and taxes aren't yet shown in reports. The reports help you understand your spending and resource use and can help find spending anomalies. Predictive analytics are also available. Cost Management uses Azure management groups, budgets, and recommendations to show clearly how your expenses are organized and how you might reduce costs.
+Cost Management shows organizational cost and usage patterns with advanced analytics. Reports in Cost Management show the usage-based costs consumed by Azure services and third-party Marketplace offerings. Costs are based on negotiated prices and factor in reservation and Azure Hybrid Benefit discounts. Collectively, the reports show your internal and external costs for usage and Azure Marketplace charges. **Other charges, such as reservation purchases, support, and taxes aren't yet shown in reports**. The reports help you understand your spending and resource use and can help find spending anomalies. Predictive analytics are also available. Cost Management uses Azure management groups, budgets, and recommendations to show clearly how your expenses are organized and how you might reduce costs.
 
 You can use the Azure portal or various APIs for export automation to integrate cost data with external systems and processes. Automated billing data export and scheduled reports are also available.
 
-Watch the Azure Cost Management overview video for a quick overview about how Azure Cost Management can help you save money in Azure. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+Watch the Cost Management overview video for a quick overview about how Cost Management can help you save money in Azure. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -72,7 +73,7 @@ If you use external systems to access or review cost management data, you can ea
 
 ### Additional Azure tools
 
-Azure has other tools that aren't a part of the Azure Cost Management + Billing feature set. However, they play an important role in the cost management process. To learn more about these tools, see the following links.
+Azure has other tools that aren't a part of the Cost Management + Billing feature set. However, they play an important role in the cost management process. To learn more about these tools, see the following links.
 
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) - Use this tool to estimate your up-front cloud costs.
 - [Azure Migrate](../migrate/migrate-services-overview.md) - Assess your current datacenter workload for insights about what's needed from an Azure replacement solution.
@@ -83,5 +84,5 @@ Azure has other tools that aren't a part of the Azure Cost Management + Billing 
 
 Now that you're familiar with Cost Management + Billing, the next step is to start using the service.
 
-- Start using Azure Cost Management to [analyze costs](./costs/quick-acm-cost-analysis.md).
-- You can also read more about [Azure Cost Management best practices](./costs/cost-mgt-best-practices.md).
+- Start using Cost Management to [analyze costs](./costs/quick-acm-cost-analysis.md).
+- You can also read more about [Cost Management best practices](./costs/cost-mgt-best-practices.md).

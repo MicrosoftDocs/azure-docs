@@ -1,17 +1,16 @@
 ---
 title: Azure Web Application Firewall on Azure Front Door DRS rule groups and rules
 description: This article  provides information on Web Application Firewall DRS rule groups and rules.
-services: web-application-firewall
-author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/29/2021
+author: vhorne
 ms.author: victorh
 ms.topic: conceptual
+ms.date: 06/15/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
+Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 
 ## Default rule sets
@@ -56,7 +55,8 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 |Warning      |3|
 |Notice       |2|
 
-There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
+There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ to learn what content types are supported for body inspection with different DRS versions.
+
 
 ### DRS 2.0
 
@@ -111,9 +111,13 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[APPLICATION-ATTACK-RFI](#drs931-10)**|Protection against remote file inclusion attacks|
 |**[APPLICATION-ATTACK-RCE](#drs932-10)**|Protection against remote command execution|
 |**[APPLICATION-ATTACK-PHP](#drs933-10)**|Protect against PHP-injection attacks|
+|**[CROSS-SITE-SCRIPTING](#drs941-10)**|XSS - Cross-site Scripting|
 |**[APPLICATION-ATTACK-SQLI](#drs942-10)**|Protect against SQL-injection attacks|
 |**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-10)**|Protect against session-fixation attacks|
 |**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-10)**|Protect against JAVA attacks|
+|**[MS-ThreatIntel-WebShells](#drs9905-10)**|Protect against Web shell attacks|
+|**[MS-ThreatIntel-CVEs](#drs99001-10)**|Protect against CVE attacks|
+
 
 
 
@@ -134,19 +138,19 @@ Front Door.
 
 ## <a name="drs20"></a> 2.0 rule sets
 
-### <a name="general-20"></a> <p x-ms-format-detection="none">General</p>
+### <a name="general-20"></a> General
 |RuleId|Description|
 |---|---|
 |200002|Failed to parse request body.|
 |200003|Multipart request body failed strict validation|
 
 
-### <a name="drs911-20"></a> <p x-ms-format-detection="none">METHOD ENFORCEMENT</p>
+### <a name="drs911-20"></a> METHOD ENFORCEMENT
 |RuleId|Description|
 |---|---|
 |911100|Method is not allowed by policy|
 
-### <a name="drs920-20"></a> <p x-ms-format-detection="none">PROTOCOL-ENFORCEMENT</p>
+### <a name="drs920-20"></a> PROTOCOL-ENFORCEMENT
 |RuleId|Description|
 |---|---|
 |920100|Invalid HTTP Request Line|
@@ -183,7 +187,7 @@ Front Door.
 |920470|Illegal Content-Type header|
 |920480|Request content type charset is not allowed by policy|
 
-### <a name="drs921-20"></a> <p x-ms-format-detection="none">PROTOCOL-ATTACK</p>
+### <a name="drs921-20"></a> PROTOCOL-ATTACK
 
 |RuleId|Description|
 |---|---|
@@ -195,7 +199,7 @@ Front Door.
 |921151|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
-### <a name="drs930-20"></a> <p x-ms-format-detection="none">LFI - Local File Inclusion</p>
+### <a name="drs930-20"></a> LFI - Local File Inclusion
 |RuleId|Description|
 |---|---|
 |930100|Path Traversal Attack (/../)|
@@ -203,7 +207,7 @@ Front Door.
 |930120|OS File Access Attempt|
 |930130|Restricted File Access Attempt|
 
-### <a name="drs931-20"></a> <p x-ms-format-detection="none">RFI - Remote File Inclusion</p>
+### <a name="drs931-20"></a> RFI - Remote File Inclusion
 |RuleId|Description|
 |---|---|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
@@ -211,7 +215,7 @@ Front Door.
 |931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
 |931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
-### <a name="drs932-20"></a> <p x-ms-format-detection="none">RCE - Remote Command Execution</p>
+### <a name="drs932-20"></a> RCE - Remote Command Execution
 |RuleId|Description|
 |---|---|
 |932100|Remote Command Execution: Unix Command Injection|
@@ -219,7 +223,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -227,7 +231,7 @@ Front Door.
 |932171|Remote Command Execution: Shellshock (CVE-2014-6271)|
 |932180|Restricted File Upload Attempt|
 
-### <a name="drs933-20"></a> <p x-ms-format-detection="none">PHP Attacks</p>
+### <a name="drs933-20"></a> PHP Attacks
 |RuleId|Description|
 |---|---|
 |933100|PHP Injection Attack: Opening/Closing Tag Found|
@@ -245,12 +249,12 @@ Front Door.
 |933200|PHP Injection Attack: Wrapper scheme detected|
 |933210|PHP Injection Attack: Variable Function Call Found|
 
-### <a name="drs934-20"></a> <p x-ms-format-detection="none">Node JS Attacks</p>
+### <a name="drs934-20"></a> Node JS Attacks
 |RuleId|Description|
 |---|---|
 |934100|Node.js Injection Attack|
 
-### <a name="drs941-20"></a> <p x-ms-format-detection="none">XSS - Cross-site Scripting</p>
+### <a name="drs941-20"></a> XSS - Cross-site Scripting
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
@@ -284,8 +288,11 @@ Front Door.
 |941370|JavaScript global variable found|
 |941380|AngularJS client side template injection detected|
 
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
-### <a name="drs942-20"></a> <p x-ms-format-detection="none">SQLI - SQL Injection</p>
+
+### <a name="drs942-20"></a> SQLI - SQL Injection
 |RuleId|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
@@ -331,14 +338,14 @@ Front Door.
 |942510|SQLi bypass attempt by ticks or backticks detected.|
 
 
-### <a name="drs943-20"></a> <p x-ms-format-detection="none">SESSION-FIXATION</p>
+### <a name="drs943-20"></a> SESSION-FIXATION
 |RuleId|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
-### <a name="drs944-20"></a> <p x-ms-format-detection="none">JAVA Attacks</p>
+### <a name="drs944-20"></a> JAVA Attacks
 |RuleId|Description|
 |---|---|
 |944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
@@ -347,38 +354,42 @@ Front Door.
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
 |944210|Possible use of Java serialization|
-|944240|Remote Command Execution: Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
-### <a name="drs9905-20"></a> <p x-ms-format-detection="none">MS-ThreatIntel-WebShells</p>
+### <a name="drs9905-20"></a> MS-ThreatIntel-WebShells
 |RuleId|Description|
 |---|---|
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
 |99005004|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
+|99005006|Spring4Shell Interaction Attempt|
 
-### <a name="drs9903-20"></a> <p x-ms-format-detection="none">MS-ThreatIntel-AppSec</p>
+### <a name="drs9903-20"></a> MS-ThreatIntel-AppSec
 |RuleId|Description|
 |---|---|
 |99030001|Path Traversal Evasion in Headers (/.././../)|
 |99030002|Path Traversal Evasion in Request Body (/.././../)|
 
-### <a name="drs99031-20"></a> <p x-ms-format-detection="none">MS-ThreatIntel-SQLI</p>
+### <a name="drs99031-20"></a> MS-ThreatIntel-SQLI
 |RuleId|Description|
 |---|---|
 |99031001|SQL Injection Attack: Common Injection Testing Detected|
 |99031002|SQL Comment Sequence Detected.|
 
-### <a name="drs99001-20"></a> <p x-ms-format-detection="none">MS-ThreatIntel-CVEs</p>
+### <a name="drs99001-20"></a> MS-ThreatIntel-CVEs
 |RuleId|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
 
 # [DRS 1.1](#tab/drs11)
 
 ## <a name="drs11"></a> 1.1 rule sets
 
-### <a name="drs921-11"></a> <p x-ms-format-detection="none">PROTOCOL-ATTACK</p>
+### <a name="drs921-11"></a> PROTOCOL-ATTACK
 |RuleId|Description|
 |---|---|
 |921110|HTTP Request Smuggling Attack|
@@ -389,7 +400,7 @@ Front Door.
 |921151|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
-### <a name="drs930-11"></a> <p x-ms-format-detection="none">LFI - Local File Inclusion</p>
+### <a name="drs930-11"></a> LFI - Local File Inclusion
 |RuleId|Description|
 |---|---|
 |930100|Path Traversal Attack (/../)|
@@ -397,7 +408,7 @@ Front Door.
 |930120|OS File Access Attempt|
 |930130|Restricted File Access Attempt|
 
-### <a name="drs931-11"></a> <p x-ms-format-detection="none">RFI - Remote File Inclusion</p>
+### <a name="drs931-11"></a> RFI - Remote File Inclusion
 |RuleId|Description|
 |---|---|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
@@ -405,7 +416,7 @@ Front Door.
 |931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
 |931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
-### <a name="drs932-11"></a> <p x-ms-format-detection="none">RCE - Remote Command Execution</p>
+### <a name="drs932-11"></a> RCE - Remote Command Execution
 |RuleId|Description|
 |---|---|
 |932100|Remote Command Execution: Unix Command Injection|
@@ -413,7 +424,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |931120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Shellshock (CVE-2014-6271)|
@@ -421,7 +432,7 @@ Front Door.
 |932171|Remote Command Execution: Shellshock (CVE-2014-6271)|
 |932180|Restricted File Upload Attempt|
 
-### <a name="drs933-11"></a> <p x-ms-format-detection="none">PHP Attacks</p>
+### <a name="drs933-11"></a> PHP Attacks
 |RuleId|Description|
 |---|---|
 |933100|PHP Injection Attack: PHP Open Tag Found|
@@ -435,7 +446,7 @@ Front Door.
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 
-### <a name="drs941-11"></a> <p x-ms-format-detection="none">XSS - Cross-site Scripting</p>
+### <a name="drs941-11"></a> XSS - Cross-site Scripting
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
@@ -443,7 +454,7 @@ Front Door.
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
-|941140|XSS Filter - Category 4: Javascript URI Vector|
+|941140|XSS Filter - Category 4: JavaScript URI Vector|
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
@@ -466,7 +477,10 @@ Front Door.
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
-### <a name="drs942-11"></a> <p x-ms-format-detection="none">SQLI - SQL Injection</p>
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
+### <a name="drs942-11"></a> SQLI - SQL Injection
 |RuleId|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
@@ -507,54 +521,58 @@ Front Door.
 |942470|SQL Injection Attack|
 |942480|SQL Injection Attack|
 
-### <a name="drs943-11"></a> <p x-ms-format-detection="none">SESSION-FIXATION</p>
+### <a name="drs943-11"></a> SESSION-FIXATION
 |RuleId|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
-### <a name="drs944-11"></a> <p x-ms-format-detection="none">JAVA Attacks</p>
+### <a name="drs944-11"></a> JAVA Attacks
 |RuleId|Description|
 |---|---|
 |944100|Remote Command Execution: Suspicious Java class detected|
 |944110|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |944120|Remote Command Execution: Java serialization (CVE-2015-5842)|
 |944130|Suspicious Java class detected|
-|944200|Magic bytes Detected, probable java serialization in use|
-|944210|Magic bytes Detected Base64 Encoded, probable java serialization in use|
-|944240|Remote Command Execution: Java serialization (CVE-2015-5842)|
+|944200|Magic bytes Detected, probable Java serialization in use|
+|944210|Magic bytes Detected Base64 Encoded, probable Java serialization in use|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
-### <a name="drs9905-11"></a> <p x-ms-format-detection="none">MS-ThreatIntel-WebShells</p>
+### <a name="drs9905-11"></a> MS-ThreatIntel-WebShells
 |RuleId|Description|
 |---|---|
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
 |99005004|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
+|99005006|Spring4Shell Interaction Attempt|
 
-### <a name="drs9903-11"></a> <p x-ms-format-detection="none">MS-ThreatIntel-AppSec</p>
+### <a name="drs9903-11"></a> MS-ThreatIntel-AppSec
 |RuleId|Description|
 |---|---|
 |99030001|Path Traversal Evasion in Headers (/.././../)|
 |99030002|Path Traversal Evasion in Request Body (/.././../)|
 
-### <a name="drs99031-11"></a> <p x-ms-format-detection="none">MS-ThreatIntel-SQLI</p>
+### <a name="drs99031-11"></a> MS-ThreatIntel-SQLI
 |RuleId|Description|
 |---|---|
 |99031001|SQL Injection Attack: Common Injection Testing Detected|
 |99031002|SQL Comment Sequence Detected.|
 
-### <a name="drs99001-11"></a> <p x-ms-format-detection="none">MS-ThreatIntel-CVEs</p>
+### <a name="drs99001-11"></a> MS-ThreatIntel-CVEs
 |RuleId|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
 # [DRS 1.0](#tab/drs10)
 
 ## <a name="drs10"></a> 1.0 rule sets
 
-### <a name="drs921-10"></a> <p x-ms-format-detection="none">PROTOCOL-ATTACK</p>
+### <a name="drs921-10"></a> PROTOCOL-ATTACK
 |RuleId|Description|
 |---|---|
 |921110|HTTP Request Smuggling Attack|
@@ -565,7 +583,7 @@ Front Door.
 |921151|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
-### <a name="drs930-10"></a> <p x-ms-format-detection="none">LFI - Local File Inclusion</p>
+### <a name="drs930-10"></a> LFI - Local File Inclusion
 |RuleId|Description|
 |---|---|
 |930100|Path Traversal Attack (/../)|
@@ -573,7 +591,7 @@ Front Door.
 |930120|OS File Access Attempt|
 |930130|Restricted File Access Attempt|
 
-### <a name="drs931-10"></a> <p x-ms-format-detection="none">RFI - Remote File Inclusion</p>
+### <a name="drs931-10"></a> RFI - Remote File Inclusion
 |RuleId|Description|
 |---|---|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
@@ -581,7 +599,7 @@ Front Door.
 |931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
 |931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
-### <a name="drs932-10"></a> <p x-ms-format-detection="none">RCE - Remote Command Execution</p>
+### <a name="drs932-10"></a> RCE - Remote Command Execution
 |RuleId|Description|
 |---|---|
 |932100|Remote Command Execution: Unix Command Injection|
@@ -589,7 +607,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -597,7 +615,7 @@ Front Door.
 |932171|Remote Command Execution: Shellshock (CVE-2014-6271)|
 |932180|Restricted File Upload Attempt|
 
-### <a name="drs933-10"></a> <p x-ms-format-detection="none">PHP Attacks</p>
+### <a name="drs933-10"></a> PHP Attacks
 |RuleId|Description|
 |---|---|
 |933100|PHP Injection Attack: Opening/Closing Tag Found|
@@ -613,7 +631,7 @@ Front Door.
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 
-### <a name="drs941-10"></a> <p x-ms-format-detection="none">XSS - Cross-site Scripting</p>
+### <a name="drs941-10"></a> XSS - Cross-site Scripting
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
@@ -644,7 +662,10 @@ Front Door.
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
-### <a name="drs942-10"></a> <p x-ms-format-detection="none">SQLI - SQL Injection</p>
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
+### <a name="drs942-10"></a> SQLI - SQL Injection
 |RuleId|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
@@ -685,14 +706,14 @@ Front Door.
 |942470|SQL Injection Attack|
 |942480|SQL Injection Attack|
 
-### <a name="drs943-10"></a> <p x-ms-format-detection="none">SESSION-FIXATION</p>
+### <a name="drs943-10"></a> SESSION-FIXATION
 |RuleId|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
-### <a name="drs944-10"></a> <p x-ms-format-detection="none">JAVA Attacks</p>
+### <a name="drs944-10"></a> JAVA Attacks
 |RuleId|Description|
 |---|---|
 |944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
@@ -701,26 +722,39 @@ Front Door.
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
 |944210|Possible use of Java serialization|
-|944240|Remote Command Execution: Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
+
+### <a name="drs9905-10"></a> MS-ThreatIntel-WebShells
+|RuleId|Description|
+|---|---|
+|99005006|Spring4Shell Interaction Attempt|
+
+### <a name="drs99001-10"></a> MS-ThreatIntel-CVEs
+|RuleId|Description|
+|---|---|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+
 
 # [Bot rules](#tab/bot)
 
 ## <a name="bot"></a> Bot Manager rule sets
 
-### <a name="bot100"></a> <p x-ms-format-detection="none">Bad bots</p>
+### <a name="bot100"></a> Bad bots
 |RuleId|Description|
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
 |Bot100200|Malicious bots that have falsified their identity|
 
-### <a name="bot200"></a> <p x-ms-format-detection="none">Good bots</p>
+### <a name="bot200"></a> Good bots
 |RuleId|Description|
 |---|---|
 |Bot200100|Search engine crawlers|
 |Bot200200|Unverified search engine crawlers|
 
-### <a name="bot300"></a> <p x-ms-format-detection="none">Unknown bots</p>
+### <a name="bot300"></a> Unknown bots
 |RuleId|Description|
 |---|---|
 |Bot300100|Unspecified identity|

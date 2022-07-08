@@ -1,6 +1,5 @@
 ---
-title: Issues on Internet Explorer & Microsoft Edge (MSAL.js) | Azure
-titleSuffix: Microsoft identity platform
+title: Issues on Internet Explorer & Microsoft Edge (MSAL.js)
 description: Learn about know issues when using the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer and Microsoft Edge browsers.
 services: active-directory
 author: mmacy
@@ -33,7 +32,7 @@ The cause for most of these issues is as follows. The session storage and local 
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **Popup window doesn't close or is stuck when using login through Popup to authenticate**. When authenticating through popup window in Microsoft Edge or IE(InPrivate), after entering credentials and signing in, if multiple domains across security zones are involved in the navigation, the popup window doesn't close because MSAL.js loses the handle to the popup window.
+- **Pop-up window doesn't close or is stuck when using login through pop-up window to authenticate**. When authenticating through a pop-up window in Microsoft Edge or IE (InPrivate), after entering credentials and signing in, if multiple domains across security zones are involved in the navigation, the pop-up window doesn't close because `MSAL.js` loses the handle to the pop-up window.
 
 ### Update: Fix available in MSAL.js 0.2.3
 Fixes for the authentication redirect loop issues have been released in [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Enable the flag `storeAuthStateInCookie` in the MSAL.js config to take advantage of this fix. By default this flag is set to false.
@@ -41,7 +40,7 @@ Fixes for the authentication redirect loop issues have been released in [MSAL.js
 When the `storeAuthStateInCookie` flag is enabled, MSAL.js will use the browser cookies to store the request state required for validation of the auth flows.
 
 > [!NOTE]
-> This fix is not yet available for the msal-angular and msal-angularjs wrappers. This fix does not address the issue with Popup windows.
+> This fix is not yet available for the `msal-angular` and `msal-angularjs` wrappers. This fix does not address the issue with pop-up windows.
 
 Use workarounds below.
 
@@ -60,7 +59,7 @@ Note, this will not solve the issue for InPrivate browsing since both session an
 
 ## Issues due to popup blockers
 
-There are cases when popups are blocked in IE or Microsoft Edge, for example when a second popup occurs during [multi-factor authentication](../authentication/concept-mfa-howitworks.md). You will get an alert in the browser to allow for the popup once or always. If you choose to allow, the browser opens the popup window automatically and returns a `null` handle for it. As a result, the library does not have a handle for the window and there is no way to close the popup window. The same issue does not happen in Chrome when it prompts you to allow popups because it does not automatically open a popup window.
+There are cases when popups are blocked in IE or Microsoft Edge, for example when a second popup occurs during [multi-factor authentication](../authentication/concept-mfa-howitworks.md). You will get an alert in the browser to allow for the pop-up window once or always. If you choose to allow, the browser opens the pop-up window automatically and returns a `null` handle for it. As a result, the library does not have a handle for the window and there is no way to close the pop-up window. The same issue does not happen in Chrome when it prompts you to allow pop-up windows because it does not automatically open a pop-up window.
 
 As a **workaround**, developers will need to allow popups in IE and Microsoft Edge before they start using their app to avoid this issue.
 

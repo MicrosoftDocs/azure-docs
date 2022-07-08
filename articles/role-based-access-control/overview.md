@@ -3,11 +3,11 @@ title: What is Azure role-based access control (Azure RBAC)?
 description: Get an overview of Azure role-based access control (Azure RBAC). Use role assignments to control access to Azure resources.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/17/2021
+ms.date: 01/12/2022
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
 
@@ -18,7 +18,7 @@ ms.custom: contperf-fy21q1, azuread-video-2020
 
 Access management for cloud resources is a critical function for any organization that is using the cloud. Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
-Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
+Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) that provides fine-grained access management to Azure resources.
 
 This video provides a quick overview of Azure RBAC.
 
@@ -45,7 +45,7 @@ A *security principal* is an object that represents a user, group, service princ
 
 ### Role definition
 
-A *role definition* is a collection of permissions. It's typically just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
+A *role definition* is a collection of permissions. It's typically just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
 ![Diagram showing role definition example for a role assignment](./media/shared/rbac-role-definition.png)
 
@@ -55,7 +55,7 @@ This video provides a quick overview of built-in roles and custom roles.
 
 >[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
-Azure has data operations that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account.
+Azure has data actions that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account.
 
 For more information, see [Understand Azure role definitions](role-definitions.md).
 
@@ -130,6 +130,20 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 The following diagram is a summary of the evaluation logic.
 
 ![Evaluation logic flowchart for determining access to a resource.](./media/overview/evaluation-logic.png)
+
+## Where is Azure RBAC data stored?
+
+Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource.
+
+When a role assignment or any other Azure RBAC data is deleted, the data is globally deleted. Principals that had access to a resource via Azure RBAC data will lose their access. 
+
+## Why is Azure RBAC data global?
+
+Azure RBAC data is global to ensure that customers can timely access resources regardless from where they are accessing. Azure RBAC is enforced by Azure Resource Manager, which has a global endpoint and requests are routed to the nearest region for speed and resilience. Therefore, Azure RBAC must be enforced in all regions and the data is replicated to all regions. For more information, see [Resiliency of Azure Resource Manager](../azure-resource-manager/management/overview.md#resiliency-of-azure-resource-manager).
+
+Consider the following example. Arina creates a virtual machine in East Asia. Bob, who is a member of Arina's team, works in the United States. Bob needs to access the virtual machine that was created in East Asia. To grant Bob timely access to the virtual machine, Azure needs to globally replicate the role assignment that grants Bob access to the virtual machine from anywhere Bob is.
+
+![Diagram showing Azure RBAC data in multiple regions.](./media/overview/rbac-data-stored.png)
 
 ## License requirements
 

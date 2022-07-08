@@ -3,7 +3,8 @@ title: Transform data by running a Synapse notebook
 description: In this article, you learn how to create and develop a Synapse notebook activity and a Synapse pipeline.
 services: synapse analytics 
 author: ruixinxu 
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
+ms.subservice: pipeline 
 ms.topic: conceptual 
 ms.date: 05/19/2021
 ms.author: ruxu 
@@ -14,7 +15,7 @@ ms.custom: devx-track-python
 
 # Transform data by running a Synapse notebook
 
-<Token>**APPLIES TO:** ![not supported](media/applies-to/no.png)Azure Data Factory ![supported](media/applies-to/yes.png)Azure Synapse Analytics </Token>
+[!INCLUDE[appliesto-adf-xxx-md](../data-factory/includes/appliesto-xxx-asa-md.md)]
 
 The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook in your Azure Synapse workspace. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
 
@@ -26,7 +27,13 @@ You can create a Synapse notebook activity directly from the Synapse pipeline ca
 
 Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipeline canvas. Select on the Synapse notebook activity box and config the notebook content for current activity in the **settings**. You can select an existing notebook from the current workspace or add a new one. 
 
+You can also select an Apache Spark pool in the settings. It should be noted that the Apache spark pool set here will replace the Apache spark pool used in the notebook. If Apache spark pool is not selected in the settings of notebook content for current activity, the Apache spark pool selected in that notebook will be used to run.
+
 ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
+
+> [!NOTE]
+> The execution of parallel Spark Notebooks in Azure Synapse pipelines be queued and executed in a FIFO manner, jobs order in the queue is according to the time sequence, the expire time of a job in the queue is 3 days, please notice that queue for notebook only work in synapse pipeline.
+
 
 ### Add a notebook to Synapse pipeline
 
@@ -52,7 +59,7 @@ To parameterize your notebook, select the ellipses (...) to access the **more co
 
 ---
 
-Azure Data Factory looks for the parameters cell and uses the values as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. When a parameters cell isn't designated, the injected cell will be inserted at the top of the notebook.
+Azure Data Factory looks for the parameters cell and uses the values as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
 
 
 ### Assign parameters values from a pipeline
@@ -97,12 +104,16 @@ You can reference other notebooks in a Synapse notebook activity via calling [%r
 Go to **Pipeline runs** under the **Monitor** tab, you'll see the pipeline you have triggered. Open the pipeline that contains notebook activity to see the run history. 
 
 You can see the latest notebook run snapshot including both cells input and output by selecting the **open notebook** button. 
-![see-notebook-activity-history](./media/synapse-notebook-activity/input-output-open-notebook.png)
 
+![Screenshot that shows the notebook activity history.](./media/synapse-notebook-activity/input-output-open-notebook.png)
+
+Open notebook snapshot:
+
+![Screenshot that shows an open notebook snapshot.](./media/synapse-notebook-activity/open-notebook-snapshot.png)
 
 You can see the notebook activity input or output by selecting the **input** or **Output** button. If your pipeline failed with a user error, select the **output** to check the **result** field to see the detailed user error traceback.
 
-![screenshot-showing-see-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
+![Screenshot that shows the user error details.](./media/synapse-notebook-activity/notebook-output-user-error.png)
 
 
 ## Synapse notebook activity definition

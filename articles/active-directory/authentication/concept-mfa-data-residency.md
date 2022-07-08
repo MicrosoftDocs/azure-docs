@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 02/16/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: inbarc
 ms.custom: references_regions
 
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Data residency and customer data for Azure AD multifactor authentication
 
-Azure Active Directory (Azure AD) stores customer data in a geographical location based on the address an organization provides when subscribing to a Microsoft online service such as Microsoft 365 or Azure. For information on where your customer data is stored, see [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) in the Microsoft Trust Center.
+Azure Active Directory (Azure AD) stores customer data in a geographical location based on the address an organization provides when subscribing to a Microsoft online service such as Microsoft 365 or Azure. For information on where your customer data is stored, see [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) in the Microsoft Trust Center.
 
 Cloud-based Azure AD multifactor authentication and MFA Server process and store personal data and organizational data. This article outlines what and where data is stored.
 
@@ -53,7 +53,7 @@ For Azure public clouds, excluding Azure AD B2C authentication, the NPS Extensio
 | Voice call                           | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported) |
 | Microsoft Authenticator notification | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported)<br/>Change requests when the Microsoft Authenticator device token changes |
 
-For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure operated by 21Vianet, Azure AD B2C authentication, the NPS extension, and the Windows Server 2016 or 2019 AD FS adapter, the following personal data is stored:
+For Microsoft Azure Government, Microsoft Azure operated by 21Vianet, Azure AD B2C authentication, the NPS extension, and the Windows Server 2016 or 2019 AD FS adapter, the following personal data is stored:
 
 | Event type                           | Data store type |
 |--------------------------------------|-----------------|
@@ -125,7 +125,6 @@ The following table shows the location for service logs for sovereign clouds.
 
 | Sovereign cloud                      | Sign-in logs                         | Multifactor authentication activity report | Multifactor authentication service logs |
 |--------------------------------------|--------------------------------------|--------------------------------------------|-----------------------------------------|
-| Microsoft Azure Germany              | Germany                              | United States                              | United States                           |
 | Azure China 21Vianet                 | China                                | United States                              | United States                           |
 | Microsoft Government Cloud           | United States                        | United States                              | United States                           |
 

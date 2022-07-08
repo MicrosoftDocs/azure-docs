@@ -5,8 +5,8 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/08/2021
-ms.author: apimpm
+ms.date: 05/11/2022
+ms.author: danlep
 ms.custom: references_regions
 
 ---
@@ -28,23 +28,34 @@ Configuring API Management for zone redundancy is currently supported in the fol
 * Canada Central
 * Central India
 * Central US
+* East Asia
 * East US
 * East US 2
 * France Central
+* Germany West Central
 * Japan East
+* Korea Central (*)
 * North Europe
-* South Africa North
+* Norway East (*)
+* South Africa North (*)
 * South Central US
 * Southeast Asia
+* Switzerland North
 * UK South
 * West Europe
 * West US 2
 * West US 3
 
+> [!IMPORTANT]
+> The regions with * against them have restrictive access in an Azure subscription to enable availability zone support. Please work with your Microsoft sales or customer representative.
+
 ## Prerequisites
 
-* If you have not yet created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
+* If you haven't yet created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
 * If your API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), ensure that you set up a virtual network, subnet, and public IP address in any new location where you plan to enable zone redundancy.
+
+> [!NOTE]
+> If you've configured [autoscaling](api-management-howto-autoscale.md) for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
 ## Enable zone redundancy - portal
 
@@ -54,7 +65,7 @@ In the portal, optionally enable zone redundancy when you add a location to your
 1. Select an existing location, or select **+ Add** in the top bar. The location must [support availability zones](#supported-regions).
 1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
 1. In **Availability zones**, select one or more zones. The number of units selected must distribute evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
-1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location. Select an existing virtual network, subnet, and public IP address that are available in the location.
+1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), select an existing virtual network, subnet, and public IP address that are available in the location. For an existing location, the virtual network and subnet must be configured from the Virtual Network blade.
 1. Select **Apply** and then select **Save**.
 
 :::image type="content" source="media/zone-redundancy/add-location-zones.png" alt-text="Enable zone redundancy":::

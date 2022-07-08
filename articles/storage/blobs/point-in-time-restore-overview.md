@@ -3,12 +3,12 @@ title: Point-in-time restore for block blobs
 titleSuffix: Azure Storage
 description: Point-in-time restore for block blobs provides protection against accidental deletion or corruption by enabling you to restore a storage account to its previous state at a given point in time.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/06/2021
-ms.author: tamram
+ms.date: 06/22/2022
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
@@ -53,7 +53,10 @@ Point-in-time restore requires that the following Azure Storage features be enab
 - [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)
 
-Enabling these features may result in additional charges. Make sure that you understand the billing implications before enabling point-in-time restore and the prerequisite features.
+To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
+
+> [!CAUTION]
+> After you enable blob versioning for a storage account, every write operation to a blob in that account results in the creation of a new version. For this reason, enabling blob versioning may result in additional costs. To minimize costs, use a lifecycle management policy to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
 
 ### Retention period for point-in-time restore
 
@@ -63,8 +66,10 @@ The retention period begins a few minutes after you enable point-in-time restore
 
 The retention period for point-in-time restore must be at least one day less than the retention period specified for soft delete. For example, if the soft delete retention period is set to 7 days, then the point-in-time restore retention period may be between 1 and 6 days.
 
-> [!IMPORTANT]
-> The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
+> [!NOTE]
+> The retention period that you specify for point-in-time restore has no effect on the retention of blob versions. Blob versions are retained until they are explicitly deleted. To optimize costs by deleting or tiering older versions, create a lifecycle management policy. For more information, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md).
+
+The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million blobs with 3,000 blobs added per day and 1,000 blobs deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
 
 ### Permissions for point-in-time restore
 
@@ -76,23 +81,29 @@ Point-in-time restore for block blobs has the following limitations and known is
 
 - Only block blobs in a standard general-purpose v2 storage account can be restored as part of a point-in-time restore operation. Append blobs, page blobs, and premium block blobs are not restored.
 - If you have deleted a container during the retention period, that container will not be restored with the point-in-time restore operation. If you attempt to restore a range of blobs that includes blobs in a deleted container, the point-in-time restore operation will fail. To learn about protecting containers from deletion, see [Soft delete for containers](soft-delete-container-overview.md).
-- If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. Restoring block blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier. To restore an archived blob, first move it out of the archive tier. For more information, see [Rehydrate blob data from the archive tier](storage-blob-rehydration.md).
+- If you use permanent delete to purge soft-deleted versions of a blob during the point-in-time restore retention period, then a restore operation may not be able to restore that blob correctly.
+- If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. Restoring block blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier. To restore an archived blob, first move it out of the archive tier. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 - If an immutability policy is configured, then a restore operation can be initiated, but any blobs that are protected by the immutability policy will not be modified. A restore operation in this case will not result in the restoration of a consistent state to the date and time given.
 - A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored as part of a restore operation.
 - A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically. Break any active leases prior to initiating the restore operation.
+- Performing a customer-managed failover on a storage account resets the earliest possible restore point for that storage account. For example, suppose you have set the retention period to 30 days. If more than 30 days have elapsed since the failover, then you can restore to any point within that 30 days. However, if fewer than 30 days have elapsed since the failover, then you cannot restore to a point prior to the failover, regardless of the retention period. For example, if it's been 10 days since the failover, then the earliest possible restore point is 10 days in the past, not 30 days in the past.  
 - Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Restoring Azure Data Lake Storage Gen2 flat and hierarchical namespaces is not supported.
 
 > [!IMPORTANT]
 > If you restore block blobs to a point that is earlier than September 22, 2020, preview limitations for point-in-time restore will be in effect. Microsoft recommends that you choose a restore point that is equal to or later than September 22, 2020 to take advantage of the generally available point-in-time restore feature.
 
+## Feature support
+
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
+
 ## Pricing and billing
 
-There is no charge to enable point-in-time restore. However, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which which may result in additional charges.
+There is no charge to enable point-in-time restore. However, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which may result in additional charges.
 
 Billing for point-in-time restore depends on the amount of data processed to perform the restore operation. The amount of data processed is based on the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
 
-To estimate the cost of a restore operation, review the change feed log to estimate the amount of data that was modified during the restore period. For example, if the retention period for change feed is 30 days, and the size of the change feed is 10 MB, then restoring to a point 10 days earlier would cost approximately one-third of the price listed for an LRS account in that region. Restoring to a point that is 27 days earlier would cost approximately nine-tenths of the price listed.
+In addition to charges for the changefeed data processed, point-in-time restores also incur charges for any transactions involved in performing the restore.
 
 For more information about pricing for point-in-time restore, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -100,5 +111,5 @@ For more information about pricing for point-in-time restore, see [Block blob pr
 
 - [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
-- [Enable soft delete for blobs](./soft-delete-blob-enable.md)
+- [Enable soft delete for blobs](soft-delete-blob-enable.md)
 - [Enable and manage blob versioning](versioning-enable.md)

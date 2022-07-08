@@ -2,13 +2,13 @@
 title: Configure authentication in a sample web application that calls a web API by using Azure Active Directory B2C
 description:  This article discusses using Azure Active Directory B2C to sign in and sign up users in an ASP.NET web application that calls a web API.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -62,14 +62,14 @@ A computer that's running either:
 
 # [Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2019 16.8 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the **ASP.NET and web development** workload
-* [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
+* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the **ASP.NET and web development** workload
+* [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# for Visual Studio Code (latest version)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
+* [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 ---
 
@@ -211,7 +211,7 @@ Your final configuration file should look like the following JSON:
 ## Step 6: Run the sample web app
 
 1. Build and run the project.
-1. Browse to [https://localhost:5000](https://localhost:5000). 
+1. Browse to `https://localhost:5000`. 
 1. Complete the sign-up or sign-in process.
 
 After successful authentication, you'll see your display name in the navigation bar. To view the claims that Azure AD B2C token returns to your app, select **TodoList**.

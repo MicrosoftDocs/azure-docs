@@ -2,13 +2,10 @@
 title: Azure Monitor workbook composite bar renderer 
 description: Learn about all the Azure Monitor workbook Composite Bar Renderer visualization. 
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 9/04/2020
-ms.author: lagayhar
+ms.date: 07/05/2022
 ---
 
 # Composite bar renderer
@@ -23,8 +20,8 @@ Composite bar renderer is supported for grids, tiles, and graphs visualizations.
 
 ## Adding composite bar renderer
 
-1. Switch the workbook to edit mode by selecting *Edit* toolbar item.
-2. Select *Add* then *Add query*.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
+2. Select **Add** and then **Add query**.
 3. Set *Data source* to "JSON" and *Visualization* to "Grid".
 4. Add the following JSON data.
 
@@ -188,5 +185,4 @@ The Composite bar view for Graph with the above settings will look like this:
 
 ## Next steps
 
-* [Deploy](../visualize/workbooks-automate.md) workbooks with Azure Resource Manager.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

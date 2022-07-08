@@ -1,16 +1,16 @@
 ---
-author: msftradford
+author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
-ms.author: parkerra
+ms.author: pamistel
 ---
 Select **Build**. On the pane that opens, select a folder to export the Xcode project to.
 
    When the export is complete, a folder that contains the exported Xcode project appears.
 
    > [!NOTE]
-   > If a window appears with a message asking whether you want to replace or append, we recommend that you select **Append**, because it's faster. You should select **Replace** only if you're changing assets in your scene. For example, you might be adding, removing, or changing parent/child relationships, or you might be adding, removing, or changing properties. If you're only making source code changes, **Append** should be enough.
+   > If a window appears with a message asking whether you want to replace or append, we recommend that you select **Append**, because it's faster. **Replace** will remove all the files from the target folder and generate new content.
 
 ## Open the Xcode project
 

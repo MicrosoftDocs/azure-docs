@@ -6,6 +6,8 @@
     href: dns-overview.md
   - name: What is Azure Private DNS?
     href: private-dns-overview.md
+  - name: What is Azure DNS Private Resolver?
+    href: dns-private-resolver-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -17,6 +19,9 @@
       href: dns-getstarted-powershell.md
     - name: Create a public zone - CLI
       href: dns-getstarted-cli.md
+    - name: Create a public zone - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: dns-get-started-bicep.md
     - name: Create a public zone - ARM Template
       displayName: Resource Manager
       href: dns-get-started-template.md
@@ -28,22 +33,34 @@
       href: private-dns-getstarted-cli.md
     - name: Create a private zone - PowerShell
       href: private-dns-getstarted-powershell.md
+  - name: Private resolver
+    items:
+    - name: Create a private resolver - portal
+      href: dns-private-resolver-get-started-portal.md
+    - name: Create a private resolver - PowerShell
+      href: dns-private-resolver-get-started-powershell.md
 - name: Tutorials
   items:
   - name: Public DNS
     items:
     - name: Host your domain in Azure DNS
       href: dns-delegate-domain-azure-dns.md
+    - name: Create child DNS zones
+      href: tutorial-public-dns-zones-child.md    
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
-    - name: Creating a new Child DNS zone
-      href: tutorial-public-dns-zones-child.md
-    - name: Alias records for Traffic Manager
-      href: tutorial-alias-tm.md
-    - name: Alias records for Public IP addresses
-      href: tutorial-alias-pip.md
-    - name: Alias records for zone records
+    - name: Create alias records for zone records
       href: tutorial-alias-rr.md
+    - name: Create alias records for public IP addresses
+      href: tutorial-alias-pip.md
+    - name: Create alias records for Traffic Manager
+      href: tutorial-alias-tm.md
+- name: Samples
+  items:
+  - name: Azure PowerShell
+    items:
+    - name: Find unhealthy DNS records
+      href: ./scripts/find-unhealthy-dns-records.md
 - name: Concepts
   items:
   - name: Security
@@ -150,8 +167,6 @@
       href: /dotnet/api/microsoft.azure.management.dns.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.dns
-    - name: Node.js
-      href: https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/
     - name: Ruby
       href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
     - name: Python
@@ -170,12 +185,30 @@
       href: /dotnet/api/overview/azure/privatedns/management
     - name: REST
       href: /rest/api/dns/privatedns/privatezones
+  - name: Private resolver
+    items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.dnsresolver
+    - name: Azure CLI
+      href: /cli/azure/dns-resolver
+    - name: .NET
+      href: /dotnet/api/azure.resourcemanager.dnsresolver
+    - name: Java
+      href: /java/api/com.azure.resourcemanager.dnsresolver
+    - name: Python
+      href: https://pypi.org/project/azure-mgmt-dnsresolver
+    - name: REST
+      href: /rest/api/dns/dnsresolver/dns-resolvers
+    - name: Typescript/Javascript
+      href: https://www.npmjs.com/package/@azure/arm-dnsresolver
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Feature requests
-    href: https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c429912-8326-ec11-b6e6-000d3a4f0789
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-virtual-network.html
   - name: Networking blog
