@@ -2,6 +2,7 @@
 title: How to configure Azure Cache for Redis
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
 author: flang-msft
+
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/23/2022
@@ -22,9 +23,9 @@ This article describes the configurations available for your Azure Cache for Red
 [!INCLUDE [redis-cache-create](includes/redis-cache-browse.md)]
 
 <!-- Seems redundant. -->
-<!-- Azure Cache for Redis settings are viewed and configured using the Resource Menu.
+<!-- Azure Cache for Redis settings are viewed and configured using the Resource Menu. -->
 
-:::image type="content" source="media/cache-configure/redis-cache-settings.png" alt-text="Azure Cache for Redis Settings":::
+<!-- :::image type="content" source="media/cache-configure/redis-cache-settings.png" alt-text="Azure ache for Redis Settings":::
  -->
 You can view and configure the following settings using the **Resource Menu**. The settings that you see depend on the tier of your cache. For example, you don't see **Reboot** when using the Enterprise tier.
 
@@ -66,9 +67,8 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Resource health](#resource-health)
   - [New support request](#new-support-request)
 
-
 [Automation script](#automation-script)
- <!-- was this replaced by tasks -->
+ <!-- was this replaced by tasks? -->
 
 ## Overview
 
@@ -167,7 +167,6 @@ Redis keyspace notifications are configured on the **Advanced settings** on the 
 > [!IMPORTANT]
 > Keyspace notifications and the **notify-keyspace-events** setting are only available for Standard and Premium caches.
 >
->
 
 For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
@@ -180,7 +179,6 @@ The **Azure Cache for Redis Advisor** on the left displays recommendations for y
 :::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the recommendations are displayed.":::
 
 If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed on the in the **Overview** of the Resource menu.
-
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in the Azure Cache for Redis section.":::
 <!-- Might want a better recommendation. -->
@@ -219,8 +217,7 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 > [!IMPORTANT]
 > Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
->
->
+
 
 ### Data persistence
 
@@ -230,8 +227,6 @@ For more information, see [How to configure persistence for a Premium Azure Cach
 
 > [!IMPORTANT]
 > Redis data persistence is only available for Premium caches.
->
->
 
 ### Schedule updates
 
@@ -239,8 +234,6 @@ The Schedule updates on the left allow you to choose a maintenance window for Re
 
 > [!IMPORTANT]
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
->
->
 
 :::image type="content" source="media/cache-configure/redis-schedule-updates.png" alt-text="Schedule updates":::
 
@@ -254,8 +247,6 @@ For more information and instructions, see [Azure Cache for Redis administration
 
 > [!IMPORTANT]
 > **Geo-replication** is only available for Premium tier caches. For more information and instructions, see [How to configure Geo-replication for Azure Cache for Redis](cache-how-to-geo-replication.md).
->
->
 
 ### Virtual Network
 
@@ -263,8 +254,6 @@ The **Virtual Network** section allows you to configure the virtual network sett
 
 > [!IMPORTANT]
 > Virtual network settings are only available for premium caches that were configured with VNET support during cache creation.
->
->
 
 ### Firewall
 
@@ -278,8 +267,6 @@ You can specify firewall rules with a start and end IP address range. When firew
 
 > [!IMPORTANT]
 > Connections from Azure Cache for Redis monitoring systems are always permitted, even if firewall rules are configured.
->
->
 
 ### Properties
 
@@ -377,8 +364,6 @@ The settings in the **Support + troubleshooting** section provide you with optio
 
 > [!NOTE]
 > Resource health is currently unable to report on the health of Azure Cache for Redis instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
->
->
 
 ### New support request
 
@@ -394,8 +379,6 @@ New Azure Cache for Redis instances are configured with the following default Re
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >
 > Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure portal or command-line management tools such as Azure CLI or PowerShell.
->
->
 
 | Setting | Default value | Description |
 | --- | --- | --- |
@@ -458,7 +441,6 @@ For more information about databases, see [What are Redis databases?](cache-deve
 > [!NOTE]
 > While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
 >
->
 
 ## Redis commands not supported in Azure Cache for Redis
 
@@ -489,7 +471,6 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 >
 >- The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
 >- Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
->
 >
 
 To access the Redis Console, select **Console** from the Resource menu.
