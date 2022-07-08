@@ -189,13 +189,13 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organ
 
 ### Manage roles
 
-The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of role IDs from your application:
+The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of application role and organization role IDs from your application. To learn more see, [How to manage IoT Central organizations](howto-create-organizations.md):
 
 ```http
 GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-05-31
 ```
 
-The response to this request looks like the following example that includes the three built-in roles and a custom role:
+The response to this request looks like the following example that includes the application role and organization role IDs. 
 
 ```json
 {
@@ -255,8 +255,8 @@ The request body has some required fields:
 
 |Name|Description|
 |----|-----------|
-role |One of the org roles
-organization| ID of the organization
+|role |ID of one of the organization roles.|
+|organization| ID of the organization|
 
 The response to this request looks like the following example:
 
@@ -282,7 +282,7 @@ Use the following request to create and associate a user with a node in an organ
 PUT https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-05-31
 ```
 
-In the following request body, the `role` is one of the org roles and `organization` is the ID of the organization
+In the following request body, the `role` is the ID of one of the organization roles and `organization` is the ID of the organization
 
 ```json
 {
@@ -317,7 +317,7 @@ The response to this request looks like the following example. The role value id
 
 ### Add and associate a device to an organization
 
-Use the following request to create and associate a new device.
+Use the following request to associate a new device with an organization
 
 ```http
 PUT https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}?api-version=2022-05-31
@@ -327,13 +327,13 @@ The following example shows a request body that adds a device for a device templ
 
 ```json
 {
-  "displayName": "CheckoutThermostat",
-  "template": "dtmi:contoso:Thermostat;1",
-  "simulated": true,
-  "enabled": true,
-   "organizations": [
-    "seattle"
-  ]
+    "displayName": "CheckoutThermostat",
+    "template": "dtmi:contoso:Thermostat;1",
+    "simulated": true,
+    "enabled": true,
+    "organizations": [
+        "seattle"
+    ]
 }
 ```
 
@@ -366,13 +366,13 @@ The response to this request looks like the following example:
 
 ### Add and associate a device group to an organization
 
-Use the following request to create  and associate a new device group.
+Use the following request to create and associate a new device group with an organization.
 
 ```http
 PUT https://{your app subdomain}.azureiotcentral.com/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
 ```
 
-When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true
+When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true.
 
 ```json
 {
@@ -389,7 +389,6 @@ The request body has some required fields:
 
 * `@displayName`: Display name of the device group.
 * `@filter`: Query defining which devices should be in this group.
-* `@etag`: ETag used to prevent conflict in device updates.
 * `description`: Short summary of device group.
 * `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single orgnaization.
 
