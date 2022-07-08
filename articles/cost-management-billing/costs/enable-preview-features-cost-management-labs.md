@@ -129,7 +129,7 @@ Some resources have related dependencies that aren't explicit children or nested
  
 As an example, let's say you have an Azure Virtual Desktop host pool configured with 2 VMs. Tagging the VMs and corresponding network/disk resources groups them under the host pool, giving you the total cost of the session host VMs in your host pool deployment. This gets even more interesting if you want to also include the cost of any cloud solutions made available via your host pool.
 
-:::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-resource-parent-avd.png" alt-text="Screenshot of the cost analysis preview showing VMs and disks grouped under an Azure Virtual Desktop host pool" lightbox="https://user-images.githubusercontent.com/399533/176826949-7002b4ef-20ef-4503-bad7-92d6d7617e06.png" :::
+:::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-resource-parent-avd.png" alt-text="Screenshot of the cost analysis preview showing VMs and disks grouped under an Azure Virtual Desktop host pool." lightbox="https://user-images.githubusercontent.com/399533/176826949-7002b4ef-20ef-4503-bad7-92d6d7617e06.png" :::
 
 Before you link resources together, think about how you'd like to see them grouped. You can only link a resource to one parent and cost analysis only supports one level of grouping today. 
  
