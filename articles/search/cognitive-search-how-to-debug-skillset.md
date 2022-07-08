@@ -8,25 +8,36 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 06/15/2022
 ---
 
 # Debug an Azure Cognitive Search skillset in Azure portal
 
-Start a debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
+Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
 
 A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
-> [!Important]
-> Debug sessions is a preview portal feature, provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
-+ An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index. You must have at least **Contributor** role assigned to be able to run the Debug Sessions.
++ An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index. 
 
-+ A Debug Session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
++ A **Contributor** role assignment in the Search service.
 
-+ An Azure Storage account, used to save session state. You must have at least **Storage Blob Data Contributor** role assigned over the Storage account. Also, if the Storage account has firewall enabled, it must be configured to [allow access to the Cognitive Search Service](search-indexer-howto-access-ip-restricted.md).
++ An Azure Storage account, used to save session state.
+
++ A **Storage Blob Data Contributor** role assignment in Azure Storage. 
+
++ If the Azure Storage account is behind a firewall, configure it to [allow Search service access](search-indexer-howto-access-ip-restricted.md).
+
+## Limitations
+
+A Debug Session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The following list notes the exceptions:
+
++ The MongoDB API (preview) of Cosmos DB is currently not supported.
+
++ For the SQL API of Cosmos DB, if a row fails during index and there's no corresponding metadata, the debug session might not pick the correct row.
+
++ For the SQL API of Cosmos DB, if a partitioned collection was previously non-partitioned, a Debug Session won't find the document.
 
 ## Create a debug session
 
@@ -128,6 +139,41 @@ If skills produce output but the search index is empty, check the field mappings
    Verify that the fields in **Output Field Mappings** exist in the search index as specified, checking for spelling and [enrichment node path syntax](cognitive-search-concept-annotations-syntax.md). 
 
    :::image type="content" source="media/cognitive-search-debug/output-field-mappings.png" alt-text="Screenshot of the Output Field Mappings node and details." border="true":::
+
+## Debug a custom skill locally
+
+Custom skills can be more challenging to debug because the code runs externally. This section describes how to locally debug your Custom Web API skill, debug session, Visual Studio Code and [ngrok](https://ngrok.com/docs). This technique works with custom skills that execute in [Azure Functions](../azure-functions/functions-overview.md) or any other Web Framework that runs locally (for example, [FastAPI](https://fastapi.tiangolo.com/)).
+
+### Run ngrok
+
+[**ngrok**](https://ngrok.com/docs) is a cross-platform application that can create a tunneling or forwarding URL, so that internet requests reach your local machine. Use ngrok to forward requests from an enrichment pipeline in your search service to your machine to allow local debugging.
+
+1. Install ngrok.
+
+1. Open a terminal and go to the folder with the ngrok executable.
+
+1. Run ngrok with the following command to create a new tunnel:
+
+    ```console
+    ngrok http 7071 
+    ```
+
+    > [!NOTE]
+    > By default, Azure functions are exposed on 7071. Other tools and configurations might require that you provide a different port.
+
+1. When ngrok starts, copy and save the public forwarding URL for the next step. The forwarding URL is randomly generated.
+
+   :::image type="content" source="media/cognitive-search-debug/ngrok.png" alt-text="Screenshot of ngrok terminal." border="false":::
+
+### Configure in Azure portal
+
+Within the debug session, modify your Custom Web API Skill URI to call the ngrok forwarding URL. Ensure that you append "/api/FunctionName" when using Azure Function for executing the skillset code.
+
+You can edit the skill definition in the portal.
+
+### Test your code
+
+At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio code to debug your code or run step by step.
 
 ## Next steps
 
