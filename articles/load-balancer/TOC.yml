@@ -237,12 +237,10 @@
         href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
     - name: Add IPv6 to existing deployments 
       items:
-      - name: Add IPv6 to existing deployments 
-        items:
-    - name: Add IPv6 to an IPv4 application- PowerShell
-      href: ipv6-add-to-existing-vnet-powershell.md
-    - name: Add IPv6 to an IPv4 application - Azure CLI
-      href: ipv6-add-to-existing-vnet-cli.md 
+      - name: Add IPv6 to an IPv4 application- PowerShell
+        href: ipv6-add-to-existing-vnet-powershell.md
+      - name: Add IPv6 to an IPv4 application - Azure CLI
+        href: ipv6-add-to-existing-vnet-cli.md 
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
