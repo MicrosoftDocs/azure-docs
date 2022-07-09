@@ -13,7 +13,7 @@ Transformations in Azure Monitor allow you to filter or modify incoming data bef
 ## When to use transformations
 Transformations are useful for a variety of scenarios, including those described below. 
 
-### Filter unwanted data 
+### Reduce data costs
 Since you're charged ingestion cost for any data sent to a Log Analytics workspace, you want to filter out any data that you don't require to reduce your costs.
 
 - **Remove entire rows.** For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria. 
@@ -22,17 +22,19 @@ Since you're charged ingestion cost for any data sent to a Log Analytics workspa
 
 - **Parse important data from a column.** You may have a table with valuable data buried in a particular column. Use a transformation to parse the valuable data into a new column and remove the original.
 
+
+### Remove sensitive data
+You may have a data source that sends information you don't want stored for privacy or compliancy reasons.
+
+- **Obfuscate sensitive information**. For example, you might replace digits with a common character in an IP address or telephone number.
+
+
 ### Enrich data with additional or calculated information
 Use a transformation to add information to data that provides business context or simplifies querying the data later.
 
 - **Add a column with additional information.** For example, you might add a column identifying whether an IP address in the row is internal or external.
 
 - **Add business specific information.** For example, you might add a column indicating a company division based on location information in other columns. 
-
-**Reduce data ingestion cost.** You can create a transformation to filter data that you don't require from a particular workflow. You may also remove data that you don't require from specific columns, resulting in a lower amount of the data that you need to ingest and store. 
-
-**Simplify query requirements.**  or data that needs some type of conversion each time it's queried. Create a transformation that parses this data into a custom column so that queries don't need to parse it. Remove extra data from the column that isn't required to decrease ingestion and retention costs.
-
 
 ## Supported tables
 Transformations may be applied to the following tables in a Log Analytics workspace. 
