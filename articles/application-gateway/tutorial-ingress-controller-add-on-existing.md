@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Enable application gateway ingress controller add-on for an existing AKS cluster with an existing application gateway
 
-You can use Azure CLI or Portal to enable the [application gateway ingress controller (AGIC)](ingress-controller-overview.md) add-on for an existing [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you'll learn how to use AGIC add-on to expose your Kubernetes application in an existing AKS cluster through an existing application gateway deployed in separate virtual networks. You'll start by creating an AKS cluster in one virtual network and an application gateway in a separate virtual network to simulate existing resources. You'll then enable the AGIC add-on, peer the two virtual networks together, and deploy a sample application that will be exposed through the application gateway using the AGIC add-on. If you're enabling the AGIC add-on for an existing application gateway and existing AKS cluster in the same virtual network, then you can skip the peering step below. The add-on provides a much faster way of deploying AGIC for your AKS cluster than [through Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) and also offers a fully managed experience.  
+You can use Azure CLI or portal to enable the [application gateway ingress controller (AGIC)](ingress-controller-overview.md) add-on for an existing [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you'll learn how to use AGIC add-on to expose your Kubernetes application in an existing AKS cluster through an existing application gateway deployed in separate virtual networks. You'll start by creating an AKS cluster in one virtual network and an application gateway in a separate virtual network to simulate existing resources. You'll then enable the AGIC add-on, peer the two virtual networks together, and deploy a sample application that will be exposed through the application gateway using the AGIC add-on. If you're enabling the AGIC add-on for an existing application gateway and existing AKS cluster in the same virtual network, then you can skip the peering step below. The add-on provides a much faster way of deploying AGIC for your AKS cluster than [through Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) and also offers a fully managed experience.  
 
 In this tutorial, you learn how to:
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region). 
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named **myResourceGroup** in the **canadacentral** location (region). 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location canadacentral
 
 You'll now deploy a new AKS cluster, to simulate having an existing AKS cluster that you want to enable the AGIC add-on for.  
 
-In the following example, you'll be deploying a new AKS cluster named *myCluster* using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [Managed Identities](../aks/use-managed-identity.md) in the resource group you created, *myResourceGroup*.
+In the following example, you'll be deploying a new AKS cluster named **myCluster** using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [Managed Identities](../aks/use-managed-identity.md) in the resource group you created, **myResourceGroup**.
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
@@ -52,7 +52,7 @@ To configure other parameters for the `az aks create` command, visit references 
 
 ## Deploy a new application gateway 
 
-You'll now deploy a new application gateway, to simulate having an existing application gateway that you want to use to load balance traffic to your AKS cluster, *myCluster*. The name of the application gateway will be **myApplicationGateway**, but you'll need to first create a public IP resource, named *myPublicIp*, and a new virtual network called *myVnet* with address space 11.0.0.0/8, and a subnet with address space 11.1.0.0/16 called *mySubnet*, and deploy your application gateway in *mySubnet* using *myPublicIp*. 
+You'll now deploy a new application gateway, to simulate having an existing application gateway that you want to use to load balance traffic to your AKS cluster, **myCluster**. The name of the application gateway will be **myApplicationGateway**, but you'll need to first create a public IP resource, named **myPublicIp**, and a new virtual network called **myVnet** with address space 11.0.0.0/8, and a subnet with address space 11.1.0.0/16 called **mySubnet**, and deploy your application gateway in **mySubnet** using **myPublicIp**. 
 
 When you use an AKS cluster and application gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.0.0.0/8, so we set the application gateway virtual network address prefix to 11.0.0.0/8. 
 
@@ -67,16 +67,16 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 
 ## Enable the AGIC add-on in existing AKS cluster through Azure CLI 
 
-If you'd like to continue using Azure CLI, you can continue to enable the AGIC add-on in the AKS cluster you created, *myCluster*, and specify the AGIC add-on to use the existing application gateway you created, **myApplicationGateway**.
+If you'd like to continue using Azure CLI, you can continue to enable the AGIC add-on in the AKS cluster you created, **myCluster**, and specify the AGIC add-on to use the existing application gateway you created, **myApplicationGateway**.
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 
 az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id $appgwId
 ```
 
-## Enable the AGIC add-on in existing AKS cluster through Portal 
+## Enable the AGIC add-on in existing AKS cluster through Azure portal 
 
-If you'd like to use Azure portal to enable AGIC add-on, go to [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic) and navigate to your AKS cluster through the Portal link. From there, go to the Networking tab within your AKS cluster. You'll see an application gateway ingress controller section, which allows you to enable/disable the ingress controller add-on using the Azure portal. Select the box next to **Enable ingress controller**, and then select the application gateway you created, **myApplicationGateway** from the dropdown menu. Select **Save**.
+If you'd like to use Azure portal to enable AGIC add-on, go to [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic) and navigate to your AKS cluster through the portal link. From there, go to the Networking tab within your AKS cluster. You'll see an application gateway ingress controller section, which allows you to enable/disable the ingress controller add-on using the Azure portal. Select the box next to **Enable ingress controller**, and then select the application gateway you created, **myApplicationGateway** from the dropdown menu. Select **Save**.
 
 :::image type="content" source="./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png" alt-text="Screenshot showing how to enable application gateway ingress controller from the networking page of the Azure Kubernetes Service.":::
 
@@ -117,7 +117,7 @@ Now that the application gateway is set up to serve traffic to the AKS cluster, 
 kubectl get ingress
 ```
 
-Check that the sample application you created is up and running by either visiting the IP address of the application gateway that you got from running the above command or check with `curl`. It may take application gateway a minute to get the update, so if the application gateway is still in an "Updating" state on Portal, then let it finish before trying to reach the IP address. 
+Check that the sample application you created is up and running by either visiting the IP address of the application gateway that you got from running the above command or check with `curl`. It may take application gateway a minute to get the update, so if the application gateway is still in an "Updating" state on Azure portal, then let it finish before trying to reach the IP address. 
 
 ## Clean up resources
 
