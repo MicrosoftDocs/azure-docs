@@ -8,7 +8,7 @@ ms.author: fasantia
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 07/8/2022
-ms.topic: howto
+ms.topic: conceptual
 ms.custom: devx-track-python, cliv2, sdkv2
 ---
 
