@@ -10,7 +10,7 @@ ms.subservice: spark
 ---
 
 
-## Manage Session-scoped packages
+# Manage Session-scoped packages
 In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session. Session-scoped libraries let you specify and use custom Python environments or jar packages within a notebook session. 
 
 When using session-scoped libraries, it is important to keep the following points in mind:
@@ -19,7 +19,7 @@ When using session-scoped libraries, it is important to keep the following point
    - These libraries are installed on top of the base runtime and pool level libraries. 
    - Notebook libraries will take the highest precedence.
 
-### Session-scoped Python packages
+## Session-scoped Python packages
 To specify session-scoped Python packages:
 1.	Navigate to the selected Spark pool and ensure that you have enabled session-level libraries.  You can enable this setting by navigating to the **Manage** > **Apache Spark pool** > **Packages** tab.
   ![Enable session packages.](./media/apache-spark-azure-portal-add-libraries/enable-session-packages.png "Enable session packages")
@@ -28,7 +28,7 @@ To specify session-scoped Python packages:
   ![Upload Yml file.](./media/apache-spark-azure-portal-add-libraries/upload-session-notebook-yml.png)
 3.	Here, you can upload a Conda *environment.yml* file to install or upgrade packages within a session. Once you start your session, the specified libraries will be installed. Once your session ends, these libraries will no longer be available as they are specific to your session.
 
-#### Verify installed libraries
+### Verify installed libraries
 To verify if the correct versions of the correct libraries are installed from PyPI, run the following code:
 ```python
 import pkg_resources
@@ -37,7 +37,7 @@ for d in pkg_resources.working_set:
 ```
 In some cases, to view the package versions from Conda, you may need to inspect the package version individually.
 
-### Session-scoped Java or Scala packages
+## Session-scoped Java or Scala packages
 To specify session-scoped Java or Scala packages, you can use the ```%%configure``` option:
 
 ```scala
