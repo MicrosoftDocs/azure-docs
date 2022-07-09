@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 12/05/2021
+ms.date: 06/28/2022
 ---
 
 # Microsoft Purview security best practices
@@ -32,7 +32,7 @@ For more information, see [Best practices related to connectivity to Azure PaaS 
 
 ### Deploy private endpoints for Microsoft Purview accounts
 
-If you need to use Microsoft Purview from inside your private network, it is recommended to use Azure Private Link Service with your Microsoft Purview accounts for partial or [end-to-end isolation](catalog-private-link-end-to-end.md) to connect to Microsoft Purview governance portal, access Microsoft Purview endpoints and to scan data sources.
+If you need to use Microsoft Purview from inside your private network, it's recommended to use Azure Private Link Service with your Microsoft Purview accounts for partial or [end-to-end isolation](catalog-private-link-end-to-end.md) to connect to Microsoft Purview governance portal, access Microsoft Purview endpoints and to scan data sources.
 
 The Microsoft Purview _account_ private endpoint is used to add another layer of security, so only client calls that are originated from within the virtual network are allowed to access the Microsoft Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
 
@@ -41,7 +41,7 @@ The Microsoft Purview _portal_ private endpoint is required to enable connectivi
 Microsoft Purview can scan data sources in Azure or an on-premises environment by using ingestion private endpoints.
 
 - For scanning Azure _platform as a service_ data sources, review [Support matrix for scanning data sources through ingestion private endpoint](catalog-private-link.md#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint).
-- If you are deploying Microsoft Purview with end-to-end network isolation, to scan Azure data sources, these data sources must be also configured with private endpoints.
+- If you're deploying Microsoft Purview with end-to-end network isolation, to scan Azure data sources, these data sources must be also configured with private endpoints.
 - Review [known limitations](catalog-private-link-troubleshoot.md).
 
 For more information, see [Microsoft Purview network architecture and best practices](concept-best-practices-network.md). 
@@ -151,7 +151,7 @@ To gain access to Microsoft Purview, users must be authenticated and authorized.
 
 We use Azure Active Directory to provide authentication and authorization mechanisms for Microsoft Purview inside Collections. You can assign Microsoft Purview roles to the following security principals from your Azure Active Directory tenant that is associated with Azure subscription where your Microsoft Purview instance is hosted: 
 
-- Users and guest users (if they are already added into your Azure AD tenant) 
+- Users and guest users (if they're already added into your Azure AD tenant) 
 - Security groups 
 - Managed Identities  
 - Service Principals 
@@ -194,11 +194,11 @@ In Azure, you can apply [resource locks](../azure-resource-manager/management/lo
 
 Enable Azure resource lock for your Microsoft Purview accounts to prevent accidental deletion of Microsoft Purview instances in your Azure subscriptions.
 
-Adding a `CanNotDelete` or `ReadOnly` lock to Microsoft Purview account does not prevent deletion or modification operations inside Microsoft Purview data plane, however, it prevents any operations in control plane, such as deleting the Microsoft Purview account, deploying a private endpoint or configuration of diagnostic settings. 
+Adding a `CanNotDelete` or `ReadOnly` lock to Microsoft Purview account doesn't prevent deletion or modification operations inside Microsoft Purview data plane, however, it prevents any operations in control plane, such as deleting the Microsoft Purview account, deploying a private endpoint or configuration of diagnostic settings. 
 
 For more information, see [Understand scope of locks](../azure-resource-manager/management/lock-resources.md#understand-scope-of-locks).
 
-Resource locks can be assigned to Microsoft Purview resource groups or resources, however, you cannot assign an Azure resource lock to Microsoft Purview Managed resources or managed Resource Group.
+Resource locks can be assigned to Microsoft Purview resource groups or resources, however, you can't assign an Azure resource lock to Microsoft Purview Managed resources or managed Resource Group.
 
 ### Implement a break glass strategy
 Plan for a break glass strategy for your Azure Active Directory tenant, Azure subscription and Microsoft Purview accounts to prevent tenant-wide account lockout.
@@ -216,9 +216,9 @@ Microsoft Purview provides rich insights into the sensitivity of your data, whic
 
 Often, one of the biggest challenges for security organization in a company is to identify and protect assets based on their criticality and sensitivity. Microsoft recently [announced integration between Microsoft Purview and Microsoft Defender for Cloud in Public Preview](https://techcommunity.microsoft.com/t5/azure-purview-blog/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954) to help overcome these challenges. 
 
-If you have extended your Microsoft 365 sensitivity labels for assets and database columns in Microsoft Purview, you can keep track of highly valuable assets using Microsoft Defender for Cloud from inventory, alerts and recommendations based on assets detected sensitivity labels. 
+If you've extended your Microsoft 365 sensitivity labels for assets and database columns in Microsoft Purview, you can keep track of highly valuable assets using Microsoft Defender for Cloud from inventory, alerts and recommendations based on assets detected sensitivity labels. 
 
-- For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](../defender-for-cloud/secure-score-security-controls.md#security-controls-and-their-recommendations).
+- For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Microsoft Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](../defender-for-cloud/secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 - For alerts, we've assigned **severity labels** to each alert to help you prioritize the order in which you attend to each alert. Learn more in [How are alerts classified?](../defender-for-cloud/alerts-overview.md#how-are-alerts-classified).
 
@@ -228,9 +228,9 @@ For more information, see [Integrate Microsoft Purview with Azure security produ
 
 ### Secure metadata extraction and storage
 
-Microsoft Purview is a data governance solution in cloud. You can register and scan different data sources from various data systems from your on-premises, Azure, or multi-cloud environments into Microsoft Purview. While data source is registered and scanned in Microsoft Purview, the actual data and data sources stay in their original locations, only metadata is extracted from data sources and stored in Microsoft Purview Data Map, which means you do not need to move data out of the region or their original location to extract the metadata into Microsoft Purview.
+Microsoft Purview is a data governance solution in cloud. You can register and scan different data sources from various data systems from your on-premises, Azure, or multi-cloud environments into Microsoft Purview. While data source is registered and scanned in Microsoft Purview, the actual data and data sources stay in their original locations, only metadata is extracted from data sources and stored in Microsoft Purview Data Map, which means you don't need to move data out of the region or their original location to extract the metadata into Microsoft Purview.
 
-When a Microsoft Purview account is deployed, in addition, a managed resource group is also deployed in your Azure subscription. A managed Azure Storage Account and a Managed Event Hubs are deployed inside this resource group. The managed storage account is used to ingest metadata from data sources during the scan. Since these resources are consumed by the Microsoft Purview they cannot be accessed by any other users or principals, except the Microsoft Purview account. This is because an Azure role-based access control (RBAC) deny assignment is added automatically for all principals to this resource group at the time of Microsoft Purview account deployment, preventing any CRUD operations on these resources if they are not initiated from Microsoft Purview.
+When a Microsoft Purview account is deployed, in addition, a managed resource group is also deployed in your Azure subscription. A managed Azure Storage Account is deployed inside this resource group, and a managed Event Hubs Namespace can be deployed in this group if the setting is enabled under **Managed Resources** to allow for events ingestion. The managed storage account is used to ingest metadata from data sources during the scan. Since these resources are consumed by the Microsoft Purview they can't be accessed by any other users or principals, except the Microsoft Purview account. This is because an Azure role-based access control (RBAC) deny assignment is added automatically for all principals to this resource group at the time of Microsoft Purview account deployment, preventing any CRUD operations on these resources if they aren't initiated from Microsoft Purview.
 
 ### Where is metadata stored? 
 
@@ -248,33 +248,33 @@ Microsoft Purview allows you to use any of the following options to extract meta
 
   :::image type="content" source="media/concept-best-practices/security-azure-runtime.png" alt-text="Screenshot that shows the connection flow between Microsoft Purview, the Azure runtime, and data sources."lightbox="media/concept-best-practices/security-azure-runtime.png":::
 
-  1. A manual or automatic scan is initiated from the Microsoft Purview data map through the Azure integration runtime. 
+  1. A manual or automatic scan is initiated from the Microsoft Purview Data Map through the Azure integration runtime. 
    
   2. The Azure integration runtime connects to the data source to extract metadata.
 
   3. Metadata is queued in Microsoft Purview managed storage and stored in Azure Blob Storage. 
 
-  4. Metadata is sent to the Microsoft Purview data map. 
+  4. Metadata is sent to the Microsoft Purview Data Map. 
 
-- **Self-hosted integration runtime**. Metadata is extracted and processed by self-hosted integration runtime inside self-hosted integration runtime VMs' memory before they are sent to Microsoft Purview Data Map. In this case, customers have to deploy and manage one or more self-hosted integration runtime Windows-based virtual machines inside their Azure subscriptions or on-premises environments. Scanning on-premises and VM-based data sources always requires using a self-hosted integration runtime. The Azure integration runtime is not supported for these data sources. The following steps show the communication flow at a high level when you're using a self-hosted integration runtime to scan a data source.
+- **Self-hosted integration runtime**. Metadata is extracted and processed by self-hosted integration runtime inside self-hosted integration runtime VMs' memory before they're sent to Microsoft Purview Data Map. In this case, customers have to deploy and manage one or more self-hosted integration runtime Windows-based virtual machines inside their Azure subscriptions or on-premises environments. Scanning on-premises and VM-based data sources always requires using a self-hosted integration runtime. The Azure integration runtime isn't supported for these data sources. The following steps show the communication flow at a high level when you're using a self-hosted integration runtime to scan a data source.
 
   :::image type="content" source="media/concept-best-practices/security-self-hosted-runtime.png" alt-text="Screenshot that shows the connection flow between Microsoft Purview, a self-hosted runtime, and data sources."lightbox="media/concept-best-practices/security-self-hosted-runtime.png":::
 
-  1. A manual or automatic scan is triggered. Microsft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
+  1. A manual or automatic scan is triggered. Microsoft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
    
-  2. The scan is initiated from the Microsoft Purview data map through a self-hosted integration runtime. 
+  2. The scan is initiated from the Microsoft Purview Data Map through a self-hosted integration runtime. 
    
   3. The self-hosted integration runtime service from the VM connects to the data source to extract metadata.
 
   4. Metadata is processed in VM memory for the self-hosted integration runtime. Metadata is queued in Microsoft Purview managed storage and then stored in Azure Blob Storage. 
 
-  5. Metadata is sent to the Microsoft Purview data map. 
+  5. Metadata is sent to the Microsoft Purview Data Map. 
 
-  If you need to extract metadata from data sources with sensitive data that cannot leave the boundary of your on-premises network, it is highly recommended to deploy the self-hosted integration runtime VM inside your corporate network, where data sources are located, to extract and process metadata in on-premises, and send only metadata to Microsoft Purview.  
+  If you need to extract metadata from data sources with sensitive data that can't leave the boundary of your on-premises network, it's highly recommended to deploy the self-hosted integration runtime VM inside your corporate network, where data sources are located, to extract and process metadata in on-premises, and send only metadata to Microsoft Purview.  
 
   :::image type="content" source="media/concept-best-practices/security-self-hosted-runtime-on-premises.png" alt-text="Screenshot that shows the connection flow between Microsoft Purview, an on-premises self-hosted runtime, and data sources in on-premises network."lightbox="media/concept-best-practices/security-self-hosted-runtime-on-premises.png":::
 
-  1. A manual or automatic scan is triggered. Microsft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
+  1. A manual or automatic scan is triggered. Microsoft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
    
   2. The scan is initiated through the on-premises self-hosted integration runtime.
    
@@ -282,7 +282,7 @@ Microsoft Purview allows you to use any of the following options to extract meta
 
   4. Metadata is processed in VM memory for the self-hosted integration runtime. Metadata is queued in Microsoft Purview managed storage and then stored in Azure Blob Storage. Actual data never leaves the boundary of your network.
 
-  5. Metadata is sent to the Microsoft Purview data map. 
+  5. Metadata is sent to the Microsoft Purview Data Map. 
 
 ### Information protection and encryption 
 
@@ -305,15 +305,30 @@ Data at rest includes information that resides in persistent storage on physical
 To add another layer of security in addition to access controls, Microsoft Purview encrypts data at rest to protect against 'out of band' attacks (such as accessing underlying storage). 
 It uses encryption with Microsoft-managed keys. This practice helps make sure attackers can't easily read or modify the data. 
 
-For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline#dp-5-encrypt-sensitive-data-at-rest). 
+For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline#dp-5-encrypt-sensitive-data-at-rest).
+
+### Optional Event Hubs namespace
+
+Each Microsoft Purview account can enable a fully managed event hub that is accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. This can be enabled at creation, or from the Azure portal. It's recommended to enable optional managed event hub, only if it's used to distribute events into or outside of Microsoft Purview account Data Map. To remove this information distribution point, you can disable this Event Hubs namespace.
+
+To disable the Event Hubs namespace, you can follow these steps:
+1. Search for and open your Microsoft Purview account in the [Azure portal](https://portal.azure.com).
+1. Select **Managed Resources** under settings on your Microsoft Purview account page in the Azure portal.
+    :::image type="content" source="media/concept-best-practices/disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure portal.":::
+1. Select the Enable/Disable toggle to enable your Event Hubs namespace.
+1. Select **Save** to save the choice and begin the disablement process. This can take several minutes to complete.
+    :::image type="content" source="media/concept-best-practices/disable-select-save.png" alt-text="Screenshot showing the Managed resources page of the Microsoft Purview account page in the Azure portal with the save button highlighted.":::
+
+> [!NOTE]
+> If you have an ingestion private endpoint when you disable this Event Hubs namespace, after disabling the ingestion private endpoint will show as disconnected.
 
 ## Credential management
 
-To extract metadata from a data source system into Microsoft Purview Data Map, it is required to register and scan the data source systems in Microsoft Purview Data Map. To automate this process, we have made available [connectors](azure-purview-connector-overview.md) for different data source systems in Microsoft Purview to simplify the registration and scanning process.
+To extract metadata from a data source system into Microsoft Purview Data Map, it's required to register and scan the data source systems in Microsoft Purview Data Map. To automate this process, we have made available [connectors](azure-purview-connector-overview.md) for different data source systems in Microsoft Purview to simplify the registration and scanning process.
 
 To connect to a data source Microsoft Purview requires a credential with read-only access to the data source system.  
 
-It is recommended prioritizing the use of the following credential options for scanning, when possible: 
+It's recommended prioritizing the use of the following credential options for scanning, when possible: 
 
 1. Microsoft Purview Managed Identity 
 2. User Assigned Managed Identity 
@@ -322,7 +337,7 @@ It is recommended prioritizing the use of the following credential options for s
 
 If you use any options rather than managed identities, all credentials must be stored and protected inside an [Azure key vault](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account). Microsoft Purview requires get/list access to secret on the Azure Key Vault resource. 
 
-As a general rule, you can use the following options to set up integration runtime and credentials to scan data source systems: 
+As a general rule, you can use the following options to set up integration runtime, and credentials to scan data source systems: 
 
 |Scenario  |Runtime option   |Supported Credentials   |
 |---------|---------|---------|
@@ -351,12 +366,12 @@ For self-hosted integration runtime VMs deployed as virtual machines in Azure, f
 - Lock down inbound traffic to your VMs using Network Security Groups and [Azure Defender access Just-in-Time](../defender-for-cloud/just-in-time-access-usage.md).
 - Install antivirus or antimalware.  
 - Deploy Azure Defender to get insights around any potential anomaly on the VMs. 
-- Limit the amount of software in the self-hosted integration runtime VMs. Although it is not a mandatory requirement to have a dedicated VM for a self-hosted runtime for Microsoft Purview, we highly suggest using dedicated VMs especially for production environments. 
+- Limit the amount of software in the self-hosted integration runtime VMs. Although it isn't a mandatory requirement to have a dedicated VM for a self-hosted runtime for Microsoft Purview, we highly suggest using dedicated VMs especially for production environments. 
 - Monitor the VMs using [Azure Monitor for VMs](../azure-monitor/vm/vminsights-overview.md). By using Log analytics agent, you can capture content such as performance metrics to adjust required capacity for your VMs. 
 - By integrating virtual machines with Microsoft Defender for Cloud, you can you prevent, detect, and respond to threats.
 - Keep your machines current. You can enable Automatic Windows Update or use [Update Management in Azure Automation](../automation/update-management/overview.md) to manage operating system level updates for the OS. 
 - Use multiple machines for greater resilience and availability. You can deploy and register multiple self-hosted integration runtimes to distribute the scans across multiple self-hosted integration runtime machines or deploy the self-hosted integration runtime on a Virtual Machine Scale Set for higher redundancy and scalability. 
-- Optionally, you can plan to enable Azure backup from your self-hosted integration runtime VMs to increase the recovery time of a self-hosted integration runtime VM if there is a VM level disaster.
+- Optionally, you can plan to enable Azure backup from your self-hosted integration runtime VMs to increase the recovery time of a self-hosted integration runtime VM if there's a VM level disaster.
 
 ## Next steps
 - [Microsoft Purview accounts architectures and best practices](concept-best-practices-accounts.md)

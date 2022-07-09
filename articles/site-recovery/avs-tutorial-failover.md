@@ -1,12 +1,12 @@
 ---
 title: Fail over Azure VMware Solution VMs to Azure with Site Recovery 
 description: Learn how to fail over Azure VMware Solution VMs to Azure in Azure Site Recovery
-author: Harsha-CS
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: harshacs
+ms.author: v-pgaddala
 ms.custom: MVC
 ---
 # Fail over  Azure VMware Solution VMs

@@ -171,6 +171,18 @@ The edgeHub module and custom modules also have three properties that tell the I
 
   Startup order is helpful if some modules depend on others. For example, you may want the edgeHub module to start first so that it's ready to route messages when the other modules start. Or you may want to start a storage module before the modules that send data to it. However, you should always design your modules to handle failures of other modules. It's the nature of containers that they may stop and restart at any time, and any number of times.
 
+  > [!NOTE]
+  > Changes to a module's properties will result in that module restarting. For example, a restart will happen if you change properties for the:
+  >    * module image
+  >    * Docker create options
+  >    * environment variables
+  >    * restart policy
+  >    * image pull policy
+  >    * version
+  >    * startup order
+  >
+  > If no module property is changed, the module will **not** restart.
+
 ## Declare routes
 
 The IoT Edge hub manages communication between modules, IoT Hub, and any leaf devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.

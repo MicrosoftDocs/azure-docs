@@ -37,7 +37,7 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 - Access to [Azure Machine Learning studio](https://ml.azure.com/).
 
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 
     -  When you create a workspace, an Azure blob container and an Azure file share are automatically registered as datastores to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. If blob storage is sufficient for your needs, the `workspaceblobstore` is set as the default datastore, and already configured for use. Otherwise, you need a storage account on Azure with a [supported storage type](how-to-access-data.md#supported-data-storage-service-types).
     
