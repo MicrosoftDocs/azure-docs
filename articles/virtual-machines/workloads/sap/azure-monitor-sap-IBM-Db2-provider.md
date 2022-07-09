@@ -1,7 +1,7 @@
 ---
-title: Azure Monitor for SAP Solutions providers - IBM Db2 Provider | Microsoft Docs
-description: This article provides details to configure IBM DB2 Provider for Azure monitor for SAP solutions.
-author: sujaj
+title: Create IBM Db2 provider for Azure Monitor for SAP solutions
+description: This article provides details to configure an IBM DB2 provider for Azure Monitor for SAP solutions (AMS).
+author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
@@ -12,24 +12,26 @@ ms.author: sujaj
 
 
 
-# **IBM Db2 Provider**
+# Create IBM Db2 provider for Azure Monitor for SAP solutions
 
-> [!Note]
-> This content would apply to only Azure Monitor for SAP solutions and not the classic version.
-
-
-### Provider installation
-
-1. Select Add provider from Azure Monitor for SAP solutions resource, and then:
+This article explains how to create an IBM Db2 provider for Azure Monitor for SAP solutions (AMS) through the Azure portal. This content applies only to AMS, not the AMS (classic) version.
 
 
+To create the IBM Db2 provider for AMS:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to the AMS service. 
+1. Open the AMS resource you want to modify.
+1. On the resource's menu, under **Settings**, select **Providers**.
+1. Select **Add* to add a new provider.
 <img width="491" alt="Provider" src="https://user-images.githubusercontent.com/33844181/167706257-2fa23564-cc41-4fc7-a0a2-4d6d0110f563.png">
 
 
-2. For Type, select IBM Db2.
-
-3. Configure providers for each instance of database by entering all required information.
-4. Enter Ip address of hostname, database name and port.
-5. For database user please use 'Db2<'SAP SID'>', example: if your SID is MO1, username will be db2MO1. Enter password for this user. 
+    1. For **Type**, select **IBM Db2**.
+    1. Enter the IP address for the hostname.
+    1. Enter the database name.
+    1. Enter the database port.
+    1. Save your changes.
+1. Configure more providers for each instance of the database.
     
     <img width="563" alt="Provider Details" src="https://user-images.githubusercontent.com/33844181/167953657-5519fafe-d201-4ead-a7d4-2dfb86a3f45e.png">

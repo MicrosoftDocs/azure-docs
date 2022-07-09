@@ -1,7 +1,7 @@
 ---
-title: Azure Monitor for SAP Solutions providers - SAP HANA Provider | Microsoft Docs
-description: This article provides details to configure SAP HANA Provider for Azure monitor for SAP solutions.
-author: sujaj
+title: Configure SAP HANA provider for Azure Monitor for SAP solutions
+description: Learn how to configure the SAP HANA provider for Azure Monitor for SAP solutions (AMS) through the Azure portal.
+author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
@@ -11,54 +11,49 @@ ms.author: sujaj
 ---
 
 
-# SAP HANA Provider
+# Configure SAP HANA provider for AMS
 
-> [!Note]
-> This content would apply to both new and classic versions of Azure Monitor for SAP solutions.
-
-### Add SAP HANA Provider Steps (Using Portal UI):
-
-#### For Azure Monitor for SAP solutions
+This article explains how to configure the SAP HANA provider for Azure Monitor for SAP solutions (AMS) through the Azure portal. There are instructions to set up the [current version](#configure-ams) and the [classic version](#configure-ams-classic) of AMS.
 
 
-1. Click on the **Providers** Tab in the AMS creation blade, then click on &quot; Add Provider&quot; button to go to the &quot; Add Provider&quot; Page
+## Configure AMS
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Azure Monitors for SAP solutions** in the search bar.
+1. On the AMS service page, select **Create**.
+1. On the AMS creation page, enter your basic resource information on the **Basics** tab.
+1. On the **Providers** tab:
+    1. Select **Add provider**.
 
     ![Add Provider](https://user-images.githubusercontent.com/74435183/162337421-67c50f88-c5e8-4c5a-b9bc-ea0096b2827e.png)
 
-2. Select Type as SAP HANA
+    1. On the creation pane, for **Type**, select **SAP HANA**.
 
     ![Provider Details](https://user-images.githubusercontent.com/98498799/171365559-80de91c9-601b-41e6-a91a-4ec9b28e0958.png)
 
-3. IP address - Provide the IP address or hostname of the server running the SAP HANA instance to be monitored; when using a hostname, please ensure connectivity from within the Vnet.
-4. Database tenant - Provide the HANA database to connect against (we strongly recommend using SYSTEMDB, since tenant databases don&#39;t have all monitoring views). Leave this field blank for legacy single-container HANA 1.0 instances.
-5. Instance number - Provide the Instance number of the database [00-99], SQL port is automatically determined based on the instance number."
-6. Database username - Provide the dedicated SAP HANA database user with the MONITORING role or BACKUP CATALOG READ role assigned (alternatively, use SYSTEM for non-production SAP HANA instances).
-7. Database password - Provide the password corresponding to the database username, where you have two options on how to provide it:     
-      a. Provide the password in the plain text.   
-      b. Provide the password by selecting an existing or creating a new secret inside an Azure KeyVault.
+    1. For **IP address**, enter the IP address or hostname of the server that runs the SAP HANA instance that you want to monitor. If you're using a hostname, make sure there is connectivity within the virtual network.
+    1. For **Database tenant**, enter the HANA database that you want to connect to. It's recommended ot use **SYSTEMDB**, because tenant databases don't have all monitoring views. For legacy single-container HANA 1.0 instances, leave this field blank.
+    1. For **Instance number**, enter the instance number of the database (0-99). The SQL port is automatically determined based on the instance number.
+    1. For **Database username**, enter the dedicated SAP HANA database user. This user needs the **MONITORING** or **BACKUP CATALOG READ** role assignment. For non-production SAP HANA instances, use **SYSTEM** instead.
+    1. For **Database password**, enter the password for the database username.  You can either enter the password directly or use a secret inside Azure Key Vault.
+1. Save your changes to the AMS resource.
 
-#### For Azure Monitor for SAP solutions (classic)
+## Configure AMS (classic)
 
 
-1. Select the **Providers** tab to add the providers you want to configure. You can add multiple providers one after another, or add them after you deploy the monitoring resource. 
+To configure the SAP HANA provider for AMS (classic):
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Screenshot showing the tab where you add providers." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
-
-1. Select **Add provider**, and then:
-
-   1. For **Type**, select **SAP HANA**. 
-
-      > [!IMPORTANT]
-      > Ensure that a SAP HANA provider is configured for the SAP HANA `master` node.
-
-   1. For **IP address**, enter the private IP address for the HANA server.
-
-   1. For **Database tenant**, enter the name of the tenant you want to use. You can choose any tenant, but we recommend using **SYSTEMDB** because it enables a wider array of monitoring areas. 
-
-   1. For **SQL port**, enter the port number associated with your HANA database. It should be in the format of *[3]* + *[instance#]* + *[13]*. An example is **30013**. 
-
-   1. For **Database username**, enter the username you want to use. Ensure the database user has the *monitoring* and *catalog read* roles assigned.
-
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Screenshot showing configuration options for adding an SAP HANA provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
-
-1. When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select the **Azure Monitors for SAP Solutions (classic)** service in the search bar.
+1. On the AMS (classic) service page, select **Create**.
+1. On the creation page's **Basics** tab, enter the basic information for your AMS instance.
+1. On the **Providers** tab, add the providers that you want to configure. You can add multiple providers during creation. You can also add more providers after you deploy the AMS resource. For each provider:
+    1. Select **Add provider**.
+    1. For **Type**, select **SAP HANA**. Make sure that you configure an SAP HANA provider for the main node.
+    1. For **IP address**, enter the private IP address for the HANA server.
+    1. For **Database tenant**, enter the name of the tenant that you want to use. You can choose any tenant. However, it's recommended to use **SYSTEMDB**, because this tenant has more monitoring areas.
+    1. For **SQL port**, enter the port number for your HANA database. The format begins with 3, includes the instance number, and ends in 13. For example, 30013 is the SQL port for the instance 001.
+    1. For **Database username**, enter the username that you want to use. Make sure the database user has **monitoring** and **catalog read** role assignments.
+   1. Select **Add provider** to finish adding the provider.
+1. Select **Review + create** to review and validate your configuration.
+1. Select **Create** to finish creating the AMS resource.

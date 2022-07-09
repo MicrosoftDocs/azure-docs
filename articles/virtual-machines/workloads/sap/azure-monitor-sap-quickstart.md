@@ -11,11 +11,9 @@ ms.date: 07/08/2021
 
 # Deploy Azure Monitor for SAP Solutions by using the Azure portal
 
-In this article, we'll walk through deploying Azure Monitor for SAP Solutions from the [Azure portal](https://azure.microsoft.com/features/azure-portal). Using the portal's browser-based interface, we'll both deploy Azure Monitor for SAP Solutions and configure providers.
+In this article, we'll walk through deploying Azure Monitor for SAP solutions (AMS) from the [Azure portal](https://azure.microsoft.com/features/azure-portal). Using the portal's browser-based interface, we'll deploy AMS and configure providers.
 
-> [!Note]
-> This content would apply to both new and classic version of Azure Monitor for SAP solutions.
-
+This content applies to both versions of the service, AMS and AMS (classic).
 ## Sign in to the portal
 
 Sign in to the [Azure portal](https://portal.azure.com).

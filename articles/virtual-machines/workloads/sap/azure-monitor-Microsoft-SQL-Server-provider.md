@@ -1,7 +1,7 @@
 ---
-title: Azure Monitor for SAP Solutions providers - MS SQL Server | Microsoft Docs
-description: This article provides details to configure Microsoft SQL Server for Azure monitor for SAP solutions.
-author: sujaj
+title: Configure SQL Server for Azure Monitor for SAP solutions
+description: Learn how to configure SQL Server for Azure Monitor for SAP solutions (AMS).
+author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
@@ -12,21 +12,32 @@ ms.author: sujaj
 
 
 
-# **Microsoft SQL Server Provider**
+# Configure SQL Server for Azure Monitor for SAP solutions
 
-## Prerequisites
 
-#### Port
+## Open Windows port
 
-The Windows port the SQL Server is using for connections (default is 1433) should be opened in the local firewall of the SQL Server machine and the Azure network security group (NSG) for the Azure network the SQL Server and the "Azure Monitor for SAP Solutions" are placed in.
+Open the Windows port in the local firewall of SQL Server and the network security group (NSG) where SQL Server and Azure Monitor for SAP solutions (AMS) exist. The default port is 1433. 
 
-#### SQL Server
+## Configure SQL server
 
-The SQL Server must be configured with mixed authentication mode, means it must accept the login from Windows Logins as well as SQL Server logins. You can find this option in the SQL Server Management Studio -> Server Properties -> Security -> Authentication -> SQL Server and Windows authentication mode. A SQL Server restart is required after changing this option.
+Configure SQL Server to accept logins from Windows and SQL Server:
 
-#### SQL Server Login and User
+1. Open SQL Server Management Studio (SSMS).
+1. Open **Server Properties** &gt; **Security** &gt; **Authentication**
+1. Select **SQL Server and Windows authentication mode**.
+1. Select **OK** to save your changes.
+1. Restart SQL Server to complete the changes.
 
-A SQL Server Login and User should be created, using the following script. Please ensure to replace \<Database to monitor\> with your SAP database name and \<password\> with the real password of the login. The example login and user AMS can be used or replaced with any other SQL login and username of your choice:
+
+## Create AMS user for SQL Server
+
+Create a user for AMS to log in to SQL Server using the following script. Make sure to replace:
+
+- `<Database to monitor>` with your SAP database's name
+- `<password>` with the password for your user
+
+You can replace the example information for the AMS user with any other SQL username.
 
 ```sql
 USE [<Database to monitor>]
@@ -57,19 +68,23 @@ ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
 GO
 ```
 
-## Provider installation
+## Install AMS provider
 
-Select Add provider from Azure Monitor for SAP solutions resource, and then:
+To install the provider from AMS:
 
-![SQL1](./media/azure-monitor-sap/SQL-Server-Provider.jpg)
-
-For Type, select Microsoft SQL Server.
-
-!["SQL2"](./media/azure-monitor-sap/SQL-Server-Provider-Details.png)
-
-1. Configure providers for each instance of database by entering all required information.
-2. Enter the IP address of the hostname and the port the SQL Server is listening on (default is 1433).
-3. For the database user please specify a SQL Server user and the password for this user. As SID please specify your SAP System ID (SID).
-4. When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
+1. Open the AMS resource in the Azure portal.
+1. In the resource menu, under **Settings**, select **Providers**.
+1. On the provider page, select **Add** to add a new provider.
+1. On the **Add provider** page, enter all required information:
+    1. For **Type**, select **Microsoft SQL Server**.
+    1. For **Name**, enter a name for the provider.
+    1. For **Host name**, enter the IP address of the hostname.
+    1. For **Port**, enter the port on which SQL Server is listening. The default is 1433.
+    1. For **SQL username**, enter a username for the SQL Server account.
+    1. For **Password**, enter a password for the account.
+    1. For **SID**, enter the SAP system identifier (SID).
+    1. Select **Create** to create the provider
+1. Repeat the previous step as needed to create more providers.
+1. Select **Review + create** to complete the deployment.
 
 

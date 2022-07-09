@@ -1,7 +1,7 @@
 ---
-title: Azure Monitor for SAP Solutions providers - SAP NetWeaver | Microsoft Docs
-description: This article provides details to configure SAP NetWeaver  for Azure monitor for SAP solutions.
-author: sujaj
+title: Configure SAP NetWeaver for Azure Monitor for SAP solutions
+description: Learn how to configure SAP NetWeaver for use with Azure Monitor for SAP solutions (AMS).
+author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
@@ -11,182 +11,186 @@ ms.author: sujaj
 ---
 
 
-# **SAP NetWeaver Provider**
+# Configure SAP NetWeaver for Azure Monitor for SAP solutions
 
-> [!Note]
-> This content would apply to both versions of Azure Monitor for SAP solutions.
+This article explains how to configure SAP NetWeaver for use with Azure Monitor for SAP solutions (AMS). You can use SAP NetWeaver with both versions of the service, AMS and AMS (classic).
+The SAP start service provides multiple services, including monitoring the SAP system. AMS and AMS (classic) use **SAPControl**, which is a SOAP web service interface that exposes these capabilities. The **SAPControl** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use AMS with NetWeaver.
 
-### For Azure Monitor for SAP solutions
-#### Prerequisites
+## Configure NetWeaver for AMS
 
-To fetch specific metrics, you need to unprotect some methods for the current release. Follow these steps for each SAP system:
+
+### Unprotect methods for metrics
+
+To fetch specific metrics, you need to unprotect some methods in each SAP system:
 
 1. Open an SAP GUI connection to the SAP server.
-2. Sign in by using an administrative account.
-3. Execute transaction RZ10.
-4. Select the appropriate profile (_DEFAULT.PFL_).
-5. Select  **Extended Maintenance**  ->  **Change**.
-6. Select the profile parameter &quot;service/protectedwebmethods&quot; and modify to have the following value, then click Copy:
 
-     `  service/protectedwebmethods`
+1. Sign in with an administrative account.
 
-   `SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList`
+1. Execute transaction **RZ10**.
 
-7. Go back and select  **Profile**  ->  **Save**.
+1. Select the appropriate profile (`_DEFAULT.PFL_`).
 
-8. After saving the changes for this parameter, restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux)) 
-* 8.1. **On Windows systems**, this can be done in a single window using the SAP Microsoft Management Console (MMC) / SAP Management Console(MC). 
+1. Select **Extended Maintenance**  &gt;  **Change**.
 
-  Right-click on each instance and choose All Tasks -> Restart Service.
+1. Select the profile parameter `service/protectedwebmethods`.
 
-    ![Restart service](./media/azure-monitor-sap/azure-monitor-providers-NW-Prereq1.png)
+1. Modify the following:
 
-* 8.2. **On Linux systems**, use the below command where NN is the SAP instance number to restart the host, which is logged into.
+    `service/protectedwebmethods`
+    
+    `SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList`
 
+1. Select **Copy**.
+
+1. Select **Profile** &gt; **Save** to save the changes.
+
+1. Restart the **SAPStartSRV** service on each instance in the SAP system. Restarting the services doesn't restart the entire system. This process only restarts **SAPStartSRV** (on Windows) or the daemon process (in Unix or Linux).
+
+    1. On Windows systems, use the SAP Microsoft Management Console (MMC) or SAP Management Console (MC) to restart the service. Right-click each instance. Then, choose **All Tasks** &gt; **Restart Service**.
+    
+    1. On Linux systems, use the following commands to restart the host. Replace `<instance number` with your SAP system's instance number.
+    
     `RestartService`
+    
+    `sapcontrol -nr <instance number> -function RestartService`
+    
+You must restart the **SAPStartSRV** service on each instance of your SAP system to unprotect the **SAPControl** web methods. The read-only SOAP API is required for the NetWeaver provider to fetch metric data from your SAP system. If you don't unprotect these methods, there will be empty or missing visualizations in the NetWeaver metric workbook.
 
-    `sapcontrol -nr <NN> -function RestartService`
 
-Once the SAP service is restarted, check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command:
+### Check updated rules
 
-Logged as sidadm
+After you restart the SAP service, check that your updated rules are applied to each instance. 
 
-`sapcontrol -nr <NN>; -function ParameterValue service/protectedwebmethods`
+1. Log in to the SAP system as `sidadm`.
 
-Logged as a different user
+1. Run the following command. Replace `<instance number>` with your system's instance number.
 
-`sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
+    `sapcontrol -nr <instance number>; -function ParameterValue service/protectedwebmethods`
 
-The output should look like this:- 
+1. Log in as another user.
+
+1. Run the following command. Again, replace `<instance number>` with your system's instance number. Also replace `<admin user>` with your administrator username, and `<admin password>` with the password.
+
+    `sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods -user "<admin user>" "<admin password>"`
+
+1. Review the output, which should look like the following sample output:
 
 ![SAPControlOutput](./media/azure-monitor-sap/azure-monitor-providers-NW-SAPControOutput.png)
 
-To conclude and validate, run a test query against web methods to validate (replace the hostname, instance number, and method name ).
 
-Leverage  below PowerShell script
+Repeat these steps for each instance profile.
 
-    `Powershell
+To validate the rules, run a test query against the web methods. Replace the `<hostname>` with your hostname, `<instance number>` with your SAP instance number, and the method name with the appropriate method.
 
-    `$SAPHostName = "<hostname>"`
+  ```powershell
+  $SAPHostName = "<hostname>"
+  
+  $InstanceNumber = "<instance number>"
+  
+  $Function = "ABAPGetWPTable"
+  
+  [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+      
+  $sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"
+      
+  $sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
+      
+  $FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
+      
+  $sapcntrl.$Function($FunctionObject)
 
-    `$InstanceNumber = "<instancenumber>"`
 
-    `$Function = "ABAPGetWPTable"`
 
-    `[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}`
+### Set up RFC metrics
+
+For AS ABAP applications only, you can set up the NetWeaver RFC metrics.
+
+Create or upload the following role in the SAP NW ABAP system. AMS requires this role to connect to SAP. The role uses least privilege access.
+
+1. Log in to your SAP system.
+1. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/files/8710130/Z_AMS_NETWEAVER_MONITORING.zip).
+1. Use the transaction code **PFCG** &gt; **Role Upload**.
+1. Upload the **Z_AMS_NETWEAVER_MONITORING.SAP** file from the ZIP file.
+1. Select **Execute** to generate the role.
+1. Exit the SAP system.
+
+Create and authorize a new RFC user.
+
+1. Log in to the SAP system.
+1. Create an RFC user.
+1. Assign the role **Z_AMS_NETWEAVER_MONITORING** to the user. This is the role that you uploaded in the previous section.
+
+Enable **SMON** to monitor the system performance.
+
+1. Enable the **SDF/SMON** snapshot service for your system.
+1. Configure **SDF/SMON** metrics to be aggregated every minute.
+1. Make sure the version of **ST-PI** is **SAPK-74005INSTPI**. 
+1. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/en/2651881).
+1. It's recommended to schedule **SDF/SMON** as a background job in your target SAP client each minute. Log in to SAP and use **TCODE /SDF/SMON** to configure the setting.
+1. To use an SAP access control list (ACL) to restrict access by IP address, add the IP address of the **sapmon** collector VM to the ACL.
+
+Enable SAP Internet Communication Framework (ICF):
+
+1. Log in to the SAP system.
+1. Go to transaction code **SICF**.
+1. Go to the service path `/default_host/sap/bc/soap/`.
+1. Activate the services **wsdl**, **wsdl11** and **RFC**.
+
+It's also recommended to check that you enabled the ICF ports.
+
+1. Log in to the SAP service.
+1. Right-click the ping service and choose **Test Service**. SAP starts your default browser.
+1. Navigate to the ping service using the configured port.
+1. If the port can't be reached, or the test fails, open the port in the SAP VM.
+    1. For Linux, run the following commands. Replace `<your port>` with your configured port.
     
-    `$sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"`
+        `sudo firewall-cmd --permanent --zone=public --add-port=<your port>/TCP `
     
-    `$sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl`
-    
-    `$FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")`
-    
-    `$sapcntrl.$Function($FunctionObject)`
-    
-\*\*Repeat Steps 3-10 for each instance profile \*\*.
+        `sudo firewall-cmd --reload `
 
-  **Important**
+    1. For Windows, open Windows Defender Firewall from the Start menu. Select **Advanced settings** in the side menu, then select **Inbound Rules**. To open a port, select **New Rule**. Add your port and set the protocol to TCP.
 
-It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected. These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.
+### Add NetWeaver provider
 
-9. Prerequisites for NetWeaver RFC Metrics:
+To add the NetWeaver provider:
 
-   **Note:** RFC metrics are only supported for AS ABAP applications.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to the AMS service page.
+1. Select **Create** to open the resource creation page.
+1. Enter information for the **Basics** tab.
+1. Select the **Providers** tab. Then, select **Add provider**.
+1. Configure the new provider:
+    1. For **Type**, select **SAP NetWeaver**.
+    1. For **System ID (SID)**, enter the three-character SAP system identifier.
+    1. For **Application Server**, enter the IP address or the fully qualified domain name (FQDN) of the SAP NetWeaver system to monitor. For example, `sapservername.contoso.com` where `sapservername` is the hostname and  `contoso.com` is the domain. 
+1. Save your changes.
 
-* 9.1 Create/Upload role in SAP NW ABAP system – This role is created with the guiding principle of “Least Privilege access” and is needed for AMS to connect to SAP
-    1. Log in to SAP System 
-    2. Unzip the file attached.
-[Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/files/8710130/Z_AMS_NETWEAVER_MONITORING.zip)
-    1. Upload "Z_AMS_NETWEAVER_MONITORING.SAP" file into the SAP system by navigating to Transaction code PFCG -> Role Upload. 
-    1. Click on Execute (Role gets generated)
+If you're using a hostname, make sure there's connectivity from the virtual network that you used to create the AMS resource.
 
-   ![RoleGenerate](./media/azure-monitor-sap/azure-monitor-providers-NW-RoleGenerate.png)
+- For **Instance number**, specify the instance number of SAP NetWeaver (00-99)
+- For **Host file entries**, provide the DNS mappings for all SAP VMs associated with the SID.
 
-    4. Exit the SAP system. 
+Enter all SAP application servers and ACS host file entries in **Host file entries**.
 
-* 9.2 Create a new RFC user and assign the authorization.
-    1. Log in to SAP System. 
-    2. Create an RFC User and assign the role – “Z_AMS_NETWEAVER_MONITORING” created as part of Step 9.1
-* 9.3. Enabling SMON for Monitoring of System Performance 
-Enable SDF/SMON snapshot service and configure SDF/SMON metrics to be aggregated each minute. 
-For SMON capability the version for ST-PI must be SAPK-74005INSTPI
-   * Follow the detailed step to “Turning on the Daily Monitoring” from the SAP Note: “2651881 - How to configure SMON for performance monitoring and 
-     analysis.
-   * Recommended settings for SDF/SMON:
-     Login to SAP and TCODE /SDF/SMON – Schedule SDF/SMON as a background job in your Target SAP Client (each Minute). Reference screenshot shared below 
-     
-     ![settings](https://user-images.githubusercontent.com/74435183/168395025-fd9f8fd6-c859-416e-bebf-3ff97b2a8561.png)
-     
-     _When using SAP internal ACLs to restrict access by IP address, make sure the IP address of sapmon collector VM is added to ACLs_
- 
-* 9.4 Enable SAP ICF 
-    1. Login to SAP System. 
-    2. Navigate to Transaction code SICF 
-    3. Navigate to Service with Service Path - /default_host/sap/bc/soap/, and activate **wsdl, wsdl11 and RFC**  service: 
-
-    ![Activate Service](https://user-images.githubusercontent.com/74435183/171516111-595b93e0-0bd8-45af-86a4-448a8bafe64c.png)
-
-* 9.5 More checks to enable the ICF Ports (Optional – Recommended )
-
-   * To find in which port your ICF is running. Right-click the ping service and choose the option – ‘Test Service’.  
- 
-   SAP will start your default browser and navigate to the ping service using the configured port. 
-
-   ![Configure port](https://user-images.githubusercontent.com/74435183/168395183-5badfc27-df27-4e83-96d6-bab2bf1f8b2c.png)
-
-  * If the port could not be reached, or the ping test fails, you might need to open the port in the SAP virtual machine by executing the commands below:  
-   *Linux:*  
-    sudo firewall-cmd --permanent --zone=public --add-port=<your-port>/TCP 
-    sudo firewall-cmd --reload 
- 
-    *Windows:*
-    * Select the Start menu, type Windows Defender Firewall, and select it from the list of results. 
-    * Select Advanced Settings on the side navigation menu. 
-    * Select Inbound Rules. 
-    * To open a port, select New Rule, add port = <your-port> and, protocol = TCP, complete the instructions. 
-
-#### **Add SAP NetWeaver Provider Steps (Using Portal UI):**
-
-1. Click on the **Providers** Tab on the AMS creation Page, then click on &quot; Add Provider&quot; button to go to the &quot; Add Provider&quot; Page
-
-   ![Provider](https://user-images.githubusercontent.com/74435183/162337237-8032ac11-bb01-480f-9b01-1b29c5c311a9.png)
-
-2. Select Type as SAP NetWeaver
-
-   ![Provider Details](https://user-images.githubusercontent.com/74435183/168396901-1d292af1-adbc-4121-99cc-e1277a05b402.png)
-
-* System ID (SID) - Provide the unique SAP system identifier, which is a three-character identifier of an SAP system.
-* Application Server - Provide the IP address or the fully qualified domain name (FQDN) of the SAP NetWeaver system to be monitored. 
-  For example - sapservername.contoso.com where sapservername is the hostname and contoso.com is the subdomain. 
-  When using a hostname, ensure connectivity from within the similar VNET that you used while creating the AMS resource.
-* Instance Number - Specify the instance number of the SAP NetWeaver [00-99]
-* Host file Entries - Provide the DNS mappings for all the SAP virtual machines associated with the above-mentioned SID (see explanation below).
- #### Host file Entries
-
- Enter all SAP application servers and ACS host file entries in this box.
-
- Enter host file mappings in comma-separated format. The expected format for each entry is [IP FQDN HOSTNAME].
+ Enter host file mappings in comma-separated format. The expected format for each entry is IP address, FQDN, hostname.
  
  For example: **192.X.X.X sapservername.contoso.com sapservername,192.X.X.X sapservername2.contoso.com sapservername2**
 
- To determine all SAP hostnames associated with the SID, you can login to SAP system using the <sidadm> user, and execute the following command :
+ To determine all SAP hostnames associated with the SID, log in to the SAP system using the `sidadm` user. Then, run the following command:
 
- ```/usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList```
+ `/usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList`
 
- For all the hostnames returned from the above command ensure that the host file entries are provided.
-* SAP client ID - Provide the SAP Client Id. 
-* SAP HTTP Port - Port your ICF is running – For example 8110 ( follow step 9.5) 
-* SAP username - SAP user to connect to the SAP system (created as Step 9.2) 
-* SAP password - SAP password to connect to the SAP system (created as Step 9.2)
+Make sure that host file entries are provided for all hostnames that the command returns. 
 
- For more information, see the AMS public documentation : 
- https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-sap-quickstart
-
-### For Azure Monitor for SAP solutions (Classic)
+- For **SAP client ID**, provide the SAP client identifier.
+- For **SAP HTTP Port**, enter the port that your ICF is running. For example, 8110.
+- For **SAP username**, enter the name of the user that you created to connect to the SAP system.
+- For **SAP password**, enter the password for the user.
 
 
+## Configure NetWeaver for AMS (classic)
 
-The SAP start service provides a host of services, including monitoring the SAP system. We're using SAPControl, which is a SOAP web service interface that exposes these capabilities. The SAPControl web service interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) web service methods. 
 
 To fetch specific metrics, you need to unprotect some methods for the current release. Follow these steps for each SAP system:
 
@@ -243,28 +247,44 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 >[!Tip]
 > Use an access control list (ACL) to filter the access to a server port. For more information, see [this SAP note](https://launchpad.support.sap.com/#/notes/1495075).
 
-To install the NetWeaver provider on the Azure portal:
+To install the NetWeaver provider inthe Azure portal:
 
-1. Make sure you've completed the earlier prerequisite steps and that the server has been restarted.
-1. On the Azure portal, under **Azure Monitor for SAP Solutions**, select **Add provider**, and then:
+1. Make sure you've completed the earlier steps and restarted the server.
+
+1. Sign in to the Azure portal. 
+
+1. Go to the **Azure Monitor for SAP Solutions** service.
+
+1. Select **Create** to add a new AMS resource.
+
+1. Select **Add provider**.
 
    1. For **Type**, select **SAP NetWeaver**.
 
    1. For **Hostname**, enter the host name of the SAP system.
 
-   1. For **Subdomain**, enter a subdomain if one applies.
+   1. For **Subdomain**, enter a subdomain if applicable.
 
    1. For **Instance No**, enter the instance number that corresponds to the host name you entered. 
 
    1. For **SID**, enter the system ID.
-   
-   ![Screenshot showing the configuration options for adding a SAP NetWeaver provider.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
 
-1.    When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
+1. Select **Add provider** to save your changes. 
 
->[!Important]
->If the SAP application servers (ie. virtual machines) are part of a network domain, such as one managed by Azure Active Directory, then it is critical that the corresponding subdomain is provided in the Subdomain text box.  The Azure Monitor for SAP collector VM that exists inside the Virtual Network is not joined to the domain and as such will not be able to resolve the hostname of instances inside the SAP system unless the hostname is a fully qualified domain name.  Failure to provide this will result in missing / incomplete visualizations in the NetWeaver workbook.
- 
->For example, if the hostname of the SAP system has a fully qualified domain name of "myhost.mycompany.global.corp" then enter a Hostname of "myhost" and provide a Subdomain of "mycompany.global.corp".  When the NetWeaver provider invokes the GetSystemInstanceList API on the SAP system, SAP returns the hostnames of all instances in the system.  The collector VM will use this list to make additional API calls to fetch metrics specific to each instance's features (e.g.  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc…). If specified, the collector VM will then use the subdomain  "mycompany.global.corp" to build the fully qualified domain name of each instance in the SAP system.  
- 
->Please DO NOT specify an IP Address for the hostname field if the SAP system is a part of network domain.
+1. Continue to add more providers as needed.
+
+1. Select **Review + create** to review the deployment.
+
+1. Select **Create** to finish creating the resource.
+
+
+If the SAP application servers (VMs) are part of a network domain, such as an Azure Active Directory (Azure AD) managed domain, you must provide the corresponding subdomain. The AMS collector VM exists inside the virtual network, adn isn't joined to the domain. AMS can't resolve the hostname of instances inside the SAP system unless the hostname is an FQDN. If you don't provide the subdomain, there will be missing or incomplete visualizations in the NetWeaver workbook.
+
+For example, if the hostname of the SAP system has an FQDN of `myhost.mycompany.contoso.com`:
+
+- The hostname is `myhost`
+- The subdomain is `mycompany.contoso.com`
+
+When the NetWeaver provider invokes the **GetSystemInstanceList** API on the SAP system, SAP returns the hostnames of all instances in the system. The collect VM uses this list to make more API calls to fetch metrics for each instances features. For example, ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, and more. If you specify the subdomain, the collect VM uses the subdomain to build the FQDN of each instance in the system.
+
+Don't specify an IP address for the hostanme if your SAP systme is part of network domain.

@@ -14,10 +14,9 @@ ms.author: radeltch
 
 ## Overview
 
-This article describes the various providers currently available for Azure Monitor for SAP Solutions.
+This article describes the various providers currently available for Azure Monitor for SAP solutions (AMS).
 
-> [!Note]
-> This content would apply to both new and classic version of Azure Monitor for SAP solutions.
+This content applies to both versions of the service, AMS and AMS (classic).
 
 In the context of Azure Monitor for SAP Solutions, a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP Solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
    
@@ -150,15 +149,14 @@ To configure an OS (Linux) provider, two primary steps are involved:
 > Ensure Node Exporter keeps running after node reboot. 
 
 ## Provider type: IBM Db2
-You can configure one or more providers of provider type IBM Db2 database.
 
-In public preview, you can expect to see the following data with the IBM Db2 provider:
+You can configure one or more IBM Db2 providers. The following data is available with this provider type:
 
-- DB availability
-- Number of Connections
-- Logical and Physical Reads
-- Waits and Current Locks
-- Top 20 Runtime and Executions 
+- Database availability
+- Number of connections
+- Logical and physical reads
+- Waits and current locks
+- Top 20 runtime and executions 
 
 ![Azure Monitor for SAP solutions providers - IBM Db2](./media/azure-monitor-sap/azure-monitor-providers-db2.png)
 - 
