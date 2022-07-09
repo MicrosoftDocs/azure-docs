@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 06/17/2022
+ms.date: 07/08/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
@@ -106,7 +106,7 @@ Unlike other disk types, you can individually set the capacity, throughput, and 
 
 The following table provides a comparison of disk capacities and performance maximums to help you decide which to use.
 
-|Disk Size (GiB)  |Maximum available IOPS  |Maximum available throughput (MBps)  |
+|Disk Size (GiB)  |Maximum available IOPS  |Maximum available throughput (MB/s)  |
 |---------|---------|---------|
 |1-6     |3,000        |750         |
 |7     |3,500         |875         |
@@ -116,21 +116,17 @@ The following table provides a comparison of disk capacities and performance max
 
 #### Premium SSD v2 capacities
 
-Premium SSD v2 can have a capacity ranging from 4 GiB to 64 TiB. You're billed on a per GiB ratio, see the pricing page for details.
+Premium SSD v2 can have a capacity ranging from 1 GiB to 64 TiB. You're billed on a per GiB ratio, see the pricing page for details.
 
 Premium SSD v2 offers up to 32 TiB per region per subscription by default, but premium SSD v2 supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 #### Premium SSD v2 IOPS
 
-Each premium SSD v2 has 3,000 IOPS as a baseline maximum. The capacity of a disk determines what you can set the IOPS to. For disks that a 4-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
-
-The initial 3,000 IOPS doesn't increase the cost of the disk. Setting the IOPS higher than 3,000 will increase the cost per IOPS, see the pricing page for details.
+Each premium SSD v2 has 3,000 IOPS as an initial maximum. The capacity of a disk determines the maximum IOPS you can configure for your disk. For disks that are 1-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
 
 #### Premium SSD v2 throughput
 
-Each premium SSD v2 must have at least 125 MBps throughput. The disk's IOPS determines what you can set the throughput to. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximum you can set the throughput to is 1200, which requires 6,000 IOPS, or a disk that has 10 GiB.
-
-The initial 125 MB/s throughput doesn't increase the cost of your disk. Setting the throughput higher than 125 will increase the cost per MB/s, see the pricing page for details.
+Each premium SSD v2 must have at least 125 MBps throughput. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximium throughput a 6 GiB disk can set is 750 MB/s, whereas the maximum throughput an 8 GiB disk can set is 1,000 MB/s. The maximum throughput a 10 GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
 
 
 ## Premium SSDs
