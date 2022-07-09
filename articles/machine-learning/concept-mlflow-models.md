@@ -14,7 +14,7 @@ ms.custom: devx-track-python, cliv2, sdkv2
 
 # From artifacts to models in MLflow
 
-The following article explains the differences between an artifact and a model in MLflow and how to transition from one to the other. It also explains how to start logging your trained models (or artifacts) as MLflow models depending on the characteristics of the assets you are dealing with and how they are supported in MLflow.
+The following article explains the differences between an artifact and a model in MLflow and how to transition from one to the other and how Azure Machine Learning uses the concept to enabled streamlined deployment workflows.
 
 ## What's the difference between an artifact and a model?
 
