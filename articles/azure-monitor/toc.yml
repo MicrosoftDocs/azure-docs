@@ -442,7 +442,7 @@ items:
         href: essentials/data-collection-transformations.md
       - name: Structure
         displayname: Transformations
-        href: essentials/data-collection-transformations-kql.md
+        href: essentials/data-collection-transformations-structure.md
       - name: Tutorial (portal)
         href: logs/tutorial-workspace-transformations-portal.md
       - name: Tutorial (API)

@@ -28,7 +28,7 @@ Some workflows specify a particular data collection rule to use. For example, wh
 
 Other workflows use a data collection rule association (DCRA), which associates a data collection rule with a resource. For example, to collect data from virtual machines using the Azure Monitor agent, you create a data rule association (DCRA) between the one or more DCRs and one or more virtual machines. The DCRs specify the data to collect on the agent and where that data should be sent.
 
-:::image type="content" source="essentials/media/data-collection-transformations/transformation-data-collectron-rule.png" lightbox="essentials/media/data-collection-transformations/transformation-data-collectron-rule.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent." border="false":::
+:::image type="content" source="essentials/media/data-collection-transformations/transformation-data-collection-rule.png" lightbox="essentials/media/data-collection-transformations/transformation-data-collection-rule.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent." border="false":::
 
 
 ## Supported workflows

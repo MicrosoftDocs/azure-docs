@@ -53,7 +53,7 @@ For example, a DCR that collects data from a virtual machine using Azure Monitor
 
 Another example is data sent from a custom application using the [data ingestion API](../logs/data-ingestion-api-overview.md). In this case, the application sends the data to a [data collection endpoint](data-collection-endpoint-overview.md) and specifies a data collection rule in the REST API call. The DCR includes the transformation and the destination workspace and table.
 
-:::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent." border="false":::
+:::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using data ingestion API." border="false":::
 
 ### Workspace transformation DCR
 
@@ -72,7 +72,7 @@ There are multiple methods to create transformations depending on the data sourc
 |:---|:---|
 | Transformation queries | [Structure of ingestion-time transformations in Azure Monitor (preview)](ingestion-time-transformations-structure.md) |
 | Data ingestion API with transformation | [Send custom logs to Azure Monitor Logs using the Azure portal](../logs/tutorial-data-ingestion-portal.md)<br>[Send custom logs to Azure Monitor Logs using Resource Manager templates](../logs/tutorial-data-ingestion-api.md) |
-| Workspace transformations | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](tutorial-workspace-transformations-api.md)
+| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](../logs/tutorial-workspace-transformations-api.md)
 
 
 ## Next steps

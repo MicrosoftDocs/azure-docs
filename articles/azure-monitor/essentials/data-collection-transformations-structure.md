@@ -1,13 +1,13 @@
 ---
 title: KQL limitations in data collection transformations
-description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
+description: Structure of transformation in Azure Monitor including limitations of KQL allowed in a transformation.
 ms.topic: conceptual
 ms.date: 06/29/2022
 ms.reviwer: nikeist
 
 ---
 
-# KQL limitations in data collection transformations
+# Structure of transformation in Azure Monitor (preview)
 [Transformations in Azure Monitor](/data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They are implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
 
 
