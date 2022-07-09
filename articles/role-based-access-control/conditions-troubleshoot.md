@@ -144,6 +144,80 @@ If you created a condition with the Read a blob action prior to May 2022, you mi
 
 Open the **Select an action** pane and reselect the **Read a blob** action.
 
+### Symptom - Attribute does not apply error
+
+When you select one or more actions in the visual editor with an existing expression, you get the following message and the previously selected attribute is removed:
+
+`Attribute does not apply for the selected actions. Select a different set of actions.`
+
+**Cause**
+
+The previously selected attribute no longer applies to the currently selected actions.
+
+**Solution 1**
+
+In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
+
+**Solution 2**
+
+In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
+
+### Symptom - Attribute does not apply in this context warning
+
+When you make edits in the code editor and then switch to the visual editor, you get the following message and the previously selected attribute is removed:
+
+`Attribute does not apply in this context. Use a different role assignment scope or remove the expression.`
+
+**Cause**
+
+The specified attribute is not available in the current scope, such as using `Version ID` in a storage account with hierarchical namespace enabled.
+
+**Solution**
+
+If you want to use the currently specified attribute, create the role assignment condition at a different scope, such as resource group scope. Or remove and re-create the expression using the currently selected actions.
+
+### Symptom - Attribute is not recognized error
+
+When you make edits in the code editor and then switch to the visual editor, you get the following message and the previously selected attribute is removed:
+
+`Attribute is not recognized. Select a valid attribute or remove the expression.`
+
+**Cause**
+
+The specified attribute is not recognized, possibly because of a typo.
+
+**Solution**
+
+In the code editor, fix the typo. Or remove the existing expression and use the visual editor to select an attribute.
+
+### Symptom - Attribute value is invalid error
+
+When you make edits in the code editor and then switch to the visual editor, you get the following message and the previously selected attribute is removed:
+
+`Attribute value is invalid. Select another attribute or value.`
+
+**Cause**
+
+The right side of the expression contains an attribute or value that is not valid.
+
+**Solution**
+
+Use the visual editor to select an attribute or specify a value.
+
+### Symptom - No actions selected error
+
+When you remove all of the actions in the visual editor, you get the following message:
+
+`No actions selected. Select one or more actions to edit expressions.`
+
+**Cause**
+
+There is an existing expression, but no actions have been selected as a target.
+
+**Solution**
+
+In the **Add action** section, add one or more actions that the expression should target.
+
 ## Error messages in Azure PowerShell
 
 ### Symptom - Resource attribute is not valid error
