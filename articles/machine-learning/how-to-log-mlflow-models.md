@@ -136,9 +136,9 @@ Mlflow supports a large variety of frameworks, including FastAI, MXNet Gluon, Py
 Python objects are serializable when the object can be stored in the file system as a file (generally in Pickle format). During runtime, the object can be materialized from such file and all the values, properties and methods available when it was saved will be restored.
 
 > [!TIP]
-> If your model implements the Scikit-learn API, then you can use the Scikit-learn flavor to log the model. For instance, if your model used to (or can be) persisted in Pickle format and the object has methods `predict` and `predict_proba` (at least), then you can use `mlflow.sklearn.log_model` to log it inside a MLflow run.
+> Serializable models that implements the Scikit-learn API can use the Scikit-learn flavor to log the model, regardless if the framework used is Scikit-learn. If your model can be persisted in Pickle format and the object has methods `predict()` and `predict_proba()` (at least), then you can use `mlflow.sklearn.log_model()` to log it inside a MLflow run.
 
-For this type of models, MLflow introduces a flavor called `pyfunc` (standing from Python function). Basically this flavor allows you to log any object you want as a model, as log as it satisfies two conditions:
+For this type of models, MLflow introduces a flavor called `pyfunc` (standing from Python function). Basically this flavor allows you to log any object you want as a model, as long as it satisfies two conditions:
 
 * The Python object inherits from `mlflow.pyfunc.PythonModel`.
 * You implement the method `predict` (at least).
