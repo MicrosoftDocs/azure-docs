@@ -22,7 +22,7 @@ If you want to remove the Azure IoT Edge for Linux on Windows installation from 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Open Settings on Windows
@@ -30,4 +30,4 @@ If you want to remove the Azure IoT Edge for Linux on Windows installation from 
 3. Select _Azure IoT Edge_ app
 4. Select Uninstall
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
