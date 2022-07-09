@@ -68,7 +68,7 @@ In order to provision an Event Hub, an Event Hubs namespace must first be provis
 > [!NOTE]
 > Event Hubs cannot be provisioned in a workspace, but must be provisioned in a resource group. However, the Event Hub and Event Hubs namespace need to be provisioned in the same Azure subscription.
 
-Once Event Hubs is provisioned, you must give permission to the Event Hubs to read data from the device. The MedTech service retrieves data from the Event Hubs using a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md). This managed identity is assigned an Azure Event Hubs data receiver role.For more information on how to assign the managed-identity role to the MedTech service from Event Hubs, see [Granting MedTech service access](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access).
+Once Event Hubs is provisioned, you must give permission to the Event Hubs to read data from the device. The MedTech service retrieves data from the Event Hubs using a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md). This managed identity is assigned an Azure Event Hubs data receiver role.For more information on how to assign the managed-identity role to the MedTech service from Event Hubs, see [Granting MedTech service access](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access).
 
 #### Provision a FHIR service instance to the same workspace
 
