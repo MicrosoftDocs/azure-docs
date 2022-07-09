@@ -81,7 +81,7 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR.
 
 ## Sample call
-For sample data and API call using the data ingestion API, see either [Send custom logs to Azure Monitor Logs using the Azure portal (preview)](data-ingestion-api-walkthrough-portal.md) or [Send custom logs to Azure Monitor Logs using Resource Manager templates](data-ingestion-api-walkthrough-arm.md)
+For sample data and API call using the data ingestion API, see either [Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-data-ingestion-portal.md) or [Send custom logs to Azure Monitor Logs using Resource Manager templates](tutorial-data-ingestion-api.md)
 
 ## Limits and restrictions
 For limits related to data ingestion API, see [Azure Monitor service limits](../service-limits.md#data-ingestion-api).

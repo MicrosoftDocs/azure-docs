@@ -111,7 +111,7 @@ The configuration requirements and content of resource logs vary by resource typ
 ## Operating system (guest)
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of the Azure Monitor agent, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.
 
-:::image type="content" source="media/data-sources/compute-resources.svg" lightbox="media/data-sources/compute-resources.svg" alt-text="Diagram that shows compute data collection." border="false":::
+:::image type="content" source="media/data-sources/compute-resources.png" lightbox="media/data-sources/compute-resources.png" alt-text="Diagram that shows compute data collection." border="false":::
 
 
 ### Azure Monitor agent 
@@ -202,7 +202,8 @@ In addition to the standard tiers of an application, you may need to monitor oth
 
 | Destination | Method | Description | Reference |
 |:---|:---|:---|:---|
-| Azure Monitor Logs | Data Collector API | Collect log data from any REST client and store in Log Analytics workspace. | [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)](logs/data-collector-api.md) |
+| Azure Monitor Logs | Data ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Data ingestion API in Azure Monitor (preview)](logs/data-ingestion-api-overview.md) |
+|                    | Data Collector API | Collect log data from any REST client and store in Log Analytics workspace. | [Send log data to Azure Monitor with the HTTP Data Collector API (preview)](logs/data-collector-api.md) |
 | Azure Monitor Metrics | Custom Metrics API | Collect metric data from any REST client and store in Azure Monitor metrics database. | [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) |
 
 
