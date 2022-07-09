@@ -37,6 +37,7 @@ HDInsight clusters can currently be created using availability zones in the foll
  - France Central
  - Germany West Central
  - Japan East
+ - Korea Central
  - North Europe
  - Southeast Asia
  - South Central US
@@ -44,8 +45,7 @@ HDInsight clusters can currently be created using availability zones in the foll
  - US Gov Virginia
  - West Europe
  - West US 2
- - Korea Central
-
+ 
 ## Overview of availability zones for HDInsight clusters
 
 Availability zones are unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. In Azure, a region contains one or more Availability Zones. This physical separation of availability zones within a region protects applications and data from datacenter failures. For more information, see [What are availability zones in Azure](../availability-zones/az-overview.md).
