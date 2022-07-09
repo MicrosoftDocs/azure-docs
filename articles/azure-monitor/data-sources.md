@@ -4,24 +4,24 @@ description: Describes the data available to monitor the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/07/2022
+ms.date: 07/09/2022
 ms.reviewer: shseth
 
 ---
 
 # Sources of monitoring data for Azure Monitor
-Azure Monitor is based on a [common monitoring data platform](data-platform.md) that includes [Logs](logs/data-platform-logs.md) and [Metrics](essentials/data-platform-metrics.md). Collecting data into this platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. Monitoring data may also be sent to other locations to support certain scenarios, and some resources may write to other locations before they can be collected into Logs or Metrics.
+Azure Monitor is based on a [common monitoring data platform](data-platform.md) that includes [Logs](logs/data-platform-logs.md) and [Metrics](essentials/data-platform-metrics.md). This platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. Monitoring data may also be sent to other locations to support certain scenarios, and some resources may write to other locations before they can be collected into Logs or Metrics.
 
 This article describes common sources of monitoring data collected by Azure Monitor in addition to the monitoring data created by Azure resources. Links are provided to detailed information on configuration required to collect this data to different locations.
 
-Some of these data source use the [new data ingestion pipeline]().
+Some of these data sources use the [new data ingestion pipeline](data-collection.md) in Azure Monitor. This article will be updated as other data sources transition to this new data collection method.
 
 ## Application tiers
 
 Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](monitor-reference.md) for a description of each data location and how you can access its data.
 
 
-![Monitoring tiers](media/overview/overview.png)
+:::image type="content" source="media/overview/azure-monitor-overview-optm.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-optm.svg":::
 
 
 ### Azure
@@ -45,7 +45,8 @@ The following table briefly describes the application tiers that may be in Azure
 ## Azure tenant
 Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
 
-![Azure tenant collection](media/data-sources/tenant.png)
+:::image type="content" source="media/data-sources/tenant.png" lightbox="media/data-sources/tenant.png" alt-text="Diagram that shows Azure tenant collection." border="false":::
+
 
 ### Azure Active Directory Audit Logs
 [Azure Active Directory reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
@@ -61,13 +62,13 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 ## Azure subscription
 Telemetry related to the health and operation of your Azure subscription.
 
-![Azure subscription](media/data-sources/azure-subscription.png)
+:::image type="content" source="media/data-sources/azure-subscription.png" lightbox="media/data-sources/azure-subscription.png" alt-text="Diagram that shows Azure subscription collection." border="false":::
 
 ### Azure Activity log 
 The [Azure Activity log](essentials/platform-logs-overview.md) includes service health records along with records on any configuration changes made to the resources in your Azure subscription. The Activity log is available to all Azure resources and represents their _external_ view.
 
 | Destination | Description | Reference |
-|:---|:---|
+|:---|:---|:---|
 | Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. | [Query the Activity log in the Azure portal](essentials/activity-log.md#view-the-activity-log) |
 | Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](essentials/activity-log.md) |
 | Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](essentials/resource-logs.md#send-to-azure-storage)  |
@@ -84,7 +85,7 @@ The [Azure Activity log](essentials/platform-logs-overview.md) includes service 
 ## Azure resources
 Metrics and resource logs provide information about the _internal_ operation of Azure resources. These are available for most Azure services, and monitoring solutions and insights collect additional data for particular services.
 
-![Azure resource collection](media/data-sources/data-source-azure-resources.svg)
+:::image type="content" source="media/data-sources/data-source-azure-resources.svg" lightbox="media/data-sources/data-source-azure-resources.svg" alt-text="Diagram that shows Azure resource collection." border="false":::
 
 
 ### Platform metrics 
@@ -110,10 +111,11 @@ The configuration requirements and content of resource logs vary by resource typ
 ## Operating system (guest)
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of the Azure Monitor agent, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.
 
-![Azure compute resource collection](media/data-sources/compute-resources-updated.png)
+:::image type="content" source="media/data-sources/compute-resources.svg" lightbox="media/data-sources/compute-resources.svg" alt-text="Diagram that shows compute data collection." border="false":::
+
 
 ### Azure Monitor agent 
-[Install the Azure Monitor agent](agents/azure-monitor-agent-manage.md) for comprehensive monitoring and management of your Windows or Linux virtual machines, scale sets and Arc-enabled servers (resources in other clouds or on-premises with Azure Arc installed, at no additional cost).
+[Install the Azure Monitor agent](agents/azure-monitor-agent-manage.md) for comprehensive monitoring and management of your Windows or Linux virtual machines, scale sets and Arc-enabled servers. The Azure Monitor agent replaces the Log Analytics agent and Azure diagnostic extension.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
@@ -122,16 +124,14 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 
 
 ### Log Analytics agent 
-The Log Analytics agent has been replaced by the Azure Monitor agent. 
-Install the Log Analytics agent for comprehensive monitoring and management of your Windows or Linux virtual machines. The virtual machine can be running in Azure, another cloud, or on-premises.
+[Install the Log Analytics agent](agents/log-analytics-agent.md) for comprehensive monitoring and management of your Windows or Linux virtual machines. The virtual machine can be running in Azure, another cloud, or on-premises. The Log Analytics agent has been replaced by the Azure Monitor agent. 
 
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](agents/agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](agents/om-agents.md) |
-| VM Storage | VM insights uses the Log Analytics agent to store heath state information in a custom location. See the next section for more information.  |
 
-### Azure Diagnostic extension
-Enabling the Azure Diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, virtual machine scale sets, and Service Fabric.
+### Azure diagnostic extension
+Enabling the Azure diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, virtual machine scale sets, and Service Fabric.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
@@ -153,7 +153,8 @@ Enabling the Azure Diagnostics extension for Azure Virtual machines allows you t
 ## Application Code
 Detailed application monitoring in Azure Monitor is done with [Application Insights](/azure/application-insights/) which collects data from applications running on a variety of platforms. The application can be running in Azure, another cloud, or on-premises.
 
-![Application data collection](media/data-sources/applications.png)
+
+:::image type="content" source="media/data-sources/applications.png" lightbox="media/data-sources/applications.png" alt-text="Diagram that shows application data collection." border="false":::
 
 
 ### Application data
@@ -195,7 +196,9 @@ When you enable Application Insights for an application by installing an instrum
 ## Custom sources
 In addition to the standard tiers of an application, you may need to monitor other resources that have telemetry that can't be collected with the other data sources. For these resources, write this data to either Metrics or Logs using an Azure Monitor API.
 
-![Custom collection](media/data-sources/custom.png)
+
+:::image type="content" source="media/data-sources/custom.png" lightbox="media/data-sources/custom.png" alt-text="Diagram that shows custom data collection." border="false":::
+
 
 | Destination | Method | Description | Reference |
 |:---|:---|:---|:---|
