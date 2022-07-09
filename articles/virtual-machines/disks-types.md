@@ -100,6 +100,12 @@ The only infrastructure redundancy options currently available to premium SSD v2
 
 Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 
+#### Regional availability
+
+Currently only available in the following regions:
+- Region 1
+- Region 2
+
 ### Premium SSD v2 performance
 
 Unlike other disk types, you can individually set the capacity, throughput, and IOPS of a premium SSD v2. Each of these values determine the cost of your disk. There is no dedicated sizes with premium SSD v2, but there are some limitations with how much performance is available to a disk of a particular capacity.
