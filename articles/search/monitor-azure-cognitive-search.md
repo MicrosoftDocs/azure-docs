@@ -60,6 +60,10 @@ In Azure Cognitive Search, [**activity logs**](/azure/azure-monitor/agents/data-
 
 1. See [Management REST API reference](/rest/api/searchmanagement/) for control plane activity that might appear in the log.
 
+The following screenshot shows the activity log signals that can be configured in an alert. These signals represent the entries you might see in the activity log.
+
+:::image type="content" source="media/search-monitor-usage/activity-log-signals.png" alt-text="Screenshot of the activity log signals that can be used in an alert." border="true":::
+
 ## Monitor metrics
 
 In Azure Cognitive Search, [**platform metrics**](/azure/azure-monitor/essentials/data-platform-metrics) measure query performance, indexing volume, and skillset invocation.
