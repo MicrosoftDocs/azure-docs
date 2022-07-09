@@ -1,7 +1,7 @@
 ---
 title: Logging MLflow models
 titleSuffix: Azure Machine Learning
-description: Learn about how MLflow uses the concept of models instead of artifacts to represents your trained models and enable a streamlined path to deployment.
+description: Learn about how MLflow uses the concept of models instead of artifacts to represent your trained models and enable a streamlined path to deployment.
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
@@ -24,18 +24,14 @@ A model in MLflow is also an artifact, but we make stronger assumptions about th
 
 Logging models has the following advantages:
 > [!div class="checklist"]
-> * You don't need to provide an scoring script nor an environment for deployment.
+> * You don't need to provide a scoring script nor an environment for deployment.
 > * Swagger is enabled in endpoints automatically and the __Test__ feature can be used in Azure ML studio.
 > * Models can be used as pipelines inputs directly.
 > * You can use the Responsable AI dashbord.
 
-## How to start logging models
-
-Logging artifacts as models in MLflow has the advantage of support no-code-deployment. That means that you don't have to provide an scoring script nor environment for the deployment. Learn more at [Deploy MLflow models](how-to-deploy-mlflow-models.md).
-
 There are different ways to start using the model's concept in Azure Machine Learning with MLflow, as explained in the following sections:
 
-### Logging models using autolog()
+## Logging models using autolog()
 
 One of the simplest ways to start using this approach is by using MLflow autolog functionality. Autolog allows MLflow to instruct the framework associated to with the framework you are using to log all the metrics, parameters, artifacts and models that the framework considers relevant. By default, most models will be log if autolog is enabled. Some flavors may decide not to do that in specific situations. For instance, the flavor PySpark won't log models if they exceed a certain size.
 
@@ -56,16 +52,16 @@ with mlflow.start_run():
     accuracy = accuracy_score(y_test, y_pred)
 ```
 
-### Logging models created with frameworks supported by MLFlow
+## Logging models created with frameworks supported by MLFlow
 
-If you need to log the models in a particular way, then you can use the method log_model to log the models as you need to. Usually, you will log the model in this way when:
+If you need to log the models in a particular way, then you can use the method log_model to log the models as you need to. Usually, you'll log the model in this way when:
 
 * You need to indicate pip packages or dependencies different from the ones that are automatically detected.
 * You need to indicate a conda environment different from the default one.
-* Your models uses a signature different from the one inferred. This is specifically important when you deal with inputs that are tensors where the signature needs specific shapes.
+* Your models use a signature different from the one inferred. This is specifically important when you deal with inputs that are tensors where the signature needs specific shapes.
 * You want to include input examples.
 * You want to include specific artifacts into the package that will be needed.
-* Somehow the default behaviour of autolog doesn't fill your purpoise.
+* Somehow the default behavior of autolog doesn't fill your purpose.
 
 To log a model, you use the log_method model of the flavor you are working with. For instance, the following code logs a model for an XGBoost classifier:
 
@@ -88,11 +84,11 @@ with mlflow.start_run():
     mlflow.xgboost.log_model(model, "classifier", signature=signature)
 ```
 
-### Logging models with a different behavior in the predict method
+## Logging models with a different behavior in the predict method
 
 For those cases where you need inference to happen in a particular way, MLflow allows you to log models with a custom loading and inference routine. Such routines are called a loader module. Loader modules can be specified in the `log_model()` instruction using the argument `loader_module` which indicates the Python namespace where the loader is implemented. The argument `code_path` is also added where you indicate the source files where the `loader_module` is defined.
 
-The following example logs a model using `xgboost` flavor, but the probabilities are returned instead of the predicted class (which is the default behaviour in Xgboost):
+The following example logs a model using `xgboost` flavor, but the probabilities are returned instead of the predicted class (which is the default behavior in Xgboost):
 
 ```python
 mlflow.xgboost.log_model("classifier", 
@@ -127,11 +123,11 @@ def _load_pyfunc(data_path: str):
 > * The parameter `loader_module` represents a namespace in Python where the code to load the model is placed. You are required to to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts and returns an object with a method predict (at least).
 
 
-### Logging custom models
+## Logging custom models
 
-Mlflow supports a big variety of frameworks, including FastAI, MXNet Gluon, PyTorch, TensorFlow, XGBoost, CatBoost, h2o, Keras, LightGBM, MLeap, ONNX, Prophet, spaCy, Spark MLLib, Scikit-Learn, and Statsmodels. However, they may be times where you need to change how a flavor works, log a model not natively supported by MLflow or even log a model that uses multiple elements from different frameworks. For those cases, you may need to create a custom model flavor.
+Mlflow supports a large variety of frameworks, including FastAI, MXNet Gluon, PyTorch, TensorFlow, XGBoost, CatBoost, h2o, Keras, LightGBM, MLeap, ONNX, Prophet, spaCy, Spark MLLib, Scikit-Learn, and Statsmodels. However, they may be times where you need to change how a flavor works, log a model not natively supported by MLflow or even log a model that uses multiple elements from different frameworks. For those cases, you may need to create a custom model flavor.
 
-#### Serializable models
+### Serializable models
 
 Python objects are serializable when the object can be stored in the file system as a file (generally in Pickle format). During runtime, the object can be materialized from such file and all the values, properties and methods available when it was saved will be restored.
 
@@ -140,7 +136,7 @@ Python objects are serializable when the object can be stored in the file system
 
 For this type of models, MLflow introduces a flavor called `pyfunc` (standing from Python function). Basically this flavor allows you to log any object you want as a model, as log as it satisfies two conditions:
 
-* The Python objects inherits from `mlflow.pyfunc.PythonModel`.
+* The Python object inherits from `mlflow.pyfunc.PythonModel`.
 * You implement the method `predict` (at least).
 
 The following sample wraps a model created with XGBoost to make it behaves in a different way to the default implementation of the XGBoost flavor (it returns the probabilities instead of the classes):
@@ -188,151 +184,155 @@ with mlflow.start_run():
 > [!TIP]
 > Note how the `infer_signature` method now uses `y_probs` to infer the signature. Our target column has the target class, but our model now returns the two probabilities for each class.
 
-#### Non-serializable models
+### Non-serializable models
 
-Models that are not serializable means that they cannot be serialized as a Pickle file. This includes models that holds references to code that can't be serialized, that do not support serialization, or that provides a more efficient way to be persisted in disk.
+By non-serializable models we mean that they cannot be serialized as a Pickle file. This includes models that hold references to code that can't be serialized, that don't support serialization, or that provides a more efficient way to be persisted in disk.
 
-In this case, you are required to use a different method to persist the artifacts that you need for your model to run. Then, Mlflow will snapshot all these artifacts and package them all for you. You have two different ways to do this, depending on your preferences:
+In this case, you're required to use a different method to persist the artifacts that you need for your model to run. Then, MLflow will snapshot all these artifacts and package them all for you. You have two different ways to do this, depending on your preferences:
 
-[Retaining model's state](#tab/pythonmodel)
+    # [Retaining model's state](#tab/pythonmodel)
 
-Use this if you want to retain the state of your model's properties. For instance, in a recommender system you might want to store the number of elements to recommend to any user as a parameter. Here, you will implement a model wrapper as you did in the option above, but in this case you will use `artifacts` to indicate MLflow extra files that you want to include for loading the model state.
+    Use this if you want to retain the state of your model's properties. For instance, in a recommender system you might want to store the number of elements to recommend to any user as a parameter. Here, you'll implement a model wrapper as you did in the option above, but in this case you'll use `artifacts` to indicate MLflow extra files that you want to include for loading the model state.
 
-To log a custom model using artifacts, you can do something as follows:
+    To log a custom model using artifacts, you can do something as follows:
 
-```python
-model_path = 'xgb.model'
-model.save_model(model_path)
-
-mlflow.pyfunc.log_model("classifier", 
-                        python_model=ModelWrapper(),
-                        artifacts={ 'model': model_path },
-                        signature=signature)
-```
-
-> [!NOTE]
-> * The model was saved using the save method of the framework used (it's not saved as a pickle).
-> * `ModelWrapper()` is the model wrapper, but the model is not passed as a parameter to the constructor.
-> A new parameter is indicated, `artifacts`, that is a dictionary with keys as the name of the artifact and values as the path is the local file system where the artifact is stored.
-
-The corresponding model wrapper then would look as follows:
-
-```python
-from mlflow.pyfunc import PythonModel, PythonModelContext
-
-class ModelWrapper(PythonModel):
-    def load_context(self, context: PythonModelContext):
-        from xgboost import XGBClassifier
-
-        self._model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-        model.load_model(context.artifacts["model"])
-
-    def predict(self, context: PythonModelContext, data):
-        return self._model.predict_proba(data)
-```
-
-The complete training routine would look as follows:
-
-```python
-import mlflow
-from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score
-from mlflow.models import infer_signature
-
-with mlflow.start_run():
-    mlflow.xgboost.autolog(log_models=False)
-
-    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-    model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
-    y_probs = model.predict_proba(X_test)
-
-    accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
-    mlflow.log_metric("accuracy", accuracy)
-
-    model_path = "xgb.model"
+    ```python
+    model_path = 'xgb.model'
     model.save_model(model_path)
 
-    signature = infer_signature(X_test, y_probs)
-    mlflow.pyfunc.log_model("classifier",
+    mlflow.pyfunc.log_model("classifier", 
                             python_model=ModelWrapper(),
-                            artifacts={"model": model_path},
+                            artifacts={ 'model': model_path },
                             signature=signature)
-```
+    ```
 
-[Stateless models](#tab/loader)
+    > [!NOTE]
+    > * The model was saved using the save method of the framework used (it's not saved as a pickle).
+    > * `ModelWrapper()` is the model wrapper, but the model is not passed as a parameter to the constructor.
+    > A new parameter is indicated, `artifacts`, that is a dictionary with keys as the name of the artifact and values as the path is the local file system where the artifact is stored.
 
-Sometimes your model logic is complex and there are several source code files being used to make your model work. This would be the case when you have a Python library for your model for instance. In this scenario, you want to package the library all along with your model so it can move from one place to another as a single piece.
+    The corresponding model wrapper then would look as follows:
 
-MLflow supports this kind of models too by allowing you to specify any arbitrary source code to package along with the model.
+    ```python
+    from mlflow.pyfunc import PythonModel, PythonModelContext
 
-```python
-model_path = 'xgb.model'
-model.save_model(model_path)
+    class ModelWrapper(PythonModel):
+        def load_context(self, context: PythonModelContext):
+            from xgboost import XGBClassifier
 
-mlflow.pyfunc.log_model("classifier", 
-                        data_path=model_path,
-                        code_path=['loader_module.py'],
-                        loader_module='loader_module'
-                        signature=signature)
-```
+            self._model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+            model.load_model(context.artifacts["model"])
 
-> [!NOTE]
-> The model was saved using the save method of the framework used (it's not saved as a pickle).
-> A new parameter, `data_path`, was added pointing to the folder where the model's artifacts are located. This can be a folder or a file. Whatever is on that folder or file, it will be packaged with the model.
-> A new parameter, `code_path`, was added pointing to the location where the source code is placed. This can be a path or a single file. Whatever is on that folder or file, it will be packaged with the model.
-> The parameter `loader_module` represents a namespace in Python where the code to load the model is placed. You are required to to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts (being the value you just passed at `data_path`) and returns an object with a method `predict` (at least).
+        def predict(self, context: PythonModelContext, data):
+            return self._model.predict_proba(data)
+    ```
 
-The corresponding `loader_module.py` implementation would be:
+    The complete training routine would look as follows:
 
-__loader_module.py__
+    ```python
+    import mlflow
+    from xgboost import XGBClassifier
+    from sklearn.metrics import accuracy_score
+    from mlflow.models import infer_signature
 
-```python
-class MyModel():
-    def __init__(self, model):
-        self._model = model
-        
-    def predict(self, data):
-        return self._model.predict_proba(data)
+    with mlflow.start_run():
+        mlflow.xgboost.autolog(log_models=False)
 
-def _load_pyfunc(data_path: str):
-    import os
-    
-    model = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
-    model.load_model(os.path.abspath(data_path))
-    
-    return MyModel(model)
-```
+        model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+        model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
+        y_probs = model.predict_proba(X_test)
 
-> [!NOTE]
-> * The class `MyModel` doesn't inherits from `PythonModel` as we did before, but it has a `predict` function.
-> The model's source code is on a file. This can be any source code you want. If your project has a folder src, it is a great candidate.
-> We added a function `_load_pyfunc` which returns an instance of the model's class.
+        accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
+        mlflow.log_metric("accuracy", accuracy)
 
-The complete training code would look as follows:
+        model_path = "xgb.model"
+        model.save_model(model_path)
 
-```python
-import mlflow
-from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score
-from mlflow.models import infer_signature
+        signature = infer_signature(X_test, y_probs)
+        mlflow.pyfunc.log_model("classifier",
+                                python_model=ModelWrapper(),
+                                artifacts={"model": model_path},
+                                signature=signature)
+    ```
 
-with mlflow.start_run():
-    mlflow.xgboost.autolog(log_models=False)
+    # [Stateless models](#tab/loader)
 
-    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-    model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
-    y_probs = model.predict_proba(X_test)
+    Sometimes your model logic is complex and there are several source code files being used to make your model work. This would be the case when you have a Python library for your model for instance. In this scenario, you want to package the library all along with your model so it can move from one place to another as a single piece.
 
-    accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
-    mlflow.log_metric("accuracy", accuracy)
+    MLflow supports this kind of models too by allowing you to specify any arbitrary source code to package along with the model.
 
-    model_path = "xgb.model"
+    ```python
+    model_path = 'xgb.model'
     model.save_model(model_path)
 
-    signature = infer_signature(X_test, y_probs)
-    mlflow.pyfunc.log_model("classifier",
+    mlflow.pyfunc.log_model("classifier", 
                             data_path=model_path,
-                            code_path=["loader_module.py"],
-                            loader_module="loader_module",
+                            code_path=['loader_module.py'],
+                            loader_module='loader_module'
                             signature=signature)
-```
+    ```
+
+    > [!NOTE]
+    > The model was saved using the save method of the framework used (it's not saved as a pickle).
+    > A new parameter, `data_path`, was added pointing to the folder where the model's artifacts are located. This can be a folder or a file. Whatever is on that folder or file, it will be packaged with the model.
+    > A new parameter, `code_path`, was added pointing to the location where the source code is placed. This can be a path or a single file. Whatever is on that folder or file, it will be packaged with the model.
+    > The parameter `loader_module` represents a namespace in Python where the code to load the model is placed. You are required to to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts (being the value you just passed at `data_path`) and returns an object with a method `predict` (at least).
+
+    The corresponding `loader_module.py` implementation would be:
+
+    __loader_module.py__
+
+    ```python
+    class MyModel():
+        def __init__(self, model):
+            self._model = model
+
+        def predict(self, data):
+            return self._model.predict_proba(data)
+
+    def _load_pyfunc(data_path: str):
+        import os
+
+        model = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+        model.load_model(os.path.abspath(data_path))
+
+        return MyModel(model)
+    ```
+
+    > [!NOTE]
+    > * The class `MyModel` doesn't inherits from `PythonModel` as we did before, but it has a `predict` function.
+    > The model's source code is on a file. This can be any source code you want. If your project has a folder src, it is a great candidate.
+    > We added a function `_load_pyfunc` which returns an instance of the model's class.
+
+    The complete training code would look as follows:
+
+    ```python
+    import mlflow
+    from xgboost import XGBClassifier
+    from sklearn.metrics import accuracy_score
+    from mlflow.models import infer_signature
+
+    with mlflow.start_run():
+        mlflow.xgboost.autolog(log_models=False)
+
+        model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+        model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
+        y_probs = model.predict_proba(X_test)
+
+        accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
+        mlflow.log_metric("accuracy", accuracy)
+
+        model_path = "xgb.model"
+        model.save_model(model_path)
+
+        signature = infer_signature(X_test, y_probs)
+        mlflow.pyfunc.log_model("classifier",
+                                data_path=model_path,
+                                code_path=["loader_module.py"],
+                                loader_module="loader_module",
+                                signature=signature)
+    ```
+
+## Next steps
+
+* [Deploy MLflow models](how-to-deploy-mlflow-models.md)
