@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > * Create a new AKS cluster 
 > * Create a new application gateway 
 > * Enable the AGIC add-on in the existing AKS cluster through Azure CLI 
-> * Enable the AGIC add-on in the existing AKS cluster through Portal 
+> * Enable the AGIC add-on in the existing AKS cluster through Azure portal 
 > * Peer the application gateway virtual network with the AKS cluster virtual network
 > * Deploy a sample application using AGIC for ingress on the AKS cluster
 > * Check that the application is reachable through application gateway
@@ -121,7 +121,7 @@ Check that the sample application you created is up and running by either visiti
 
 ## Clean up resources
 
-When no longer needed, remove the resource group, application gateway, and all related resources.
+When no longer needed, delete the resource group and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup 
