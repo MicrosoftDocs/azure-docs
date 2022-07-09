@@ -103,6 +103,9 @@
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
           href: concept-train-machine-learning-model.md
+        - name: MLflow model training
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
         - name: Distributed training
           displayName: parallellization, deep learning, deep neural network, dnn
           href: concept-distributed-training.md
@@ -419,6 +422,8 @@
               - name: Log & view metrics, parameters and files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
+              - name: Log MLflow models
+                href: how-to-log-mlflow-models.md
               - name: Visualize runs with TensorBoard
                 displayName: log, monitor, metrics
                 href: how-to-monitor-tensorboard.md
