@@ -13,33 +13,33 @@ ms.custom: subject-monitoring
 
 # Monitoring Azure Cognitive Search
 
-[Azure Monitor](../azure-monitor/overview.md) is enabled with every Azure subscription, providing performance and availability monitoring or all Azure resources, including Azure Cognitive Search. When you sign up for Azure Cognitive Search, Azure Monitor begins collecting activity logs and metrics as you use the service. 
+[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide monitoring capabilities over all Azure resources, including Cognitive Search. When you sign up for search, Azure Monitor collects [**activity logs**](/azure/azure-monitor/agents/data-sources#azure-activity-log) and [**metrics**](/azure/azure-monitor/essentials/data-platform-metrics) as soon as you start using the service. 
 
-Optionally, you can enable diagnostic settings to collect resource logs. Resource logs contain detailed information about search service operations that you can analyze and visualize in reports. 
+Optionally, you can enable diagnostic settings to collect [**resource logs**](../azure-monitor/essentials/resource-logs.md). Resource logs contain detailed information about search service operations that you can analyze and visualize in reports. 
 
 This article explains how monitoring works for Azure Cognitive Search. It also describes the system APIs that return information about your service.
 
 > [!NOTE]
-> Monitoring applies to search service operations. Cognitive Search doesn't monitor individual user access to content on the search service. If you require this level of monitoring, you'll need to implement it in your client application.
+> Cognitive Search doesn't monitor individual user access to content on the search service. If you require this level of monitoring, you'll need to implement it in your client application.
 
 ## Monitoring in Azure portal
 
-In the search service pages in Azure portal, you can find the current status of service operations and resource availability.
+In the search service pages in Azure portal, you can find the current status of operations and capacity.
 
   ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png "Azure Monitor integration in a search service")
 
 + On the **Overview** page, the **Monitoring** tab summarizes key [query metrics](search-monitor-queries.md), including query volume, latency, and throttled queries. On the next tab over, **Usage** reports on available capacity and the quantity of indexes, indexers, data sources, and skillsets relative to the maximum allowed for your [service tier](search-sku-tier.md).
 
-+ On the menu to the left, open the standard **Activity log** page to view search activity at the subscription level. 
++ On the menu to the left, open the **Activity log** page to view service activity at the subscription level. 
 
-+ On the menu to the left, the **Monitoring** section includes actions for Azure Monitor, filtered for your search service. Here, you can enable diagnostic settings and resource logging, and specify how you want the data stored.
++ Further down the menu, the **Monitoring** section includes actions for Azure Monitor, filtered for your search service. Here, you can enable diagnostic settings and resource logging, and specify how you want the data stored.
 
 > [!NOTE]
 > Because portal pages are refreshed every few minutes, the numbers reported are approximate, intended to give you a general sense of how well your system is handling requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page. If precision is a requirement, consider using APIs.
 
 ## Get system data from REST APIs
 
-Cognitive Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service. You can obtain this information programmatically:
+Cognitive Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service, which you can obtain programmatically:
 
 + [Service Statistics (REST)](/rest/api/searchservice/get-service-statistics)
 + [Index Statistics (REST)](/rest/api/searchservice/get-index-statistics)
@@ -97,17 +97,17 @@ The following table describes several rules. On a search service, throttling or 
 
 In Azure Cognitive Search, [**resource logs**](../azure-monitor/essentials/resource-logs.md) capture indexing and query operations on the search service itself.
 
-Resource Logs aren't collected and stored until you create a diagnostic setting. A diagnostic setting specifies data collection and storage. You can create multiple settings if you want to keep metrics and operational data separate, or if you want more than one of each type of destination.
+Resource Logs aren't collected and stored until you create a diagnostic setting. A diagnostic setting specifies data collection and storage. You can create multiple settings if you want to keep metrics and log data separate, or if you want more than one of each type of destination.
 
-Resource logging is billable (see the [Pricing model](../azure-monitor/usage-estimated-costs.md#pricing-model) for details). Billing doesn't start until you create a diagnostic setting. See [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for general guidance.
+Resource logging is billable (see the [Pricing model](../azure-monitor/usage-estimated-costs.md#pricing-model) for details), starting when you create a diagnostic setting. See [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for general guidance.
 
 1. In the Azure portal, find your search service. From the menu on the left, under Monitoring, select **Diagnostic settings**.
 
 1. Select **+ Add diagnostic setting**.
 
-1. Give the diagnostic setting a name. For example, it might be the name of your search service if you're collecting all logs and metrics.
+1. Give the diagnostic setting a name. Use granular and descriptive names if you're creating more than one settings.
 
-1. Select the logs and metrics that are in scope. Selections include "allLogs", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
+1. Select the logs and metrics that are in scope for this setting. Selections include "allLogs", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
 
    + See [Microsoft.Search/searchServices (in Supported categories for Azure Monitor resource logs)](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices)
 
