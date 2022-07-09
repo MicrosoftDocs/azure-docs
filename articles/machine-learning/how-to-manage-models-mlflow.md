@@ -71,7 +71,7 @@ mlflow.sklearn.save_model(reg, "./regressor")
 ```
 
 > [!TIP]
-> The method `save_model` works in the same way as `log_model`. While the latter requires an MLflow run to be active so the model can be logged there, the former uses the local file system for the stage of the model's artifacts.
+> The method `save_model()` works in the same way as `log_model()`. While `log_model()` saves the model inside on an active run, `save_model()` uses the local file system for saving the model.
 
 You can now register the model from the local path:
 
