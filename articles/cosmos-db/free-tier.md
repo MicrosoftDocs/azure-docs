@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB free tier 
 description: Use Azure Cosmos DB free tier to get started, develop, test your applications. With free tier, you'll get the first 1000 RU/s and 25 GB of storage in the account for free. 
-author: ThomasWeiss
-ms.author: thweiss
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/29/2022
+ms.date: 07/08/2022
 ---
 
 # Azure Cosmos DB free tier 
@@ -81,6 +81,10 @@ New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
     -EnableFreeTier true `
     -DefaultConsistencyLevel "Session" `
 ```
+
+### Find an existing free-tier account
+
+If the option to create a free-tier account is disabled or if you receive an error saying you cannot create a free-tier account, it is because there is already one created within your subscription. To find the existing free-tier account and the resource group it is in, use this Azure cli script, [Find Existing Free-Tier Account]((../../../scripts/cli/common/freetier.md)).
 
 ## Next steps
 
