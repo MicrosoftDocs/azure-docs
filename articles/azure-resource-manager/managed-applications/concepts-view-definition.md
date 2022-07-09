@@ -1,9 +1,9 @@
 ---
 title: Overview of view definition
-description: Describes the concept of creating view definition for Azure Managed Applications. 
+description: Describes the concept of creating view definition for Azure Managed Applications.
 ms.topic: conceptual
-ms.author: lazinnat
-author: lazinnat
+ms.author: davidsmatlak
+author: davidsmatlak
 ms.date: 06/12/2019
 ---
 
@@ -261,7 +261,7 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 
 You can define multiple views of this type. This view allows you to link existing resources to the managed application through the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](../custom-providers/overview.md).
 
-In this view you can extend existing Azure resources based on the `targetResourceType`. When a resource is selected, it will create an onboarding request to the **public** custom provider, which can apply a side effect to the resource. 
+In this view you can extend existing Azure resources based on the `targetResourceType`. When a resource is selected, it will create an onboarding request to the **public** custom provider, which can apply a side effect to the resource.
 
 ```json
 {
