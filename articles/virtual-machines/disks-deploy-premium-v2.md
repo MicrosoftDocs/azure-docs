@@ -3,10 +3,11 @@ title: Deploy a premium SSD v2 (preview) managed disk
 description: Learn how to deploy a premium SSD v2 (preview).
 author: roygara
 ms.author: rogarana
-ms.date: 06/23/2022
+ms.date: 07/08/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # Premium SSD v2 (preview)
@@ -20,6 +21,13 @@ Premium SSD v2 can't be used as OS disks, they can only be created as empty data
 The only infrastructure redundancy options currently available to premium SSD v2 are availability zones. VMs using any other redundancy options can't attach a premium SSD v2.
 
 Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512-byte sector size is required.
+
+### Regional availability
+
+Currently only available in the following regions:
+- Region 1
+- Region 2
+
 
 ## Prerequisites
 
