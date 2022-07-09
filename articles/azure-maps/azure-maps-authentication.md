@@ -169,10 +169,6 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 ## Shared access signature token authentication
 
-[!INCLUDE [preview features callout](./includes/preview-callout.md)]
-
-Shared Access Signature token authentication is in preview.
-
 Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token is created by first integrating a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using one of the built-in or custom role definitions.
 
 Functional key differences of SAS token from Azure AD Access tokens:
@@ -289,10 +285,6 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 > `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
 
 ## Cross origin resource sharing (CORS)
-
-[!INCLUDE [preview features callout](./includes/preview-callout.md)]
-
-Cross Origin Resource Sharing (CORS) is in preview.
 
 ### Prerequisites
 
