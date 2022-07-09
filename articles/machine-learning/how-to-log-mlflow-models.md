@@ -273,10 +273,10 @@ In this case, you're required to use a different method to persist the artifacts
     ```
 
     > [!NOTE]
-    > The model was saved using the save method of the framework used (it's not saved as a pickle).
-    > A new parameter, `data_path`, was added pointing to the folder where the model's artifacts are located. This can be a folder or a file. Whatever is on that folder or file, it will be packaged with the model.
-    > A new parameter, `code_path`, was added pointing to the location where the source code is placed. This can be a path or a single file. Whatever is on that folder or file, it will be packaged with the model.
-    > The parameter `loader_module` represents a namespace in Python where the code to load the model is placed. You are required to to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts (being the value you just passed at `data_path`) and returns an object with a method `predict` (at least).
+    > * The model was saved using the save method of the framework used (it's not saved as a pickle).
+    > * A new parameter, `data_path`, was added pointing to the folder where the model's artifacts are located. This can be a folder or a file. Whatever is on that folder or file, it will be packaged with the model.
+    > * A new parameter, `code_path`, was added pointing to the location where the source code is placed. This can be a path or a single file. Whatever is on that folder or file, it will be packaged with the model.
+    > * The parameter `loader_module` represents a namespace in Python where the code to load the model is placed. You are required to to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts (being the value you just passed at `data_path`) and returns an object with a method `predict` (at least).
 
     The corresponding `loader_module.py` implementation would be:
 
@@ -301,8 +301,8 @@ In this case, you're required to use a different method to persist the artifacts
 
     > [!NOTE]
     > * The class `MyModel` doesn't inherits from `PythonModel` as we did before, but it has a `predict` function.
-    > The model's source code is on a file. This can be any source code you want. If your project has a folder src, it is a great candidate.
-    > We added a function `_load_pyfunc` which returns an instance of the model's class.
+    > * The model's source code is on a file. This can be any source code you want. If your project has a folder src, it is a great candidate.
+    > * We added a function `_load_pyfunc` which returns an instance of the model's class.
 
     The complete training code would look as follows:
 
