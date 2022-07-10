@@ -101,11 +101,11 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![The Certificate download link](media/docusign-tutorial/certificatebase64.png)
 
 1. In the **Set up DocuSign** section, copy the appropriate URL (or URLs) based on your requirements.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs](media/docusign-tutorial/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -135,39 +135,39 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
 1. To automate the configuration in DocuSign, you must install the My Apps Secure Sign-in browser extension by selecting **Install the extension**.
 
-    ![My apps extension](common/install-myappssecure-extension.png)
+    ![My apps extension](media/docusign-tutorial/install-myappssecure-extension.png)
 
 2. After you add the extension to the browser, select **Setup DocuSign**. You're directed to the DocuSign application. From there, provide the admin credentials to sign in to DocuSign. The browser extension automatically configures the application and automates steps 3 through 5.
 
-    ![Setup configuration](common/setup-sso.png)
+    ![Setup configuration](media/docusign-tutorial/setup-sso.png)
 
 3. If you want to set up DocuSign manually, open a new web browser window and sign in to your DocuSign company site as an administrator.
 
 4. In the upper-left corner of the page, select the  app launcher (9 dots), and then select **Admin**.
   
-    ![Go to Admin under Profile](https://user-images.githubusercontent.com/9428173/174050203-923abf42-1ca8-4ef3-9a54-7adc12ba7761.png)
+    ![Go to Admin under Profile](media/docusign-tutorial/docusign-admin.png)
 
 5. On your domain solutions page, select **Domains**.
 
-    ![Select_Domains](https://user-images.githubusercontent.com/9428173/174050718-cb4e2927-5f08-4260-a3da-df5b78c3c055.png)
+    ![Select_Domains](media/docusign-tutorial/domains.png)
 
 
 6. In the **Domains** section, select **CLAIM DOMAIN**.
 
-    ![Claim_domain](https://user-images.githubusercontent.com/9428173/174050929-1e67a455-829b-403a-a0c5-c57e175b904e.png)
+    ![Claim_domain](media/docusign-tutorial/claim_domain.png)
 
 
 7. In the **Claim a Domain** dialog box, in the **Domain Name** box, type your company domain, and then select **CLAIM**. Make sure you verify the domain and that its status is active.
 
-    ![Claim a Domain/Domain Name dialog](https://user-images.githubusercontent.com/9428173/174051535-54ed2ba5-bf08-48ee-9827-8c97cfc859f8.png)
+    ![Claim a Domain/Domain Name dialog](media/docusign-tutorial/claim_a_domain.png)
 
 8. In the **Domains** section, select **Get Validation Token** of new domain added in the claim list.
 
-    "![pending_Identity_provider](https://user-images.githubusercontent.com/9428173/174053073-8cd07af7-5cb3-4eb7-963d-7d646ad2c4e2.png)
+    "![pending_Identity_provider](media/docusign-tutorial/pending_Identity_provider.png)
     
 9. Copy the **TXT Token**
 
-    ![TXT_token](https://user-images.githubusercontent.com/9428173/174054175-918f1624-670a-44e8-9aca-7dfe94db4bc6.png)
+    ![TXT_token](media/docusign-tutorial/txt_token.png)
 
 10. Configure your DNS provider with the **TXT Token** by following these steps:
 
@@ -180,33 +180,33 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
 11. On the domain solutions page, select **Identity Providers**.
   
-    ![Identity Providers option](https://user-images.githubusercontent.com/9428173/174055061-b7be4853-6549-42b7-890e-691cbd152c5a.png)
+    ![Identity Providers option](media/docusign-tutorial/identity_providers.png)
 
 12. In the **Identity Providers** section, select **ADD IDENTITY PROVIDER**.
 
-    ![Add Identity Provider option](https://user-images.githubusercontent.com/9428173/174055576-2051d1dc-26fd-4fbf-bcca-fa8709161ab6.png)
+    ![Add Identity Provider option](media/docusign-tutorial/add_identity_provider_option.png)
 
 
 13. On the **Identity Provider Settings** page, follow these steps:
 
     
 
-    ![Identity Provider Settings fields](https://user-images.githubusercontent.com/9428173/174060467-07d3f65d-41ff-4d60-ae88-7ff25671430b.png)
+    ![Identity Provider Settings fields](media/docusign-tutorial/idp_logout_authn.png)
 
     a. In the **Custom Name** box, type a unique name for your configuration. Don't use spaces.
 	
-	![name_Identity_provider](https://user-images.githubusercontent.com/9428173/174060746-df7949ce-00d4-43ed-847f-669cefda6dc9.png)
+	![name_Identity_provider](media/docusign-tutorial/add_identity_providers.png)
 
     b. In the **Identity Provider Issuer box**, paste the **Azure AD Identifier** value, which you copied from the Azure portal.
 
-	![urls_Identity_provider](https://user-images.githubusercontent.com/9428173/174060942-047d05b5-9acf-40f5-9c76-9f72a73f1db9.png)
+	![urls_Identity_provider](media/docusign-tutorial/idp_urls.png)
 
 
     c. In the **Identity Provider Login URL** box, paste the **Login URL** value, which you copied from Azure portal.
 
     d. In the **Identity Provider Logout URL** box, paste the value of **Logout URL**, which you  copied from Azure portal.
    
-       ![settings_Identity_provider](https://user-images.githubusercontent.com/9428173/174061724-be66f340-2a4e-48b7-8428-5848cded4c9e.png)
+       ![settings_Identity_provider](media/docusign-tutorial/settings_Identity_provider.png)
 
 
     e. For **Send AuthN request by**, select **POST**.
@@ -226,15 +226,15 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
     i. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure AD portal, and select **SAVE**.
 
-       ![Identity Provider Certificates/Add Certificate](https://user-images.githubusercontent.com/9428173/174062211-9188bfda-80c9-4c43-8850-53328abcd7fd.png)
+       ![Identity Provider Certificates/Add Certificate](media/docusign-tutorial/certificates.png)
 
     j. In the **Identity Providers** section, select **ACTIONS**, and then select **Endpoints**.
 
-       ![Identity Providers/Endpoints](https://user-images.githubusercontent.com/9428173/174064724-6e717c8f-397c-4972-a88a-81244c1efeb4.png)
+       ![Identity Providers/Endpoints](media/docusign-tutorial/identity_providers_endpoints.png)
 
     k. In the **View SAML 2.0 Endpoints** section of the DocuSign admin portal, follow these steps:
 
-       ![View SAML 2.0 Endpoints](https://user-images.githubusercontent.com/9428173/174065835-d11d8515-2ed6-4228-9e32-8defbba63889.png)
+       ![View SAML 2.0 Endpoints](media/docusign-tutorial/saml2_endpoints.png)
        
        1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
        
