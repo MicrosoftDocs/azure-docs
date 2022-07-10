@@ -171,8 +171,6 @@ If you are under the impression that certain devices aren't actively communicati
 
 If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
 
-Devices must be inactive for 14 days or more in order for you to be able to delete them.
-
 **To delete a device**:
 
 In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
