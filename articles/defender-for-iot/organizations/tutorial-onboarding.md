@@ -32,8 +32,7 @@ Before you start, make sure that you have the following:
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
-- VMware, ESXi 5.5 or later, installed and operational:
-
+- VMware, ESXi 5.5 or later, installed and operational on your sensor.
 
 - <a name="hw"></a>Available hardware resources for your VM as follows:
 
@@ -216,7 +215,7 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
 1. At the bottom left, select **Set up OT/ICS Security**.
 
-   :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of selecting to onboard the sensor to start the onboarding process for your sensor.":::
+   :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of the Getting started page for OT network sensors.":::
 
     In the **Set up OT/ICS Security** page, you can leave the **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP** steps collapsed, because you've completed these tasks earlier in this tutorial.
 
