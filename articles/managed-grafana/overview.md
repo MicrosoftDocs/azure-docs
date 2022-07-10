@@ -14,7 +14,7 @@ Azure Managed Grafana is a data visualization platform built on top of the Grafa
 
 Azure Managed Grafana is optimized for the Azure environment. It works seamlessly with many Azure services. Specifically, for the current preview, it provides with the following integration features:
 
-* Built-in support for [Azure Monitor](/azure/azure-monitor/) and [Azure Data Explorer](/azure/data-explorer/)
+* Built-in support for [Azure Monitor](../azure-monitor/index.yml) and [Azure Data Explorer](/azure/data-explorer/)
 * User authentication and access control using Azure Active Directory identities
 * Direct import of existing charts from Azure portal
 
@@ -35,4 +35,4 @@ You can create dashboards instantaneously by importing existing charts directly 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a workspace in Azure Managed Grafana Preview using the Azure portal](./quickstart-managed-grafana-portal.md).
+> [Create an Azure Managed Grafana Preview instance using the Azure portal](./quickstart-managed-grafana-portal.md)

@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 05/09/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to 
@@ -94,7 +94,10 @@ For more information about conditions, see [What is Azure attribute-based access
     | --- | --- | --- |
     | Baker text file | Project | Baker |
     | Cascade text file | Project | Cascade |
- 
+
+    > [!TIP]
+    > For information about the characters that are allowed for blob index tags, see [Setting blob index tags](../storage/blobs/storage-manage-find-blobs.md#setting-blob-index-tags).
+
 ## Step 4: Assign Storage Blob Data Reader role with a condition
 
 1. Open a new tab and sign in to the [Azure portal](https://portal.azure.com).

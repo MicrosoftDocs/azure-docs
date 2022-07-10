@@ -24,7 +24,7 @@ VMs can be in one of a few states.
 - **Stopping**.  VM is stopping and not available for use.
 
 > [!WARNING]
-> Turning on a student VM will not affect the quota for the student. Make sure to stop all VMs manually or using a [schedule](how-to-create-schedules.md) to avoid unexpected costs.
+> Turning on a student VM will not affect the quota for the student. Make sure to stop all VMs manually or use a [schedule](how-to-create-schedules.md) to avoid unexpected costs.
 
 ## Manually starting VMs
 

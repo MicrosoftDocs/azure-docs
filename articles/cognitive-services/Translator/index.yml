@@ -21,7 +21,7 @@ metadata:
 
 landingContent:
   # Card 1
-  - title: About Azure Cognitive Services Translator
+  - title: About Translator Service
     linkLists:
       - linkListType: overview
         links:

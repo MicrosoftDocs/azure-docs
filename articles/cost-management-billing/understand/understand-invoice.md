@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 05/18/2022
 ms.author: banders
 
 ---
@@ -48,7 +48,7 @@ first page and shows information about your profile and subscription.
 | Customer PO No. |An optional purchase order number, assigned by you for tracking |
 | Invoice No. |A unique, Microsoft generated invoice number used for tracking purposes |
 | Billing cycle |Date range that this invoice covers |
-| Invoice date |Date that the invoice was generated, typically a day after end of the Billing cycle |
+| Invoice date |Date that the invoice was generated, typically on the same day of the month that the Azure account was created. However, they sometimes get generated a day or two later than day of the month that the Azure account was created.|
 | Payment method |Type of payment used on the account (invoice or credit card) |
 | Bill to |Billing address that is listed for the account |
 | Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). For more information, see [Azure offer types](https://azure.microsoft.com/support/legal/offer-details/). |

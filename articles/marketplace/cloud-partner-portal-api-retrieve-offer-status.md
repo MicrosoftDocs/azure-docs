@@ -25,7 +25,6 @@ Retrieves the current status of the offer.
 |  publisherId    | Publisher identifier, for example `Contoso`  |     String     |
 |  offerId        | GUID that uniquely identifies the offer      |     String     |
 |  api-version    | Latest version of API                        |     Date       |
-|  |  |
 
 ## Header
 
@@ -34,7 +33,6 @@ Retrieves the current status of the offer.
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Authorization  | `Bearer YOUR_TOKEN`  |
-|  |  |
 
 ## Body example
 
@@ -128,7 +126,6 @@ Retrieves the current status of the offer.
 |  previewLinks         | *Not currently implemented*                                                                    |
 |  liveLinks            | *Not currently implemented*                                                                    |
 |  notificationEmails   | Deprecated for offers migrated to Partner Center. Notification emails for migrated offers will be sent to the email specified under the Seller contact info in Account settings.<br><br>For non-migrated offers, comma-separated list of email addresses to be notified of the progress of the operation        |
-|  |  |
 
 ### Response status codes
 
@@ -137,7 +134,6 @@ Retrieves the current status of the offer.
 |  200     |  `OK` - The request was successfully processed, and the current status of the offer was returned. |
 |  400     | `Bad/Malformed request` - The error response body may contain more information.                 |
 |  404     | `Not found` - The specified entity doesn't exist.                                                |
-|  |  |
 
 ### Offer status
 
@@ -150,7 +146,6 @@ Retrieves the current status of the offer.
 |  Succeeded                   | Offer submission has completed processing.               |
 |  Canceled                    | Offer submission was canceled.                           |
 |  Failed                      | Offer submission failed.                                 |
-|  |  |
 
 ### Step Status
 
@@ -164,4 +159,3 @@ Retrieves the current status of the offer.
 |  Rejected                    | Step is rejected.                            |
 |  Complete                    | Step is complete.                            |
 |  Canceled                    | Step was canceled.                           |
-|  |  |

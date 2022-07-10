@@ -4,12 +4,15 @@ description: Overview of the health feature in VM insights including how you can
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/27/2020
+ms.date: 05/03/2022
 
 ---
 
 # VM insights guest health (preview)
 VM insights guest health allows you to view the health of virtual machines based on a set of performance measurements that are sampled at regular intervals from the guest operating system. You can quickly check the health of all virtual machines in a subscription or resource group, drill down on the detailed health of a particular virtual machine, or be proactively notified when a virtual machine becomes unhealthy. 
+
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
+
 
 ## Enable virtual machine health
 See [Enable VM insights guest health (preview)](vminsights-health-enable.md) for details on enabling the guest health feature and onboarding virtual machines.

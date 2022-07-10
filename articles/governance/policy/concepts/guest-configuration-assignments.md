@@ -41,6 +41,8 @@ report compliance status. For more information, see
 When an Azure Policy assignment is deleted, if a guest configuration assignment
 was created by the policy, the guest configuration assignment is also deleted.
 
+When an Azure Policy assignment is deleted from an initiative, if a guest configuration assignment was created by the policy, you will need to manually delete the corresponding guest configuration assignment. This can be done by navigating to the guest assignments page on Azure portal and deleting the assignment there.
+
 ## Manually creating guest configuration assignments
 
 Guest assignment resources in Azure Resource Manager can be created by Azure

@@ -1,8 +1,9 @@
 ---
 title: Migration and application development partners for Azure Cosmos DB 
 description: Lists Microsoft partners with migration solutions that support Azure Cosmos DB.
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021

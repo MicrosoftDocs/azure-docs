@@ -137,7 +137,7 @@ The following Resource Provider modes are fully supported:
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
   custom definitions as a _public preview_. See
-  [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to create a
+  [Create policy definition from constraint template](../how-to/extension-for-vscode.md#create-policy-definition-from-constraint-template) to create a
   custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
   GateKeeper v3
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use

@@ -3,7 +3,7 @@ title: NV A10 v5-series
 description: Specifications for the NV A10 v5-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/01/2022
 ms.author: vikancha

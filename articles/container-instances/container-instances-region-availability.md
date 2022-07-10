@@ -1,8 +1,12 @@
 ---
 title: Resource availability by region
 description: Availability of compute and memory resources for the Azure Container Instances service in different Azure regions.
-ms.topic: article
-ms.date: 04/27/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: conceptual
+ms.date: 06/17/2022
 ms.custom: references_regions
 
 ---

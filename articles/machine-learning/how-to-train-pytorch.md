@@ -9,11 +9,13 @@ ms.author: larryfr
 author: blackmist
 ms.date: 02/28/2022
 ms.topic: how-to
-
-#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train PyTorch models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning.
 

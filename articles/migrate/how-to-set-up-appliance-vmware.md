@@ -35,7 +35,7 @@ To set up the appliance by using an OVA template, you'll complete these steps, w
 
 #### Generate the project key
 
-1. In **Migration Goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Discover**.
 1. In **Discover servers**, select **Are your servers virtualized?** > **Yes, with VMware vSphere hypervisor**.
 1. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up to discover servers in your VMware environment. The name should be alphanumeric and 14 characters or fewer.
 1. To start creating the required Azure resources, select **Generate key**. Don't close the **Discover** pane while the resources are being created.
@@ -184,6 +184,19 @@ In the configuration manager, in the credentials table, see the **Validation sta
 If validation fails, you can select a **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
 
 :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
+
+> [!NOTE]
+> Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
+>  - Non-ASCII characters. [Learn more](https://en.wikipedia.org/wiki/ASCII).
+>  - Ampersand (&)
+>  - Semicolon (;)
+>  - Double quotation mark (")
+>  - Single quotation mark (')
+>  - Circumflex (^)
+>  - Backslash (\\)
+>  - Percentage (%)
+>  - Angle brackets (<,>)
+>  - Pound (£)
 
 ### Start discovery
 

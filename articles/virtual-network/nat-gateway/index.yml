@@ -41,7 +41,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create and validate NAT gateway
-            url: tutorial-create-nat-gateway-portal.md    
+            url: quickstart-create-nat-gateway-portal.md    
       - linkListType: tutorial
         links:
           - text: Integrate NAT gateway with a public load balancer

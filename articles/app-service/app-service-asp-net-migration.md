@@ -12,7 +12,7 @@ ms.custom: seodec18
 ---
 # .NET migration cases for Azure App Service
 
-Azure App Service provides easy-to-use tools to quickly discover on-premise .NET web apps, assess for readiness, and migrate both the content & supported configurations to App Service.
+Azure App Service provides easy-to-use tools to quickly discover on-premises .NET web apps, assess for readiness, and migrate both the content & supported configurations to App Service.
 
 These tools are developed to support different kinds of scenarios, focused on discovery, assessment, and migration. Following is list of .NET migration tools and use cases.
 
@@ -58,4 +58,4 @@ The [app containerization tool](https://azure.microsoft.com/blog/accelerate-appl
 
 ## Next steps
 
-[Migrate an on-premise web application to Azure App Service](/learn/modules/migrate-app-service-migration-assistant/)
+[Migrate an on-premises web application to Azure App Service](/learn/modules/migrate-app-service-migration-assistant/)

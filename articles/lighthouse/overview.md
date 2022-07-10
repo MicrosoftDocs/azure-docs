@@ -33,7 +33,7 @@ Azure Lighthouse includes multiple ways to help streamline engagement and manage
 - **Managed Service offers in Azure Marketplace**: [Offer your services to customers](concepts/managed-services-offers.md) through private or public offers, and automatically onboard them to Azure Lighthouse.
 
 > [!TIP]
-> A similar offering, [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview), helps service providers onboard, monitor, and manage their Microsoft 365 customers at scale. Microsoft 365 Lighthouse is currently in preview.
+> A similar offering, [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview), helps service providers onboard, monitor, and manage their Microsoft 365 customers at scale.
 
 ## Pricing and availability
 

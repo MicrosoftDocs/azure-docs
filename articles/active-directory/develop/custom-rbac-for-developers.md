@@ -2,7 +2,7 @@
 title: Custom role-based access control (RBAC) for application developers - Microsoft identity platform
 description: Learn about what custom RBAC is and why it's important to implement in your applications.
 services: active-directory
-author: Chrispine-Chiedo
+author: CelesteDG
 manager: CelesteDG
  
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity 
 ms.date: 11/15/2021
 ms.custom: template-concept
-ms.author: cchiedo
+ms.author: celested
 ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
 
 #Customer intent: As a developer, I want to learn about custom RBAC and why I need to use it in my application.

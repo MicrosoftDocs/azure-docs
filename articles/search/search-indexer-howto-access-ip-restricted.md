@@ -18,7 +18,7 @@ On behalf of an indexer, a search service will issue outbound calls to an extern
 This article explains how to find the IP address of your search service and configure an inbound IP rule on an Azure Storage account. While specific to Azure Storage, this approach also works for other Azure resources that use IP firewall rules for data access, such as Cosmos DB and Azure SQL.
 
 > [!NOTE]
-> A storage account and your search service must be in different regions if you want to define IP firewall rules. If your setup doesn't permit this, try the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) instead.
+> A storage account and your search service must be in different regions if you want to define IP firewall rules. If your setup doesn't permit this, try the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances) instead.
 
 ## Get a search service IP address
 

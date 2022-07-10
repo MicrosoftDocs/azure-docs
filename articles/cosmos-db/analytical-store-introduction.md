@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 03/24/2022
 ms.author: rosouz
 ms.custom: seo-nov-2020, devx-track-azurecli
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ---
 
 # What is Azure Cosmos DB analytical store?
@@ -382,11 +382,11 @@ How to enable analytical store on a container:
 
 To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
-## Cost-effective archival of historical data
+## Cost-effective analytics on historical data
 
 Data tiering refers to the separation of data between storage infrastructures optimized for different scenarios. Thereby improving the overall performance and cost-effectiveness of the end-to-end data stack. With analytical store, Azure Cosmos DB now supports automatic tiering of data from the transactional store to analytical store with different data layouts. With analytical store optimized in terms of storage cost compared to the transactional store, allows you to retain much longer horizons of operational data for historical analysis.
 
-After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the transactional store Time-to-Live (TTTL) property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  analytical store Time-to-Live (ATTL)' allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
+After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the transactional store Time-to-Live (TTTL) property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  analytical store Time-to-Live (ATTL) allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
 
 ## Backup
 

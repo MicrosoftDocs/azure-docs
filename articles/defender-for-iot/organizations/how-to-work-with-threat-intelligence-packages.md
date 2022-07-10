@@ -102,7 +102,7 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 ## Review package update status on the sensor ##
 
-The package update status and version information is displayed in the sensor **System Settings**, **Threat Intelligence** section.  
+The package update status and version information are displayed in the sensor **System Settings**, **Threat Intelligence** section.  
 
 ## Review package information for cloud connected sensors ##
 

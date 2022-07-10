@@ -102,7 +102,7 @@ Load your data file with the Pandas library's `read_csv()` method, and make an e
 
 ```python
 series = []
-data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', parse_dates=[0])
+data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
 for index, row in data_file.iterrows():
     series.append(TimeSeriesPoint(timestamp=row[0], value=row[1]))
 ```

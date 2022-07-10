@@ -12,16 +12,16 @@ ms.author: jaysoni
 
 # Common key vault errors in Azure Application Gateway
 
-Application Gateway enables customers to securely store TLS certificates in Azure Key Vault. When using a Key Vault resource, it is important that the gateway always has access to the linked key vault. If your Application Gateway is unable to fetch the certificate, the associated HTTPS listeners will be placed in a disabled state. [Learn more](../application-gateway/disabled-listeners.md).
+Application Gateway enables customers to securely store TLS certificates in Azure Key Vault. When using a key vault resource, it is important that the gateway always has access to the linked key vault. If your Application Gateway is unable to fetch the certificate, the associated HTTPS listeners will be placed in a disabled state. [Learn more](../application-gateway/disabled-listeners.md).
 
-This article helps you understand the details of key vault error codes you might encounter, including what is causing these errors. This article also contains steps to resolve such misconfigurations.
+This article helps you understand the details of the error codes and the steps to resolve such key vault misconfigurations.
 
 > [!TIP]
 > Use a secret identifier that doesn't specify a version. This way, Azure Application Gateway will automatically rotate the certificate, if a newer version is available in Azure Key Vault. An example of a secret URI without a version is: `https://myvault.vault.azure.net/secrets/mysecret/`.
 
 ## List of error codes and their details
 
-The following sections cover various errors you might encounter. You can find the details in Azure Advisor, and use this troubleshooting article to fix the problems. For more information, see [Create Azure Advisor alerts on new recommendations by using the Azure portal](../advisor/advisor-alerts-portal.md).
+The following sections describe the various errors you might encounter. You can verify if your gateway has any such problem by visting [**Azure Advisor**](./key-vault-certs.md#investigating-and-resolving-key-vault-errors) for your account, and use this troubleshooting article to fix the problem. We recommend configuring Azure Advisor alerts to stay informed when a key vault problem is detected for your gateway.
 
 > [!NOTE]
 > Azure Application Gateway generates logs for key vault diagnostics every four hours. If the diagnostic continues to show the error after you have fixed the configuration, you might have to wait for the logs to be refreshed.
@@ -29,18 +29,36 @@ The following sections cover various errors you might encounter. You can find th
 [comment]: # (Error Code 1)
 ### Error code: UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault 
 
-**Description:** The associated user-assigned managed identity doesn't have the "Get" permission. 
+**Description:** The associated user-assigned managed identity doesn't have the required permission. 
 
-**Resolution:** Configure the access policy of Key Vault to grant the user-assigned managed identity this permission on secrets. 
-1. Go to the linked key vault in the Azure portal.
-1. Open the **Access policies** pane.
-1. For **Permission model**, select **Vault access policy**.
-1. Under **Secret Management Operations**, select the **Get** permission.
-1. Select **Save**.
+**Resolution:** Configure the access policies of your key vault to grant the user-assigned managed identity permission on secrets. You may do so in any of the following ways:
+
+  **Vault access policy**
+  1. Go to the linked key vault in the Azure portal.
+  1. Open the **Access policies** blade.
+  1. For **Permission model**, select **Vault access policy**.
+  1. Under **Secret Management Operations**, select the **Get** permission.
+  1. Select **Save**.
 
 :::image type="content" source="./media/application-gateway-key-vault-common-errors/no-get-permssion-for-managed-identity.png " alt-text=" Screenshot that shows how to resolve the Get permission error.":::
 
 For more information, see [Assign a Key Vault access policy by using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
+
+  **Azure role-based access control**
+  1. Go to the linked key vault in the Azure portal.
+  1. Open the **Access policies** blade.
+  1. For **Permission model**, select **Azure role-based access control**.
+  1. After this, navigate to **Access Control (IAM)** blade to configure permissions.
+  1. **Add role assignment** for your managed identity by choosing the following<br>
+    a. **Role**: Key Vault Secrets User<br>
+    b. **Assign access to**: Managed identity<br>
+    c. **Members**: select the user-assigned managed identity which you've associated with your application gateway.<br>
+  1. Select **Review + assign**.
+
+For more information, see [Azure role-based access control in Key Vault](../key-vault/general/rbac-guide.md).
+
+> [!NOTE]
+> Portal support for adding a new key vault-based certificate is currently not available when using **Azure role-based access control**. You can accomplish it by using ARM template, CLI, or PowerShell. Visit [this page](./key-vault-certs.md#key-vault-azure-role-based-access-control-permission-model) for guidance.
 
 [comment]: # (Error Code 2)
 ### Error code: SecretDisabled 
@@ -74,12 +92,9 @@ On the other hand, if a certificate object is permanently deleted, you will need
 
 **Description:** The associated user-assigned managed identity has been deleted. 
 
-**Resolution:** To use the identity again:
-1. Re-create a managed identity with the same name that was used previously, and under the same resource group. Resource activity logs contain more details. 
-1. After you create the identity, go to **Application Gateway - Access Control (IAM)**. Assign the identity the **Reader** role, at a minimum.
-1. Finally, go to the desired Key Vault resource, and set its access policies to grant **Get** secret permissions for this new managed identity. 
-
-For more information, see [How integration works](./key-vault-certs.md#how-integration-works).
+**Resolution:** Create a new managed identity and use it with the key vault.
+1. Re-create a managed identity with the same name that was previously used, and under the same resource group. (**TIP**: Refer to resource Activity Logs for naming details). 
+1. Go to the desired key vault resource, and set its access policies to grant this new managed identity the required permission. You can follow the same steps as mentioned under [UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault](./application-gateway-key-vault-common-errors.md#error-code-userassignedidentitydoesnothavegetpermissiononkeyvault). 
 
 [comment]: # (Error Code 5)
 ### Error code: KeyVaultHasRestrictedAccess
@@ -117,5 +132,6 @@ Select **Managed deleted vaults**. From here, you can find the deleted Key Vault
 
 These troubleshooting articles might be helpful as you continue to use Application Gateway:
 
+- [Understanding and fixing disabled listeners](disabled-listeners.md)
 - [Azure Application Gateway Resource Health overview](resource-health-overview.md)
-- [Troubleshoot Azure Application Gateway session affinity issues](how-to-troubleshoot-application-gateway-session-affinity-issues.md)
+

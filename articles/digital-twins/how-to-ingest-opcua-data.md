@@ -361,32 +361,23 @@ In this section, you'll publish an Azure function that you downloaded in [Prereq
 1. Navigate to the downloaded [OPC UA to Azure Digital Twins](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) project on your local machine, and into the *Azure Functions/OPCUAFunctions* folder. Open the *OPCUAFunctions.sln* solution in Visual Studio.
 2. Publish the project to a function app in Azure. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-#### Configure the function app
+### Configure the function app
 
 Next, assign an access role for the function and configure the application settings so that it can access your Azure Digital Twins instance.
 
-[!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
+[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
 
-#### Add application settings
+Next, configure an application setting for the URL of the shared access signature for the *opcua-mapping.json* file.
 
-You'll also need to add some application settings to fully set up your environment and the Azure function. Go to the [Azure portal](https://portal.azure.com) and navigate to your newly created Azure function by searching for its name in the portal search bar.
+```azurecli-interactive	
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-function-app-name> --settings "JSON_MAPPINGFILE_URL=<file-URL>"
+```
 
-Select Configuration from the function's left navigation menu. Use the **+ New application setting** button to start creating new settings.
+Optionally, you can configure a third application setting for the log level verbosity. The default is 100, or you can set it to 300 for a more verbose logging experience.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/azure-function-settings-1.png" alt-text="Screenshot of adding application settings to an Azure function in the Azure portal.":::
-
-There are three application settings you need to create:
-
-| Setting | Description | Required |
-| --- | --- | --- |
-| ADT_SERVICE_URL | URL for your Azure Digital Twins instance. Example: `https://example.api.eus.digitaltwins.azure.net` | ✔ |
-| JSON_MAPPINGFILE_URL | URL of the shared access signature for the opcua-mapping.json | ✔ |
-| LOG_LEVEL | Log level verbosity. Default is 100. Verbose is 300 | |
-
-:::image type="content" source="media/how-to-ingest-opcua-data/azure-function-settings-2.png" alt-text="Screenshot of application settings for an Azure function in the Azure portal. The settings above have been added.":::
-
-> [!TIP]
-> Set the `LOG_LEVEL` application setting on the function to 300 for a more verbose logging experience. 
+```azurecli-interactive	
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-function-app-name> --settings "LOG_LEVEL=<verbosity-level>"
+```
 
 ### Create event subscription
 

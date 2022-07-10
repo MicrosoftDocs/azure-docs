@@ -10,6 +10,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.author: aahi
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Migrate to the Read v3.x OCR containers

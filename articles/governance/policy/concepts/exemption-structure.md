@@ -1,8 +1,10 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 08/17/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy exemption structure
 
@@ -36,6 +38,7 @@ two of the policy definitions in the initiative, the `customOrgPolicy` custom po
 ```json
 {
     "id": "/subscriptions/{subId}/resourceGroups/ExemptRG/providers/Microsoft.Authorization/policyExemptions/resourceIsNotApplicable",
+    "apiVersion": "2020-07-01-preview",
     "name": "resourceIsNotApplicable",
     "type": "Microsoft.Authorization/policyExemptions",
     "properties": {
@@ -148,6 +151,7 @@ assignment.
 
 ## Next steps
 
+- Study the [Microsoft.Authorization policyExemptions resource type](/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
 - Learn about the [policy definition structure](./definition-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

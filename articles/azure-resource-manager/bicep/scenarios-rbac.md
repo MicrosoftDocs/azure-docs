@@ -4,23 +4,27 @@ description: Describes how to create role assignments and role definitions by us
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 12/20/2021
+ms.date: 05/15/2022
 ---
 # Create Azure RBAC resources by using Bicep
 
-Azure has a powerful role-based access control (RBAC) system. By using Bicep, you can programmatically define your RBAC role assignments and role definitions.
+Azure has a powerful role-based access control (RBAC) system. For more information on Azure RBAC, see [What is Azure Role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) By using Bicep, you can programmatically define your RBAC role assignments and role definitions.
 
 ## Role assignments
+
+Role assignments enable you to grant a principal (such as a user, a group, or a service principal) access to a specific Azure resource.
 
 To define a role assignment, create a resource with type [`Microsoft.Authorization/roleAssignments`](/azure/templates/microsoft.authorization/roleassignments?tabs=bicep). A role definition has multiple properties, including a scope, a name, a role definition ID, a principal ID, and a principal type.
 
 ### Scope
 
+Role assignments apply at a specific *scope*, which defines the resource or set of resources that you're granting access to. For more information, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
+
 Role assignments are [extension resources](scope-extension-resources.md), which means they apply to another resource. The following example shows how to create a storage account and a role assignment scoped to that storage account:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/scope.bicep" highlight="17" :::
 
-If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. In the following example, no `scope` property is specified, so the role assignment applies to the subscription:
+If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. In the following example, no `scope` property is specified, so the role assignment is scoped to the subscription:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/scope-default.bicep" highlight="4" :::
 
@@ -31,14 +35,15 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 
 ### Name
 
-A role assignment's resource name must be a globally unique identifier (GUID). It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope is narrower.
+A role assignment's resource name must be a globally unique identifier (GUID).
 
-> [!TIP]
-> Use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
->
-> ```bicep
-> name: guid(subscription().id, principalId, roleDefinitionResourceId)
-> ```
+Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope is narrower.
+
+For your Bicep deployment to be repeatable, it's important for the name to be deterministic - in other words, to use the same name every time you deploy. It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. It's a good idea to use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
+
+```bicep
+name: guid(subscription().id, principalId, roleDefinitionResourceId)
+```
 
 ### Role definition ID
 
@@ -61,7 +66,15 @@ The following example shows how to create a user-assigned managed identity and a
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/managed-identity.bicep" highlight="15-16" :::
 
+### Resource deletion behavior
+
+When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically.
+
+Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail.
+
 ## Custom role definitions
+
+Custom role definitions enable you to define a set of permissions that can then be assigned to a principal by using a role assignment. For more information on role definitions, see [Understand Azure role definitions](../../role-based-access-control/role-definitions.md).
 
 To create a custom role definition, define a resource of type `Microsoft.Authorization/roleDefinitions`. See the [Create a new role def via a subscription level deployment](https://azure.microsoft.com/resources/templates/create-role-def/) quickstart for an example.
 

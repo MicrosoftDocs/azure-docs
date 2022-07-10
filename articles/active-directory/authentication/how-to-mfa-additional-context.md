@@ -1,30 +1,30 @@
 ---
-title: Use additional context in Microsoft Authenticator notifications (Preview) - Azure Active Directory
+title: Use additional context in Microsoft Entra Authenticator notifications (Preview) - Azure Active Directory
 description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 06/08/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use additional context in Microsoft Authenticator notifications (Preview) - Authentication Methods Policy
+# How to use additional context in Microsoft Entra Authenticator app notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to improve the security of user sign-in by adding the application and location in Microsoft Authenticator push notifications.  
+This topic covers how to improve the security of user sign-in by adding the application and location in Microsoft Entra Authenticator app push notifications.  
 
 ## Prerequisites
 
-Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API.
+Your organization will need to enable Authenticator app push notifications for some users or groups using the new Authentication Methods Policy API.
 
 >[!NOTE]
 >Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
 
 ## Passwordless phone sign-in and multifactor authentication 
 
-When a user receives a Passwordless phone sign-in or MFA push notification in the Microsoft Authenticator app, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
+When a user receives a Passwordless phone sign-in or MFA push notification in the Authenticator app, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location.png" alt-text="Screenshot of additional context in the MFA push notification.":::
 
@@ -151,9 +151,9 @@ The PATCH request will fail with 400 Bad Request and the error will contain the 
 `Persistance of policy failed with error: You cannot enable multiple targets for feature 'Require Display App Information'. Choose only one of the following includeTargets to enable: aede0efe-c1b4-40dc-8ae7-2c402f23e312,aede0efe-c1b4-40dc-8ae7-2c402f23e317.`
 
 ### Test the end-user experience
-Add the test user account to the Microsoft Authenticator app. The account **doesn't** need to be enabled for phone sign-in. 
+Add the test user account to the Authenticator app. The account **doesn't** need to be enabled for phone sign-in. 
 
-See the end-user experience of an Authenticator MFA push notification with additional context by signing into aka.ms/MFAsetup. 
+See the end-user experience of an Authenticator multifactor authentication push notification with additional context by signing into aka.ms/MFAsetup. 
 
 ### Turn off additional context
 
@@ -182,7 +182,7 @@ To turn off additional context, you'll need to PATCH remove **displayAppInformat
 
 To enable additional context in the Azure AD portal, complete the following steps:
 
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
+1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Entra Authenticator**.
 1. Select the target users, click the three dots on the right, and click **Configure**.
    
    ![Screenshot of how to configure number match.](media/howto-authentication-passwordless-phone/configure.png)
@@ -197,5 +197,5 @@ Additional context is not supported for Network Policy Server (NPS).
 
 ## Next steps
 
-[Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
+[Authentication methods in Azure Active Directory - Microsoft Entra Authenticator app](concept-authentication-authenticator-app.md)
 

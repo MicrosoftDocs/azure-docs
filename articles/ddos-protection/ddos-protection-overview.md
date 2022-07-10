@@ -3,13 +3,13 @@ title: Azure DDoS Protection Standard Overview
 description: Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks.
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/9/2020
-ms.author: yitoh
+ms.date: 06/07/2022
+ms.author: abell
 
 ---
 # Azure DDoS Protection Standard overview
@@ -25,7 +25,7 @@ Azure DDoS Protection Standard, combined with application design best practices,
 - **Always-on traffic monitoring:** Your application traffic patterns are monitored 24 hours a day, 7 days a week, looking for indicators of DDoS attacks. DDoS Protection Standard instantly and automatically mitigates the attack, once it is detected.
 - **Adaptive tuning:** Intelligent traffic profiling learns your application's traffic over time, and selects and updates the profile that is the most suitable for your service. The profile adjusts as traffic changes over time.
 - **Multi-Layered protection:** When deployed with a web application firewall (WAF), DDoS Protection Standard protects both at the network layer (Layer 3 and 4, offered by Azure DDoS Protection Standard) and at the application layer (Layer 7, offered by a WAF). WAF offerings include Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) as well as third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
-- **Extensive mitigation scale:** Over 60 different attack types can be mitigated, with global capacity, to protect against the largest known DDoS attacks.
+- **Extensive mitigation scale:** all L3/L4 attack vectors can be mitigated, with global capacity, to protect against the largest known DDoS attacks.
 - **Attack analytics:** Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack.
 - **Attack metrics:** Summarized metrics from each attack are accessible through Azure Monitor.
 - **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.

@@ -10,10 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Configure and submit training runs
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to configure and submit Azure Machine Learning runs to train your models. Snippets of code explain the key parts of configuration and submission of a training script.  Then use one of the [example notebooks](#notebooks) to find the full end-to-end working examples.
 
@@ -56,7 +58,7 @@ Or you can:
 
 ## Create an experiment
 
-Create an [experiment](concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize run submissions and keep track of code.
+Create an [experiment](v1/concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize run submissions and keep track of code.
 
 ```python
 from azureml.core import Experiment
@@ -149,7 +151,7 @@ run.wait_for_completion(show_output=True)
 >
 > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 > 
-> For more information about snapshots, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
+> For more information about snapshots, see [Snapshots](v1/concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
 > **Special Folders**

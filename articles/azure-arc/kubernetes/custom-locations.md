@@ -70,15 +70,21 @@ If you are logged into Azure CLI as an Azure AD user, to enable this feature on 
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
-If you are logged into Azure CLI using a service principal, to enable this feature on your cluster, execute the following steps:
+If you run the above command while being logged into Azure CLI using a service principal, you may observe the following warning:
 
-1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+```console
+Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
+```
+
+This is because a service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
+
+1. Login into Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
     ```azurecli
-    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
     ```
 
-1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
+1. Login into Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
 
     ```azurecli
     az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations

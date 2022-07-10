@@ -1,25 +1,27 @@
 ---
-title: 'Tutorial: Identify performance regressions with Azure Load Testing and GitHub Actions'
+title: 'Tutorial: Automate regression testing with GitHub Actions'
 titleSuffix: Azure Load Testing
 description: 'In this tutorial, you learn how to automate performance regression testing by using Azure Load Testing and GitHub Actions CI/CD workflows.'
 services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 03/28/2022
+ms.date: 05/30/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every pull request and/or deployment by using GitHub Actions.
 ---
 
 # Tutorial: Identify performance regressions with Azure Load Testing Preview and GitHub Actions
 
-This tutorial describes how to automate performance regression testing by using Azure Load Testing Preview and GitHub Actions. You'll set up a GitHub Actions CI/CD workflow to deploy a sample Node.js application on Azure and trigger a load test using the [Azure Load Testing action](https://github.com/marketplace/actions/azure-load-testing). Once the load test finishes, you'll use the Azure Load Testing dashboard to identify performance issues.
+This tutorial describes how to automate performance regression testing with Azure Load Testing Preview and GitHub Actions. 
 
-You'll deploy a sample Node.js web app on Azure App Service. The web app uses Azure Cosmos DB for storing the data. The sample application also contains an Apache JMeter script to load test three APIs.
+You'll set up a GitHub Actions CI/CD workflow to deploy a sample Node.js application on Azure and trigger a load test using the [Azure Load Testing action](https://github.com/marketplace/actions/azure-load-testing).
+
+You'll then define test failure criteria to ensure the application meets your goals. When a criterion isn't met, the CI/CD pipeline will fail. For more information, see [Define load test failure criteria](./how-to-define-test-criteria.md).
+
+Finally, you'll make the load test configurable by passing parameters from the CI/CD pipeline to the JMeter script. For example, you could use a GitHub secret to pass an authentication token the script. For more information, see [Parameterize load tests with secrets and environment variables](./how-to-parameterize-load-tests.md).
 
 If you're using Azure Pipelines for your CI/CD workflows, see the corresponding [Azure Pipelines tutorial](./tutorial-cicd-azure-pipelines.md).
-
-Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 You'll learn how to:
 
@@ -41,7 +43,7 @@ You'll learn how to:
 
 ## Set up the sample application repository
 
-To get started with this tutorial, you first need to set up a sample Node.js web application. The sample application contains a GitHub Actions workflow definition to deploy the application on Azure and trigger a load test.
+To get started with this tutorial, you first need to set up a sample Node.js web application. The sample application repository contains a GitHub Actions workflow definition that deploys the Node.js application on Azure and then triggers a load test.
 
 [!INCLUDE [azure-load-testing-set-up-sample-application](../../includes/azure-load-testing-set-up-sample-application.md)]
 
@@ -70,7 +72,7 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
     > [!NOTE]
     > Azure Login supports multiple ways to authenticate with Azure. For other authentication options, see the [Azure and GitHub integration site](/azure/developer/github).
 
-    The output is the role assignment credentials that provide access to your resource. The command should output a JSON object similar to this.
+    The output is the role assignment credentials that provide access to your resource. The command outputs a JSON object similar to the following snippet.
 
     ```json
     {
@@ -82,9 +84,9 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
     }
     ```
 
-1. Copy this JSON object, which you can use to authenticate from GitHub.
+1. Copy this JSON object. You'll store this value as a GitHub secret in a later step.
 
-1. Grant permissions to the service principal to create and run tests with Azure Load Testing. The **Load Test Contributor** role grants permissions to create, manage and run tests in an Azure Load Testing resource.
+1. Assign the service principal the **Load Test Contributor** role, which grants permission to create, manage and run tests in an Azure Load Testing resource.
 
     First, retrieve the ID of the service principal object by running this Azure CLI command:
 
@@ -92,7 +94,9 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
     az ad sp list --filter "displayname eq 'my-load-test-cicd'" -o table
     ```
 
-    Next, run the following Azure CLI command to assign the *Load Test Contributor* role to the service principal.
+    Next, assign the **Load Test Contributor** role to the service principal. 
+
+    Replace the placeholder text `<sp-object-id>` with the `ObjectId` value from the previous Azure CLI command. Also, replace `<subscription-id>` with your Azure subscription ID.
 
     ```azurecli
     az role assignment create --assignee "<sp-object-id>" \
@@ -100,12 +104,14 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
         --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> \
         --subscription "<subscription-id>"
     ```
-    
+
     In the previous command, replace the placeholder text `<sp-object-id>` with the `ObjectId` value from the previous Azure CLI command. Also, replace `<subscription-id>` with your Azure subscription ID.
+
+You now have a service principal that the necessary permissions to create and run a load test.
 
 ### Configure the GitHub secret
 
-You'll add a GitHub secret **AZURE_CREDENTIALS** to your repository for the service principal you created in the previous step. The Azure Login action in the GitHub Actions workflow uses this secret to authenticate with Azure.
+Next, add a GitHub secret **AZURE_CREDENTIALS** to your repository to store the service principal you created earlier. You'll pass this GitHub secret to the Azure Login action to authenticate with Azure.
 
 1. In [GitHub](https://github.com), browse to your forked repository, select **Settings** > **Secrets** > **New repository secret**.
 
@@ -117,7 +123,7 @@ You'll add a GitHub secret **AZURE_CREDENTIALS** to your repository for the serv
 
 ### Authenticate with Azure 
 
-You can now use the `AZURE_CREDENTIALS` secret with the Azure Login action in your CI/CD workflow. The *workflow.yml* file in the sample application already has the necessary configuration:
+You can now use the `AZURE_CREDENTIALS` secret with the Azure Login action in your CI/CD workflow. The *.github/workflows/workflow.yml* file in the sample application repository already has this configuration:
 
 ```yml
 jobs:
@@ -138,13 +144,31 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
 
-You've now authorized your GitHub Actions workflow to access your Azure Load Testing resource. You'll now configure the CI/CD workflow to run a load test by using Azure Load Testing.
+You've now authorized your GitHub Actions workflow to access your Azure Load Testing resource. You'll now configure the CI/CD workflow to run a load test with Azure Load Testing.
 
 ## Configure the GitHub Actions workflow to run a load test
 
-In this section, you'll set up a GitHub Actions workflow that triggers the load test. The sample application repository contains a workflow file *SampleApp.yaml*. The workflow first deploys the sample web application to Azure App Service, and then invokes the load test by using the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing). The GitHub Actions uses an environment variable to pass the URL of the web application to the Apache JMeter script.
+In this section, you'll set up a GitHub Actions workflow that triggers the load test by using the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing).
 
-The GitHub Actions workflow performs the following steps for every update to the main branch:
+The following code snippet shows an example of how to trigger a load test using the `azure/load-testing` action:
+
+```yml
+- name: 'Azure Load Testing'
+uses: azure/load-testing@v1
+with:
+    loadTestConfigFile: 'my-jmeter-script.jmx'
+    loadTestResource: my-load-test-resource
+    resourceGroup: my-resource-group
+    env: |
+    [
+        {
+        "name": "webapp",
+        "value": "my-web-app.azurewebsites.net"
+        }
+    ]          
+```
+
+The sample application repository already contains a sample workflow file *.github/workflows/workflow.yml*. The GitHub Actions workflow performs the following steps for every update to the main branch:
 
 - Deploy the sample Node.js application to an Azure App Service web app.
 - Create an Azure Load Testing resource using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template, if the resource doesn't exist yet. Learn more about ARM templates [here](../azure-resource-manager/templates/overview.md).
@@ -169,17 +193,15 @@ Follow these steps to configure the GitHub Actions workflow for your environment
       LOAD_TEST_RESOURCE_GROUP: "<your-azure-load-testing-resource-group-name>"
     ```
 
-    These variables are used to configure the GitHub actions for deploying the sample application to Azure, and to connect to your Azure Load Testing resource.
+    These variables are used to configure the GitHub Actions for deploying the sample application to Azure, and to connect to your Azure Load Testing resource.
 
 1. Commit your changes directly to the main branch.
-
-    :::image type="content" source="./media/tutorial-cicd-github-actions/commit-workflow.png" alt-text="Screenshot that shows selections for committing changes to the GitHub Actions workflow file.":::
 
     The commit will trigger the GitHub Actions workflow in your repository. You can verify that the workflow is running by going to the **Actions** tab.
 
 ## View load test results
 
-To view the results of the load test in the GitHub Actions workflow log:
+When the load test finishes, view the results in the GitHub Actions workflow log:
 
 1. Select the **Actions** tab in your GitHub repository to view the list of workflow runs.
     
@@ -194,12 +216,14 @@ To view the results of the load test in the GitHub Actions workflow log:
 1. On the screen that shows the workflow run's details, select the **loadTestResults** artifact to download the result files for the load test.
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-artifacts.png" alt-text="Screenshot that shows artifacts of the workflow run.":::
-    
+
 ## Define test pass/fail criteria
 
-In this section, you'll add criteria to determine whether your load test passes or fails. If at least one of the pass/fail criteria evaluates to `true`, the load test is unsuccessful.
+You can use test failure criteria to define thresholds for when a load test should fail. For example, a test might fail when the percentage of failed requests surpasses a specific value.
 
-You can specify these criteria in the test configuration YAML file:
+When at least one of the failure criteria is met, the load test status is failed. As a result, the CI/CD workflow will also fail and the development team can be alerted.
+
+You can specify these criteria in the [test configuration YAML file](./reference-test-config-yaml.md):
 
 1. Edit the *SampleApp.yml* file in your GitHub repository.  
 
@@ -244,13 +268,13 @@ You can specify these criteria in the test configuration YAML file:
 
 ## Pass parameters to your load tests from the workflow
 
-Next, you'll parameterize your load test by using workflow variables. These parameters can be secrets, such as passwords, or non-secrets.
+Next, you'll parameterize your load test by using workflow variables. These parameters can be secrets, such as passwords, or non-secrets. For more information, see [Parameterize load tests with secrets and environment variables](./how-to-parameterize-load-tests.md).
 
-In this tutorial, you'll reconfigure the sample application to accept only secure requests. To send a secure request, you need to pass a secret value in the HTTP request:
+In this tutorial, you'll now use the *SampleApp_Secrets.jmx* JMeter test script. This script invokes an application endpoint that requires a secure value to be passed as an HTTP header.
 
-1. Edit the *SampleApp.yaml* file in your GitHub repository.
+1. Edit the *SampleApp.yaml* file in your GitHub repository and update the `testPlan` configuration setting to use the *SampleApp_Secrets.jmx* file.
 
-    Update the `testPlan` configuration setting to use the *SampleApp_Secrets.jmx* file:
+    The `testPlan` setting specifies which JMeter script Azure Load Testing uses.
 
     ```yml
     version: v0.1
@@ -308,6 +332,7 @@ In this tutorial, you'll reconfigure the sample application to accept only secur
 
 You've now created a GitHub Actions workflow that uses Azure Load Testing for automatically running load tests. By using pass/fail criteria, you can set the status of the CI/CD workflow. With parameters, you can make the running of load tests configurable.
 
+* Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 * Learn more about the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing).
 * Learn how to [parameterize a load test](./how-to-parameterize-load-tests.md).
 * Learn how to [define test pass/fail criteria](./how-to-define-test-criteria.md).

@@ -30,18 +30,18 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 - The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
-[Az account](/cli/azure/account) command.
+[az account](/cli/azure/account) command.
 
 - Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* are registered on your subscription. To check the registration status:
 
-    ```azurecli
+    ```azurecli-interactive
     az provider show -n Microsoft.OperationsManagement -o table
     az provider show -n Microsoft.OperationalInsights -o table
     ```
 
     If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using:
 
-    ```azurecli
+    ```azurecli-interactive
     az provider register --namespace Microsoft.OperationsManagement
     az provider register --namespace Microsoft.OperationalInsights
     ```
@@ -246,7 +246,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 
 ## Test the application
 
-When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+When the application runs, a Kubernetes service exposes the application front-end to the internet. This process can take a few minutes to complete.
 
 Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 

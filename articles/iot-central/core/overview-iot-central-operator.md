@@ -7,7 +7,7 @@ ms.date: 04/07/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, iot-central-frontdoor]
 
 # Device groups, jobs, use dashboards and create personal dashboards
 # This article applies to operators.

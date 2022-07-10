@@ -2,7 +2,7 @@
 title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
 description: This article provides details about SQL filter grammar. A SQL filter supports a subset of the SQL-92 standard.  
 ms.topic: article
-ms.date: 04/30/2021
+ms.date: 05/31/2022
 ---
 
 # Subscription Rule SQL Filter Syntax

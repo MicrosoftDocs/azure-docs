@@ -28,7 +28,6 @@ For an analysis of how your offers are performing, go to the [Marketplace Insigh
 **Learn more** documents | Include supporting sales and marketing assets under **Learn more**; examples include:<ul><li>white papers</li><li>brochures</li><li>checklists</li><li>PowerPoint presentations</li></ul><br>Save all files in PDF format. Your goal here should be to educate customers, not sell to them.<br><br>Add a link to your app landing page to all your documents and add URL parameters to help you track visitors and trials. |
 | Videos (AppSource, consulting services, and SaaS offers only) | The strongest videos communicate the value of your offer in narrative form:<ul><li>Make your customer, not your company, the hero of the story.</li><li>Your video should address the principal challenges and goals of your target customer.</li><li>Recommended length: 60-90 seconds.</li><li>Incorporate key search words that use the name of the videos.</li></ul><br>Consider adding additional videos, such as a how-to, getting started, or customer testimonials. |
 | Screenshots (1280×720 px) | Add up to five screenshots. Incorporate key search words in the file names. |
-|
 
 > [!IMPORTANT]
 > Make sure your offer name and offer description adhere to **[Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services.

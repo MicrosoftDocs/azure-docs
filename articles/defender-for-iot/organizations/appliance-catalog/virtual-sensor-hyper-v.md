@@ -21,7 +21,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 
 The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
-- Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
+- Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational. For more information, see [Introduction to Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/about).
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
@@ -81,14 +81,14 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-sensor-software).
+1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
 
 
 ## Configure a monitoring interface (SPAN)
 
 While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
 
-*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
+*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
 
 For more information, see [Purdue reference model and Defender for IoT](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot).
 
@@ -96,7 +96,7 @@ For more information, see [Purdue reference model and Defender for IoT](../plan-
 
 Before you start:
 
-- Ensure that there is no instance of a virtual appliance running.
+- Ensure that there's no instance of a virtual appliance running.
 
 - Enable Ensure SPAN on the data port, and not the management port.
 
@@ -140,13 +140,13 @@ You are able to attach a SPAN Virtual Interface to the Virtual Switch through Wi
 
     | Parameter | Description |
     |--|--|
-    | VK-C1000V-LongRunning-650 | CPPM VA name |
-    |vSwitch_Span |Newly added SPAN virtual switch name |
-    |Monitor |Newly added adapter name |
+    |**VK-C1000V-LongRunning-650** | CPPM VA name |
+    |**vSwitch_Span** |Newly added SPAN virtual switch name |
+    |**Monitor** |Newly added adapter name |
 
 1. Select **OK**.
 
-These commands set the name of the newly added adapter hardware to be `Monitor`. If you are using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
+These commands set the name of the newly added adapter hardware to be `Monitor`. If you're using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
 
 **To attach a SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
 
@@ -196,10 +196,10 @@ Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitc
 
 | Parameter | Description |
 |--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name. |
-| MonitorMode=2 | Source |
-| MonitorMode=1 | Destination |
-| MonitorMode=0 | None |
+|**vSwitch_Span** | Newly added SPAN virtual switch name. |
+|**MonitorMode=2** | Source |
+|**MonitorMode=1** | Destination |
+|**MonitorMode=0** | None |
 
 Use the following PowerShell command to verify the monitoring mode status:
 
@@ -208,7 +208,7 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 ```
 | Parameter | Description |
 |--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name |
+|**vSwitch_Span** | Newly added SPAN virtual switch name |
 
 
 ## Next steps

@@ -1,8 +1,9 @@
 ---
 title: Create a Table API serverless account and table for Azure Cosmos DB
 description: Create a Table API serverless account and table for Azure Cosmos DB
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample

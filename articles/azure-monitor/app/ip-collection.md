@@ -4,6 +4,7 @@ description: Understand how Application Insights handles IP addresses and geoloc
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
+ms.reviewer: saars
 ---
 
 # Geolocation and IP address handling

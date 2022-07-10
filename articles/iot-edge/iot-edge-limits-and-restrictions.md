@@ -62,6 +62,11 @@ Supported query syntax:
 Not supported query syntax:
 * [Message routing query based on device twin](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-device-twin)
 
+### Restart policies
+ Don't use `on-unhealthy` or `on-failure` as values in modules' `restartPolicy` because they are unimplemented and won't initiate a restart. Only `never` and `always` restart policies are implemented.
+
+The recommended way to automatically restart unhealthy IoT Edge modules is noted in [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check. 
+
 ### File upload
 IoT Hub only supports file upload APIs for device identities, not module identities. Since IoT Edge exclusively uses modules, file upload isn't natively supported in IoT Edge.
 

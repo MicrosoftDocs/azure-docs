@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/27/2022
+ms.date: 05/03/2022
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -787,6 +787,12 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 - None (ignore isolation level)
 
 :::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
+
+**Enable incremental extract**: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
+
+**Incremental date column**: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+
+**Start reading from beginning**: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 
 ### Sink transformation
 

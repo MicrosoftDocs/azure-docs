@@ -328,7 +328,7 @@ $job = Get-AzMigrateJob -InputObject $job
 
 ## 10. Update properties of a replicating VM
 
-[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
+[Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
 
 The following properties can be updated for a VM.
 
@@ -498,8 +498,7 @@ Write-Output $MigrateJob.State
    # Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
    Write-Output $StopReplicationJob.State
    ```
-
-1. Install the [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines if the machine has Linux OS. We automatically install the VM agent for Windows VMs during migration.
+   
 1. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 1. Cut over traffic to the migrated Azure VM instance.

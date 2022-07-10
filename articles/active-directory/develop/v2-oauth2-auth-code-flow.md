@@ -1,6 +1,5 @@
 ---
-title: Microsoft identity platform and OAuth 2.0 authorization code flow | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform and OAuth 2.0 authorization code flow
 description: Build web applications using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
 author: nickludwig

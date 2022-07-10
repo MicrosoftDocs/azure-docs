@@ -376,26 +376,31 @@ For information on how to upload files to your function folder, see the section 
 The directory that contains the function script file is automatically watched for changes to assemblies. To watch for assembly changes in other directories, add them to the `watchDirectories` list in [host.json](functions-host-json.md).
 
 ## Using NuGet packages
-To use NuGet packages in a 2.x and later C# function, upload a *function.proj* file to the function's folder in the function app's file system. Here is an example *function.proj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
+
+The way that both binding extension packages and other NuGet packages are added to your function app depends on the [targeted version of the Functions runtime](functions-versions.md).
+
+# [v2.x+](#tab/functionsv2)
+
+By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles). 
+
+If for some reason you can't use extension bundles in your project, you can also use the Azure Functions Core Tools to install extensions based on bindings defined in the function.json files in your app. When using Core Tools to register extensions, make sure to use the `--csx` option. To learn more, see [Install extensions](functions-run-local.md#install-extensions).
+
+By default, Core Tools reads the function.json files and adds the required packages to an *extensions.csproj* C# class library project file in the root of the function app's file system (wwwroot). Because Core Tools uses dotnet.exe, you can use it to add any NuGet package reference to this extensions file. During installation, Core Tools builds the extensions.csproj to install the required libraries. Here is an example *extensions.csproj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
-
     <ItemGroup>
         <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
     </ItemGroup>
 </Project>
 ```
 
-To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the Function App root. For more information, see [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior).
+# [v1.x](#tab/functionsv1)
 
-> [!NOTE]
-> In 1.x C# functions, NuGet packages are referenced with a *project.json* file instead of a *function.proj* file.
-
-For 1.x functions, use a *project.json* file instead. Here is an example *project.json* file:
+Version 1.x of the Functions runtime uses a *project.json* file to define dependencies. Here is an example *project.json* file:
 
 ```json
 {
@@ -409,23 +414,13 @@ For 1.x functions, use a *project.json* file instead. Here is an example *projec
 }
 ```
 
-### Using a function.proj file
+Extension bundles aren't supported by version 1.x.
 
-1. Open the function in the Azure portal. The logs tab displays the package installation output.
-2. To upload a *function.proj* file, use one of the methods described in the [How to update function app files](functions-reference.md#fileupdate) in the Azure Functions developer reference topic.
-3. After the *function.proj* file is uploaded, you see output like the following example in your function's streaming log:
+---
 
-```
-2018-12-14T22:00:48.658 [Information] Restoring packages.
-2018-12-14T22:00:48.681 [Information] Starting packages restore
-2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\function.proj...
-2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
-2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
-2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.
-2018-12-14T22:01:09.799 [Information] Restore completed in 5.79 sec for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj.
-2018-12-14T22:01:10.905 [Information] Packages restored.
-```
+To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the function app root folder. For more information, see [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior).
+
+If you are working on your project only in the portal, you'll need to manually create the extensions.csproj file or a Nuget.Config file directly in the site. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
 
 ## Environment variables
 

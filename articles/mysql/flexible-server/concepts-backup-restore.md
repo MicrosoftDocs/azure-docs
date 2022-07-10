@@ -4,8 +4,10 @@ description: Learn about the concepts of backup and restore with Azure Database 
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 05/24/2022 
 ---
 
 # Backup and restore in Azure Database for MySQL Flexible Server
@@ -27,7 +29,7 @@ If a scheduled backup fails, our backup service tries every 20 minutes to take a
 
 ## Backup redundancy options
 
-Azure Database for MySQL stores multiple copies of your backups so that your data is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Azure Database for MySQL provides the flexibility to choose between locally redundant, zone-redundant or geo-redundant backup storage in Basic, General Purpose and Memory Optimized tiers. By default, Azure Database for MySQL server backup storage is locally redundant for servers with same-zone high availability (HA) or no high availability configuration, and zone redundant for servers with zone-redundant HA configuration.
+Azure Database for MySQL stores multiple copies of your backups so that your data is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Azure Database for MySQL provides the flexibility to choose between locally redundant, zone-redundant or geo-redundant backup storage in Basic, General Purpose and Business Critical tiers. By default, Azure Database for MySQL server backup storage is locally redundant for servers with same-zone high availability (HA) or no high availability configuration, and zone redundant for servers with zone-redundant HA configuration.
 
 Backup redundancy ensures that your database meets its availability and durability targets even in the face of failures and Azure Database for MySQL extends three options to users - 
 
@@ -124,7 +126,7 @@ You can restore a server to it's [geo-paired region](overview.md#azure-regions) 
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. 
 
-During geo-restore, the server configurations that can be changed include only security configuration (firewall rules and virtual network settings). Changing other server configurations such as compute, storage or pricing tier (Basic, General Purpose, or Memory Optimized) during geo-restore is not supported. 
+During geo-restore, the server configurations that can be changed include only security configuration (firewall rules and virtual network settings). Changing other server configurations such as compute, storage or pricing tier (Basic, General Purpose, or Business Critical) during geo-restore is not supported. 
 
 Geo-restore can also be performed on a stopped server leveraging Azure CLI. Read [Restore Azure Database for MySQL - Flexible Server with Azure CLI](how-to-restore-server-cli.md) to learn more about geo-restoring a server with Azure CLI.
 

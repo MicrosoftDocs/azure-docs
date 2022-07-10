@@ -8,8 +8,8 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 03/16/2021
 
-ms.author: cchiedo
-author: Chrispine-Chiedo
+ms.author: celested
+author: CelesteDG
 manager: CelesteDG
 ms.reviewer: stevebal
 

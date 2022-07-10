@@ -170,7 +170,7 @@ Here is the main method for the application.
 
 :::code language="ruby" source="~/cognitive-services-quickstart-code/ruby/qnamaker/sdk/quickstart.rb" id="Main":::
 
-Run the application with the ruby command on your quickstart file.
+Run the application with the Ruby command on your quickstart file.
 
 ```console
 ruby quickstart.rb

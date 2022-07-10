@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 04/18/2021
+ms.date: 04/18/2022
 
 # Customer intent: I can use the new APIs available with Atlas 2.2
 ---

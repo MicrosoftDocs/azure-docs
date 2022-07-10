@@ -3,8 +3,8 @@ title: How to create a free Azure Active Directory developer tenant
 description: This article shows you how to create a developer account
 services: active-directory
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
@@ -13,6 +13,8 @@ ms.author: barclayn
 ---
 
 # How to create a free Azure Active Directory developer tenant
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.

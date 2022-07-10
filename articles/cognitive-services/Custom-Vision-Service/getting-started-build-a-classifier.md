@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Build an image classifier model with the Custom Vision portal"
+title: "Quickstart: Build an image classification model with the Custom Vision portal"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the Custom Vision web portal to create, train, and test an image classification model.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: image recognition, image recognition app, custom vision
 ---
 
-# Quickstart: Build an image classifier model with the Custom Vision web portal
+# Quickstart: Build an image classification model with the Custom Vision portal
 
-In this quickstart, you'll learn how to use the Custom Vision web portal to create an image classifier model. Once you build a model, you can test it with new images and eventually integrate it into your own image recognition app.
+In this quickstart, you'll learn how to use the Custom Vision web portal to create an image classification model. Once you build a model, you can test it with new images and eventually integrate it into your own image recognition app.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-- A set of images with which to train your classifier. You can use the set of [sample images](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) on GitHub. Or, you can choose your own images using the tips below.
+- A set of images with which to train your classification model. You can use the set of [sample images](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) on GitHub. Or, you can choose your own images using the tips below.
 - A [supported web browser](overview.md#supported-browsers-for-custom-vision-web-portal)
 
 
@@ -48,7 +48,7 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 1. Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of your tags to an image (zero or more), while multiclass classification sorts images into single categories (every image you submit will be sorted into the most likely tag). You'll be able to change the classification type later if you want to.
 
-1. Next, select one of the available domains. Each domain optimizes the classifier for specific types of images, as described in the following table. You can change the domain later if you wish.
+1. Next, select one of the available domains. Each domain optimizes the model for specific types of images, as described in the following table. You can change the domain later if you wish.
 
     |Domain|Purpose|
     |---|---|

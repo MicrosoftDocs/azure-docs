@@ -7,7 +7,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 06/10/2022
 ---
 
 # Index data from Azure Cosmos DB using the MongoDB API
@@ -86,7 +86,7 @@ Avoid port numbers in the endpoint URL. If you include the port number, the conn
 | Full access connection string |
 |-----------------------------------------------|
 |`{ "connectionString" : "AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb" }` |
-| You can get the connection string from the Cosmos DB account page in Azure portal by selecting **Keys** in the left navigation pane. Make sure to select a full connection string and not just a key.  |
+| You can get the *Cosmos DB auth key* from the Cosmos DB account page in Azure portal by selecting **Connection String** in the left navigation pane. Make sure to copy **Primary Password** and replace *Cosmos DB auth key* value with it. |
 
 | Managed identity connection string |
 |------------------------------------|
@@ -281,6 +281,15 @@ api-key: [Search service admin key]
     }
 }
 ```
+
+## Limitations
+
+These are the limitations of this feature:
+
++ Custom queries are not supported.
+
++ In this feature, the column name `_ts` is a reserved word. If there is a column called `_ts` in the Mongo database, the indexer will fail. If this is the case, it is recommended an alternate method to index is used, such as [Push API](search-what-is-data-import.md) or through [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) by selecting an Azure Cognitive Search index sink.
+
 
 ## Next steps
 

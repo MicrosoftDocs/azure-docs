@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 05/09/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -40,6 +40,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 > Any requirements will be listed in the **Prerequisites** section.
 
 - Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
+
+- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
+
 - The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
@@ -125,7 +128,6 @@ Your self-hosted integration runtime machine needs to connect to several resourc
 * The Microsoft Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
 * The managed Storage account and Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
-* The Azure Key Vault used to store credentials.
 
 There are two firewalls to consider:
 
@@ -154,7 +156,6 @@ Depending on the sources you want to scan, you also need to allow other domains 
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `<your_key_vault_name>.vault.azure.net` | 443 | Required if any credentials are stored in Azure Key Vault. |
 | `<your_storage_account>.dfs.core.windows.net` | 443 | When scan Azure Data Lake Store Gen 2. |
 | `<your_storage_account>.blob.core.windows.net` | 443            | When scan Azure Blob storage. |
 | `<your_sql_server>.database.windows.net` | 1433           | When scan Azure SQL Database. |

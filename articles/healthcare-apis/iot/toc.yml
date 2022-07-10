@@ -12,7 +12,7 @@ items:
   - name: Get started with MedTech service
     href: get-started-with-iot.md
   - name: Deploy MedTech service
-    expanded: true
+    expanded: false
     items:
     - name: Using portal
       href: deploy-iot-connector-in-azure.md
@@ -20,7 +20,7 @@ items:
   expanded: true
   items:
   - name: Ingest data from IoT devices
-    expanded: true
+    expanded: false
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md 
@@ -71,7 +71,7 @@ items:
     - name: Open-source projects
       href: iot-git-projects.md
     - name: Troubleshooting
-      expanded: true
+      expanded: false
       items:
       - name: Troubleshooting guide  
         href: iot-troubleshoot-guide.md

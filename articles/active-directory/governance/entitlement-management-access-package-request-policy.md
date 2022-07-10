@@ -28,7 +28,7 @@ As an access package manager, you can change the users who can request an access
 
 The way you specify who can request an access package is with a policy. Before creating a new policy or editing an existing policy in an access package, you need to determine how many policies the access package needs. 
 
-When you create an access package, you specify the request setting which creates a policy. Most access packages will have a single policy, but a single access package can have multiple policies. You would create multiple policies for an access package if you want to allow different sets of users to be granted assignments with different request and approval settings. 
+When you create an access package, you specify the request, approval and lifecycle settings, which are stored on the first policy of the access package. Most access packages will have a single policy, but a single access package can have multiple policies. You would create multiple policies for an access package if you want to allow different sets of users to be granted assignments with different request and approval settings.
 
 For example, a single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package, one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
 
@@ -138,7 +138,7 @@ Follow these steps if you want to allow users not in your directory to request t
 1. Once you've selected all your connected organizations, click **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or blocklist. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
+    > All users from the selected connected organizations can request this access package. For a connected organization that has an Azure AD directory, users from all verified domains associated with the Azure AD directory can request, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
 1. If you want to require approval, use the steps in [Change approval settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
  
@@ -205,7 +205,7 @@ To change the request and approval settings for an access package, you need to o
 
 1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
 
-## Prevent requests from users with incompatible access (preview)
+## Prevent requests from users with incompatible access
 
 In addition to the policy checks on who can request, you may wish to further restrict access, in order to avoid a user who already has some access - via a group or another access package - from obtaining excessive access.
 

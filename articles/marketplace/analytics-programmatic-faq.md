@@ -35,7 +35,6 @@ This table describes the API responses and what to do if you receive them.
 | There are no executions that have occurred for the given filter conditions. Please recheck the reportId or executionId and retry the API after the report's scheduled execution time | 404 | Make sure that the `reportId` is correct. Retry the API after the report’s scheduled execution time as specified in the request payload. |
 | Internal error encountered while creating report. Correlation ID <> | 500 | Make sure that the format of date for the fields "StartTime", "QueryStartTime" and "QueryEndTime" are correct. |
 | Service unavailable | 500 | If you continuously receive a service unavailable (5xx error), please create a [support ticket](support.md). |
-||||
 
 ## No records
 

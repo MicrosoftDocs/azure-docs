@@ -115,6 +115,7 @@ A complete list of all services included can be found in the article [Apps inclu
 The Microsoft Azure Management application includes multiple services. 
 
    - Azure portal
+   - Microsoft Entra admin center
    - Azure Resource Manager provider
    - Classic deployment model APIs
    - Azure PowerShell
@@ -133,7 +134,8 @@ The Microsoft Azure Management application includes multiple services.
 
 For more information on how to set up a sample policy for Microsoft Azure Management, see [Conditional Access: Require MFA for Azure management](howto-conditional-access-policy-azure-management.md).
 
-For Azure Government, you should target the Azure Government Cloud Management API application.
+>[!NOTE]
+>For Azure Government, you should target the Azure Government Cloud Management API application.
 
 ### Other applications
 

@@ -53,7 +53,11 @@ Next, create an Azure function that will listen on the endpoint and receive twin
 
 5. Publish the function app to Azure. For instructions on how to publish a function app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-[!INCLUDE [digital-twins-verify-function-publish.md](../../includes/digital-twins-verify-function-publish.md)]
+Once the process of publishing the function completes, you can use this CLI command to verify the publish was successful. There are placeholders for your resource group, the name of your function app, and the name of your specific function. The command will print information about your function.
+
+```azurecli-interactive
+az functionapp function show --resource-group <your-resource-group> --name <your-function-app> --function-name <your-function>
+```
 
 ### Configure the function app
 

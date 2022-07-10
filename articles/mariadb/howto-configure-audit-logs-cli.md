@@ -5,8 +5,10 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/24/2020 
-ms.custom: devx-track-azurecli
+ms.date: 05/06/2022 
+ms.custom: 
+- devx-track-azurecli
+- kr2b-contr-experiment
 ---
 
 # Configure and access Azure Database for MariaDB audit logs in the Azure CLI
@@ -32,22 +34,26 @@ To complete this guide:
 
 Enable and configure audit logging using the following steps: 
 
-1. Turn on audit logs by setting the **audit_logs_enabled** parameter to "ON". 
+1. Turn on audit logs by setting the **audit_logs_enabled** parameter to "ON".
+
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
 1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
+
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```
 
 1. Add any MariaDB users to be excluded from logging by updating the **audit_log_exclude_users** parameter. Specify users by providing their MariaDB user name.
+
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_exclude_users --resource-group myresourcegroup --server mydemoserver --value "azure_superuser"
     ```
 
 1. Add any specific MariaDB users to be included for logging by updating the **audit_log_include_users** parameter. Specify users by providing their MariaDB user name.
+
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_include_users --resource-group myresourcegroup --server mydemoserver --value "sampleuser"
     ```
