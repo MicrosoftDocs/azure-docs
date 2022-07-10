@@ -1,6 +1,6 @@
 ---
-title: Install OT system software - Microsoft Defender for IoT
-description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
+title: Install OT network monitoring software - Microsoft Defender for IoT
+description: Learn how to install software for an OT sensor and an on-premises management console for Microsoft Defender for IoT. Use this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 ms.date: 01/06/2022
 ms.topic: how-to
 ---

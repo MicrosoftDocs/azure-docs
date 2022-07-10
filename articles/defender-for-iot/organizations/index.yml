@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
-title: Microsoft Defender for IoT for organizations documentation
-summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.'
+title: Microsoft Defender for IoT documentation for organizations
+summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid.'
 
-metadata: 
-   title: Microsoft Defender for IoT for organizations documentation
-   description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
+metadata:
+   title: Microsoft Defender for IoT documentation for organizations
+   description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid.
    services: service
    ms.service: defender-for-iot
    ms.topic: landing-page
    ms.collection: M365-security-compliance
    author: batamig
    manager: raynew
-   ms.date: 11/29/2021
+   ms.date: 07/10/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -21,9 +21,9 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Defender for IoT for organizations?
+          - text: What is Microsoft Defender for IoT?
             url: overview.md
-          - text: Agentless solution for organizations architecture
+          - text: System architecture
             url: architecture.md
   - title: Get started
     linkLists:

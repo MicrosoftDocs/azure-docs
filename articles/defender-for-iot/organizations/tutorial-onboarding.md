@@ -1,5 +1,5 @@
 ---
-title: Get started with Microsoft Defender for IoT for OT security
+title: Tutorial - Get started with Microsoft Defender for IoT for OT security
 description: This tutorial describes how to use Microsoft Defender for IoT to set up a network for OT system security.
 ms.topic: tutorial
 ms.date: 06/02/2022
