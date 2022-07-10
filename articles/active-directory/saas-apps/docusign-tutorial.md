@@ -74,7 +74,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Edit Basic SAML Configuration](media/docusign-tutorial/edit-urls.png)
 
 1. In the **Basic SAML Configuration** section, perform the following steps:
 
