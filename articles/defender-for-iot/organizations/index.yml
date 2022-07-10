@@ -34,6 +34,10 @@ landingContent:
 
   - title: Get started
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand your OT network architecture
+            url: best-practices/understand-network-architecture.md
       - linkListType: quickstart
         links:
           - text: Get started with Defender for IoT
@@ -49,29 +53,15 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-
-          - text: Visualize assets and device inventory
-            url: how-to-manage-device-inventory-for-organizations.md
-          - text: Manage alerts
-            url: how-to-manage-cloud-alerts.md
-          - text: Monitor vulnerabilities and threats with workbooks
-            url: workbooks.md
-
-  - title: System setup and maintenance
-    linkLists:
-      - linkListType: how-to-guide
-        links:
           - text: Manage Defender for IoT plans
             url: how-to-manage-subscriptions.md
           - text: Onboard sensors
             url: onboard-sensors.md
           - text: Integrate OT monitoring with partner services
             url: how-to-manage-device-inventory-for-organizations.md
-      - linkListType: concept
-        links:
-          - text: Understand your OT network architecture
-            url: best-practices/understand-network-architecture.md
-      - linkListType: reference
-        links:
-          - text: OT monitoring predeployment checklist
-            url: pre-deployment-checklist.md
+          - text: Visualize assets and device inventory
+            url: how-to-manage-device-inventory-for-organizations.md
+          - text: Manage alerts
+            url: how-to-manage-cloud-alerts.md
+          - text: Monitor vulnerabilities and threats with workbooks
+            url: workbooks.md

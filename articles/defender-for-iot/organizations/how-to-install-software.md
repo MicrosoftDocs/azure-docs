@@ -151,7 +151,7 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. By adding a secondary NIC, the first will be dedicated for end-users, and the secondary will support the configuration of a gateway for routed networks.
 
-:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
+:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC." border="false":::
 
 Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
 
@@ -220,7 +220,7 @@ When tunneling access is configured, users use the following URL syntax to acces
 
 For example, the following image shows a sample architecture where users access the sensor consoles via the on-premises management console.
 
-:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor.":::
+:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor." border="false":::
 
 The interface between the IT firewall, on-premises management console, and the OT firewall is done using a reverse proxy with URL rewrites. The interface between the OT firewall and the sensors is done using reverse SSH tunnels.
 
