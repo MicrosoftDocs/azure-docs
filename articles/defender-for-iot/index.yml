@@ -38,12 +38,12 @@ highlightedContent:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Microsoft Defender for IoT for end-user organizations
+    - title: Microsoft Defender for IoT documentation for end-user organizations
       links:
         - url: organizations/getting-started.md
           itemType: quickstart
           text: Get started with Defender for IoT
-        - url: organizations/organizations/tutorial-onboarding.md
+        - url: organizations/tutorial-onboarding.md
           itemType: tutorial
           text: Get started with for OT security monitoring
         - url: organizations/tutorial-getting-started-eiot-sensor.md
@@ -52,14 +52,14 @@ conceptualContent:
         - url: organizations/best-practices/understand-network-architecture.md
           itemType: concept
           text: Understand your OT network architecture
-        - url: sentinel/iot-solution.md?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json
-          itemType: tutorial
-          text: Integrate Microsoft Sentinel and Microsoft Defender for IoT
+        - url: concept-sentinel-integration.md
+          itemType: concept
+          text: OT threat monitoring in enterprise SOCs
       footerLink:
         url: organizations/index.yml
         text: See more
 
-    - title: Microsoft Defender for IoT for device builders
+    - title: Microsoft Defender for IoT documentation for device builders
       links:
         - url: device-builders/tutorial-configure-your-solution.md
           itemType: tutorial

@@ -23,27 +23,55 @@ landingContent:
         links:
           - text: What is Microsoft Defender for IoT?
             url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: What's new?
+            url: release-notes.md
+      - linkListType: concept
+        links:
           - text: System architecture
             url: architecture.md
+
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Defender for IoT for organizations
+          - text: Get started with Defender for IoT
             url: concept-key-concepts.md
+      - linkListType: tutorial
+        links:
+          - text: Get started with OT security monitoring
+            url: tutorial-onboarding.md
+          - text: Get started with Enterprise IoT security monitoring
+            url: tutorial-getting-started-eiot-sensor.md
+
   - title: How-to
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: About Microsoft Defender for IoT network setup
-            url: how-to-set-up-your-network.md
-          - text: Activate and set up your on-premises management console
-            url: how-to-activate-and-set-up-your-on-premises-management-console.md
-          - text: Activate and set up your sensor
-            url: how-to-activate-and-set-up-your-sensor.md
-  - title: New in docs
+
+          - text: Visualize assets and device inventory
+            url: how-to-manage-device-inventory-for-organizations.md
+          - text: Manage alerts
+            url: how-to-manage-cloud-alerts.md
+          - text: Monitor vulnerabilities and threats with workbooks
+            url: workbooks.md
+
+  - title: System setup and maintenance
     linkLists:
-      - linkListType: whats-new
+      - linkListType: how-to-guide
         links:
-          - text: What's new for organizations?
-            url: release-notes.md
+          - text: Manage Defender for IoT plans
+            url: how-to-manage-subscriptions.md
+          - text: Onboard sensors
+            url: onboard-sensors.md
+          - text: Integrate OT monitoring with partner services
+            url: how-to-manage-device-inventory-for-organizations.md
+      - linkListType: concept
+        links:
+          - text: Understand your OT network architecture
+            url: best-practices/understand-network-architecture.md
+      - linkListType: reference
+        links:
+          - text: OT monitoring predeployment checklist
+            url: pre-deployment-checklist.md

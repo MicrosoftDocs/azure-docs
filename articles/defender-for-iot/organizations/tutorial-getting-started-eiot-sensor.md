@@ -107,7 +107,7 @@ You can also download and add the [Azure public IP ranges](https://www.microsoft
 
 You'll need a Defender for IoT network sensor to discover and continuously monitor Enterprise IoT devices. Defender for IoT sensors use the Enterprise IoT network and endpoint sensors to gain comprehensive visibility.
 
-**Prerequisites**: Make sure that you've completed [Set up a server or Virtual Machine (VM)](#set-up-a-server-or-virtual-machine-vm) and [Prepare your environment](#prepare-your-environment), including verifying that you have the listed required resources.
+**Prerequisites**: Make sure that you've completed [Set up a server or Virtual Machine (VM)](#set-up-a-server-or-virtual-machine-vm) and [Prepare networking requirements](#prepare-networking-requirements), including verifying that you have the listed required resources.
 
 **To set up an Enterprise IoT sensor**:
 
