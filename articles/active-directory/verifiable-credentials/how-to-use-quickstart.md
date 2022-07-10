@@ -1,51 +1,50 @@
 ---
-title: How to create credentials using the QuickStart
-description: Learn how to use the QuickStart to create custom credentials
+title: Create verifiable credentials for an ID token hint
+description: In this article, you learn how to use a quickstart to create a custom verifiable credential for an ID token hint.
 documentationCenter: ''
 author: barclayn
 manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/16/2022
+ms.date: 07/06/2022
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am looking for information to help me disable 
+#Customer intent: As a verifiable credentials administrator, I want to create a verifiable credential for the ID token hint scenario. 
 ---
 
-# How to create credentials using the Quickstart
+# Create verifiable credentials for ID token hint
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Microsoft Entra Verified ID is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-To use the Azure Active Directory Verifiable Credentials QuickStart, you only need to complete verifiable credentials onboarding.
+To use the Microsoft Entra Verified ID quickstart, you need only to complete the verifiable credentials onboarding process.
 
-## What is the QuickStart?
+## What is the quickstart?
 
-Azure AD verifiable Credentials now come with a QuickStart in the portal for creating custom credentials. When using the QuickStart, you don't need to edit and upload of display and rules files to Azure Storage. Instead you enter all details in the portal and create the credential in one page. 
+Azure Active Directory verifiable credentials now come with a quickstart in the Azure portal for creating custom credentials. When you use the quickstart, you don't need to edit and upload rules and display files to Azure Storage. Instead, you enter all details in the Azure portal and create the credential on a single page. 
 
 >[!NOTE]
->When working with custom credentials, you provide display and rules definitions in JSON documents. These definitions are now stored together with the credential's details.
+>When you work with custom credentials, you provide display definitions and rules definitions in JSON documents. These definitions are stored with the credential details.
 
-## Create a Custom credential
+## Create a custom credential
 
-When you select + Add credential in the portal, you get the option to launch two Quickstarts. Select [x] Custom credential and select Next. 
+In the Azure portal, when you select **Add credential**, you get the option to launch two quickstarts. Select **custom credential**, and then select **Next**. 
 
-![Screenshot of VC quickstart](media/how-to-use-quickstart/quickstart-startscreen.png)
+![Screenshot of the "Issue credentials" quickstart for creating a custom credential.](media/how-to-use-quickstart/quickstart-startscreen.png)
 
-In the next screen, you enter JSON for the Display and the Rules definitions and give the credential a type name. Select Create to create the credential.
+On the **Create a new credential** page, enter the JSON code for the rules and display definitions. In the **Credential name** box, give the credential a type name. To create the credential, select **Create**.
 
-![screenshot of create new credential section with JSON sample](media/how-to-use-quickstart/quickstart-create-new.png)
+![Screenshot of the "Create a new credential" page, displaying JSON samples for the rules and display files.](media/how-to-use-quickstart/quickstart-create-new.png)
 
-## Sample JSON Display definitions
+## Sample JSON display definitions
 
-The expected JSON for the Display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, you add multiple entries with a comma as separator.
+The expected JSON for the display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, you add multiple entries, with a comma as a separator.
 
 ```json
 {
@@ -80,9 +79,9 @@ The expected JSON for the Display definitions is the inner content of the displa
 }
 ```
 
-## Sample JSON Rules definitions
+## Sample JSON rules definitions
 
-The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute.
+The expected JSON for the rules definitions is the inner content of the rules attribute, which starts with the attestation attribute.
 
 ```json
 {
@@ -106,26 +105,34 @@ The expected JSON for the Rules definitions is the inner content of the rules at
             "required": false
           }
         ]
+      },
+      "validityInterval":  2592000,
+      "vc": {
+        "type": [
+          "VerifiedCredentialExpert"
+        ]
       }
 }
 ```
 
-## Configure the samples to issue and verify your Custom credential
 
-To configure your sample code to issue and verify using custom credentials, you need:
+## Configure the samples to issue and verify your custom credential
 
-- Your tenant's issuer DID
+To configure your sample code to issue and verify by using custom credentials, you need:
+
+- Your tenant's issuer decentralized identifier (DID)
 - The credential type
-- The manifest url to your credential. 
+- The manifest URL to your credential 
 
-The easiest way to find this information for a Custom Credential is to go to your credential in the portal, select **Issue credential** and switch to Custom issue.
+The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**, and then switch to the custom issue.
 
-![Screenshot of QuickStart issue credential screen.](media/how-to-use-quickstart/quickstart-config-sample-1.png)
+![Screenshot of the quickstart "Issue credential" page.](media/how-to-use-quickstart/quickstart-config-sample-1.png)
 
-After switching to custom issue, you have access to a textbox with a JSON payload for the Request Service API. Replace the place holder values with your environment's information. The issuer’s DID is the authority value.
+After you've switched to the custom issue, you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
 
-![Screenshot of Quickstart custom issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
+![Screenshot of the quickstart custom credential issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
 
 ## Next steps
 
-- Reference for [Rules and Display definitions model](rules-and-display-definitions-model.md)
+For more information, see:
+- [Rules and display definitions reference](rules-and-display-definitions-model.md)

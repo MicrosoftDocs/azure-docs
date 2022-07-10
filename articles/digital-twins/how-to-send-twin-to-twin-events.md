@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to create a function in Azure for propagating events through the twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q3 
@@ -25,8 +25,6 @@ To set up this twin-to-twin event handling, you'll create an [Azure function](..
 
 ## Prerequisites
 
-This article uses Visual Studio. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
-
 To set up twin-to-twin handling, you'll need an Azure Digital Twins instance to work with. For instructions on how to create an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). The instance should contain at least two twins that you want to send data between.
 
 Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This process isn't required to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live telemetry.
@@ -41,9 +39,11 @@ To set up twin-to-twin event handling, start by creating an *endpoint* in Azure 
 
 Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. The logic of the function should use the information in the events to determine what other twins need to be updated and then perform the updates.
 
-1. First, create an Azure Functions project in Visual Studio on your machine. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
+1. First, create a new Azure Functions project. 
 
-2. Add the following packages to your project (you can use the Visual Studio NuGet package manager or `dotnet` commands in a command-line tool).
+    You can do this using **Visual Studio** (for instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project)), **Visual Studio Code** (for instructions, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#create-an-azure-functions-project)), or the **Azure CLI** (for instructions, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#create-a-local-function-project)).
+
+2. Add the following packages to your project (you can use the Visual Studio NuGet package manager, or the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in a command-line tool).
 
     * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
     * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
@@ -51,9 +51,11 @@ Next, create an Azure function that will listen on the endpoint and receive twin
 
 3. Fill in the logic of your function. You can view sample function code for several scenarios in the [azure-digital-twins-getting-started](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/azure-functions) repository to help you get started.
 
-5. Publish the function app to Azure. For instructions on how to publish a function app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+5. Publish the function to Azure, using your preferred method.
 
-Once the process of publishing the function completes, you can use this CLI command to verify the publish was successful. There are placeholders for your resource group, the name of your function app, and the name of your specific function. The command will print information about your function.
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure).
+
+Once the process of publishing the function completes, you can use this Azure CLI command to verify the publish was successful. There are placeholders for your resource group, the name of your function app, and the name of your specific function. The command will print information about your function.
 
 ```azurecli-interactive
 az functionapp function show --resource-group <your-resource-group> --name <your-function-app> --function-name <your-function>

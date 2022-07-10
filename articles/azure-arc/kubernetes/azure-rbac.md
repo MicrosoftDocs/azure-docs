@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 04/05/2021
 ms.topic: article
-author: shashankbarsin
-ms.author: shasb
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
@@ -38,7 +36,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
 
 > [!NOTE]
-> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
+> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. This feature isn't supported on AKS on Azure Stack HCI.
 
 ## Set up Azure AD applications
 

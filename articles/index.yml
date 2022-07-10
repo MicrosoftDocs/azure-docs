@@ -86,6 +86,14 @@ productDirectory:
         - mobile
       url: cognitive-services/index.yml
     # Card
+    - title: Azure OpenAI Service (Preview)
+      summary: Apply advanced coding and language models to a variety of use cases
+      imageSrc: cognitive-services/openai/media/icon/azure-openai-dark.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/openai/index.yml
+
+    # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
       imageSrc: https://static.docs.com/ui/media/product/azure/databricks.svg
@@ -273,7 +281,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/translator/index.yml
     # Card
-    - title: Azure Video Analyzer (preview)
+    - title: Azure Video Analyzer (Preview)
       summary: Build intelligent video-based applications using the AI of your choice
       imageSrc: ./media/index/video-analyzer.svg
       azureCategories:
@@ -748,7 +756,7 @@ productDirectory:
       azureCategories:
         - developer-tools
         - devops
-      url: lab-services/index.yml
+      url: devtest-labs/index.yml
     # Card
     - title: Azure Lab Services
       summary: Set up labs for classrooms, trials, development and testing, and other scenarios
@@ -1501,6 +1509,13 @@ productDirectory:
         - integration
         - web
       url: azure-web-pubsub/index.yml
+    # Card
+    - title: Azure Fluid Relay (Preview)
+      summary: Easily add real-time collaborative experiences to your apps with Fluid Framework
+      imageSrc: https://static.docs.com/ui/media/product/azure/fluid-relay.svg
+      azureCategories:
+        - web
+      url: azure-fluid-relay/index.yml
 tools:
   title: Languages and tools
   items:

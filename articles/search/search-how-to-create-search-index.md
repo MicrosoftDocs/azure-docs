@@ -9,14 +9,14 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 06/24/2022
 ---
 
 # Create an index in Azure Cognitive Search
 
 In Azure Cognitive Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
 
-In this article, learn the steps for defining and publishing a search index. Once the index exists, [**data import**](search-what-is-data-import.md) follows as a separate task. 
+In this article, learn the steps for defining and publishing a search index. Creating an index establishes the physical data structure (folders and files) on your search service. Once the index definition exists, [**loading the index**](search-what-is-data-import.md) follows as a separate task. 
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Use this checklist to assist the design decisions for your search index.
 
 1. Review [supported data types](/rest/api/searchservice/supported-data-types). The data type will impact how the field is used. For example, numeric content is filterable but not full text searchable. The most common data type is `Edm.String` for searchable text, which is tokenized and queried using the full text search engine.
 
-1. Identify one string field in the source data that contains unique values, allowing it to function as the [document key](#document-keys) in your index. For example, if you're indexing from Blob Storage, the metadata storage path is often used as the document key. 
+1. Identify a [document key](#document-keys). A document key is an index requirement. It's a single string field and it will be populated from a source data field that contains unique values. For example, if you're indexing from Blob Storage, the metadata storage path is often used as the document key because it uniquely identifies each blob in the container.
 
 1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
@@ -57,6 +57,11 @@ Use this checklist to assist the design decisions for your search index.
    + Filterable fields can optionally be used in faceted navigation.
 
    + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
+
+1. Determine whether you'll use the default analyzer (`"analyzer": null`) or a different analyzer. [Analyzers](search-analyzers.md) are used to tokenize text fields during indexing and query execution. If strings are descriptive and semantically rich, or if you have translated strings, consider overriding the default with a [language analyzer](index-add-language-analyzers.md).
+
+> [!NOTE]
+> Full text search is conducted over terms that are tokenized during indexing. If your queries fail to return the results you expect, [test for tokenization](/rest/api/searchservice/test-analyzer) to verify the string actually exists. You can try different analyzers on strings to see how tokens are produced for various analyzers.
 
 ## Create an index
 
@@ -81,7 +86,7 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
   :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="Add index command" border="true":::
 
-> [!Tip]
+> [!TIP]
 > After creating an index in the portal, you can copy the JSON representation and add it to your application code.
 
 ### [**REST**](#tab/index-rest)
@@ -115,7 +120,6 @@ POST https://[servicename].search.windows.net/indexes?api-version=[api-version]
   "suggesters": [ ],
   "scoringProfiles": [ ],
   "analyzers":(optional)[ ... ]
-  }
 }
 ```
 

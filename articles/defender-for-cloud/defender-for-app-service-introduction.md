@@ -7,7 +7,7 @@ ms.author: benmansheim
 author: bmansheim
 ---
 
-# Protect your web apps and APIs
+# Overview of Defender for App Service to protect your Azure App Service web apps and APIs
 
 ## Prerequisites
 
@@ -51,7 +51,6 @@ When you enable Microsoft Defender for App Service, you immediately benefit from
 As a cloud-native solution, Defender for App Service can identify attack methodologies applying to multiple targets. For example, from a single host it would be difficult to identify a distributed attack from a small subset of IPs, crawling to similar endpoints on multiple hosts.
 
 The log data and the infrastructure together can tell the story: from a new attack circulating in the wild to compromises in customer machines. Therefore, even if Microsoft Defender for App Service is deployed after a web app has been exploited, it might be able to detect ongoing attacks.
-
 
 ## What threats can Defender for App Service detect?
 
