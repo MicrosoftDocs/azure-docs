@@ -279,6 +279,13 @@ Default: 0
 ```
 The size of the swap file in megabytes.
 
+**ResourceDisk.EnableSwapEncryption**
+```txt
+Type: Boolean
+Default: n
+```
+If set, the swap file (/swapfile) is mounted as an encrypted filesystem (flag supported only on FreeBSD.)
+
 **Logs.Verbose:**  
 ```txt
 Type: Boolean  
