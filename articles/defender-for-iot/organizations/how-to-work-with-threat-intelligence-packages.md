@@ -7,28 +7,26 @@ ms.topic: how-to
 # Threat intelligence research and packages
 ## Overview
 
-Security teams at Microsoft carry out proprietary ICS threat intelligence and vulnerability research. These teams include MSTIC (Microsoft Threat Intelligence Center), DART (Microsoft Detection and Response Team), DCU (Digital Crimes Unit), and Section 52 (IoT/OT/ICS domain experts that track ICS-specific zero-days, reverse-engineering malware, campaigns, and adversaries)
+Microsoft maintains the following security teams:
 
-The teams provide security detection, analytics, and response to Microsoft's:
+- MSTIC: Microsoft Threat Intelligence Center
+- DART: Microsoft Detection and Response Team
+- DCU: Digital Crimes Unit
+- Section 52: IoT/OT/ICS domain experts that track ICS-specific zero-days, reverse-engineering malware, campaigns, and adversaries
 
-- Cloud infrastructure and services.
-- Traditional products and devices.
-- Internal corporate resources.
+These security teams perform proprietary ICS threat intelligence and vulnerability research. They provide security detection, analytics, and response to threats from cloud infrastructure, cloud services, products, devices, and internal corporate resources. They give insights to help you triage and prioritize threats. They aim to understand of the full context of known threats to provide you with relevant, accurate, and actionable data.
 
-Security teams gain the benefit of:
+This intelligence provides contextual information that enrich Microsoft platform analytics and supports Microsoft's managed services for incident response and breach investigation. 
 
-- Protection from known and relevant threats.
-- Insights that help you triage and prioritize.
-- An understanding of the full context of threats before they're affected.
-- More relevant, accurate, and actionable data.
-
-This intelligence provides contextual information to enrich Microsoft platform analytics and supports the company's managed services for incident response and breach investigation. Threat intelligence packages contain signatures (including malware signatures), CVEs, and other security content.
+Threat intelligence packages contain signatures (including malware signatures), CVEs, and other security content.
 
 ## When are packages delivered
 
-Threat intelligence packages are provided approximately once a month, or if needed more frequently. Announcements about new packages are available from: https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT.
+Threat intelligence packages are usually released monthly, and more frequently if needed.
 
-You can also see the most current package delivered from the **Threat intelligence update** section of the **Updates** page on Defender for IoT in the Azure portal.
+For announcements and new packages, see our community page for [Microsoft Defender for IoT](https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT).
+
+For the latest package, see the **Threat intelligence update** section the **Updates** page on Defender for IoT in the Azure portal.
 
 ## Update threat intelligence packages to your sensors
 
