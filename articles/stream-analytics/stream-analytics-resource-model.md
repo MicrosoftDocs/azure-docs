@@ -35,9 +35,9 @@ When your job is started, the Stream Analytics service takes care of compiling y
 ## Stream Analytics cluster
 By default, Stream Analytics jobs run in the Standard multi-tenant environment which forms the Standard SKU. Stream Analytics also provides a Dedicated SKU where you can provision an entire Stream Analytics cluster that belongs to you. Doing so gives you full control of which jobs run on your cluster. The minimum size of a Stream Analytics cluster is 36 Streaming Units and you are charged for the entire cluster capacity from when it gets provisioned. You can learn more about the [benefits of Stream Analytics clusters and when to use it](cluster-overview.md).
 
-:::image type="content" source="./media/stream-analytics-resource-model/stream-analytics-standard-sku.png" alt-text="Diagram that shows Standard multi-tenant environment in Stream Analytics" border="false":::
+:::image type="content" source="./media/stream-analytics-resource-model/stream-analytics-standard-sku.png" alt-text="Diagram that shows Standard multi-tenant environment in Stream Analytics." border="false":::
 
-:::image type="content" source="./media/stream-analytics-resource-model/stream-analytics-dedicated-sku.png" alt-text="Diagram that shows Dedicated environment in Stream Analytics" border="false":::
+:::image type="content" source="./media/stream-analytics-resource-model/stream-analytics-dedicated-sku.png" alt-text="Diagram that shows Dedicated environment in Stream Analytics." border="false":::
 
 ## Next steps
 
