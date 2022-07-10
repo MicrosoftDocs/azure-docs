@@ -80,7 +80,7 @@ Before you deploy your Enterprise IoT sensor, you'll need to configure your serv
 
 ## Prepare networking requirements
 
-This procedure describes how to prepare networking requirements on your server or VM to work with Defender for IoT.
+This procedure describes how to prepare networking requirements on your server or VM to work with Defender for IoT with Enterprise IoT networks.
 
 **To prepare your networking requirements**:
 
