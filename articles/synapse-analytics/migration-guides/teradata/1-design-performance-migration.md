@@ -330,47 +330,47 @@ You can also use [third-party](../../partner/data-integration.md) migration and 
 
 #### Data extraction from Teradata
 
+You can extract raw table data from Teradata tables to flat delimited files, such as CSV files, using standard Teradata utilities like Basic Teradata Query (BTEQ), Teradata FastExport, or Teradata Parallel Transporter (TPT). Use TPT to extract table data as efficiently as possible. TPT uses multiple parallel FastExport streams to achieve the highest throughput.
+
 >[!TIP]
->Use Teradata Parallel Transporter for most efficient data extract.
+>Use Teradata Parallel Transporter for the most efficient data extract.
 
-Migrate the raw data from existing Teradata tables using standard Teradata utilities, such as BTEQ and FASTEXPORT. During a migration exercise, extract the data as efficiently as possible. Use Teradata Parallel Transporter, which uses multiple parallel FASTEXPORT streams to achieve the best throughput.
+Call TPT directly from Azure Data Factory. This is the recommended approach for data migration of Teradata on-premises instances and [Teradata instances that run within a VM](#use-an-azure-vm-teradata-instance-as-part-of-a-migration) in the Azure environment.
 
-Call Teradata Parallel Transporter directly from Azure Data Factory. This is the recommended approach for managing the data migration process whether the Teradata instance in on-premises or copied to a VM in the Azure environment, as described in the previous section.
+Extracted data files should contain delimited text in CSV, Optimized Row Columnar (ORC), or Parquet format.
 
-Recommended data formats for the extracted data include delimited text files (also called Comma Separated Values or CSV), Optimized Row Columnar (ORC), or Parquet files.
-
-For more information about the process of migrating data and ETL from a Teradata environment, see [Data migration, ETL, and load for Teradata migrations](2-etl-load-migration-considerations.md).
+For more information about migrating data and ETL from a Teradata environment, see [Data migration, ETL, and load for Teradata migrations](2-etl-load-migration-considerations.md).
 
 ## Performance recommendations for Teradata migrations
 
-This article provides general information and guidelines about use of performance optimization techniques for Azure Synapse and adds specific recommendations for use when migrating from a Teradata environment.
+The goal of performance optimization is same or better data warehouse performance after migration to Azure Synapse.
 
 ### Differences in performance tuning approach
+
+This section highlights low-level performance tuning implementation differences between Teradata and Azure Synapse.
 
 >[!TIP]
 >Prioritize early familiarity with Azure Synapse tuning options in a migration exercise.
 
-This section highlights lower-level implementation differences between Teradata and Azure Synapse for performance tuning.
-
 #### Data distribution options
 
-Azure enables the specification of data distribution methods for individual tables. The aim is to reduce the amount of data that must be moved between processing nodes when executing a query.
+For performance, Azure Synapse was designed with multi-node architecture and uses parallel processing. To optimize individual table performance in Azure Synapse, you can define a data distribution option in `CREATE TABLE` statements using the `DISTRIBUTION` statement. For example, you can specify a hash-distributed table, which distributes table rows across compute nodes by using a deterministic hash function. The aim is to reduce the amount of data moved between processing nodes when executing a query.
 
-For large table-large table joins, hash distribute one or, ideally, both tables on one of the join columns&mdash;which has a wide range of values to help ensure an even distribution. Perform join processing locally, as the data rows to be joined will already be collocated on the same processing node.
+For large table to large table joins, hash distribute one or, ideally, both tables on one of the join columns&mdash;which has a wide range of values to help ensure an even distribution. Perform join processing locally because the data rows that will be joined are collocated on the same processing node.
 
-Another way to achieve local joins for small table-large table joins&mdash;typically dimension table to fact table in a star schema model&mdash;is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables aren't very large (see [Design guidance for replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md))&mdash;in which case, the hash distribution approach as previously described is more appropriate. For more information, see [Distributed tables design](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Azure Synapse also supports local joins between a small table and a large table through small table replication. For instance, consider a small dimension table and a large fact table within a star schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching, locally available dimension row. The overhead of dimension table replication is relatively low for a small dimension table. For large dimension tables, a hash distribution approach is more appropriate. For more information on data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 #### Data indexing
 
-Azure Synapse provides several indexing options, but these are different from the indexing options implemented in Teradata. For more information about the different indexing options, see [table indexes](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
+Azure Synapse supports several user-definable indexing options that are different from the indexing options implemented in Teradata. For more information about the different indexing options in Azure Synapse, see [Indexes on dedicated SQL pool tables](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
 
-Existing indexes within the source Teradata environment can however provide a useful indication of how the data is currently used. They can identify candidates for indexing within the Azure Synapse environment.
+Existing indexes within the source Teradata environment provide a useful indication of data usage and the candidate columns for indexing in the Azure Synapse environment.
 
 #### Data partitioning
 
-In an enterprise data warehouse, fact tables can contain many billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. The `CREATE TABLE` statement defines the partitioning specification for a table. Partitioning should only be done on very large tables where each partition will contain at least 60 million rows.
+In an enterprise data warehouse, fact tables can contain billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. In Azure Synapse, the `CREATE TABLE` statement defines the partitioning specification for a table. Only partition very large tables and ensure each partition contains at least 60 million rows.
 
-Only one field per table can be used for partitioning. That field is frequently a date field since many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by recreating the table with the new distribution using the `CREATE TABLE AS` (or CTAS) statement. See [table partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) for a detailed discussion of partitioning in Azure Synapse.
+You can only use one field per table for partitioning. That field is frequently a date field because many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by using the `CREATE TABLE AS` (CTAS) statement to recreate the table with a new distribution. For a detailed discussion of partitioning in Azure Synapse, see [Partitioning tables in dedicated SQL pool](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition).
 
 #### Data table statistics
 
@@ -389,7 +389,7 @@ Ensure that statistics on data tables are up to date by building in a [statistic
 
 #### Use workload management
 
-Use [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+Azure Synapse uses resource classes to manage workloads. In general, large resource classes provide better individual query performance, while smaller resource classes provide higher levels of concurrency. You can monitor utilization using Dynamic Management Views (DMVs) to ensure that the applicable resources are being efficiently utilized.
 
 ## Next steps
 
