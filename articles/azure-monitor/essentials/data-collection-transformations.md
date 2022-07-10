@@ -26,20 +26,22 @@ Since you're charged ingestion cost for any data sent to a Log Analytics workspa
 ### Remove sensitive data
 You may have a data source that sends information you don't want stored for privacy or compliancy reasons.
 
+- **Filter sensitive information.** Filter out entire rows or just particular columns that contain sensitive information.
+ 
 - **Obfuscate sensitive information**. For example, you might replace digits with a common character in an IP address or telephone number.
 
 
 ### Enrich data with additional or calculated information
 Use a transformation to add information to data that provides business context or simplifies querying the data later.
 
-- **Add a column with additional information.** For example, you might add a column identifying whether an IP address in the row is internal or external.
+- **Add a column with additional information.** For example, you might add a column identifying whether an IP address in another column is internal or external.
 
 - **Add business specific information.** For example, you might add a column indicating a company division based on location information in other columns. 
 
 ## Supported tables
 Transformations may be applied to the following tables in a Log Analytics workspace. 
 
-- Any built-in table listed in [Tables that support ingestion-time transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md).
+- Any built-in table listed in [Tables that support time transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md).
 
 - Any custom table created by the [data ingestion API](../logs/data-ingestion-api-overview.md) or the [data collector API](../logs/data-collector-api.md).
 
@@ -72,7 +74,6 @@ There are multiple methods to create transformations depending on the data sourc
 
 | Type | Reference |
 |:---|:---|
-| Transformation queries | [Structure of ingestion-time transformations in Azure Monitor (preview)](ingestion-time-transformations-structure.md) |
 | Data ingestion API with transformation | [Send custom logs to Azure Monitor Logs using the Azure portal](../logs/tutorial-data-ingestion-portal.md)<br>[Send custom logs to Azure Monitor Logs using Resource Manager templates](../logs/tutorial-data-ingestion-api.md) |
 | Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](../logs/tutorial-workspace-transformations-api.md)
 

@@ -4,7 +4,7 @@ description: Details on the structure of different kinds of data collection rule
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/22/2022
+ms.date: 07/10/2022
 ms.reviwer: nikeist
 
 ---
@@ -12,7 +12,7 @@ ms.reviwer: nikeist
 
 
 # Structure of a data collection rule in Azure Monitor (preview)
-[Data Collection Rules (DCRs)](data-collection-rule-overview.md) in Azure Monitor define the way that data coming into Azure Monitor should be handled. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements. This article describes the structure of DCRs for creating and editing data collection rules in those cases where you need to work with them directly.
+[Data Collection Rules (DCRs)](data-collection-rule-overview.md) determine how to collect and process telemetry sent to Azure. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements. This article describes the structure of DCRs for creating and editing data collection rules in those cases where you need to work with them directly.
 
 
 ## Custom logs

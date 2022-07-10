@@ -2,11 +2,11 @@
 title: Data collection in Azure Monitor
 description: Monitoring data collected by Azure Monitor is separated into metrics that are lightweight and capable of supporting near real-time scenarios and logs that are used for advanced analysis.
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 07/10/2022
 ---
 
 # Data collection in Azure Monitor
-Azure Monitor has a [common data platform](data-platform.md) that allows features to use data from a variety of sources. You typically don't need to understand the details of how this data collection works in order to use it. To take advantage of advanced features though and to optimize management of your monitoring environment, it helps to understand these details.
+Azure Monitor has a [common data platform](data-platform.md) that consolidates data from a variety of sources. You typically don't need to understand the details of how this data collection works in order to use it. It can help to understand these details though to take advantage of advanced features and to optimize management of your monitoring environment.
 
 Currently, different sources for Azure Monitor use different methods to deliver their data, and each typically require different types of configuration. Get a description of the most common data sources at [Sources of monitoring data for Azure Monitor](data-sources.md).
 
@@ -18,11 +18,11 @@ Azure Monitor is implementing a new [ETL](/azure/architecture/data-guide/relatio
 - Scalable configuration options supporting infrastructure as code and DevOps processes.
 
 ## Overview
-Azure Monitor data collection is defined by a [data collection Rule (DCR)](essentials/data-collection-rule-overview.md), which defines the configuration of a particular workflow. The DCR includes details such as the data to collect, the destination of that data, and any transformations that should be applied to the data before its stored. All data using the new data collection process uses a DCR to define its configuration.
+Azure Monitor data collection is defined by a [data collection Rule (DCR)](essentials/data-collection-rule-overview.md), which defines the configuration of a particular data collection scenario. The DCR includes details such as the data to collect, the destination of that data, and any transformations that should be applied to the data before its stored. All data using the new data collection process uses a DCR to define its configuration.
 
 DCRs are objects that can be created and managed on their own. Create a library of DCRs for different functionality and apply common DCRs to multiple Azure resources. 
 
-Some workflows specify a particular data collection rule to use. For example, when using the [data ingestion API](logs/data-ingestion-api-overview.md), the API call connects to a [data collection endpoint (DCE))](essentials/data-collection-endpoint-overview.md) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data and specifies the destination.
+Some data sources specify a particular DCR to use. For example, when using the [data ingestion API](logs/data-ingestion-api-overview.md), the API call connects to a [data collection endpoint (DCE))](essentials/data-collection-endpoint-overview.md) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data and specifies the destination.
 
 :::image type="content" source="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using data ingestion API." border="false":::
 
@@ -38,12 +38,12 @@ When implementation is complete, all data collected by Azure Monitor will use th
 - [Data ingestion API](logs/data-ingestion-api-overview.md)
 
 
-There's no difference between data collected with the new ingestion pipeline and data collected using legacy methods. The data is all stored together as Logs and Metrics, supporting Azure Monitor features such as log queries, alerts, and workbooks. The only difference is in the method of collection.
+There's no difference between data collected with the new ingestion pipeline and data collected using other methods. The data is all stored together as [Logs](logs/data-platform-logs.md) and [Metrics](essentials/data-platform-metrics.md), supporting Azure Monitor features such as log queries, alerts, and workbooks. The only difference is in the method of collection.
 
 [Transformations](essentials/data-collection-transformations.md) can be applied to data sources that don't yet use data collection rules. In this case, the transformation is included in the [workspace transformation DCR](essentials/data-collection-rule-overview.md#types-of-data-collection-rules) which is associated directly with the Log Analytics workspace receiving the data.
 
 ## Next steps
 
-- Read more about [Metrics in Azure Monitor](essentials/data-platform-metrics.md).
-- Read more about [Logs in Azure Monitor](logs/data-platform-logs.md).
-- Learn about the [monitoring data available](data-sources.md) for different resources in Azure.
+- Read more about [data collection rules](essentials/data-collection-rule-overview.md).
+- Read more about [transformations](essentials/data-collection-transformations.md).
+

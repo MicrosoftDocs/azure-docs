@@ -21,7 +21,7 @@ Some of these data sources use the [new data ingestion pipeline](data-collection
 Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](monitor-reference.md) for a description of each data location and how you can access its data.
 
 
-:::image type="content" source="media/overview/azure-monitor-overview-optm.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-optm.svg":::
+:::image type="content" source="media/data-sources/overview.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/data-sources/overview.png":::
 
 
 ### Azure
@@ -109,7 +109,7 @@ The configuration requirements and content of resource logs vary by resource typ
 | Event Hubs | Stream resource logs to other locations using Event Hubs. |[Stream Azure resource logs to an event hub](essentials/resource-logs.md#send-to-azure-event-hubs) |
 
 ## Operating system (guest)
-Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of the Azure Monitor agent, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.
+Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of an agent, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.
 
 :::image type="content" source="media/data-sources/compute-resources.png" lightbox="media/data-sources/compute-resources.png" alt-text="Diagram that shows compute data collection." border="false":::
 
@@ -124,7 +124,7 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 
 
 ### Log Analytics agent 
-[Install the Log Analytics agent](agents/log-analytics-agent.md) for comprehensive monitoring and management of your Windows or Linux virtual machines. The virtual machine can be running in Azure, another cloud, or on-premises. The Log Analytics agent has been replaced by the Azure Monitor agent. 
+[Install the Log Analytics agent](agents/log-analytics-agent.md) for comprehensive monitoring and management of your Windows or Linux virtual machines. The virtual machine can be running in Azure, another cloud, or on-premises. The Log Analytics agent is still supported but has been replaced by the Azure Monitor agent. 
 
 | Destination | Description | Reference |
 |:---|:---|:---|
@@ -171,14 +171,8 @@ When you enable Application Insights for an application by installing an instrum
 |            | Profiler trace data is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [Profile production applications in Azure with Application Insights](app/profiler-overview.md) 
 |            | Debug snapshot data that is captured for a subset of exceptions is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [How snapshots work](app/snapshot-debugger.md#how-snapshots-work) |
 
-## Monitoring Solutions and Insights
-[Monitoring solutions](insights/solutions.md) and [Insights](monitor-reference.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
-
-### Monitoring solutions
-
-| Destination | Description | Reference
-|:---|:---|:---|
-| Azure Monitor Logs | Monitoring solutions collect data into Azure Monitor logs where it may be analyzed using the query language or [views](visualize/view-designer.md) that are typically included in the solution. | [Data collection details for monitoring solutions in Azure](monitor-reference.md) |
+## Insights
+[Insights](monitor-reference.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
 
 
 ### Container insights
