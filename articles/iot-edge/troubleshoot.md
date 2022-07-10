@@ -50,7 +50,7 @@ sudo iotedge check
 ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 The troubleshooting tool runs many checks that are sorted into these three categories:
 
@@ -60,7 +60,7 @@ The troubleshooting tool runs many checks that are sorted into these three categ
 
 The IoT Edge check tool uses a container to run its diagnostics. The container image, `mcr.microsoft.com/azureiotedge-diagnostics:latest`, is available through the [Microsoft Container Registry](https://github.com/microsoft/containerregistry). If you need to run a check on a device without direct access to the internet, your devices will need access to the container image.
 
-<!-- <1.2> -->
+<!-- <iotedge-2020-11> -->
 :::moniker range=">=iotedge-2020-11"
 
 In a scenario using nested IoT Edge devices, you can get access to the diagnostics image on child devices by routing the image pull through the parent devices.
@@ -69,7 +69,7 @@ In a scenario using nested IoT Edge devices, you can get access to the diagnosti
 sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
 ```
 
-<!-- </1.2> -->
+<!-- </iotedge-2020-11> -->
 :::moniker-end
 
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
@@ -98,7 +98,7 @@ iotedge support-bundle --since 6h
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 ```bash
@@ -106,7 +106,7 @@ sudo iotedge support-bundle --since 6h
 ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 By default, the `support-bundle` command creates a zip file called **support_bundle.zip** in the directory where the command is called. Use the flag `--output` to specify a different path or file name for the output.
 
@@ -230,7 +230,7 @@ On Windows:
 :::moniker-end
 <!--end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 * View the status of the IoT Edge system services:
@@ -262,7 +262,7 @@ On Windows:
      ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Check container logs for issues
 
@@ -341,7 +341,7 @@ Save the file and restart the IoT Edge security manager.
 <!-- end 1.1 -->
 :::moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 You can view the messages going through the IoT Edge hub and gather insights from verbose logs from the runtime containers. To turn on verbose logs on these containers, set the `RuntimeLogLevel` environment variable in the deployment manifest.
@@ -357,7 +357,7 @@ Both the edgeHub and edgeAgent modules have this runtime log environment variabl
 * debug
 * verbose
 
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 :::moniker-end
 
 You can also check the messages being sent between IoT Hub and IoT devices. View these messages by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). For more information, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
