@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 03/11/2022
+ms.date: 07/08/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -181,6 +181,21 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
     - diffie-hellman-group-exchange-sha1
     - diffie-hellman-group14-sha1
     - diffie-hellman-group1-sha1
+
+### Error Code: SftpInvalidHostKeyFingerprint
+
+- **Message**: `Host key finger-print validation failed. Expected fingerprint is '<value in linked service>', real finger-print is '<server real value>'`
+
+- **Cause**: Azure Data Factory now supports more secure host key algorithms in SFTP connector. For the newly added algorithms, it requires to get the corresponding fingerprint in the SFTP server.
+
+    The newly supported algorithms are:
+    
+    - ssh-ed25519
+    - ecdsa-sha2-nistp256
+    - ecdsa-sha2-nistp384
+    - ecdsa-sha2-nistp521
+
+- **Recommendation**: Get a valid fingerprint using the Host Key Name in `real finger-print` from the error message in the SFTP server. You can run the command to get the fingerprint on your SFTP server. For example: run `ssh-keygen -E md5 -lf <keyFilePath>` in Linux server to get the fingerprint. The command may vary among different server types.
 
 ## HTTP
 
