@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 07/14/2022
 ---
 
 # Azure HDInsight release notes
@@ -26,7 +26,7 @@ HDInsight uses safe deployment practices which involve gradual region deployment
 
 ...
 
-## ![Icon showing new features](media/hdinsight-release-notes/icon-for-new-feature.png)**New Feature**
+![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png)**New Feature**
 
 **Attach external disks in HDI Hadoop/Spark clusters.**
 
@@ -36,7 +36,7 @@ The new feature allows you to add more disks to the HDI cluster and add the disk
 - Add validation to the number of disks which to each VM.
 - Newly added disks can be updated in node manager configurations.
 
-## ![Icon showing bug fixes](media/hdinsight-release-notes/icon-for-bugfix.png)**Fixed**
+![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png)**Fixed**
 
 #### **Log analytics**
 
