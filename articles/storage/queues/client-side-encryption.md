@@ -35,13 +35,11 @@ The Azure Queue Storage client library uses [AES](https://en.wikipedia.org/wiki/
 
 Due to a security vulnerability discovered in the Queue Storage client library's implementation of CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
 
-- Migrate your applications that are using client-side encryption v1 to client-side encryption v2.
+- Consider using service-side encryption features instead of client-side encryption. For more information about service-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
+
+- If you need to use client-side encryption, then migrate your applications from client-side encryption v1 to client-side encryption v2.
 
     Client-side encryption v2 is available only in version 12.x and later of the Azure Queue Storage client libraries for .NET and Python. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use version 12.x side-by-side with an earlier version of the client library while you are migrating your code.
-
-- Consider using service-side encryption features instead of client-side encryption. For more information about service-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
-- Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md). ???need more info about how this is a substitute for CSE???
-- Limit network access to specific networks only. ???need more info about how this is a substitute for CSE? more info???
 
 The following table summarizes the steps you'll need to take if you choose to migrate your applications to client-side encryption v2:
 
@@ -49,6 +47,11 @@ The following table summarizes the steps you'll need to take if you choose to mi
 |---|---|
 | Application is using client-side encryption with Azure Queue Storage SDK version 11.x or earlier | Update your application to use Queue Storage SDK version 12.x or later. If necessary, you can use version 12.x side-by-side with an earlier version of the client library while you are migrating your code.<br/><br/>Update your code to use client-side encryption v2. |
 | Application is using client-side encryption with Azure Queue Storage SDK version 12.x or later | Update your code to use client-side encryption v2. |
+
+Additionally, Microsoft recommends that you take the following steps to help secure your data:
+
+- Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md).
+- Limit network access to specific networks only.
 
 ## How client-side encryption works
 
