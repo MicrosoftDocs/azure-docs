@@ -1,5 +1,5 @@
 ---
-title: Integrate partner network ground stations into your Azure Orbital Ground Station as-a-Service solution
+title: Integrate partner network ground stations into your Azure Orbital Ground Station as a Service solution
 description: Leverage partner network ground station locations through Azure Orbital.
 author: apoorvanori
 ms.service: orbital
@@ -9,7 +9,7 @@ ms.date: 07/06/2022
 ms.author: apoorvanori
 ---
 
-# Integrate partner network ground stations into your Azure Orbital Ground Station as-a-Service solution
+# Integrate partner network ground stations into your Azure Orbital Ground Station as a Service solution
 
 This article describes how to integrate partner network ground stations.
 
@@ -22,7 +22,7 @@ This article describes how to integrate partner network ground stations.
 
 ## Request integration resource information
 
-1. Email the Azure Orbital Ground Station as-a-Service (GSaaS) team at **azorbitalpm@microsoft.com** to initiate partner network integration by providing the details below:
+1. Email the Azure Orbital Ground Station as a Service (GSaaS) team at **azorbitalpm@microsoft.com** to initiate partner network integration by providing the details below:
     - Azure Subscription ID
     - List of partner networks you've contracted with
     - List of ground station locations included in partner contracts
