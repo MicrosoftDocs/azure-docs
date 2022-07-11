@@ -139,6 +139,7 @@ The volume of migrated data in an initial migration should be large enough to de
 
 For your initial migration project, minimize the risk, effort, and migration time so you can quickly see the benefits of the Azure cloud environment, confine the scope of the migration to just the data marts, such as the OLAP DB part of a Teradata warehouse. Both the lift-and-shift and phased migration approaches limit the scope of the initial migration to just the data marts and don't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
 
+<a id="lift-and-shift-as-is-versus-a-phased-approach-incorporating-changes"></a>
 #### Lift and shift migration vs. Phased approach
 
 In general, there are two types of migration regardless of the purpose and scope of the planned migration: lift and shift as-is and a phased approach that incorporates changes.
@@ -154,6 +155,7 @@ In a lift and shift migration, an existing data model, like a star schema, is mi
 >[!TIP]
 >Lift and shift is a good starting point, even if subsequent phases implement changes to the data model.
 
+<a id="phased-approach-incorporating-modifications"></a>
 ##### Phased approach that incorporates changes
 
 If a legacy data warehouse has evolved over a long period of time, you might need to re-engineer it to maintain the required performance levels. You might also have to re-engineer to support new data like Internet of Things (IoT) streams. As part of the re-engineering process, migrate to Azure Synapse to get the benefits of a scalable cloud environment. Migration can also include a change in the underlying data model, such as a move from an Inmon model to a data vault.
@@ -189,6 +191,7 @@ When you're planning to use Data Factory facilities to manage the migration proc
 
 As mentioned earlier, there are some basic differences in approach between Teradata and Azure Synapse Analytics databases and these differences are discussed next.
 
+<a id="multiple-databases-versus-a-single-database-and-schemas"></a>
 #### Multiple databases vs. a single database and schemas
 
 The Netezza environment often contains multiple separate databases. For instance, there could be separate databases for: data ingestion and staging tables, core warehouse tables, and data marts (sometimes referred to as the semantic layer). ETL or ELT pipeline processes might implement cross-database joins and move data between the separate databases.
@@ -372,6 +375,7 @@ You can only use one field per table for partitioning. That field is often a dat
 
 You should ensure that statistics on data tables are up to date by building in a [statistics](../../sql/develop-tables-statistics.md) step to ETL/ELT jobs.
 
+<a id="polybase-for-data-loading"></a>
 #### PolyBase or COPY INTO for data loading
 
 [PolyBase](/sql/relational-databases/polybase) supports efficient loading of large amounts of data to a data warehouse by using parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
