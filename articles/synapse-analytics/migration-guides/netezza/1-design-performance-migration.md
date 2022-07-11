@@ -143,7 +143,7 @@ In general, there are two types of migration regardless of the purpose and scope
 
 ##### Lift and shift
 
-In a lift and shift migration, an existing data model, like a star schema, is migrated unchanged to the new Azure Synapse platform. This approach minimizes both risk and migration time by reducing the work needed to realize the benefits of moving to the Azure cloud environment. Lift and shift migration is a good fit for these scenarios:
+In a lift and shift migration, an existing data model, like a star schema, is migrated unchanged to the new Azure Synapse platform. This approach minimizes risk and migration time by reducing the work needed to realize the benefits of moving to the Azure cloud environment. Lift and shift migration is a good fit for these scenarios:
 
 - You have an existing Netezza environment with a single data mart to migrate, or
 - You have an existing Netezza environment with data that's already in a well-designed star or snowflake schema, or
@@ -312,7 +312,7 @@ If sufficient network bandwidth is available, you can extract data from an on-pr
 
 Extracted data files should contain delimited text in CSV, Optimized Row Columnar (ORC), or Parquet format.
 
-For more information on migrating data and ETL from a Netezza environment, see [Data migration, ETL, and load for Netezza migrations](2-etl-load-migration-considerations.md).
+For more information about migrating data and ETL from a Netezza environment, see [Data migration, ETL, and load for Netezza migrations](2-etl-load-migration-considerations.md).
 
 ## Performance recommendations for Netezza migrations
 
@@ -343,7 +343,7 @@ This section highlights low-level performance tuning implementation differences 
 
 For performance, Azure Synapse was designed with multi-node architecture and uses parallel processing. To optimize table performance, you can define a data distribution option in `CREATE TABLE` statements using `DISTRIBUTION` in Azure Synapse and `DISTRIBUTE ON` in Netezza.
 
-Unlike Netezza, Azure Synapse supports local joins between a small table and a large table through small table replication. For instance, consider a small dimension table and a large fact table within a star schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching, locally available dimension row. The overhead of dimension table replication is relatively low for a small dimension table. For large dimension tables, a hash distribution approach is more appropriate. For more information on data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Unlike Netezza, Azure Synapse supports local joins between a small table and a large table through small table replication. For instance, consider a small dimension table and a large fact table within a star schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching, locally available dimension row. The overhead of dimension table replication is relatively low for a small dimension table. For large dimension tables, a hash distribution approach is more appropriate. For more information about data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 #### Data indexing
 
