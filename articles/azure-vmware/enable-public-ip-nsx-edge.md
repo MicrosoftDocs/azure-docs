@@ -131,3 +131,6 @@ The Distributed Firewall could be used to filter traffic to VMs. This feature is
 
 [Disable Internet access or enable a default route](disable-internet-access.md)
 
+[Enable HCX access over the internet](enable-hcx-access-over-internet.md)
+
+
