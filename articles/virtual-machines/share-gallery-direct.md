@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 # Share a gallery with subscriptions or tenants
 
-This article covers how to share an Azure Compute Gallery with specific subscriptions or tenants using direct sharing.
+This article covers how to share an Azure Compute Gallery with specific subscriptions or tenants using direct sharing. Sharing a gallery with tenants and subscriptions give them read-only access to your gallery.
 
 
 > [!IMPORTANT]
