@@ -24,12 +24,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - If you want to execute hybrid jobs using a managed identity, update the agent-based Hybrid Runbook Worker to the latest version. There is no minimum version requirement for extension-based Hybrid Runbook Worker, and all the versions would work. The minimum required versions for the agent-based Hybrid Worker are:
 
-  - Windows Hybrid Runbook Worker: version 7.3.1125.0
-  - Linux Hybrid Runbook Worker: version 1.7.4.0
+    - Windows Hybrid Runbook Worker: version 7.3.1125.0
+    - Linux Hybrid Runbook Worker: version 1.7.4.0
   
   To check the versions:
-  - Windows Hybrid Runbook Worker: Go to the installation path - `C:\ProgramFiles\Microsoft Monitoring Agent\Agent\AzureAutomation\.` and the folder *Azure Automation* contains a sub-folder with the version number as the name of sub-folder.
-  - Linux Hybrid Runbook Worker: Go to the path - `vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION.` and the file *VERSION* has the version number of the Hybrid Worker.
+    - Windows Hybrid Runbook Worker: Go to the installation path - `C:\ProgramFiles\Microsoft Monitoring Agent\Agent\AzureAutomation\.` and the folder *Azure Automation* contains a sub-folder with the version number as the name of sub-folder.
+    - Linux Hybrid Runbook Worker: Go to the path - `vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION.` and the file *VERSION* has the version number of the Hybrid Worker.
 
 - To add the user assigned managed identity you must have the ```Microsoft.ManagedIdentity/userAssignedIdentities/*/read``` and ```Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action``` permissions over the user assigned managed identity, which are granted to [Managed Identity Operator](../role-based-access-control/built-in-roles#managed-identity-operator) and [Managed Identity Contributor](../role-based-access-control/built-in-roles#managed-identity-contributor)
 
