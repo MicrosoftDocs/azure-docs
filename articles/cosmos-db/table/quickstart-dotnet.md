@@ -131,15 +131,18 @@ Create an item in the collection using the `TableEntity` by calling [``TableClie
 
 ### Get an item
 
-Tou can retrieve a specific item from a table using the [``TableEntity.GetEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.getentity) method. Provide the `partitionKey` and `rowKey` as parameters to identify the correct row.
+You can retrieve a specific item from a table using the [``TableEntity.GetEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.getentity) method. Provide the `partitionKey` and `rowKey` as parameters to identify the correct row.
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="read_item" :::
 
 ### Query items
 
-After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example uses an expression to filter products by category.
+After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example filters products by category using [OData](/rest/api/storageservices/querying-tables-and-entities) syntax.
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="query_items" :::
+
+> [!NOTE]
+> You can also query items using [Linq](/dotnet/csharp/programming-guide/concepts/linq/) by mapping your entities to strongly typed C# classes. Many developers prefer working with Linq due to its developer friendly syntax. You can see an example of using Linq in the [Query Data](/azure/cosmos-db/table/tutorial-query-table) tutorial.
 
 ## Run the code
 
