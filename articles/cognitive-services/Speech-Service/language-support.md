@@ -396,11 +396,14 @@ You can use the locales in this table with [phrase list](improve-accuracy-phrase
 | English (India) | `en-IN` |
 | English (United Kingdom)) | `en-GB` |
 | English (United States) | `en-US` |
+| French (Canada) | `fr-CA` |
 | French (France) | `fr-FR` |
 | German (Germany) | `de-DE` |
 | Italian (Italy) | `it-IT` |
 | Japanese (Japan) | `ja-JP` |
+| Korean (Korea) | `ko-KR` |
 | Portuguese (Brazil) | `pt-BR` |
+| Spanish (Mexico) | `es-MX` |
 | Spanish (Spain) | `es-ES` |
 
 ---
