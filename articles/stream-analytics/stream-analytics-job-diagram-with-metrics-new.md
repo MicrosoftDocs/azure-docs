@@ -10,7 +10,7 @@ ms.date: 07/01/2022
 
 # Data-driven debugging with the job diagram (preview) in Azure portal
 
-The job diagram (preview) on the blade in the Azure portal can help you visualize your job's query steps with its inputs, outputs, and metrics. You can use the job diagram (preview) to examine the metrics data for each step, to more quickly isolate the source of a problem when you troubleshoot issues.
+The job diagram (preview) on the blade in the Azure portal can help you visualize your job's query steps with its input source, output destination, and metrics. You can use the job diagram (preview) to examine the metrics data for each step and to more quickly isolate the source of a problem when you troubleshoot issues.
 
 The job diagram (preview) is also available in VScode ASA extension. It provides the similar functions with more metrics data when you debug your job with local run service. To learn more details, see [Debug Azure Stream Analytics queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md).
 
@@ -25,11 +25,11 @@ The job level default metrics data (Watermark delay, Input events, Output Events
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/2-job-logical-diagram-overview.png" alt-text="Job logical diagram overview":::
 
-If you select one of the node in diagram section, the metrics data and the metrics options in the chart section will be filtered according to the selected node's properties. For example, if you select the input node, only the input node related metrics and its options are shown:
+If you select one of the nodes in diagram section, the metrics data and the metrics options in the chart section will be filtered according to the selected node's properties. For example, if you select the input node, only the input node related metrics and its options are shown:
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png" alt-text="Job logical diagram node selection":::
 
-To see the query script snippet which is mapping the corresponding query step, click the {} in the query step node as below:
+To see the query script snippet that is mapping the corresponding query step, click the {} in the query step node as below:
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/4-job-logical-diagram-query-step-mapping-to-script.png" alt-text="Job logical diagram query step mapping to script":::
 
@@ -48,33 +48,33 @@ Job metrics data provides lots of insights to your job's health. You can check t
 ### Is the job running well with its computation resource?
 
 *   **SU % utilization** is the percentage of memory utilized by your job. If SU % utilization is consistently over 80%, it shows the job is approaching to the maximum allocated memory.
-*   **CPU % utilization** is the percentage of CPU utilized by your job. There might be spikes intermittently for this metrics. High CPU utilization indicates that there might be CPU bottleneck if the number of backlogged input events or watermark delay increases.
+*   **CPU % utilization** is the percentage of CPU utilized by your job. There might be spikes intermittently for this metric. High CPU utilization indicates that there might be CPU bottleneck if the number of backlogged input events or watermark delay increases.
 
  
 ### How much data is being read?
 
-The input data related metrics can be viewed under **Input** section. It is available in the step of the input.
+The input data related metrics can be viewed under **Input** section. It's available in the step of the input.
 *   **Input events** is the number of data events read.
-*   **Input events bytes** is the number of event bytes read . This can be used to validate that events are being sent to the input source. 
-*   **Input source received** is the number of message read by the job.
+*   **Input events bytes** is the number of event bytes read. This can be used to validate that events are being sent to the input source. 
+*   **Input source received** is the number of messages read by the job.
  
 ### Are there any errors in data processing?
 
-*   **Deserialization errors** is the number of input events that could not be deserialized.
-*   **Data conversion errors** is the number of output events that could not be converted to the expected output schema.
+*   **Deserialization errors** is the number of input events that couldn't be deserialized.
+*   **Data conversion errors** is the number of output events that couldn't be converted to the expected output schema.
 * **Runtime errors** is the total number of errors related to query processing (excluding errors found while ingesting events or outputting results).
  
-### Are there any events out of order which are being dropped or adjusted?
+### Are there any events out of order that are being dropped or adjusted?
 
 *   **Out of order events** is the number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting.
  
 ### Are we falling behind in data processing?
 
-*   **Backlogged input events** tells you how many more messages from the input need to be processed. When this number is greater than 0, it means your job can't process the data as fast as it is coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this on the  [query parallelization page](./stream-analytics-parallelization.md). 
+*   **Backlogged input events** tells you how many more messages from the input need to be processed. When this number is greater than 0, it means your job can't process the data as fast as it's coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this on the  [query parallelization page](./stream-analytics-parallelization.md). 
 
 
 ## Get help
-For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
+For more assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
