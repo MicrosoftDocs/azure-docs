@@ -34,4 +34,3 @@ To create the IBM Db2 provider for AMS:
     1. Save your changes.
 1. Configure more providers for each instance of the database.
     
-    <img width="563" alt="Provider Details" src="https://user-images.githubusercontent.com/33844181/167953657-5519fafe-d201-4ead-a7d4-2dfb86a3f45e.png">
