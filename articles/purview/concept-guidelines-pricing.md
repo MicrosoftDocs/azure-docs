@@ -28,14 +28,13 @@ Direct costs impacting Microsoft Purview pricing are based on these applications
 - [The Microsoft Purview Data Map](concept-guidelines-pricing-data-map.md)
 - [Data Estate Insights](concept-guidelines-pricing-data-estate-insights.md)
 
-For guidelines about pricing for these applications, select the links above.
-
 ## Indirect costs  
 
 Indirect costs impacting Microsoft Purview (formerly Azure Purview) pricing to be considered are:
 
 - [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
-    - When an account is provisioned, a storage account and event hub queue are created within the subscription in order to cater to secured scanning, which may be charged separately
+    - When an account is provisioned, a storage account is created in the subscription in order to cater to secured scanning, which may be charged separately.
+    - An Event Hubs namespace can be [enabled at creation](create-catalog-portal.md#create-an-account) or enabled in the [Azure portal](https://portal.azure.com) on the managed resources page of the account to enable monitoring with [*Atlas Kafka* topics events](manage-kafka-dotnet.md). This will be charged separately if it's enabled.
 
 
 - [Azure private endpoint](./catalog-private-link.md)

@@ -1,7 +1,7 @@
 ---
 title: Prepare your OT network for Microsoft Defender for IoT
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Microsoft Defender for IoT appliances.
-ms.date: 02/22/2022
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
@@ -23,7 +23,7 @@ Before performing the procedures in this article, make sure that you understand 
 
 - [Microsoft Defender for IoT system architecture](architecture.md)
 - [Sensor connection methods](architecture-connections.md)
-- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
+- [Best practices for planning your OT network monitoring](best-practices/plan-network-monitoring.md)
 
 ## On-site deployment tasks
 
@@ -134,7 +134,8 @@ Use the following tables to ensure that required firewalls are open on your work
 
 | Protocol | Transport | In/Out | Port | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|
-| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net` |
+| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`<br> `download.microsoft.com` |
+| HTTPS | TCP | Out | 443 | Remote sensor upgrades from the Azure portal  | Sensor| `download.microsoft.com`|
 
 ### Sensor access to the on-premises management console
 

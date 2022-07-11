@@ -14,14 +14,15 @@ ms.author: jduffney
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V3](create-sql-api-dotnet.md)
-> * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java SDK v4](create-sql-api-java.md)
-> * [Spring Data v3](create-sql-api-spring-data.md)
-> * [Spark v3 connector](create-sql-api-spark.md)
+>
+> * [.NET](quickstart-dotnet.md)
 > * [Node.js](create-sql-api-nodejs.md)
+> * [Java](create-sql-api-java.md)
+> * [Spring Data](create-sql-api-spring-data.md)
 > * [Python](create-sql-api-python.md)
+> * [Spark v3](create-sql-api-spark.md)
 > * [Go](create-sql-api-go.md)
+>
 
 
 In this quickstart, you'll build a sample Go application that uses the Azure SDK for Go to manage a Cosmos DB SQL API account.
