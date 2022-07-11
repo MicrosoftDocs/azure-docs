@@ -18,16 +18,14 @@ If a user, a purge policy, or an indirect user event deletes the artifact, the s
 ## Prerequisites   
 
 * Install [Azure CLI](/cli/azure/install-azure-cli)
-* The user will require following permissions (at subscription level) to perform soft- delete operations:
+* The user will require following permissions (at subscription level) to perform soft-delete operations:
 
   | Permission | Description |
   |---|---|
-  |Microsoft.KeyVault/locations/deletedVaults/read|View the properties of a soft deleted key vault|
-  |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purge a soft deleted key vault|
-  |Microsoft.KeyVault/locations/operationResults/read| To check purging state of vault|
-  |[Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor)|To recover soft-deleted vault|
-  |Microsoft.Storage/storageAccounts/blobServices/containers/write|To restore the contents and metadata of a soft deleted artifact |
-
+  | Microsoft.ContainerRegistry/registries/deleted/read | List soft-deleted artifacts |
+  | Microsoft.ContainerRegistry/registries/deleted/restore/action | Restore soft-deleted artifact |
+  |	Microsoft.ContainerRegistry/registries/deleted/purge/action | Purge soft-deleted artifacts |
+  
 ## Soft-delete features
 
 * The soft-delete feature can be enabled/disabled at any time.
