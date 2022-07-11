@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 07/11/2022
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -37,8 +37,8 @@ Custom neural models currently only support key-value pairs and selection marks,
 
 With the release of API version **2022-06-30-preview**, custom neural models will support tabular fields (tables):
 
-* Models trained with API version 2022-06-30-preview or later will accept tabular field labels. 
-* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables. 
+* Models trained with API version 2022-06-30-preview or later will accept tabular field labels.
+* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
 * The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
 
 Tabular fields support **cross page tables** by default:
@@ -50,23 +50,22 @@ Tabular fields are also useful when extracting repeating information within a do
 
 ## Supported regions
 
-Starting on 1 August 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
+As of August 01 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
 
-*	Brazil South
-*	Canada Central
-*	Central India
-*	Japan East
-*	North Europe
-*	South Central US
-*	Southeast Asia
-
+* Brazil South
+* Canada Central
+* Central India
+* Japan East
+* North Europe
+* South Central US
+* Southeast Asia
 
 > [!TIP]
 > You can [copy a model](disaster-recovery.md) trained in one of the select regions listed above to **any other region** and use it accordingly.
 
 ## Best practices
 
-Custom neural models differ from custom template models in a few different ways. The custom template or model relies on a consistent visual template to extract the labeled data. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model and test to determine if it supports your functional needs.
+Custom neural models differ from custom template models in a few different ways. The custom template or model relies on a consistent visual template to extract the labeled data. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model, and test to determine if it supports your functional needs.
 
 ### Dealing with variations
 
@@ -86,7 +85,6 @@ Value tokens/words of one field must be either
 ### Representative data
 
 Values in training cases should be diverse and representative. For example, if a field is named "date", values for this field should be a date. synthetic value like a random string can affect model performance.
-
 
 ## Current Limitations
 
@@ -119,6 +117,7 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
   }
 }
 ```
+
 ## Next steps
 
 * Train a custom model:

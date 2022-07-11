@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 07/11/2022
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: lajanuar
 ---
@@ -27,11 +27,11 @@ ms.author: lajanuar
 * The current version of the [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
@@ -117,11 +117,11 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 ### FormRecognizerClient
 
-`FormRecognizerClient` provides operations for:
+`FormRecognizerClient` provides operations for the following tasks:
 
-* Recognizing form fields and content, using custom models trained to analyze your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
-* Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Analyze layout](#analyze-layout).
-* Recognizing common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
+* Recognize form fields and content, using custom models trained to analyze your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
+* Recognize form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Analyze layout](#analyze-layout).
+* Recognize common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
 
 ### FormTrainingClient
 
@@ -258,7 +258,7 @@ The following code processes the ID document at the given URI and prints the maj
 
 ## Train a custom model
 
-This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
 > You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
@@ -301,7 +301,7 @@ The model found field 'field-6' with label: VAT ID
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **beginTraining** method with the *useTrainingLabels* parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the **beginTraining** method with the *useTrainingLabels* parameter set to `true`.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
@@ -370,7 +370,7 @@ This section demonstrates how to manage the custom models stored in your account
 
 ### Check the number of models in the FormRecognizer resource account
 
-The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
+The following code block checks how many models you've saved in your Form Recognizer account and compares it to the account limit.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
@@ -382,7 +382,7 @@ The account has 12 custom models, and we can have at most 250 custom models
 
 ### List the models currently stored in the resource account
 
-The following code block lists the current models in your account and prints their details to the console.
+The following code blocklists the current models in your account and prints their details to the console.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
 
@@ -428,14 +428,14 @@ gradle run
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to cleanup and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Troubleshooting
 
-Form Recognizer clients raise `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL an `ErrorResponseException` would be raised with an error indicating the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and display the additional information about the error.
+Form Recognizer clients raise `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL an `ErrorResponseException` would be raised with an error indicating the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and displaying the additional information about the error.
 
 ```java Snippet:FormRecognizerBadRequest
 try {

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/23/2021
+ms.date: 07/11/2022
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
 ms.custom: ignite-fall-2021
@@ -43,7 +43,7 @@ Here are some examples of when using table tags would be appropriate:
 
 ## Label your table tag data
 
-* If your project has a table tag, you can open the labeling panel and populate the tag as you would label key-value fields.
+* If your project has a table tag, you can open the labeling panel, and populate the tag as you would label key-value fields.
 :::image type="content" source="media/table-labeling.png" alt-text="Label with table tags":::
 
 ## Next steps
