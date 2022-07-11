@@ -58,11 +58,11 @@ This feature doesn't support scenarios where the virtual network to be updated i
 
 You can add or remove address spaces on a virtual network that is peered with another virtual network without incurring any downtime. Virtual network peers can be in the same or a different Azure region, or can span subscriptions. This feature is useful when you need to add or remove virtual networks in Azure after scaling your workloads. 
 
-Along with this feature, two new properties on the virtualNetworkPeerings object of the virtual network include: 
+With this feature, two new properties on the virtual networks's `virtualNetworkPeerings` object include: 
 
-- **remoteVirtualNetworkAddressSpace**: Contains the most current address space of the peered virtual network. This address may or may not be the same as the peered address contained in the remoteAddressSpace property. 
+- **remoteVirtualNetworkAddressSpace**: Contains the most current address space of the peered virtual network. This address may or may not be the same as the peered address contained in the `remoteAddressSpace` property. 
 
-- **peeringSyncLevel**: Indicates if the address contained in the remoteVirtualNetworkAddressSpace property is the same as the address that is peered with the virtual network. 
+- **peeringSyncLevel**: Indicates if the address contained in the `remoteVirtualNetworkAddressSpace` property is the same as the address that is peered with the virtual network. 
 
 When the address space on a virtual network is updated, the corresponding peering links on the remote virtual networks need to be synced with the new address space. The status of the peering links between the two virtual networks indicates which side of the peering link needs to be synced with the new address space. The status values are:
 
