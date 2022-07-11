@@ -210,7 +210,7 @@ Administrators manage how identity objects can access resources, and under what 
 
   * Security groups
 
-  * [Microsoft 365 groups](https://docs.microsoft.com/en-us/microsoft-365/community/all-about-groups)
+  * [Microsoft 365 groups](https://docs.microsoft.com/microsoft-365/community/all-about-groups)
 
   * Dynamic Groups
 
@@ -259,7 +259,7 @@ Who should have the ability to administer the environment and its resources? The
 
 Given the interdependence between an Azure AD tenant and its resources, it's critical to understand the security and operational risks of compromise or error. If you're operating in a federated environment with synchronized accounts, an on-premises compromise can lead to an Azure AD compromise.
 
-* **Identity compromise** - Within the boundary of a tenant, any identity can be assigned any role, given the one providing access has sufficient privileges. While the impact of compromised non-privileged identities is largely contained, compromised administrators can have broad impact. For example, if an Azure AD global administrator account is compromised, Azure resources can become compromised. To mitigate risk of identity compromise, or bad actors, implement [tiered administration](../../security/compass/privileged-access-access-model.md) and ensure that you follow principles of least privilege for [Azure AD Administrator Roles](../roles/delegate-by-task.md). Similarly, ensure that you create CA policies that specifically exclude test accounts and test service principals from accessing resources outside of the test applications. For more information on privileged access strategy, see [Privileged access: Strategy](https://docs.microsoft.com/security/compass/privileged-access-strategy).
+* **Identity compromise** - Within the boundary of a tenant, any identity can be assigned any role, given the one providing access has sufficient privileges. While the impact of compromised non-privileged identities is largely contained, compromised administrators can have broad impact. For example, if an Azure AD global administrator account is compromised, Azure resources can become compromised. To mitigate risk of identity compromise, or bad actors, implement [tiered administration](https://docs.microsoft.com/security/compass/privileged-access-access-model) and ensure that you follow principles of least privilege for [Azure AD Administrator Roles](https://docs.microsoft.com/azure/active-directory/roles/delegate-by-task). Similarly, ensure that you create CA policies that specifically exclude test accounts and test service principals from accessing resources outside of the test applications. For more information on privileged access strategy, see [Privileged access: Strategy](https://docs.microsoft.com/security/compass/privileged-access-strategy).
 
 * **Federated environment compromise**
 
