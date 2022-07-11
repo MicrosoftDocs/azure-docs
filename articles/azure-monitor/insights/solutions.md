@@ -239,7 +239,7 @@ To verify the link between a Log Analytics workspace and an Automation account:
 
 ## Remove a monitoring solution
 
-You can remove any installed monitoring solution, except **LogManagment**, which is a built-in solution that contains the schemas of Azure resources.
+You can remove any installed monitoring solution, except **LogManagment**, which is a built-in solution that contains the schemas that aren't associated to a specific solution.
 
 ### [Portal](#tab/portal)
 
