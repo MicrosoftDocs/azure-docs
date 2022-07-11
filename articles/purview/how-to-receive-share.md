@@ -12,6 +12,8 @@ ms.date: 06/28/2022
 
 Microsoft Purview Data Sharing supports in-place data sharing from Azure Data Lake Storage (ADLS Gen2) to ADLS Gen2, and Blob storage account to Blob storage account. This article explains how to receive a share and access shared data.
 
+For an overview of how data sharing works, watch this short [demo](https://aka.ms/purview-data-share/overview-demo).
+
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Prerequisites to receive shared data
