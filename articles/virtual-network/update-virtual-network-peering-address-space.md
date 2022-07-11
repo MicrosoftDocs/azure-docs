@@ -23,15 +23,6 @@ In this article, you will learn how to update a peered virtual network by adding
 ## Prerequisites
 
 - <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
-
-<!-- 4. H2s 
-Required. A how-to article explains how to do a task. The bulk of each H2 should be 
-a procedure.
--->
-
 ## Add or delete a peered virtual network address space in the Azure portal
 
 ### Add or remove an address range
