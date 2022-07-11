@@ -793,7 +793,7 @@
     {
         "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-single-to-flex-portal.md",
         "redirect_url": "/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/postgresql/how-to-migrate-single-to-flex-cli.md",
@@ -803,12 +803,12 @@
     {
         "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-single-to-flex-cli.md",
         "redirect_url": "/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/postgresql/single-server/concepts-single-to-flexible.md",
         "redirect_url": "/azure/postgresql/migrate/concepts-single-to-flexible",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/postgresql/howto-move-regions-portal.md",
