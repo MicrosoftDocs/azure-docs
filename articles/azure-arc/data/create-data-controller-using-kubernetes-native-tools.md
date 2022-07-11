@@ -1,6 +1,6 @@
 ---
-title: Create a Data Controller using Kubernetes tools
-description: Create a Data Controller using Kubernetes tools
+title: Create a data controller using Kubernetes tools
+description: Create a data controller using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,27 +11,28 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Create Azure Arc data controller using Kubernetes tools
+# Create Azure Arc-enabled data controller using Kubernetes tools
 
+A data controller manages Azure Arc-enabled data services for a Kubernetes cluster. This article describes how to use Kubernetes tools to create a data controller.
 
 ## Prerequisites
 
 Review the topic [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md) for overview information.
 
-To create the Azure Arc data controller using Kubernetes tools you will need to have the Kubernetes tools installed.  The examples in this article will use `kubectl`, but similar approaches could be used with other Kubernetes tools such as the Kubernetes dashboard, `oc`, or `helm` if you are familiar with those tools and Kubernetes yaml/json.
+To create the data controller using Kubernetes tools you will need to have the Kubernetes tools installed.  The examples in this article will use `kubectl`, but similar approaches could be used with other Kubernetes tools such as the Kubernetes dashboard, `oc`, or `helm` if you are familiar with those tools and Kubernetes yaml/json.
 
 [Install the kubectl tool](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 > [!NOTE]
-> Some of the steps to create the Azure Arc data controller that are indicated below require Kubernetes cluster administrator permissions.  If you are not a Kubernetes cluster administrator, you will need to have the Kubernetes cluster administrator perform these steps on your behalf.
+> Some of the steps to create the data controller that are indicated below require Kubernetes cluster administrator permissions.  If you are not a Kubernetes cluster administrator, you will need to have the Kubernetes cluster administrator perform these steps on your behalf.
 
 ### Cleanup from past installations
 
-If you installed the Azure Arc data controller in the past on the same cluster and deleted the Azure Arc data controller, there may be some cluster level objects that would still need to be deleted. 
+If you installed the data controller in the past on the same cluster and deleted the data controller, there may be some cluster level objects that would still need to be deleted. 
 
 For some of the tasks, you'll need to replace `{namespace}` with the value for your namespace. Substitute the name of the namespace the data controller was deployed in into `{namespace}`. If unsure, get the name of the `mutatingwebhookconfiguration` using `kubectl get clusterrolebinding`.
 
-Run the following commands to delete the Azure Arc data controller cluster level objects:
+Run the following commands to delete the data controller cluster level objects:
 
 ```console
 # Cleanup azure arc data service artifacts
@@ -83,29 +84,14 @@ kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-{names
 
 ## Overview
 
-Creating the Azure Arc data controller has the following high level steps:
+Creating the data controller has the following high level steps:
 
-   > [!IMPORTANT]
-   > Some of the steps below require Kubernetes cluster administrator permissions.
-
-1. Create the custom resource definitions for the Arc data controller, Azure SQL managed instance, and PostgreSQL Hyperscale. 
-1. Create a namespace in which the data controller will be created. 
+1. Create a namespace in which the data controller will be created.
+1. Create the deployer service account.
 1. Create the bootstrapper service including the replica set, service account, role, and role binding.
 1. Create a secret for the data controller administrator username and password.
-1. Create the webhook deployment job, cluster role and cluster role binding. 
 1. Create the data controller.
 
-
-## Create the custom resource definitions
-
-Run the following command to create the custom resource definitions.  
-
-   > [!IMPORTANT]
-   > Requires Kubernetes cluster administrator permissions.
-
-```console
-kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
-```
 
 ## Create a namespace in which the data controller will be created
 
@@ -121,45 +107,49 @@ openshift.io/sa.scc.supplemental-groups: 1000700001/10000
 openshift.io/sa.scc.uid-range: 1000700001/10000
 ```
 
-If other people will be using this namespace that are not cluster administrators, we recommend creating a namespace admin role and granting that role to those users through a role binding.  The namespace admin should have full permissions on the namespace.  More granular roles and example role bindings can be found on the [Azure Arc GitHub repository](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/rbac).
+If other people who are not cluster administrators will be using this namespace, create a namespace admin role and grant that role to those users through a role binding.  The namespace admin should have full permissions on the namespace.  More granular roles and example role bindings can be found on the [Azure Arc GitHub repository](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/rbac).
+
+
+## Create the deployer service account
+
+   > [!IMPORTANT]
+   > Requires Kubernetes permissions for creating service account, role binding, cluster role, cluster role binding, and all the RBAC permissions being granted to the service account.
+
+Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
+
+```console
+kubectl apply --namespace arc -f arcdata-deployer.yaml
+```
+
 
 ## Create the bootstrapper service
 
-The bootstrapper service handles incoming requests for creating, editing, and deleting custom resources such as a data controller, SQL managed instances, or PostgreSQL Hyperscale server groups.
+The bootstrapper service handles incoming requests for creating, editing, and deleting custom resources such as a data controller.
 
-Run the following command to create a bootstrapper service, a service account for the bootstrapper service, and a role and role binding for the bootstrapper service account.
+Run the following command to create a "bootstrap" job to install the bootstrapper along with related cluster-scope and namespaced objects, such as custom resource definitions (CRDs), the service account and bootstrapper role.
 
-```console
-kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper.yaml
-```
-
-Verify that the bootstrapper pod is running using the following command.  You may need to run it a few times until the status changes to `Running`.
+   > [!IMPORTANT]
+   > The yaml file in the following command defaults to mcr.microsoft.com/arcdata. Please save a copy of the yaml file and update it to a use a different registry/repository if necessary.
 
 ```console
-kubectl get pod --namespace arc
+kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrap.yaml
 ```
 
-The bootstrapper.yaml template file defaults to pulling the bootstrapper container image from the Microsoft Container Registry (MCR).  If your environment does not have access directly to the Microsoft Container Registry, you can do the following:
+The [uninstall.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/uninstall.yaml) is for uninstalling the bootstrapper and related Kubernetes objects, except the CRDs.
+
+Verify that the bootstrapper pod is running using the following command.
+
+```console
+kubectl get pod --namespace arc -l app=bootstrapper
+```
+
+If the status is not _Running_, run the command a few times until the status is _Running_.
+
+The bootstrap.yaml template file defaults to pulling the bootstrapper container image from the Microsoft Container Registry (MCR). If your environment can't directly access the Microsoft Container Registry, you can do the following:
 - Follow the steps to [pull the container images from the Microsoft Container Registry and push them to a private container registry](offline-deployment.md).
-- [Create an image pull secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-lin) for your private container registry.
-- Add an image pull secret to the bootstrapper container. See example below.
-- Change the image location for the bootstrapper image. See example below.
-
-The example below assumes that you created a image pull secret name `arc-private-registry`.
-
-```yaml
-#Just showing only the relevant part of the bootstrapper.yaml template file here
-    spec:
-      serviceAccountName: sa-bootstrapper
-      nodeSelector:
-        kubernetes.io/os: linux
-      imagePullSecrets:
-      - name: arc-private-registry #Create this image pull secret if you are using a private container registry
-      containers:
-      - name: bootstrapper
-        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.1.0_2021-11-02 #Change this registry location if you are using a private container registry.
-        imagePullPolicy: Always
-```
+- [Create an image pull secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line) named `arc-private-registry` for your private container registry.
+- Change the image URL for the bootstrapper image in the bootstrap.yaml file.
+- Replace `arc-private-registry` in the bootstrap.yaml file if a different name was used for the image pull secret.
 
 ## Create secrets for the metrics and logs dashboards
 
@@ -203,21 +193,6 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 Optionally, you can create SSL/TLS certificates for the logs and metrics dashboards. Follow the instructions at [Specify during Kubernetes native tools deployment](monitor-certificates.md).
 
-## Create the webhook deployment job, cluster role and cluster role binding
-
-First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/web-hook.yaml) locally on your computer so that you can modify some of the settings.
-
-Edit the file and replace `{{namespace}}` in all places with the name of the namespace you created in the previous step. **Save the file.**
-
-Run the following command to create the cluster role and cluster role bindings.  
-
-   > [!IMPORTANT]
-   > Requires Kubernetes cluster administrator permissions.
-
-```console
-kubectl create -n arc -f <path to the edited template file on your computer>
-```
-
 
 ## Create the data controller
 
@@ -248,7 +223,7 @@ Edit the following as needed:
 - **name**: The default name of the data controller is `arc`, but you can change it if you want.
 - **displayName**: Set this to the same value as the name attribute at the top of the file.
 - **registry**: The Microsoft Container Registry is the default.  If you are pulling the images from the Microsoft Container Registry and [pushing them to a private container registry](offline-deployment.md), enter the IP address or DNS name of your registry here.
-- **dockerRegistry**: The image pull secret to use to pull the images from a private container registry if required.
+- **dockerRegistry**: The secret to use to pull the images from a private container registry if required.
 - **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
 - **imageTag**: The current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
 - **logsui-certificate-secret**: The name of the secret created on the Kubernetes cluster for the logs UI certificate.
@@ -272,10 +247,10 @@ kubectl create --namespace arc -f C:\arc-data-services\data-controller.yaml
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 > [!NOTE]
->  The example commands below assume that you created a data controller and Kubernetes namespace with the name `arc`.  If you used a different namespace/data controller name, you can replace `arc` with your name.
+> The example commands below assume that you created a data controller named `arc-dc` and Kubernetes namespace named `arc`. If you used different values update the script accordingly.
 
 ```console
-kubectl get datacontroller/arc --namespace arc
+kubectl get datacontroller/arc-dc --namespace arc
 ```
 
 ```console
