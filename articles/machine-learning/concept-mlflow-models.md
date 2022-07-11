@@ -1,7 +1,7 @@
 ---
 title: From artifacts to models in MLflow
 titleSuffix: Azure Machine Learning
-description: Learn about how MLflow uses the concept of models instead of artifacts to represents your trained models and enable a streamlined path to deployment.
+description: Learn about how MLflow uses the concept of models instead of artifacts to represent your trained models and enable a streamlined path to deployment.
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
@@ -49,7 +49,7 @@ Logging models has the following advantages:
 
 MLflow adopts the MLModel format as a way to create a contract between the artifacts and what they represent. The MLModel format stores assets in a folder. Among them there is a particular file named MLModel. This file is the single source of truth about how a model can be loaded and used.
 
-The following examples shows how the `MLmodel` file for a computer version model trained with `fastai` may look like:
+The following example shows how the `MLmodel` file for a computer version model trained with `fastai` may look like:
 
 __MLmodel__
 
@@ -79,7 +79,7 @@ signature:
 
 ### The model's flavors
 
-Considering the variety of machine learning frameworks available to use, MLflow introduced the concept of flavor which indicates what to expect for a given model created with an specific framework. As an example, TensorFlow has its own flavor which specifies how a TensorFlow model should be persisted and loaded. Because each model flavor indicates how they want to persist and load models, the MLModel format doesn't enforce a single serialization mechanism that all the models need to support. Such decision allows each flavor to use the methods that provide the best performance or best support according to their best practices - without compromising compatibility with the MLModel standard.
+Considering the variety of machine learning frameworks available to use, MLflow introduced the concept of flavor which indicates what to expect for a given model created with a specific framework. As an example, TensorFlow has its own flavor which specifies how a TensorFlow model should be persisted and loaded. Because each model flavor indicates how they want to persist and load models, the MLModel format doesn't enforce a single serialization mechanism that all the models need to support. Such decision allows each flavor to use the methods that provide the best performance or best support according to their best practices - without compromising compatibility with the MLModel standard.
 
 The following is an example of the `flavors` section for an `fastai` model.
 
@@ -99,14 +99,14 @@ flavors:
 
 [Model signatures in MLflow](https://www.mlflow.org/docs/latest/models.html#model-signature) are an important part of the model specification, as they serve as a data contract between the model and the server running our models. They are also important for parsing and enforcing model's input's types at deployment time. [MLflow enforces types when data is submitted to your model if a signature is available](https://www.mlflow.org/docs/latest/models.html#signature-enforcement).
 
-Signatures are indicated when the model gets logged and persisted in the `MLmodel` file, in the `signature` section. Autolog feature in MLflow automatically infer signatures in a best effort way. However, it may be require to [log the models manually if the signatures inferred are not the ones you need](https://www.mlflow.org/docs/latest/models.html#how-to-log-models-with-signatures). 
+Signatures are indicated when the model gets logged and persisted in the `MLmodel` file, in the `signature` section. **Autolog's** feature in MLflow automatically infers signatures in a best effort way. However, it may be required to [log the models manually if the signatures inferred are not the ones you need](https://www.mlflow.org/docs/latest/models.html#how-to-log-models-with-signatures). 
 
 There are two types of signatures:
 
-* **Column-based signature** corresponding to signatures that operate to tabular data. Models that operate with this signature can expect to recieve `pandas.DataFrame` objects as inputs.
-* **Tensor-based signature:** corresponding to signatures that operate with n-dimentional arrays or tensors. Models taht operate with this signature can expect to recieve a `numpy.ndarray` as inputs (or a dictionary of `numpy.ndarray` in the case of named-tensors).
+* **Column-based signature** corresponding to signatures that operate to tabular data. Models with this signature can expect to receive `pandas.DataFrame` objects as inputs.
+* **Tensor-based signature:** corresponding to signatures that operate with n-dimensional arrays or tensors. Models with this signature can expect to receive a `numpy.ndarray` as inputs (or a dictionary of `numpy.ndarray` in the case of named-tensors).
 
-The following example corresponds to a computer vision model trained with `fastai`. This model recieves a batch of images represented as tensors of shape `(300, 300, 3)` with the RGB representation of them (unsigned integers). It outputs batchs of predictions (probabilities) for 2 classes. 
+The following example corresponds to a computer vision model trained with `fastai`. This model receives a batch of images represented as tensors of shape `(300, 300, 3)` with the RGB representation of them (unsigned integers). It outputs batches of predictions (probabilities) for 2 classes. 
 
 __MLmodel__
 
@@ -127,7 +127,7 @@ signature:
 
 ### Model's environment
 
-Requirements for the model to run are specified in the `conda.yaml` file. Dependencies can be automatically detected by MLflow or they can manually indicated when you call `mlflow.<flavor>.log_model()` method. The later can be needed in cases that the libraries included in your environment are not the ones you intended to use.
+Requirements for the model to run are specified in the `conda.yaml` file. Dependencies can be automatically detected by MLflow or they can be manually indicated when you call `mlflow.<flavor>.log_model()` method. The latter can be needed in cases that the libraries included in your environment are not the ones you intended to use.
 
 The following is an example of an environment used for a model created with `fastai` framework:
 
@@ -153,15 +153,15 @@ name: mlflow-env
 ```
 
 > [!NOTE]
-> MLflow environments and Azure Machine Learning environments are different concepts. While the former opperates at the level of the model, the later operates at the level of the workspace (for registered environments) or jobs/deployments (for annonymous environments). When you deploy MLflow models in Azure Machine Learning, the model's environment is built and used for deployment. Alternatively, you can override this behaviour with the [Azure ML CLI v2](concept-v2.md) and deploy MLflow models using an specific Azure Machine Learning environments.
+> MLflow environments and Azure Machine Learning environments are different concepts. While the former opperates at the level of the model, the latter operates at the level of the workspace (for registered environments) or jobs/deployments (for annonymous environments). When you deploy MLflow models in Azure Machine Learning, the model's environment is built and used for deployment. Alternatively, you can override this behaviour with the [Azure ML CLI v2](concept-v2.md) and deploy MLflow models using a specific Azure Machine Learning environments.
 
 ### Model's predict function
 
-All MLflow models contain a `predict` function. This function is the one that is called when a model is deployed using a no-code-deployment experience. What the `predict` function returns (classes, probabilities, a forecast, etc) depends on the framework (i.e. flavor) used for training. Read the documentation of each flavor to know what they return.
+All MLflow models contain a `predict` function. This function is the one that is called when a model is deployed using a no-code-deployment experience. What the `predict` function returns (classes, probabilities, a forecast, etc.) depend on the framework (i.e. flavor) used for training. Read the documentation of each flavor to know what they return.
 
 In same cases, you may need to customize this function to change the way inference is executed. In those cases you will need to [log models with a different behavior in the predict method](how-to-log-mlflow-models.md#logging-models-with-a-different-behavior-in-the-predict-method) or [log a custom model's flavor](how-to-log-mlflow-models.md#logging-custom-models).
 
 ## Start logging models
 
-We recommend to start taking advantage of MLflow models in Azure Machine Learning. There are different ways to start using the model's concept with MLflow. Read [How to log MLFlow models](how-to-log-mlflow-models.md) to a comprehensive guide.
+We recommend starting taking advantage of MLflow models in Azure Machine Learning. There are different ways to start using the model's concept with MLflow. Read [How to log MLFlow models](how-to-log-mlflow-models.md) to a comprehensive guide.
 
