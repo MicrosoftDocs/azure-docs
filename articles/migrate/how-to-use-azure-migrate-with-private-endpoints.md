@@ -52,6 +52,7 @@ To enable public network access for the Azure Migrate project, sign in to the Az
 --- | ---
 **Pricing** | For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 **Virtual network requirements** | The ExpressRoute/VPN gateway endpoint should reside in the selected virtual network or a virtual network connected to it. You might need about 15 IP addresses in the virtual network.
+**PowerShell support** | PowerShell is not supported. We recommend using the Azure Portal or REST APIs for leveraging Azure Migrate Private Link support. 
 
 ## Next steps
 
