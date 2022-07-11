@@ -47,7 +47,7 @@ The first step in the job creation UI is to select the compute target on which y
 | --- | --- | 
 | Compute instance | [What is an Azure Machine Learning compute instance?](concept-compute-instance.md) | 
 | Compute cluster | [What is a compute cluster?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| Attached Kubernetes cluster | [Configure and attach Kubernetes cluster anywhere (preview)](how-to-attach-kubernetes-anywhere.md). | 
+| Attached Compute (Kubernetes cluster) | [Configure and attach Kubernetes cluster anywhere (preview)](how-to-attach-kubernetes-anywhere.md). | 
 
 1. Select a compute type
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.
