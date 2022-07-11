@@ -2,17 +2,20 @@
 title: Use Quality Insights for a Virtual Instance for SAP solutions (preview)
 description: Learn how to use the Quality Insights workbook for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
 ms.service: azure-center-sap-solutions
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2022
 author: lauradolan
 ms.author: ladolan
+#Customer intent: As a developer, I want to use the Quality Insights feature so that I can learn more about virtual machines within my Virtual Instance for SAP resource.
 ---
 
 # Use Quality Insights for a Virtual Instance for SAP solutions (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-The *Quality Insights* Azure workbook in *Azure Center for SAP solutions (ACSS)* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. Quality Insights checks that your SAP system uses Azure and SAP best practices for reliability and performance. You can use Quality Insights to get more information about virtual machine (VM) configurations within your SAP system.
+The *Quality Insights* Azure workbook in *Azure Center for SAP solutions (ACSS)* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. Quality Insights checks that your SAP system uses Azure and SAP best practices for reliability and performance. 
+
+In this how-to guide, you'll learn how to use Quality Insights to get more information about virtual machine (VM) configurations within your SAP system.
 
 ## Prerequisites
 
