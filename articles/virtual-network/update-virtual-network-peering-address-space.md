@@ -19,7 +19,7 @@ would I want to do this?” question. Keep it short.
 
 In this article, you will learn how to update a peered virtual network by adding or deleting an address space without incurring downtime interruptions. This can be accomplished through the portal, and with AZ PowerShell or Azure CLI. 
 [Add your introductory paragraph]
-
+In this article, you learn how to:
 ## Prerequisites
 
 - <!-- prerequisite 1 -->
