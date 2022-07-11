@@ -31,7 +31,7 @@ The Azure Queue Storage client library uses [AES](https://en.wikipedia.org/wiki/
 > [!WARNING]
 > Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data. See the following section, [Mitigate the security vulnerability in your applications](#mitigate-the-security-vulnerability-in-your-applications), for further guidance.
 
-## Mitigate the security vulnerability in your applications
+### Mitigate the security vulnerability in your applications
 
 Due to a security vulnerability discovered in the Queue Storage client library's implementation of CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
 
@@ -45,13 +45,24 @@ The following table summarizes the steps you'll need to take if you choose to mi
 
 | Client-side encryption status | Recommended actions |
 |---|---|
-| Application is using client-side encryption with Azure Queue Storage SDK version 11.x or earlier | Update your application to use Queue Storage SDK version 12.11.0 or later. If necessary, you can use version 12.11.0 side-by-side with an earlier version of the client library while you are migrating your code.<br/><br/>Update your code to use client-side encryption v2. |
-| Application is using client-side encryption with Azure Queue Storage SDK version 12.11.0 or later | Update your code to use client-side encryption v2. |
+| Application is using client-side encryption with Azure Queue Storage SDK version 11.x or earlier | Update your application to use a version of the client library that supports client-side encryption v2. See [SDK support matrix for client-side encryption](#sdk-support-matrix-for-client-side-encryption) for a list of supported versions. <br/><br/>Update your code to use client-side encryption v2. |
+| Application is using client-side encryption with a version of the client library that supports client-side encryption v2. | Update your code to use client-side encryption v2. |
 
 Additionally, Microsoft recommends that you take the following steps to help secure your data:
 
 - Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md).
 - Limit network access to specific networks only.
+
+### SDK support matrix for client-side encryption
+
+The following table shows which versions of the client libraries for .NET and Python support which versions of client-side encryption:
+
+|  | .NET | Python |
+|--|--|--|--|
+| **Client-side encryption v2 and v1** | [Versions 12.11.0 and later](https://www.nuget.org/packages/Azure.Storage.Queues) | [Versions 12.4.0 and later](https://pypi.org/project/azure-storage-queue) |
+| **Client-side encryption v1 only** | Versions 12.10.0 and earlier | Versions 12.3.0 and earlier |
+
+If your application is using client-side encryption with an earlier version of the .NET or Python client library, you must first upgrade your code to a version that supports client-side encryption v2. Next, you must decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use a version of the client library that supports client-side encryption v2 side-by-side with an earlier version of the client library while you are migrating your code.
 
 ## How client-side encryption works
 
