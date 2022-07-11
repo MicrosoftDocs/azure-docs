@@ -40,7 +40,7 @@ The following steps show you how to create and configure a DevCenter.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters) using the credentials for your Azure subscription. 
 
-1. In the left pane, verify that **Dev Box DevCenters** is selected, and then select **+ Create**. 
+1. In the left pane, verify that **Dev Box DevCenters** is selected, and then select **+Add**. 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter.png" alt-text="Screenshot showing the Azure portal DevCenter page with create highlighted.":::
 
 1. On the **Create a DevCenter** page, on the **Basics** tab, enter the following values:
@@ -84,7 +84,8 @@ To perform the steps in this section, you must have and existing virtual network
 
 1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/networkConnections).
 
-1. On the **Network Connections** page, select **+ Create**.
+1. On the **Network connections** page, select **+Add**.
+     :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network connections page with Add highlighted.":::
 
 1. On the **Create a network connection** page, on the **Basics** tab, enter the following values:
 
@@ -129,7 +130,7 @@ The following steps show you how to create and configure a Dev Box Definition in
 
 1. Select **Dev box definitions**.
 
-1. On the **Dev box definitions** page, select **+ Create**.
+1. On the **Dev box definitions** page, select **+Add**.
 
 1. On the **Create dev box definition** page, enter the following values:
 
@@ -154,7 +155,7 @@ The following steps show you how to create and configure a Project in Dev Box. T
 
 1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters). 
 
-1. Select **Projects** in the left menu, and on the Projects page,  select **+ Create**.
+1. Select **Projects** in the left menu, and on the Projects page,  select **+Add**.
  
 1. On the **Create a Project** page, on the **Basics** tab, enter the following values:
 
