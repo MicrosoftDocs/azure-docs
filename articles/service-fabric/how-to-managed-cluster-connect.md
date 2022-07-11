@@ -40,7 +40,7 @@ To navigate to SFX for your managed cluster
 
 ## Use PowerShell Modules
 
-There following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
+The following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 

@@ -339,10 +339,10 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
 This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy its resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
 > [!NOTE]
-> When using BYOVNET, managed cluster resources will be deployed in one subnet. 
+> When using BYOVNET, managed cluster resources will be deployed in one subnet.
 
 > [!NOTE]
-> This setting cannot be changed once the cluster is created and the managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
+> This setting cannot be changed once the cluster is created and the managed cluster will assign an NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
 
 **To bring your own virtual network:**
 
@@ -449,6 +449,7 @@ This feature allows customers to use an existing virtual network by specifying a
 
 <a id="byolb"></a>
 ## Bring your own Azure Load Balancer
+
 Managed clusters create an Azure public Standard Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. Bring your own load balancer allows you to use an existing Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
@@ -470,7 +471,7 @@ Managed clusters create an Azure public Standard Load Balancer and fully qualifi
 
 Here are a couple example scenarios customers may use this for:
 
-In this example, a customer wants to route traffic through an existing Azure Load Balancer configured with an existing static ip address to two node types.
+In this example, a customer wants to route traffic through an existing Azure Load Balancer configured with an existing static IP address to two node types.
 
 ![Bring your own Load Balancer example 1][sfmc-byolb-example-1]
 
@@ -482,7 +483,7 @@ In this example, a customer wants to route traffic through existing internal Azu
 
 ![Bring your own Load Balancer example 3][sfmc-byolb-example-3]
 
-To configure bring your own load balancer:
+To configure with your own load balancer:
 
 1. Get the service `Id` from your subscription for Service Fabric Resource Provider application:
 

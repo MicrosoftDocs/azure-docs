@@ -97,7 +97,7 @@ New-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterNam
 You can remove a Service Fabric managed cluster node type using Portal or PowerShell.
 
 > [!NOTE]
-> To remove a primary node type from a Service Fabric managed cluster, you must use PowerShell and there must be more then one primary node type available.
+> To remove a primary node type from a Service Fabric managed cluster, you must use PowerShell and there must be more than one primary node type available.
 
 ### Remove with portal
 1) Log in to [Azure portal](https://portal.azure.com/)
@@ -340,7 +340,7 @@ Set-AzServiceFabricManagedNodeType -ResourceGroupName $rgName -ClusterName $clus
 
 ## Modify the VM SKU for a node type
 
-Service Fabric managed cluster does not support in-place modification of the VM SKU, but is simpler then classic. In order to accomplish this you'll need to do the following:
+Service Fabric managed cluster does not support in-place modification of the VM SKU, but is simpler than classic. In order to accomplish this you'll need to do the following:
 * [Create a new node type via portal, ARM template, or PowerShell](how-to-managed-cluster-modify-node-type.md#add-a-node-type) with the required VM SKU. You'll need to use a template or PowerShell for adding a primary or stateless node type.
 * Migrate your workload over. One way is to use a [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
 * [Delete old node type via portal or PowerShell](how-to-managed-cluster-modify-node-type.md#remove-a-node-type). To remove a primary node type you will have to use PowerShell.
@@ -352,7 +352,7 @@ Service Fabric managed clusters by default configure one managed disk. By config
 Configure more managed disks by declaring `additionalDataDisks` property and required parameters in your Resource Manager template as follows:
 
 **Feature Requirements**
-* Lun must be unique per disk and can not use reserved lun 0
+* Lun must be unique per disk and can't use reserved lun 0
 * Disk letter cannot use reserved letters C or D and cannot be modified once created. S will be used as default if not specified.
 * Must specify a [supported disk type](how-to-managed-cluster-managed-disk.md)
 * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
