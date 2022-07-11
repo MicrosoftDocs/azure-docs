@@ -5,7 +5,7 @@ author: meghaanand
 ms.author: meghaanand
 ms.topic: tutorial
 ms.service: azure-asm
-ms.date: 07/07/2022
+ms.date: 07/11/2022
 ---
 
 # Tutorial: Set up an Azure Deployment Environment DevCenter
@@ -29,9 +29,9 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 1. Select on '+ Create' and in the **Basics** tab of **Create a Azure Deployment Environment DevCenter** window, do the following actions:
     1. For **Subscription**, select the subscription in which you want to create the DevCenter.
-    2. For **Resource group**, either use an existing resource group or select **Create new**, and enter a name for the resource group.
-    3. For **Name**, enter a name for the DevCenter.
-    4. For **Location**, select the location/region you want the DevCenter to be created in.
+    1. For **Resource group**, either use an existing resource group or select **Create new**, and enter a name for the resource group.
+    1. For **Name**, enter a name for the DevCenter.
+    1. For **Location**, select the location/region you want the DevCenter to be created in.
 
     ![Screenshot of Basics tab of Create a Azure Deployment Environment DevCenter.](https://user-images.githubusercontent.com/68404454/123877585-17103700-d903-11eb-96f0-10100fdee30a.png)
 
@@ -71,8 +71,8 @@ Once you've created a DevCenter, the next step is to create a system assigned id
 
 1. On the **Add user assigned managed identity** page
     1. For **Subscription**, select the subscription in which the identity exists
-    2. For **User assigned managed identities**, select an existing identity from the drop-down
-    3. Select **Add**
+    1. For **User assigned managed identities**, select an existing identity from the drop-down
+    1. Select **Add**
 
     ![Screenshot of user assigned managed identity tab.](https://user-images.githubusercontent.com/68404454/124189314-24096380-da86-11eb-9949-0988c6a6c293.png)
 
@@ -88,10 +88,10 @@ Once you've created a DevCenter, the next step is to create a system assigned id
 
 1. In **Add New Catalog** page, provide below details and select **Add**
     1. For **Name**, provide a name for your Catalog
-    2. For **Git clone Uri**, provide the URI to your GitHub or ADO repository
-    3. For  **Branch Name**, provide the repository branch that you would like to connect
-    4. For **Secret Identifier**, provide the secret identifier that contains your Personal Access Token(PAT) for the repository
-    5. For **Folder Path**, provide the repo path in which the Catalog Items exist
+    1. For **Git clone Uri**, provide the URI to your GitHub or ADO repository
+    1. For  **Branch Name**, provide the repository branch that you would like to connect
+    1. For **Secret Identifier**, provide the secret identifier that contains your Personal Access Token(PAT) for the repository
+    1. For **Folder Path**, provide the repo path in which the Catalog Items exist
 
     ![Screenshot of add new catalog page.](https://user-images.githubusercontent.com/68404454/124191487-74ce8b80-da89-11eb-92b7-3c610090e25a.png)
 
@@ -104,8 +104,8 @@ Environment Types helps you define the different types of environments your deve
 1. Select **Environment Types** in the left menu and select **+ Add**
 1. In the **Add Environment Type** page, provide the below details and select **Add**
     1. For **Name**, select a name for the Environment Type
-    2. For **Description**, you may choose to provide details about the Environment Type
-    3. For **Tags**, provide a Name and Value
+    1. For **Description**, you may choose to provide details about the Environment Type
+    1. For **Tags**, provide a Name and Value
 
     ![Screenshot of add environment type page.](https://user-images.githubusercontent.com/68404454/124192773-700ad700-da8b-11eb-82e6-ca0a62892b99.png)
 
