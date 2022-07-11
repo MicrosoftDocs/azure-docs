@@ -98,6 +98,7 @@ These profiles support the following compression encodings:
 
 If a request supports gzip and Brotli compression, Brotli compression takes precedence.</br>
 When a request for an asset specifies compression and the request results in a cache miss, Azure Front Door (classic) does compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache. The resulting item is returned with a transfer-encoding: chunked.
+If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door POP, then response sizes greater than 8 MB aren't supported.
 
 ::: zone-end
 
