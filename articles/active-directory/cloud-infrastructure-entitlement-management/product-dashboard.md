@@ -11,13 +11,7 @@ ms.date: 02/23/2022
 ms.author: kenwith
 ---
 
-
-
 # View data about the activity in your authorization system
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The Permissions Management **Dashboard** provides an overview of the authorization system and account activity being monitored. You can use this dashboard to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
 

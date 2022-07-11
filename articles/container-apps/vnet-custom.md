@@ -23,6 +23,9 @@ The following example shows you how to create a Container Apps environment in an
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
+> [!NOTE]
+> Network address prefixes requires a CIDR range of `/23`.
+
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
 9. Next to the *Virtual network* box, select the **Create new** link and enter the following value.
@@ -78,7 +81,7 @@ $VNET_NAME="my-custom-vnet"
 Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CDIR range of `/23` is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 

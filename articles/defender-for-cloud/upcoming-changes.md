@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 05/31/2022
+ms.date: 07/10/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,18 +18,12 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [GA support for Arc-enabled Kubernetes clusters](#ga-support-for-arc-enabled-kubernetes-clusters) | July 2022 |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | June 2022 |
 | [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | June 2022 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | July 2022 |
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
-
-### GA support for Arc-enabled Kubernetes clusters
-
-**Estimated date for change:** July 2022
-
-Defender for Containers is currently a preview feature for Arc-enabled Kubernetes clusters. In July, Arc-enabled Kubernetes clusters will be charged according to the listing on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Customers that already have clusters onboarded to Arc (on the subscription level) will incur charges.
+| [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -64,9 +58,23 @@ The Key Vault recommendations listed here are currently disabled so that they do
 | Key Vault secrets should have an expiration date | 14257785-9437-97fa-11ae-898cfb24302b |
 | Key Vault keys should have an expiration date | 1aabfa0d-7585-f9f5-1d92-ecb40291d9f2 |
 
-### Multiple changes to identity recommendations
+### Deprecating three VM alerts
 
 **Estimated date for change:** June 2022
+
+The following table lists the alerts that will be deprecated during June 2022.
+
+| Alert name | Description | Tactics | Severity |
+|--|--|--|--|
+| **Docker build operation detected on a Kubernetes node** <br>(VM_ImageBuildOnNode) | Machine logs indicate a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | Defense Evasion | Low |
+| **Suspicious request to Kubernetes API** <br>(VM_KubernetesAPI) | Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container. | LateralMovement | Medium |
+| **SSH server is running inside a container** <br>(VM_ContainerSSH) | Machine logs indicate that an SSH server is running inside a Docker container. While this behavior can be intentional, it frequently indicates that a container is misconfigured or breached. | Execution | Medium |
+
+These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
+
+### Multiple changes to identity recommendations
+
+**Estimated date for change:** July 2022
 
 Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In June, we'll be making the changes outlined below.
 
@@ -88,44 +96,15 @@ The new release will bring the following capabilities:
     > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
 
     |Recommendation| Assessment key|
-    |-|-|
-    |MFA should be enabled on accounts with owner permissions on your subscription|94290b00-4d0c-d7b4-7cea-064a9554e681|
-    |MFA should be enabled on accounts with read permissions on your subscription|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
-    |MFA should be enabled on accounts with write permissions on your subscription|57e98606-6b1e-6193-0e3d-fe621387c16b|
-    |External accounts with owner permissions should be removed from your subscription|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
-    |External accounts with read permissions should be removed from your subscription|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
-    |External accounts with write permissions should be removed from your subscription|04e7147b-0deb-9796-2e5c-0336343ceb3d|
-
-#### Recommendations rename
-
-This update, will rename two recommendations, and revise their descriptions. The assessment keys will remain unchanged.
-
- | Property | Current value | New update's change |
- |----|----|----|
- |**First recommendation**| - | - |
- |Assessment key | e52064aa-6853-e252-a11e-dffc675689c2 | No change|
- | Name | [Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2) |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions.|
- |Description| User accounts that have been blocked from signing in, should be removed from your subscriptions.|These accounts can be targets for attackers looking to find ways to access your data without being noticed. <br> Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
- |Related policy|[Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad) | Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions.|
- |**Second recommendation**| - | - |
- | Assessment key | 00c6d40b-e990-6acf-d4f3-471e747a27c4 | No change |
- | Name | [Deprecated accounts should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions.|
-|Description|User accounts that have been blocked from signing in, should be removed from your subscriptions. <br> These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions.<br> Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
- | Related policy | [Deprecated accounts should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474) | Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions. |
-
-### Deprecating three VM alerts
-
-**Estimated date for change:** June 2022
-
-The following table lists the alerts that will be deprecated during June 2022.
-
-| Alert name | Description | Tactocs | Severity |
-|--|--|--|--|
-| **Docker build operation detected on a Kubernetes node** <br>(VM_ImageBuildOnNode) | Machine logs indicate a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | Defense Evasion | Low |
-| **Suspicious request to Kubernetes API** <br>(VM_KubernetesAPI) | Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container. | LateralMovement | Medium |
-| **SSH server is running inside a container** <br>(VM_ContainerSSH) | Machine logs indicate that an SSH server is running inside a Docker container. While this behavior can be intentional, it frequently indicates that a container is misconfigured or breached. | Execution | Medium |
-
-These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
+    |--|--|
+    |Accounts with owner permissions on Azure resources should be MFA enabled|6240402e-f77c-46fa-9060-a7ce53997754|
+    |Accounts with write permissions on Azure resources should be MFA enabled|c0cb17b2-0607-48a7-b0e0-903ed22de39b|
+    |Accounts with read permissions on Azure resources should be MFA enabled|dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c|
+    |Guest accounts with owner permissions on Azure resources should be removed|20606e75-05c4-48c0-9d97-add6daa2109a|
+    |Guest accounts with write permissions on Azure resources should be removed|0354476c-a12a-4fcc-a79d-f0ab7ffffdbb|
+    |Guest accounts with read permissions on Azure resources should be removed|fde1c0c9-0fd2-4ecc-87b5-98956cbc1095|
+    |Blocked accounts with owner permissions on Azure resources should be removed|050ac097-3dda-4d24-ab6d-82568e7a50cf|
+    |Blocked accounts with read and write permissions on Azure resources should be removed| 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
 
 ### Deprecate API App policies for App Service
 
@@ -144,6 +123,12 @@ We will be deprecating the following policies to corresponding policies that alr
 | `FTPS only should be required in your API App` | `App Service apps should require FTPS only` |
 | `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
 | `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
+
+### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
+
+**Estimated date for change:** August 2022
+
+Runtime protection is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged for runtime protection. You can view pricing details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions with Kubernetes clusters already onboarded to Arc, will begin to incur charges in August.
 
 ## Next steps
 

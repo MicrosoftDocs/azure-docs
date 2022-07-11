@@ -101,7 +101,7 @@ Restart the container engine for the updates to take effect.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 Place `daemon.json` in the `/etc/docker` directory on your device.
 
@@ -114,7 +114,7 @@ sudo systemctl restart docker
 ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
@@ -134,6 +134,25 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 > If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+## Could not start module due to OS mismatch
+
+ **Observed behavior:**
+
+The edgeHub module fails to start in IoT Edge version 1.1.
+
+**Root cause:**
+
+Windows module uses a version of Windows that is incompatible with the version of Windows on the host. IoT Edge Windows version 1809 build 17763 is needed as the base layer for the module image, but a different version is in use.
+
+**Resolution:**
+
+Check the version of your various Windows operating systems in [Troubleshoot host and container image mismatches](/virtualization/windowscontainers/deploy-containers/update-containers#troubleshoot-host-and-container-image-mismatches). If the operating systems are different, update them to IoT Edge Windows version 1809 build 17763 and rebuild the Docker image used for that module.
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ## IoT Edge hub fails to start
 
@@ -261,7 +280,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. In the Azure portal, navigate to the overview page of your virtual machine.
@@ -289,7 +308,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -421,7 +440,7 @@ IoT Edge modules that connect directly to cloud services, including the runtime 
 
 **Root cause:**
 
-Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://docs.docker.com/config/containers/container-networking/) in the Docker documentation.
 
 **Resolution:**
 
@@ -474,7 +493,7 @@ On Linux:
 
 1. Restart the network service and docker service to apply the changes.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
@@ -513,7 +532,7 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart each device in hierarchy level by level from top to the bottom
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Security daemon couldn't start successfully
 

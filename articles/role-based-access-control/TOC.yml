@@ -13,6 +13,9 @@
   items:
   - name: Check access for a user
     href: check-access.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-role-assignments-bicep.md
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-role-assignments-template.md
@@ -130,6 +133,9 @@
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: custom-roles-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: custom-roles-template.md
