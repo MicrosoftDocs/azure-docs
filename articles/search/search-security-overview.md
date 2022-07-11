@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 07/11/2022
 
 ---
 
@@ -147,6 +147,14 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 > [!Note]
 > Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
+
+## Data Residency
+
+Azure Cognitive Search won't store your data outside of your customer-specified region without your authorization. 
+
+The following features write to an Azure Storage resource that you provide: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro). 
+
+If you're using these features and have regional requirements, choose a storage account that's in the same region as your search service. However, be aware you won't be able to [set up an IP firewall](search-indexer-howto-access-ip-restricted.md) if search and storage are in the same region. As an alternative, consider using the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) for network-secured outbound connections to a storage account in the same region.
 
 <a name="encryption"></a>
 
