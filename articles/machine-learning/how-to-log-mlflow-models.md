@@ -94,42 +94,9 @@ with mlflow.start_run():
 
 ## Logging models with a different behavior in the predict method
 
-For those cases where you need inference to happen in a particular way, MLflow allows you to log models with a custom loading and inference routine. Such routines are called a *loader module*. Loader modules can be specified in the `log_model()` instruction using the argument `loader_module` which indicates the Python namespace where the loader is implemented. The argument `code_path` is also required, where you indicate the source files where the `loader_module` is defined. You are required to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts and returns an object with a method predict (at least).
+When you log a model using either `mlflow.autolog` or using `mlflow.<flavor>.log_model`, the flavor used for the model decides how inference should be executed and what gets returned by the model. MLflow doesn't enforce any specific behavior in how the `predict` generate results. There are scenarios where you probably want to do some pre-processing or post-processing before and after your model is executed.
 
-The following example logs a model using `xgboost` flavor, but the probabilities are returned instead of the predicted class (which is the default behavior in Xgboost):
-
-```python
-mlflow.xgboost.log_model("classifier", 
-                         code_path=['loader_module.py'],
-                         loader_module='loader_module',
-                         signature=signature)
-```
-
-The corresponding file `loader_module.py` looks as follows:
-
-__loader_module.py__
-
-```python
-class MyModel():
-    def __init__(self, model):
-        self._model = model
-        
-    def predict(self, data):
-        return self._model.predict_proba(data)
-
-def _load_pyfunc(data_path: str):
-    import os
-    
-    model = XGBClassifier()
-    model.load_model(os.path.abspath(data_path))
-    
-    return MyModel(model)
-```
-
-> [!NOTE]
-> * A new parameter, `code_path`, was added pointing to the location where the source code is placed. This can be a path or a single file. Whatever is on that folder or file, it will be packaged with the model.
-> * The parameter `loader_module` represents a namespace in Python where the code to load the model is placed. 
-
+A solution to this scenario is to implement machine learning pipelines that moves from inputs to outputs directly. Although this is possible (and sometimes encourageable for performance considerations), it may be challenging to achieve. For those cases, you probably want to [customize how your model does inference using a  custom models](#logging-custom-models) as explained in the following section.
 
 ## Logging custom models
 
@@ -265,7 +232,7 @@ from mlflow.models import infer_signature
 with mlflow.start_run():
     mlflow.xgboost.autolog(log_models=False)
     
-    enc = OrdinalEncoder(handle_unknown='ignore')
+    encoder = OrdinalEncoder(handle_unknown='ignore')
     X_train['thal'] = enc.fit_transform(X_train['thal'])
     X_test['thal'] = enc.transform(X_test['thal'])
     
@@ -293,7 +260,7 @@ with mlflow.start_run():
 
 # [Using a model loader](#tab/loader)
 
-Sometimes your model logic is complex and there are several source code files being used to make your model work. This would be the case when you have a Python library for your model for instance. In this scenario, you want to package the library all along with your model so it can move from one place to another as a single piece.
+Sometimes your model logic is complex and there are several source code files being used to make your model work. This would be the case when you have a Python library for your model for instance. In this scenario, you want to package the library all along with your model so it can move as a single piece. 
 
 Use this method when:
 > [!div class="checklist"]
@@ -302,7 +269,7 @@ Use this method when:
 > * Your model's logic is complex and it requires multiple source files. Potentially, there is a library that supports your model.
 > * You want to customize the way the model is loaded and how the `predict` function works.
 
-MLflow supports this kind of models too by allowing you to specify any arbitrary source code to package along with the model:
+MLflow supports this kind of models too by allowing you to specify any arbitrary source code to package along with the model as long as it has a *loader module*. Loader modules can be specified in the `log_model()` instruction using the argument `loader_module` which indicates the Python namespace where the loader is implemented. The argument `code_path` is also required, where you indicate the source files where the `loader_module` is defined. You are required to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts and returns an object with a method predict (at least).
 
 ```python
 model_path = 'xgb.model'
@@ -319,7 +286,6 @@ mlflow.pyfunc.log_model("classifier",
 > * The model was saved using the save method of the framework used (it's not saved as a pickle).
 > * A new parameter, `data_path`, was added pointing to the folder where the model's artifacts are located. This can be a folder or a file. Whatever is on that folder or file, it will be packaged with the model.
 > * A new parameter, `code_path`, was added pointing to the location where the source code is placed. This can be a path or a single file. Whatever is on that folder or file, it will be packaged with the model.
-> * The parameter `loader_module` represents a namespace in Python where the code to load the model is placed. You are required to to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts (being the value you just passed at `data_path`) and returns an object with a method `predict` (at least).
 
 The corresponding `loader_module.py` implementation would be:
 
