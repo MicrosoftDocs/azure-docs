@@ -41,7 +41,7 @@ To update or add libraries to a Spark pool:
     - Select **Manage** from the main navigation panel and then select **Apache Spark pools**.
 
     - Select the **Packages** section for a specific Spark pool.
-    :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png" alt-text="Screenshot that highlights the upload environment configuration file button." lightbox="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png":::
+    :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png" alt-text="Screenshot that highlights the logs of library installation." lightbox="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png":::
    
 2. For Python feed libraries, upload the environment configuration file using the file selector in the  **Packages** section of the page.
 3. You can also select additional **workspace packages** to add Jar or Wheel files to your pool.
