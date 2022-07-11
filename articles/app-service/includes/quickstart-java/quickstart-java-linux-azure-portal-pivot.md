@@ -156,21 +156,21 @@ To complete this quickstart you need:
 
 # [Java SE](#tab/javase)
 
-    - Organization: Select your organization.
-    - Repository: Select _java-docs-spring-hello-world_.
-    - Branch: Select _main_.
+- Organization: Select your organization.
+- Repository: Select _java-docs-spring-hello-world_.
+- Branch: Select _main_.
 
 # [Tomcat](#tab/tomcat)
 
-    - Organization: Select your organization.
-    - Repository: Select _java-docs-spring-hello-world_.
-    - Branch: Select _tomcat_.
+- Organization: Select your organization.
+- Repository: Select _java-docs-spring-hello-world_.
+- Branch: Select _tomcat_.
 
 # [JBoss EAP](#tab/jbosseap)
 
-    - Organization: Select your organization.
-    - Repository: Select _agoncal-application-petstore-ee7_.
-    - Branch: Select _master_.
+- Organization: Select your organization.
+- Repository: Select _agoncal-application-petstore-ee7_.
+- Branch: Select _master_.
 
 ---
 

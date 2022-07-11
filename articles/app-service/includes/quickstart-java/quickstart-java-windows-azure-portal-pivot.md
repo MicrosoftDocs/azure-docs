@@ -129,17 +129,17 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 # [Java SE](#tab/javase)
 
-    - GitHub account: Log in to your GitHub account.
-    - Organization: Select your organization.
-    - Repository: Select _java-docs-spring-hello-world_.
-    - Branch: Select _main_.
+- GitHub account: Log in to your GitHub account.
+- Organization: Select your organization.
+- Repository: Select _java-docs-spring-hello-world_.
+- Branch: Select _main_.
 
 # [Tomcat](#tab/tomcat)
 
-    - GitHub account: Log in to your GitHub account.
-    - Organization: Select your organization.
-    - Repository: Select _java-docs-spring-hello-world_.
-    - Branch: Select _tomcat_.
+- GitHub account: Log in to your GitHub account.
+- Organization: Select your organization.
+- Repository: Select _java-docs-spring-hello-world_.
+- Branch: Select _tomcat_.
 
 # [JBoss EAP](#tab/jbosseap)
 
