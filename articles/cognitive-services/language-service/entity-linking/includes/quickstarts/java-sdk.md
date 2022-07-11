@@ -11,7 +11,7 @@ ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.10) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
 
 Use this quickstart to create an entity linking application with the client library for Java. In the following example, you will create a Java application that can identify and disambiguate entities found in text.
 
@@ -39,7 +39,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.9</version>
+        <version>5.1.10</version>
     </dependency>
 </dependencies>
 ```
@@ -134,4 +134,5 @@ Text: BASIC, Score: 0.33, Offset: 89, Length: 5
 Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
 Matches:
 Text: Altair 8800, Score: 0.88, Offset: 116, Length: 11
+
 ```

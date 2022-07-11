@@ -4,7 +4,7 @@ description: Learn about generating and receiving customer leads from your Micro
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: durior1
+author: urimsft
 ms.author: uridor
 ms.date: 06/29/2022
 ---

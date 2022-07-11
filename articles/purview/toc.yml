@@ -18,6 +18,8 @@ items:
       href: create-azure-purview-dotnet.md
     - name: Create an account - Python
       href: create-azure-purview-python.md
+    - name: Create an account - Bicep
+      href: quickstart-bicep-create-azure-purview.md
     - name: Create an account - ARM
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
@@ -297,9 +299,9 @@ items:
       href: how-to-receive-share.md
     - name: Data sharing FAQ
       href: how-to-data-share-faq.md
-  - name: Insights
+  - name: Data Estate Insights
     items:
-    - name: Disable or enable
+    - name: Disable or enable Data Estate Insights
       href: enable-disable-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md

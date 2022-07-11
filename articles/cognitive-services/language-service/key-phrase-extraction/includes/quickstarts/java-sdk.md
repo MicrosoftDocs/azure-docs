@@ -9,7 +9,7 @@ ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.10) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
 
 Use this quickstart to create a key phrase extraction application with the client library for Java. In the following example, you will create a Java application that can identify key words and phrases found in text.
 
@@ -29,14 +29,14 @@ Use this quickstart to create a key phrase extraction application with the clien
 
 ### Add the client library
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.10) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.9</version>
+        <version>5.1.10</version>
     </dependency>
 </dependencies>
 ```
@@ -78,7 +78,7 @@ public class Example {
     static void extractKeyPhrasesExample(TextAnalyticsClient client)
     {
         // The text to be analyzed
-        String text = "My cat might need to see a veterinarian.";
+        String text = "Dr. Smith has a very modern medical office, and she has great staff.";
 
         System.out.printf("Recognized phrases: %n");
         for (String keyPhrase : client.extractKeyPhrases(text)) {
@@ -98,6 +98,7 @@ public class Example {
 ```console
 Recognized phrases: 
 
-cat
-veterinarian
+modern medical office
+Dr. Smith
+great staff
 ```

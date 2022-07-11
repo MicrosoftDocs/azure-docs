@@ -9,7 +9,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.1) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 Use this quickstart to create a key phrase extraction application with the client library for .NET. In the following example, you will create a C# application that can identify key words and phrases found in text.
 
@@ -31,7 +31,7 @@ Use this quickstart to create a key phrase extraction application with the clien
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.1.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.1.1`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Key-phrase-extraction&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -58,7 +58,7 @@ namespace KeyPhraseExtractionExample
         // Example method for extracting key phrases from text
         static void KeyPhraseExtractionExample(TextAnalyticsClient client)
         {
-            var response = client.ExtractKeyPhrases("My cat might need to see a veterinarian.");
+            var response = client.ExtractKeyPhrases(@"Dr. Smith has a very modern medical office, and she has great staff.");
 
             // Printing key phrases
             Console.WriteLine("Key phrases:");
@@ -90,6 +90,7 @@ namespace KeyPhraseExtractionExample
 
 ```console
 Key phrases:
-        cat
-        veterinarian
+    modern medical office
+    Dr. Smith
+    great staff
 ```

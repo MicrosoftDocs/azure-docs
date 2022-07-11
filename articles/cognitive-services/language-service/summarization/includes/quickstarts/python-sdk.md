@@ -8,7 +8,15 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
+# [Document summarization](#tab/document-summarization)
+
 [Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.2.0b1/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
+
+# [Conversation summarization](#tab/conversation-summarization)
+
+[Reference documentation](/python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations) | [Package (PiPy)](https://pypi.org/project/azure-ai-language-conversations/1.1.0b2/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md)
+
+---
 
 Use this quickstart to create a text summarization application with the client library for Python. In the following example, you will create a Python application that can summarize documents or text-based customer service conversations.
 
@@ -41,7 +49,7 @@ pip install azure-ai-textanalytics==5.2.0b4
 # [Conversation summarization](#tab/conversation-summarization)
 
 ```console
-pip install azure-ai-language-conversations==1.1.0b1
+pip install azure-ai-language-conversations==1.1.0b2
 ```
 
 ---
@@ -234,7 +242,11 @@ with client:
 ### Output
 
 ```console
+... view task status ...
+status: succeeded
+... view task result ...
 issue: Customer tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn't work
 resolution: Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine
 ```
+
 ---

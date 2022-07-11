@@ -6,7 +6,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/05/2022
 ---
 
 # Workbook text parameters

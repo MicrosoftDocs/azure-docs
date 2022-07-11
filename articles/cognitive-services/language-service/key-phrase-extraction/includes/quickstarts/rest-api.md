@@ -63,7 +63,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
             {
                 "id":"1",
                 "language":"en",
-                "text": "I had a wonderful trip to Seattle last week."
+                "text": "Dr. Smith has a very modern medical office, and she has great staff."
             }
         ]
     }
@@ -82,7 +82,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 	"results": {
 		"documents": [{
 			"id": "1",
-			"keyPhrases": ["wonderful trip", "Seattle"],
+			"keyPhrases": ["modern medical office", "Dr. Smith", "great staff"],
 			"warnings": []
 		}],
 		"errors": [],
