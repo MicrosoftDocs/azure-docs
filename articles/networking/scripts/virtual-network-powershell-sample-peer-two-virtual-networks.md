@@ -4,14 +4,14 @@ description: Create and connect two virtual networks in the same region. Use the
 services: virtual-network
 documentationcenter: virtual-network
 author: mbender-ms
-manager: mtillman
+manager: kumudD
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: kumud 
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 ---
 
