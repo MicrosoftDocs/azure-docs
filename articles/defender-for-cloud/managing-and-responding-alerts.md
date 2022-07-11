@@ -1,5 +1,5 @@
 ---
-title: Manage security alerts in Microsoft Defender for Cloud | Microsoft Docs
+title: Manage security alerts in Microsoft Defender for Cloud
 description: This document helps you to use Microsoft Defender for Cloud capabilities to manage and respond to security alerts.
 author: bmansheim
 ms.author: benmansheim

@@ -1,5 +1,5 @@
 ---
-title: Workflow automation in Microsoft Defender for Cloud | Microsoft Docs
+title: Workflow automation in Microsoft Defender for Cloud
 description: Learn how to create and automate workflows in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.date: 06/26/2022

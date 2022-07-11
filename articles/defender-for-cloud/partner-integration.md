@@ -1,5 +1,5 @@
 ---
-title: Integrate security solutions in Microsoft Defender for Cloud | Microsoft Docs
+title: Integrate security solutions in Microsoft Defender for Cloud
 description: Learn about how Microsoft Defender for Cloud integrates with partners to enhance the overall security of your Azure resources.
 ms.topic: conceptual
 ms.date: 11/09/2021

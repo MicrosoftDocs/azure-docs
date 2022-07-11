@@ -1,5 +1,5 @@
 ---
-title: Alert validation in Microsoft Defender for Cloud | Microsoft Docs
+title: Alert validation in Microsoft Defender for Cloud
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.date: 07/04/2022
