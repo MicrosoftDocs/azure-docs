@@ -52,6 +52,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Azerbaijani (Azerbaijan)          | `az-AZ`         |
 | Basque (Spain)                    | `eu-ES`         |
 | Bengali (India)                   | `bn-IN`         |
+| Bosnian (Bosnia and Herzegovina)  | `bs-BA`         |
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
 | Catalan (Spain)                   | `ca-ES`         |
@@ -116,6 +117,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Mongolian (Mongolia)              | `mn-MN`         |
 | Nepali (Nepal)                    | `ne-NP`         |
 | Norwegian (Bokmål, Norway)        | `nb-NO`         |
+| Pashto (Afghanistan)              | `ps-AF`         |
 | Persian (Iran)                    | `fa-IR`         |
 | Polish (Poland)                   | `pl-PL`         |
 | Portuguese (Brazil)               | `pt-BR`         |

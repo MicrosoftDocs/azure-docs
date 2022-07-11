@@ -233,8 +233,9 @@ These certificates are required for **gateway scenarios** because the device CA 
 The **device CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificate if device CA isn't configured. Device CA certificates go in the **Certificate** section of the `config.yaml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
 
 :::moniker-end
+<!--end 1.1-->
 
-<!--1.2-->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 ## Create edge CA certificates
@@ -244,6 +245,7 @@ These certificates are required for **gateway scenarios** because the edge CA ce
 The **edge CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificates if edge CA isn't configured. Edge CA certificates go in the **Edge CA** section of the `config.toml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
 
 :::moniker-end
+<!-- end iotedge-2020-11 -->
 
 # [Windows](#tab/windows)
 

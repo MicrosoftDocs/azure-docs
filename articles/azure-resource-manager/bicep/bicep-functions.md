@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 07/01/2022
+ms.date: 07/05/2022
 ---
 
 # Bicep functions
@@ -144,6 +144,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [format](./bicep-functions-string.md#format)
 * [guid](./bicep-functions-string.md#guid)
 * [indexOf](./bicep-functions-string.md#indexof)
+* [join](./bicep-functions-string.md#join)
 * [last](./bicep-functions-string.md#last)
 * [lastIndexOf](./bicep-functions-string.md#lastindexof)
 * [length](./bicep-functions-string.md#length)

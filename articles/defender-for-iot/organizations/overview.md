@@ -2,7 +2,7 @@
 title: Overview - Microsoft Defender for IoT for organizations
 description: Learn about Microsoft Defender for IoT's features for end-user organizations and comprehensive IoT security for OT and Enterprise IoT networks.
 ms.topic: overview
-ms.date: 03/23/2022
+ms.date: 06/02/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -39,6 +39,7 @@ Agentless monitoring in Defender for IoT provides visibility and security into n
 - **Respond to threats** by integrating with Microsoft services, such as Microsoft Sentinel, third-party systems, and APIs. Use advanced integrations for security information and event management (SIEM), security operations and response (SOAR), extended detection and response (XDR) services, and more.
 
 A centralized user experience lets the security team visualize and secure all their IT, IoT, and OT devices regardless of where the devices are located.
+
 
 ## Support for cloud, on-premises, and hybrid networks
 

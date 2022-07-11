@@ -391,7 +391,7 @@ Stay healthy!
 
 #### New features
 - **C#**: Added support for asynchronous conversation transcription. See documentation [here](../../how-to-async-conversation-transcription.md).
-- **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [Node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: Added support for Language Identification/language ID. See documentation [here](../../how-to-automatic-language-detection.md?pivots=programming-language-javascript).
 - **Objective-C**: Added support for [multi-device conversation](../../multi-device-conversation.md) and [conversation transcription](../../conversation-transcription.md).
 - **Python**: Added compressed audio support for Python on Windows and Linux. See documentation [here](../../how-to-use-codec-compressed-audio-input-streams.md).
