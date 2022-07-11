@@ -68,9 +68,6 @@ var config = new TelemetryConfiguration
 }
 var credential = new DefaultAzureCredential();
 config.SetAzureTokenCredential(credential);
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-
 ```
 
 Below is an example of configuring the `TelemetryConfiguration` using .NET Core:

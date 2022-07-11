@@ -9,8 +9,108 @@ ms.date: 07/05/2022
 ms.reviewer: gardnerjr 
 ---
 
-# Sample Azure Workbooks with links
+# Sample Azure Workbooks
 This article includes sample Azure Workbooks.
+
+
+## Sample JSON Path parameter workbook
+```json
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 9,
+      "content": {
+        "version": "KqlParameterItem/1.0",
+        "parameters": [
+          {
+            "id": "f2552663-d809-40da-93c4-9618dfde9b1d",
+            "version": "KqlParameterItem/1.0",
+            "name": "selection",
+            "type": 1,
+            "value": "{ \"series\":\"Failures\", \"x\": 5, \"y\": 10}"
+          }
+        ],
+        "style": "above",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "name": "parameters - 1"
+    },
+    {
+      "type": 1,
+      "content": {
+        "json": "For example, you may have a string parameter named `selection` that was the result of a query or selection in a visualization that has the following value \r\n```json\r\n{selection:json}\r\n```\r\n\r\nUsing JSONPath, you could get individual values from that object:\r\n\r\nformat | result\r\n---|---\r\n`selection:$.series` | `{selection:$..series}`\r\n`selection:$.x` | `{selection:$..x}`\r\n`selection$.y`| `{selection:$..y}`"
+      },
+      "name": "text - 0"
+    }
+  ],
+  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}
+```
+## Sample ARM template for creating a workbook template
+```json
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"resourceName": {
+			"type": "string",
+			"defaultValue": "test-template",
+			"metadata": {
+				"description": "The unique name for this workbook template instance"
+			}
+		}
+	},
+	"resources": [
+		{
+			"name": "[parameters('resourceName')]",
+			"type": "microsoft.insights/workbooktemplates",
+			"location": "[resourceGroup().location]",
+			"apiVersion": "2019-10-17-preview",
+			"dependsOn": [],
+			"properties": {
+				"priority": 1,
+				"galleries": [
+					{
+						"name": "A Workbook Template",
+						"category": "Deployed Templates",
+						"order": 100,
+						"type": "workbook",
+						"resourceType": "Azure Monitor"
+					}
+				],
+				"templateData": {
+					"version": "Notebook/1.0",
+					"items": [
+						{
+							"type": 1,
+							"content": {
+								"json": "## New workbook\n---\n\nWelcome to your new workbook.  This area will display text formatted as markdown.\n\n\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections."
+							},
+							"name": "text - 2"
+						},
+						{
+							"type": 3,
+							"content": {
+								"version": "KqlItem/1.0",
+								"query": "union withsource=[\"$TableName\"] *\n| summarize Count=count() by TableName=[\"$TableName\"]\n| render barchart",
+								"size": 1,
+								"exportToExcelOptions": "visible",
+								"queryType": 0,
+								"resourceType": "microsoft.operationalinsights/workspaces"
+							},
+							"name": "query - 2"
+						}
+					],
+					"styleSettings": {},
+					"$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+				}
+			}
+		}
+	]
+}
+```
 
 ## Sample workbook with links
 

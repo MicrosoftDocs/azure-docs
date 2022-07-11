@@ -3,8 +3,8 @@ title: HDInsight Interactive Query Autoscale(bchedule-based) guide and best prac
 description: LLAP Autoscale Guide and Best Practices 
 ms.service: hdinsight
 ms.topic: quickstart
-author: rishikeshmohanty
-ms.author: mohantyr
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/25/2022
 ---
