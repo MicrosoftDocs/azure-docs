@@ -219,4 +219,4 @@ Each state contains the following values:
 ## Next steps
 
 * For more information about the classes and methods that are defined in this namespace, review the [BulkExecutor Java open source documentation](https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor/tree/main/java/src/main/java/com/azure/graph/bulk/impl).
-* Review the bulk mode documentation, which is part of the .NET V3 SDK, in the [Bulk import data to the Azure Cosmos DB SQL API account by using the .NET SDK](../sql/tutorial-sql-api-dotnet-bulk-import.md) article.
+* See [Bulk import data to the Azure Cosmos DB SQL API account by using the .NET SDK](../sql/tutorial-sql-api-dotnet-bulk-import.md) article. This bulk mode documentation is part of the .NET V3 SDK.
