@@ -6,6 +6,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 6/14/2022
 ms.author: nasindam
+ms.subservice: files
 ---
 
 # Customer case studies

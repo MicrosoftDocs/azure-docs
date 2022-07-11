@@ -368,6 +368,8 @@
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
+    - name: Migrate alert playbooks to automation rules
+      href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
   - name: Manage Microsoft Sentinel
@@ -500,8 +502,8 @@
       href: top-workbooks.md
     - name: Entities reference
       href: entities-reference.md
-    - name: UEBA enrichments
-      href: ueba-enrichments.md
+    - name: UEBA reference
+      href: ueba-reference.md
     - name: Anomalies reference
       href: anomalies-reference.md
     - name: Multistage attack detection scenarios

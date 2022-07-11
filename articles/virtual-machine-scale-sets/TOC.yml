@@ -12,6 +12,9 @@
     href: quick-create-cli.md
   - name: Create with Azure PowerShell
     href: quick-create-powershell.md
+  - name: Create with Bicep
+    displayName: ARM, Template, Resource Manager, Bicep
+    href: quick-create-bicep-windows.md
   - name: Create with ARM template
     items:
     - name: Linux scale set

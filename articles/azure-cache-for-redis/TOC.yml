@@ -76,10 +76,14 @@
       href: scripts/create-manage-premium-cache-cluster.md
 - name: Concepts
   items:
-    - name: High availability
-      href: cache-high-availability.md
-    - name: Failover and patching
-      href: cache-failover.md
+    - name: Resiliency
+      items:
+      - name: High availability
+        href: cache-high-availability.md
+      - name: Failover and patching
+        href: cache-failover.md
+      - name: Migrate to availability zone support
+        href: ../availability-zones/migrate-cache-redis.md
     - name: Best practices
       items:
        - name: Connection resilience
@@ -188,7 +192,7 @@
     - name: Monitor in Azure portal
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
-      href: cache-how-to-monitor.md#alerts
+      href: cache-how-to-monitor.md#create-alerts
     - name: Monitor with diagnostic logs
       href: cache-monitor-diagnostic-settings.md
   - name: Scale

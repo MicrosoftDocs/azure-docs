@@ -552,6 +552,17 @@ sections:
         answer: |
           Set up the correct [firewalls rules](./tasks-agent-pools.md#add-firewall-rules) to the existing network security groups or user-defined routes. After the setup, wait a few minutes for the firewall rules to apply.
 
+      - question:  |
+          How will enabling the Azure built-in policy for ACR blocks enabling admin credentials?
+        answer: |
+          The following [Azure built-policy](/azure/container-registry/policy-reference), when set to respective policy status, will block the user from enabling admin user on their registry.
+          
+          | Azure built-in policy | Policy status | Admin status |
+          |---|---|---|
+          | Configure container registries to disable local admin account. | Modify | Disable |                      
+          | Container registries should have local admin account disabled. | Deny   | Disable |
+          | Container registries should have local admin account disabled. | Audit  | non-compliant |
+          
 additionalContent: |
 
   ## Next steps
