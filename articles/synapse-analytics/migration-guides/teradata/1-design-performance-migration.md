@@ -18,7 +18,7 @@ This article is part one of a seven-part series that provides guidance on how to
 
 ## Overview
 
-Many existing users of Teradata data warehouse systems want to take advantage of the innovations provided by modern cloud environments. Infrastructure-as-a-service (IaaS) or platform-as-a-service (PaaS) cloud environments let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+Many existing users of Teradata data warehouse systems want to take advantage of the innovations provided by modern cloud environments. Infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) cloud environments let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
 >[!TIP]
 >More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
