@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Microsoft SDKs for IoT Hub Device Provisioning Service
 
-Azure IoT Hub Device Provisioning Service (DPS) SDKs help you build backend and device applications that leverage DPS to provide zero-touch, just-in-time provisioning to one or more IoT hubs. The SDKs are published in a variety of popular languages and handle the underlying transport and security protocols between your devices or backend apps and DPS, freeing developers to focus on application development. Additionally, using the SDKs provides you with support for future updates to DPS, including security updates.
+The Azure IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub. The DPS package provides SDKs help you build backend and device applications that leverage DPS to provide zero-touch, just-in-time provisioning to one or more IoT hubs. The SDKs are published in a variety of popular languages and handle the underlying transport and security protocols between your devices or backend apps and DPS, freeing developers to focus on application development. Additionally, using the SDKs provides you with support for future updates to DPS, including security updates.
 
 There are three categories of software development kits (SDKs) for working with DPS:
 
@@ -32,7 +32,9 @@ Azure IoT SDKs are also available for the following services:
 
 ## Device SDKs
 
-The DPS device SDKs provide code that runs on your IoT devices and simplifies provisioning with DPS.
+The DPS device SDKs provide code that runs on your IoT devices and simplifies provisioning.
+
+These SDKs can run on a general MPU-based computing device such as a PC, tablet, smartphone, or Raspberry Pi. The SDKs support development in C and in modern managed languages including in C#, Node.JS, Python, and Java. They provide implementations of the [Register](/rest/api/iot-dps/device/runtime-registration/register-device) API and others that devices call to provision through DPS.
 
 | Platform | Package | Code repository | Samples | Quickstart | Reference |
 | -----|-----|-----|-----|-----|-----|
@@ -42,7 +44,7 @@ The DPS device SDKs provide code that runs on your IoT devices and simplifies pr
 | Node.js|[npm](https://www.npmjs.com/package/azure-iot-provisioning-device) |[GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning)|[Samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples)|[Quickstart](./quick-create-simulated-device-x509.md?pivots=programming-language-nodejs&tabs=windows)|[Reference](/javascript/api/overview/azure/iothubdeviceprovisioning) |
 | Python|[pip](https://pypi.org/project/azure-iot-device/) |[GitHub](https://github.com/Azure/azure-iot-sdk-python)|[Samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-hub-scenarios)|[Quickstart](./quick-create-simulated-device-x509.md?pivots=programming-language-python&tabs=windows)|[Reference](/python/api/azure-iot-device/azure.iot.device.provisioningdeviceclient) |
 
-Microsoft also provides embedded device SDKs to facilitate development on resource-constrained devices. To learn more, see the [IoT Device Development Documentation](../iot-develop/about-iot-sdks.md).
+For resource-constrained devices, that is, devices with limited compute and memory resources, Microsoft provides embedded device SDKs implemented in C. To learn more, see the [IoT Device Development Documentation](../iot-develop/about-iot-sdks.md#embedded-device-sdks).
 
 ## Service SDKs
 
