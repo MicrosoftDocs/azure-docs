@@ -19,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40
 
 You can use the OAuth 2.0 client credentials grant specified in [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4.4), sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as *daemons* or *service accounts*.
 
-This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
+This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).As a side note, refresh tokens will never be granted with this flow. This would not be useful given that client_id and client_secret, which would be required to obtain a refresh token, can be used to obtain an access token instead.
 
 The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. For a higher level of assurance, the Microsoft identity platform also allows the calling service to authenticate using a [certificate](#second-case-access-token-request-with-a-certificate) or federated credential instead of a shared secret.  Because the application's own credentials are being used, these credentials must be kept safe - _never_ publish that credential in your source code, embed it in web pages, or use it in a widely distributed native application. 
 
@@ -70,9 +70,6 @@ To use app roles (application permissions) with your own API (as opposed to Micr
 When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* because there is no user for your app to act on behalf of. You must use application permissions, also known as app roles, that are granted by an admin or by the API's owner.
 
 For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
-
-#### Refreshing Tokens
-The client credentials grant does not issue a refresh token. There is no benefit to issue refresh token with the client credential flow over just using the client id and client secret again.
 
 #### Recommended: Sign the admin into your app to have app roles assigned
 
