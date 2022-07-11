@@ -14,8 +14,6 @@ ms.custom: mimckitt
 
 # Encrypt virtual machine scale sets with Azure Resource Manager
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 You can encrypt or decrypt Linux virtual machine scale sets using Azure Resource Manager templates.
 
 ## Deploying templates
