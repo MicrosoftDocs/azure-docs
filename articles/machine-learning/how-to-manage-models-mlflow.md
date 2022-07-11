@@ -44,6 +44,11 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 > - <sup>3</sup> Registered models are immutable objects in Azure ML.
 > - <sup>4</sup> Use search box in Azure ML Studio. Partial match supported.
 
+### Prerequisites
+
+* Install the `azureml-mlflow` package.
+* If you are running outside an Azure ML compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. For more information about how to Set up tracking environment, see [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+
 ## Registering new models in the registry
 
 ### Creating models from an existing run 
