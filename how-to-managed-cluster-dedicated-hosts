@@ -1,0 +1,43 @@
+---
+title:  Add Azure Dedicated Host to a Service Fabric managed cluster (SFMC) <Configure autoscaling for Service Fabric managed cluster nodes>
+description: Learn how to add Azure Dedicated Host to a Service Fabric managed cluster (SFMC) <Learn how to configure autoscaling policies on Service Fabric managed cluster.>
+ms.topic: how-to
+ms.date: 6/14/2022
+---
+
+# Introduction to Dedicated Hosts on Service Fabric managed clusters
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. The server is dedicated to your organization and workloads and capacity is not shared with anyone else. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
+
+Using Azure Dedicated Hosts for nodes with your SFMC cluster has the following benefits:
+
+* Host-level hardware isolation at the physical server level. No other VMs will be placed on your hosts. hardware isolation helps Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts. 
+* Control over maintenance events initiated by the Azure platform. While most maintenance events have little to no impact on virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt into a maintenance window to reduce the impact on service.
+
+You can choose the SKU for Dedicated Hosts Virtual Machines based on your workload requirements. For information on pricing, see [Pricing - Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/). The following will take you step by step for how to add an Azure Dedicated Host to a Service Fabric managed cluster with an Azure Resource Manager template.
+
+
+
+## Prerequisites
+This guide builds upon the managed cluster quick start guide: Deploy a Service Fabric managed cluster using Azure Resource Manager(../service-fabric/quickstart-managed-cluster-template.md)
+
+Before you begin:
+
+* If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a six-node Standard SKU cluster.
+
+## Review the template
+The template used in this guide is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-ADH)
+
+## Create a client certificate
+Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step. 
+
+If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal.md). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
+
+## Deploy Dedicated Host Resources
+1) Create a dedicated host group pinned to one Availability Zone and five Fault Domains using the provided sample ARM deployment template. The sample will ensure there is at least one dedicated host per Fault Domain.
+```powershell
+   $rgName = "testHostGroupRG"
+   $location = "southcentralus" 
+   New-AzResourceGroup -Name $rgName -Location $location
+   ```
+2) 
