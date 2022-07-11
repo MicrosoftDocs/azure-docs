@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/31/2022
+ms.reviewer: bwren
 
 ---
 
@@ -28,7 +29,7 @@ See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on commi
 ### Optimize workspace configuration
 As your monitoring environment becomes more complex, you will need to consider whether to create additional Log Analytics workspaces. This may be as you place resources in additional regions or as you implement additional services that use workspaces such as Azure Sentinel and Microsoft Defender for Cloud.
 
-There can be cost implications with your workspace design, most notably when you combine different services such as operational data from Azure Monitor and security data from . See [Workspaces with Microsoft Sentinel](logs/cost-logs.md#workspaces-with-microsoft-sentinel) and [Workspaces with Microsoft Defender for Cloud](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) for a description of these implications and guidance on determining the most cost-effective solution for your environment.
+There can be cost implications with your workspace design, most notably when you combine different services such as operational data from Azure Monitor and security data from Microsoft Sentinel. See [Workspaces with Microsoft Sentinel](logs/cost-logs.md#workspaces-with-microsoft-sentinel) and [Workspaces with Microsoft Defender for Cloud](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) for a description of these implications and guidance on determining the most cost-effective solution for your environment.
 
 ## Configure tables in each workspace
 Except for  [tables that don't incur charges](logs/cost-logs.md#data-size-calculation), all data in a Log Analytics workspace is billed at the same rate by default. You may be collecting data though that you query infrequently or that you need to archive for compliance but rarely access. You can significantly reduce your costs by configuring Basic Logs and by optimizing your data retention and archiving.
@@ -63,9 +64,9 @@ Virtual machines can vary significantly in the amount of data they collect, depe
 
 | Source | Strategy | Log Analytics agent | Azure Monitor agent |
 |:---|:---|:---|:---|
-| Event logs | Collect only required event logs and levels. For example, *Information* level events are rarely used and should typically not be collected. For Azure Monitor agent, filter particular event IDs that are frequent but not valuable. | Change the [event log configuration for the workspace](agents/data-sources-windows-events.md) | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific event IDs. |
-| Syslog | Reduce the number of facilities collected and only collect required event levels. For example, *Info* and *Debug* level events are rarely used and should typically not be collected. | Change the [syslog configuration for the workspace](agents/data-sources-syslog.md). |  Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific events. |
-| Performance counters | Collect only the performance counters required and reduce the frequency of collection. For Azure Monitor agent, consider sending performance data only to Metrics and not Logs. | Change the [performance counter configuration for the workspace](agents/data-sources-performance-counters.md). | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific counters. |
+| Event logs | Collect only required event logs and levels. For example, *Information* level events are rarely used and should typically not be collected. For Azure Monitor agent, filter particular event IDs that are frequent but not valuable. | Change the [event log configuration for the workspace](agents/data-sources-windows-events.md) | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific event IDs. |
+| Syslog | Reduce the number of facilities collected and only collect required event levels. For example, *Info* and *Debug* level events are rarely used and should typically not be collected. | Change the [syslog configuration for the workspace](agents/data-sources-syslog.md). |  Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific events. |
+| Performance counters | Collect only the performance counters required and reduce the frequency of collection. For Azure Monitor agent, consider sending performance data only to Metrics and not Logs. | Change the [performance counter configuration for the workspace](agents/data-sources-performance-counters.md). | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific counters. |
 
 
 ### Use transformations to filter events

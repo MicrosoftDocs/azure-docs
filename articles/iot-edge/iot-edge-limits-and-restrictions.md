@@ -3,7 +3,7 @@ title: Limits and restrictions - Azure IoT Edge | Microsoft Docs
 description: Description of the limits and restrictions when using IoT Edge.
 author: raisalitch
 ms.author: ralitchf
-ms.date: 01/28/2022
+ms.date: 07/05/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -11,7 +11,7 @@ services: iot-edge
 
 # Understand Azure IoT Edge limits and restrictions
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article explains the limits and restrictions when using IoT Edge.
 
@@ -78,7 +78,7 @@ Changes made in `config.toml` to `edgeAgent` environment variables like the `hos
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 ### AMQP transport
-When using Node.js to send device to cloud messages with the AMQP protocol to an IoT Edge runtime, messages stop sending after 2047 messages. No error is thrown and the messages eventually start sending again, then cycle repeats. If the client connects directly to Azure IoT Hub, there's no issue with sending messages. This issue has been fixed in IoT Edge 1.2.
+When using Node.js to send device to cloud messages with the AMQP protocol to an IoT Edge runtime, messages stop sending after 2047 messages. No error is thrown and the messages eventually start sending again, then cycle repeats. If the client connects directly to Azure IoT Hub, there's no issue with sending messages. This issue has been fixed in IoT Edge 1.2 and later.
 
 :::moniker-end
 <!-- end 1.1 -->

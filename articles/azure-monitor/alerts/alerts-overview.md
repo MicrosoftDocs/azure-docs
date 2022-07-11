@@ -55,7 +55,7 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
 ## Out-of-the-box alert rules (preview)
 
-If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
+If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-page.md#alert-rule-recommendations-preview).
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for VMs.
@@ -87,8 +87,8 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 
 ## Manage your alerts programmatically
 
-You can query you alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
-We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For an sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
+You can query your alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
+We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For a sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
 
 You can use Azure Resource Graphs:
  - with [Azure PowerShell](/powershell/module/az.monitor/)

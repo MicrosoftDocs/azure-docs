@@ -31,23 +31,25 @@ This page shows the supported authentication types and client types of Apache ka
 
 ## Default environment variable names or application properties
 
+Use the connection details below to connect compute services to Kafka. For each example below, replace the placeholder texts `<server-name>`, `<Bootstrap-server-key>`, `<Bootstrap-server-secret>`, `<schema-registry-key>`, and `<schema-registry-secret>` with your server name, Bootstrap server key, Bootstrap server secret, schema registry key, and schema registry secret.
+
 ### .NET, Java, Node.JS and Python
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_CONFLUENTCLOUDKAFKA_BOOTSTRAPSERVER | Your Kafka bootstrap server | `pkc-{serverName}.eastus.azure.confluent.cloud:9092` |
-| AZURE_CONFLUENTCLOUDKAFKA_KAFKASASLCONFIG | Your Kafka SASL configuration | `org.apache.kafka.common.security.plain.PlainLoginModule required username='{bootstrapServerKey}' password='{bootstrapServerSecret}';` |
-| AZURE_CONFLUENTCLOUDSCHEMAREGISTRY_URL | Your Confluent registry URL | `https://psrc-{serverName}.westus2.azure.confluent.cloud` |
-| AZURE_CONFLUENTCLOUDSCHEMAREGISTRY_USERINFO |  Your Confluent registry user information | `{schemaRegistryKey} + ":" + {schemaRegistrySecret}` |
+| Default environment variable name           | Description                              | Example value                                                                                                                              |
+|---------------------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_CONFLUENTCLOUDKAFKA_BOOTSTRAPSERVER   | Your Kafka bootstrap server              | `pkc-<server-name>.eastus.azure.confluent.cloud:9092`                                                                                      |
+| AZURE_CONFLUENTCLOUDKAFKA_KAFKASASLCONFIG   | Your Kafka SASL configuration            | `org.apache.kafka.common.security.plain.PlainLoginModule required username='<Bootstrap-server-key>' password='<Bootstrap-server-secret>';` |
+| AZURE_CONFLUENTCLOUDSCHEMAREGISTRY_URL      | Your Confluent registry URL              | `https://psrc-<server-name>.westus2.azure.confluent.cloud`                                                                                 |
+| AZURE_CONFLUENTCLOUDSCHEMAREGISTRY_USERINFO | Your Confluent registry user information | `<schema-registry-key>:<schema-registry-secret>`                                                                                           |
 
 ### Spring Boot
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| spring.kafka.properties.bootstrap.servers | Your Kafka bootstrap server | `pkc-{serverName}.eastus.azure.confluent.cloud:9092` |
-| spring.kafka.properties.sasl.jaas.config | Your Kafka SASL configuration | `org.apache.kafka.common.security.plain.PlainLoginModule required username='{bootstrapServerKey}' password='{bootstrapServerSecret}';` |
-| spring.kafka.properties.schema.registry.url | Your Confluent registry URL | `https://psrc-{serverName}.westus2.azure.confluent.cloud` |
-| spring.kafka.properties.schema.registry.basic.auth.user.info | Your Confluent registry user information | `{schemaRegistryKey} + ":" + {schemaRegistrySecret}` |
+| Default environment variable name                            | Description                              | Example value                                                                                                                              |
+|--------------------------------------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| spring.kafka.properties.bootstrap.servers                    | Your Kafka bootstrap server              | `pkc-<server-name>.eastus.azure.confluent.cloud:9092`                                                                                      |
+| spring.kafka.properties.sasl.jaas.config                     | Your Kafka SASL configuration            | `org.apache.kafka.common.security.plain.PlainLoginModule required username='<Bootstrap-server-key>' password='<Bootstrap-server-secret>';` |
+| spring.kafka.properties.schema.registry.url                  | Your Confluent registry URL              | `https://psrc-<server-name>.westus2.azure.confluent.cloud`                                                                                 |
+| spring.kafka.properties.schema.registry.basic.auth.user.info | Your Confluent registry user information | `<schema-registry-key>:<schema-registry-secret>`                                                                                           |
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 05/18/2022
+ms.date: 07/09/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -28,6 +28,8 @@ You use JavaScript Object Notation (JSON) to create a policy exemption. The poli
 > [!NOTE]
 > A policy exemption is created as a child object on the resource hierarchy or the individual
 > resource granted the exemption, so the target isn't included in the exemption definition.
+> If the parent resource to which the exemption applies is removed, then the exemption
+> is removed as well.
 
 For example, the following JSON shows a policy exemption in the **waiver** category of a resource to
 an initiative assignment named `resourceShouldBeCompliantInit`. The resource is _exempt_ from only

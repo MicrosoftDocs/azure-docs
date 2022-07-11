@@ -1,5 +1,5 @@
 ---
-title: Deploy ML models to FPGAs  
+title: Deploy ML models to FPGAs
 titleSuffix: Azure Machine Learning
 description: Learn about field-programmable gate arrays. You can deploy a web service on an FPGA with Azure Machine Learning for ultra-low latency inference. 
 services: machine-learning
@@ -295,7 +295,7 @@ Next, create a Docker image from the converted model and all dependencies.  This
 
 #### Deploy to a local edge server
 
-All [Azure Data Box Edge devices](../databox-online/azure-stack-edge-overview.md) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
+All [Azure Data Box Edge devices](../databox-online/azure-stack-edge-overview.md) contain an FPGA for running the model. Only one model can be running on the FPGA at one time. To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ### Consume the deployed model
 
@@ -323,7 +323,7 @@ client = PredictionClient(address=address,
                           service_name=aks_service.name)
 ```
 
-Since this classifier was trained on the [ImageNet](http://www.image-net.org/) data set, map the classes to human-readable labels.
+Since this classifier was trained on the ImageNet data set, map the classes to human-readable labels.
 
 ```python
 import requests

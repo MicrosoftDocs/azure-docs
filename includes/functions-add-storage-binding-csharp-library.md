@@ -3,8 +3,8 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 06/15/2022
-ms.custom: devdivchpfy22
 ms.author: glenga
+ms.custom: devdivchpfy22
 ---
 
 In a C# project, the bindings are defined as binding attributes on the function method. Specific definitions depend on whether your app runs in-process (C# class library) or in an isolated process.

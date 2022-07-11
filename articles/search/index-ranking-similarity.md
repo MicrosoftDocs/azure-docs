@@ -1,5 +1,5 @@
 ---
-title: Configure BM25 similarity algorithm
+title: Configure scoring algorithm
 titleSuffix: Azure Cognitive Search
 description: Enable Okapi BM25 ranking to upgrade the search ranking and relevance behavior on older Azure Search services.
 
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 06/22/2022
 ---
 
-# Configure the similarity ranking algorithm in Azure Cognitive Search
+# Configure the scoring algorithm in Azure Cognitive Search
 
-Depending on the age of your search service, Azure Cognitive Search supports two [similarity ranking algorithms](index-similarity-and-scoring.md) for scoring relevance on full text search results:
+Depending on the age of your search service, Azure Cognitive Search supports two [scoring algorithms](index-similarity-and-scoring.md) for assigning relevance to results in a full text search query:
 
 + An *Okapi BM25* algorithm, used in all search services created after July 15, 2020
 + A *classic similarity* algorithm, used by all search services created before July 15, 2020
 
-BM25 ranking is the default because it tends to produce search rankings that align better with user expectations. It includes [parameters](#set-bm25-parameters) for tuning results based on factors such as document size. For search services created after July 2020, BM25 is the sole similarity algorithm. If you try to set "similarity" to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
+BM25 ranking is the default because it tends to produce search rankings that align better with user expectations. It includes [parameters](#set-bm25-parameters) for tuning results based on factors such as document size. For search services created after July 2020, BM25 is the sole scoring algorithm. If you try to set "similarity" to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
 
 For older services, classic similarity remains the default algorithm. Older services can [upgrade to BM25](#enable-bm25-scoring-on-older-services) on a per-index basis. When switching from classic to BM25, you can expect to see some differences how search results are ordered.
 
