@@ -1356,8 +1356,6 @@ items:
           href: visualize/workbooks-templates.md
         - name: Creating a new workbook
           href: visualize/workbooks-create-workbook.md
-        - name: Workbook configuration options
-          href: visualize/workbooks-configurations.md
         - name: Working with data sources
           href: visualize/workbooks-data-sources.md         
         - name: Working with visualizations
@@ -1404,6 +1402,8 @@ items:
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
             href: visualize/workbooks-multi-value.md               
+        - name: Workbook configuration options
+          href: visualize/workbooks-configurations.md
         - name: Commonly used components
           href: visualize/workbooks-commonly-used-components.md
         - name: Workbook result limits
