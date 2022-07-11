@@ -145,16 +145,14 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 [Three basic roles](search-security-rbac.md) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
 
-> [!Note]
+> [!NOTE]
 > Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
 
 ## Data Residency
 
-Azure Cognitive Search won't store your data outside of your customer-specified region without your authorization. 
+Azure Cognitive Search won't store data outside of your specified region without your authorization. Specifically, the following features write to an Azure Storage resource that you provide: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md).
 
-The following features write to an Azure Storage resource that you provide: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro). 
-
-If you're using these features and have regional requirements, choose a storage account that's in the same region as your search service. However, be aware you won't be able to [set up an IP firewall](search-indexer-howto-access-ip-restricted.md) if search and storage are in the same region. As an alternative, consider using the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) for network-secured outbound connections to a storage account in the same region.
+If you're using any of these features and have regional requirements, choose a storage account that's in the same region as your search service. However, be aware that there are [IP firewall restrictions](search-indexer-howto-access-ip-restricted.md) if search and storage are located in the same region. As an alternative, consider using the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) for network-secured outbound connections to a storage account in the same region.
 
 <a name="encryption"></a>
 
