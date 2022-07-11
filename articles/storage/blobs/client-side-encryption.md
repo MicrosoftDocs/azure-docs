@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/28/2022
+ms.date: 07/11/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
@@ -103,7 +103,7 @@ The code example in this section shows how to use client-side encryption v2 to e
 
 ### [.NET](#tab/dotnet)
 
-To use client-side encryption from your .NET code, reference the [Blob Storage client library](/dotnet/api/overview/azure/storage.blobs-readme). Make sure that you are using version 12.??? or later. If you need to migrate from version 11.x to version 12.???, see the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
+To use client-side encryption from your .NET code, reference the [Blob Storage client library](/dotnet/api/overview/azure/storage.blobs-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from version 11.x to version 12.13.0, see the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
 Two additional packages are required for Azure Key Vault integration for client-side encryption:
 
@@ -171,7 +171,7 @@ After you update your code to use client-side encryption v2, make sure that you 
 
 ### [Java](#tab/java)
 
-To use client-side encryption from your Java code, reference the [Blob Storage client library](/java/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.??? or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/migrationGuides/V8_V12.md).
+To use client-side encryption from your Java code, reference the [Blob Storage client library](/java/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/migrationGuides/V8_V12.md).
 
 For sample code that shows how to use client-side encryption v2 from Java, see [ClientSideEncryptionV2Uploader.java](https://github.com/wastore/azure-storage-samples-for-java/blob/f1621c807a4b2be8b6e04e226cbf0a288468d7b4/ClientSideEncryptionMigration/src/main/java/ClientSideEncryptionV2Uploader.java).
 
@@ -179,7 +179,7 @@ After you update your code to use client-side encryption v2, make sure that you 
 
 ### [Python v12 SDK](#tab/python)
 
-To use client-side encryption from your Python code, reference the [Blob Storage client library](/python/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.??? or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/migration_guide.md).
+To use client-side encryption from your Python code, reference the [Blob Storage client library](/python/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/migration_guide.md).
 
 The following example shows how to use client-side migration v2 from Python:
 
@@ -203,7 +203,7 @@ Any data that was previously encrypted with client-side encryption v1 must be de
 
 ### [.NET](#tab/dotnet)
 
-For a sample project that shows how to migrate data from client-side encryption v1 to v2 and how to encrypt data with client-side encryption v2 in .NET, see the [Encryption migration sample project](https://github.com/wastore/azure-storage-samples-for-net/pull/4) ???this is PR - will need pointer to project in repo after merge???.
+For a sample project that shows how to migrate data from client-side encryption v1 to v2 and how to encrypt data with client-side encryption v2 in .NET, see the [Encryption migration sample project](https://github.com/wastore/azure-storage-samples-for-net/tree/master/ClientSideEncryptionMigration).
 
 ### [Java](#tab/java)
 
