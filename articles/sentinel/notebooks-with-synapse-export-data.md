@@ -13,9 +13,7 @@ Make your large datasets available for advanced analytics and machine learning b
 
 The following diagram shows how large datasets are exported, transformed, and stored for big data analytics by using the Log Analytics continuous data export and the one-time historical data export.
 
-:::image type="complex" source="media/notebooks-with-synapse-export-data/export-notebook-process-illustration.png" alt-text="Diagram that shows how large dataset are exported and transformed for big data analytics. " border="false":::
-
-:::image-end:::
+:::image type="content" source="media/notebooks-with-synapse-export-data/export-notebook-process-illustration.png" alt-text="Diagram that shows how large dataset are exported and transformed for big data analytics."  border="false":::
 
 This topic covers how to do a one-time export and transformation of your historical data. We recommend that you set up a continuous log export rule before you export historical logs. For more information, see [Set up continuous data export from Log Analytics](../azure-monitor/logs/logs-data-export.md).
 
@@ -125,6 +123,7 @@ You're now able to process, transform and analyze security log data at scale by 
 
 For more information, see:
 
+- [Blog post: Export Historical Log Data from Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/export-historical-log-data-from-microsoft-sentinel/ba-p/3413418)
 - [Use Jupyter notebooks to hunt for security threats](notebooks.md)
 - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
 - [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)](../machine-learning/how-to-link-synapse-ml-workspaces.md)
