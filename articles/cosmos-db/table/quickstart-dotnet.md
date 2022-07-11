@@ -202,13 +202,7 @@ Remove-AzResourceGroup @parameters
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB Table API account, create a table, and create entries using the .NET SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB Table API resources.
+In this quickstart, you learned how to create an Azure Cosmos DB Table API account, create a table, and manage entries using the .NET SDK. You can now dive deeper into the SDK to learn how to perform more advanced data queries and management tasks in your Azure Cosmos DB Table API resources.
 
 > [!div class="nextstepaction"]
 > [Get started with Azure Cosmos DB Table API and .NET](/azure/cosmos-db/table/how-to-dotnet-get-started)
-
-You can also see Blob storage sample apps and further explore .NET using these resources:
-
-- [Azure Blob Storage SDK v12 .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
-- For tutorials, samples, quick starts and other .NET on Azure documentation, visit [Azure for .NET and .NET Core developers](/dotnet/azure/).
-- To learn more about .NET Core specifically, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
