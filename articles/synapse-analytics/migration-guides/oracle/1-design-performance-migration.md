@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 06/30/2022
+ms.date: 07/15/2022
 ---
 
 # Design and performance for Oracle migrations
@@ -18,7 +18,7 @@ This article is part one of a seven-part series that provides guidance on how to
 
 ## Overview
 
-Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing Oracle users want to take advantage of the innovations provided by cloud environments. Modern cloud environments, such as cloud, IaaS, and PaaS, let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing Oracle users want to take advantage of the innovations provided by modern cloud environments. Infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) cloud environments let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
 >[!TIP]
 >More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.

@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 06/30/2022
+ms.date: 07/15/2022
 ---
 
 # Data migration, ETL, and load for Oracle migrations
