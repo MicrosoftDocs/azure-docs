@@ -132,7 +132,7 @@ The Speech service delivers great functionality with its default models across s
 
 ### Custom speech-to-text
 
-When you use speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available through the [Custom Speech portal](./custom-speech-overview.md). After the Custom Speech model is published, it can be consumed by the Speech SDK.
+When you use speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available in the [Speech Studio](./custom-speech-overview.md). After the Custom Speech model is published, it can be consumed by the Speech SDK.
 
 ### Custom text-to-speech
 

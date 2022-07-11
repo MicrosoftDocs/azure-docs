@@ -113,6 +113,8 @@
       href: container-instances-egress-ip-address.md
     - name: Configure container group egress with NAT gateway
       href: container-instances-nat-gateway.md
+    - name: Configure custom DNS settings for container group
+      href: container-instances-custom-dns.md
   - name: Mount data volumes
     items:
     - name: Azure file share

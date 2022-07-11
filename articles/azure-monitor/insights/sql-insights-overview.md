@@ -13,7 +13,7 @@ ms.date: 04/14/2022
 SQL Insights (preview) is a comprehensive solution for monitoring any product in the [Azure SQL family](/azure/azure-sql/index). SQL Insights uses [dynamic management views](/azure/azure-sql/database/monitoring-with-dmvs) to expose the data that you need to monitor health, diagnose problems, and tune performance.  
 
 SQL Insights performs all monitoring remotely. Monitoring agents on dedicated virtual machines connect to your SQL resources and remotely gather data. The gathered data is stored in [Azure Monitor Logs](../logs/data-platform-logs.md) to enable easy aggregation, filtering, and trend analysis. You can view the collected data from the SQL Insights [workbook template](../visualize/workbooks-overview.md), or you can delve directly into the data by using [log queries](../logs/get-started-queries.md).
-The following diagram details the steps taken by information from the database engine and Azure resource logs, and how they can be surfaced. For a more detailed diagram of Azure SQL logging, see [Monitoring and diagnostic telemetry](/azure/azure-sql/database/monitor-tune-overview.md#monitoring-and-diagnostic-telemetry).
+The following diagram details the steps taken by information from the database engine and Azure resource logs, and how they can be surfaced. For a more detailed diagram of Azure SQL logging, see [Monitoring and diagnostic telemetry](/azure/azure-sql/database/monitor-tune-overview#monitoring-and-diagnostic-telemetry).
 
 :::image type="content" source="media/sql-insights/azure-sql-insights-horizontal-analytics.svg" alt-text="Diagram showing how database engine information and resource logs are surfaced through AzureDiagnostics and Log Analytics.":::
 

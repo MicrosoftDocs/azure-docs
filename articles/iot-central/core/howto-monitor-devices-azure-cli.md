@@ -5,8 +5,9 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/30/2021
 ms.topic: how-to
-ms.service: iot-central 
-ms.custom: devx-track-azurecli, device-developer
+ms.service: iot-central
+ms.tool: azure-cli
+ms.custom: device-developer
 services: iot-central
 # This topic applies to device developers and solution builders.
 ---

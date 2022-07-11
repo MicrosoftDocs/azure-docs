@@ -72,13 +72,13 @@ You can use [Update Management in Azure Automation](../automation/update-managem
 
 ## Maintenance control
 
-Manage platform updates, that don't require a reboot, using [maintenance control](maintenance-control.md). Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window.
+Manage platform updates, that don't require a reboot, using [maintenance control](maintenance-configurations.md). Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window.
 
 Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts.
 
-With [maintenance control](maintenance-control.md), you can:
+With [maintenance control](maintenance-configurations.md), you can:
 - Batch updates into one update package.
-- Wait up to 35 days to apply updates.
+- Wait up to 35 days to apply updates for Host machines.
 - Automate platform updates by configuring a maintenance schedule or by using [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Maintenance configurations work across subscriptions and resource groups.
 

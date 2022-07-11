@@ -3,6 +3,7 @@ title: Configure a site-to-site VPN in vWAN for Azure VMware Solution
 description: Learn how to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel into Azure VMware Solutions.
 ms.topic: how-to
 ms.custom: contperf-fy22q1
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 

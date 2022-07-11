@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 06/07/2022
 ms.author: makromer
 ---
 
@@ -71,9 +71,6 @@ Use the following steps to create a REST linked service in the Azure portal UI.
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 
 ## Linked service properties
-
-> [!Important]
-> Due to Azure service security and compliance request, system-assigned managed identity authentication is no longer available in REST connector for both Copy and Mapping data flow. You are recommended to migrate existing linked services that use system-managed identity authentication to user-assigned managed identity authentication or other authentication types. Please make sure the migration to be done by **September 15, 2022**. For more detailed steps about how to create, manage user-assigned managed identities, refer to [this](data-factory-service-identity.md#user-assigned-managed-identity). 
 
 The following properties are supported for the REST linked service:
 

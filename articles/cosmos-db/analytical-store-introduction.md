@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 03/24/2022
 ms.author: rosouz
 ms.custom: seo-nov-2020, devx-track-azurecli
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ---
 
 # What is Azure Cosmos DB analytical store?

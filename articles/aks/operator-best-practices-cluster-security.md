@@ -141,7 +141,7 @@ AppArmor profiles are added using the `apparmor_parser` command.
     spec:
       containers:
       - name: hello
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
@@ -216,7 +216,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
     spec:
       containers:
       - name: chmod
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command:
           - "chmod"
         args:
@@ -239,7 +239,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
           localhostProfile: prevent-chmod
       containers:
       - name: chmod
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command:
           - "chmod"
         args:

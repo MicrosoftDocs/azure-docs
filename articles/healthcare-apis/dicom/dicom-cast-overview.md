@@ -5,7 +5,7 @@ author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 06/03/2022
 ms.author: aersoy
 ---
 
@@ -102,3 +102,5 @@ To get started using the DICOM service, see
 
 >[!div class="nextstepaction"]
 >[Using DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

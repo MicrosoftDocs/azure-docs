@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 12/29/2020
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Telemetry processor examples - Azure Monitor Application Insights for Java

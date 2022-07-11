@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/bridgelineunbound-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/common-scenarios.md",
       "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
       "redirect_document_id": false

@@ -8,73 +8,56 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 05/06/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Improve the performance of Custom Named Entity Recognition (NER) models 
+# Improve model performance
 
-After you've trained your model you reviewed its evaluation details, you can start to improve model performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
+In some cases, the model is expected to extract entities that are inconsistent with your labeled ones. In this page you can observe these inconsistencies and decide on the needed changes needed to improve your model performance.
 
 ## Prerequisites
 
 * A successfully [created project](create-project.md) with a configured Azure blob storage account
-    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
-* [Tagged data](tag-data.md)
+    * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
+* [Labeled data](tag-data.md)
 * A [successfully trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
-    * Familiarized yourself with the [evaluation metrics](../concepts/evaluation-metrics.md) used for evaluation.
+* Familiarized yourself with the [evaluation metrics](../concepts/evaluation-metrics.md).
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 
-## Improve model
+## Review test set predictions
 
-After you have reviewed your [model's evaluation](view-model-evaluation.md), you'll have formed an idea on what's wrong with your model's prediction. 
+After you have viewed your [model's evaluation](view-model-evaluation.md), you'll have formed an idea on your model performance. In this page, you can view how your model performs vs how it's expected to perform. You can view predicted and labeled entities side by side for each document in your test set. You can review entities that were extracted differently than they were originally labeled.
 
-> [!NOTE]
-> This guide focuses on data from the [validation set](train-model.md) that was created during training.
 
-### Review test set
+To review inconsistent predictions in the [test set](train-model.md) from within the [Language Studio](https://aka.ms/LanguageStudio):
 
-Using Language Studio, you can review how your model performs against how you expected it to perform. You can review predicted and tagged classes for each model you have trained.
+1. Select **Improve model** from the left side menu.
 
-1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
-    1. Look for the section in Language Studio labeled **Classify text**.
-    2. Select **Custom text classification**. 
+2. Choose your trained model from **Model** drop-down menu.
 
-2. Select **Improve model** from the left side menu.
+3. For easier analysis, you can toggle **Show incorrect predictions only** to view entities that were incorrectly predicted only. You should see all documents that include entities that were incorrectly predicted.
 
-3. Select **Review test set**.
+5. You can expand each document to see more details about predicted and labeled entities.
 
-4. Choose your trained model from **Model** drop-down menu.
+    Use the following information to help guide model improvements. 
+    
+    * If entity `X` is constantly identified as entity `Y`, it means that there is ambiguity between these entity types and you need to reconsider your schema. Learn more about [data selection and schema design](design-schema.md#schema-design). Another solution is to consider labeling more instances of these entities, to help the model improve and differentiate between them.
+    
+    * If a complex entity is repeatedly not predicted, consider [breaking it down to simpler entities](design-schema.md#schema-design) for easier extraction. 
+    
+    * If an entity is predicted while it was not labeled in your data, this means to you need to review your labels. Be sure that all instances of an entity are properly labeled in all documents.
+    
+    
+    :::image type="content" source="../media/review-predictions.png" alt-text="A screenshot showing model predictions in Language Studio." lightbox="../media/review-predictions.png":::
 
-5. For easier analysis, you can toggle **Show incorrect predictions only** to view mistakes only.
 
-Use the following information to help guide model improvements. 
 
-* If entity `X` is constantly identified as entity `Y`, it means that there is ambiguity between these entity types and you need to reconsider your schema.
-
-* If a complex entity is repeatedly not extracted, consider breaking it down to simpler entities for easier extraction.
-
-* If an entity is predicted while it was not tagged in your data, this means to you need to review your tags. Be sure that all instances of an entity are properly tagged in all files.
-
-### Examine data distribution
-
-By examining data distribution in your files, you can decide if any entity is underrepresented. Data imbalance happens when tags are not distributed equally among your entities, and is a risk to your model's performance. For example, if *entity 1* has 50 tags while *entity 2* has 10 tags only, this is an example of data imbalance where *entity 1* is over represented, and *entity 2* is underrepresented. The model is biased towards extracting *entity 1* and might overlook *entity 2*. More complex issues may come from data imbalance if the schema is ambiguous. If the two entities are some how similar and *entity 2* is underrepresented the model most likely will extract it as *entity 1*.
-
-In [model evaluation](view-model-evaluation.md), entities that are over represented tend to have a higher recall than other entities, while under represented entities have lower recall.
-
-To examine data distribution in your dataset:
-
-1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
-    1. Look for the section in Language Studio labeled **Extract information**.
-    2. Select **Custom named entity extraction**. 
-2. Select **Improve model** from the left side menu.
-
-3. Select **Examine data distribution**.
 
 ## Next steps
 
-Once you're satisfied with how your model performs, you can start [sending entity extraction requests](call-api.md) using the runtime API.
+Once you're satisfied with how your model performs, you can [deploy your model](call-api.md).

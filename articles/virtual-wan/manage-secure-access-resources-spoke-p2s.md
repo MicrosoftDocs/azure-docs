@@ -17,7 +17,7 @@ This article shows you how to use Virtual WAN and Azure Firewall rules and filte
 
 The steps in this article help you create the architecture in the following diagram to allow User VPN clients to access a specific resource (VM1) in a spoke VNet connected to the virtual hub, but not other resources (VM2). Use this architecture example as a basic guideline.
 
-:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram: Secured virtual hub" :::
+:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram: Secured virtual hub":::
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
-In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md).
+In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-cert-windows.md#generate).
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 

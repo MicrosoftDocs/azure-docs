@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 06/01/2022
 
 ms.author: justinha
 author: justinha
@@ -23,13 +23,13 @@ The Network Policy Server (NPS) extension extends your cloud-based Azure AD Mult
 
 Since the NPS extension connects to both your on-premises and cloud directories, you might encounter an issue where your on-premises user principal names (UPNs) don't match the names in the cloud. To solve this problem, use alternate login IDs. 
 
-Within the NPS extension, you can designate an Active Directory attribute to be used in place of the UPN for Azure AD Multi-Factor Authentication. This enables you to protect your on-premises resources with two-step verification without modifying your on-premises UPNs. 
+Within the NPS extension, you can designate an Active Directory attribute to be used as the UPN for Azure AD Multi-Factor Authentication. This enables you to protect your on-premises resources with two-step verification without modifying your on-premises UPNs. 
 
 To configure alternate login IDs, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and edit the following registry values:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Empty | Designate the name of Active Directory attribute that you want to use instead of the UPN. This attribute is used as the AlternateLoginId attribute. If this registry value is set to a [valid Active Directory attribute](/windows/win32/adschema/attributes-all) (for example, mail or displayName), then the attribute's value is used in place of the user's UPN for authentication. If this registry value is empty or not configured, then AlternateLoginId is disabled and the user's UPN is used for authentication. |
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Empty | Designate the name of Active Directory attribute that you want to use as the UPN. This attribute is used as the AlternateLoginId attribute. If this registry value is set to a [valid Active Directory attribute](/windows/win32/adschema/attributes-all) (for example, mail or displayName), then the attribute's value is used as the user's UPN for authentication. If this registry value is empty or not configured, then AlternateLoginId is disabled and the user's UPN is used for authentication. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Use this flag to force the use of Global Catalog for LDAP searches when looking up AlternateLoginId. Configure a domain controller as a Global Catalog, add the AlternateLoginId attribute to the Global Catalog, and then enable this flag. <br><br> If LDAP_LOOKUP_FORESTS is configured (not empty), **this flag is enforced as true**, regardless of the value of the registry setting. In this case, the NPS extension requires the Global Catalog to be configured with the AlternateLoginId attribute for each forest. |
 | LDAP_LOOKUP_FORESTS | string | Empty | Provide a semi-colon separated list of forests to search. For example, *contoso.com;foobar.com*. If this registry value is configured, the NPS extension iteratively searches all the forests in the order in which they were listed, and returns the first successful AlternateLoginId value. If this registry value is not configured, the AlternateLoginId lookup is confined to the current domain.|
 

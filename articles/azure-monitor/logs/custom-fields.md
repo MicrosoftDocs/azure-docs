@@ -25,7 +25,7 @@ For example, the sample record below has useful data buried in the event descrip
 ![Sample extract](media/custom-fields/sample-extract.png)
 
 > [!NOTE]
-> In the Preview, you are limited to 100 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
+> In the Preview, you are limited to 500 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
 
 ## Creating a custom field
 When you create a custom field, Log Analytics must understand which data to use to populate its value.  It uses a technology from Microsoft Research called FlashExtract to quickly identify this data.  Rather than requiring you to provide explicit instructions, Azure Monitor learns about the data you want to extract from examples that you provide.

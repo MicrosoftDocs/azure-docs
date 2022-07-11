@@ -1,12 +1,13 @@
 ---
 title: AVG in Azure Cosmos DB query language
 description: Learn about the Average (AVG) SQL system function in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # AVG (Azure Cosmos DB)

@@ -12,6 +12,8 @@ ms.date: 10/15/2021
 
 # Product updates for PostgreSQL - Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## Updates feed
 
 The Microsoft Azure website lists newly available features per product, plus

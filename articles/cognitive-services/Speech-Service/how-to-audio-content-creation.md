@@ -30,13 +30,13 @@ The next sections cover how to create an Azure account and get a Speech resource
 
 ### Step 1: Create an Azure account
 
-To work with Audio Content Creation, you need a [Microsoft account](https://account.microsoft.com/account) and an [Azure account](https://azure.microsoft.com/free/ai/). To set up the accounts, see the "Try the Speech service for free" section in [What is the Speech service?](./overview.md#try-the-speech-service-for-free).
+To work with Audio Content Creation, you need a [Microsoft account](https://account.microsoft.com/account) and an [Azure account](https://azure.microsoft.com/free/ai/). 
 
 [The Azure portal](https://portal.azure.com/) is the centralized place for you to manage your Azure account. You can create the Speech resource, manage the product access, and monitor everything from simple web apps to complex cloud deployments.
 
 ### Step 2: Create a Speech resource
 
-After you sign up for the Azure account, you need to create a Speech resource in your Azure account to access Speech services. For instructions, see [how to create a Speech resource](./overview.md#create-the-azure-resource).
+After you sign up for the Azure account, you need to create a Speech resource in your Azure account to access Speech services. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 It takes a few moments to deploy your new Speech resource. After the deployment is complete, you can start using the Audio Content Creation tool.
 
@@ -117,7 +117,7 @@ You can get your content into the Audio Content Creation tool in either of two w
         | File name | Each file must have a unique name. Duplicate files aren't supported. |
         | Text length | Character limit is 20,000. If your files exceed the limit, split them according to the instructions in the tool. |
         | SSML restrictions | Each SSML file can contain only a single piece of SSML. |
-        | | |
+        
 
         \* **Plain text example**:
 
@@ -149,7 +149,7 @@ After you've reviewed your audio output and are satisfied with your tuning and a
     |--- |--- |--- |--- |--- |
     | wav | riff-8khz-16bit-mono-pcm | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |riff-48khz-16bit-mono-pcm |
     | mp3 | N/A | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |audio-48khz-192kbitrate-mono-mp3 |
-    | | |
+    
 
 1. To view the status of the task, select the **Export task** tab. 
 
@@ -206,11 +206,7 @@ If you want to allow a user to grant access to other users, you need to assign t
 1. Search for the user's Microsoft account, go to their detail page, and then select **Assigned roles**.
 1. Select **Add assignments** > **Directory Readers**. If the **Add assignments** button is unavailable, it means that you don't have access. Only the global administrator of this directory can add assignments to users.
 
-## See also
+## Next steps
 
 * [Long Audio API](./long-audio-api.md)
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Speech Studio](https://speech.microsoft.com)

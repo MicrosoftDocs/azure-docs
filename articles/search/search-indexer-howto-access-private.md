@@ -8,16 +8,20 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/09/2022
 ---
 
 # Make outbound connections through a private endpoint
 
-Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer and your Azure PaaS data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) used by Azure Cognitive Search to reach the data.
+Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer and your Azure PaaS data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) used by Azure Cognitive Search to reach the data. 
 
-Private endpoints created through Azure Cognitive Search APIs are referred to as *shared private links* or *managed outbound private endpoints*. The concept of a "shared private link" is that an Azure PaaS resource already has a private endpoint through [Azure Private Link service](https://azure.microsoft.com/services/private-link/), and Azure Cognitive Search is sharing access. Although access is shared, a shared private link creates its own private connection. The shared private link is the mechanism by which Azure Cognitive Search makes the connection to resources in a private network.
+For [Azure Storage](../storage/common/storage-network-security.md?tabs=azure-portal), if both the storage account and the search service are in the same region, outbound traffic uses a private IP address to communicate to storage and occurs over the Microsoft backbone network. For this scenario, you can omit private endpoints through Azure Cognitive Search. For other Azure PaaS resources, we suggest that you review the networking documentation for those resources to determine whether a private endpoint is helpful.
 
 To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
+
+## Terminology
+
+Private endpoints created through Azure Cognitive Search APIs are referred to as *shared private links* or *managed outbound private endpoints*. The concept of a "shared private link" is that an Azure PaaS resource already has a private endpoint through [Azure Private Link service](https://azure.microsoft.com/services/private-link/), and Azure Cognitive Search is sharing access. Although access is shared, a shared private link creates its own private connection. The shared private link is the mechanism by which Azure Cognitive Search makes the connection to resources in a private network.
 
 ## Prerequisites
 
@@ -27,10 +31,10 @@ To create a shared private link, use the Azure portal or the [Create Or Update S
 
 + If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to create the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
 
-+ If you're using the [Azure portal](https://portal.azure.com/), make sure that access to all public networks is enabled in the data source resource firewall while going through the instructions below. Otherwise, you need to enable access to all public networks during this setup and then disable it again, or instead, you must use REST API from a device with an authorized IP in the firewall rules, to perform these operations. If the supported data source resource has public networks access disabled, there will be errors when connecting from the portal to it.
++ Connections from the search client should be programmatic, either REST APIs or an Azure SDK, rather than through the Azure portal. The device must connect using an authorized IP in the Azure PaaS resource's firewall rules.
 
 > [!NOTE]
-> When using Private Link for data sources, [Import data](search-import-data-portal.md) wizard is not supported.
+> When using Private Link for data sources, Azure portal access (from Cognitive Search to your content) - such as through the [Import data](search-import-data-portal.md) wizard - is not supported.
 
 <a name="group-ids"></a>
 

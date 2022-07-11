@@ -185,7 +185,7 @@
           items:
           - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
-          - name: Scan with GitHub actions
+          - name: Scan with GitHub Actions
             href: github-action-scan.md
     - name: Troubleshoot
       expanded: false

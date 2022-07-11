@@ -140,8 +140,7 @@ These scenarios don't require you to configure a federation server for authentic
 
 > [!NOTE]
 > [Cloud authentication using Staged rollout](../hybrid/how-to-connect-staged-rollout.md) is only supported starting at the Windows 10 1903 update.
-> 
-> Azure AD doesn't support smartcards or certificates in managed domains.
+
 
 ### Federated environment
 

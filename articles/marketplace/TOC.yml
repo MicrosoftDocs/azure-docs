@@ -629,6 +629,10 @@
       href: partner-center-portal/saas-fulfillment-apis-faq.yml
     - name: SaaS Fulfillment APIs v1 (deprecated)
       href: partner-center-portal/pc-saas-fulfillment-api-v1.md    
+  - name: Private Offer APIs
+    items:
+    - name: Private Offer APIs
+      href: private-offers-api.md    
 - name: Resources
   items:
   - name: Commercial marketplace FAQ

@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Configure your tenant for Azure AD Verifiable Credentials (preview)
 description: In this tutorial, you learn how to configure your tenant to support the Verifiable Credentials service. 
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 05/06/2022
@@ -13,6 +13,8 @@ ms.date: 05/06/2022
 ---
 
 # Configure your tenant for Azure AD Verifiable Credentials (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Azure Active Directory (Azure AD) Verifiable Credentials safeguards your organization with an identity solution that's seamless and decentralized. The service allows you to issue and verify credentials. For issuers, Azure AD provides a service that they can customize and use to issue their own verifiable credentials. For verifiers, the service provides a free REST API that makes it easy to request and accept verifiable credentials in your apps and services.
 

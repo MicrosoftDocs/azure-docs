@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
+ms.tool: azure-cli
 ---
 
 ## Create an Azure Container Instance resource from the Azure CLI

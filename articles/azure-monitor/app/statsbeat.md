@@ -4,6 +4,7 @@ description: Statistics about Application Insights SDKs and Auto-Instrumentation
 ms.topic: conceptual
 ms.date: 09/20/2021
 ms.custom: references_regions
+ms.reviwer: heya
 ---
 
 # Statsbeat in Azure Application Insights

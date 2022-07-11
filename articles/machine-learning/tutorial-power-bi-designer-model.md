@@ -31,7 +31,7 @@ There are three ways to create and deploy the model you'll use in Power BI.  Thi
 
 But you could instead use one of the other options:
 
-* [Option A: Train and deploy models by using Jupyter Notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter Notebooks that are hosted in Azure Machine Learning Studio.
+* [Option A: Train and deploy models by using Jupyter Notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter Notebooks that are hosted in Azure Machine Learning studio.
 * [Option C: Train and deploy models by using automated machine learning](tutorial-power-bi-automated-model.md). This no-code authoring experience fully automates data preparation and model training.
 
 ## Prerequisites
@@ -45,7 +45,7 @@ But you could instead use one of the other options:
 
 In this section, you create a *compute instance*. Compute instances are used to train machine learning models. You also create an *inference cluster* to host the deployed model for real-time scoring.
 
-Sign in to [Azure Machine Learning Studio](https://ml.azure.com). In the menu on the left, select **Compute** and then **New**:
+Sign in to [Azure Machine Learning studio](https://ml.azure.com). In the menu on the left, select **Compute** and then **New**:
 
 :::image type="content" source="media/tutorial-power-bi/create-new-compute.png" alt-text="Screenshot showing how to create a compute instance.":::
 
@@ -76,7 +76,7 @@ Your inference cluster **Status** is now **Creating**. Your single node cluster 
 
 In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset is  available in [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/).
 
-To create the dataset, in the menu on the left, select **Datasets**. Then select **Create dataset**. You see the following options:
+To create the dataset, in the menu on the left, select **Data**. Then select **Create**. You see the following options:
 
 :::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset.":::
 
@@ -96,9 +96,10 @@ The data has 10 baseline input variables, such as age, sex, body mass index, ave
 
 ## Create a machine learning model by using the designer
 
-After you create the compute and datasets, you can use the designer to create the machine learning model. In Azure Machine Learning Studio, select **Designer** and then **New pipeline**:
+After you create the compute and datasets, you can use the designer to create the machine learning model. In Azure Machine Learning studio, select **Designer** and then **New pipeline**:
 
-:::image type="content" source="media/tutorial-power-bi/create-designer.png" alt-text="Screenshot showing how to create a new pipeline.":::
+:::image type="content" source="media/tutorial-designer-automobile-price-train-score/launch-designer.png" alt-text="Screenshot showing how to create a new pipeline.":::
+
 
 You see a blank *canvas* and a **Settings** menu:
 

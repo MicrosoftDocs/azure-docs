@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Get started with Application Insights in a Java web project

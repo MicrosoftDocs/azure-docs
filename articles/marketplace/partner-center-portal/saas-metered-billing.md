@@ -161,3 +161,8 @@ To understand publisher support options and open a support ticket with Microsoft
 ## Next steps
 
 - [Marketplace metered billing APIs](../marketplace-metering-service-apis.md)
+
+**Video tutorials**
+
+- [SaaS Metered Billing Overview](https://go.microsoft.com/fwlink/?linkid=2196314)
+- [The SaaS Metered Billing API with REST](https://go.microsoft.com/fwlink/?linkid=2196418)

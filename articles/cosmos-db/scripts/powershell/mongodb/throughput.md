@@ -1,12 +1,13 @@
 ---
 title: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DBs API for MongoDB
 description: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DBs API for MongoDB
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/07/2020
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
 

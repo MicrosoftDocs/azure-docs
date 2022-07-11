@@ -85,7 +85,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
      --location $location \
      --delegated-management-subnet-id $delegatedManagementSubnetId \
      --initial-cassandra-admin-password $initialCassandraAdminPassword \
-     ----cassandra-version $cassandraVersion \
+     --cassandra-version $cassandraVersion \
      --debug
    ```
 

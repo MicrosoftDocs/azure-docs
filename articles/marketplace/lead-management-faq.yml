@@ -40,7 +40,6 @@ sections:
           | Managed Service | Yes |
           | Power BI App | No |
           | Power BI Visual | No |
-          |||
 
       - question: |
           How can I find the test lead?

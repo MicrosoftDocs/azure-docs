@@ -15,7 +15,7 @@ This article describes how to configure the collection of file-based text logs, 
 ## Prerequisites
 To complete this procedure, you need the following: 
 
-- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#manage-access-using-azure-permissions) .
+- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac) .
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - An agent with supported log file as described in the next section.
 
@@ -356,7 +356,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
                                     "Microsoft-W3CIISLog"
                                 ],
                                 "logDirectories": [
-                                    "C:\\inetpub\\logs\\LogFiles\\*.log"
+                                    "C:\\inetpub\\logs\\LogFiles\\"
                                 ],
                                 "name": "myIisLogsDataSource"
                             }

@@ -1,20 +1,20 @@
 ---
 title: What's new in Computer Vision?
 titleSuffix: Azure Cognitive Services
-description: This article contains news about Computer Vision.
+description: Stay up to date on recent releases and updates to Azure Computer Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 05/02/2022
+ms.date: 05/25/2022
 ms.author: pafarley
 ---
 
 # What's new in Computer Vision
 
-Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
+Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
 ## May 2022
 
@@ -30,7 +30,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 suppo
 * Performance and latency improvements.
 * Available as [cloud service](overview-ocr.md#read-api) and [Docker container](computer-vision-how-to-install-containers.md).
 
-See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
+See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
 
 > [!div class="nextstepaction"]
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)
@@ -46,10 +46,13 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages
 * Enhancements including better support for extracting handwritten dates, amounts, names, and single character boxes.
 * General performance and AI quality improvements
 
-See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
+See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
 
 > [!div class="nextstepaction"]
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)
+
+### New Quality Attribute in Detection_01 and Detection_03
+* To help system builders and their customers capture high quality images which are necessary for high quality outputs from Face API, we’re introducing a new quality attribute **QualityForRecognition** to help decide whether an image is of sufficient quality to attempt face recognition. The value is an informal rating of low, medium, or high. The new attribute is only available when using any combinations of detection models `detection_01` or `detection_03`, and recognition models `recognition_03` or `recognition_04`. Only "high" quality images are recommended for person enrollment and quality above "medium" is recommended for identification scenarios. To learn more about the new quality attribute, see [Face detection and attributes](concept-face-detection.md) and see how to use it with [QuickStart](./quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio).
 
 
 ## September 2021
@@ -63,7 +66,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages
 * Enhancements for processing digital PDFs and Machine Readable Zone (MRZ) text in identity documents.
 * General performance and AI quality improvements
 
-See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
+See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
 
 > [!div class="nextstepaction"]
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)
@@ -73,6 +76,13 @@ See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-h
 ### Image tagging language expansion
 
 The [latest version (v3.2)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200) of the Image tagger now supports tags in 50 languages. See the [language support](language-support.md) page for more information.
+
+## July 2021
+
+### New HeadPose and Landmarks improvements for Detection_03
+
+* The Detection_03 model has been updated to support facial landmarks.
+* The landmarks feature in Detection_03 is much more precise, especially in the eyeball landmarks which are crucial for gaze tracking.
 
 ## May 2021
 
@@ -92,13 +102,18 @@ A new version of the [Spatial Analysis container](spatial-analysis-container.md)
 
 The Computer Vision API v3.2 is now generally available with the following updates:
 
-* Improved image tagging model: analyzes visual content and generates relevant tags based on objects, actions, and content displayed in the image. This model is available through the [Tag Image API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). See the Image Analysis [how-to guide](./vision-api-how-to-topics/howtocallvisionapi.md) and [overview](./overview-image-analysis.md) to learn more.
-* Updated content moderation model: detects presence of adult content and provides flags to filter images containing adult, racy, and gory visual content. This model is available through the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). See the Image Analysis [how-to guide](./vision-api-how-to-topics/howtocallvisionapi.md) and [overview](./overview-image-analysis.md) to learn more.
+* Improved image tagging model: analyzes visual content and generates relevant tags based on objects, actions, and content displayed in the image. This model is available through the [Tag Image API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). See the Image Analysis [how-to guide](./how-to/call-analyze-image.md) and [overview](./overview-image-analysis.md) to learn more.
+* Updated content moderation model: detects presence of adult content and provides flags to filter images containing adult, racy, and gory visual content. This model is available through the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). See the Image Analysis [how-to guide](./how-to/call-analyze-image.md) and [overview](./overview-image-analysis.md) to learn more.
 * [OCR (Read) available for 73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and Latin languages.
 * [OCR (Read)](./overview-ocr.md) also available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
 
 > [!div class="nextstepaction"]
 > [See Computer Vision v3.2 GA](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+
+### PersonDirectory data structure
+
+* In order to perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory. Currently, the Face API offers the **LargePersonGroup** structure which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities. 
+* Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train calls after adding faces to a **Person** object&mdash;the update process happens automatically. For more details see [Use the PersonDirectory structure](how-to/use-persondirectory.md).
 
 ## March 2021
 
@@ -121,10 +136,18 @@ The Computer Vision Read API v3.2 public preview, available as cloud service and
 * Extract text only for selected pages for a multi-page document.
 * Available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
 
-See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn more.
+See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+
+
+### New Face API detection model
+* The new Detection 03 model is the most accurate detection model currently available. If you're a new a customer, we recommend using this model. Detection 03 improves both recall and precision on smaller faces found within images (64x64 pixels). Additional improvements include an overall reduction in false positives and improved detection on rotated face orientations. Combining Detection 03 with the new Recognition 04 model will provide improved recognition accuracy as well. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
+### New detectable Face attributes
+* The `faceMask` attribute is available with the latest Detection 03 model, along with the additional attribute `"noseAndMouthCovered"` which detects whether the face mask is worn as intended, covering both the nose and mouth. To use the latest mask detection capability, users need to specify the detection model in the API request: assign the model version with the _detectionModel_ parameter to `detection_03`. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
+### New Face API Recognition Model
+* The new Recognition 04 model is the most accurate recognition model currently available. If you're a new customer, we recommend using this model for verification and identification. It improves upon the accuracy of Recognition 03, including improved recognition for users wearing face covers (surgical masks, N95 masks, cloth masks). Note that we recommend against enrolling images of users wearing face covers as this will lower recognition quality. Now customers can build safe and seamless user experiences that detect whether a user is wearing a face cover with the latest Detection 03 model, and recognize them with the latest Recognition 04 model. See [Specify a face recognition model](./how-to/specify-recognition-model.md) for more details.
 
 ## January 2021
 
@@ -141,6 +164,17 @@ A new version of the [Spatial Analysis container](spatial-analysis-container.md)
 * Calibration is enabled by default for all operations. Set the `do_calibration: false` to disable it.
 * Added support for auto recalibration (by default disabled) via the `enable_recalibration` parameter, please refer to [Spatial Analysis operations](./spatial-analysis-operations.md) for details
 * Camera calibration parameters to the `DETECTOR_NODE_CONFIG`. Refer to [Spatial Analysis operations](./spatial-analysis-operations.md) for details.
+
+### Mitigate latency
+* The Face team published a new article detailing potential causes of latency when using the service and possible mitigation strategies. See [Mitigate latency when using the Face service](./how-to/mitigate-latency.md).
+
+## December 2020
+### Customer configuration for Face ID storage
+* While the Face Service does not store customer images, the extracted face feature(s) will be stored on server. The Face ID is an identifier of the face feature and will be used in [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), and [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). The stored face features will expire and be deleted 24 hours after the original detection call. Customers can now determine the length of time these Face IDs are cached. The maximum value is still up to 24 hours, but a minimum value of 60 seconds can now be set. The new time ranges for Face IDs being cached is any value between 60 seconds and 24 hours. More details can be found in the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API reference (the *faceIdTimeToLive* parameter).
+
+## November 2020
+### Sample Face enrollment app
+* The team published a sample Face enrollment app to demonstrate best practices for establishing meaningful consent and creating high-accuracy face recognition systems through high-quality enrollments. The open-source sample can be found in the [Build an enrollment app](Tutorials/build-enrollment-app.md) guide and on [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), ready for developers to deploy or customize. 
 
 ## October 2020
 
@@ -164,10 +198,14 @@ The Computer Vision Read API v3.1 public preview adds these capabilities:
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Japanese, Portuguese, Simplified Chinese, and Spanish languages.
 
-See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn more.
+See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Learn more about Read API v3.1 Public Preview 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
+
+## August 2020
+### Customer-managed encryption of data at rest
+* The Face service automatically encrypts your data when persisting it to the cloud. The Face service encryption protects your data to help you meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. There is also a new option to manage your subscription with your own keys called customer-managed keys (CMK). More details can be found at [Customer-managed keys](./identity-encrypt-data-at-rest.md).
 
 ## July 2020
 
@@ -177,7 +215,7 @@ The Computer Vision Read API v3.1 public preview adds support for Simplified Chi
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish languages.
 
-See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn more.
+See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Learn more about Read API v3.1 Public Preview 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
@@ -192,6 +230,10 @@ Computer Vision API v3.0 entered General Availability, with updates to the Read 
 * New output format
 
 See the [OCR overview](overview-ocr.md) to learn more.
+
+## April 2020
+### New Face API Recognition Model
+* The new recognition 03 model is the most accurate model currently available. If you're a new customer, we recommend using this model. Recognition 03 will provide improved accuracy for both similarity comparisons and person-matching comparisons. More details can be found at [Specify a face recognition model](./how-to/specify-recognition-model.md).
 
 ## March 2020
 
@@ -209,6 +251,87 @@ You now can use version 3.0 of the Read API to extract printed or handwritten te
 * Support for both Spanish and English languages with the language parameter
 
 Follow an [Extract text quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3) to get starting using the 3.0 API.
+
+
+## June 2019
+
+### New Face API detection model
+* The new Detection 02 model features improved accuracy on small, side-view, occluded, and blurry faces. Use it through [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) and [LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) by specifying the new face detection model name `detection_02` in `detectionModel` parameter. More details in [How to specify a detection model](how-to/specify-detection-model.md).
+
+## April 2019
+
+### Improved attribute accuracy
+* Improved overall accuracy of the `age` and `headPose` attributes. The `headPose` attribute is also updated with the `pitch` value enabled now. Use these attributes by specifying them in the `returnFaceAttributes` parameter of [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter. 
+### Improved processing speeds
+* Improved speeds of [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) and [LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) operations.
+
+## March 2019
+
+### New Face API recognition model
+* The Recognition 02 model has improved accuracy. Use it through [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) and [LargePersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) by specifying the new face recognition model name `recognition_02` in `recognitionModel` parameter. More details in [How to specify a recognition model](how-to/specify-recognition-model.md).
+
+## January 2019
+
+### Face Snapshot feature
+* This feature allows the service to support data migration across subscriptions: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). More details in [How to Migrate your face data to a different Face subscription](how-to/migrate-face-data.md).
+
+## October 2018
+
+### API messages
+* Refined description for `status`, `createdDateTime`, `lastActionDateTime`, and `lastSuccessfulTrainingDateTime` in [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247), [LargePersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae32c6ac60f11b48b5aa5), and [LargeFaceList - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a1582f8d2de3616c086f2cf).
+
+## May 2018
+
+### Improved attribute accuracy
+* Improved `gender` attribute significantly and also improved `age`, `glasses`, `facialHair`, `hair`, `makeup` attributes. Use them through [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter.
+### Increased file size limit
+* Increased input image file size limit from 4 MB to 6 MB in [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) and [LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
+
+## March 2018
+
+### New data structure
+* [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) and [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). More details in [How to use the large-scale feature](how-to/use-large-scale.md).
+* Increased [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` parameter from [1, 5] to [1, 100] and default to 10.
+
+## May 2017
+
+### New detectable Face attributes
+* Added `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure`, and `noise` attributes in [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter.
+* Supported 10K persons in a PersonGroup and [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+* Supported pagination in [PersonGroup Person - List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) with optional parameters: `start` and `top`.
+* Supported concurrency in adding/deleting faces against different FaceLists and different persons in PersonGroup.
+
+## March 2017
+
+### New detectable Face attribute
+* Added `emotion` attribute in [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter.
+### Fixed issues
+* Face could not be re-detected with rectangle returned from [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as `targetFace` in [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+* The detectable face size is set to ensure it is strictly between 36x36 to 4096x4096 pixels.
+
+## November 2016
+### New subscription tier
+* Added Face Storage Standard subscription to store additional persisted faces when using [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) or [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) for identification or similarity matching. The stored images are charged at $0.5 per 1000 faces and this rate is prorated on a daily basis. Free tier subscriptions continue to be limited to 1,000 total persons.
+
+## October 2016
+### API messages
+* Changed the error message of more than one face in the `targetFace` from 'There are more than one face in the image' to 'There is more than one face in the image' in [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+
+## July 2016
+### New features
+* Supported Face to Person object authentication in [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+* Added optional `mode` parameter enabling selection of two working modes: `matchPerson` and `matchFace` in [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) and default is `matchPerson`.
+* Added optional `confidenceThreshold` parameter for user to set the threshold of whether one face belongs to a Person object in [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+* Added optional `start` and `top` parameters in [PersonGroup - List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248) to enable user to specify the start point and the total PersonGroups number to list.
+
+## V1.0 changes from V0
+
+* Updated service root endpoint from ```https://westus.api.cognitive.microsoft.com/face/v0/``` to ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Changes applied to:
+ [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) and [Face - Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+* Updated the minimal detectable face size to 36x36 pixels. Faces smaller than 36x36 pixels will not be detected.
+* Deprecated the PersonGroup and Person data in Face V0. Those data cannot be accessed with the Face V1.0 service.
+* Deprecated the V0 endpoint of Face API on June 30, 2016.
+
 
 ## Cognitive Service updates
 

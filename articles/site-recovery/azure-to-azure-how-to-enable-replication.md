@@ -70,6 +70,8 @@ Enable replication. This procedure assumes that the primary Azure region is East
 
      ![Screenshot that displays the enable replication parameters.](./media/azure-to-azure-how-to-enable-replication/enabled-rwizard-3.PNG)
 
+5.  After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**. The time taken for initial replication depends on various factors such as the disk size, used storage on the disks, etc. Data transfer happens at ~23% of the disk throughput. Initial replication creates snapshot of disk and transfer that snapshot.
+
 ### Enable replication for added disks
 
 If you add disks to an Azure VM for which replication is enabled, the following occurs:

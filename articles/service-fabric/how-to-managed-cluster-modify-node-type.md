@@ -2,7 +2,7 @@
 title: Configure or modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
-ms.date: 2/14/2022 
+ms.date: 5/12/2022 
 ---
 
 # Service Fabric managed cluster node types
@@ -10,6 +10,9 @@ ms.date: 2/14/2022
 Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters, you make any required changes through the Service Fabric managed cluster resource provider. All of the underlying resources for the cluster are created and abstracted by the managed cluster provider on your behalf. Having the resource provider manage the resources helps to simplify cluster node type deployment and management, prevent operation errors such as deleting a seed node, and application of best practices such as validating a VM SKU is safe to use.
 
 The rest of this document will cover how to adjust various settings from creating a node type, adjusting node type instance count, enable automatic OS image upgrades, change the OS Image, and configuring placement properties. This document will also focus on using Azure portal or Azure Resource Manager Templates to make changes.
+
+> [!IMPORTANT]
+> At this time, Service Fabric Managed Clusters do not support custom OS images.
 
 > [!NOTE]
 > You will not be able to modify the node type while a change is in progress. It is recommended to let any requested change complete before doing another.

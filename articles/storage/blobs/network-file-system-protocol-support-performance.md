@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 06/03/2022
 ms.author: normesta
 ms.reviewer: yzheng
 ---
@@ -44,7 +44,7 @@ The read_ahead_kb kernel parameter represents the amount of additional data that
 ```
 export AZMNT=/your/container/mountpoint
 
-echo 15728640 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
+echo 16300 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
 ```
 
 ## Avoid frequent overwrites on data

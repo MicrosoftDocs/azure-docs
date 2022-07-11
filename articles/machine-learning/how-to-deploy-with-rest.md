@@ -1,5 +1,5 @@
 ---
-title: "Deploy models using online endpoints with REST APIs (preview)"
+title: "Deploy models using online endpoints with REST APIs"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy models using online endpoints with REST APIs.
 services: machine-learning
@@ -11,14 +11,12 @@ author: rsethur
 ms.author: seramasu
 ms.date: 12/22/2021
 ms.reviewer: laobri
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
-# Deploy models with REST (preview)
+# Deploy models with REST
 
-Learn how to use the Azure Machine Learning REST API to deploy models (preview).
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+Learn how to use the Azure Machine Learning REST API to deploy models.
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
@@ -46,7 +44,7 @@ In this article, you learn how to use the new REST APIs to:
 
 ## Azure Machine Learning online endpoints
 
-Online endpoints (preview) allow you to deploy your model without having to create and manage the underlying infrastructure as well as Kubernetes clusters. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
+Online endpoints allow you to deploy your model without having to create and manage the underlying infrastructure as well as Kubernetes clusters. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
 There are many ways to create an Azure Machine Learning online endpoints [including the Azure CLI](how-to-deploy-managed-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example an online endpoint with the REST API.
 
@@ -144,10 +142,10 @@ If you aren't going use the deployment, you should delete it with the below comm
 
 * Learn how to deploy your model [using the Azure CLI](how-to-deploy-managed-online-endpoints.md).
 * Learn how to deploy your model [using studio](how-to-use-managed-online-endpoint-studio.md).
-* Learn to [Troubleshoot online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
-* Learn how to [Access Azure resources with a online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+* Learn to [Troubleshoot online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
+* Learn how to [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 * Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
-* Learn [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
-* [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md).
-* [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md).
-* Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
+* Learn [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
+* [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
+* [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+* Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).

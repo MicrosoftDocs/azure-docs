@@ -107,6 +107,15 @@ sections:
   - name: Devices
     questions:
       - question: |
+          How do I register a device with my IoT Central application?
+        answer: |
+          There are three ways you can register a device in your IoT Central application:
+
+          - Automatically register devices when they first try to connect. This scenario enables OEMs to mass manufacture devices that can connect without first being registered. To learn more, see [Automatically register devices](concepts-device-authentication.md#automatically-register-devices).
+          - Add devices in bulk from a CSV file. To learn more, see [Import devices](howto-manage-devices-in-bulk.md#import-devices).
+          - Use the **Devices** page in your IoT Central application to register devices individually. To learn more, see [Add a device](howto-manage-devices-individually.md#add-a-device).
+
+      - question: |
           How do I transfer a device from IoT Hub to IoT Central?
         answer: |
           A device can connect to an IoT hub directly using a connection string or using the [Device Provisioning Service (DPS)](../../iot-dps/about-iot-dps.md). IoT Central always uses DPS.

@@ -3,7 +3,7 @@ title: Tutorial - Add an on-premises app - Application Proxy in Azure Active Dir
 description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Azure portal to add an on-premises application to your Azure AD tenant.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

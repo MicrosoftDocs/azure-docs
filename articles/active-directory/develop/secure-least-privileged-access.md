@@ -1,6 +1,5 @@
 ---
 title: "Increase app security with the principle of least privilege"
-titleSuffix: Microsoft identity platform
 description: Learn how the principle of least privilege can help increase the security of your application, its data, and which features of the Microsoft identity platform you can use to implement least privileged access.
 services: active-directory
 author: Chrispine-Chiedo

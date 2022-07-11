@@ -15,7 +15,7 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 # What is Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language?
 
-PII detection is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The PII detection feature can identify, categorize, and redact sensitive information in unstructured text. For example: phone numbers, email addresses, and forms of identification. 
+PII detection is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The PII detection feature can identify, categorize, and redact sensitive information in unstructured text. For example: phone numbers, email addresses, and forms of identification. The method for utilizing PII in conversations is different than other use cases, and articles for this use have been separated.
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to-call.md) contain instructions for using the service in more specific or customized ways.

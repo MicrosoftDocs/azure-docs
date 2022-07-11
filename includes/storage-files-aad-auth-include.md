@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: tamram
+ author: khdownie
  ms.service: storage
  ms.topic: include
  ms.date: 07/30/2019
- ms.author: tamram
+ ms.author: kendownie
  ms.custom: include file
 ---
 

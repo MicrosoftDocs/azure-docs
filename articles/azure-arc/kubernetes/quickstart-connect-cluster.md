@@ -2,8 +2,8 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 05/11/2022
-ms.custom: template-quickstart, mode-other, devx-track-azurecli 
+ms.date: 05/24/2022
+ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -57,7 +57,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
-* [Azure PowerShell version 5.9.0 or later](/powershell/azure/install-az-ps)
+* [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps)
 
 * Install the **Az.ConnectedKubernetes** PowerShell module:
 
@@ -150,7 +150,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 | `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
 | `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
 | `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
-|`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+|`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net`, `https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
 
 ## Create a resource group
@@ -314,7 +314,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell. 
+The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell.
 
 ---
 
@@ -427,4 +427,4 @@ Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName Azure
 
 Advance to the next article to learn how to deploy configurations to your connected Kubernetes cluster using GitOps.
 > [!div class="nextstepaction"]
-> [Deploy configurations using GitOps](tutorial-use-gitops-connected-cluster.md)
+> [Deploy configurations using GitOps with Flux v2](tutorial-use-gitops-flux2.md)

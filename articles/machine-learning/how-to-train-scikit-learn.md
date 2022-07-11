@@ -9,12 +9,13 @@ ms.author: larryfr
 author: blackmist
 ms.date: 03/21/2022
 ms.topic: how-to
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
 # Train scikit-learn models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 

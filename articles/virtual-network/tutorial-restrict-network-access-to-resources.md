@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to limit and restrict network acces
 services: virtual-network
 documentationcenter: virtual-network
 author: mbender-ms
-manager: mtillman
+manager: kumudD
 editor: ''
 tags: azure-resource-manager
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -14,7 +14,7 @@ ms.service: virtual-network
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 07/16/2021
+ms.date: 05/17/2022
 ms.author: mbender
 ---
 
@@ -126,7 +126,8 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
     |Setting|Value|
     |----|----|
-    |Source| Select **VirtualNetwork** |
+    |Source| Select **Service Tag** |
+    |Source service tag | Select **VirtualNetwork** |
     |Source port ranges| * |
     |Destination | Select **Service Tag**|
     |Destination service tag | Select **Storage**|
@@ -143,7 +144,8 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
     |Setting|Value|
     |----|----|
-    |Source| Select **VirtualNetwork** |
+    |Source| Select **Service Tag** |
+    |Source service tag | Select **VirtualNetwork** |
     |Source port ranges| * |
     |Destination | Select **Service Tag**|
     |Destination service tag| Select **Internet**|
@@ -152,7 +154,7 @@ By default, all virtual machine instances in a subnet can communicate with any r
     |Protocol|Any|
     |Action| Change default to **Deny**. |
     |Priority|110|
-    |Name|Change to *Deny-Internet-All*|
+    |Name|Change to **Deny-Internet-All**|
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-outbound-internet-rule.png" alt-text="Screenshot of creating an outbound security to block internet access.":::
 
@@ -166,7 +168,9 @@ By default, all virtual machine instances in a subnet can communicate with any r
     |----|----|
     |Source| Any |
     |Source port ranges| * |
-    |Destination | Select **VirtualNetwork**|
+    |Destination | Select **Service Tag**|
+    |Destination service tag | Select **VirtualNetwork** |
+    |Service| Leave default as *Custom*. |    
     |Destination port ranges| Change to *3389* |
     |Protocol|Any|
     |Action|Allow|

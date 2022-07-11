@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 The material settings in the source model define the [PBR materials](../../overview/features/pbr-materials.md) used by the renderer.
 Sometimes the default conversion doesn't give the desired results and you need to make changes. For more information, see [Material mapping for model formats](../../reference/material-mapping.md).
 
-When a model is converted for use in Azure Remote Rendering, you can provide a material override file to customize how material conversion is done on a per-material basis.
+When a triangular mesh is converted for use in Azure Remote Rendering, you can provide a material override file to customize how material conversion is done on a per-material basis.
 If a file called *\<modelName>.MaterialOverrides.json* is found in the input container with the input model *\<modelName>.\<ext>*, it's used as the material override file.
 
 ## The override file used during conversion

@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 02/02/2022
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
+ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022
 ---
 
 <!-- # Virtual network isolation and privacy overview -->
@@ -23,10 +23,13 @@ Secure Azure Machine Learning workspace resources and compute environments using
 >
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * For securing inference, see the following documents:
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+> * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
 >
 > For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
@@ -63,7 +66,7 @@ The next sections show you how to secure the network scenario described above. T
 
 1. Secure the [**workspace and associated resources**](#secure-the-workspace-and-associated-resources).
 1. Secure the [**training environment**](#secure-the-training-environment).
-1. Secure the [**inferencing environment**](#secure-the-inferencing-environment).
+1. Secure the **inferencing environment** [v1](#secure-the-inferencing-environment-v1) or [v2](#secure-the-inferencing-environment-v1).
 1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
 1. Configure [**firewall settings**](#configure-firewall-settings).
 1. Configure [**DNS name resolution**](#custom-dns).
@@ -98,7 +101,7 @@ Use the following steps to secure your workspace and associated resources. These
     | Service | Endpoint information | Allow trusted information |
     | ----- | ----- | ----- |
     | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
-    | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access from Azure resource instances](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview)</br>**or**</br>[Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access from Azure resource instances](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances)</br>**or**</br>[Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
 
 
@@ -144,9 +147,27 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 - Azure Compute Instance and Azure Compute Clusters must be in the same VNet, region, and subscription as the workspace and its associated resources. 
 
-## Secure the inferencing environment
+## Secure the inferencing environment (v2)
 
-In this section, you learn the options available for securing an inferencing environment. We recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+You can enable network isolation for managed online endpoints to secure the following network traffic:
+
+* Inbound scoring requests.
+* Outbound communication with the workspace, Azure Container Registry, and Azure Blob Storage.
+
+> [!IMPORTANT]
+> Using network isolation for managed online endpoints is a __preview__ feature, and isn't fully supported.
+
+For more information, see [Enable network isolation for managed online endpoints](how-to-secure-online-endpoint.md).
+
+## Secure the inferencing environment (v1)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
+In this section, you learn the options available for securing an inferencing environment. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
 
 You have two options for AKS clusters in a virtual network:
 
@@ -176,8 +197,6 @@ After securing the workspace with a private endpoint, use the following steps to
 1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
 
 ## Optional: enable studio functionality
-
-[Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > **Enable studio functionality** > [Configure firewall settings](#configure-firewall-settings)
 
 If your storage is in a VNet, you must use extra configuration steps to enable full functionality in studio. By default, the following features are disabled:
 
@@ -234,7 +253,10 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* For securing inference, see the following documents:
+    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)

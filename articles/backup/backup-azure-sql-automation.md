@@ -668,6 +668,14 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $testVault.ID
 
 If autoprotection was configured on an SQLInstance, you can disable it using the [Disable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) PowerShell cmdlet.
 
+Find the instances where auto-protection is enabled using the following PowerShell command.
+
+```azurepowershell
+Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -VaultId $testVault.ID | Where-Object {$_.IsAutoProtected -eq $true}
+```
+
+Then pick the relevant protectable item name and server name from the output and disable auto-protection for those instances.
+
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $testVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
 Disable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $testVault.ID

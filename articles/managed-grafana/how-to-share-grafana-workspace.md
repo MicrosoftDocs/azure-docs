@@ -15,7 +15,7 @@ A DevOps team may build dashboards to monitor and diagnose an application or inf
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/azure/managed-grafana/how-to-permissions).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](./how-to-permissions.md).
 
 ## Supported Grafana roles
 

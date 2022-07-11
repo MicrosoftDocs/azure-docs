@@ -52,7 +52,7 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-ui:+'
+    implementation 'com.azure.android:azure-communication-ui-calling:+'
     ...
 }
 ```
@@ -62,6 +62,7 @@ For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `depen
 If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
 ```groovy
+// dependencyResolutionManagement
 repositories {
     ...
     mavenCentral()
@@ -113,9 +114,9 @@ import android.os.Bundle
 import android.widget.Button
 import com.azure.android.communication.common.CommunicationTokenCredential
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions
-import com.azure.android.communication.ui.CallCompositeBuilder
-import com.azure.android.communication.ui.CallComposite
-import com.azure.android.communication.ui.GroupCallOptions
+import com.azure.android.communication.ui.calling.CallCompositeBuilder
+import com.azure.android.communication.ui.calling.CallComposite
+import com.azure.android.communication.ui.calling.models.GroupCallOptions
 import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
@@ -157,9 +158,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
-import com.azure.android.communication.ui.CallCompositeBuilder;
-import com.azure.android.communication.ui.CallComposite;
-import com.azure.android.communication.ui.GroupCallOptions;
+import com.azure.android.communication.ui.calling.CallCompositeBuilder;
+import com.azure.android.communication.ui.calling.CallComposite;
+import com.azure.android.communication.ui.calling.models.GroupCallOptions;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -218,7 +219,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [CallComposite](#create-call-composite)                            | Composite component that renders a call experience with participant gallery and controls.    |
 | [CallCompositeBuilder](#create-call-composite)                     | Builder to build CallComposite with options.                                                 |
 | [GroupCallOptions](#group-call)                                    | Passed in CallComposite launch to start group call.                                          |
-| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
+| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting.                                        |
 | [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
 | [LocalizationConfiguration](#apply-localization-configuration)     | Injected as optional in CallCompositeBuilder to set language of composite.       |
 
@@ -360,7 +361,7 @@ To receive error events, inject a handler to the `CallCompositeBuilder`.
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
 callComposite.setOnErrorHandler { communicationUIErrorEvent ->
-    //...
+    println(communicationUIErrorEvent.errorCode)
 }
 ```
 
@@ -369,25 +370,28 @@ callComposite.setOnErrorHandler { communicationUIErrorEvent ->
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
 callComposite.setOnErrorHandler(communicationUIErrorEvent -> {
-    //...
+    System.out.println(communicationUIErrorEvent.getErrorCode());
 });
 ```
 
 -----
 ### Apply theme configuration
 
-To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUI.Theme.Calling` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
+To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUICalling.Theme` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
 
 ```xml
-<style name="MyCompany.CallComposite" parent="AzureCommunicationUI.Theme.Calling">
-    <item name="azure_communication_ui_communication_primary">@color/purple_500</item>
+<style name="MyCompany.CallComposite" parent="AzureCommunicationUICalling.Theme">
+    <item name="azure_communication_ui_calling_primary_color">#27AC22</item>
+    <item name="azure_communication_ui_calling_primary_color_tint10">#5EC65A</item>
+    <item name="azure_communication_ui_calling_primary_color_tint20">#A7E3A5</item>
+    <item name="azure_communication_ui_calling_primary_color_tint30">#CEF0CD</item>
 </style>
 ```
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-import com.azure.android.communication.ui.configuration.ThemeConfiguration
+import ccom.azure.android.communication.ui.calling.models.ThemeConfiguration
 
 val callComposite: CallComposite =
         CallCompositeBuilder()
@@ -398,7 +402,7 @@ val callComposite: CallComposite =
 #### [Java](#tab/java)
 
 ```java
-import com.azure.android.communication.ui.configuration.ThemeConfiguration;
+import com.azure.android.communication.ui.calling.models.ThemeConfiguration;
 
 CallComposite callComposite = 
     new CallCompositeBuilder()
@@ -409,31 +413,36 @@ CallComposite callComposite =
 -----
 ### Apply localization configuration
 
-To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LanguageCode.values()` provides list of supported languages.
+To change the language of composite, create a `LocalizationConfiguration` with `Locale` from `CommunicationUISupportedLocale`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `CommunicationUISupportedLocale` provides the supported Locales. For example, to access English Locale, `CommunicationUISupportedLocale.EN` can be used. `CommunicationUISupportedLocale.getSupportedLocales()` provides list of supported language's Locale objects.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-import com.azure.android.communication.ui.configuration.LocalizationConfiguration
+import com.azure.android.communication.ui.calling.models.LocalizationConfiguration
 
-// LanguageCode.values() provides list of supported languages
+// CommunicationUISupportedLocale provides list of supported locale
 val callComposite: CallComposite =
             CallCompositeBuilder().localization(
-                LocalizationConfiguration("en")
+                LocalizationConfiguration(Locale(CommunicationUISupportedLocale.EN))
             ).build()
 ```
 
 #### [Java](#tab/java)
 
 ```java
-import com.azure.android.communication.ui.configuration.LocalizationConfiguration;
+import com.azure.android.communication.ui.calling.models.LocalizationConfiguration;
 
-// LanguageCode.values() provides list of supported languages
+// CommunicationUISupportedLocale provides list of supported locale
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .localization(new LocalizationConfiguration("en"))
+        .localization(new LocalizationConfiguration(CommunicationUISupportedLocale.EN))
         .build();
 ```
+
+-----
+### Additional Features
+
+The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information of additional features.
 
 -----
 ### Add notifications into your mobile app

@@ -2,7 +2,7 @@
 title: Deliver events using private link service
 description: This article describes how to work around the limitation of not able to deliver events using private link service. 
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 05/17/2022
 ---
 
 # Deliver events using private link service
@@ -35,7 +35,7 @@ To deliver events to Service Bus queues or topics in your Service Bus namespace 
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Service Bus namespace](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure the event subscription](managed-service-identity.md) that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.
 
-## Deliver events to Storage 
+## Deliver events to Storage using managed identity
 To deliver events to Storage queues using managed identity, follow these steps:
 
 1. Enable system-assigned identity: [system topics](enable-identity-system-topics.md), [custom topics, and domains](enable-identity-custom-topics-domains.md). 

@@ -15,7 +15,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 ## Compaction
 
-* The system currently does not perform a major compaction. 
+* The system currently doesn't perform a major compaction. 
 * Repair (see [Maintenance](#maintenance)) performs a Merkle tree compaction, which is a special kind of compaction.
 * Depending on the compaction strategy on the keyspace, Cassandra automatically compacts when the keyspace reaches a specific size. We recommend that you carefully select a compaction strategy for your workload, and don't do any manual compactions outside the strategy.
 
@@ -25,9 +25,12 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 * Apache Cassandra software-level patches are done when security vulnerabilities are identified. The patching cadence may vary.
 
-* During patching, machines are rebooted one rack at a time. You should not experience any degradation at the application side as long as **quorum ALL setting is not being used**, and the replication factor is **3 or higher**.
+* During patching, machines are rebooted one rack at a time. You shouldn't experience any degradation at the application side as long as **quorum ALL setting is not being used**, and the replication factor is **3 or higher**.
 
-* The version in Apache Cassandra is in the format `X.Y.Z`. You can control the deployment of major (X) and minor (Y) versions manually via service tools. Whereas the Cassandra patches (Z) that may be required for that major/minor version combination are done automatically.  
+* The version in Apache Cassandra is in the format `X.Y.Z`. You can control the deployment of major (X) and minor (Y) versions manually via service tools. Whereas the Cassandra patches (Z) that may be required for that major/minor version combination are done automatically. 
+
+>[!NOTE]
+> The service currently supports Cassandra versions 3.11 and 4.0. By default, version 3.11 is deployed, as version 4.0 is currently in public preview. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
 
 ## Maintenance
 
@@ -60,7 +63,7 @@ Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.micr
 
 ## Backup and restore
 
-Snapshot backups are enabled by default and taken every 4 hours with [Medusa](https://github.com/thelastpickle/cassandra-medusa). Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There is no cost for backups. To restore from a backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+Snapshot backups are enabled by default and taken every 4 hours with [Medusa](https://github.com/thelastpickle/cassandra-medusa). Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for backups. To restore from a backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
 > [!WARNING]
 > Backups can be restored to the same VNet/subnet as your existing cluster, but they cannot be restored to the *same cluster*. Backups can only be restored to **new clusters**. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md). 
@@ -80,7 +83,7 @@ For more information on security features, see our article [here](security.md).
 
 ## Hybrid support
 
-When a [hybrid](configure-hybrid-cluster.md) cluster is configured, automated reaper operations running in the service will benefit the whole cluster. This includes data centers that are not provisioned by the service. Outside this, it is your responsibility to maintain your on-premise or externally hosted data center.
+When a [hybrid](configure-hybrid-cluster.md) cluster is configured, automated reaper operations running in the service will benefit the whole cluster. This includes data centers that aren't provisioned by the service. Outside this, it is your responsibility to maintain your on-premise or externally hosted data center.
 
 ## Next steps
 

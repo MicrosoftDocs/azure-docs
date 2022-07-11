@@ -53,15 +53,9 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], { threadId: '<TH
 > Join a group call is not supported for custom Teams application at the moment.
 ### Join a Teams meeting
 
-To join a Teams meeting, use the `join` method on `callAgent` and pass either one of the followings:
-1. `meetingId`
-2. `meetingLink`
-3. Combination of `threadId`, `organizerId`, `tenantId`, `messageId`
-
-#### Join using `meetingId`
-```js
-const meetingCall = callAgent.join({ meetingId: '<MEETING_ID>' });
-```
+To join a Teams meeting, use the `join` method on `callAgent` and pass either one of the following:
+1. `meetingLink`
+2. Combination of `threadId`, `organizerId`, `tenantId`, `messageId`
 
 #### Join using `meetingLink`
 ```js
@@ -302,10 +296,10 @@ Providing a chat ID is mandatory for making calls and adding participants to an 
 
 1. Create a chat thread between Alice and Bob, record `threadId`
 1. Alice calls Bob using `startCall` method on `callAgent` and specifies the `threadId`
-1. Add Charlie to chat thread with `threadId` using [Chat Graph API to add member](/graph/api/chat-post-members?tabs=http&view=graph-rest-1.0)
+1. Add Charlie to chat thread with `threadId` using [Chat Graph API to add member](/graph/api/chat-post-members?tabs=http&view=graph-rest-1.0&preserve-view=true)
 1. Alice adds Charlie to the call using `addParticipant` method on `call` and specifies the `threadId`
 1. Alice removes Charlie from the call using `removeParticipant` method on `call` and specifies the `threadId`
-1. Remove Charlie from chat thread with `threadId` using [Chat Graph API to remove member](/graph/api/chat-delete-members?tabs=http&view=graph-rest-1.0)
+1. Remove Charlie from chat thread with `threadId` using [Chat Graph API to remove member](/graph/api/chat-delete-members?tabs=http&view=graph-rest-1.0&preserve-view=true)
 
 If Teams user stops call recording, the recording is placed into chat associated with the thread. Provided chat ID impacts the experience of Teams users in Teams clients.
 

@@ -3,8 +3,8 @@ title: Gateway load balancer (Preview)
 titleSuffix: Azure Load Balancer
 description: Overview of gateway load balancer SKU for Azure Load Balancer.
 ms.service: load-balancer
-author: asudbring
-ms.author: allensu
+author: greg-lindsay
+ms.author: greglin
 ms.date: 12/28/2021
 ms.topic: conceptual
 ms.custom: ignite-fall-2021

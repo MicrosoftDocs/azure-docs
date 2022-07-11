@@ -2,10 +2,10 @@
 title: Azure Virtual Desktop RDP Shortpath for public networks (preview) - Azure
 titleSuffix: Azure
 description: How to set up RDP Shortpath for public networks for Azure Virtual Desktop (preview).
-author: gundarev
+author: femila
 ms.topic: conceptual
 ms.date: 04/13/2022
-ms.author: denisgun
+ms.author: femila
 ---
 
 # Azure Virtual Desktop RDP Shortpath for public networks (preview)

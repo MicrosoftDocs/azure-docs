@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Configure an app to access a web API | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Configure an app to access a web API"
 description: In this quickstart, you configure an app registration representing a web API in the Microsoft identity platform to enable scoped resource access (permissions) to client applications.
 services: active-directory
 author: mmacy

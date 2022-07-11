@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Issue Azure AD Verifiable Credentials from an application (preview)
 description: In this tutorial, you learn how to issue verifiable credentials by using a sample app.
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 05/03/2022
@@ -12,7 +12,10 @@ ms.date: 05/03/2022
 
 ---
 
+
 # Issue Azure AD Verifiable Credentials from an application (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 In this tutorial, you run a sample application from your local computer that connects to your Azure Active Directory (Azure AD) tenant. Using the application, you're going to issue and verify a verified credential expert card.
 

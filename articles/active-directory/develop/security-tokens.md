@@ -1,6 +1,5 @@
 ---
-title: Security tokens | Azure
-titleSuffix: Microsoft identity platform
+title: Security tokens
 description: Learn about the basics of security tokens in the Microsoft identity platform.
 services: active-directory
 author: rwike77

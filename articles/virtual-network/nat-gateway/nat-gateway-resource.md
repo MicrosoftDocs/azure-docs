@@ -229,7 +229,7 @@ Design recommendations for configuring timers:
   
   - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
   
-  - To upgrade a basic public IP address too standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+  - To upgrade a basic public IP address to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
 
 - NAT gateway does not support ICMP 
 

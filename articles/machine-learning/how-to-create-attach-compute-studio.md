@@ -10,16 +10,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q1
+ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 # Create compute targets for model training and deployment in Azure Machine Learning studio
 
 In this article, learn how to create and manage compute targets in Azure Machine studio.  You can also create and manage compute targets with:
 
-* Azure Machine Learning Learning SDK or  CLI extension for Azure Machine Learning
+* Azure Machine Learning SDK or  CLI extension for Azure Machine Learning
   * [Compute instance](how-to-create-manage-compute-instance.md)
   * [Compute cluster](how-to-create-attach-compute-cluster.md)
-  * [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
   * [Other compute resources](how-to-attach-compute-targets.md)
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
@@ -35,7 +34,7 @@ In this article, learn how to create and manage compute targets in Azure Machine
 
 ## What's a compute target? 
 
-With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](v1/concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
 ## <a id="portal-view"></a>View compute targets
 
@@ -68,7 +67,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
     * [Compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create)
     * [Compute clusters](#amlcompute)
-    * [Inference clusters](#inference-clusters)
     * [Attached compute](#attached-compute)
 
 1. Select __Create__.
@@ -124,7 +122,6 @@ During cluster creation or when editing compute cluster details, in the **Advanc
 
 > [!IMPORTANT]
 > Using Azure Kubernetes Service with Azure Machine Learning has multiple configuration options. Some scenarios, such as networking, require additional setup and configuration. For more information on using AKS with Azure ML, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
-
 Create or attach an Azure Kubernetes Service (AKS) cluster for large scale inferencing. Use the [steps above](#portal-create) to create the AKS cluster.  Then fill out the form as follows:
 
 
@@ -151,7 +148,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     * Azure Databricks (for use in machine learning pipelines)
     * Azure Data Lake Analytics (for use in machine learning pipelines)
     * Azure HDInsight
-    * Kubernetes (preview)
+    * [Kubernetes](./how-to-attach-kubernetes-anywhere.md#attach-a-kubernetes-cluster-to-an-azureml-workspace)
 
 1. Fill out the form and provide values for the required properties.
 
@@ -205,6 +202,8 @@ If you created your compute instance or compute cluster with SSH access enabled,
 ## Next steps
 
 After a target is created and attached to your workspace, you use it in your [run configuration](how-to-set-up-training-targets.md) with a `ComputeTarget` object:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import ComputeTarget

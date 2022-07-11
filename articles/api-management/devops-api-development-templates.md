@@ -16,6 +16,10 @@ This article shows you how to use API DevOps with Azure API Management, through 
 
 For details, tools, and code samples to implement the DevOps approach described in this article, see the open-source [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) in GitHub. Because customers bring a wide range of engineering cultures and existing automation solutions, the approach isn't a one-size-fits-all solution.
 
+For architectural guidance, see:
+
+* **API Management landing zone accelerator**: [Reference architecture](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json) and [design guidance](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/land?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+
 ## The problem
 
 Organizations today normally have multiple deployment environments (such as development, testing, and production) and use separate API Management instances for each environment. Some instances are shared by multiple development teams, who are responsible for different APIs with different release cadences.

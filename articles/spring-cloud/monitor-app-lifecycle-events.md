@@ -6,21 +6,24 @@ ms.author: shiqiu
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/19/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Monitor app lifecycle events using Azure Activity log and Azure Service Health
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health.
 
-Azure Spring Cloud provides built-in tools to monitor the status and health of your applications. App lifecycle events help you understand any changes that were made to your applications so you can take action as necessary. 
+Azure Spring Apps provides built-in tools to monitor the status and health of your applications. App lifecycle events help you understand any changes that were made to your applications so you can take action as necessary. 
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A deployed Azure Spring Cloud service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](quickstart.md). 
+- A deployed Azure Spring Apps service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](quickstart.md). 
 
 ## Monitor app lifecycle events triggered by users in Azure Activity logs
 
@@ -42,7 +45,7 @@ For example, when you restart your app, you can find the affected instances from
 
 ### Monitor unplanned app lifecycle events
 
-When your app is restarted because of unplanned events, your Azure Spring Cloud instance will show a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a potential loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
+When your app is restarted because of unplanned events, your Azure Spring Apps instance will show a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a potential loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the resource health pane.":::
 
@@ -56,12 +59,12 @@ Your app may be restarted during platform maintenance. You can receive a mainten
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" alt-text="Screenshot of Azure portal example notification for planned maintenance.":::
 
-When platform maintenance happens, your Azure Spring Cloud instance will also show a status of **degraded**. If restarting is needed during platform maintenance, Azure Spring Cloud will perform a rolling update to incrementally update your applications. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
+When platform maintenance happens, your Azure Spring Apps instance will also show a status of **degraded**. If restarting is needed during platform maintenance, Azure Spring Apps will perform a rolling update to incrementally update your applications. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Screenshot of Azure portal example log for planned maintenance in progress.":::
 
 >[!NOTE]
-> Currently, Azure Spring Cloud performs one regular planned maintenance to upgrade the underlying Kubernetes version every 2-4 months. For a detailed maintenance timeline, check the notifications on the Azure Service Health page.
+> Currently, Azure Spring Apps performs one regular planned maintenance to upgrade the underlying Kubernetes version every 2-4 months. For a detailed maintenance timeline, check the notifications on the Azure Service Health page.
 
 ## Set up alerts
 
@@ -126,4 +129,4 @@ The following steps show you how to create an alert rule for planned maintenance
 
 ## Next steps
 
-[Self-diagnose and solve problems in Azure Spring Cloud](how-to-self-diagnose-solve.md)
+[Self-diagnose and solve problems in Azure Spring Apps](how-to-self-diagnose-solve.md)

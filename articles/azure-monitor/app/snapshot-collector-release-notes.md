@@ -3,6 +3,7 @@ title: Release Notes for Microsoft.ApplicationInsights.SnapshotCollector NuGet p
 description: Release notes for the Microsoft.ApplicationInsights.SnapshotCollector NuGet package used by the Application Insights Snapshot Debugger.
 ms.topic: conceptual
 ms.date: 11/10/2020
+ms.reviewer: pharring
 ---
 
 # Release notes for Microsoft.ApplicationInsights.SnapshotCollector

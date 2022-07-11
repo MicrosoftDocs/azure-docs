@@ -157,7 +157,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and cannot take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster cannot be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet-preview).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
 ### Disable the Application Routing Addon
 

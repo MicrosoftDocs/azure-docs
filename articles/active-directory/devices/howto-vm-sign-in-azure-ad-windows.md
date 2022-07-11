@@ -274,14 +274,14 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
 1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
-   - `curl https://login.microsoftonline.com/ -D -`
-   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   - `curl https://enterpriseregistration.windows.net/ -D -`
-   - `curl https://device.login.microsoftonline.com/ -D -`
-   - `curl https://pas.windows.net/ -D -`
+   - `curl.exe https://login.microsoftonline.com/ -D -`
+   - `curl.exe https://login.microsoftonline.com/<TenantID>/ -D -`
+   - `curl.exe https://enterpriseregistration.windows.net/ -D -`
+   - `curl.exe https://device.login.microsoftonline.com/ -D -`
+   - `curl.exe https://pas.windows.net/ -D -`
 
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `login.microsoftonline.com/<TenantID>`,  `enterpriseregistration.windows.net`, and `pas.windows.net` should return 404 Not Found, which is expected behavior.
             
 1. The Device State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES`.
 
@@ -398,12 +398,12 @@ If you've configured a Conditional Access policy that requires multi-factor auth
 
 - Your credentials did not work.
 
+> [!WARNING]
+> Legacy per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM Sign-In. This setting causes Sign-in to fail with “Your credentials do not work.” error message.
+
 ![Your credentials did not work](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-> [!WARNING]
-> Per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM Sign-In. This setting causes Sign-in to fail with “Your credentials do not work.” error message.
-
-You can resolve the above issue by removing the per user MFA setting, by following these steps:
+You can resolve the above issue by removing the per-user MFA setting, by following these steps:
 
 ```
 

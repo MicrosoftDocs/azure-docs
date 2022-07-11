@@ -36,7 +36,7 @@ The following table provides an overview of how to switch from each type of repl
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1,2</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a live migration<sup>5</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Switch to GRS/RA-GRS first and then request a live migration<sup>3</sup> |
 | <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br /> OR <br /><br /> Switch to LRS first and then request a live migration<sup>3</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a live migration<sup>3</sup> |
-| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Request a live migration<sup>3</sup> <br /><br /> OR <br /><br /> Use PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
+| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A |  Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
