@@ -74,6 +74,7 @@ import mlflow
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 from mlflow.models import infer_signature
+from mlflow.utils.environment import _mlflow_conda_env
 
 with mlflow.start_run():
     mlflow.autolog(log_models=False)
@@ -83,14 +84,32 @@ with mlflow.start_run():
     y_pred = model.predict(X_test)
 
     accuracy = accuracy_score(y_test, y_pred)
-
+    
+    # Signature
     signature = infer_signature(X_test, y_test)
-    mlflow.xgboost.log_model(model, "classifier", signature=signature)
+    
+    # Conda environment
+    custom_env =_mlflow_conda_env(
+        additional_conda_deps=None,
+        additional_pip_deps=["xgboost==1.5.2"],
+        additional_conda_channels=None,
+    )
+    
+    # Sample
+    input_example = X_train.sample(n=1)
+
+    # Log the model manually
+    mlflow.xgboost.log_model(model, 
+                             artifact_path="classifier", 
+                             conda_env=custom_env,
+                             signature=signature,
+                             input_example=input_example)
 ```
 
 > [!NOTE]
 > * `log_models=False` is configured in `autolog`. This prevents MLflow to automatically log the model, as it is done manually later.
 > * `infer_signature` is a convenient method to try to infer the signature directly from inputs and outpus.
+> * `mlflow.utils.environment._mlflow_conda_env` is a private method in MLflow SDK and it may change in the future. This example uses it just for sake of simplicity, but it must be used with caution or generate the YAML definition manually as a Python dictionary. 
 
 ## Logging models with a different behavior in the predict method
 
@@ -110,7 +129,7 @@ For this type of models, MLflow introduces a flavor called `pyfunc` (standing fr
 > [!TIP]
 > Serializable models that implements the Scikit-learn API can use the Scikit-learn flavor to log the model, regardless of whether the model was built with Scikit-learn. If your model can be persisted in Pickle format and the object has methods `predict()` and `predict_proba()` (at least), then you can use `mlflow.sklearn.log_model()` to log it inside a MLflow run.
 
-# [Wrapping your model](#tab/wrapper)
+# [Using a model wrapper](#tab/wrapper)
 
 The simplest way of creating your custom model's flavor is by creating a wrapper around your existing model object. MLflow will serialize it and package it for you. Python objects are serializable when the object can be stored in the file system as a file (generally in Pickle format). During runtime, the object can be materialized from such file and all the values, properties and methods available when it was saved will be restored.
 
