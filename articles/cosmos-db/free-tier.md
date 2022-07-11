@@ -85,7 +85,7 @@ New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
 
 ### Unable to create a free-tier account
 
-If the option to create a free-tier account is disabled or if you receive an error saying you cannot create a free-tier account, this means another account in the subscription has already been enabled with free tier. To find the existing free-tier account and the resource group it is in, use this Azure cli script, [Find Existing Free-Tier Account]((../scripts/cli/common/freetier.md)).
+If the option to create a free-tier account is disabled or if you receive an error saying you cannot create a free-tier account, this means another account in the subscription has already been enabled with free tier. To find the existing free-tier account and the resource group it is in, use this Azure cli script, [Find Existing Free-Tier Account](../scripts/cli/common/freetier.md).
 
 ## Next steps
 
