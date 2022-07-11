@@ -123,9 +123,11 @@ Use the [``TableClient.CreateIfNotExistsAsync``](/dotnet/api/azure.data.tables.t
 
 ### Create an item
 
-The easiest way to create a new item in a table is to create a new object using the [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) type. You can then add properties to the object to populate columns of data in that table row. 
+The easiest way to create a new item in a table is to create a class that implements the [``ITableEntity``](/dotnet/api/azure.data.tables.itableentity) interface. You can then add properties to the class to populate columns of data in that table row.
 
-Create an item in the collection using the `TableEntity` by calling [``TableClient.AddEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.addentityasync). 
+:::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Product.cs" id="type" :::
+
+Create an item in the collection using the `Product` class by calling [``TableClient.AddEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.addentityasync). 
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="create_object_add" :::
 
@@ -137,10 +139,10 @@ You can retrieve a specific item from a table using the [``TableEntity.GetEntity
 
 ### Query items
 
-After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example filters products by category using [OData](/rest/api/storageservices/querying-tables-and-entities) syntax.
+After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example filters products by category using [Linq](dotnet/standard/linq/) syntax, which is a benefit of using strongly typed `ITableEntity` models like the `Product` class.
 
 > [!NOTE]
-> You can also query items using [Linq](/dotnet/csharp/programming-guide/concepts/linq/) by mapping your entities to strongly typed C# classes. Many developers prefer working with Linq due to its developer friendly syntax. You can see an example of using Linq in the [Query Data](/azure/cosmos-db/table/tutorial-query-table) tutorial.
+> You can also query items using [OData](/rest/api/storageservices/querying-tables-and-entities) syntax. You can see an example of this approach in the [Query Data](/azure/cosmos-db/table/tutorial-query-table) tutorial.
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="query_items" :::
 
