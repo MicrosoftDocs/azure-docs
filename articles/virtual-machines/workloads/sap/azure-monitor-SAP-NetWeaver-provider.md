@@ -171,7 +171,7 @@ If you're using a hostname, make sure there's connectivity from the virtual netw
 - For **Instance number**, specify the instance number of SAP NetWeaver (00-99)
 - For **Host file entries**, provide the DNS mappings for all SAP VMs associated with the SID.
 
-Enter all SAP application servers and ACS host file entries in **Host file entries**.
+Enter all SAP application servers and ASCS host file entries in **Host file entries**.
 
  Enter host file mappings in comma-separated format. The expected format for each entry is IP address, FQDN, hostname.
  
@@ -213,7 +213,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    
    ```RestartService
    sapcontrol -nr <NN> -function RestartService
-  ```
+```
 9. Once the SAP service is restarted, check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
 
 **Logged as \<sidadm\>** 

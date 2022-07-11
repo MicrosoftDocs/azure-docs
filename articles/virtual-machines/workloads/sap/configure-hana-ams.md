@@ -6,7 +6,7 @@ ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.date: 07/06/2022
-ms.author: sujaj
+ms.author: MightySuz
 
 ---
 
