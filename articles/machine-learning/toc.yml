@@ -103,15 +103,15 @@
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
           href: concept-train-machine-learning-model.md
-        - name: MLflow model training
-          displayName: tracking models, mlflow, custom, flavors
-          href: concept-mlflow-models.md
         - name: Distributed training
           displayName: parallellization, deep learning, deep neural network, dnn
           href: concept-distributed-training.md
         - name: Deep learning
           displayName: deep learning vs machine learning, deep learning, vs, versus
           href: concept-deep-learning-vs-machine-learning.md
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
         - name: AutoML
           items: 
             - name: Automated ML overview
@@ -565,6 +565,8 @@
               - name: Deploy MLflow models
                 displayName: mlflow models deployment plugin
                 href: how-to-deploy-mlflow-models.md
+              - name: Using MLflow models for no-code deployment
+                href: how-to-log-mlflow-models.md
               - name: Convert custom model to MLflow model
                 displayName: ncd, no code deploy, no-code deployment
                 href: how-to-convert-custom-model-to-mlflow.md
