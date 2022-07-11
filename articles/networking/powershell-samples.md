@@ -4,7 +4,7 @@ description: Learn about Azure PowerShell samples for networking, including a sa
 services: virtual-network
 documentationcenter: virtual-network
 author: mbender-ms
-manager: mtillman
+manager: kumudD
 
 tags:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/24/2017
-ms.author: gwallace
+ms.author: mbender
 
 ---
 # Azure PowerShell Samples for networking

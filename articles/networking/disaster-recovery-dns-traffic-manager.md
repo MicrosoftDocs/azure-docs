@@ -4,7 +4,7 @@ description: Overview of the disaster recovery solutions using Azure DNS and Tra
 services: dns
 documentationcenter: na
 author: mbender-ms
-manager: twooley
+manager: kumudD
 editor: 
 tags: azure-resource-manager
 

@@ -4,7 +4,7 @@ description: Learn about Azure CLI samples for networking, including samples for
 services: virtual-network
 documentationcenter: virtual-network
 author: mbender-ms
-manager: timlt
+manager: kumudD
 
 tags:
 ms.assetid:
