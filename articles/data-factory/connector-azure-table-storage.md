@@ -25,7 +25,7 @@ This article outlines how to use Copy Activity in Azure Data Factory and Synapse
 
 ## Supported capabilities
 
-This Azure Table storage connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Table storage connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

@@ -19,7 +19,7 @@ This article outlines how to copy data to and from Azure Files. To learn about A
 
 ## Supported capabilities
 
-This Azure Files connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Files connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

@@ -21,7 +21,7 @@ This connector is specialized for the [Azure Database for PostgreSQL service](..
 
 ## Supported capabilities
 
-This Azure Database for PostgreSQL connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Database for PostgreSQL connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

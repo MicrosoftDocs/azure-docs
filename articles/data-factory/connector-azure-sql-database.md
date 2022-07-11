@@ -24,7 +24,7 @@ This article outlines how to use Copy Activity in Azure Data Factory or Azure Sy
 
 ## Supported capabilities
 
-This Azure SQL Database connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure SQL Database connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

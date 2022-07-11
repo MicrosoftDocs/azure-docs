@@ -24,7 +24,7 @@ This article outlines how to use Copy Activity to copy data from and to Azure Da
 
 ## Supported capabilities
 
-This Azure Data Lake Storage Gen2 connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Data Lake Storage Gen2 connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

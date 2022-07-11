@@ -24,7 +24,7 @@ This article outlines how to copy data to and from Azure Data Lake Storage Gen1.
 
 ## Supported capabilities
 
-This Azure Data Lake Storage Gen1 connector is supported for the following activities and integration runtimes.
+This Azure Data Lake Storage Gen1 connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|

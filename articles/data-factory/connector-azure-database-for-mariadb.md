@@ -19,7 +19,7 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 ## Supported capabilities
 
-This Azure Database for MariaDB connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Database for MariaDB connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

@@ -19,7 +19,7 @@ This article outlines how to use Copy Activity to copy data from and to Azure SQ
 
 ## Supported capabilities
 
-This SQL Managed Instance connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure SQL Managed Instance connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

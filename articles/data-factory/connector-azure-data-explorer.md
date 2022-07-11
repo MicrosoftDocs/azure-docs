@@ -22,7 +22,7 @@ This article describes how to use the copy activity in Azure Data Factory and Sy
 
 ## Supported capabilities
 
-This Azure Data Explorer connector is supported for the following activities and integration runtimes.
+This Azure Data Explorer connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|

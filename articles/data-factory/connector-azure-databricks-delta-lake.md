@@ -19,7 +19,7 @@ This article outlines how to use the Copy activity in Azure Data Factory and Azu
 
 ## Supported capabilities
 
-This Azure Databricks Delta Lake connector is supported for the following activities and integration runtimes.
+This Azure Databricks Delta Lake connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|

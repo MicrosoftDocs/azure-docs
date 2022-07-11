@@ -26,7 +26,7 @@ This article outlines how to use the Copy activity in Azure Data Factory and Azu
 
 ## Supported capabilities
 
-This Azure Blob storage connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Blob storage connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

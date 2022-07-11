@@ -24,7 +24,7 @@ This article outlines how to use Copy Activity in Azure Data Factory or Synapse 
 
 ## Supported capabilities
 
-This Azure Synapse Analytics connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Synapse Analytics connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

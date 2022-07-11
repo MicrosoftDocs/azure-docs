@@ -26,7 +26,7 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
-This Azure Cosmos DB (SQL API) connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Cosmos DB (SQL API) connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|

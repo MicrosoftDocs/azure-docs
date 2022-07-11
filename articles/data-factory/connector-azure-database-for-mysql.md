@@ -33,7 +33,7 @@ This quickstart requires the following resources and configuration mentioned bel
 
 ## Supported capabilities
 
-This Azure Database for MySQL connector is supported for the following activities, integration runtimes and managed private endpoints.
+This Azure Database for MySQL connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
