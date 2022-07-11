@@ -14,13 +14,13 @@ ms.custom: devx-track-python, cliv2, sdkv2
 
 # Logging MLflow models
 
-The following article explains how to start logging your trained models (or artifacts) as MLflow models to achieve simplier paths to production. It explores the different methods to customize the way MLflow packages your models and hence how it runs them. 
+The following article explains how to start logging your trained models (or artifacts) as MLflow models to achieve a simplier path to production. It explores the different methods to customize the way MLflow packages your models and hence how it runs them. 
 
 ## Why logging models instead of artifacts?
 
 If you are not familiar with MLflow, you may not be aware of the difference between logging artifacts or files vs. logging MLflow models. We recommend reading the article [From artifacts to models in MLflow](concept-mlflow-models.md) for an introduction to the topic.
 
-A model in MLflow is also an artifact, but with an specific structure that serves as a contract between the person that created the model and the person that intends to use it. Such contract helps build the bridge about the artifacts themselves and what they mean.
+A model in MLflow is also an artifact, but with a specific structure that serves as a contract between the person that created the model and the person that intends to use it. Such contract helps build the bridge about the artifacts themselves and what they mean.
 
 Logging models has the following advantages:
 > [!div class="checklist"]
@@ -35,7 +35,7 @@ There are different ways to start using the model's concept in Azure Machine Lea
 
 One of the simplest ways to start using this approach is by using MLflow autolog functionality. Autolog allows MLflow to instruct the framework associated to with the framework you are using to log all the metrics, parameters, artifacts and models that the framework considers relevant. By default, most models will be log if autolog is enabled. Some flavors may decide not to do that in specific situations. For instance, the flavor PySpark won't log models if they exceed a certain size.
 
-You can turn on autologging by using either `mlflow.autolog()` or `mlflow.<flavor>.autolog()`. The following examples uses `autolog()` for logging a classifier model trained with XGBoost:
+You can turn on autologging by using either `mlflow.autolog()` or `mlflow.<flavor>.autolog()`. The following example uses `autolog()` for logging a classifier model trained with XGBoost:
 
 ```python
 import mlflow
@@ -94,7 +94,7 @@ with mlflow.start_run():
 
 ## Logging models with a different behavior in the predict method
 
-For those cases where you need inference to happen in a particular way, MLflow allows you to log models with a custom loading and inference routine. Such routines are called a *loader module*. Loader modules can be specified in the `log_model()` instruction using the argument `loader_module` which indicates the Python namespace where the loader is implemented. The argument `code_path` is also required, where you indicate the source files where the `loader_module` is defined. You are required to to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts and returns an object with a method predict (at least).
+For those cases where you need inference to happen in a particular way, MLflow allows you to log models with a custom loading and inference routine. Such routines are called a *loader module*. Loader modules can be specified in the `log_model()` instruction using the argument `loader_module` which indicates the Python namespace where the loader is implemented. The argument `code_path` is also required, where you indicate the source files where the `loader_module` is defined. You are required to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts and returns an object with a method predict (at least).
 
 The following example logs a model using `xgboost` flavor, but the probabilities are returned instead of the predicted class (which is the default behavior in Xgboost):
 
@@ -133,7 +133,7 @@ def _load_pyfunc(data_path: str):
 
 ## Logging custom models
 
-Mlflow supports a large variety of frameworks, including FastAI, MXNet Gluon, PyTorch, TensorFlow, XGBoost, CatBoost, h2o, Keras, LightGBM, MLeap, ONNX, Prophet, spaCy, Spark MLLib, Scikit-Learn, and Statsmodels. However, they may be times where you need to change how a flavor works, log a model not natively supported by MLflow or even log a model that uses multiple elements from different frameworks. For those cases, you may need to create a custom model flavor.
+Mlflow supports a large variety of frameworks, including FastAI, MXNet Gluon, PyTorch, TensorFlow, XGBoost, CatBoost, h2o, Keras, LightGBM, MLeap, ONNX, Prophet, spaCy, Spark MLLib, Scikit-Learn, and statsmodels. However, they may be times where you need to change how a flavor works, log a model not natively supported by MLflow or even log a model that uses multiple elements from different frameworks. For those cases, you may need to create a custom model flavor.
 
 For this type of models, MLflow introduces a flavor called `pyfunc` (standing from Python function). Basically this flavor allows you to log any object you want as a model, as long as it satisfies two conditions:
 
@@ -143,7 +143,7 @@ For this type of models, MLflow introduces a flavor called `pyfunc` (standing fr
 > [!TIP]
 > Serializable models that implements the Scikit-learn API can use the Scikit-learn flavor to log the model, regardless of whether the model was built with Scikit-learn. If your model can be persisted in Pickle format and the object has methods `predict()` and `predict_proba()` (at least), then you can use `mlflow.sklearn.log_model()` to log it inside a MLflow run.
 
-# [Wrapping your model](#tab/pythonmodel)
+# [Wrapping your model](#tab/wrapper)
 
 The simplest way of creating your custom model's flavor is by creating a wrapper around your existing model object. MLflow will serialize it and package it for you. Python objects are serializable when the object can be stored in the file system as a file (generally in Pickle format). During runtime, the object can be materialized from such file and all the values, properties and methods available when it was saved will be restored.
 
@@ -200,7 +200,7 @@ with mlflow.start_run():
 > Note how the `infer_signature` method now uses `y_probs` to infer the signature. Our target column has the target class, but our model now returns the two probabilities for each class.
 
 
-# [Using artifacts](#tab/pythonmodel)
+# [Using artifacts](#tab/artifacts)
 
 Wrapping your model may be simple, but sometimes your model needs multiple pieces to be loaded or it can't just be serialized simply as a Pickle file. In those cases, the `PythonModel` supports indicating an arbitrary list of **artifacts**. Each artifact will be packaged along with your model.
 
