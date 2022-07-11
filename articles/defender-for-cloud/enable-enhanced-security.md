@@ -12,7 +12,7 @@ To learn about the benefits of enhanced security features, see [Microsoft Defend
 
 ## Prerequisites
 
-For the purpose of the Defender for Cloud quickstarts and tutorials you must enable the enhanced security features. 
+To run the Defender for Cloud quickstarts and tutorials, you have to enable the enhanced security features. 
 
 You can protect an entire Azure subscription with Defender for Cloud's enhanced security features and the protections will be inherited by all resources within the subscription.
 
@@ -58,7 +58,7 @@ To enable all Defender for Cloud features including threat protection capabiliti
 
 ## Disable enhanced security features
 
-If you need to disable enhanced security features for a subscription, the procedure is the same but you select **Enhanced security off**:
+If you want to disable a Defender plan for a subscription, you can select **off** for that Defender plan:
  
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
