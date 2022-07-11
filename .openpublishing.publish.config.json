@@ -887,7 +887,7 @@
     {
       "path_to_root": "azure-cosmos-tableapi-dotnet",
       "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
-      "branch": "alexw-quickstart",
+      "branch": "v12",
       "branch_mapping": {}
     },
     {
