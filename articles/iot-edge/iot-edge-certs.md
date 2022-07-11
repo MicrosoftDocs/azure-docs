@@ -5,7 +5,7 @@ author: stevebus
 
 ms.author: stevebus
 ms.reviewer: kgremban
-ms.date: 03/28/2022
+ms.date: 07/11/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -15,26 +15,6 @@ ms.custom:  mqtt
 # Understand how Azure IoT Edge uses certificates
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
-
-IoT Edge certificates are used by the modules and downstream IoT devices to verify the identity and legitimacy of the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime module. These verifications enable a TLS (transport layer security) secure connection between the runtime, the modules, and the IoT devices. Like IoT Hub itself, IoT Edge requires a secure and encrypted connection from IoT downstream (or leaf) devices and IoT Edge modules. To establish a secure TLS connection, the IoT Edge hub module presents a server certificate chain to connecting clients in order for them to verify its identity.
-
->[!NOTE]
->This article talks about the certificates that are used to secure connections between the different components on an IoT Edge device or between an IoT Edge device and any leaf devices. You may also use certificates to authenticate your IoT Edge device to IoT Hub. Those authentication certificates are different, and are not discussed in this article. For more information about authenticating your device with certificates, see [Create and provision an IoT Edge device using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md).
-
-This article explains how IoT Edge certificates can work in production, development, and test scenarios.
-
-<!--iotedge-2020-11-->
-:::moniker range=">=iotedge-2020-11"
-
-## Changes in version 1.2 and later
-
-* The **device CA certificate** was renamed as **edge CA certificate**.
-* The **workload CA certificate** was deprecated. Now the IoT Edge security manager generates the IoT Edge hub server certificate directly from the edge CA certificate, without the intermediate workload CA certificate between them.
-
-:::moniker-end
-<!-- end-1.2 -->
-
-## IoT Edge certificates
 
 There are two common scenarios for setting up certificates on an IoT Edge device. Sometimes the end user, or operator, of a device purchases a generic device made by a manufacturer then manages the certificates themselves. Other times, the manufacturer works under contract to build a custom device for the operator and does some initial certificate signing before handing off the device. The IoT Edge certificate design attempts to take both scenarios into account.
 
@@ -55,6 +35,10 @@ The following figure illustrates IoT Edge's usage of certificates. There may be 
 :::image type="content" source="./media/iot-edge-certs/iot-edge-certs-general-1-2.png" alt-text="Diagram of typical IoT Edge certificate relationships.":::
 
 :::moniker-end
+
+This article explains how IoT Edge certificates can work in production, development, and test scenarios.
+
+## Certificate concepts
 
 ### Certificate authority
 
@@ -175,8 +159,20 @@ You can see the hierarchy of certificate depth represented in the screenshot:
 | IoT Edge Hub Server Certificate | iotedgegw.local  (matches the 'hostname' from the config file) |
 :::moniker-end
 
+<!--iotedge-2020-11-->
+:::moniker range=">=iotedge-2020-11"
+
+## Changes in version 1.2 and later
+
+* The **device CA certificate** was renamed as **edge CA certificate**.
+* The **workload CA certificate** was deprecated. Now the IoT Edge security manager generates the IoT Edge hub server certificate directly from the edge CA certificate, without the intermediate workload CA certificate between them.
+
+:::moniker-end
+<!-- end-1.2 -->
+
 ## Next steps
 
 * For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
 * [Understand Azure IoT Edge modules](iot-edge-modules.md)
 * [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md)
+* This article talks about the certificates that are used to secure connections between the different components on an IoT Edge device or between an IoT Edge device and any leaf devices. You may also use certificates to authenticate your IoT Edge device to IoT Hub. Those authentication certificates are different, and are not discussed in this article. For more information about authenticating your device with certificates, see [Create and provision an IoT Edge device using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md).
