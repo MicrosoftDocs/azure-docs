@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 7/11/2022
 ---
 
-# Identify network beaconing on firewall logs by using a Microsoft Sentinel notebook and Azure Synapse Analytics
+# Identify network beaconing on firewall logs by using a notebook in Microsoft Sentinel and Azure Synapse Analytics
 
 Get started with big data hunting in Microsoft Sentinel by using a built-in notebook that uses Azure Synapse Analytics. Use the notebook as a template for a real-world, sample security scenario.
 

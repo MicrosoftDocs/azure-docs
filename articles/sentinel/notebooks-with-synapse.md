@@ -183,8 +183,8 @@ To manage or select a different Synapse workspace than the one you're currently 
 
 ## Next steps
 
-- [Export historical log data from Microsoft Sentinel for big data analytics](notebooks-with-synapse-export-data.md)
-- [Hunt on historical data at scale by using Microsoft Sentinel notebooks and Azure Synapse Analytics](notebooks-with-synapse-hunt.md)
+- [Export and transform historical log data from Microsoft Sentinel for big data analytics](notebooks-with-synapse-export-data.md)
+- [Identify network beaconing on firewall logs by using a notebook in Microsoft Sentinel and Azure Synapse Analytics](notebooks-with-synapse-hunt.md)
 
 For more information, see:
 

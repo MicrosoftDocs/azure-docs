@@ -26,7 +26,7 @@ Before you get started, make sure you have the appropriate roles and permissions
 - [Create an Azure Synapse workspace](notebooks-with-synapse.md#create-an-azure-synapse-workspace) that's linked to [Azure Data Lake Storage Gen2 storage](../storage/blobs/create-data-lake-storage-account.md)
 - [Configure your Azure Synapse Analytics integration](notebooks-with-synapse.md#configure-your-azure-synapse-analytics-integration)
 
-We recommend that you set up a continuous log export rule before you export historical logs. This step is to make sure there's no gap in the exported logs. We also recommend that data is exported to Azure Data Lake Storage Gen2 to take advantage of hierarchical namespaces.  For more information, see:
+We recommend that you set up a continuous log export rule before you export historical logs. This step is to make sure there's no gap in the exported logs. We also recommend that data is exported to Azure Data Lake Storage Gen2 to take advantage of hierarchical namespaces. For more information, see:
 
 - [Set up continuous data export from Log Analytics](../azure-monitor/logs/logs-data-export.md)
 - [Azure Data Lake Storage Gen2 hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)
@@ -99,7 +99,7 @@ For a year's worth of historical log data, we might write files for over 100,000
 
 ### Start Spark session
 
-In order to run code on a Synapse Spark pool, specify the name of the linked Azure Synapse workspace and Synapse Spark pool to use. 
+In order to run code on a Synapse Spark pool, specify the name of the linked Azure Synapse workspace and Synapse Spark pool to use.
 
 :::image type="content" source="media/notebooks-with-synapse-export-data/export-notebook-add-linked-service.png" alt-text="Screenshot of the cell where you enter the names of the workspace and Spark pool.":::
 
@@ -119,7 +119,7 @@ You're now able to process, transform and analyze security log data at scale by 
 
 ## Next steps
 
-[Hunt on historical data at scale by using Microsoft Sentinel notebooks and Azure Synapse Analytics](notebooks-with-synapse-hunt.md)
+[Identify network beaconing on firewall logs by using a notebook in Microsoft Sentinel and Azure Synapse Analytics](notebooks-with-synapse-hunt.md)
 
 For more information, see:
 
