@@ -11,12 +11,9 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Create virtual machines in a Flexible scale set using an ARM template
+# Create virtual machines in a scale set using an ARM template
 
-**Applies to:** :heavy_check_mark: Flexible scale sets
-
-
-This article steps through using an ARM template to create a virtual machine scale set in Flexible orchestration mode. For more information about Flexible scale sets, see [Flexible orchestration mode for virtual machine scale sets](flexible-virtual-machine-scale-sets.md). 
+This article steps through using an ARM template to create a virtual machine scale set. 
 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
@@ -24,9 +21,6 @@ This article steps through using an ARM template to create a virtual machine sca
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json)
-
-> [!CAUTION]
-> The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
 
 ## Prerequisites
 
