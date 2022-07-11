@@ -33,7 +33,7 @@ No SLA is provided for the Free tier. For more information, see [SLA for Azure C
 
 Azure Cognitive Search won't store data outside of your specified region without your authorization. Specifically, the following features write to an Azure Storage resource: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md).
 
-The storage account is one that you provide, and it could be in any region. If storage and search are in the same region, be aware of the [IP firewall restrictions](search-indexer-howto-access-ip-restricted.md) that prevent service connections. If network security is a requirement, consider using the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) as a firewall alternative.
+The storage account is one that you provide, and it could be in any region. If you put storage and search in the same region, and you also need network security, be aware of the [IP firewall restrictions](search-indexer-howto-access-ip-restricted.md) that prevent service connections in this scenario. When network security is a requirement, consider using the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) as a firewall alternative.
 
 <a name="availability-zones"></a>
 
