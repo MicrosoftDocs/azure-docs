@@ -621,22 +621,22 @@
     },
     {
       "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
-      "redirect_url": "/articles/load-balancer/concepts",
+      "redirect_url": "/azure/load-balancer/concepts",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/resource-manager-template-samples.md",
-      "redirect_url": "/articles/frontdoor/front-door-quickstart-template-samples",
+      "redirect_url": "/azure/frontdoor/front-door-quickstart-template-samples",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/concept-health-probes.md",
-      "redirect_url": "/articles/frontdoor/front-door-health-probes",
+      "redirect_url": "/azure/frontdoor/front-door-health-probes",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/concept-ddos.md",
-      "redirect_url": "/articles/frontdoor/front-door-ddos",
+      "redirect_url": "/azure/frontdoor/front-door-ddos",
       "redirect_document_id": false
     },
     {
@@ -651,7 +651,7 @@
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
-      "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
+      "redirect_url": "/azure/frontdoor/front-door-geo-filtering",
       "redirect_document_id": false
     },
     {
@@ -37388,16 +37388,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#visualizations-for-application-change-analysis",
-      "redirect_url": "/articles/azure-monitor/app/change-analysis-visualizations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#troubleshoot",
-      "redirect_url": "/articles/azure-monitor/app/change-analysis-troubleshoot",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/personalizer/personalizer-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/personalizer/encrypt-data-at-rest",
       "redirect_document_id": false
@@ -40265,12 +40255,12 @@
     },    
     {
       "source_path_from_root": "/articles/virtual-machines/windows/connect-logon.md",
-      "redirect_url": "/articles/virtual-machines/windows/connect-rdp",
+      "redirect_url": "/azure/virtual-machines/windows/connect-rdp",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
-      "redirect_url": "/articles/virtual-machines/windows/connect-winrm",
+      "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
       "redirect_document_id": false
     }
   ]
