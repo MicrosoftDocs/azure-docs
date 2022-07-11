@@ -93,8 +93,7 @@ dotnet add package Azure.Data.Tables
 ## Code examples
 
 * [Authenticate the client](#authenticate-the-client)
-* [Create a database](#create-a-database)
-* [Create a container](#create-a-collection)
+* [Create a table](#create-a-table)
 * [Create an item](#create-an-item)
 * [Get an item](#get-an-item)
 * [Query items](#query-items)
@@ -166,7 +165,7 @@ Sand Surfboard
 
 When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
 
-### [Azure CLI / Resource Manager template](#tab/azure-cli+azure-resource-manager)
+### [Azure CLI](#tab/azure-cli)
 
 Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delete the resource group.
 
@@ -200,3 +199,16 @@ Remove-AzResourceGroup @parameters
    :::image type="content" source="media/dotnet-quickstart/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
 
 ---
+
+## Next steps
+
+In this quickstart, you learned how to create an Azure Cosmos DB Table API account, create a table, and create entries using the .NET SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB Table API resources.
+
+> [!div class="nextstepaction"]
+> [Get started with Azure Cosmos DB Table API and .NET](/azure/cosmos-db/table/how-to-dotnet-get-started)
+
+You can also see Blob storage sample apps and further explore .NET using these resources:
+
+- [Azure Blob Storage SDK v12 .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+- For tutorials, samples, quick starts and other .NET on Azure documentation, visit [Azure for .NET and .NET Core developers](/dotnet/azure/).
+- To learn more about .NET Core specifically, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
