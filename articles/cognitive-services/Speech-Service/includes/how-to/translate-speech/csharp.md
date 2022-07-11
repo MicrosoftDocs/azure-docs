@@ -327,7 +327,7 @@ public static async Task MultiLingualTranslation()
     var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
     var endpointUrl = new Uri(endpointString);
     
-    var config = SpeechConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
+    var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
 
     // Source language is required, but is currently NoOp 
     string fromLanguage = "en-US";
