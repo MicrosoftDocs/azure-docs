@@ -2,7 +2,7 @@
 title: Get started with Enterprise IoT - Microsoft Defender for IoT
 description: In this tutorial, you'll learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
 ms.topic: tutorial
-ms.date: 12/12/2021
+ms.date: 07/11/2022
 ms.custom: template-tutorial
 ---
 
@@ -12,7 +12,7 @@ This tutorial describes how to get started with your Enterprise IoT monitoring d
 
 Defender for IoT supports the entire breadth of IoT devices in your environment, including everything from corporate printers and cameras, to purpose-built, proprietary, and unique devices.
 
-Integrate with [Microsoft Defender for Endpoint](microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration) for analytics features that include alerts, vulnerabilities, and recommendations for your enterprise devices.
+Integrate with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration) for analytics features that include alerts, vulnerabilities, and recommendations for your enterprise devices.
 
 In this tutorial, you learn how to:
 

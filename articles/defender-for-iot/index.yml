@@ -52,7 +52,7 @@ conceptualContent:
         - url: organizations/best-practices/understand-network-architecture.md
           itemType: concept
           text: Understand your OT network architecture
-        - url: concept-sentinel-integration.md
+        - url: organizations/concept-sentinel-integration.md
           itemType: concept
           text: OT threat monitoring in enterprise SOCs
       footerLink:

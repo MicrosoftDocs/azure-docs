@@ -1,7 +1,7 @@
 ---
 title: Preconfigured appliances for OT network monitoring
 description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors and on-premises management consoles.
-ms.date: 07/10/2022
+ms.date: 07/11/2022
 ms.topic: conceptual
 ---
 
