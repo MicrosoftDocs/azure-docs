@@ -52,9 +52,6 @@ In this article, we'll take you through the different options for availability z
 
 * If your API Management instance is deployed (injected) in a [Azure virtual network (VNet)](../api-management/api-management-using-with-vnet.md), check the version of the [compute platform](../api-management/compute-infrastructure.md) (stv1 or stv2) that hosts the service.
 
-> [!NOTE]
-> If you've configured [autoscaling](../api-management/api-management-howto-autoscale.md) for your API Management instance in the primary location, you may need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
-
 ## Downtime requirements
 
 There are no downtime requirements for any of the migration options.
