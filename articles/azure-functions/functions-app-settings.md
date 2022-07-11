@@ -18,7 +18,7 @@ Example connection string values are truncated for readability.
 > You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). Changes to function app settings require your function app to be restarted.
 
 > [!IMPORTANT]
-> Do not use an [instrumentation key](separate-resources.md#about-resources-and-instrumentation-keys) and a [connection string](sdk-connection-string.md#overview) simultaneously. Whichever was set last will take precedence.
+> Do not use an [instrumentation key](../azure-monitor/app/separate-resources.md#about-resources-and-instrumentation-keys) and a [connection string](../azure-monitor/app/sdk-connection-string.md#overview) simultaneously. Whichever was set last will take precedence.
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -28,7 +28,7 @@ The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_I
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|`55555555-af77-484b-9032-64f83bb83bb`|
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
