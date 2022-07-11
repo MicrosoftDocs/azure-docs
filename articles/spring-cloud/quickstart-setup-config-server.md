@@ -64,7 +64,7 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 4. When validation is complete, select **Apply** to save your changes.
 
-    :::image type="content" source="media/quickstart-setup-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted.":::
+    :::image type="content" source="media/quickstart-setup-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted."  lightbox="media/quickstart-setup-config-server/validate-complete.png":::
 
 5. Updating the configuration can take a few minutes.
 
