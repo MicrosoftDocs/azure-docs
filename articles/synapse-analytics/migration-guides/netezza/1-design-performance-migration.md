@@ -273,9 +273,9 @@ For Netezza system functions or arbitrary user-defined functions that have no eq
 
 ##### Stored procedures
 
-Most modern database products support storing procedures within the database. Netezza provides the NZPLSQL language for this purpose. NZPLSQL is based on Postgres PL/pgSQL. A stored procedure typically contains both SQL statements and procedural logic, and returns data or a status.
+Most modern database products support storing procedures within the database. Netezza provides the NZPLSQL language, which is based on Postgres PL/pgSQL, for this purpose. A stored procedure typically contains both SQL statements and procedural logic, and returns data or a status.
 
-Azure Synapse supports stored procedures using T-SQL, so you'll need to recode any migrated stored procedures in that language.
+Azure Synapse supports stored procedures using T-SQL, so you need to recode any migrated stored procedures in that language.
 
 ##### Sequences
 
@@ -287,7 +287,7 @@ Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequenc
 
 #### Data Definition Language (DDL) generation
 
-The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, such as `CREATE TABLE` and `CREATE VIEW`, are common to both Netezza and Azure Synapse, but have been extended to provide implementation-specific features.
+The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, such as `CREATE TABLE` and `CREATE VIEW`, are common to both Netezza and Azure Synapse but have been extended to provide implementation-specific features.
 
 You can edit existing Netezza `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#netezza-data-type-mapping) and remove or modify Netezza-specific clauses such as `ORGANIZE ON`.
 
@@ -299,16 +299,16 @@ You can also use [third-party](../../partner/data-integration.md) migration and 
 
 You can extract raw table data from Netezza tables to flat delimited files, such as CSV files, using standard Netezza utilities like nzsql and nzunload, or via external tables. Then, you can compress the flat delimited files using gzip, and upload the compressed files to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
 
-Extract table data as efficiently as possible. Use the external tables approach because it's the fastest method. Perform multiple extracts in parallel to maximize the throughput of data extraction. The following SQL statement performs an external table extract:
+Extract table data as efficiently as possible. Use the external tables approach because it's the fastest extract method. Perform multiple extracts in parallel to maximize data extraction throughput. The following SQL statement performs an external table extract:
 
 ```sql
 CREATE EXTERNAL TABLE '/tmp/export_tab1.csv' USING (DELIM ',') AS SELECT * from <TABLENAME>;
 ```
 
+If sufficient network bandwidth is available, you can extract data from an on-premises Netezza system directly into Azure Synapse tables or Azure Blob Data Storage. To do so, use Data Factory processes or [third-party](../../partner/data-integration.md) data migration or ETL products.
+
 >[!TIP]
 >Use Netezza external tables for the most efficient data extraction.
-
-If sufficient network bandwidth is available, you can extract data from an on-premises Netezza system directly into Azure Synapse tables or Azure Blob Data Storage. To do so, use Data Factory processes or [third-party](../../partner/data-integration.md) data migration or ETL products.
 
 Extracted data files should contain delimited text in CSV, Optimized Row Columnar (ORC), or Parquet format.
 
@@ -333,7 +333,7 @@ Many performance tuning concepts for Netezza databases hold true for Azure Synap
 - Monitor performance using built-in database capabilities to ensure that resources are being used efficiently.
 
 >[!TIP]
->Prioritize familiarity with Azure Synapse tuning options at the start of a migration.
+>Prioritize familiarity with the tuning options in Azure Synapse at the start of a migration.
 
 ### Differences in performance tuning approach
 
@@ -353,13 +353,13 @@ The existing system-managed zone maps within a source Netezza environment provid
 
 #### Data partitioning
 
-In an enterprise data warehouse, fact tables can contain billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. In Azure Synapse, the `CREATE TABLE` statement defines the partitioning specification for a table.
+In an enterprise data warehouse, fact tables can contain billions of rows. Partitioning optimizes the maintenance and query performance of these tables by splitting them into separate parts to reduce the amount of data processed. In Azure Synapse, the `CREATE TABLE` statement defines the partitioning specification for a table.
 
-You can only use one field per table for partitioning. That field is frequently a date field because many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by using the `CREATE TABLE AS` (CTAS) statement to recreate the table with a new distribution. For a detailed discussion of partitioning in Azure Synapse, see [Partitioning tables in dedicated SQL pool](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition).
+You can only use one field per table for partitioning. That field is often a date field because many queries are filtered by date or date range. It's possible to change the partitioning of a table after initial load by using the `CREATE TABLE AS` (CTAS) statement to recreate the table with a new distribution. For a detailed discussion of partitioning in Azure Synapse, see [Partitioning tables in dedicated SQL pool](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition).
 
 #### Data table statistics
 
-You can ensure that statistics on data tables are up to date by building in a [statistics](../../sql/develop-tables-statistics.md) step to ETL/ELT jobs.
+You should ensure that statistics on data tables are up to date by building in a [statistics](../../sql/develop-tables-statistics.md) step to ETL/ELT jobs.
 
 #### PolyBase or COPY INTO for data loading
 
@@ -368,8 +368,11 @@ You can ensure that statistics on data tables are up to date by building in a [s
 [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql) also supports high-throughput data ingestion, and:
 
 - Data retrieval from all files within a folder and subfolders.
+
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
+
 - [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
+
 - CSV, PARQUET, and ORC file formats.
 
 #### Use workload management
