@@ -11,10 +11,9 @@ ms.subservice: spark
 
 # Manage libraries for Apache Spark pools in Azure Synapse Analytics
 
-## Pool libraries
 Once you have identified the Scala, Java or Python packages that you would like to use or update for your Spark application, you can install or remove them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.
 
-There are two primary ways to install a library on a cluster:
+There are two primary ways to install a library on a Spark pool:
 -  Install a workspace library that has been uploaded as a workspace package.
 -  For updating Python libraries, provide a *requirements.txt* or *Conda environment.yml* environment specification to install packages from repositories like PyPI, Conda-Forge, and more. Read the section about [environment specification](#environment-specification-formats) for further information.
 
@@ -25,7 +24,7 @@ After the changes are saved, a Spark job will run the installation and cache the
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
 > - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within data exfiltration protection enabled workspaces.
 
-### Manage packages from Synapse Studio or Azure portal
+## Manage packages from Synapse Studio or Azure portal
 Spark pool libraries can be managed either from the Synapse Studio or Azure portal.
 
 To update or add libraries to a Spark pool:
@@ -36,14 +35,13 @@ To update or add libraries to a Spark pool:
     - Under the **Synapse resources** section, select the **Apache Spark pools** tab and select a Spark pool from the list.
      
     - Select the **Packages** from the **Settings** section of the Spark pool.
-  
-    ![Screenshot that highlights the upload environment configuration file button.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Add Python libraries")
+    :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png" alt-text="Screenshot that highlights the upload environment configuration file button." lightbox="./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png":::
    
     If you are updating from the **Synapse Studio**:
     - Select **Manage** from the main navigation panel and then select **Apache Spark pools**.
 
     - Select the **Packages** section for a specific Spark pool.
-    ![Screenshot that highlights upload environment configuration option from studio.](./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png "Add Python libraries from Studio")
+    :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png" alt-text="Screenshot that highlights the upload environment configuration file button." lightbox="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png":::
    
 2. For Python feed libraries, upload the environment configuration file using the file selector in the  **Packages** section of the page.
 3. You can also select additional **workspace packages** to add Jar or Wheel files to your pool.
@@ -65,10 +63,11 @@ In addition, users can also inspect the installation logs to identify dependency
 To view these logs:
 1. Navigate to the Spark applications list in the **Monitor** tab. 
 2. Select the system Spark application job that corresponds to your pool update. These system jobs run under the *SystemReservedJob-LibraryManagement* title.
-   ![Screenshot that highlights system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png "View system library job")
+  :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png" alt-text="Screenshot that highlights system reserved library job." lightbox="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png":::
 3. Switch to view the **driver** and **stdout** logs. 
 4. Within the results, you will see the logs related to the installation of your dependencies.
-    ![Screenshot that highlights system reserved library job results.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "View system library job progress")
+  :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png" alt-text="Screenshot that highlights system reserved library job results." lightbox="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png":::
+
 
 
 ## Environment specification formats

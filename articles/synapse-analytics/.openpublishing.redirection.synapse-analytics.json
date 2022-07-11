@@ -697,12 +697,12 @@
           },
           {
             "source_path": "/articles/synapse-analytics/spark/apache-spark-manage-python-packages.md",
-            "redirect_url": "/articles/synapse-analytics/spark/apache-spark-azure-portal-add-libraries.md",
+            "redirect_url": "/articles/synapse-analytics/spark/apache-spark-azure-portal-add-libraries",
             "redirect_document_id": true
           },
           {
             "source_path": "/articles/synapse-analytics/spark/apache-spark-manage-scala-packages.md",
-            "redirect_url": "/articles/synapse-analytics/spark/apache-spark-azure-portal-add-libraries.md",
+            "redirect_url": "/articles/synapse-analytics/spark/apache-spark-azure-portal-add-libraries",
             "redirect_document_id": true
           }
     ]

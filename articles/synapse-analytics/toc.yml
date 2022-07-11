@@ -739,7 +739,7 @@ items:
       - name: Create a Conda private channel
         href: ./spark/apache-spark-custom-conda-channel.md
       - name: Manage your package outside Synapse Studio portal
-        href: ./spark/apache-spark-manage-packages-outside-UI.md
+        href: ./spark/apache-spark-manage-packages-outside-ui.md
     - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks

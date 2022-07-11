@@ -79,5 +79,9 @@ If your team want to manage the libraries without visiting the package managemen
 
 To learn more about Azure PowerShell cmdlets and package management REST APIs, see the following articles:
 
-- Azure PowerShell cmdlets for Synapse Analytics: [Manage your Spark pool libraries through Azure PowerShell cmdlets](apache-spark-manage-packages-outside-UI.md#manage-packages-through-azure-powershell-cmdlets)
-- Package management REST APIs: [Manage your Spark pool libraries through REST APIs](apache-spark-manage-packages-outside-UI.md#manage-packages-through-rest-apis)
+- Azure PowerShell cmdlets for Synapse Analytics: [Manage your Spark pool libraries through Azure PowerShell cmdlets](apache-spark-manage-packages-outside-ui.md#manage-packages-through-azure-powershell-cmdlets)
+- Package management REST APIs: [Manage your Spark pool libraries through REST APIs](apache-spark-manage-packages-outside-ui.md#manage-packages-through-rest-apis)
+
+## Next steps
+- View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
+- Troubleshoot library installation errors: [Troubleshoot library errors](apache-spark-troubleshoot-library-errors.md)

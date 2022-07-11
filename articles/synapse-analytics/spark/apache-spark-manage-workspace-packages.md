@@ -18,7 +18,7 @@ To add workspace packages:
 2. Upload your wheel files by using the file selector.
 3. Once the files have been uploaded to the Azure Synapse workspace, you can add these packages to a given Apache Spark pool.
 
-![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
+  :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png" alt-text="Screenshot that highlights workspace packages." lightbox="./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png":::
 
 >[!WARNING]
 >- Within Azure Synapse, an Apache Spark pool can leverage custom libraries that are either uploaded  as Workspace Packages or uploaded within a well-known Azure Data Lake Storage path. However, both of these options cannot be used simultaneously within the same Apache Spark pool. If packages are provided using both methods, only the wheel files specified in the Workspace packages list will be installed. 
