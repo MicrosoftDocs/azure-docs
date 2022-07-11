@@ -342,7 +342,7 @@
         href: notebooks-troubleshoot.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
-      - name: Integrate Azure Synapse Analytics
+      - name: Configure big data analytics settings
         href: notebooks-with-synapse.md
       - name: Export and transform historical log data
         href: notebooks-with-synapse-export-data.md

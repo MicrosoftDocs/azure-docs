@@ -4,7 +4,7 @@ description: Learn how to set up Azure Synapse Analytics with Microsoft Sentinel
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 7/07/2022
+ms.date: 7/11/2022
 ---
 
 # Configure big data analytics settings for Azure Synapse Analytics
@@ -53,7 +53,7 @@ To use Microsoft Sentinel notebooks with Azure Synapse, you must connect an Azur
 1. In Microsoft Sentinel, select **Notebooks**.
 1. At the top of the Microsoft Sentinel **Notebooks** page, select **Configure Azure Synapse**.
 1. Select **Create new Azure Synapse workspace**.
-1. Select or create a Data Lake that is in the same region with your Microsoft Sentinel workspace. This is required for when you export your data. An Azure Data Lake Storage Gen2 is a built-in Data Lake that comes with every Azure Synapse workspace.
+1. Select or create a Data Lake that is in the same region with your Microsoft Sentinel workspace. This step is required to export your data. An Azure Data Lake Storage Gen2 is a built-in Data Lake that comes with every Azure Synapse workspace.
 
 For more information, see the [Azure Synapse documentation](../synapse-analytics/quickstart-create-workspace.md).
 

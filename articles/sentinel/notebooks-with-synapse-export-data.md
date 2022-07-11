@@ -4,7 +4,7 @@ description: Learn how to export and transform large datasets from an Azure Log 
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 7/07/2022
+ms.date: 7/11/2022
 ---
 
 # Export and transform historical log data from Microsoft Sentinel for big data analytics
@@ -19,7 +19,7 @@ This topic covers how to do a one-time export and transformation of your histori
 
 ## Prerequisites
 
-Before you get started, make sure you have the appropriate roles and permissions and that you've completed the tasks in the following list. The historical data export notebook uses Azure Synapse to work with data at scale.
+Before you get started, make sure you have the appropriate roles and permissions, and that you've completed the tasks in the following list. The historical data export notebook uses Azure Synapse to work with data at scale.
 
 - [Review the required roles and permissions](notebooks-with-synapse.md#prerequisites)
 - [Connect to an Azure Machine Learning workspace](notebooks-with-synapse.md#connect-to-an-azure-machine-learning-workspace)
@@ -40,7 +40,7 @@ Find the notebook template to save a copy to your Azure Machine Learning workspa
 1. Enter **Export** in the search bar to find the notebook.
 1. Select the **Azure Synapse - Export Historical Log Data** notebook.
 
-   :::image type="content" source="media/notebooks-with-synapse-export-data/search-export-historical-log-data-template.png" alt-text="Screenshot of notebooks page with template tab selected and search result for synapse notebook.":::
+   :::image type="content" source="media/notebooks-with-synapse-export-data/search-export-historical-log-data-template.png" alt-text="Screenshot of notebooks page with template tab selected and search result for Synapse notebook.":::
 
 1. Select **Create from template** at the bottom right-hand side of the page.
 1. In the **Clone notebook** pane, change the notebook name as appropriate.
@@ -50,8 +50,8 @@ Find the notebook template to save a copy to your Azure Machine Learning workspa
 1. At the top of the page Azure ML workspace, select a **Compute** instance to use for your notebook server.
 
     - If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#create).
-    - If you are creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
-    - If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
+    - If you're creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
+    - If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning Studio](../machine-learning/how-to-run-jupyter-notebooks.md).
     - Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
     - The kernel is shown at the top right of your Azure ML window. If the kernel you need isn't selected, select a different version from the dropdown list.
 
@@ -71,7 +71,7 @@ To get started, specify the subset of logs you want to export. Use a table name 
 
 ## Set the time range
 
-Before you run the data export, use the notebook to determine the size of data to be exported and the number of blobs that will be written. You'll want to do this to gauge the costs associated with the data export.
+Before you run the data export, use the notebook to determine the size of data to be exported and the number of blobs that will be written. This step allows you to gauge the costs associated with the data export.
 
 :::image type="content" source="media/notebooks-with-synapse-export-data/export-notebook-time-range.png" alt-text="Screenshot of fetching log data cell where you set the end time and days back.":::
 
@@ -88,14 +88,14 @@ You can view and rotate access keys for your storage account by going to the **A
 
 ## Partition data by using Apache Spark
 
-You might want to partition the data to allow for more performant data reads. The last section of the notebook re-partitions the exported data by timestamp. This means it splits the data rows across multiple files in multiple directories with rows of data grouped by timestamp. The notebook uses the directory structure `{base_path}/y=<year>/m=<month>/d=<day>/h=<hour>/m=<5-minute-interval>` for partitions.
+You might want to partition the data to allow for more performant data reads. The last section of the notebook repartitions the exported data by timestamp. The data rows are split across multiple files in multiple directories with rows of data grouped by timestamp. The notebook uses the directory structure `{base_path}/y=<year>/m=<month>/d=<day>/h=<hour>/m=<5-minute-interval>` for partitions.
 
 Encoding the timestamp values in the file path provides two key benefits:
 
-- The continuously exported and historical log data can be read from in a unified way by any notebooks or data pipelines that consume this data.
+- The continuously exported and historical log data can be read in a unified way by any notebook or data pipeline that consume this data.
 - We can minimize the number of required file reads when loading data from a specific time range in downstream tasks.
 
-For a year's worth of historical log data, we may be writing files for over 100,000 separate partitions. So we rely on the multi-executor parallelism in Spark to do this efficiently.
+For a year's worth of historical log data, we might write files for over 100,000 separate partitions. So we rely on the multi-executor parallelism in Spark to do these writes efficiently.
 
 ### Start Spark session
 
@@ -107,8 +107,8 @@ In order to run code on a Synapse Spark pool, specify the name of the linked Azu
 
 Start the Spark session by running the cell in the  **Start Spark Session** notebook section.
 
-### Repartion data by using PySpark
- 
+### Repartition data by using PySpark
+
 After you start the Spark session, run the code in a notebook cell on the Spark pool by using the `%%synapse` cell magic at the start of the cell.
 
 If you encounter **UsageError: Line magic function `%synapse` not found**, make sure that you ran the notebook setup cells at the top of the notebook, and that the **azureml-synapse** package was installed successfully.

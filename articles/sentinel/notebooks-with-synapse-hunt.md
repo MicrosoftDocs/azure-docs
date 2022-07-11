@@ -4,10 +4,10 @@ description: Learn how to run big data queries in Azure Synapse Analytics with a
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 7/07/2022
+ms.date: 7/11/2022
 ---
 
-# Identify network beaconing on large firewall logs by using a sample notebook in Microsoft Sentinel and Azure Synapse Analytics
+# Identify network beaconing on firewall logs by using a Microsoft Sentinel notebook and Azure Synapse Analytics
 
 Get started with big data hunting in Microsoft Sentinel by using a built-in notebook that uses Azure Synapse Analytics. Use the notebook as a template for a real-world, sample security scenario.
 
@@ -48,7 +48,7 @@ Find a notebook template to save a copy to your Azure Machine Learning workspace
 1. At the top of the page Azure ML workspace, select a **Compute** instance to use for your notebook server.
 
     - If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#create).
-    - If you are creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
+    - If you're creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
     - If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
     - Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
     - The kernel is shown at the top right of your Azure ML window. If the kernel you need isn't selected, select a different version from the dropdown list.
