@@ -50,30 +50,19 @@ Tabular fields are also useful when extracting repeating information within a do
 
 ## Supported regions
 
-For the **2022-06-30-preview**, custom neural models can only be trained in the following Azure regions:
+Starting on 1 August 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
 
-* AustraliaEast
-* BrazilSouth
-* CanadaCentral
-* CentralIndia
-* CentralUS
-* EastUS
-* EastUS2
-* FranceCentral
-* JapanEast
-* JioIndiaWest
-* KoreaCentral
-* NorthEurope
-* SouthCentralUS
-* SoutheastAsia
-* UKSouth
-* WestEurope
-* WestUS
-* WestUS2
-* WestUS3
+*	Brazil South
+*	Canada Central
+*	Central India
+*	Japan East
+*	North Europe
+*	South Central US
+*	Southeast Asia
+
 
 > [!TIP]
-> You can copy a model trained in one of the select regions listed above to **any other region** and use it accordingly.
+> You can [copy a model](disaster-recovery.md) trained in one of the select regions listed above to **any other region** and use it accordingly.
 
 ## Best practices
 

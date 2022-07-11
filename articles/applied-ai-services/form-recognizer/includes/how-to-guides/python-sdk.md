@@ -29,6 +29,8 @@ ms.custom: ignite-fall-2021
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+> [!TIP]
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
