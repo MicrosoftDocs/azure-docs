@@ -152,7 +152,7 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 Azure Cognitive Search won't store data outside of your specified region without your authorization. Specifically, the following features write to an Azure Storage resource that you provide: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md).
 
-If you're using any of these features and have regional requirements, choose a storage account that's in the same region as your search service. However, be aware that there are [IP firewall restrictions](search-indexer-howto-access-ip-restricted.md) if search and storage are located in the same region. As an alternative, consider using the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) for network-secured outbound connections to a storage account in the same region.
+If you're using any of these features and have regional requirements, you'll choose a storage account that's in the same region as search. However, be aware of the [IP firewall restrictions](search-indexer-howto-access-ip-restricted.md) that exist when search and storage are in the same region. For outbound connections to a storage account in the same region, consider using the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) as a network security alternative.
 
 <a name="encryption"></a>
 
