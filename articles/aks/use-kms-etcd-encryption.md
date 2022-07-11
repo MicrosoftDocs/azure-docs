@@ -192,10 +192,10 @@ Use `az keyvault set-policy` to create an Azure KeyVault policy.
 az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
-For private key vault, the AKS needs *Key Vault Contributor* to create private link between private key vault and cluster.
+For private key vault, the AKS needs *Key Vault Contributor*  role to create private link between private key vault and cluster.
 
 ```azurecli-interactive
-az role assignment create --role “Key Vault Contributor” --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
+az role assignment create --role "Key Vault Contributor" --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
 ```
 
 ### Create an AKS cluster with private key vault and enable KMS etcd encryption 
