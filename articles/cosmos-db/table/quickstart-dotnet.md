@@ -102,7 +102,8 @@ The sample code described in this article creates a table named ``adventureworks
 
 You'll use the following Table API classes to interact with these resources:
 
-- [``TableClient``](/dotnet/api/azure.data.tables.tableclient) - This class provides a client-side logical representation for working with tables on Cosmos DB. The client object is used to configure and execute requests against the service.
+- [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) - This class provides methods to perform service level operations with Azure Cosmos DB Table API.
+- [``TableClient``](/dotnet/api/azure.data.tables.tableclient) - This class allows you to interact with tables hosted in the Azure Cosmos DB table API.
 - [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) - This class is a reference to a row in a table that allows you to manage properties and column data.
 
 ### Authenticate the client
@@ -111,19 +112,19 @@ From the project directory, open the *Program.cs* file. In your editor, add a us
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="using_directives":::
 
-Define a new instance of the ``TableClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string you set earlier.
+Define a new instance of the ``TableServiceClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string you set earlier.
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs"  id="client_credentials":::
 
 ### Create a table
 
-Use the [``TableClient.CreateIfNotExistsAsync``](/dotnet/api/azure.data.tables.tableclient.createifnotexistsasync)) method to create a new table if it doesn't already exist. This method will return a reference to the existing or newly created table.
+Retrieve an instance of the `TableClient` using the `TableServiceClient` class. Use the [``TableClient.CreateIfNotExistsAsync``](/dotnet/api/azure.data.tables.tableclient.createifnotexistsasync) method on the `TableClient` to create a new table if it doesn't already exist. This method will return a reference to the existing or newly created table.
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="create_table" :::
 
 ### Create an item
 
-The easiest way to create a new item in a table is to create a class that implements the [``ITableEntity``](/dotnet/api/azure.data.tables.itableentity) interface. You can then add properties to the class to populate columns of data in that table row.
+The easiest way to create a new item in a table is to create a class that implements the [``ITableEntity``](/dotnet/api/azure.data.tables.itableentity) interface. You can then add your own properties to the class to populate columns of data in that table row.
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Product.cs" id="type" :::
 
@@ -133,7 +134,7 @@ Create an item in the collection using the `Product` class by calling [``TableCl
 
 ### Get an item
 
-You can retrieve a specific item from a table using the [``TableEntity.GetEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.getentity) method. Provide the `partitionKey` and `rowKey` as parameters to identify the correct row.
+You can retrieve a specific item from a table using the [``TableEntity.GetEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.getentity) method. Provide the `partitionKey` and `rowKey` as parameters to identify the correct row to perform a quick *point read* of that item.
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="read_item" :::
 
