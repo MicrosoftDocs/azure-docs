@@ -143,7 +143,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
-|[Diamond Capture Associates LLC]|
+|Diamond Capture Associates LLC|
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
@@ -172,7 +172,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Exbabylon IT Solutions](https://www.exbabylon.com)|
 |[Executive Information Systems, LLC](https://www.execinfosys.com)|
 |[FI Consulting](https://www.ficonsulting.com/)|
-|[Firstworld USA DBA Terminal](https://www.terminal.com/)|
+|Firstworld USA DBA Terminal|
 |[FCN, Inc.](https://fcnit.com)|
 |[Federal Resources Corporation FRC](https://fedresources.com/)|
 |[FMT Consultants](https://www.fmtconsultants.com/)|
@@ -295,6 +295,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Nihilent Inc](https://nihilent.com)|
 |[Nimbus Logic LLC](https://www.nimbus-logic.com)|
 |[Norseman, Inc](https://www.norseman.com)|
+|[Nortec](https://www.nortec.com)|
 |[Northrop Grumman](https://www.northropgrumman.com)|
 |[NTS Cloud](http://ntscloud.com/ )|
 |[NTT America, Inc.](https://www.us.ntt.net)|
@@ -542,7 +543,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[General Dynamics Information Technology](https://www.gdit.com)|
 |[Golden Five LLC](https://www.goldenfiveconsulting.com/)|
 |[Hypori, Inc.](https://hypori.com/)|
-|[Imager Software, Inc dba ISC]|
+|Imager Software, Inc dba ISC|
 |[Impact Networking, LLC](https://www.impactmybiz.com/)|
 |[IBM Corp.](https://www.ibm.com/industries/government)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|

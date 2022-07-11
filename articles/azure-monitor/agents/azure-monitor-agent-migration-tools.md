@@ -16,18 +16,12 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Monitor Agent (AMA) replaces the Log Analytics Agent (MMA/OMS) for Windows and Linux virtual machines, scale sets, and on premise and Arc-enabled servers. The [benefits of migrating to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) include enhanced security, cost-effectiveness, performance, manageability and reliability. This article explains how to use the AMA Migration Helper and DCR Config Generator tools to help automate and track the migration from Log Analytics Agent to Azure Monitor Agent.
 
-![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)
+![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
+
+> [!IMPORTANT]
+> Do not remove the legacy agents if being used by other [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) (like Microsoft Defender for Cloud, Sentinel, VM Insights, etc). You can use the migration helper to discover which solutions and services you use today that depend on the legacy agents.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
-
-## Prerequisites
-
-To install DCR Config Generator, you need:
-
-1. PowerShell version 5.1 or higher. We recommend using PowerShell version 7.1.3 or higher.
-1. Read access for the specified workspace resources.
-1. The `Az Powershell` module to pull workspace agent configuration information.
-1. The Azure credentials for running `Connect-AzAccount` and `Select-AzSubscription`, which set the context for the script to run.
 
 ## Installing and using AMA Migration Helper (preview)
 
@@ -53,6 +47,14 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
 
 > [!NOTE]
 > DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on Log Analytics Agent.
+
+### Prerequisites
+To install DCR Config Generator, you need:
+
+1. PowerShell version 5.1 or higher. We recommend using PowerShell version 7.1.3 or higher.
+1. Read access for the specified workspace resources.
+1. The `Az Powershell` module to pull workspace agent configuration information.
+1. The Azure credentials for running `Connect-AzAccount` and `Select-AzSubscription`, which set the context for the script to run.
 
 To install DCR Config Generator:
 

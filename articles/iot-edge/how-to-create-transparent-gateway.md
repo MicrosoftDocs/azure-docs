@@ -26,14 +26,16 @@ This article provides detailed instructions for configuring an IoT Edge device t
 >Downstream devices can't use file upload.
 
 ::: moniker-end
+<!-- end 1.1-->
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
 >Downstream devices can't use file upload.
 
 ::: moniker-end
+<!--end iotedge-2020-11-->
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the first step:
 
@@ -49,11 +51,11 @@ A downstream device can be any application or platform that has an identity crea
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](../iot-hub/index.yml) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
 
@@ -121,7 +123,7 @@ If you created the certificates on a different machine, copy them over to your I
 :::moniker-end
 <!-- end 1.1 -->
 
-<!--1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. On your IoT Edge device, open the config file: `/etc/aziot/config.toml`
@@ -144,7 +146,7 @@ If you created the certificates on a different machine, copy them over to your I
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Deploy edgeHub and route messages
 
