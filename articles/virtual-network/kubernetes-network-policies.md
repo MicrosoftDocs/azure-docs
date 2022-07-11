@@ -104,8 +104,8 @@ Users previously were only able to learn about their Network Configuration with 
 
 Overall, the metrics provide:
 - counts of policies, ACL rules, ipsets, ipset entries, and entries in any given ipset
-- execution times for individual OS calls and for handling resource events (median, 90th percentile, and 99th percentile)
-- failure info for handling resource events (these will fail when an OS call fails)
+- execution times for individual OS calls and for handling kubernetes resource events (median, 90th percentile, and 99th percentile)
+- failure info for handling kubernetes resource events (these will fail when an OS call fails)
 
 #### Example Metrics Use Cases
 ##### Alerts via a Prometheus AlertManager
@@ -115,7 +115,7 @@ See a [configuration for these alerts](#setup-alerts-for-alertmanager) below.
 
 ##### Visualizations and Debugging via our Grafana Dashboard or Azure Monitor Workbook
 1. See how many iptables rules your policies create (having a massive amount of iptables rules may increase latency slightly).
-2. Correlate the number of NPM ipsets to the time to apply kernel changes for pod and namespace events.
+2. Correlate cluster counts (e.g. ACLs) to execution times.
 3. Get the human-friendly name of an ipset in a given iptables rule (e.g. "azure-npm-487392" represents "podlabel-role:database").
  
 ### All Supported Metrics
