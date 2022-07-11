@@ -12,6 +12,42 @@ ms.reviewer: gardnerjr
 # Sample Azure Workbooks
 This article includes sample Azure Workbooks.
 
+
+## JSON Path parameter sample workbook\
+```json
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 9,
+      "content": {
+        "version": "KqlParameterItem/1.0",
+        "parameters": [
+          {
+            "id": "f2552663-d809-40da-93c4-9618dfde9b1d",
+            "version": "KqlParameterItem/1.0",
+            "name": "selection",
+            "type": 1,
+            "value": "{ \"series\":\"Failures\", \"x\": 5, \"y\": 10}"
+          }
+        ],
+        "style": "above",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "name": "parameters - 1"
+    },
+    {
+      "type": 1,
+      "content": {
+        "json": "For example, you may have a string parameter named `selection` that was the result of a query or selection in a visualization that has the following value \r\n```json\r\n{selection:json}\r\n```\r\n\r\nUsing JSONPath, you could get individual values from that object:\r\n\r\nformat | result\r\n---|---\r\n`selection:$.series` | `{selection:$..series}`\r\n`selection:$.x` | `{selection:$..x}`\r\n`selection$.y`| `{selection:$..y}`"
+      },
+      "name": "text - 0"
+    }
+  ],
+  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}
+```
 ## ARM template for creating workbook template
 ```json
 {
