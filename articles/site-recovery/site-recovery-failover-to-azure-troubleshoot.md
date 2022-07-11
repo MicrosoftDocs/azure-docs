@@ -1,14 +1,14 @@
 ---
 title: 'Troubleshoot failover to Azure failures | Microsoft Docs'
 description: This article describes ways to troubleshoot common errors in failing over to Azure
-author: ponatara
+author: v-pgaddala
 manager: abhemraj
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
-ms.author: mayg
+ms.author: v-pgaddala
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
 

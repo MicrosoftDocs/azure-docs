@@ -8,7 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.custom: mvc, devx-track-azurepowershell
-ms.date: 8/6/2020
+ms.date: 06/24/2022
 ---
 
 # How to generate an Azure Database for PostgreSQL connection string with PowerShell

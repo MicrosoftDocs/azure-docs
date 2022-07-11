@@ -36,7 +36,7 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
 
 * The [Azure Machine Learning Python SDK installed](/python/api/overview/azure/ml/install). 
 
-* [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=python).
+* [Create an Azure Machine Learning workspace](quickstart-create-resources.md).
 
 * [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
 

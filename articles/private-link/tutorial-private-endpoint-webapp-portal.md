@@ -50,7 +50,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription.                                  |
-    | Resource Group   | Select **Create new**. </br> For **Name**, enter **myResourceGroup**. </br> Select **OK**. |
+    | Resource Group   | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**.                                    |
     | Region           | Select **East US**. |
@@ -84,7 +84,6 @@ The bastion host will be used to connect securely to the virtual machine for tes
     | AzureBastionSubnet address space | Enter **10.1.1.0/24**. |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-
 8. Select the **Review + create** tab or select the **Review + create** button.
 
 9. Select **Create**.
@@ -92,7 +91,6 @@ The bastion host will be used to connect securely to the virtual machine for tes
 ## Create a virtual machine
 
 In this section, you'll create a virtual machine that will be used to test the private endpoint.
-
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
    
@@ -155,7 +153,7 @@ In this section, you'll create a web app.
     | Operating System | Select **Windows**. |
     | Region | Select **East US**. |
     | **App Service Plan** |  |
-    | Windows Plan (East US) | Select **Create new**. </br> Enter **myServicePlan** in **Name**. </br> select **OK**. |
+    | Windows Plan (East US) | Select **Create new**. </br> Enter **myServicePlan** in **Name**. </br> Select **OK**. |
     | Sku and size | Select **Change size**. </br> Select **P2V2** in the **Spec Picker** page. </br> Select **Apply**. |
     | **Zone redundancy** |  |
     | Zone redundancy | Select **Disabled**. |
@@ -222,7 +220,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
     A private IP address of **10.1.0.5** is returned for the web app name. This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
 
-9. Open Internet Explorer, and enter the url of your web app, `https://<webapp-name>.azurewebsites.net`.
+9. Open Internet Explorer, and enter the URL of your web app, `https://<webapp-name>.azurewebsites.net`.
 
 10. Verify you receive the default web app page.
 

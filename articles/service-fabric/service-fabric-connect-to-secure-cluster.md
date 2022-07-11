@@ -3,7 +3,7 @@ title: Connect securely to an Azure Service Fabric cluster
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
 
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 06/22/2022
 ms.custom: devx-track-csharp
 ---
 # Connect to a secure cluster
@@ -207,9 +207,6 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 ### Connect to a secure cluster interactively using Azure Active Directory
 
 The following example uses Azure Active Directory for client identity and server certificate for server identity.
-
-> [!WARNING]
->Prior to the Service Fabric SDK 9.0 release, interactive AAD login didn't work. Update to version 9.0 or later to make use of this feature.
 
 A dialog window automatically pops up for interactive sign-in upon connecting to the cluster.
 

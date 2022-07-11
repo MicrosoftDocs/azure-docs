@@ -25,9 +25,6 @@ This article provides a reference for API Management policies to validate and re
 
 The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths. An invalid query is a "request error". Authorization is only done for valid requests. 
 
-[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
-
-
 **Permissions**  
 Because GraphQL queries use a flattened schema:
 * Permissions may be applied at any leaf node of an output type: 
@@ -38,7 +35,7 @@ Because GraphQL queries use a flattened schema:
     * Fragments
     * Unions
     * Interfaces
-    * The schema element   
+    * The schema element  
 
 **Authorize element**  
 Configure the `authorize` element to set an appropriate authorization rule for one or more paths. 
@@ -47,6 +44,8 @@ Configure the `authorize` element to set an appropriate authorization rule for o
 
 **Introspection system**   
 The policy for path=`/__*` is the [introspection](https://graphql.org/learn/introspection/) system. You can use it to reject introspection requests (`__schema`, `__type`, etc.).   
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -152,12 +151,16 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 <set-graphql-resolver parent-type="type" field="field"> 
     <http-data-source> 
         <http-request> 
-            <set-method>HTTP method</set-method> 
+            <set-method>...set-method policy configuration...</set-method> 
             <set-url>URL</set-url>
-            [...]  
+            <set-header>...set-header policy configuration...</set-header>
+            <set-body>...set-body policy configuration...</set-body>
+            <authentication-certificate>...authentication-certificate policy configuration...</authentication-certificate>  
         </http-request> 
         <http-response>
-            [...]
+            <json-to-xml>...json-to-xml policy configuration...</json-to-xml>
+            <xml-to-json>...xml-to-json policy configuration...</xml-to-json>
+            <find-and-replace>...find-and-replace policy configuration...</find-and-replace>
         </http-response>
       </http-data-source> 
 </set-graphql-resolver> 
@@ -285,9 +288,17 @@ type User {
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `set-graphql-resolver` | Root element.                                                                                                                               | Yes      |
 | `http-data-source` | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
-| `http-request` | Specifies a URL and child policies to configure the resolver's HTTP request. Each of the following policies can be specified at most once in the element. <br/><br/>Required policy: [set-method](api-management-advanced-policies.md#SetRequestMethod)<br/><br/>Optional policies: [set-header](api-management-transformation-policies.md#SetHTTPheader), [set-body](api-management-transformation-policies.md#SetBody), [authentication-certificate](api-management-authentication-policies.md#ClientCertificate) | Yes |
-| `set-url` | The URL of the resolver's HTTP request. | Yes |
-| `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each of the following policies can be specified at most once. <br/><br/>Optional policies: [set-body](api-management-transformation-policies.md#SetBody), [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML), [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON), [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) | No |
+| `http-request` | Specifies a URL and child policies to configure the resolver's HTTP request. Each child element can be specified at most once. | Yes | 
+| `set-method`| Method of the resolver's HTTP request, configured using the [set-method](api-management-advanced-policies.md#SetRequestMethod) policy.  |   Yes    | 
+| `set-url`  |  URL of the resolver's HTTP request. | Yes  | 
+| `set-header`  | Header set in the resolver's HTTP request, configured using the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy.  | No  | 
+| `set-body`  |  Body set in the resolver's HTTP request, configured using the [set-body](api-management-transformation-policies.md#SetBody) policy. | No  | 
+| `authentication-certificate`  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](api-management-authentication-policies.md#ClientCertificate) policy.  | No  | 
+| `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
+| `json-to-xml`   | Transforms the resolver's HTTP response using the [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 
+| `xml-to-json`   | Transforms the resolver's HTTP response using the [xml-to-json](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 
+| `find-and-replace`   | Transforms the resolver's HTTP response using the [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) policy. | No  | 
+
 
 ### Attributes
 

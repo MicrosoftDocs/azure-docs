@@ -1403,6 +1403,8 @@ items:
           href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: SharePoint Online list
           href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Snowflake
+          href: ../data-factory/connector-troubleshoot-snowflake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: XML format
           href: ../data-factory/connector-troubleshoot-xml.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Continuous Integration and Deployment

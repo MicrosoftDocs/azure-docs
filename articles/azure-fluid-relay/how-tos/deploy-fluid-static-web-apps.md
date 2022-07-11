@@ -40,8 +40,8 @@ import { AzureClient, AzureFunctionTokenProvider } from "@fluidframework/azure-c
 const config = {
     tenantId: "myTenantId",
     tokenProvider: new AzureFunctionTokenProvider("https://myAzureAppUrl"+"/api/GetAzureToken", { userId: "test-user",userName: "Test User" }),
-    orderer: "https://myOrdererUrl",
-    storage: "https://myStorageUrl",
+    endpoint: "https://myServiceEndpointUrl",
+    type: "remote",
 };
 
 const clientProps = {
@@ -70,8 +70,8 @@ import { AzureClient } from "@fluidframework/azure-client";
 const config = {
     tenantId: "myTenantId",
     tokenProvider: new AzureFunctionTokenProvider("https://myStaticWebAppUrl/api/GetAzureToken", { userId: "test-user",userName: "Test User" }),
-    orderer: "https://myOrdererUrl",
-    storage: "https://myStorageUrl",
+    endpoint: "https://myServiceEndpointUrl",
+    type: "remote",
 };
 
 const clientProps = {

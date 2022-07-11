@@ -1,12 +1,12 @@
 ---
-title: Passwordless sign-in with the Microsoft Entra Authenticator app - Azure Active Directory
-description: Enable passwordless sign-in to Azure AD using the Microsoft Entra Authenticator app 
+title: Passwordless sign-in with Microsoft Authenticator - Azure Active Directory
+description: Enable passwordless sign-in to Azure AD using Microsoft Authenticator
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 06/23/2022
 
 
 ms.author: justinha
@@ -16,9 +16,9 @@ ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless sign-in with the Microsoft Entra Authenticator app 
+# Enable passwordless sign-in with Microsoft Authenticator 
 
-The Microsoft Entra Authenticator app can be used to sign in to any Azure AD account without using a password. Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device, where the device uses a PIN or biometric. [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) uses a similar technology.
+Microsoft Authenticator can be used to sign in to any Azure AD account without using a password. Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device, where the device uses a PIN or biometric. [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) uses a similar technology.
 
 This authentication technology can be used on any device platform, including mobile. This technology can also be used with any app or website that integrates with Microsoft Authentication Libraries.
 
@@ -47,13 +47,13 @@ To use passwordless authentication in Azure AD, first enable the combined regist
 
 ### Enable passwordless phone sign-in authentication methods
 
-Azure AD lets you choose which authentication methods can be used during the sign-in process. Users then register for the methods they'd like to use. The **Microsoft Entra Authenticator** authentication method policy manages both the traditional push MFA method, as well as the passwordless authentication method. 
+Azure AD lets you choose which authentication methods can be used during the sign-in process. Users then register for the methods they'd like to use. The **Microsoft Authenticator** authentication method policy manages both the traditional push MFA method, as well as the passwordless authentication method. 
 
 To enable the authentication method for passwordless phone sign-in, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an *authentication policy administrator* account.
 1. Search for and select *Azure Active Directory*, then browse to **Security** > **Authentication methods** > **Policies**.
-1. Under **Microsoft Entra Authenticator**, choose the following options:
+1. Under **Microsoft Authenticator**, choose the following options:
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
 1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change this, for each row:
@@ -72,10 +72,10 @@ Users register themselves for the passwordless authentication method of Azure AD
 1. Sign in, then click **Add method** > **Authenticator app** > **Add** to add Microsoft Authenticator.
 1. Follow the instructions to install and configure the Microsoft Authenticator app on your device.
 1. Select **Done** to complete Authenticator configuration.
-1. In **Microsoft Entra Authenticator**, choose **Enable phone sign-in** from the drop-down menu for the account registered.
+1. In **Microsoft Authenticator**, choose **Enable phone sign-in** from the drop-down menu for the account registered.
 1. Follow the instructions in the app to finish registering the account for passwordless phone sign-in.
 
-An organization can direct its users to sign in with their phones, without using a password. For further assistance configuring Microsoft Authenticator and enabling phone sign-in, see [Sign in to your accounts using the Microsoft Entra Authenticator app](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c).
+An organization can direct its users to sign in with their phones, without using a password. For further assistance configuring Microsoft Authenticator and enabling phone sign-in, see [Sign in to your accounts using the Microsoft Authenticator app](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c).
 
 > [!NOTE]
 > Users who aren't allowed by policy to use phone sign-in are no longer able to enable it within Microsoft Authenticator.
@@ -98,7 +98,7 @@ The user is then presented with a number. The app prompts the user to authentica
 
 After the user has utilized passwordless phone sign-in, the app continues to guide the user through this method. However, the user will see the option to choose another method.
 
-:::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in using the Microsoft Entra Authenticator app.":::
+:::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in using Microsoft Authenticator.":::
 
 ## Known Issues
 

@@ -82,7 +82,7 @@ The message displayed in the **Details** column provides more detailed insights 
 
 > [!NOTE]
 > The default probe request is sent in the format of
-\<protocol\>://127.0.0.1:\<port\>/. For example, http://127.0.0.1:80 for an http probe on port 80. Only HTTP status codes of 200 through 399 are considered healthy. The protocol and destination port are inherited from the HTTP settings. If you want Application Gateway to probe on a different protocol, host name, or path and to recognize a different status code as Healthy, configure a custom probe and associate it with the HTTP settings.
+`<protocol>://127.0.0.1:<port>`. For example, `http://127.0.0.1:80` for an HTTP probe on port 80. Only HTTP status codes of 200 through 399 are considered healthy. The protocol and destination port are inherited from the HTTP settings. If you want Application Gateway to probe on a different protocol, host name, or path and to recognize a different status code as Healthy, configure a custom probe and associate it with the HTTP settings.
 
 ## Error messages
 

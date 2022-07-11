@@ -42,7 +42,7 @@ Queries with Basic Logs must use a workspace for the scope. You can't run querie
 You can run two concurrent queries per user. 
 
 ### Purge
-You can’t [purge personal data](personal-data-mgmt.md#how-to-export-and-delete-private-data) from Basic Logs tables. 
+You can’t [purge personal data](personal-data-mgmt.md#exporting-and-deleting-personal-data) from Basic Logs tables. 
 
 
 ## Run a query on a Basic Logs table
@@ -81,7 +81,7 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 
 ```json
 {
-    "query": "ContainerLog | where LogEntry has \"some value\"\n",
+    "query": "ContainerLogV2 | where Computer ==  \"some value\"\n",
 }
 ```
 

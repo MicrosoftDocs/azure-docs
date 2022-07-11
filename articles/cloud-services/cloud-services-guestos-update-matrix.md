@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/21/2022
+ms.date: 6/22/2022
 ms.author: gunnarc
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -309,7 +309,7 @@ The September Guest OS has released.
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-.NET Framework installed: 3.5, 4.5.1, 4.5.2
+.NET Framework installed: 3.5, 4.6.2
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
@@ -362,7 +362,7 @@ The September Guest OS has released.
 ## Family 3 releases
 **Windows Server 2012**
 
-.NET Framework installed: 3.5, 4.5
+.NET Framework installed: 3.5, 4.6.2
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
@@ -415,7 +415,7 @@ The September Guest OS has released.
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
 
-.NET Framework installed: 3.5 (includes 2.0 and 3.0), 4.5
+.NET Framework installed: 3.5 (includes 2.0 and 3.0), 4.6.2
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
