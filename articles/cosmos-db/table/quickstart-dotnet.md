@@ -140,7 +140,7 @@ You can retrieve a specific item from a table using the [``TableEntity.GetEntity
 
 ### Query items
 
-After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example filters products by category using [Linq](dotnet/standard/linq/) syntax, which is a benefit of using strongly typed `ITableEntity` models like the `Product` class.
+After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example filters products by category using [Linq](/dotnet/standard/linq) syntax, which is a benefit of using strongly typed `ITableEntity` models like the `Product` class.
 
 > [!NOTE]
 > You can also query items using [OData](/rest/api/storageservices/querying-tables-and-entities) syntax. You can see an example of this approach in the [Query Data](/azure/cosmos-db/table/tutorial-query-table) tutorial.
