@@ -10,7 +10,7 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: lajanuar
-ms.custom: applied-ai-non-critical-form
+ms.custom: cogserv-non-critical-translator
 ---
 
 # Unsupported language deployments

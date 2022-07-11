@@ -19,3 +19,4 @@ ms.custom: references_regions
 > * Conversation summarization is only available using:
 >     * REST API
 >     * Python 
+>     * C#

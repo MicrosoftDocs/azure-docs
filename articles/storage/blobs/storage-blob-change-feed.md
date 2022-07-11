@@ -2,9 +2,9 @@
 title: Change feed in Blob Storage
 titleSuffix: Azure Storage
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: storage

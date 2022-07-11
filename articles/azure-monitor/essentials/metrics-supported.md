@@ -167,13 +167,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Replicas|Yes|Replica Count|Count|Maximum|Number of replicas count of container app|revisionName|
-|Requests|Yes|Requests|Count|Total|Requests processed|revisionName, podName, statusCodeCategory, statusCode|
-|RestartCount|Yes|Replica Restart Count|Count|Maximum|Restart count of container app replicas|revisionName, podName|
-|RxBytes|Yes|Network In Bytes|Bytes|Total|Network received bytes|revisionName, podName|
-|TxBytes|Yes|Network Out Bytes|Bytes|Total|Network transmitted bytes|revisionName, podName|
-|UsageNanoCores|Yes|CPU Usage|NanoCores|Average|CPU consumed by the container app, in nano cores. 1,000,000,000 nano cores = 1 core|revisionName, podName|
-|WorkingSetBytes|Yes|Memory Working Set Bytes|Bytes|Average|Container App working set memory used in bytes.|revisionName, podName|
+|Replicas|No|Replica Count|Count|Maximum|Number of replicas count of container app|revisionName|
+|Requests|No|Requests|Count|Total|Requests processed|revisionName, podName, statusCodeCategory, statusCode|
+|RestartCount|No|Replica Restart Count|Count|Maximum|Restart count of container app replicas|revisionName, podName|
+|RxBytes|No|Network In Bytes|Bytes|Total|Network received bytes|revisionName, podName|
+|TxBytes|No|Network Out Bytes|Bytes|Total|Network transmitted bytes|revisionName, podName|
+|UsageNanoCores|No|CPU Usage|NanoCores|Average|CPU consumed by the container app, in nano cores. 1,000,000,000 nano cores = 1 core|revisionName, podName|
+|WorkingSetBytes|No|Memory Working Set Bytes|Bytes|Average|Container App working set memory used in bytes.|revisionName, podName|
 
 
 ## Microsoft.AppConfiguration/configurationStores

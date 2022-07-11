@@ -2,12 +2,12 @@
 title: SAP change data capture solution (Preview) - Prepare linked service and dataset
 titleSuffix: Azure Data Factory
 description: This article introduces and describes preparation of the linked service and source dataset for SAP change data capture (Preview) in Azure Data Factory.
-author: swinarko
+author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/01/2022
-ms.author: sawinark
+ms.author: ulrichchrist
 ---
 
 # Prepare the SAP ODP linked service and source dataset for the SAP CDC solution in Azure Data Factory (Preview)
