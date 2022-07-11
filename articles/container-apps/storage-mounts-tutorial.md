@@ -11,10 +11,12 @@ ms.author: cshoe
 
 # Tutorial: Use storage mounts in Azure Container Apps
 
+create a storage mount
+manage secrets
+
 ## Prerequisites
 
 - Latest version of the [Azure CLI](/cli/azure/install-azure-cli)
-- An existing Container Apps [environment](environment.md)
 
 ## Set up
 
@@ -47,7 +49,9 @@ ms.author: cshoe
       --query "properties.provisioningState"
     ```
 
-1. Create an environment.
+    At the end of this tutorial, you can delete the resource group to remove all the services created during this article.
+
+1. Create a Container Apps environment.
 
     ```azurecli
     az containerapp env create \
@@ -57,13 +61,17 @@ ms.author: cshoe
       --query "properties.provisioningState"
     ```
 
-1. Create a storage account name.
+    Storage mounts are associated with a Container Apps environment and configured within individual container apps.
+
+1. Define a storage account name.
 
     ```bash
-    STORAGE_ACCOUNT_NAME="mystorageaccount$RANDOM"
+    STORAGE_ACCOUNT_NAME="myacastorageaccount$RANDOM"
     ```
 
-1. Create a storage account.
+    This value is used with a few different commands in this procedure.
+
+1. Create an Azure Storage account.
 
     ```azurecli
     az storage account create \
@@ -76,13 +84,15 @@ ms.author: cshoe
       --query provisioningState
     ```
 
+    Once created, the command returns a "Success" message.
+
 1. Define a file share name.
 
     ```bash
     STORAGE_SHARE_NAME="myfileshare"
     ```
 
-1. Create the file share.
+1. Create the Azure Storage file share.
 
     ```azurecli
     az storage share-rm create \
@@ -100,7 +110,13 @@ ms.author: cshoe
     STORAGE_ACCOUNT_KEY=`az storage account keys list -n $STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv`
     ```
 
-1. Create the storage mount in the environment.
+1. Define the storage volume name.
+
+    ```bash
+    STORAGE_MOUNT_NAME="my-storage-mount"
+    ```
+
+1. Create the storage link in the environment.
 
     ```azurecli
     az containerapp env storage set \
@@ -108,25 +124,20 @@ ms.author: cshoe
       --azure-file-account-name $STORAGE_ACCOUNT_NAME \
       --azure-file-account-key $STORAGE_ACCOUNT_KEY \
       --azure-file-share-name $STORAGE_SHARE_NAME \
-      --storage-name "my-storage-mount" \
+      --storage-name $STORAGE_MOUNT_NAME \
       --name $ENVIRONMENT_NAME \
       --resource-group $RESOURCE_GROUP \
       --output table
     ```
 
-1. See the storage mounts associated with an environment.
+    This command creates a link between container app environment and the file share created with the `az storage share-rm` command.
 
-    ```azurecli
-    az containerapp env storage list \
-      --name $ENVIRONMENT_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --output table
-    ```
+    Now that the storage account and environment are linked, you can created a container app to use the storage mount.
 
 1. Define the container app name.
 
     ```bash
-    CONTAINER_APP_NAME="mycontainerapp"
+    CONTAINER_APP_NAME="my-container-app"
     ```
 
 1. Create the container app.
@@ -142,15 +153,13 @@ ms.author: cshoe
       --output table
     ```
 
-1. Create a secret.
+    This command displays a table once the application in deployed.
 
-    ```azurecli
-    az containerapp secret set \
-      --name $CONTAINER_APP_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --secrets foo=bar \
-      --output table
-    ```
+1. Copy the FQDN value from the `containerapp create` output table to paste into your web browser to navigate to the website.
+
+    Once the page loads, you'll see the "Welcome to nginx!" message.
+
+    Now that you've verified the container app is deployed you can update the app to with a storage mount definition.
 
 1. Export the container app's configuration.
 
@@ -161,50 +170,49 @@ ms.author: cshoe
       --output yaml > app.yaml
     ```
 
+    When you export an app's configuration, the values for secrets are not included in the generated YAML. The next steps demonstrate how work with secrets as you update your container app.
+
 1. Open *app.yaml* in a code editor.
 
-1. Extract secret configuration as formatted YAML.
+1. Remove the `secrets` section from the configuration.
 
-    ```azurecli
-    az containerapp secret list \
-      --name $CONTAINER_APP_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --show-values \
-      --output yamlc
+    If you don't need to change secret values, then you can remove this section and your secrets are unaltered.
+
+    If you need to change a secret's value, make sure to provide both the `name` and `value` in the file before attempting to update the app.
+
+1. Add a reference to the storage volumes to the `template` and configure the storage mount in the `containers` definition.
+
+    ```yml
+    template:
+      volumes:
+      - name: my-azure-file-volume
+        storageName: my-storage-mount
+        storageType: AzureFile
+      volumeMounts:
+      - volumeName: mystoragevolume
+        mountPath: /usr/share/nginx/html
+      containers:
+      - image: nginx
+        name: my-container-app
     ```
 
-1. Update the secrets section to include both the key and value.
+    The new `volumes` section includes the following properties.
 
-    ```yaml
-    - name: foo
-      value: bar
-    ```
-
-add volume to template & mount in container
-
-```yml
-template:
-  volumes:
-  - name: mystoragevolume
-    storageName: ourshare
-    storageType: AzureFile
-  containers:
-  - image: nginx
-    name: mycontainerapp
-  volumeMounts:
-  - volumeName: mystoragevolume
-    mountPath: /usr/share/nginx/html
-```
+    | Property | Description |
+    |--|--|
+    | `volumes.name` | This value matches the volume created by calling the `az containerapp env storage set` command. |
+    | `volumes.storageName` | This value defines the name used by containers in the environment to access the storage volume. |
+    | `volumes.storageType` | This value determines the type of storage volume defined for the environment. In this case, Azure Storage file mount is declared. |
 
 1. Update the container app with the storage mount configuration.
 
-```azurecli
-az containerapp update \
-  --name $CONTAINER_APP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --yaml app.yaml \
-  --output table
-```
+    ```azurecli
+    az containerapp update \
+      --name $CONTAINER_APP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --yaml app.yaml \
+      --output table
+    ```
 
 show fqdn in browser
 
