@@ -114,7 +114,7 @@ Datasets typically require some preprocessing before analysis. You might have no
 
 When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you'll exclude that column from the model altogether.
 
-1. In the component palette to the left of the canvas, expand the **Data Transformation** section and find the **Select Columns in Dataset** component.
+1. In the component palette to the left of the canvas, expand the **Component** section and find the **Select Columns in Dataset** component.
 
 1. Drag the **Select Columns in Dataset** component onto the canvas. Drop the component below the dataset component.
 
@@ -154,7 +154,7 @@ Your dataset still has missing values after you remove the **normalized-losses**
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the components in the designer.
 
-1. In the component palette to the left of the canvas, expand the section **Data Transformation**, and find the **Clean Missing Data** component.
+1. In the component palette to the left of the canvas, expand the section **Component**, and find the **Clean Missing Data** component.
 
 1. Drag the **Clean Missing Data** component to the pipeline canvas. Connect it to the **Select Columns in Dataset** component.
 
@@ -184,7 +184,7 @@ Because you want to predict price, which is a number, you can use a regression a
 
 Splitting data is a common task in machine learning. You'll split your data into two separate datasets. One dataset will train the model and the other will test how well the model performed.
 
-1. In the component palette, expand the section **Data Transformation** and find the **Split Data** component.
+1. In the component palette, expand the section **Component** and find the **Split Data** component.
 
 1. Drag the **Split Data** component to the pipeline canvas.
 
