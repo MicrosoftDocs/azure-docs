@@ -11,7 +11,7 @@ ms.date: 01/27/2022
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across extremely large datasets. This article describes how to create a search job and how to query its resulting data.
 
 > [!NOTE]
-> The search job feature is currently in public preview and is not supported in workspaces with [customer-managed key](customer-managed-keys.md).
+> The search job feature is currently in public preview and is not supported in workspaces with [customer-managed keys](customer-managed-keys.md).
 
 ## When to use search jobs
 
