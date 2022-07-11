@@ -1,7 +1,7 @@
 ---
 title: Learn about devices discovered by all sensors
 description: Use the device inventory in the on-premises management console to get a comprehensive view of device information from connected sensors. Use import, export, and filtering tools to manage this information. 
-ms.date: 11/09/2021
+ms.date: 06/12/2022 
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 You can view device information from connected sensors by using the *device inventory* in the on-premises management console. This feature gives you a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions also appears.
 
-For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 ## View the device inventory from an on-premises management console
 
@@ -55,7 +55,7 @@ You can use this information to learn. For example:
 
 - Opened tickets for devices
 
-- The last date when firmware was upgraded
+- The last date when the firmware was upgraded
 
 - Devices allowed access to the internet
 

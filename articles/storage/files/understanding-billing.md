@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 06/16/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -17,7 +17,7 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
         <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m5_-GsKv4-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     :::column-end:::
     :::column:::
-        This video is an interview that discusses the basics of the Azure Files billing model. It covers how to optimize Azure file shares to achieve the lowest costs possible and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
+        This video is an interview that discusses the basics of the Azure Files billing model. It covers how to optimize Azure file shares to achieve the lowest costs possible, and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
    :::column-end:::
 :::row-end:::
 
@@ -79,7 +79,7 @@ Once you purchase a capacity reservation, it will automatically be consumed by y
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
 
 ## Provisioned model
-Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. A provisioned model for storage is similar to buying an on-premises storage solution because when you provision an Azure file share with a certain amount of storage capacity, you pay for that storage capacity regardless of whether you use it or not. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
+Azure Files uses a provisioned model for premium file shares. In a provisioned billing model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. A provisioned model for storage is similar to buying an on-premises storage solution because when you provision an Azure file share with a certain amount of storage capacity, you pay for that storage capacity regardless of whether you use it or not. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
 
 The provisioned size of the file share can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/throughput scale changes will be effective within a few minutes after the provisioned size change.
 
@@ -110,7 +110,7 @@ The following table illustrates a few examples of these formulae for the provisi
 | 51,200 | 54,200 | Up to 100,000 | 164,880,000 | 5,220 |
 | 102,400 | 100,000 | Up to 100,000 | 0 | 10,340 |
 
-Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel) and spread the load across multiple VMs. Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling SMB Multichannel on premium file shares. To learn more see [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel). Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
 ### Bursting
 If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above the share's baseline IOPS limit to give the share the performance it needs to meet the demand. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis, and the burst limit isn't a guarantee.
@@ -128,7 +128,7 @@ Share credits have three states:
 New file shares start with the full number of credits in its burst bucket. Burst credits won't be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
 ## Pay-as-you-go model
-Azure Files uses a pay-as-you-go business model for standard file shares. In a pay-as-you-go business model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of logical data stored, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements. You also don't need to deprovision if your workload and data footprint vary over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
+Azure Files uses a pay-as-you-go billing model for standard file shares. In a pay-as-you-go billing model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of logical data stored, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements. You also don't need to deprovision if your workload and data footprint vary over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
 
 ### Differences in standard tiers
 When you create a standard file share, you pick between the following tiers: transaction optimized, hot, and cool. All three tiers are stored on the exact same standard storage hardware. The main difference for these three tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. This means:
@@ -141,7 +141,46 @@ If you put an infrequently accessed workload in the transaction optimized tier, 
 
 Similarly, if you put a highly accessed workload in the cool tier, you'll pay a lot more in transaction costs, but less for data storage costs. This can lead to a situation where the increased costs from the transaction prices increase outweigh the savings from the decreased data storage price, leading you to pay more money on cool than you would have on transaction optimized. For some usage levels, it's possible that the hot tier will be the most cost efficient, and the cool tier will be more expensive than transaction optimized.
 
-Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
+Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.). For standard file shares, we recommend starting in the transaction optimized tier during the initial migration into Azure Files, and then picking the correct tier based on usage after the migration is complete. Transaction usage during migration is not typically indicative of normal transaction usage.
+
+### What are transactions?
+When you mount an Azure file share on a computer using SMB, the Azure file share is exposed on your computer as if it were local storage. This means that applications, scripts, and other programs that you have on your computer can access the files and folders on the Azure file share without needing to know that they are stored in Azure. 
+
+When you read or write to a file, the application you are using performs a series of API calls to the file system API provided by your operating system. These calls are then interpreted by your operating system into SMB protocol transactions, which are sent over the wire to Azure Files to fulfill. A task that the end user perceives as a single operation, such as reading a file from start to finish, may be translated into multiple SMB transactions served by Azure Files.
+
+As a principle, the pay-as-you-go billing model used by standard file shares bills based on usage. SMB and FileREST transactions made by the applications, scripts, and other programs used by your users represent usage of your file share and show up as part of your bill. The same concept applies to value-added cloud services that you might add to your share, such as Azure File Sync or Azure Backup. Transactions are grouped into five different transaction categories which have different prices based on their impact on the Azure file share. These categories are: write, list, read, other, and delete. 
+
+The following table shows the categorization of each transaction:
+
+| Transaction bucket | Management operations | Data operations |
+|-|-|-|
+| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> |
+| List transactions | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
+| Read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
+| Other/protocol transactions | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
+| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |  
+
+> [!Note]  
+> NFS 4.1 is only available for premium file shares, which use the provisioned billing model. Transactions don't affect billing for premium file shares.
+
+### Switching between standard tiers
+Although you can change a standard file share between the three standard file share tiers, the best practice to optimize costs after the initial migration is to pick the most cost optimal tier to be in, and stay there unless your access pattern changes. This is because changing the tier of a standard file share results in additional costs as follows:
+
+- Transactions: When you move a share from a hotter tier to a cooler tier, you will incur the cooler tier's write transaction charge for each file in the share. Moving a file share from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file in the share. 
+
+- Data retrieval: If you are moving from the cool tier to hot or transaction optimized, you will incur a data retrieval charge based on the size of data moved. Only the cool tier has a data retrieval charge.
+
+The following table illustrates the cost breakdown of moving tiers:
+
+| Tier | Transaction optimized (destination) | Hot (destination) | Cool (destination) |
+|-|-|-|-|
+| **Transaction optimized (source)** | -- | <ul><li>1 hot write transaction per file.</li></ul> | <ul><li>1 cool write transaction per file.</li></ul> |
+| **Hot (source)** | <ul><li>1 hot read transaction per file.</li><ul> | -- | <ul><li>1 cool write transaction per file.</li></ul> |
+| **Cool (source)** | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | -- |
+
+Although there is no formal limit on how often you can change the tier of your file share, your share will take time to transition based on the amount of data in your share. You cannot change the tier of the share while the file share is transitioning between tiers. Changing the tier of the file share does not impact regular file share access. 
+
+Although there is no direct mechanism to move between premium and standard file shares because they are contained in different storage account types, you can use a copy tool such as robocopy to move between premium and standard file shares.
 
 ### Choosing a tier
 Regardless of how you migrate existing data into Azure Files, we recommend initially creating the file share in transaction optimized tier due to the large number of transactions incurred during migration. After your migration is complete and you've operated for a few days or weeks with regular usage, you can plug your transaction counts into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which tier is best suited for your workload. 
@@ -158,22 +197,6 @@ To see previous transactions:
 
 > [!Note]  
 > Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
-
-### What are transactions?
-Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
-
-There are five basic transaction categories: write, list, read, other, and delete. All operations done via the REST API or SMB are bucketed into one of these categories:
-
-| Transaction bucket | Management operations | Data operations |
-|-|-|-|
-| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> |
-| List transactions | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
-| Read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
-| Other/protocol transactions | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
-| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |  
-
-> [!Note]  
-> NFS 4.1 is only available for premium file shares, which use the provisioned billing model. Transactions don't affect billing for premium file shares.
 
 ## Provisioned/quota, logical size, and physical size
 Azure Files tracks three distinct quantities with respect to share capacity: 

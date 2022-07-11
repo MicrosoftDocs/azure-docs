@@ -59,6 +59,8 @@
     items:
     - name: Create hierarchies of IoT Edge devices
       href: tutorial-nested-iot-edge.md
+  - name: Configure EST server
+    href: tutorial-configure-est-server.md
   - name: End-to-end example of machine learning at the edge
     items:
     - name: Introduction
@@ -219,7 +221,7 @@
       href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
   - name: Develop custom modules
     items:
-    - name: Develop with Visual Studio 2019
+    - name: Develop with Visual Studio 2022
       href: how-to-visual-studio-develop-module.md
     - name: Develop with Visual Studio Code
       href: how-to-vs-code-develop-module.md
@@ -295,8 +297,6 @@
         href: how-to-configure-api-proxy-module.md
   - name: Configure proxy support
     href: how-to-configure-proxy-support.md
-  - name: Publish and subscribe with IoT Edge
-    href: how-to-publish-subscribe.md
   - name: Azure Blob Storage on IoT Edge
     items:
     - name: Understand blob storage at the edge

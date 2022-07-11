@@ -141,9 +141,9 @@ Copy a single blob to another blob by using a SAS token.
 
 `azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"`
 
-Copy a single blob to another blob by using a SAS token and an OAuth token. You have to use a SAS token at the end of the source account URL, but the destination account doesn't need one if you log into AzCopy by using the azcopy login command.
+Copy a single blob to another blob by using a SAS token and an OAuth token.
 
-`azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"`
+`azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"`
 
 Copy one blob virtual directory to another by using a SAS token:
 

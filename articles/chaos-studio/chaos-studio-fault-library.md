@@ -4,7 +4,7 @@ description: Understand the available actions you can use with Chaos Studio incl
 services: chaos-studio
 author: johnkemnetz
 ms.topic: article
-ms.date: 04/21/2022
+ms.date: 06/16/2022
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -22,7 +22,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Supported OS Types | N/A |
 | Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (for example, waiting for autohealing to occur before injecting another fault). |
 | Prerequisites | N/A |
-| Urn | urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed |
+| Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
 | duration | The duration of the delay in ISO 8601 format (Example: PT10M) |
 
 ### Sample JSON
@@ -33,7 +33,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
   "actions": [ 
     {
       "type": "delay",
-      "name": "urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed",
+      "name": "urn:csci:microsoft:chaosStudio:timedDelay/1.0",
       "duration": "PT10M"
     }
   ] 

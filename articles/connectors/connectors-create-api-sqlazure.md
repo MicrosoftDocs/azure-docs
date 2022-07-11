@@ -458,6 +458,8 @@ The SQL Server built-in connector has a single action.
 
 Operation ID: `executeQuery`
 
+Runs a query against a SQL database.
+
 ##### Parameters
 
 | Name | Key | Required | Type | Description |

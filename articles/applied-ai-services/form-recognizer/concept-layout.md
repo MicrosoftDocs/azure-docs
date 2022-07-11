@@ -34,7 +34,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
 **Supported paragraph roles**:
-The paragraph roles are best used with unstructured documents, structured documents and forms.  Roles help analyze the structure of the extracted content for better semantic search and analysis.
+The paragraph roles are best used with unstructured documents.  PAragraph roles help analyze the structure of the extracted content for better semantic search and analysis.
 
 * title
 * sectionHeading
@@ -147,4 +147,4 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 * Explore our REST API:
 
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)
+    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

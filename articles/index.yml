@@ -86,6 +86,14 @@ productDirectory:
         - mobile
       url: cognitive-services/index.yml
     # Card
+    - title: Azure OpenAI Service (Preview)
+      summary: Apply advanced coding and language models to a variety of use cases
+      imageSrc: cognitive-services/openai/media/icon/azure-openai-dark.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/openai/index.yml
+
+    # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
       imageSrc: https://static.docs.com/ui/media/product/azure/databricks.svg
@@ -164,7 +172,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/face/index.yml
+      url: cognitive-services/computer-vision/index-identity.yml
     # Card
     - title: Form Recognizer
       summary: The AI-powered document extraction service that understands your forms
@@ -273,7 +281,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/translator/index.yml
     # Card
-    - title: Azure Video Analyzer (preview)
+    - title: Azure Video Analyzer (Preview)
       summary: Build intelligent video-based applications using the AI of your choice
       imageSrc: ./media/index/video-analyzer.svg
       azureCategories:
@@ -287,7 +295,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: /azure/azure-video-indexer/
+      url: ./azure-video-indexer/index.yml
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
@@ -748,7 +756,7 @@ productDirectory:
       azureCategories:
         - developer-tools
         - devops
-      url: lab-services/index.yml
+      url: devtest-labs/index.yml
     # Card
     - title: Azure Lab Services
       summary: Set up labs for classrooms, trials, development and testing, and other scenarios
@@ -1501,12 +1509,19 @@ productDirectory:
         - integration
         - web
       url: azure-web-pubsub/index.yml
+    # Card
+    - title: Azure Fluid Relay (Preview)
+      summary: Easily add real-time collaborative experiences to your apps with Fluid Framework
+      imageSrc: https://static.docs.com/ui/media/product/azure/fluid-relay.svg
+      azureCategories:
+        - web
+      url: azure-fluid-relay/index.yml
 tools:
   title: Languages and tools
   items:
     # Card
     - title: Python
-      imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+      imageSrc: /media/logos/logo_python.svg
       url: /azure/developer/python/
     # Card
     - title: .NET
@@ -1514,27 +1529,27 @@ tools:
       url: /dotnet/azure/
     # Card
     - title: JavaScript
-      imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+      imageSrc: /media/logos/logo_js.svg
       url: /azure/developer/javascript/
     # Card
     - title: Java
-      imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+      imageSrc: /media/logos/logo_java.svg
       url: /azure/developer/java/
     # Card
     - title: Go
-      imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
+      imageSrc: /media/logos/logo_Go-lightblue.svg
       url: /azure/developer/go/
     # Card
     - title: REST API
-      imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
+      imageSrc: /media/logos/logo_REST.svg
       url: /rest/api/
     # Card
     - title: Azure PowerShell
-      imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      imageSrc: /media/logos/logo_powershell.svg
       url: /powershell/azure/
     # Card
     - title: Azure CLI
-      imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
+      imageSrc: /media/logos/logo_CLIgeneric.svg
       url: /cli/azure/
     # Card
     - title: ARM templates
@@ -1546,11 +1561,11 @@ tools:
       url: azure-resource-manager/bicep/index.yml
     # Card
     - title: Jenkins
-      imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
+      imageSrc: /media/logos/logo_jenkins.svg
       url: /azure/developer/jenkins
     # Card
     - title: Terraform
-      imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
+      imageSrc: /media/logos/logo_terraform.svg
       url: /azure/developer/terraform/
 
 additionalContent:

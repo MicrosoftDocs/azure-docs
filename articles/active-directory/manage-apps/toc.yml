@@ -142,8 +142,6 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
-      - name: Migration resources
-        href: migration-resources.md
       - name: Migrate applications from Okta to Azure AD 
         items:
         - name: Migrate applications from Okta to Azure AD
@@ -154,7 +152,7 @@
           href: migrate-okta-sync-provisioning-to-azure-active-directory.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
-    - name: Publish applications
+    - name: Request to publish applications
       href: v2-howto-app-gallery-listing.md
     - name: Secure legacy apps 
       items:
@@ -162,6 +160,8 @@
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
+      - name: Cloudflare
+        href: cloudflare-azure-ad-integration.md
       - name: Datawiza
         href: datawiza-with-azure-ad.md 
       - name: F5
@@ -246,6 +246,8 @@
     items:
         - name: Video learning
           href: app-management-videos.md
+        - name: Migration resources
+          href: migration-resources.md
         - name: Support and help options for developers
           href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum

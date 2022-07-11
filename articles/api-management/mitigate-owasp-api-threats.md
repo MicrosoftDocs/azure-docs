@@ -149,7 +149,7 @@ More information about this threat: [API6:2019 Mass assignment](https://github.c
 
 ### Recommendations 
 
-* External API interfaces should be decoupled from the internal data implementation. Avoid binding API contracts directly to data contracts in backend services. Review the API design frequently, and deprecate and remove legacy properties using [versioning](/api-management-versions.md) in API Management. 
+* External API interfaces should be decoupled from the internal data implementation. Avoid binding API contracts directly to data contracts in backend services. Review the API design frequently, and deprecate and remove legacy properties using [versioning](api-management-versions.md) in API Management. 
 
 * Precisely define XML and JSON contracts in the API schema and use [validate content](validation-policies.md#validate-content) and [validate parameters](validation-policies.md#validate-parameters) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
 

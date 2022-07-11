@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 06/06/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -17,8 +17,11 @@ ms.custom: ignite-fall-2021
 * [Python 3.x](https://www.python.org/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -29,6 +32,10 @@ After installing Python, you can install the client library with:
 ```console
 pip install azure-ai-textanalytics==5.1.0
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 
 ## Code example
 
@@ -125,6 +132,9 @@ def sentiment_analysis_with_opinion_mining_example(client):
           
 sentiment_analysis_with_opinion_mining_example(client)
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
 
 ## Output
 

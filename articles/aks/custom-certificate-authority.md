@@ -79,7 +79,8 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --resource-group myResourceGroup \
     --name myNodepool \
-    --enable-custom-ca-trust
+    --enable-custom-ca-trust \
+    --os-type Linux
 ```
 
 ## Configure an existing nodepool to use a custom CA

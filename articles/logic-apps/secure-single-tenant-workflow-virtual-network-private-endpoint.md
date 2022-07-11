@@ -12,6 +12,8 @@ ms.date: 03/11/2022
 
 # Secure traffic between single-tenant Standard logic apps and Azure virtual networks using private endpoints and VNet integration
 
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
 To securely and privately communicate between your workflow in a Standard logic app and an Azure virtual network, you can set up *private endpoints* for inbound traffic and use VNet integration for outbound traffic.
 
 A private endpoint is a network interface that privately and securely connects to a service powered by Azure Private Link. This service can be an Azure service such as Azure Logic Apps, Azure Storage, Azure Cosmos DB, SQL, or your own Private Link Service. The private endpoint uses a private IP address from your virtual network, which effectively brings the service into your virtual network.
@@ -159,6 +161,8 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 > With VNet integration, you need to make sure no firewall or network security policy is blocking these connections. 
 
 ### Considerations for outbound traffic through VNet integration
+
+If your virtual network uses a network security group (NSG), user-defined route table (UDR), or a firewall, make sure that the virtual network allows outbound connections to [all managed connector IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in the corresponding region. Otherwise, Azure-managed connectors won't work.
 
 Setting up virtual network integration affects only outbound traffic. To secure inbound traffic, which continues to use the App Service shared endpoint, review [Set up inbound traffic through private endpoints](#set-up-inbound).
 

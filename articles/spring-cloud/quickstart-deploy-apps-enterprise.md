@@ -55,7 +55,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
    az term accept \
        --publisher vmware-inc \
        --product azure-spring-cloud-vmware-tanzu-2 \
-       --plan tanzu-asc-ent-mtr
+       --plan asa-ent-hr-mtr
    ```
 
 1. Select a location. This location must be a location supporting Azure Spring Apps Enterprise tier. For more information, see the [Azure Spring Apps FAQ](faq.md).
@@ -171,7 +171,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
    az spring app create \
        --resource-group <resource-group-name> \
-       --name catalog-service
+       --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name>
 
    az spring app create \

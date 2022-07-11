@@ -44,7 +44,7 @@ To create an Azure Machine Learning pipeline, you need an Azure Machine Learning
 
 ### Create a new workspace
 
-You need an Azure Machine Learning workspace to use the designer. The workspace is the top-level resource for Azure Machine Learning, it provides a centralized place to work with all the artifacts you create in Azure Machine Learning. For instruction on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md).
+You need an Azure Machine Learning workspace to use the designer. The workspace is the top-level resource for Azure Machine Learning, it provides a centralized place to work with all the artifacts you create in Azure Machine Learning. For instruction on creating a workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 > [!NOTE]
 > If your workspace uses a Virtual network, there are additional configuration steps you must use to use the designer. For more information, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md)
@@ -114,7 +114,7 @@ Datasets typically require some preprocessing before analysis. You might have no
 
 When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you'll exclude that column from the model altogether.
 
-1. In the component palette to the left of the canvas, expand the **Data Transformation** section and find the **Select Columns in Dataset** component.
+1. In the component palette to the left of the canvas, expand the **Component** section and find the **Select Columns in Dataset** component.
 
 1. Drag the **Select Columns in Dataset** component onto the canvas. Drop the component below the dataset component.
 
@@ -154,7 +154,7 @@ Your dataset still has missing values after you remove the **normalized-losses**
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the components in the designer.
 
-1. In the component palette to the left of the canvas, expand the section **Data Transformation**, and find the **Clean Missing Data** component.
+1. In the component palette to the left of the canvas, expand the section **Component**, and find the **Clean Missing Data** component.
 
 1. Drag the **Clean Missing Data** component to the pipeline canvas. Connect it to the **Select Columns in Dataset** component.
 
@@ -184,7 +184,7 @@ Because you want to predict price, which is a number, you can use a regression a
 
 Splitting data is a common task in machine learning. You'll split your data into two separate datasets. One dataset will train the model and the other will test how well the model performed.
 
-1. In the component palette, expand the section **Data Transformation** and find the **Split Data** component.
+1. In the component palette, expand the section **Component** and find the **Split Data** component.
 
 1. Drag the **Split Data** component to the pipeline canvas.
 
@@ -205,7 +205,7 @@ Splitting data is a common task in machine learning. You'll split your data into
 
 Train the model by giving it a dataset that includes the price. The algorithm constructs a model that explains the relationship between the features and the price as presented by the training data.
 
-1. In the component palette, expand **Machine Learning Algorithms**.
+1. In the component palette, expand **Components**.
 
     This option displays several categories of components that you can use to initialize learning algorithms.
 
@@ -224,7 +224,7 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
 1. Select the **Train Model** component.
 
-1. In the component details pane to the right of the canvas, select **Edit column** selector.
+1. Double click to open the component details, select **Edit column** selector.
 
 1. In the **Label column** dialog box, expand the drop-down menu and select **Column names**.
 

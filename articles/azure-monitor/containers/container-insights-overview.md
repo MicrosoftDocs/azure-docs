@@ -4,7 +4,7 @@ description: This article describes Container insights that monitors AKS Contain
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/08/2020
-
+ms.reviewer: aul
 ---
 
 # Container insights overview
@@ -15,9 +15,12 @@ Container insights is a feature designed to monitor the performance of container
 - Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-- [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview)
+- [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md)
 
 Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Docker, Moby, and any CRI compatible runtime such as CRI-O and ContainerD.
+
+>[!NOTE]
+> Container insights support for Windows Server 2022 operating system in public preview.
 
 Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
@@ -43,8 +46,7 @@ Container insights delivers a comprehensive monitoring experience to understand 
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Container insights. Note that the video refers to *Azure Monitor for Containers* which is the previous name for *Container insights*.
 
-[!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
-
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 
 ## How to access Container insights

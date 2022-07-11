@@ -35,7 +35,7 @@ items:
         href: quickstarts/chat/react-native.md
   - name: Email
     items:
-      - name: Create a Email Communication Services resource
+      - name: Create an Email Communication Services resource
         href: quickstarts/email/create-email-communication-resource.md
       - name: Add Azure Managed domain
         href: quickstarts/email/add-azure-managed-domains.md
@@ -296,13 +296,15 @@ items:
         href: how-tos/calling-sdk/teams-interoperability.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Check if user is running supported browser
+        href: how-tos/calling-sdk/browser-support.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization
       href: how-tos/ui-library-sdk/localization.md
     - name: Setup Theming
       href: how-tos/ui-library-sdk/theming.md
-    - name: Custom Data Model Injection 
+    - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
 - name: Samples
   items:

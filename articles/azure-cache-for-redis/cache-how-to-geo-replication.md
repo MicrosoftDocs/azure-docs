@@ -39,6 +39,7 @@ Some features aren't supported with geo-replication:
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
 - Caches in the same Virtual Network (VNet) are supported.
 - Caches in different VNets are supported with caveats. See [Can I use geo-replication with my caches in a VNet?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) for more information.
+- Caches with more than one replica cannot be geo-replicated.
 
 After geo-replication is configured, the following restrictions apply to your linked cache pair:
 
