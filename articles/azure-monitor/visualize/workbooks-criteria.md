@@ -46,7 +46,7 @@ In the image above, the conditions will be evaluated from top to bottom and the 
     1. Choose 'Save' from the toolbar to create the parameter. 
 
     > [!NOTE]
-    > The first parameter in the workbook will not show the `Criteria` tab
+    > The first parameter in the workbook will not show the `Criteria` tab.
 
      :::image type="content" source="media/workbooks-criteria/workbooks-criteria-first-param.png" alt-text="Screenshot showing the first parameter.":::
 
