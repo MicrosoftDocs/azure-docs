@@ -205,7 +205,7 @@ Splitting data is a common task in machine learning. You'll split your data into
 
 Train the model by giving it a dataset that includes the price. The algorithm constructs a model that explains the relationship between the features and the price as presented by the training data.
 
-1. In the component palette, expand **Machine Learning Algorithms**.
+1. In the component palette, expand **Components**.
 
     This option displays several categories of components that you can use to initialize learning algorithms.
 
@@ -224,7 +224,7 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
 1. Select the **Train Model** component.
 
-1. In the component details pane to the right of the canvas, select **Edit column** selector.
+1. Double click to open the component details, select **Edit column** selector.
 
 1. In the **Label column** dialog box, expand the drop-down menu and select **Column names**.
 
