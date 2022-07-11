@@ -49,7 +49,7 @@ HDInsight includes specific cluster types and cluster customization capabilities
 
 ## Scenarios for using HDInsight
 
-Azure HDInsight can be used for a variety of scenarios in [big data](#what-is-big-data) processing. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). The scenarios for processing such data can be summarized in the following categories:
+Azure HDInsight can be used for various scenarios in [big data](#what-is-big-data) processing. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). The scenarios for processing such data can be summarized in the following categories:
 
 ### Batch processing (ETL)
 
@@ -75,7 +75,7 @@ You can use HDInsight to build applications that extract critical insights from 
 
 ### Hybrid
 
-You can use HDInsight to extend your existing on-premises [big data](#what-is-big-data) infrastructure to Azure to leverage the advanced analytics capabilities of the cloud.
+You can use HDInsight to extend your existing on-premises [big data](#what-is-big-data) infrastructure to Azure to apply the advanced analytics capabilities of the cloud.
 
 :::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png" alt-text="HDInsight architecture: Hybrid":::
 
@@ -90,7 +90,7 @@ HDInsight clusters, including Spark, HBase, Kafka, Hadoop, and others, support m
 |Programming language  |Information  |
 |---------|---------|
 |Default programming language support     | By default, HDInsight clusters support:<ul><li>Java</li><li>Python</li><li>.NET</li><li>Go</li></ul>  |
-|Java virtual machine (JVM) languages     | Many languages other than Java can run on a Java virtual machine (JVM). However, if you run some of these languages, you might have to install additional components on the cluster. The following JVM-based languages are supported on HDInsight clusters: <ul><li>Clojure</li><li>Jython (Python for Java)</li><li>Scala</li></ul>     |
+|Java virtual machine (JVM) languages     | Many languages other than Java can run on a Java virtual machine (JVM). However, if you run some of these languages, you might have to install more components on the cluster. The following JVM-based languages are supported on HDInsight clusters: <ul><li>Clojure</li><li>Jython (Python for Java)</li><li>Scala</li></ul>     |
 |Hadoop-specific languages     | HDInsight clusters support the following languages that are specific to the Hadoop technology stack: <ul><li>Pig Latin for Pig jobs</li><li>HiveQL for Hive jobs and SparkSQL</li></ul>        |
 
 ## Development tools for HDInsight
@@ -119,7 +119,7 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 ## In-region data residency 
 
-Spark, Hadoop, LLAP, Storm, and MLService do not store customer data, so these services automatically satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+Spark, Hadoop, LLAP, and Storm don't store customer data, so these services automatically satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
 Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
