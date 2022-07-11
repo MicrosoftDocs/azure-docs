@@ -68,7 +68,7 @@ In addition, the maximum **run time** is 30 days and the maximum number of **met
 [Request a quota increase](#request-quota-increases) to raise the limits for various VM family core quotas, total subscription core quotas, cluster quota and resources in this section.
 
 Available resources:
-+ **Dedicated cores per region** have a default limit of 24 to 300, depending on your subscription offer type. You can increase the number of dedicated cores per subscription for each VM family. Specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores.
++ **Dedicated cores per region** have a default limit of 24 to 300, depending on your subscription offer type. You can increase the number of dedicated cores per subscription for each VM family. Specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores.  GPUs also default to zero cores.
 
 + **Low-priority cores per region** have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families.
 
@@ -82,13 +82,11 @@ The following table shows additional limits in the platform. Please reach out to
 | **Resource or Action** | **Maximum limit** |
 | --- | --- |
 | Workspaces per resource group | 800 |
-| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a non communication-enabled pool (i.e. cannot run MPI jobs) | 100 nodes but configurable up to 65000 nodes |
-| Nodes in a single Parallel Run Step **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but configurable up to 65000 nodes if your cluster is setup to scale per above |
-| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a communication-enabled pool | 300 nodes but configurable up to 4000 nodes |
-| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a communication-enabled pool on an RDMA enabled VM Family | 100 nodes |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** set up as a non communication-enabled pool (i.e. cannot run MPI jobs) | 100 nodes but configurable up to 65000 nodes |
+| Nodes in a single Parallel Run Step **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but configurable up to 65000 nodes if your cluster is set up to scale per above |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** set up as a communication-enabled pool | 300 nodes but configurable up to 4000 nodes |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** set up as a communication-enabled pool on an RDMA enabled VM Family | 100 nodes |
 | Nodes in a single MPI **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but can be increased to 300 nodes |
-| GPU MPI processes per node | 1-4 |
-| GPU workers per node | 1-4 |
 | Job lifetime | 21 days<sup>1</sup> |
 | Job lifetime on a low-priority node | 7 days<sup>2</sup> |
 | Parameter servers per node | 1 |
@@ -187,9 +185,21 @@ You can't set a negative value or a value higher than the subscription-level quo
 > [!NOTE]
 > You need subscription-level permissions to set a quota at the workspace level.
 
-## View your usage and quotas
+## View quotas in the studio
 
-To view your quota for various Azure resources like virtual machines, storage, or network, use the Azure portal:
+1. When you create a new compute resource, by default you'll see only VM sizes that you already have quota to use.  Switch the view to **Select from all options**.  
+
+    :::image type="content" source="media/how-to-manage-quotas/select-all-options.png" alt-text="Screenshot shows select all options to see compute resources that need more quota":::
+
+1. Scroll down until you see the list of VM sizes you do not have quota for.
+
+    :::image type="content" source="media/how-to-manage-quotas/scroll-to-zero-quota.png" alt-text="Screenshot shows list of zero quota":::
+
+1. Use the link to go directly to the online customer support request for more quota.
+
+## View your usage and quotas in the Azure portal
+
+To view your quota for various Azure resources like virtual machines, storage, or network, use the [Azure portal](https://portal.azure.com):
 
 1. On the left pane, select **All services** and then select **Subscriptions** under the **General** category.
 

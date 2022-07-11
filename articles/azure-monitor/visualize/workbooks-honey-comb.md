@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 07/05/2022
 ---
 
 # Honey comb visualizations
