@@ -66,12 +66,12 @@ Azure IoT Edge supports modules built as either Linux or Windows containers. Lin
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
-Azure IoT Edge version 1.2 only supports modules built as Linux containers. [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is the recommended way to run IoT Edge on Windows devices.
+Azure IoT Edge version 1.2 and later only supports modules built as Linux containers. [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is the recommended way to run IoT Edge on Windows devices.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 #### Linux containers
 
@@ -94,12 +94,13 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Debian 11 (Bullseye) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  |
 | Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/support/green-check.png) |  |
+| Red Hat Enterprise Linux 8 | ![Red Hat Enterprise Linux 8 + AMD64](./media/support/green-check.png) | | |
 | Ubuntu Server 20.04 | ![Ubuntu Server 20.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 20.04 + ARM64](./media/support/green-check.png) |
 | Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 18.04 + ARM64](./media/support/green-check.png) |
 | Windows 10/11 Pro | ![Windows 10/11 Pro + AMD64](./media/support/green-check.png) |  | ![Win 10 Pro + ARM64](./media/support/green-check.png)<sup>1</sup> |
@@ -109,7 +110,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 
 <sup>1</sup> Support for this platform using IoT Edge for Linux on Windows is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 All Windows operating systems must be minimum build 17763 with all current cumulative updates installed.
 
@@ -138,14 +139,14 @@ All Windows operating systems must be version 1809 (build 17763). The specific b
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers aren't supported.
 
 For information about supported operating systems for Windows containers, refer to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ### Tier 2
 
@@ -226,7 +227,7 @@ Azure IoT Edge can be run in virtual machines. Using a virtual machine as an IoT
 
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 <center>
