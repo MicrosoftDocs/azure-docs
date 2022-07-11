@@ -46,7 +46,7 @@ To install libraries on your dedicated cluster in Azure Synapse Analytics:
 
 5. Click the three dots next to the cluster name, and select **Packages**.
 
-    ![install mlflow packages in Azure Synapse Analytics](/articles/machine-learning/media/how-to-use-mlflow-azure/install-packages.png)
+    ![install mlflow packages in Azure Synapse Analytics](media/how-to-use-mlflow-azure/install-packages.png)
 
 6. On the **Requirements files** section, click on **Upload**.
 

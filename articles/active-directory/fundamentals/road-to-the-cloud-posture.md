@@ -26,7 +26,7 @@ Many companies migrating from Active Directory (AD) to Azure Active Directory (A
 
 * **Users and Groups**: Represent the human and non-human identities and attributes that access resources from different devices as specified.
 
-:::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-start.png" alt-text="Architectural diagram depicting applications, devices, and users and groups layers, each containing common technologies found within each layer." border="false":::
+[ ![Architectural diagram depicting applications, devices, and users and groups layers, each containing common technologies found within each layer.](media/road-to-cloud-posture/road-to-the-cloud-start.png) ](media/road-to-cloud-posture/road-to-the-cloud-start.png#lightbox)
 
 Microsoft has modeled five states of transformation that commonly align with the business goals of our customers. As the goals of customers mature, it's typical for them to shift from one state to the next at a pace that suits their resourcing and culture. This approach closely follows [Active Directory in Transition: Gartner Survey| Results and Analysis](https://www.gartner.com/en/documents/4006741).
 

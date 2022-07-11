@@ -172,7 +172,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Exbabylon IT Solutions](https://www.exbabylon.com)|
 |[Executive Information Systems, LLC](https://www.execinfosys.com)|
 |[FI Consulting](https://www.ficonsulting.com/)|
-|[Firstworld USA DBA Terminal](https://www.terminal.com/)|
+|Firstworld USA DBA Terminal|
 |[FCN, Inc.](https://fcnit.com)|
 |[Federal Resources Corporation FRC](https://fedresources.com/)|
 |[FMT Consultants](https://www.fmtconsultants.com/)|
