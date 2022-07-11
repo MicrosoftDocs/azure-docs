@@ -12,11 +12,11 @@ Before deploying a Bicep file, you can preview the changes that will happen. Azu
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
-[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
-
 ### Microsoft Learn
 
 If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif/) on **Microsoft Learn**.
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Install Azure PowerShell module
 
