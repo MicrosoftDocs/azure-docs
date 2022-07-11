@@ -52,7 +52,7 @@ pip install msal
 
 ### Step 1: Receive the Azure AD user token and object ID via the MSAL library
 
-The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). In Azure Portal, configure the Redirect URI of your "Mobile and Desktop application" as `http://localhost`.
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). In Azure portal, configure the Redirect URI of your "Mobile and Desktop application" as `http://localhost`.
 
 ```python
 from msal.application import PublicClientApplication

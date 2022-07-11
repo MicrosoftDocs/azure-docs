@@ -1,5 +1,5 @@
 ---
-title: Teams License requirements to use Azure Communication Services support for Teams users
+title: Teams license requirements to use Azure Communication Services support for Teams users
 description: This article describes Teams License requirements and how users can find their current Teams license.
 author: aigerimb
 manager: anitharaju
@@ -16,11 +16,11 @@ ms.custom: kr2b-contr-experiment
 
 To use Azure Communication Services support for Teams users, you need an Azure Active Directory instance with users that have a valid Teams license. Furthermore, license must be assigned to the administrators or relevant users. This article describes the Teams license requirements to use Azure Communication Services support for Teams users.
 
-### Eligible Teams Licenses
+### Eligible Teams licenses
 
 Ensure that your Azure Active Directory users have at least one of the following eligible Teams licenses:
 
-| Service Plan(friendly names)   |  Service Plan ID  |
+| Service Plan (friendly names)   |  Service Plan ID  |
 |:--- |:--- |
 | TEAMS1 | 57ff2da0-773e-42df-b2af-ffb7a2317929 |
 | TEAMS_FREE | 4fa4026d-ce74-4962-a151-8e96d57ea8e4 |

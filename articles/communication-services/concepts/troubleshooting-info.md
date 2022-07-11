@@ -271,7 +271,7 @@ You can find your current Teams license using [licenseDetails](https://docs.micr
     ```http
     https://graph.microsoft.com/v1.0/me/licenseDetails
     ```
-    :::image type="content" source="./media/troubleshooting/graph-explorer-query-box.png" alt-text="Screenshot of how to enter API.":::
+    :::image type="content" source="./media/troubleshooting/graph-explorer-query-box.png" alt-text="Screenshot of how to enter API in Graph Explorer.":::
 
     Or you can query for a particular user by providing the user ID using the following API:
     <!-- { "blockType": "request" } -->
@@ -280,7 +280,7 @@ You can find your current Teams license using [licenseDetails](https://docs.micr
     ```
 1.  The **Response preview**  pane displays output as follows:
 
-    Note: The response object shown here might be shortened for readability.
+    Note that the response object shown here might be shortened for readability.
     <!-- {
     "blockType": "response",
     "truncated": true,

@@ -65,12 +65,12 @@ On the **Authentication** pane of your application, you can see a configured pla
 
 The application must declare Teams.ManageCalls and Teams.ManageChats permissions to have access to Teams calling capabilities in the Tenant. Teams user would be requesting an Azure AD user token with this permission for token exchange. 
 
-1.Navigate to your Azure AD app in the Azure portal and select **API permissions**
+1. Navigate to your Azure AD app in the Azure portal and select **API permissions**
 1. Select **Add Permissions**
 1. In the **Add Permissions** menu, select **Azure Communication Services**
 1. Select the permissions **Teams.ManageCalls** and **Teams.ManageCalls**, then select **Add permissions**
 
-![Add Teams.ManageCalls and Teams.ManageChats permission to the Azure Active Directory application created in previous step](./media/active-directory-permissions.png)
+![Add Teams.ManageCalls and Teams.ManageChats permission to the Azure Active Directory application created in previous step.](./media/active-directory-permissions.png)
 
 ### Step 4: Create or select a Communication Services resource
 
@@ -87,7 +87,7 @@ The following roles can provide consent on behalf of a company:
 - Application admin
 - Cloud application admin
 
-If you want to check roles in Azure Portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md).
+If you want to check roles in Azure portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md).
 
 To construct an Administrator consent URL, the Fabrikam Azure AD Administrator does the following steps:
 
