@@ -71,12 +71,12 @@
     href: access-reviews-external-users.md
   - name: Lifecycle workflows 
     items:
-    - name: Manage lifecycle with workflow (Preview)
-      href: manage-lifecycle-workflows.md
-    - name: Lifecycle Workflow tasks and definitions (Preview)
+    - name: Tasks and definitions (Preview)
       href: lifecycle-workflow-tasks.md   
-    - name: Lifecycle workflow extensibility (Preview)
-      href: lifecycle-workflow-extensibility.md    
+    - name: Custom tasks (Preview)
+      href: lifecycle-workflow-extensibility.md
+    - name: Versioning (Preview)
+      href: lifecycle-workflow-versioning.md      
 - name: How-to guides
   expanded: true
   items:

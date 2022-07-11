@@ -28,8 +28,7 @@ When creating a custom task via the custom task extension, the scenarios for how
 > [!NOTE]
 > Tasks from the callback scenario will not yet time out and require a positive or negative response from the Logic App, we are working on automatically timing out the tasks.
 
-
-Based on which scenario is chosen, the workflow's error handling behavior will change. With the Fire-and-forget scenario as long as the Logic app starts 
+ 
 
 ## Custom task extension integration with Azure Logic Apps high-level steps
 

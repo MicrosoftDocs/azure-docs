@@ -236,7 +236,7 @@ For Microsoft Graph the parameters for the **Enable user account** task are as f
 
 Workflows can be configured to launch a custom task extension. You're able to customize the task name and description for this task using the Azure portal.
 
-:::image type="content" source="media/lifecycle-workflow-task/lcw-logic-app-task.png" alt-text="LCW logic apps":::
+:::image type="content" source="media/lifecycle-workflow-task/lcw-custom-extension-task.png" alt-text="LCW custom extension task":::
 
 For Microsoft Graph the parameters for the **Run a Custom Task Extension** task are as follows:
 
