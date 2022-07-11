@@ -5,6 +5,7 @@
   expanded: true
   items:
   - name: What is Microsoft Defender for Cloud?
+    displayName: Defender for cloud, servers, storage, sql, containers, app service, key vaulkt, resource manager, dns, open-source relational databases, Azure cosmos db, db, Azure, defender
     href: defender-for-cloud-introduction.md
   - name: What are the enhanced security features?
     displayName: azure defender
@@ -261,38 +262,6 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Defender for Azure SQL Databases
-    items: 
-    - name: Overview
-      displayName: database
-      href: defender-for-sql-introduction.md
-    - name: Enable protection on your SQL databases
-      href: defender-for-sql-enable-azure-sql-protections.md
-    - name: Scan your SQL resources for vulnerabilities
-      href: defender-for-sql-on-machines-vulnerability-assessment.md
-      displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
-    - name: Customize SQL information protection policy
-      displayName: sql, database, data discovery
-      href: sql-information-protection-policy.md
-  - name: Defender for SQL servers on machines
-    items:
-    - name: Enable Defender for SQL servers on machines
-      href: defender-for-sql-usage.md
-      displayName: hybrid, arc, Azure Defender
-  - name: Defender for open-source relational databases
-    items: 
-    - name: Overview
-      displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
-      href: defender-for-databases-introduction.md
-    - name: Enable Defender for OSS RDBs and respond to alerts
-      displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
-      href: defender-for-databases-usage.md
-  - name: Defender for Azure Cosmos DB
-    items: 
-    - name: Overview
-      href: concept-defender-for-cosmos.md
-    - name: Enable Microsoft Defender for Azure Cosmos DB
-      href: defender-for-databases-enable-cosmos-protections.md
   - name: Defender for Containers
     items:
     - name: Overview
@@ -318,6 +287,40 @@
     - name: Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
+  - name: Database protection
+    items:
+    - name: Enable database protection
+      href: quickstart-enable-database-protections.md
+    - name: Defender for Azure SQL Databases
+      items: 
+      - name: Overview
+        displayName: database
+        href: defender-for-sql-introduction.md
+      - name: Scan your SQL resources for vulnerabilities
+        href: defender-for-sql-on-machines-vulnerability-assessment.md
+        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
+      - name: Customize SQL information protection policy
+        displayName: sql, database, data discovery
+        href: sql-information-protection-policy.md
+    - name: Defender for SQL servers on machines
+      items:
+      - name: Enable Defender for SQL servers on machines
+        href: defender-for-sql-usage.md
+        displayName: hybrid, arc, Azure Defender
+    - name: Defender for open-source relational databases
+      items: 
+      - name: Overview
+        displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+        href: defender-for-databases-introduction.md
+      - name: Enable Defender for OSS RDBs and respond to alerts
+        displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
+        href: defender-for-databases-usage.md
+    - name: Defender for Azure Cosmos DB
+      items: 
+      - name: Overview
+        href: concept-defender-for-cosmos.md
+      - name: Enable Microsoft Defender for Azure Cosmos DB
+        href: defender-for-databases-enable-cosmos-protections.md 
   - name: Defender for App Service
     items:
     - name: Overview
@@ -363,7 +366,7 @@
     - name: Enable Defender for DNS
       href: enable-enhanced-security.md
     - name: Respond to Microsoft Defender for DNS alerts
-      href: defender-for-dns-alerts.md
+      href: defender-for-dns-alerts.md  
 
 - name: Reference
   items:
@@ -432,6 +435,8 @@
       href: episode-twelve.md
     - name: Defender for Storage
       href: episode-thirteen.md
+    - name: Defender for Servers deployment in AWS and GCP
+      href: episode-fourteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

@@ -260,7 +260,7 @@ High-Availability Linux (also called *Linux-HA*) provides the failover capabilit
 
 Each service is a resource.
 
-Netezza groups the Netezza-specific services into the nps resource group. When Heartbeat detects problems that imply a host failure condition or loss of service to the Netezza users, Heartbeat can initiate a failover to the standby host. For details about Linux-HA and its terms and operations, see the documentation at [http://www.linux-ha.org](http://www.linux-ha.org/).
+Netezza groups the Netezza-specific services into the nps resource group. When Heartbeat detects problems that imply a host failure condition or loss of service to the Netezza users, Heartbeat can initiate a failover to the standby host.  
 
 Distributed Replicated Block Device (DRBD) is a block device driver that mirrors the content of block devices (hard disks, partitions, and logical volumes) between the hosts. Netezza uses the DRBD replication only on the **/nz** and **/export/home** partitions. As new data is written to the **/nz** partition and the **/export/home** partition on the primary host, the DRBD software automatically makes the same changes to the **/nz** and **/export/home** partition of the standby host.
 

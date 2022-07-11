@@ -41,7 +41,7 @@ You can view data drift metrics with the Python SDK or in Azure Machine Learning
 
 To create and work with dataset monitors, you need:
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](quickstart-create-resources.md).
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install), which includes the azureml-datasets package.
 * Structured (tabular) data with a timestamp specified in the file path, file name, or column in the data.
 

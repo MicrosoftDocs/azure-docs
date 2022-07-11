@@ -516,7 +516,7 @@ For each compute instance in a workspace that you created (or that was created f
 
 ---
 
-[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user sign-in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
+[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user sign-in and all actions will use that user’s identity for Azure RBAC and attribution of experiment jobs. SSH access is controlled through public/private key mechanism.
 
 These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -536,4 +536,4 @@ To create a compute instance, you'll need permissions for the following actions:
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training run](how-to-set-up-training-targets.md)
+* [Submit a training job](how-to-set-up-training-targets.md)

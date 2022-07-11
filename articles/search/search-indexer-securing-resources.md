@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 # Indexer access to content protected by Azure network security
 
-If your search application requirements include an Azure virtual network, this concept article explains how a search indexer can access content that's protected by network security. It describes the outbound traffic patterns and indexer execution environments. It also covers the network protections supported by Cognitive Search and factors that might influence your approach. Finally, because Azure Storage is used for both data access and persistent storage, this article also covers network considerations that are specific to search and storage connectivity.
+If your search application requirements include an Azure virtual network, this concept article explains how a search indexer can access content that's protected by network security. It describes the outbound traffic patterns and indexer execution environments. It also covers the network protections supported by Cognitive Search and factors that might influence your security strategy. Finally, because Azure Storage is used for both data access and persistent storage, this article also covers network considerations that are specific to search and storage connectivity.
 
 Looking for step-by-step instructions instead? See [How to configure firewall rules to allow indexer access](search-indexer-howto-access-ip-restricted.md) or [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
 
@@ -82,15 +82,17 @@ If the Azure resource that provides source data exists behind a firewall, you'll
 
   [Azure service tags](../virtual-network/service-tags-overview.md) have a published range of IP addresses for each service. You can find these IPs using the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or a [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). IP ranges are allocated by region, so check your search service region before you start.
 
-When setting the IP rule for the multi-tenant environment, certain SQL data sources support a simple approach for IP address specification. Instead of enumerating all of the IP addresses in the rule, you can create a [Network Security Group rule](../virtual-network/network-security-groups-overview.md) that specifies the `AzureCognitiveSearch` service tag. You can specify the service tag if your data source is either:
+When setting the IP rule for the multi-tenant environment, certain SQL data sources support a simple approach for IP address specification. Instead of enumerating all of the IP addresses in the rule, you can create a [Network Security Group rule](../virtual-network/network-security-groups-overview.md) that specifies the `AzureCognitiveSearch` service tag. 
+
+You can specify the service tag if your data source is either:
 
 - [SQL Server on Azure virtual machines](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
 
 - [SQL Managed Instances](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
 
-  If you specified the service tag for the multi-tenant environment IP rule, you'll still need an explicit IP rule for the private execution environment (meaning the search service itself) obtained through `nslookup`.
+Notice that if you specified the service tag for the multi-tenant environment IP rule, you'll still need an explicit inbound rule for the private execution environment (meaning the search service itself), as obtained through `nslookup`.
 
-## Choosing a data access approach
+## Choosing a connectivity approach
 
 When integrating Azure Cognitive Search into a solution that runs on a virtual network, consider the following constraints:
 
@@ -100,9 +102,9 @@ When integrating Azure Cognitive Search into a solution that runs on a virtual n
 
 Given the above constrains, your choices for achieving search integration in a virtual network are:
 
-- Configure an inbound firewall rule on your Azure resource that admits indexer requests for data.
+- Configure an inbound firewall rule on your Azure PaaS resource that admits indexer requests for data.
 
-- Configure an outbound connection that makes indexer connections using a [private endpoint](../private-link/private-endpoint-overview.md). 
+- Configure an outbound connection from Search that makes indexer connections using a [private endpoint](../private-link/private-endpoint-overview.md). 
 
   For a private endpoint, the search service connection to your protected resource is through a *shared private link*. A shared private link is an [Azure Private Link](../private-link/private-link-overview.md) resource that's created, managed, and used from within Cognitive Search. If your resources are fully locked down (running on a protected virtual network, or otherwise not available over a public connection), a private endpoint is your only choice.
 
@@ -110,17 +112,17 @@ Given the above constrains, your choices for achieving search integration in a v
 
 Configuring an IP firewall is free. A private endpoint, which is based on Azure Private Link, has a billing impact.
 
-### Billing impact of Azure Private Link
+### Working with a private endpoint
+
+This section summarizes the main steps for setting up a private endpoint for outbound indexer connections. This summary might help you decide whether a private endpoint is the best choice for your scenario. Detailed steps are covered in [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
+
+#### Billing impact of Azure Private Link
 
 - A shared private link requires a billable search service, where the minimum tier is either Basic for text-based indexing or Standard 2 (S2) for skills-based indexing. See [tier limits on the number of private endpoints](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details. 
 
 - Inbound and outbound connections are subject to [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-### Working with a private endpoint
-
-This section summarizes the main steps for setting up a private endpoint for outbound indexer connections. This summary might help you decide whether a private endpoint is the best choice for your scenario. Detailed steps are covered in [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
-
-### Step 1: Create a private endpoint to the secure resource
+#### Step 1: Create a private endpoint to the secure resource
 
 You'll create a shared private link using either the portal pages of your search service or through the [Management API](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update).
 
@@ -128,13 +130,13 @@ In Azure Cognitive Search, your search service must be at least the Basic tier f
 
 A private endpoint connection will accept requests from the private indexer execution environment, but not the multi-tenant environment. You'll need to disable multi-tenant execution as described in step 3 to meet this requirement.
 
-### Step 2: Approve the private endpoint connection
+#### Step 2: Approve the private endpoint connection
 
 When the (asynchronous) operation that creates a shared private link resource completes, a private endpoint connection will be created in a "Pending" state. No traffic flows over the connection yet.
 
 You'll need to locate and approve this request on your secure resource. Depending on the resource, you can complete this task using Azure portal. Otherwise, use the [Private Link Service REST API](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
-### Step 3: Force indexers to run in the "private" environment
+#### Step 3: Force indexers to run in the "private" environment
 
 For private endpoint connections, it's mandatory to set the `executionEnvironment` of the indexer to `"Private"`. This step ensures that all indexer execution is confined to the private environment provisioned within the search service.
 

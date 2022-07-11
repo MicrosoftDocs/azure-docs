@@ -60,9 +60,9 @@ sections:
           
           See the following table for the outbound TCP ports you need to open to use these protocols to communicate with Azure Service Bus:
           
-          | Protocol | Port | Details | 
+          | Protocol | Ports | Details | 
           | -------- | ----- | ------- | 
-          | AMQP | 5671 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
+          | AMQP | 5671, 5672 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
           | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets |
           
           The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 

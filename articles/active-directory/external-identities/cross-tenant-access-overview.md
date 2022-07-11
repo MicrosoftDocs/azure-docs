@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 06/30/2022
 
 ms.author: mimart
 author: msmimart
@@ -14,10 +14,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Overview: Cross-tenant access with Azure AD External Identities (Preview)
-
-> [!NOTE]
-> Cross-tenant access settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Overview: Cross-tenant access with Azure AD External Identities
 
 Azure AD organizations can use External Identities cross-tenant access settings to manage how they collaborate with other Azure AD organizations and other Microsoft Azure clouds through B2B collaboration and [B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md). [Cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) give you granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access). These settings also let you trust multi-factor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
 
@@ -53,11 +50,17 @@ You can configure organization-specific settings by adding an organization and m
 
 - For B2B collaboration with other Azure AD organizations, use cross-tenant access settings to manage inbound and outbound B2B collaboration and scope access to specific users, groups, and applications. You can set a default configuration that applies to all external organizations, and then create individual, organization-specific settings as needed. Using cross-tenant access settings, you can also trust multi-factor (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
+   > [!TIP]
+   >If you intend to trust inbound MFA for external users, make sure you don't have an [Identity Protection policy](../identity-protection/howto-identity-protection-configure-mfa-policy) in place that requires external users to register for MFA. When both of these policies are present, external users won’t be able to satisfy the requirements for access. If you want to enforce the Identity Protection MFA registration policy, be sure to exclude external users.
+
 - For B2B direct connect, use organizational settings to set up a mutual trust relationship with another Azure AD organization. Both your organization and the external organization need to mutually enable B2B direct connect by configuring inbound and outbound cross-tenant access settings.
 
 - You can use external collaboration settings to limit who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 
 ## Microsoft cloud settings
+
+> [!NOTE]
+> Microsoft cloud settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 

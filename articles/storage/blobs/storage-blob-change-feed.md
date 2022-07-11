@@ -2,9 +2,9 @@
 title: Change feed in Blob Storage
 titleSuffix: Azure Storage
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: storage
@@ -551,14 +551,7 @@ This section describes known issues and conditions in the current release of the
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | 
-| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## FAQ
 

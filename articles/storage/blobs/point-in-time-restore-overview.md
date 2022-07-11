@@ -3,12 +3,12 @@ title: Point-in-time restore for block blobs
 titleSuffix: Azure Storage
 description: Point-in-time restore for block blobs provides protection against accidental deletion or corruption by enabling you to restore a storage account to its previous state at a given point in time.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/15/2021
-ms.author: tamram
+ms.date: 06/22/2022
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
@@ -53,7 +53,10 @@ Point-in-time restore requires that the following Azure Storage features be enab
 - [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)
 
-Enabling these features may result in additional charges. Make sure that you understand the billing implications before enabling point-in-time restore and the prerequisite features.
+To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
+
+> [!CAUTION]
+> After you enable blob versioning for a storage account, every write operation to a blob in that account results in the creation of a new version. For this reason, enabling blob versioning may result in additional costs. To minimize costs, use a lifecycle management policy to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
 
 ### Retention period for point-in-time restore
 
@@ -92,14 +95,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Pricing and billing
 

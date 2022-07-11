@@ -21,7 +21,7 @@ Verification is one-to-one matching that takes two faces and returns whether the
 
 Try out the capabilities of face recognition quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Related data structures
 
@@ -34,7 +34,7 @@ The recognition operations use mainly the following data structures. These objec
 |[FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) or [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| This data structure is an assorted list of PersistedFace objects. A FaceList has a unique ID, a name string, and optionally a user data string.|
 |[Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| This data structure is a list of PersistedFace objects that belong to the same person. It has a unique ID, a name string, and optionally a user data string.|
 |[PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| This data structure is an assorted list of Person objects. It has a unique ID, a name string, and optionally a user data string. A PersonGroup must be [trained](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) before it can be used in recognition operations.|
-|PersonDirectory | This data structure is like **LargePersonGroup** but offers additional storage capacity and other added features. For more information, see [Use the PersonDirectory structure](./how-to/use-persondirectory.md).
+|PersonDirectory | This data structure is like **LargePersonGroup** but offers additional storage capacity and other added features. For more information, see [Use the PersonDirectory structure (preview)](./how-to/use-persondirectory.md).
 
 ## Recognition operations
 
