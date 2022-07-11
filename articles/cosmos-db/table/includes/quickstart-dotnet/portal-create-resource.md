@@ -1,10 +1,10 @@
 ---
-author: diberry
+author: alexwolfmsft
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: cosmosdb-table
 ms.topic: include
-ms.date: 06/13/2019
-ms.author: diberry
+ms.date: 07/08/2022
+ms.author: alexwolf
 ---
 > [!TIP]
 > For this quickstart, we recommend using the resource group name ``msdocs-cosmos-quickstart-rg``.

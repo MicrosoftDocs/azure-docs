@@ -28,7 +28,7 @@ ms.author: alexwolf
         --location $location
     ```
 
-1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new Azure Cosmos DB MongoDB API account with default settings.
+1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new Azure Cosmos DB Table API account with default settings.
 
     ```azurecli-interactive
     az cosmosdb create \

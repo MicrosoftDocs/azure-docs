@@ -169,7 +169,7 @@ Sand Surfboard
 
 ## Clean up resources
 
-When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
+When you no longer need the Azure Cosmos DB Table API account, you can delete the corresponding resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
