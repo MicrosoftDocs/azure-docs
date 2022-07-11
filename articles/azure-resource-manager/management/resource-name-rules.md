@@ -209,7 +209,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | communicationServices | global | 1-63 | Alphanumerics and hyphens.<br><br>Can't use underscores. |
+> | communicationServices | global | 1-63 | Alphanumerics and hyphens.<br><br>Can't start or end with hyphen.<br><br>Can't use underscores. |
 
 ## Microsoft.ConfidentialLedger
 
@@ -677,7 +677,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
-> | resourcegroups | subscription | 1-90 | Letters or digits as defined by the [Char.IsLetterOrDigit](/dotnet/api/system.char.isletterordigit) function.<br><br>Valid characters are members of the following categories in [UnicodeCategory](/dotnet/api/system.globalization.unicodecategory):<br>**UppercaseLetter**,<br>**LowercaseLetter**,<br>**TitlecaseLetter**,<br>**ModifierLetter**,<br>**OtherLetter**,<br>**DecimalDigitNumber**.<br><br>Can't end with period. |
+> | resourcegroups | subscription | 1-90 | Underscores, hyphens, periods, and letters or digits as defined by the [Char.IsLetterOrDigit](/dotnet/api/system.char.isletterordigit) function.<br><br>Valid characters are members of the following categories in [UnicodeCategory](/dotnet/api/system.globalization.unicodecategory):<br>**UppercaseLetter**,<br>**LowercaseLetter**,<br>**TitlecaseLetter**,<br>**ModifierLetter**,<br>**OtherLetter**,<br>**DecimalDigitNumber**.<br><br>Can't end with period. |
 > | tagNames | resource | 1-512 | Can't use:<br>`<>%&\?/` or control characters |
 > | tagNames / tagValues | tag name | 1-256 | All characters. |
 > | templateSpecs | resource group | 1-90 | Alphanumerics, underscores, parentheses, hyphens, and periods. |

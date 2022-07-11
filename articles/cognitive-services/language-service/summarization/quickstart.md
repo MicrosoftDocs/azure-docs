@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/14/2022
+ms.date: 07/06/2022
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-summarization, ignite-fall-2021, mode-api
@@ -62,4 +62,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Summarization overview](overview.md)
+* [How to call document summarization](./how-to/document-summarization.md)
+* [How to call conversation summarization](./how-to/conversation-summarization.md)

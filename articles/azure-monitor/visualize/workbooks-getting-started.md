@@ -17,14 +17,11 @@ You can access Workbooks in a few ways:
 
    :::image type="content" source="./media/workbooks-overview/workbooks-menu.png" alt-text="Screenshot of Workbooks icon in the menu.":::
 
-- From a **Log Analytics workspace** page, select the **Workbooks** icon at the top of the page.
+- In a **Log Analytics workspace** page, select the **Workbooks** icon at the top of the page.
 
   :::image type="content" source="media/workbooks-overview/workbooks-log-analytics-icon.png" alt-text="Screenshot of Workbooks icon on Log analytics workspace page.":::
 
 The gallery opens. Select a saved workbook or a template from the gallery, or search for the name in the search bar.
-
-## Start a new workbook
-To start a new workbook, select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. For more information on creating new workbooks, see [Create a workbook](workbooks-create-workbook.md).
 
 ## Save a workbook
 To save a workbook, save the report with a specific title, subscription, resource group, and location.
@@ -36,7 +33,7 @@ Once you start creating your own workbook template, you may want to share it wit
 
 ## Pin a visualization
 
-Use the pin button next to a text, query, or metrics steps in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode, or if the workbook author has enabled settings for that element to make the pin icon visible.
+Use the pin button next to a text, query, or metrics components in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode, or if the workbook author has enabled settings for that element to make the pin icon visible.
 
 To access pin mode, select **Edit** to enter editing mode, and select the blue pin icon in the top bar. An individual pin icon will then appear above each corresponding workbook part's *Edit* box on the right-hand side of your screen.
 
@@ -51,7 +48,7 @@ Pinned workbook query parts will respect the dashboard's time range if the pinne
 
 Additionally, pinned workbook parts using a time range parameter will auto refresh at a rate determined by the dashboard's time range. The last time the query ran will appear in the subtitle of the pinned part.
 
-If a pinned step has an explicitly set time range (does not use a time range parameter), that time range will always be used for the dashboard, regardless of the dashboard's settings. The subtitle of the pinned part will not show the dashboard's time range, and the query will not auto-refresh on the dashboard. The subtitle will show the last time the query executed.
+If a pinned component has an explicitly set time range (does not use a time range parameter), that time range will always be used for the dashboard, regardless of the dashboard's settings. The subtitle of the pinned part will not show the dashboard's time range, and the query will not auto-refresh on the dashboard. The subtitle will show the last time the query executed.
 
 > [!NOTE]
 > Queries using the *merge* data source are not currently supported when pinning to dashboards.
@@ -68,4 +65,4 @@ Clicking on the Auto-Refresh button opens a list of intervals to let the user pi
 :::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot of workbooks with auto-refresh with interval set.":::
 
 ## Next Steps
- - [Azure workbooks data sources](workbooks-data-sources.md).
+ - [Azure workbooks data sources](workbooks-data-sources.md)

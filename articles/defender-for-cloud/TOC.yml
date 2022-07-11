@@ -5,6 +5,7 @@
   expanded: true
   items:
   - name: What is Microsoft Defender for Cloud?
+    displayName: Defender for cloud, servers, storage, sql, containers, app service, key vaulkt, resource manager, dns, open-source relational databases, Azure cosmos db, db, Azure, defender
     href: defender-for-cloud-introduction.md
   - name: What are the enhanced security features?
     displayName: azure defender
@@ -289,7 +290,7 @@
   - name: Database protection
     items:
     - name: Enable database protection
-      href: defender-for-sql-enable-azure-sql-protections.md
+      href: quickstart-enable-database-protections.md
     - name: Defender for Azure SQL Databases
       items: 
       - name: Overview
@@ -434,6 +435,8 @@
       href: episode-twelve.md
     - name: Defender for Storage
       href: episode-thirteen.md
+    - name: Defender for Servers deployment in AWS and GCP
+      href: episode-fourteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

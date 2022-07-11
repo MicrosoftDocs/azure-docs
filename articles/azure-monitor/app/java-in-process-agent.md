@@ -9,13 +9,13 @@ ms.custom: devx-track-java
 
 # Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. After you finish the instructions in this article, you'll be able to use Azure Monitor Application Insights to monitor your application.
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. It can be used for any environment, including on-premises. After you finish the instructions in this article, you'll be able to use Azure Monitor Application Insights to monitor your application.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Get started
 
-Java auto-instrumentation can be enabled without any code changes.
+Java auto-instrumentation is enabled through configuration changes; no code changes are required.
 
 ### Prerequisites
 
@@ -29,13 +29,14 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.11/applicationinsights-agent-3.2.11.jar) file.
+Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.3.0/applicationinsights-agent-3.3.0.jar) file.
 
 > [!WARNING]
 > 
-> If you're upgrading from 3.2.x to 3.3.0-BETA:
+> If you're upgrading from 3.2.x to 3.3.0:
 > 
->    -  Starting from 3.3.0-BETA, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
 > If you're upgrading from 3.1.x:
 > 
@@ -54,10 +55,13 @@ Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.2.11.jar` to your application's JVM args.
+Add `-javaagent:path/to/applicationinsights-agent-3.3.0.jar` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
+
+> [!TIP]
+> If you develop a Spring Boot application, you can replace the JVM argument by a programmatic configuration. More [here](./java-spring-boot.md).
 
 #### Set the Application Insights connection string
 
@@ -69,7 +73,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.2.11.jar` to your applicatio
         APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.11.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.0.jar` with the following content:
 
         ```json
         {
@@ -122,6 +126,7 @@ Java 3.x includes the following instrumentation libraries.
 * JMS consumers
 * Kafka consumers
 * Netty/WebFlux
+* Quartz
 * Servlets
 * Spring scheduling
 
@@ -152,9 +157,10 @@ Autocollected dependencies without downstream distributed trace propagation:
 
 ### Autocollected logs
 
+* Log4j (including MDC/Thread Context properties)
+* Logback (including MDC properties)
+* JBoss Logging (including MDC properties)
 * java.util.logging
-* Log4j, which includes MDC properties
-* SLF4J/Logback, which includes MDC properties
 
 ### Autocollected metrics
 
@@ -172,7 +178,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
 * [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
 * [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
-* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.22.0+
 * [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
 * [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
@@ -192,7 +198,9 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
 * [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
-[//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "Cosmos 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
+
+[//]: # "the remaining above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
 [//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
 [//]: # ""
 [//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
@@ -261,7 +269,7 @@ You can use `opentelemetry-api` to create span events, which populate the traces
    ```java
     import io.opentelemetry.api.trace.Span;
 
-    span.addEvent("eventName");
+    Span.current().addEvent("eventName");
    ```
 
 ### Add span attributes
@@ -290,11 +298,9 @@ Adding one or more custom dimensions populates the _customDimensions_ field in t
    ```java
     import io.opentelemetry.api.trace.Span;
     import io.opentelemetry.api.common.AttributeKey;
-    import io.opentelemetry.api.common.Attributes;
 
-    Attributes attributes = Attributes.of(AttributeKey.stringKey("mycustomdimension"), "myvalue1");
-    span.setAllAttributes(attributes);
-    span.addEvent("eventName", attributes);
+    AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
+    Span.current().setAttribute(attributeKey, "myvalue1");
    ```
 
 ### Update span status and record exceptions
@@ -320,6 +326,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
     import io.opentelemetry.api.trace.Span;
     import io.opentelemetry.api.trace.StatusCode;
 
+    Span span = Span.current();
     span.setStatus(StatusCode.ERROR, "errorMessage");
     span.recordException(e);
    ```
@@ -374,8 +381,9 @@ You can use `opentelemetry-api` to get the trace ID or span ID. This action can 
    ```java
    import io.opentelemetry.api.trace.Span;
 
-   String traceId = Span.current().getSpanContext().getTraceId();
-   String spanId = Span.current().getSpanContext().getSpanId();
+   Span span = Span.current();
+   String traceId = span.getSpanContext().getTraceId();
+   String spanId = span.getSpanContext().getSpanId();
    ```
 
 ## Custom telemetry
@@ -516,7 +524,7 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 ## Troubleshooting
 
-For help with troubleshooting, see [Troubleshooting](java-standalone-troubleshoot.md).
+See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
 
 ## Release notes
 
@@ -541,6 +549,7 @@ To provide feedback:
 
 ## Next steps
 
+- Review [Java auto-instrumentation configuration options](java-standalone-config.md).
 - To review the source code, see the [Azure Monitor Java auto-instrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 - To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).

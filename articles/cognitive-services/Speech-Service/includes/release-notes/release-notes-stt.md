@@ -5,6 +5,17 @@ ms.topic: include
 ms.date: 01/08/2022
 ms.author: eur
 ---
+### 2022-July release
+
+#### New Speech-to-text-locales:
+
+Added 2 new locales as shown in the following table. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `bs-BA`         | Bosnian (Bosnia and Herzegovina)  |
+| `ps-AF`         | Pashto (Afghanistan)              |
+
 
 ### 2022-Jun release
 

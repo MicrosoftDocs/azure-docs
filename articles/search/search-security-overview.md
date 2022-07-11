@@ -59,7 +59,7 @@ Internal requests are secured and managed by Microsoft. You cannot configure or 
 
 Internal traffic consists of:
 
-+ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
++ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, resource logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
 + Requests made to Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md).
 
 <a name="service-access-and-authentication"></a>
@@ -188,7 +188,7 @@ In Azure Cognitive Search, double encryption is an extension of CMK. It's unders
 
 Reliance on API key-based authentication means that you should have a plan for regenerating the admin key at regular intervals, per Azure security best practices. There are a maximum of two admin keys per search service. For more information about securing and managing API keys, see [Create and manage api-keys](search-security-api-keys.md).
 
-### Activity and diagnostic logs
+### Activity and resource logs
 
 Cognitive Search doesn't log user identities so you can't refer to logs for information about a specific user. However, the service does log create-read-update-delete operations, which you might be able to correlate with other logs to understand the agency of specific actions.
 
@@ -202,7 +202,7 @@ For compliance, you can use [Azure Policy](../governance/policy/overview.md) to 
 
 Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Azure Security Benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria and an actionable response that addresses non-compliance.
 
-For Azure Cognitive Search, there's currently one built-in definition. It's for diagnostic logging. With this built-in, you can assign a policy that identifies any search service that is missing diagnostic logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
+For Azure Cognitive Search, there's currently one built-in definition. It's for resource logging. With this built-in, you can assign a policy that identifies any search service that is missing resource logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
 
 ## Watch this video
 

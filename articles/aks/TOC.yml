@@ -179,6 +179,8 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
+        - name: Automatically upgrade an AKS cluster
+          href: auto-upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
         - name: Use Draft (preview)
@@ -223,7 +225,7 @@
               href: use-system-pools.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
-            - name: Start/stop node pools (preview)
+            - name: Start/stop node pools
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
@@ -329,6 +331,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+        - name: Use API Server VNet Integration
+          href: api-server-vnet-integration.md
         - name: Bring your own CNI
           href: use-byo-cni.md
         - name: Create an internal load balancer

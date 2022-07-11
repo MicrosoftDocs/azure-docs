@@ -5,14 +5,14 @@ services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 05/30/2022
+ms.date: 07/05/2022
 ms.reviewer: gardnerjr
 ---
 
 
 # Workbook visualizations
 
-Workbooks provide a rich set of capabilities for visualizing Azure Monitor data. The exact set of capability depends on the data source and result set, but authors can expect them to converge over time. These controls allow authors to present their analysis in rich, interactive reports. 
+Workbooks provide a rich set of capabilities for visualizing Azure Monitor data. The exact set of capabilities depends on the data sources and result sets, but authors can expect them to converge over time. These controls allow authors to present their analysis in rich, interactive reports. 
 
 Workbooks support these kinds of visual components:
 * [Text parameters](#text-parameters)
@@ -27,7 +27,7 @@ Workbooks support these kinds of visual components:
     * [Text visualization](#text-visualizations)
 
 > [!NOTE]
-> Each visualization and data source may have its own [Limits](workbooks-limits.md).
+> Each visualization and data source may have its own [limits](workbooks-limits.md).
 
 ## Examples
 
@@ -68,4 +68,4 @@ Workbooks support these kinds of visual components:
 :::image type="content" source="media/workbooks-visualizations/workbooks-text-visualization-example.png" alt-text="Example screenshot of an Azure workbooks text visualization.":::
 ## Next steps
 
- - [Getting started with Azure Workbooks](workbooks-getting-started.md).
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md)
