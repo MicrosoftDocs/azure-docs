@@ -63,6 +63,26 @@ To track a run that is not running on Azure Machine Learning compute (from now o
 
 You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
+a. Using the workspace configuration file:
+
+```Python
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+import mlflow
+
+ml_client = MLClient.from_config(credential=DefaultAzureCredential()
+azureml_mlflow_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
+mlflow.set_tracking_uri(azureml_mlflow_uri)
+```
+
+> [!TIP]
+> You can download the workspace configuration file by:
+> 1. Navigate to [Azure ML studio](https://ml.azure.com)
+> 2. Click on the uper-right corner of the page -> Download config file.
+> 3. Save the file `config.json` in the same directory where you are working on.
+
+b. Using the subscription ID, esource group name and workspace name:
+
 ```Python
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
@@ -81,7 +101,7 @@ azureml_mlflow_uri = ml_client.workspaces.get(workspace_name).mlflow_tracking_ur
 mlflow.set_tracking_uri(azureml_mlflow_uri)
 ```
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > `DefaultAzureCredential` will try to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in `azure.identity` package.
 
 # [Using an environment variable](#tab/environ)
@@ -112,7 +132,10 @@ mlflow.set_tracking_uri(azureml_mlflow_uri)
 ```
 
 > [!NOTE]
-> You can also get this URL by: Navigate to [Azure ML studio](https://ml.azure.com) -> Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+> You can also get this URL by: 
+> 1. Navigate to [Azure ML studio](https://ml.azure.com)
+> 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+> 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
 
 ---
 
