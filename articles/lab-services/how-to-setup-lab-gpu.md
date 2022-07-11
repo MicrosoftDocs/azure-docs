@@ -20,7 +20,7 @@ This article shows you how to do the following tasks:
 
 On the first page of the lab creation wizard, in the **Virtual machine size** drop-down list, you select the size of the VMs that are needed for your class.  
 
-![Screenshot of the "New lab" pane for selecting a VM size](./media/how-to-setup-gpu/lab-gpu-selection.png)
+<!-- commenting out while resolving conflicts ![Screenshot of the "New lab" pane for selecting a VM size](./media/how-to-setup-gpu/lab-gpu-selection.png) -->
 
 In this process, you have the option of selecting either **Visualization** or **Compute** GPUs.  It's important to choose the type of GPU that's based on the software that your students will use.  
 

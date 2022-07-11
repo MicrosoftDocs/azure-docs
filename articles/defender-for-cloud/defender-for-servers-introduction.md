@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Servers.
-ms.date: 06/26/2022
+ms.date: 06/29/2022
 ms.topic: overview
 ---
 # Overview of Microsoft Defender for Servers
@@ -15,7 +15,10 @@ To protect machines in hybrid and multicloud environments, Defender for Cloud us
 > [!TIP]
 > For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers).
 
-You can learn more from the product manager about Defender for Servers, by watching [Microsoft Defender for Servers](episode-five.md). You can also watch [Enhanced workload protection features in Defender for Servers](episode-twelve.md), or learn how to [deploy in Defender for Servers in AWS and GCP](episode-fourteen.md).
+You can learn more by watching these videos from the Defender for Cloud in the Field video series:
+- [Microsoft Defender for Servers](episode-five.md)
+- [Enhanced workload protection features in Defender for Servers](episode-twelve.md)
+- [Deploy in Defender for Servers in AWS and GCP](episode-fourteen.md)
 
 ## What are the Microsoft Defender for server plans?
 
@@ -48,6 +51,7 @@ The following table describes what's included in each plan at a high level.
 | Microsoft threat and vulnerability management | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Integration of Microsoft Defender for Cloud and Microsoft Defender for Endpoint (alerts, software inventory, Vulnerability Assessment) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Security Policy and Regulatory Compliance | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Log-analytics (500 MB free) | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Vulnerability Assessment using Qualys | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Threat detections: OS level, network layer, control plane | | :::image type="icon" source="./media/icons/yes-icon.png"::: |

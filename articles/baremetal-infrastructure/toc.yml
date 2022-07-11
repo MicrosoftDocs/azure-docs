@@ -11,6 +11,7 @@
     href: connect-baremetal-infrastructure.md
 - name: Workloads
   items: 
+  
   - name: SAP HANA on Azure (Large Instances)
     items:
     - name: Certification
@@ -98,4 +99,9 @@
       - name: Buy an SAP HANA Large Instances reservation
         href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
   - name: Oracle
+    items:
     href: ./workloads/oracle/toc.yml
+  - name: NC2 on Azure Public Preview
+    items: 
+    href: ./workloads/nc2-public-preview/toc.yml
+  

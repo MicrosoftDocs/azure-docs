@@ -49,7 +49,7 @@ In the following example, we use the General Documents feature. The steps to use
 
 1. This step is a one-time process unless you've already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
 
-1. Select the Analyze command to run analysis on the sample document or try your document by using the Add command.
+1. Select the Analyze button to run analysis on the sample document or try your document by using the Add command.
 
 1. Use the controls at the bottom of the screen to zoom in and out and rotate the document view.
 

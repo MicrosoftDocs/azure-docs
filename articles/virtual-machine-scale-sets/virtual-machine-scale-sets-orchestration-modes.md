@@ -115,6 +115,8 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Service Fabric  | No  | Yes  | No |
 | Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No |
 | UserData  | Yes | Yes  | UserData can be specified for individual VMs |
+| Option to delete or retain VM NIC and Disks | Yes | No (always delete) | Yes |
+| Ultra Disks | Yes | Yes | No |
 
 <sup>1</sup> For Uniform scale sets, the `GET VMSS` response will have a reference to the *identity*, *clientID*, and *principalID*. For Flexible scale sets, the response will only get a reference the *identity*. You can make a call to `Identity` to get the *clientID* and *PrincipalID*. 
 
