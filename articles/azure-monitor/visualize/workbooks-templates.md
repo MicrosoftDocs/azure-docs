@@ -5,7 +5,7 @@ services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 05/30/2022
+ms.date: 07/05/2022
 ms.reviewer: gardnerjr 
 ---
 
@@ -29,13 +29,13 @@ You can adjust the subscription, targeted apps, and the time range of the data y
 
 ## Edit a template
 
-To understand how this workbook template is put together, switch to edit mode by selecting the **Edit** toolbar button.
+To understand how this workbook template is put together, switch to edit mode by selecting **Edit**.
 
-  :::image type="content" source="./media/workbooks-overview/edit.png" alt-text="Screenshot that shows the Edit button on the toolbar." border="false" :::
+  :::image type="content" source="./media/workbooks-overview/edit.png" alt-text="Screenshot that shows the Edit button." border="false" :::
 
-Notice the **Edit** boxes to the right that correspond with each individual aspect of your workbook.
+**Edit** buttons on the right correspond with each individual aspect of your workbook.
 
-  :::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Screenshot that shows Edit boxes." border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
+  :::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Screenshot that shows Edit buttons." border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
 
 If you select the **Edit** button immediately under the grid of requested data, you can see that this part of the workbook consists of a Kusto query against data from an Application Insights resource.
 

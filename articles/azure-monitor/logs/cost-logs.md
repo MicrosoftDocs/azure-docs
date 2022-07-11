@@ -82,7 +82,7 @@ The charge for searching against Basic Logs is based on the GB of data scanned i
 See [Configure Basic Logs in Azure Monitor](basic-logs-configure.md) for details on Basic Logs including how to configure them and query their data.
 
 ## Log data retention and archive
-In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
+In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge to search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
 See [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
 

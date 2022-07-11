@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 9/04/2020
+ms.date: 07/05/2022
 ---
 
 # Composite bar renderer
@@ -20,9 +20,9 @@ The composite bar renderer is supported for grid, tile, and graph visualizations
 
 ## Add the composite bar renderer
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit**.
 1. Select **Add** > **Add query**.
-1. Set **Data source** to **JSON** and set **Visualization** to **Grid**.
+1. Set **Data source** to `JSON` and set **Visualization** to `Grid`.
 1. Add the following JSON data:
 
     ```json
@@ -35,9 +35,9 @@ The composite bar renderer is supported for grid, tile, and graph visualizations
     ```
 
 1. Run the query.
-1. Select **Column Settings** to open the settings.
-1. From **Columns**, select **total**. For **Column renderer**, select **Composite Bar**.
-1. Set the following settings under **Composite Bar Settings**:
+1. Select **Column Settings** to open the settings pane.
+1. Under **Columns**, select `total`. For **Column renderer**, select `Composite Bar`.
+1. Under **Composite Bar Settings**, set the following settings:
 
     | Column Name | Color        |
     |-------------|--------------|
@@ -45,9 +45,9 @@ The composite bar renderer is supported for grid, tile, and graph visualizations
     | recovering  | Yellow       |
     | offline     | Red (Bright) |
 
-1. For **Label**, enter **["online"] of ["total"] are healthy**.
-1. In the column settings for **online**, **offline**, and **recovering**, you can set **Column renderer** to **Hidden** (optional).
-1. Select the **Labels** tab at the top and update the label for the total column as **Database Status** (optional).
+1. For **Label**, enter `["online"] of ["total"] are healthy`.
+1. In the column settings for **online**, **offline**, and **recovering**, you can set **Column renderer** to `Hidden` (optional).
+1. Select the **Labels** tab and update the label for the total column as `Database Status` (optional).
 1. Select **Apply**.
 
 The composite bar settings will look like the following screenshot:
@@ -64,7 +64,7 @@ Select the column name and corresponding color to render the column in that colo
 
 ### Label
 
-The composite bar label is displayed at the top of the composite bar. You can use a mix of static text, columns, and parameters. If **Label** is empty, the value of the current columns is displayed as the label. In the previous example, if we left the **Label** field black, the value of total columns would be displayed.
+The composite bar label is displayed at the top of the composite bar. You can use a mix of static text, columns, and parameters. If **Label** is empty, the value of the current columns is displayed as the label. In the previous example, if we left the **Label** field blank, the value of total columns would be displayed.
 
 Refer to columns with `["columnName"]`.
 
@@ -112,22 +112,22 @@ For grid visualizations, the sorting of the rows for the column with the composi
 
 ## Tile visualizations
 
-To make a composite bar renderer for a tile visualization, follow these instructions.
+To make a composite bar renderer for a tile visualization:
 
 1. Select **Add** > **Add query**.
-1. Change the data source to **JSON**, and enter the data from the [previous example](#add-the-composite-bar-renderer).
-1. Change **Visualization** to **Tiles**.
+1. Change the data source to `JSON`. Enter the data from the [previous example](#add-the-composite-bar-renderer).
+1. Change **Visualization** to `Tiles`.
 1. Run the query.
 1. Select **Tile Settings**.
-1. Select **Left** in **Tile fields**.
-1. Enter the following settings under **Field settings**:
-    1. **Use column**: `server`.
-    1. **Column renderer**: `Text`.
-1. Select **Bottom** in **Tile fields**.
-1. Enter the following settings under **Field settings**.
+1. Under **Tile fields**, select **Left**.
+1. Under **Field settings**, set the following settings:
+    1. **Use column**: `server`
+    1. **Column renderer**: `Text`
+1. Under **Tile fields**, select **Bottom**.
+1. Under **Field settings**, set the following settings:
     1. **Use column**: `total`
     1. **Column renderer**: `Composite Bar`
-    1. Enter the following settings under **Composite Bar Settings**:
+    1. Under **Composite Bar Settings**, set the following settings:
 
         | Column Name | Color        |
         |-------------|--------------|
@@ -135,7 +135,7 @@ To make a composite bar renderer for a tile visualization, follow these instruct
         | recovering  | Yellow       |
         | offline     | Red (Bright) |
 
-    1. For **Label**, enter **["online"] of ["total"] are healthy**.
+    1. For **Label**, enter `["online"] of ["total"] are healthy`.
 1. Select **Apply**.
 
 Composite bar settings for tiles:
@@ -148,18 +148,18 @@ The composite bar view for tiles with the preceding settings will look like this
 
 ## Graph visualizations
 
-To make a composite bar renderer for a graph visualization (type Hive Clusters), follow these instructions.
+To make a composite bar renderer for a graph visualization (type Hive Clusters):
 
 1. Select **Add** > **Add query**.
-2. Change **Data source** to **JSON**, and enter the data from the [previous example](#add-the-composite-bar-renderer).
-1. Change **Visualization** to **Graphs**.
+2. Change **Data source** to `JSON`. Enter the data from the [previous example](#add-the-composite-bar-renderer).
+1. Change **Visualization** to `Graphs`.
 1. Run the query.
 1. Select **Graph Settings**.
-1. Select **Center Content** in **Node Format Settings**.
-1. Enter the following settings under **Field Settings**:
+1. Under **Node Format Settings**, select **Center Content**.
+1. Under **Field settings**, set the following settings:
     1. **Use column**: `total`
     1. **Column renderer**: `Composite Bar`
-    1. Enter the following settings under **Composite Bar Settings**:
+    1. Under **Composite Bar Settings**, set the following settings:
 
         |Column Name  |     Color    |
         |-------------|--------------|
@@ -167,8 +167,8 @@ To make a composite bar renderer for a graph visualization (type Hive Clusters),
         | recovering  | Yellow       |
         | offline     | Red (Bright) |
 
-   1. For **Label**, enter **["online"] of ["total"] are healthy**.
-1. Enter the following settings under **Layout Settings**:
+   1. For **Label**, enter `["online"] of ["total"] are healthy`.
+1. Under **Layout Settings**, set the following settings:
     1. **Graph Type**: `Hive Clusters`
     1. **Node ID**: `server`
     1. **Group By Field**: `None`

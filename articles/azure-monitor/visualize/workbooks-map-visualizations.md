@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 07/05/2022
 ---
 
 # Map visualization
@@ -29,7 +29,7 @@ A map can be visualized if the underlying data or metrics have:
 
 ### Use an Azure location
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit**.
 1. Select **Add** > **Add query**.
 1. Change **Data Source** to **Azure Resource Graph**. Then select any subscription that has a storage account.
 1. Enter the following query for your analysis and then select **Run Query**.
@@ -39,34 +39,34 @@ A map can be visualized if the underlying data or metrics have:
     | summarize count() by location
     ```
 
-1. Set **Size** to **Large**.
-1. Set **Visualization** to **Map**.
-1. All the settings are autopopulated. For custom settings, select the **Map Settings** button to open the settings pane.
+1. Set **Size** to `Large`.
+1. Set **Visualization** to `Map`.
+1. All the settings will be autopopulated. For custom settings, select **Map Settings** to open the settings pane.
 1. The following screenshot of the map visualization shows storage accounts for each Azure region for the selected subscription.
 
 ![Screenshot that shows an Azure location map with the preceding query.](./media/workbooks-map-visualizations/map-azure-location-example.png)
 
 ### Use an Azure resource
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit**.
 1. Select **Add** > **Add Metric**.
 1. Use a subscription that has storage accounts.
-1. Change **Resource Type** to **storage account**. In **Resource**, select multiple storage accounts.
+1. Change **Resource Type** to `storage account`. In **Resource**, select multiple storage accounts.
 1. Select **Add Metric** and add a transaction metric:
     1. **Namespace**: `Account`
     1. **Metric**: `Transactions`
     1. **Aggregation**: `Sum`
 
-    ![Screenshot that shows the transaction metric.](./media/workbooks-map-visualizations/map-transaction-metric.png)
-1. Select **Add Metric** and add the **Success E2E Latency** metric:
+    ![Screenshot that shows a transaction metric.](./media/workbooks-map-visualizations/map-transaction-metric.png)
+1. Select **Add Metric** and add the **Success E2E Latency** metric.
     1. **Namespace**: `Account`
     1. **Metric**: `Success E2E Latency`
     1. **Aggregation**: `Average`
 
-    ![Screenshot that shows the Success end-to-end latency metric.](./media/workbooks-map-visualizations/map-e2e-latency-metric.png)
-1. Set **Size** to **Large**.
-1. Set **Visualization** to **Map**.
-1. In **Map Settings**, set the following settings:
+    ![Screenshot that shows a success end-to-end latency metric.](./media/workbooks-map-visualizations/map-e2e-latency-metric.png)
+1. Set **Size** to `Large`.
+1. Set **Visualization** to `Map`.
+1. In **Map Settings**, set:
     1. **Location info using**: `Azure Resource`
     1. **Azure resource field**: `Name`
     1. **Size by**: `microsoft.storage/storageaccounts-Transaction-Transactions`
@@ -78,17 +78,17 @@ A map can be visualized if the underlying data or metrics have:
     1. **Minimum value**: `0`
     1. **Metric value**: `microsoft.storage/storageaccounts-Transaction-SuccessE2ELatency`
     1. **Aggregate other metrics by**: `Sum of values`
-    1. Select the **Custom formatting** box:
-        - **Unit**: `Milliseconds`
-        - **Style**: `Decimal`
-        - **Maximum fractional digits**: `2`
+    1. Select the **Custom formatting** checkbox.
+    1. **Unit**: `Milliseconds`
+    1. **Style**: `Decimal`
+    1. **Maximum fractional digits**: `2`
 
 ### Use country/region
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit**.
 1. Select **Add** > **Add query**.
-1. Change **Data source** to **Log**.
-1. Select **Resource type** as **Application Insights**. Then select any Application Insights resource that has `pageViews` data.
+1. Change **Data source** to `Log`.
+1. Select **Resource type** as `Application Insights`. Then select any Application Insights resource that has `pageViews` data.
 1. Use the query editor to enter the KQL for your analysis and select **Run Query**.
 
     ```kusto
@@ -97,18 +97,18 @@ A map can be visualized if the underlying data or metrics have:
     | limit 20
     ```
 
-1. Set **Size** to **Large**.
-1. Set **Visualization** to **Map**.
+1. Set **Size** to `Large`.
+1. Set **Visualization** to `Map`.
 1. All the settings will be autopopulated. For custom settings, select **Map Settings**.
 
 ### Use latitude/location
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit**.
 1. Select **Add** > **Add query**.
-1. Change **Data source** to **JSON**.
+1. Change **Data source** to `JSON`.
 1. Enter the JSON data in the query editor and select **Run Query**.
-1. Set **Size** to **Large**.
-1. Set **Visualization** to **Map**.
+1. Set **Size** values to `Large`.
+1. Set **Visualization** to `Map`.
 1. In **Map Settings** under **Metric Settings**, set **Metric Label** to `displayName`. Then select **Save and Close**.
 
 The following map visualization shows users for each latitude and longitude location with the selected label for metrics.
@@ -121,7 +121,7 @@ Map settings include layout, color, and metrics.
 
 ### Layout settings
 
-| Setting | Explanation |
+| Setting | Description |
 |:-------------|:-------------|
 | `Location info using` | Select a way to get the location of items shown on the map. <br> **Latitude/Longitude**: Select this option if there are columns with latitude and longitude information. Each row with latitude and longitude data will be shown as a distinct item on the map. <br> **Azure location**: Select this option if there's a column that has Azure location (eastus, westeurope, centralindia) information. Specify that column and it will fetch the corresponding latitude and longitude for each Azure location. It will group the same location rows together based on the aggregation specified to show the locations on the map. <br> **Azure resource**: Select this option if there's a column that has Azure resource information such as an Azure Storage account and an Azure Cosmos DB account. Specify that column and it will fetch the corresponding latitude and longitude for each Azure resource. It will group the same location (Azure location) rows together based on the aggregation specified to show the locations on the map. <br> **Country/Region**: Select this option if there's a column that has country/region name/code (US, United States, IN, India, CN, China) information. Specify that column and it will fetch the corresponding latitude and longitude for each country/region/code. It will group rows together with the same Country-Region Code/Country-Region Name to show the locations on the map. Country Name and Country Code won't be grouped together as a single entity on the map.
 | `Latitude/Longitude` | These two options will be visible if the `Location Info` field value is **Latitude/Longitude**. Select the column that has latitude in the `Latitude` field and longitude in the `Longitude` field, respectively. |
@@ -139,7 +139,7 @@ Map settings include layout, color, and metrics.
 
 ### Color settings
 
-| Coloring type | Explanation |
+| Coloring type | Description |
 |:------------- |:-------------|
 | `None` | All nodes have the same color. |
 | `Thresholds` | In this type, cell colors are set by threshold rules, for example, _CPU > 90%  => Red, 60% > CPU > 90% => Yellow, CPU < 60% => Green_. <ul><li> `Color by`: The value of this column will be used by Thresholds/Heatmap logic.</li> <li>`Aggregation for color`: This field specifies how to aggregate the `Color by` columns that have the same Azure Location/Azure Resource/Country-Region. </li> <ul> |
@@ -147,7 +147,7 @@ Map settings include layout, color, and metrics.
 
 ### Metric settings
 
-| Setting | Explanation |
+| Setting | Description |
 |:------------- |:-------------|
 | `Metric Label` | This option will be visible if the `Location Info` field value is **Latitude/Longitude**. With this feature, you can pick the label to show for the metrics shown below the map. |
 | `Metric Value` | This field specifies a metric value to be shown below the map. |

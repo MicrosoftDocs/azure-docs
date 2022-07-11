@@ -2,7 +2,7 @@
 title: Set up preview features in Azure subscription
 description: Describes how to list, register, or unregister preview features in your Azure subscription for a resource provider.
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 07/08/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As an Azure user, I want to use preview features in my subscription so that I can expose a resource provider's preview functionality.
 ---
@@ -14,6 +14,10 @@ This article shows you how to manage preview features in your Azure subscription
 Azure Feature Exposure Control (AFEC) is available through the [Microsoft.Features](/rest/api/resources/features) namespace. Preview features have the following format for the resource ID:
 
 `Microsoft.Features/providers/{resourceProviderNamespace}/features/{featureName}`
+
+## Required access
+
+To list, register, or unregister preview features in your Azure subscription, you need access to the `Microsoft.Features/*` actions. This permission is granted through the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) and [Owner](../../role-based-access-control/built-in-roles.md#owner) built-in roles. You can also specify the required access through a [custom role](../../role-based-access-control/custom-roles.md).
 
 ## List preview features
 

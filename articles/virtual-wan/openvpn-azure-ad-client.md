@@ -1,12 +1,13 @@
 ---
-title: 'VPN Gateway: VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
+title: 'VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
+titleSuffix: Azure Virtual WAN
 description: Learn how to use P2S VPN to connect to your VNet using Azure AD authentication.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 06/30/2022
 ms.author: cherylmc
 
 ---
@@ -144,148 +145,9 @@ These steps help you configure your connection to connect automatically with Alw
 
     ![Screenshot shows the results of the diagnosis.](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## FAQ
+## Optional client settings
 
-### <a name="add-suffix"></a>How do I add DNS suffixes to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-    <dnssuffixes>
-          <dnssuffix>.mycorp.com</dnssuffix>
-          <dnssuffix>.xyz.com</dnssuffix>
-          <dnssuffix>.etc.net</dnssuffix>
-    </dnssuffixes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### <a name="custom-dns"></a>How do I add custom DNS servers to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<dnsservers>
-		<dnsserver>x.x.x.x</dnsserver>
-        <dnsserver>y.y.y.y</dnsserver>
-	</dnsservers>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-> [!NOTE]
-> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
->
-
-### <a name="multi-cert"></a>Can I specify multiple certificates for the VPN client?
-
-If you have 2 hubs for your virtual WAN that are each configured for P2S User VPN and use the same VPN configuration, and that configuration is configured to use multiple certificates, you can now configure the VPN clients for multiple certificates. This means that if one certificate can't be used for any reason, the other certificate can still be used for authentication. Previously, you couldn't configure the client with the settings for both certificates. Go to the Virtual WAN -> User VPN configurations page, select the User VPN configuration used by both hubs, then select **Download virtual WAN user VPN profile** to download the global user VPN profile (rather than the hub profile). The files you download contain the root end certificates.
-
-You can configure multiple certificate support on the client side by either using the Azure VPN Client interface (version 2.1963.44.0 or higher), or by using multiple certificate tags in the xml profile.
-
-Example:
-
-```xml
-  </protocolconfig>
-  <serverlist>
-    <ServerEntry>
-      <displayname
-        i:nil="true" />
-      <fqdn>wan.kycyz81dpw483xnf3fg62v24f.vpn.azure.com</fqdn>
-    </ServerEntry>
-  </serverlist>
-  <servervalidation>
-    <cert>
-      <hash>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436</hash>
-      <issuer
-        i:nil="true" />
-    </cert>
-    <cert>
-      <hash>59470697201baejC4B2D7D66D40C6DD2FB19C5436</hash>
-      <issuer
-        i:nil="true" />
-    </cert>
-    <cert>
-      <hash>cab20a7f63f00f2bae76202gdfe36db3a03a9cb9</hash>
-      <issuer
-        i:nil="true" />
-    </cert>
-```
-
-### <a name="custom-routes"></a>How do I add custom routes to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<includeroutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-	</includeroutes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### <a name="force-tunneling"></a>How do I direct all traffic to the VPN tunnel (force tunnel)?
-
-You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<includeroutes>
-		<route>
-			<destination>0.0.0.0</destination><mask>1</mask>
-		</route>
-		<route>
-			<destination>128.0.0.0</destination><mask>1</mask>
-		</route>
-	</includeroutes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### <a name="exclude-routes"></a>How do I block (exclude) routes from the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<excluderoutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-	</excluderoutes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### <a name="import-profile"></a>Can I import the profile from a command-line prompt?
-
-You can import the profile from a command-line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
-
-```
-azurevpn -i azurevpnconfig.xml 
-```
-To force the import, use the **-f** switch.
-
+You can configure optional settings for the Azure VPN Client, such as forced tunneling, exclude routes, DNS, and certificate authentication settings. For steps, see [Configure Azure VPN Client optional settings](azure-vpn-client-optional-configurations-windows.md).
 
 ## Next steps
 

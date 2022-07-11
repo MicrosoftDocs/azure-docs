@@ -378,7 +378,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 <sup><a name="footnote1"></a>1</sup>: **Preview for non-AKS clusters**: This alert is generally available for AKS clusters, but it is in preview for other environments, such as Azure Arc, EKS and GKE.
 
-<sup><a name="footnote2"></a>2</sup>: **Limitations on GKE clusters**: GKE uses a Kuberenetes audit policy that doesn't support all alert types. As a result, this security alert, which is based on Kubernetes audit events, are not supported for GKE clusters.
+<sup><a name="footnote2"></a>2</sup>: **Limitations on GKE clusters**: GKE uses a Kuberenetes audit policy that doesn't support all alert types. As a result, this security alert, which is based on Kubernetes audit events, is not supported for GKE clusters.
 
 <sup><a name="footnote3"></a>3</sup>: This alert is supported on Windows nodes/containers.
 

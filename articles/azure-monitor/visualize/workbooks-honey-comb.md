@@ -5,24 +5,24 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 07/05/2022
 ---
 
 # Honeycomb visualizations
 
 Azure Workbooks honeycomb visualizations provide high-density views of metrics or categories that can optionally be grouped as clusters. They're useful for visually identifying hotspots and drilling in further.
 
-The following image shows the CPU utilization of virtual machines across two subscriptions. Each cell represents a virtual machine. The color/label represents its average CPU utilization. Reds are hot machines. The virtual machines are clustered by subscription.
+The following image shows the CPU utilization of virtual machines across two subscriptions. Each cell represents a virtual machine. The color/label represents its average CPU utilization. Red cells are hot machines. The virtual machines are clustered by subscription.
 
-[![Screenshot that shows the CPU utilization of virtual machines across two subscriptions](.\media\workbooks-honey-comb\cpu-example.png)](.\media\workbooks-honey-comb\cpu-example.png#lightbox)
+[![Screenshot that shows the CPU utilization of virtual machines across two subscriptions.](.\media\workbooks-honey-comb\cpu-example.png)](.\media\workbooks-honey-comb\cpu-example.png#lightbox)
 
 ## Add a honeycomb
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit**.
 1. Select **Add** > **Add query** to add a log query control to the workbook.
 1. For **Data source**, select **Logs**. For **Resource type**, select **Log Analytics**. For **Resource**, point to a workspace that has a virtual machine performance log.
 1. Use the query editor to enter the KQL for your analysis.
-    
+
     ```kusto
         Perf
     | where CounterName == 'Available MBytes'
@@ -32,8 +32,19 @@ The following image shows the CPU utilization of virtual machines across two sub
     ```
 
 1. Run the query.
-1. Set **Visualization** to **Graph**.
+1. Set **Visualization** to `Graph`.
 1. Select **Graph Settings**.
+    1. In **Node Format Settings** at the top, set:
+        1. **Top Content**
+            - **Use column**: `Computer`
+            - **Column renderer**: `Text`
+        1. **Center Content**
+            - **Use column**: `CounterValue`
+            - **Column renderer**: `Big Number`
+            - **Color palette**: `None`
+            - Select the **Custom number formatting** checkbox.
+            - **Units**: `Megabytes`
+            - **Maximum fractional digits**: `1`
     1. In **Layout Settings** at the bottom, set:
         - **Graph Type**: `Hive Clusters`
         - **Node ID**: `Id`
@@ -45,24 +56,14 @@ The following image shows the CPU utilization of virtual machines across two sub
         - **Color palette**: `Red to Green`
         - **Minimum value**: `100`
         - **Maximum value**: `2000`
-    1. In **Node Format Settings** at the top, set:
-        1. **Top Content**:
-            - **Use column**: `Computer`
-            - **Column renderer**: `Text`
-        1. **Center Content**:
-            - **Use column**: `CounterValue`
-            - **Column renderer**: `Big Number`
-            - **Color palette**: `None`
-            - Select the **Custom number formatting** checkbox.
-            - **Units**: `Megabytes`
-            - **Maximum fractional digits**: `1`
-1. Select the **Save and Close** button at the bottom of the pane.
 
-[![Screenshot that shows query control, graph settings, and honeycomb with the preceding query and settings](.\media\workbooks-honey-comb\available-memory.png)](.\media\workbooks-honey-comb\available-memory.png#lightbox)
+1. Select **Save and Close** at the bottom of the pane.
+
+[![Screenshot that shows query control, graph settings, and honeycomb with the preceding query and settings.](.\media\workbooks-honey-comb\available-memory.png)](.\media\workbooks-honey-comb\available-memory.png#lightbox)
 
 ## Honeycomb layout settings
 
-| Setting | Explanation |
+| Setting | Description |
 |:------------- |:-------------|
 | `Node ID` | Selects a column that provides the unique ID of nodes. The value of the column can be a string or a number. |
 | `Group By Field` | Select the column to cluster the nodes on. |
@@ -73,7 +74,7 @@ The following image shows the CPU utilization of virtual machines across two sub
 
 ## Node coloring types
 
-| Coloring type | Explanation |
+| Coloring type | Description |
 |:------------- |:-------------|
 | `None` | All nodes have the same color. |
 | `Categorical` | Nodes are assigned colors based on the value or category from a column in the result set. In the preceding example, the coloring is based on the column `Kind` of the result set. Supported palettes are `Default`, `Pastel`, and `Cool tone`.  |
@@ -83,7 +84,7 @@ The following image shows the CPU utilization of virtual machines across two sub
 
 ## Node format settings
 
-You can specify what content goes to the different parts of a node: top, left, center, right, and bottom. You're free to use any of the renderers' workbook supports like text, big numbers, spark lines, and icons.
+You can specify what content goes to the different parts of a node: top, left, center, right, and bottom. You're free to use any of the renderers supported by workbooks like text, big numbers, spark lines, and icons.
 
 ## Next steps
 

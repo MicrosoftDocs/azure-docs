@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 07/05/2022
 ---
 
 # Graph visualizations
@@ -18,7 +18,7 @@ The following graph shows data flowing in and out of a computer via various port
 
 ## Add a graph
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit**.
 1. Use the **Add query** link to add a log query control to the workbook.
 1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
@@ -46,17 +46,7 @@ The following graph shows data flowing in and out of a computer via various port
     ```
 
 1. Set **Visualization** to **Graph**.
-1. Select the **Graph Settings** button to open the **Graph Settings** pane.
-1. In **Layout Settings** at the bottom, set:
-    * **Node ID**: `Id`
-    * **Source ID**: `SourceId`
-    * **Target ID**: `TargetId`
-    * **Edge Label**: `None`
-    * **Edge Size**: `Calls`
-    * **Node Size**: `None`
-    * **Coloring Type**: `Categorical`
-    * **Node Color Field**: `Kind`
-    * **Color palette**: `Pastel`
+1. Select **Graph Settings** to open the **Graph Settings** pane.
 1. In **Node Format Settings** at the top, set:
     * **Top Content**
         - **Use column**: `Name`
@@ -68,13 +58,23 @@ The following graph shows data flowing in and out of a computer via various port
     * **Bottom Content**
         - **Use column**: `Kind`
         * **Column renderer**: `Text`
-1. Select the **Save and Close** button at the bottom of the pane.
+1. In **Layout Settings** at the bottom, set:
+    * **Node ID**: `Id`
+    * **Source ID**: `SourceId`
+    * **Target ID**: `TargetId`
+    * **Edge Label**: `None`
+    * **Edge Size**: `Calls`
+    * **Node Size**: `None`
+    * **Coloring Type**: `Categorical`
+    * **Node Color Field**: `Kind`
+    * **Color palette**: `Pastel`
+1. Select **Save and Close** at the bottom of the pane.
 
 [![Screenshot that shows a tile summary view with the preceding query and settings.](./media/workbooks-graph-visualizations/graph-settings.png)](./media/workbooks-graph-visualizations/graph-settings.png#lightbox)
 
 ## Graph settings
 
-| Setting         | Explanation                                                                                                        |
+| Setting         | Description                                                                                                        |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------|
 | `Node ID`       | Selects a column that provides the unique ID of nodes on the graph. The value of the column can be a string or a number. |
 | `Source ID`     | Selects a column that provides the IDs of source nodes for edges on the graph. Values must map to a value in the `Node Id` column. |
@@ -86,7 +86,7 @@ The following graph shows data flowing in and out of a computer via various port
 
 ## Node coloring types
 
-| Coloring type | Explanation |
+| Coloring type | Description |
 |:------------- |:------------|
 | `None`        | All nodes have the same color. |
 | `Categorical` | Nodes are assigned colors based on the value or category from a column in the result set. In the preceding example, the coloring is based on the column `Kind` of the result set. Supported palettes are `Default`, `Pastel`, and `Cool tone`.  |
@@ -98,7 +98,7 @@ You can specify what content goes to the different parts of a node: top, left, c
 
 ## Field-based node coloring
 
-1. Switch the workbook to edit mode by selecting the **Edit** toolbar button.
+1. Switch the workbook to edit mode by selecting **Edit**.
 1. Use the **Add query** link to add a log query control to the workbook.
 1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
@@ -125,8 +125,19 @@ You can specify what content goes to the different parts of a node: top, left, c
     | union (links)
     ```
 
-1. Set **Visualization** to **Graph**.
-1. Select the **Graph Settings** button to open the **Graph Settings** pane.
+1. Set **Visualization** to `Graph`.
+1. Select **Graph Settings** to open the **Graph Settings** pane.
+1. In **Node Format Settings** at the top, set:
+    * **Top Content**:
+        * **Use column**: `Name`
+        * **Column renderer**: `Text`
+    * **Center Content**:
+        * **Use column**: `Calls`
+        * **Column renderer**: `Big Number`
+        * **Color palette**: `None`
+    * **Bottom Content**:
+        * **Use column**: `Kind`
+        * **Column renderer**: `Text`
 1. In **Layout Settings** at the bottom, set:
     * **Node ID**:`Id`
     * **Source ID**: `SourceId`
@@ -136,18 +147,7 @@ You can specify what content goes to the different parts of a node: top, left, c
     * **Node Size**: `Node`
     * **Coloring Type**: `Field Based`
     * **Node Color Field**: `Color`
-1. In **Node Format Settings** at the top, enter the following:
-    * In **Top Content**, set:
-        * **Use column**: `Name`
-        * **Column renderer**: `Text`
-    * In **Center Content**, set:
-        * **Use column**: `Calls`
-        * **Column renderer**: `Big Number`
-        * **Color palette**: `None`
-    * In **Bottom Content**, set:
-        * **Use column**: `Kind`
-        * **Column renderer**: `Text`
-1. Select the **Save and Close** button at the bottom of the pane.
+1. Select **Save and Close** at the bottom of the pane.
 
 [![Screenshot that shows the creation of a graph visualization with field-based node coloring.](./media/workbooks-graph-visualizations/graph-field-based.png)](./media/workbooks-graph-visualizations/graph-field-based.png#lightbox)
 

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 07/06/2022
 ms.custom: template-concept, ignite-fall-2021
 ---
 
@@ -34,7 +34,7 @@ Dynamic membership gives you the flexibility of selecting multiple virtual netwo
 
 When you create a network group, an Azure policy is created so that Azure Virtual Network Manager gets notified about changes made to virtual network membership. The policies defined are available for you to see, but they are not editable by users today. Creating, changing, and deleting Azure policy definitions and assignments for network groups is only possible through the Azure Network Manager today. 
 
-To create an Azure policy initiative definition and assignment for Azure Network Manager resources, create and deploy a network group with the necessary configurations. To update an existing Azure policy initiative definition or corresponding assignment, you'll need to change and deploy changes to the network group within the Azure Virtual Network Manager resource. To delete an Azure policy initiative definition and assignment, you'll need to undeploy and delete the Azure Virtual Network Manager resources associated with your policy. This may include undeploying a configuration, deleting a configuration, and deleting a network group. For more information on deletion, review the Azure Virtual Network Manager [checklist for removing components](concept-remove-components-checklist.md).  
+To create an Azure policy initiative definition and assignment for Azure Network Manager resources, create and deploy a network group with the necessary configurations. To update an existing Azure policy initiative definition or corresponding assignment, you'll need to change and deploy changes to the network group within the Azure Virtual Network Manager resource. To delete an Azure policy initiative definition and assignment, you'll need to undeploy and delete the Azure Virtual Network Manager resources associated with your policy. This may include removing a configuration, deleting a configuration, and deleting a network group. For more information on deletion, review the Azure Virtual Network Manager [checklist for removing components](concept-remove-components-checklist.md).  
 
 ## Next steps
 

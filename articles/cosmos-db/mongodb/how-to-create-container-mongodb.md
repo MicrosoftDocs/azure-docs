@@ -28,7 +28,7 @@ This article explains the different ways to create a collection in Azure Cosmos 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-an-azure-cosmos-db-account), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
