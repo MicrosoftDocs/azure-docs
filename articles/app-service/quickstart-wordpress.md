@@ -45,7 +45,7 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 
      :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure portal WordPress settings" alt-text="Screenshot of WordPress settings":::
 
-1. Select the **Advanced** tab. Under **Additional Settings** choose your preferred **Site Language** and  **Content Distribution**. If you're unfamiliar with a [Content Delivery Network](../cdn/cdn-overview) or [Blob Storage](../storage/blobs/storage-blobs-overview), select **Disabled**. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
+1. Select the **Advanced** tab. Under **Additional Settings** choose your preferred **Site Language** and  **Content Distribution**. If you're unfamiliar with a [Content Delivery Network](../cdn/cdn-overview.md) or [Blob Storage](../storage/blobs/storage-blobs-overview.md), select **Disabled**. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
 
     :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings":::
 
