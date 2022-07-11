@@ -368,6 +368,8 @@ items:
           href: sql/develop-tables-data-types.md
         - name: Distributed tables
           href: ./sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context
+        - name: Distribution Advisor 
+          href: ./sql/distribution-advisor
         - name: Table constraints 
           href:  ./sql-data-warehouse/sql-data-warehouse-table-constraints.md?context=/azure/synapse-analytics/context/context
         - name: External tables
