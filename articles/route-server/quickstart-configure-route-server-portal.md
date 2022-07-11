@@ -82,7 +82,7 @@ The section will help you configure BGP peering with your NVA.
 
 ## Complete the configuration on the NVA
 
-You'll need the Azure Route Server's peer IPs and ASN to complete the configuration on your NVA to establish a BGP session. You can obtain this information from the overview page your Route Server.
+You'll need the Azure Route Server's peer IPs and ASN to complete the configuration on your NVA to establish a BGP session. You can obtain this information from the overview page your Route Server.  Be sure to peer your NVA(s) with both IP addresses of the Route Server, failure to do this will result in unexpected behavior.
 
 :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 
