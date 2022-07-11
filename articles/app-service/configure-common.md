@@ -518,7 +518,7 @@ By default, App Service starts your app from the root directory of your app code
 
 The following example sets the root path `/` to the `public` subdirectory (which works for Laravel), and also adds a second virtual application at the `/app2` path. To run it, create a file called `json.txt` with the following contents.
 
-```json
+```txt
 [
   {
     "physicalPath"':' "site\\wwwroot\\public",
