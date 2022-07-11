@@ -5,7 +5,7 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/28/2021
+ms.date: 07/11/2022
 ms.author: patricka
 ---
 
@@ -311,7 +311,7 @@ sudo apt-get remove iotedge
 ::: moniker range=">=iotedge-2020-11"
 
 ```bash
-sudo apt-get remove aziot-edge
+sudo apt-get autoremove --purge aziot-edge
 ```
 
 ::: moniker-end
@@ -333,8 +333,7 @@ sudo docker rm -f <container name>
 Finally, remove the container runtime from your device.
 
 ```bash
-sudo apt-get remove --purge moby-cli
-sudo apt-get remove --purge moby-engine
+sudo apt-get autoremove --purge moby-engine
 ```
 
 ## Next steps
