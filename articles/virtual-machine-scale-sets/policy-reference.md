@@ -10,8 +10,6 @@ ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure virtual machine scale sets
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure virtual machine scale sets. For additional Azure Policy built-ins for other
 services, see
