@@ -75,7 +75,7 @@ This quickstart will create a single Azure Cosmos DB account using the Table API
 Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-newt) to create a new console app. 
 
 ```console
-dotnet new console -o <app-name>
+dotnet new console -output <app-name>
 ```
 
 ### Install the NuGet package

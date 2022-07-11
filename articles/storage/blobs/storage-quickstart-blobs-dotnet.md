@@ -48,7 +48,7 @@ Create a .NET Core application named *BlobQuickstartV12*.
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
    ```console
-   dotnet new console --output BlobQuickstartV12
+   dotnet new console -n BlobQuickstartV12
    ```
 
 1. Switch to the newly created *BlobQuickstartV12* directory.
