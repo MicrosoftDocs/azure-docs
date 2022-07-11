@@ -80,7 +80,7 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 Cognitive Search uses other Azure services for deeper monitoring and management. By itself, the only persistent data stored within the search service are the structures that support indexing, enrichment, and queries. These structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved data, including debug session state and caching, is placed in Azure Storage.
 
-Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and more events, you will need [Azure Monitor](../azure-monitor/index.yml) and a supported approach for retaining log data.  For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and more events, you will need [Azure Monitor](../azure-monitor/index.yml) and a supported approach for retaining log data.  For more information about setting up resource logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
 ## Administrator permissions
 
@@ -102,4 +102,4 @@ If you want a combination of control plane and data plane permissions, consider 
 * Review [monitoring capabilities](monitor-azure-cognitive-search.md) available in the portal
 * Automate with [PowerShell](search-manage-powershell.md) or [Azure CLI](search-manage-azure-cli.md)
 * Review [security features](search-security-overview.md) to protect content and operations
-* Enable [diagnostic logging](monitor-azure-cognitive-search.md) to monitor query and indexing workloads
+* Enable [resource logging](monitor-azure-cognitive-search.md) to monitor query and indexing workloads

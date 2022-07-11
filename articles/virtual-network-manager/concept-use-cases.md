@@ -20,26 +20,25 @@ Learn about use cases for Azure Virtual Network Manager including managing conne
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## Connectivity
-Connectivity configuration allows you to create different network topologies based on your network needs. You create a connectivity configuration by adding new or existing virtual networks into [network groups](concept-network-groups.md) and creating a topology that meets your needs. The connectivity configuration offers three topology options: mesh, hub and spoke, or hub and spoke with direct connectivity.
+## Creating topology and connectivity
+Connectivity configuration allows you to create different network topologies based on your network needs. You create a connectivity configuration by adding new or existing virtual networks into [network groups](concept-network-groups.md) and creating a topology that meets your needs. The connectivity configuration offers three topology options: mesh, hub and spoke, or hub and spoke with direct connectivity between spoke virtual networks.
 
 ### Mesh topology
-When a mesh topology is deployed, all virtual networks have direct connectivity with each other. They don't need to go through other hops on the network to communicate. Mesh topology is useful when all the virtual networks need to communicate directly with each other.
+When a [mesh topology](concept-connectivity-configuration.md#mesh-network-topology) is deployed, all virtual networks have direct connectivity with each other. They don't need to go through other hops on the network to communicate. Mesh topology is useful when all the virtual networks need to communicate directly with each other.
 
 ### Hub and spoke topology
-Hub and spoke topology is recommended when you're deploying central infrastructure services in a hub virtual network that are shared by spoke virtual networks. This topology can be more efficient than having these common components in all spoke virtual networks. 
+[Hub and spoke topology](concept-connectivity-configuration.md#hub-and-spoke-topology) is recommended when you're deploying central infrastructure services in a hub virtual network that are shared by spoke virtual networks. This topology can be more efficient than having these common components in all spoke virtual networks. 
 
 ### Hub and spoke topology with direct connectivity
-This topology combines the two above topologies. It's recommended when you have common central infrastructure in the hub, and you want direct communication between all spokes. Direct connectivity helps you reduce the latency caused by extra network hops when going through a hub.
+This topology combines the two above topologies. It's recommended when you have common central infrastructure in the hub, and you want direct communication between all spokes. [Direct connectivity](concept-connectivity-configuration.md#direct-connectivity) helps you reduce the latency caused by extra network hops when going through a hub.
 
-### Maintaining topology
+### Maintaining virtual network topology
 AVNM automatically maintains the desired topology you defined in the connectivity configuration when changes are made to your infrastructure. For example, when you add new spoke to the topology, AVNM can handle the changes necessary to create the connectivity to the spoke and its virtual networks.
-
 
 ## Security
 
 With Azure Virtual Network Manager, you create [security admin rules](concept-security-admins.md) to enforce security policies across virtual networks in your organization. Security admin rules take precedence over rules defined by network security groups, and they're applied first when analyzing traffic as seen in the following diagram:
-:::image type="content" source="media/concept-use-cases/sec-admin-rule-evaluation.png" alt-text="This diagram shows the order of network traffic evaluation when using network admin rules and network security group rules. First, traffic is evaluated by security admin rules, and action is determined: allow, always allow, or deny. If traffic is allowed, it's passed to network security group rules for evaluation.":::
+:::image type="content" source="media/concept-use-cases/sec-admin-rule-evaluation.png" alt-text="This diagram shows the order of network traffic evaluation when using network admin rules and network security group rules.":::
 Common uses include:
 
 - Create standard rules that must be applied and enforced on all existing VNets and newly created VNets.

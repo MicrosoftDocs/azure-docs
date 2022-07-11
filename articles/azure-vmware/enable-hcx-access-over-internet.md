@@ -124,7 +124,11 @@ The HCX Network Extension service provides layer 2 connectivity between sites. T
 After the network is extended to destination site, VMs can be migrated over Layer 2 Extension. 
 
 ## Next steps 
+[Enable Public IP to the NSX Edge for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge)
+
 For detailed information on HCX network underlay minimum requirements, see [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html).
+
+
 
 
 
