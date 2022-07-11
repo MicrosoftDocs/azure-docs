@@ -50,7 +50,7 @@ WHERE DataBaseName = 'databasename'
 
 If logging is enabled and the log history is accessible, other information, such as SQL query text, is available in table DBQLogTbl and associated logging tables. For more information, see [Teradata log history](https://docs.teradata.com/reader/wada1XMYPkZVTqPKz2CNaw/PuQUxpyeCx4jvP8XCiEeGA).
 
-#### What's the best migration approach to minimize risk and impact on users?
+#### What is the best migration approach to minimize risk and impact on users?
 
 This question comes up frequently because companies may want to lower the impact of changes on the data warehouse data model to improve agility. Companies often see an opportunity to further modernize or transform their data during an ETL migration. This approach carries a higher risk because it changes multiple factors simultaneously, making it difficult to compare the outcomes of the old system versus the new. Making data model changes here could also affect upstream or downstream ETL jobs to other systems. Because of that risk, it's better to redesign on this scale after the data warehouse migration.
 
