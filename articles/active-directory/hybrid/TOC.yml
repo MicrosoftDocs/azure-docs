@@ -284,6 +284,8 @@
     items:
     - name: Staging server and disaster recovery
       href: how-to-connect-sync-staging-server.md
+    - name: How To Failover Azure AD Connect Servers
+      href: how-to-failover-staging-server.md
     - name: Best practices for changing the default configuration
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: Change the default configuration
