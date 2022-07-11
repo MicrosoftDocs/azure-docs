@@ -12,11 +12,10 @@ ms.author: franlanglois
 
 # How to configure Azure Cache for Redis
 
-This article describes the configurations available for your Azure Cache for Redis instances. This article also covers the default Redis server configuration for Azure Cache for Redis instances.
+This article describes the configurations available for your Azure Cache for Redis instances. This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Cache for Redis instances.
 
 > [!NOTE]
 > For more information on configuring and using premium cache features, see [How to configure persistence](cache-how-to-premium-persistence.md), [How to configure clustering](cache-how-to-premium-clustering.md), and [How to configure Virtual Network support](cache-how-to-premium-vnet.md).
->
 >
 
 ## Configure Azure Cache for Redis settings
@@ -30,7 +29,7 @@ You can view and configure the following settings using the **Resource Menu**. T
 - [Access control (IAM)](#access-control-iam)
 - [Tags](#tags)
 - [Diagnose and solve problems](#diagnose-and-solve-problems)
-- Events <!-- Need some text for this.  -->
+- [Events](#events) <!-- Need some text for this.  -->
 - [Settings](#settings)
   - [Access keys](#access-keys)
   - [Advanced settings](#advanced-settings)
@@ -53,7 +52,7 @@ You can view and configure the following settings using the **Resource Menu**. T
   - Insights
   - [Alerts](#alerts)
   - [Metrics](#metrics)
-  - [Diagnostics](#diagnostics)
+  - [Diagnostic settings](#diagnostic-settings)
   - Advisor recommendations
   - Workbooks
 - Automation
@@ -86,18 +85,63 @@ The **Tags** section helps you organize your resources. For more information, se
 
 Select **Diagnose and solve problems** to be provided with common issues and strategies for resolving them.
 
+### Events
+
+## Redis console
+
+You can securely issue commands to your Azure Cache for Redis instances using the **Redis Console**, which is available in the Azure portal for all cache tiers.
+
+> [!IMPORTANT]
+>
+>- The Redis Console does not work with [VNet](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
+>- Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
+>
+
+To access the Redis Console, select **Console** tab in the working pane of Resource menu.
+
+:::image type="content" source="media/cache-configure/redis-console-menu.png" alt-text="Screenshot that highlights the Console button.":::
+
+To issue commands against your cache instance, type the command you want into the console.
+
+:::image type="content" source="media/cache-configure/redis-console.png" alt-text="Screenshot that shows the Redis Console with the input command and results.":::
+
+### Using the Redis Console with a premium clustered cache
+
+When using the Redis Console with a premium clustered cache, you can issue commands to a single shard of the cache. To issue a command to a specific shard, first connect to the shard you want by selecting it on the shard picker.
+
+:::image type="content" source="media/cache-configure/redis-console-premium-cluster.png" alt-text="Redis console":::
+
+If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message:
+
+```azurecli-interactive
+shard1>get myKey
+(error) MOVED 866 13.90.202.154:13000 (shard 0)
+shard1>get myKey
+(error) MOVED 866 13.90.202.154:13000 (shard 0)
+```
+
+In the previous example, shard 1 is the selected shard, but `myKey` is located in shard 0, as indicated by the `(shard 0)` portion of the error message. In this example, to access `myKey`, select shard 0 using the shard picker, and then issue the desired command.
+
+## Move your cache to a new subscription
+
+You can move your cache to a new subscription by selecting **Move**.
+
+:::image type="content" source="media/cache-configure/redis-cache-move.png" alt-text="Move Azure Cache for Redis":::
+
+For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## Settings
 
 The **Settings** section allows you to access and configure the following settings for your cache.
 
 - [Access keys](#access-keys)
 - [Advanced settings](#advanced-settings)
-- [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 - [Scale](#scale)
 - [Cluster size](#cluster-size)
 - [Data persistence](#data-persistence)
 - [Schedule updates](#schedule-updates)
 - [Geo-replication](#geo-replication)
+- [Private endpoint](#private-endpoint)<!-- Need some text for this.  -->
 - [Virtual Network](#virtual-network)
 - [Firewall](#firewall)
 - [Properties](#properties)
@@ -166,7 +210,6 @@ Redis keyspace notifications are configured on the **Advanced settings** on the 
 
 For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-
 ### Scale
 
 Select **Scale** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md).
@@ -183,7 +226,6 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 > [!IMPORTANT]
 > Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
-
 
 ### Data persistence
 
@@ -221,6 +263,9 @@ The **Virtual Network** section allows you to configure the virtual network sett
 > [!IMPORTANT]
 > Virtual network settings are only available for premium caches that were configured with VNET support during cache creation.
 
+### Private endpoint
+<!-- Need content -->
+
 ### Firewall
 
 Firewall rules configuration is available for all Azure Cache for Redis tiers.
@@ -243,10 +288,6 @@ Select **Properties** to view information about your cache, including the cache 
 ### Locks
 
 The **Locks** section allows you to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
-
-### Automation script
-
-Select **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Administration settings
 
@@ -294,14 +335,32 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 
 :::image type="content" source="media/cache-configure/redis-cache-diagnostics.png" alt-text="Diagnostics":::
 
-- [Redis metrics](#redis-metrics)
-- [Alert rules](#alert-rules)
-- [Diagnostics](#diagnostics)
-- 
-- 
-## Azure Cache for Redis Advisor
+- [Insights](#insights)
+- [Metrics](#metrics)
+- [Alerts](#alerts)
+- [Diagnostic settings](#diagnostic-settings)
+- [Advisor recommendations](#advisor-recommendations)
 
-The **Azure Cache for Redis Advisor** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
+### Insights
+
+### Metrics
+
+Select **Metrics** to [view metrics](cache-how-to-monitor.md#view-cache-metrics) for your cache.
+
+### Alerts
+
+Select **Alert rules** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+
+### Diagnostic settings
+
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
+
+>[!NOTE]
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
+>
+### Advisor recommendations
+
+The **Advisor recommendations** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
 
 :::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the recommendations are displayed.":::
 
@@ -315,7 +374,7 @@ Further information can be found on the **Recommendations** in the working pane 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Recommendations":::
 <!-- How do we trigger an event that causes a good recommendation -->
 
-You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu on the left.
+You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu.
 
 Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table:
 
@@ -328,22 +387,15 @@ Each pricing tier has different limits for client connections, memory, and bandw
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
 
+## Automation
 
-### Metrics
+### Tasks
 
-Select **Redis metrics** to [view metrics](cache-how-to-monitor.md#view-cache-metrics) for your cache.
+### Export template
 
-### Alerts
+### Automation script
 
-Select **Alert rules** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
-
-### Diagnostics
-
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
-
->[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
->
+Select **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Support & troubleshooting settings
 
@@ -458,49 +510,6 @@ For more information about databases, see [What are Redis databases?](cache-deve
 >
 
 For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
-
-## Redis console
-
-You can securely issue commands to your Azure Cache for Redis instances using the **Redis Console**, which is available in the Azure portal for all cache tiers.
-
-> [!IMPORTANT]
->
->- The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
->- Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
->
-
-To access the Redis Console, select **Console** from the Resource menu.
-
-:::image type="content" source="media/cache-configure/redis-console-menu.png" alt-text="Screenshot that highlights the Console button.":::
-
-To issue commands against your cache instance, type the command you want into the console.
-
-:::image type="content" source="media/cache-configure/redis-console.png" alt-text="Screenshot that shows the Redis Console with the input command and results.":::
-
-### Using the Redis Console with a premium clustered cache
-
-When using the Redis Console with a premium clustered cache, you can issue commands to a single shard of the cache. To issue a command to a specific shard, first connect to the shard you want by selecting it on the shard picker.
-
-:::image type="content" source="media/cache-configure/redis-console-premium-cluster.png" alt-text="Redis console":::
-
-If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message:
-
-```azurecli-interactive
-shard1>get myKey
-(error) MOVED 866 13.90.202.154:13000 (shard 0)
-shard1>get myKey
-(error) MOVED 866 13.90.202.154:13000 (shard 0)
-```
-
-In the previous example, shard 1 is the selected shard, but `myKey` is located in shard 0, as indicated by the `(shard 0)` portion of the error message. In this example, to access `myKey`, select shard 0 using the shard picker, and then issue the desired command.
-
-## Move your cache to a new subscription
-
-You can move your cache to a new subscription by selecting **Move**.
-
-:::image type="content" source="media/cache-configure/redis-cache-move.png" alt-text="Move Azure Cache for Redis":::
-
-For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## Next steps
 
