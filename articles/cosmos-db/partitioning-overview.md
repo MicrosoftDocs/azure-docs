@@ -102,6 +102,9 @@ For **all** containers, your partition key should:
 
 If you need [multi-item ACID transactions](database-transactions-optimistic-concurrency.md#multi-item-transactions) in Azure Cosmos DB, you will need to use [stored procedures or triggers](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). All JavaScript-based stored procedures and triggers are scoped to a single logical partition.
 
+> [!NOTE]
+> If you only have one physical partition, the value of the partition key may not be relevant as all queries will target the same physical partition. 
+
 ## Partition keys for read-heavy containers
 
 For most containers, the above criteria is all you need to consider when picking a partition key. For large read-heavy containers, however, you might want to choose a partition key that appears frequently as a filter in your queries. Queries can be [efficiently routed to only the relevant physical partitions](how-to-query-container.md#in-partition-query) by including the partition key in the filter predicate.
