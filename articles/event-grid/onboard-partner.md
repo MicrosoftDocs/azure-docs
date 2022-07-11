@@ -130,7 +130,7 @@ If you selected **Channel name header** for **Partner topic routing mode**, crea
         1. Specify **source** information for the partner topic. Source is contextual information on the source of events provided by the partner that the end user can see. This information is helpful when end user is considering activating a partner topic, for example.
 
             :::image type="content" source="./media/onboard-partner/channel-partner-topic-basics.png" alt-text="Image showing the Create Channel - Basics page.":::
-        1. Select **event types definitions** checkbox if you want to add event types definitions to the channel, added event types will be visible to customers through the partner topic.
+        1. Select the **event types definitions** checkbox in case you want to add event types definitions to the channel, added event types to the channel will be visible to customers with the partner topic.
 
             :::image type="content" source="./media/onboard-partner/event-type-definition-1.png" alt-text="Image showing the event type definition 1.":::
 
