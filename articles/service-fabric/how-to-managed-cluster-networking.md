@@ -2,8 +2,13 @@
 title: Configure network settings for Service Fabric managed clusters
 description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load-balancing rules, and more.
 ms.topic: how-to
-ms.date: 2/14/2022
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Configure network settings for Service Fabric managed clusters
 
 Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured for essential cluster functionality. There are also optional NSG rules applied such as allowing all outbound traffic by default that is intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:

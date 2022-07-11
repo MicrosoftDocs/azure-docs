@@ -1,9 +1,12 @@
 ---
 title: Use managed identity with an application
 description: How to use managed identities in Azure Service Fabric application code to access Azure Services.
-
-ms.topic: article
-ms.date: 10/09/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # How to leverage a Service Fabric application's managed identity to access Azure services

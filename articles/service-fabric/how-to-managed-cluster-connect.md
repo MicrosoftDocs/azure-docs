@@ -2,7 +2,11 @@
 title: Connect to a Service Fabric managed cluster
 description: Learn how to connect to a Service Fabric managed cluster
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Connect to a Service Fabric managed cluster
 

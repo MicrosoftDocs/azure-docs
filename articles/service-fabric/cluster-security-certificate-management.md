@@ -2,8 +2,11 @@
 title: Manage certificates in a Service Fabric cluster 
 description: Learn about managing certificates in a Service Fabric cluster that's secured with X.509 certificates.
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.custom: sfrev, devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Manage certificates in Service Fabric clusters
 

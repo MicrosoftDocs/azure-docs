@@ -2,8 +2,11 @@
 title: Deploy an application to a managed cluster using Azure Resource Manager
 description: Learn how to deploy, upgrade, or delete a Service Fabric application on an Azure Service Fabric managed cluster using Azure Resource Manager
 ms.topic: how-to
-ms.date: 8/23/2021 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Manage application lifecycle on a managed cluster using Azure Resource Manager
 

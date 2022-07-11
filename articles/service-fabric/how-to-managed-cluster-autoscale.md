@@ -2,7 +2,11 @@
 title: Configure autoscaling for Service Fabric managed cluster nodes
 description: Learn how to configure autoscaling policies on Service Fabric managed cluster.
 ms.topic: how-to
-ms.date: 2/14/2022
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Introduction to Autoscaling on Service Fabric managed clusters

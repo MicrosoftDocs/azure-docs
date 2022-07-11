@@ -1,9 +1,12 @@
 ---
 title: Use managed identity with an application on a Service Fabric managed cluster
 description: How to use managed identities in Azure Service Fabric application code to access Azure Services on a Service Fabric managed cluster.
-
-ms.topic: article
-ms.date: 5/10/2021
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # How to leverage a Service Fabric application's managed identity to access Azure services on a Service Fabric managed cluster
@@ -18,7 +21,6 @@ See a companion sample application that demonstrates using system-assigned and u
 > [!IMPORTANT]
 > Prior to using the managed identity of a Service Fabric application, the client application must be granted access to the protected resource. Please refer to the list of [Azure services which support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)
  to check for support, and then to the respective service's documentation for specific steps to grant an identity access to resources of interest. 
- 
 
 ## Leverage a managed identity using Azure.Identity
 

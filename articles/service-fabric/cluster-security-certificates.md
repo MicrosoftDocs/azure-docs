@@ -2,8 +2,13 @@
 title: X.509 Certificate-based Authentication in a Service Fabric Cluster 
 description: Learn about certificate-based authentication in Service Fabric clusters, and how to detect, mitigate and fix certificate-related problems.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # X.509 Certificate-based authentication in Service Fabric clusters
 
 This article complements the introduction to [Service Fabric cluster security](service-fabric-cluster-security.md), and goes into the details of certificate-based authentication in Service Fabric clusters. We assume the reader is familiar with fundamental security concepts, and also with the controls that Service Fabric exposes to control the security of a cluster.  

@@ -1,9 +1,12 @@
 ---
 title: How to configure Azure Service Fabric managed cluster for Azure active directory client access
 description: Learn how to configure an Azure Service Fabric managed cluster for Azure active directory client access
-
-ms.topic: article
-ms.date: 03/1/2022
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # How to configure Azure Service Fabric managed cluster for Active Directory client access

@@ -1,11 +1,12 @@
 ---
 title: Balancing of subclustered metrics
 description: The effect of placement constraints on balancing and how to handle it
-author: nipavlo
-
 ms.topic: conceptual
-ms.date: 03/15/2020
-ms.author: nipavlo
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Balancing of subclustered metrics
 
