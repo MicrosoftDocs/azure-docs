@@ -1,6 +1,6 @@
 ---
 title: Use Quality Insights for a Virtual Instance for SAP solutions (preview)
-description: Learn how to use the Quality Insights workbook for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP Solutions (ACSS) through the Azure portal.
+description: Learn how to use the Quality Insights workbook for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: conceptual
 ms.date: 07/01/2022

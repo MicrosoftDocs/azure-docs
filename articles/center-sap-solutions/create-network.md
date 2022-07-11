@@ -1,6 +1,6 @@
 ---
 title: Create network for infrastructure deployment (preview)
-description: Learn how to create a network for use with an S/4HANA infrastructure deployment with Azure Center for SAP Solutions (ACSS) through the Azure portal.
+description: Learn how to create a network for use with an S/4HANA infrastructure deployment with Azure Center for SAP solutions (ACSS) through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: quickstart
 ms.date: 07/01/2022
@@ -12,7 +12,7 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-With Azure Center for SAP Solutions (ACSS), you can create an S4/HANA infrastructure deployment on Azure. Before you can create the infrastructure, you need to set up a network for use with the deployment.
+With Azure Center for SAP solutions (ACSS), you can create an S4/HANA infrastructure deployment on Azure. Before you can create the infrastructure, you need to set up a network for use with the deployment.
 
 ## Prerequisites
 
