@@ -270,7 +270,7 @@ Specifies disk mount options to be passed to the mount -o command. This is a com
 Type: Boolean  
 Default: n
 ```
-If set, a swap file (/swapfile) is created on the resource disk and added to the system swap space.
+If set, a swap file (/mnt/resource/swapfile) is created on the resource disk and added to the system swap space.
 
 **ResourceDisk.SwapSizeMB:**  
 ```txt
@@ -284,7 +284,7 @@ The size of the swap file in megabytes.
 Type: Boolean
 Default: n
 ```
-If set, the swap file (/swapfile) is mounted as an encrypted filesystem (flag supported only on FreeBSD.)
+If set, the swap is mounted as an encrypted filesystem (flag supported only on FreeBSD).
 
 **Logs.Verbose:**  
 ```txt
