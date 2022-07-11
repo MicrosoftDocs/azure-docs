@@ -17,9 +17,11 @@ ms.devlang: csharp, java
 
 Graph databases often need to ingest data in bulk to refresh an entire graph or update a portion of it. Azure Cosmos DB, a distributed database and the backbone of the Azure Cosmos DB Gremlin API, is meant to perform best when the loads are well distributed. Bulk executor libraries in Azure Cosmos DB are designed to exploit this unique capability of Azure Cosmos DB and provide optimal performance. For more information, see [Introducing bulk support in the .NET SDK](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 
-In this tutorial, you learn how to use the Azure Cosmos DB bulk executor library to import and update graph objects into an Azure Cosmos DB Gremlin API container. During this process, you use the library to create Vertex and Edge objects programmatically and then insert multiple objects per network request.
+In this tutorial, you learn how to use the Azure Cosmos DB bulk executor library to import and update *graph* objects into an Azure Cosmos DB Gremlin API container. During this process, you use the library to create *vertex* and *edge* objects programmatically and then insert multiple objects per network request.
 
-Instead of sending Gremlin queries to a database, where the commands are evaluated and then executed one at a time, you use the bulk executor library to create and validate the objects locally. After the library initializes the graph objects, it allows you to send them to the database service sequentially. By using this method, you can increase data ingestion speeds up to 100 times, which makes it an ideal way to perform initial data migrations or periodical data movement operations. 
+Instead of sending Gremlin queries to a database, where the commands are evaluated and then executed one at a time, you use the bulk executor library to create and validate the objects locally. After the library initializes the graph objects, it allows you to send them to the database service sequentially. 
+
+By using this method, you can increase data ingestion speeds as much as a hundredfold, which makes it an ideal way to perform initial data migrations or periodic data movement operations. 
 
 The bulk executor library now comes in the following flavors:
 
@@ -79,7 +81,7 @@ Modify the parameters, as described in the following table:
 
 ### Sample usage
 
-The following sample application illustrates how to use the GraphBulkExecutor package. The samples use either the Domain object annotations or the POJO objects directly. We recommend that you try both approaches to determine which one better meets your implementation and performance demands.
+The following sample application illustrates how to use the GraphBulkExecutor package. The samples use either the *domain* object annotations or the *POJO* (plain old Java object) objects directly. We recommend that you try both approaches to determine which one better meets your implementation and performance demands.
 
 ### Clone
 
@@ -119,12 +121,12 @@ The */resources/application.properties* file defines the data that's required to
 
 | Property | Description |
 | --- | --- |
-|sample.sql.host | The value provided by the Azure Cosmos DB. Ensure you use the ".NET SDK URI", which can be located on the Overview section of the Azure Cosmos DB Account.|
+|sample.sql.host | The value that's provided by Azure Cosmos DB. Ensure that you're using the .NET SDK URI, which you'll find in the Overview section of the Azure Cosmos DB Account.|
 | sample.sql.key |  You can get the primary or secondary key from the Keys section of the Azure Cosmos DB Account. |
-| sample.sql.database.name |  The name of the database within the Azure Cosmos DB account to run the sample against. If the database isn't found, the sample code will create it. |
-| sample.sql.container.name |  The name of the container within the database to run the sample against. If the container isn't found, the sample code will create it. |
-| sample.sql.partition.path |  If the container needs to be created, this value will be used to define the partitionKey path. |
-| sample.sql.allow.throughput |  The container will be updated to use the throughput value defined here. If you're exploring different throughput options to meet your performance demands, make sure to reset the throughput on the container when done with your exploration. There are costs associated with leaving the container provisioned with a higher throughput. |
+| sample.sql.database.name |  The name of the database within the Azure Cosmos DB account to run the sample against. If the database isn't found, the sample code creates it. |
+| sample.sql.container.name |  The name of the container within the database to run the sample against. If the container isn't found, the sample code creates it. |
+| sample.sql.partition.path |  If you need to create the container, use this value to define the partitionKey path. |
+| sample.sql.allow.throughput |  The container will be updated to use the throughput value that's defined here. If you're exploring various throughput options to meet your performance demands, be sure to reset the throughput on the container when you're done with your exploration. There are costs associated with leaving the container provisioned with a higher throughput. |
 
 ### Execute
 
@@ -134,16 +136,15 @@ Once the configuration is modified as per your environment, then run the command
 mvn clean package 
 ```
 
-For added safety, you can also run the integration tests by changing the "skipIntegrationTests" value in the pom.xml to
-false.
+For added safety, you can also run the integration tests by changing the skipIntegrationTests value in the *pom.xml* file to *false*.
 
-Assuming the Unit tests were run successfully. You can run the command line to execute the sample code:
+If you've run the unit tests successfully, you can run the sample code:
 
 ```bash
 java -jar target/azure-cosmos-graph-bulk-executor-1.0-jar-with-dependencies.jar -v 1000 -e 10 -d
 ```
 
-Running the above commands will execute the sample with a small batch (1k Vertices and roughly 5k Edges). Use the following command lines arguments to tweak the volumes run and which sample version to run.
+Running the preceding command executes the sample with a small batch (1,000 vertices and roughly 5,000 edges). Use the command lines arguments in the following sections to tweak the volumes that are run and which sample version to run.
 
 ### Command-line arguments
 
@@ -153,26 +154,26 @@ Several command-line arguments are available while you're running this sample, a
 | --- | --- |
 | --vertexCount (-v) |  Tells the application how many person vertices to generate. |
 | --edgeMax (-e) |  Tells the application the maximum number of edges to generate for each vertex. The generator randomly selects a number from 1 to the value you provide. |
-| --domainSample (-d) |  Tells the application to run the sample by using the Person and Relationship domain structures instead of the GraphBulkExecutors, GremlinVertex, and GremlinEdge POJOs (plain old Java objects). |
+| --domainSample (-d) |  Tells the application to run the sample by using the person and relationship domain structures instead of the GraphBulkExecutors, GremlinVertex, and GremlinEdge POJOs. |
 | --createDocuments (-c) |  Tells the application to use `create` operations. If the argument isn't present, the application defaults to using `upsert` operations. |
 
 ### Detailed sample information
 
 #### Person vertex
 
-The Person class is a simple domain object that's been decorated with several annotations to help a transformation into the GremlinVertex class, as described in the following table:
+The *person* class is a simple domain object that's been decorated with several annotations to help a transformation into the *GremlinVertex* class, as described in the following table:
 
 | Class annotation | Description |
 | --- | --- |
 | GremlinVertex |  Uses the optional "label" parameter to define all vertices that you create by using this class. |
-| GremlinId |  Used to define which field will be used as the ID value. The field name on the Person class is ID, but it isn't required. |
+| GremlinId |  Used to define which field will be used as the ID value. The field name on the person class is ID, but it isn't required. |
 | GremlinProperty |  Used on the email field to change the name of the property when it's stored in the database.
 | GremlinPartitionKey |  Used to define which field on the class contains the partition key. The field name you provide should match the value that's defined by the partition path on the container. |
 | GremlinIgnore |  Used to exclude the isSpecial field from the property that's being written to the database. |
 
-#### Relationship Edge
+#### The RelationshipEdge class
 
-The RelationshipEdge class is a versatile domain object. By using the field level label annotation, you can create a dynamic collection of edge types, as shown in the following table:
+The *RelationshipEdge* class is a versatile domain object. By using the field level label annotation, you can create a dynamic collection of edge types, as shown in the following table:
 
 | Class annotation | Description |
 | --- | --- |
@@ -200,9 +201,9 @@ The states array gives insight into how long each step within the execution take
 
 | Execution&nbsp;step | Description |
 | --- | --- |
-| Build&nbsp;sample&nbsp;vertices |  The amount of time it takes to fabricate the requested volume of Person objects. |
-| Build sample edges |  The amount of time it takes to fabricate the Relationship objects. |
-| Configure database |  The amount of time it takes to get the database configured, based on the values that are provided in application.properties. |
+| Build&nbsp;sample&nbsp;vertices |  The amount of time it takes to fabricate the requested volume of person objects. |
+| Build sample edges |  The amount of time it takes to fabricate the relationship objects. |
+| Configure database |  The amount of time it takes to configure the database, based on the values that are provided in application.properties. |
 | Write documents |  The amount of time it takes to write the documents to the database. |
 
 Each state contains the following values:
