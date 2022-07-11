@@ -161,7 +161,7 @@ In a lift and shift migration, an existing data model, like a star schema, is mi
 
 ##### Phased approach incorporating modifications
 
-If a legacy data warehouse has evolved over a long period of time, you might need to re-engineer it to maintain the required performance levels. You might also have to re-engineer to support new data like Internet of Things (IoT) streams. As part of the re-engineering process, migrate to Azure Synapse to get the benefits of a scalable cloud environment. Migration can include a change in the underlying data model, such as a move from an Inmon model to a data vault.
+If a legacy data warehouse has evolved over a long period of time, you might need to re-engineer it to maintain the required performance levels. You might also have to re-engineer to support new data like Internet of Things (IoT) streams. As part of the re-engineering process, migrate to Azure Synapse to get the benefits of a scalable cloud environment. Migration can also include a change in the underlying data model, such as a move from an Inmon model to a data vault.
 
 Microsoft recommends moving your existing data model as-is to Azure (optionally using a VM Teradata instance in Azure) and using the performance and flexibility of the Azure environment to apply the re-engineering changes. That way, you can use Azure's capabilities to make the changes without impacting the existing source system.
 
@@ -192,7 +192,7 @@ When you're planning to use Data Factory facilities to manage the migration proc
 
 ### Design differences between Teradata and Azure Synapse
 
-As mentioned earlier, there are some basic differences in approach between Teradata and Azure Synapse Analytics databases.
+As mentioned earlier, there are some basic differences in approach between Teradata and Azure Synapse Analytics databases and these differences are discussed next.
 
 #### Multiple databases vs. a single database and schemas
 
