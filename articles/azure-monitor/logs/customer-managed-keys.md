@@ -411,6 +411,8 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
 
 - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
+- [Search jobs asynchronous queries](./search-jobs.md) aren't supported in Customer-managed key scenario currently.
+
 ## Troubleshooting
 
 - Behavior per Key Vault availability:

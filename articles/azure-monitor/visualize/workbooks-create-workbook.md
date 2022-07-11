@@ -11,7 +11,7 @@ ms.reviewer: gardnerjr
 
 # Create an Azure workbook
 
-This article describes how to create a new workbook and how to add elements to your Azure workbook.
+This article describes how to create a new workbook and how to add components to your Azure workbook.
 
 This video walks you through creating workbooks.
 
@@ -106,7 +106,58 @@ For example, you can query Azure Resource Health to help you view any service pr
 
 ## Add parameters
 
-You can collect input from consumers and reference it in other parts of the workbook by using parameters. You can use parameters to scope the result set or set the right visual. Parameters help you build interactive reports and experiences.
+### Best practices for using resource-centric log queries
+
+This video shows you how to use resource-level logs queries in Azure Workbooks. It also has tips and tricks on how to enable advanced scenarios and improve performance.
+
+> [!VIDEO https://www.youtube.com/embed/8CvjM0VvOA80]
+
+#### Use a dynamic resource type parameter
+
+Dynamic resource type parameters use dynamic scopes for more efficient querying. The following snippet uses this heuristic:
+
+1. **Individual resources**: If the count of selected resource is less than or equal to 5
+1. **Resource groups**: If the number of resources is over 5 but the number of resource groups the resources belong to is less than or equal to 3
+1. **Subscriptions**: Otherwise
+
+   ```
+    Resources
+    | take 1
+    | project x = dynamic(["microsoft.compute/virtualmachines", "microsoft.compute/virtualmachinescalesets", "microsoft.resources/resourcegroups", "microsoft.resources/subscriptions"])
+    | mvexpand x to typeof(string)
+    | extend jkey = 1
+    | join kind = inner (Resources 
+    | where id in~ ({VirtualMachines})
+    | summarize Subs = dcount(subscriptionId), resourceGroups = dcount(resourceGroup), resourceCount = count()
+    | extend jkey = 1) on jkey
+    | project x, label = 'x', 
+          selected = case(
+            x in ('microsoft.compute/virtualmachinescalesets', 'microsoft.compute/virtualmachines') and resourceCount <= 5, true, 
+            x == 'microsoft.resources/resourcegroups' and resourceGroups <= 3 and resourceCount > 5, true, 
+            x == 'microsoft.resources/subscriptions' and resourceGroups > 3 and resourceCount > 5, true, 
+            false)
+   ```
+
+#### Use a static resource scope for querying multiple resource types
+
+```json
+[
+    { "value":"microsoft.compute/virtualmachines", "label":"Virtual machine", "selected":true },
+    { "value":"microsoft.compute/virtualmachinescaleset", "label":"Virtual machine scale set", "selected":true }
+]
+```
+
+#### Use resource parameters grouped by resource type
+
+```
+Resources
+| where type =~ 'microsoft.compute/virtualmachines' or type =~ 'microsoft.compute/virtualmachinescalesets' 
+| where resourceGroup in~({ResourceGroups}) 
+| project value = id, label = id, selected = false, 
+      group = iff(type =~ 'microsoft.compute/virtualmachines', 'Virtual machines', 'Virtual machine scale sets') 
+```
+
+## Add a parameter
 
 You can control how your parameter controls are presented to consumers with workbooks. Examples include text box versus dropdown list, single- versus multi-select, or values from text, JSON, KQL, or Azure Resource Graph.
 
@@ -371,6 +422,10 @@ To turn a larger template into multiple subtemplates:
     > Subtemplates don't technically need to have the parameters that get merged out if you never plan on the subtemplates being visible by themselves. If the subtemplates don't have the parameters, they'll be hard to edit or debug if you need to do so later.
 
 1. Move each component in the workbook you want to be in the subtemplate into the group created in step 1.
-1. If the individual components moved in step 3 had conditional visibilities, those visibilities will become the visibility of the outer group (like used in tabs). Remove them from the components inside the group and add that visibility setting to the group itself. Save here to avoid losing changes, or export and save a copy of the JSON content.
-1. If you want that group to be loaded from a template, use the **Edit** toolbar button in the group. This option opens only the content of that group as a workbook in a new window. You can then save it as appropriate and close this workbook view. Don't close the browser. Only close the view so that you can go back to the previous workbook you were editing.
-1. You can then change the group component to load from template and set the template ID field to the workbook/template you created in step 5. To work with workbook IDs, the source needs to be the full Azure Resource ID of a shared workbook. Select **Load** and the content of that group loads from the subtemplate instead of being saved inside the outer workbook.
+1. If the individual components moved in step 3 had conditional visibilities, that will become the visibility of the outer group (like used in tabs). Remove them from the components inside the group and add that visibility setting to the group itself. Save here to avoid losing changes. You can also export and save a copy of the JSON content.
+1. If you want that group to be loaded from a template, you can use **Edit** in the group. This action opens only the content of that group as a workbook in a new window. You can then save it as appropriate and close this workbook view. Don't close the browser. Only close that view to go back to the previous workbook where you were editing.
+1. You can then change the group component to load from a template and set the template ID field to the workbook/template you created in step 5. To work with workbook IDs, the source needs to be the full Azure Resource ID of a shared workbook. Select **Load** and the content of that group is now loaded from that subtemplate instead of being saved inside this outer workbook.
+
+## Next steps
+
+[Common Workbook use cases](workbooks-commonly-used-components.md)

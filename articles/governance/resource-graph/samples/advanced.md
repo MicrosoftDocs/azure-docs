@@ -603,7 +603,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networkinter
 
 ## <a name="vm-powerstate"></a>Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../concepts/query-language.md#extended-properties-preview) on
+This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
 virtual machines to summarize by power states.
 
 ```kusto
