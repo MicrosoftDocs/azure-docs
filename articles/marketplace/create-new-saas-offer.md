@@ -33,9 +33,9 @@ If you haven’t already, read [Plan a SaaS offer](plan-saas-offer.md). It will 
 
     [ ![Illustrates the SaaS offer option in the New offer list.](./media/new-offer-saas-workspaces.png) ](./media/new-offer-saas-workspaces.png#lightbox)
 
-1. In the **New Software as a Service** dialog box, enter an **Offer ID**. This ID will be visible in the URL of the commercial marketplace listing and in Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. In the **New Software as a Service** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing and in Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
    + Each offer in your account must have a unique offer ID.
-   + Use only numbers and lowercase letters. You can include hyphens and underscores, but no spaces, and limit it to 50 characters.
+   + Limit the offer ID to 50 characters and use only numbers and lowercase letters. You can include hyphens and underscores, but no spaces.
    + The offer ID can't be changed after you select **Create**.
 
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
