@@ -94,7 +94,7 @@ For an overview of how data sharing works, watch this short [demo](https://aka.m
  
     :::image type="content" source="./media/how-to-share-data/create-share-edit-asset-name.png" alt-text="Screenshot showing the add assets second page, with the asset paths listed and the display name bars available to edit." border="true":::  
 
-1. Select **Add Recipient**. Enter the Azure log in email address of who you want to share data with. Select **Create and Share**. Optionally, you can specify an expiration date for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
+1. Select **Add Recipient**. Enter the Azure log in email address of who you want to share data with. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
     > [!NOTE]
     > In Microsoft Purview governance portal, you can only use user's Azure login email address as recipient. In Microsoft Purview SDK or API, you can use object ID of the user or service principal as a recipient, and you can also optionally specify a target tenant ID (i.e. the Azure tenant recipient can receive the share into).
