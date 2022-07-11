@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 07/07/2022
+ms.date: 07/12/2022
 ---
 
 # Tools for Netezza data warehouse migration to Azure Synapse Analytics
