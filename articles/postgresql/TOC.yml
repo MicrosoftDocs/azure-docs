@@ -606,14 +606,10 @@
         href: flexible-server/howto-configure-and-access-logs.md
 - name: Hyperscale (Citus)
   items:
-  - name: Hyperscale (Citus) documentation
-    href: hyperscale/index.yml
-  - name: Overview
-    items:
-    - name: What is Hyperscale (Citus)?
-      href: hyperscale/overview.md
-    - name: Product updates
-      href: hyperscale/product-updates.md
+  - name: Get started
+    href: hyperscale/overview.md
+  - name: Product updates
+    href: hyperscale/product-updates.md
   - name: Quickstart
     items:
     - name: Create server group
