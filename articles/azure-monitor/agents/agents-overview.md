@@ -5,7 +5,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/24/2022
+ms.date: 7/11/2022
 ms.reviewer: shseth
 ---
 
@@ -192,7 +192,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.5                         | X |  |  |   |
+| Red Hat Enterprise Linux Server 8.5, 8.6                         | X |  |  |   |
 | Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
