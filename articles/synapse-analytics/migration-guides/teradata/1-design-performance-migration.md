@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 07/07/2022
+ms.date: 07/12/2022
 ---
 
 # Design and performance for Teradata migrations
@@ -18,7 +18,7 @@ This article is part one of a seven-part series that provides guidance on how to
 
 ## Overview
 
-Many existing users of Teradata data warehouse systems want to take advantage of the innovations provided by modern cloud environments. Cloud environments, such as cloud, IaaS, and PaaS, let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+Many existing users of Teradata data warehouse systems want to take advantage of the innovations provided by modern cloud environments. Infrastructure-as-a-service (IaaS) or platform-as-a-service (PaaS) cloud environments let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
 >[!TIP]
 >More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
@@ -137,7 +137,7 @@ A good candidate for an initial migration from a Teradata environment supports t
 
 The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment but not too large to quickly demonstrate value. A size in the 1-10 terabyte range is typical.
 
-For your initial migration project, minimize the risk, effort, and migration time so you can quickly see the benefits of the Azure cloud environment. Both the lift-and-shift and phased migration approaches limit the scope of the initial migration to just the data marts and don't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
+For your initial migration project, minimize the risk, effort, and migration time so you can quickly see the benefits of the Azure cloud environment, confine the scope of the migration to just the data marts, such as the OLAP DB part of a Teradata warehouse. Both the lift-and-shift and phased migration approaches limit the scope of the initial migration to just the data marts and don't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
 
 #### Lift and shift migration vs. Phased approach
 
