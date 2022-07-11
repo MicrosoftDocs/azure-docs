@@ -109,7 +109,7 @@ Resource logging is billable (see the [Pricing model](../azure-monitor/usage-est
 
 1. Select **+ Add diagnostic setting**.
 
-1. Give the diagnostic setting a name. Use granular and descriptive names if you're creating more than one settings.
+1. Give the diagnostic setting a name. Use granular and descriptive names if you're creating more than one setting.
 
 1. Select the logs and metrics that are in scope for this setting. Selections include "allLogs", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
 
