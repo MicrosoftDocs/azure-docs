@@ -97,6 +97,7 @@ Teradata implements the temporal query functionality via query rewriting to add 
 
 The Azure environment also includes specific features for complex analytics on time-series data at scale called [time series insights](https://azure.microsoft.com/services/time-series-insights/)&mdash;this is aimed at IoT data analysis applications and may be more appropriate for this use-case.
 
+<a id="teradata-data-type-mapping"></a>
 ### Unsupported Teradata data types
 
 > [!TIP]
