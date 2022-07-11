@@ -166,34 +166,6 @@ Redis keyspace notifications are configured on the **Advanced settings** on the 
 
 For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-## Azure Cache for Redis Advisor
-
-The **Azure Cache for Redis Advisor** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
-
-:::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the recommendations are displayed.":::
-
-If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed on the in the **Overview** of the Resource menu.
-
-:::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in the Azure Cache for Redis section.":::
-<!-- Might want a better recommendation. -->
-
-Further information can be found on the **Recommendations** in the working pane of the Azure portal.
-
-:::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Recommendations":::
-<!-- How do we trigger an event that causes a good recommendation -->
-
-You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu on the left.
-
-Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table:
-
-| Azure Cache for Redis metric | More information |
-| --- | --- |
-| Network bandwidth usage |[Cache performance - available bandwidth](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
-| Connected clients |[Default Redis server configuration - max clients](#maxclients) |
-| Server load |[Redis Server Load](cache-how-to-monitor.md#view-cache-metrics) |
-| Memory usage |[Cache performance - size](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
-
-To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 
 ### Scale
 
@@ -325,6 +297,37 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 - [Redis metrics](#redis-metrics)
 - [Alert rules](#alert-rules)
 - [Diagnostics](#diagnostics)
+- 
+- 
+## Azure Cache for Redis Advisor
+
+The **Azure Cache for Redis Advisor** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
+
+:::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the recommendations are displayed.":::
+
+If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed on the in the **Overview** of the Resource menu.
+
+:::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in the Azure Cache for Redis section.":::
+<!-- Might want a better recommendation. -->
+
+Further information can be found on the **Recommendations** in the working pane of the Azure portal.
+
+:::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Recommendations":::
+<!-- How do we trigger an event that causes a good recommendation -->
+
+You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu on the left.
+
+Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table:
+
+| Azure Cache for Redis metric | More information |
+| --- | --- |
+| Network bandwidth usage |[Cache performance - available bandwidth](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
+| Connected clients |[Default Redis server configuration - max clients](#maxclients) |
+| Server load |[Redis Server Load](cache-how-to-monitor.md#view-cache-metrics) |
+| Memory usage |[Cache performance - size](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
+
+To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
+
 
 ### Metrics
 
@@ -334,13 +337,12 @@ Select **Redis metrics** to [view metrics](cache-how-to-monitor.md#view-cache-me
 
 Select **Alert rules** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
 
-### Diagnostic settings
+### Diagnostics
 
 By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
->
 >
 
 ## Support & troubleshooting settings
