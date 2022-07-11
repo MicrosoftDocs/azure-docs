@@ -57,7 +57,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
     ```
 
-1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year and will need to be [rotated after that](azure-rbac.md#refresh-the-secret-of-the-server-application). 
+1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). 
 
     ```azurecli
     az ad sp create --id "${SERVER_APP_ID}"
