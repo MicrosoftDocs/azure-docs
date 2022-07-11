@@ -218,7 +218,7 @@ Run the [az acr repository show-manifests][az-acr-repository-show-manifests] com
 ```azurecli
 az acr manifest list-metadata \
   --registry $ACR_NAME \
-  --name helm/hello-world --detail
+  --name helm/hello-world
 ```
 
 Output, abbreviated in this example, shows a `configMediaType` of `application/vnd.cncf.helm.config.v1+json`:

@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Storage - the benefits and features 
 description: Learn about the benefits and features of Microsoft Defender for Storage.
-ms.date: 06/16/2022
+ms.date: 06/29/2022
 ms.topic: overview
 ---
 # Overview of Microsoft Defender for Storage
@@ -16,7 +16,8 @@ Analyzed telemetry of Azure Blob Storage includes operation types such as **Get 
 
 Defender for Storage doesn't access the Storage account data and has no impact on its performance.
 
-You can learn more about from the product manager by watching [Defender for Storage in the field](episode-thirteen.md)
+You can learn more by watching this video from the Defender for Cloud in the Field video series:
+- [Defender for Storage in the field](episode-thirteen.md)
 
 ## Availability
 

@@ -2,10 +2,9 @@
 title: Metrics in Azure Monitor | Microsoft Docs
 description: Learn about metrics in Azure Monitor, which are lightweight monitoring data capable of supporting near real-time scenarios.
 documentationcenter: ''
-author: bwren
+author: bwren 
 manager: carmonm
-
-
+ms.reviewer: priyamishra
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

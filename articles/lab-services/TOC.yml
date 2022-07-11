@@ -283,6 +283,10 @@
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
+  - name: Built-in policies
+    href: /azure/governance/policy/samples/built-in-policies#lab-services
+  - name: Microsoft Azure SDK for Python
+    href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources
   items:
   - name: Azure Lab Services Blog
