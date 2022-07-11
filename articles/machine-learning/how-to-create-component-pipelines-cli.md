@@ -24,9 +24,9 @@ In this article, you learn how to create and run [machine learning pipelines](co
 
 - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-- You'll need an [Azure Machine Learning workspace](how-to-manage-workspace.md) for your pipelines and associated resources
+- An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 
-- [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
+- [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md).
 
 - Clone the examples repository:
 
