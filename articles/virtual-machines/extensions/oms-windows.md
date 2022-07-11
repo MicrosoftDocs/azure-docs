@@ -4,16 +4,19 @@ description: Deploy the Log Analytics agent on Windows virtual machine using a v
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
-ms.date: 06/26/2020 
+ms.date: 11/02/2021 
 ms.custom: devx-track-azurepowershell
 
 ---
 # Log Analytics virtual machine extension for Windows
 
 Azure Monitor Logs provides monitoring capabilities across cloud and on-premises assets. The Log Analytics agent virtual machine extension for Windows is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Log Analytics virtual machine extension for Windows.
+
+> [!NOTE]
+> Azure Arc-enabled servers enables you to deploy, remove, and update the Log Analytics agent VM extension to non-Azure Windows and Linux machines, simplifying the management of your hybrid machine through their lifecycle. For more information, see [VM extension management with Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md).
 
 ## Prerequisites
 
@@ -22,14 +25,18 @@ Azure Monitor Logs provides monitoring capabilities across cloud and on-premises
 For details about the supported Windows operating systems, refer to the [Overview of Azure Monitor agents](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) article.
 
 ### Agent and VM Extension version
-The following table provides a mapping of the version of the Windows Log Analytics VM extension and Log Analytics agent bundle for each release. 
 
-| Log Analytics Windows agent bundle version | Log Analytics Windows VM extension version | Release Date | Release Notes |
+The following table provides a mapping of the version of the Windows Log Analytics VM extension and Log Analytics agent for each release. 
+
+| Log Analytics Windows agent version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18067.0|1.0.18067 | March 2022   | <ul><li>Bug fix for perf counters</li><li>Enhancements to Agent Troubleshooter</li></ul> |
+| 10.20.18064.0|1.0.18064 | December 2021   | <ul><li>Bug fix for intermittent crashes</li></ul> |
+| 10.20.18062.0| 1.0.18062 | November 2021   | <ul><li>Minor bug fixes and stabilization improvements</li></ul> |
 | 10.20.18053| 1.0.18053.0 | October 2020   | <ul><li>New Agent Troubleshooter</li><li>Updates to how the agent handles certificate changes to Azure services</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | August 2020   | <ul><li>Resolves an issue on Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | April 2020   | <ul><li>Enables connectivity over Private Link using Azure Monitor Private Link Scopes</li><li>Adds ingestion throttling to avoid a sudden, accidental influx in ingestion to a workspace</li><li>Adds support for additional Azure Government clouds and regions</li><li>Resolves a bug where HealthService.exe crashed</li></ul> |
-| 10.20.18029 | 1.0.18029 | March 2020   | <ul><li>Adds SHA-2 code signing support</li><li>Improves VM extension installation and management</li><li>Resolves a bug in Azure Arc for Servers integration</li><li>Adds a built-in troubleshooting tool for customer support</li><li>Adds support for additional Azure Government regions</li> |
+| 10.20.18029 | 1.0.18029 | March 2020   | <ul><li>Adds SHA-2 code signing support</li><li>Improves VM extension installation and management</li><li>Resolves a bug with Azure Arc-enabled servers integration</li><li>Adds a built-in troubleshooting tool for customer support</li><li>Adds support for additional Azure Government regions</li> |
 | 10.20.18018 | 1.0.18018 | October 2019 | <ul><li> Minor bug fixes and stabilization improvements </li></ul> |
 | 10.20.18011 | 1.0.18011 | July 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Increased MaxExpressionDepth to 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | June 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Added ability to disable default credentials when making proxy connection (support for WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
@@ -41,12 +48,12 @@ The following table provides a mapping of the version of the Windows Log Analyti
 | 8.0.11072 | 1.0.11072 | Sept 2017 | |
 | 8.0.11049 | 1.0.11049 | Feb 2017 | |
 
+### Microsoft Defender for Cloud
 
-### Azure Security Center
-
-Azure Security Center automatically provisions the Log Analytics agent and connects it with the default Log Analytics workspace of the Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Azure Security Center.
+Microsoft Defender for Cloud automatically provisions the Log Analytics agent and connects it with the default Log Analytics workspace of the Azure subscription. If you are using Microsoft Defender for Cloud, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Microsoft Defender for Cloud.
 
 ### Internet connectivity
+
 The Log Analytics agent extension for Windows requires that the target virtual machine is connected to the internet. 
 
 ## Extension schema
@@ -76,6 +83,7 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
     }
 }
 ```
+
 ### Property values
 
 | Name | Value / Example |
@@ -102,7 +110,6 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 The following example assumes the Log Analytics extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
-
 
 ```json
 {

@@ -4,18 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Learn the available options for building a data ingestion pipeline with Azure Data Factory and the benefits of each.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
-ms.date: 01/26/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml
-
-# Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
-
+ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+#Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 ---
+
 
 # Data ingestion with Azure Data Factory
 
@@ -52,7 +51,7 @@ The function is invoked with the [Azure Data Factory Azure Function activity](..
 
 ## Azure Data Factory with Custom Component activity
 
-In this option, the data is processed with custom Python code wrapped into an executable. It is invoked with an [ Azure Data Factory Custom Component activity](../data-factory/transform-data-using-dotnet-custom-activity.md). This approach is a better fit for large data than the previous technique.
+In this option, the data is processed with custom Python code wrapped into an executable. It is invoked with an [Azure Data Factory Custom Component activity](../data-factory/transform-data-using-dotnet-custom-activity.md). This approach is a better fit for large data than the previous technique.
 
 ![Diagram shows an Azure Data Factory pipeline, with a custom component and Run M L Pipeline, and an Azure Machine Learning pipeline, with Train Model, and how they interact with raw data and prepared data.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
@@ -87,7 +86,7 @@ The Data Factory pipeline saves the prepared data to your cloud storage (such as
 Consume your prepared data in Azure Machine Learning by, 
 
 * Invoking an Azure Machine Learning pipeline from your Data Factory pipeline.<br>**OR**
-* Creating an [Azure Machine Learning datastore](how-to-access-data.md#create-and-register-datastores) and [Azure Machine Learning dataset](how-to-create-register-datasets.md) for use at a later time.
+* Creating an [Azure Machine Learning datastore](how-to-access-data.md#create-and-register-datastores).
 
 ### Invoke Azure Machine Learning pipeline from Data Factory
 
@@ -96,7 +95,7 @@ This method is recommended for [Machine Learning Operations (MLOps) workflows](c
 Each time the Data Factory pipeline runs, 
 
 1. The data is saved to a different location in storage. 
-1. To pass the location to Azure Machine Learning, the Data Factory pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and run ID are sent as parameters. 
+1. To pass the location to Azure Machine Learning, the Data Factory pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and job ID are sent as parameters. 
 1. The ML pipeline can then create an Azure Machine Learning datastore and dataset with the data location. Learn more in [Execute Azure Machine Learning pipelines in Data Factory](../data-factory/transform-data-machine-learning-service.md).
 
 ![Diagram shows an Azure Data Factory pipeline and an Azure Machine Learning pipeline and how they interact with raw data and prepared data. The Data Factory pipeline feeds data to the Prepared Data database, which feeds a data store, which feeds datasets in the Machine Learning workspace.](media/how-to-data-ingest-adf/aml-dataset.png)
@@ -106,7 +105,7 @@ Each time the Data Factory pipeline runs,
 
 Once the data is accessible through a datastore or dataset, you can use it to train an ML model. The training process might be part of the same ML pipeline that is called from ADF. Or it might be a separate process such as experimentation in a Jupyter notebook.
 
-Since datasets support versioning, and each run from the pipeline creates a new version, it's easy to understand which version of the data was used to train a model.
+Since datasets support versioning, and each job from the pipeline creates a new version, it's easy to understand which version of the data was used to train a model.
 
 ### Read data directly from storage
 
@@ -114,9 +113,11 @@ If you don't want to create a ML pipeline, you can access the data directly from
 
 The following Python code demonstrates how to create a datastore that connects to Azure DataLake Generation 2 storage. [Learn more about datastores and where to find service principal permissions](how-to-access-data.md#create-and-register-datastores).
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 ws = Workspace.from_config()
-adlsgen2_datastore_name = '<ADLS gen2 storage account alias>'  #set ADLS Gen2 storage account alias in AML
+adlsgen2_datastore_name = '<ADLS gen2 storage account alias>'  #set ADLS Gen2 storage account alias in AzureML
 
 subscription_id=os.getenv("ADL_SUBSCRIPTION", "<ADLS account subscription ID>") # subscription id of ADLS account
 resource_group=os.getenv("ADL_RESOURCE_GROUP", "<ADLS account resource group>") # resource group of ADLS account
@@ -137,14 +138,16 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(
 
 Next, create a dataset to reference the file(s) you want to use in your machine learning task. 
 
-The following code creates a TabularDataset from a csv file, `prepared-data.csv`. Learn more about [dataset types and accepted file formats](how-to-create-register-datasets.md#dataset-types). 
+The following code creates a TabularDataset from a csv file, `prepared-data.csv`. Learn more about [dataset types and accepted file formats](./v1/how-to-create-register-datasets.md#dataset-types). 
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace, Datastore, Dataset
 from azureml.core.experiment import Experiment
 from azureml.train.automl import AutoMLConfig
 
-# retrieve data via AML datastore
+# retrieve data via AzureML datastore
 datastore = Datastore.get(ws, adlsgen2_datastore)
 datastore_path = [(datastore, '/data/prepared-data.csv')]
         

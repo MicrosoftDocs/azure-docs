@@ -2,7 +2,7 @@
 title: Azure Application Gateway front-end IP address configuration
 description: This article describes how to configure the Azure Application Gateway front-end IP address.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
@@ -29,7 +29,7 @@ Only one public IP address and one private IP address is supported. You choose t
 
 - For a public IP address, you can create a new public IP address or use an existing public IP in the same location as the application gateway. For more information, see [static vs. dynamic public IP address](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 
-- For a private IP address, you can specify a private IP address from the subnet where the application gateway is created. If you don't specify one, an arbitrary IP address is automatically selected from the subnet. The IP address type that you select (static or dynamic) can't be changed later. For more information, see [Create an application gateway with an internal load balancer](./application-gateway-ilb-arm.md).
+- For a private IP address, you can specify a private IP address from the subnet where the application gateway is created. For Application Gateway v2 sku deployments, a static IP address must be defined when adding a private IP address to the gateway.  For Application Gateway v1 sku deployments, if you don't specify an IP address, an available IP address is automatically selected from the subnet. The IP address type that you select (static or dynamic) can't be changed later. For more information, see [Create an application gateway with an internal load balancer](./application-gateway-ilb-arm.md).
 
 A front-end IP address is associated to a *listener*, which checks for incoming requests on the front-end IP.
 

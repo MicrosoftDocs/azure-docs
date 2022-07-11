@@ -7,18 +7,14 @@
     href: storage-files-introduction.md
 - name: Quickstarts
   items:
-  - name: Create / use file shares - Windows
-    href: storage-files-quick-create-use-windows.md
-  - name: Create file shares - Portal
+  - name: Create file shares
     href: storage-how-to-use-files-portal.md
-  - name: Create file shares - PowerShell
-    href: storage-how-to-use-files-powershell.md
-  - name: Create file shares - CLI
-    href: storage-how-to-use-files-cli.md
-  - name: Create file shares - Storage Explorer
-    href: storage-how-to-use-files-storage-explorer.md
 - name: Tutorials
   items:
+  - name: Create a Windows SMB file share
+    href: storage-files-quick-create-use-windows.md
+  - name: Create a Linux NFS file share
+    href: storage-files-quick-create-use-linux.md
   - name: Extend Windows file servers with Azure File Sync
     href: ../file-sync/file-sync-extend-servers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Concepts
@@ -59,6 +55,8 @@
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
     href: storage-files-faq.md
+  - name: What's new in Azure Files?
+    href: files-whats-new.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -66,11 +64,11 @@
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
     - name: Create an NFS file share
-      href: storage-files-how-to-create-nfs-shares.md
+      href: storage-files-quick-create-use-linux.md
     - name: Use DFS-N with Azure Files
       href: files-manage-namespaces.md
     - name: SQL Server FCI with premium file shares
-      href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Purchase storage reservations
       href: files-reserve-capacity.md
   - name: Mount
@@ -175,7 +173,7 @@
       href: storage-files-migration-overview.md
     - name: Target a cloud-only deployment
       items:
-      - name: RoboCopy to to Azure file shares
+      - name: RoboCopy to migrate to Azure file shares
         href: storage-files-migration-robocopy.md
       - name: Migrate from an on-premises NAS to Azure file shares with DataBox
         href: storage-files-migration-nas-cloud-databox.md
@@ -193,10 +191,6 @@
         href: storage-files-migration-storsimple-8000.md
       - name: StorSimple 1200 migration guide
         href: storage-files-migration-storsimple-1200.md
-  - name: Performance
-    items:
-    - name: Enable SMB Multichannel
-      href: storage-files-enable-smb-multichannel.md
   - name: Develop
     items:
     - name: Configure connection strings
@@ -223,7 +217,7 @@
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Enable infrastructure encryption for the account
       href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Configure Azure Defender for threat protection
+    - name: Enable threat protection with Microsoft Defender for Storage
       href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Configure firewalls and virtual networks
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -239,11 +233,11 @@
         href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
       - name: Configure TLS version for a client application
         href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Transfer
+  - name: Transfer data
     items: 
-    - name: Get started - AzCopy
+    - name: Get started with AzCopy
       href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Use with Files
+    - name: Use AzCopy with Files
       href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Configure, optimize, troubleshoot - AzCopy
       href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -261,7 +255,7 @@
       href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Reference
   items:
-  - name: Azure Files reference
+  - name: Azure Files API reference
     href: ../files/reference.md
   - name: Monitoring Azure Files reference
     href: storage-files-monitoring-reference.md
@@ -288,6 +282,8 @@
     href: storage-files-netapp-comparison.md
   - name: Compare access with NFS to Azure Files, Blob Storage, and NetApp Files
     href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Customer case studies
+    href: azure-files-case-study.md
   - name: NuGet packages (.NET)
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)

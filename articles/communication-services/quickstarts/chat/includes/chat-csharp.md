@@ -2,25 +2,28 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: rifox
 ---
-
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat).
 
 ## Prerequisites
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
-- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint and connection string** for this quickstart.
+- A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -44,7 +47,7 @@ dotnet build
 Install the Azure Communication Chat SDK for .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0
+dotnet add package Azure.Communication.Chat
 ```
 
 ## Object model
@@ -78,7 +81,7 @@ namespace ChatQuickstart
         static async System.Threading.Tasks.Task Main(string[] args)
         {
             // Your unique Azure Communication service endpoint
-            Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
+            Uri endpoint = new Uri("<replace with your resource endpoint>");
 
             CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
             ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
@@ -131,9 +134,19 @@ Use `SendMessage` to send a message to a thread.
 - Use `content` to provide the content for the message, it is required.
 - Use `type` for the content type of the message such as 'Text' or 'Html'. If not specified, 'Text' will be set.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 ```csharp
-SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
+{
+    Content = "Please take a look at the attachment",
+    MessageType = ChatMessageType.Text
+};
+sendChatMessageOptions.Metadata["hasAttachment"] = "true";
+sendChatMessageOptions.Metadata["attachmentUrl"] = "https://contoso.com/files/attachment.docx";
+
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(sendChatMessageOptions);
+
 string messageId = sendChatMessageResult.Id;
 ```
 
@@ -218,3 +231,6 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat).

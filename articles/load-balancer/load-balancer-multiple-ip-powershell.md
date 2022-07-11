@@ -4,15 +4,14 @@ titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary IP configurations using Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Load balancing on multiple IP configurations using PowerShell
@@ -23,8 +22,6 @@ ms.author: allensu
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
 This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs has two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
-
-![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ## Steps to load balance on multiple IP configurations
 
@@ -57,7 +54,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 
     Then complete [Create a Windows VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) steps 6.3 through 6.8.
 
-5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) article. Use the following configuration settings:
+5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md#add) article. Use the following configuration settings:
 
     ```powershell
     $NicName = "VM1-NIC2"

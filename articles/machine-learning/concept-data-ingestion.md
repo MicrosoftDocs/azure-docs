@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn the pros and cons of the available data ingestion options for training your machine learning models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: conceptual
 ms.reviewer: nibaccam
-author: nibaccam
-ms.author: nibaccam
-ms.date: 02/26/2020
+author: blackmist
+ms.author: larryfr
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml
 
 ---
@@ -26,6 +26,10 @@ Choose from:
 + a combination of both
 
 Data ingestion is the process in which unstructured data is extracted from one or multiple sources and then prepared for training machine learning models. It's also time intensive, especially if done manually, and if you have large amounts of data from multiple sources. Automating this effort frees up resources and ensures your models use the most recent and applicable data.
+
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
 
 ## Azure Data Factory
 

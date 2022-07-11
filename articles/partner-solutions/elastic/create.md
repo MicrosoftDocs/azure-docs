@@ -1,11 +1,11 @@
 ---
 title: Create Elastic application - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of Elastic.
-ms.service: partner-services
 ms.topic: quickstart
-ms.date: 05/19/2021
-author: tfitzmac
-ms.author: tomfitz
+ms.date: 09/02/2021
+author: davidsmatlak
+ms.author: davidsmatlak
+ms.custom: mode-other
 ---
 
 # QuickStart: Get started with Elastic
@@ -46,7 +46,7 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
     | **Subscription** | From the drop-down, select an Azure subscription where you have owner access. |
     | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
     | **Elastic account name** | Provide the name for the Elastic account you want to create |
-    | **Region** | Select **West US 2** or **UK South**. During the preview, only these regions are supported by Elastic. |
+    | **Region** | Select the region you want to deploy to. |
     | **Pricing Plan** | **Pay as you go**. |
     | **Price** | Specified based on the selected Elastic plan. |
 

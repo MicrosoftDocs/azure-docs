@@ -66,19 +66,15 @@ Azure NetApp Files is available in several [Azure regions](https://azure.microso
 
 Use [Azure NetApp Files availability by Azure Region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) to check the availability of Azure NetApp Files by region.
 
-Before you deploy Azure NetApp Files, see [Register for Azure NetApp Files instructions](../../../azure-netapp-files/azure-netapp-files-register.md).
-
 ### Deploy Azure NetApp Files resources
 
 The following instructions assume that you've already deployed your [Azure virtual network](../../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources, and the VMs where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
 
-1. If you haven't already deployed the resources, [register for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
+1. [Create an Azure NetApp Files account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md) in your selected Azure region.
 
-2. [Create an Azure NetApp Files account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md) in your selected Azure region.
+2. [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). The SAP BI platform architecture presented in this article uses a single Azure NetApp Files capacity pool at the Premium service level. For SAP BI File Repository Server on Azure, we recommend using an Azure NetApp Files Premium or Ultra [service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
-3. [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). The SAP BI platform architecture presented in this article uses a single Azure NetApp Files capacity pool at the Premium service level. For SAP BI File Repository Server on Azure, we recommend using an Azure NetApp Files Premium or Ultra [service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
-
-4. [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
+3. [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
 5. Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
@@ -635,7 +631,7 @@ For more information, see [Manage the availability of Linux virtual machines](..
 
 ### High availability for a CMS database
 
-If you're using Azure Database for MySQL for your CMS and audit databases, you have a locally redundant, high availability framework by default. You just need to select the region, and service inherent high availability, redundancy, and resiliency capabilities, without needing to configure any additional components. If the deployment strategy for the SAP BOBI platform is across availability zones, then you need to make sure you achieve zone redundancy for your CMS and audit databases. For more information, see [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md) and [High availability for Azure SQL Database](../../../azure-sql/database/high-availability-sla.md).
+If you're using Azure Database for MySQL for your CMS and audit databases, you have a locally redundant, high availability framework by default. You just need to select the region, and service inherent high availability, redundancy, and resiliency capabilities, without needing to configure any additional components. If the deployment strategy for the SAP BOBI platform is across availability zones, then you need to make sure you achieve zone redundancy for your CMS and audit databases. For more information, see [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md) and [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla).
 
 For other deployments for the CMS database, see the high availability information in the [DBMS deployment guides for SAP Workload](dbms_guide_general.md).
 
@@ -702,7 +698,7 @@ Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to r
 
 Filestore is a disk directory where the actual files, like reports and BI documents, are stored. It's important that all the files in the filestore are in sync to a disaster recovery region. Based on the type of file share service you use for SAP BOBI platform running on Linux, the appropriate disaster recovery strategy needs to be adopted to sync the content.
 
-- **Azure NetApp Files** provides NFS and SMB volumes, so you can use any file-based copy tool to replicate data between Azure regions. For more information on how to copy a volume in another region, see [FAQs About Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
+- **Azure NetApp Files** provides NFS and SMB volumes, so you can use any file-based copy tool to replicate data between Azure regions. For more information on how to copy a volume in another region, see [FAQs About Azure NetApp Files](../../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
 
   You can use Azure NetApp Files cross-region replication, currently in [preview](https://azure.microsoft.com/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/). Only changed blocks are sent over the network in a compressed, efficient format. This minimizes the amount of data required to replicate across the regions, saving data transfer costs. It also shortens the replication time, so you can achieve a smaller RPO. For more information, see [Requirements and considerations for using cross-region replication](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md).
 

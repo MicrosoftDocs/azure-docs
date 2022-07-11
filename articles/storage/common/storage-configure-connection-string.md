@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 05/26/2022
 ms.author: tamram
-ms.reviewer: ozgun
+ms.reviewer: nachakra
 ms.subservice: common
 ---
 
@@ -17,9 +17,9 @@ ms.subservice: common
 
 A connection string includes the authorization information required for your application to access data in an Azure Storage account at runtime using Shared Key authorization. You can configure connection strings to:
 
-* Connect to the Azurite storage emulator.
-* Access a storage account in Azure.
-* Access specified resources in Azure via a shared access signature (SAS).
+- Connect to the Azurite storage emulator.
+- Access a storage account in Azure.
+- Access specified resources in Azure via a shared access signature (SAS).
 
 To learn how to view your account access keys and copy a connection string, see [Manage storage account access keys](storage-account-keys-manage.md).
 
@@ -29,9 +29,9 @@ To learn how to view your account access keys and copy a connection string, see 
 
 Your application needs to access the connection string at runtime to authorize requests made to Azure Storage. You have several options for storing your connection string:
 
-* You can store your connection string in an environment variable.
-* An application running on the desktop or on a device can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
-* An application running in an Azure cloud service can store the connection string in the [Azure service configuration schema (.cscfg) file](/previous-versions/azure/reference/ee758710(v=azure.100)). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
+- You can store your connection string in an environment variable.
+- An application running on the desktop or on a device can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
+- An application running in an Azure cloud service can store the connection string in the [Azure service configuration schema (.cscfg) file](/previous-versions/azure/reference/ee758710(v=azure.100)). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
 
 Storing your connection string in a configuration file makes it easy to update the connection string to switch between the [Azurite storage emulator](../common/storage-use-azurite.md) and an Azure storage account in the cloud. You only need to edit the connection string to point to your target environment.
 
@@ -137,6 +137,5 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## Next steps
 
-* [Use the Azurite emulator for local Azure Storage development](../common/storage-use-azurite.md)
-* [Azure Storage explorers](storage-explorers.md)
-* [Using Shared Access Signatures (SAS)](storage-sas-overview.md)
+- [Use the Azurite emulator for local Azure Storage development](storage-use-azurite.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 06/29/2021
+ms.date: 06/17/2022
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -98,6 +98,11 @@ To troubleshoot your policy definition, do the following:
    of the definition to the evaluated property value indicates why a resource was noncompliant.
    - If the **target value** is wrong, revise the policy definition.
    - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
+1. For a [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes)
+   definition that supports a RegEx string parameter (such as `Microsoft.Kubernetes.Data` and the
+   built-in definition "Container images should be deployed from trusted registries only"), validate
+   that the [RegEx string](/dotnet/standard/base-types/regular-expression-language-quick-reference)
+   parameter is correct.
 1. For other common issues and solutions, see
    [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
 
@@ -307,10 +312,9 @@ This issue occurs when a cluster egress is locked down.
 
 #### Resolution
 
-Ensure that the domains and ports mentioned in the following articles are open:
+Ensure that the domains and ports mentioned in the following article are open:
 
 - [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](../../../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
-- [Install the Azure Policy add-on for Azure Arc-enabled Kubernetes (preview)](../concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
 
 ### Scenario: The add-on is unable to reach the Azure Policy service endpoint because of the aad-pod-identity configuration
 
@@ -406,6 +410,47 @@ This error means that the subscription was determined to be problematic, and the
 #### Resolution
 
 To investigate and resolve this issue, [contact the feature team](mailto:azuredg@microsoft.com).
+
+### Scenario: Definitions in category "Guest Configuration" cannot be duplicated from Azure portal
+
+#### Issue
+
+When attempting to create a custom policy definition from the Azure portal page for policy
+definitions, you select the "Duplicate definition" button. After assigning the policy, you
+find machines are _NonCompliant_ because no guest configuration assignment resource exists.
+
+#### Cause
+
+Guest configuration relies on custom metadata added to policy definitions when
+creating guest configuration assignment resources. The "Duplicate definition" activity in
+the Azure portal does not copy custom metadata.
+
+#### Resolution
+
+Instead of using the portal, duplicate the policy definition using the Policy
+Insights API. The following PowerShell sample provides an option.
+
+```powershell
+# duplicates the built-in policy which audits Windows machines for pending reboots
+$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+```
+
+### Scenario: Kubernetes resource gets created during connectivity failure despite deny policy being assigned
+
+#### Issue
+
+In the event of a Kubernetes cluster connectivity failure, evaluation for newly created or updated resources may be bypassed due to Gatekeeper's fail-open behavior.
+
+#### Cause
+
+The GK fail-open model is by design and based on community feedback. Gatekeeper documentation expands on these reasons here: https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed#considerations.
+
+#### Resolution
+
+In the above event, the error case can be monitored from the [admission webhook metrics](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#admission-webhook-metrics) provided by the kube-apiserver. And even if evaluation is bypassed at creation time and an object is created, it will still be reported on Azure Policy compliance as non-compliant as a flag to customers.
+
+Regardless of the above, in such a scenario, Azure policy will still retain the last known policy on the cluster and keep the guardrails in place.
 
 ## Next steps
 

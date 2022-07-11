@@ -2,9 +2,10 @@
 title: Log Analytics integration with Power BI and Excel
 description: How to send results from Log Analytics to Power BI
 ms.topic: conceptual
-author: roygalMS
-ms.author: roygal
-ms.date: 11/03/2020
+author: guywild
+ms.author: guywild
+ms.reviewer: roygal
+ms.date: 06/22/2022
 
 ---
 # Log Analytics integration with Power BI
@@ -13,7 +14,7 @@ This article focuses on ways to feed data from Log Analytics into Microsoft Powe
 
 ## Background 
 
-Azure Monitor Logs is a platform that provides an end-to-end solution for ingesting logs. [Azure Monitor Log Analytics](../platform/data-platform.md#) is the interface to query these logs. For more information on the entire Azure Monitor data platform including Log Analytics, see [Azure Monitor data platform](../data-platform.md). 
+Azure Monitor Logs is a platform that provides an end-to-end solution for ingesting logs. [Azure Monitor Log Analytics](../data-platform.md) is the interface to query these logs. For more information on the entire Azure Monitor data platform including Log Analytics, see [Azure Monitor data platform](../data-platform.md). 
 
 Microsoft Power BI is Microsoft’s data visualization platform. For more information on how to get started, see [Power BI’s homepage](https://powerbi.microsoft.com/). 
 
@@ -53,7 +54,7 @@ A dataflow is a type of "cloud ETL" designed to help you collect and prep your d
 
 ## Incremental refresh 
 
-Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature, but you need Power BI Premium to use it.  
+Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature. To use incremental refresh on dataflows, you need Power BI Premium.  
 
 
 Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all of the data again and again when you run the query. You have the option to save large amounts of data, but add a new increment of data every time the query is run. This behavior is ideal for longer running reports.

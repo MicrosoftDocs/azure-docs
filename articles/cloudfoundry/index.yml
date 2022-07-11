@@ -8,7 +8,6 @@ metadata:
   description: Cloud Foundry is an open-source PaaS for building, deploying, and operating 12-factor applications developed in various languages and frameworks.
   services: multiple
   ms.service: multiple
-  ms.devlang: devops
   ms.topic: landing-page
   author: georgewallace
   ms.author: gwallace
@@ -31,7 +30,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy Cloud Foundry on Azure
-            url: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
+            url: ./cloudfoundry-deploy-your-first-app.md
       - linkListType: how-to-guide
         links:
           - text: Deploy your first app

@@ -1,13 +1,13 @@
 ---
-title: Use pipeline parameters in the designer to build versatile pipelines
+title: Use pipeline parameters to build versatile pipelines
 titleSuffix: Azure Machine Learning
 description: How to use pipeline parameters in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 04/09/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
 ---
@@ -27,7 +27,7 @@ In this article, you learn how to do the following:
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 * For a guided introduction to the designer, complete the [designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 
@@ -36,8 +36,8 @@ In this article, you learn how to do the following:
 ## Create pipeline parameter
 
 There are three ways to create a pipeline parameter in the designer:
-- Create a pipeline parameter in the settings panel, and bind it to a module.
-- Promote a module parameter to a pipeline parameter.
+- Create a pipeline parameter in the settings panel, and bind it to a component.
+- Promote a component parameter to a pipeline parameter.
 - Promote a dataset to a pipeline parameter
 
 > [!NOTE]
@@ -47,7 +47,7 @@ There are three ways to create a pipeline parameter in the designer:
 
 In this section, you create a pipeline parameter in the settings panel.
 
-In this example, you create a pipeline parameter that defines how a pipeline fills in missing data using the **Clean missing data** module.
+In this example, you create a pipeline parameter that defines how a pipeline fills in missing data using the **Clean missing data** component.
 
 1. Next to the name of your pipeline draft, select the **gear icon** to open the **Settings** panel.
 
@@ -60,18 +60,18 @@ In this example, you create a pipeline parameter that defines how a pipeline fil
    ![Screenshot that shows how to create a pipeline parameter](media/how-to-use-pipeline-parameter/create-pipeline-parameter.png)
 
 
-After you create a pipeline parameter, you must [attach it to the module parameter](#attach-module-parameter-to-pipeline-parameter) that you want to dynamically set.
+After you create a pipeline parameter, you must [attach it to the component parameter](#attach-component-parameter-to-pipeline-parameter) that you want to dynamically set.
 
-### Option 2: Promote a module parameter
+### Option 2: Promote a component parameter
 
-The simplest way to create a pipeline parameter for a module value is to promote a module parameter. Use the following steps to promote a module parameter to a pipeline parameter:
+The simplest way to create a pipeline parameter for a component value is to promote a component parameter. Use the following steps to promote a component parameter to a pipeline parameter:
 
-1. Select the module you want to attach a pipeline parameter to.
-1. In the module detail pane, mouseover the parameter you want to specify.
+1. Select the component you want to attach a pipeline parameter to.
+1. In the component detail pane, mouseover the parameter you want to specify.
 1. Select the ellipses (**...**) that appear.
 1. Select **Add to pipeline parameter**.
 
-    ![Screenshot that shows how to promote module parameter to pipeline parameter1](media/how-to-use-pipeline-parameter/promote-module-para-to-pipeline-para.png)
+    ![Screenshot that shows how to promote component parameter to pipeline parameter1](media/how-to-use-pipeline-parameter/promote-module-para-to-pipeline-para.png)
 
 1. Enter a parameter name and default value.
 1. Select **Save**
@@ -90,19 +90,19 @@ If you want to submit your pipeline with variable datasets, you must promote you
 
 You can now specify a different dataset by using the pipeline parameter the next time you run the pipeline.
 
-## Attach and detach module parameter to pipeline parameter 
+## Attach and detach component parameter to pipeline parameter 
 
-In this section, you will learn how to attach and detach module parameter to pipeline parameter.
+In this section, you will learn how to attach and detach component parameter to pipeline parameter.
 
-### Attach module parameter to pipeline parameter
+### Attach component parameter to pipeline parameter
 
-You can attach the same module parameters of duplicated modules to the same pipeline parameter if you want to alter the value at one time when triggering the pipeline run.
+You can attach the same component parameters of duplicated components to the same pipeline parameter if you want to alter the value at one time when triggering the pipeline run.
 
-The following example has duplicated **Clean Missing Data** module. For each **Clean Missing Data** module, attach **Replacement value** to pipeline parameter **replace-missing-value**:
+The following example has duplicated **Clean Missing Data** component. For each **Clean Missing Data** component, attach **Replacement value** to pipeline parameter **replace-missing-value**:
 
-1. Select the **Clean Missing Data** module.
+1. Select the **Clean Missing Data** component.
 
-1. In the module detail pane, to the right of the canvas, set the **Cleaning mode** to "Custom substitution value".
+1. In the component detail pane, to the right of the canvas, set the **Cleaning mode** to "Custom substitution value".
 
 1. Mouseover the **Replacement value** field.
 
@@ -115,11 +115,11 @@ The following example has duplicated **Clean Missing Data** module. For each **C
 You have successfully attached the **Replacement value** field to your pipeline parameter. 
 
 
-### Detach module parameter to pipeline parameter
+### Detach component parameter to pipeline parameter
 
 After you attach **Replacement value** to pipeline parameter, it is non-actionable.
 
-You can detach module parameter to pipeline parameter by clicking the ellipses (**...**) next to the module parameter, and select **Detach from pipeline parameter**.
+You can detach component parameter to pipeline parameter by clicking the ellipses (**...**) next to the component parameter, and select **Detach from pipeline parameter**.
 
  ![Screenshot that shows non-actionable after attaching to pipeline parameter](media/how-to-use-pipeline-parameter/non-actionable-module-parameter.png)
 
@@ -129,7 +129,7 @@ In this section, you learn how to update and delete pipeline parameters.
 
 ### Update pipeline parameters
 
-Use the following steps to update a module pipeline parameter:
+Use the following steps to update a component pipeline parameter:
 
 1. At the top of the canvas, select the gear icon.
 1. In the **Pipeline parameters** section, you can view and update the name and default value for all of your pipeline parameter.
@@ -138,26 +138,26 @@ Use the following steps to update a module pipeline parameter:
 
 Use the following steps to delete a dataset pipeline parameter:
 
-1. Select the dataset module.
+1. Select the dataset component.
 1. Uncheck the option **Set as pipeline parameter**.
 
 
-### Delete module pipeline parameters
+### Delete component pipeline parameters
 
-Use the following steps to delete a module pipeline parameter:
+Use the following steps to delete a component pipeline parameter:
 
 1. At the top of the canvas, select the gear icon.
 
 1. Select the ellipses (**...**) next to the pipeline parameter.
 
-    This view shows you which modules the pipeline parameter is attached to.
+    This view shows you which components the pipeline parameter is attached to.
 
-    ![Screenshot that shows the current pipeline parameter applied to a module](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
+    ![Screenshot that shows the current pipeline parameter applied to a component](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
 
 1. Select **Delete parameter** to delete the pipeline parameter.
 
     > [!NOTE]
-    > Deleting a pipeline parameter will cause all attached module parameters to be detached and the value of detached module parameters will keep current pipeline parameter value.     
+    > Deleting a pipeline parameter will cause all attached component parameters to be detached and the value of detached component parameters will keep current pipeline parameter value.     
 
 ## Trigger a pipeline run with pipeline parameters 
 

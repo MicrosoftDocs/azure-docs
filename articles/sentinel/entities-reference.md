@@ -1,33 +1,24 @@
 ---
-title: Azure Sentinel entity types reference | Microsoft Docs
-description: This article displays the Azure Sentinel entity types and their required identifiers.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: Microsoft Sentinel entity types reference | Microsoft Docs
+description: This article displays the Microsoft Sentinel entity types and their required identifiers.
 author: yelevin
-manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 02/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel entity types reference
+# Microsoft Sentinel entity types reference
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Entity types and identifiers
 
-The following table shows the **entity types** currently available for mapping in Azure Sentinel, and the **attributes** available as **identifiers** for each entity type - which appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](tutorial-detect-threats-custom.md).
+The following table shows the **entity types** currently available for mapping in Microsoft Sentinel, and the **attributes** available as **identifiers** for each entity type - which appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](detect-threats-custom.md).
 
 Each one of the identifiers in the **required identifiers** column is minimally necessary to identify its entity. However, a required identifier might not, by itself, be sufficient to provide *unique* identification. The more identifiers used, the greater the likelihood of unique identification. You can use up to three identifiers for a single entity mapping.
 
-For best results - for guaranteed unique identification - you should use identifiers from the **strongest identifiers** column whenever possible. The use of multiple strong identifiers enables correlation between strong identifiers from varying data sources and schemas. This in turn allows Azure Sentinel to provide more comprehensive insights for a given entity.
+For best results - for guaranteed unique identification - you should use identifiers from the **strongest identifiers** column whenever possible. The use of multiple strong identifiers enables correlation between strong identifiers from varying data sources and schemas. This in turn allows Microsoft Sentinel to provide more comprehensive insights for a given entity.
 
 | Entity type | Identifiers | Required identifiers | Strongest identifiers |
 | - | - | - | - |
@@ -136,7 +127,7 @@ Weak identifiers of a host entity:
 | ----- | ---- | ----------- |
 | Type | String | ‘ip’ |
 | Address | String | The IP address as string, e.g. 127.0.0.1 (either in IPv4 or IPv6). |
-| Location | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
+| Location | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
 |
 
 Strong identifiers of an IP entity:
@@ -498,7 +489,7 @@ The following list defines identifiers for known cloud applications. The App ID 
 |17865|Ariba Inc|
 |18432|Zscaler|
 |19688|Xactly|
-|20595|Microsoft Cloud App Security|
+|20595|Microsoft Defender for Cloud Apps|
 |20892|Microsoft SharePoint Online|
 |20893|Microsoft Exchange Online|
 |20940|Active Directory|
@@ -537,6 +528,6 @@ The following list defines identifiers for known cloud applications. The App ID 
 
 ## Next steps
 
-In this document you learned about entity structure, identifiers, and schema in Azure Sentinel.
+In this document you learned about entity structure, identifiers, and schema in Microsoft Sentinel.
 
-Learn more about [entities](entities-in-azure-sentinel.md) and [entity mapping](map-data-fields-to-entities.md). 
+Learn more about [entities](entities.md) and [entity mapping](map-data-fields-to-entities.md). 

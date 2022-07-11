@@ -1,14 +1,14 @@
 ---
 title: 'Troubleshoot failover to Azure failures | Microsoft Docs'
 description: This article describes ways to troubleshoot common errors in failing over to Azure
-author: ponatara
+author: v-pgaddala
 manager: abhemraj
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
-ms.author: mayg
+ms.author: v-pgaddala
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
 
@@ -20,7 +20,7 @@ Site Recovery was not able to create a failed over virtual machine in Azure. It 
 
 * There isn't sufficient quota available to create the virtual machine: You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](https://aka.ms/getazuresupport) to increase the quota.
 
-* You are trying to failover virtual machines of different size families in same availability set. Ensure that you choose same size family for all virtual machines in the same availability set. Change size by going to Compute and Network settings of the virtual machine and then retry failover.
+* You are trying to failover virtual machines of different size families in same availability set. Ensure that you choose same size family for all virtual machines in the same availability set. Change size by going to **Compute** settings of the virtual machine and then retry failover.
 
 * There is a policy on the subscription that prevents creation of a virtual machine. Change the policy to allow creation of a virtual machine and then retry failover.
 
@@ -32,7 +32,7 @@ Site Recovery was not able to create a network interface for the failed over vir
 
 Site Recovery was not able to create a failed over Classic virtual machine in Azure. It could happen because:
 
-* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
+* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
 
 ## Failover failed with Error ID 170010
 

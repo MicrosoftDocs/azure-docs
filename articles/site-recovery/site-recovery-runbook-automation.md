@@ -1,11 +1,11 @@
 ---
 title: Add Azure Automation runbooks to Site Recovery recovery plans
 description: Learn how to extend recovery plans with Azure Automation for disaster recovery using Azure Site Recovery.
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.date: 07/15/2021
 ---
 
@@ -252,9 +252,6 @@ To deploy sample scripts to your Automation account, click the **Deploy to Azure
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 This video provides another example. It demonstrates how to recover a two-tier WordPress application to Azure:
-
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
 ## Next steps

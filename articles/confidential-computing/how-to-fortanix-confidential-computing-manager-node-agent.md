@@ -2,13 +2,14 @@
 title: Run an app with Fortanix Confidential Computing Manager
 description: Learn how to use Fortanix Confidential Computing Manager to convert your containerized images.
 services: virtual-machines
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.author: JenCook
+ms.author: stempesta
+ms.custom: ignite-fall-2021
 ---
 # Run an application by using Fortanix Confidential Computing Manager
 
@@ -119,7 +120,7 @@ Creating a Fortanix node agent will deploy a virtual machine, network interface,
 1. On this page, you'll enter information to deploy a virtual machine. The VM is a DCsv2-series Intel SGX-enabled virtual machine from Azure that has Fortanix Node Agent software installed on it. The node agent will allow your converted image to run with increased security on Intel SGX nodes in Azure. Select the subscription and resource group where you want to deploy the virtual machine and associated resources.
 
    > [!NOTE]
-   > Constraints apply when you deploy DCsv2-series virtual machines in Azure. You might need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](./virtual-machine-solutions.md) for more information.
+   > Constraints apply when you deploy DCsv2-series virtual machines in Azure. You might need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](./virtual-machine-solutions-sgx.md) for more information.
 
 1. Select an available region.
 1. In the **Node Name** box, enter a name for your virtual machine.
@@ -169,8 +170,8 @@ To delete the Fortanix Confidential Computing Manager account you created, go to
 
 ## Next steps
 
-In this tutorial, you used Fortanix tools to convert your application image to run on top of a confidential computing virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on virtual machines](virtual-machine-solutions.md).
+In this tutorial, you used Fortanix tools to convert your application image to run on top of a confidential computing virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on virtual machines](virtual-machine-solutions-sgx.md).
 
 To learn more about Azure confidential computing offerings, see [Azure confidential computing overview](overview.md).
 
-You can also learn how to complete similar tasks by using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).
+You can also learn how to complete similar tasks by using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview) and [Scone](https://sconedocs.github.io).

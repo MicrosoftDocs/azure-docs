@@ -4,7 +4,7 @@ description: This article provides reference information for AzCopy V10 configur
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 04/02/2021
+ms.date: 05/26/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -54,7 +54,6 @@ The following table describes each environment variable and provides links to co
 | GOOGLE_APPLICATION_CREDENTIALS | The absolute path to the service account key file Provides a key to authorize with Google Cloud Storage. [Copy data from Google Cloud Storage to Azure Storage by using AzCopy (preview)](storage-ref-azcopy-configuration-settings.md) |
 | HTTPS_PROXY | Configures proxy settings for AzCopy. Set this variable to the proxy IP address and proxy port number. For example, `xx.xxx.xx.xxx:xx`. If you run AzCopy on Windows, AzCopy automatically detects proxy settings, so you don't have to use this setting in Windows. If you choose to use this setting in Windows, it will override automatic detection. See [Configure proxy settings](#configure-proxy-settings) |
 
-
 ## Configure proxy settings
 
 To configure the proxy settings for AzCopy, set the `HTTPS_PROXY` environment variable. If you run AzCopy on Windows, AzCopy automatically detects proxy settings, so you don't have to use this setting in Windows. If you choose to use this setting in Windows, it will override automatic detection.
@@ -69,7 +68,7 @@ Currently, AzCopy doesn't support proxies that require authentication with NTLM 
 
 ### Bypassing a proxy
 
-If you are running AzCopy on Windows, and you want to tell it to use _no_ proxy at all (instead of auto-detecting the settings) use these commands. With these settings, AzCopy will not look up or attempt to use any proxy.
+If you are running AzCopy on Windows, and you want to tell it to use *no* proxy at all (instead of auto-detecting the settings) use these commands. With these settings, AzCopy will not look up or attempt to use any proxy.
 
 | Operating system | Environment | Commands  |
 |--------|-----------|----------|

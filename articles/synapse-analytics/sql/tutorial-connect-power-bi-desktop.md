@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 # Tutorial: Use serverless SQL pool with Power BI Desktop & create a report

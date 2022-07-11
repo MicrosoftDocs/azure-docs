@@ -2,15 +2,15 @@
 title: Header-based authentication with Azure Active Directory
 description: Architectural guidance on achieving header-based authentication with Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 10/10/2020
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Header-based authentication with Azure Active Directory
 
-Legacy applications commonly use Header-based authentication. In this scenario, an user (or message originator) authenticates to an intermediary identity solution. The intermediary solution authenticates the user and propagates the required Hypertext Transfer Protocol (HTTP) headers to the destination web service. Azure Active Directory (AD) supports this pattern via its Application Proxy service, and integrations with other network controller solutions. 
+Legacy applications commonly use Header-based authentication. In this scenario, a user (or message originator) authenticates to an intermediary identity solution. The intermediary solution authenticates the user and propagates the required Hypertext Transfer Protocol (HTTP) headers to the destination web service. Azure Active Directory (AD) supports this pattern via its Application Proxy service, and integrations with other network controller solutions.
 
 In our solution, Application Proxy provides remote access to the application, authenticates the user, and passes headers required by the application. 
 

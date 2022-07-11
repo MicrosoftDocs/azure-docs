@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/10/2021
 ms.author: victorh
 ---
@@ -73,7 +73,7 @@ In the Azure portal, review the deployed resources, especially the firewall rule
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Network rules.":::
 
-To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](/azure/templates/microsoft.network/azurefirewalls).
 
 ## Clean up resources
 

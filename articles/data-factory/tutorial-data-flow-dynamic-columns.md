@@ -4,6 +4,7 @@ description:  This tutorial provides steps for dynamically setting column names 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/17/2021
@@ -46,17 +47,17 @@ In this step, you'll create a pipeline that contains a data flow activity.
 1. In the **General** tab for the pipeline, enter **DeltaLake** for **Name** of the pipeline.
 1. In the factory top bar, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-    ![Data Flow Activity](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Data Flow Activity":::
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
 
-    ![Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.":::
 1. In the **Adding Data Flow** pop-up, select **Create new Data Flow** and then name your data flow **DynaCols**. Click Finish when done.    
 
 ## Build dynamic column mapping in data flows
 
 For this tutorial, we're going to use a sample movies rating file and renaming a few of the fields in the source to a new set of target columns that can change over time. The datasets you'll create below should point to this movies CSV file in your Blob Storage or ADLS Gen2 storage account. [Download the movies file here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB.csv) and store the file in your Azure storage account.
 
-![Final flow](media/data-flow/dynacols-1.png "Final flow")
+:::image type="content" source="media/data-flow/dynacols-1.png" alt-text="Final flow":::
 
 ### Tutorial objectives
 
@@ -90,7 +91,7 @@ First, let's set up the data flow environment for each of the mechanisms describ
 
 In this first scenario, you will set output column names in you data flow by setting the column mapping based on matching incoming fields with a parameter that is a string array of columns and match each array index with the incoming column ordinal position. When executing this data flow from a pipeline, you will be able to set different column names on each pipeline execution by sending in this string array parameter to the data flow activity.
 
-![Parameters](media/data-flow/dynacols-3.png "Parameters")
+:::image type="content" source="media/data-flow/dynacols-3.png" alt-text="Parameters":::
 
 1. Go back to the data flow designer and edit the data flow created above.
 1. Click on the parameters tab
@@ -103,7 +104,7 @@ In this first scenario, you will set output column names in you data flow by set
 1. For the first column, the matching rule will be ```position==1``` and the name will be ```$parameter1[1]```
 1. Follow the same pattern for column 2 and 3
  
-    ![Select transformation](media/data-flow/dynacols-4.png "Select transformation")
+    :::image type="content" source="media/data-flow/dynacols-4.png" alt-text="Select transformation":::
 
 1. Click on the Inspect and Data Preview tabs of the Select transformation to view the new column name values ```(a,b,c)``` replace the original movie, title, genres column names
    
@@ -126,7 +127,7 @@ Now that you've stored the configuration file contents in memory, you can dynami
 1. What we've done is to find all column names that match the ```prevcolumn``` property from the external JSON configuration file and renamed each match to the new ```newcolumn``` name.
 1. Click on the Data Preview and Inspect tabs in the Select transformation and you should now see the new column names from the external mapping file.
 
-![Source 2](media/data-flow/dynacols-2.png "Source 2")
+:::image type="content" source="media/data-flow/dynacols-2.png" alt-text="Source 2":::
 
 ## Next steps
 

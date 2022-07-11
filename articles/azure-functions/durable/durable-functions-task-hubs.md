@@ -3,7 +3,7 @@ title: Task hubs in Durable Functions - Azure
 description: Learn what a task hub is in the Durable Functions extension for Azure Functions. Learn how to configure task hubs.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/28/2022
 ms.author: azfuncdf
 ---
 
@@ -19,7 +19,10 @@ A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical 
 > 
 > For more information on the various storage provider options and how they compare, see the [Durable Functions storage providers](durable-functions-storage-providers.md) documentation.
 
-If multiple function apps share a storage account, each function app *must* be configured with a separate task hub name. A storage account can contain multiple task hubs. This restriction generally applies to other storage providers as well.
+If multiple function apps share a storage account, each function app *must* be configured with a separate task hub name. This requirement also applies to staging slots: each staging slot must be configured with a unique task hub name. A single storage account can contain multiple task hubs. This restriction generally applies to other storage providers as well.
+
+> [!NOTE]
+> The exception to the task hub sharing rule is if you are configuring your app for regional disaster recovery. See the [disaster recovery and geo-distribution](durable-functions-disaster-recovery-geo-distribution.md) article for more information.
 
 The following diagram illustrates one task hub per function app in shared and dedicated Azure Storage accounts.
 
@@ -107,6 +110,9 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 }
 ```
 
+> [!NOTE]
+> When using deployment slots, it's a best practice to configure the task hub name using app settings. If you want to ensure that a particular slot always uses a particular task hub, use ["slot-sticky" app settings](../functions-deployment-slots.md#create-a-deployment-setting). 
+
 In addition to **host.json**, task hub names can also be configured in [orchestration client binding](durable-functions-bindings.md#orchestration-client) metadata. This is useful if you need to access orchestrations or entities that live in a separate function app. The following code demonstrates how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
 
 # [C#](#tab/csharp)
@@ -155,6 +161,23 @@ The task hub property in the `function.json` file is set via App Setting:
     "taskHub": "%MyTaskHub%",
     "type": "orchestrationClient",
     "direction": "in"
+}
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("HttpStart")
+public HttpResponseMessage httpStart(
+        @HttpTrigger(name = "req", route = "orchestrators/{functionName}") HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext", taskHub = "%MyTaskHub%") DurableClientContext durableContext,
+        @BindingName("functionName") String functionName,
+        final ExecutionContext context) {
+
+    DurableTaskClient client = durableContext.getClient();
+    String instanceId = client.scheduleNewOrchestrationInstance(functionName);
+    context.getLogger().info("Created new Java orchestration with instance ID = " + instanceId);
+    return durableContext.createCheckStatusResponse(req, instanceId);
 }
 ```
 

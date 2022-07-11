@@ -4,21 +4,14 @@ description: Describe the symptoms, causes, and resolution for the most common i
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2019
+ms.date: 10/21/2021
+ms.reviewer: luki
 
 ---
 
 # How to troubleshoot issues with the Log Analytics agent for Linux
 
 This article provides help troubleshooting errors you might experience with the Log Analytics agent for Linux in Azure Monitor and suggests possible solutions to resolve them.
-
-If none of these steps work for you, the following support channels are also available:
-
-* Customers with Premier support benefits can open a support request with [Premier](https://premier.microsoft.com/).
-* Customers with Azure support agreements can open a support request [in the Azure portal](https://azure.microsoft.com/support/options/).
-* Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
-* File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one.
 
 ## Log Analytics Troubleshooting Tool
 
@@ -33,9 +26,10 @@ The Troubleshooting Tool can be run by pasting the following command into a term
 
 The Troubleshooting Tool is automatically included upon installation of the Log Analytics Agent. However, if installation fails in any way, it can also be installed manually by following the steps below.
 
-1. Copy the troubleshooter bundle onto your machine: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
-2. Unpack the bundle: `tar -xzvf omsagent_tst.tar.gz`
-3. Run the manual installation: `sudo ./install_tst`
+1. Ensure that the [GNU Project Debugger (GDB)](https://www.gnu.org/software/gdb/) is installed on the machine since the troubleshooter relies on it.
+2. Copy the troubleshooter bundle onto your machine: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+3. Unpack the bundle: `tar -xzvf omsagent_tst.tar.gz`
+4. Run the manual installation: `sudo ./install_tst`
 
 ### Scenarios Covered
 
@@ -56,7 +50,7 @@ For more details, please check out our [GitHub documentation](https://github.com
 
 ## Purge and Re-Install the Linux Agent
 
-We've seen that a clean re-install of the Agent will fix most issues. In fact this may be the first suggestion from Support to get the Agent into a uncurropted state from our support team. Running the troubleshooter, log collect, and attempting a clean re-install will help solve issues more quickly.
+We've seen that a clean re-install of the Agent will fix most issues. In fact this may be the first suggestion from Support to get the Agent into a uncorrupted state from our support team. Running the troubleshooter, log collect, and attempting a clean re-install will help solve issues more quickly.
 
 1. Download the purge script:
 - `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
@@ -81,7 +75,7 @@ We've seen that a clean re-install of the Agent will fix most issues. In fact th
  Additional configurations | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  > [!NOTE]
- > Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](../agents/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:
+ > Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [Agents configuration](../agents/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from **Agents configuration** or for a single agent run the following:
 > `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
 
 ## Installation error codes
@@ -91,7 +85,7 @@ We've seen that a clean re-install of the Agent will fix most issues. In fact th
 | NOT_DEFINED | Because the necessary dependencies are not installed, the auoms auditd plugin will not be installed. Installation of auoms failed, install package auditd. |
 | 2 | Invalid option provided to the shell bundle. Run `sudo sh ./omsagent-*.universal*.sh --help` for usage |
 | 3 | No option provided to the shell bundle. Run `sudo sh ./omsagent-*.universal*.sh --help` for usage. |
-| 4 | Invalid package type OR invalid proxy settings; omsagent-*rpm*.sh packages can only be installed on RPM-based systems, and omsagent-*deb*.sh packages can only be installed on Debian-based systems. It is recommend you use the universal installer from the [latest release](../vm/quick-collect-linux-computer.md#install-the-agent-for-linux). Also review to verify your proxy settings. |
+| 4 | Invalid package type OR invalid proxy settings; omsagent-*rpm*.sh packages can only be installed on RPM-based systems, and omsagent-*deb*.sh packages can only be installed on Debian-based systems. It is recommend you use the universal installer from the [latest release](../vm/monitor-virtual-machine.md#agents). Also review to verify your proxy settings. |
 | 5 | The shell bundle must be executed as root OR there was 403 error returned during onboarding. Run your command using `sudo`. |
 | 6 | Invalid package architecture OR there was error 200 error returned during onboarding; omsagent-\*x64.sh packages can only be installed on 64-bit systems, and omsagent-\*x86.sh packages can only be installed on 32-bit systems. Download the correct package for your architecture from the [latest release](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Installation of OMS package failed. Look through the command output for the root failure. |
@@ -470,7 +464,7 @@ You can continue reonboard after using the `--purge` option
 
 Perform the following steps to correct the issue.
 1. Remove extension from Azure portal.
-2. Install the agent following the [instructions](../vm/quick-collect-linux-computer.md).
+2. Install the agent following the [instructions](../vm/monitor-virtual-machine.md).
 3. Restart the agent by running the following command: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 * Wait several minutes and the provisioning state changes to **Provisioning succeeded**.
 
@@ -492,3 +486,17 @@ Perform the following steps to correct the issue.
     ```
 
 3. Upgrade packages by executing `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
+
+## Issue: Installation is failing saying Python2 cannot support ctypes, even though Python3 is being used
+
+### Probable causes
+
+There is a known issue where, if the VM's language isn't English, a check will fail when verifying which version of Python is being used. This leads to the agent always assuming Python2 is being used, and failing if there is no Python2.
+
+### Resolution
+
+Change the VM's environmental language to English:
+
+```
+export LANG=en_US.UTF-8
+```

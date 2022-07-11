@@ -1,13 +1,14 @@
 ---
 title: Azure Storage samples using .NET | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET storage client libraries.
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.devlang: csharp
 ---
 
 # Azure Storage samples using v12 .NET client libraries
@@ -82,6 +83,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 
 ### Troubleshooting
+
 :::row:::
    :::column span="2":::
       [Trigger a recoverable error using a container client](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs#L166)
@@ -110,6 +112,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 
 ### File system
+
 :::row:::
    :::column span="":::
       [Create a file using a file system client](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L22)
@@ -144,6 +147,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 
 ### File
+
 :::row:::
    :::column span="":::
       [Upload a file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L126)
@@ -266,7 +270,8 @@ The following table provides an overview of our samples repository and the scena
    :::column-end:::
 :::row-end:::
 
-### Troubleshooting 
+### Troubleshooting
+
 :::row:::
    :::column span="2":::
       [Trigger a recoverable error using a queue client](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L188)
@@ -309,10 +314,10 @@ The following table provides an overview of our samples repository and the scena
 
 To view the complete .NET sample libraries, go to:
 
-* [Azure blob code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
-* [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
-* [Azure Files code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
-* [Azure queue code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+- [Azure blob code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+- [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
+- [Azure Files code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
+- [Azure queue code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
 
 You can browse and clone the GitHub repository for each library.
 
@@ -320,17 +325,17 @@ You can browse and clone the GitHub repository for each library.
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in .NET](../blobs/storage-quickstart-blobs-dotnet.md)
-* [Getting Started with Azure Queue Service in .NET](../queues/storage-quickstart-queues-dotnet.md)
-* [Getting Started with Azure Table Service in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
-* [Getting Started with Azure File Service in .NET](../files/storage-dotnet-how-to-use-files.md)
+- [Getting Started with Azure Blob Service in .NET](../blobs/storage-quickstart-blobs-dotnet.md)
+- [Getting Started with Azure Queue Service in .NET](../queues/storage-quickstart-queues-dotnet.md)
+- [Getting Started with Azure Table Service in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
+- [Getting Started with Azure File Service in .NET](../files/storage-dotnet-how-to-use-files.md)
 
 ## Next steps
 
 For information on samples for other languages:
 
-* Java: [Azure Storage samples using Java](storage-samples-java.md)
-* Python: [Azure Storage samples using Python](storage-samples-python.md)
-* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
-* C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
-* All other languages: [Azure Storage samples](storage-samples.md)
+- Java: [Azure Storage samples using Java](storage-samples-java.md)
+- Python: [Azure Storage samples using Python](storage-samples-python.md)
+- JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
+- C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
+- All other languages: [Azure Storage samples](storage-samples.md)

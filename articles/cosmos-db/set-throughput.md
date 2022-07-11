@@ -1,11 +1,12 @@
 ---
 title: Provision throughput on Azure Cosmos containers and databases
 description: Learn how to set provisioned throughput for your Azure Cosmos containers and databases.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 09/16/2021
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
@@ -60,7 +61,7 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partitioning-overview.md).
 
-Containers in a shared throughput database share the throughput (RU/s) allocated to that database. With standard (manual) provisioned throughput, you can have up to 25 containers with a minimum of 400 RU/s on the database. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
+Containers in a shared throughput database share the throughput (RU/s) allocated to that database. With standard (manual) provisioned throughput, you can have up to 25 containers with a minimum of 400 RU/s on the database. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale minimum 1000 RU/s (scales between 100 - 1000 RU/s).
 
 > [!NOTE]
 > In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
@@ -105,7 +106,7 @@ The actual minimum RU/s may vary depending on your account configuration. But ge
 
 * 400 RU/s 
 * Current storage in GB * 10 RU/s (this constraint can be relaxed in some cases, see our [high storage / low throughput program](#high-storage-low-throughput-program))
-* Highest RU/s provisioned on the database or container / 100
+* Highest RU/s ever provisioned on the database or container / 100
 
 ### Changing the provisioned throughput
 
@@ -117,6 +118,8 @@ You can scale the provisioned throughput of a container or a database through th
 If you are **reducing the provisioned throughput**, you will be able to do it up to the [minimum](#current-provisioned-throughput).
 
 If you are **increasing the provisioned throughput**, most of the time, the operation is instantaneous. There are however, cases where the operation can take longer time due to the system tasks to provision the required resources. In this case, an attempt to modify the provisioned throughput while this operation is in progress will yield an HTTP 423 response with an error message explaining that another scaling operation is in progress.
+
+Learn more in the [Best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md) article.
 
 > [!NOTE]
 > If you are planning for a very large ingestion workload that will require a big increase in provisioned throughput, keep in mind that the scaling operation has no SLA and, as mentioned in the previous paragraph, it can take a long time when the increase is large. You might want to plan ahead and start the scaling before the workload starts and use the below methods to check progress.
@@ -141,8 +144,8 @@ This table shows a comparison between provisioning standard (manual) throughput 
 
 |**Parameter**  |**Standard (manual) throughput on a database**  |**Standard (manual) throughput on a container**|**Autoscale throughput on a database** | **Autoscale throughput on a container**|
 |---------|---------|---------|---------|---------|
-|Entry point (minimum RU/s) |400 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> |400| Autoscale between 400 - 4000 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> | Autoscale between 400 - 4000 RU/s.|
-|Minimum RU/s per container|--|400|--|Autoscale between 400 - 4000 RU/s|
+|Entry point (minimum RU/s) |400 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> |400| Autoscale between 100 - 1000 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> | Autoscale between 100 - 1000 RU/s.|
+|Minimum RU/s per container|--|400|--|Autoscale between 100 - 1000 RU/s|
 |Maximum RUs|Unlimited, on the database.|Unlimited, on the container.|Unlimited, on the database.|Unlimited, on the container.
 |RUs assigned or available to a specific container|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
 |Maximum storage for a container|Unlimited.|Unlimited|Unlimited|Unlimited|
@@ -155,3 +158,6 @@ This table shows a comparison between provisioning standard (manual) throughput 
 * Learn how to [provision standard (manual) on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision standard (manual) throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

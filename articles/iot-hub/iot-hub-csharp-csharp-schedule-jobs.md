@@ -1,13 +1,13 @@
 ---
 title: Schedule jobs with Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT device SDK for .NET to implement the simulated device apps and a service app to run the job.
-author: robinsh
-manager: philmea
+author: kgremban
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: "mqtt, devx-track-csharp"
 ---
 
@@ -29,7 +29,7 @@ To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins](iot-hub-csharp-csharp-twin-getstarted.md) and [Tutorial: How to use device twin properties](tutorial-device-twins.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-csharp)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](./quickstart-control-device.md?pivots=programming-language-csharp)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -85,6 +85,8 @@ In this section, you create a .NET console app that responds to a direct method 
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
     using Newtonsoft.Json;
+    using System.Threading.Tasks;
+    using System.Text;
     ```
 
 1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section:
@@ -304,6 +306,6 @@ You are now ready to run the apps.
 
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
-* To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update](tutorial-firmware-update.md).
+* To continue getting started with IoT Hub and device management patterns such as end-to-end image-based update in [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
 
 * To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge](../iot-edge/quickstart-linux.md).

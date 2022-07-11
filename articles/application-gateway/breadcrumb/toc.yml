@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Networking
+    tocHref: /azure/architecture/framework/services/networking
+    topicHref: /azure/networking/index
+    items:
+    - name: Application Gateway
+      tocHref: /azure/architecture/framework/services/networking
+      topicHref: /azure/application-gateway/index

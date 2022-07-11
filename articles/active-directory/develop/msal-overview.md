@@ -1,6 +1,5 @@
 ---
-title: Learn about MSAL | Azure
-titleSuffix: Microsoft identity platform
+title: Learn about MSAL
 description: The Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be the Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
 author: mmacy
@@ -10,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/22/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, has-adal-ref
 #Customer intent: As an application developer, I want to learn about the Microsoft Authentication Library so I can decide if this platform meets my application development needs and requirements.
 ---
 
@@ -32,7 +31,7 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 > [!VIDEO https://www.youtube.com/embed/zufQ0QRUHUk]
 
 ## Application types and scenarios
-Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
+Using MSAL, a token can be acquired for a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
 
 MSAL can be used in many application scenarios, including the following:
 
@@ -60,8 +59,8 @@ MSAL can be used in many application scenarios, including the following:
 | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Windows, macOS, Linux|
 | [MSAL React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)| Single-page apps with React and React-based libraries (Next.js, Gatsby.js)|
 
-## Differences between ADAL and MSAL
+## Migrate apps that use ADAL to MSAL
 
 Active Directory Authentication Library (ADAL) integrates with the Azure AD for developers (v1.0) endpoint, where MSAL integrates with the Microsoft identity platform. The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL you can also get authentications for Azure AD B2C.
 
-For more specific information, read about [migrating to MSAL.NET from ADAL.NET](msal-net-migration.md) and [migrating to MSAL.js from ADAL.js](msal-compare-msal-js-and-adal-js.md).
+For more information about how to migrate to MSAL, see [Migrate applications to the Microsoft Authentication Library (MSAL)](msal-migration.md).

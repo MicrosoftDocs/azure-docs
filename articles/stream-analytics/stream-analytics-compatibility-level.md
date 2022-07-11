@@ -30,7 +30,7 @@ When you create a new Stream Analytics job, it's a best practice to create it by
 
 ## Set the compatibility level
 
-You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
+You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/2020-03-01/streaming-jobs/create-or-replace#compatibilitylevel).
 
 To update the compatibility level of the job in the Azure portal:
 

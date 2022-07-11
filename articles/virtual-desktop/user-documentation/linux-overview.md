@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop Thin Client Support - Azure
+title: Azure Virtual Desktop thin client support - Azure
 description: A brief overview of thin client support for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
@@ -20,9 +20,9 @@ The following partners have approved Azure Virtual Desktop clients.
 |10ZiG |[10ZiG client documentation](https://www.10zig.com/about/microsoft-windows-virtual-desktop)|[10ZiG support](https://www.10zig.com/resources/support_faq)|
 |Dell |[Dell client documentation](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Dell support](https://www.dell.com/support)|
 |HP |[HP client documentation](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097)|[HP support](https://support.hp.com/us-en/products/workstations-thin-clients)|
-|IGEL |[IGEL client documentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL support](https://www.igel.com/support/)|
+|IGEL |[IGEL client documentation](https://www.igel.com/igel-solution-family/)|[IGEL support](https://www.igel.com/support/)|
 |NComputing |[NComputing client documentation](https://www.ncomputing.com/microsoft)|[NComputing support](https://www.ncomputing.com/support/support-options)|
-|Stratodesk |[Stratodesk client documentation](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk support](https://www.stratodesk.com/support/)|
+|Stratodesk |[Stratodesk client documentation](https://kb.stratodesk.com/microsoft-windows-virtual-desktop-wvd)|[Stratodesk support](https://www.stratodesk.com/support/)|
 
 ## Next steps
 

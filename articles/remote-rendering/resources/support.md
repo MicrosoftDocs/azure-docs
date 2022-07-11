@@ -13,7 +13,7 @@ ms.topic: troubleshooting
 
 To open a technical support ticket within the Azure portal for Azure Remote Rendering:
 
-1. Open [Azure portal](https://ms.portal.azure.com)
+1. Open [Azure portal](https://portal.azure.com)
 
 1. Select the question mark icon from the menu bar, then click **Help + support**.
 
@@ -46,7 +46,7 @@ On the bottom of each documentation article, you can open a GitHub issue to prov
 
 ## Provide product feedback
 
-To provide feedback, share an idea or suggestion for Azure Remote Rendering, or vote on the ideas that others have submitted, visit the [Azure Remote Rendering Feedback Forum](https://feedback.azure.com/forums/928696-azure-remote-rendering).
+To provide feedback, share an idea or suggestion for Azure Remote Rendering, or vote on the ideas that others have submitted, visit the [Azure Remote Rendering Feedback Forum](https://feedback.azure.com/d365community/forum/46aa4cc0-fd24-ec11-b6e6-000d3a4f07b8).
 
 
 ## Microsoft Q&A

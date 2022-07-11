@@ -4,26 +4,29 @@ titleSuffix: Azure Machine Learning
 description:  Learn how to make your data available to your local or remote compute for model training with Azure Machine Learning datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: yogipandey
 author: ynpandey
-manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2020
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml
-
-# Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
-
+ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+#Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 ---
 
 # Train models with Azure Machine Learning datasets 
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
+
+* For structured data, see [Consume datasets in machine learning training scripts](#consume-datasets-in-machine-learning-training-scripts).
+
+* For unstructured data, see [Mount files to remote compute targets](#mount-files-to-remote-compute-targets).
 
 Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive), and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
-If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-datasets.md#explore-data). 
+If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](./v1/how-to-create-register-datasets.md). 
 
 ## Prerequisites
 
@@ -31,9 +34,10 @@ To create and train with datasets, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](quickstart-create-resources.md).
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install) (>= 1.13.0), which includes the `azureml-datasets` package.
+
 
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
@@ -42,7 +46,7 @@ To create and train with datasets, you need:
 
 If you have structured data not yet registered as a dataset, create a TabularDataset and use it directly in your training script for your local or remote experiment.
 
-In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](how-to-create-register-datasets.md#register-datasets).
+In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](./v1/how-to-create-register-datasets.md).
 
 ### Create a TabularDataset
 
@@ -64,7 +68,7 @@ The following code configures a script argument `--input-data` that you will spe
 > [!Note]
 > If your original data source contains NaN, empty strings or blank values, when you use `to_pandas_dataframe()`, then those values are replaced as a *Null* value.
 
-If you need to load the prepared data into a new dataset from an in-memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file. Learn more about [how to create datasets](how-to-create-register-datasets.md).
+If you need to load the prepared data into a new dataset from an in-memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file. Learn more about [how to create datasets](./v1/how-to-create-register-datasets.md).
 
 ```Python
 %%writefile $script_folder/train_titanic.py
@@ -132,7 +136,7 @@ For the notebook example , see [How to configure a training run with data input 
 
 The following example creates an unregistered FileDataset, `mnist_data` from web urls. This FileDataset is the input data for your training run.
 
-Learn more about [how to create datasets](how-to-create-register-datasets.md) from other sources.
+Learn more about [how to create datasets](./v1/how-to-create-register-datasets.md) from other sources.
 
 ```Python
 
@@ -317,7 +321,7 @@ myenv.environment_variables = {"AZUREML_DOWNLOAD_CONCURRENCY":64}
 
 To ensure your storage access credentials are linked to the workspace and the associated file datastore, complete the following steps:
 
-1. Navigate to your workspace in the [Azure Portal](https://ms.portal.azure.com).
+1. Navigate to your workspace in the [Azure Portal](https://portal.azure.com).
 1. Select the storage link on the workspace **Overview** page.
 1. On the storage page, select **Access keys** on the left side menu. 
 1. Copy the key.

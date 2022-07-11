@@ -2,10 +2,12 @@
 title: Diagnose failures and exceptions with Azure Application Insights
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/19/2021
-
+ms.reviewer: casocha
 ---
+
 
 # Diagnose exceptions in web apps with Application Insights
 
@@ -73,11 +75,11 @@ Alternatively, instead of looking at exceptions of a specific failing operation,
 
 To get diagnostic data specific to your app, you can insert code to send your own telemetry data. Your custom telemetry or log data is displayed in diagnostic search alongside the request, page view, and other automatically collected data.
 
-Using the <xref:Microsoft.ApplicationInsights.TelemetryClient?displayProperty=fullName>, you have several APIs available:
+Using the <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient?displayProperty=fullName>, you have several APIs available:
 
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType> is typically used for monitoring usage patterns, but the data it sends also appears under **Custom Events** in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](./diagnostic-search.md).
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackTrace%2A?displayProperty=nameWithType> lets you send longer data such as POST information.
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackException%2A?displayProperty=nameWithType> sends exception details, such as stack traces to Application Insights.
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType> is typically used for monitoring usage patterns, but the data it sends also appears under **Custom Events** in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](./diagnostic-search.md).
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackTrace%2A?displayProperty=nameWithType> lets you send longer data such as POST information.
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackException%2A?displayProperty=nameWithType> sends exception details, such as stack traces to Application Insights.
 
 To see these events, open [Search](./diagnostic-search.md) from the left menu, select the drop-down menu **Event types**, and then choose **Custom Event**, **Trace**, or **Exception**.
 
@@ -176,7 +178,7 @@ If your web page includes script files from content delivery networks or other d
 > [!NOTE]
 > The `TelemetryClient` is recommended to be instantiated once, and re-used throughout the life of an application.
 
-With [Dependency Injection (DI) in .NET](/dotnet/core/extensions/dependency-injection), the appropriate .NET SDK, and correctly configuring Application Insights for DI, you can require the <xref:Microsoft.ApplicationInsights.TelemetryClient> as a constructor parameter.
+With [Dependency Injection (DI) in .NET](/dotnet/core/extensions/dependency-injection), the appropriate .NET SDK, and correctly configuring Application Insights for DI, you can require the <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient> as a constructor parameter.
 
 ```csharp
 public class ExampleController : ApiController
@@ -207,7 +209,7 @@ void Application_Error(object sender, EventArgs e)
 }
 ```
 
-In the preceding example, the `_telemetryClient` is a class-scoped variable of type <xref:Microsoft.ApplicationInsights.TelemetryClient>.
+In the preceding example, the `_telemetryClient` is a class-scoped variable of type <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient>.
 
 ## MVC
 

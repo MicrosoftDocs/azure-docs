@@ -1,6 +1,6 @@
 ---
-title: Back up an Oracle Database 19c database on an Azure Linux VM with RMAN and Azure Storage
-description: Learn how to back up an Oracle Database 19c database to Azure cloud storage.
+title: Back up an Oracle Database on an Azure Linux VM with RMAN and Azure Files
+description: Learn how to back up an Oracle Database to Azure Files.
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -12,13 +12,17 @@ ms.reviewer: dbakevlar
 
 ---
 
-# Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Storage
+# Back up and recover an Oracle Database on an Azure Linux VM using Azure Files
 
-This article demonstrates the use of Azure Storage as a media to back up and restore an Oracle database running on an Azure VM. You will back up the database using Oracle RMAN to Azure File storage mounted to the VM using the SMB protocol. Using Azure storage for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
+**Applies to:** :heavy_check_mark: Linux VMs 
+
+This article demonstrates the use of Azure Files as a media to back up and restore an Oracle database running on an Azure VM. The steps in this article have been tested against Oracle 12.1 and higher. You will back up the database using Oracle RMAN to an Azure file share mounted to the VM using the SMB protocol. Using Azure Files for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-- To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 19c. The Marketplace image currently used to create the VM is  **Oracle:oracle-database-19-3:oracle-database-19-0904:latest**. Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
+- To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database. We recommend using Oracle 12.x or higher. 
+
+- Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
 
 ## Prepare the database environment
 
@@ -162,14 +166,14 @@ This article demonstrates the use of Azure Storage as a media to back up and res
 
 To back up to Azure Files, complete these steps:
 
-1. Set up Azure File Storage.
-1. Mount the Azure Storage File share to your VM.
-1. Back up the database.
-1. Restore and recover the database.
+1. [Set up Azure Files](#set-up-azure-files).
+1. [Mount the Azure file share to your VM](#mount-the-azure-storage-file-share-to-your-vm).
+1. [Back up the database](#backup-the-database).
+1. [Restore and recover the database](#restore-and-recover-the-database).
 
-### Set up Azure File Storage
+### Set up Azure Files
 
-In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [How to create an NFS share](../../../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 When mounting the Azure Files, we will use the `cache=none` to disable caching of file share data. And to ensure files created in the share are owned by the oracle user set the `uid=oracle` and `gid=oinstall` options as well. 
 
@@ -177,9 +181,7 @@ When mounting the Azure Files, we will use the `cache=none` to disable caching o
 
 First, set up your storage account.
 
-1. Configure File Storage in the Azure portal
-
-    In the Azure portal, select ***+ Create a resource*** and search for and select ***Storage Account***
+1. In the Azure portal, select ***+ Create a resource*** and search for and select ***Storage Account***
     
     ![Screenshot that shows where to create a resource and select Storage Account.](./media/oracle-backup-recovery/storage-1.png)
     
@@ -187,11 +189,9 @@ First, set up your storage account.
     
     ![Screenshot that shows where to choose your existing resource group.](./media/oracle-backup-recovery/file-storage-1.png)
    
-   
 3. Click on the ***Advanced*** tab and under Azure Files set ***Large file shares*** to ***Enabled***. Click on Review + Create and then click Create.
     
     ![Screenshot that shows where to set Large file shares to Enabled.](./media/oracle-backup-recovery/file-storage-2.png)
-    
     
 4. When the storage account has been created, go to the resource and choose ***File shares***
     
@@ -319,7 +319,7 @@ To set up your storage account and file share run the following commands in Azur
    //orabackup1.file.core.windows.net/orabackup   10T     0   10T   0% /mnt/orabackup
    ```
 
-### Back up the database
+### Backup the database
 
 In this section, we will be using Oracle Recovery Manager (RMAN) to take a full backup of the database and archive logs and write the backup as a backup set to the Azure File share mounted earlier. 
 
@@ -332,7 +332,7 @@ In this section, we will be using Oracle Recovery Manager (RMAN) to take a full 
     RMAN> configure channel 2 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s'; 
     ```
 
-2. Because Azure standard file shares have a maximum file size of 1 TiB, we will limit the size of RMAN backup pieces to 1 TiB. (Note that Premium File Shares have a maximum file size limit of 4 TiB. For more information, see [Azure Files Scalability and Performance Targets](../../../storage/files/storage-files-scale-targets.md).)
+2. In this example, we are limiting the size of RMAN backup pieces to 1 TiB. Please note the RMAN backup MAXPIECESIZE can go upto 4TiB as Azure standard file shares and Premium File Shares have a maximum file size limit of 4 TiB. For more information, see [Azure Files Scalability and Performance Targets](../../../storage/files/storage-files-scale-targets.md).)
 
     ```bash
     RMAN> configure channel device type disk maxpiecesize 1000G;
@@ -350,9 +350,9 @@ In this section, we will be using Oracle Recovery Manager (RMAN) to take a full 
     RMAN> backup as compressed backupset database plus archivelog;
     ```
 
-You have now backed up the database online using Oracle RMAN, with the backup located on Azure File storage. This method has the advantage of utilizing the features of RMAN while storing backups in Azure File storage where they can be accessed from other VMs, useful if you need to clone the database.  
+You have now backed up the database online using Oracle RMAN, with the backup located in Azure Files. This method has the advantage of utilizing the features of RMAN while storing backups in Azure Files where they can be accessed from other VMs, useful if you need to clone the database.  
     
-While using RMAN and Azure File storage for database backup has many advantages, backup and restore time is linked to the size of the database, so for very large databases it can take considerable time for these operations.  An alternative backup mechanism, using Azure Backup application-consistent VM backups, uses snapshot technology to perform backups, which has the advantage of very fast backups irrespective of database size. Integration with Recovery Services Vault provides secure storage of your Oracle Database backups in Azure cloud storage accessible from other VMs and Azure regions. 
+While using RMAN and Azure Files for database backup has many advantages, backup and restore time is linked to the size of the database, so for very large databases it can take considerable time for these operations. An alternative backup mechanism, using Azure Backup application-consistent VM backups, uses snapshot technology to perform backups, which has the advantage of very fast backups irrespective of database size. Integration with Recovery Services Vault provides secure storage of your Oracle Database backups in Azure cloud storage accessible from other VMs and Azure regions. 
 
 ### Restore and recover the database
 

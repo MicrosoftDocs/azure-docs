@@ -1,18 +1,15 @@
 ---
 title: Set up IBM Db2 HADR on Azure virtual machines (VMs) on RHEL | Microsoft Docs
 description: Establish high availability of IBM Db2 LUW on Azure virtual machines (VMs) RHEL.
-services: virtual-machines-linux
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: 'SAP'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2021
+ms.date: 06/29/2022
 ms.author: juergent
 
 ---
@@ -115,6 +112,11 @@ Complete the planning process before you execute the deployment. Planning builds
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |
 	
 For more information about Linux Pacemaker in Azure, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr].
+
+>[!IMPORTANT]
+>For Db2 versions 11.5.6 and higher we highly recommend Integrated solution using Pacemaker from IBM. 
+>* [Integrated solution using Pacemaker](https://www.ibm.com/docs/en/db2/11.5?topic=feature-integrated-solution-using-pacemaker)
+>* [Alternate or additional configurations available on Microsoft Azure](https://www.ibm.com/support/pages/alternate-or-additional-configurations-available-microsoft-azure)
 
 ## Deployment on Red Hat Enterprise Linux
 
@@ -650,10 +652,10 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 sudo pcs resource move Db2_HADR_<b>ID2</b>-clone --master
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-clone</code></pre>
 
-- **On RHEL 7.x - pcs resource move \<res_name> <host>:** Creates location constraints and can cause issues with takeover
-- **On RHEL 8.x - pcs resource move \<res_name> --master:** Creates location constraints and can cause issues with takeover
-- **pcs resource clear \<res_name>**: Clears location constraints
-- **pcs resource cleanup \<res_name>**: Clears all errors of the resource
+- **On RHEL 7.x - pcs resource move \<res_name\> \<host\>:** Creates location constraints and can cause issues with takeover
+- **On RHEL 8.x - pcs resource move \<res_name\> --master:** Creates location constraints and can cause issues with takeover
+- **pcs resource clear \<res_name\>**: Clears location constraints
+- **pcs resource cleanup \<res_name\>**: Clears all errors of the resource
 
 ### Test a manual takeover
 
@@ -871,7 +873,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
 [db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
+[dbms-db2]:dbms_guide_ibm.md
 
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
 [rhel-ha-addon]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index
@@ -880,12 +882,12 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 [rhel-azr-supp]:https://access.redhat.com/articles/3131341
 [rhel-azr-inst]:https://access.redhat.com/articles/3252491
 [rhel-db2-supp]:https://access.redhat.com/articles/3144221
-[ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
-[glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
-[rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
-[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
+[ascs-ha-rhel]:high-availability-guide-rhel.md
+[glusterfs]:high-availability-guide-rhel-glusterfs.md
+[rhel-pcs-azr]:high-availability-guide-rhel-pacemaker.md
+[anf-rhel]:high-availability-guide-rhel-netapp-files.md
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
-[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist
+[azr-sap-plancheck]:sap-deployment-checklist.md

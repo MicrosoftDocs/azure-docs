@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
 ms.author: seshin
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Secure a linked service with Private Links

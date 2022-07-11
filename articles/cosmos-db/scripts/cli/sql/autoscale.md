@@ -1,47 +1,66 @@
 ---
-title: Create a Core (SQL) API database and container with autoscale for Azure Cosmos DB
-description: Create a Core (SQL) API database and container with autoscale for Azure Cosmos DB
-author: markjbrown
-ms.author: mjbrown
+title: Azure Cosmos DB SQL API account, database, and container with autoscale
+description: Use Azure CLI to create an Azure Cosmos DB Core (SQL) API account, database, and container with autoscale.
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 06/22/2022
+ms.custom: kr2b-contr-experiment
 ---
 
-# Create an Azure Cosmos Core (SQL) API account, database and container with autoscale using Azure CLI
+# Create an Azure Cosmos DB SQL API account, database, and container with autoscale
+
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+The script in this article creates an Azure Cosmos DB Core (SQL) API account, database, and container with autoscale.
 
-- This article requires version 2.0.73 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+## Prerequisites
+
+- [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+
+- This script requires Azure CLI version 2.0.73 or later.
+
+  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/quickstart.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
+
+    [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
+    Cloud Shell is automatically authenticated under the account you used to sign in to the Azure portal. You can use [az account set](/cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
+
+    ```azurecli
+    subscription="<subscriptionId>" # add subscription here
+    
+    az account set -s $subscription # ...or use 'az login'
+    ```
+
+  - If you prefer, you can [install Azure CLI](/cli/azure/install-azure-cli) to run the script locally. Run [az version](/cli/azure/reference-index?#az-version) to find the Azure CLI version and dependent libraries that are installed, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) if you need to upgrade. If prompted, [install Azure CLI extensions](/cli/azure/azure-cli-extensions-overview). If you're running Windows or macOS, consider [running Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+
+    If you're using a local installation, sign in to Azure by running [az login](/cli/azure/reference-index#az-login) and following the prompts. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/autoscale.sh "Create an Azure Cosmos DB Core (SQL) API account, database, and container with autoscale.")]
+Run the following script to create an Azure resource group, an Azure Cosmos DB SQL API account and database, and a container with autoscale. The resources might take a while to create.
 
-## Clean up deployment
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/autoscale.sh" id="FullScript":::
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+This script uses the following commands:
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+- [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
+- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) creates an Azure Cosmos DB account for SQL API.
+- [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) creates an Azure Cosmos SQL (Core) database.
+- [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) with `--max-throughput 1000` creates an Azure Cosmos SQL (Core) container with autoscale capability.
+
+## Clean up resources
+
+If you no longer need the resources you created, use the [az group delete](/cli/azure/group#az-group-delete) command to delete the resource group and all resources it contains. These resources include the Azure Cosmos DB account, database, and container. The resources might take a while to delete.
+
+```azurecli
+az group delete --name $resourceGroup
 ```
-
-## Script explanation
-
-This script uses the following commands. Each command in the table links to command specific documentation.
-
-| Command | Notes |
-|---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az_cosmosdb_sql_database_create) | Creates an Azure Cosmos SQL (Core) database. |
-| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create) | Creates an Azure Cosmos SQL (Core) container. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
-
-All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+- [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb)
+- [Throughput (RU/s) operations for Azure Cosmos DB Core (SQL) API resources](throughput.md)

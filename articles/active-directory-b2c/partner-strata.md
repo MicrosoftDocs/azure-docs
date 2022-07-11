@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with whoIam for user verification 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -319,7 +320,7 @@ appgateways:
 
 ## Test the flow
 
-1. Navigate to the on-premises application url, `https://example.com/sonar/dashboard`.
+1. Navigate to the on-premises application URL, `https://example.com/sonar/dashboard`.
 
 2. The Orchestrator should redirect to the page you configured in your user flow.
 

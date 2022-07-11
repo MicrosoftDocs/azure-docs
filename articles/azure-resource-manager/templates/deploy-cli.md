@@ -1,13 +1,15 @@
 ---
-title: Deploy resources with Azure CLI and template
-description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
+title: Azure deployment templates with Azure CLI – Azure Resource Manager | Microsoft Docs
+description: Use Azure Resource Manager and Azure CLI to create and deploy resource groups to Azure. The resources are defined in an Azure deployment template.
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: azure cli deploy arm template, create resource group azure, azure deployment template, deployment resources, arm template, azure arm template
 ---
 
-# Deploy resources with ARM templates and Azure CLI
+# How to use Azure Resource Manager (ARM) deployment templates with Azure CLI
 
-This article explains how to use Azure CLI with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+This article explains how to use Azure CLI with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure.  If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
 
@@ -15,17 +17,23 @@ The deployment commands changed in Azure CLI version 2.2.0. The examples in this
 
 If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [How to deploy resources with Bicep and Azure CLI](../bicep/deploy-cli.md).
+
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Deployment scope
 
-You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
+You can target your Azure deployment template to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
 
-* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
+* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create):
+* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -33,7 +41,7 @@ You can target your deployment to a resource group, subscription, management gro
 
   For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
-* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
+* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -41,7 +49,7 @@ You can target your deployment to a resource group, subscription, management gro
 
   For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
 
-* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
+* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -53,7 +61,7 @@ For every scope, the user deploying the template must have the required permissi
 
 ## Deploy local template
 
-You can deploy a template from your local machine or one that is stored externally. This section describes deploying a local template.
+You can deploy an ARM template from your local machine or one that is stored externally. This section describes deploying a local template.
 
 If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 
@@ -71,7 +79,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-The deployment can take a few minutes to complete. When it finishes, you see a message that includes the result:
+The Azure deployment template can take a few minutes to complete. When it finishes, you see a message that includes the result:
 
 ```output
 "provisioningState": "Succeeded",
@@ -113,9 +121,9 @@ az deployment group create \
 
 For more information, see [Use relative path for linked templates](./linked-templates.md#linked-template).
 
-## Deployment name
+## Azure deployment template name
 
-When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named _azuredeploy.json_ and don't specify a deployment name, the deployment is named `azuredeploy`.
+When deploying an ARM template, you can give the Azure deployment template a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named _azuredeploy.json_ and don't specify a deployment name, the deployment is named `azuredeploy`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
@@ -170,7 +178,7 @@ For more information, see [Azure Resource Manager template specs](template-specs
 
 ## Preview changes
 
-Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+Before deploying your ARM template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 ## Parameters
 
@@ -222,7 +230,7 @@ To pass in an object, for example, to set tags, use JSON. For example, your temp
 
 In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script:
 
-```bash
+```azurecli
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
 az deployment group create --name addstorage  --resource-group myResourceGroup \
 --template-file $templateFile \
@@ -240,7 +248,7 @@ az deployment group create \
   --resource-group testgroup \
   --template-file <path-to-template> \
   --parameters $params
-``` 
+```
 
 However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, set the variable to a JSON string. Escape the quotation marks: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 

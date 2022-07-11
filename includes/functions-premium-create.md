@@ -1,13 +1,9 @@
 ---
-title: include file
-description: include file
-services: functions
-author: jeffhollan
+author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 04/24/2020
-ms.author: jehollan, glenga
-ms.custom: include file
+ms.author: glenga
 ---
 
 1. From the Azure portal menu or the **Home** page, select **Create a resource**.

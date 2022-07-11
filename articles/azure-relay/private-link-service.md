@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure Relay with Azure Private Link Service
 description: Learn how to integrate Azure Relay with Azure Private Link Service
-ms.date: 06/24/2021
+ms.date: 06/21/2022
 ms.topic: article 
 ms.custom: devx-track-azurepowershell
 ---
@@ -9,8 +9,10 @@ ms.custom: devx-track-azurepowershell
 # Integrate Azure Relay with Azure Private Link 
 Azure **Private Link Service** enables you to access Azure services (for example, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a private endpoint in your virtual network. For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
-A **private endpoint** is a network interface that allows your workloads running in a virtual network to connect privately and securely to a service that has a **private link resource** (for example, a Relay namespace). The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network eliminating exposure from the public Internet. You can provide a level of granularity in access control by allowing connections to specific Azure Relay namespaces. 
+A **private endpoint** is a network interface that allows your workloads running in a virtual network to connect privately and securely to a service that has a **private link resource** (for example, a Relay namespace). The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can provide a level of granularity in access control by allowing connections to specific Azure Relay namespaces. 
 
+> [!NOTE]
+> If you use the **relay listener** over a private link, open ports **9400-9599** for outgoing communication along with the standard relay ports. Note that you need to do this step only for the **relay listener**.
 
 ## Add a private endpoint using Azure portal
 
@@ -41,12 +43,12 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
     3. Enter a **name** for the private endpoint. 
-    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the Azure Relay namespace that you are connecting to. 
+    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the Azure Relay namespace that you're connecting to. 
     6. Select **Next: Resource >** button at the bottom of the page.
 
         ![Create Private Endpoint - Basics page](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. On the **Resource** page, follow these steps:
-    1. For connection method, if you select **Connect to an Azure resource in my directory**, you have owner or contributor access to the namespace and that namespace is in the same directory as the private endpoint, follow these steps: 
+    1. For connection method, if you select **Connect to an Azure resource in my directory**, you've owner or contributor access to the namespace and that namespace is in the same directory as the private endpoint, follow these steps: 
         1. Select the **Azure subscription** in which your **Azure Relay namespace** exists. 
         2. For **Resource type**, Select **Microsoft.Relay/namespaces** for the **Resource type**.
         3. For **Resource**, select a Relay namespace from the drop-down list. 
@@ -54,8 +56,8 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
         5. Select **Next: Configuration >** button at the bottom of the page. 
         
             ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. If you select **Connect to an Azure resource by resource ID or alias** because the namespace is not under the same directory as that of the private endpoint, follow these steps:
-        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Azure Relay namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. Here is an example: `/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
+    2. If you select **Connect to an Azure resource by resource ID or alias** because the namespace isn't under the same directory as that of the private endpoint, follow these steps:
+        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Azure Relay namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. Here's an example: `/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
         2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access.
         3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection.
         4. Then, select **Next: Configuration >** button at the bottom of the page.
@@ -74,7 +76,7 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. On the **Private endpoint** page, you can see the status of the private endpoint connection. If you are the owner of the Relay namespace or have the manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
+12. On the **Private endpoint** page, you can see the status of the private endpoint connection. If you're the owner of the Relay namespace or have the manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
     ![Private endpoint page](./media/private-link-service/private-endpoint-page.png)
 13. Navigate back to the **Networking** page of the **namespace**, and switch to the **Private endpoint connections** tab. You should see the private endpoint that you created. 
@@ -125,7 +127,7 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection `
                                 -PrivateLinkServiceId $namespaceResource.ResourceId `
                                 -GroupId "namespace"
 
-# get subnet object that you will use in the next step                                
+# get subnet object that you'll use in the next step                                
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $rgName -Name $vnetName
 $subnet = $virtualNetwork | Select -ExpandProperty subnets `
                                 | Where-Object  {$_.Name -eq $subnetName}  
@@ -144,7 +146,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 ## Manage private endpoints using Azure portal
 
-When you create a private endpoint, the connection must be approved. If the resource (Relay namespace) for which you're creating a private endpoint is in your directory, you can approve the connection request provided you have manage privileges over the Relay namespace. If you're connecting to a Relay namespace for which you don't have the manage access, you must wait for the owner of that resource to approve your connection request.
+When you create a private endpoint, the connection must be approved. If the resource (Relay namespace) for which you're creating a private endpoint is in your directory, you can approve the connection request provided you've manage privileges over the Relay namespace. If you're connecting to a Relay namespace for which you don't have the manage access, you must wait for the owner of that resource to approve your connection request.
 
 There are four provisioning states:
 
@@ -165,7 +167,7 @@ There are four provisioning states:
 
 ### Approve a private endpoint connection
 
-1. If there are any connections that are pending, you will see a connection listed with **Pending** in the provisioning state. 
+1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
 2. Select the **private endpoint** you wish to approve
 3. Select the **Approve** button.
 
@@ -177,7 +179,7 @@ There are four provisioning states:
 
 ### Reject a private endpoint connection
 
-1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection that was approved earlier, select the endpoint connection and click the **Reject** button.
+1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection that was approved earlier, select the endpoint connection and click the **Reject** button.
 
     ![Reject button](./media/private-link-service/private-endpoint-reject.png)
 2. On the **Reject connection** page, enter an optional comment, and select **Yes**. If you select **No**, nothing happens. 
@@ -194,7 +196,7 @@ There are four provisioning states:
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens. 
 
     ![Delete connection page](./media/private-link-service/delete-connection-page.png)
-3. You should see the status changed to **Disconnected**. Then, you will see the endpoint disappear from the list. 
+3. You should see the status changed to **Disconnected**. Then, you won't see the endpoint in the list. 
 
 ## Validate that the private link connection works
 You should validate that resources within the virtual network of the private endpoint are connecting to your Azure Relay namespace over its private IP address.
@@ -203,7 +205,7 @@ For this test, create a virtual machine by following the steps in the [Create a 
 
 In the **Networking** tab: 
 
-1. Specify **Virtual network** and **Subnet**. You must select the Virtual Network on which you deployed the private endpoint.
+1. Specify **Virtual network** and **Subnet**. Select the Virtual Network on which you deployed the private endpoint.
 2. Specify a **public IP** resource.
 3. For **NIC network security group**, select **None**.
 4. For **Load balancing**, select **No**.

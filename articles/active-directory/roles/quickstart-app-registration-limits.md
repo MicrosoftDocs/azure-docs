@@ -3,16 +3,15 @@ title: Remove limits on creating app registrations - Azure AD | Microsoft Docs
 description: Assign a custom role to grant unrestricted app registrations in the Azure AD Active Directory
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
-ms.date: 05/14/2021
+ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro, devx-track-azurepowershell
-
+ms.custom: it-pro, devx-track-azurepowershell, mode-other
 ms.collection: M365-identity-device-management
 ---
 # Quickstart: Grant permission to create unlimited app registrations
@@ -34,8 +33,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Create a custom role
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Roles and administrators** and then select **New custom role**.
 
     ![Create or edit roles from the Roles and administrators page](./media/quickstart-app-registration-limits/new-custom-role.png)
 
@@ -51,9 +51,12 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Assign the role
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **Azure Active Directory** and then select **Roles and administrators**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Roles and administrators**.
+
 1. Select the Application Registration Creator role and select **Add assignment**.
+
 1. Select the desired user and click **Select** to add the user to the role.
 
 Done! In this quickstart, you successfully created a custom role with permission to create an unlimited number of app registrations, and then assign that role to a user.
@@ -113,64 +116,55 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 ### Create a custom role
 
-HTTP request to create the custom role.
+Use the [Create unifiedRoleDefinition](/graph/api/rbacapplication-post-roledefinitions) API to create a custom role.
 
-POST
-
-``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
+```http
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
 ```
 
 Body
 
-```HTTP
+```http
 {
-    "description":"Can create an unlimited number of application registrations.",
-    "displayName":"Application Registration Creator",
-    "isEnabled":true,
+    "description": "Can create an unlimited number of application registrations.",
+    "displayName": "Application Registration Creator",
+    "isEnabled": true,
     "rolePermissions":
     [
         {
-            "resourceActions":
-            {
-                "allowedResourceActions":
-                [
-                    "microsoft.directory/applications/create"
-                    "microsoft.directory/applications/createAsOwner"
-                ]
-            },
-            "condition":null
+            "allowedResourceActions":
+            [
+                "microsoft.directory/applications/create"
+                "microsoft.directory/applications/createAsOwner"
+            ]
         }
     ],
-    "templateId":"<PROVIDE NEW GUID HERE>",
-    "version":"1"
+    "templateId": "<PROVIDE NEW GUID HERE>",
+    "version": "1"
 }
 ```
 
 ### Assign the role
 
-The role assignment combines a security principal ID (which can be a user or service principal), a role definition (role) ID, and an Azure AD resource scope.
+Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the custom role. The role assignment combines a security principal ID (which can be a user or service principal), a role definition (role) ID, and an Azure AD resource scope.
 
-HTTP request to assign a custom role.
-
-POST
-
-``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+```http
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 ```
 
 Body
 
-``` HTTP
+```http
 {
-    "principalId":"<PROVIDE OBJECTID OF USER TO ASSIGN HERE>",
-    "roleDefinitionId":"<PROVIDE OBJECTID OF ROLE DEFINITION HERE>",
-    "resourceScopes":["/"]
+    "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
+    "principalId": "<PROVIDE OBJECTID OF USER TO ASSIGN HERE>",
+    "roleDefinitionId": "<PROVIDE OBJECTID OF ROLE DEFINITION HERE>",
+    "directoryScopeId": "/"
 }
 ```
 
 ## Next steps
 
-- Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+- Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 - For more about Azure AD roles, see [Azure AD built-in roles](permissions-reference.md).
 - For more about default user permissions, see [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).

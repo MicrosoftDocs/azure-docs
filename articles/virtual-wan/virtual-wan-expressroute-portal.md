@@ -1,12 +1,10 @@
 ---
 title: 'Tutorial: Create ExpressRoute connections using Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments.
-services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/27/2021
+ms.date: 05/25/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
@@ -41,25 +39,11 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-
-1. Navigate to the Virtual WAN page. In the portal, click **+Create a resource**. Type **Virtual WAN** into the search box and select Enter.
-2. Select **Virtual WAN** from the results. On the Virtual WAN page, click **Create** to open the Create WAN page.
-3. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
-
-   ![Create WAN](./media/virtual-wan-expressroute-portal/createwan.png)
-
-   * **Subscription** - Select the subscription that you want to use.
-   * **Resource Group** - Create new or use existing.
-   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
-   * **Name** - Type the name that you want to call your WAN.
-   * **Type** - Select **Standard**. You can't create an ExpressRoute gateway using the Basic SKU.
-4. After you finish filling out the fields, select **Review +Create**.
-5. Once validation passes, select **Create** to create the virtual WAN.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Create a virtual hub and gateway
 
-A virtual hub is a virtual network that is created and used by Virtual WAN. It can contain various gateways, such as VPN and ExpressRoute. In this section, you will create an ExpressRoute gateway for your virtual hub. You can either create the gateway when you [create a new virtual hub](#newhub), or you can create the gateway in an [existing hub](#existinghub) by editing it. 
+A virtual hub is a virtual network that is created and used by Virtual WAN. It can contain various gateways, such as VPN and ExpressRoute. In this section, you will create an ExpressRoute gateway for your virtual hub. You can either create the gateway when you [create a new virtual hub](#newhub), or you can create the gateway in an [existing hub](#existinghub) by editing it.
 
 ExpressRoute gateways are provisioned in units of 2 Gbps. 1 scale unit = 2 Gbps with support up to 10 scale units = 20 Gbps. It takes about 30 minutes for a virtual hub and gateway to fully create.
 
@@ -67,23 +51,30 @@ ExpressRoute gateways are provisioned in units of 2 Gbps. 1 scale unit = 2 Gbps 
 
 Create a new virtual hub. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
+#### Basics page
+
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
+
+#### ExpressRoute page
+
+[!INCLUDE [Create ExpressRoute gateway](../../includes/virtual-wan-hub-expressroute-gateway.md)]
 
 ### <a name="existinghub"></a>To create a gateway in an existing hub
 
-You can also create a gateway in an existing hub by editing it.
+You can also create a gateway in an existing hub by editing the hub.
 
-1. Navigate to the virtual hub that you want to edit and select it.
-2. On the **Edit virtual hub** page, select the checkbox **Include ExpressRoute gateway**.
-3. Select **Confirm** to confirm your changes. It takes about 30 minutes for the hub and hub resources to fully create.
-
-   ![existing hub](./media/virtual-wan-expressroute-portal/edithub.png "edit a hub")
+1. Go to the virtual WAN.
+1. In the left pane, select **Hubs**.
+1. On the **Virtual WAN | Hubs** page, click the hub that you want to edit.
+1. On the **Virtual HUB** page, at the top of the page, click **Edit virtual hub**.
+1. On the **Edit virtual hub** page, select the checkbox **Include ExpressRoute gateway** and adjust any other settings that you require.
+1. Select **Confirm** to confirm your changes. It takes about 30 minutes for the hub and hub resources to fully create.
 
 ### To view a gateway
 
 Once you have created an ExpressRoute gateway, you can view gateway details. Navigate to the hub, select **ExpressRoute**, and view the gateway.
 
-![View gateway](./media/virtual-wan-expressroute-portal/viewgw.png "view gateway")
+:::image type="content" source="./media/virtual-wan-expressroute-portal/viewgw.png" alt-text="Screenshot shows viewing a gateway." border="false":::
 
 ## <a name="connectvnet"></a>Connect your VNet to the hub
 
@@ -109,7 +100,7 @@ In the portal, go to the **Virtual hub -> Connectivity -> ExpressRoute** page. I
 1. Select the circuit.
 2. Select **Connect circuit(s)**.
 
-   ![connect circuits](./media/virtual-wan-expressroute-portal/cktconnect.png "connect circuits")
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/cktconnect.png" alt-text="Screenshot shows connect circuits." border="false":::
 
 ### <a name="authkey"></a>To connect by redeeming an authorization key
 
@@ -117,10 +108,10 @@ Use the authorization key and circuit URI you were provided in order to connect.
 
 1. On the ExpressRoute page, click **+Redeem authorization key**
 
-   ![Screenshot shows the ExpressRoute for a virtual hub with Redeem authorization key selected.](./media/virtual-wan-expressroute-portal/redeem.png "redeem")
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/redeem.png" alt-text="Screenshot shows the ExpressRoute for a virtual hub with Redeem authorization key selected."border="false":::
 2. On the Redeem authorization key page, fill in the values.
 
-   ![redeem key values](./media/virtual-wan-expressroute-portal/redeemkey2.png "redeem key values")
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/redeemkey2.png" alt-text="Screenshot shows redeem authorization key values." border="false":::
 3. Select **Add** to add the key.
 4. View the circuit. A redeemed circuit only shows the name (without the type, provider and other information) because it is in a different subscription than that of the user.
 
@@ -134,7 +125,7 @@ If you have sites connected to a Virtual WAN VPN gateway in the same hub as the 
 
 If you want to change the size of your ExpressRoute gateway, locate the ExpressRoute gateway inside the hub, and select the scale units from the dropdown. Save your change. It will take approximately 30 minutes to update the hub gateway.
 
-![change gateway size](./media/virtual-wan-expressroute-portal/changescale.png "change gateway size")
+:::image type="content" source="./media/virtual-wan-expressroute-portal/changescale.png" alt-text="Screenshot shows Edit ExpressRoute Gateway." border="false":::
 
 ## To advertise default route 0.0.0.0/0 to endpoints
 
@@ -142,11 +133,10 @@ If you would like the Azure virtual hub to advertise the default route 0.0.0.0/0
 
 1. Select your **Circuit ->…-> Edit connection**.
 
-   ![Edit connection](./media/virtual-wan-expressroute-portal/defaultroute1.png "Edit connection")
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/defaultroute1.png" alt-text="Screenshot shows Edit ExpressRoute Gateway page." border="false":::
+1. Select **Enable** to propagate the default route.
 
-2. Select **Enable** to propagate the default route.
-
-   ![Propagate default route](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagate default route")
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/defaultroute2.png" alt-text="Screenshot shows enable propagate default route." border="false":::
 
 ## <a name="cleanup"></a>Clean up resources
 

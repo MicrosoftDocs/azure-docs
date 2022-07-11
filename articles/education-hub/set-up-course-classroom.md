@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
+ms.custom: mode-other
 ---
 
 # Quickstart: Set up a course and create a classroom

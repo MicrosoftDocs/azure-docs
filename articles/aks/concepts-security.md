@@ -2,34 +2,50 @@
 title: Concepts - Security in Azure Kubernetes Services (AKS)
 description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
 services: container-service
-author: mlearned
+author: miwithro
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.author: mlearned
+ms.date: 01/20/2022
+ms.author: miwithro
 ---
 
 # Security concepts for applications and clusters in Azure Kubernetes Service (AKS)
 
-Cluster security protects your customer data as you run application workloads in Azure Kubernetes Service (AKS). 
+Container security protects the entire end-to-end pipeline from build to the application workloads running in Azure Kubernetes Service (AKS).
 
-Kubernetes includes security components, such as *network policies* and *Secrets*. Meanwhile, Azure includes components like network security groups and orchestrated cluster upgrades. AKS combines these security components to:
+The Secure Supply Chain includes the build environment and registry.
+
+Kubernetes includes security components, such as *pod security standards* and *Secrets*. Meanwhile, Azure includes components like Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups and orchestrated cluster upgrades. AKS combines these security components to:
+* Provide a complete Authentication and Authorization story.
+* Leverage AKS Built-in Azure Policy to secure your applications.
+* End-to-End insight from build through your application with Microsoft Defender for Containers.
 * Keep your AKS cluster running the latest OS security updates and Kubernetes releases.
 * Provide secure pod traffic and access to sensitive credentials.
 
 This article introduces the core concepts that secure your applications in AKS:
 
 - [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
-  - [Master security](#master-security)
+  - [Build security](#build-security)
+  - [Registry security](#registry-security)
+  - [Cluster security](#cluster-security)
   - [Node security](#node-security)
     - [Compute isolation](#compute-isolation)
   - [Cluster upgrades](#cluster-upgrades)
     - [Cordon and drain](#cordon-and-drain)
   - [Network security](#network-security)
     - [Azure network security groups](#azure-network-security-groups)
+  - [Application Security](#application-security)
   - [Kubernetes Secrets](#kubernetes-secrets)
   - [Next steps](#next-steps)
 
-## Master security
+## Build Security
+
+As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that will break development. It is about looking at the "Vendor Status" to segment based on vulnerabilities that are actionable by the development teams. Also leverage "Grace Periods" to allow developers time to remediate identified issues. 
+
+## Registry Security
+
+Assessing the vulnerability state of the image in the Registry will detect drift and will also catch images that didn't come from your build environment. Use [Notary V2](https://github.com/notaryproject/notaryproject) to attach signatures to your images to ensure deployments are coming from a trusted location.
+
+## Cluster security
 
 In AKS, the Kubernetes master components are part of the managed service provided, managed, and maintained by Microsoft. Each AKS cluster has its own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc.
 
@@ -47,7 +63,7 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 
 > [!NOTE]
 > AKS clusters using:
-> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
 > * Kubernetes prior to v1.19 for Linux node pools use Docker as its container runtime. For Windows Server 2019 node pools, Docker is the default container runtime.
 
 ### Node security patches
@@ -55,7 +71,7 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 #### Linux nodes
 Each evening, Linux nodes in AKS get security patches through their distro security update channel. This behavior is automatically configured as the nodes are deployed in an AKS cluster. To minimize disruption and potential impact to running workloads, nodes are not automatically rebooted if a security patch or kernel update requires it. For more information about how to handle node reboots, see [Apply security and kernel updates to nodes in AKS][aks-kured].
 
-Nightly updates apply security updates to the OS on the node, but the node image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on nod image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
+Nightly updates apply security updates to the OS on the node, but the node image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on node image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
 
 #### Windows Server nodes
 
@@ -106,11 +122,16 @@ For connectivity and security with on-premises networks, you can deploy your AKS
 
 To filter virtual network traffic flow, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server. You create services with load balancers, port mappings, or ingress routes. AKS automatically modifies the network security group for traffic flow.
 
-If you provide your own subnet for your AKS cluster, **do not** modify the subnet-level network security group managed by AKS. Instead, create more subnet-level network security groups to modify the flow of traffic. Make sure they don't interfere with necessary traffic managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
+If you provide your own subnet for your AKS cluster (whether using Azure CNI or Kubenet), **do not** modify the NIC-level network security group managed by AKS. Instead, create more subnet-level network security groups to modify the flow of traffic. Make sure they don't interfere with necessary traffic managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
 
 ### Kubernetes network policy
 
 To limit network traffic between pods in your cluster, AKS offers support for [Kubernetes network policies][network-policy]. With network policies, you can allow or deny specific network paths within the cluster based on namespaces and label selectors.
+
+## Application Security
+
+To protect pods running on AKS leverage [Microsoft Defender for Containers][microsoft-defender-for-containers] to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
+
 
 ## Kubernetes Secrets
 
@@ -150,10 +171,11 @@ For more information on core Kubernetes and AKS concepts, see:
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
+[microsoft-defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

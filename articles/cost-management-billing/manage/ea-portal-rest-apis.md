@@ -3,7 +3,7 @@ title: Azure Enterprise REST APIs
 description: This article describes the REST APIs for use with your Azure enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/21/2021
+ms.date: 12/10/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -41,8 +41,8 @@ Role owners can perform the following steps in the Azure EA portal. Navigate to 
 ### Generate or retrieve the API Key
 
 1. Sign in as an enterprise administrator.
-2. Click **Reports** on the left navigation window and then click the **Download Usage** tab.
-3. Click **API Access Key**.
+2. Select **Reports** on the left navigation window and then select the **Download Usage** tab.
+3. Select **API Access Key**.
 4. Under **Enrollment Access Keys**, select the generate key symbol to generate either a primary or secondary key.
 5. Select **Expand Key** to view the entire generated API access key.
 6. Select **Copy** to get the API access key for immediate use.
@@ -51,11 +51,11 @@ Role owners can perform the following steps in the Azure EA portal. Navigate to 
 
 If you want to give the API access keys to people who aren't enterprise administrators in your enrollment, perform the following steps:
 
-1. In the left navigation window, click **Manage**.
-2. Click the pencil symbol next to **DA view charges** (Department Administrator view charges).
-3. Select **Enable** and then click **Save**.
-4. Click the pencil symbol next to **AO view charges** (Account Owner view charges).
-5. Select **Enable** and then click **Save**.
+1. In the left navigation window, select **Manage**.
+2. Select the pencil symbol next to **DA view charges** (Department Administrator view charges).
+3. Select **Enable** and then select **Save**.
+4. Select the pencil symbol next to **AO view charges** (Account Owner view charges).
+5. Select **Enable** and then select **Save**.
 
 ![Example showing DA and AO view charges enabled](./media/ea-portal-rest-apis/create-ea-generate-or-retrieve-api-key-enable-ao-do-view.png)
 The preceding steps give API access key holders with access to cost and pricing information in usage reports.
@@ -91,7 +91,7 @@ Usage and billing data files are updated every 24 hours for the current billing 
 
 ### Azure service catalog
 
-All Azure services are posted to a catalog in CSV format in an Azure storage blog. The catalog is useful if you need to build a curated catalog of all Azure services for your system. The current catalog is at [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv).
+You can download all Azure services in the Azure portal as part of the Price Sheet download. For more information about downloading your price sheet, see [Download pricing for an Enterprise Agreement](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
 
 ### CSV data file details
 

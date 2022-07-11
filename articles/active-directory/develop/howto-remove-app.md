@@ -1,6 +1,5 @@
 ---
-title: "How to: Remove a registered app from the Microsoft identity platform | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to: Remove a registered app from the Microsoft identity platform"
 description: In this how-to, you learn how to remove an application registered with the Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -17,7 +16,7 @@ ms.reviewer: marsma, aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I want to know how to remove my application from the Microsoft identity registered.
 ---
 
-# How to remove an application registered with the Microsoft identity platform
+# Remove an application registered with the Microsoft identity platform
 
 Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with the Microsoft identity platform may need to remove an application's registration.
 

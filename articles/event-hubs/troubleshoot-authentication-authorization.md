@@ -2,7 +2,7 @@
 title: Troubleshoot authentication and authorization issues - Azure Event Hubs
 description: This article provides information on troubleshooting authentication and authorization issues with Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ---
 
 # Troubleshoot authentication and authorization issues - Azure Event Hubs

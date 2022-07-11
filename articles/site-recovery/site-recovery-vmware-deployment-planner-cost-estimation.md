@@ -1,11 +1,11 @@
 ---
 title: Review cost estimations in the Azure Site Recovery Deployment Planner
 description: This articles describes how to review the cost estimations in the Azure Site Recovery Deployment Planner for VMware disaster recovery.
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.date: 05/27/2021
 
 ---
@@ -63,8 +63,10 @@ The total DR cost is categorized based on two different states - replication and
 **Replication cost**: The cost incurs at the time of replication. It covers the cost of storage, network, and Azure Site Recovery license. 
 
 **DR-Drill cost**: The cost incurs at the time of  DR drills. Azure Site Recovery spins up VMs during DR drills. The DR drill cost covers compute and storage cost of the running VMs.
-Total DR drill duration in a year = Number of DR drills x Each DR drill duration (days)
-Average DR drill cost (per month) = Total DR drill cost / 12
+
+1.	Total DR drill duration in a year = Number of DR drills x Each DR drill duration (days)
+
+2.	Average DR drill cost (per month) = Total DR drill cost / 12
 
 ### Storage cost table:
 This table shows premium and standard storage cost incur for replication and DR drills with and without discount.

@@ -3,18 +3,17 @@ title: Monitor availability with URL ping tests - Azure Monitor
 description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
 ms.date: 07/13/2021
-
 ms.reviewer: sdash
 ---
 
 # Monitor availability with URL ping tests
 
-The name *URL ping test* is a bit of a misnomer. These tests don't use Internet Control Message Protocol (IMCP) to check your site's availability. Instead, they use more advanced HTTP request functionality to validate whether an endpoint is responding. They measure the performance associated with that response. They also add the ability to set custom success criteria, coupled with more advanced features like parsing dependent requests and allowing for retries.
+The name *URL ping test* is a bit of a misnomer. These tests don't use Internet Control Message Protocol (ICMP) to check your site's availability. Instead, they use more advanced HTTP request functionality to validate whether an endpoint is responding. They measure the performance associated with that response. They also add the ability to set custom success criteria, coupled with more advanced features like parsing dependent requests and allowing for retries.
 
 To create an availability test, you need use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
 
 > [!NOTE]
-> URL ping tests are categorized as classic tests. You can find them under **Add Classic Test** on the **Availability** pane. For more advanced features, see [Standard tests (preview)](availability-standard-tests.md).
+> URL ping tests are categorized as classic tests. You can find them under **Add Classic Test** on the **Availability** pane. For more advanced features, see [Standard tests](availability-standard-tests.md).
  
 ## Create a test
 

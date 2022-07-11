@@ -1,13 +1,12 @@
 ---
 title: Azure Cosmos DB resource model
 description: This article describes Azure Cosmos DB resource model which includes the Azure Cosmos account, database, container, and the items. It also covers the hierarchy of these elements in an Azure Cosmos account. 
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.reviewer: sngun
-
 ---
 
 # Azure Cosmos DB resource model
@@ -102,6 +101,7 @@ An Azure Cosmos container has a set of system-defined properties. Depending on w
 |TimeToLive | User-configurable | Provides the ability to delete items automatically from a container after a set time period. For details, see [Time to Live](time-to-live.md). | Yes | No | No | No | Yes |
 |changeFeedPolicy | User-configurable | Used to read changes made to items in a container. For details, see [Change feed](change-feed.md). | Yes | No | No | No | Yes |
 |uniqueKeyPolicy | User-configurable | Used to ensure the uniqueness of one or more values in a logical partition. For more information, see [Unique key constraints](unique-keys.md). | Yes | No | No | No | Yes |
+|AnalyticalTimeToLive | User-configurable | Provides the ability to delete items automatically from a container after a set time period. For details, see [Time to Live](analytical-store-introduction.md). | Yes | No | Yes | No | No |
 
 ### Operations on an Azure Cosmos container
 

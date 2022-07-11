@@ -32,7 +32,7 @@ Identify all the App Service resources that you're currently using. For example:
 - [Deployment slots](deploy-staging-slots.md)
 - [Custom domains purchased in Azure](manage-custom-dns-buy-domain.md)
 - [TLS/SSL certificates](configure-ssl-certificate.md)
-- [Azure Virtual Network integration](web-sites-integrate-with-vnet.md)
+- [Azure Virtual Network integration](./overview-vnet-integration.md)
 - [Hybrid connections](app-service-hybrid-connections.md).
 - [Managed identities](overview-managed-identity.md)
 - [Backup settings](manage-backup.md)
@@ -43,8 +43,8 @@ Certain resources, such as imported certificates or hybrid connections, contain 
 
 1. [Create a back up of the source app](manage-backup.md).
 1. [Create an app in a new App Service plan, in the target region](app-service-plan-manage.md#create-an-app-service-plan).
-2. [Restore the back up in the target app](web-sites-restore.md)
-2. If you use a custom domain, [bind it preemptively to the target app](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) with `awverify.` and [enable the domain in the target app](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
+2. [Restore the back up in the target app](manage-backup.md)
+2. If you use a custom domain, [bind it preemptively to the target app](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) with `asuid.` and [enable the domain in the target app](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
 3. Configure everything else in your target app to be the same as the source app and verify your configuration.
 4. When you're ready for the custom domain to point to the target app, [remap the domain name](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
 

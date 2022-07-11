@@ -3,13 +3,13 @@ title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 ms.topic: article
-ms.date: 02/1/2021
+ms.date: 10/20/2021
 ms.author: miwithro
 ---
 
 # AKS-managed Azure Active Directory integration
 
-AKS-managed Azure AD integration is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+AKS-managed Azure AD integration simplifies the Azure AD integration process. Previously, users were required to create a client and server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
 ## Azure AD authentication overview
 
@@ -21,12 +21,11 @@ Learn more about the Azure AD integration flow on the [Azure Active Directory in
 
 * AKS-managed Azure AD integration can't be disabled
 * Changing a AKS-managed Azure AD integrated cluster to legacy AAD is not supported
-* non-Kubernetes RBAC enabled clusters aren't supported for AKS-managed Azure AD integration
-* Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
+* Clusters without Kubernetes RBAC enabled aren't supported for AKS-managed Azure AD integration
 
 ## Prerequisites
 
-* The Azure CLI version 2.11.0 or later
+* The Azure CLI version 2.29.0 or later
 * Kubectl with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [kubelogin](https://github.com/Azure/kubelogin)
 * If you are using [helm](https://github.com/helm/helm), minimum version of helm 3.3.
 
@@ -45,7 +44,7 @@ Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 ## Before you begin
 
-For your cluster, you need an Azure AD group. This group is needed as admin group for the cluster to grant cluster admin permissions. You can use an existing Azure AD group, or create a new one. Record the object ID of your Azure AD group.
+For your cluster, you need an Azure AD group. This group will be registered as an admin group on the cluster to grant cluster admin permissions. You can use an existing Azure AD group, or create a new one. Record the object ID of your Azure AD group.
 
 ```azurecli-interactive
 # List existing groups in the directory
@@ -95,7 +94,7 @@ Once the cluster is created, you can start accessing it.
 
 ## Access an Azure AD enabled cluster
 
-You'll need the [Azure Kubernetes Service Cluster User](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) built-in role to do the following steps.
+Before you access the cluster using an Azure AD defined group, you'll need the [Azure Kubernetes Service Cluster User](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) built-in role.
 
 Get the user credentials to access the cluster:
  
@@ -177,49 +176,28 @@ A successful migration of an AKS-managed Azure AD cluster has the following sect
   }
 ```
 
-If you want to access the cluster, follow the steps [here][access-cluster].
+Update kubeconfig in order to access the cluster, follow the steps [here][access-cluster].
 
 ## Non-interactive sign in with kubelogin
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with kubectl. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to access the cluster with non-interactive service principal sign-in.
 
-## Disable local accounts (preview)
+## Disable local accounts
 
-When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists, essentially as a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
+When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists, essentially as a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local-accounts`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
 
 > [!NOTE]
 > On clusters with Azure AD integration enabled, users belonging to a group specified by `aad-admin-group-object-ids` will still be able to gain access via non-admin credentials. On clusters without Azure AD integration enabled and `properties.disableLocalAccounts` set to true, obtaining both user and admin credentials will fail.
 
-### Register the `DisableLocalAccountsPreview` preview feature
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-To use an AKS cluster without local accounts, you must enable the `DisableLocalAccountsPreview` feature flag on your subscription. Ensure you are using the latest version of the Azure CLI and the `aks-preview` extension.
-
-Register the `DisableLocalAccountsPreview` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "DisableLocalAccountsPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableLocalAccountsPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!NOTE]
+> After disabling local accounts users on an already existing AKS cluster where users might have used local account/s, admin must [rotate the cluster certificates](certificate-rotation.md), in order to revoke the certificates those users might have access to.  If this is a new cluster then no action is required.
 
 ### Create a new cluster without local accounts
 
-To create a new AKS cluster without any local accounts, use the [az aks create][az-aks-create] command with the `disable-local` flag:
+To create a new AKS cluster without any local accounts, use the [az aks create][az-aks-create] command with the `disable-local-accounts` flag:
 
 ```azurecli-interactive
-az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
 ```
 
 In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalAccounts` is set to true:
@@ -242,10 +220,10 @@ Operation failed with status: 'Bad Request'. Details: Getting static credential 
 
 ### Disable local accounts on an existing cluster
 
-To disable local accounts on an existing AKS cluster, use the [az aks update][az-aks-update] command with the `disable-local` flag:
+To disable local accounts on an existing AKS cluster, use the [az aks update][az-aks-update] command with the `disable-local-accounts` flag:
 
 ```azurecli-interactive
-az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
 ```
 
 In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalAccounts` is set to true:
@@ -390,6 +368,15 @@ aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
 aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
 aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
+### Apply Just-in-Time access at the namespace level
+
+1. Integrate your AKS cluster with [Azure RBAC](manage-azure-rbac.md).
+2. Associate the group you want to integrate with Just-in-Time access with a namespace in the cluster through role assignment.
+
+```azurecli-interactive
+az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+```
+3. Associate the group you just configured at the namespace level with PIM to complete the configuration.
 
 ### Troubleshooting
 

@@ -9,10 +9,12 @@ ms.author: msmbaldwin
 
 ---
 
+# [Azure CLI](#tab/azure-cli)
+
 1. Use the `az group create` command to create a resource group:
 
     ```azurecli
-    az group create --name KeyVault-PythonQS-rg --location eastus
+    az group create --name myResourceGroup --location eastus
     ```
 
     You can change "eastus" to a location nearer to you, if you prefer.
@@ -20,13 +22,27 @@ ms.author: msmbaldwin
 1. Use `az keyvault create` to create the key vault:
 
     ```azurecli
-    az keyvault create --name <your-unique-keyvault-name> --resource-group KeyVault-PythonQS-rg
+    az keyvault create --name <your-unique-keyvault-name> --resource-group myResourceGroup
     ```
 
-    Replace `<your-unique-keyvault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers. 
+    Replace `<your-unique-keyvault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
 
-1. Create an environment variable that supplies the name of the Key Vault to the code:
+# [Azure PowerShell](#tab/azurepowershell)
 
-    ```bash
-    export KEY_VAULT_NAME=<your-unique-keyvault-name>
+1. Use the `New-AzResourceGroup` command to create a resource group:
+
+    ```azurepowershell
+    New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
+
+    You can change "eastus" to a location nearer to you, if you prefer.
+
+1. Use `New-AzKeyVault` to create the key vault:
+
+    ```azurepowershell
+    New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGroup -Location eastus
+    ```
+
+    Replace `<your-unique-keyvault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
+
+---

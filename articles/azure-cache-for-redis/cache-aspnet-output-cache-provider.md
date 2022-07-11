@@ -1,16 +1,18 @@
 ---
 title: ASP.NET Output Cache Provider for Azure Cache for Redis
 description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis. The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data.
-author: yegu-ms
-ms.author: yegu
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 04/22/2018
+ms.date: 05/18/2021
+
 ---
 # ASP.NET Output Cache Provider for Azure Cache for Redis
 
-The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4. For ASP.NET Core applications, read [Response caching in ASP.NET Core](/aspnet/core/performance/caching/response). 
+The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4. For ASP.NET Core applications, read [Response caching in ASP.NET Core](/aspnet/core/performance/caching/response).
 
 To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This article provides guidance on configuring your application to use the Redis Output Cache Provider. For more information about creating and configuring an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
@@ -20,14 +22,11 @@ To configure a client application in Visual Studio using the Azure Cache for Red
 
 Run the following command from the `Package Manager Console` window.
 
-```
+```powershell
 Install-Package Microsoft.Web.RedisOutputCacheProvider
 ```
 
-The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package isn't present in your project, it's installed. For more information about the Redis Output Cache Provider NuGet package, see the [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet page.
-
->[!NOTE]
->In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it; otherwise, you will experience naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis package. If the StackExchange.Redis package isn't present in your project, it's installed. For more information about the Redis Output Cache Provider NuGet package, see the [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet page.
 
 The NuGet package downloads and adds the required assembly references and adds the following section into your web.config file. This section contains the required configuration for your ASP.NET application to use the Redis Output Cache Provider.
 
@@ -50,7 +49,7 @@ Configure the attributes on the left with the values from your cache in the Micr
 | --------- | ---- | ------- | ----------- |
 | *host* | string | "localhost" | The Redis server IP address or host name |
 | *port* | positive integer | 6379 (non-TLS/SSL)<br/>6380 (TLS/SSL) | Redis server port |
-| *accessKey* | string | "" | Redis server password when Redis authorization is enabled. The value is an empty string by default, which means the session state provider won’t use any password when connecting to Redis server. **If your Redis server is in a publicly accessible network like Azure Cache for Redis, be sure to enable Redis authorization to improve security, and provide a secure password.** |
+| *accessKey* | string | "" | Redis server password when Redis authorization is enabled. The value is an empty string by default, which means the session state provider won’t use any password when it connects to Redis server. **If your Redis server is in a publicly accessible network like Azure Cache for Redis, be sure to enable Redis authorization to improve security, and provide a secure password.** |
 | *ssl* | boolean | **false** | Whether to connect to Redis server via TLS. This value is **false** by default because Redis doesn’t support TLS by default. **If you're using Azure Cache for Redis, which supports SSL by default, be sure to set this value to true to improve security.**<br/><br/>The non-TLS port is disabled by default for new caches. Specify **true** for this setting to use the non-TLS port. For more information about enabling the non-TLS port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) article. |
 | *databaseIdNumber* | positive integer | 0 | *This attribute can be specified only through either web.config or AppSettings.*<br/><br/>Specify which Redis database to use. |
 | *connectionTimeoutInMilliseconds* | positive integer | Provided by StackExchange.Redis | Used to set *ConnectTimeout* when creating StackExchange.Redis.ConnectionMultiplexer. |

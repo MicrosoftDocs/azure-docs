@@ -1,12 +1,12 @@
 ---
 title: Set up disaster recovery for an IIS web app using Azure Site Recovery 
 description: Learn how to replicate IIS web farm virtual machines using Azure Site Recovery.
-author: mayurigupta13
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: mayg
+ms.author: v-pgaddala
 
 ---
 # Set up disaster recovery for a multi-tier IIS-based web application
@@ -64,9 +64,9 @@ Azure|NA|Yes
 
 To start replicating all the IIS web farm virtual machines to Azure, follow the guidance in [Test failover to Azure in Site Recovery](site-recovery-test-failover-to-azure.md).
 
-If you are using a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Compute and Network settings** > **TARGET IP**.
+If you are using a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Network settings** > **TARGET IP**.
 
-![Screenshot that shows how to set the target IP in the Site Recovery Compute and Network pane](./media/site-recovery-active-directory/dns-target-ip.png)
+![Screenshot that shows how to set the target IP in the Site Recovery Network pane](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## Create a recovery plan
 A recovery plan supports the sequencing of various tiers in a multi-tier application during a failover. Sequencing helps maintain application consistency. When you create a recovery plan for a multi-tier web application, complete the steps described in [Create a recovery plan by using Site Recovery](site-recovery-create-recovery-plans.md).

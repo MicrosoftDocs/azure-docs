@@ -2,6 +2,7 @@
 title: Protect web apps on Azure VMware Solution with Azure Application Gateway
 description: Configure Azure Application Gateway to securely expose your web apps running on Azure VMware Solution.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 02/10/2021
 ---
 
@@ -30,11 +31,11 @@ The diagram shows the testing scenario used to validate the Application Gateway 
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram showing the testing scenario used to validate the Application Gateway with Azure VMware Solution web applications." border="false":::
 
-The Application Gateway instance is deployed on the hub in a dedicated subnet. It has an Azure public IP address. Activating [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 Gateways. Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
+The Application Gateway instance gets deployed on the hub in a dedicated subnet with an Azure public IP address. Activating the [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 Gateways. Additionally, Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
+- An Azure account with an active subscription.    
 - An Azure VMware Solution private cloud deployed and running.
 
 ## Deployment and configuration
@@ -68,11 +69,11 @@ The Application Gateway instance is deployed on the hub in a dedicated subnet. I
 
 12. Add tags and then select **Next: Review + Create>**.
 
-13. A validation will run on your Application Gateway; if it's successful, select **Create** to deploy.
+13. A validation runs on your Application Gateway. If it's successful, select **Create** to deploy.
 
 ## Configuration examples
 
-Now we'll configure Application Gateway with Azure VMware Solution VMs as backend pools for the following use cases: 
+Now you'll configure Application Gateway with Azure VMware Solution VMs as backend pools for the following use cases: 
 
 - [Hosting multiple sites](#hosting-multiple-sites)
 - [Routing by URL](#routing-by-url)
@@ -124,14 +125,14 @@ The following steps define backend address pools using VMs running on an Azure V
 
     Windows Server 2016 with IIS role installed has been used to illustrate this tutorial. Once the VMs are installed, run the following PowerShell commands to configure IIS for each VM tutorial. 
 
-    The first virtual machine, contoso-web-01, will host the main website.
+    The first virtual machine, contoso-web-01, hosts the main website.
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
     Add-Content -Path C:\inetpub\wwwroot\Default.htm -Value $($env:computername)
     ```
 
-    The second virtual machine, contoso-web-02, will host the images site.
+    The second virtual machine, contoso-web-02, hosts the images site.
  
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -139,7 +140,7 @@ The following steps define backend address pools using VMs running on an Azure V
     Add-Content -Path C:\inetpub\wwwroot\images\test.htm -Value $($env:computername)
     ```
 
-    The third virtual machine, contoso-web-03, will host the video site.
+    The third virtual machine, contoso-web-03, hosts the video site.
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -163,7 +164,7 @@ The following steps define backend address pools using VMs running on an Azure V
 
     :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-04.png" alt-text="Screenshot of Add HTTP setting page showing HTTP settings configuration.":::
 
-5. Create the rules in the **Rules** section of the left menu. Associate each rule with the previously created listener. Then configure the main backend pool and HTTP settings. Select **Add**.
+5. Create the rules in the **Rules** section of the left menu and associate each rule with the previously created listener. Then configure the main backend pool and HTTP settings, and then select **Add**.
 
     :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-07.png" alt-text="Screenshot of Add a routing rule page to configure routing rules to a backend target.":::
 

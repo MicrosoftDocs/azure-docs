@@ -3,20 +3,22 @@ title: Migrate from the Translator Speech API to the Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to migrate your applications from the Translator Speech API to the Speech service.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.author: aahi
+ms.author: eur
 ---
 
 # Migrate from the Translator Speech API to the Speech service
 
 Use this article to migrate your applications from the Microsoft Translator Speech API to the [Speech service](index.yml). This guide outlines the differences between the Translator Speech API and Speech service, and suggests strategies for migrating your applications.
 
-> [!NOTE]
+> [!IMPORTANT]
+> The Speech service has replaced Translator Speech. Please migrate your applications to the Speech service.
+>
 > Your Translator Speech API subscription key won't be accepted by the Speech service. You'll need to create a new Speech service subscription.
 
 ## Comparison of features
@@ -56,10 +58,6 @@ If you or your organization have applications in development or production that 
 
 ## Next steps
 
-* [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
+* [Learn about the Speech service](overview.md)
 * [Quickstart: Recognize speech in a UWP app using the Speech SDK](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-## See also
-
-* [What is the Speech service](overview.md)
-* [Speech service and Speech SDK documentation](./speech-devices-sdk-quickstart.md?pivots=platform-android)

@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte

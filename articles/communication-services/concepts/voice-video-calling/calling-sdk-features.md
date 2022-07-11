@@ -2,18 +2,17 @@
 title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Calling SDK.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Calling SDK overview
-
-[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, please check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md). 
 
@@ -24,7 +23,7 @@ Key features of the Calling SDK:
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provides clients visibility into who is connected to a call (the roster).
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
-- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publically switched telephony system, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony-sms/get-phone-number.md) or programmatically.
+- **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
 - **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane. 
 - **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call. 
 
@@ -54,6 +53,7 @@ The following list presents the set of features which are currently available in
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌       | ❌              | ❌                 |
+|                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Roster            | List participants                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Remove a participant                                                                                                | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -61,6 +61,7 @@ The following list presents the set of features which are currently available in
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Support for early media                                                                                             | ❌   | ✔️       | ✔️              | ✔️                 |
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -82,8 +83,8 @@ The Communication Services Calling SDK supports the following streaming configur
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **# of outgoing streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
-| **# of incoming streams that can be rendered simultaneously** | 1 video or 1 screen sharing | 6 video + 1 screen sharing |
+| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
 
 While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
 
@@ -101,20 +102,24 @@ The following timeouts apply to the Communication Services Calling SDKs:
 | PSTN call establishment timeout                                             | 115                |
 | Promote 1:1 call to a group call timeout                                    | 115                |
 
+## Maximum call duration:
+The maximum call duration is 30 hours, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
+
+
 ## JavaScript Calling SDK support by OS and browser
 
-The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
+The following table represents the set of supported browsers which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
 
-| Platform     | Chrome | Safari | Edge (Chromium) | Notes                                                                                                                                                                                                       |
-| ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Android      | ✔️      | ❌      | ❌               | Outgoing Screen Sharing is not supported.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | [An iOS app on Safari can't enumerate/select mic and speaker devices](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection. Outgoing screen sharing is not supported. |
-| macOS        | ✔️      | ✔️      | ❌               | Safari 14+/macOS 11+ needed for outgoing video support.                                                                                                                                                     |
-| Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
-| Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |
+| Platform     | Chrome | Safari | Edge (Chromium)  |
+| ------------ | ------ | ------ | --------------   |
+| Android      | ✔️      | ❌      | ❌           | 
+| iOS          | ❌      | ✔️      | ❌           |
+| macOS        | ✔️      | ✔️      | ❌           | 
+| Windows      | ✔️      | ❌      | ✔️           |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* For Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari.
-* Unless otherwise specified, the past 3 versions of each browser are supported.
+* Outgoing Screen Sharing is not supported on iOS or Android.
+* [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support
 
@@ -158,4 +163,4 @@ For example, this iframe allows both camera and microphone access:
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
-- [Plan your PSTN solution](../telephony-sms/plan-solution.md)
+- [Plan your PSTN solution](../telephony/plan-solution.md)

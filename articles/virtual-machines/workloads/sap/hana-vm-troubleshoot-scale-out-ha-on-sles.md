@@ -2,17 +2,14 @@
 title: SAP HANA scale-out HSR-Pacemaker with SLES on Azure VMs troubleshooting| Microsoft Docs
 description: Guide to check and troubleshoot a complex SAP HANA scale-out high-availability configuration based on SAP HANA System Replication (HSR) and Pacemaker on SLES 12 SP3 running on Azure virtual machines
 services: virtual-machines-linux
-documentationcenter: ''
 author: hermanndms
 manager: juergent
-editor: 
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-
 ---
 
 
@@ -22,7 +19,7 @@ ms.author: hermannd
 [sles-hana-scale-out-ha-paper]:https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html
 [sap-hana-iaas-list]:https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html
 [suse-pacemaker-support-log-files]:https://www.suse.com/support/kb/doc/?id=7022702
-[azure-linux-multiple-nics]:https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics
+[azure-linux-multiple-nics]:../../linux/multiple-nics.md
 [suse-cloud-netconfig]:https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
 [sap-list-port-numbers]:https://help.sap.com/viewer/ports
 [sles-12-ha-paper]:https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf
@@ -43,7 +40,7 @@ SUSE published a [detailed description of this performance-optimized setup][sles
 For virtual machine types that are supported for SAP HANA scale-out, check the [SAP HANA certified IaaS directory][sap-hana-iaas-list].
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
 There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. It's mandatory to use the latest SAP HANA 2.0 patches where this issue was fixed. The following SAP HANA versions are supported: 
 
@@ -172,7 +169,7 @@ The **corosync** config file has to be correct on every node in the cluster incl
 
 The content of **corosync.conf** from the test system is an example.
 
-The first section is **totem**, as described in [Cluster installation](./high-availability-guide-suse-pacemaker.md#cluster-installation), step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
+The first section is **totem**, as described in [Cluster installation](./high-availability-guide-suse-pacemaker.md#install-the-cluster), step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -279,7 +276,7 @@ systemctl restart corosync
 
 ## SBD device
 
-How to set up an SBD device on an Azure VM is described in [SBD fencing](./high-availability-guide-suse-pacemaker.md#sbd-fencing).
+How to set up an SBD device on an Azure VM is described in [SBD fencing](./high-availability-guide-suse-pacemaker.md#sbd-with-an-iscsi-target-server).
 
 First, check on the SBD server VM if there are ACL entries for every node in the cluster. Run the following command on the SBD server VM:
 
@@ -422,7 +419,7 @@ On the target VM side, **hso-hana-vm-s2-2** in this example, you can find the fo
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Check that the entries in **/etc/sysconfig/sbd** correspond to the description in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md#sbd-fencing). Verify that the startup setting in **/etc/iscsi/iscsid.conf** is set to automatic.
+Check that the entries in **/etc/sysconfig/sbd** correspond to the description in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md#sbd-with-an-iscsi-target-server). Verify that the startup setting in **/etc/iscsi/iscsid.conf** is set to automatic.
 
 The following entries are important in **/etc/sysconfig/sbd**. Adapt the **id** value if necessary:
 

@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 04/15/2022
+ms.custom: ignite-fall-2021
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
@@ -77,7 +78,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [Azure Functions Core Tools 3.0.3477 or later](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3477) by using the Microsoft Installer (MSI) version, which is `func-cli-3.0.3477-x*.msi`.
+  * [Azure Functions Core Tools - 3.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.4585) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. Don't install the 4.x version, which isn't supported and won't work.
 
     These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
@@ -106,7 +107,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
     Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes your apps under each extension, **Azure Logic Apps (Consumption)** and **Azure Logic Apps (Standard)**.
 
-* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/).
+* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 12.x.x or 14.x.x](https://nodejs.org/en/download/releases/).
 
   > [!TIP]
   > For Windows, download the MSI version. If you use the ZIP version instead, you have to 
@@ -203,6 +204,11 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows the "Create new Stateful Workflow (3/4)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-single-tenant-workflows-visual-studio-code/name-your-workflow.png)
 
+   > [!NOTE]
+   > You might get an error named **azureLogicAppsStandard.createNewProject** with the error message, 
+   > **Unable to write to Workspace Settings because azureFunctions.suppressProject is not a registered configuration**. 
+   > If you do, try installing the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), either directly from the Visual Studio Marketplace or from inside Visual Studio Code.
+
    Visual Studio Code finishes creating your project, and opens the **workflow.json** file for your workflow in the code editor.
 
    > [!NOTE]
@@ -215,6 +221,8 @@ Before you can create your logic app, create a local project so that you can man
    The Explorer pane shows your project, which now includes automatically generated project files. For example, the project has a folder that shows your workflow's name. Inside this folder, the **workflow.json** file contains your workflow's underlying JSON definition.
 
    ![Screenshot that shows the Explorer pane with project folder, workflow folder, and "workflow.json" file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
+
+   [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="enable-built-in-connector-authoring"></a>
 
@@ -309,7 +317,7 @@ After you open the designer, the **Choose an operation** prompt appears on the d
 
 The workflow in this example uses this trigger and these actions:
 
-* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When a HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
+* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When an HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
 
 * The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
 
@@ -319,13 +327,13 @@ The workflow in this example uses this trigger and these actions:
 
 1. Next to the designer, in the **Add a trigger** pane, under the **Choose an operation** search box, make sure that **Built-in** is selected so that you can select a trigger that runs natively.
 
-1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
+1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When an HTTP request is received**.
 
-   ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
+   ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When an HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot that shows the workflow designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
+   ![Screenshot that shows the workflow designer with the "When an HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
@@ -533,7 +541,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    1. Find the **Callback URL** value, which looks similar to this URL for the example Request trigger:
 
-      `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+      `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
       ![Screenshot that shows your workflow's overview page with callback URL](./media/create-single-tenant-workflows-visual-studio-code/find-callback-url.png)
 
@@ -557,7 +565,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
       ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
-   1. Return to Visual Studio Code. from the workflow's overview page, copy the **Callback URL** property value.
+   1. Return to Visual Studio Code. From the workflow's overview page, copy the **Callback URL** property value.
 
    1. Return to Postman. On the request pane, next the method list, which currently shows **GET** as the default request method, paste the callback URL that you previously copied in the address box, and select **Send**.
 
@@ -576,6 +584,8 @@ To test your logic app, follow these steps to start a debugging session, and fin
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
    ![Screenshot that shows the workflow's overview page with run status and history](./media/create-single-tenant-workflows-visual-studio-code/post-trigger-call.png)
+
+   The following table shows the possible final statuses that each workflow run can have and show in Visual Studio Code:
 
    | Run status | Description |
    |------------|-------------|
@@ -601,7 +611,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    > from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed 
    > the default character limit. For more information, see ["400 Bad Request"](#400-bad-request).
 
-   Here are the possible statuses that each step in the workflow can have:
+   The following table shows the possible statuses that each workflow action can have and show in Visual Studio Code:
 
    | Action status | Description |
    |---------------|-------------|
@@ -744,6 +754,8 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the **Logic App (Standard)** resource type. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Standard)** resource, which overwrites that logic app.
 
 Deployment for the **Logic App (Standard)** resource type requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
+
+<a name="publish-new-logic-app"></a>
 
 ### Publish to a new Logic App (Standard) resource
 
@@ -943,7 +955,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Standard)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. To view all the workflows in the logic app, expand your logic app, and then expand the node that's named **Workflows**.
+1. To view all the workflows in the logic app, expand your logic app, and then expand the **Workflows** node.
 
 1. To view a specific workflow, open the workflow's shortcut menu, and select **Open in Designer**, which opens the workflow in read-only mode.
 
@@ -969,15 +981,15 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 Stopping a logic app affects workflow instances in the following ways:
 
-* The Logic Apps service cancels all in-progress and pending runs immediately.
+* Azure Logic Apps cancels all in-progress and pending runs immediately.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
 * Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
 
   To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
 
-  1. In Visual Studio Code, on the left toolbar, select the Azure icon. 
+  1. In Visual Studio Code, on the left toolbar, select the Azure icon.
   1. In the **Azure: Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
   1. Expand your logic app, and then expand the node that's named **Workflows**.
   1. Open a workflow, and edit any part of that workflow's trigger.
@@ -991,9 +1003,9 @@ Stopping a logic app affects workflow instances in the following ways:
 
 Deleting a logic app affects workflow instances in the following ways:
 
-* The Logic Apps service cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+* Azure Logic Apps cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
 * If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 

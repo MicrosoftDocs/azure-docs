@@ -2,13 +2,10 @@
 title: Azure Monitor workbook map visualizations
 description: Learn about Azure Monitor workbook map visualizations.
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.author: lagayhar
+ms.date: 07/05/2022
 ---
 
 # Map visualization
@@ -25,7 +22,7 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
 
 ### Using Azure location
 
-1. Switch the workbook to edit mode by selecting on the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
 2. Select **Add** then *Add query*.
 3. Change the *Data Source* to `Azure Resource Graph` then pick any subscription that has storage account.
 4. Enter the query below for your analysis and the select **Run Query**.
@@ -44,7 +41,7 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
 
 ### Using Azure resource
 
-1. Switch the workbook to edit mode by selecting on the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
 2. Select **Add** then *Add Metric*.
 3. Use a subscription that has storage accounts.
 4. Change *Resource Type* to `storage account` and in *Resource* select multiple storage accounts.
@@ -81,7 +78,7 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
 
 ### Using country/region
 
-1. Switch the workbook to edit mode by selecting on the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
 2. Select **Add*, then *Add query*.
 3. Change the *Data source* to `Log`.
 4. Select *Resource type* as `Application Insights`, then pick any Application Insights resource that has pageViews data.
@@ -99,7 +96,7 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
 
 ### Using latitude/location
 
-1. Switch the workbook to edit mode by selecting on the **Edit** toolbar item.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
 2. Select **Add*, then *Add query*.
 3. Change the *Data source* to `JSON`.
 1. Enter the JSON data in below in the query editor and select **Run Query**.

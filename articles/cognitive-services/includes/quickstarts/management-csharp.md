@@ -10,12 +10,13 @@ ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
-[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/management) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/management) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/8.0.0-preview/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
 ## C# prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
 * [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]

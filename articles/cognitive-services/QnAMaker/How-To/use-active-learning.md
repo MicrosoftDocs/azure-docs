@@ -3,8 +3,9 @@ title: Use active learning with knowledge base - QnA Maker
 description: Learn to improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
-ms.date: 03/18/2020
+ms.topic: how-to
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Active learning
@@ -12,6 +13,8 @@ ms.date: 03/18/2020
 The _Active learning suggestions_ feature allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
 
 Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## What is active learning?
 
@@ -26,13 +29,13 @@ Both methods provide the ranker with similar queries that are clustered.
 
 Active learning is triggered based on the scores of the top few answers returned by QnA Maker. If the score differences between QnA pairs that match the query lie within a small range, then the query is considered a possible suggestion (as an alternate question) for each of the possible QnA pairs. Once you accept the suggested question for a specific QnA pair, it is rejected for the other pairs. You need to remember to save and train, after accepting suggestions.
 
-Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries. When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject. All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users.
+Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries. When five or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject. All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users.
 
 Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. There isn't an API to manage suggestions.
 
 ## How QnA Maker's implicit feedback works
 
-QnA Maker's implicit feedback uses an algorithm to determine score proximity then makes active learning suggestions. The algorithm to determine proximity is not a simple calculation. The ranges in the following example are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
+QnA Maker's implicit feedback uses an algorithm to determine score proximity then makes active learning suggestions. The algorithm to determine proximity is not a simple calculation. The ranges in the following example are not meant to be fixed but should be used as a guide to understand the effect of the algorithm only.
 
 When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores decreases as well, approximately within 4%.
 
@@ -111,7 +114,7 @@ QnA Maker won't know which answer is the best answer. Use the QnA Maker portal's
 
 ## How you give explicit feedback with the Train API
 
-QnA Maker needs explicit feedback about which of the answers was the best answer. How the best answer is determined is up to you and can include:
+QnA Maker needs explicit feedback about which of the answers was the best answer. How the best answer is determined, is up to you and can include:
 
 * User feedback, selecting one of the answers.
 * Business logic, such as determining an acceptable score range.
@@ -121,23 +124,13 @@ Use the [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to se
 
 ## Upgrade runtime version to use active learning
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) to use this feature.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-In Custom question answering (Preview), there is no need to upgrade the runtime manually.
-
----
 
 ## Turn on active learning for alternate questions
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 Active learning is off by default. Turn it on to see suggested questions. After you turn on active learning, you need to send information from the client app to QnA Maker. For more information, see [Architectural flow for using GenerateAnswer and Train APIs from a bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
 
-1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not impact active learning.
+1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not affect active learning.
 
 1. To turn active learning on in the QnA Maker portal, go to the top-right corner, select your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings).
 
@@ -153,12 +146,6 @@ Active learning is off by default. Turn it on to see suggested questions. After 
     > The exact version on the preceding image is shown as an example only. Your version may be different.
 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
-    
-# [Custom question answering (preview release)](#tab/v2)
-
-By default, active learning is **on** in Custom question answering (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
-
----
 
 ## Review suggested alternate questions
 

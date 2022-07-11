@@ -4,25 +4,26 @@ description: Use Azure Resource Manager and Azure PowerShell to deploy resources
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 10/01/2021
 ---
 
 # Deploy resources with Bicep and Azure PowerShell
 
 This article explains how to use Azure PowerShell with Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](overview.md).
 
-To deploy Bicep files, you need [Azure PowerShell version 5.6.0 or later](/powershell/azure/install-az-ps).
-
 ## Prerequisites
 
-You need a Bicep file to deploy. The local file name used in this article is _C:\MyTemplates\azuredeploy.bicep_.
+You need a Bicep file to deploy. The file must be local.
 
-You need to install Azure PowerShell and connect to Azure:
+You need Azure PowerShell and to be connected to Azure:
 
-- **Install Azure PowerShell cmdlets on your local computer.** For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Connect to Azure by using [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
+- **Install Azure PowerShell cmdlets on your local computer.** To deploy Bicep files, you need [Azure PowerShell](/powershell/azure/install-az-ps) version **5.6.0 or later**. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Install Bicep CLI.** Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must [manually install the Bicep CLI](install.md#install-manually).
+- **Connect to Azure by using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
 
 If you don't have PowerShell installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files from Azure Cloud Shell](./deploy-cloud-shell.md).
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deployment scope
 
@@ -34,7 +35,7 @@ You can target your deployment to a resource group, subscription, management gro
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-bicep>
   ```
 
-- To deploy to a **subscription**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) which is an alias of the `New-AzDeployment` cmdlet:
+- To deploy to a **subscription**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment), which is an alias of the `New-AzDeployment` cmdlet:
 
   ```azurepowershell
   New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-bicep>
@@ -45,7 +46,7 @@ You can target your deployment to a resource group, subscription, management gro
 - To deploy to a **management group**, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-bicep>
+  New-AzManagementGroupDeployment -ManagementGroupId <management-group-id> -Location <location> -TemplateFile <path-to-bicep>
   ```
 
   For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
@@ -70,7 +71,7 @@ If you're deploying to a resource group that doesn't exist, create the resource 
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-To deploy a local Bicep file, use the `-TemplateFile` parameter in the deployment command. The following example also shows how to set a parameter value that comes from the Bicep file.
+To deploy a local Bicep file, use the `-TemplateFile` parameter in the deployment command.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -83,7 +84,7 @@ The deployment can take several minutes to complete.
 
 ## Deploy remote Bicep file
 
-Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
+Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep#az-bicep-build) the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Parameters
 
@@ -134,15 +135,15 @@ To pass a local parameter file, use the `TemplateParameterFile` parameter:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-bicep> `
-  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  -TemplateFile c:\BicepFiles\storage.bicep `
+  -TemplateParameterFile c:\BicepFiles\storage.parameters.json
 ```
 
 To pass an external parameter file, use the `TemplateParameterUri` parameter:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-bicep> `
+  -TemplateFile c:\BicepFiles\storage.bicep `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
 
@@ -152,11 +153,11 @@ Before deploying your Bicep file, you can preview the changes the Bicep file wil
 
 ## Deploy template specs
 
-Currently, Azure PowerShell doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). You can also build your Bicep file into an ARM template JSON by using the Bicep CLI, and then create a template spec with the JSON template.
+Currently, Azure PowerShell doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. The [Create template spec sample](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) shows how to create a template spec in a Bicep file. You can also build your Bicep file to JSON by using the Bicep CLI, and then create a template spec with the JSON template.
 
 ## Deployment name
 
-When deploying a Bicep file, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the Bicep file is used. For example, if you deploy a Bicep named `azuredeploy.bicep` and don't specify a deployment name, the deployment is named `azuredeploy`.
+When deploying a Bicep file, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the Bicep file is used. For example, if you deploy a Bicep named `main.bicep` and don't specify a deployment name, the deployment is named `main`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
@@ -184,6 +185,4 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 
 ## Next steps
 
-- To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
 - To understand how to define parameters in your file, see [Understand the structure and syntax of Bicep files](file.md).
-- For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](../templates/secure-template-with-sas-token.md).

@@ -4,14 +4,14 @@ titleSuffix: Azure Machine Learning
 description: Learn how to apply DevOps practices to build a data ingestion pipeline to prepare data using Azure Data Factory and Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
-ms.date: 06/23/2020
+ms.date: 10/21/2021
 
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 
@@ -106,9 +106,7 @@ steps:
     artifact: di-notebooks
 ```
 
-The pipeline uses [flake8](https://pypi.org/project/flake8/) to do the Python code linting. It runs the unit tests defined in the source code and publishes the linting and test results so they're available in the Azure Pipeline execution screen:
-
-![linting unit tests](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
+The pipeline uses [flake8](https://pypi.org/project/flake8/) to do the Python code linting. It runs the unit tests defined in the source code and publishes the linting and test results so they're available in the Azure Pipeline execution screen.
 
 If the linting and unit testing is successful, the pipeline will copy the source code to the artifact repository to be used by the subsequent deployment steps.
 
@@ -121,7 +119,7 @@ There's no continuous integration. A deployable artifact for Azure Data Factory 
 1. Someone with the granted permissions clicks the ***publish*** button to generate Azure Resource Manager templates from the source code in the collaboration branch. 
 1. The workspace validates the pipelines (think of it as of linting and unit testing), generates Azure Resource Manager templates (think of it as of building) and saves the generated templates to a technical branch ***adf_publish*** in the same code repository (think of it as of publishing artifacts). This branch is created automatically by the Azure Data Factory workspace. 
 
-For more information on this process, see [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-deployment.md).
+For more information on this process, see [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-delivery.md).
 
 It's important to make sure that the generated Azure Resource Manager templates are environment agnostic. This means that all values that may differ between environments are parametrized. Azure Data Factory is smart enough to expose the majority of such values as parameters. For example, in the following template the connection properties to an Azure Machine Learning workspace are exposed as parameters:
 
@@ -173,7 +171,7 @@ The pipeline activities may refer to the pipeline variables while actually using
 
 ![Screenshot shows a Notebook called PrepareData and M L Execute Pipeline called M L Execute Pipeline at the top with the Settings tab selected below.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
-The Azure Data Factory workspace ***doesn't*** expose pipeline variables as Azure Resource Manager templates parameters by default. The workspace uses the [Default Parameterization Template](../data-factory/continuous-integration-deployment.md#default-parameterization-template) dictating what pipeline properties should be exposed as Azure Resource Manager template parameters. To add pipeline variables to the list, update the `"Microsoft.DataFactory/factories/pipelines"` section of the [Default Parameterization Template](../data-factory/continuous-integration-deployment.md#default-parameterization-template) with the following snippet and place the result json file in the root of the source folder:
+The Azure Data Factory workspace ***doesn't*** expose pipeline variables as Azure Resource Manager templates parameters by default. The workspace uses the [Default Parameterization Template](../data-factory/continuous-integration-delivery-resource-manager-custom-parameters.md) dictating what pipeline properties should be exposed as Azure Resource Manager template parameters. To add pipeline variables to the list, update the `"Microsoft.DataFactory/factories/pipelines"` section of the [Default Parameterization Template](../data-factory/continuous-integration-delivery-resource-manager-custom-parameters.md) with the following snippet and place the result json file in the root of the source folder:
 
 ```json
 "Microsoft.DataFactory/factories/pipelines": {
@@ -480,5 +478,5 @@ stages:
 ## Next steps
 
 * [Source Control in Azure Data Factory](../data-factory/source-control.md)
-* [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-deployment.md)
+* [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-delivery.md)
 * [DevOps for Azure Databricks](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks)

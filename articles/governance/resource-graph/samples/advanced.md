@@ -1,8 +1,10 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 07/07/2021
+ms.date: 06/15/2022
 ms.topic: sample
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Advanced Resource Graph query samples
 
@@ -41,7 +43,7 @@ validate your shell environment of choice.
 
 ## <a name="apiversion"></a>Show resource types and API versions
 
-Resource Graph primarily uses the most recent non-preview version of a Resource Provider's API to
+Resource Graph primarily uses the most recent non-preview version of a Resource Provider API to
 `GET` resource properties during an update. In some cases, the API version used has been overridden
 to provide more current or widely used properties in the results. The following query details the
 API version used for gathering properties on each resource type:
@@ -55,7 +57,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | distinct type, apiVersion | where isnotnull(apiVersion) | order by type asc"
 ```
 
@@ -92,7 +94,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
@@ -127,7 +129,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | summarize resourceCount=count() by subscriptionId | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId| project-away subscriptionId, subscriptionId1"
 ```
 
@@ -160,7 +162,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project tags | summarize buildschema(tags)"
 ```
 
@@ -206,8 +208,8 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+```azurecli
+az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+\$' | project name | order by name asc"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -244,7 +246,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.documentdb/databaseaccounts' | project id, name, writeLocations = (properties.writeLocations) | mv-expand writeLocations | project id, name, writeLocation = tostring(writeLocations.locationName) | where writeLocation in ('East US', 'West US') | summarize by id, name"
 ```
 
@@ -282,7 +284,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | join kind=leftouter (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId | where type == 'microsoft.keyvault/vaults' | project type, name, SubName"
 ```
 
@@ -321,7 +323,7 @@ on elasticPoolId
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.sql/servers/databases' | project databaseId = id, databaseName = name, elasticPoolId = tolower(tostring(properties.elasticPoolId)) | join kind=leftouter ( Resources | where type =~ 'microsoft.sql/servers/elasticpools' | project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state) on elasticPoolId | project-away elasticPoolId1"
 ```
 
@@ -374,7 +376,7 @@ on publicIpId
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | extend nics=array_length(properties.networkProfile.networkInterfaces) | mv-expand nic=properties.networkProfile.networkInterfaces | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) | join kind=leftouter ( Resources | where type =~ 'microsoft.network/networkinterfaces' | extend ipConfigsCount=array_length(properties.ipConfigurations) | mv-expand ipconfig=properties.ipConfigurations | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id)) on nicId | project-away nicId1 | summarize by vmId, vmName, vmSize, nicId, publicIpId | join kind=leftouter ( Resources | where type =~ 'microsoft.network/publicipaddresses' | project publicIpId = id, publicIpAddress = properties.ipAddress) on publicIpId | project-away publicIpId1"
 ```
 
@@ -428,14 +430,14 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on $left.JoinID == $right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
+```azurecli
+az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on \$left.JoinID == \$right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on $left.JoinID == $right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
+Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on `$left.JoinID == `$right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
 ```
 
 # [Portal](#tab/azure-portal)
@@ -467,7 +469,7 @@ on subscriptionId, resourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['Key1'] =~ 'Value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
 ```
 
@@ -507,7 +509,7 @@ on subscriptionId, resourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | mv-expand bagexpansion=array tags | where isnotempty(tags) | where tags[0] =~ 'key1' and tags[1] =~ 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
 ```
 
@@ -540,7 +542,7 @@ ResourceContainers
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "ResourceContainers | where type=='microsoft.resources/subscriptions/resourcegroups' | project name, type  | limit 5 | union  (Resources | project name, type | limit 5)"
 ```
 
@@ -572,13 +574,13 @@ Resources
 | project id, ipConfigurations = properties.ipConfigurations
 | mvexpand ipConfigurations
 | project id, subnetId = tostring(ipConfigurations.properties.subnet.id)
-| parse kind=regex subnetId with '/virtualNetworks/' virtualNetwork '/subnets/' subnet 
+| parse kind=regex subnetId with '/virtualNetworks/' virtualNetwork '/subnets/' subnet
 | project id, virtualNetwork, subnet
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.network/networkinterfaces' | project id, ipConfigurations = properties.ipConfigurations | mvexpand ipConfigurations | project id, subnetId = tostring(ipConfigurations.properties.subnet.id) | parse kind=regex subnetId with '/virtualNetworks/' virtualNetwork '/subnets/' subnet | project id, virtualNetwork, subnet"
 ```
 
@@ -612,7 +614,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by tostring(properties.extended.instanceView.powerState.code)"
 ```
 

@@ -1,13 +1,17 @@
 ---
-title: Learn about devices discovered by all enterprise sensors
+title: Learn about devices discovered by all sensors
 description: Use the device inventory in the on-premises management console to get a comprehensive view of device information from connected sensors. Use import, export, and filtering tools to manage this information. 
-ms.date: 12/02/2020
+ms.date: 06/12/2022 
 ms.topic: how-to
 ---
 
-# Investigate all enterprise sensor detections in the device inventory
+# Investigate all sensor detections in the device inventory
 
 You can view device information from connected sensors by using the *device inventory* in the on-premises management console. This feature gives you a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions also appears.
+
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
+
+## View the device inventory from an on-premises management console
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
 
@@ -20,7 +24,7 @@ The following table describes the table columns in the device inventory.
 | **Region** | The region that contains this device. |
 | **Site** | The site that contains this device. |
 | **Zone** | The zone that contains this device. |
-| **Appliance** | The Azure Defender for IoT sensor that protects this device. |
+| **Appliance** | The Microsoft Defender for IoT sensor that protects this device. |
 | **Name** | The name of this device as Defender for IoT discovered it. |
 | **Type** | The type of device, such as PLC or HMI. |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. |
@@ -31,16 +35,17 @@ The following table describes the table columns in the device inventory.
 | **MAC Address** | The MAC address of the device. |
 | **Protocols** | The protocols that the device uses. |
 | **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
+| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
 | **Is Known as Scanner** | Whether this device performs scanning-like activities in the network. |
-| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device is not a programming device. |
+| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device isn't a programming device. |
 | **Groups** | Groups in which this device participates. |
 | **Last Activity** | The last activity that the device performed. |
 | **Discovered** | When this device was first seen in the network. |
+| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
 
 ## Integrate data into the enterprise device inventory
 
-Data integration capabilities let you enhance the data in the device inventory with information from other enterprise resources. These sources include CMDBs, DNS, firewalls, and Web APIs.
+Data integration capabilities let you enhance the data in the device inventory with information from other resources. These sources include CMDBs, DNS, firewalls, and Web APIs.
 
 You can use this information to learn. For example:
 
@@ -50,7 +55,7 @@ You can use this information to learn. For example:
 
 - Opened tickets for devices
 
-- The last date when firmware was upgraded
+- The last date when the firmware was upgraded
 
 - Devices allowed access to the internet
 
@@ -66,7 +71,7 @@ You can integrate data by either:
 
 - Running customized scripts that Defender for IoT provides
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the enterprise data integrator.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the data integrator.":::
 
 You can work with Defender for IoT technical support to set up your system to receive Web API queries.
 
@@ -90,7 +95,7 @@ To add data manually:
 
 6. In the upper-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false":::, select **Import Manual Input Columns**, and browse to the CSV file. The new data appears in the **Device Inventory** table.
 
-To integrate data from other enterprise entities:
+To integrate data from other entities:
 
 1. In the upper-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: and select **Export All Device Inventory**.
 

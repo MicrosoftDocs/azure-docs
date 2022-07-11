@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT CLI commands
 description: This article describes Defender for IoT CLI commands for sensors and on-premises management consoles.  
-ms.date: 05/20/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
@@ -12,6 +12,7 @@ This article describes CLI commands for sensors and on-premises management conso
 - Administrator
 - CyberX 
 - Support
+- cyberx_host
 
 To start working in the CLI, connect using a terminal. For example, terminal name `Putty`, and `Support` user. 
 
@@ -96,7 +97,7 @@ The attribute that you can define within the command is the IP address of the NT
 
 ## Network configuration
 
-The following table describes the commands available to configure your network options for Azure Defender for IoT:
+The following table describes the commands available to configure your network options for Microsoft Defender for IoT:
 
 |Name|Command|Description|
 |-----------|-------|-----------|
@@ -110,7 +111,7 @@ The following table describes the commands available to configure your network o
 
 ## Network capture filter configuration
 
-The `network capture-filter` command allows administrators to eliminate network traffic that doesn't need to be analyzed. You can filter traffic by using an include list, or an exclude list.
+The `network capture-filter` command allows administrators to eliminate network traffic that doesn't need to be analyzed. You can filter traffic by using an include list, or an exclude list. This command doesn't support the malware detection engine.
 
 ```azurecli-interactive
 network capture-filter
@@ -174,9 +175,9 @@ You're asked the following question:
 
 Your options are: `all`, `dissector`, `collector`, `statistics-collector`, `rpc-parser`, or `smb-parser`.
 
-In most use-cases, select `all`.
+In most common use cases, we recommend that you select `all`. Selecting `all` doesn't include the malware detection engine, which isn't supported by this command.
 
-### Custom base capture filter
+### Custom base capture filter 
 
 The base capture filter is the baseline for the components. For example, the filter determines which ports are available to the component.
 
@@ -285,7 +286,17 @@ When you're using the tool:
 - Verify that the certificate files are readable on the appliance. 
 
 - Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
-    
-## See also
 
-[Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
+## Sign out of a support shell
+
+You're automatically signed out of an SSH session after an inactive period of 300 seconds.
+
+To sign out of your session manually, enter the following command:
+
+```azurecli-interactive
+logout
+```
+
+## Next steps
+
+For more information, see [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md).

@@ -1,11 +1,11 @@
 ---
 title: Azure CLI prerequisites for Azure HPC Cache
 description: Setup steps before you can use Azure CLI to create or modify an Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Set up Azure CLI for Azure HPC Cache
@@ -18,7 +18,7 @@ Follow these steps to prepare your environment before using Azure CLI to create 
 
 ## Set default resource group (optional)
 
-Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az config](/cli/azure/reference-index#az_config).
+Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az config](/cli/azure/reference-index#az-config).
 
 ## Next steps
 

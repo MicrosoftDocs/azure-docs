@@ -1,7 +1,7 @@
 ---
 title: Recommended policies for Azure services
 description: Describes how to find and apply recommended policies for Azure services such as Azure Virtual Machines.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: generated
 ---
@@ -12,7 +12,7 @@ govern their resources. Azure Policy's **Recommended policies** provides a focus
 policy definitions to start with. The **Recommended policies** experience for supported resources is
 embedded within the portal experience for that resource.
 
-For additional Azure Policy built-ins, see
+For more Azure Policy built-ins, see
 [Azure Policy built-in definitions](../samples/built-in-policies.md).
 
 ## Azure Virtual Machines

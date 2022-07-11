@@ -1,11 +1,11 @@
 ---
 title: Deprovision your Azure File Sync server endpoint | Microsoft Docs
 description: Guidance on how to deprovision your Azure File Sync server endpoint based on your use case
-author: mtalasila
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 6/01/2021
-ms.author: mtalasila
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -16,7 +16,7 @@ Removing a server endpoint means stopping sync to and from that server location 
 If it is ok to permanently lose the data that you are currently syncing, you can skip to directly deprovisioning your server endpoint.
 
 > [!Warning]
-> Don’t try to resolve sync issues by deprovisioning a server endpoint. For troubleshooting help, see [Troubleshooting Azure File Sync](./file-sync-troubleshoot.md). Permanent data loss may occur if you delete your server endpoint without getting either the server or the cloud side fully in sync with the other. Removing a server endpoint is a destructive operation, and tiered files within the server endpoint will not be "reconnected" to their locations on the Azure file share after the server endpoint is recreated, which will result in sync errors. Also, tiered files that exist outside of the server endpoint namespace may be permanently lost. Tiered files may exist within your server endpoint even if cloud tiering was never enabled.
+> Don't try to resolve sync issues by deprovisioning a server endpoint. For troubleshooting help, see [Troubleshooting Azure File Sync](./file-sync-troubleshoot.md). Permanent data loss may occur if you delete your server endpoint without getting either the server or the cloud side fully in sync with the other. Removing a server endpoint is a destructive operation, and tiered files within the server endpoint will not be "reconnected" to their locations on the Azure file share after the server endpoint is recreated, which will result in sync errors. Also, tiered files that exist outside of the server endpoint namespace may be permanently lost. Tiered files may exist within your server endpoint even if cloud tiering was never enabled.
 
 ## Scenario 1: You intend to delete your server endpoint and stop using your local server / VM
 
@@ -52,13 +52,13 @@ To do so, open **Task Scheduler** on your local server, navigate to **Microsoft\
 
 To ensure that the latest data is in the cloud, you need to wait for the final sync upload session to complete. 
 
-To check the status of the sync session, open the **Event Viewer** on your local server. Navigate to the telemetry event log **(Applications and Services\Microsoft\FileSync\Agent)**. Ensure that you see a 9102 event with ‘sync direction’ = upload, ‘HResult’ = 0 and ‘PerItemErrorCount’ = 0 that occurred after you manually initiated a VSS upload session.
+To check the status of the sync session, open the **Event Viewer** on your local server. Navigate to the telemetry event log **(Applications and Services\Microsoft\FileSync\Agent)**. Ensure that you see a 9102 event with 'sync direction' = upload, 'HResult' = 0 and 'PerItemErrorCount' = 0 that occurred after you manually initiated a VSS upload session.
 
 ![A screenshot of checking if a final sync session has completed.](media/file-sync-server-endpoint-delete/event-viewer.png)
 
-If ‘PerItemErrorCount’ is greater than 0, then files are failing to sync. Use the **FileSyncErrorsReport.ps1** to see the files that are failing to sync. This PowerShell script is typically located at this path on a server with an Azure File Sync agent installed: **C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**
+If 'PerItemErrorCount' is greater than 0, then files are failing to sync. Use the **FileSyncErrorsReport.ps1** to see the files that are failing to sync. This PowerShell script is typically located at this path on a server with an Azure File Sync agent installed: **C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**
 
-If these files aren’t important, then you can delete your server endpoint. If these files are important, fix their errors and wait for another 9102 event with ‘sync direction’ = upload, ‘HResult’ = 0 and ‘PerItemErrorCount’ = 0 to occur before deleting your server endpoint.
+If these files aren't important, then you can delete your server endpoint. If these files are important, fix their errors and wait for another 9102 event with 'sync direction' = upload, 'HResult' = 0 and 'PerItemErrorCount' = 0 to occur before deleting your server endpoint.
 
 ## Scenario 2: You intend to delete your server endpoint and stop using this specific Azure file share
 
@@ -76,7 +76,7 @@ Before you recall any files, make sure that you have enough free space locally t
 
 Use the **Invoke-StorageSyncFileRecall** PowerShell cmdlet and specify the **SyncGroupName** parameter to recall all files. 
 ```powershell
-Invoke-StorageSyncFileRecall  -SyncGroupName “samplesyncgroupname”
+Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname"
 ```
 Once this cmdlet has finished running, you can move onto the next section.
 
@@ -97,13 +97,13 @@ This step may take a while to complete.
 ### Wait for a final sync session to complete
 To ensure that your data is up to date on your local server, you need to wait for a final sync upload session to complete. 
 
-To check this, go to **Event Viewer** on your local server. Navigate to the telemetry event log **(Applications and Services\Microsoft\FileSync\Agent)**. Ensure that you see a 9102 event with ‘sync direction’ = download, ‘HResult’ = 0 and ‘PerItemErrorCount’ = 0 that occurred after the date/time cloud change detection finished.
+To check this, go to **Event Viewer** on your local server. Navigate to the telemetry event log **(Applications and Services\Microsoft\FileSync\Agent)**. Ensure that you see a 9102 event with 'sync direction' = download, 'HResult' = 0 and 'PerItemErrorCount' = 0 that occurred after the date/time cloud change detection finished.
 
 ![A screenshot of checking if a final sync session has completed.](media/file-sync-server-endpoint-delete/event-viewer.png)
 
-If ‘PerItemErrorCount’ is greater than 0, then files are failing to sync. Use the **FileSyncErrorsReport.ps1** to see the files that are failing to sync. This PowerShell script is typically located at this path on a server with an Azure File Sync agent installed: **C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**
+If 'PerItemErrorCount' is greater than 0, then files are failing to sync. Use the **FileSyncErrorsReport.ps1** to see the files that are failing to sync. This PowerShell script is typically located at this path on a server with an Azure File Sync agent installed: **C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**
 
-If these files aren’t important, then you can delete your server endpoint. If these files are important, fix their errors and wait for another 9102 event with ‘sync direction’ = download, ‘HResult’ = 0 and ‘PerItemErrorCount’ = 0 to occur before deleting your server endpoint.
+If these files aren't important, then you can delete your server endpoint. If these files are important, fix their errors and wait for another 9102 event with 'sync direction' = download, 'HResult' = 0 and 'PerItemErrorCount' = 0 to occur before deleting your server endpoint.
 
 ## Next Steps
 * [Modify Azure File Sync topology](./file-sync-modify-sync-topology.md)

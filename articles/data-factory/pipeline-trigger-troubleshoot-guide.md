@@ -3,7 +3,8 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 07/09/2021
+ms.date: 02/21/2022
+ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
@@ -109,7 +110,7 @@ Azure Data Factory evaluates the outcome of all leaf-level activities. Pipeline 
 
 * Implement activity-level checks by following [How to handle pipeline failures and errors](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Use Azure Logic Apps to monitor pipelines in regular intervals following [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Visually Monitor Pipeline](./monitor-visually.md)
+* [Visually Monitor Pipeline](monitor-visually.md)
 
 ### How to monitor pipeline failures in regular intervals
 
@@ -119,7 +120,9 @@ You might need to monitor failed Data Factory pipelines in intervals, say 5 minu
 
 **Resolution**
 * You can set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to your ticketing system.
-* [Visually Monitor Pipeline](./monitor-visually.md)
+* You can rerun pipelines and activities as described [here.](monitor-visually.md#rerun-pipelines-and-activities)
+* You can rerun activities if you had canceled activity or had a failure as per  [Rerun from activity failures.](monitor-visually.md#rerun-from-failed-activity)
+* [Visually Monitor Pipeline](monitor-visually.md)
 
 ### Degree of parallelism  increase does not result in higher throughput
 
@@ -151,7 +154,10 @@ Known Facts about *ForEach*
  
 * **Concurrency Limit:**  If your pipeline has a concurrency policy, verify that there are no old pipeline runs in progress. 
 * **Monitoring limits**: Go to the ADF authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there is something in progress, you can cancel it and the new pipeline run should  start.
-* **Transient  Issues:** It is possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
+
+* **Transient  Issues:** It is possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. You can rerun pipelines and activities as described [here.](monitor-visually.md#rerun-pipelines-and-activities). You can rerun activities if you had canceled activity or had a failure as per [Rerun from activity failures.](monitor-visually.md#rerun-from-failed-activity) This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
+
+
  
 ### Longer start up times for activities in ADF Copy and Data Flow
 
@@ -161,8 +167,8 @@ This can happen if you have not implemented time to live feature for Data Flow o
 
 **Resolution**
 
-* If each copy activity is taking up to 2 minutes to start, and the problem occurs primarily on a VNet join (vs. Azure IR), this can be a copy performance issue. To review troubleshooting steps, go to [Copy Performance Improvement.](./copy-activity-performance-troubleshooting.md)
-* You can use time to live feature to decrease cluster start-up time for data flow activities. Please review [Data Flow Integration Runtime.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
+* If each copy activity is taking up to 2 minutes to start, and the problem occurs primarily on a VNet join (vs. Azure IR), this can be a copy performance issue. To review troubleshooting steps, go to [Copy Performance Improvement.](copy-activity-performance-troubleshooting.md)
+* You can use time to live feature to decrease cluster start-up time for data flow activities. Please review [Data Flow Integration Runtime.](control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
  ### Hitting capacity issues in SHIR(Self-Hosted Integration Runtime)
  
@@ -172,7 +178,7 @@ This can happen if you have not scaled up SHIR as per your workload.
 
 **Resolution**
 
-* If you encounter a capacity issue from SHIR, upgrade the VM to increase the node to balance the activities. If you receive an error  message about a self-hosted IR general failure or error, a self-hosted IR upgrade, or self-hosted IR connectivity issues, which can generate a long queue, go to [Troubleshoot self-hosted integration runtime.](./self-hosted-integration-runtime-troubleshoot-guide.md)
+* If you encounter a capacity issue from SHIR, upgrade the VM to increase the node to balance the activities. If you receive an error  message about a self-hosted IR general failure or error, a self-hosted IR upgrade, or self-hosted IR connectivity issues, which can generate a long queue, go to [Troubleshoot self-hosted integration runtime.](self-hosted-integration-runtime-troubleshoot-guide.md)
 
 ### Error messages due to long queues for ADF Copy and Data Flow
 
@@ -181,10 +187,10 @@ This can happen if you have not scaled up SHIR as per your workload.
 Long queue-related error messages can appear for various reasons. 
 
 **Resolution**
-* If you receive an error message from any source or destination via connectors, which can generate a long queue, go to [Connector Troubleshooting Guide.](./connector-troubleshoot-guide.md)
-* If you receive an error message about Mapping Data Flow, which can generate a long queue, go to [Data Flows Troubleshooting Guide.](./data-flow-troubleshoot-guide.md)
-* If you receive an error message about other activities, such as Databricks, custom activities, or HDI, which can generate a long queue, go to [Activity Troubleshooting Guide.](./data-factory-troubleshoot-guide.md)
-* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](./ssis-integration-runtime-ssis-activity-faq.yml) and [Integration Runtime Management Troubleshooting Guide.](./ssis-integration-runtime-management-troubleshoot.md)
+* If you receive an error message from any source or destination via connectors, which can generate a long queue, go to [Connector Troubleshooting Guide.](connector-troubleshoot-guide.md)
+* If you receive an error message about Mapping Data Flow, which can generate a long queue, go to [Data Flows Troubleshooting Guide.](data-flow-troubleshoot-guide.md)
+* If you receive an error message about other activities, such as Databricks, custom activities, or HDI, which can generate a long queue, go to [Activity Troubleshooting Guide.](data-factory-troubleshoot-guide.md)
+* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](ssis-integration-runtime-ssis-activity-faq.md) and [Integration Runtime Management Troubleshooting Guide.](ssis-integration-runtime-management-troubleshoot.md)
 
 ### Error message - "code":"BadRequest", "message":"null"
 
@@ -224,6 +230,7 @@ The expression builder can fail to load due to network or cache problems with th
 
 **Resolution**
 
+
 Upgrade the web browser to the latest version of a supported browser, clear cookies for the site, and refresh the page.
 
 ### "Code":"BadRequest","message":"ErrorCode=FlowRunSizeLimitExceeded
@@ -251,12 +258,23 @@ You have not optimized mapping data flow.
 * Adjust the partitions at the source and sink accordingly. 
 * Review  [Data Flow Optimizations](concepts-data-flow-performance.md)
 
+### Error Code "BadRequest" when  passing parameters to child pipelines
+
+**Cause**
+
+Failure type is user configuration issue. String of parameters, instead of Array, is passed to the child pipeline.
+
+**Resolution**
+
+Input  **execute pipeline**  activity for pipeline parameter  as  *@createArray('a','b')* for example, if you want to pass parameters 'a' and 'b'. If you want to pass numbers, for example, use *@createArray(1,2,3)*.  Use createArray function to force parameters being passed as an array.
+
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)

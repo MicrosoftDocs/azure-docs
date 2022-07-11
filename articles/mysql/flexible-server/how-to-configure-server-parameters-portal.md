@@ -1,21 +1,20 @@
 ---
 title: Configure server parameters - Azure portal - Azure Database for MySQL Flexible Server
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL flexible server using the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: code-sidd
+ms.author: sisawant
 ms.date: 11/10/2020
 ---
 
 # Configure server parameters in Azure Database for MySQL - Flexible Server using the Azure portal
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
-You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.  
+You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
 
 This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out.
 
@@ -38,7 +37,7 @@ This article describes how to view and configure server parameters by using the 
 
 ## Setting non-modifiable server parameters
 
-If the server parameter you want to update is non-modifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server. 
+If the server parameter you want to update is non-modifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server.
 
 1. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL server.
 2. Search for `init_connect`

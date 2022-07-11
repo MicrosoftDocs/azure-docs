@@ -1,21 +1,21 @@
 ---
-title: Link an Azure account to a partner ID
+title: Link a partner ID to your account that’s used to manage customers
 description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 10/05/2020
+ms.date: 06/28/2022
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Link a partner ID to your Azure accounts
+# Link a partner ID to your account that’s used to manage customers
 
 Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
-PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ).
+PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ). If a group has Azure RBAC access, then PAL is recognized for all the users in the group.
 
 ## Get access from your customer
 
@@ -61,12 +61,12 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 
     ```azurepowershell-interactive
-    C:\> new-AzManagementPartner -PartnerId 12345
+    C:\> New-AzManagementPartner -PartnerId 12345
     ```
 
 #### Get the linked partner ID
 ```azurepowershell-interactive
-C:\> get-AzManagementPartner
+C:\> Get-AzManagementPartner
 ```
 
 #### Update the linked partner ID
@@ -75,7 +75,7 @@ C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### Delete the linked partner ID
 ```azurepowershell-interactive
-C:\> remove-AzManagementPartner -PartnerId 12345
+C:\> Remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### Use the Azure CLI to link to a new partner ID

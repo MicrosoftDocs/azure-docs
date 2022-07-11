@@ -6,15 +6,14 @@ ms.date: 08/23/2018
 ms.author: crdun
 ---
 ## <a name="create-client"></a>Create a client connection
-Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the
-URL to your Mobile App.
+Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the URL to your Mobile App.
 
 ```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>Work with tables
-To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
+To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table.
 
 ```javascript
 var table = client.getTable(tableName);
@@ -60,9 +59,7 @@ table
     .then(success, failure);
 ```
 
-The success function is called with the results.  Do not use `for (var i in results)` in
-the success function as that will iterate over information that is included in the results
-when other query functions (such as `.includeTotalCount()`) are used.
+The success function is called with the results.  Do not use `for (var i in results)` in the success function as that will iterate over information that is included in the results when other query functions (such as `.includeTotalCount()`) are used.
 
 For more information on the Query syntax, see the [Query object documentation].
 
@@ -76,8 +73,7 @@ table
     .then(success, failure);
 ```
 
-You can also use a function that filters the object.  In this case, the `this` variable is assigned to the
-current object being filtered.  The following code is functionally equivalent to the prior example:
+You can also use a function that filters the object.  In this case, the `this` variable is assigned to the current object being filtered.  The following code is functionally equivalent to the prior example:
 
 ```javascript
 function filterByUserId(currentUserId) {
@@ -114,12 +110,9 @@ function loadPage(pageNum) {
 }
 ```
 
-The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
-totalCount field is filled with the total number of records that would be returned if no paging
-is used.
+The `.includeTotalCount()` method is used to add a totalCount field to the results object. The totalCount field is filled with the total number of records that would be returned if no paging is used.
 
-You can then use the pages variable and some UI buttons to provide a page list; use `loadPage()` to
-load the new records for each page.  Implement caching to speed access to records that have already been loaded.
+You can then use the pages variable and some UI buttons to provide a page list; use `loadPage()` to load the new records for each page.  Implement caching to speed access to records that have already been loaded.
 
 #### <a name="sorting-data"></a>How to: Return sorted data
 Use the `.orderBy()` or `.orderByDescending()` query methods:
@@ -149,17 +142,12 @@ table
     }, failure);
 ```
 
-On successful insertion, the inserted item is returned with the additional fields that are required
-for sync operations.  Update your own cache with this information for later updates.
+On successful insertion, the inserted item is returned with the additional fields that are required for sync operations. Update your own cache with this information for later updates.
 
-The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.  Dynamic Schema allows
-you to add columns to the table by specifying them in an insert or update operation.  We recommend that you turn
-off dynamic schema before moving your application to production.
+The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.  Dynamic Schema allows you to add columns to the table by specifying them in an insert or update operation.  We recommend that you turn off dynamic schema before moving your application to production.
 
 ### <a name="modifying"></a>How to: Modify data
-Similar to the `.insert()` method, you should create an Update object and then call `.update()`.  The update
-object must contain the ID of the record to be updated - the ID is obtained when reading the record or
-when calling `.insert()`.
+Similar to the `.insert()` method, you should create an Update object and then call `.update()`.  The update object must contain the ID of the record to be updated - the ID is obtained when reading the record or when calling `.insert()`.
 
 ```javascript
 var updateItem = {

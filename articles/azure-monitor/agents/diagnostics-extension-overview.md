@@ -2,9 +2,8 @@
 title: Azure Diagnostics extension overview
 description: Use Azure diagnostics for debugging, measuring performance, monitoring, traffic analysis in cloud services, virtual machines and service fabric
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 02/14/2020
+ms.date: 04/06/2022
+ms.reviewer: luki
 
 ---
 
@@ -12,7 +11,7 @@ ms.date: 02/14/2020
 Azure Diagnostics extension is an [agent in Azure Monitor](../agents/agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources including virtual machines. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and options for installation and configuration. 
 
 > [!NOTE]
-> Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](../agents/agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
+> Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents](../agents/agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
 
 ## Primary scenarios
 The primary scenarios addressed by the diagnostics extension are:
@@ -29,7 +28,7 @@ The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
 - Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](../logs/data-platform-logs.md).
-- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [VM insights](../vm/vminsights-overview.md), and other services such as [Azure Security Center](../../security-center/index.yml).
+- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-curated-visualizations), [VM insights](../vm/vminsights-overview.md), and other services such as [Microsoft Defender for Cloud](../../security-center/index.yml).
 
 ## Costs
 There is no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.

@@ -1,196 +1,325 @@
 ---
-title: Azure Sentinel DNS normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel DNS normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
-author: batamig
-manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview) | Microsoft Docs
+description: This article describes the Microsoft Sentinel DNS normalization schema.
+author: oshezaf
 ms.topic: reference
-ms.date: 06/15/2021
-ms.author: bagol
-
+ms.date: 11/09/2021
+ms.author: ofshezaf
 ---
 
-# Azure Sentinel DNS normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview)
 
-The DNS information model is used to describe events reported by a DNS server or a DNS security system, and is used by Azure Sentinel to enable source-agnostic analytics.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+The DNS information model is used to describe events reported by a DNS server or a DNS security system, and is used by Microsoft Sentinel to enable source-agnostic analytics.
+
+For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> The DNS normalization schema is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The DNS normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
+>
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
+## Schema overview
+
+The ASIM DNS schema represents DNS protocol activity. Both DNS servers and devices sending DNS requests to a DNS server log DNS activity. The DNS protocol activity includes DNS queries, DNS server updates, and DNS bulk data transfers. Since the schema represents protocol activity, it's governed by RFCs and officially assigned parameter lists, which are referenced in this article when appropriate. The DNS schema doesn't represent DNS server audit events. 
+
+The most important activity reported by DNS servers is a DNS query, for which the `EventType` field is set to `Query`.   
+
+The most important fields in a DNS event are:
+
+- [DnsQuery](#query), which reports the domain name for which the query was issued.
+
+- The [SrcIpAddr](#srcipaddr) (aliased to [IpAddr](#ipaddr)), which represents the IP address from which the request was generated. DNS servers typically provide the SrcIpAddr field, but DNS clients sometimes don't provide this field and only provide the [SrcHostname](#srchostname) field. 
+
+- [EventResultDetails](#eventresultdetails), which reports whether the request was successful and if not, why.
+
+- When available, [DnsResponseName](#responsename), which holds the answer provided by the server to the query. ASIM doesn't require parsing the response, and its format varies between sources. 
+
+    To use this field in source-agnostic content, search the content with the `has` or `contains` operators.
+
+DNS events collected on client device may also include [User](#user) and [Process](#process) information. 
 
 ## Guidelines for collecting DNS events
 
-DNS is a unique protocol in that it may cross a large number of computers. Also, since DNS uses UDP, requests and responses are de-coupled and are not directly related to each other.
+DNS is a unique protocol in that it may cross a large number of computers. Also, since DNS uses UDP, requests and responses are de-coupled and aren't directly related to each other.
 
 The following image shows a simplified DNS request flow, including four segments. A real-world request can be more complex, with more segments involved.
 
 :::image type="content" source="media/normalization/dns-request-flow.png" alt-text="Simplified DNS request flow.":::
 
-Since request and response segments are not directly connected to each other in the DNS request flow, full logging can result in significant duplication.
+Since request and response segments aren't directly connected to each other in the DNS request flow, full logging can result in significant duplication.
 
-The most valuable segment to log is the response to the client, which provides the domain name queries, the lookup result, and the IP address of the client. While many DNS systems log only this segment, there is value in logging the other parts. For example, a DNS cache poisoning attack often takes advantage of fake responses from an upstream server.
+The most valuable segment to log is the response to the client. The response provides the domain name queries, the lookup result, and the IP address of the client. While many DNS systems log only this segment, there is value in logging the other parts. For example, a DNS cache poisoning attack often takes advantage of fake responses from an upstream server.
 
-If your data source supports full DNS logging and you've chosen to log multiple segments, you'll need to adjust your queries to prevent data duplication in Azure Sentinel.
+If your data source supports full DNS logging and you've chosen to log multiple segments, adjust your queries to prevent data duplication in Microsoft Sentinel.
 
 For example, you might modify your query with the following normalization:
 
 ```kql
-imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
+_Im_Dns | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 ```
 
 ## Parsers
 
-The KQL functions implementing the DNS information model have the following names:
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
 
-| Name | Description | Usage instructions |
-| --- | --- | --- |
-| **imDNS** | Aggregative parser that uses *union* to include normalized events from all DNS sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **imDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *imDNSWindowsOMS*. |- Add a source-specific parser for a source when there is no built-in normalizing parser. Update the aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
-| | | |
+### Unifying parsers
 
-The parsers can be deployed from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM).
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_Dns` filtering parser or the `_ASim_Dns` parameter-less parser. You can also use workspace deployed `ImDns` and `ASimDns` parsers.
+
+### Out-of-the-box, source-specific parsers
+
+For the list of the DNS parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#dns-parsers) 
+
+### Add your own normalized parsers
+
+When implementing custom parsers for the Dns information model, name your KQL functions in the following format:
+
+- `vimDns<vendor><Product>` for parametrized parsers
+- `ASimDns<vendor><Product>` for regular parsers
+
+### Filtering parser parameters
+
+The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parsers are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only DNS queries that ran at or after this time. |
+| **endtime** | datetime | Filter only DNS queries that finished running at or before this time. |
+| **srcipaddr** | string | Filter only DNS queries from this source IP address. |
+| **domain_has_any**| dynamic | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain. The length of the list is limited to 10,000 items.
+| **responsecodename** | string | Filter only DNS queries for which the response code name matches the provided value. <br>For example: `NXDOMAIN` |
+| **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results aren't returned for sources that don't provide a response.|
+| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results aren't returned for sources that don't provide a response. The length of the list is limited to 10,000 items. |
+| **eventtype**| string | Filter only DNS queries of the specified type. If no value is specified, only lookup queries are returned. |
+
+
+For example, to filter only DNS queries from the last day that failed to resolve the domain name, use:
+
+```kql
+_Im_Dns (responsecodename = 'NXDOMAIN', starttime = ago(1d), endtime=now())
+```
+
+To filter only DNS queries for a specified list of domain names, use:
+
+```kql
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
+_Im_Dns (domain_has_any = torProxies)
+```
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
 
 ## Normalized content
 
-The following built-in analytic rules now work with normalized DNS parsers:
-- Added: 
-  - Excessive NXDOMAIN DNS Queries (Normalized DNS)
-  - DNS events related to mining pools (Normalized DNS)
-  - DNS events related to ToR proxies (Normalized DNS)
-- Updated to include normalized DNS: 
-  - Known Barium domains
-  - Known Barium IP addresses  
-  - Exchange Server Vulnerabilities Disclosed March 2021 IoC Match
-  - Known GALLIUM domains and hashes
-  - Known IRIDIUM IP
-  - NOBELIUM - Domain and IP IOCs - March 2021
-  - Known Phosphorus group domains/IP
-  - Known STRONTIUM group domains - July 2019
-  - Solorigate Network Beacon
-  - THALLIUM domains included in DCU takedown
-  - Known ZINC Comebacker and Klackring malware hashes
-
+For a full list of analytics rules that use normalized DNS events, see [DNS query security content](normalization-content.md#dns-query-security-content).
 
 ## Schema details
 
 The DNS information model is aligned with the [OSSEM DNS entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/dns.md).
 
-For more information, see the [Internet Assigned Numbers Authority (IANA) domain name system parameter reference](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).
+For more information, see the [Internet Assigned Numbers Authority (IANA) DNS parameter reference](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).
 
-### Log Analytics fields
+### Common ASIM fields
 
-The following fields are generated by Log Analytics for each record, and you can override them when [creating a custom connector](create-custom-connector.md).
+> [!IMPORTANT]
+> Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
+>
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| <a name=timegenerated></a>**TimeGenerated** | Date/time | The time the event was generated by the reporting device. |
-| **\_ResourceId** | guid | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF, or WEF. |
-| | | |
 
-> [!NOTE]
-> More Log Analytics fields, less related to security, are documented with [Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
-> 
 
-### Event fields
+#### Common fields with specific guidelines
 
-Event fields are common to all schemas, and describe the activity itself and the reporting device.
+The following list mentions fields that have specific guidelines for DNS events:
 
-| **Field** | **Class** | **Type** | **Example** | **Discussion** |
-| --- | --- | --- | --- | --- |
-| **EventMessage** | Optional | String | | A general message or description, either included in or generated from the record. |
-| **EventCount** | Mandatory | Integer | `1` | The number of events described by the record. <br><br>This value is used when the source supports aggregation and a single record may represent multiple events. <br><br>For other sources, it should be set to **1**. |
-| **EventStartTime** | Mandatory | Date/time | | If the source supports aggregation and the record represents multiple events, use this field to specify the time that the first event was generated. <br><br>In other cases, alias the [TimeGenerated](#timegenerated) field. |
-| **EventEndTime** | | Alias || Alias to the [TimeGenerated](#timegenerated) field. |
-| **EventType** | Mandatory | Enumerated | `lookup` | Indicate the operation reported by the record. <br><Br> For DNS records, this value would be the [DNS op code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). |
-| **EventSubType** | Optional | Enumerated || Either **request** or **response**. For most sources, [only the responses are logged](#guidelines-for-collecting-dns-events), and therefore the value is often **response**.  |
-| **EventResult** | Mandatory | Enumerated | `Success` | One of the following values: **Success**, **Partial**, **Failure**, **NA** (Not Applicable).<br> <br>The value may be provided in the source record using different terms, which should be normalized to these values. Alternatively, the source may provide only the [EventResultDetails](#eventresultdetails) field, which should be analyzed to derive the EventResult value.<br> <br>If this record represents a request and not a response, set to **NA**. |
-| <a name=eventresultdetails></a>**EventResultDetails** | Mandatory | Alias | `NXDOMAIN` | Reason or details for the result reported in the **_EventResult_** field. Aliases the [ResponseCodeName](#responsecodename) field.|
-| **EventOriginalUid** | Optional | String | | A unique ID of the original record, if provided by the source. |
-| **EventOriginalType**   | Optional    | String  | `lookup` |   The original event type or ID, if provided by the source. |
-| <a name ="eventproduct"></a>**EventProduct** | Mandatory | String | `DNS Server` | The product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
-| **EventProductVersion** | Optional | String | `12.1` | The version of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
-| **EventVendor** | Mandatory | String | `Microsoft` | The vendor of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
-| **EventSchemaVersion** | Mandatory | String | `0.1.1` | The version of the schema documented here is **0.1.1**. |
-| **EventReportUrl** | Optional | String | | A URL provided in the event for a resource that provides more information about the event. |
-| <a name="dvc"></a>**Dvc** | Mandatory       | String     |    `ContosoDc.Contoso.Azure` |           A unique identifier of the device on which the event occurred. <br><br>This field may alias the [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is no apparent device, use the same value as the [Event Product](#eventproduct) field.         |
-| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |  `45.21.42.12` |       The IP Address of the device on which the process event occurred.  |
-| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   | `ContosoDc.Contoso.Azure` |              The hostname of the device on which the process event occurred.                |
-| <a name ="dvcid"></a>**DvcId**               | Optional    | String     || The unique ID of the device on which the process event occurred. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| <a name=additionalfields></a>**AdditionalFields** | Optional | Dynamic | | If your source provides other information worth preserving, either keep it with the original field names or create the **AdditionalFields** dynamic field, and add to the extra information as key/value pairs. |
-| | | | | |
+| **Field** | **Class** | **Type**  | **Description** |
+| --- | --- | --- | --- |
+| **EventType** | Mandatory | Enumerated | Indicates the operation reported by the record. <br><br> For DNS records, this value would be the [DNS op code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `lookup`|
+| **EventSubType** | Optional | Enumerated | Either `request` or `response`. <br><br>For most sources, [only the responses are logged](#guidelines-for-collecting-dns-events), and therefore the value is often **response**.  |
+| <a name=eventresultdetails></a>**EventResultDetails** | Mandatory | Enumerated | For DNS events, this field provides the [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Notes**:<br>- IANA doesn't define the case for the values, so analytics must normalize the case.<br> - If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br>- If this record represents a request and not a response, set to **NA**. <br><br>Example: `NXDOMAIN` |
+| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.4**. |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is **Dns**. |
+| **Dvc** fields| -      | -    | For DNS events, device fields refer to the system that reports the DNS event. |
 
-### DNS-specific fields
 
-The fields below are specific to DNS events. That said, many of them do have similarities in other schemas and therefore follow the same naming convention.
+#### All common fields
 
-| **Field** | **Class** | **Type** | **Example** | **Notes** |
-| --- | --- | --- | --- | --- |
-| **SrcIpAddr** | Mandatory | IP Address |  `192.168.12.1 `| The IP address of the client sending the DNS request. For a recursive DNS request, this value would typically be the reporting device, and in most cases set to **127.0.0.1**. |
-| **SrcPortNumber** | Optional | Integer |  `54312` | Source port of the DNS query. |
-| **DstIpAddr** | Optional | IP Address |  `127.0.0.1` | The IP address of the server receiving the DNS request. For a regular DNS request, this value would typically be the reporting device, and in most cases set to **127.0.0.1**. |
-| **DstPortNumber** | Optional | Integer |  `53` | Destination Port number |
-| **IpAddr** | | Alias | | Alias for SrcIpAddr |
-| <a name=query></a>**DnsQuery** | Mandatory | FQDN | `www.malicious.com` | The domain that needs to be resolved. <br><br>Note that there are sources that send the query in a different format. Most notably, in the DNS protocol itself, the query includes a dot at the end. This should be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](#additionalfields) field. |
-| **Domain** | | Alias || Alias to [Query](#query). |
-| **DnsQueryType** | Optional | Integer | `28` | This field may contain [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)). |
-| **DnsQueryTypeName** | Mandatory | Enumerated | `AAAA` | The field may contain [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value. |
-| <a name=responsename></a>**DnsResponseName** | Optional | String | | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source agnostics analytics. Therefore the information model does not require parsing and normalization, and Azure Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
-| <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | `NXDOMAIN` | The [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case. If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br><br> If this record represents a request and not a response, set to **NA**. |
-| **DnsResponseCode** | Optional | Integer | `3` | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).|
-| **TransactionIdHex** | Recommended | String | | The DNS unique hex transaction ID. |
-| **NetworkProtocol** | Optional | Enumerated | `UDP` | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. |
-| **DnsQueryClass** | Optional | Integer | | The [DNS class ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable.|
-| **DnsQueryClassName** | Optional | String | `"IN"` | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable. |
-| <a name=flags></a>**DnsFlags** | Optional | List of strings | `["DR"]` | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing and normalization are not required, and Azure Sentinel uses an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response).|
-| <a name=UrlCategory></a>**UrlCategory** |   | String | `Educational \\ Phishing` | A DNS event source may also look up the category of the requested Domains. The field is called **_UrlCategory_** to align with the Azure Sentinel network schema. <br><br>**_DomainCategory_** is added as an alias that's fitting to DNS. |
-| **DomainCategory** | | Alias | | Alias to [UrlCategory](#UrlCategory). |
-| **ThreatCategory** |   | String |   | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign the domain or IP address with a Threat Category. |
-| **EventSeverity** | Optional | String | `"Informational"` | If a DNS event source also provides DNS security, it may evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign a severity based on the evaluation. |
-| **DvcAction** | Optional | String | `"Blocked"` | If a DNS event source also provides DNS security, it may take an action on the request, such as blocking it. |
-| | | | | |
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, see the [ASIM Common Fields](normalization-common-fields.md) article.
 
-### Additional aliases (deprecated)
+| **Class** | **Fields** |
+| --------- | ---------- |
+| Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)|
 
-The following fields are aliases which are maintained for backward compatibility:
-- Query (alias to DnsQuery)
-- QueryType (alias to DnsQueryType)
-- QueryTypeName (alias to DnsQueryTypeName)
-- ResponseName (alias to DnsReasponseName)
-- ResponseCodeName (alias to DnsResponseCodeName)
-- ResponseCode (alias to DnsResponseCode)
-- QueryClass (alias to DnsQueryClass)
-- QueryClassName (alias to DnsQueryClassName)
-- Flags (alias to DnsFlags)
 
-### Additional entities
+### Source system fields
 
-Events evolve around entities such as users, hosts, process, or files. Each entity may require several fields to describe. For example, a host may have a name and an IP address. In addition, a single record may include multiple entities of the same type, for example a source and destination host. 
-The DNS schema as documented above includes fields that describe entities. If your source includes other information to describe those entities, add more fields based on the entities below to capture this information. For more information about entities, refer to [Normalization in Azure Sentinel](normalization.md).
+| Field | Class | Type | Description |
+|-------|-------|------|-------------|
+| <a name="src"></a>**Src** | Recommended       | String     |    A unique identifier of the source device. <br><br>This field can alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
+| <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP Address | The IP address of the client that sent the DNS request. For a recursive DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`. <br><br>Example: `192.168.12.1` |
+| **SrcPortNumber** | Optional | Integer | Source port of the DNS query.<br><br>Example: `54312` |
+| <a name="ipaddr"></a>**IpAddr** | Alias | | Alias to [SrcIpAddr](#srcipaddr) |
+| **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
+| **SrcGeoRegion** | Optional | Region | The region within a country associated with the source IP address.<br><br>Example: `Vermont` |
+| **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
+| **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
+| **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
+| **SrcRiskLevel** | Optional | Integer | The risk level associated with the source. The value should be adjusted to a range of `0` to `100`, with `0` for benign and `100` for a high risk.<br><br>Example: `90` |
+| <a name="srchostname"></a>**SrcHostname** | Recommended | String | The source device hostname, excluding domain information.<br><br>Example: `DESKTOP-1282V4D` |
+| **Hostname** | Alias | | Alias to [SrcHostname](#srchostname) |
+|<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
+| <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | Enumerated | The type of  [SrcDomain](#srcdomain), if known. Possible values include:<br>- `Windows` (such as: `contoso`)<br>- `FQDN` (such as: `microsoft.com`)<br><br>Required if [SrcDomain](#srcdomain) is used. |
+| **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
+| <a name="srcdvcid"></a>**SrcDvcId** | Optional | String | The ID of the source device as reported in the record.<br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
+| **SrcDvcIdType** | Optional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others in the **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
+| **SrcDeviceType** | Optional | Enumerated | The type of the source device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 
-| **Entity** | **Fields** | **Type** | **Mandatory fields** | **Notes** |
-| --- | --- | --- | --- | --- |
-| **Actor** | Actor\* | User |  | Most DNS event sources do not provide user information, which is typically not part of the DNS protocol. <br><br>In some cases, the reporting device provides the user information, usually by resolving the source IP address into a user information. In such cases, represent the user as described in the schema entities documentation. Use **Actor** as a descriptor, as the information is based on the source IP address. <br><br>**Note**: When using **Actor** as an entity descriptor, there is no need to append the **User** field. |
-| **Source Device** | Src\* | Device | `SrcIpAddr` | DNS event sources usually report the IP address of the source of the request, and therefore **SrcIpAddr** is mandatory. <br><br>If the reporting device provides more information on the source of the request, or if you enrich the data, use the device entity guidelines to normalize using **Src** as the field's prefix. |
-| **Destination Device** | Dst\* | Device |  | DNS event sources usually do not report information about the destination of the request. If the reporting device provides information on the destination of the request, or if you enrich the data, use the device entity guidelines to normalize, using **Dst** as the prefix. |
-| **Reporting Device** | Dvc\* | Device | `Dvc` | Most events include information about the reporting device. Use the prefix Dvc for those fields|
-| **Process Information** | Process\* | Process |  | Information related to the process that generated the DNS query on the client device. |
-| | | | | |
+
+### Source user fields
+
+| Field | Class | Type | Description |
+|-------|-------|------|-------------|
+| <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>-  **SID**  (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID**  (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. <br><br>If other IDs are available, we recommend that you normalize the field names to **SrcUserSid**, **SrcUserUid**, **SrcUserAadId**, **SrcUserOktaId** and **UserAwsId**, respectively. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `S-1-12` |
+| <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
+| <a name="srcusername"></a>**SrcUsername** | Optional | String | The Source username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information is not available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserUpn**, **SrcUserWindows** and **SrcUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
+| <a name="user"></a>**User** | Alias | | Alias to [SrcUsername](#srcusername) |
+| <a name="srcusernametype"></a>**SrcUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. Supported values are: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
+| **SrcUserType** | Optional | Enumerated | The type of Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalUserType](#eventoriginalusertype) field. |
+| <a name="eventoriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original source user type, if provided by the source. |
+
+
+### Source process fields
+
+| Field | Class | Type | Description |
+|-------|-------|------|-------------|
+| <a name="srcprocessname"></a>**SrcProcessName**              | Optional     | String     |   The file name of the process that initiated the DNS request. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
+| <a name="process"></a>**Process**        | Alias        |            | Alias to the [SrcProcessName](#srcprocessname) <br><br>Example: `C:\Windows\System32\rundll32.exe`|
+| **SrcProcessId**| Optional    | String        | The process ID (PID) of the process that initiated the DNS request.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **SrcProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the DNS request.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
+
+### Destination system fields
+
+| Field | Class | Type | Description |
+|-------|-------|------|-------------|
+| <a name="dst"></a>**Dst** | Recommended       | String     |    A unique identifier of the server that received the DNS request. <br><br>This field may alias the [DstDvcId](#dstdvcid), [DstHostname](#dsthostname), or [DstIpAddr](#dstipaddr) fields. <br><br>Example: `192.168.12.1`       |
+| <a name="dstipaddr"></a>**DstIpAddr** | Optional | IP Address | The IP address of the server that received the DNS request. For a regular DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`.<br><br>Example: `127.0.0.1` |
+| **DstGeoCountry** | Optional | Country | The country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
+| **DstGeoRegion** | Optional | Region | The region, or state, within a country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
+| **DstGeoCity** | Optional | City | The city associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
+| **DstGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
+| **DstGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
+| **DstRiskLevel** | Optional | Integer | The risk level associated with the destination. The value should be adjusted to a range of 0 to 100, which 0 being benign and 100 being a high risk.<br><br>Example: `90` |
+| **DstPortNumber** | Optional | Integer  | Destination Port number.<br><br>Example: `53` |
+| <a name="dsthostname"></a>**DstHostname** | Optional | String | The destination device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D`<br><br>**Note**: This value is mandatory if [DstIpAddr](#dstipaddr) is specified. |
+| <a name="dstdomain"></a>**DstDomain** | Optional | String | The domain of the destination device.<br><br>Example: `Contoso` |
+| <a name="dstdomaintype"></a>**DstDomainType** | Optional | Enumerated | The type of [DstDomain](#dstdomain), if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>Required if [DstDomain](#dstdomain) is used. |
+| **DstFQDN** | Optional | String | The destination device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [DstDomainType](#dstdomaintype) reflects the format used.   |
+| <a name="dstdvcid"></a>**DstDvcId** | Optional | String | The ID of the destination device as reported in the record.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
+| **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the  **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
+| **DstDeviceType** | Optional | Enumerated | The type of the destination device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
+
+### DNS protocol fields
+
+| Field | Class | Type | Description |
+|-------|-------|------|-------------|
+| <a name=query></a>**DnsQuery** | Mandatory | String | The domain that the request tries to resolve. <br><br>**Notes**:<br> - Some sources send valid FQDN queries in a different format. For example, in the DNS protocol itself, the query includes a dot (**.**) at the end, which must be removed.<br>- While the DNS protocol limits the type of value in this field to an FQDN, most DNS servers allow any value, and this field is therefore not limited to FQDN values only. Most notably, DNS tunneling attacks may use invalid FQDN values in the query field.<br>- While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](normalization-common-fields.md#additionalfields) field.<br><br>Example: `www.malicious.com` |
+| <a name="domain"></a>**Domain** | Alias | | Alias to [DnsQuery](#query). |
+| **DnsQueryType** | Optional | Integer | The [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `28`|
+| **DnsQueryTypeName** | Recommended | Enumerated | The [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Notes**:<br> - IANA doesn't define the case for the values, so analytics must normalize the case as needed.<br>- The value `ANY` is supported for the response code 255.<br> - The value `TYPExxxx` is supported for unmapped response codes, where `xxxx` is the numerical value of the response code, as reported by the BIND DNS server.<br> -If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
+| <a name=responsename></a>**DnsResponseName** | Optional | String | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source-agnostic analytics. Therefore the information model doesn't require parsing and normalization, and Microsoft Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
+| <a name=responsecodename></a>**DnsResponseCodeName** |  Alias | | Alias to [EventResultDetails](#eventresultdetails) |
+| **DnsResponseCode** | Optional | Integer | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `3`|
+| <a name="transactionidhex"></a>**TransactionIdHex** | Recommended | String | The DNS query unique ID as assigned by the DNS client, in hexadecimal format. Note that this value is part of the DNS protocol and different from [DnsSessionId](#dnssessionid), the network layer session ID, typically assigned by the reporting device. |
+| **NetworkProtocol** | Optional | Enumerated | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. <br><br>Example: `UDP`|
+| **DnsQueryClass** | Optional | Integer | The [DNS class ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, and therefore this field is less valuable.|
+| **DnsQueryClassName** | Optional | String | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, and therefore this field is less valuable.<br><br>Example: `IN`|
+| <a name=flags></a>**DnsFlags** | Optional | List of strings | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing, and normalization aren't required. Microsoft Sentinel can use an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response). <br><br>Example: `["DR"]`|
+| <a name="dnsnetworkduration"></a>**DnsNetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of DNS request.<br><br>Example: `1500` |
+| **Duration** | Alias | | Alias to [DnsNetworkDuration](#dnsnetworkduration) |
+| **DnsFlagsAuthenticated** | Optional | Boolean | The DNS `AD` flag, which is related to DNSSEC, indicates in a response that all data included in the answer and authority sections of the response have been verified by the server according to the policies of that server. For more information, see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.    |
+| **DnsFlagsAuthoritative** | Optional | Boolean | The DNS `AA` flag indicates whether the response from the server was authoritative    |
+| **DnsFlagsCheckingDisabled** | Optional | Boolean | The DNS `CD` flag, which is related to DNSSEC, indicates in a query that non-verified data is acceptable to the system sending the query. For more information, see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.   |
+| **DnsFlagsRecursionAvailable** | Optional | Boolean | The DNS `RA` flag indicates in a response that  that server supports recursive queries.   |
+| **DnsFlagsRecursionDesired** | Optional | Boolean | The DNS `RD` flag indicates in a request that that client would like the server to use recursive queries.   |
+| **DnsFlagsTruncated** | Optional | Boolean | The DNS `TC` flag indicates that a response was truncated as it exceeded the maximum response size.  |
+| **DnsFlagsZ** | Optional | Boolean | The DNS `Z` flag is a deprecated DNS flag, which might be reported by older DNS systems.  |
+|<a name="dnssessionid"></a>**DnsSessionId** | Optional | string | The DNS session identifier as reported by the reporting device. This value is different from [TransactionIdHex](#transactionidhex), the DNS query unique ID as assigned by the DNS client.<br><br>Example: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
+| **SessionId** | Alias | String | Alias to [DnsSessionId](#dnssessionid) |
+
+### Inspection fields
+
+The following fields are used to represent an inspection, which a DNS security device performed. The threat related fields represent a single threat that is associated with either the source address, the destination address, one of the IP addresses in the response or the DNS query domain. If more than one threat was identified as a threat, information about other IP addresses can be stored in the field `AdditionalFields`.
+
+| Field | Class | Type | Description |
+|-------|-------|------|-------------|
+| <a name=UrlCategory></a>**UrlCategory** |  Optional | String | A DNS event source may also look up the category of the requested Domains. The field is called **UrlCategory** to align with the Microsoft Sentinel network schema. <br><br>**DomainCategory** is added as an alias that's fitting to DNS. <br><br>Example: `Educational \\ Phishing` |
+| **DomainCategory** | Optional | Alias | Alias to [UrlCategory](#UrlCategory). |
+| **ThreatCategory** | Optional | String | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it can search for the IP address or domain in a threat intelligence database, and assign the domain or IP address with a Threat Category. |
+| **ThreatIpAddr** | Optional | IP Address | An IP address for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatIpAddr** represents. If a threat is identified in the [Domain](#domain) field, this field should be empty. |
+| <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcIpAddr`, `DstIpAddr`, `Domain`, or `DnsResponseName`. |
+| **ThreatName** | Optional | String | The name of the threat identified, as reported by the reporting device. | 
+| **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
+| **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
+| **ThreatRiskLevel** | Optional | Integer | The risk level associated with the threat identified, normalized to a value between 0 and a 100. | 
+| **ThreatOriginalRiskLevel** | Optional | String | The original risk level associated with the threat identified, as reported by the reporting device. |  
+| **ThreatIsActive** | Optional | Boolean | True ID the threat identified is considered an active threat. | 
+| **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
+| **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
+
+
+### Deprecated aliases and fields
+
+The following fields are aliases that are maintained for backwards compatibility. They were removed from the schema on December 31, 2021.
+
+- `Query` (alias to `DnsQuery`)
+- `QueryType` (alias to `DnsQueryType`)
+- `QueryTypeName` (alias to `DnsQueryTypeName`)
+- `ResponseName` (alias to `DnsReasponseName`)
+- `ResponseCodeName` (alias to `DnsResponseCodeName`)
+- `ResponseCode` (alias to `DnsResponseCode`)
+- `QueryClass` (alias to `DnsQueryClass`)
+- `QueryClassName` (alias to `DnsQueryClassName`)
+- `Flags` (alias to `DnsFlags`)
+- `SrcUserDomain`
+
+### Schema updates
+
+The changes in version 0.1.2 of the schema are:
+- Added the field `EventSchema`.
+- Added dedicated flag field, which augments the combined **[Flags](#flags)** field: `DnsFlagsAuthoritative`, `DnsFlagsCheckingDisabled`, `DnsFlagsRecursionAvailable`, `DnsFlagsRecursionDesired`, `DnsFlagsTruncated`, and `DnsFlagsZ`.
+
+The changes in version 0.1.3 of the schema are:
+- The schema now explicitly documents `Src*`, `Dst*`, `Process*` and `User*` fields.
+- Added more `Dvc*` fields to match the latest common fields definition. 
+- Added `Src` and `Dst` as aliases to a leading identifier for the source and destination systems.
+- Added optional `DnsNetworkDuration` and `Duration`, an alias to it.
+- Added optional Geo Location and Risk Level fields.
+
+The changes in version 0.1.4 of the schema are:
+- Added the optional fields `ThreatIpAddr`, `ThreatName`, `ThreatConfidence`, `ThreatOriginalConfidence`, `ThreatOriginalRiskLevel`, `ThreatIsActive`, `ThreatFirstReportedTime`, and `ThreatLastReportedTime`
+
+
+## Source-specific discrepancies 
+
+The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that doesn't provide the required telemetry, such as mandatory schema fields, cannot be normalized. However, sources that typically provide all required telemetry, even if there are some discrepancies, can be normalized. Discrepancies may affect the completeness of query results.
+
+The following table lists known discrepancies:
+
+| Source | Discrepancies |
+| ------ | ------------- |
+| Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | The connector doesn't provide the mandatory DnsQuery field for original event ID 264 (Response to a dynamic update). The data is available at the source, but not forwarded by the connector. |
+| Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observed such behavior in certain cases in which the DNS response code name is `NXDOMAIN`. |
+
 
 ## Handling DNS response
 
-In most cases, logged DNS events do not include response information, which may be large and detailed. If your record includes more response information, store it in the [ResponseName](#responsename) field as it appears in the record.
+In most cases, logged DNS events don't include response information, which may be large and detailed. If your record includes more response information, store it in the [ResponseName](#responsename) field as it appears in the record.
 
 You can also provide an extra KQL function called `_imDNS<vendor>Response_`, which takes the unparsed response as input and returns dynamic value with the following structure:
 
@@ -224,9 +353,9 @@ The fields in each dictionary in the dynamic value correspond to the fields in e
 
 ## Handling DNS flags
 
-Parsing and normalization are not required for flag data. Instead, store the flag data provided by the reporting device in the [Flags](#flags) field.
+Parsing and normalization aren't required for flag data. Instead, store the flag data provided by the reporting device in the [Flags](#flags) field. If determining the value of individual flags is straight forward, you can also use the dedicated flags fields. 
 
-You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which takes the unparsed response as input and returns a dynamic list, with Boolean values that represent each flag in the following order:
+You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which takes the unparsed response, or dedicated flag fields, as input and returns a dynamic list, with Boolean values that represent each flag in the following order:
 
 - Authenticated (AD)
 - Authoritative (AA)
@@ -240,9 +369,8 @@ You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which 
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Azure Sentinel data normalization schema reference](normalization-schema.md)
-- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
-- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

@@ -2,14 +2,14 @@
 title: Azure Active Directory security operations for infrastructure
 description: Learn how to monitor and alert on infrastructure components to identify security threats.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 07/15/2021
-ms.author: baselden
+ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -30,7 +30,7 @@ Monitoring and alerting the components of your authentication infrastructure is 
 
 We recommend all the components be considered Control Plane / Tier 0 assets, as well as the accounts used to manage them. Refer to [Securing privileged assets](/security/compass/overview) (SPA) for guidance on designing and implementing your environment. This guidance includes recommendations for each of the hybrid authentication components that could potentially be used for an Azure AD tenant.
 
-A first step in being able to detect unexpected events and potential attacks is to establish a baseline. For all on-premises components listed in this article, see [Privileged access deployment](https://docs.microsoft.com/security/compass/privileged-access-deployment), which is part of the Securing privileged assets (SPA) guide.
+A first step in being able to detect unexpected events and potential attacks is to establish a baseline. For all on-premises components listed in this article, see [Privileged access deployment](/security/compass/privileged-access-deployment), which is part of the Securing privileged assets (SPA) guide.
 
 ## Where to look
 
@@ -40,19 +40,21 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
 From the Azure portal you can view the Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* [Azure Sentinel](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
+* [Microsoft Sentinel](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
 
 * [Azure Monitor](../../azure-monitor/overview.md) – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hub integration.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
 The remainder of this article describes what you should monitor and alert on and is organized by the type of threat. Where there are specific pre-built solutions, you will find links to them following the table. Otherwise, you can build alerts using the preceding tools.
 
@@ -132,7 +134,7 @@ To configuring monitoring for Application Proxy, see [Troubleshoot Application P
 
 For multifactor authentication (MFA) to be effective, you also need to block legacy authentication. You then need to monitor your environment and alert on any use of legacy authentication. This is because legacy authentication protocols like POP, SMTP, IMAP, and MAPI can’t enforce MFA. This makes these protocols preferred entry points for attackers of your organization. For more information on tools that you can use to block legacy authentication, see [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302). 
 
-Legacy authentication is captured in the Azure AD Sign-ins log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Azure Sentinel. For more information, see [Azure Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
+Legacy authentication is captured in the Azure AD Sign-ins log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Microsoft Sentinel. For more information, see [Microsoft Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
@@ -169,18 +171,18 @@ Azure AD uses Microsoft SQL Server Data Engine or SQL to store Azure AD Connect 
 
 | What to monitor| Where| Notes |
 | - | - | - |
-| mms_management_agent| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_partition| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_run_profile| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_server_configuration| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_synchronization_rule| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
+| mms_management_agent| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_partition| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_run_profile| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_server_configuration| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_synchronization_rule| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
 
 
 For information on what and how to monitor configuration information refer to:
 
-* For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15).
+* For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* For Azure Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15). 
+* For Microsoft Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records). 
 
 * For information on configuring and using Azure AD Connect, see [What is Azure AD Connect?](../hybrid/whatis-azure-ad-connect.md)
 
@@ -210,7 +212,7 @@ For information on what and how to monitor configuration information refer to:
 
 
 
-* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7.1), which is part of the PowerShell reference documentation.
+* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows), which is part of the PowerShell reference documentation.
 
 * For more information on configuring PowerShell logging for analysis by Splunk, refer to [Get Data into Splunk User Behavior Analytics](https://docs.splunk.com/Documentation/UBA/5.0.4.1/GetDataIn/AddPowerShell).
 
@@ -259,6 +261,25 @@ The DC agent Admin log is the primary source of information for how the software
 
 Complete reference for Azure AD audit activities is available at [Azure Active Directory (Azure AD) audit activity reference](../reports-monitoring/reference-audit-activities.md). 
 
+## Conditional Access
+In Azure AD, you can protect access to your resources by configuring Conditional Access policies. As an IT administrator, you want to ensure that your Conditional Access policies work as expected to ensure that your resources are properly protected. Monitoring and alerting on changes to the Conditional Access service is critical to ensure that polices defined by your organization for access to data are enforced correctly. Azure AD logs when changes are made to Conditional Access and also provides workbooks to ensure your policies are providing the expected coverage.
+
+**Workbook Links**
+
+* [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md)
+
+* [Conditional Access gap analysis workbook](../reports-monitoring/workbook-conditional-access-gap-analyzer.md)
+
+Monitor changes to Conditional Access policies using the following information:
+
+| What to monitor| Risk level| Where| Filter/sub-filter| Notes |
+| - | - | - | - | - |
+| New Conditional Access Policy created by non-approved actors|Medium | Azure AD Audit logs|Activity: Add conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name | Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?|
+|Conditional Access Policy removed by non-approved actors|Medium|Azure AD Audit logs|Activity: Delete conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?|
+|Conditional Access Policy updated by non-approved actors|Medium|Azure AD Audit logs|Activity: Update conditional access policy<br><br>Category: Policy<br><br>Initiated by (actor): User Principal Name|Monitor and alert on Conditional Access changes. Is Initiated by (actor): approved to make changes to Conditional Access?<br><br>Review Modified Properties and compare “old” vs “new” value|
+|Removal of a user from a group used to scope critical Conditional Access policies|Medium|Azure AD Audit logs|Activity: Remove member from group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been removed.|
+|Addition of a user to a group used to scope critical Conditional Access policies|Low|Azure AD Audit logs|Activity: Add member to group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been added.| 
+
 ## Next steps
 
 
@@ -282,4 +303,4 @@ See these additional security operations guide articles:
  
 
   
-‎ 
+‎

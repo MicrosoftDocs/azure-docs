@@ -10,6 +10,9 @@ ms.author: mimckitt
 ms.subservice: cloud-init
 ---
 # Use cloud-init to configure a swap partition on a Linux VM
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure the swap partition on various Linux distributions. The swap partition was traditionally configured by the Linux Agent (WALA) based on which distributions required one.  This document will outline the process for building the swap partition on demand during provisioning time using cloud-init.  For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
 ## Create swap partition for Ubuntu based images

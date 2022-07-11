@@ -1,9 +1,11 @@
 ---
 title: "Tutorial: Route policy state change events to Event Grid with Azure CLI"
 description: In this tutorial, you configure Event Grid to listen for policy state change events and call a webhook.
-ms.date: 03/29/2021
+ms.date: 06/29/2022
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Tutorial: Route policy state change events to Event Grid with Azure CLI
 
@@ -68,7 +70,13 @@ uses the `Microsoft.PolicyInsights.PolicyStates` topic type for Azure Policy sta
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell
 
-az eventgrid system-topic create --name PolicyStateChanges --location global --topic-type Microsoft.PolicyInsights.PolicyStates --source "/subscriptions/<SubscriptionID>" --resource-group "<resource_group_name>"
+az eventgrid system-topic create --name PolicyStateChanges --location global --topic-type Microsoft.PolicyInsights.PolicyStates --source "/subscriptions/<subscriptionID>" --resource-group "<resource_group_name>"
+```
+
+If your Event Grid system topic will be applied to the management group scope, then the Azure CLI `--source` parameter syntax is a bit different. Here's an example:
+
+```azurecli-interactive
+az eventgrid system-topic create --name PolicyStateChanges --location global --topic-type Microsoft.PolicyInsights.PolicyStates --source "/tenants/<tenantID>/providers/Microsoft.Management/managementGroups/<management_group_name>" --resource-group "<resource_group_name>"
 ```
 
 ## Create a message endpoint
@@ -131,12 +139,12 @@ groups** definition. This policy definition identifies resource groups that are 
 configured during policy assignment.
 
 Run the following command to create a policy assignment scoped to the resource group you created to
-hold the event grid topic:
+hold the Event Grid topic:
 
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell
 
-az policy assignment create --name 'requiredtags-events' --display-name 'Require tag on RG' --scope '<ResourceGroupScope>' --policy '<policy definition ID>' --params '{ "tagName": { "value": "EventTest" } }'
+az policy assignment create --name 'requiredtags-events' --display-name 'Require tag on RG' --scope '<ResourceGroupScope>' --policy '<policy definition ID>' --params '{ \"tagName\": { \"value\": \"EventTest\" } }'
 ```
 
 The preceding command uses the following information:

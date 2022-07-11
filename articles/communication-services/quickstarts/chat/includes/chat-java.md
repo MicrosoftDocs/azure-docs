@@ -2,26 +2,29 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: rifox
 ---
-
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/chat-quickstart-java).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint and connection string** for this quickstart.
+- A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -53,7 +56,7 @@ In your POM file, reference the `azure-communication-chat` package with the Chat
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -63,7 +66,7 @@ For authentication, your client needs to reference the `azure-communication-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-common for the latest version --></version>
 </dependency>
 ```
 
@@ -103,7 +106,7 @@ public class App
         System.out.println("Azure Communication Services - Chat Quickstart");
 
         // Your unique Azure Communication service endpoint
-        String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+        String endpoint = "<replace with your resource endpoint>";
 
         // User access token fetched from your trusted service
         String userAccessToken = "<USER_ACCESS_TOKEN>";
@@ -181,14 +184,20 @@ Use the `sendMessage` method to send a message to the thread you just created, i
 - Use `content` to provide the chat message content.
 - Use `type` to specify the chat message content type, TEXT or HTML.
 - Use `senderDisplayName` to specify the display name of the sender.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 The response `sendChatMessageResult` contains an `id`, which is the unique ID of the message.
 
 ```Java
+Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
-    .setContent("Message content")
+    .setContent("Please take a look at the attachment")
     .setType(ChatMessageType.TEXT)
-    .setSenderDisplayName("Sender Display Name");
+    .setSenderDisplayName("Sender Display Name")
+    .setMetadata(metadata);
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
 String chatMessageId = sendChatMessageResult.getId();
@@ -278,3 +287,6 @@ Run the following `mvn` command to execute the app.
 ```console
 mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/chat-quickstart-java).

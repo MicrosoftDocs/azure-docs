@@ -2,7 +2,7 @@
 title: Message replication and cross-region federation - Azure Service Bus | Microsoft Docs
 description: This article provides an overview of event replication and cross-region federation with Azure Service Bus. 
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
 ---
 
 # Message replication and cross-region federation

@@ -1,12 +1,13 @@
 ---
 title: Visually monitor Azure Data Factory 
 description: Learn how to visually monitor Azure data factories
-author: minhe-msft
-ms.author: hemin
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 06/09/2022
 ---
 
 # Visually monitor Azure Data Factory
@@ -21,7 +22,7 @@ By default, all data factory runs are displayed in the browser's local time zone
 
 The default monitoring view is list of triggered pipeline runs in the selected time period. You can change the time range and filter by status, pipeline name, or annotation. Hover over the specific pipeline run to get run-specific actions such as rerun and the consumption report.
 
-![List view for monitoring pipeline runs](media/monitor-visually/pipeline-runs.png)
+:::image type="content" source="media/monitor-visually/pipeline-runs.png" alt-text="Screenshot of list view for monitoring pipeline runs.":::
 
 The pipeline run grid contains the following columns:
 
@@ -36,25 +37,26 @@ The pipeline run grid contains the following columns:
 | Annotations | Filterable tags associated with a pipeline  |
 | Parameters | Parameters for the pipeline run (name/value pairs) |
 | Error | If the pipeline failed, the run error |
+| Run | **Original**, **Rerun**,  or **Rerun (Latest)** |
 | Run ID | ID of the pipeline run |
 
 You need to manually select the **Refresh** button to refresh the list of pipeline and activity runs. Autorefresh is currently not supported.
 
-![Refresh button](media/monitor-visually/refresh.png)
+:::image type="content" source="media/monitor-visually/refresh.png" alt-text=" Screenshot of refresh button.":::
 
 To view the results of a debug run, select the **Debug** tab.
 
-![Select the View active debug runs icon](media/iterative-development-debugging/view-debug-runs.png)
+:::image type="content" source="media/iterative-development-debugging/view-debug-runs.png" alt-text="Screenshot of the view active debug runs icon.":::
 
 ## Monitor activity runs
 
 To get a detailed view of the individual activity runs of a specific pipeline run, click on the pipeline name.
 
-![View activity runs](media/monitor-visually/view-activity-runs.png)
+:::image type="content" source="media/monitor-visually/view-activity-runs.png" alt-text="Screenshot of view activity runs.":::
 
 The list view shows activity runs that correspond to each pipeline run. Hover over the specific activity run to get run-specific information such as the JSON input, JSON output, and detailed activity-specific monitoring experiences.
 
-![There is information about SalesAnalyticsMLPipeline, followed by a list of activity runs.](media/monitor-visually/activity-runs.png)
+:::image type="content" source="media/monitor-visually/activity-runs.png" alt-text="Screenshot of information about SalesAnalyticsMLPipeline, followed by a list of activity runs.":::
 
 | **Column name** | **Description** |
 | --- | --- |
@@ -71,7 +73,7 @@ The list view shows activity runs that correspond to each pipeline run. Hover ov
 
 If an activity failed, you can see the detailed error message by clicking on the icon in the error column. 
 
-![A notification appears with error details including error code, failure type, and error details.](media/monitor-visually/activity-run-error.png)
+:::image type="content" source="media/monitor-visually/activity-run-error.png" alt-text="Screenshot of a notification with error details including error code, failure type, and error details.":::
 
 ### Promote user properties to monitor
 
@@ -80,15 +82,15 @@ Promote any pipeline activity property as a user property so that it becomes an 
 > [!NOTE]
 > You can only promote up to five pipeline activity properties as user properties.
 
-![Create user properties](media/monitor-visually/promote-user-properties.png)
+:::image type="content" source="media/monitor-visually/promote-user-properties.png" alt-text="Screenshot of create user properties.":::
 
 After you create the user properties, you can monitor them in the monitoring list views.
 
-![Add columns for user properties to the activity runs list](media/monitor-visually/choose-user-properties.png)
+:::image type="content" source="media/monitor-visually/choose-user-properties.png" alt-text="Screenshot of add columns for user properties to the activity runs list.":::
 
  If the source for the copy activity is a table name, you can monitor the source table name as a column in the list view for activity runs.
 
-![Activity runs list with columns for user properties](media/monitor-visually/view-user-properties.png)
+:::image type="content" source="media/monitor-visually/view-user-properties.png" alt-text="Screenshot of activity runs list with columns for user properties.":::
 
 
 ## Rerun pipelines and activities
@@ -106,37 +108,44 @@ After you create the user properties, you can monitor them in the monitoring lis
 
 To rerun a pipeline that has previously ran from the start, hover over the specific pipeline run and select **Rerun**. If you select multiple pipelines, you can use the **Rerun** button to run them all.
 
-![Rerun a pipeline](media/monitor-visually/rerun-pipeline.png)
+:::image type="content" source="media/monitor-visually/rerun-pipeline.png" alt-text="Screenshot of rerun a pipeline.":::
 
 If you wish to rerun starting at a specific point, you can do so from the activity runs view. Select the activity you wish to start from and select **Rerun from activity**. 
 
-![Rerun an activity run](media/monitor-visually/rerun-activity.png)
+:::image type="content" source="media/monitor-visually/rerun-activity.png" alt-text="Screenshot of rerun an activity run.":::
+
+You can also rerun a pipeline and change the parameters. Select the **New parameters** button to change the parameters.
+
+:::image type="content" source="media/monitor-visually/monitor-rerun-new-parameters.png" alt-text="Screenshot of rerun an activity run with new parameters.":::
+
+> [!NOTE]
+> Rerunning a pipeline with new parameters will be considered a new pipeline run so will not show under the rerun groupings for a pipeline run.
 
 ### Rerun from failed activity
 
 If an activity fails, times out, or is canceled, you can rerun the pipeline from that failed activity by selecting **Rerun from failed activity**.
 
-![Rerun failed activity](media/monitor-visually/rerun-failed-activity.png)
+:::image type="content" source="media/monitor-visually/rerun-failed-activity.png" alt-text="Screenshot of rerun failed activity.":::
 
 ### View rerun history
 
 You can view the rerun history for all the pipeline runs in the list view.
 
-![View history](media/monitor-visually/rerun-history-1.png)
+:::image type="content" source="media/monitor-visually/rerun-history-1.png" alt-text="Screenshot of view history.":::
 
 You can also view rerun history for a particular pipeline run.
 
-![View history for a pipeline run](media/monitor-visually/view-rerun-history.png)
+:::image type="content" source="media/monitor-visually/view-rerun-history.png" alt-text="Screenshot of view history for a pipeline run.":::
 
 ## Monitor consumption
 
 You can see the resources consumed by a pipeline run by clicking the consumption icon next to the run. 
 
-![Screenshot that shows where you can see the resources consumed by a pipeline.](media/monitor-visually/monitor-consumption-1.png)
+:::image type="content" source="media/monitor-visually/monitor-consumption-1.png" alt-text="Screenshot that shows where you can see the resources consumed by a pipeline.":::
 
 Clicking the icon opens a consumption report of resources used by that pipeline run. 
 
-![Monitor consumption](media/monitor-visually/monitor-consumption-2.png)
+:::image type="content" source="media/monitor-visually/monitor-consumption-2.png" alt-text="Screenshot of monitor consumption.":::
 
 You can plug these values into the [Azure pricing calculator](https://azure.microsoft.com/pricing/details/data-factory/) to estimate the cost of the pipeline run. For more information on Azure Data Factory pricing, see [Understanding pricing](pricing-concepts.md).
 
@@ -147,55 +156,55 @@ You can plug these values into the [Azure pricing calculator](https://azure.micr
 
 A Gantt chart is a view that allows you to see the run history over a time range. By switching to a Gantt view, you will see all pipeline runs grouped by name displayed as bars relative to how long the run took. You can also group by annotations/tags that you've create on your pipeline. The Gantt view is also available at the activity run level.
 
-![Example of a Gantt chart](media/monitor-visually/select-gantt.png)
+:::image type="content" source="media/monitor-visually/select-gantt.png" alt-text="Screenshot of an example of a Gantt chart.":::
 
 The length of the bar informs the duration of the pipeline. You can also select the bar to see more details.
 
-![Gantt chart duration](media/monitor-visually/view-gantt-run.png)
+:::image type="content" source="media/monitor-visually/view-gantt-run.png" alt-text="Screenshot of a Gantt chart duration.":::
 
 ## Alerts
 
 You can raise alerts on supported metrics in Data Factory. Select **Monitor** > **Alerts & metrics** on the Data Factory monitoring page to get started.
 
-![Data factory Monitor page](media/monitor-visually/start-page.png)
+:::image type="content" source="media/monitor-visually/start-page.png" alt-text="Screenshot of the Data factory Monitor page.":::
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
+> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### Create alerts
 
 1.  Select **New alert rule** to create a new alert.
 
-    ![New Alert Rule button](media/monitor-visually/new-alerts.png)
+    :::image type="content" source="media/monitor-visually/new-alerts.png" alt-text="Screenshot of New Alert Rule button.":::
 
 1.  Specify the rule name and select the alert severity.
 
-    ![Boxes for rule name and severity](media/monitor-visually/name-and-severity.png)
+    :::image type="content" source="media/monitor-visually/name-and-severity.png" alt-text="Screenshot of boxes for rule name and severity.":::
 
 1.  Select the alert criteria.
 
-    ![Box for target criteria](media/monitor-visually/add-criteria-1.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-1.png" alt-text="Screenshot of box for target criteria.":::
 
-    ![Screenshot that shows where you select one metric to set up the alert condition.](media/monitor-visually/add-criteria-2.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-2.png" alt-text="Screenshot that shows where you select one metric to set up the alert condition.":::
 
-    ![List of criteria](media/monitor-visually/add-criteria-3.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-3.png" alt-text="Screenshot of list of criteria.":::
 
     You can create alerts on various metrics, including those for ADF entity count/size, activity/pipeline/trigger runs, Integration Runtime (IR) CPU utilization/memory/node count/queue, as well as for SSIS package executions and SSIS IR start/stop operations.
 
 1.  Configure the alert logic. You can create an alert for the selected metric for all pipelines and corresponding activities. You can also select a particular activity type, activity name, pipeline name, or failure type.
 
-    ![Options for configuring alert logic](media/monitor-visually/alert-logic.png)
+    :::image type="content" source="media/monitor-visually/alert-logic.png" alt-text="Screenshot of options for configuring alert logic.":::
 
 1.  Configure email, SMS, push, and voice notifications for the alert. Create an action group, or choose an existing one, for the alert notifications.
 
-    ![Options for configuring notifications](media/monitor-visually/configure-notification-1.png)
+    :::image type="content" source="media/monitor-visually/configure-notification-1.png" alt-text="Screenshot of options for configuring notifications.":::
 
-    ![Options for adding a notification](media/monitor-visually/configure-notification-2.png)
+    :::image type="content" source="media/monitor-visually/configure-notification-2.png" alt-text="Screenshot of options for adding a notification.":::
 
 1.  Create the alert rule.
 
-    ![Options for creating an alert rule](media/monitor-visually/create-alert-rule.png)
+    :::image type="content" source="media/monitor-visually/create-alert-rule.png" alt-text="Screenshot of options for creating an alert rule.":::
 
 ## Next steps
 

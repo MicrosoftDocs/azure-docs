@@ -1,12 +1,13 @@
 ---
 title: Azure PowerShell samples for Azure Cosmos DB Cassandra API
 description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB Cassandra API
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 01/20/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB Cassandra API
@@ -32,6 +33,6 @@ The following table includes links to commonly used Azure PowerShell scripts for
 |[Create an account, keyspace and table](../scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, keyspace and table. |
 |[Create an account, keyspace and table with autoscale](../scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, keyspace and table with autoscale. |
 |[List or get keyspaces or tables](../scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get keyspaces or tables. |
-|[Throughput operations](../scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Throughput operations for a keyspace or table including get, update and migrate between autoscale and standard throughput. |
+|[Perform throughput operations](../scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Perform throughput operations for a keyspace or table including get, update and migrate between autoscale and standard throughput. |
 |[Lock resources from deletion](../scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||

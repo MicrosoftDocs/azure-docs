@@ -39,7 +39,7 @@ You can connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN 
 
 You have two options here:
 
-* Set up Site-to-site connectivity with any existing VPN device. When you connect the IPsec VPN device to Azure Virtual WAN hub, interconnectivity between the Point-to-site User VPN (Remote user) and Site-to-site VPN is automatic. For more information on how to set up Site-to-site VPN from your on-premise VPN device to Azure Virtual WAN, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
+* Set up Site-to-site connectivity with any existing VPN device. When you connect the IPsec VPN device to Azure Virtual WAN hub, interconnectivity between the Point-to-site User VPN (Remote user) and Site-to-site VPN is automatic. For more information on how to set up Site-to-site VPN from your on-premises VPN device to Azure Virtual WAN, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 * Connect your ExpressRoute circuit to the Virtual WAN hub. Connecting an ExpressRoute circuit requires deploying an ExpressRoute gateway in Virtual WAN. As soon as you have deployed one, interconnectivity between the Point-to-site User VPN and ExpressRoute user is automatic. To create the ExpressRoute connection, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md). You can use an existing ExpressRoute circuit to connect to Azure Virtual WAN.
 
@@ -49,7 +49,7 @@ Basic Virtual WAN provides Site-to-site VPN only. In order for remote users to c
 
 ## <a name="other considerations"></a>Additional information
 
-Virtual WAN supports one hub per region/location. For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. Each hub supports up to 10,000 remote user connections, 1,000 branch connection, four ExpressRoute circuits and up to 500 Virtual Network connections. As you scale up the remote users, if you have any questions, don't hesitate to seek help by sending an email to azurevirtualwan@microsoft.com. If you require technical support, be sure to open a support ticket from the Azure portal and help will be on the way.
+Virtual WAN supports multiple hubs per region/location. For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. Each hub supports up to 100,000 remote user connections, 1,000 branch connection, four ExpressRoute circuits and up to 500 Virtual Network connections. As you scale up the remote users, if you have any questions, don't hesitate to seek help by sending an email to azurevirtualwan@microsoft.com. If you require technical support, be sure to open a support ticket from the Azure portal and help will be on the way.
 
 ## <a name="faq"></a>FAQ
 

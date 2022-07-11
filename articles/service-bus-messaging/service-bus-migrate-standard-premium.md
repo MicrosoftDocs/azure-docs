@@ -2,7 +2,7 @@
 title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 06/27/2022
 ---
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
@@ -21,6 +21,7 @@ Some of the points to note:
 - All **entities** in the standard namespace are **copied** to the premium namespace during the migration process.
 - Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace.
 - You can't directly migrate from **basic tier** to **premium tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
+- The role-based access control (RBAC) settings are not migrated, so you will need to add them manually after the migration. 
 
 ## Migration steps
 
@@ -85,30 +86,38 @@ To migrate your Service Bus standard namespace to premium by using the Azure CLI
 Migration by using the Azure portal has the same logical flow as migrating by using the commands. Follow these steps to migrate by using the Azure portal.
 
 1. On the **Navigation** menu in the left pane, select **Migrate to premium**. Click the **Get Started** button to continue to the next page.
-    ![Migration Landing Page][]
+    :::image type="content" source="./media/service-bus-standard-premium-migration/migrate-premium-page.png" alt-text="Image showing the Migrate to premium page.":::
+1. You see the following **Setup Namespaces** page.
 
-1. Complete **Setup**.
-   ![Setup namespace][]
-   1. Create and assign the premium namespace to migrate the existing standard namespace to.
-        ![Setup namespace - create premium namespace][]
-   1. Choose a **Post Migration name**. You'll use this name to access the standard namespace after the migration is complete.
-        ![Setup namespace - pick post migration name][]
-   1. Select **'Next'** to continue.
-1. Sync entities between the standard and premium namespaces.
-    ![Setup namespace - sync entities - start][]
+    :::image type="content" source="./media/service-bus-standard-premium-migration/setup-namespaces-page.png" alt-text="Image showing the Setup Namespaces page.":::
+1. On the **Setup Namespaces** pages, follow one of these steps: 
+    1. If you select **Create a new premium namespace**:
+        1. On the **Create namespace** page, enter a name for the namespace, and select **Review + create**.
+        1. On the **Review + create** page, select **Create**.
 
-   1. Select **Start Sync** to begin syncing the entities.
-   1. Select **Yes** in the dialog box to confirm and start the sync.
-   1. Wait until the sync is complete. The status is available on the status bar.
-        ![Setup namespace - sync entities - progress][]
-        >[!IMPORTANT]
-        > If you need to abort the migration for any reason, please review the abort flow in the FAQ section of this document.
-   1. After the sync is complete, select **Next** at the bottom of the page.
+            :::image type="content" source="./media/service-bus-standard-premium-migration/create-premium-namespace.png" alt-text="Image showing the Create Namespace page.":::
+    1. If you select **Select an existing empty premium namespace**:
+        1. Select the Azure subscription and resource group that has the namespace.
+        1. Then, select the premium namespace.
+        1. Then click **Select**.
+        
+            :::image type="content" source="./media/service-bus-standard-premium-migration/select-existing-namespace.png" alt-text="Image showing the selection of an existing premium namespace.":::
+1. Enter a **Post Migration name**, and then select **Next**. You'll use this name to access the standard namespace after the migration is complete.
 
-1. Review changes on the summary page. Select **Complete Migration** to switch namespaces and to complete the migration.
-    ![Switch namespace - switch menu][]  
-    The confirmation page appears when the migration is complete.
-    ![Switch namespace - success][]
+    :::image type="content" source="./media/service-bus-standard-premium-migration/enter-post-migration-name.png" alt-text="Image showing the post-migration name for the standard namespace.":::
+1. Select **Start Sync** to sync entities between the standard and premium namespaces.
+
+    :::image type="content" source="./media/service-bus-standard-premium-migration/start-sync-button.png" alt-text="Image showing the start sync button.":::
+1. Select **Yes** in the dialog box to confirm and start the sync. Wait until the sync is complete. Then, select **Next**.
+
+    >[!IMPORTANT]
+    > If you need to abort the migration for any reason, please review the abort flow in the FAQ section of this document.    
+1. Select **Complete Migration** on the **Switch** page. 
+
+    :::image type="content" source="./media/service-bus-standard-premium-migration/complete-migration.png" alt-text="Image showing the **Switch** page of the migration wizard.":::
+1. Select **Yes** to confirm the switch your standard namespace to premium. Once the switch is complete, the DNS name of your standard namespace will point to your premium namespace. This operation can't be undone. You see the **Success** page when the migration is complete.
+
+    :::image type="content" source="./media/service-bus-standard-premium-migration/success-page.png" alt-text="Image showing the Success page.":::
 
 ## Caveats
 
@@ -131,6 +140,9 @@ Here is a list of features not supported by Premium and their mitigation -
    During migration, any partitioned entity in the Standard namespace is created on the Premium namespace as a non-partitioned entity.
 
    If your ARM template sets 'enablePartitioning' to 'true' for a specific Queue or Topic, then it will be ignored by the broker.
+
+### RBAC settings
+The role-based access control (RBAC) settings on the namespace aren't migrated to the premium namespace. You'll need to add them manually after the migration. 
 
 ## FAQs
 
@@ -161,7 +173,7 @@ The downtime that is experienced by the application is limited to the time it ta
 
 No, there are no code or configuration changes needed to do the migration. The connection string that sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
 
-### What happens when I abort the migration?
+### How do I abort the migration? 
 
 The migration can be aborted either by using the `Abort` command or by using the Azure portal.
 
@@ -173,9 +185,15 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### Azure portal
 
-![Abort flow - abort sync][]
-![Abort flow - abort complete][]
+Select **Abort** on the **Sync entities** page. 
 
+:::image type="content" source="./media/service-bus-standard-premium-migration/abort1.png" alt-text="Image showing the Abort page.":::
+
+When it's complete, you see the following page: 
+
+:::image type="content" source="./media/service-bus-standard-premium-migration/abort3.png" alt-text="Image showing the Abort complete page.":::
+
+### What happens when I abort the migration?
 When the migration process is aborted, it aborts the process of copying the entities (topics, subscriptions, and filters) from the standard to the premium namespace and breaks the pairing.
 
 The connection string isn't updated to point to the premium namespace. Your existing applications continue to work as they did before you started the migration.
@@ -208,14 +226,3 @@ However, if you can migrate during a planned maintenance/housekeeping window, an
 * Learn more about the [differences between standard and premium Messaging](./service-bus-premium-messaging.md).
 * Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
-[Migration Landing Page]: ./media/service-bus-standard-premium-migration/1.png
-[Setup namespace]: ./media/service-bus-standard-premium-migration/2.png
-[Setup namespace - create premium namespace]: ./media/service-bus-standard-premium-migration/3.png
-[Setup namespace - pick post migration name]: ./media/service-bus-standard-premium-migration/4.png
-[Setup namespace - sync entities - start]: ./media/service-bus-standard-premium-migration/5.png
-[Setup namespace - sync entities - progress]: ./media/service-bus-standard-premium-migration/8.png
-[Switch namespace - switch menu]: ./media/service-bus-standard-premium-migration/9.png
-[Switch namespace - success]: ./media/service-bus-standard-premium-migration/12.png
-
-[Abort flow - abort sync]: ./media/service-bus-standard-premium-migration/abort1.png
-[Abort flow - abort complete]: ./media/service-bus-standard-premium-migration/abort3.png

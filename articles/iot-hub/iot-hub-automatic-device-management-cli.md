@@ -1,12 +1,12 @@
 ---
 title: Automatic device management at scale with Azure IoT Hub (CLI) | Microsoft Docs
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices or modules
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/08/2021
-ms.author: robinsh
+ms.author: kgremban
 ---
 
 # Automatic IoT device and module management using the Azure CLI
@@ -25,7 +25,7 @@ Automatic device management works by updating a set of device twins or module tw
 
 * The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on twin reported properties. System metrics are the default metrics that measure twin update status, such as the number of twins that are targeted and the number of twins that have been successfully updated.
 
-Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic configuration runs.
+Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic configuration runs. A maximum of 100 automatic configurations is supported on standard tier IoT hubs; ten on free tier IoT hubs. Throttling limits also apply. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## CLI prerequisites
 
@@ -45,7 +45,7 @@ Automatic module configurations require the use of module twins to synchronize s
 
 ## Use tags to target twins
 
-Before you create a configuration, you must specify which devices or modules you want to affect. Azure IoT Hub identifies devices and using tags in the device twin, and identifies modules using tags in the module twin. Each device or modules can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
+Before you create a configuration, you must specify which devices or modules you want to affect. Azure IoT Hub identifies devices and using tags in the device twin, and identifies modules using tags in the module twin. Each device or module can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
 
 ```json
 "tags": {
@@ -58,7 +58,7 @@ Before you create a configuration, you must specify which devices or modules you
 
 ## Define the target content and metrics
 
-The target content and metric queries are specified as JSON documents that describe the device twin or module twin desired properties to set and reported properties to measure.  To create an automatic configuration using Azure CLI, save the target content and metrics locally as .txt files. You use the file paths in a later section when you run the command to apply the configuration to your device.
+The target content and metric queries are specified as JSON documents that describe the device twin or module twin desired properties to set and reported properties to measure. To create an automatic configuration using Azure CLI, save the target content and metrics locally as .txt files. You use the file paths in a later section when you run the command to apply the configuration to your device.
 
 Here's a basic target content sample for an automatic device configuration:
 
@@ -112,9 +112,9 @@ Metric queries for modules are also similar to queries for devices, but you sele
 
 ## Create a configuration
 
-You configure target devices by creating a configuration that consists of the target content and metrics. 
+You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
 
-Use the following command to create a configuration:
+You configure target devices by creating a configuration that consists of the target content and metrics. Use the following command to create a configuration:
 
 ```azurecli
    az iot hub configuration create --config-id [configuration id] \
@@ -123,7 +123,7 @@ Use the following command to create a configuration:
      --metrics [metric queries]
 ```
 
-* --**config-id** - The name of the configuration that will be created in the IoT hub. Give your configuration a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+* --**config-id** - The name of the configuration that will be created in the IoT hub. Give your configuration a unique name that is up to 128 characters long. Lowercase letters and the following special characters are allowed: `-+%_*!'`. Spaces are not allowed.
 
 * --**labels** - Add labels to help track your configuration. Labels are Name, Value pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`
 

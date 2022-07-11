@@ -5,11 +5,11 @@ services: application-gateway
 author: mscatyao
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 04/02/2021
+ms.date: 02/18/2022
 ms.author: caya
 ---
 
-# Troubleshooting mutual authentication errors in Application Gateway (Preview)
+# Troubleshooting mutual authentication errors in Application Gateway
 
 Learn how to troubleshoot problems with mutual authentication when using Application Gateway. 
 
@@ -22,7 +22,7 @@ After configuring mutual authentication on an Application Gateway, there can be 
 * Uploaded a certificate chain that only contained a leaf certificate without a CA certificate 
 * Validation errors due to issuer DN mismatch  
 
-We'll go through different scenarios that you might run into and how to troubleshoot those scenarios. We'll then address error codes and explain likely causes for certain error codes you might be seeing with mutual authentication. 
+We'll go through different scenarios that you might run into and how to troubleshoot those scenarios. We'll then address error codes and explain likely causes for certain error codes you might be seeing with mutual authentication. All client certificate authentication failures should result in an HTTP 400 error code. 
 
 ## Scenario troubleshooting - configuration problems
 There are a few scenarios that you might be facing when trying to configure mutual authentication. We'll walk through how to troubleshoot some of the most common pitfalls. 
@@ -57,7 +57,7 @@ openssl s_client -connect <hostname:port> -cert <path-to-certificate> -key <clie
 
 The `-cert` flag is the leaf certificate, the `-key` flag is the client private key file. 
 
-For more information on how to use the OpenSSL `s_client` command, check out their [manual page](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html).
+For more information on how to use the OpenSSL `s_client` command, check out their [manual page](https://www.openssl.org/docs/manmaster/man1/openssl-s_client.html).
 
 ### SslClientVerify is FAILED
 
@@ -72,6 +72,7 @@ There are a number of potential causes for failures in the access logs. Below is
 * **Unable to get local issuer certificate:** Similar to unable to get issuer certificate, the issuer certificate of the client certificate couldn't be found. This normally means the trusted client CA certificate chain is not complete on the Application Gateway. Validate that the trusted client CA certificate chain uploaded on the Application Gateway is complete.
 * **Unable to verify the first certificate:** Unable to verify the client certificate. This error occurs specifically when the client presents only the leaf certificate, whose issuer is not trusted. Validate that the trusted client CA certificate chain uploaded on the Application Gateway is complete.
 * **Unable to verify the client certificate issuer:** This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match the *ClientCertificateIssuerDN* extracted from the trusted client CA certificate chain uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#verify-client-certificate-dn). As best practice, make sure you're uploading one certificate chain per file to Application Gateway. 
+* **Unsupported certificate purpose:** Ensure the client certificate designates Extended Key Usage for Client Authentication ([1.3.6.1.5.5.7.3.2](https://oidref.com/1.3.6.1.5.5.7.3.2)). More details on definition of extended key usage and object identifier for client authentication can be found in [RFC 3280](https://www.rfc-editor.org/rfc/rfc3280) and [RFC 5280](https://www.rfc-editor.org/rfc/rfc5280). 
 
 For more information on how to extract the entire trusted client CA certificate chain to upload to Application Gateway, see [how to extract trusted client CA certificate chains](./mutual-authentication-certificate-management.md).
 

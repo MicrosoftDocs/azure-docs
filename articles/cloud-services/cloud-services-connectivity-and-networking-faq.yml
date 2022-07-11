@@ -2,18 +2,16 @@
 metadata:
   title: Connectivity and networking issues
   description: This article lists the frequently asked questions about connectivity and networking for Microsoft Azure Cloud Services.
-  ms.topic: article
+  ms.topic: faq
   ms.service: cloud-services
   ms.date: 10/14/2020
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-    
 title: 'Connectivity and networking issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
-  > [!IMPORTANT]
-  > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
   
   This article includes frequently asked questions about connectivity and networking issues for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). For size information, see the [Cloud Services VM size page](cloud-services-sizes-specs.md).
   

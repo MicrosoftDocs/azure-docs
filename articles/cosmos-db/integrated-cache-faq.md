@@ -1,12 +1,13 @@
 ---
 title: Azure Cosmos DB integrated cache frequently asked questions
 description: Frequently asked questions about the Azure Cosmos DB integrated cache.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.author: tisande
+ms.date: 09/20/2021
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 
 # Azure Cosmos DB integrated cache frequently asked questions
@@ -51,8 +52,15 @@ We will have an availability SLA/SLO on the dedicated gateway (and therefore the
 
 Expanding the integrated cache beyond SQL API is planned on the long-term roadmap but beyond the initial public preview of the integrated cache.
 
+### What consistency does the integrated cache support?
+
+The integrated cache supports both session and eventual consistency. You can also configure the optional [MaxIntegratedCacheStaleness](integrated-cache.md#maxintegratedcachestaleness), which places an upper bound on cached data.
+
 ## Next steps
 
 - [Integrated cache](integrated-cache.md)
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)
 - [Dedicated gateway](dedicated-gateway.md)
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

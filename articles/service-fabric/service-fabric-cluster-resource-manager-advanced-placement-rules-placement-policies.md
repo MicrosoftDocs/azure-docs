@@ -125,6 +125,15 @@ The **AllowMultipleStatelessInstancesOnNode** placement policy allows placement 
 
 If you've ever seen a health message such as "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`", then you've hit this condition or something like it. 
 
+To opt in to apply this placement policy on your service, enable the following configurations:
+
+```xml
+<Section Name="Common">
+  <Parameter Name="AllowCreateUpdateMultiInstancePerNodeServices" Value="True" />
+  <Parameter Name="HostReuseModeForExclusiveStateless" Value="1" />
+</Section>
+```
+
 By specifying the `AllowMultipleStatelessInstancesOnNode` policy on the service, InstanceCount can be set beyond the number of nodes in the cluster.
 
 Code:
@@ -139,10 +148,6 @@ PowerShell:
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
 ```
-
-> [!NOTE]
-> The placement policy is currently in preview and behind the `EnableUnsupportedPreviewFeatures` cluster setting. Since this is a preview feature for now, setting the preview config prevents the cluster from getting upgraded to/from. In other words, you will need to create a new cluster to try out the feature.
->
 
 > [!NOTE]
 > Currently the policy is only supported for Stateless services with ExclusiveProcess [service package activation mode](/dotnet/api/system.fabric.description.servicepackageactivationmode).

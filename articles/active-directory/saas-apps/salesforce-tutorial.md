@@ -135,11 +135,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up Salesforce** will direct you to the Salesforce Single Sign-On application. From there, provide the admin credentials to sign into Salesforce Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-13.
+1. After adding extension to the browser, click on **Set up Salesforce** will direct you to the Salesforce Single Sign-On application. From there, provide the admin credentials to sign in to Salesforce Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-13.
 
 	![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup Salesforce manually, open a new web browser window and sign into your Salesforce company site as an administrator and perform the following steps:
+1. If you want to set up Salesforce manually, open a new web browser window and sign in to your Salesforce company site as an administrator and perform the following steps:
 
 1. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
@@ -172,6 +172,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configure Single Sign-On User Provisioning Enabled](./media/salesforce-tutorial/salesforcexml.png)
 
+    > [!NOTE]
+    > If you configured SAML JIT, you must complete an additional step in the **[Configure Azure AD SSO](#configure-azure-ad-sso)** section. The Salesforce application expects specific SAML assertions, which requires you to have specific attributes in your SAML token attributes configuration. The following screenshot shows the list of required attributes by Salesforce.
+    
+    ![Screenshot that shows the JIT required attributes pane.](./media/salesforce-tutorial/just-in-time-attributes-required.png)
+    
+    If you still have issues with getting users provisioned with SAML JIT, see [Just-in-time provisioning requirements and SAML assertion fields](https://help.salesforce.com/s/articleView?id=sf.sso_jit_requirements.htm&type=5). Generally, when JIT fails, you might see an error like `We can't log you in because of an issue with single sign-on. Contact your Salesforce admin for help.`
+
+
 1. On the left navigation pane in Salesforce, click **Company Settings** to expand the related section, and then click **My Domain**.
 
     ![Configure Single Sign-On My Domain](./media/salesforce-tutorial/sf-my-domain.png)
@@ -199,11 +207,11 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Salesforce Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Salesforce tile in the My Apps, you should be automatically signed in to the Salesforce for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Salesforce tile in the My Apps portal, you should be automatically signed in to the Salesforce for which you set up the SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Test SSO for Salesforce (Mobile)
 
-1. Open Salesforce mobile application. On the sign in page, click on **Use Custom Domain**.
+1. Open Salesforce mobile application. On the sign-in page, click **Use Custom Domain**.
 
     ![Salesforce mobile app Use Custom Domain](media/salesforce-tutorial/mobile-app1.png)
 
@@ -211,7 +219,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
     ![Salesforce mobile app Custom Domain](media/salesforce-tutorial/mobile-app2.png)
 
-1. Enter your Azure AD credentials to sign in into the Salesforce application and click **Next**.
+1. Enter your Azure AD credentials to sign in to the Salesforce application and click **Next**.
 
     ![Salesforce mobile app Azure AD credentials](media/salesforce-tutorial/mobile-app3.png)
 
@@ -219,11 +227,11 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
     ![Salesforce mobile app Allow Access](media/salesforce-tutorial/mobile-app4.png)
 
-1. Finally after successful sign in, the application homepage will be displayed.
+1. Finally after successful sign-in, the application homepage will be displayed.
 
     ![Salesforce mobile app homepage](media/salesforce-tutorial/mobile-app5.png)
     ![Salesforce mobile app](media/salesforce-tutorial/mobile-app6.png)
 
-## Next Steps
+## Next steps
 
-Once you configure Salesforce you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+After you configure Salesforce, you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

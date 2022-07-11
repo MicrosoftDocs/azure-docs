@@ -3,14 +3,12 @@ title: Quickstart for adding feature flags to Azure Functions | Microsoft Docs
 description: In this quickstart, use Azure Functions with feature flags from Azure App Configuration and test the function locally.
 services: azure-app-configuration
 author: AlexandraKemperMS
-
-
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
@@ -78,7 +76,7 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 3. Update the `ConfigureAppConfiguration` method, and add Azure App Configuration provider as an extra configuration source by calling `AddAzureAppConfiguration()`. 
 
-   The `UseFeatureFlags()` method tells the provider to load feature flags. All feature flags have a default cache expiration of 30 seconds before rechecking for changes. The expiration interval can be updated by setting the `FeatureFlagsOptions.CacheExpirationInterval` property passed to the `UseFeatureFlags` method. 
+    The `UseFeatureFlags()` method tells the provider to load feature flags. All feature flags have a default cache expiration of 30 seconds before rechecking for changes. The expiration interval can be updated by setting the `FeatureFlagsOptions.CacheExpirationInterval` property passed to the `UseFeatureFlags` method. 
 
     ```csharp
     public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
@@ -91,8 +89,9 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
         });
     }
     ```
-   > [!TIP]
-   > If you don't want any configuration other than feature flags to be loaded to your application, you can call `Select("_")` to only load a nonexisting dummy key "_". By default, all configuration key-values in your App Configuration store will be loaded if no `Select` method is called.
+
+    > [!TIP]
+    > If you don't want any configuration other than feature flags to be loaded to your application, you can call `Select("_")` to only load a nonexisting dummy key `"_"`. By default, all configuration key-values in your App Configuration store will be loaded if no `Select` method is called.
 
 4. Update the `Configure` method to make Azure App Configuration services and feature manager available through dependency injection.
 

@@ -3,13 +3,14 @@ title: Create and manage a blob snapshot in .NET
 titleSuffix: Azure Storage
 description: Learn how to use the .NET client library to create a read-only snapshot of a blob to back up blob data at a given moment in time.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/27/2020
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -28,7 +29,7 @@ To create a snapshot of a block blob using version 12.x of the Azure Storage cli
 - [CreateSnapshot](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshot)
 - [CreateSnapshotAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshotasync)
 
-The following code example shows how to create a snapshot with version 12.x. Include a reference to the [Azure.Identity](https://www.nuget.org/packages/azure.identity) library to use your Azure AD credentials to authorize requests to the service.
+The following code example shows how to create a snapshot with version 12.x. Include a reference to the [Azure.Identity](https://www.nuget.org/packages/azure.identity) library to use your Azure AD credentials to authorize requests to the service. For more information about using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(string accountName, string containerName, string blobName, Stream data)

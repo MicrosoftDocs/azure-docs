@@ -5,11 +5,14 @@ author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 6/3/2021
+ms.date: 11/10/2021
 ms.author: srijangupta
 
 ---
 # Prepare a Debian VHD for Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 ## Prerequisites
 This section assumes that you have already installed a Debian Linux operating system from an .iso file downloaded from the [Debian website](https://www.debian.org/distrib/) to a virtual hard disk. Multiple tools exist to create .vhd files; Hyper-V is only one example. For instructions using Hyper-V, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
@@ -151,3 +154,6 @@ az vm create \
 >4. Copy the tarball to the VM: `scp ./image_buster_azure_amd64.vhd.tar.gz <vm>:~`.
 >5. On the VM, extract the VHD: `tar -xf ./image_buster_azure_amd64.vhd.tar.gz` (this will take a bit of time given the size of the file).
 >6. Finally on the VM, copy the VHD to the Azure Disk with `azcopy` (the command from above).
+
+
+**Next steps:** You're now ready to use your Debian Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](./upload-vhd.md#option-1-upload-a-vhd).

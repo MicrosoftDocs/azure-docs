@@ -7,6 +7,9 @@
     href: overview.md
   - name: Technical and feature overview
     href: technical-overview.md
+    displayName: Azure AD B2C architecture, SLA, Azure AD B2C high availability, Azure AD B2C SLA, HA
+  - name: Supported Azure AD features
+    href: supported-azure-ad-features.md
   - name: What's new in docs?
     href: whats-new-docs.md
 - name: Quickstarts
@@ -26,26 +29,10 @@
     href: tutorial-register-applications.md
   - name: 3 - Create user flows and custom policies
     href: tutorial-create-user-flows.md
-  - name: Authenticate users
-    items:
-    - name: ASP.NET
-      href: tutorial-web-app-dotnet.md
-    - name: Desktop
-      href: tutorial-desktop-app.md
-    - name: Single page
-      href: tutorial-single-page-app.md
-    - name: Python
-      href: tutorial-web-app-python.md
-      displayName: flask
-  - name: Grant API access
-    items:
-    - name: ASP.NET
-      href: tutorial-web-api-dotnet.md
-    - name: Desktop
-      href: tutorial-desktop-app-webapi.md
-    - name: Single page
-      href: tutorial-single-page-app-webapi.md
-  - name: Clean up and delete tenant
+  - name: 4 - Manage your tenant
+    href: tenant-management.md
+    displayName: break glass account, emergence account
+  - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
   items:
@@ -56,17 +43,18 @@
 - name: Concepts
   items:
   - name: Compare solutions for External Identities
-    href: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    href: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
   - name: Learn authentication basics
     items:
     - name: Authentication and authorization
       href: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Tokens
       href: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-    - name: Protocols
+    - name: Application authentication request
       href: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Authentication library
       href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      displayName: MSAL, client library, Microsoft Authentication Library
   - name: Azure AD B2C best practices
     href: best-practices.md
   - name: Application types
@@ -79,6 +67,7 @@
         href: openid-connect.md
       - name: Authorization Code grant flow
         href: authorization-code-flow.md
+        displayName: pkce, Proof Key for Code Exchange
       - name: Implicit flow
         href: implicit-flow-single-page-application.md
       - name: Tokens
@@ -96,19 +85,19 @@
       href: custom-policy-overview.md
   - name: API Connectors
     href: api-connectors-overview.md
-    displayName: REST API, web API, API connectors
+    displayName: REST API, web API, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
   - name: User accounts
     href: user-overview.md
   - name: User profile attributes
     href: user-profile-attributes.md
+  - name: Roles and resource access control
+    href: roles-resource-access-control.md
   - name: Identity Protection and Conditional Access
     href: conditional-access-identity-protection-overview.md
   - name: Policy keys
     href: policy-keys-overview.md
 - name: How-to guides
   items:
-  - name: Manage your tenant
-    href: tenant-management.md
   - name: App integration
     items:
     - name: ASP.NET Core web app
@@ -127,10 +116,24 @@
         href: enable-authentication-web-app-with-api.md
       - name: Authentication options
         href: enable-authentication-web-app-with-api-options.md
+    - name: Azure Web Apps
+      items:
+      - name: Configure an Azure Web App
+        href: configure-authentication-in-azure-web-app.md
+      - name: File based configuration
+        href: configure-authentication-in-azure-web-app-file-based.md
+    - name: Azure Static Web Apps
+      items:
+      - name: Configure an Azure Static Web App
+        href: configure-authentication-in-azure-static-app.md
+      - name: Authentication options
+        href: enable-authentication-azure-static-app-options.md
     - name: Python web app
       items:
-      - name: Configure a sample web app
+      - name: Configure a sample Python web app
         href: configure-authentication-sample-python-web-app.md
+      - name: Enable authentication in a Python web app
+        href: enable-authentication-python-web-app.md
       - name: Authentication options
         href: enable-authentication-python-web-app-options.md
     - name: Single-page application (SPA)
@@ -141,6 +144,22 @@
         href: enable-authentication-spa-app.md
       - name: Authentication options
         href: enable-authentication-spa-app-options.md
+    - name: Node.js web app
+      items:
+      - name: Configure a sample Node.js web app
+        href: configure-a-sample-node-web-app.md
+      - name: Enable authentication in Node.js web app
+        href: enable-authentication-in-node-web-app.md
+      - name: Authentication options
+        href: enable-authentication-in-node-web-app-options.md
+    - name: Node.js web app that calls a web API
+      items:
+      - name: Configure a sample Node.js web API
+        href: configure-authentication-in-sample-node-web-app-with-api.md
+      - name: Enable authentication in Node.js web API
+        href: enable-authentication-in-node-web-app-with-api.md
+      - name: Authentication options
+        href: enable-authentication-in-node-web-app-with-api-options.md
     - name: Angular single-page application
       items:
       - name: Configure a sample Angular app
@@ -149,6 +168,14 @@
         href: enable-authentication-angular-spa-app.md
       - name: Authentication options
         href: enable-authentication-angular-spa-app-options.md
+    - name: React single-page application
+      items:
+      - name: Configure a sample React app
+        href: configure-authentication-sample-react-spa-app.md
+      - name: Enable authentication in your React app
+        href: enable-authentication-react-spa-app.md
+      - name: Authentication options
+        href: enable-authentication-react-spa-app-options.md
     - name: Android mobile app
       items:
       - name: Configure a sample Android app
@@ -178,7 +205,9 @@
          href: enable-authentication-web-api.md
        - name: Secure API Management API
          href: secure-api-management.md
-         displayName: apim, api management, migrate, b2clogin.com 
+         displayName: api, api management, migrate, b2clogin.com 
+    - name: Microsoft Power Apps
+      href: /powerapps/maker/portals/configure/configure-azure-ad-b2c-provider
     - name: SAML application
       items:
       - name: Configure a SAML application
@@ -215,11 +244,11 @@
         href: force-password-reset.md
     - name: Profile editing policy
       href: add-profile-editing-policy.md
+    - name: Client credentials policy
+      href: client-credentials-grant-flow.md
     - name: Resource owner password credentials policy
       href: add-ropc-policy.md
       displayName: ROPC
-    - name: Set up a self-serve password reset policy (deprecated)
-      href: user-flow-self-service-password-reset.md
     - name: Phone sign-up and sign-in
       href: phone-authentication-user-flows.md
   - name: Identity providers
@@ -229,12 +258,15 @@
       displayName: Username, Email, Phone authorization, Phone sign-in
     - name: Add an identity provider
       href: add-identity-provider.md
-    - name: AD FS
+    - name: AD FS (OpenID Connect)
       href: identity-provider-adfs.md
+      displayName: AD-FS, ADFS
+    - name: AD FS (SAML)
+      href: identity-provider-adfs-saml.md
       displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
-    - name: Apple (Preview)
+    - name: Apple
       href: identity-provider-apple-id.md 
     - name: Azure AD (single tenant)
       href: identity-provider-azure-ad-single-tenant.md
@@ -266,12 +298,20 @@
       href: identity-provider-linkedin.md
     - name: Microsoft Account
       href: identity-provider-microsoft-account.md
+    - name: Mobile ID
+      href: identity-provider-mobile-id.md
+    - name: PingOne (PingIdentity)
+      href: identity-provider-ping-one.md
+      displayName: Ping identity
     - name: QQ
       href: identity-provider-qq.md
     - name: Salesforce
       href: identity-provider-salesforce.md
     - name: Salesforce (SAML)
       href: identity-provider-salesforce-saml.md
+    - name: SwissID
+      href:  identity-provider-swissid.md
+      displayName: Swiss ID      
     - name: Twitter
       href: identity-provider-twitter.md
     - name: WeChat
@@ -315,16 +355,29 @@
       items:
       - name: Multi-factor authentication
         href: multi-factor-authentication.md
+        displayName: TOTP, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
       - name: Partner integration
         items:
+        - name: Asignio
+          href: partner-asignio.md
         - name: BlokSec
           href: partner-bloksec.md
+        - name: Haventec
+          href: partner-haventec.md
         - name: HYPR
           href: partner-hypr.md
+        - name: IDEMIA
+          href: partner-idemia.md
+        - name: itsme
+          href: partner-itsme.md
         - name: Keyless
           href: partner-keyless.md
         - name: Nevis
           href: partner-nevis.md
+        - name: Nok Nok
+          href: partner-nok-nok.md
+        - name: Transmit Security
+          href: partner-bindid.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio
@@ -333,6 +386,8 @@
           href: partner-typingdna.md
         - name: WhoIAM
           href: partner-whoiam.md
+        - name: xID
+          href: partner-xid.md
     - name: Set up direct sign-in
       href: direct-signin.md
   - name: Tokens and session management
@@ -344,15 +399,23 @@
       href: configure-tokens.md
   - name: Define custom attributes
     href: user-flow-custom-attributes.md
-  - name: Security and threat management
+  - name: Security
     items:
-    - name: Investigate risk with Identity Protection
-      href: identity-protection-investigate-risk.md
-    - name: Configure Conditional Access
-      href: conditional-access-user-flow.md
-    - name: Mitigate credential attacks
-      displayName: smart lockout, account lockout, password attack
-      href: threat-management.md
+    - name: Monitoring and threat management
+      items:
+      - name: Azure Monitor
+        href: azure-monitor.md
+      - name: Microsoft Sentinel
+        href: azure-sentinel.md
+        displayName: log, logs, logging, events, Azure Monitor, Microsoft Sentinel, SIEM, threat hunting, Security, Security Orchestration
+    - name: Web Application Firewall partners
+      items:
+      - name: Akamai
+        href: partner-akamai.md
+      - name: Azure WAF
+        href: partner-azure-web-application-firewall.md
+      - name: Cloudflare
+        href: partner-cloudflare.md
     - name: Fraud protection partners
       items: 
       - name: Arkose Labs
@@ -364,27 +427,50 @@
       - name: Microsoft Dynamics 365 Fraud Protection
         href: partner-dynamics-365-fraud-protection.md
         displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
+    - name: Investigate risk with Identity Protection
+      href: identity-protection-investigate-risk.md
+    - name: Configure Conditional Access
+      href: conditional-access-user-flow.md
+    - name: Mitigate credential attacks
+      displayName: smart lockout, account lockout, password attack
+      href: threat-management.md
+    - name: Secure phone-based MFA
+      href: phone-based-mfa.md
+      displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
+    - name: Secure access to legacy and on-premises apps
+      items:
+      - name: Datawiza
+        href: partner-datawiza.md
+      - name: F5
+        href: partner-f5.md
+      - name: Ping Identity
+        href: partner-ping-identity.md
+      - name: Strata
+        href: partner-strata.md
+        displayName: AAD b2c access, legacy app, onpremises apps
+      - name: Zscaler
+        href: partner-zscaler.md
+        displayName: zscaler b2c, vpn, sdp b2c
   - name: Configure age gating
     href: age-gating.md
   - name: API connectors
     items:
-    - name: Add an API connector to a sign-up user flow
+    - name: Modify sign-up experiences 
       href: add-api-connector.md
-      displayName: rest claims validation, validate
-    - name: Add an API connector to a sign-up or sign-in user flow
-      href: custom-policy-rest-api-claims-exchange.md
-      displayName: rest claims exchange
+      displayName: rest claims validation, validate, third-party integration, outbound webhook, third-party integration
+    - name: Enrich tokens with external claims
+      href: add-api-connector-token-enrichment.md
+      displayName: rest claims exchange, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
     - name: Secure an API connector
       href: secure-rest-api.md
-  - name: Custom policy
+      displayName: API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
+  - name: Troubleshooting
     items:
-    - name: Troubleshooting
-      items:
-      - name: Collect logs using Application Insights
-        href: troubleshoot-with-application-insights.md
-        displayName: troubleshooting, app insights
-      - name: Troubleshooting custom policies
-        href: troubleshoot-custom-policies.md
+    - name: Collect logs using Application Insights
+      href: troubleshoot-with-application-insights.md
+      displayName: troubleshooting, app insights
+    - name: Troubleshooting and error handling
+      href: troubleshoot.md
   - name: UserInfo endpoint
     href: userinfo-endpoint.md
   - name: Partner integration
@@ -396,6 +482,8 @@
     - name: Identity verification and proofing partners
       href: identity-verification-proofing.md
       displayName: id verify, id verification, azure ad b2c proofing, id proofing
+    - name: eID-Me
+      href: partner-eid-me.md
     - name: Experian
       href: partner-experian.md
     - name: IDology
@@ -406,30 +494,12 @@
       href: partner-lexisnexis.md
     - name: Onfido
       href: partner-onfido.md
-  - name: Secure access to legacy and on-premises apps
-    items:
-    - name: Datawiza
-      href: partner-datawiza.md
-    - name: Ping Identity
-      href: partner-ping-identity.md
-    - name: Strata
-      href: partner-strata.md
-      displayName: AAD b2c access, legacy app, onpremises apps
-    - name: Zscaler
-      href: partner-zscaler.md
-      displayName: zscaler b2c, vpn, sdp b2c
   - name: Domain name
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
     - name: Configure a custom domain
       href: custom-domain.md
-    - name: Web Application Firewall partners
-      items:
-      - name: Akamai
-        href: partner-akamai.md
-      - name: Cloudflare
-        href: partner-cloudflare.md
     - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
@@ -440,6 +510,8 @@
       displayName: account, accounts, msgraph, ms graph, graph
     - name: Deploy with Azure Pipelines
       href: deploy-custom-policies-devops.md
+    - name: Deploy with GitHub Actions
+      href: deploy-custom-policies-github-action.md
       displayName: azure devops, ci/cd, cicd, custom policy, policies
     - name: Manage policies with PowerShell
       href: manage-custom-policies-powershell.md
@@ -458,23 +530,16 @@
         href: partner-n8identity.md
       - name: Saviynt 
         href: partner-saviynt.md
-  - name: Logs and monitoring
+      - name: WhoIAM Rampart
+        href: partner-whoiam-rampart.md
+  - name: Logs 
     items:
     - name: Audit logs
       href: view-audit-logs.md
-      displayName: log, logs, logging, usage, events, reports, reporting
-    - name: Azure Monitor
-      href: azure-monitor.md
       displayName: log, logs, logging, usage, events, reports, reporting, dashboard
-    - name: Azure Sentinel
-      href: azure-sentinel.md
-      displayName: log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Usage analytics
       href: analytics-with-application-insights.md
       displayName: application insights, app insights, reports, reporting
-    - name: Secure phone-based MFA
-      href: phone-based-mfa.md
-      displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
   - name: Compliance
     items:
     - name: User access
@@ -529,6 +594,8 @@
         items:
         - name: Verification
           href: display-control-verification.md
+        - name: Time-based one-time password (TOTP)
+          href: display-control-time-based-one-time-password.md
     - name: ClaimsProviders
       href: claimsproviders.md
       items:
@@ -594,6 +661,7 @@
     href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
+    displayName: pricing model
   - name: Code samples
     href: /samples/browse/?terms=b2c
   - name: Cookie definitions
@@ -608,6 +676,7 @@
     displayName: Page version
   - name: Region availability & data residency
     href: data-residency.md
+    displayName: SLA, Azure AD B2C high availability, Azure AD B2C SLA, high availability, HA
   - name: Build for resilience
     items:
     - name: Azure AD B2C introduction to resilience
@@ -628,13 +697,14 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+    href: https://azure.microsoft.com/updates/?status=nowavailable,inpreview,indevelopment&category=identity,security&query=b2c
   - name: Frequently asked questions
     href: ./faq.yml
+    displayName: FAQ
   - name: Getting help
     href: ../active-directory/develop/developer-support-help-options.md
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+    href: https://azure.microsoft.com/pricing/details/active-directory/external-identities/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
@@ -644,7 +714,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
-    href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    href: find-help-open-support-ticket.md
     displayName: technical
   - name: Videos
     href: azure-ad-external-identities-videos.md

@@ -4,17 +4,18 @@ titleSuffix: Azure Machine Learning
 description: This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled Tensorflow deep learning model as a web service.service and score inference requests.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 06/17/2020
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, deploy
+ms.custom: devx-track-python, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy a deep learning model for inference with GPU
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 
@@ -29,11 +30,11 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 > Although the code snippets in this article use a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
 
 > [!NOTE]
-> The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
+> The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](quickstart-create-resources.md).
 
 * A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
@@ -50,7 +51,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -92,7 +93,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster exists. Make sure to delete your AKS cluster when you're done with it.
 
-For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
 
 ## Write the entry script
 
@@ -142,7 +143,7 @@ The conda environment file specifies the dependencies for the service. It includ
 ```yaml
 name: project_environment
 dependencies:
-  # The python interpreter version.
+  # The Python interpreter version.
   # Currently Azure ML only supports 3.5.2 and later.
 - python=3.6.2
 
@@ -289,4 +290,4 @@ aks_target.delete()
 
 * [Deploy model on FPGA](how-to-deploy-fpga-web-service.md)
 * [Deploy model with ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
-* [Train Tensorflow DNN Models](how-to-train-tensorflow.md)
+* [Train TensorFlow DNN Models](how-to-train-tensorflow.md)

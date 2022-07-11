@@ -3,21 +3,20 @@ title: What is BareMetal Infrastructure for Oracle?
 description: Learn about the features BareMetal Infrastructure offers for Oracle workloads. 
 ms.topic: conceptual
 ms.subservice: baremetal-oracle
-ms.date: 04/14/2021
+ms.date: 09/03/2021
 ---
 
 # What is BareMetal Infrastructure for Oracle?
 
-This article gives an overview of the features BareMetal Infrastructure offers for Oracle workloads.
+In this article, we'll give an overview of the features BareMetal Infrastructure offers for Oracle workloads.
 
-BareMetal Infrastructure for Oracle is based on Oracle-certified Unified Computing System (UCS) and FLexPod. The FlexPod platform delivers pre-validated storage, networking, and server technologies. It offers NFS storage, providing integration using DirectNFS protocol. The BareMetal servers are dedicated to you, with no hypervisor on the BareMetal instances. 
+BareMetal Infrastructure for Oracle is based on Oracle-certified Unified Computing System (UCS) and FLexPod. The FlexPod platform delivers pre-validated storage, networking, and server technologies. It offers NetApp Network File System (NFS) storage, providing integration using DirectNFS protocol. The BareMetal servers are dedicated to you, with no hypervisor on the BareMetal instances. 
 
-These instances are for running mission critical applications requiring an Oracle workload. BareMetal instances provide low latency (0.35 ms) to your applications running in Azure virtual machines (VMs). BareMetal provides shared storage disk and supports multi-casting required for node-to-node communication with a dedicated private interconnect network. 
+These instances are for running mission critical applications requiring an Oracle workload. BareMetal instances provide low latency (0.35 ms) to your applications running in Azure virtual machines (VMs). BareMetal provides shared storage. It also supports multi-casting required for node-to-node communication with a dedicated private interconnect network. 
 
 Other features of BareMetal Infrastructure for Oracle include:
 
 - Oracle certified UCS blades - UCSB200-M5, UCSB460-M4, UCSB480-M5
-- Oracle Real Application Clusters (RAC) node-to-node (multi-cast) communication using private virtual LAN (VLAN) -40 Gb.
 - Microsoft-managed hardware
   - Redundant storage, network, power, management
   - Monitoring for Infra, repairs, and replacement

@@ -1,13 +1,13 @@
 ---
-title: Azure Service Bus messaging samples overview
-description: The Service Bus messaging samples demonstrate key features in Azure Service Bus messaging. Provides links to samples on GitHub. 
+title: Azure Service Bus samples or examples
+description: Azure Service Bus messaging samples or examples that demonstrate key features. 
 author: spelluru
 ms.topic: article
 ms.date: 07/23/2021
 ms.author: spelluru
 ---
 
-# Service Bus messaging samples
+# Service Bus messaging samples or examples
 The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in the following places:
 
 ## .NET samples
@@ -41,7 +41,7 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 ## Go samples
 | Package | Samples location | 
 | ------- | ---------------- | 
-| azure-service-bus-go | [GitHub location](https://github.com/Azure/azure-service-bus-go/) |
+| azservicebus | [GitHub location](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus) |
 
 ## Management samples
 You can find management samples on GitHub at https://github.com/Azure/azure-service-bus/tree/master/samples/Management.

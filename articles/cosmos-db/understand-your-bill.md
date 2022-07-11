@@ -1,12 +1,12 @@
 ---
 title: Understanding your Azure Cosmos DB bill 
 description: This article explains how to understand your Azure Cosmos DB bill with some examples.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.reviewer: sngun
+ms.date: 03/31/2022
 ---
 
 # Understand your Azure Cosmos DB bill
@@ -223,6 +223,9 @@ With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of stor
 
 ### Billing example - container with autoscale throughput
 
+> [!TIP]
+> When using autoscale, the entry point scale range you can set is 100 - 1000 RU/s. If you want to use autoscale and keep your free tier account completely free, create either one container with this scale range, or a shared throughput database with up to 25 containers inside. The example below illustrates how billing works if you provision throughput higher than the 100 - 1000 RU/s scale range.
+
 - Let's suppose in a free tier account, we create a container with autoscale enabled, with a maximum RU/s of 4000 RU/s. This resource will automatically scale between 400 RU/s - 4000 RU/s.
 - Suppose in hour 1 through hour 10, the resource is scaled to 1000 RU/s. During hour 11, the resource scales up to 1600 RU/s and then back down to 1000 RU/s within the hour.
 - In hours 1 through 10, you will be billed $0 for throughput, as the 1000 RU/s were covered by free tier.
@@ -331,3 +334,6 @@ Next you can proceed to learn about cost optimization in Azure Cosmos DB with th
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

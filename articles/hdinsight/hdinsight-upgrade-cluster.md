@@ -43,7 +43,22 @@ The following documents provide guidance on how to migrate specific workloads:
 
 ## Backup and restore
 
-For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](../azure-sql/database/recovery-using-backups.md).
+For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](/azure/azure-sql/database/recovery-using-backups).
+
+## Upgrade scenarios
+
+As mentioned above, Microsoft recommends that HDInsight clusters be regularly migrated to the latest version in order to take advantage of new features and fixes. Please see the following list of reasons we would request that a cluster be deleted and redeployed:
+
+* The cluster version is [Retired](hdinsight-retired-versions.md) or in [Basic support](hdinsight-36-component-versioning.md) and you are having a cluster issue that would be resolved with a newer version.
+* The root cause of a cluster issue is determined to be related to an undersized VM. [View Microsoft's recommended node configuration](hdinsight-supported-node-configuration.md).
+* A customer opens a support case and the Microsoft engineering team determines the issue has already been fixed in a newer cluster version.
+* A default metastore database (Ambari, Hive, Oozie, Ranger) has reached it’s utilization limit. Microsoft will ask you to recreate the cluster using a [custom metastore](hdinsight-use-external-metadata-stores.md#custom-metastore) database.
+* The root cause of a cluster issue is due to an **Unsupported Operation**. Here are some of the common unsupported operations:
+     * **Moving or Adding a service in Ambari**. When viewing information on the cluster services in Ambari, one of the actions available from the Service Actions menu is **Move [Service Name]**. Another action is **Add [Service Name]**. Both of these options are unsupported.
+     * **Python package corruption**. HDInsight clusters depend on the built-in Python environments, Python 2.7 and Python 3.5. Directly installing custom packages in those default built-in environments may cause unexpected library version changes and break the cluster. Learn how to [safely install custom external Python packages](./spark/apache-spark-python-package-installation.md#safely-install-external-python-packages) for your Spark applications.
+     * **Third-party software**. Customers have the ability to install third-party software on their HDInsight clusters; however, we will recommend recreating the cluster if it breaks the existing functionality.
+     * **Multiple workloads on the same cluster**. In HDInsight 4.0, the Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. [Follow these steps to set up both clusters in Azure HDInsight](interactive-query/apache-hive-warehouse-connector.md). Similarly, integrating [Spark with HBASE](hdinsight-using-spark-query-hbase.md) requires 2 different clusters.
+     * **Custom Ambari DB password changed**. The Ambari DB password is set during cluster creation and there is no current mechanism to update it. If a customer deploys the cluster with a [custom Ambari DB](hdinsight-custom-ambari-db.md), they will have the ability to change the DB password on the SQL DB; however, there is no way to update this password for a running HDInsight cluster.
 
 ## Next steps
 

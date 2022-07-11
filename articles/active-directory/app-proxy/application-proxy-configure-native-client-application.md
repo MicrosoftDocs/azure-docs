@@ -3,14 +3,14 @@ title: Publish native client apps - Azure Active Directory
 description: Covers how to enable native client apps to communicate with Azure Active Directory Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # How to enable native client applications to interact with proxy applications
@@ -106,7 +106,7 @@ The required info in the sample code can be found in the Azure AD portal, as fol
 | \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |
 | \<Scope> | **Application registration** > *your native application* > **API permissions** > Click on the Permission API (user_impersonation) > A panel with the caption **user_impersonation** appears on the right hand side. > The scope is the URL in the edit box.
-| \<Proxy App Url> | the External Url and path to the API
+| \<Proxy App URL> | the External URL and path to the API
 
 After you edit the MSAL code with these parameters, your users can authenticate to native client applications even when they are outside of the corporate network.
 

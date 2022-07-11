@@ -1,13 +1,11 @@
 ---
 title: include file
 description: include file
-services: container-service
-author: mlearned
-
+author: zr-msft
 ms.service: container-service
 ms.topic: include
 ms.date: 04/06/2021
-ms.author: mlearned
+ms.author: zarhoads
 ms.custom: include file
 ---
 
@@ -19,9 +17,13 @@ ms.custom: include file
 | Maximum node pools per cluster                                                                                     | 100                                                                                  |
 | Maximum pods per node: [Basic networking][basic-networking] with Kubenet                                           | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30          |
 | Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface        | Maximum: 250 <br /> Default: 30                                                      |
-| Open Service Mesh (OSM) AKS addon preview                                                                          | Kubernetes Cluster Version: 1.19+<sup>1</sup><br />OSM controllers per cluster: 1<sup>1</sup><br />Pods per OSM controller: 500<sup>1</sup><br />Kubernetes service accounts managed by OSM: 50<sup>1</sup> |
+| Open Service Mesh (OSM) AKS addon                                                                          | Kubernetes Cluster Version: AKS Supported Versions<br />OSM controllers per cluster: 1<br />Pods per OSM controller: 1600<br />Kubernetes service accounts managed by OSM: 160 |
 
-<sup>1</sup>The OSM add-on for AKS is in a preview state and will undergo additional enhancements before general availability (GA). During the preview phase, it's recommended to not surpass the limits shown.<br />
+
+| Kubernetes Control Plane tier | Limit |  
+| -------------- | :--------------------------------------------- |
+| Paid tier      | Automatically scales out based on the load     |
+| Free tier      | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls   |
 
 <!-- LINKS - Internal -->
 
@@ -32,4 +34,4 @@ ms.custom: include file
 
 <!-- LINKS - External -->
 
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

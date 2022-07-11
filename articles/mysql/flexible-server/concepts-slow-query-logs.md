@@ -1,25 +1,23 @@
 ---
 title: Slow query logs - Azure Database for MySQL - Flexible Server
 description: Describes the slow query logs available in Azure Database for MySQL Flexible Server.
-author: savjani
-ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
+author: code-sidd
+ms.author: sisawant
 ms.date: 9/21/2020
 ---
-# Slow query logs in Azure Database for MySQL Flexible Server (Preview)
+# Slow query logs in Azure Database for MySQL Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 In Azure Database for MySQL Flexible Server, the slow query log is available to users to configure and access. Slow query logs are disabled by default and can be enabled to assist with identifying performance bottlenecks during troubleshooting.
 
 For more information about the MySQL slow query log, see the [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) in the MySQL engine documentation.
 
-## Configure slow query logging 
-By default, the slow query log is disabled. To enable logs, set the `slow_query_log` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI <!-- add link to server parameter-->. 
+## Configure slow query logging
+By default, the slow query log is disabled. To enable logs, set the `slow_query_log` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI <!-- add link to server parameter-->.
 
 Other parameters you can adjust to control slow query logging behavior include:
 
@@ -35,7 +33,10 @@ See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.
 
 ## Access slow query logs
 
-Slow query logs are integrated with Azure Monitor diagnostic settings. Once you've enabled slow query logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/essentials/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [slow query log portal article](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+Slow query logs are integrated with Azure Monitor diagnostic settings. Once you've enabled slow query logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/essentials/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [slow query log portal article](tutorial-query-performance-insights.md#set-up-diagnostics).
+
+>[!Note]
+>Premium Storage accounts are not supported if you are sending the logs to Azure storage via diagnostics and settings. 
 
 The following table describes the output of the slow query log. Depending on the output method, the fields included and the order in which they appear may vary.
 
@@ -78,9 +79,9 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
 
     ```Kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, Resource , event_class_s, start_time_t , query_time_d, sql_text_s
     | where query_time_d > 10
     ```
 
@@ -88,9 +89,9 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
 
     ```Kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, Resource , event_class_s, start_time_t , query_time_d, sql_text_s
     | order by query_time_d desc
     | take 5
     ```
@@ -99,20 +100,20 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
 
     ```Kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
-    | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
+    | project TimeGenerated, Resource , event_class_s, start_time_t , query_time_d, sql_text_s
+    | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by Resource 
     ```
 
 - Graph the slow query distribution on a particular server
 
     ```Kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
-    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | project TimeGenerated, Resource , event_class_s, start_time_t , query_time_d, sql_text_s
+    | summarize count() by Resource , bin(TimeGenerated, 5m)
     | render timechart
     ```
 
@@ -121,11 +122,11 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     ```Kusto
     AzureDiagnostics
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, Resource , event_class_s, start_time_t , query_time_d, sql_text_s
     | where query_time_d > 10
-    ```    
-    
+    ```
+
 ## Next steps
 - Learn more about [audit logs](concepts-audit-logs.md)
-- Configure slow query logs from the [Azure portal](how-to-configure-slow-query-logs-portal.md)
+- [Query performance insights](tutorial-query-performance-insights.md)
 <!-- - [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md). -->

@@ -1,13 +1,12 @@
 ---
 title: Create a data source for a map in Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Web SDK uses: GeoJSON sources and vector tiles."
-author: rbrundritt
-ms.author: richbrun
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ms.custom: codepen, devx-track-js
 ---
 
@@ -127,7 +126,7 @@ map.layers.add(flowLayer, 'labels');
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Vector tile line layer" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Vector tile line layer" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>Vector tile line layer</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

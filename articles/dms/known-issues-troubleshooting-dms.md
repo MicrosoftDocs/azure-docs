@@ -2,8 +2,8 @@
 title: "Common issues - Azure Database Migration Service"
 description: Learn about how to troubleshoot common known issues/errors associated with using Azure Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: dbamaster
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -119,4 +119,4 @@ When you try to connect Azure Database Migration Service to SQL Server source th
 * View the article [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration#data_migration).
 * View the article [How to configure server parameters in Azure Database for MySQL by using the Azure portal](../mysql/howto-server-parameters.md).
 * View the article [Overview of prerequisites for using Azure Database Migration Service](./pre-reqs.md).
-* See the [FAQ about using Azure Database Migration Service](./faq.md).
+* See the [FAQ about using Azure Database Migration Service](./faq.yml).

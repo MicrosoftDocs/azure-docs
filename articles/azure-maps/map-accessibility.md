@@ -1,13 +1,11 @@
 ---
 title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
 description: Learn about accessibility considerations in Azure Maps. See what features are available for making map applications accessible, and view accessibility tips.
-services: azure-maps 
-author: rbrundritt
-ms.author: richbrun
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
-manager: cpendleton
 ---
 
 # Building an accessible application
@@ -122,7 +120,7 @@ The following example loads points of interests on the map using a symbol layer 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Make an accessible application' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Make an accessible application</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>. </iframe>
+<iframe height='500' scrolling='no' title='Make an accessible application' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Make an accessible application</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>. </iframe>
 
 <br/>
 

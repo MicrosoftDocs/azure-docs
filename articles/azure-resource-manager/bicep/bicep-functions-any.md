@@ -2,7 +2,7 @@
 title: Bicep functions - any
 description: Describes the any function that is available in Bicep to convert types.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/09/2021
 ---
 
 # Any function for Bicep
@@ -11,11 +11,16 @@ Bicep supports a function called `any()` to resolve type errors in the Bicep typ
 
 This function doesn't exist in the Azure Resource Manager template runtime. It's only used by Bicep and isn't emitted in the JSON for the built template.
 
+> [!NOTE]
+> To help resolve type errors, let us know when missing or incorrect types required you to use the `any()` function. Add your details to the [missing type validation/inaccuracies](https://github.com/Azure/bicep/issues/784) GitHub issue.
+
 ## any
 
 `any(value)`
 
 Returns a value that is compatible with any data type.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -66,6 +71,6 @@ publicIPAddress: any((pipId == '') ? null : {
 
 For more complex uses of the `any()` function, see the following examples:
 
-* [Child resources that require a specific names](https://github.com/Azure/bicep/blob/main/docs/examples/201/api-management-create-all-resources/main.bicep#L246)
-* [A resource property not defined in the resource's type, even though it exists](https://github.com/Azure/bicep/blob/main/docs/examples/201/log-analytics-with-solutions-and-diagnostics/main.bicep#L26)
+* [Child resources that require a specific names](https://github.com/Azure/bicep/blob/62eb8109ae51d4ee4a509d8697ef9c0848f36fe4/docs/examples/201/api-management-create-all-resources/main.bicep#L247)
+* [A resource property not defined in the resource's type, even though it exists](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.insights/log-analytics-with-solutions-and-diagnostics/main.bicep#L26)
 

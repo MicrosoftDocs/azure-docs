@@ -5,14 +5,14 @@ ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
+author: georgewallace
 manager: gwallace
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
-ms.author: mlearned
-ms.custom: mvc
+ms.author: gwallace
+ms.custom: mvc, mode-api
 ---
 
 # Create a CI/CD pipeline for Go using Azure DevOps Starter

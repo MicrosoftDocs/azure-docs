@@ -1,20 +1,20 @@
 ---
-title: Map input to output fields
+title: Map skill output fields
 titleSuffix: Azure Cognitive Search
-description: Extract and enrich source data fields, and map to output fields in an Azure Cognitive Search index.
+description: Export the enriched content created by a skillset by mapping its output fields to fields in a search index.
 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/10/2021
 ---
 
-# How to map AI-enriched fields to a searchable index
+# Map enrichment output to fields in a search index
 
 ![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
-In this article, you learn how to map enriched input fields to output fields in a searchable index. Once you have [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index.
+In this article, you learn how to map enriched input fields to output fields in a searchable index. Once you've [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index.
 
 Output Field Mappings are required for moving content from enriched documents into the index.  The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). Output field mappings allow you to perform data shape transformations by flattening information. Output field mappings always occur after skillset execution, although it is possible for this stage to run even if no skillset is defined.
 
@@ -27,7 +27,7 @@ Examples of output field mappings:
 * You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You would like to get to a node on that complex type and map it into a field in your index.
 
 > [!NOTE]
-> We recently enabled the functionality of mapping functions on output field mappings. For more details on mapping functions, see [Field mapping functions](./search-indexer-field-mappings.md#field-mapping-functions)
+> Output field mappings apply to search indexes only. For indexers that create [knowledge stores](knowledge-store-concept-intro.md), output field mappings are ignored.
 
 ## Use outputFieldMappings
 
@@ -76,7 +76,7 @@ The body of the request is structured as follows:
 }
 ```
 
-For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName).
+For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#field-mapping-functions-and-examples) that you require to transform the content of a field before it's stored in the index.
 
 ## Flattening Information from Complex Types 
 
@@ -140,7 +140,8 @@ This operation will simply “flatten” each of the names of the customEntities
   "diseases" : ["heart failure","morquio"]
 ```
 
-## Next steps
-Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](search-what-is-an-index.md).
+## See also
 
-For more information about field mapping, see [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md).
+* [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
+
+* [Define field mappings in a search indexer](search-indexer-field-mappings.md).

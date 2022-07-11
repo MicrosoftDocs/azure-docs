@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to import and transform data in Azure Machine Learning designer to create your own datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 06/28/2020
+ms.subservice: mldata
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
 ---
@@ -39,60 +39,60 @@ Use the following steps to import the sample dataset.
 
 1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
 
-1. Go to the designer. Select **Easy-to-use-prebuild modules** to create a new pipeline.
+1. Go to the designer. Select **Easy-to-use-prebuild components** to create a new pipeline.
 
 1. Select a default compute target to run the pipeline.
 
-1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets**. Then view the **Samples** section.
+1. To the left of the pipeline canvas is a palette of datasets and components. Select **Datasets**. Then view the **Samples** section.
 
 1. Drag and drop the **Adult Census Income Binary classification** dataset onto the canvas.
 
-1. Right-click the **Adult Census Income** dataset module, and select **Visualize** > **Dataset output**
+1. Right-click the **Adult Census Income** dataset component, and select **Visualize** > **Dataset output**
 
 1. Use the data preview window to explore the dataset. Take special note of the "native-country" column values.
 
 ### Split the data
 
-In this section, you use the [Split Data module](algorithm-module-reference/split-data.md) to identify and split rows that contain "United-States" in the  "native-country" column. 
+In this section, you use the [Split Data component](algorithm-module-reference/split-data.md) to identify and split rows that contain "United-States" in the  "native-country" column. 
 
-1. In the module palette to the left of the canvas, expand the **Data Transformation** section and find the **Split Data** module.
+1. In the component palette to the left of the canvas, expand the **Data Transformation** section and find the **Split Data** component.
 
-1. Drag the **Split Data** module onto the canvas, and drop the module below the dataset module.
+1. Drag the **Split Data** component onto the canvas, and drop the component below the dataset component.
 
-1. Connect the dataset module to the **Split Data** module.
+1. Connect the dataset component to the **Split Data** component.
 
-1. Select the **Split Data** module.
+1. Select the **Split Data** component.
 
-1. In the module details pane to the right of the canvas, set **Splitting mode** to **Regular Expression**.
+1. In the component details pane to the right of the canvas, set **Splitting mode** to **Regular Expression**.
 
 1. Enter the **Regular Expression**: `\"native-country" United-States`.
 
-    The **Regular expression** mode tests a single column for a value. For more information on the Split Data module, see the related [algorithm module reference page](algorithm-module-reference/split-data.md).
+    The **Regular expression** mode tests a single column for a value. For more information on the Split Data component, see the related [algorithm component reference page](algorithm-module-reference/split-data.md).
 
 Your pipeline should look like this:
 
-:::image type="content" source="./media/how-to-designer-transform-data/split-data.png" alt-text="Screenshot showing how to configure the pipeline and the Split Data module":::
+:::image type="content" source="./media/how-to-designer-transform-data/split-data.png" alt-text="Screenshot showing how to configure the pipeline and the Split Data component":::
 
 
 ## Save the datasets
 
-Now that your pipeline is set up to split the data, you need to specify where to persist the datasets. For this example, use the **Export Data** module to save your dataset to a datastore. For more information on datastores, see [Connect to Azure storage services](how-to-access-data.md)
+Now that your pipeline is set up to split the data, you need to specify where to persist the datasets. For this example, use the **Export Data** component to save your dataset to a datastore. For more information on datastores, see [Connect to Azure storage services](how-to-access-data.md)
 
-1. In the module palette to the left of the canvas, expand the **Data Input and Output** section and find the **Export Data** module.
+1. In the component palette to the left of the canvas, expand the **Data Input and Output** section and find the **Export Data** component.
 
-1. Drag and drop two **Export Data** modules below the **Split Data** module.
+1. Drag and drop two **Export Data** components below the **Split Data** component.
 
-1. Connect each output port of the **Split Data** module to a different **Export Data** module.
+1. Connect each output port of the **Split Data** component to a different **Export Data** component.
 
     Your pipeline should look something like this:
 
-    ![Screenshot showing how to connect the Export Data modules](media/how-to-designer-transform-data/export-data-pipeline.png).
+    ![Screenshot showing how to connect the Export Data components](media/how-to-designer-transform-data/export-data-pipeline.png).
 
-1. Select the **Export Data** module that is connected to the *left*-most port of the **Split Data** module.
+1. Select the **Export Data** component that is connected to the *left*-most port of the **Split Data** component.
 
-    The order of the output ports matter for the **Split Data** module. The first output port contains the rows where the regular expression is true. In this case, the first port contains rows for US-based income, and the second port contains rows for non-US based income.
+    The order of the output ports matter for the **Split Data** component. The first output port contains the rows where the regular expression is true. In this case, the first port contains rows for US-based income, and the second port contains rows for non-US based income.
 
-1. In the module details pane to the right of the canvas, set the following options:
+1. In the component details pane to the right of the canvas, set the following options:
     
     **Datastore type**: Azure Blob Storage
 
@@ -107,9 +107,9 @@ Now that your pipeline is set up to split the data, you need to specify where to
 
     If you don't have a datastore, you can create one now. For example purposes, this article will save the datasets to the default blob storage account associated with the workspace. It will save the datasets into the `azureml` container in a new folder called `data`.
 
-1.  Select the **Export Data** module connected to the *right*-most port of the **Split Data** module.
+1.  Select the **Export Data** component connected to the *right*-most port of the **Split Data** component.
 
-1. In the module details pane to the right of the canvas, set the following options:
+1. In the component details pane to the right of the canvas, set the following options:
     
     **Datastore type**: Azure Blob Storage
 
@@ -119,23 +119,23 @@ Now that your pipeline is set up to split the data, you need to specify where to
 
     **File format**: csv
 
-1. Confirm the **Export Data** module connected to the left port of the **Split Data** has the **Path** `/data/us-income`.
+1. Confirm the **Export Data** component connected to the left port of the **Split Data** has the **Path** `/data/us-income`.
 
-1. Confirm the **Export Data** module connected to the right port has the **Path** `/data/non-us-income`.
+1. Confirm the **Export Data** component connected to the right port has the **Path** `/data/non-us-income`.
 
     Your pipeline and settings should look like this:
     
-    ![Screenshot showing how to configure the Export Data modules](media/how-to-designer-transform-data/us-income-export-data.png).
+    ![Screenshot showing how to configure the Export Data components](media/how-to-designer-transform-data/us-income-export-data.png).
 
-### Submit the run
+### Submit the job
 
-Now that your pipeline is setup to split and export the data, submit a pipeline run.
+Now that your pipeline is setup to split and export the data, submit a pipeline job.
 
 1. At the top of the canvas, select **Submit**.
 
-1. In the **Set up pipeline run** dialog, select **Create new** to create an experiment.
+1. In the **Set up pipeline job** dialog, select **Create new** to create an experiment.
 
-    Experiments logically group together related pipeline runs. If you run this pipeline in the future, you should use the same experiment for logging and tracking purposes.
+    Experiments logically group together related pipeline jobs. If you run this pipeline in the future, you should use the same experiment for logging and tracking purposes.
 
 1. Provide a descriptive experiment name like "split-census-data".
 
@@ -143,11 +143,11 @@ Now that your pipeline is setup to split and export the data, submit a pipeline 
 
 ## View results
 
-After the pipeline finishes running, you can view your results by navigating to your blob storage in the Azure portal. You can also view the intermediary results of the **Split Data** module to confirm that your data has been split correctly.
+After the pipeline finishes running, you can view your results by navigating to your blob storage in the Azure portal. You can also view the intermediary results of the **Split Data** component to confirm that your data has been split correctly.
 
-1. Select the **Split Data** module.
+1. Select the **Split Data** component.
 
-1. In the module details pane to the right of the canvas, select **Outputs + logs**. 
+1. In the component details pane to the right of the canvas, select **Outputs + logs**. 
 
 1. Select the visualize icon ![visualize icon](media/how-to-designer-transform-data/visualize-icon.png) next to **Results dataset1**. 
 

@@ -4,13 +4,12 @@ description: This topic details certain implementation design areas
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
@@ -24,7 +23,7 @@ ms.collection: M365-identity-device-management
 The purpose of this document is to describe areas that must be considered while configuring Azure AD Connect. This document is a deep dive on certain areas and these concepts are briefly described in other documents as well.
 
 ## sourceAnchor
-The sourceAnchor attribute is defined as *an attribute immutable during the lifetime of an object*. It uniquely identifies an object as being the same object on-premises and in Azure AD. The attribute is also called **immutableId** and the two names are used interchangeable.
+The sourceAnchor attribute is defined as *an attribute immutable during the lifetime of an object*. It uniquely identifies an object as being the same object on-premises and in Azure AD. The attribute is also called **immutableId** and the two names are used interchangeably.
 
 The word immutable, that is "cannot be changed", is important to this document. Since this attribute’s value cannot be changed after it has been set, it is important to pick a design that supports your scenario.
 
@@ -180,6 +179,9 @@ When you are selecting the attribute for providing the value of UPN to be used i
 * The suffix in the values matches to one of the verified custom domains in Azure AD
 
 In express settings, the assumed choice for the attribute is userPrincipalName. If the userPrincipalName attribute does not contain the value you want your users to sign in to Azure, then you must choose **Custom Installation**.
+
+>[!NOTE]
+>It's recommended as a best practice that the UPN prefix contains more than one character.
 
 ### Custom domain state and UPN
 It is important to ensure that there is a verified domain for the UPN suffix.

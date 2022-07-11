@@ -1,10 +1,11 @@
 ---
 title: Configure Data-in replication - Azure Database for MySQL Flexible Server
 description: This article describes how to set up Data-in replication for Azure Database for MySQL Flexible Server.
-author: SudheeshGH
-ms.author: sunaray 
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: VandhanaMehta
+ms.author: vamehta
 ms.date: 06/08/2021 
 ---
 
@@ -15,7 +16,7 @@ ms.date: 06/08/2021
 This article describes how to set up [Data-in replication](concepts-data-in-replication.md) in Azure Database for MySQL Flexible Server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -23,7 +24,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 ## Create an Azure Database for MySQL Flexible Server instance to use as a replica
 
-1. Create a new instance of Azure Database for MySQL Flexible Server (ex. "replica.mysql.database.azure.com"). Refer to [Create an Azure Database for MySQL Flexible Server server by using the Azure portal](quickstart-create-server-portal.md) for server creation. This server is the "replica" server for Data-in replication.
+1. Create a new instance of Azure Database for MySQL Flexible Server (for example, `replica.mysql.database.azure.com`). Refer to [Create an Azure Database for MySQL Flexible Server server by using the Azure portal](quickstart-create-server-portal.md) for server creation. This server is the "replica" server for Data-in replication.
 
 2. Create the same user accounts and corresponding privileges.
 
@@ -40,7 +41,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
     * If private access is in use, make sure that you have connectivity between Source server and the Vnet in which the replica server is hosted. 
     * Make sure we provide site-to-site connectivity to your on-premises source servers by using either  [ExpressRoute](../../expressroute/expressroute-introduction.md) or [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
-    * If private access is used in replica server and your source is Azure VM make sure that VNet to VNet connectivity is established. VNet-Vnet peering within regions is supported.**Global peering is not currently supported.** You would have to use other connectivity methods to communicate between VNets across different regions like VNet to VNet Connection. For more information you can, see [VNet-to-VNet VPN gateway](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+    * If private access is used in replica server and your source is Azure VM make sure that VNet to VNet connectivity is established. VNet-Vnet peering is supported. You can also use other connectivity methods to communicate between VNets across different regions like VNet to VNet Connection. For more information you can, see [VNet-to-VNet VPN gateway](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
     * Ensure that your virtual network Network Security Group rules don't block the outbound port 3306 (Also inbound if the MySQL is running on Azure VM). For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
     * Configure your source server's firewall rules to allow the replica server IP address.
 
@@ -159,6 +160,8 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    Restore the dump file to the server created in the Azure Database for MySQL Flexible Server service. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL Flexible Server server from the virtual machine.
 
+>[!Note]
+>* If you want to avoid setting the database to read only when you dump and restore, you can use [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
 
 ## Link source and replica servers to start Data-in replication
 
@@ -184,7 +187,8 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
      It's recommended to pass this parameter in as a variable. For more information, see the following examples.
 
    > [!NOTE]
-   > If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md) .
+   > * If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md).
+   > * If you used mydumper/myloader to dump the database then you can get the master_log_file and master_log_pos from the */backup/metadata* file. 
 
    **Examples**
 

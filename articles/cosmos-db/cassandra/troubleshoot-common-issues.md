@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 03/02/2021
 ms.author: thvankra
-
+ms.devlang: java
 ---
 
 # Troubleshoot common issues in the Azure Cosmos DB Cassandra API
@@ -40,6 +40,8 @@ You might see this error: "Cannot connect to any host, scheduling retry in 60000
 This error might be caused by source network address translation (SNAT) exhaustion on the client side. Follow the steps at [SNAT for outbound connections](../../load-balancer/load-balancer-outbound-connections.md) to rule out this issue.
 
 The error might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
+
+See [troubleshoot NoHostAvailableException](troubleshoot-nohostavailable-exception.md) for more ways of handling the exception.
 
 ## OverloadedException (Java)
 
@@ -89,7 +91,7 @@ cluster = Cluster.builder()
 
 If the value for `withLocalDc()` doesn't match the contact point datacenter, you might experience an intermittent error: `com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)`.
 
-Implement the [CosmosLoadBalancingPolicy](https://github.com/Azure/azure-cosmos-cassandra-extensions/blob/master/package/src/main/java/com/microsoft/azure/cosmos/cassandra/CosmosLoadBalancingPolicy.java). To make it work, you might need to upgrade DataStax by using the following code:
+Implement the [CosmosLoadBalancingPolicy](https://github.com/Azure/azure-cosmos-cassandra-extensions/blob/master/driver-3/src/main/java/com/azure/cosmos/cassandra/CosmosLoadBalancingPolicy.java). To make it work, you might need to upgrade DataStax by using the following code:
 
 ```java
 LoadBalancingPolicy loadBalancingPolicy = new CosmosLoadBalancingPolicy.Builder().withWriteDC("West US").withReadDC("West US").build();
@@ -99,7 +101,7 @@ LoadBalancingPolicy loadBalancingPolicy = new CosmosLoadBalancingPolicy.Builder(
 
 When you run `select count(*) from table` or similar for a large number of rows, the server times out.
 
-If you're using a local CQLSH client, change the `--connect-timeout` or `--request-timeout` settings. See [cqlsh: the CQL shell](https://cassandra.apache.org/doc/latest/tools/cqlsh.html).
+If you're using a local CQLSH client, change the `--connect-timeout` or `--request-timeout` settings. See [cqlsh: the CQL shell](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html).
 
 If the count still times out, you can get a count of records from the Azure Cosmos DB back-end telemetry by going to the metrics tab in the Azure portal, selecting the metric `document count`, and then adding a filter for the database or collection (the analog of the table in Azure Cosmos DB). You can then hover over the resulting graph for the point in time at which you want a count of the number of records.
 

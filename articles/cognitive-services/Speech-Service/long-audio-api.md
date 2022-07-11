@@ -1,32 +1,24 @@
 ---
-title: Long Audio API - Speech service
+title: Synthesize long-form text to speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how the Long Audio API is designed for asynchronous synthesis of long-form text to speech.
 services: cognitive-services
-author: nitinme
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 08/11/2020
-ms.author: nitinme
+ms.topic: how-to
+ms.date: 01/24/2022
+ms.author: eur
 ---
 
-# Long Audio API
+# Synthesize long-form text to speech
 
-The Long Audio API provides asynchronous synthesis of long-form text to speech (for example: audio books, news articles and documents). This API doesn't return synthesized audio in real time. Instead, you poll for the response(s) and consume the output(s) as the service makes them available. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes. This makes it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
-
-More benefits of the Long Audio API:
-
-* Synthesized speech returned by the service uses the best neural voices.
-* There's no need to deploy a voice endpoint.
-
-> [!NOTE]
-> The Long Audio API supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md).
+The Long Audio API provides asynchronous synthesis of long-form text to speech. For example: audio books, news articles, and documents. There's no need to deploy a custom voice endpoint. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes. This makes it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
 
 ## Workflow
 
-When using the Long Audio API, you'll typically submit a text file or files to be synthesized, poll for the status, and download the audio output when the status indicates success.
+The Long Audio API doesn't return synthesized audio in real time. You submit text files to be synthesized, poll for the status, and download the audio output when the status indicates success.
 
 This diagram provides a high-level overview of the workflow.
 
@@ -42,6 +34,9 @@ When preparing your text file, make sure it:
 * Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs.
   * For plain text, each paragraph is separated by hitting **Enter/Return**. See [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
   * For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs. See [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
+
+> [!NOTE]
+> When using SSML text, be sure to use the [supported SSML elements](speech-synthesis-markup.md?tabs=csharp#supported-ssml-elements) except the `audio` and `mstts:backgroundaudio` elements. The `audio` and `mstts:backgroundaudio` elements are not supported by Long Audio API. The `audio` element will be ignored without any error message. The `mstts:backgroundaudio` element will cause the systhesis task failure. If your synthesis task fails, download the audio result (.zip file) and check the error report with suffix name "err.txt" within the zip file for details.
 
 ## Sample code
 
@@ -64,6 +59,8 @@ import requests
 These libraries are used to construct the HTTP request, and call the text-to-speech long audio synthesis REST API.
 
 ### Get a list of supported voices
+
+The Long Audio API supports a subset of [Public Neural Voices](./language-support.md#prebuilt-neural-voices) and [Custom Neural Voices](./language-support.md#custom-neural-voice).
 
 To get a list of supported voices, send a GET request to `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 
@@ -172,7 +169,7 @@ Replace the following values:
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<input_file_path>` with the path to the text file you've prepared for text-to-speech.
-* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#neural-voices).
+* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#prebuilt-neural-voices).
 
 Use one of the voices returned by your previous call to the `/voices` endpoint.
 
@@ -444,8 +441,10 @@ The Long audio API is available in multiple regions with unique endpoints.
 
 | Region | Endpoint |
 |--------|----------|
+| Australia East | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | East US | `https://eastus.customvoice.api.speech.microsoft.com` |
 | India Central | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| South Central US | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Southeast Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | UK South | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | West Europe | `https://westeurope.customvoice.api.speech.microsoft.com` |

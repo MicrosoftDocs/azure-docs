@@ -3,7 +3,7 @@ title: Tutorial - Create and manage rules in your Azure IoT Central application
 description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/08/2021
+ms.date: 06/09/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -84,7 +84,7 @@ To create a telemetry rule, the device template must include at least one teleme
 
 1. Enter the name _Temperature monitor_ to identify the rule and press Enter.
 
-1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices associated with the device template. To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button:
+1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices assigned to the device template. To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button:
 
     :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition":::
 
@@ -105,7 +105,7 @@ Conditions define the criteria that the rule monitors. In this tutorial, you con
 
     :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot that shows the aggregate condition filled out":::
 
-You can add multiple conditions to a rule by selecting **+ Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each condition is joined by an implicit `AND` clause. If you're using time aggregation with multiple conditions, all the telemetry values must be aggregated.
+You can add multiple conditions to a rule by selecting **+ Condition**. When multiple conditions are added, you can specify if all the conditions must be met or any of the conditions must be met for the rule to trigger. If you're using time aggregation with multiple conditions, all the telemetry values must be aggregated.
 
 ### Configure actions
 

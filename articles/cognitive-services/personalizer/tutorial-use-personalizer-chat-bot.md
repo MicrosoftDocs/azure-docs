@@ -1,10 +1,14 @@
 ---
 title: Use Personalizer in chat bot - Personalizer
 description: Customize a C# .NET chat bot with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
+author: jcodella
+ms.author: jacodel
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -28,7 +32,7 @@ A chat bot is typically a back-and-forth conversation with a user. This specific
 
 The chat bot needs to manage turns in conversation. The chat bot uses [Bot Framework](https://github.com/microsoft/botframework-sdk) to manage the bot architecture and conversation and uses the Cognitive Service, [Language Understanding](../LUIS/index.yml) (LUIS), to understand the intent of the natural language from the user.
 
-The chat bot is a web site with a specific route available to answer requests, `http://localhost:3978/api/messages`. You can use the bot emulator to visually interact with the running chat bot while you are developing a bot locally.
+The chat bot is a web site with a specific route available to answer requests, `http://localhost:3978/api/messages`. You can use the Bot Framework Emulator to visually interact with the running chat bot while you are developing a bot locally.
 
 ### User interactions with the bot
 
@@ -169,24 +173,24 @@ Once you have configured the `appsettings.json`, you are ready to build and run 
 Keep the web site running because the tutorial explains what the bot is doing, so you can interact with the bot.
 
 
-## Set up the bot emulator
+## Set up the Bot Framework Emulator
 
 1. Open the Bot Framework Emulator, and select **Open Bot**.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot of bot emulator startup screen.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot of Bot Framework Emulator startup screen.":::
 
 
 1. Configure the bot with the following **bot URL** then select **Connect**:
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Screenshot of bot emulator open bot settings.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Screenshot of Bot Framework Emulator open bot settings.":::
 
     The emulator connects to the chat bot and displays the instructional text, along with logging and debug information helpful for local development.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Screenshot of bot emulator in first turn of conversation.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Screenshot of Bot Framework Emulator in first turn of conversation.":::
 
-## Use the bot in the bot emulator
+## Use the bot in the Bot Framework Emulator
 
 1. Ask to see the menu by entering `I would like to see the menu`. The chat bot displays the items.
 1. Let the bot suggest an item by entering `Please suggest a drink for me.`
@@ -325,7 +329,7 @@ The methods prefixed with `Send` manage conversation with the bot and LUIS. The 
 
 #### Calling Rank API and display results
 
-The method `ChooseRankAsync` builds the JSON data to send to Personalizer's Rank API by collecting the actions with features and the context features.
+The method `ChooseRankAsync` builds the JSON data to send to the Personalizer Rank API by collecting the actions with features and the context features.
 
 ```csharp
 private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, string eventId, CancellationToken cancellationToken)
@@ -394,7 +398,7 @@ private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, strin
 
 #### Calling Reward API and display results
 
-The method `RewardAsync` builds the JSON data to send to Personalizer's Reward API by determining score. The score is determined from the LUIS intent identified in the user text and sent from the `OnTurnAsync` method.
+The method `RewardAsync` builds the JSON data to send to the Personalizer Reward API by determining score. The score is determined from the LUIS intent identified in the user text and sent from the `OnTurnAsync` method.
 
 ```csharp
 private async Task RewardAsync(ITurnContext turnContext, string eventId, double reward, CancellationToken cancellationToken)

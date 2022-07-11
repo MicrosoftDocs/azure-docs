@@ -2,18 +2,19 @@
 title: Configure a self-hosted integration runtime as a proxy for SSIS
 description: Learn how to configure a self-hosted integration runtime as a proxy for an Azure-SSIS Integration Runtime. 
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 07/19/2021
+ms.date: 02/16/2022
 ---
 
-# Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
+# Configure a self-hosted IR as a proxy for an Azure-SSIS IR
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) in Azure Data Factory (ADF) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
+This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
 
 With this feature, you can access data and run tasks on premises without having to [join your Azure-SSIS IR to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md). The feature is useful when your corporate network has a configuration too complex or a policy too restrictive for you to inject your Azure-SSIS IR into it.
 
@@ -45,7 +46,7 @@ Finally, you download and install the latest version of self-hosted IR, as well 
   
   If you use OLEDB/ODBC/ADO.NET drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
 - If you use data flow components from Azure Feature Pack in your packages, [download and install Azure Feature Pack for SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) on the same machine where your self-hosted IR is installed, if you haven't done so already.
-- If you haven't done so already, [download and install the 64-bit version of Visual C++ (VC) runtime](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) on the same machine where your self-hosted IR is installed.
+- If you haven't done so already, [download and install the 64-bit version of Visual C++ (VC) runtime](https://www.microsoft.com/en-us/download/details.aspx?id=40784) on the same machine where your self-hosted IR is installed.
 
 ### Enable Windows authentication for on-premises tasks
 
@@ -67,7 +68,7 @@ If you haven't already done so, create an Azure Blob Storage linked service in t
 >[!TIP]
 >If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity**/**User-Assigned Managed Identity** method, grant the specified system/user-assigned managed identity for your ADF a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
-![Prepare the Azure Blob storage-linked service for staging](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png" alt-text="Prepare the Azure Blob storage-linked service for staging":::
 
 ## Configure an Azure-SSIS IR with your self-hosted IR as a proxy
 
@@ -87,7 +88,7 @@ Having prepared your self-hosted IR and Azure Blob Storage linked service for st
 
    1. Select the **Continue** button.
 
-   ![Advanced settings with a self-hosted IR](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png" alt-text="Advanced settings with a self-hosted IR":::
 
 You can also configure your new or existing Azure-SSIS IR with the self-hosted IR as a proxy by using PowerShell.
 
@@ -133,30 +134,30 @@ When you design new packages containing Data Flow Tasks with components that acc
 
 When you design new packages containing Execute SQL/Process Tasks that run on premises, you can enable the `ExecuteOnProxy` property by setting it to *True* in the **Properties** pane of relevant tasks themselves.
 
-![Enable ConnectByProxy/ExecuteOnProxy property](media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png" alt-text="Enable ConnectByProxy/ExecuteOnProxy property":::
 
 You can also enable the `ConnectByProxy`/`ExecuteOnProxy` properties when you run existing packages, without having to manually change them one by one. There are two options:
 - **Option A**: Open, rebuild, and redeploy the project containing those packages with the latest SSDT to run on your Azure-SSIS IR. You can then enable the `ConnectByProxy` property by setting it to *True* for the relevant connection managers that appear on the **Connection Managers** tab of **Execute Package** pop-up window when you're running packages from SSMS.
 
-  ![Enable ConnectByProxy/ExecuteOnProxy property2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png" alt-text="Enable ConnectByProxy/ExecuteOnProxy property2":::
 
   You can also enable the `ConnectByProxy` property by setting it to *True* for the relevant connection managers that appear on the **Connection Managers** tab of [Execute SSIS Package activity](./how-to-invoke-ssis-package-ssis-activity.md) when you're running packages in Data Factory pipelines.
   
-  ![Enable ConnectByProxy/ExecuteOnProxy property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png" alt-text="Enable ConnectByProxy/ExecuteOnProxy property3":::
 
 - **Option B:** Redeploy the project containing those packages to run on your SSIS IR. You can then enable the `ConnectByProxy`/`ExecuteOnProxy` properties by providing their property paths, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]`/`\Package\YourExecuteProcessTaskName.Properties[ExecuteOnProxy]`, and setting them to *True* as property overrides on the **Advanced** tab of **Execute Package** pop-up window when you're running packages from SSMS.
 
-  ![Enable ConnectByProxy/ExecuteOnProxy property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png" alt-text="Enable ConnectByProxy/ExecuteOnProxy property4":::
 
   You can also enable the `ConnectByProxy`/`ExecuteOnProxy` properties by providing their property paths, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]`/`\Package\YourExecuteProcessTaskName.Properties[ExecuteOnProxy]`, and setting them to *True* as property overrides on the **Property Overrides** tab of [Execute SSIS Package activity](./how-to-invoke-ssis-package-ssis-activity.md) when you're running packages in Data Factory pipelines.
   
-  ![Enable ConnectByProxy/ExecuteOnProxy property5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png" alt-text="Enable ConnectByProxy/ExecuteOnProxy property5":::
 
 ## Debug the on-premises tasks and cloud staging tasks
 
-On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSISTelemetry* folder and the execution logs of on-premises staging tasks and Execute SQL/Process Tasks in the *C:\ProgramData\SSISTelemetry\ExecutionLog* folder. You can find the execution logs of cloud staging tasks in your SSISDB, specified logging file paths, or Azure Monitor depending on whether you store your packages in SSISDB, enable [Azure Monitor integration](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. You can also find the unique IDs of on-premises staging tasks in the execution logs of cloud staging tasks. 
+On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSISTelemetry* folder and the execution logs of on-premises staging tasks and Execute SQL/Process Tasks in the *C:\ProgramData\SSISTelemetry\ExecutionLog* folder. You can find the execution logs of cloud staging tasks in your SSISDB, specified logging file paths, or Azure Monitor depending on whether you store your packages in SSISDB, enable [Azure Monitor integration](./monitor-ssis.md), etc. You can also find the unique IDs of on-premises staging tasks in the execution logs of cloud staging tasks. 
 
-![Unique ID of the first staging task](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png" alt-text="Unique ID of the first staging task":::
 
 If you've raised customer support tickets, you can select the **Send logs** button on **Diagnostics** tab of **Microsoft Integration Runtime Configuration Manager** that's installed on your self-hosted IR to send recent operation/execution logs for us to investigate.
 
@@ -166,29 +167,9 @@ The on-premises staging tasks and Execute SQL/Process Tasks that run on your sel
 
 The cloud staging tasks that run on your Azure-SSIS IR are not be billed separately, but your running Azure-SSIS IR is billed as specified in the [Azure-SSIS IR pricing](https://azure.microsoft.com/pricing/details/data-factory/ssis/) article.
 
-## Enable custom/3rd party data flow components 
-
-To enable your custom/3rd party data flow components to access data on premises using self-hosted IR as a proxy for Azure-SSIS IR, follow these instructions:
-
-1. Install your custom/3rd party data flow components targeting SQL Server 2017 on Azure-SSIS IR via [standard/express custom setups](./how-to-configure-azure-ssis-ir-custom-setup.md).
-
-1. Create the following DTSPath registry keys on self-hosted IR if they don’t exist already:
-   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` set to `C:\Program Files\Microsoft SQL Server\140\DTS\`
-   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` set to `C:\Program Files (x86)\Microsoft SQL Server\140\DTS\`
-   
-1. Install your custom/3rd party data flow components targeting SQL Server 2017 on self-hosted IR under the DTSPath above and ensure that your installation process:
-
-   1. Creates `<DTSPath>`, `<DTSPath>/Connections`, `<DTSPath>/PipelineComponents`, and `<DTSPath>/UpgradeMappings` folders if they don't exist already.
-   
-   1. Creates your own XML file for extension mappings in `<DTSPath>/UpgradeMappings` folder.
-   
-   1. Installs all assemblies referenced by your custom/3rd party data flow component assemblies in the global assembly cache (GAC).
-
-Here are examples from our partners, [Theobald Software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) and [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), who have adapted their data flow components to use our express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
-
 ## Enforce TLS 1.2
 
-If you need to use strong cryptography/more secure network protocol (TLS 1.2) and disable older SSL/TLS versions at the same time on your self-hosted IR, you can download and run the *main.cmd* script that can be found in the *CustomSetupScript/UserScenarios/TLS 1.2* folder of our public preview blob container. Using [Azure Storage Explorer](https://storageexplorer.com/), you can connect to our public preview blob container by entering the following SAS URI:
+If you need to access data stores that have been configured to use only the strongest cryptography/most secure network protocol (TLS 1.2), including your Azure Blob Storage for staging, you must enable only TLS 1.2 and disable older SSL/TLS versions at the same time on your self-hosted IR. To do so, you can download and run the *main.cmd* script that we provide in the *CustomSetupScript/UserScenarios/TLS 1.2* folder of our public preview blob container. Using [Azure Storage Explorer](https://storageexplorer.com/), you can connect to our public preview blob container by entering the following SAS URI:
 
 `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
 
@@ -202,4 +183,4 @@ If you need to use strong cryptography/more secure network protocol (TLS 1.2) an
 
 ## Next steps
 
-After you've configured your self-hosted IR as a proxy for your Azure-SSIS IR, you can deploy and run your packages to access data on-premises as Execute SSIS Package activities in Data Factory pipelines. To learn how, see [Run SSIS packages as Execute SSIS Package activities in Data Factory pipelines](./how-to-invoke-ssis-package-ssis-activity.md).
+After you've configured your self-hosted IR as a proxy for your Azure-SSIS IR, you can deploy and run your packages to access data and or run any SQL statements/processes on premises as Execute SSIS Package activities in Data Factory pipelines. To learn how, see [Run SSIS packages as Execute SSIS Package activities in Data Factory pipelines](./how-to-invoke-ssis-package-ssis-activity.md).  See also our blogs: [Run Any SQL Anywhere in 3 Easy Steps with SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244) and [Run Any Process Anywhere in 3 Easy Steps with SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-process-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2962609).

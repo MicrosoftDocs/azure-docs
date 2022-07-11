@@ -5,9 +5,9 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 04/04/2020
+ms.date: 09/03/2021
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Secondary indexing in Azure Cosmos DB Cassandra API
@@ -25,6 +25,9 @@ It's not advised to create an index on a frequently updated column. It is pruden
 > - data types such as frozen collection types, decimal, and variant types.
 > - Static columns
 > - Clustering keys
+
+> [!WARNING]
+> Partition keys are not indexed by default in Cassandra API. If you have a [compound primary key](cassandra-partitioning.md#compound-primary-key) in your table, and you filter either on partition key and clustering key, or just partition key, this will give the desired behaviour. However, if you filter on partition key and any other non-indexed fields aside from the clustering key, this will result in a partition key fan-out - even if the other non-indexed fields have a secondary index. If you have a compound primary key in your table, and you want to filter on both the partition key value element of the compound primary key, plus another field that is not the partition key or clustering key, please ensure that you explicitly add a secondary index on the *partition key*. The index in this scenario should significantly improve query performance, even if the other non-partition key and non-clustering key fields have no index. Review our article on [partitioning](cassandra-partitioning.md) for more information.
 
 ## Indexing example
 
@@ -67,6 +70,8 @@ You need to know what the index name is to drop the index. Run the `desc schema`
 ```shell
 drop index sampleks.t1_lastname_idx;
 ```
+
+
 
 ## Next steps
 * Learn how [automatic indexing](../index-overview.md) works in Azure Cosmos DB

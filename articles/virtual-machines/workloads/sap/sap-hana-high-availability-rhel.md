@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/17/2021
+ms.date: 03/24/2021
 ms.author: radeltch
 
 ---
@@ -79,12 +79,10 @@ To achieve high availability, SAP HANA is installed on two virtual machines. The
 
 ![SAP HANA high availability overview](./media/sap-hana-high-availability-rhel/ha-hana.png)
 
-SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
+SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
 
-* Front-end configuration: IP address 10.0.0.13 for hn1-db
-* Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
-* Probe Port: Port 62503
-* Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
+* Front-end IP address: 10.0.0.13 for hn1-db
+* Probe Port: 62503
 
 ## Deploy for Linux
 
@@ -114,10 +112,10 @@ To deploy the template, follow these steps:
 1. Create a load balancer (internal). We recommend [standard load balancer](../../../load-balancer/load-balancer-overview.md).
    * Select the virtual network created in step 2.
 1. Create virtual machine 1.  
-   Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the Red Hat Enterprise Linux 7.4 for SAP HANA image <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>
+   Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the [Red Hat Enterprise Linux 7.4 for SAP HANA image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM).
    Select the availability set created in step 3.
 1. Create virtual machine 2.  
-   Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the Red Hat Enterprise Linux 7.4 for SAP HANA image <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>
+   Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the [Red Hat Enterprise Linux 7.4 for SAP HANA image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM).
    Select the availability set created in step 3.
 1. Add data disks.
 
@@ -127,7 +125,7 @@ To deploy the template, follow these steps:
 > [!Note]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-1. If using standard load balancer, follow these configuration steps:
+1. To set up standard load balancer, follow these configuration steps:
    1. First, create a front-end IP pool:
 
       1. Open the load balancer, select **frontend IP pool**, and select **Add**.
@@ -163,7 +161,7 @@ To deploy the template, follow these steps:
       1. Select **OK**.
 
 
-1. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
+1. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
    1. Configure the load balancer. First, create a front-end IP pool:
 
       1. Open the load balancer, select **frontend IP pool**, and select **Add**.
@@ -344,7 +342,8 @@ The steps in this section use the following prefixes:
 
 1. **[A]** RHEL for HANA configuration
 
-   Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:  
+   Configure RHEL as described in the following notes:
+   - [2447641 - Additional packages required for installing SAP HANA SPS 12 on RHEL 7.X](https://access.redhat.com/solutions/2447641)
    - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
    - [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
    - [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
@@ -353,7 +352,7 @@ The steps in this section use the following prefixes:
 
 1. **[A]** Install the SAP HANA
 
-   To install SAP HANA System Replication, follow <https://access.redhat.com/articles/3004101>.
+   To install SAP HANA System Replication, see [Automating SAP HANA Scale-Up System Replication using the RHEL HA Add-On](https://access.redhat.com/articles/3004101).
 
    * Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
    * Choose installation: Enter **1**.
@@ -594,10 +593,14 @@ This is important step to optimize the integration with the cluster and improve 
 
 2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR python hook
-    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
-    EOF
+    sudo visudo -f /etc/sudoers.d/20-saphana
+    # Insert the following lines and then save
+    Cmnd_Alias SITE1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SFAIL -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE2_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SFAIL -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL
+    Defaults!SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL !requiretty
     ```
 
 3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
@@ -715,7 +718,7 @@ Make sure that the cluster status is ok and that all of the resources are starte
 
 Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intense workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
 
-This section describes the additional steps that are required to manage HANA Active/Read enabled system replication in a Red Hat high availability cluster with second virtual IP.    
+This section describes the additional steps that are required to manage HANA Active/Read enabled system replication in a Red Hat high availability cluster with second virtual IP.
 
 Before proceeding further, make sure you have fully configured Red Hat High Availability Cluster managing SAP HANA database as described in above segments of the documentation.  
 
@@ -774,10 +777,9 @@ pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
 
 pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
 
-RHEL 8.x: 
-pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-clone 4000
-RHEL 7.x:
-pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-master 4000
+pcs constraint location g_secip_HN1_03 rule score=INFINITY hana_hn1_sync_state eq SOK and hana_hn1_roles eq 4:S:master1:master:worker:master
+
+pcs constraint location g_secip_HN1_03 rule score=4000 hana_hn1_sync_state eq PRIM and hana_hn1_roles eq 4:P:master1:master:worker:master
 
 pcs property set maintenance-mode=false
 ```
@@ -807,13 +809,13 @@ In next section, you can find the typical set of failover tests to execute.
 
 Be aware of the second virtual IP behavior, while testing a HANA cluster configured with read-enabled secondary:
 
-1. When you migrate **SAPHana_HN1_HDB03** cluster resource to **hn1-db-1**, the second virtual IP will move to the other server **hn1-db-0**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hn1-db-0,** as the server is available and cluster services are online.  
+1. When you migrate **SAPHana_HN1_03** cluster resource to secondary site **hn1-db-1**, the second virtual IP will continue to run on the same site **hn1-db-1**. If you have set AUTOMATED_REGISTER="true" for the resource and HANA system replication is registered automatically on **hn1-db-0**, then your second virtual IP will also move to **hn1-db-0**.
 
-2. When testing server crash, the second virtual IP resources (**rsc_secip_HN1_HDB03**) and Azure load balancer port resource (**rsc_secnc_HN1_HDB03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible while the time secondary server is unavailable.
-
-3. When the secondary server is available and the cluster services are online, the second virtual IP and port resources will automatically move to the secondary server, even though HANA system replication may not be registered as secondary. You need to make sure that you register the secondary HANA database as read enabled before you start cluster services on that server. You can configure the HANA instance cluster resource to automatically register the secondary by setting parameter AUTOMATED_REGISTER=true.
+2. On testing server crash, second virtual IP resources (**secvip_HN1_03**) and azure load balancer port resource (**secnc_HN1_03**) will run on primary server alongside the primary virtual IP resources. So, till the time secondary server is down, application that are connected to read-enabled HANA database will connect to primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible till the time secondary server is unavailable.
    
-4. During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database may be interrupted.  
+3. During failover and fallback of second virtual IP address, it may happen that the existing connections on applications that uses second virtual IP to connect to the HANA database may get interrupted.
+
+The setup maximizes the time that the second virtual IP resource will be assigned to a node where a healthy SAP HANA instance is running.
 
 ## Test the cluster setup
 

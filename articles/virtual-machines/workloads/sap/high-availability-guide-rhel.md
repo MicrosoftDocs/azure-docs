@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/03/2021
+ms.date: 03/28/2022
 ms.author: radeltch
 
 ---
@@ -62,7 +62,7 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [Product Documentation for Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
+* [Product Documentation for Red Hat Gluster Storage](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5)
 * [SAP Netweaver in pacemaker cluster](https://access.redhat.com/articles/3150081)
 * General RHEL documentation
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -81,42 +81,12 @@ To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS i
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The following list shows the configuration of the (A)SCS and ERS load balancer.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The presented configuration shows a load balancer with:
 
-### (A)SCS
-
-* Frontend configuration
-  * IP address 10.0.0.7
-* Probe Port
-  * Port 620<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-### ERS
-
-* Frontend configuration
-  * IP address 10.0.0.8
-* Probe Port
-  * Port 621<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
+* Frontend IP address 10.0.0.7 for ASCS
+* Frontend IP address 10.0.0.8 for ERS
+* Probe port 62000 for ASCS
+* Probe port 62101 for ERS
 
 ## Setting up GlusterFS
 
@@ -159,12 +129,10 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
 1. Create an Availability Set  
    Set max update domain
 1. Create Virtual Machine 1  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Add at least one data disk to both virtual machines  
    The data disks are used for the /usr/sap/`<SAPSID`> directory
@@ -201,7 +169,7 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **nw1-lb-ers**)
-1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 10.0.0.7 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -377,7 +345,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create vip_<b>NW1</b>_ASCS IPaddr2 \
-     ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.7</b> \
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
@@ -429,7 +397,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create vip_<b>NW1</b>_AERS IPaddr2 \
-     ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.8</b> \
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create nc_<b>NW1</b>_AERS azure-lb port=621<b>02</b> \
@@ -959,7 +927,7 @@ Follow these steps to install an SAP application server.
     [root@nw1-cl-1 ~]# pgrep -f enq.sapNW1 | xargs kill -9
    </code></pre>
 
-   The ASCS instance should immediately fail over to the other node, in the case of ENSA2. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   The ASCS instance should immediately fail over to the other node, in the case of ENSA1. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02

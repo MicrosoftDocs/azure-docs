@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and .NET
-
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 author: TheovanKraay
 ms.author: thvankra
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 10/01/2020
-ms.custom: devx-track-csharp
+ms.date: 05/02/2022
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Build a Cassandra app with .NET SDK and Azure Cosmos DB
@@ -31,13 +30,12 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](/azure/cosmos-db/try-free) without an Azure subscription, free of charge and commitments.
 
 In addition, you need: 
-* If you don't already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 * Install [Git](https://www.git-scm.com/) to clone the example.
 
-<a id="create-account"></a>
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../includes/cosmos-db-create-dbaccount-cassandra.md)]
@@ -45,7 +43,7 @@ In addition, you need:
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a Cassandra API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone a Cassandra API app from GitHub, set the connection string, and run it. You'll see how easily you can work with data programmatically. 
 
 1. Open a command prompt. Create a new folder named `git-samples`. Then, close the command prompt.
 
@@ -88,30 +86,30 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * Create a new table.
 
-   ```csharp
+  ```csharp
   session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
-   ```
+  ```
 
 * Insert user entities by using the IMapper object with a new session that connects to the uprofile keyspace.
 
-    ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
-    ```
+  ```csharp
+  mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+  ```
     
 * Query to get all user's information.
 
-    ```csharp
-   foreach (User user in mapper.Fetch<User>("Select * from user"))
-   {
-      Console.WriteLine(user);
-   }
-    ```
-    
+  ```csharp
+  foreach (User user in mapper.Fetch<User>("Select * from user"))
+  {
+     Console.WriteLine(user);
+  }
+  ```
+
 * Query to get a single user's information.
 
-    ```csharp
-    mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
-    ```
+  ```csharp
+  mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
+  ```
 
 ## Update your connection string
 
@@ -174,7 +172,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run a web app. You can now import other data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](migrate-data.md)

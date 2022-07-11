@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 06/23/2022
 ms.author: tamram
 ms.subservice: common
 ---
@@ -19,7 +19,7 @@ A deleted storage account may be recovered in some cases from within the Azure p
 - The storage account was deleted within the past 14 days.
 - The storage account was created with the Azure Resource Manager deployment model.
 - A new storage account with the same name has not been created since the original account was deleted.
-- The user who is recovering the storage account must be assigned an Azure RBAC role that provides the **Microsoft.Storage/storageAccounts/write** permission. For information about built-in Azure RBAC roles that provide this permission, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md). 
+- The user who is recovering the storage account must be assigned an Azure RBAC role that provides the **Microsoft.Storage/storageAccounts/write** permission. For information about built-in Azure RBAC roles that provide this permission, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 Before you attempt to recover a deleted storage account, make sure that the resource group for that account exists. If the resource group was deleted, you must recreate it. Recovering a resource group is not possible. For more information, see [Manage resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
@@ -32,15 +32,16 @@ If the deleted storage account used customer-managed keys with Azure Key Vault a
 
 ## Recover a deleted account from the Azure portal
 
-To recover a deleted storage account from within another storage account, follow these steps:
+To restore a deleted storage account from within another storage account, follow these steps:
 
-1. Navigate to the overview page for an existing storage account in the Azure portal.
-1. In the **Support + troubleshooting** section, select **Recover deleted account**.
+1. Navigate to the list of your storage accounts in the Azure portal.
+1. Select the **Restore** button to open the **Restore deleted account** pane.
+1. Select the subscription for the account that you want to recover from the **Subscription** drop-down.
 1. From the dropdown, select the account to recover, as shown in the following image. If the storage account that you want to recover is not in the dropdown, then it cannot be recovered.
 
     :::image type="content" source="media/storage-account-recover/recover-account-portal.png" alt-text="Screenshot showing how to recover storage account in Azure portal":::
 
-1. Select the **Recover** button to restore the account. The portal displays a notification that the recovery is in progress.
+1. Select the **Restore** button to recover the account. The portal displays a notification that the recovery is in progress.
 
 ## Recover a deleted account via a support ticket
 
@@ -70,5 +71,4 @@ To recover a deleted storage account from within another storage account, follow
 
 - [Storage account overview](storage-account-overview.md)
 - [Create a storage account](storage-account-create.md)
-- [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move an Azure Storage account to another region](storage-account-move.md)

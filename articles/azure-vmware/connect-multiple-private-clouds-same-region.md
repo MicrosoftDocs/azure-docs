@@ -1,14 +1,12 @@
 ---
-title: Connect multiple Azure VMware Solution private clouds in the same region (Preview)
+title: Connect multiple Azure VMware Solution private clouds in the same region
 description: Learn how to create a network connection between two or more Azure VMware Solution private clouds located in the same region.
 ms.topic: how-to 
-ms.date: 07/02/2021
-
-#Customer intent: As an Azure service administrator, I want create a network connection between two or more Azure VMware Solution private clouds located in the same region.  
-
+ms.service: azure-vmware
+ms.date: 09/20/2021
 ---
 
-# Connect multiple Azure VMware Solution private clouds in the same region (Preview)
+# Connect multiple Azure VMware Solution private clouds in the same region
 
 The **AVS Interconnect** feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It creates a routing link between the management and workload networks of the private clouds to enable network communication between the clouds.
 
@@ -16,14 +14,9 @@ You can connect a private cloud to multiple private clouds, and the connections 
 
 You can only connect private clouds in the same region. To connect private clouds that are in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect your private clouds in the same way you connect your private cloud to your on-premises circuit. 
 
->[!IMPORTANT]
->The AVS Interconnect (Preview) feature is currently in public preview.  
->This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
->For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Supported regions
 
-The AVS Interconnect (Preview) feature is available in all regions except for South Central US (SAT20), North Europe (DUB21), Southeast Asia (SG2), and UK West (CWL20). 
+The Azure VMware Solution Interconnect feature is available in all regions.
 
 ## Prerequisites
 

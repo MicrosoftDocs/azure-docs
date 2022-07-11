@@ -1,18 +1,18 @@
 ---
 title: Plan to manage costs for Azure Cognitive Services
 description: Learn how to plan for and manage costs for Azure Cognitive Services by using cost analysis in the Azure portal.
-author: erhopf
-ms.author: erhopf
+author: PatrickFarley
+ms.author: pafarley
 ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 11/03/2021
 ---
 
 
 # Plan and manage costs for Azure Cognitive Services
 
-This article describes how you plan for and manage costs for Azure Cognitive Services. First, you use the Azure pricing calculator to help plan for Cognitive Services costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. After you've started using Cognitive Services resources (for example Speech, Computer Vision, LUIS, Text Analytics, Translator, etc.), use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Cognitive Services are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Cognitive Services, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+This article describes how you plan for and manage costs for Azure Cognitive Services. First, you use the Azure pricing calculator to help plan for Cognitive Services costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. After you've started using Cognitive Services resources (for example Speech, Computer Vision, LUIS, Language service, Translator, etc.), use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Cognitive Services are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Cognitive Services, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
@@ -34,11 +34,13 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 
 Cognitive Services runs on Azure infrastructure that [accrues costs](https://azure.microsoft.com/pricing/details/cognitive-services/) when you deploy the new resource. It's important to understand that more infrastructure might accrue costs. You need to manage that cost when you make changes to deployed resources. 
 
-### How you're charged for Cognitive Services
+When you create or use Cognitive Services resources, you might get charged based on the services that you use. There are two billing models available for Cognitive Services: pay-as-you-go, and commitment tier.
 
-When you create or use Cognitive Services resources, you might get charged for the following meters based on the services that you use:
+## Pay-as-you-go
 
-| Service | Meter(s) | Billing information | 
+With Pay-As-You-Go pricing, you are billed according to the Cognitive Services offering you use, based on its billing information.
+
+| Service | Instance(s) | Billing information | 
 |---------|-------|---------------------|
 | **Vision** | | |
 | [Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Free, Standard (S1) | Billed by the number of transactions. Price per transaction varies per feature (Read, OCR, Spatial Analysis). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
@@ -49,12 +51,23 @@ When you create or use Cognitive Services resources, you might get charged for t
 | **Language** | | |
 | [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) | Free Authoring, Free Prediction, Standard | Billed by number of transactions. Price per transaction varies by feature (speech requests, text requests). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). |
 | [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) | Free, Standard | Subscription fee billed monthly. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). | 
-| [Text Analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) | Free, Standard | Billed by number of text records. | 
+| [Language service](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) | Free, Standard | Billed by number of text records. | 
 | [Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/) | Free, Pay-as-you-go (S1), Volume discount (S2, S3, S4, C2, C3, C4, D3) | Pricing varies by meter and feature. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/). <li>Text translation is billed by number of characters translated.</li><li>Document translation is billed by characters translated.</li><li>Custom translation is billed by characters of source and target training data.</li> |  
 | **Decision** | | |
 | [Anomaly Detector](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | Free, Standard | Billed by the number of transactions. | 
 | [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | Free, Standard | Billed by the number of transactions. |
 | [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | Free, Standard (S0) | Billed by transactions per month. There are storage and transaction quotas. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/). | 
+
+## Commitment tier
+
+In addition to the pay-as-you-go model, Cognitive Services has commitment tiers, which let you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
+
+With commitment tier pricing, you are billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
+
+> [!NOTE]
+> If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
+
 
 
 ### Costs that typically accrue with Cognitive Services

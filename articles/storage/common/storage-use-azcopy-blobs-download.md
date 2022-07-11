@@ -12,7 +12,7 @@ ms.reviewer: dineshm
 
 # Download blobs from Azure Blob Storage by using AzCopy
 
-You can download blobs and directories from Blob storage by using the AzCopy v10 command-line utility. 
+You can download blobs and directories from Blob storage by using the AzCopy v10 command-line utility.
 
 To see examples for other types of tasks such as uploading files, synchronizing with Blob storage, or copying blobs between accounts, see the links presented in the [Next Steps](#next-steps) section of this article.
 
@@ -20,7 +20,7 @@ To see examples for other types of tasks such as uploading files, synchronizing 
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-> [!NOTE] 
+> [!NOTE]
 > The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -34,7 +34,7 @@ Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
 **Syntax**
 
-``azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'``
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'`
 
 **Example**
 
@@ -100,7 +100,7 @@ Append the `--recursive` flag to download files in all subdirectories.
 
 ## Download specific blobs
 
-You can download specific blobs by using complete file names, partial names with wildcard characters (*), or by using dates and times. 
+You can download specific blobs by using complete file names, partial names with wildcard characters (*), or by using dates and times.
 
 > [!TIP]
 > These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -153,9 +153,9 @@ You can also exclude blobs by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to blob names and not to the path.  If you want to copy all of the text files (blobs) that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
-#### Download blobs that were modified before or after a date and time 
+#### Download blobs that were modified before or after a date and time
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
 
 The following examples download files that were modified on or after the specified date.
 
@@ -179,9 +179,9 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 #### Download previous versions of a blob
 
-If you've enabled [blob versioning](../blobs/versioning-enable.md), you can download one or more previous versions of a blob. 
+If you've enabled [blob versioning](../blobs/versioning-enable.md), you can download one or more previous versions of a blob.
 
-First, create a text file that contains a list of [version IDs](../blobs/versioning-overview.md). Each version ID must appear on a separate line. For example: 
+First, create a text file that contains a list of [version IDs](../blobs/versioning-overview.md). Each version ID must appear on a separate line. For example:
 
 ```
 2020-08-17T05:50:34.2199403Z
@@ -189,11 +189,11 @@ First, create a text file that contains a list of [version IDs](../blobs/version
 2020-08-17T05:50:36.7607103Z
 ```
 
-Then, use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--list-of-versions` option. Specify the location of the text file that contains the list of versions (For example: `D:\\list-of-versions.txt`).  
+Then, use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--list-of-versions` option. Specify the location of the text file that contains the list of versions (For example: `D:\\list-of-versions.txt`).
 
 #### Download a blob snapshot
 
-You can download a [blob snapshot](../blobs/snapshots-overview.md) by referencing the **DateTime** value of a blob snapshot. 
+You can download a [blob snapshot](../blobs/snapshots-overview.md) by referencing the **DateTime** value of a blob snapshot.
 
 **Syntax**
 
@@ -242,4 +242,5 @@ See these articles to configure settings, optimize performance, and troubleshoot
 
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 03/22/2022
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -187,7 +187,6 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | No       | String | The email address of any user to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | String | The application ID of any service principal to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `OwnerObjectId`. When using the parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -215,7 +214,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/account
 ### Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using the API.
-- There's a limit of 2000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 2000 limit.
+- There's a limit of 5000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 5000 limit.
 - Users who aren't Account Owners, but were added to an enrollment account with Azure RBAC, can't create subscriptions in the Azure portal.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

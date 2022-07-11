@@ -3,7 +3,7 @@ title: View multiple resources in the Azure metrics explorer
 description: Learn how to visualize multiple resources by using the Azure metrics explorer.
 author: ritaroloff
 services: azure-monitor
-
+ms.reviewer: priyamishra
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
@@ -78,7 +78,7 @@ In this example, we filter by TailspinToysDemo. Here, the filter removes metrics
 
 Multiple-resource charts that visualize metrics across resource groups and subscriptions require the user to have *Monitoring Reader* permission at the subscription level. Ensure that all users of the dashboards to which you pin multiple-resource charts have sufficient permissions. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-To pin your multiple-resource chart to a dashboard, see [Pinning to dashboards](../essentials/metrics-charts.md#pinning-to-dashboards). 
+To pin your multiple-resource chart to a dashboard, see [Saving to dashboards or workbooks](../essentials/metrics-charts.md#saving-to-dashboards-or-workbooks). 
 
 ## Next steps
 

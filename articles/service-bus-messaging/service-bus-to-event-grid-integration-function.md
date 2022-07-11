@@ -4,7 +4,7 @@ description: This article provides steps for handling Service Bus events via Eve
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/29/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ---
@@ -33,12 +33,14 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
 > To learn more about creating and deploying an Azure Functions app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
 
 1. Open **ReceiveMessagesOnEvent.cs** file from the **FunctionApp1** project of the **SBEventGridIntegration.sln** solution. 
-1. Replace `<SERCICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace. It should be the same as the one you used in the **Program.cs** file of the **MessageSender** project in the same solution. 
+1. Replace `<SERVICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace. It should be the same as the one you used in the **Program.cs** file of the **MessageSender** project in the same solution. 
 1. Right-click **FunctionApp1**, and select **Publish**. 
 1. On the **Publish** page, select **Start**. These steps may be different from what you see, but the process of publishing should be similar. 
 1. In the **Publish** wizard, on the **Target** page, select **Azure** for **Target**. 
 1. On the **Specific target** page, select **Azure Function App (Windows)**. 
 1. On the **Functions instance** page, select **Create a new Azure function**. 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/add-function-button.png" alt-text="Image showing the Add function button of the Visual Studio - Publish dialog box.":::
 1. On the **Function App (Windows)** page, follow these steps:
     1. Enter a **name** for the function app.
     1. Select an Azure **subscription**.

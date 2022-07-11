@@ -2,9 +2,9 @@
 title: Quickstart - Add VOIP calling to an Android app using Azure Communication Services
 description: In this tutorial, you learn how to use the Azure Communication Services Calling SDK for Android
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ---
 
@@ -18,9 +18,15 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  
 ## Setting up
 
 ### Create an Android app with an empty activity

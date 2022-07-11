@@ -5,71 +5,63 @@
  ms.service: postgresql
  ms.subservice: hyperscale-citus
  ms.topic: include
- ms.date: 12/16/2020
+ ms.date: 06/29/2022
  ms.author: jonels
  ms.custom: include file
 ---
 
-## Create a Hyperscale (Citus) server group
+If you don't have an Azure subscription, create a
+[free](https://azure.microsoft.com/free/) account before you begin.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+Sign in to the [Azure portal](https://portal.azure.com) and follow these steps
+to create an Azure Database for PostgreSQL - Hyperscale (Citus) server group:
 
-### Sign in to the Azure portal
+# [Direct link](#tab/direct)
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup) in the Azure portal.
 
+# [Via portal search](#tab/portal-search)
 
-Follow these steps to create an Azure Database for PostgreSQL server:
-1. Click **Create a resource**  in the upper left-hand corner of the Azure portal.
-2. Select **Databases** from the **New** page, and select **Azure Database for PostgreSQL** from the **Databases** page.
-3. For the deployment option, click the **Create** button under **Hyperscale (Citus) server group.**
-4. Fill out the new server details form with the following information:
-   - Resource group: click the **Create new** link below the text box for this field. Enter a name such as **myresourcegroup**.
-   - Server group name: enter a unique name for the new server group, which will also be used for a server subdomain.
-   - Admin username: currently required to be the value **citus**, and can't be changed.
-   - Password: must be at least eight characters long and contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on.)
-   - Location: use the location that is closest to your users to give them the fastest access to the data.
+1. Visit the [Azure portal](https://portal.azure.com/) and search for
+   **citus**. Select **Azure Database for PostgreSQL Hyperscale (Citus)**.
+   ![search for citus](../articles/postgresql/media/quickstart-hyperscale-create-portal/portal-search.png)
+2. Select **+ Create**.
+   ![create button](../articles/postgresql/media/quickstart-hyperscale-create-portal/create-button.png)
+3. Select the **Hyperscale (Citus) server group** deployment option.
+   ![deployment options](../articles/postgresql/media/quickstart-hyperscale-create-portal/deployment-option.png)
 
-   > [!IMPORTANT]
-   > The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
+---
 
-5. Click **Configure server group**. Leave the settings in that section unchanged and click **Save**.
-6. Click **Next : Networking >** at the bottom of the screen.
+1. Fill out the **Basics** form.
+   ![basic info form](../articles/postgresql/media/quickstart-hyperscale-create-portal/basics.png)
 
-7. In the **Networking** tab, click the **Public endpoint** radio button.
-   ![Public endpoint selected](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
-8. Click the link **+ Add current client IP address**.
-   ![Added client IP](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
+   Most options are self-explanatory, but keep in mind:
 
-   > [!NOTE]
-   > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Hyperscale (Citus) cluster unless your IT department opens port 5432.
-   >
+   * The server group name will determine the DNS name your
+     applications use to connect, in the form
+     `server-group-name.postgres.database.azure.com`.
+   * The admin username is required to be the value `citus`.
+   * You can choose a database version. Hyperscale (Citus) always supports the
+     latest PostgreSQL version, within one day of release.
 
-9. Click **Review + create** and then **Create** to provision the server. Provisioning takes a few minutes.
-10. The page will redirect to monitor deployment. When the live status changes from **Your deployment is underway** to **Your deployment is complete**, click the **Outputs** menu item on the left of the page.
-11. The outputs page will contain a coordinator hostname with a button next to it to copy the value to the clipboard. Record this information for later use.
+2. Select **Configure server group**.
 
-### Connect to the database using psql
+   ![compute and storage](../articles/postgresql/media/quickstart-hyperscale-create-portal/compute.png)
 
-When you create your Azure Database for PostgreSQL server, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
+   For this quickstart, you can accept the default value of **Basic** for
+   **Tiers**. The Basic Tier allows you to experiment with a single-node
+   server group for a few dollars a day.
 
-1. Obtain the connection string. In the server group page click the **Connection strings** menu item. (It's under **Settings**.) Find the string marked **psql**. It will be of the form:
+3. Select **Save**.
 
-   ```
-   psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
-   ```
+4. Select **Next : Networking >** at the bottom of the screen.
+5. In the **Networking** tab, select **Allow public access from Azure services
+   and resources within Azure to this server group**.
 
-   Copy the string. You will need to replace "{your\_password}" with the administrative password you chose earlier. The system doesn't store your plaintext password and so can't display it for you in the connection string.
+   ![networking configuration](../articles/postgresql/media/quickstart-hyperscale-create-portal/networking.png)
 
-2. Open a terminal window on your local computer.
-
-3. At the prompt, connect to your Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility. Pass your connection string in quotes, being sure it contains your password:
-   ```bash
-   psql "host=..."
-   ```
-
-   For example, the following command connects to the coordinator node of the server group **mydemoserver**:
-
-   ```bash
-   psql "host=mydemoserver-c.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
-   ```
+6. Select **Review + create** and then **Create** to create the server.
+   Provisioning takes a few minutes.
+7. The page will redirect to monitor deployment. When the live status changes
+   from **Deployment is in progress** to **Your deployment is complete**.
+   After this transition, select **Go to resource**.

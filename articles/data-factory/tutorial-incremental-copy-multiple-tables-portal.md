@@ -4,8 +4,8 @@ description: In this tutorial, you create an Azure data factory with a pipeline 
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 07/05/2021
 ---
 
@@ -53,14 +53,14 @@ Here are the important steps to create this solution:
 
     Here is the high-level solution diagram: 
 
-    ![Incrementally load data](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png" alt-text="Incrementally load data":::
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
 * **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
+* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 
@@ -124,7 +124,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Creationtime datetime
     );
 
-	```
+    ```
 
 ### Create another table in your database to store the high watermark value
 
@@ -230,7 +230,7 @@ END
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**: 
    
-   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 3. In the **New data factory** page, enter **ADFMultiIncCopyTutorialDF** for the **name**. 
  
@@ -258,11 +258,11 @@ As you are moving data from a data store in a private network (on-premises) to a
 
 1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
-   ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
+   :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
 
 1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   ![Create an integration runtime](media/doc-common-process/manage-new-integration-runtime.png)
+   :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Create an integration runtime":::
 
 1. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Continue**. 
 
@@ -271,10 +271,10 @@ As you are moving data from a data store in a private network (on-premises) to a
 
 1. Click **Click here to launch the express setup for this computer** in the **Option 1: Express setup** section. 
 
-   ![Click Express setup link](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png" alt-text="Click Express setup link":::
 1. In the **Integration Runtime (Self-hosted) Express Setup** window, click **Close**. 
 
-   ![Integration runtime setup - successful](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png" alt-text="Integration runtime setup - successful":::
 1. In the Web browser, in the **Integration Runtime Setup** window, click **Finish**. 
 
  
@@ -320,7 +320,7 @@ In the last step, you create a linked service to link your source SQL Server dat
 
 1. Confirm that you see two linked services in the list. 
    
-    ![Two linked services](./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png) 
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png" alt-text="Two linked services"::: 
 
 ## Create datasets
 In this step, you create datasets to represent the data source, the data destination, and the place to store the watermark.
@@ -335,7 +335,7 @@ In this step, you create datasets to represent the data source, the data destina
 
 1. Switch to the **Connection** tab in the Properties window, and select **SqlServerLinkedService** for **Linked service**. You do not select a table here. The Copy activity in the pipeline uses a SQL query to load the data rather than load the entire table.
 
-   ![Source dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png" alt-text="Source dataset - connection":::
 
 
 ### Create a sink dataset
@@ -350,14 +350,14 @@ In this step, you create datasets to represent the data source, the data destina
     1. Click **New** in the **Create/update parameters** section. 
     1. Enter **SinkTableName** for the **name**, and **String** for the **type**. This dataset takes **SinkTableName** as a parameter. The SinkTableName parameter is set by the pipeline dynamically at runtime. The ForEach activity in the pipeline iterates through a list of table names and passes the table name to this dataset in each iteration.
    
-        ![Sink Dataset - properties](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png" alt-text="Sink Dataset - properties":::
 1. Switch to the **Connection** tab in the Properties window, and select **AzureSqlDatabaseLinkedService** for **Linked service**. For **Table** property, click **Add dynamic content**.   
 	
 1. In the **Add Dynamic Content** window, select **SinkTableName** in the **Parameters** section. 
  
 1. After clicking **Finish**, you see "@dataset().SinkTableName" as the table name.
 
-   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png" alt-text="Sink Dataset - connection":::
 
 ### Create a dataset for a watermark
 In this step, you create a dataset for storing a high watermark value. 
@@ -372,7 +372,7 @@ In this step, you create a dataset for storing a high watermark value.
     1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
     1. Select **[dbo].[watermarktable]** for **Table**.
 
-        ![Watermark Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png" alt-text="Watermark Dataset - connection":::
 
 ## Create a pipeline
 The pipeline takes a list of table names as a parameter. The ForEach activity iterates through the list of table names and performs the following operations: 
@@ -401,7 +401,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Switch to the **Settings** tab, and enter `@pipeline().parameters.tableList` for **Items**. The ForEach activity iterates through a list of tables and performs the incremental copy operation. 
 
-    ![ForEach activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png" alt-text="ForEach activity - settings":::
 
 1. Select the **ForEach** activity in the pipeline if it isn't already selected. Click the **Edit (Pencil icon)** button.
 
@@ -417,7 +417,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'
         ```
 
-        ![First Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png" alt-text="First Lookup Activity - settings":::
 1. Drag-drop the **Lookup** activity from the **Activities** toolbox, and enter **LookupNewWaterMarkActivity** for **Name**.
         
 1. Switch to the **Settings** tab.
@@ -430,12 +430,12 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
         ```
     
-        ![Second Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png" alt-text="Second Lookup Activity - settings":::
 1. Drag-drop the **Copy** activity from the **Activities** toolbox, and enter **IncrementalCopyActivity** for **Name**. 
 
 1. Connect **Lookup** activities to the **Copy** activity one by one. To connect, start dragging at the **green** box attached to the **Lookup** activity and drop it on the **Copy** activity. Release the mouse button when the border color of the Copy activity changes to **blue**.
 
-    ![Connect Lookup activities to Copy activity](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png" alt-text="Connect Lookup activities to Copy activity":::
 1. Select the **Copy** activity in the pipeline. Switch to the **Source** tab in the **Properties** window. 
 
     1. Select **SourceDataset** for **Source Dataset**. 
@@ -446,7 +446,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
         ```
 
-        ![Copy Activity - source settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png" alt-text="Copy Activity - source settings":::
 1. Switch to the **Sink** tab, and select **SinkDataset** for **Sink Dataset**. 
         
 1. Do the following steps:
@@ -456,14 +456,14 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     1. For **Table type** property, enter `@{item().TableType}`.
     1. For **Table type parameter name**, enter `@{item().TABLE_NAME}`.
 
-        ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png" alt-text="Copy Activity - parameters":::
 1. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Connect the **Copy** activity to the **Stored Procedure** activity. 
 
 1. Select the **Stored Procedure** activity in the pipeline, and enter **StoredProceduretoWriteWatermarkActivity** for **Name** in the **General** tab of the **Properties** window. 
 
 1. Switch to the **SQL Account** tab, and select **AzureSqlDatabaseLinkedService** for **Linked Service**.
 
-    ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png" alt-text="Stored Procedure Activity - SQL Account":::
 1. Switch to the **Stored Procedure** tab, and do the following steps:
 
     1. For **Stored procedure name**, select `[dbo].[usp_write_watermark]`. 
@@ -475,7 +475,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png" alt-text="Stored Procedure Activity - stored procedure settings":::
 1. Select **Publish All** to publish the entities you created to the Data Factory service. 
 
 1. Wait until you see the **Successfully published** message. To see the notifications, click the **Show Notifications** link. Close the notifications window by clicking **X**.
@@ -504,7 +504,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ]
     ```
 
-    ![Pipeline Run arguments](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-run-arguments.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-run-arguments.png" alt-text="Pipeline Run arguments":::
 
 ## Monitor the pipeline
 

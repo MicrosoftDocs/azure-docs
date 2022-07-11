@@ -3,22 +3,22 @@ title: Kerberos-based single sign-on (SSO) in Azure Active Directory with Applic
 description: Covers how to provide single sign-on using Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: contperf-fy21q2
 ---
 
 # Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy
 
-You can provide single sign-on for on-premises applications published through Application Proxy that are secured with Integrated Windows Authentication. These applications require a Kerberos ticket for access. Application Proxy uses Kerberos Constrained Delegation (KCD) to support these applications. 
+You can provide single sign-on for on-premises applications published through Application Proxy that are secured with integrated Windows authentication. These applications require a Kerberos ticket for access. Application Proxy uses Kerberos Constrained Delegation (KCD) to support these applications. 
 
-You can enable single sign-on to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy connectors permission in Active Directory to impersonate users. The connectors use this permission to send and receive tokens on their behalf.
+You can enable single sign-on to your applications using integrated Windows authentication (IWA) by giving Application Proxy connectors permission in Active Directory to impersonate users. The connectors use this permission to send and receive tokens on their behalf.
 
 ## How single sign-on with KCD works
 This diagram explains the flow when a user attempts to access an on premises application that uses IWA.
@@ -37,7 +37,7 @@ This diagram explains the flow when a user attempts to access an on premises app
 ## Prerequisites
 Before you get started with single sign-on for IWA applications, make sure your environment is ready with the following settings and configurations:
 
-* Your apps, like SharePoint Web apps, are set to use Integrated Windows Authentication. For more information, see [Enable Support for Kerberos Authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
+* Your apps, like SharePoint Web apps, are set to use integrated Windows authentication. For more information, see [Enable Support for Kerberos Authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
 * All your apps have [Service Principal Names](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
 * The server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains. For more information on domain join, see [Join a Computer to a Domain](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102(v=ws.11)).
 * The server running the Connector has access to read the TokenGroupsGlobalAndUniversal attribute for users. This default setting might have been impacted by security hardening the environment.
@@ -82,9 +82,9 @@ The Active Directory configuration varies, depending on whether your Application
 ## Configure single sign-on 
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
 2. After your application appears in the list of enterprise applications, select it and click **Single sign-on**.
-3. Set the single sign-on mode to **Integrated Windows Authentication**.  
-4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/www.contoso.com. This SPN needs to be in the list of services to which the connector can present delegated credentials. 
-5. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](#working-with-different-on-premises-and-cloud-identities)
+3. Set the single sign-on mode to **Integrated Windows authentication**.  
+4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is `http/www.contoso.com`. This SPN needs to be in the list of services to which the connector can present delegated credentials.
+5. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](#working-with-different-on-premises-and-cloud-identities).
 
    ![Advanced Application Configuration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 

@@ -4,11 +4,10 @@ metadata:
   description: Learn about several of the integration requirements for the Microsoft commercial marketplace to enable Azure customers to subscribe to SaaS offers.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: conceptual
-  ms.date: 03/19/2021
-  author: mingshen-ms
-  ms.author: mingshen
-    
+  ms.topic: faq
+  ms.date: 03/07/2022
+  author: arifgani
+  ms.author: argani
 title: Common questions about SaaS fulfillment APIs
 summary: This article describes several of the integration requirements for the Microsoft commercial marketplace to enable Azure customers to subscribe to SaaS offers.
 
@@ -48,11 +47,11 @@ sections:
           > [!IMPORTANT]
           > You must sign in the buying user using Azure Active Directory, Single Sign On (Azure AD SSO) as directed by the [policy](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). The `mail` property on the user resource retrieved from the Microsoft Graph API gives you the contact information for the case of Azure AD and `userPrincipalName` for MSA. It is possible that the “mail” field is empty for Azure AD, and the user may not have an email recorded. If this is the case, we recommend you detect that and ask for a contact email. This is your only chance to get a contact email to reach a customer during or after the customer on-boarding process.
           
-          When the Azure user is redirected to the landing page, a token is added to the query URL. This token is short-lived, and valid for a time duration of 24 hours. You can then detect the presence of this token, and call Microsoft's API to get more context associated with the token.
+          When the Azure user is redirected to the landing page, a token is added to the query URL. This token is short-lived, and valid for a time duration of 24 hours. You can then detect the presence of this token, and call the Microsoft API to get more context associated with the token.
           
           ![Customer subscription flow](media/saas-metering-service-integration-flow-a.png)
           
-          For more information about the API contract for handling transact scenarios in the life cycle of a SaaS offer, see [SaaS fulfillment API](pc-saas-fulfillment-api-v2.md).
+          For more information about the API contract for handling transact scenarios in the life cycle of a SaaS offer, see [SaaS fulfillment API](pc-saas-fulfillment-apis.md).
           
       - question: |
           How do you know the SaaS offer to which the user subscribes in Azure?

@@ -1,13 +1,11 @@
 ---
 title: Add snap grid to the map | Microsoft Azure Maps
 description: How to add a snap grid to a map using Azure Maps Web SDK
-author: rbrundritt
-ms.author: richbrun
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/20/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: cpendle
 ---
 
 # Add a snap grid to the map
@@ -24,7 +22,7 @@ The following example snaps an HTML marker to a grid when it is dragged. Drawing
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Use a snapping grid" src="https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Use a snapping grid" src="https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/azuremaps/pen/rNmzvXO">
   Use a snapping grid</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>)
   on <a href="https://codepen.io">CodePen</a>.
@@ -37,7 +35,7 @@ The following example shows the different customization options available for th
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Snap grid options" src="https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" scrolling="no" title="Snap grid options" src="https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/azuremaps/pen/RwVZJry">
   Snap grid options</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>)
   on <a href="https://codepen.io">CodePen</a>.

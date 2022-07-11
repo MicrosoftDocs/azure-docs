@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -85,7 +84,7 @@ An alternate way to configure web proxy settings is via the Windows PowerShell f
 1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is `Password1`.
 2. At the command prompt, type:
    
-    `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
+    `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
    
     Provide and confirm the password when prompted.
    

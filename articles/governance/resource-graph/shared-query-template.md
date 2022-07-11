@@ -1,11 +1,9 @@
 ---
 title: 'Quickstart: Create a shared query with templates'
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Resource Graph shared query that counts virtual machines by OS.
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-  - subject-armqs
-  - mode-arm
+ms.custom: subject-armqs, mode-arm
 ---
 # Quickstart: Create a shared query by using an ARM template
 
@@ -65,7 +63,7 @@ The resource defined in the template is:
 
 1. Select **Purchase**.
 
-Some additional resources:
+Some other resources:
 
 - To find more samples templates, see
   [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).

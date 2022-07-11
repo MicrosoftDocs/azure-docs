@@ -3,6 +3,7 @@ title: Move Azure VMware Solution subscription to another subscription
 description: This article describes how to move Azure VMware Solution subscription to another subscription. You might move your resources for various reasons, such as billing.  
 ms.custom: subject-moving-resources
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/26/2021
 
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution subscription to another subscription.
@@ -36,7 +37,7 @@ You should have at least contributor rights on both **source** and **target** su
 
    :::image type="content" source="media/move-subscriptions/move-resources-subscription-target.png" alt-text="Screenshot of the target resource.":::
 
-1. Confirm the validation of the resources you selected to move.  This validates all the resources selected to be moved. During the validation of the selected resources, you’ll see **Pending validation** for the Validation status. 
+1. Confirm the validation of the resources you selected to move. During the validation, you’ll see **Pending validation** for the status. 
 
    :::image type="content" source="media/move-subscriptions/pending-move-resources-subscription-target.png" alt-text="Screenshot showing the resource being moved.":::
 
@@ -44,7 +45,7 @@ You should have at least contributor rights on both **source** and **target** su
 
    :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text=" Screenshot showing the validation status of Succeeded.":::
 
-1. Select the check box indicating you understand that the tools and scripts associated will not work until you update them to use the new resource IDs. Then select **Move**.
+1. Select the check box indicating you understand that the tools and scripts associated won't work until you update them to use the new resource IDs. Then select **Move**.
 
    :::image type="content" source="media/move-subscriptions/review-move-resources-subscription-target.png" alt-text="Screenshot showing the summary of the selected resource being moved.":::
 

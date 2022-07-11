@@ -1,21 +1,37 @@
 ---
 title: Transform data with Databricks Python 
-description: Learn how to process or transform data by running a Databricks Python activity in an Azure Data Factory pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to process or transform data by running a Databricks Python activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 03/15/2018
+ms.date: 09/09/2021
 author: nabhishek
 ms.author: abnarain
-ms.custom: devx-track-python
+ms.custom: devx-track-python, synapse
 ---
 # Transform data by running a Python activity in Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Azure Databricks Python Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Python file in your Azure Databricks cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
+The Azure Databricks Python Activity in a [pipeline](concepts-pipelines-activities.md) runs a Python file in your Azure Databricks cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
 For an eleven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+
+## Add a Python activity for Azure Databricks to a pipeline with UI
+
+To use a Python activity for Azure Databricks in a pipeline, complete the following steps:
+
+1. Search for _Python_ in the pipeline Activities pane, and drag a Python activity to the pipeline canvas.
+1. Select the new Python activity on the canvas if it is not already selected.
+1. Select the  **Azure Databricks** tab to select or create a new Azure Databricks linked service that will execute the Python activity.
+
+   :::image type="content" source="media/transform-data-databricks-python/python-activity.png" alt-text="Shows the UI for a Python activity.":::
+
+1. Select the **Settings** tab and specify the path within Azure Databricks to a Python file to be executed, optional parameters to be passed, and any additional libraries to be installed on the cluster to execute the job.
+
+   :::image type="content" source="media/transform-data-databricks-python/python-settings.png" alt-text="Shows the UI for the Settings tab for a Python activity.":::
 
 ## Databricks Python activity definition
 
@@ -28,7 +44,7 @@ Here is the sample JSON definition of a Databricks Python Activity:
         "description": "MyActivity description",
         "type": "DatabricksSparkPython",
         "linkedServiceName": {
-            "referenceName": "MyDatabricksLinkedservice",
+            "referenceName": "MyDatabricksLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {

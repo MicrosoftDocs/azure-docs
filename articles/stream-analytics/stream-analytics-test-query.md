@@ -5,7 +5,7 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 3/6/2020
+ms.date: 01/03/2022
 ms.custom: seodec18
 ---
 
@@ -109,12 +109,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 6. The sample data API is throttled after five requests in a 15-minute window. After the end of the 15-minute window, you can do more sample data requests. This limitation is applied at the subscription level.
 
 ## Troubleshooting
-
-1.	If you get this error “There was a network connectivity issue when fetching the results. Please check your network and firewall settings.”, follow the steps below:
-
-  * To check the connection to the service, open [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, then update your firewall settings.
-  
-2. If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
+If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
 
   * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
   * Reduce query size – To test a selection of query, select a portion of query then click **Test selected query**.

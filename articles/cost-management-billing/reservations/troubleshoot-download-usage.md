@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/30/2020
+ms.date: 09/15/2021
 ---
 
 # Troubleshoot Azure reservation download usage details

@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 07/01/2021
+ms.date: 06/24/2022
 ms.author: alkohli
 ---
 
@@ -41,27 +41,42 @@ The following VMs are supported for creation on your Azure Stack Edge device.
 
 For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
-### NCasT4_v3-series (Preview)
 
-These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU.
+### N-series GPU optimized 
+
+These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications, for example, inferencing workloads The GPU VM that you deploy should match the GPU type on your Azure Stack Edge device. 
+
+#### For Nvidia's Tesla T4 GPU.
 
 | Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  |
 |-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|
 | **Standard_NC4as_T4_v3**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         |
 | **Standard_NC8as_T4_v3**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
+| **Standard_NC16as_T4_v3**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
 
 For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
+
+#### For Nvidia's A2 Tensor Core GPU
+
+
+| Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  |
+|-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|
+| **Standard_NC4as_A2**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         |
+| **Standard_NC8as_A2**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
+| **Standard_NC16as_A2**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
+
 
 ### F-series
 
 These series are optimized for computational workloads and run on Intel Xeon processors. 
 
-| Size           | vCPU's  | Memory: GiB  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  |
+| Size           | vCPU  | Memory: GiB  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  |
 |----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
 | **Standard_F1**    | 1       | 2            | 16                  | 1000                           | 3000                                | 500                              | 4               | 2         |
 | **Standard_F2**    | 2       | 4            | 32                  | 1000                           | 6000                                | 500                              | 8               | 4         |
 | **Standard_F4**    | 4       | 8            | 64                  | 1000                           | 12000                               | 500                              | 16              | 4         |
 | **Standard_F8**    | 8       | 16           | 128                 | 1000                           | 24000                               | 500                              | 32              | 8         |
+| **Standard_F12**  | 12      | 24          | 256                  | 1000                           | 48000                               | 500                             | 64              | 8         |
 | **Standard_F16**   | 16      | 32           | 256                 | 1000                           | 48000                               | 500                              | 64              | 8         |
 | **Standard_F1s**   | 1       | 2            | 4                   | 2000                           | 4000                                | 2300                             | 4               | 2         |
 | **Standard_F2s**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
@@ -70,3 +85,25 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | **Standard_F16s**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
 
 For more information, see [Fsv2-series](../articles/virtual-machines/fsv2-series.md).
+
+### High-performance network VMs
+
+The high-performance network (HPN) virtual machines are tailored for workloads that require fast and uninterrupted performance using high speed network interfaces. Due to the nature of logical core pairing, the supported VM sizes have vCpu count in multiples of 2.  
+
+#### HPN DSv2-series
+
+| Size              | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  |
+|-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| **Standard_DS2_v2_HPN**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_DS3_v2_HPN**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
+| **Standard_DS4_v2_HPN**   | 8     | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
+
+#### HPN F-series
+
+| Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| **Standard_F2s_HPN**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_F4s_HPN**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
+| **Standard_F8s_HPN**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
+| **Standard_F16s_HPN**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
+| **Standard_F12_HPN**   | 12      | 64           | 64                 | 1000                           | 48000                               |   500                             | 64              | 8         |

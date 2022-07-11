@@ -12,6 +12,8 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
 # Create a Windows virtual machine from a Resource Manager template
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 Learn how to create a Windows virtual machine by using an Azure Resource Manager template and Azure PowerShell from the Azure Cloud shell. The template used in this article deploys a single virtual machine running Windows Server in a new virtual network with a single subnet. For creating a Linux virtual machine, see [How to create a Linux virtual machine with Azure Resource Manager templates](../linux/create-ssh-secured-vm-from-template.md).
 
 An alternative is to deploy the template from the Azure portal. To open the template in the portal, select the **Deploy to Azure** button.
@@ -25,7 +27,7 @@ Creating an Azure virtual machine usually includes two steps:
 - Create a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine.
 - Create a virtual machine.
 
-The following example creates a VM from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json). Here is a copy of the template:
+The following example creates an [Azure Generation 2 VM](../generation-2.md) by default from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json). Here is a copy of the template:
 
 [!code-json[create-windows-vm](~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json)]
 

@@ -1,13 +1,13 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (Python) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Python. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: mqtt, devx-track-python
 ---
 
@@ -56,7 +56,6 @@ In this section, you create a Python console app to simulate the device and rece
 1. Add the following `import` statements and variables at the start of the **SimulatedDevice.py** file:
 
     ```python
-    import threading
     import time
     from azure.iot.device import IoTHubDeviceClient
 
@@ -69,50 +68,51 @@ In this section, you create a Python console app to simulate the device and rece
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. Add the following function to print received messages to the console:
+1. Define the following function that will be used to print received messages to the console:
 
     ```python
-    def message_listener(client):
+    def message_handler(message):
         global RECEIVED_MESSAGES
-        while True:
-            message = client.receive_message()
-            RECEIVED_MESSAGES += 1
-            print("\nMessage received:")
+        RECEIVED_MESSAGES += 1
+        print("")
+        print("Message received:")
 
-            #print data and both system and application (custom) properties
-            for property in vars(message).items():
-                print ("    {0}".format(property))
+        # print data from both system and application (custom) properties
+        for property in vars(message).items():
+            print ("    {}".format(property))
 
-            print( "Total calls received: {}".format(RECEIVED_MESSAGES))
-            print()
+        print("Total calls received: {}".format(RECEIVED_MESSAGES))
     ```
 
 1. Add the following code to initialize the client and wait to receive the cloud-to-device message:
 
     ```python
-    def iothub_client_sample_run():
-        try:
-            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+    def main():
+        print ("Starting the Python IoT Hub C2D Messaging device sample...")
 
-            message_listener_thread = threading.Thread(target=message_listener, args=(client,))
-            message_listener_thread.daemon = True
-            message_listener_thread.start()
+        # Instantiate the client
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+
+        print ("Waiting for C2D messages, press Ctrl-C to exit")
+        try:
+            # Attach the handler to the client
+            client.on_message_received = message_handler
 
             while True:
                 time.sleep(1000)
-
         except KeyboardInterrupt:
-            print ( "IoT Hub C2D Messaging device sample stopped" )
+            print("IoT Hub C2D Messaging device sample stopped")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
+            client.shutdown()
     ```
 
 1. Add the following main function:
 
     ```python
     if __name__ == '__main__':
-        print ( "Starting the Python IoT Hub C2D Messaging device sample..." )
-        print ( "Waiting for C2D messages, press Ctrl-C to exit" )
-
-        iothub_client_sample_run()
+        main()
     ```
 
 1. Save and close the **SimulatedDevice.py** file.
@@ -231,7 +231,5 @@ You are now ready to run the applications.
 ## Next steps
 
 In this tutorial, you learned how to send and receive cloud-to-device messages.
-
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).

@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 12/03/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 
@@ -63,6 +63,9 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 
 ## Connect a virtual network in a different subscription to a circuit
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
+
+> [!NOTE]
+> Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
 
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
@@ -194,6 +197,63 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -Resour
 $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
+
+### FastPath and Private Link for 100Gbps ExpressRoute Direct
+
+With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path. This is Generally Available for connections associated to 100Gb ExpressRoute Direct circuits. To enable this, follow the below guidance:
+1. Send an email to **ERFastPathPL@microsoft.com**, providing the following information: 
+* Azure Subscription ID
+* Virtual Network (Vnet) Resource ID
+* Azure Region where the Private Endpoint/Private Link service is deployed
+
+2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
+ ```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
+```
+3. Disable and Enable FastPath on the target connection(s) to enables the changes. Once this step is complete. 100Gb Private Link traffic over ExpressRoute will bypass the ExpressRoute Virtual Network Gateway in the data path.
+
+
+> [!NOTE]
+> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+>
+
+## Enroll in ExpressRoute FastPath features (preview)
+
+FastPath support for virtual network peering is now in Public preview, both IPv4 and IPv6 scenarios are supported. IPv4 FastPath and Vnet peering can be enabled on connections associated to both ExpressRoute Direct and ExpressRoute Partner circuits. IPv6 FastPath and Vnet peering support is limited to connections associated to ExpressRoute Direct.
+
+### FastPath virtual network peering and user defined routes (UDRs).
+
+With FastPath and virtual network peering, you can enable ExpressRoute connectivity directly to VMs in a local or peered virtual network, bypassing the ExpressRoute virtual network gateway in the data path.
+
+With FastPath and UDR, you can configure a UDR on the GatewaySubnet to direct ExpressRoute traffic to an Azure Firewall or third party NVA. FastPath will honor the UDR and send traffic directly to the target Azure Firewall or NVA, bypassing the ExpressRoute virtual network gateway in the data path.
+
+> [!NOTE]
+> The previews for virtual network peering and user defined routes (UDRs) are offered together. You cannot enable only one scenario.
+>
+
+To enroll in these previews, run the follow Azure PowerShell command in the target Azure subscription:
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
+```
+
+### FastPath and Private Link for 10Gbps ExpressRoute Direct
+
+With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path. This preview supports connections associated to 10Gbps ExpressRoute Direct circuits. This preview doesn't support ExpressRoute circuits managed by an ExpressRoute partner.
+
+To enroll in this preview, run the following Azure PowerShell command in the target Azure subscription:
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
+```
+
+> [!NOTE]
+> Any connections configured for FastPath in the target subscription will be enrolled in the selected preview. We do not advise enabling these previews in production subscriptions.
+> If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
+>   1. Enroll in one of the FastPath preview features with the Azure PowerShell commands above.
+>   1. Disable and then re-enable FastPath on the target connection.
+>   1. To switch between preview features, register the subscription with the target preview PowerShell command, and then disable and re-enable FastPath on the connection.
+>
 
 ## Clean up resources
 

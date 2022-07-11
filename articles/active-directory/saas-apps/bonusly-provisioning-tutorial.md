@@ -29,7 +29,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in Bonusly with Admin permissions
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Bonusly Rest API](https://konghq.com/solutions/gateway/), which is available to Bonusly developers.
+> The Azure AD provisioning integration relies on the [Bonusly REST API](https://konghq.com/solutions/gateway/), which is available to Bonusly developers.
 
 ## Adding Bonusly from the gallery
 

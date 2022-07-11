@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 10/20/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.date: 08/11/2021
+ms.topic: how-to
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Train a model by using a custom Docker image
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
 
@@ -24,7 +26,6 @@ Run the code on either of these environments:
 
 * Azure Machine Learning compute instance (no downloads or installation necessary):
   * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
-  * In the Azure Machine Learning [examples repository](https://github.com/Azure/azureml-examples), find a completed notebook by going to the **notebooks** > **fastai** > **train-pets-resnet34.ipynb** directory. 
 * Your own Jupyter Notebook server:
   * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
   * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
@@ -83,7 +84,7 @@ It's also possible to use a custom Dockerfile. Use this approach if you need to 
 ```python 
 # Specify Docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1
 RUN echo "Hello from custom container!"
 """
 
@@ -98,8 +99,8 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 
 >[!IMPORTANT]
 > Azure Machine Learning only supports Docker images that provide the following software:
-> * Ubuntu 16.04 or greater.
-> * Conda 4.5.# or greater.
+> * Ubuntu 18.04 or greater.
+> * Conda 4.7.# or greater.
 > * Python 3.6+.
 > * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
@@ -107,7 +108,7 @@ For more information about creating and managing Azure Machine Learning environm
 
 ### Create or attach a compute target
 
-You need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
+You need to create a [compute target](v1/concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
 
 Creation of `AmlCompute` takes a few minutes. If the `AmlCompute` resource is already in your workspace, this code skips the creation process.
 

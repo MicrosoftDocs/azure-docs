@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot issues when you sign up for a new account in Azure portal
+title: Troubleshoot issues when you sign up for a new account in the Azure portal
 description: Resolving an issue when trying to sign up for a new account in the Microsoft Azure portal.
 services: cost-management-billing
-author: v-miegge
-manager: dcscontentpm
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/13/2021
-ms.author: v-miegge
+ms.date: 10/07/2021
+ms.author: banders
 ---
 
-# Troubleshoot issues when you sign up for a new account in Azure portal
+# Troubleshoot issues when you sign up for a new account in the Azure portal
 
 You may experience an issue when you try to sign up for a new account in the Microsoft Azure portal. This short guide will walk you through the sign-up process and discuss some common issues at each step.
 
@@ -109,7 +109,7 @@ Here are some additional tips:
 
 #### Credit card declined or not accepted
 
-Virtual or pre-paid credit or debit cards aren't accepted as payment for Azure subscriptions. To see what else may cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](./troubleshoot-declined-card.md).
+Virtual or pre-paid credit cards aren't accepted as payment for Azure subscriptions. To see what else may cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](./troubleshoot-declined-card.md).
 
 #### Credit card form doesn't support my billing address
 
@@ -169,8 +169,8 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 
 ## Contact us for help
 
-If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Find out more about Azure Cost Management
+## Next steps
 
-- [Azure Cost Management and Billing documentation](../index.yml)
+- Read the [Cost Management and Billing documentation](../index.yml)

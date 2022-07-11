@@ -1,12 +1,13 @@
 ---
 title: Azure Cosmos DB indexing policies
 description:  Learn how to configure and change the default indexing policy for automatic indexing and greater performance in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.author: tisande
+ms.date: 12/07/2021
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 
 # Indexing policies in Azure Cosmos DB
@@ -17,7 +18,7 @@ In Azure Cosmos DB, every container has an indexing policy that dictates how the
 In some situations, you may want to override this automatic behavior to better suit your requirements. You can customize a container's indexing policy by setting its *indexing mode*, and include or exclude *property paths*.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB API for MongoDB](mongodb/mongodb-indexing.md)
 
 ## Indexing mode
 
@@ -27,9 +28,9 @@ Azure Cosmos DB supports two indexing modes:
 - **None**: Indexing is disabled on the container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) until complete.
 
 > [!NOTE]
-> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (except if you are using an Azure Cosmos account in [serverless](serverless.md) mode which doesn't support lazy indexing).
+> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmoslazyindexing@microsoft.com (except if you are using an Azure Cosmos account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
-By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
+By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index documents as they are written.
 
 ## <a id="index-size"></a>Index size
 
@@ -55,7 +56,7 @@ Taking the same example again:
             { "country": "Germany", "city": "Berlin" },
             { "country": "France", "city": "Paris" }
         ],
-        "headquarters": { "country": "Belgium", "employees": 250 }
+        "headquarters": { "country": "Belgium", "employees": 250 },
         "exports": [
             { "city": "Moscow" },
             { "city": "Athens" }
@@ -324,7 +325,7 @@ The following considerations apply when creating composite indexes to optimize a
 | ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
 | ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
-## <index-transformation>Modifying the indexing policy
+## <a id=index-transformation></a>Modifying the indexing policy
 
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old indexing policy is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 

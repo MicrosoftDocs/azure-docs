@@ -3,7 +3,7 @@ title: Linux NFS read-ahead best practices for Azure NetApp Files - Session slot
 description: Describes filesystem cache and Linux NFS read-ahead best practices for Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2021
-ms.author: b-juche
+ms.date: 02/02/2022
+ms.author: anfdocs
 ---
 # Linux NFS read-ahead best practices for Azure NetApp Files
 
@@ -54,15 +53,15 @@ Read-ahead can be defined either dynamically per NFS mount using the following s
 
 To show the current read-ahead value (the returned value is in KiB), run the following command:  
 
-`$ ./readahead.sh  show <mount-point>`   
+`$ ./readahead.sh show <mount-point>`   
 
 To set a new value for read-ahead, run the following command:   
 
-`$ ./readahead.sh  show <mount-point> [read-ahead-kb]`
+`$ ./readahead.sh set <mount-point> [read-ahead-kb]`
  
 ### Example   
 
-```
+```bash
 #!/bin/bash
 # set | show readahead for a specific mount point
 # Useful for things like NFS and if you do not know / care about the backing device
@@ -70,8 +69,7 @@ To set a new value for read-ahead, run the following command:
 # To the extent possible under law, Red Hat, Inc. has dedicated all copyright
 # to this software to the public domain worldwide, pursuant to the
 # CC0 Public Domain Dedication. This software is distributed without any warranty.
-# See <http://creativecommons.org/publicdomain/zero/1.0/>.
-#
+# For more information, see the [CC0 1.0 Public Domain Dedication](http://creativecommons.org/publicdomain/zero/1.0/).
 
 E_BADARGS=22
 function myusage() {

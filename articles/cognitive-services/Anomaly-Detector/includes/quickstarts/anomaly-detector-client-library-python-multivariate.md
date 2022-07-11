@@ -25,7 +25,7 @@ Use the Anomaly Detector multivariate client library for Python to:
 * [Python 3.x](https://www.python.org/)
 * The [Pandas data analysis library](https://pandas.pydata.org/)
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -41,7 +41,7 @@ pip install pandas
 pip install --upgrade azure-ai-anomalydetector
 ```
 
-### Create a new python application
+### Create a new Python application
 
  Create a new Python file and import the following libraries.
 
@@ -116,14 +116,13 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
 We'll first train the model, check the model's status while training to determine when training is complete, and then retrieve the latest model ID which we will need when we move to the detection phase.
 
 ```python
-def train(self, start_time, end_time, max_tryout=500):
-
+def train(self, start_time, end_time):
     # Number of models available now
     model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
     print("{:d} available models before training.".format(len(model_list)))
     
     # Use sample data to train the model
-    print("Training new model...")
+    print("Training new model...(it may take a few minutes)")
     data_feed = ModelInfo(start_time=start_time, end_time=end_time, source=self.data_source)
     response_header = \
     self.ad_client.train_multivariate_model(data_feed, cls=lambda *args: [args[i] for i in range(len(args))])[-1]
@@ -134,20 +133,29 @@ def train(self, start_time, end_time, max_tryout=500):
     
     # Wait until the model is ready. It usually takes several minutes
     model_status = None
-    tryout_count = 0
-    while (tryout_count < max_tryout and model_status != "READY"):
-        model_status = self.ad_client.get_multivariate_model(trained_model_id).model_info.status
-        tryout_count += 1
-        time.sleep(2)
-    
-    assert model_status == "READY"
-    
-    print("Done.", "\n--------------------")
-    print("{:d} available models after training.".format(len(new_model_list)))
-    
+    while model_status != ModelStatus.READY and model_status != ModelStatus.FAILED:
+        model_info = self.ad_client.get_multivariate_model(trained_model_id).model_info
+        model_status = model_info.status
+        time.sleep(10)
+
+    if model_status == ModelStatus.FAILED:
+        print("Creating model failed.")
+        print("Errors:")
+        if model_info.errors:
+            for error in model_info.errors:
+                print("Error code: {}. Message: {}".format(error.code, error.message))
+        else:
+            print("None")
+        return None
+
+    if model_status == ModelStatus.READY:
+        # Model list after training
+        new_model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
+        print("Done.\n--------------------")
+        print("{:d} available models after training.".format(len(new_model_list)))
+
     # Return the latest model id
     return trained_model_id
-
 ```
 
 ## Detect anomalies
@@ -155,8 +163,7 @@ def train(self, start_time, end_time, max_tryout=500):
 Use the `detect_anomaly` and `get_dectection_result` to determine if there are any anomalies within your datasource. You will need to pass the model ID for the model that you just trained.
 
 ```python
-def detect(self, model_id, start_time, end_time, max_tryout=500):
-    
+def detect(self, model_id, start_time, end_time):
     # Detect anomaly in the same data source (but a different interval)
     try:
         detection_req = DetectionRequest(source=self.data_source, start_time=start_time, end_time=end_time)
@@ -166,21 +173,23 @@ def detect(self, model_id, start_time, end_time, max_tryout=500):
     
         # Get results (may need a few seconds)
         r = self.ad_client.get_detection_result(result_id)
-        tryout_count = 0
-        while r.summary.status != "READY" and tryout_count < max_tryout:
-            time.sleep(1)
+        while r.summary.status != DetectionStatus.READY and r.summary.status != DetectionStatus.FAILED:
             r = self.ad_client.get_detection_result(result_id)
-            tryout_count += 1
-    
-        if r.summary.status != "READY":
-            print("Request timeout after %d tryouts.".format(max_tryout))
+            time.sleep(2)
+
+        if r.summary.status == DetectionStatus.FAILED:
+            print("Detection failed.")
+            print("Errors:")
+            if r.summary.errors:
+                for error in r.summary.errors:
+                    print("Error code: {}. Message: {}".format(error.code, error.message))
+            else:
+                print("None")
             return None
-    
     except HttpResponseError as e:
         print('Error code: {}'.format(e.error.code), 'Error message: {}'.format(e.error.message))
     except Exception as e:
         raise e
-    
     return r
 ```
 
@@ -248,9 +257,9 @@ if __name__ == '__main__':
 
 ```
 
-Before running it can be helpful to check your project against the [full sample code](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) that this quickstart is derived from.
+Before running it can be helpful to check your project against the [full sample code](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) that this quickstart is derived from.
 
-We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
+We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
 
 Run the application with the `python` command and your file name.
 

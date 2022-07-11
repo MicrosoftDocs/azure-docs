@@ -3,12 +3,12 @@ title: Azure Cognitive Services security
 titleSuffix: Azure Cognitive Services
 description: Learn about the various security considerations for Cognitive Services usage.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2020
-ms.author: erhopf
+ms.author: pafarley
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
@@ -197,6 +197,10 @@ NSString* value =
 Customer Lockbox is available for this service:
 
 * Translator
+* Conversational language understanding
+* Custom text classification
+* Custom named entity recognition
+* Orchestration workflow
 
 For the following services, Microsoft engineers will not access any customer data in the E0 tier: 
 
@@ -204,9 +208,6 @@ For the following services, Microsoft engineers will not access any customer dat
 * Face
 * Content Moderator
 * Personalizer
-
-> [!IMPORTANT]
-> For **Form Recognizer**, Microsoft engineers will not access any customer data in resources created after July 10, 2020.
 
 To request the ability to use the E0 SKU, fill out and submit this [request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using the E0 SKU with LUIS, you'll need to create a new resource from the Azure portal and select E0 as the Pricing Tier. Users won't be able to upgrade from the F0 to the new E0 SKU.
 

@@ -2,9 +2,8 @@
 title: Send Azure Diagnostics data to Application Insights
 description: Update the Azure Diagnostics public configuration to send data to Application Insights.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 03/19/2016
+ms.date: 03/31/2022
+ms.reviewer: JeffWo
 
 ---
 
@@ -18,7 +17,7 @@ The Azure diagnostics extension 1.5 introduced sinks, which are additional locat
 
 Example configuration of a sink for Application Insights:
 
-```XML
+```xml
 <SinksConfig>
     <Sink name="ApplicationInsights">
       <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>
@@ -81,7 +80,7 @@ Here is a complete example of the public configuration file that
 1. sends all errors to Application Insights (specified at the **DiagnosticMonitorConfiguration** node)
 2. also sends Verbose level logs for the Application Logs (specified at the **Logs** node).
 
-```XML
+```xml
 <WadCfg>
   <DiagnosticMonitorConfiguration overallQuotaInMB="4096"
        sinks="ApplicationInsights.MyTopDiagData"> <!-- All info below sent to this channel -->
@@ -193,7 +192,7 @@ In the previous configuration, the following lines have the following meanings:
 
 ### Send Verbose application logs to Application Insights
 
-```XML
+```xml
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 ```
 ```JSON

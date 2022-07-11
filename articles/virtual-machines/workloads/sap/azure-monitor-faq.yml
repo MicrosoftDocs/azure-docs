@@ -4,11 +4,9 @@ metadata:
   description: In this article, learn answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.
   author: rdeltcheva
   ms.service: baremetal-sap
-  ms.topic: article
+  ms.topic: faq
   ms.date: 07/08/2020
   ms.author: radeltch
-  
-    
 title: Azure Monitor for SAP Solutions FAQ (preview)
 summary: |
   ## Frequently asked questions
@@ -62,8 +60,8 @@ sections:
         answer: |
           The following configurations are supported:
              - Default or named standalone instances in a virtual machine.  
-             - Clustered instances or instances in an AlwaysOn configuration when either using the virtual name of the clustered resource or the AlwaysOn listener name.
-             - Currently, no cluster or AlwaysOn specific metrics are collected.    
+             - Clustered instances or instances in an Always On configuration when either using the virtual name of the clustered resource or the Always On listener name.
+             - Currently, no cluster or Always On specific metrics are collected.    
              - Azure SQL Database (PAAS) is currently not supported.    
           
       - question: |
@@ -134,4 +132,4 @@ additionalContent: |
   Learn more about Azure Monitor for SAP Solutions.
 
   > [!div class="nextstepaction"]
-  > [Azure Monitor for SAP Solutions](azure-monitor-overview.md)
+  > [Monitor SAP on Azure](monitor-sap-on-azure.md)

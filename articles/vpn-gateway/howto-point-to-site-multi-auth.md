@@ -115,8 +115,7 @@ VPN clients must be configured with client configuration settings. The VPN clien
 
 For instructions to generate and install VPN client configuration files, use the article that pertains to your configuration:
 
-* [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
-* [Azure Active Directory authentication: Configure a VPN client for P2S OpenVPN protocol connections](openvpn-azure-ad-client.md).
+[!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 ## <a name="faq"></a>Point-to-Site FAQ
 
@@ -126,6 +125,6 @@ This section contains FAQ information that pertains to Point-to-Site configurati
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-network/network-overview.md).
 
 For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

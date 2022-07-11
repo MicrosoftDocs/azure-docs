@@ -1,11 +1,11 @@
 ---
 title: Prevent accidental deletion - Azure file shares
 description: Learn about soft delete for Azure file shares and how you can use it to for data recovery and preventing accidental deletion.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 services: storage
 ---
@@ -45,10 +45,14 @@ The retention period is the amount of time that soft deleted file shares are sto
 
 Both standard and premium file shares are billed on the used capacity when soft deleted, rather than provisioned capacity. Additionally, premium file shares are billed at the snapshot rate while in the soft delete state. Standard file shares are billed at the regular rate while in the soft delete state. You won't be charged for data that is permanently deleted after the configured retention period.
 
-For more information on prices for Azure File Storage in general, see the [Azure File Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/files/).
+For more information on prices for Azure Files in general, see the [Azure Files Pricing Page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 When you initially enable soft delete, we recommend using a small retention period to better understand how the feature affects your bill.
 
 ## Next steps
 
 To learn how to enable and use soft delete, continue to [Enable soft delete](storage-files-enable-soft-delete.md).
+
+To learn how to prevent a storage account from being deleted or modified, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
+
+To learn how to apply locks to resources and resource groups, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).

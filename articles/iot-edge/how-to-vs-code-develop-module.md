@@ -3,10 +3,10 @@ title: Develop and debug modules for Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to develop, build, and debug a module for Azure IoT Edge using C#, Python, Node.js, Java, or C
 services: iot-edge
 keywords: 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
-ms.date: 08/07/2019
+ms.author: patricka
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
@@ -24,9 +24,6 @@ If you aren't familiar with the debugging capabilities of Visual Studio Code, re
 
 This article provides instructions for developing and debugging modules in multiple languages for multiple architectures. Currently, Visual Studio Code provides support for modules written in C#, C, Python, Node.js, and Java. The supported device architectures are X64 and ARM32. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 
->[!NOTE]
->Develop and debugging support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
-
 ## Prerequisites
 
 You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
@@ -43,7 +40,7 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 You'll also need to install some additional, language-specific tools to develop your module:
 
-- C#, including Azure Functions: [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1)
+- C#, including Azure Functions: [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1)
 
 - Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
 
@@ -60,16 +57,15 @@ To build and deploy your module image, you need Docker to build the module image
     > [!TIP]
     > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
-Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6/3.7) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
+Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6/3.7/3.8) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
-   
+
 > [!NOTE]
-> Currently, iotedgehubdev uses a docker-py library that is not compatible with Python 3.8.
 >
-> If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
+> If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
 
 To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
 
@@ -114,6 +110,18 @@ There are four items within the solution:
 
 To see how the simulated temperature module works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
+### Set IoT Edge runtime version
+
+The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.2. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio Code to match.
+
+1. Select **View** > **Command Palette**.
+
+1. In the command palette, enter and run the command **Azure IoT Edge: Set default IoT Edge runtime version**.
+
+1. Choose the runtime version that your IoT Edge devices are running from the list.
+
+After selecting a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
+
 ## Add additional modules
 
 To add additional modules to your solution, run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette. You can also right-click the **modules** folder or the `deployment.template.json` file in the Visual Studio Code Explorer view and then select **Add IoT Edge Module**.
@@ -137,16 +145,20 @@ When you're ready to customize the template with your own code, use the [Azure I
 
 If you're developing in C#, Node.js, or Java, your module requires use of a **ModuleClient** object in the default module code so that it can start, run, and route messages. You'll also use the default input channel **input1** to take action when the module receives messages.
 
-### Set up IoT Edge simulator for IoT Edge solution
+### Set up IoT Edge simulator
 
-On your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
+IoT Edge modules need an IoT Edge environment to run and debug. You can use an IoT Edge simulator on your development machine instead of running the full IoT Edge security daemon and runtime. You can either simulate a device to debug solutions with multiple modules, or simulate a single module application.
+
+Option 1: simulate an IoT Edge solution:
 
 1. In the **Explorer** tab on the left side, expand the **Azure IoT Hub** section. Right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
 
-### Set up IoT Edge simulator for single module app
+Option 2: simulate a single IoT Edge module:
 
-To set up and start the simulator, run the command **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module** from the Visual Studio Code command palette. When prompted, use the value **input1** from the default module code (or the equivalent value from your code) as the input name for your application. The command triggers the **iotedgehubdev** CLI and then starts the IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. You will use it later.
+1. In the Visual Studio Code command palette, run the command **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module**.
+1. Provide the names of any inputs that you want to test with your module. If you're using the default sample code, use the value **input1**.
+1. The command triggers the **iotedgehubdev** CLI and then starts the IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. You will use it later.
 
    ![Set up IoT Edge simulator for single module app](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
@@ -158,6 +170,8 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
 
 ### Debug module in launch mode
 
+After the simulator has been started successfully, you can debug your module code.
+
 1. Prepare your environment for debugging according to the requirements of your development language, set a breakpoint in your module, and select the debug configuration to use:
    - **C#**
      - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to build .NET Core application.
@@ -168,7 +182,7 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
 
      - Open the file `Program.cs` and add a breakpoint.
 
-     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
+     - Navigate to the Visual Studio Code Debug view by selecting the debug icon from the menu on the left or by typing `Ctrl+Shift+D`. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
         > [!NOTE]
         > If your .NET Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
@@ -182,11 +196,11 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
 
      - Open the file `app.js` and add a breakpoint.
 
-     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Node.js)** from the dropdown.
+     - Navigate to the Visual Studio Code Debug view by selecting the debug icon from the menu on the left or by typing `Ctrl+Shift+D`. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Node.js)** from the dropdown.
    - **Java**
      - Open the file `App.java` and add a breakpoint.
 
-     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Java)** from the dropdown.
+     - Navigate to the Visual Studio Code Debug view by selecting the debug icon from the menu on the left or by typing `Ctrl+Shift+D`. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Java)** from the dropdown.
 
 1. Click **Start Debugging** or press **F5** to start the debug session.
 
@@ -275,22 +289,24 @@ When debugging modules using this method, your modules are running on top of the
       ptvsd.break_into_debugger()
       ```
 
-     For example, if you want to debug the `receive_message_listener` function, you would insert that line of code as shown below:
+     For example, if you want to debug the `receive_message_handler` function, you would insert that line of code as shown below:
 
-      ```python
-      def receive_message_listener(client):
-          ptvsd.break_into_debugger()
-          global RECEIVED_MESSAGES
-          while True:
-              message = client.receive_message_on_input("input1")   # blocking call
-              RECEIVED_MESSAGES += 1
-              print("Message received on input1")
-              print( "    Data: <<{}>>".format(message.data) )
-              print( "    Properties: {}".format(message.custom_properties))
-              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
-              print("Forwarding message to output1")
-              client.send_message_to_output(message, "output1")
-              print("Message successfully forwarded")
+    ```python
+
+    async def receive_message_handler(message):
+        # NOTE: This function only handles messages sent to "input1".
+        # Messages sent to other inputs, or to the default, will be discarded
+
+        ptvsd.break_into_debugger()
+
+        if message.input_name == "input1":
+            print("the data in the message received on input1 was ")
+            print(message.data)
+            print("custom properties are")
+            print(message.custom_properties)
+            print("forwarding mesage to output1")
+            await client.send_message_to_output(message, "output1")
+
       ```
 
 1. In the Visual Studio Code command palette:

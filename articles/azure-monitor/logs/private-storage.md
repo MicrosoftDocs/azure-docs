@@ -2,9 +2,10 @@
 title: Using customer-managed storage accounts in Azure Monitor Log Analytics
 description: Use your own storage account for Log Analytics scenarios
 ms.topic: conceptual
-author: noakup
-ms.author: noakuper
-ms.date: 09/03/2020
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: noakuper
+ms.date: 04/04/2022
 ---
 
 # Using customer-managed storage accounts in Azure Monitor Log Analytics
@@ -20,11 +21,11 @@ The Azure Diagnostics extension agents (also called WAD and LAD for Windows and 
 Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/storage-insights/create-or-update).
 
 Supported data types:
-* Syslog
-* Windows events
+* [Syslog](../agents/data-sources-syslog.md)
+* [Windows events](../agents/data-sources-windows-events.md)
 * Service Fabric
-* ETW Events
-* IIS Logs
+* [ETW Events](../agents/data-sources-event-tracing-windows.md)
+* [IIS Logs](../agents/data-sources-iis-logs.md)
 
 ## Using Private links
 Customer-managed storage accounts are used to ingest Custom logs or IIS logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace. 
@@ -98,7 +99,7 @@ To replace a storage account used for ingestion,
 When using your own storage account, retention is up to you. Log Analytics won't delete logs stored on your private storage. Instead, you should set up a policy to handle the load according to your preferences.
 
 #### Consider load
-Storage accounts can handle a certain load of read and write requests before they start throttling requests (For more information, see [Scalability and performance targets for Blob storage](../../storage/common/scalability-targets-standard-account.md)). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure portal](../insights/storage-insights-overview.md).
+Storage accounts can handle a certain load of read and write requests before they start throttling requests (For more information, see [Scalability and performance targets for Blob storage](../../storage/common/scalability-targets-standard-account.md)). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure portal](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ### Related charges
 Storage accounts are charged by the volume of stored data, the type of the storage, and the type of redundancy. For details see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs) and [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables).

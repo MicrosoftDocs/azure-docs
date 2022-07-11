@@ -1,30 +1,35 @@
 ---
-title: "Monitor Azure Arc enabled Kubernetes clusters"
-ms.date: 04/05/2021
+title: Monitor Azure Arc-enabled Kubernetes clusters
+ms.date: 05/24/2022
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: "Collect metrics and logs of Azure Arc enabled Kubernetes clusters using Azure Monitor"
+description: Collect metrics and logs of Azure Arc-enabled Kubernetes clusters using Azure Monitor.
+ms.reviewer: aul
 ---
 
-# Azure Monitor Container Insights for Azure Arc enabled Kubernetes clusters
+# Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters
 
-[Azure Monitor Container Insights](container-insights-overview.md) provides rich monitoring experience for Azure Arc enabled Kubernetes clusters.
+[Azure Monitor Container Insights](container-insights-overview.md) provides rich monitoring experience for Azure Arc-enabled Kubernetes clusters.
 
-[!INCLUDE [preview features note](../../azure-arc/kubernetes/includes/preview/preview-callout.md)]
 
 ## Supported configurations
 
-- Azure Monitor Container Insights supports monitoring Azure Arc enabled Kubernetes (preview) as described in the [Overview](container-insights-overview.md) article, except the live data (preview) feature. Also, users aren't required to have [Owner](../../role-based-access-control/built-in-roles.md#owner) permissions to [enable metrics](container-insights-update-metrics.md)
+- Azure Monitor Container Insights supports monitoring Azure Arc-enabled Kubernetes as described in the [Overview](container-insights-overview.md) article, except the live data feature. Also, users aren't required to have [Owner](../../role-based-access-control/built-in-roles.md#owner) permissions to [enable metrics](container-insights-update-metrics.md)
 - `Docker`, `Moby`, and CRI compatible container runtimes such `CRI-O` and `containerd`.
 - Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
+>[!NOTE]
+>If you are migrating from Container Insights on Azure Red Hat OpenShift v4.x, please also ensure that you have [disabled monitoring](./container-insights-optout-openshift-v4.md) before proceeding with configuring Container Insights on Azure Arc enabled Kubernetes to prevent any installation issues.
+>
+
+
 ## Prerequisites
 
-- You've met the pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
-- A Log Analytics workspace: Azure Monitor Container Insights supports a Log Analytics workspace in the regions listed under Azure [products by region page](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). You can create your own workspace through [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md), or [Azure portal](../logs/quick-create-workspace.md).
-- You need to have [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Azure Arc enabled Kubernetes resource. If the Log Analytics workspace is in a different subscription, then [Log Analytics Contributor](../logs/manage-access.md#manage-access-using-azure-permissions) role assignment is needed on the Log Analytics workspace.
-- To view the monitoring data, you need to have [Log Analytics Reader](../logs/manage-access.md#manage-access-using-azure-permissions) role assignment on the Log Analytics workspace.
+- Pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
+- Log Analytics workspace. Azure Monitor Container Insights supports a Log Analytics workspace in the regions listed under Azure [products by region page](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). You can create your own workspace using [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md), or [Azure portal](../logs/quick-create-workspace.md).
+- [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Azure Arc-enabled Kubernetes resource. If the Log Analytics workspace is in a different subscription, then [Log Analytics Contributor](../logs/manage-access.md#azure-rbac) role assignment is needed on the Log Analytics workspace.
+- To view the monitoring data, you need to have [Log Analytics Reader](../logs/manage-access.md#azure-rbac) role assignment on the Log Analytics workspace.
 - The following endpoints need to be enabled for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
 
     | Endpoint | Port |
@@ -35,7 +40,7 @@ description: "Collect metrics and logs of Azure Arc enabled Kubernetes clusters 
     | `*.monitoring.azure.com` | 443 |
     | `login.microsoftonline.com` | 443 |
 
-    If your Arc enabled Kubernetes resource is in Azure US Government environment, following endpoints need to be enabled for outbound access:
+    If your Azure Arc-enabled Kubernetes resource is in Azure US Government environment, following endpoints need to be enabled for outbound access:
 
     | Endpoint | Port |
     |----------|------|
@@ -44,10 +49,10 @@ description: "Collect metrics and logs of Azure Arc enabled Kubernetes clusters 
     | `dc.services.visualstudio.com` | 443 |
     
 
+- If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install
+
 - If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions listed [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
 
-    >[!NOTE]
-    > The script-based version of deploying Azure Monitor Container Insights (preview) is being replaced by the [cluster extension](../../azure-arc/kubernetes/extensions.md) form of deployment. Azure Monitor deployed previously via script is only supported till June 2021 and it is thus advised to migrate to the cluster extension form of deployment at the earliest.
 
 ### Identify workspace resource ID
 
@@ -67,7 +72,7 @@ Run the following commands to locate the full Azure Resource Manager identifier 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -109,7 +114,7 @@ Checkout the [resource requests and limits section of Helm chart](https://github
 
 ### Option 4 - On Azure Stack Edge
 
-If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, then a custom mount path `/home/data/docker` needs to be used.
+If the Azure Arc-enabled Kubernetes cluster is on Azure Stack Edge, then a custom mount path `/home/data/docker` needs to be used.
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
@@ -123,11 +128,11 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 >[!IMPORTANT]
 >  If you are deploying Azure Monitor on a Kubernetes cluster running on top of Azure Stack Edge, then the Azure CLI option needs to be followed instead of the Azure portal option as a custom mount path needs to be set for these clusters.    
 
-### Onboarding from the Azure Arc enabled Kubernetes resource blade
+### Onboarding from the Azure Arc-enabled Kubernetes resource blade
 
-1. In the Azure portal, select the Arc enabled Kubernetes cluster that you wish to monitor.
+1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster that you wish to monitor.
 
-2. Select the 'Insights (preview)' item under the 'Monitoring' section of the resource blade.
+2. Select the 'Insights' item under the 'Monitoring' section of the resource blade.
 
 3. On the onboarding page, select the 'Configure Azure Monitor' button
 
@@ -139,7 +144,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 1. In the Azure portal, navigate to the 'Monitor' blade, and select the 'Containers' option under the 'Insights' menu.
 
-2. Select the 'Unmonitored clusters' tab to view the Azure Arc enabled Kubernetes clusters that you can enable monitoring for.
+2. Select the 'Unmonitored clusters' tab to view the Azure Arc-enabled Kubernetes clusters that you can enable monitoring for.
 
 3. Click on the 'Enable' link next to the cluster that you want to enable monitoring for.
 
@@ -154,7 +159,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template-params -o  arc-k8s-azmon-extension-arm-template-params.json
     ```
 
-2. Update parameter values in arc-k8s-azmon-extension-arm-template-params.json file.For Azure public cloud, `opinsights.azure.com` needs to be used as the value of workspaceDomain.
+2. Update parameter values in arc-k8s-azmon-extension-arm-template-params.json file. For Azure public cloud, `opinsights.azure.com` needs to be used as the value of workspaceDomain and for AzureUSGovernment, `opinsights.azure.us` needs to be used as the value of workspaceDomain.
 
 3. Deploy the template to create Azure Monitor Container Insights extension 
 
@@ -164,20 +169,36 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
     ```
 
+## Verify extension installation status
+Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
+
+### Azure portal
+1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
+2. Select the 'Extensions' item under the 'Settings' section of the resource blade
+3. You should see an extension with the name 'azuremonitor-containers' listed, with the listed status in the 'Install status' column
+### Azure CLI
+Run the following command to show the latest status of the `Microsoft.AzureMonitor.Containers` extension
+```azurecli
+az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers
+```
+
 ## Delete extension instance
 
 The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data within the Log Analytics resource is left intact.
 
-```bash
+```azurecli
 az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
 ```
 
 ## Disconnected cluster
 If your cluster is disconnected from Azure for > 48 hours, then Azure Resource Graph won't have information about your cluster. As a result the Insights blade may display incorrect information about your cluster state.
 
+## Troubleshooting
+For issues with enabling monitoring, we have provided a [troubleshooting script](https://aka.ms/azmon-ci-troubleshooting) to help diagnose any problems.
+
 ## Next steps
 
-- With monitoring enabled to collect health and resource utilization of your Arc-enabled Kubernetes cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
+- With monitoring enabled to collect health and resource utilization of your Azure Arc-enabled Kubernetes cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
 
 - By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](container-insights-agent-config.md) to configure desired data collection settings to your ConfigMap configurations file.
 

@@ -2,14 +2,14 @@
 title: Secure external access with groups in Azure Active Directory and Microsoft 365 
 description: Azure Active Directory and Microsoft 365 Groups can be used to increase security when external users access your resources.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -95,12 +95,12 @@ We recommend a naming convention for security groups that makes the purpose clea
 
 Both Azure AD security groups and Microsoft 365 groups can be created from the Azure AD portal or the Microsoft 365 admin portal. Both types can be used as the basis for securing external access:
 
-|Considerations | Azure AD security groups (manual and dynamic)| Microsoft 365 Groups |
+| Considerations | Azure AD security groups (manual and dynamic)| Microsoft 365 Groups |
 | - | - | - |
-| What can the group contain?| Users<br>Groups<br>Service principles<br>Devices| Users only |
+| What can the group contain?| Users<br>Groups<br>Service principals<br>Devices| Users only |
 | Where is the group created?| Azure AD portal<br>Microsoft 365 portal (if to be mail enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure AD portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
-| Who creates by default?| Administrators <br>End-users| Administrators<br>End-users |
-| Who can be added by default?| Internal users (members)| Tenant members and guests from any organization |
+| Who creates by default?| Administrators <br>Users| Administrators<br>Users |
+| Who can be added by default?| Internal users (tenant members)| Tenant members and guests from any organization |
 | What does it grant access to?| Only resources to which it's assigned.| All group-related resources:<br>(Group mailbox, site, team, chats, and other included Microsoft 365 resources)<br>Any other resources to which group is added |
 | Can be used with| Conditional Access<br>Entitlement Management<br>Group licensing| Conditional Access<br>Entitlement Management<br>Sensitivity labels |
 
@@ -145,13 +145,13 @@ Hybrid organizations have both an on-premises infrastructure and an Azure AD clo
 
 ## Microsoft 365 Groups
 
-[Microsoft 365 Groups](/microsoft-365/admin/create-groups/office-365-groups) are the foundational membership service that drives all access across Microsoft 365. They can be created from the [Azure portal](https://portal.azure.com/), or the [Microsoft 365 portal](https://admin.microsoft.com/). When an Microsoft 365 group is created, you grant access to a group of resources used to collaborate. See [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups) for a complete listing of these resources.
+[Microsoft 365 Groups](/microsoft-365/admin/create-groups/office-365-groups) are the foundational membership service that drives all access across Microsoft 365. They can be created from the [Azure portal](https://portal.azure.com/), or the [Microsoft 365 portal](https://admin.microsoft.com/). When a Microsoft 365 group is created, you grant access to a group of resources used to collaborate. See [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups) for a complete listing of these resources.
 
-Microsoft 365 Groups have the following nuances for their roles
+Microsoft 365 Groups have the following nuances for their roles:
 
-* **Owners** - Group owners can add or remove members and have unique permissions like the ability to delete conversations from the shared inbox or change group settings. Group owners can rename the group, update the description or picture and more.
+* **Owners** - Group owners can add or remove members and have unique administrative permissions in the group, such as the ability to delete conversations from the shared inbox or change group settings. Group owners can rename the group, update the description or picture and more.
 
-* **Members** - Members can access everything in the group but can't change group settings. By default group members can invite guests to join your group, though you can [control that setting](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
+* **Members** - Group members can access everything in the group but can't change group settings. By default, group members can invite guests to join your group. You can [control that setting](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
 
 * **Guests** - Group guests are members who are from outside your organization. Guests by default have some limits to functionality in Teams.
 

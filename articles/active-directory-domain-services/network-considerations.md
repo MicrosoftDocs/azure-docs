@@ -3,13 +3,13 @@ title: Network planning and connections for Azure AD Domain Services | Microsoft
 description: Learn about some of the virtual network design considerations and resources used for connectivity when you run Azure Active Directory Domain Services.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 06/20/2022
 ms.author: justinha
 
 ---
@@ -42,7 +42,7 @@ As you design the virtual network for Azure AD DS, the following considerations 
 
 A managed domain connects to a subnet in an Azure virtual network. Design this subnet for Azure AD DS with the following considerations:
 
-* A managed domain must be deployed in its own subnet. Don't use an existing subnet or a gateway subnet.
+* A managed domain must be deployed in its own subnet. Using an existing subnet, gateway subnet, or remote gateways settings in the virtual network peering is unsupported.
 * A network security group is created during the deployment of a managed domain. This network security group contains the required rules for correct service communication.
     * Don't create or use an existing network security group with your own custom rules.
 * A managed domain requires 3-5 IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
@@ -85,12 +85,14 @@ You can enable name resolution using conditional DNS forwarders on the DNS serve
 
 ## Network resources used by Azure AD DS
 
-A managed domain creates some networking resources during deployment. These resources are needed for successful operation and management of the managed domain, and shouldn't be manually configured.
+A managed domain creates some networking resources during deployment. These resources are needed for successful operation and management of the managed domain, and shouldn't be manually configured. 
+
+Don't lock the networking resources used by Azure AD DS. If networking resources get locked, they can't be deleted. When domain controllers need to be rebuilt in that case, new networking resources with different IP addresses need to be created. 
 
 | Azure resource                          | Description |
 |:----------------------------------------|:---|
 | Network interface card                  | Azure AD DS hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
-| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a Standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/public-ip-addresses.md). |
+| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a Standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/ip-services/public-ip-addresses.md). |
 | Azure standard load balancer            | Azure AD DS uses a Standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Network address translation (NAT) rules | Azure AD DS creates and uses two Inbound NAT rules on the load balancer for secure PowerShell remoting. If a Standard SKU load balancer is used, it will have an Outbound NAT Rule too. For the Basic SKU load balancer, no Outbound NAT rule is required. |
 | Load balancer rules                     | When a managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |
@@ -100,11 +102,15 @@ A managed domain creates some networking resources during deployment. These reso
 
 ## Network security groups and required ports
 
-A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
+A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of rules that allow or deny network traffic in an Azure virtual network. When you deploy a managed domain, a network security group is created with a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
 
-The following network security group rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
+The following sections cover network security groups and Inbound and Outbound port requirements.
 
-| Port number | Protocol | Source                             | Destination | Action | Required | Purpose |
+### Inbound connectivity
+
+The following network security group Inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
+
+| Inbound port number | Protocol | Source                             | Destination | Action | Required | Purpose |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Optional      | Debugging for support. |
@@ -114,13 +120,29 @@ An Azure standard load balancer is created that requires these rules to be place
 If needed, you can [create the required network security group and rules using Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
-> Don't manually edit these network resources and configurations. When you associate a misconfigured network security group or a user defined route table with the subnet in which the managed domain is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your managed domain is also disrupted.
+> When you associate a misconfigured network security group or a user defined route table with the subnet in which the managed domain is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your managed domain is also disrupted. Follow all listed requirements to avoid an unsupported configuration that could break sync, patching, or management.
 >
 > If you use secure LDAP, you can add the required TCP port 636 rule to allow external traffic if needed. Adding this rule doesn't place your network security group rules in an unsupported state. For more information, see [Lock down secure LDAP access over the internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
-> Default rules for *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*, and *DenyAllOutBound* also exist for the network security group. Don't edit or delete these default rules.
->
-> The Azure SLA doesn't apply to deployments where an improperly configured network security group and/or user defined route tables have been applied that blocks Azure AD DS from updating and managing your domain.
+> The Azure SLA doesn't apply to deployments that are blocked from updates or management by an improperly configured network security group or user defined route table. A broken network configuration can also prevent security patches from being applied.
+
+### Outbound connectivity
+
+For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict Outbound traffic by using ServiceTags listed in the following table. The ServiceTag for AzureUpdateDelivery must be added via [PowerShell](powershell-create-instance.md).
+
+Filtered Outbound traffic is not supported on Classic deployments.
+
+
+| Outbound port number | Protocol | Source | Destination   | Action | Required | Purpose |
+|:--------------------:|:--------:|:------:|:-------------:|:------:|:--------:|:-------:|
+| 443 | TCP	  | Any    | AzureActiveDirectoryDomainServices| Allow  | Yes      | Communication with the Azure AD Domain Services management service. |
+| 443 | TCP   | Any    | AzureMonitor                      | Allow  | Yes      | Monitoring of the virtual machines. |
+| 443 | TCP	  | Any	   | Storage                           | Allow  | Yes      | Communication with Azure Storage.   | 
+| 443 | TCP	  | Any	   | AzureActiveDirectory              | Allow  | Yes      | Communication with Azure Active Directory.  |
+| 443 | TCP	  | Any	   | AzureUpdateDelivery               | Allow  | Yes      | Communication with Windows Update.  | 
+| 80  | TCP	  | Any	   | AzureFrontDoor.FirstParty         | Allow  | Yes      | Download of patches from Windows Update.    |
+| 443 | TCP	  | Any	   | GuestAndHybridManagement          | Allow  | Yes      | Automated management of security patches.   |
+
 
 ### Port 5986 - management using PowerShell remoting
 

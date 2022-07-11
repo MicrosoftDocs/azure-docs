@@ -3,7 +3,7 @@ title: Best practices for Azure AD roles - Azure Active Directory
 description: Best practices for using Azure Active Directory roles.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -27,7 +27,9 @@ When planning your access control strategy, it's a best practice to manage to le
 
 Follow these steps to help you find the right role.
 
-1. In the Azure portal, open [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) to see the list of Azure AD roles.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Roles and administrators** to see the list of Azure AD roles.
 
 1. Use the **Service** filter to narrow down the list of roles.
 
@@ -55,7 +57,7 @@ Access reviews enable organizations to review administrator's access regularly t
 - A malicious actor can compromise an account.
 - People move teams within a company. If there is no auditing, they can amass unnecessary access over time.
  
-For information about access reviews for roles, see [Create an access review of Azure AD roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md). For information about access reviews of groups that are assigned roles, see [Create an access review of groups and applications in Azure AD access reviews](../governance/create-access-review.md).
+For information about access reviews for roles, see [Create an access review of Azure AD roles in PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md). For information about access reviews of groups that are assigned roles, see [Create an access review of groups and applications in Azure AD access reviews](../governance/create-access-review.md).
 
 ## 5. Limit the number of Global Administrators to less than 5
 

@@ -5,9 +5,9 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 07/27/2020
 ---
 
@@ -146,6 +146,7 @@ WITH  ( <with_options> )
     The staging area for high-throughput data ingestion into Azure Synapse Analytics
     - Reserved for future usage. Does not apply to Azure SQL Edge.
 
+For more information about supported input and output options corresponding to the data source type, see [Azure Stream Analytics - Input Overview](../stream-analytics/stream-analytics-add-inputs.md) and [Azure Stream Analytics - Outputs Overview](../stream-analytics/stream-analytics-define-outputs.md) respectively.
 
 ## Examples
 

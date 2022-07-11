@@ -15,6 +15,9 @@
       href: stream-analytics-quick-create-portal.md
     - name: Azure CLI
       href: quick-create-azure-cli.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quick-create-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-azure-resource-manager.md
@@ -30,14 +33,18 @@
       href: create-cluster.md
 - name: Tutorials
   items:
+  - name: Capture Event Hubs data in Parquet format
+    href: event-hubs-parquet-capture-tutorial.md
+  - name: Build near-real time dashboards with no code editor
+    href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
-  - name: Run Azure Functions
+  - name: Integrate 3rd party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
   - name: Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
   - name: Create a custom .NET deserializer
-    href: custom-deserializer.md
+    href: visual-studio-code-custom-deserializer.md
   - name: Create an IoT Edge job
     href: ../iot-edge/tutorial-deploy-stream-analytics.md
     maintainContext: true
@@ -64,6 +71,12 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json
+  - name: Metrics in job monitoring
+    items:
+    - name: Stream Analytics metrics
+      href: stream-analytics-job-metrics.md
+    - name: Stream Analytics metrics dimensions
+      href: stream-analytics-job-metrics-dimensions.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -74,6 +87,8 @@
       href: stream-analytics-use-reference-data.md
     - name: Read inputs in any format using custom deserializers
       href: custom-deserializer-examples.md
+    - name: Validate input schema
+      href: input-validation.md
   - name: Output types for a job
     items:
     - name: Outputs overview
@@ -81,10 +96,16 @@
       displayName: adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions
     - name: Azure Data Lake Storage Gen 1
       href: azure-data-lake-storage-gen1-output.md
+    - name: Azure Data Explorer
+      href: azure-database-explorer-output.md
+    - name: Azure Database for PostgreSQL
+      href: postgresql-database-output.md
     - name: Azure SQL Database
-      href: sql-database-output.md
-    - name: SQL Database performance
-      href: stream-analytics-sql-output-perf.md
+      items:
+        - name: SQL Database output overview
+          href: sql-database-output.md  
+        - name: SQL Database output performance
+          href: stream-analytics-sql-output-perf.md
     - name: Azure Synapse Analytics
       href: azure-synapse-analytics-output.md
     - name: Blob storage & Azure Data Lake Gen 2
@@ -132,6 +153,8 @@
       href: repartition.md
     - name: Increase throughput of your job
       href: stream-analytics-scale-jobs.md
+  - name: No code editor
+    href: no-code-stream-processing.md
   - name: IoT Edge
     href: stream-analytics-edge.md
   - name: States of a job
@@ -164,6 +187,8 @@
         href: manage-jobs-cluster.md
       - name: Scale cluster size
         href: scale-cluster.md
+      - name: Move cluster to another region
+        href: move-cluster.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
     - name: Update credentials
@@ -190,13 +215,32 @@
       href: data-protection.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+  - name: Build with no code editor
+    items:
+    - name: Capture Event Hubs data in Parquet format
+      href: capture-event-hub-data-parquet.md
+    - name: Materialize data to Cosmos DB
+      href: no-code-materialize-cosmos-db.md
+    - name: Filter and ingest Synapse SQL data
+      href: filter-ingest-synapse-sql.md
+    - name: Filter and ingest to Data Lake Storage Gen2
+      href: filter-ingest-data-lake-storage-gen2.md
   - name: Authenticate with managed identity
     items:
+    - name: Managed Identities Overview
+      href: stream-analytics-managed-identities-overview.md
+      displayName: managed identity, identities, authenticate
+    - name: User Assigned Managed Identities
+      href: stream-analytics-user-assigned-managed-identity-overview.md
+      displayName: managed identity, identities, authenticate
     - name: ADLS Gen 1
       href: stream-analytics-managed-identities-adls.md
       displayName: managed identity, identities, authenticate
     - name: Blob storage
       href: blob-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Cosmos DB
+      href: cosmos-db-managed-identity.md
       displayName: managed identity, identities, authenticate
     - name: Event Hubs
       href: event-hubs-managed-identity.md
@@ -206,6 +250,9 @@
       displayName: managed identity, identities, authenticate
     - name: Azure SQL & Azure Synapse
       href: sql-database-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Service Bus
+      href: service-bus-managed-identity.md
       displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
@@ -221,6 +268,8 @@
       href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
     - name: Threshold-based rules
       href: stream-analytics-threshold-based-rules.md
+    - name: Update or merge in a SQL Database with Azure Functions
+      href: sql-database-upsert.md
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
       maintainContext: true
@@ -228,26 +277,26 @@
       href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
     - name: Process Azure SQL Database
-      href: ../azure-sql/database/stream-data-stream-analytics-integration.md
+      href: /azure/azure-sql/database/stream-data-stream-analytics-integration
       maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
   - name: Monitor
     items:
-    - name: Monitor jobs- Azure portal
+    - name: Monitor jobs - Azure portal
       href: stream-analytics-monitoring.md
-    - name: Monitor jobs- PowerShell
+    - name: Monitor jobs - PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Monitor jobs- Azure .NET SDK
+    - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
-    - name: Monitor jobs- Visual Studio
+    - name: Monitor jobs - Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
   - name: Automate
     items:
-    - name: Using .NET SDK
+    - name: Using PowerShell for auto-pausing
+      href: automation-powershell.md
+    - name: Using .NET SDK for management
       href: stream-analytics-dotnet-management-sdk.md
-    - name: Using Azure PowerShell
-      href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
     - name: Using API for IoT Edge jobs
       href: stream-analytics-cicd-api.md
     - name: Export and deploy with Azure Resource Manager
@@ -270,8 +319,10 @@
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
-    - name: Debug queries using job diagram 
+    - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram.md
+    - name: Create a custom .NET deserializer
+      href: custom-deserializer.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
@@ -279,12 +330,14 @@
   - name: Visual Studio Code
     items:
     - name: Complete code with IntelliSense
-      href: vs-code-intellisense.md  
+      href: vs-code-intellisense.md
+    - name: Run jobs locally with VS Code
+      href: visual-studio-code-local-run-all.md
     - name: Test locally with sample data
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
       href: visual-studio-code-local-run-live-input.md
-    - name: Debug queries using job diagram 
+    - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
@@ -300,6 +353,8 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
+    - name: Watermark delay increase
+      href: stream-analytics-job-analysis-with-metric-dimensions.md
     - name: Activity and resource logs
       href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors
@@ -324,6 +379,12 @@
       href: stream-analytics-machine-learning-anomaly-detection.md
     - name: Use ML REST APIs
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+  - name: Export from Application Insights
+    items:
+    - name: Export to Stream Analytics
+      href: app-insights-export-stream-analytics.md
+    - name: Export to SQL using Stream Analytics
+      href: app-insights-export-sql-stream-analytics.md
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md
   - name: Scale with ML functions
@@ -418,6 +479,23 @@
               maintainContext: true
             - name: GetArrayElements
               href: /stream-analytics-query/getarrayelements-azure-stream-analytics
+              maintainContext: true
+        - name: Bitwise Operators
+          items:
+            - name: Bitwise Operators Overview
+              href: /stream-analytics-query/bitwise-operators-azure-stream-analytics
+              maintainContext: true
+            - name: Bitwise AND
+              href: /stream-analytics-query/bitwise-and-azure-stream-analytics
+              maintainContext: true
+            - name: Bitwise OR
+              href: /stream-analytics-query/bitwise-or-azure-stream-analytics
+              maintainContext: true
+            - name: Bitwise XOR
+              href: /stream-analytics-query/bitwise-xor-azure-stream-analytics
+              maintainContext: true
+            - name: Bitwise NOT
+              href: /stream-analytics-query/bitwise-not-azure-stream-analytics
               maintainContext: true
         - name: Conversion Functions
           items:
@@ -550,11 +628,20 @@
             - name: CONCAT
               href: /stream-analytics-query/concat-azure-stream-analytics
               maintainContext: true
+            - name: CONCAT_WS
+              href: /stream-analytics-query/concat-ws-azure-stream-analytics
+              maintainContext: true
+            - name: LEFT
+              href: /stream-analytics-query/left-azure-stream-analytics
+              maintainContext: true
             - name: LEN
               href: /stream-analytics-query/len-azure-stream-analytics
               maintainContext: true
             - name: LOWER
               href: /stream-analytics-query/lower-azure-stream-analytics
+              maintainContext: true
+            - name: LTRIM
+              href: /stream-analytics-query/ltrim-azure-stream-analytics
               maintainContext: true
             - name: NCHAR
               href: /stream-analytics-query/nchar-azure-stream-analytics
@@ -568,8 +655,32 @@
             - name: REPLACE
               href: /stream-analytics-query/replace-azure-stream-analytics
               maintainContext: true
+            - name: REPLICATE
+              href: /stream-analytics-query/replicate-azure-stream-analytics
+              maintainContext: true
+            - name: REVERSE
+              href: /stream-analytics-query/reverse-azure-stream-analytics
+              maintainContext: true
+            - name: RIGHT
+              href: /stream-analytics-query/right-azure-stream-analytics
+              maintainContext: true
+            - name: RTRIM
+              href: /stream-analytics-query/rtrim-azure-stream-analytics
+              maintainContext: true
+            - name: SPACE
+              href: /stream-analytics-query/space-azure-stream-analytics
+              maintainContext: true
+            - name: STUFF
+              href: /stream-analytics-query/stuff-azure-stream-analytics
+              maintainContext: true
             - name: SUBSTRING
               href: /stream-analytics-query/substring-azure-stream-analytics
+              maintainContext: true
+            - name: TRANSLATE
+              href: /stream-analytics-query/translate-azure-stream-analytics
+              maintainContext: true
+            - name: TRIM
+              href: /stream-analytics-query/trim-azure-stream-analytics
               maintainContext: true
             - name: UNICODE
               href: /stream-analytics-query/unicode-azure-stream-analytics
@@ -643,6 +754,9 @@
         - name: MATCH_RECOGNIZE
           href: /stream-analytics-query/match-recognize-stream-analytics
           maintainContext: true
+        - name: NULLIF
+          href: /stream-analytics-query/nullif-azure-stream-analytics
+          maintainContext: true
         - name: Reference Data JOIN
           href: /stream-analytics-query/reference-data-join-azure-stream-analytics
           maintainContext: true
@@ -699,7 +813,7 @@
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure/label-name/Azure%20Stream%20Analytics
   - name: Feedback forum
-    href: https://feedback.azure.com/forums/270577-azure-stream-analytics
+    href: https://feedback.azure.com/d365community/forum/d12ec4e3-b825-ec11-b6e6-000d3a4f0f1c
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-stream-analytics.html
   - name: Pricing

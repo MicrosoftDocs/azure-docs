@@ -4,6 +4,7 @@ description: This tutorial provides steps for using the Azure portal to setup Pr
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 05/06/2021
 ---
@@ -241,17 +242,15 @@ data factory from the resources list.
 4. Select + **New** under **Managed private endpoints**.
 5. Select the **Private Link Service** tile from the list and select **Continue**.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private link service list.
-7. Add FQDN of your target on-premises SQL Server and NAT IPs of your private link Service.
-    
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="Screenshot that shows the NAT IP in the linked service." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
+7. Add FQDN of your target on-premises SQL Server.
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint.png" alt-text="Screenshot that shows the private endpoint settings.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-6.png" alt-text="Screenshot that shows the private endpoint settings.":::
 
 8. Create private endpoint.
 
 ## Create a linked service and test the connection
 
-1. Go to the **Manage** tab and then go to the **Managed private endpoints** section.
+1. Go to the **Manage** tab and then go to the **Linked services** section.
 2. Select + **New** under **Linked Service**.
 3. Select the **SQL Server** tile from the list and select **Continue**.    
 
@@ -265,6 +264,9 @@ data factory from the resources list.
 6. Then click **Test connection**.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-3.png" alt-text="Screenshot that shows the SQL server linked service creation page.":::
+
+> [!Note] 
+> If you have more than one SQL Server and need to define multiple load balancer rules and IP table records with different ports, make sure you explicitly add the port name after the FQDN when you edit Linked Service. The NAT VM will handle the port translation. If it's not explicitly specified, the connection will always time-out.
 
 ## Troubleshooting
 

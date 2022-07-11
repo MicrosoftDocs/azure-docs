@@ -1,12 +1,13 @@
 ---
 title: Resource Manager templates for Azure Cosmos DB Cassandra API
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB Cassandra API. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Manage Azure Cosmos DB Cassandra API resources using Azure Resource Manager templates
@@ -14,7 +15,7 @@ ms.author: mjbrown
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts, keyspaces, and tables.
 
-This article has examples for Cassandra API accounts only, to find examples for other API type accounts see: use Azure Resource Manager templates with Azure Cosmos DB's API for [SQL](../templates-samples-sql.md), [Gremlin](../templates-samples-gremlin.md), [MongoDB](../templates-samples-mongodb.md), [Table](../table/resource-manager-templates.md) articles.
+This article has examples for Cassandra API accounts only, to find examples for other API type accounts see: use Azure Resource Manager templates with Azure Cosmos DB's API for [SQL](../templates-samples-sql.md), [Gremlin](../templates-samples-gremlin.md), [MongoDB](../mongodb/resource-manager-template-samples.md), [Table](../table/resource-manager-templates.md) articles.
 
 > [!IMPORTANT]
 >

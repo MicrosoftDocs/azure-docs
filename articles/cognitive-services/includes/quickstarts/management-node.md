@@ -16,6 +16,7 @@ ms.author: pafarley
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [Node.js](https://nodejs.org/)
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
 * [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
@@ -44,8 +45,7 @@ Install the following NPM packages:
 
 ```console
 npm install @azure/arm-cognitiveservices
-npm install @azure/ms-rest-js
-npm install @azure/ms-rest-nodeauth
+npm install @azure/identity
 ```
 
 Your app's `package.json` file will be updated with the dependencies.

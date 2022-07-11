@@ -3,7 +3,8 @@ title: Move Azure VMware Solution resources across regions
 description: This article describes how to move Azure VMware Solution resources from one Azure region to another.  
 ms.custom: subject-moving-resources
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.service: azure-vmware
+ms.date: 04/11/2022
 
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution resources from Azure Region A to Azure Region B.
 ---
@@ -15,7 +16,7 @@ ms.date: 06/01/2021
 
 You can move Azure VMware Solution resources to a different region for several reasons. For example, deploy features or services available in specific regions only, meet policy and governance requirements, or respond to capacity planning requirements. 
 
-This article helps you plan and migrate Azure VMware Solution from one Azure region to another Azure region, for example, from Azure region A to Azure region B. 
+This article helps you plan and migrate Azure VMware Solution from one Azure region to another, such as Azure region A to Azure region B.
 
 
 The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments.  An HCX site pairing and service mesh are created between the two environments.  The HCX migration traffic and Layer-2 extension moves (depicted by the red line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://vmc.techzone.vmware.com/vmc-solutions/docs/deploy/planning-an-hcx-migration#section1).
@@ -43,9 +44,9 @@ In this article, we'll walk you through the steps to:
 
 ## Prerequisites
 
-- Ensure that the [VMware HCX appliance is upgraded to the latest patch](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html) to avoid migration issues, if any.
+- [VMware HCX appliance is upgraded to the latest patch](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html) to avoid migration issues if any.
 
-- Ensure that the source's local content library is a [published content library](https://docs.vmware.com/en/VMware-Validated-Design/services/deployment-of-vrealize-suite-2019-on-vmware-cloud-foundation-310/GUID-59E0CBA1-2CF6-488D-AA58-C97C76FD8159.html?hWord=N4IghgNiBcIA4FcBGECWBnAFgAgMYHsA7AFwFMTs0kAnMagTxAF8g).
+- Source's local content library is a [published content library](https://docs.vmware.com/en/VMware-Validated-Design/services/deployment-of-vrealize-suite-2019-on-vmware-cloud-foundation-310/GUID-59E0CBA1-2CF6-488D-AA58-C97C76FD8159.html?hWord=N4IghgNiBcIA4FcBGECWBnAFgAgMYHsA7AFwFMTs0kAnMagTxAF8g).
 
 ## Prepare
 
@@ -67,11 +68,11 @@ Before you can move the source configuration, you'll need to [deploy the target 
 
 ### Back up the source configuration
 
-Back up the Azure VMware Solution (source) configuration that includes VC, NSX-T, and firewall policies and rules. 
+Back up the Azure VMware Solution (source) configuration that includes vCenter Server, NSX-T Data Center, and firewall policies and rules. 
 
-- **Compute:** Export existing inventory configuration. For Inventory backup, you can use RVtool (an open-source app).
+- **Compute:** Export existing inventory configuration. For Inventory backup, you can use RVtools (an open-source app).
 
-- **Network and firewall policies and rules:** On the Azure VMware Solution target, create the network segments the same as the source environment.
+- **Network and firewall policies and rules:** On the Azure VMware Solution target, create the same network segments as the source environment.
 
 Azure VMware Solution supports all backup solutions. You'll need CloudAdmin privileges to install, backup data, and restore backups. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
@@ -117,7 +118,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
 ### Peer between private clouds
 
-Now that you have the ExpressRoute circuit IDs and authorization keys for both environments, you can peer the source to the target. You use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
+Now that you have the ExpressRoute circuit IDs and authorization keys for both environments, you can peer the source to the target. You'll use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
  
 1. From the target, sign in to the [Azure portal](https://portal.azure.com) using the same subscription as the source’s ExpressRoute circuit.
 
@@ -131,19 +132,19 @@ Now that you have the ExpressRoute circuit IDs and authorization keys for both e
 
 ### Create a site pairing between private clouds
 
-After you establish connectivity, you'll create a VMware HCX site pairing between the private clouds to facilitate the migration of your VMs. You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector in your datacenter. 
+After you establish connectivity, you'll create a VMware HCX site pairing between the private clouds to facilitate the migration of your VMs. You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector in your data center. 
 
-1. Sign in to your source's vCenter, and under **Home**, select **HCX**.
+1. Sign in to your source's vCenter Server, and under **Home**, select **HCX**.
 
-1. Under **Infrastructure**, select **Site Pairing**, and then select the **Connect To Remote Site** option (in the middle of the screen). 
+1. Under **Infrastructure**, select **Site Pairing** and select the **Connect To Remote Site** option (in the middle of the screen). 
 
-1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
+1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
    > To successfully establish a site pair:
    > * Your VMware HCX Connector must be able to route to your HCX Cloud Manager IP over port 443.
    >
-   > * Use the same password that you used to sign in to vCenter. You defined this password on the initial deployment screen.
+   > * Use the same password that you used to sign in to vCenter Server. You defined this password on the initial deployment screen.
 
    You'll see a screen showing that your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector are connected (paired).
 
@@ -227,11 +228,11 @@ In this section, you'll migrate the:
 
 In this step, you'll copy the source's vSphere configuration and move it to the target environment. 
 
-1. From the source's vCenter, use the same resource pool configuration and [create the same resource pool configuration](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-0F6C6709-A5DA-4D38-BE08-6CB1002DD13D.html#example-creating-resource-pools-4) on the target's vCenter.
+1. From the source's vCenter Server, use the same resource pool configuration and [create the same resource pool configuration](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-0F6C6709-A5DA-4D38-BE08-6CB1002DD13D.html#example-creating-resource-pools-4) on the target's vCenter Server.
 
-2. From the source's vCenter, use the same VM folder name and [create the same VM folder](https://docs.vmware.com/en/VMware-Validated-Design/6.1/sddc-deployment-of-cloud-operations-and-automation-in-the-first-region/GUID-9D935BBC-1228-4F9D-A61D-B86C504E469C.html) on the target's vCenter under **Folders**.
+2. From the source's vCenter Server, use the same VM folder name and [create the same VM folder](https://docs.vmware.com/en/VMware-Validated-Design/6.1/sddc-deployment-of-cloud-operations-and-automation-in-the-first-region/GUID-9D935BBC-1228-4F9D-A61D-B86C504E469C.html) on the target's vCenter Server under **Folders**.
 
-3. Use VMware HCX to migrate all VM templates from the source's vCenter to the target's vCenter.
+3. Use VMware HCX to migrate all VM templates from the source's vCenter Server to the target's vCenter.
 
    1. From the source, convert the existing templates to VMs and then migrate them to the target.
 
@@ -239,7 +240,7 @@ In this step, you'll copy the source's vSphere configuration and move it to the 
 
 4. From the source environment, use the same VM Tags name and [create them on the target's vCenter](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-05323758-1EBF-406F-99B6-B1A33E893453.html). 
 
-5. From the source's vCenter Content Library, use the subscribed library option to copy the ISO, OVF, OVA, and VM Templates to the target content library:
+5. From the source's vCenter Server Content Library, use the subscribed library option to copy the ISO, OVF, OVA, and VM Templates to the target content library:
 
    1. If the content library isn't already published, select the **Enable publishing** option.
 
@@ -250,14 +251,14 @@ In this step, you'll copy the source's vSphere configuration and move it to the 
    4. Select **Sync Now**.
 
 
-### Configure the target NSX-T environment
+### Configure the target NSX-T Data Center environment
 
-In this step, you'll use the source NSX-T configuration to configure the target NSX-T environment.
+In this step, you'll use the source NSX-T Data Center configuration to configure the target NSX-T environment.
 
 >[!NOTE]
->You'll have multiple features configured on the source NSX-T, so you must copy or read from the source NXS-T and recreate it in the target private cloud. Use L2 Extension to keep same IP address and Mac Address of the VM while migrating Source to target AVS Private Cloud to avoid downtime due to IP change and related configuration.
+>You'll have multiple features configured on the source NSX-T Data Center, so you must copy or read from the source NSX-T Data Center and recreate it in the target private cloud. Use L2 Extension to keep same IP address and Mac Address of the VM while migrating Source to target AVS Private Cloud to avoid downtime due to IP change and related configuration.
 
-1. [Configure NSX network components](tutorial-nsx-t-network-segment.md) required in the target environment under default Tier-1 gateway.
+1. [Configure NSX-T Data Center network components](tutorial-nsx-t-network-segment.md) required in the target environment under default Tier-1 gateway.
 
 1. [Create the security group configuration](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-41CC06DF-1CD4-4233-B43E-492A9A3AD5F6.html).
 
@@ -271,11 +272,11 @@ In this step, you'll use the source NSX-T configuration to configure the target 
 
 1. [Configure DNS forwarder](configure-dns-azure-vmware-solution.md).
 
-1. [Configure a new Tier-1 gateway (other than default)](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A6042263-374F-4292-892E-BC86876325A4.html).  This configuration is based on the NSX-T configured on the source. 
+1. [Configure a new Tier-1 gateway (other than default)](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A6042263-374F-4292-892E-BC86876325A4.html).  This configuration is based on the NSX-T Data Center configured on the source. 
 
 ### Migrate the VMs from the source 
 
-In this step, you'll use VMware HCX to migrate the VMs from the source to the target. You'll be given the option to do a Layer-2 extension from the source and use HCX to vMotion the VMs from the source to the target with minimal interruption. 
+In this step, you'll use VMware HCX to migrate the VMs from the source to the target. You'll have the option to do a Layer-2 extension from the source and use HCX to vMotion the VMs from the source to the target with minimal interruption. 
 
 Besides vMotion, other methods, like Bulk and Cold vMotion, are also recommended.  Learn more about:
 

@@ -1,16 +1,19 @@
 ---
-title: Copy data from SharePoint Online List by using Azure Data Factory 
-description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from SharePoint Online List
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 04/22/2022
 ms.author: jianleishen
 ---
-# Copy data from SharePoint Online List by using Azure Data Factory
+# Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from SharePoint Online List. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from SharePoint Online List. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
 
@@ -38,23 +41,34 @@ The SharePoint List Online connector uses service principal authentication to co
 
 2. Grant SharePoint Online site permission to your registered application: 
 
-    > [!NOTE]
-    > This operation requires SharePoint Online site owner permission. You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.
-
     1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
         - App Domain: `localhost.com`
         - Redirect URL: `https://www.localhost.com`
-        - Permission Request XML:
+        - Permission Request XML   
+            For the site owner role, the Permission Request XML is:  
 
-        ```xml
-        <AppPermissionRequests AllowAppOnlyPolicy="true">
-            <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-        </AppPermissionRequests>
-        ```
+            ```xml
+            <AppPermissionRequests>
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```           
+            
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site owner role.":::
 
-        ![sharepoint grant permission](media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png)
+            > [!NOTE]
+            > You can find the site owner by going to the site home page -> select **Settings** in the top right corner -> select **Site permissions** and check who has the site owner role.   
+
+            For the site admin role, the Permission Request XML is:  
+
+            ```xml
+            <AppPermissionRequests AllowAppOnlyPolicy="true">
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```
+
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
 
     3. Click "Trust It" for this app.
 
@@ -62,18 +76,42 @@ The SharePoint List Online connector uses service principal authentication to co
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties you can use to define Data Factory entities that are specific to SharePoint Online List connector.
+## Create a linked service to a SharePoint Online List using UI
+
+Use the following steps to create a linked service to a SharePoint Online List in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for SharePoint and select the SharePoint Online List connector.
+
+    :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-list-connector.png" alt-text="Screenshot of the SharePoint Online List connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-sharepoint-online-list/configure-sharepoint-online-list-linked-service.png" alt-text="Screenshot of linked service configuration for a SharePoint Online List.":::
+
+## Connector configuration details
+
+The following sections provide details about properties you can use to define entities that are specific to SharePoint Online List connector.
 
 ## Linked service properties
 
-The following properties are supported for an SharePoint Online List linked service:
+The following properties are supported for a SharePoint Online List linked service:
 
 | **Property**        | **Description**                                              | **Required** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
 | servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. | Yes          |
-| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
+| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites), earlier in this article. If not specified, the default Azure Integration Runtime is used. | No           |
 
@@ -173,13 +211,13 @@ To copy data from SharePoint Online List, the following properties are supported
 ```
 
 > [!NOTE]
-> In Azure Data Factory, you can't select more than one *choice* data type for a SharePoint Online List source.
+> It isn't possible to select more than one *choice* data type for a SharePoint Online List source.
 
 ## Data type mapping for SharePoint Online List
 
-When you copy data from SharePoint Online List, the following mappings are used between SharePoint Online List data types and Azure Data Factory interim data types. 
+When you copy data from SharePoint Online List, the following mappings are used between SharePoint Online List data types and interim data types used by the service internally.
 
-| **SharePoint Online data type**                 | **OData data type**                                  | **Azure Data Factory interim data type** |
+| **SharePoint Online data type**                 | **OData data type**                                  | **Interim data type** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
 | Single line of text                             | Edm.String                                           | String                                   |
 | Multiple lines of text                          | Edm.String                                           | String                                   |
@@ -201,7 +239,7 @@ When you copy data from SharePoint Online List, the following mappings are used 
 
 You can copy file from SharePoint Online by using **Web activity** to authenticate and grab access token from SPO, then passing to subsequent **Copy activity** to copy data with **HTTP connector as source**.
 
-![sharepoint copy file flow](media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png)
+:::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
 1. Follow the [Prerequisites](#prerequisites) section to create AAD application and grant permission to SharePoint Online. 
 
@@ -219,7 +257,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 3. Chain with a **Copy activity** with HTTP connector as source to copy SharePoint Online file content:
 
     - HTTP linked service:
-        - **Base URL**: `https://[site-url]/_api/web/GetFileByServerRelativeUrl('[relative-path-to-file]')/$value`. Replace the site URL and relative path to file. Sample relative path to file as `/sites/site2/Shared Documents/TestBook.xlsx`.
+        - **Base URL**: `https://[site-url]/_api/web/GetFileByServerRelativeUrl('[relative-path-to-file]')/$value`. Replace the site URL and relative path to file. Make sure to include the SharePoint site URL along with the Domain name, such as `https://[sharepoint-domain-name].sharepoint.com/sites/[sharepoint-site]/_api/web/GetFileByServerRelativeUrl('/sites/[sharepoint-site]/[relative-path-to-file]')/$value`.
         - **Authentication type:** Anonymous *(to use the Bearer token configured in copy activity source later)*
     - Dataset: choose the format you want. To copy file as-is, select "Binary" type.
     - Copy activity source:
@@ -236,4 +274,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

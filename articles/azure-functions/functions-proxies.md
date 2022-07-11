@@ -3,24 +3,29 @@ title: Work with proxies in Azure Functions
 description: Overview of how to use Azure Functions Proxies
 
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 11/08/2021
 
 ---
 # Work with Azure Functions Proxies
 
 This article explains how to configure and work with Azure Functions Proxies. With this feature, you can specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 > [!NOTE] 
-> Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+> Proxies is available in Azure Functions [versions](./functions-versions.md) 1.x to 3.x.
+> 
+> You should also consider using [Azure API Management](../api-management/api-management-key-concepts.md) for your application. It provides the same capabilities as Functions Proxies as well as other tools for building and maintaining APIs, such as OpenAPI integration, rate limiting, and advanced policies. 
 
 ## <a name="create"></a>Create a proxy
 
 This section shows you how to create a proxy in the Functions portal.
 
+> [!NOTE]  
+> Not all languages and operating system combinations support in-portal editing. If you're unable to create a proxy in the portal, you can instead manually create a _proxies.json_ file in the root of your function app project folder. To learn more about portal editing support, see [Language support details](functions-create-function-app-portal.md#language-support-details). 
+
 1. Open the [Azure portal], and then go to your function app.
-2. In the left pane, select **New proxy**.
+2. In the left pane, select **Proxies** and then select **+Add**.
 3. Provide a name for your proxy.
 4. Configure the endpoint that's exposed on this function app by specifying the **route template** and **HTTP methods**. These parameters behave according to the rules for [HTTP triggers].
 5. Set the **backend URL** to another endpoint. This endpoint could be a function in another function app, or it could be any other API. The value does not need to be static, and it can reference [application settings] and [parameters from the original client request].
@@ -42,7 +47,7 @@ Back-end requests can be modified in the portal by expanding the *request overri
 
 By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Back-end requests can be modified in the portal by expanding the *response override* section of the proxy detail page. 
+Back-end responses can be modified in the portal by expanding the *response override* section of the proxy detail page. 
 
 ## <a name="using-variables"></a>Use variables
 

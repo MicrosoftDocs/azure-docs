@@ -3,7 +3,7 @@ title: Azure Active Directory governance operations reference guide
 description: This operations reference guide describes the checks and actions you should take to secure governance management
 services: active-directory
 author: martincoetzer
-manager: daveba
+manager: karenhoran
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -91,7 +91,7 @@ Hackers often target admin accounts and other elements of privileged access to r
 
 If no process exists in your organization to manage privileged accounts, or you currently have admins who use their regular user accounts to manage services and resources, you should immediately begin using separate accounts, for example one for regular day-to-day activities; the other for privileged access and configured with MFA. Better yet, if your organization has an Azure AD Premium P2 subscription, then you should immediately deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). In the same token, you should also review those privileged accounts and [assign less privileged roles](../roles/security-planning.md) if applicable.
 
-Another aspect of privileged account management that should be implemented is in defining [access reviews](../governance/access-reviews-overview.md) for those accounts, either manually or [automated through PIM](../privileged-identity-management/pim-how-to-perform-security-review.md).
+Another aspect of privileged account management that should be implemented is in defining [access reviews](../governance/access-reviews-overview.md) for those accounts, either manually or [automated through PIM](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md).
 
 #### Privileged account management recommended reading
 

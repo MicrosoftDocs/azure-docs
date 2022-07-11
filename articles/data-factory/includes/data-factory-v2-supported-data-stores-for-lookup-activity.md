@@ -2,11 +2,11 @@
 title: include file
 description: supported connectors for Lookup Activity
 services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/18/2020
-ms.author: jingwang
+ms.date: 05/31/2022
+ms.author: jianleishen
 ms.custom: include file
 ---
 
@@ -23,11 +23,12 @@ ms.custom: include file
 | &nbsp; |[Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) |
 | &nbsp; |[Azure Files](../connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
-| &nbsp; |[Azure Search](../connector-azure-search.md) | 
+| &nbsp; |[Azure SQL Database Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |
-| **Database** |[Amazon Redshift](../connector-amazon-redshift.md) |
+| **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |
+| &nbsp; |[Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |
+| &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |
 | &nbsp; |[Apache Impala](../connector-impala.md) |
 | &nbsp; |[Azure SQL Database Managed Instance](../connector-azure-sql-managed-instance.md) |
 | &nbsp; |[DB2](../connector-db2.md) |
@@ -68,7 +69,6 @@ ms.custom: include file
 | &nbsp; |[SFTP](../connector-sftp.md) |
 | **Generic protocol** |[Generic OData](../connector-odata.md) |
 | &nbsp; |[Generic ODBC](../connector-odbc.md) |
-| &nbsp; |[REST](../connector-rest.md) |
 | &nbsp; |[SharePoint Online List](../connector-sharepoint-online-list.md) |
 | **Services and apps** |[Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Concur (Preview)](../connector-concur.md) |
@@ -87,7 +87,6 @@ ms.custom: include file
 | &nbsp; |[Oracle Service Cloud (Preview)](../connector-oracle-service-cloud.md) |
 | &nbsp; |[PayPal (Preview)](../connector-paypal.md) |
 | &nbsp; |[QuickBooks (Preview)](../connector-quickbooks.md) |
-| &nbsp; |[REST](../connector-rest.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../connector-sap-ecc.md) |
 | &nbsp; |[Salesforce](../connector-salesforce.md) |

@@ -5,7 +5,7 @@ services: synapse-analytics
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: include
-ms.date: 04/15/2021
+ms.date: 05/09/2022
 ms.author: jburchel
 ms.custom: include file
 ---
@@ -14,9 +14,17 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 
 ### Synapse Workspace Limits
 
+For Pay-As-You-Go and Azure for Students subscription offer types:
+
 | Resource | Default limit | Maximum limit | 
 | -------- | ------------- | ------------- |
-| Synapse workspaces in an Azure subscription | 20 | 20 |
+| Synapse workspaces in an Azure subscription | 2 | 2 |
+
+For other subscription offer types:
+
+| Resource | Default limit | Maximum limit | 
+| -------- | ------------- | ------------- |
+| Synapse workspaces in an Azure subscription per region | 20 | 250 |
 
 ### Synapse Pipeline Limits
 
@@ -29,7 +37,7 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 | Concurrent External activity runs per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>External activities are managed on integration runtime but execute on linked services, including Databricks, stored procedure, HDInsight, Web, and others. This limit does not apply to Self-hosted IR.</small> | 3,000 | 3,000 |
 | Concurrent Pipeline activity runs per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br><small>Pipeline activities execute on integration runtime, including Lookup, GetMetadata, and Delete. This limit does not apply to Self-hosted IR.</small> | 1,000 | 1,000                                                        |
 | Concurrent authoring operations per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Including test connection, browse folder list and table list, preview data. This limit does not apply to Self-hosted IR.</small> | 200 | 200                                                          |
-| Concurrent Data Integration Units<sup>1</sup> consumption per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6,000<br>Region group 2<sup>2</sup>: 3,000<br>Region group 3<sup>2</sup>: 1,500 | Region group 1<sup>2</sup>: 6,000<br/>Region group 2<sup>2</sup>: 3,000<br/>Region group 3<sup>2</sup>: 1,500 |
+| Concurrent Data Integration Units<sup>1</sup> consumption per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6,000<br>Region group 2<sup>2</sup>: 3,000<br>Region group 3<sup>2</sup>: 1,500<br>Managed virtual network<sup>2</sup>: 2,400 | Region group 1<sup>2</sup>: 6,000<br/>Region group 2<sup>2</sup>: 3,000<br/>Region group 3<sup>2</sup>: 1,500<br>Managed virtual network: [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximum activities per pipeline, which includes inner activities for containers | 40 | 40 |
 | Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 100 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximum parameters per pipeline | 50 | 50 |
@@ -37,7 +45,7 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 | ForEach parallelism | 20 | 50 |
 | Maximum queued runs per pipeline | 100 | 100 |
 | Characters per expression | 8,192 | 8,192 |
-| Minimum tumbling window trigger interval | 15 min | 15 min |
+| Minimum tumbling window trigger interval | 5 min | 15 min |
 | Maximum timeout for pipeline activity runs | 7 days | 7 days |
 | Bytes per object for pipeline objects<sup>3</sup> | 200 KB | 200 KB |
 | Bytes per object for dataset and linked service objects<sup>3</sup> | 100 KB | 2,000 KB |
@@ -48,6 +56,7 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 | Monitoring queries per minute | 1,000 | 1,000 |
 | Maximum time of data flow debug session | 8 hrs | 8 hrs |
 | Concurrent number of data flows per integration runtime | 50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Concurrent number of data flows per integration runtime in managed vNet| 20 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent number of data flow debug sessions per user per workspace | 3 | 3 |
 | Data Flow Azure IR TTL limit | 4 hrs |  4 hrs |
 | Meta Data Entity Size limit in a workspace | 2 GB | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -61,6 +70,8 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 | Region group 1 | Central US, East US, East US 2, North Europe, West Europe, West US, West US 2 |
 | Region group 2 | Australia East, Australia Southeast, Brazil South, Central India, Japan East, North Central US, South Central US, Southeast Asia, West Central US |
 | Region group 3 | Other regions |
+
+If managed virtual network is enabled, the data integration unit (DIU) in all region groups are 2,400.
 
 <sup>3</sup> Pipeline, data set, and linked service objects represent a logical grouping of your workload. Limits for these objects don't relate to the amount of data you can move and process with Azure Synapse Analytics. Synapse Analytics is designed to scale to handle petabytes of data.
 

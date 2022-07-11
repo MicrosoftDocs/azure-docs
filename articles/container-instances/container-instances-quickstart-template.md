@@ -1,14 +1,13 @@
 ---
 title: Quickstart - Create a container instance - Azure Resource Manager template
 description: In this quickstart, you use an Azure Resource Manager template to quickly deploy a containerized web app that runs in an isolated Azure container instance.
-services: azure-resource-manager
-ms.date: 04/30/2020
 ms.topic: quickstart
-ms.service: azure-resource-manager
-ms.custom:
-  - subject-armqs
-  - devx-track-js
-  - mode-arm
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
+ms.custom: subject-armqs, devx-track-js, mode-arm
 ---
 
 # Quickstart: Deploy a container instance in Azure using an ARM template

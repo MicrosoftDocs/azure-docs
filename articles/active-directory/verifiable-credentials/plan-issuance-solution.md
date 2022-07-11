@@ -4,15 +4,17 @@ description: Learn to plan your end-to-end issuance solution.
 documentationCenter: ''
 author: barbaraselden
 manager: martinco
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 07/20/2021
+ms.date: 06/03/2022
 ms.author: baselden
 ms.custom: references_regions
 ---
 
 # Plan your Azure Active Directory Verifiable Credentials issuance solution (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
  >[!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -31,7 +33,7 @@ As part of your plan for an issuance solution, you must design a solution that e
 
 ### Microsoft VC issuance solution architecture
 
-![Components of an issuance solution](media/plan-issuance-solution/plan-issuance-solution-architecture.png)
+![Components of an issuance solution](media/plan-issuance-solution/plan-for-issuance-solution-architecture.png)
 
 
 ### Azure Active Directory tenant
@@ -42,25 +44,24 @@ Each tenant has a single instance of the Azure AD Verifiable Credentials service
 
 ### Microsoft Azure services
 
-![Components of an issuance solution, focusing on Azure services](media/plan-issuance-solution/plan-issuance-solution-azure-services.png)
+![Components of an issuance solution, focusing on Azure services](media/plan-issuance-solution/plan-for-issuance-solution-azure-services.png)
 
 The **Azure Key Vault** service stores your issuer keys, which are generated when you initiate the Azure AD Verifiable Credentials issuance service. The keys and metadata are used to execute credential management operations and provide message security.
 
 Each issuer has a single key set used for signing, updating, and recovery. This key set is used for every issuance of every verifiable credential you produce. 
 
-**Azure Storage** is used to store credential metadata and definitions; specifically, the rules and display files for your credentials. 
+**Azure AD Verifiable Credentials Service** is used to store credential metadata and definitions; specifically, the rules and display definitions for your credentials.
 
-* Display files determine which claims are stored in the VC and how it's displayed in the holder’s wallet. The display file also includes branding and other elements. Rules files are limited in size to 50 KB, while display files are limited to 150 KB. See [How to customize your verifiable credentials](../verifiable-credentials/credential-design.md).
+* Display definitions determine which claims are stored in the VC and how it's displayed in the holder’s wallet. The display definition also includes branding and other elements. Rules definitions are limited in size to 50 KB, while display definitions are limited to 150 KB. See [How to customize your verifiable credentials](../verifiable-credentials/credential-design.md).
 
-* Rules are an issuer-defined model that describes the required inputs of a verifiable credential, the trusted sources of the inputs, and the mapping of input claims to output claims. 
+* Rules are an issuer-defined model that describes the required inputs of a verifiable credential, the trusted sources of the inputs, and the mapping of input claims to output claims.
 
    * **Input** – Are a subset of the model in the rules file for client consumption. The subset must describe the set of inputs, where to obtain the inputs and the endpoint to call to obtain a verifiable credential.
 
-* Rules and display files for different credentials can be configured to use different containers, subscriptions, and storage. For example, you can delegate permissions to different teams that own management of specific VCs. 
 
 ### Azure AD Verifiable Credentials service
 
-![Microsoft Azure AD Verifiable Credentials service](media/plan-issuance-solution/plan-issuance-azure-active-directory-verifiable-credential-services.png)
+![Microsoft Azure AD Verifiable Credentials service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
 
 The Azure AD Verifiable Credentials service enables you to issue and revoke VCs based on your configuration. The service:
 
@@ -70,21 +71,23 @@ The Azure AD Verifiable Credentials service enables you to issue and revoke VCs 
 
 * Stores the configuration metadata used by the issuance service and Microsoft Authenticator.
 
+* Provides REST APIs interface for issuer and verifier web front ends
+
 ### ION
 
-![ION](media/plan-issuance-solution/plan-issuance-solution-ion.png)
+![ION](media/plan-issuance-solution/plan-for-issuance-solution-ion.png)
 
-Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction.
+As one alternative for the tenants trust system, Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction. The other alternative for trust system is Web, where the DID document is hosted on the issuers webserver.
 
 ### Microsoft Authenticator application
 
-![Microsoft Authenticator application](media/plan-issuance-solution/plan-issuance-solution-authenticator.png)
+![Microsoft Authenticator application](media/plan-issuance-solution/plan-for-issuance-solution-authenticator.png)
 
 Microsoft Authenticator is the mobile application that orchestrates the interactions between the user, the Azure AD Verifiable Credentials service, and dependencies that are described in the contract used to issue VCs. It acts as a digital wallet in which the holder of the VC stores the VC, including the private key of the subject of the VC. Authenticator is also the mechanism used to present VCs for verification.
 
 ### Issuance business logic 
 
-![Issuance business logic](media/plan-issuance-solution/plan-issuance-solution-business-logic.png)
+![Issuance business logic](media/plan-issuance-solution/plan-for-issuance-solution-business-logic.png)
 
 Your issuance solution includes a web front end where users request a VC, an identity store and or other attribute store to obtain values for claims about the subject, and other backend services. 
 
@@ -98,7 +101,7 @@ These services provide supporting roles that don't necessarily need to integrate
 
 * **Additional middle-tier services** that contain business rules for lookups, validating, billing, and any other runtime checks and workflows needed to issue credentials.
 
-For more information on setting up your web front end, see the tutorial [Configure you Azure AD to issue verifiable credentials](../verifiable-credentials/enable-your-tenant-verifiable-credentials.md). 
+For more information on setting up your web front end, see the tutorial [Configure your Azure AD to issue verifiable credentials](../verifiable-credentials/enable-your-tenant-verifiable-credentials.md). 
 
 ## Credential Design Considerations
 
@@ -128,11 +131,11 @@ This kind of credential is a good fit for identity onboarding scenarios of new e
 
  
 
-![Identity verification use case](media/plan-issuance-solution/plan-issuance-solution-identity-verification-use-cases.png)
+![Identity verification use case](media/plan-issuance-solution/plan-for-issuance-solution-identity-verification-use-case.png)
 
 **Proof of employment/membership**: a credential is issued to prove a relationship between the user and an institution. This kind of credential is a good fit to access loosely coupled business-to-business applications, such as retailers offering discounts to employees or students. One main value of VCs is their portability: Once issued, the user can use the VC in many scenarios. 
 
-![Proof of employment use case](media/plan-issuance-solution/plan-issuance-solution-employment-proof-use-cases.png)
+![Proof of employment use case](media/plan-issuance-solution/plan-for-issuance-solution-employment-proof-use-case.png)
 
 For more use cases, see [Verifiable Credentials Use Cases (w3.org)](https://www.w3.org/TR/vc-use-cases/).
 
@@ -219,8 +222,6 @@ For scalability, consider implementing metrics for the following:
 
    * [Azure Key Vault monitoring and alerting](../../key-vault/general/alert.md)
 
-   * [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage.md)
-
 * Monitor the components used for your business logic layer. 
 
 ### Plan for reliability
@@ -230,8 +231,6 @@ To plan for reliability, we recommend:
 * After you define your availability and redundancy goals, use the following guides to understand how to achieve your goals:
 
    * [Azure Key Vault availability and redundancy - Azure Key Vault](../../key-vault/general/disaster-recovery-guidance.md)
-
-   * [Disaster recovery and storage account failover - Azure Storage](../../storage/common/storage-disaster-recovery-guidance.md)
 
 * For frontend and business layer, your solution can manifest in an unlimited number of ways. As with any solution, for the dependencies you identify, ensure that the dependencies are resilient and monitored. 
 
@@ -281,7 +280,7 @@ For security logging and monitoring, we recommend the following:
 
 * Enable logging of your Azure Storage account to monitor and send alert for configuration changes. More information can be found at [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage.md).
 
-* Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) for long-term retention.
+* Archive logs in a security information and event management (SIEM) systems, such as [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) for long-term retention.
 
 * Mitigate spoofing risks by using the following
 

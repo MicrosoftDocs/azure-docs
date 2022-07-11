@@ -14,8 +14,7 @@ ms.custom:
 
 ## Overview
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](cloud-services-choose-me.md). The application uses [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), the [Azure Blob service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery.
 
@@ -29,7 +28,7 @@ The application is an advertising bulletin board. Users create an ad by entering
 The application uses the [queue-centric work pattern](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
 ## Alternative architecture: App Service and WebJobs
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in [Azure App Service](../app-service/index.yml) and use the [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure App Service, Cloud Services, and virtual machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in [Azure App Service](../app-service/index.yml) and use the [WebJobs](../app-service/webjobs-create.md) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure App Service, Cloud Services, and virtual machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## What you'll learn
 * How to enable your machine for Azure development by installing the Azure SDK.
@@ -768,11 +767,10 @@ Here are some cloud service sample applications that demonstrate more real-world
 
 For general information about developing for the cloud, see [Building Real-World Cloud Apps with Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
-For a video introduction to Azure Storage best practices and patterns, see [Microsoft Azure Storage – What's New, Best Practices and Patterns](https://channel9.msdn.com/Events/Build/2014/3-628).
+For a video introduction to Azure Storage best practices and patterns, see Microsoft Azure Storage – What's New, Best Practices and Patterns.
 
 For more information, see the following resources:
 
-* [Azure Cloud Services Part 1: Introduction](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](../storage/index.yml)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

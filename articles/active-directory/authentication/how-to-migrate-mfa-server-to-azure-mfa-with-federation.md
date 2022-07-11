@@ -1,18 +1,14 @@
 ---
 title: Migrate to Azure AD MFA with federations - Azure Active Directory
 description: Step-by-step guidance to move from Azure MFA Server on-premises to Azure AD MFA with federation
-
-services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/22/2021
-
-ms.author: BaSelden
-author: BarbaraSelden
-manager: daveba
+ms.date: 04/21/2022
+ms.author: gasinh
+author: gargi-sinha
+manager: martinco
 ms.reviewer: michmcla
-
 ms.collection: M365-identity-device-management
 ---
 # Migrate to Azure AD MFA with federation
@@ -31,7 +27,7 @@ To create new conditional access policies, you'll need to assign those policies 
 
 You'll also need an Azure AD security group for iteratively migrating users to Azure AD MFA. These groups are used in your claims rules.
 
-Don’t reuse groups that are used for security. If you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
+Don't reuse groups that are used for security. If you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
 
 ## Prepare AD FS
 
@@ -62,13 +58,13 @@ Get-AdfsAdditionalAuthenticationRule
 To view existing relying party trusts, run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules 
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules 
 ```
 
 #### Access control policies
 
 > [!NOTE]
-> Access control policies can’t be configured so that a specific authentication provider is invoked based on group membership. 
+> Access control policies can't be configured so that a specific authentication provider is invoked based on group membership. 
 
  
 To transition from access control policies to additional authentication rules, run the following command for each of your Relying Party Trusts using the MFA Server authentication provider:
@@ -89,13 +85,13 @@ You'll need to have a specific group in which you place users for whom you want 
 
 To find the group SID, use the following command, with your group name
 
-`Get-ADGroup “GroupName”`
+`Get-ADGroup "GroupName"`
 
 ![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
 #### Setting the claims rules to call Azure MFA
 
-The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid” with the SID found by running the above cmdlet.
+The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid" with the SID found by running the above cmdlet.
 
 Make sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). 
 
@@ -109,7 +105,7 @@ Make sure you review the [How to Choose Additional Auth Providers in 2019](/wind
 Run the following PowerShell cmdlet: 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules
 ```
 
  
@@ -123,7 +119,7 @@ Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 The following example assumes your current claim rules are configured to prompt for MFA when users connect from outside your network. This example includes the additional rules that you need to append.
@@ -134,12 +130,12 @@ Set-AdfsAdditionalAuthenticationRule -AdditionalAuthenticationRules 'c:[type ==
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
  c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 
@@ -153,12 +149,12 @@ Set-AdfsRelyingPartyTrust -TargetName AppA -AdditionalAuthenticationRules 'c:[ty
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 
@@ -172,33 +168,92 @@ Once you've configured the servers, you can add Azure AD MFA as an additional au
 
 ![Screen shot showing the Edit authentication methods screen with Azure MFA and Azure Mutli-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/edit-authentication-methods.png)
 
-## Prepare Azure AD and implement
+## Prepare Azure AD and implement migration
 
-### Ensure SupportsMFA is set to True
+This section covers final steps before migrating user phone numbers. 
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain in Azure AD has a SupportsMFA flag. When the SupportsMFA flag is set to True, Azure AD redirects users to MFA on AD FS or another federation providers. For example, if a user is accessing an application for which a Conditional Access policy that requires MFA has been configured, the user will be redirected to AD FS. Adding Azure AD MFA as an authentication method in AD FS, enables Azure AD MFA to be invoked once your configurations are complete.
+### Set federatedIdpMfaBehavior to enforceMfaByFederatedIdp
 
-If the SupportsMFA flag is set to False, you're likely not using Azure MFA; you're probably using claims rules on AD FS relying parties to invoke MFA.
 
-You can check the status of your SupportsMFA flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0):
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true ).
+
+>[!NOTE]
+> The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
+
+For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
+
+- Switching between **federatedIdpMfaBehavior** and **SupportsMfa** is not supported.
+- Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
+- If the **federatedIdpMfaBehavior** property is never set, Azure AD will continue to honor the **SupportsMfa** setting.
+- If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD will default to `acceptIfMfaDoneByFederatedIdp` behavior.
+
+You can check the status of **federatedIdpMfaBehavior** by using [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true).
+
+```powershell
+Get-MgDomainFederationConfiguration –DomainID yourdomain.com
+```
+
+You can also check the status of your **SupportsMfa** flag with [Get-MsolDomainFederationSettings](/powershell/module/msonline/get-msoldomainfederationsettings):
 
 ```powershell
 Get-MsolDomainFederationSettings –DomainName yourdomain.com
 ```
 
-If the SupportsMFA flag is set to false or is blank for your federated domain, set it to true using the following Windows PowerShell cmdlet:
+The following example shows how to set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` by using Graph PowerShell. 
 
-```powershell
-Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
+#### Request
+<!-- {
+  "blockType": "request",
+  "name": "update_internaldomainfederation"
+}
+-->
+``` http
+PATCH https://graph.microsoft.com/beta/domains/contoso.com/federationConfiguration/6601d14b-d113-8f64-fda2-9b5ddda18ecc
+Content-Type: application/json
+{
+  "federatedIdpMfaBehavior": "enforceMfaByFederatedIdp"
+}
 ```
 
-This configuration allows the decision to use MFA Server or Azure MFA to be made on AD FS.
+
+#### Response
+>**Note:** The response object shown here might be shortened for readability.
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.internalDomainFederation"
+}
+-->
+``` http
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "@odata.type": "#microsoft.graph.internalDomainFederation",
+  "id": "6601d14b-d113-8f64-fda2-9b5ddda18ecc",
+   "issuerUri": "http://contoso.com/adfs/services/trust",
+   "metadataExchangeUri": "https://sts.contoso.com/adfs/services/trust/mex",
+   "signingCertificate": "MIIE3jCCAsagAwIBAgIQQcyDaZz3MI",
+   "passiveSignInUri": "https://sts.contoso.com/adfs/ls",
+   "preferredAuthenticationProtocol": "wsFed",
+   "activeSignInUri": "https://sts.contoso.com/adfs/services/trust/2005/usernamemixed",
+   "signOutUri": "https://sts.contoso.com/adfs/ls",
+   "promptLoginBehavior": "nativeSupport",
+   "isSignedAuthenticationRequestRequired": true,
+   "nextSigningCertificate": "MIIE3jCCAsagAwIBAgIQQcyDaZz3MI",
+   "signingCertificateUpdateStatus": {
+        "certificateUpdateResult": "Success",
+        "lastRunDateTime": "2021-08-25T07:44:46.2616778Z"
+    },
+   "federatedIdpMfaBehavior": "enforceMfaByFederatedIdp"
+}
+```
+
 
 ### Configure Conditional Access policies if needed
 
 If you use Conditional Access to determine when users are prompted for MFA, you shouldn't need to change your policies.
 
-If your federated domain(s) have SupportsMFA set to false, analyze your claims rules on the Azure AD relying party trust and create Conditional Access policies that support the same security goals.
+If your federated domain(s) have SupportsMfa set to false, analyze your claims rules on the Azure AD relying party trust and create Conditional Access policies that support the same security goals.
 
 After creating conditional access policies to enforce the same controls as AD FS, you can back up and remove your claim rules customizations on the Azure AD Relying Party.
 
@@ -276,7 +331,7 @@ You'll need to interpret, clean, and format the data.
 
 Users may have already registered phone numbers in Azure AD. When you import the phone numbers using the Authentication Methods API, you must decide whether to overwrite the existing phone number or to add the imported number as an alternate phone number.
 
-The following PowerShell cmdlets takes the CSV file you supply and adds the exported phone numbers as a phone number for each UPN using the Authentication Methods API. Replace "myPhones” with the name of your CSV file.
+The following PowerShell cmdlets takes the CSV file you supply and adds the exported phone numbers as a phone number for each UPN using the Authentication Methods API. Replace "myPhones" with the name of your CSV file.
 
 ```powershell
 
@@ -304,7 +359,7 @@ Detailed Azure MFA registration information can be found on the Registration tab
 
 ![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/authentication-methods.png)
 
-   
+
 
 ## Clean up steps
 
@@ -325,12 +380,12 @@ For example, remove the following from the rule(s):
  
 ```console
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value ==
-“**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
+"**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
 Value=="YourGroupSid"]) => issue(Type =
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value =
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 ### Disable MFA Server as an authentication provider in AD FS
@@ -364,9 +419,3 @@ Possible considerations when decommissions the MFA Servers include:
 - [Deploy password hash synchronization](../hybrid/whatis-phs.md)
 - [Learn more about Conditional Access](../conditional-access/overview.md)
 - [Migrate applications to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
-
- 
-
- 
-
- 

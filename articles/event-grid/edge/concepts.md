@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.subservice: iot-edge
 ms.topic: article
 ---
@@ -13,6 +13,10 @@ ms.topic: article
 # Event Grid concepts
 
 This article describes the main concepts in Azure Event Grid.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 ## Events
 

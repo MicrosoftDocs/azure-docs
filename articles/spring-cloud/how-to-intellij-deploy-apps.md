@@ -1,101 +1,114 @@
 ---
-title:  "Tutorial: Use IntelliJ to deploy Azure Spring Cloud applications"
-description: Use IntelliJ to deploy applications to Azure Spring Cloud.
+title:  "Tutorial: Deploy Spring Boot applications using IntelliJ"
+
+description: Use IntelliJ to deploy applications to Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 03/26/2020
-ms.custom: devx-track-java
+ms.date: 06/24/2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Use IntelliJ to deploy Azure Spring Cloud applications
+# Deploy Spring Boot applications using IntelliJ
 
-**This article applies to:** ✔️ Java
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
+**This article applies to:** ✔️ Java ❌ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+The IntelliJ plug-in for Azure Spring Apps supports application deployment from IntelliJ IDEA.
 
 Before running this example, you can try the [basic quickstart](./quickstart.md).
 
 ## Prerequisites
+
 * [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## Install the plug-in
+
 You can add the Azure Toolkit for IntelliJ IDEA 3.51.0 from the IntelliJ **Plugins** UI.
 
-1. Start IntelliJ.  If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then click **Plugins** to open the plug-in configuration dialog, and select **Install Plugins from disk**.
+1. Start IntelliJ. If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then select **Plugins** to open the plug-in configuration dialog, and select **Install Plugins from disk**.
 
-    ![Select Configure](media/spring-cloud-intellij-howto/configure-plugin-1.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/configure-plugin.png" alt-text="Screenshot of IntelliJ IDEA Welcome dialog box with Configure element highlighted.":::
 
-1. Search for Azure Toolkit for IntelliJ.  Click **Install**.
+1. Search for Azure Toolkit for IntelliJ. Select **Install**.
 
-    ![Install plugin](media/spring-cloud-intellij-howto/install-plugin.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/install-plugin.png" alt-text="Screenshot of IntelliJ IDEA Plugins dialog box with Install button highlighted.":::
 
-1. Click **Restart IDE**.
+1. Select **Restart IDE**.
 
 ## Tutorial procedures
-The following procedures deploy a Hello World application using the IntelliJ IDEA.
 
-* Open gs-spring-boot project
-* Deploy to Azure Spring Cloud
+The following procedures deploy a Hello World application using IntelliJ IDEA.
+
+* Open the gs-spring-boot project
+* Deploy to Azure Spring Apps
 * Show streaming logs
 
 ## Open gs-spring-boot project
 
-1. Download and unzip the source repository for this tutorial, or clone it using Git: git clone https://github.com/spring-guides/gs-spring-boot.git 
-1. cd into gs-spring-boot\complete.
+1. Download and unzip the source repository for this tutorial, or clone it using the following Git command: `git clone https://github.com/spring-guides/gs-spring-boot.git`
+1. Navigate to the *gs-spring-boot\complete* folder.
 1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
-1. Select `gs-spring-boot\complete` folder.
+1. Select the *gs-spring-boot\complete* folder.
 
-    ![Import Project](media/spring-cloud-intellij-howto/import-project-1.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/import-project.png" alt-text="Screenshot of IntelliJ IDEA Open File or Project dialog box with complete folder highlighted." lightbox="media/how-to-intellij-deploy-apps/import-project.png":::
 
-## Deploy to Azure Spring Cloud
-In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+## Deploy to Azure Spring Apps
 
-1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
+In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription. For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
-    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
+1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Apps**.
+
+   :::image type="content" source="media/how-to-intellij-deploy-apps/deploy-to-azure-menu-option.png" alt-text="Screenshot of IntelliJ IDEA context menu with Deploy to Azure Spring Apps option highlighted." lightbox="media/how-to-intellij-deploy-apps/deploy-to-azure-menu-option.png":::
 
 1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
 1. Accept the identifier from the project for the **Artifact**.
-1. Select **App:** then click **Create app...**.
+1. Select **App:** then click **+** to create an Azure Spring Apps instance.
 
-    ![Deploy to Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/deploy-to-azure-dialog-box.png" alt-text="Screenshot of IntelliJ IDEA Deploy Azure Spring app dialog box with plus button highlighted." lightbox="media/how-to-intellij-deploy-apps/deploy-to-azure-dialog-box.png":::
 
-1. Enter **App name**, then click **OK**.
+1. Enter **App name**, then select **OK**.
 
-    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-2a.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/create-azure-spring-app-dialog-box.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring App dialog box with App name field in focus.":::
 
-1. Start the deployment by clicking **Run** button. 
+1. Start the deployment by selecting the **Run** button.
 
-    ![Deploy to Azure 3](media/spring-cloud-intellij-howto/deploy-to-azure-3.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/run-button.png" alt-text="Screenshot of IntelliJ IDEA showing Run button." lightbox="media/how-to-intellij-deploy-apps/run-button.png":::
 
 1. The plug-in will run the command `mvn package` on the project and then create the new app and deploy the jar generated by the `package` command.
 
-1. If the app URL is not shown in the output window, get it from the Azure portal. Navigate from your resource group to the instance of Azure Spring Cloud.  Then click **Apps**.  The running app will be listed.
+1. If the app URL is not shown in the output window, get it from the Azure portal. Navigate from your resource group to the instance of Azure Spring Apps. Then select **Apps**. The running app will be listed. Select the app, then copy the **URL** or **Test Endpoint**.
 
-    ![Get test URL](media/spring-cloud-intellij-howto/get-test-url.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/get-test-url.png" alt-text="Screenshot of Azure portal showing the app overview page with the URL and Test Endpoint fields highlighted." lightbox="media/how-to-intellij-deploy-apps/get-test-url.png":::
 
-1. Navigate to the URL in browser.
+1. Navigate to the URL or Test Endpoint in the browser.
 
-    ![Navigate in Browser 2](media/spring-cloud-intellij-howto/navigate-in-browser-2.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/navigate-in-browser.png" alt-text="Screenshot of the app running in a browser displaying the message Greetings from Spring Boot.":::
 
 ## Show streaming logs
-To get the logs:
-1. Select **Azure Explorer**, then **Spring Cloud**.
-1. Right-click the running app.
-1. Select **Streaming Logs** from the drop-down list.
 
-    ![Select streaming logs](media/spring-cloud-intellij-howto/streaming-logs.png)
+To get the logs:
+
+1. Select **Azure Explorer**, then **Spring Apps**.
+1. Right-click the running app.
+1. Select **Streaming Log** from the drop-down list.
+
+   :::image type="content" source="media/how-to-intellij-deploy-apps/streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA context menu with the Streaming Log option highlighted.":::
 
 1. Select instance.
 
-    ![Select instance](media/spring-cloud-intellij-howto/select-instance.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/select-instance.png" alt-text="Screenshot of the IntelliJ IDEA  Select Instance dialog box.":::
 
 1. The streaming log will be visible in the output window.
 
-    ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
+   :::image type="content" source="media/how-to-intellij-deploy-apps/streaming-log-output.png" alt-text="Screenshot of the IntelliJ IDEA showing the streaming log in the output window." lightbox="media/how-to-intellij-deploy-apps/streaming-log-output.png":::
 
 ## Next steps
-* [Prepare Spring application for Azure Spring Cloud](how-to-prepare-app-deployment.md)
+
+* [Prepare Spring application for Azure Spring Apps](how-to-prepare-app-deployment.md)
 * [Learn more about Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/)

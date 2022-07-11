@@ -1,7 +1,9 @@
 ---
-title: Create activity log alerts for labs in Azure DevTest Labs
+title: Create activity log alerts for labs
 description: This article provides steps to create activity log alerts for lab in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 07/10/2020
 ---
 
@@ -74,4 +76,3 @@ In this example, you create an alert for all administrative operations on a lab 
 - To learn more about creating action groups using different action types, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 - To learn more about activity logs, see  [Azure Activity Log](../azure-monitor/essentials/activity-log.md).
 - To learn about setting alerts on activity logs, see [Alerts on activity log](../azure-monitor/alerts/activity-log-alerts.md).
-

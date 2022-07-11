@@ -10,6 +10,9 @@ ms.author: cynthn
 
 ---
 # Create a complete Linux virtual machine with the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 To quickly create a virtual machine (VM) in Azure, you can use a single Azure CLI command that uses default values to create any required supporting resources. Resources such as a virtual network, public IP address, and network security group rules are automatically created. For more control of your environment in production use, you may create these resources ahead of time and then add your VMs to them. This article guides you through how to create a VM and each of the supporting resources one by one.
 
 Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index).

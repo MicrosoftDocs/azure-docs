@@ -12,8 +12,7 @@ ms.custom:
 
 # Use service management from Python
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This guide shows you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) supports programmatic access to much of the service management-related functionality that is available in the [Azure portal][management-portal]. You can use this functionality to create, update, and delete cloud services, deployments, data management services, and virtual machines. This functionality can be useful in building applications that need programmatic access to service management.
 
@@ -26,7 +25,7 @@ To use the Service Management API, you need to [create an Azure account](https:/
 The Azure SDK for Python wraps the [Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over TLS and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
 ## <a name="Installation"> </a>Installation
-All the features described in this article are available in the `azure-servicemanagement-legacy` package, which you can install by using pip. For more information about installation (for example, if you're new to Python), see [Install Python and the Azure SDK](/azure/developer/python/azure-sdk-install).
+All the features described in this article are available in the `azure-servicemanagement-legacy` package, which you can install by using pip. For more information about installation (for example, if you're new to Python), see [Install Python and the Azure SDK](/azure/developer/python/sdk/azure-sdk-install).
 
 ## <a name="Connect"> </a>Connect to service management
 To connect to the service management endpoint, you need your Azure subscription ID and a valid management certificate. You can obtain your subscription ID through the [Azure portal][management-portal].

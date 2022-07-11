@@ -3,15 +3,15 @@ title: Developer notes for user flows and custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with user flows and custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/21/2021
+ms.date: 06/27/2022
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -45,13 +45,15 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 |---------|:---------:|:---------:|---------|
 [Authorization code](authorization-code-flow.md) | GA | GA | Allows users to sign in to web applications. The web application receives an authorization code. The authorization code is redeemed to acquire a token to call web APIs.|
 [Authorization code with PKCE](authorization-code-flow.md)| GA | GA | Allows users to sign in to mobile and single-page applications. The application receives an authorization code using proof key for code exchange (PKCE). The authorization code is redeemed to acquire a token to call web APIs.  |
-[Client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4)| GA | GA | Allows access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.  <br />  <br />  To use this feature in an Azure AD B2C tenant, use the Azure AD endpoint of your Azure AD B2C tenant. For more information, see [OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). This flow doesn't use your Azure AD B2C [user flow or custom policy](user-flow-overview.md) settings. |
+[Client credentials flow](client-credentials-grant-flow.md)| Preview | Preview | Allows access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. |
 [Device authorization grant](https://tools.ietf.org/html/rfc8628)| NA | NA | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  |
 [Implicit flow](implicit-flow-single-page-application.md) | GA | GA |  Allows users to sign in to single-page applications. The app gets tokens directly without performing a back-end server credential exchange.|
 [On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| NA | NA | An application invokes a service or web API, which in turn needs to call another service or web API. <br />  <br /> For the middle-tier service to make authenticated requests to the downstream service, pass a *client credential* token in the authorization header. Optionally, you can include a custom header with the Azure AD B2C user's token.  |
 [OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect introduces the concept of an ID token, which is a security token that allows the client to verify the identity of the user. |
 [OpenId Connect hybrid flow](openid-connect.md) | GA | GA | Allows a web application retrieve the ID token on the authorize request along with an authorization code.  |
-[Resource owner password credentials (ROPC)](add-ropc-policy.md) | Preview | Preview | Allows a mobile application to sign in the user by directly handling their password. |
+[Resource owner password credentials (ROPC)](add-ropc-policy.md) | GA | GA | Allows a mobile application to sign in the user by directly handling their password. |
+| [Sign-out](session-behavior.md#sign-out)| GA | GA | |
+| [Single sign-out](session-behavior.md#sign-out)  | NA | Preview | |
 
 ### OAuth 2.0 options
 
@@ -62,6 +64,7 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 | Insert JSON into user journey via `client_assertion`| NA| Deprecated |  |
 | Insert JSON into user journey as [id_token_hint](id-token-hint.md) | NA | GA | |
 | [Pass identity provider token to the application](idp-pass-through-user-flow.md)| Preview| Preview| For example, from Facebook to app. |
+| [Keep me signed in (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi)| GA| GA| |
 
 ## SAML2 application authentication flows
 
@@ -70,13 +73,14 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 [SP initiated](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
-[IDP initiated](saml-service-provider-options.md#identity-provider-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
+[IDP initiated](saml-service-provider-options.md#configure-idp-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
 
 ## User experience customization
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 | [Multi-language support](localization.md)| GA | GA | |
+| [Custom domains](custom-domain.md)| GA | GA | |
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
 | [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
@@ -88,19 +92,20 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 
 
+
 ## Identity providers
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 |[AD FS](identity-provider-adfs.md) | NA | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
-|[Apple](identity-provider-apple-id.md) | Preview | Preview | |
+|[Apple](identity-provider-apple-id.md) | GA | GA | |
 |[Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
 |[Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[eBay](identity-provider-ebay.md) | NA | Preview | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
-|[GitHub](identity-provider-github.md) | GA | GA | |
+|[GitHub](identity-provider-github.md) | Preview | GA | |
 |[Google](identity-provider-google.md) | GA | GA | |
 |[ID.me](identity-provider-id-me.md) | GA | GA | |
 |[LinkedIn](identity-provider-linkedin.md) | GA | GA | |
@@ -119,7 +124,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
 |[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
-|[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS].(identity-provider-adfs.md) |
+|[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS](identity-provider-adfs.md). |
 | WSFED | NA | NA | |
 
 ### API connectors
@@ -143,18 +148,20 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
 | [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
 | [OAuth SSO Session Provider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
-| [Single sign-out](session-behavior.md#sign-out)  |  Preview |  |
+
 
 ### Components
 
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
+| [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | GA |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
 | [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
 | [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | Preview |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory | GA |  |
 | [Predicate validations](predicates.md) | GA | For example, password complexity. |
 | [Display controls](display-controls.md) | GA |  |
+| [Sub journeys](subjourneys.md) | GA | |
 
 ### Developer interface
 
@@ -181,5 +188,5 @@ Developers consuming the custom policy feature set should adhere to the followin
 
 ## Next steps
 
-- Check the [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md)
+- Check the [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md).
 - Learn more about [custom policies and the differences with user flows](custom-policy-overview.md).

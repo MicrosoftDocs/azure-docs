@@ -4,16 +4,15 @@ description: This topic describes the directory extensions feature in Azure AD C
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -24,6 +23,9 @@ You can use directory extensions to extend the schema in Azure Active Directory 
 ). You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
 
 At present, no Microsoft 365 workload consumes these attributes.
+
+>[!IMPORTANT]
+>If you have exported a configuration that contains a custom rule used to synchronize directory extension attributes and you attempt to import this rule in to a new or existing installation of Azure AD Connect, the rule will be created during import, but the directory extension attributes will not be mapped.  You will need to re-select the directory extension attributes and re-associate them with the rule or recreate the rule entirely to fix this.
 
 ## Customize which attributes to synchronize with Azure AD
 
@@ -40,13 +42,16 @@ The installation shows the following attributes, which are valid candidates:
 * Single-valued attributes: String, Boolean, Integer, Binary
 * Multi-valued attributes: String, Binary
 
-
->[!NOTE]
-> After Azure AD Connect synchronized multi-valued Active Directory attribute to Azure AD as a multi-valued attribute extension, it is possible to include attribute to the SAML claim. But, it is not possible to consume this data through API call.
-
+> [!NOTE]
+> Not all features in Azure Active Directory support multi valued extension attributes. Please refer to the documentation of the feature in which you plan to use these attributes to confirm they are supported.
 The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](how-to-connect-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
 An object in Azure AD can have up to 100 attributes for directory extensions. The maximum length is 250 characters. If an attribute value is longer, the sync engine truncates it.
+
+> [!NOTE]
+> It is not supported to sync constructed attributes, such as msDS-UserPasswordExpiryTimeComputed. If you upgrade from an old version of AADConnect you may still see these attributes show up in the installation wizard, you should not enable them though. Their value will not sync to Azure AD if you do. 
+> You can read more about constructed attributes in [this artice](/openspecs/windows_protocols/ms-adts/a3aff238-5f0e-4eec-8598-0a59c30ecd56).
+> You should also not attempt to sync [Non-replicated attributes](/windows/win32/ad/attributes), such as badPwdCount, Last-Logon, and Last-Logoff, as their values will not be synced to Azure AD.
 
 ## Configuration changes in Azure AD made by the wizard
 

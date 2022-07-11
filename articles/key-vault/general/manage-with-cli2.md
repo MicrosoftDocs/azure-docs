@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To use the Azure CLI commands in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* Azure Command-Line Interface version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
@@ -125,7 +125,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 The output of this command shows properties of the key vault that you've created. The two most important properties are:
 
 * **name**: In the example, the name is ContosoKeyVault. You'll use this name for other Key Vault commands.
-* **vaultUri**: In the example, the URI is https://contosokeyvault.vault.azure.net. Applications that use your vault through its REST API must use this URI.
+* **vaultUri**: In the example, the URI is `https://contosokeyvault.vault.azure.net`. Applications that use your vault through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this key vault. As of yet, nobody else is authorized.
 
@@ -195,7 +195,7 @@ For detailed steps on registering an application with Azure Active Directory you
 To register an application in Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --role Contributor --scopes /subscriptions/<subscription id>
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -217,7 +217,7 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 ## <a name="bkmk_KVperCLI"></a> Setting key vault advanced access policies
 
-Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable advanced policies for the key vault.
+Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault.
 
  Enable Key Vault for deployment: Allows virtual machines to retrieve certificates stored as secrets from the vault.
 

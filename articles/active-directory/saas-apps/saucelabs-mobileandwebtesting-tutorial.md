@@ -68,13 +68,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Sauce Labs - Mobile and Web Testing** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up Sauce Labs - Mobile and Web Testing** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -106,31 +106,31 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Sauce Labs - Mobile and Web Testing company site as an administrator.
 
-2. Click on the **User icon** and select **Team Management** tab.
+1. Click the **Account** dropdown and select the **Team Management** tab.
 
-	![Screenshot that shows the "User" icon and "Team Management" drop-down selected.](./media/saucelabs-mobileandwebtesting-tutorial/user.png)
+   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/user.png" alt-text="Screenshot that shows the Account dropdown and Team Management dropdown item selected.":::
 
-3. Enter your **Domain name** in the textbox.
+1. Click **View Settings** under **Organization Settings**.
 
-	![Screenshot that shows an example domain name in the textbox.](./media/saucelabs-mobileandwebtesting-tutorial/domain.png)
+   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/org-settings.png" alt-text="Screenshot that shows the View Settings button in the Organization Settings box." border="true":::
 
-4. Click **Configure** tab.
+1. Click the **Single Sign-On** tab.
 
-	![Screenshot that shows the "Configure" tab selected under "Single Sign On is Enabled".](./media/saucelabs-mobileandwebtesting-tutorial/configure.png)
+   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/configure.png" alt-text="Screenshot that shows the Single Sign-On tab selected under Organization Settings.":::
 
-5. In the **Configure Single Sign On** section, perform the following steps.
+1. In the **Single Sign-On** section, perform the following steps.
 
-	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/browse.png)
+   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/browse.png" alt-text="Screenshot that shows selecting options on the Single Sign-On tab.":::
 
-	a. Click **Browse** and upload the downloaded metadata file from the Azure AD.
+   1. Define your Unique Identifier String (UIS) and click **Save**.
 
-	b. Select the **ALLOW JUST-IN-TIME PROVISIONING** checkbox.
+   1. Click **Upload New Metadata File** and upload the downloaded metadata file from Azure AD.
 
-	c. Click **Save**.
+   1. Under **Enable Single Sign-On**, select **Enabled**.
 
 ### Create Sauce Labs - Mobile and Web Testing test user
 
-In this section, a user called Britta Simon is created in Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Sauce Labs - Mobile and Web Testing, a new one is created after authentication.
+In this section, a user called B.Simon is created in Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing supports just-in-time user provisioning, which is always enabled. There is no action item for you in this section. If a user doesn't already exist in Sauce Labs - Mobile and Web Testing, a new one is created after authentication.
 
 > [!Note]
 > If you need to create a user manually, contact [Sauce Labs - Mobile and Web Testing support team](mailto:support@saucelabs.com).
@@ -141,8 +141,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Sauce Labs - Mobile and Web Testing for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Sauce Labs - Mobile and Web Testing tile in the My Apps, you should be automatically signed in to the Sauce Labs - Mobile and Web Testing for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Sauce Labs - Mobile and Web Testing tile in the My Apps, you should be automatically signed in to the Sauce Labs - Mobile and Web Testing for which you set up the SSO. For more information about My Apps, see [Introduction to My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Sauce Labs - Mobile and Web Testing you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Sauce Labs - Mobile and Web Testing you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

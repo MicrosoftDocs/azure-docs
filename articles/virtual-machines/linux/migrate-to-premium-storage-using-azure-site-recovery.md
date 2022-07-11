@@ -11,6 +11,8 @@ ms.subservice: disks
 ---
 # Use Site Recovery to migrate to Premium Storage
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 [Azure premium SSDs](../disks-types.md) delivers high-performance, low-latency disk support for virtual machines (VMs) that are running I/O-intensive workloads. This guide helps you migrate your VM disks from a standard storage account to a premium storage account by using [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery is an Azure service that contributes to your strategy for business continuity and disaster recovery by orchestrating the replication of on-premises physical servers and VMs to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep applications and workloads available. You fail back to your primary location when it returns to normal operation. 
@@ -206,7 +208,7 @@ For specific scenarios for migrating virtual machines, see the following resourc
 
 * [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Upload a Linux virtual hard disk](upload-vhd.md)
-* [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* Migrating Virtual Machines from Amazon AWS to Microsoft Azure
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 

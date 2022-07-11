@@ -17,7 +17,7 @@ App Service resources are region-specific and can't be moved across regions. You
 
 ## Prerequisites
 
-- None. [Restoring from snapshot](app-service-web-restore-snapshots.md) usually requires **Premium** tier, but in disaster recovery mode, it's automatically enabled for your impacted app, regardless which tier the impacted app is in.
+- None. [Restoring an automatic backup](manage-backup.md#restore-a-backup) usually requires **Standard** or **Premium** tier, but in disaster recovery mode, it's automatically enabled for your impacted app, regardless which tier the impacted app is in.
 
 ## Prepare
 
@@ -28,7 +28,7 @@ Identify all the App Service resources that the impacted app currently uses. For
 - [Deployment slots](deploy-staging-slots.md)
 - [Custom domains purchased in Azure](manage-custom-dns-buy-domain.md)
 - [TLS/SSL certificates](configure-ssl-certificate.md)
-- [Azure Virtual Network integration](web-sites-integrate-with-vnet.md)
+- [Azure Virtual Network integration](./overview-vnet-integration.md)
 - [Hybrid connections](app-service-hybrid-connections.md).
 - [Managed identities](overview-managed-identity.md)
 - [Backup settings](manage-backup.md)
@@ -85,4 +85,4 @@ If you only want to recover the files from the impacted app without restoring it
     ![Screenshot of a FileZilla file hierarchy. The wwwroot folder is highlighted, and its shortcut menu is visible. In that menu, Download is highlighted.](media/manage-disaster-recovery/download-content.png)
 
 ## Next steps
-[Restore an app in Azure from a snapshot](app-service-web-restore-snapshots.md)
+[Backup and restore](manage-backup.md)

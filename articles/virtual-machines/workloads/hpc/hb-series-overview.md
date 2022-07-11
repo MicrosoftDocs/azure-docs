@@ -1,17 +1,18 @@
 ---
 title: HB-series VM overview - Azure Virtual Machines | Microsoft Docs
 description: Learn about the preview support for the HB-series VM size in Azure. 
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 08/19/2020
-ms.author: amverma
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # HB-series virtual machines overview
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.
 

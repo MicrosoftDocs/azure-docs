@@ -5,16 +5,18 @@ description: Learn how to train and register a Keras deep neural network classif
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: minxia
-author: mx-iao
+ms.author: larryfr
+author: blackmist
 ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: how-to
-
-#Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train Keras models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your Keras training scripts with Azure Machine Learning.
 
@@ -43,6 +45,8 @@ Run this code on either of these environments:
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` and `utils.py`
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -74,7 +78,7 @@ ws = Workspace.from_config()
 
 ### Create a file dataset
 
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](./how-to-create-register-datasets.md) guide on the `Dataset` package for more information.
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](./v1/how-to-create-register-datasets.md) guide on the `Dataset` package for more information.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -100,6 +104,8 @@ dataset = dataset.register(workspace=ws,
 ### Create a compute target
 
 Create a compute target for your training job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 cluster_name = "gpu-cluster"

@@ -64,10 +64,13 @@ namespace CallingQuickstart
         string user_token_ = "<User_Access_Token>";
 
         Call call_;
+        CallClient call_client;
+        CallAgent call_agent;        
 
         public MainPage()
         {
             this.InitializeComponent();
+            call_client = new CallClient();
         }
 
         private async void JoinButton_ClickAsync(object sender, RoutedEventArgs e)
@@ -78,20 +81,12 @@ namespace CallingQuickstart
             }
 
             //
-            //  Create CallClient
-            //
-            CallClient call_client = new CallClient();
-
-            //
             //  Create CallAgent
             //
             CommunicationTokenCredential token_credential;
-            CallAgent call_agent;
-
             try
             {
                 token_credential = new CommunicationTokenCredential(user_token_);
-
                 CallAgentOptions call_agent_options = new CallAgentOptions();
                 call_agent = await call_client.CreateCallAgent(token_credential, call_agent_options);
             }

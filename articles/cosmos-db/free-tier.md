@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB free tier 
 description: Use Azure Cosmos DB free tier to get started, develop, test your applications. With free tier, you'll get the first 1000 RU/s and 25 GB of storage in the account for free. 
-author: SnehaGunda
+author: ThomasWeiss
+ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.author: sngun
+ms.date: 03/29/2022
 ---
 
 # Azure Cosmos DB free tier 
@@ -25,7 +25,7 @@ You can have up to one free tier Azure Cosmos DB account per an Azure subscripti
 In shared throughput model, when you provision throughput on a database, the throughput is shared across all the containers in the database. When using the free tier, you can provision a shared database with up to 1000 RU/s for free. All containers in the database will share the throughput. 
 
 Just like the regular account, in the free tier account, a shared throughput database can have a max of 25 containers. 
-Any additional databases with shared throughput or containers with dedicated throughput beyond 1000 RU/s are billed at the regular pricing. In a free tier account, you can create a max of 5 shared throughput databases.
+Any additional databases with shared throughput or containers with dedicated throughput beyond 1000 RU/s are billed at the regular pricing.
 
 ## Free tier with Azure discount
 
@@ -54,7 +54,7 @@ When creating the account using the Azure portal, set the **Apply Free Tier Disc
 
 ### ARM template
 
-To create a free tier account by using an ARM template, set the property`"enableFreeTier": true`. For the complete template, see deploy an [ARM template with free tier](manage-with-templates.md#free-tier) example.
+To create a free tier account by using an ARM template, set the property `"enableFreeTier": true`. For the complete template, see deploy an [ARM template with free tier](manage-with-templates.md#free-tier) example.
 
 ### CLI
 
@@ -67,7 +67,6 @@ az cosmosdb create \
     -g "MyResourcegroup" \
     --enable-free-tier true \
     --default-consistency-level "Session"
-    
 ```
 
 ### PowerShell
@@ -88,6 +87,6 @@ New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
 After you create a free tier account, you can start building apps with Azure Cosmos DB with the following articles:
 
 * [Build a console app using the .NET V4 SDK](create-sql-api-dotnet-v4.md) to manage Azure Cosmos DB resources.
-* [Build a .NET web app using Azure Cosmos DB's API for MongoDB](create-mongodb-dotnet.md)
+* [Build a .NET web app using Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-dotnet.md)
 * [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)

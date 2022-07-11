@@ -3,8 +3,9 @@ title: Process fixed-length text files with mapping data flows in Azure Data Fac
 description: Learn how to process fixed-length text files in Azure Data Factory using mapping data flows.
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 8/18/2019
+ms.date: 01/27/2022
 ms.author: makromer
 ---
 
@@ -20,13 +21,13 @@ By using mapping data flows in Microsoft Azure Data Factory, you can transform d
 
 2. Add a data flow activity, which will be used for processing fixed-width files:
 
-    ![Fixed Width Pipeline](media/data-flow/fwpipe.png)
+    :::image type="content" source="media/data-flow/fwpipe.png" alt-text="Fixed Width Pipeline":::
 
 3. In the data flow activity, select **New mapping data flow**.
 
 4. Add a Source, Derived Column, Select, and Sink transformation:
 
-    ![Fixed Width Data Flow](media/data-flow/fw2.png)
+    :::image type="content" source="media/data-flow/fw2.png" alt-text="Fixed Width Data Flow":::
 
 5. Configure the Source transformation to use a new dataset, which will be of the Delimited Text type.
 
@@ -58,27 +59,27 @@ By using mapping data flows in Microsoft Azure Data Factory, you can transform d
 
 10. In the expression builder, type the following:
 
-    ```substring(Column_1,1,4)```
+    `substring(Column_1,1,4)`
 
-    ![derived column](media/data-flow/fwderivedcol1.png)
+    :::image type="content" source="media/data-flow/fwderivedcol1.png" alt-text="derived column":::
 
 11. Repeat step 10 for all the columns you need to parse.
 
 12. Select the **Inspect** tab to see the new columns that will be generated:
 
-    ![inspect](media/data-flow/fwinspect.png)
+    :::image type="content" source="media/data-flow/fwinspect.png" alt-text="inspect":::
 
 13. Use the Select transform to remove any of the columns that you don't need for transformation:
 
-    ![select transformation](media/data-flow/fwselect.png)
+    :::image type="content" source="media/data-flow/fwselect.png" alt-text="select transformation":::
 
 14. Use Sink to output the data to a folder:
 
-    ![fixed width sink](media/data-flow/fwsink.png)
+    :::image type="content" source="media/data-flow/fwsink.png" alt-text="fixed width sink":::
 
     Here's what the output looks like:
 
-    ![fixed width output](media/data-flow/fxdoutput.png)
+    :::image type="content" source="media/data-flow/fxdoutput.png" alt-text="fixed width output":::
 
   The fixed-width data is now split, with four characters each and assigned to Col1, Col2, Col3, Col4, and so on. Based on the preceding example, the data is split into four columns.
 

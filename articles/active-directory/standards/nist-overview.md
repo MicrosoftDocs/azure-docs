@@ -6,9 +6,9 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-author: barbaraselden
-ms.author: baselden
-manager: mtillman
+author: gargi-sinha
+ms.author: gasinh
+manager: martinco
 ms.reviewer: 
 ms.date: 4/26/2021
 ms.custom: it-pro

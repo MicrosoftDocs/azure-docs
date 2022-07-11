@@ -1,10 +1,10 @@
 ---
 title: Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor) - Azure IoT Edge
 description: Set up continuous integration and continuous deployment using the classic editor - Azure IoT Edge with Azure DevOps, Azure Pipelines
-author: kgremban
-manager: philmea
-ms.author: kgremban
-ms.date: 08/26/2020
+author: PatAltimore
+
+ms.author: patricka
+ms.date: 08/26/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using the classic editor. Alternatively, you can [use YAML](how-to-continuous-integration-continuous-deployment.md).
+Azure Pipelines includes a built-in Azure IoT Edge task that helps you adopt DevOps with your Azure IoT Edge applications. This article demonstrates how to use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using the classic editor. Alternatively, you can [use YAML](how-to-continuous-integration-continuous-deployment.md).
 
 ![Diagram - CI and CD branches for development and production](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
 
@@ -82,21 +82,21 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    In your pipeline description, choose the correct agent specification based on your target platform:
 
-   * If you would like to build your modules in platform amd64 for Linux containers, choose **ubuntu-16.04**
+   * If you would like to build your modules in platform amd64 for Linux containers, choose **ubuntu-18.04**
 
    * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
-    ![Configure build agent specification](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png" alt-text="Configure build agent specification.":::
 
 6. Your pipeline comes preconfigured with a job called **Agent job 1**. Select the plus sign (**+**) to add four tasks to the job: **Azure IoT Edge** twice, **Copy Files** once, and **Publish Build Artifacts** once. Search for each task and hover over the task's name to see the **Add** button.
 
-   ![Add Azure IoT Edge task](./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png" alt-text="Add Azure IoT Edge task.":::
 
    When all four tasks are added, your Agent job looks like the following example:
 
-   ![Four tasks in the build pipeline](./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png" alt-text="Four tasks in the build pipeline.":::
 
 7. Select the first **Azure IoT Edge** task to edit it. This task builds all modules in the solution with the target platform that you specify. Edit the task with the following values:
 
@@ -110,9 +110,9 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    For more information about this task and its parameters, see [Azure IoT Edge task](/azure/devops/pipelines/tasks/build/azure-iot-edge).
 
-   These configurations use the image repository and tag that are defined in the `module.json` file to name and tag the module image. **Build module images** also helps replace the variables with the exact value you define in the `module.json` file. In Visual Studio or Visual Studio Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value on the **Pipeline Variables** tab. Select the **Variables** tab on the pipeline editor menu and configure the name and value as following:
+   These configurations use the image repository and tag that are defined in the `module.json` file to name and tag the module image. **Build module images** also helps replace the variables with the exact value you define in the `module.json` file. In Visual Studio or Visual Studio Code, you specify the actual value in a `.env` file. In Azure Pipelines, you set the value on the **Pipeline Variables** tab. Select the **Variables** tab on the pipeline editor menu and configure the name and value as following:
 
-   * **ACR_ADDRESS**: Your Azure Container Registry **Login server** value. You can retrieve the login server value from the overview page of your container registry in the Azure portal.
+   * **ACR_ADDRESS**: Your Azure Container Registry **Login server** value. You can find the login server value on the container registry's overview page in the Azure portal.
 
    If you have other variables in your project, you can specify the name and value on this tab. **Build module images** recognizes only variables that are in `${VARIABLE}` format. Make sure you use this format in your `**/module.json` files.
 
@@ -178,6 +178,5 @@ This pipeline is now configured to run automatically when you push new code to y
 
 ## Next steps
 
-* IoT Edge DevOps sample in [Azure DevOps Starter for IoT Edge](how-to-devops-starter.md)
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
 * Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).

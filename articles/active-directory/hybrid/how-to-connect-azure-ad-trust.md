@@ -4,15 +4,14 @@ description: Operational details of Azure AD trust handling by Azure AD connect.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
-manager: daveba
+manager: karenhoran
 ms.subservice: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory    
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2018
+ms.date: 03/24/2022
 ms.author: billmath
 author: billmath
 ms.custom: 
@@ -24,10 +23,10 @@ ms.collection: M365-identity-device-management
 
 When you federate your on-premises environment with Azure AD, you establish a trust relationship between the on-premises identity provider and Azure AD.  Azure AD Connect can manage federation between on-premises Active Directory Federation Service (AD FS) and Azure AD. This article provides an overview of:
 
-* The various settings configured on the trust by Azure AD Connect
-* The issuance transform rules (claim rules) set by Azure AD Connect
-* How to back-up and restore your claim rules between upgrades and configuration updates. 
-* Best practice for securing and monitoring the AD FS trust with Azure AD
+* The various settings configured on the trust by Azure AD Connect.
+* The issuance transform rules (claim rules) set by Azure AD Connect.
+* How to back up and restore your claim rules between upgrades and configuration updates.
+* Best practice for securing and monitoring the AD FS trust with Azure AD.
 
 ## Settings controlled by Azure AD Connect
 
@@ -42,7 +41,7 @@ Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD C
 | Issuance transform rules | There are numbers of claim rules which are needed for optimal performance of features of Azure AD in a federated setting. Azure AD Connect makes sure that the Azure AD trust is always configured with the right set of recommended claim rules. |
 | Alternate-id | If sync is configured to use alternate-id, Azure AD Connect configures AD FS to perform authentication using alternate-id. |
 | Automatic metadata update | Trust with Azure AD is configured for automatic metadata update. AD FS periodically checks the metadata of Azure AD trust and keeps it up-to-date in case it changes on the Azure AD side. |
-| Integrated Windows Authentication (IWA) | During Hybrid Azure AD join operation, IWA is enabled for device registration to facilitate Hybrid Azure AD join for downlevel devices |
+| Integrated Windows authentication (IWA) | During Hybrid Azure AD join operation, IWA is enabled for device registration to facilitate Hybrid Azure AD join for downlevel devices |
 
 ## Execution flows and federation settings configured by Azure AD Connect
 
@@ -116,7 +115,7 @@ You can restore the issuance transform rules using the suggested steps below
 ## Best practice for securing and monitoring the AD FS trust with Azure AD
 When you federate your AD FS with Azure AD, it is critical that the federation configuration (trust relationship configured between AD FS and Azure AD) is monitored closely, and any unusual or suspicious activity is captured. To do so, we recommend setting up alerts and getting notified whenever any changes are made to the federation configuration. To learn how to setup alerts, see [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md). 
 
-
+If you are using cloud Azure MFA, for multi factor authentication, with federated users, we highly recommend enabling additional security protection.  This security protection prevents bypassing of cloud Azure MFA when federated with Azure AD. When enabled, for a federated domain in your Azure AD tenant, it ensures that a bad actor cannot bypass Azure MFA by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, `federatedIdpMfaBehavior`.For additional information see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-mfa-when-federated-with-azure-ad)
 
 ## Next steps
 * [Manage and customize Active Directory Federation Services using Azure AD Connect](how-to-connect-fed-management.md)

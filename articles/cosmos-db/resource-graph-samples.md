@@ -1,14 +1,15 @@
 ---
 title: Azure Resource Graph sample queries for Azure Cosmos DB
 description: Sample Azure Resource Graph queries for Azure Cosmos DB showing use of resource types and tables to access Azure Cosmos DB related resources and properties.
-ms.date: 07/21/2021
+ms.date: 07/07/2022
 ms.topic: sample
-author: SnehaGunda
-ms.author: sngun
+author: manishmsfte
+ms.author: mansha
 ms.service: cosmos-db
 ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample
 queries for Azure Cosmos DB. For a complete list of Azure Resource Graph samples, see

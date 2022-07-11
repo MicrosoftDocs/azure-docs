@@ -12,11 +12,11 @@ ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 01/23/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 # Monitor your APIs with Azure API Management, Event Hubs, and Moesif
 The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses is transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Azure portal dashboard, but beyond that, the details are gone.

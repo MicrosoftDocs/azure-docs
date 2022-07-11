@@ -5,9 +5,9 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 09/22/2020
 ---
 
@@ -59,7 +59,7 @@ Add values in **Container Create Options**.
 > [!NOTE]
 > In the disconnected deployment mode, environment variables can be specified using the `-e` or `--env` or the `--env-file` option of the `docker run` command.
 
-## Configure by using an mssql.conf file
+## Configure by using an `mssql.conf` file
 
 Azure SQL Edge doesn't include the [mssql-conf configuration utility](/sql/linux/sql-server-linux-configure-mssql-conf/) like SQL Server on Linux does. You need to manually configure the mssql.conf file and place it in the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. When you're deploying SQL Edge from Azure Marketplace, this mapping is specified as the **Mounts** option in the **Container Create Options**.
 
@@ -94,7 +94,7 @@ The following mssql.conf options aren't applicable to SQL Edge:
 |**ML Services EULAs** | Accept R and Python EULAs for Azure Machine Learning packages. Applies to SQL Server 2019 only.|
 |**outboundnetworkaccess** |Enable outbound network access for [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python, and Java extensions.|
 
-The following sample mssql.conf file works for SQL Edge. For more information on the format for an mssql.conf file, see [mssql.conf format](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+The following sample mssql.conf file works for SQL Edge. For more information on the format for an `mssql.conf` file, see [mssql.conf format](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]

@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial - Develop module for Windows devices using Azure IoT Edge'
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Windows containers for Windows devices
-author: kgremban
-manager: philmea
-ms.author: kgremban
+author: PatAltimore
+
+ms.author: patricka
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -45,7 +45,7 @@ A development machine:
 
 An Azure IoT Edge device on Windows:
 
-* [Install and manage Azure IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md).
+* [Install and manage Azure IoT Edge with Windows containers](how-to-provision-single-device-windows-symmetric.md).
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device if possible. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
 
 Cloud resources:
@@ -151,6 +151,20 @@ Once your new project loads in the Visual Studio window, take a moment to famili
 * An IoT Edge module project called **IotEdgeModule1**.
   * The **program.cs** file contains the default C# module code that comes with the project template. The default module takes input from a source and passes it along to IoT Hub.
   * The **module.json** file hold details about the module, including the full image repository, image version, and which Dockerfile to use for each supported platform.
+
+### Set IoT Edge runtime version
+
+The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.2. 
+
+Windows containers are only supported in the 1.1 long-term support version or the earlier 1.0 version. To develop modules for devices using Windows containers, update the IoT Edge runtime version in Visual Studio to match the IoT Edge version on those devices.
+
+1. In the Solution Explorer, right-click the name of your project and select **Set IoT Edge runtime version**.
+
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Right-click your project name and select set IoT Edge runtime version.":::
+
+1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes.
+
+1. Re-generate your deployment manifest with the new runtime version. Right-click the name of your project and select **Generate deployment for IoT Edge**.
 
 ### Provide your registry credentials to the IoT Edge agent
 

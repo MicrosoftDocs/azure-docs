@@ -110,7 +110,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	g. Click **Save**.
 
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the Copy button by the **App Federation Metadata Url** and pass that Url back to the Learning Pool Delivery team.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the Copy button by the **App Federation Metadata Url** and pass that URL back to the Learning Pool Delivery team.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
@@ -136,4 +136,4 @@ You will be guided through the testing process by the Learning Pool Delivery tea
 
 ## Next steps
 
-Once you configure Learning Pool LMS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Learning Pool LMS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

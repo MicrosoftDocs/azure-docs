@@ -1,18 +1,17 @@
 ---
 title: 'Tutorial: Sentiment analysis with Cognitive Services'
 description: Learn how to use Cognitive Services for sentiment analysis in Azure Synapse Analytics
-services: synapse-analytics
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: jrasnick, garye
-
+ms.reviewer: sngun, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
+ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Sentiment analysis with Cognitive Services (preview)
+# Tutorial: Sentiment analysis with Cognitive Services
 
 In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../cognitive-services/index.yml). You'll use the [Text Analytics](../../cognitive-services/text-analytics/index.yml) capabilities to perform sentiment analysis. 
 
@@ -40,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 You'll need a Spark table for this tutorial.
 
-1. Download the [FabrikamComments.csv](https://github.com/Kaiqb/KaiqbRepo0731190208/blob/master/CognitiveServices/TextAnalytics/FabrikamComments.csv) file, which contains a dataset for text analytics. 
+1. Download the [FabrikamComments.csv](https://github.com/aghonaim/datasets/blob/master/FabrikamComments.csv) file, which contains a dataset for text analytics. 
 
 1. Upload the file to your Azure Synapse storage account in Data Lake Storage Gen2.
   
@@ -69,40 +68,30 @@ You'll need a Spark table for this tutorial.
 
    ![Screenshot that shows selections for opening the scoring wizard.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
 
-2. A configuration panel appears, and you're asked to select a Cognitive Services model. Select **Text analytics - Sentiment Analysis**.
+2. A configuration panel appears, and you're asked to select a Cognitive Services model. Select **Sentiment Analysis**.
 
-   ![Screenshot that shows selection of a Cognitive Services model.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00e.png)
-
-## Provide authentication details
-
-To authenticate to Cognitive Services, you need to reference the secret for your key vault. The following inputs depend on [prerequisite steps](tutorial-configure-cognitive-services-synapse.md) that you should have completed before this point.
-
-- **Azure subscription**: Select the Azure subscription that your key vault belongs to.
-- **Cognitive Services account**: Enter the Text Analytics resource that you'll connect to.
-- **Azure Key Vault linked service**: As part of the prerequisite steps, you created a linked service to your Text Analytics resource. Select it here.
-- **Secret name**: Enter the name of the secret in your key vault that contains the key to authenticate to your Cognitive Services resource.
-
-![Screenshot that shows authentication details for a key vault.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00f.png)
+   ![Screenshot that shows selection of a Cognitive Services model.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-choose.png)
 
 ## Configure sentiment analysis
 
 Next, configure the sentiment analysis. Select the following details:
+- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Cognitive Services](tutorial-configure-cognitive-services-synapse.md) . Select it here.
 - **Language**: Select **English** as the language of the text that you want to perform sentiment analysis on.
 - **Text column**: Select **comment (string)** as the text column in your dataset that you want to analyze to determine the sentiment.
 
 When you're done, select **Open notebook**. This generates a notebook for you with PySpark code that performs the sentiment analysis with Azure Cognitive Services.
 
-![Screenshot that shows selections for configuring sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00g.png)
+![Screenshot that shows selections for configuring sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-config.png)
 
 ## Run the notebook
 
-The notebook that you just opened uses the [mmlspark library](https://github.com/Azure/mmlspark) to connect to Cognitive Services. The Azure Key Vault details that you provided allow you to securely reference your secrets from this experience without revealing them.
+The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Cognitive Services. The Azure Cognitive Services linked service that you provided allow you to securely reference your cognitive service from this experience without revealing any secrets.
 
-You can now run all cells to enrich your data with sentiments. Select **Run all**. 
+ You can now run all cells to enrich your data with sentiments. Select **Run all**. 
 
 The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Cognitive Services](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
-![Screenshot that shows sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
+![Screenshot that shows sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-notebook.png)
 
 ## Next steps
 - [Tutorial: Anomaly detection with Azure Cognitive Services](tutorial-cognitive-services-anomaly.md)

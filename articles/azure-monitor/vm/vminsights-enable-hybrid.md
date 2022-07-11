@@ -4,7 +4,7 @@ description: This article describes how you enable VM insights for a hybrid clou
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 06/08/2022
 
 ---
 
@@ -38,8 +38,8 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.9.15340 | 3F34A36CF569724A5C83B1C8DFEC54263B7ABCFEAC9EB9BB40AF822A31265AF7  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.9.15340 | 0B0566A11A9B218FA6E44B057E7BA93986B8D6539B928C6D36D97D13A2F8B8A6 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.14.20760 | D4DB398FAD36E86FEACCC41D7B8AF46711346A943806769B6CE017F0BF1625FF    |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.14.20760 | 3DE3B485BA79B57E74B3DFB60FD277A30C8A5D1BD898455AD77FECF20E0E2610  |
 
 
 ## Install the Dependency agent on Windows

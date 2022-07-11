@@ -1,24 +1,29 @@
 ---
-title: Structured application log for Azure Spring Cloud | Microsoft Docs
-description: This article explains how to generate and collect structured application log data in Azure Spring Cloud.
+title: Structured application log for Azure Spring Apps | Microsoft Docs
+description: This article explains how to generate and collect structured application log data in Azure Spring Apps.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Structured application log for Azure Spring Cloud
+# Structured application log for Azure Spring Apps
 
-This article explains how to generate and collect structured application log data in Azure Spring Cloud. With proper configuration, Azure Spring Cloud provides useful application log query and analysis through Log Analytics.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article explains how to generate and collect structured application log data in Azure Spring Apps. With proper configuration, Azure Spring Apps provides useful application log query and analysis through Log Analytics.
 
 ## Log schema requirements
 
-To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Cloud uses this schema to parse your application and stream to Log Analytics.
+To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Apps uses this schema to parse your application and stream to Log Analytics.
 
 > [!NOTE]
-> Enabling the JSON log format makes it difficult to read the log streaming output from console. To get human readable output, append the `--format-json` argument to the `az spring-cloud app logs` CLI command. See [Format JSON structured logs](./how-to-log-streaming.md#format-json-structured-logs).
+> Enabling the JSON log format makes it difficult to read the log streaming output from console. To get human readable output, append the `--format-json` argument to the `az spring app logs` CLI command. See [Format JSON structured logs](./how-to-log-streaming.md#format-json-structured-logs).
 
 **JSON schema requirements:**
 
@@ -38,11 +43,11 @@ To improve log query experience, an application log is required to be in JSON fo
 
 * The "timestamp" field is required, and should be in UTC format, all other fields are optional.
 * "traceId" and "spanId" in "mdc" field are used for tracing purpose.
-* Log each JSON record in one line. 
+* Log each JSON record in one line.
 
-**Log record sample** 
+**Log record sample**
 
- ```
+```log
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
 
@@ -52,17 +57,17 @@ Each line of JSON logs may have at most **16K bytes**. If the JSON output of a s
 
 Generally, this happens on exception logging with deep stacktrace, especially when the [AppInsights In-Process Agent](./how-to-application-insights.md) is enabled.  Apply limit settings to the stacktrace output (see the below configuration samples) to ensure the final output gets parsed properly.
 
-## Generate schema-compliant JSON log  
+## Generate schema-compliant JSON log
 
-For Spring applications, you can generate expected JSON log format using common [logging frameworks](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), such as [logback](http://logback.qos.ch/) and [log4j2](https://logging.apache.org/log4j/2.x/). 
+For Spring applications, you can generate expected JSON log format using common [logging frameworks](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), such as [logback](http://logback.qos.ch/) and [log4j2](https://logging.apache.org/log4j/2.x/).
 
-### Log with logback 
+### Log with logback
 
-When using Spring Boot starters, logback is used by default. For logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+. 
+When using Spring Boot starters, logback is used by default. For logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+.
 
 The procedure:
 
-1. Add logstash dependency in your `pom.xml` file. 
+1. Add logstash dependency in your `pom.xml` file.
 
     ```xml
     <dependency>
@@ -71,7 +76,9 @@ The procedure:
         <version>6.5</version>
     </dependency>
     ```
+
 1. Update your `logback-spring.xml` config file to set the JSON format.
+
     ```xml
     <configuration>
         <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
@@ -117,6 +124,7 @@ The procedure:
         </root>
     </configuration>
     ```
+
 1. When using the logging configuration file with `-spring` suffix like `logback-spring.xml`, you can set the logging configuration based on the Spring active profile.
 
     ```xml
@@ -136,10 +144,10 @@ The procedure:
         </springProfile>
     </configuration>
     ```
-    
-    For local development, run the Spring Cloud application with JVM argument `-Dspring.profiles.active=dev`, then you can see human readable logs instead of JSON formatted lines.
 
-### Log with log4j2 
+    For local development, run the Spring application with JVM argument `-Dspring.profiles.active=dev`, then you can see human readable logs instead of JSON formatted lines.
+
+### Log with log4j2
 
 For log4j2 apps, use [json-template-layout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+.
 
@@ -211,7 +219,7 @@ The procedure:
     }
     ```
 
-3. Use this JSON layout template in your `log4j2-spring.xml` config file. 
+3. Use this JSON layout template in your `log4j2-spring.xml` config file.
 
     ```xml
     <configuration>
@@ -238,10 +246,10 @@ After your application is properly set up, your application console log will be 
 Use the following procedure:
 
 1. Go to service overview page of your service instance.
-2. Click `Logs` entry under `Monitoring` section.
+2. Select the **Logs** entry in the **Monitoring** section.
 3. Run this query.
 
-   ```
+   ```query
    AppPlatformLogsforSpring
    | where TimeGenerated > ago(1h)
    | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
@@ -251,29 +259,28 @@ Use the following procedure:
 
    ![Json Log show](media/spring-cloud-structured-app-log/json-log-query.png)
 
-
 ### Show log entries containing errors
 
 To review log entries that have an error, run the following query:
 
-```
+```query
 AppPlatformLogsforSpring
-| where TimeGenerated > ago(1h) and CustomLevel == "ERROR" 
-| project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName 
+| where TimeGenerated > ago(1h) and CustomLevel == "ERROR"
+| project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName
 | sort by AppTimestamp
 ```
 
-Use this query to find errors, or modify the query terms to find specific exception class or error code. 
+Use this query to find errors, or modify the query terms to find specific exception class or error code.
 
 ### Show log entries for a specific traceId
 
 To review log entries for a specific tracing ID "trace_id", run the following query:
 
-```
+```query
 AppPlatformLogsforSpring
 | where TimeGenerated > ago(1h)
-| where TraceId == "trace_id" 
-| project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName 
+| where TraceId == "trace_id"
+| project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName
 | sort by AppTimestamp
 ```
 

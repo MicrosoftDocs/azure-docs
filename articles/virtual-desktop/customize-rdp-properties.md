@@ -32,6 +32,7 @@ RDP files have the following properties by default:
 >[!NOTE]
 >- Multi-monitor mode is only enabled for Desktop app groups and will be ignored for RemoteApp app groups.
 >- All default RDP file properties are exposed in the Azure Portal.
+>- By default, the CustomRdpProperty field is null in the Azure portal. A null CustomRdpProperty field will apply all default RDP properties to your host pool. An empty CustomRdpProperty field will not apply any default RDP properties to your host pool.
 
 ## Prerequisites
 
@@ -41,7 +42,7 @@ Before you begin, follow the instructions in [Set up the Azure Virtual Desktop P
 
 To configure RDP properties in the Azure portal:
 
-1. Sign in to Azure at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under Services, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, select **host pools** in the menu on the left side of the screen.

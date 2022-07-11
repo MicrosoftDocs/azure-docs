@@ -1,8 +1,12 @@
 ---
 title: Scenarios to use a virtual network
 description: Scenarios, resources, and limitations to deploy container groups to an Azure virtual network.
-ms.topic: article
-ms.date: 08/11/2020
+ms.topic: conceptual
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Virtual network scenarios and resources
@@ -31,20 +35,19 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
 * **Global virtual network peering** - Global peering (connecting virtual networks across Azure regions) is not supported
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
-* **Virtual Network NAT** - Container groups deployed to a virtual network don't currently support using a NAT gateway resource for outbound internet connectivity.
 
 ## Other limitations
 
 * Currently, only Linux containers are supported in a container group deployed to a virtual network.
 * To deploy container groups to a subnet, the subnet can't contain other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
+* To deploy container groups to a subnet, the subnet and the container group must be on the same Azure subscription.
 * You can't use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
 * You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deployments to a virtual network are typically slower than deploying a standard container instance.
 * Outbound connection to port 25 is not supported at this time.
 * If you are connecting your container group to an Azure Storage Account, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to that resource.
-* [IPv6 addresses](../virtual-network/ipv6-overview.md) are not supported at this time. 
-
-[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
+* [IPv6 addresses](../virtual-network/ip-services/ipv6-overview.md) are not supported at this time.
+* Depending on your subscription type, [certain ports may be blocked](/azure/virtual-network/network-security-groups-overview#azure-platform-considerations).
 
 ## Required network resources
 
@@ -61,6 +64,8 @@ Subnets segment the virtual network into separate address spaces usable by the A
 The subnet that you use for container groups may contain only container groups. When you first deploy a container group to a subnet, Azure delegates that subnet to Azure Container Instances. Once delegated, the subnet can be used only for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
 
 ### Network profile
+
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 A network profile is a network configuration template for Azure resources. It specifies certain network properties for the resource, for example, the subnet into which it should be deployed. When you first use the [az container create][az-container-create] command to deploy a container group to a subnet (and thus a virtual network), Azure creates a network profile for you. You can then use that network profile for future deployments to the subnet. 
 

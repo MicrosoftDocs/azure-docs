@@ -3,14 +3,13 @@ title: Azure DDoS Protection Plan permissions
 description: Learn how to manage permission in a protection plan.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: AbdullahBell
 ms.service: ddos-protection
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
-ms.author: yitoh
+ms.author: abell
 
 ---
 
@@ -34,6 +33,9 @@ To work with DDoS protection plans, your account must be assigned to the [networ
 | Microsoft.Network/ddosProtectionPlans/join/action | Join a DDoS protection plan              |
 
 To enable DDoS protection for a virtual network, your account must also be assigned the appropriate [actions for virtual networks](../virtual-network/manage-virtual-network.md#permissions).
+
+> [!IMPORTANT]
+> Once a DDoS Protection Plan has been enabled on a Virtual Network, subsequent operations on that Virtual Network still require the `Microsoft.Network/ddosProtectionPlans/join/action` action permission.
 
 ## Azure Policy
 

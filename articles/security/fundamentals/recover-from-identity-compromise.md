@@ -1,6 +1,6 @@
 ---
 title: Use Microsoft and Azure security resources to help recover from systemic identity compromise | Microsoft Docs
-description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Azure Sentinel, and Azure Active Directory, and Azure Security Center, and Microsoft recommendations to secure your system against systemic-identity compromises similar to the Nobelium attack (Solorigate) of December 2020.
+description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, and Azure Active Directory, and Microsoft Defender for Cloud, and Microsoft recommendations to secure your system against systemic-identity compromises similar to the Nobelium attack (Solorigate) of December 2020.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -9,7 +9,6 @@ editor: ''
 
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -85,18 +84,18 @@ We recommend that customers follow updates from system providers, including both
 
 Check for updates in the following Microsoft security products, and implement any recommended changes:
 
-- [Azure Sentinel](../../sentinel/index.yml)
+- [Microsoft Sentinel](../../sentinel/index.yml)
 - [Microsoft 365 security solutions and services](/microsoft-365/security/)
 - [Windows 10 Enterprise Security](/windows/security/)
-- [Microsoft Cloud App Security ](/cloud-app-security/)
+- [Microsoft Defender for Cloud Apps ](/cloud-app-security/)
 
 Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system. Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
 
 Therefore, we recommend also taking the following actions:
 
-- Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Azure Security Center](../../security-center/index.yml).
+- Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
 
-- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft 365 data connectors in [Azure Sentinel](../../sentinel/import-threat-intelligence.md).
+- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft Purview Data Connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
 
 For more information, see Microsoft's security documentation:
 
@@ -154,7 +153,7 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 |**All cloud environments**    |       - Review any privileged access rights in the cloud and remove any unnecessary permissions<br>    - Implement Privileged Identity Management (PIM)<br>    - Set up Conditional Access policies to limit administrative access during hardening      |
 |**All on-premises environments**     |       - Review privileged access on-premise and remove unnecessary permissions<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
 |**All Enterprise applications**     | Review for delegated permissions and consent grants that allow any of the following actions: <br><br>  - Modifying privileged users and roles <br>- Reading or accessing all mailboxes <br>- Sending or forwarding email on behalf of other users <br>- Accessing all OneDrive or SharePoint site content <br>- Adding service principals that can read/write to the directory      |
-|**Microsoft 365 environments**     |Review access and configuration settings for your Microsoft 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- PowerApps <br>- Microsoft OneDrive for Business          |
+|**Microsoft 365 environments**     |Review access and configuration settings for your Microsoft 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- Power Apps <br>- Microsoft OneDrive for Business          |
 | **Review user accounts in your environments**   |- Review and remove guest user accounts that are no longer needed. <br>- Review email configurations for delegates, mailbox folder permissions, ActiveSync mobile device registrations, Inbox rules, and Outlook on the Web options. <br>- Review ApplicationImpersonation rights and reduce any use of legacy authentication as much as possible. <br>- Validate that MFA is enforced and that both MFA and self-service password reset (SSPR) contact information for all users is correct.         |
 |     |         |
 
@@ -168,20 +167,20 @@ For example, Microsoft security services may have specific resources and guidanc
 > If your investigation finds evidence of administrative permissions acquired through the compromise on your system, which have provided access to your organization's global administrator account and/or trusted SAML token-signing certificate, we recommend taking action to [remediate and retain administrative control](#remediate-and-retain-administrative-control).
 >
 
-### Monitoring with Azure Sentinel
+### Monitoring with Microsoft Sentinel
 
-Azure Sentinel has many built-in resources to help in your investigation, such as hunting workbooks and analytics rules that can help detect attacks in relevant areas of your environment.
+Microsoft Sentinel has many built-in resources to help in your investigation, such as hunting workbooks and analytics rules that can help detect attacks in relevant areas of your environment.
 
 For more information, see:
 
-- [Visualize and analyze your environment](../../sentinel/quickstart-get-visibility.md)
-- [Detect threats out of the box](../../sentinel/tutorial-detect-threats-built-in.md).
+- [Visualize and analyze your environment](../../sentinel/get-visibility.md)
+- [Detect threats out of the box](../../sentinel/detect-threats-built-in.md).
 
 ### Monitoring with Microsoft 365 Defender
 
 We recommend that you check Microsoft 365 Defender for Endpoint and Microsoft Defender Antivirus for specific guidance relevant to your attack.
 
-Check for other examples of detections, hunting queries, and threat analytics reports in the Microsoft security center, such as in Microsoft 365 Defender, Microsoft 365 Defender for Identity, and Microsoft Cloud App Security. To ensure coverage, make sure that you install the [Microsoft Defender for Identity agent](/defender-for-identity/install-step4) on ADFS servers in addition to all domain controllers.
+Check for other examples of detections, hunting queries, and threat analytics reports in the Microsoft security center, such as in Microsoft 365 Defender, Microsoft 365 Defender for Identity, and Microsoft Defender for Cloud Apps. To ensure coverage, make sure that you install the [Microsoft Defender for Identity agent](/defender-for-identity/install-step4) on ADFS servers in addition to all domain controllers.
 
 For more information, see:
 
@@ -190,7 +189,7 @@ For more information, see:
 
 ### Monitoring with Azure Active Directory
 
-Azure Active Directory sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Azure Active Directory area in the Azure portal, use the **Get-AzureADAuditSignInLogs** cmdlet, or view them in the **Logs** area of Azure Sentinel.
+Azure Active Directory sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Azure Active Directory area in the Azure portal, use the **Get-AzureADAuditSignInLogs** cmdlet, or view them in the **Logs** area of Microsoft Sentinel.
 
 For example, search or filter the results for when the **MFA results** field has a value of **MFA requirement satisfied by claim in the token**. If your organization uses ADFS and the claims logged are not included in the ADFS configuration, these claims may indicate attacker activity.
 
@@ -203,7 +202,7 @@ The following table describes more methods for using Azure Active directory logs
 |**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. <br><br>Make sure to use [ADFS Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md) so that all authentication events are visible in Azure AD. |
 |**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Azure Active Directory Audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Azure AD Audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
 |**Detect credentials for OAuth applications**     |  Attackers who have gained control of a privileged account may search for an application with the ability to access any user's email in the organization, and then add attacker-controlled credentials to that application. <br><br>For example, you may want to search for any of the following activities, which would be consistent with attacker behavior: <br>- Adding or updating service principal credentials <br>- Updating application certificates and secrets <br>- Adding an app role assignment grant to a user <br>- Adding Oauth2PermissionGrant |
-|**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft 365 Advanced Auditing features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
+|**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft Purview Audit (Premium) features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
 |**Detect non-interactive sign-ins to service principals**     | The Azure Active Directory sign-in reports provide details about any non-interactive sign-ins that used service principal credentials.  For example, you can use the sign-in reports to find valuable data for your investigation, such as an IP address used by the attacker to access email applications.        |
 |     |         |
 
@@ -224,7 +223,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
 
-- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender) and [Azure Sentinel](../../sentinel/overview.md).
+- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender) and [Microsoft Sentinel](../../sentinel/overview.md).
 
 - **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
 
@@ -441,15 +440,13 @@ In addition to the recommended actions listed above, we recommend that you consi
     - [Revoke user access in an emergency in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
     - [Revoke-AzureADUserAllRefreshToken PowerShell documentation](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
-
-
 ## Next steps
 
-- **Get help from inside Microsoft products**, including the Microsoft 365 security center, Microsoft 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **Help** (**?**) button in the top navigation bar.
+- **Get help from inside Microsoft products**, including the Microsoft 365 Defender portal, Microsoft Purview compliance portal, and Office 365 Security & Compliance Center by selecting the **Help** (**?**) button in the top navigation bar.
 
 - **For deployment assistance**, contact us at [FastTrack](https://fasttrack.microsoft.com)
 
-- **If you have product support-related needs**, file a Microsoft support case at https://support.microsoft.com/contactus.
+- **If you have product support-related needs**, file a [Microsoft support case](https://support.microsoft.com/contactus).
 
     > [!IMPORTANT]
     > If you believe you have been compromised and require assistance through an incident response, open a **Sev A** Microsoft support case.

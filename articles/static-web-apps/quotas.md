@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  overview
-ms.date: 05/08/2020
+ms.date: 10/13/2021
 ms.author: cshoe
 ---
 
@@ -19,9 +19,12 @@ The following quotas exist for Azure Static Web Apps.
 | Overage bandwidth           | Unavailable      | $0.20 per GB |
 | Apps per Azure subscription | 10               | Unlimited |
 | App size                    | 250 MB           | 500 MB |
+| Plan size                   | 500 MB max app size for a single deployment, and 0.50 GB max for all staging and production environments  | 500 MB max app size for a single deployment, and 2.00 GB max combined across all staging and production environments |
 | Pre-production environments | 3                | 10 |
 | Custom domains              | 2 per app        | 5 per app |
-| Authorization (with custom roles and routing rules) | Maximum of 25 end-users that may belong to custom roles | Maximum of 25 end-users that may belong to custom roles |
+| Allowed IP ranges           | Unavailable      | 25 |
+| Authorization (built-in roles) | Unlimited end-users that may authenticate with built-in `authenticated` role | Unlimited end-users that may authenticate with built-in `authenticated` role |
+| Authorization (custom roles) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-authorization.md?tabs=invitations#role-management) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-authorization.md?tabs=invitations#role-management), or unlimited end-users that may be assigned custom roles via [serverless function](authentication-authorization.md?tabs=function#role-management) |
 
 ## GitHub storage
 

@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Azure Blob storage client library for .NET"
 description: In this quickstart, you learn how to use the Azure Blob storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: twooley
-
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Azure Blob storage client library v11 for .NET
@@ -20,27 +20,25 @@ Get started with the Azure Blob Storage client library v11 for .NET. Azure Blob 
 
 Use the Azure Blob Storage client library for .NET to:
 
-* Create a container
-* Set permissions on a container
-* Create a blob in Azure Storage
-* Download the blob to your local computer
-* List all of the blobs in a container
-* Delete a container
+- Create a container
+- Set permissions on a container
+- Create a blob in Azure Storage
+- Download the blob to your local computer
+- List all of the blobs in a container
+- Delete a container
 
 Additional resources:
 
-* [API reference documentation](/dotnet/api/overview/azure/storage)
-* [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
-* [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-* [Samples](/samples/browse/?products=azure-blob-storage)
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+- [API reference documentation](/dotnet/api/overview/azure/storage)
+- [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+- [Samples](/samples/browse/?products=azure-blob-storage)
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure Storage account - [create a storage account](../common/storage-account-create.md)
-* Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure Storage account - [create a storage account](../common/storage-account-create.md)
+- Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
@@ -172,9 +170,9 @@ After you add the environment variable, restart any running programs that will n
 
 Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
-* The storage account.
-* A container in the storage account
-* A blob in a container
+- The storage account.
+- A container in the storage account
+- A blob in a container
 
 The following diagram shows the relationship between these resources.
 
@@ -182,22 +180,22 @@ The following diagram shows the relationship between these resources.
 
 Use the following .NET classes to interact with these resources:
 
-* [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): The `CloudStorageAccount` class represents your Azure storage account. Use this class to authorize access to Blob storage using your account access keys.
-* [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): The `CloudBlobClient` class provides a point of access to the Blob service in your code.
-* [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): The `CloudBlobContainer` class represents a blob container in your code.
-* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): The `CloudBlockBlob` object represents a block blob in your code. Block blobs are made up of blocks of data that can be managed individually.
+- [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): The `CloudStorageAccount` class represents your Azure storage account. Use this class to authorize access to Blob storage using your account access keys.
+- [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): The `CloudBlobClient` class provides a point of access to the Blob service in your code.
+- [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): The `CloudBlobContainer` class represents a blob container in your code.
+- [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): The `CloudBlockBlob` object represents a block blob in your code. Block blobs are made up of blocks of data that can be managed individually.
 
 ## Code examples
 
 These example code snippets show you how to perform the following with the Azure Blob storage client library for .NET:
 
-   * [Authenticate the client](#authenticate-the-client)
-   * [Create a container](#create-a-container)
-   * [Set permissions on a container](#set-permissions-on-a-container)
-   * [Upload blobs to a container](#upload-blobs-to-a-container)
-   * [List the blobs in a container](#list-the-blobs-in-a-container)
-   * [Download blobs](#download-blobs)
-   * [Delete a container](#delete-a-container)
+   - [Authenticate the client](#authenticate-the-client)
+   - [Create a container](#create-a-container)
+   - [Set permissions on a container](#set-permissions-on-a-container)
+   - [Upload blobs to a container](#upload-blobs-to-a-container)
+   - [List the blobs in a container](#list-the-blobs-in-a-container)
+   - [Download blobs](#download-blobs)
+   - [Delete a container](#delete-a-container)
 
 ### Authenticate the client
 
@@ -397,5 +395,5 @@ To learn how to create a web app that uploads an image to Blob storage, continue
 > [!div class="nextstepaction"]
 > [Upload and process an image](storage-upload-process-images.md)
 
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
-* To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
+- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
+- To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).

@@ -11,6 +11,9 @@ ms.reviewer: cynthn
 ---
 
 # Understand VM reboots - maintenance vs. downtime
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 There are three scenarios that can lead to virtual machines in Azure being impacted: unplanned hardware maintenance, unexpected downtime, and planned maintenance.
 
 ## Unplanned hardware maintenance event

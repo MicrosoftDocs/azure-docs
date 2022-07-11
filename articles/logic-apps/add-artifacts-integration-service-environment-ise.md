@@ -1,10 +1,10 @@
 ---
 title: Add resources to integration service environments
-description: Add logic apps, integration accounts, custom connectors, and managed connectors to your integration service environment (ISE)
+description: Add logic apps, integration accounts, custom connectors, and managed connectors to your integration service environment (ISE).
 services: logic-apps
 ms.suite: integration
-ms.reviewer: azla
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 02/28/2021
 ---
 
@@ -17,7 +17,7 @@ After you create an [integration service environment (ISE)](../logic-apps/connec
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The ISE that you created to run your logic apps. If you don't have an ISE, [create an ISE first](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 

@@ -2,13 +2,16 @@
 title: Run SSIS packages using Azure SQL Managed Instance Agent
 description: Learn how to run SSIS packages by using Azure SQL Managed Instance Agent. 
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
-ms.date: 04/14/2020
+ms.date: 02/15/2022
 ---
 
 # Run SSIS packages by using Azure SQL Managed Instance Agent
+
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Managed Instance Agent. This feature provides behaviors that are similar to when you schedule SSIS packages by using SQL Server Agent in your on-premises environment.
 
@@ -30,17 +33,17 @@ In this procedure, you use SQL Managed Instance Agent to invoke an SSIS package 
 1. In the latest version of SSMS, connect to a SQL Managed Instance.
 1. Create a new agent job and a new job step. Under **SQL Server Agent**, right-click the **Jobs** folder, and then select **New Job**.
 
-   ![Selections for creating a new agent job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="Selections for creating a new agent job":::
 
 1. On the **New Job Step** page, select **SQL Server Integration Services Package** as the type.
 
-   ![Selections for creating a new SSIS job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="Selections for creating a new SSIS job step":::
 
 1. On the **Package** tab, select **SSIS Catalog** as the package location.
 1. Because SSISDB is in a SQL Managed Instance, you don't need to specify authentication.
 1. Specify an SSIS package from SSISDB.
 
-   ![Package tab with selections for the package source type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png" alt-text="Package tab with selections for the package source type":::
 
 1. On the **Configuration** tab, you can:
   
@@ -48,7 +51,7 @@ In this procedure, you use SQL Managed Instance Agent to invoke an SSIS package 
    - Override values under **Connection Managers**.
    - Override the property and choose the logging level under **Advanced**.
 
-   ![Configuration tab with selections for the package source type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png" alt-text="Configuration tab with selections for the package source type":::
 
 1. Select **OK** to save the agent job configuration.
 1. Start the agent job to run the SSIS package.
@@ -60,11 +63,11 @@ In this procedure, you use SQL Managed Instance Agent to run an SSIS package tha
 1. In the latest version of SSMS, connect to a SQL Managed Instance.
 1. Create a new agent job and a new job step. Under **SQL Server Agent**, right-click the **Jobs** folder, and then select **New Job**.
 
-   ![Selections for creating a new agent job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="Selections for creating a new agent job":::
 
 1. On the **New Job Step** page, select **SQL Server Integration Services Package** as the type.
 
-   ![Selections for creating a new SSIS job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="Selections for creating a new SSIS job step":::
 
 1. On the **Package** tab:
 
@@ -74,7 +77,7 @@ In this procedure, you use SQL Managed Instance Agent to run an SSIS package tha
 
       - If your package is uploaded to Azure Files, select **Azure file share**.
 
-        ![Options for file source type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
+        :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png" alt-text="Options for file source type":::
 
         The package path is **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`**.
 
@@ -100,16 +103,19 @@ In this procedure, you use SQL Managed Instance Agent to run an SSIS package tha
 
 ## Run an SSIS package in the package store
 
+> [!NOTE] 
+> Package store is not supported in Azure-SSIS IR in Azure Synapse.
+
 In this procedure, you use SQL Managed Instance Agent to run an SSIS package that's stored in the  Azure-SSIS IR package store.
 
 1. In the latest version of SSMS, connect to a SQL Managed Instance.
 1. Create a new agent job and a new job step. Under **SQL Server Agent**, right-click the **Jobs** folder, and then select **New Job**.
 
-   ![Selections for creating a new agent job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="Selections for creating a new agent job":::
 
 1. On the **New Job Step** page, select **SQL Server Integration Services Package** as the type.
 
-   ![Selections for creating a new SSIS job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="Selections for creating a new SSIS job step":::
 
 1. On the **Package** tab:
 
@@ -119,7 +125,7 @@ In this procedure, you use SQL Managed Instance Agent to run an SSIS package tha
 
       The package path is **`<package store name>\<folder name>\<package name>`**.
 
-      ![Options for package store type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-package-store.png)
+      :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-package-store.png" alt-text="Options for package store type":::
 
    1. If your package file is encrypted with a password, select **Encryption password** and enter the password.
 1. On the **Configurations** tab, enter the configuration file path if you need a configuration file to run the SSIS package.
@@ -146,7 +152,7 @@ To cancel package execution from a SQL Managed Instance Agent job, take the foll
    If your SSIS packages are in SSISDB, then use **ssisdb.internal.execution_parameter_values** as table for job execution. If your SSIS packages are in file system, then use **ssisdb.internal.execution_parameter_values_noncatalog**.
 1. Right-click the SSISDB catalog, and then select **Active Operations**.
 
-   !["Active Operations" on the shortcut menu for the SSISDB catalog](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png" alt-text="&quot;Active Operations&quot; on the shortcut menu for the SSISDB catalog":::
 
 1. Stop the corresponding operation based on **executionId**.
 

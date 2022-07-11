@@ -1,24 +1,19 @@
 ---
 title: Create a Java function using Visual Studio Code - Azure Functions
-description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 11/03/2020
+ms.date: 06/22/2022
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
+ms.devlang: java
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code
 
-> [!div class="op_single_selector" title1="Select your function language: "]
-> - [Java](create-first-function-vs-code-java.md)
-> - [Python](create-first-function-vs-code-python.md)
-> - [C#](create-first-function-vs-code-csharp.md)
-> - [JavaScript](create-first-function-vs-code-node.md)
-> - [PowerShell](create-first-function-vs-code-powershell.md)
-> - [TypeScript](create-first-function-vs-code-typescript.md)
-> - [Other (Go/Rust)](create-first-function-vs-code-other.md)
+[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
 In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
@@ -35,7 +30,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11.
++ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 11 or 8.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -49,36 +44,30 @@ Before you get started, make sure you have the following requirements in place:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in Java. Later in this article, you'll publish your function code to Azure. 
 
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
+1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
-    ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
+    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Choose a directory location for your project workspace and choose **Select**.
-
-    > [!NOTE]
-    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
 1. Provide the following information at the prompts:
 
-    + **Select a language for your function project**: Choose `Java`.
+    |Prompt|Selection|
+    |--|--|
+    |**Select a language**| Choose `Java`.|
+    |**Select a version of Java**| Choose `Java 11` or `Java 8`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally. |
+    | **Provide a group ID** | Choose `com.function`. |
+    | **Provide an artifact ID** | Choose `myFunction`. |
+    | **Provide a version** | Choose `1.0-SNAPSHOT`. |
+    | **Provide a package name** | Choose `com.function`. |
+    | **Provide an app name** | Choose `myFunction-12345`. |
+    |**Select a template for your project's first function**| Choose `HTTP trigger`.|
+    | **Select the build tool for Java project** | Choose `Maven`. |
+    |**Provide a function name**| Enter `HttpExample`.|
+    |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Select how you would like to open your project**| Choose `Add to workspace`.|
 
-    + **Select a version of Java**: Choose `Java 8` or `Java 11`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally.
-
-    + **Provide a group ID**: Choose `com.function`.
-
-    + **Provide an artifact ID**: Choose `myFunction`.
-
-    + **Provide a version**: Choose `1.0-SNAPSHOT`.
-
-    + **Provide a package name**: Choose `com.function`.
-
-    + **Provide an app name**: Choose `myFunction-12345`.
-
-    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
-    + **Select how you would like to open your project**: Choose `Add to workspace`.
-
-1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
+1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=java#generated-project-files).
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 

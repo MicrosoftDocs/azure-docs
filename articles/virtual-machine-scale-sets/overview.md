@@ -11,8 +11,11 @@ ms.reviewer: mimckitt
 
 ---
 # What are virtual machine scale sets?
+
 Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update a large number of VMs. With virtual machine scale sets, you can build large-scale services for areas such as compute, big data, and container workloads.
 
+> [!IMPORTANT]
+> This article is about virtual machine scale sets in Uniform orchestration mode. To learn more about Flexible scale sets, go to [Flexible orchestration mode for virtual machine scale sets](../virtual-machines/flexible-virtual-machine-scale-sets.md).
 
 ## Why use virtual machine scale sets?
 To provide redundancy and improved performance, applications are typically distributed across multiple instances. Customers may access your application through a load balancer that distributes requests to one of the application instances. If you need to perform maintenance or update an application instance, your customers must be distributed to another available application instance. To keep up with extra customer demand, you may need to increase the number of application instances that run your application.
@@ -33,7 +36,7 @@ Azure virtual machine scale sets provide the management capabilities for applica
     - Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low, while customers continue to receive an acceptable level of performance as demand grows and additional VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
 
 - **Works at large-scale**
-    - Scale sets support up to 1,000 VM instances for standard marketplace images and custom images through the Shared Image Gallery. If you create a scale set using a managed image, the limit is 600 VM instances.
+    - Scale sets support up to 1,000 VM instances for standard marketplace images and custom images through the Azure Compute Gallery. If you create a scale set using a managed image, the limit is 600 VM instances.
     - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/managed-disks-overview.md).
 
 

@@ -17,7 +17,7 @@ ms.author: seanmck
 
 There are several options for creating a Cloud Foundry environment on Azure:
 
-- Use the [Pivotal Cloud Foundry offer][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] for deploying the marketplace offer in the Pivotal documentation.
+- Use the Pivotal Cloud Foundry offer in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] for deploying the marketplace offer in the Pivotal documentation.
 - Create a customized environment by [deploying Pivotal Cloud Foundry manually][pcf-custom].
 - [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a [BOSH](https://bosh.io) director, a VM that coordinates the deployment of the Cloud Foundry environment.
 
@@ -63,7 +63,7 @@ Now, when you deploy an application, it is automatically created in the new org 
 
 ## Deploy an application
 
-Let's use a sample Cloud Foundry application called Hello Spring Cloud, which is written in Java and based on the [Spring Framework](https://spring.io) and [Spring Boot](https://projects.spring.io/spring-boot/).
+Let's use a sample Cloud Foundry application called Hello Spring Cloud, which is written in Java and based on the [Spring Framework](https://spring.io) and [Spring Boot](https://spring.io/projects/spring-boot).
 
 ### Clone the Hello Spring Cloud repository
 
@@ -136,14 +136,13 @@ Running the `cf app` command on the application shows that Cloud Foundry is crea
 
 <!-- LINKS -->
 
-[pcf-azuremarketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
 [pcf-custom]: https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/ops-manager/2-10/install/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
 [cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
-[spring-boot]: https://projects.spring.io/spring-boot/
+[spring-boot]: https://spring.io/projects/spring-boot
 [spring-framework]: https://spring.io
 [cf-push-docs]: https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html
 [cloudfoundry-docs]: https://docs.cloudfoundry.org

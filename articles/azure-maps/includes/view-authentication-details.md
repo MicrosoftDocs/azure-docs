@@ -7,7 +7,7 @@ ms.date: 06/21/2021
 ms.topic: include
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 custom.ms: subject-rbac-steps
 ---
 

@@ -63,15 +63,20 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
+For VMSS, visit [Resource health state is "Degraded" in Azure Virtual Machine Scale Set](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
+
 ## History information
 
-You can access up to 30 days of history in the **Health history** section of Resource Health.
+> [!NOTE]
+> You can list current service health events in subscription and query data up to 1 year using the QueryStartTime parameter of [Events - List By Subscription Id](/rest/api/resourcehealth/events/list-by-subscription-id) REST API but currently there is no QueryStartTime parameter under [Events - List By Single Resource](/rest/api/resourcehealth/events/list-by-single-resource) REST API so you cannot query data up to 1 year while listing current service health events for given resource.
+ 
+You can access up to 30 days of history in the **Health history** section of Resource Health from Azure Portal.
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
 
 ## Root cause information
 
-If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. This information is only available for virtual machinse at this time. 
+If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. This information is only available for virtual machines at this time. 
 
 ## Get started
 
@@ -83,7 +88,7 @@ To open Resource Health for one resource:
 
 ![Opening Resource Health from the resource view](./media/resource-health-overview/from-resource-blade.png)
 
-You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
 ![Opening Resource Health from "All services"](./media/resource-health-overview/FromOtherServices.png)
 
@@ -91,4 +96,4 @@ You can also access Resource Health by selecting **All services** and typing **r
 
 Check out these references to learn more about Resource Health:
 -  [Resource types and health checks in Azure Resource Health](resource-health-checks-resource-types.md)
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)

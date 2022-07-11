@@ -4,7 +4,10 @@ description: How to maintain your Language Understanding (LUIS) app under source
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 06/14/2022
+author: aahill
+manager: nitinme
+ms.author: aahi
 ---
 
 
@@ -22,7 +25,7 @@ By using the concepts and guidance that are described in this document, you can 
   - Source code for your LUIS app is in a human-readable format.
   - The model can be built from source in a repeatable fashion.
   - The source code can be managed by a source code repository.
-  - Credentials and secrets such as authoring and subscription keys are never stored in source code.
+  - Credentials and secrets such as keys are never stored in source code.
 
 - **Branching and Merging**
   - Developers can work from independent branches.
@@ -54,7 +57,7 @@ To save a LUIS app in `.lu` format and place it under source control:
 
 ### Build the LUIS app from source
 
-For a LUIS app, to *build from source* means to [create a new LUIS app version by importing the `.lu` source](./luis-how-to-manage-versions.md#import-version) , to [train the version](./luis-how-to-train.md) and to[publish it](./luis-how-to-publish-app.md). You can do this in the LUIS portal, or at the command line:
+For a LUIS app, to *build from source* means to [create a new LUIS app version by importing the `.lu` source](./luis-how-to-manage-versions.md#import-version) , to [train the version](./luis-how-to-train.md) and to [publish it](./luis-how-to-publish-app.md). You can do this in the LUIS portal, or at the command line:
 
 - Use the LUIS portal to [import the `.lu` version](./luis-how-to-manage-versions.md#import-version) of the app from source control, and [train](./luis-how-to-train.md) and [publish](./luis-how-to-publish-app.md) the app.
 
@@ -72,11 +75,11 @@ The following types of files for your LUIS application should be maintained unde
 
 ### Credentials and keys are not checked in
 
-Do not include subscription keys or similar confidential values in files that you check in to your repo where they might be visible to unauthorized personnel. The keys and other values that you should prevent from check-in include:
+Do not include keys or similar confidential values in files that you check in to your repo where they might be visible to unauthorized personnel. The keys and other values that you should prevent from check-in include:
 
 - LUIS Authoring and Prediction keys
 - LUIS Authoring and Prediction endpoints
-- Azure subscription keys
+- Azure resource keys
 - Access tokens, such as the token for an Azure [service principal](/cli/azure/ad/sp) used for automation authentication
 
 #### Strategies for securely managing secrets
@@ -191,7 +194,7 @@ Each update the version number is incremented at the last digit.
 
 The major / minor version can be used to indicate the scope of the changes to the LUIS app functionality:
 
-* Major Version: A significant change, such as support for a new [Intent](./luis-concept-intent.md) or [Entity](./luis-concept-entity-types.md)
+* Major Version: A significant change, such as support for a new [Intent](./luis-concept-intent.md) or [Entity](concepts/entities.md)
 * Minor Version: A backwards-compatible minor change, such as after significant new training
 * Build: No functionality change, just a different build.
 

@@ -3,6 +3,7 @@ title: Use labels to provide per-environment configuration values.
 titleSuffix: Azure App Configuration
 description: This article describes how to use labels to retrieve app configuration values for the environment in which the app is currently running.
 ms.service: azure-app-configuration
+ms.devlang: csharp
 author: AlexandraKemperMS
 ms.topic: conceptual
 ms.custom: devx-track-csharp

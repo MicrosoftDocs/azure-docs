@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 06/01/2021
+  ms.date: 12/08/2021
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -71,24 +71,24 @@ conceptualContent:
         - url: bicep/overview.md
           itemType: overview
           text: Overview
-        - url: /learn/modules/deploy-azure-resources-by-using-bicep-templates
+        - url: /learn/paths/bicep-deploy
           itemType: learn
-          text: Deploy Azure resources
+          text: Learn path
         - url: bicep/file.md
           itemType: reference
           text: Bicep file structure
-        - url: bicep/data-types.md
-          itemType: reference
-          text: Bicep data types
         - url: bicep/bicep-functions.md
           itemType: reference
           text: Bicep functions
-        - url: bicep/operators.md
+        - url: /azure/templates/
           itemType: reference
-          text: Bicep operators
+          text: Resource reference
         - url: bicep/deploy-powershell.md
           itemType: how-to-guide
           text: Deploy
+        - url: ./bicep/best-practices.md
+          itemType: concept
+          text: Best practices
       # footerLink (optional)
       footerLink:
         url: bicep/index.yml
@@ -117,6 +117,25 @@ conceptualContent:
       # footerLink (optional)
       footerLink:
         url: management/index.yml
+        text: See more
+    # Card
+    - title: Troubleshoot deployments
+      links:
+        - url: troubleshooting/overview.md
+          itemType: overview
+          text: Overview
+        - url: troubleshooting/common-deployment-errors.md
+          itemType: how-to-guide
+          text: Common deployment errors
+        - url: troubleshooting/quickstart-troubleshoot-bicep-deployment.md
+          itemType: quickstart
+          text: Troubleshoot Bicep file
+        - url: troubleshooting/quickstart-troubleshoot-arm-deployment.md
+          itemType: quickstart
+          text: Troubleshoot ARM template JSON
+      # footerLink (optional)
+      footerLink:
+        url: troubleshooting/index.yml
         text: See more
     # Card
     - title: Managed Applications

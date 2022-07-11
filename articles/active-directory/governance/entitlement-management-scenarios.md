@@ -4,12 +4,11 @@ description: Learn the high-level steps you should follow for common scenarios i
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/18/2020
@@ -38,7 +37,7 @@ There are several ways that you can configure entitlement management for your or
 
 ### Catalog owner: Delegate management of resources
 
-1. [Add co-owners to the catalog](entitlement-management-catalog-create.md#add-additional-catalog-owners)
+1. [Add co-owners to the catalog](entitlement-management-catalog-create.md#add-more-catalog-owners)
 1. [Add resources to the catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
 
 ### Catalog owner: Delegate management of access packages
@@ -122,19 +121,19 @@ There are several ways that you can configure entitlement management for your or
 ### Access package manager: Update how access is approved for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Open an existing policy of request settings](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
-1. [Update the approval settings](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
+1. [Open an existing policy's request settings](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-with-different-request-settings)
+1. [Update the approval settings](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package-assignment-policy)
 
 ### Access package manager: Update the people for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [Remove users that no longer need access](entitlement-management-access-package-assignments.md)
-1. [Open an existing policy of request settings](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [Open an existing policy's request settings](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-with-different-request-settings)
 1. [Add users that need access](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### Access package manager: Directly assign specific users to an access package
 
-1. [If users need different lifecycle settings, add a new policy to the access package](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [If users need different lifecycle settings, add a new policy to the access package](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-with-different-request-settings)
 1. [Directly assign specific users to the access package](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## Assignments and reports

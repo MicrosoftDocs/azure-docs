@@ -1,17 +1,17 @@
 ---
 title: Disaster recovery for Azure API for FHIR
 description: In this article, you'll learn how to enable disaster recovery features for Azure API for FHIR.
-author: stevewohl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/03/2021
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: mikaelw
 ---
 
 # Disaster recovery for Azure API for FHIR
 
-The Azure API for FHIR® is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR.
+Azure API for FHIR is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR.
 
 The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Recovery Time Objective (RTO) of 60 minutes.
 
@@ -29,7 +29,7 @@ The DR process involves the following steps:
 
 ### Data replication in the secondary region
 
-By default, the Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
+By default, Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
 
 It's worth noting that the throughput RU/s must have the same values in the primary and secondary regions.
 
@@ -66,32 +66,32 @@ Other configuration changes may be required when Private Link, Customer Managed 
 
 You can enable the private link feature before or after the Azure API for FHIR has been provisioned. You can also provision private link before or after the DR feature has been enabled. Refer to the list below when you're ready to configure Private Link for DR.
 
-* Configure Azure Private Link in the primary region. This step isn't required in the secondary region. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link)
+* Configure Azure Private Link in the primary region. This step isn't required in the secondary region. For more information, see [Configure private link](/azure/healthcare-apis/fhir/configure-private-link)
 
-* Create one Azure VNet in the primary region and another VNet in the secondary region. For information, see [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+* Create one Azure VNet in the primary region and another VNet in the secondary region. For information, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
-* In the primary region, VNet creates a VNet peering to the secondary region VNet. For more information, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+* In the primary region, VNet creates a VNet peering to the secondary region VNet. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
 
 * Use the default settings, or you can tailor the configuration as needed. The importance is that the traffic can flow between the two virtual networks.
 
-* When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](https://docs.microsoft.com/azure/dns/private-dns-virtual-network-links).
+* When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](../../dns/private-dns-virtual-network-links.md).
 
 * Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You can access the Azure API for FHIR from both VMs.
 
-The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link).
+The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](/azure/healthcare-apis/fhir/configure-private-link).
 
 > [!NOTE]
 > Configuring virtual networks and VNet peering does not affect data replication.
 
 ### CMK
 
-Your access to the Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as Key Vault can take up to 20 minutes to re-establish its connection. For more information, see [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).  
+Your access to Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as Key Vault can take up to 20 minutes to re-establish its connection. For more information, see [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md).  
 
 ### $export
 
-The export job will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage. For more information, see [Disaster recovery and storage account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance). 
+The export job will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage. For more information, see [Disaster recovery and storage account failover](../../storage/common/storage-disaster-recovery-guidance.md). 
 
-Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data).
+Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](../fhir/export-data.md).
 
 ### IoMT FHIR Connector
 
@@ -129,12 +129,14 @@ Consider the following steps for DR test.
 The disaster recovery feature incurs extra costs because data of the compute and data replica running in the environment in the secondary region. For more pricing details, refer to the [Azure API for FHIR pricing]( https://azure.microsoft.com/pricing/details/azure-api-for-fhir) web page.
 
 > [!NOTE]
-> The DR offering is subject to the [SLA for Azure API for FHIR](https://azure.microsoft.com/support/legal/sla/azure-api-for-fhir/v1_0/), 1.0.
+> The DR offering is subject to the [SLA for Azure API for FHIR](https://azure.microsoft.com/pricing/details/health-data-services), 1.0.
 
 
 ## Next steps
 
-In this article, you've learned how DR for Azure API for FHIR works and how to enable it. To learn about Azure API for FHIR's other supported features, see:
+In this article, you've learned how DR for Azure API for FHIR works and how to enable it. To learn about Azure API for FHIR's other supported features, see
 
 >[!div class="nextstepaction"]
 >[FHIR supported features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

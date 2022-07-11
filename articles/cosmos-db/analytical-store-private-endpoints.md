@@ -19,7 +19,7 @@ In this article, you will learn how to set up managed private endpoints for Azur
 
 ## Enable a private endpoint for the analytical store
 
-### Set up Azure Synapse Analytics workspace with a managed virtual network
+### Set up Azure Synapse Analytics workspace with a managed virtual network and data-exfiltration
 
 [Create a workspace in Azure Synapse Analytics with data-exfiltration enabled.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) With [data-exfiltration protection](../synapse-analytics/security/workspace-data-exfiltration-protection.md), you can ensure that malicious users cannot copy or transfer data from your Azure resources to locations outside your organization’s scope.
 
@@ -128,5 +128,6 @@ To configure network isolation for this account from a Synapse workspace:
 
 ## Next steps
 
-* Get started with [querying analytical store with Azure Synapse Spark](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* Get started with [querying analytical store with Azure Synapse Spark 3](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* Get started with [querying analytical store with Azure Synapse Spark 2](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * Get started with [querying analytical store with Azure Synapse serverless SQL pools](../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)

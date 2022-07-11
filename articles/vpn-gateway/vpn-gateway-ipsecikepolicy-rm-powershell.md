@@ -3,12 +3,12 @@ title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using PowerShell.
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.author: yushwang 
+ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -31,7 +31,7 @@ This article provides instructions to create and configure an IPsec/IKE policy a
 
 > [!IMPORTANT]
 > 1. Note that IPsec/IKE policy only works on the following gateway SKUs:
->    * ***VpnGw1, VpnGw2, VpnGw3*** (route-based)
+>    * ***VpnGw1~5 and VpnGw1AZ~5AZ*** (route-based)
 >    * ***Standard*** and ***HighPerformance*** (route-based)
 > 2. You can only specify ***one*** policy combination for a given connection.
 > 3. You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.

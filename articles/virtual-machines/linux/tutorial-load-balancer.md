@@ -17,6 +17,8 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 # Tutorial: Load balance VMs for high availability
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. You learn how to:
 
 > [!div class="checklist"]

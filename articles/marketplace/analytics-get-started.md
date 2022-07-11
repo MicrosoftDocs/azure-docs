@@ -4,9 +4,10 @@ description: Learn how to use the API for accessing commercial marketplace analy
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 03/14/2022
 ---
 
 # Get started with programmatic access to analytics data
@@ -17,7 +18,7 @@ This guide helps you get on-boarded to programmatic access to Commercial Marketp
 
 You can use this guide to programmatically access commercial marketplace analytics data. By using the methods and APIs documented in this guide, you can schedule custom reports and ingest key data sets into your internal analytics systems. You can effectively monitor sales, evaluate performance, and optimize your offers in the commercial marketplace.
 
-The API for accessing commercial marketplace reports enable you to schedule custom reports of your analytics data asynchronously. The capability enables you to define reporting queries/templates based on your needs, set a schedule, and get timely and trustworthy reports at scheduled intervals.
+The API for accessing commercial marketplace reports enables you to schedule custom reports of your analytics data asynchronously. The capability enables you to define reporting queries/templates based on your needs, set a schedule, and get timely and trustworthy reports at scheduled intervals.
 
 The key value of programmatic access of commercial marketplace analytics data is customized reporting and integration with internal BI systems and platforms.
 

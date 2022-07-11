@@ -3,7 +3,10 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 06/02/2021
+ms.date: 07/04/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -23,12 +26,12 @@ This section covers backup operation failure of Azure Virtual machine.
 * Verify that the VM has internet connectivity.
   * Make sure another backup service isn't running.
 * From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and aren't due to Azure Backup. Use the following steps to determine whether the issue is with Azure Backup:
+* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup aren't happening due to Azure Backup. Use the following steps to determine whether the issue is with Azure Backup:
   * If there's an error with the entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
   * If Azure Backup is working, then the issue is likely with another backup solution.
   * Here is an example of an Event Viewer error 517 where Azure Backup was working fine but "Windows Server Backup" was failing:
     ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-  * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article.
+  * If Azure Backup is failing, then look for the corresponding error code in the [Common issues](#common-issues) section.
   * If you see Azure Backup option greyed out on an Azure VM, hover over the disabled menu to find the reason. The reasons could be  "Not available with EphemeralDisk" or "Not available with Ultra Disk".
     ![Reasons for the disablement of Azure Backup option](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
 
@@ -68,6 +71,8 @@ The backup operation failed because the VM is in Failed state. For a successful 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
 
+**Step 1**
+
 * Unmount the devices for which the file system state wasn't cleaned, using the **umount** command.
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
@@ -80,6 +85,23 @@ fsfreeze: True
 MountsToSkip = /mnt/resource
 SafeFreezeWaitInSeconds=600
 ```
+
+**Step 2**
+
+* Check if there are duplicate mount points present.
+
+Identify the failed to freeze mount points from the extension log file. <br>
+For example: /boot, /usr/sap in the below sample output. 
+```
+    2017-11-02 11:22:56 Thawing: /boot
+    2017-11-02 11:22:56 Failed to FITHAW: /boot
+    2017-11-02 11:22:56 Thawing: /sapshare
+    2017-11-02 11:22:56 Thawing: /usr/sap
+    2017-11-02 11:22:56 Failed to FITHAW: /usr/sap
+```
+
+On the Linux VM execute 'mount' command and check if the failed mount points have multiple entries. If yes, remove the old entries or rename the mount path and retry the backup operation.
+
 
 ### ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/operation failed due to a COM+ error
 
@@ -169,13 +191,15 @@ To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md
 
 ### UserErrorMarketPlaceVMNotSupported - VM creation failed due to Market Place purchase request being not present
 
-Error code: UserErrorMarketPlaceVMNotSupported
-Error message: VM creation failed due to Market Place purchase request being not present.
+**Error code**: UserErrorMarketPlaceVMNotSupported
 
-Azure Backup supports backup and restore of VMs which are available in Azure Marketplace. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in Azure Marketplace, [Learn more here](/legal/marketplace/participation-policy#offering-suspension-and-removal).
+**Error message**: VM creation failed due to Market Place purchase request being not present.
 
-* To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md#restore-disks) option during the restore operation and then use [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) or [Azure CLI](./tutorial-restore-disk.md) cmdlets to create the VM with the latest marketplace information corresponding to the VM.
-* If the publisher does not have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
+Azure Backup supports backup and restore of VMs that are available in Azure Marketplace. This error occurs when you try to restore a VM (with a specific Plan/Publisher setting), which is no longer available in Azure Marketplace. [Learn more here](/azure/marketplace/deprecate-vm).
+
+In this scenario, a partial failure happens where the disks are restored, but the VM isn't restored. This is because it's not possible to create a new VM from the restored disks.
+
+If the publisher doesn't have any Marketplace information, you can attach the restored disk(s) (that were created during partial failure) as data disks to an existing VM.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
@@ -212,7 +236,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
 ### ExtensionStuckInDeletionState - Extension state is not supportive to backup operation
 
 Error code: ExtensionStuckInDeletionState <br/>
-Error message: Extension state is not supportive to backup operation
+Error message: Extension state is not supportive to the backup operation
 
 The Backup operation failed due to inconsistent state of Backup Extension. To resolve this issue, follow these steps:
 
@@ -241,7 +265,7 @@ The snapshot operation failed as the snapshot limit has exceeded for some of the
 Error code: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Error message: Snapshot operation failed due to inadequate VM resources.
 
-Backup operation on the VM failed due to delay in network calls while performing the snapshot operation. To resolve this issue, perform Step 1. If the issue persists, try steps 2 and 3.
+The backup operation on the VM failed due to delay in network calls while performing the snapshot operation. To resolve this issue, perform Step 1. If the issue persists, try steps 2 and 3.
 
 **Step 1**: Create snapshot through Host
 
@@ -256,7 +280,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 
 **Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOPS)
 
-**Step 3**: Try [increasing the size of the VM](../virtual-machines/windows/resize-vm.md) and retry the operation
+**Step 3**: Try [increasing the size of the VM](../virtual-machines/resize-vm.md) and retry the operation
 
 ### 320001, ResourceNotFound - Could not perform the operation as VM no longer exists / 400094, BCMV2VMNotFound - The virtual machine doesn't exist / An Azure virtual machine wasn't found
 
@@ -359,6 +383,31 @@ To resolve this issue, try to restore the VM from a different restore point.<br>
 | The selected subnet doesn't exist: <br>Select a subnet that exists. |None |
 | The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#restore-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
+### UserErrorMigrationFromTrustedLaunchVM ToNonTrustedVMNotAllowed
+
+**Error code**: UserErrorMigrationFromTrustedLaunchVMToNonTrustedVMNotAllowed
+
+**Error message**: Backup cannot be configured for the VM which has migrated from Trusted Launch mode to non Trusted Launch mode.
+
+**Scenario 1**: Migration of Trusted Launch VM to Generation 2 VM is blocked.
+
+Migration of Trusted Launch VM to Generation 2 VM is not supported. This is because the VM Guest State (VMGS) blob created for Trusted Launch VMs isn't present for Generation 2 VM. Therefore, the VM won't start. 
+
+**Scenario 2**: Unable to protect a Standard VM with the same name as of Trusted Launch VM that was previously deleted.
+
+To resolve this issue:
+
+1. [Disable soft delete](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal).
+1. [Stop VM protection with delete backup data](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
+1. Re-enable soft delete.
+1. Configure VM protection again with the appropriate policy after the old backup data deletion is complete from the Recovery Services vault.
+
+>[!Note]
+>You can also create a VM:
+>
+>- With a different name than the original one, **or**
+>- In a different resource group with the same name.
+
 ## Backup or restore takes time
 
 If your backup takes more than 12 hours, or restore takes more than 6 hours, review [best practices](backup-azure-vms-introduction.md#best-practices), and
@@ -423,4 +472,4 @@ DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a 
 Get more information on how to set up a static IP through PowerShell:
 
 * [How to add a static internal IP to an existing VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
-* [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+* [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md)

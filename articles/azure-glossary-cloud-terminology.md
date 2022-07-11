@@ -12,9 +12,8 @@ ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 09/17/2021
 ms.author: monicar
 
 ---
@@ -24,6 +23,7 @@ The Microsoft Azure glossary is a short dictionary of cloud terminology for the 
 
 * [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Definitions of Azure services and their AWS counterparts.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
+* [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) - Microsoft Cloud Adoption Framework for Azure.
 
 ## account
 An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account. You can also create an account to manage an Azure subscription when you sign up for the [free trial](https://azure.microsoft.com).  
@@ -42,8 +42,8 @@ See [Manage the availability of Windows virtual machines](./virtual-machines/ava
 ## <a name="classic-model"></a>Azure classic deployment model
 One of two [deployment models](./azure-resource-manager/management/deployment-models.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.
 
-## <a name="cli"></a>Azure command-line interface (CLI)
-A command-line interface that can be used to manage Azure services from Windows, macOS, and Linux.  Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI](/cli/azure)
+## <a name="cli"></a>Azure CLI
+A command-line interface for managing Azure resources from Windows, macOS, and Linux environments. Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 A command-line interface to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI.
@@ -58,11 +58,11 @@ See [Manage the availability of Windows virtual machines](./virtual-machines/ava
 
 ## geo
 A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
-See [Azure Regions](best-practices-availability-paired-regions.md)
+See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## geo-replication
 The process of automatically replicating content such as blobs, tables, and queues within a regional pair.  
-See [Active Geo-Replication for Azure SQL Database](./azure-sql/database/auto-failover-group-overview.md)
+See [Active Geo-Replication for Azure SQL Database](/azure/azure-sql/database/auto-failover-group-overview)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## image
@@ -88,7 +88,7 @@ The secure web portal used to deploy and manage Azure services.
 
 ## region
 An area within a geo that does not cross national borders and contains one or more datacenters. Pricing, regional services, and offer types are exposed at the region level. A region is typically paired with another region, which can be up to several hundred miles away. Regional pairs can be used as a mechanism for disaster recovery and high availability scenarios. Also referred to as *location*.  
-See [Azure Regions](best-practices-availability-paired-regions.md)
+See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## resource
 An item that is part of your Azure solution. Each Azure service enables you to deploy different types of resources, such as databases or virtual machines.   
@@ -111,11 +111,11 @@ A means for controlling access that can be assigned to users, groups, and servic
 See [RBAC: Built-in roles](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>service level agreement (SLA)
-The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  
+The agreement that describes Microsoft's commitments for uptime and connectivity. Each Azure service has a specific SLA.  
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>shared access signature (SAS)
-A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](./storage/common/storage-sas-overview.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-dev-guide-sas.md#security-tokens) to grant devices permission to send telemetry.
+A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](./storage/common/storage-sas-overview.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-dev-guide-sas.md#sas-tokens) to grant devices permission to send telemetry.
 
 ## storage account
 An account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. The storage account name defines the unique namespace for Azure Storage data objects.  
@@ -128,6 +128,9 @@ See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/suppor
 ## tag
 An indexing term that enables you to categorize resources according to your requirements for managing or billing. When you have a complex collection of resources, you can use tags to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  
 See [Using tags to organize your Azure resources](./azure-resource-manager/management/tag-resources.md)
+
+## Tenant
+A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Azure Active Directory a tenant is an instance of Azure Active Directory that an organization receives when it signs up for a cloud application like Microsoft 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
 
 ## update domain
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  

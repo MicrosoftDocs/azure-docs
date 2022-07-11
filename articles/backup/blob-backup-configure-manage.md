@@ -2,7 +2,7 @@
 title: Configure operational backup for Azure Blobs
 description: Learn how to configure and manage operational backup for Azure Blobs.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 09/28/2021
 
 ---
 
@@ -23,6 +23,7 @@ Azure Backup lets you easily configure operational backup for protecting block b
 - This solution allows you to retain your data for restore for up to 360 days. Long retention durations may, however, lead to longer time taken during the restore operation.
 - The solution can be used to perform restores to the source storage account only and may result in data being overwritten.
 - If you delete a container from the storage account by calling the Delete Container operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers, in addition to operational backup, to protect against accidental deletion of containers.
+- Ensure that the **Microsoft.DataProtection** provider is registered for your subscription.
 - Refer to the [support matrix](blob-backup-support-matrix.md) to learn more about the supported scenarios, limitations, and availability.
 
 ## Create a Backup vault
@@ -60,7 +61,7 @@ To assign the required role for storage accounts that you need to protect, follo
         ![Role assignment options](./media/blob-backup-configure-manage/role-assignment-options.png)
 
         >[!NOTE]
-        >The role assignment might take up to 10 minutes to take effect.
+        >The role assignment might take up to 30 minutes to take effect.
 
 ## Create a backup policy
 
@@ -134,7 +135,7 @@ To start configuring backup:
 
     1. Select **Review + create** to create the backup policy.
 
-1. Choose the required storage accounts for configuring protection of blobs. You can choose multiple storage accounts at once and choose Select.<br></br>However, ensure that the vault you have chosen has the required RBAC role assigned to configure backup on storage accounts. Learn more about [Grant permissions to the Backup vault on storage accounts](#grant-permissions-to-the-backup-vault-on-storage-accounts).<br></br>If the role is not assigned, you can still assign the role while configuring backup. See step 7.
+1. Choose the required storage accounts for configuring protection of blobs. You can choose multiple storage accounts at once and choose Select.<br></br>However, ensure that the vault you have chosen has the required Azure role-based access control (Azure RBAC) role assigned to configure backup on storage accounts. Learn more about [Grant permissions to the Backup vault on storage accounts](#grant-permissions-to-the-backup-vault-on-storage-accounts).<br></br>If the role is not assigned, you can still assign the role while configuring backup. See step 7.
 
     ![Verify permissions of the vault](./media/blob-backup-configure-manage/verify-vault-permissions.png)
 

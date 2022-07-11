@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 05/04/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
-ms.reviewer: rhicock
+manager: karenhoran
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
@@ -97,7 +97,7 @@ The two-gate policy requires two pieces of authentication data, such as an email
 * A custom domain has been configured for your Azure AD tenant, such as *contoso.com*; or
 * Azure AD Connect is synchronizing identities from your on-premises directory
 
-You can disable the use of SSPR for administrator accounts using the [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings) PowerShell cmdlet. The `-SelfServePasswordResetEnabled $False` parameter disables SSPR for administrators.
+You can disable the use of SSPR for administrator accounts using the [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings) PowerShell cmdlet. The `-SelfServePasswordResetEnabled $False` parameter disables SSPR for administrators. Policy changes to disable or enable SSPR for administrator accounts can take up to 60 minutes to take effect. 
 
 ### Exceptions
 
@@ -127,6 +127,7 @@ After the module is installed, use the following steps to complete each task as 
 ### Check the expiration policy for a password
 
 1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+
 1. Run one of the following commands for either an individual user or for all users:
 
    * To see if a single user's password is set to never expire, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*:
@@ -144,6 +145,7 @@ After the module is installed, use the following steps to complete each task as 
 ### Set a password to expire
 
 1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+
 1. Run one of the following commands for either an individual user or for all users:
 
    * To set the password of one user so that the password expires, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*

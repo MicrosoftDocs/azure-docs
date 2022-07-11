@@ -4,15 +4,14 @@ titleSuffix: Azure Load Balancer
 description: With this article, learn about Azure Load Balancer with bidirectional TCP RST packets on idle timeout.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.custom: seodec18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Load Balancer TCP Reset and Idle Timeout
@@ -54,6 +53,7 @@ TCP keep-alive works for scenarios where battery life isn't a constraint. It isn
 
 - TCP reset only sent during TCP connection in ESTABLISHED state.
 - TCP idle timeout does not affect load balancing rules on UDP protocol.
+- TCP reset is not supported for ILB HA ports when a network virtual appliance is in the path. A workaround could be to use outbound rule with TCP reset from NVA.
 
 ## Next steps
 

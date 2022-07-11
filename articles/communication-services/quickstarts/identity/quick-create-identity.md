@@ -2,13 +2,15 @@
 title: Quickstart - Quickly create Azure Communication Services identities for testing
 titleSuffix: An Azure Communication Services quickstart
 description: Learn how to use the Identities & Access Tokens tool in the Azure portal to use with samples and for troubleshooting.
-author: manoskow
-manager: jken
+author: GrantMeStrength
+manager: chpalm
 services: azure-communication-services
-ms.author: manoskow
+ms.author: jken
 ms.date: 07/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: identity
+ms.custom: mode-other
 ---
 
 # Quickstart: Quickly create Azure Communication Services access tokens for testing
@@ -27,7 +29,11 @@ In the [Azure portal](https://portal.azure.com), navigate to the **Identities & 
 
 Choose the scope of the access tokens. You can select none, one, or multiple. Click **Generate**.
 
-You'll see an identity and corresponding user access token generated. You can copy these strings and use them in the [sample apps](https://docs.microsoft.com/azure/communication-services/samples/overview) and other testing scenarios.
+![Select the scopes of the identity and access tokens.](../media/quick-create-identity-choose-scopes.png)
+
+You'll see an identity and corresponding user access token generated. You can copy these strings and use them in the [sample apps](../../samples/overview.md) and other testing scenarios.
+
+![The identity and access tokens are generated and show the expiration date.](../media/quick-create-identity-generated.png)
 
 ## Next steps
 
@@ -36,3 +42,4 @@ You may also want to:
 
  - [Learn about authentication](../../concepts/authentication.md)
  - [Learn about client and server architecture](../../concepts/client-and-server-architecture.md)
+ - [Deploy trusted authentication service hero sample](../../samples/trusted-auth-sample.md)

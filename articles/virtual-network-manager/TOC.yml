@@ -1,0 +1,83 @@
+- name: Virtual Network Manager documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Virtual Network Manager?
+    href: overview.md
+  - name: Common use cases for Azure Virtual Network Manager
+    href: concept-use-cases.md
+- name: Quickstarts
+  items:
+  - name: Create Virtual Network Manager - Portal
+    href: create-virtual-network-manager-portal.md
+  - name: Create Virtual Network Manager - PowerShell
+    href: create-virtual-network-manager-powershell.md
+  - name: Create Virtual Network Manager - CLI
+    href: create-virtual-network-manager-cli.md
+  expanded: true
+- name: Tutorials
+  items:
+  - name: Create a secured hub and spoke
+    href: tutorial-create-secured-hub-and-spoke.md
+- name: Concepts
+  items:
+  - name: FAQ
+    href: faq.md
+  - name: Use cases
+    href: concept-use-cases.md
+  - name: Scope
+    href: concept-network-manager-scope.md
+  - name: Network groups
+    href: concept-network-groups.md
+  - name: Configuration types
+    items:
+    - name: Connectivity
+      href: concept-connectivity-configuration.md
+    - name: Security admin rules
+      href: concept-security-admins.md
+  - name: Deployments
+    href: concept-deployments.md
+  - name: Remove or update components
+    href: concept-remove-components-checklist.md
+- name: How-to guides
+  items:
+  - name: Block network traffic
+    items:
+    - name: Portal
+      href: how-to-block-network-traffic-portal.md
+    - name: PowerShell
+      href: how-to-block-network-traffic-powershell.md
+  - name: Create a network topology
+    items:
+    - name: Mesh
+      items: 
+      - name: Azure portal
+        href: how-to-create-mesh-network.md
+      - name: Azure PowerShell
+        href: how-to-create-mesh-network-powershell.md
+    - name: Hub-and-spoke
+      items:
+      - name: Azure portal
+        href: how-to-create-hub-and-spoke.md
+      - name: Azure PowerShell
+        href: how-to-create-hub-and-spoke-powershell.md
+  - name: View applied configurations
+    href: how-to-view-applied-configurations.md
+  - name: Exclude elements from dynamic membership
+    href: how-to-exclude-elements.md
+  - name: Common issues
+    href: common-issues.md
+- name: Reference
+  items:
+  - name: REST
+    href: /rest/api/networkmanager/
+  - name: .NET SDK
+    href: /dotnet/api/microsoft.azure.management.network
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

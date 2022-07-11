@@ -2,32 +2,35 @@
 title: 'Tutorial: Deploy Django on AKS cluster with PostgreSQL Flexible Server by using Azure CLI'
 description: Learn how to quickly build and deploy Django  on AKS with Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
-author: mksuni
-ms.author: sumuth
+ms.subservice: flexible-server
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
 
-In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL - Flexible Server (Preview) using the Azure CLI.
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for PostgreSQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
+In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL - Flexible Server  using the Azure CLI.
+
+**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for PostgreSQL - Flexible Server ](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
-> - Azure Database for PostgreSQL Flexible Server is currently in public preview
 > - This quickstart assumes a basic understanding of Kubernetes concepts, Django and PostgreSQL.
 
 ## Pre-requisites
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- Launch [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on you local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
-- Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade). This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- Launch [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on your local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
+- Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires the latest version of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az-group-create](/cli/azure/group#az_group_create) command  in the *eastus* location.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az-group-create](/cli/azure/group#az-group-create) command  in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name django-project --location eastus
@@ -54,7 +57,7 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *djangoappcluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
@@ -70,9 +73,9 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. 
 
 > [!NOTE] 
-> If running Azure CLI locally , please run the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command to install `kubectl`.
+> If running Azure CLI locally , please run the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command to install `kubectl`.
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group django-project --name djangoappcluster
@@ -92,7 +95,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## Create an Azure Database for PostgreSQL - Flexible Server
-Create a flexible server with the [az postgreSQL flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create) command. The following command creates a server using service defaults and values from your Azure CLI's local context:
+Create a flexible server with the [az postgreSQL flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az postgres flexible-server create --public-access all
@@ -109,8 +112,6 @@ The server created has the below attributes:
 
 Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) or use your existing Django project. Make sure your code is in this folder structure. 
 
-> [!NOTE] 
-> If you don't have an application you can go directly to [**Create Kubernetes manifest file**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) to use our sample image, [mksuni/django-aks-app:latest](https://hub.docker.com/r/mksuni/django-aks-app). 
 
 ```
 └───my-djangoapp
@@ -169,21 +170,33 @@ Create a new file named ```Dockerfile``` and copy the code snippet below. This D
 
 ```docker
 # Use the official Python image from the Docker Hub
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 FROM python:3.8.2
 
 # Make a new directory to put our code in.
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 RUN mkdir /code
 
 # Change the working directory.
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 WORKDIR /code
 
 # Copy to code folder
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 COPY . /code/
 
 # Install the requirements.
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 RUN pip install -r requirements.txt
 
 # Run the application:
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 CMD python manage.py runserver 0.0.0.0:8000
 ```
 
@@ -199,10 +212,10 @@ docker build --tag myblog:latest .
 Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
 > [!IMPORTANT]
->If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
+>If you are using Azure container registry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
 >
 >```azurecli-interactive
->az aks update -n myAKSCluster -g django-project --attach-acr <your-acr-name>
+>az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
 > ```
 >
 
@@ -211,7 +224,6 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. Let's create a manifest file named ```djangoapp.yaml``` and copy in the following YAML definition. 
 
 >[!IMPORTANT]
-> - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual Django docker image name and tag, for example ```docker-hub-user/myblog:latest```.  You can use the demo sample app ```mksuni/django-aks-app:latest``` in the manifest file.
 > - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
 
 ```yaml
@@ -233,11 +245,11 @@ spec:
       - name: django-app
         image: [DOCKER-HUB-USER-OR-ACR-ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]
         ports:
-        - containerPort: 80
+        - containerPort: 8000
         env:
         - name: DATABASE_HOST
           value: "SERVERNAME.postgres.database.azure.com"
-        - name: DATABASE_USERNAME
+        - name: DATABASE_USER
           value: "YOUR-DATABASE-USERNAME"
         - name: DATABASE_PASSWORD
           value: "YOUR-DATABASE-PASSWORD"
@@ -261,7 +273,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 8000
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
   selector:
     app: django-app
 ```
@@ -289,7 +303,7 @@ When the application runs, a Kubernetes service exposes the application front en
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get service django-app --watch
+kubectl get service python-svc --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *django-app* service is shown as *pending*.
@@ -305,7 +319,7 @@ When the *EXTERNAL-IP* address changes from *pending* to an actual public IP add
 django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Now open a web browser to the external IP address of your service view the Django application.  
+Now open a web browser to the external IP address of your service (http://\<service-external-ip-address\>) and view the Django application.  
 
 >[!NOTE]
 > - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
@@ -362,14 +376,14 @@ Quit the server with CONTROL-C.
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name django-project --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 

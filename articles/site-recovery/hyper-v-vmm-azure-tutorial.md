@@ -87,6 +87,30 @@ In the Microsoft Azure Recovery Services Agent Setup Wizard, configure these set
 
    ![Install agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
 
+### Install the Recovery Services agent on Windows core Hyper-V hosts
+
+Install the agent on each Windows core Hyper-V host containing VMs that you want to replicate.
+
+1. On the Windows Core Hyper-V host, create a directory by running the following command:
+
+   ```powershell
+   New-Item -Path C:\ASR -ItemType Directory
+   ```
+
+2. Download the installer for the Microsoft Azure Recovery Services agent:
+
+   ```powershell
+   Invoke-WebRequest -Uri <put the URI here> -OutFile .\ASR\MARSsoftware.exe
+   ```
+   
+3. Execute the installer by running the below command:
+
+   ```powershell
+   .\MARSsoftware.exe
+   ```
+
+4. Once the Microsoft Azure Recovery Services agent installation completes, you can close the Wizard console.
+
 ## Set up the target environment
 
 1. Select **Prepare infrastructure** > **Target**.

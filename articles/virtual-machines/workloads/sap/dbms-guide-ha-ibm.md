@@ -4,7 +4,7 @@ description: Establish high availability of IBM Db2 LUW on Azure virtual machine
 author: msjuergent
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 06/29/2022
 ms.author: juergent
 ms.reviewer: cynthn
 
@@ -14,7 +14,7 @@ ms.reviewer: cynthn
 IBM Db2 for Linux, UNIX, and Windows (LUW) in [high availability and disaster recovery (HADR) configuration](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consists of one node that runs a primary database instance and at least one node that runs a secondary database instance. Changes to the primary database instance are replicated to a secondary database instance synchronously or asynchronously, depending on your configuration. 
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
    
 This article describes how to deploy and configure the Azure virtual machines (VMs), install the cluster framework, and install the IBM Db2 LUW with HADR configuration. 
 
@@ -100,8 +100,13 @@ Complete the planning process before you execute the deployment. Planning builds
 | SBD VM | SBD virtual machine size, storage, network. |
 | Azure Load Balancer | Usage of Basic or Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |
-	
+    
 For more information about Linux Pacemaker in Azure, see [Set up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md).
+
+>[!IMPORTANT]
+>For Db2 versions 11.5.6 and higher we highly recommend Integrated solution using Pacemaker from IBM. \
+>* [Integrated solution using Pacemaker](https://www.ibm.com/docs/en/db2/11.5?topic=feature-integrated-solution-using-pacemaker) \
+>* [Alternate or additional configurations available on Microsoft Azure](https://www.ibm.com/support/pages/alternate-or-additional-configurations-available-microsoft-azure)
 
 ## Deployment on SUSE Linux
 
@@ -128,8 +133,8 @@ Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list
 1. Add data disks to the VMs, and then check the recommendation of a file system setup in the article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload][dbms-db2].
 
 ## Create the Pacemaker cluster
-	
-To create a basic Pacemaker cluster for this IBM Db2 server, see [Set up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker]. 
+    
+To create a basic Pacemaker cluster for this IBM Db2 server, see [Set up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker]. 
 
 ## Install the IBM Db2 LUW and SAP environment
 
@@ -162,6 +167,7 @@ To set up the primary IBM Db2 LUW database instance:
 
 > [!IMPORTANT] 
 > Write down the "Database Communication port" that's set during installation. It must be the same port number for both database instances
+>![SAP SWPM Port Definition](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
 
 To set up the Standby database server by using the SAP homogeneous system copy procedure, execute these steps:
 
@@ -473,11 +479,11 @@ If you performed the installation before you created the Db2 HADR configuration,
 Use the J2EE Config tool to check or update the JDBC URL. Because the J2EE Config tool is a graphical tool, you need to have X server installed:
  
 1. Sign in to the primary application server of the J2EE instance and execute:
-	 `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+     `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. In the left frame, choose **security store**.
 1. In the right frame, choose the key jdbc/pool/\<SAPSID>/url.
 1. Change the host name in the JDBC URL to the virtual host name.
-	 `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Select **Add**.
 1. To save your changes, select the disk icon at the upper left.
 1. Close the configuration tool.
@@ -890,14 +896,14 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
 [db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
-[sles-pacemaker]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker
+[dbms-db2]:dbms_guide_ibm.md
+[sles-pacemaker]:high-availability-guide-suse-pacemaker.md
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
-[nfs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
+[nfs-ha]:high-availability-guide-suse-nfs.md
 [sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP4/
-[ascs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse
+[ascs-ha]:high-availability-guide-suse.md
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
-[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist
+[azr-sap-plancheck]:sap-deployment-checklist.md

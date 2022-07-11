@@ -2,26 +2,29 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: rifox
 ---
-
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat).
 
 ## Prerequisites
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Python](https://www.python.org/downloads/).
-- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You'll need to record your resource endpoint for this quickstart.
-- A [user access token](../../access-tokens.md). Be sure to set the scope to `chat`, and note the `token` string as well as the `userId` string.
+- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
+- A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -77,7 +80,7 @@ pip install azure-communication-identity
 ```python
 from azure.communication.chat import ChatClient, CommunicationTokenCredential
 
-endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
+endpoint = "<replace with your resource endpoint>"
 chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"))
 ```
 This quickstart doesn't cover creating a service tier to manage tokens for your chat application, but that's recommended. For more information, see the "Chat architecture" section of [Chat concepts](../../../concepts/chat/concepts.md).
@@ -138,6 +141,7 @@ Use the `send_message` method to send a message to a chat thread you just create
 - Use `content` to provide the chat message content.
 - Use `chat_message_type` to specify the message content type. Possible values are `text` and `html`. If you don't specify a value, the default is `text`.
 - Use `sender_display_name` to specify the display name of the sender.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 `SendChatMessageResult` is the response returned from sending a message. It contains an ID, which is the unique ID of the message.
 
@@ -150,11 +154,15 @@ thread_id = create_chat_thread_result.chat_thread.id
 chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
 
 
-content='hello world'
+content='Please take a look at the attachment'
 sender_display_name='sender name'
+metadata={
+    'hasAttachment': 'true',
+    'attachmentUrl': 'https://contoso.com/files/attachment.docx'
+}
 
 # specify chat message type with pre-built enumerations
-send_message_result_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT)
+send_message_result_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT, metadata=metadata)
 print("Message sent: id: ", send_message_result_w_enum.id)
 ```
 
@@ -277,3 +285,6 @@ Run the application from your application directory with the `python` command.
 ```console
 python start-chat.py
 ```
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat).

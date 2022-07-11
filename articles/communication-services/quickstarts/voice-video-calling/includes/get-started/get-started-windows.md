@@ -1,9 +1,9 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
-ms.author: mikben
+ms.author: rifox
 ---
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Windows.
@@ -18,9 +18,15 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload. 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  
 ## Setting up
 
 ### Creating the project
@@ -155,10 +161,7 @@ call_ = await call_agent_.StartCallAsync(callees, startCallOptions);
 End the current call when the `Hang Up` button is clicked. 
 
 ```C#
-private async void HangupButton_Click(object sender, RoutedEventArgs e)
-{
-    await call_.HangUpAsync(new HangUpOptions());
-}
+await call_.HangUpAsync(new HangUpOptions());
 ```
 
 ## Run the code

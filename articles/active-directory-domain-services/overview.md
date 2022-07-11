@@ -3,13 +3,13 @@ title: Overview of Azure Active Directory Domain Services | Microsoft Docs
 description: In this overview, learn what Azure Active Directory Domain Services provides and how to use it in your organization to provide identity services to applications and services in the cloud.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 06/15/2022
 ms.author: justinha
 
 ms.custom: contperf-fy21q1
@@ -19,7 +19,7 @@ ms.custom: contperf-fy21q1
 
 # What is Azure Active Directory Domain Services?
 
-Azure Active Directory Domain Services (AD DS) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos/NTLM authentication. You use these domain services without the need to deploy, manage, and patch domain controllers (DCs) in the cloud.
+Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos/NTLM authentication. You use these domain services without the need to deploy, manage, and patch domain controllers (DCs) in the cloud.
 
 An Azure AD DS managed domain lets you run legacy applications in the cloud that can't use modern authentication methods, or where you don't want directory lookups to always go back to an on-premises AD DS environment. You can lift and shift those legacy applications from your on-premises environment into a managed domain, without needing to manage the AD DS environment in the cloud.
 

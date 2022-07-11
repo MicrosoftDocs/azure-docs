@@ -1,6 +1,6 @@
 ---
 title: Data collection and reporting | Azure Arc-enabled data services
-description: Explains the type of data that is transmitted by Arc enabled Data services to Microsoft. 
+description: Explains the type of data that is transmitted by Azure Arc-enabled Data services to Microsoft. 
 author: dnethi
 ms.author: dinethi
 services: azure-arc
@@ -61,15 +61,15 @@ This section provides more details about the information included with the Azure
 
 ### Operational data
 
-Operational data is collected for all database instances and for the Arc enabled data services platform itself. There are two types of operational data: 
+Operational data is collected for all database instances and for the Azure Arc-enabled data services platform itself. There are two types of operational data: 
 
-- Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Arc enabled data services. You can view these metrics in the provided Grafana dashboard. 
+- Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Azure Arc-enabled data services. You can view these metrics in the provided Grafana dashboard. 
 
-- Logs – logs emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Arc enabled data services. You can view the logs in the provided Kibana dashboard. 
+- Logs – logs emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. 
 
 The operational data stored locally requires built in administrative privileges to view it in Grafana/Kibana. 
 
-The operational data does not leave yous environment unless you chooses to export/upload (indirect connected mode) or automatically send (directly connected mode) the data to Azure Monitor/Log Analytics. The data goes into a Log Analytics workspace, which you control. 
+The operational data does not leave your environment unless you chooses to export/upload (indirect connected mode) or automatically send (directly connected mode) the data to Azure Monitor/Log Analytics. The data goes into a Log Analytics workspace, which you control. 
 
 If the data is sent to Azure Monitor or Log Analytics, you can choose which Azure region or datacenter the Log Analytics workspace resides in. After that, access to view or copy it from other locations can be controlled by you. 
 
@@ -81,8 +81,8 @@ Every database instance and the data controller itself will be reflected in Azur
 
 There are three resource types: 
 
-- Arc enabled SQL Managed Instance 
-- Arc enabled PostgreSQL Hyperscale server group 
+- Azure Arc-enabled SQL Managed Instance 
+- Azure Arc-enabled PostgreSQL Hyperscale server group 
 - SQL Server on Azure Arc-enabled servers 
 - Data controller 
 
@@ -91,7 +91,7 @@ The following sections show the properties, types, and descriptions that are col
 ### SQL Server on Azure Arc-enabled servers 
 - SQL Server edition. 
    - `string: Edition` 
-- Resource ID of the container resource (Azure Arc for Servers). 
+- Resource ID of the container resource (Azure Arc for Servers). 
    - `string: ContainerResourceId` 
 - Time when the resource was created. 
    - `string: CreateTime` 

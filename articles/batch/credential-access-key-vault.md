@@ -2,13 +2,13 @@
 title: Use certificates and securely access Azure Key Vault with Batch
 description: Learn how to programmatically access your credentials from Key Vault using Azure Batch.
 ms.topic: how-to
-ms.date: 10/28/2020 
+ms.date: 06/22/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Use certificates and securely access Azure Key Vault with Batch
 
-In this article, you'll learn how to set up Batch nodes to securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md). There's no point in putting your admin credentials in Key Vault, then hard-coding credentials to access Key Vault from a script. The solution is to use a certificate that grants your Batch nodes access to Key Vault.
+In this article, you'll learn how to set up Batch nodes to securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md).
 
 To authenticate to Azure Key Vault from a Batch node, you need:
 
@@ -17,27 +17,12 @@ To authenticate to Azure Key Vault from a Batch node, you need:
 - A Batch account
 - A Batch pool with at least one node
 
+> [!IMPORTANT]
+> Batch now offers an improved option for accessing credentials stored in Azure Key Vault. By creating your pool with a user-assigned managed identity that can access the certificate in Azure Key Vault, you don't need to send the certificate content to the Batch Service, which enhances security. We recommend using automatic certificate rotation instead of the method described in this topic. For more information, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
+
 ## Obtain a certificate
 
-If you don't already have a certificate, the easiest way to get one is to generate a self-signed certificate using the `makecert` command-line tool.
-
-You can typically find `makecert` in this path: `C:\Program Files (x86)\Windows Kits\10\bin\<arch>`. Open a command prompt as an administrator and navigate to `makecert` using the following example.
-
-```console
-cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-```
-
-Next, use the `makecert` tool to create self-signed certificate files called `batchcertificate.cer` and `batchcertificate.pvk`. The common name (CN) used isn't important for this application, but it's helpful to make it something that tells you what the certificate is used for.
-
-```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
-```
-
-Batch requires a `.pfx` file. Use the [pvk2pfx](/windows-hardware/drivers/devtest/pvk2pfx) tool to convert the `.cer` and `.pvk` files created by `makecert` to a single `.pfx` file.
-
-```console
-pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificate.pfx -po
-```
+If you don't already have a certificate, [use the PowerShell cmdlet `New-SelfSignedCertificate`](/powershell/module/pki/new-selfsignedcertificate) to make a new self-signed certificate.
 
 ## Create a service principal
 

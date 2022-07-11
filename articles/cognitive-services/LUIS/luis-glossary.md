@@ -4,7 +4,10 @@ description: The glossary explains terms that you might encounter as you work wi
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/17/2021
+ms.date: 03/21/2022
+author: aahill
+ms.author: aahi
+manager: nitinme
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -35,7 +38,7 @@ Authoring is the ability to create, manage and deploy a LUIS app, either using t
 
 ### Authoring Key
 
-The [authoring key](luis-how-to-azure-subscription.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
+The [authoring key](luis-how-to-azure-subscription.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [resource limits](luis-limits.md#resource-usage-and-limits).
 
 ### Authoring Resource
 
@@ -125,7 +128,7 @@ Your access to the prediction endpoint is authorized with the LUIS prediction ke
 
 ## Entity
 
-[Entities](luis-concept-entity-types.md) are words in utterances that describe information used to fulfill or identify an intent. If your entity is complex and you would like your model to identify specific parts, you can break your model into subentities. For example, you might want you model to predict an address, but also the subentities of street, city, state, and zipcode. Entities can also be used as features to models. Your response from the LUIS app will include both the predicted intents and all the entities.
+[Entities](concepts/entities.md) are words in utterances that describe information used to fulfill or identify an intent. If your entity is complex and you would like your model to identify specific parts, you can break your model into subentities. For example, you might want you model to predict an address, but also the subentities of street, city, state, and zipcode. Entities can also be used as features to models. Your response from the LUIS app will include both the predicted intents and all the entities.
 
 ### Entity extractor
 
@@ -162,7 +165,7 @@ See Prebuilt model's entry for [prebuilt entity](#prebuilt-entity)
 
 In machine learning, a feature is a characteristic that helps the model recognize a particular concept. It is a hint that LUIS can use, but not a hard rule.
 
-This term is also referred to as a **[machine-learning feature](luis-concept-feature.md)**.
+This term is also referred to as a **[machine-learning feature](concepts/patterns-features.md)**.
 
 These hints are used in conjunction with the labels to learn how to predict new data. LUIS supports both phrase lists and using other models as features.
 
@@ -208,7 +211,7 @@ Each app has one owner who is the person that created the app. The owner manages
 
 ## Phrase list
 
-A [phrase list](luis-concept-feature.md) is a specific type of machine learning feature that includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products).
+A [phrase list](concepts/patterns-features.md) is a specific type of machine learning feature that includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products).
 
 ## Prebuilt model
 
@@ -232,7 +235,7 @@ A prediction is a REST request to the Azure LUIS prediction service that takes i
 
 ### Prediction key
 
-The [prediction key](luis-how-to-azure-subscription.md) (previously known as the subscription key) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
+The [prediction key](luis-how-to-azure-subscription.md) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
 
 This key is not the authoring key. If you have a prediction endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current prediction key inside the endpoint URL at the bottom of Azure resources page in LUIS website. It is the value of the subscription-key name/value pair.
 
@@ -265,7 +268,7 @@ LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can 
 Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances.
 
 ## Sentiment Analysis
-Sentiment analysis provides positive or negative values of the utterances provided by [Text Analytics](../text-analytics/overview.md).
+Sentiment analysis provides positive or negative values of the utterances provided by the [Language service](../language-service/sentiment-opinion-mining/overview.md).
 
 ## Speech priming
 
@@ -324,7 +327,7 @@ Training errors are predictions on your training data that do not match their la
 
 ## Utterance
 
-An [utterance](luis-concept-utterance.md) is user input that is short text representative of a sentence in a conversation. It is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
+An [utterance](concepts/utterances.md) is user input that is short text representative of a sentence in a conversation. It is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
 
 ## Version
 

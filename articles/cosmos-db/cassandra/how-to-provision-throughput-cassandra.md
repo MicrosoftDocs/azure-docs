@@ -7,7 +7,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-azurecli
 ---
 
 # Provision database, container or autoscale throughput on Azure Cosmos DB Cassandra API resources
@@ -15,13 +16,13 @@ ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 
 This article explains how to provision throughput in Azure Cosmos DB Cassandra API. You can provision standard(manual) or autoscale throughput on a container, or a database and share it among the containers within the database. You can provision throughput using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
-If you are using a different API, see [SQL API](../how-to-provision-container-throughput.md), [API for MongoDB](../how-to-provision-throughput-mongodb.md), [Gremlin API](../how-to-provision-throughput-gremlin.md) articles to provision the throughput.
+If you are using a different API, see [SQL API](../how-to-provision-container-throughput.md), [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [Gremlin API](../how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
 ## <a id="portal-cassandra"></a> Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](../create-mongodb-dotnet.md#create-a-database-account), or select an existing Azure Cosmos account.
+1. [Create a new Azure Cosmos account](../mongodb/create-mongodb-dotnet.md#create-an-azure-cosmos-db-account), or select an existing Azure Cosmos account.
 
 1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 

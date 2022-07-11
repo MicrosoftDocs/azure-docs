@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 04/27/2022
 ms.author: damaerte 
 ms.custom: devx-track-azurepowershell
 ---
@@ -56,10 +55,13 @@ The Azure Relay instance used for Cloud Shell can be configured to control which
 ## Storage requirements
 As in standard Cloud Shell, a storage account is required while using Cloud Shell in a virtual network. Each administrator needs a file share to store their files.  The storage account needs to be accessible from the virtual network that is used by Cloud Shell. 
 
+> [!NOTE]
+> Secondary storage regions are currently not supported in Cloud Shell VNET scenarios.
+
 ## Virtual network deployment limitations
 * Due to the additional networking resources involved, starting Cloud Shell in a virtual network is typically slower than a standard Cloud Shell session.
 
-* All Cloud Shell regions apart from Central India are currently supported. 
+* All Cloud Shell primary regions apart from Central India are currently supported. 
 
 * [Azure Relay](../azure-relay/relay-what-is-it.md) is not a free service, please view their [pricing](https://azure.microsoft.com/pricing/details/service-bus/). In the Cloud Shell scenario, one hybrid connection is used for each administrator while they are using Cloud Shell. The connection will automatically be shut down after the Cloud Shell session is complete.
 

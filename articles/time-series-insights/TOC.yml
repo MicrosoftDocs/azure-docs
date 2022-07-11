@@ -55,6 +55,10 @@
         href: breaking-changes-long-data-type.md
       - name: Changes to JSON flattening and storage
         href: ingestion-rules-update.md
+    - name: Security
+      items:
+      - name: Private network access
+        href: concepts-private-links.md
   - name: Azure Time Series Insights Gen1
     items:
     - name: About Time Series Insights
@@ -79,6 +83,8 @@
       href: time-series-insights-parameterized-urls.md
 - name: How-to guides
   items:
+  - name: Migrate to Azure Data Explorer
+    href: migration-to-adx.md
   - name: Grant data access
     href: concepts-access-policies.md
   - name: Connect to Event Hubs
@@ -89,6 +95,8 @@
     href: ./how-to-monitor-tsi.md
   - name: Manage resources by using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
+  - name: Enable private access for TSI
+    href: how-to-private-links.md
   - name: Azure Time Series Insights Gen2
     items:
     - name: Best practices
@@ -119,6 +127,8 @@
       items:
       - name: How to migrate to new API versions
         href: how-to-api-migration.md
+      - name: How to migrate to Azure Data Explorer
+        href: how-to-tsi-gen2-migration.md
   - name: Azure Time Series Insights Gen1
     items:
     - name: Explore Time Series Insights
@@ -139,11 +149,13 @@
       href: time-series-insights-environment-mitigate-latency.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-diagnose-and-solve-problems.md
+    - name: How to migrate to Azure Data Explorer
+      href: how-to-tsi-gen1-migration.md
 - name: Reference
   items:
   - name: Time Series Insights
     items:
-    - name: Rest APIs Overview
+    - name: REST APIs Overview
       href: /rest/api/time-series-insights/
     - name: Data Access Gen2
       items:
@@ -220,10 +232,8 @@
     - name: MSDN forum
       href: https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights
     - name: Product requests and suggestions
-      href: https://feedback.azure.com/forums/906859-azure-time-series-insights
+      href: https://feedback.azure.com/d365community/forum/873d6d1c-0c25-ec11-b6e6-000d3a4f07b8
   - name: Azure videos
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
-  - name: Channel 9 videos
-    href: https://channel9.msdn.com/Search?term=time%20series%20insights
   - name: Azure IoT updates
     href: https://azure.microsoft.com/roadmap/?category=iot

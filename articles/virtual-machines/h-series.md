@@ -1,16 +1,16 @@
 ---
 title: H-series - Azure Virtual Machines
 description: Specifications for the H-series VMs.
-author: vermagit
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.author: amverma
+ms.date: 09/11/2021
 ms.reviewer: jushiman
 ---
 
 # H-series
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 H-series VMs are optimized for applications driven by high CPU frequencies or large memory per core requirements. H-series VMs feature 8 or 16 Intel Xeon E5 2667 v3 processor cores, up to 14 GB of RAM per CPU core, and no hyperthreading. H-series features 56 Gb/sec Mellanox FDR InfiniBand in a non-blocking fat tree configuration for consistent RDMA performance. H-series VMs are not SR-IOV enabled currently and support Intel MPI 5.x and MS-MPI.
 
@@ -37,10 +37,18 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 > [!NOTE]
 > Among the [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), the H-series are not SR-IOV enabled. Therefore, the supported [VM Images](./workloads/hpc/configure.md#vm-images), [InfiniBand driver](./workloads/hpc/enable-infiniband.md) requirements and supported [MPI libraries](./workloads/hpc/setup-mpi.md) are different from the SR-IOV enabled VMs.
+> 
+> A quirk of the alternate NIC virtualization solution in place for the H-series is that the OS may occasionally report inaccurate link speeds for the synthetic NIC that is used for RDMA connections. This issue does not, however, impact actual performance experienced by jobs using the VM's RDMA capability, so outputs like the following are not a cause for concern. 
+> ```
+> $ ethtool eth1
+> Settings for eth1:
+>         ...
+>         Speed: 10000Mb/s
+> ```
 
 ## Software specifications
 
-| Software Specifications     |HC-series VM           |
+| Software Specifications     |H-series VM           |
 |-----------------------------|-----------------------|
 | Max MPI Job Size            | 4800 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
 | MPI Support                 | Intel MPI 5.x, MS-MPI  |
@@ -51,7 +59,7 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -59,6 +67,11 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
 
 ## Next steps
 

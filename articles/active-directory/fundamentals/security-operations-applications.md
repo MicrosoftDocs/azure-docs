@@ -2,14 +2,14 @@
 title: Azure Active Directory security operations for applications
 description: Learn how to monitor and alert on applications to identify security threats.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 07/15/2021
-ms.author: baselden
+ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -67,19 +67,21 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md)
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* **[Azure Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
+* **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
 Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, as well as the results of policies, including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. 
 
@@ -101,11 +103,11 @@ Many applications use credentials to authenticate in Azure AD. Any additional cr
 
  The following pre-built monitoring and alerts are available.
 
-* Azure Sentinel – [Alert when new app or service principle credentials added](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml) 
+* Microsoft Sentinel – [Alert when new app or service principle credentials added](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml) 
 
 * Azure Monitor – [Azure AD workbook to help you assess Solorigate risk - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)
 
-* MCAS – [Cloud App Security anomaly detection alerts investigation guide](/cloud-app-security/investigate-anomaly-alerts)
+* Defender for Cloud Apps – [Defender for Cloud Apps anomaly detection alerts investigation guide](/cloud-app-security/investigate-anomaly-alerts)
 
 * PowerShell - [Sample PowerShell script to find credential lifetime](https://github.com/madansr7/appCredAge).
 
@@ -151,13 +153,13 @@ After setting up Azure Key Vault, be sure to [enable logging](../../key-vault/ge
 | End-user consent to application| Low| Azure AD Audit logs| Activity: Consent to application / ConsentContext.IsAdminConsent = false| Look for: <li>high profile or highly privileged accounts.<li> app requests high-risk permissions<li>apps with suspicious names, for example generic, misspelled, etc. |
 
 
-The act of consenting to an application is not in itself malicious. However, investigate new end-user consent grants looking for suspicious applications. You can [restrict user consent operations](/azure/security/fundamentals/steps-secure-identity).
+The act of consenting to an application is not in itself malicious. However, investigate new end-user consent grants looking for suspicious applications. You can [restrict user consent operations](../../security/fundamentals/steps-secure-identity.md).
 
 For more information on consent operations, see the following resources:
 
 * [Managing consent to applications and evaluating consent requests in Azure Active Directory](../manage-apps/manage-consent-requests.md)
 
-* [Detect and Remediate Illicit Consent Grants - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants?view=o365-worldwide)
+* [Detect and Remediate Illicit Consent Grants - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)
 
 * [Incident response playbook - App consent grant investigation](/security/compass/incident-response-playbook-app-consent)
 
@@ -167,6 +169,21 @@ For more information on consent operations, see the following resources:
 |-|-|-|-|-|
 | End-user consent stopped due to risk-based consent| Medium| Azure AD Audit logs| Core Directory / ApplicationManagement / Consent to application<br> Failure status reason = Microsoft.online.Security.userConsent<br>BlockedForRiskyAppsExceptions| Monitor and analyze any time consent is stopped due to risk. Look for:<li>high profile or highly privileged accounts.<li> app requests high-risk permissions<li>apps with suspicious names, for example generic, misspelled, etc. |
 
+## Application Authentication Flows
+There are several flows defined in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application that is being built. In some cases, there is a choice of flows available to the application, and in this case, some authentication flows are recommended over others. Specifically, resource owner password credentials (ROPC) should be avoided if at all possible as this requires the user to expose their current password credentials to the application directly. The application then uses those credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), as this flow is  highly recommended. 
+
+
+The only scenario where ROPC is suggested is for automated testing of applications. See [Run automated integration tests](../develop/test-automate-integration-testing.md) for details.  
+
+ 
+Device code flow is another OAuth 2.0 protocol flow specifically for input constrained devices and is not used in all environments. If this type of flow is seen in the environment and not being used in an input constrained device scenario further investigation is warranted. This can be a misconfigured application or potentially something malicious.
+
+Monitor application authentication using the following formation:
+
+| What to monitor| Risk level| Where| Filter/sub-filter| Notes |
+| - | - | - | - | - |
+| Applications that are using the ROPC authentication flow|Medium | Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow.This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)|
+|Applications that are using the Device code flow |Low to medium|Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices which may not be present in all environments. If successful device code flows are seen without an environment need for them they should be further investigated for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)|
 ## Application configuration changes
 
 Monitor changes to any application’s configuration. Specifically, configuration changes to the uniform resource identifier (URI), ownership, and logout URL.
@@ -176,7 +193,7 @@ Monitor changes to any application’s configuration. Specifically, configuratio
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
 | Dangling URI| High| Azure AD Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for dangling URIs, for example,  that point to a domain name that no longer exists or one that you don’t explicitly own. |
-| Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIS with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you do not control. |
+| Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you do not control. |
 
 Alert anytime these changes are detected.
 
@@ -207,7 +224,7 @@ Alert any time these changes are detected outside of approved change management 
 
 The following are links to useful resources:
 
-* Github Azure AD toolkit - [https://github.com/microsoft/AzureADToolkit](https://github.com/microsoft/AzureADToolkit)
+* GitHub Azure AD toolkit - [https://github.com/microsoft/AzureADToolkit](https://github.com/microsoft/AzureADToolkit)
 
 * Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](../../key-vault/general/security-features.md)
 

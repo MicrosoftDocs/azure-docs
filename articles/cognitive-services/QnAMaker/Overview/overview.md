@@ -4,12 +4,14 @@ description: QnA Maker is a cloud-based NLP service that easily creates a natura
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/22/2021
-ms.custom: cog-serv-seo-aug-2020
+ms.date: 11/19/2021
 keywords: "qna maker, low code chat bots, multi-turn conversations"
+ms.custom: ignite-fall-2021
 ---
 
 # What is QnA Maker?
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows you to create a natural conversational layer over your data. It is  used to find the most appropriate answer for any input from your custom knowledge base (KB) of information.
 
@@ -29,7 +31,7 @@ This documentation contains the following article types:
 * **When you have static information** - Use QnA Maker when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as [PDFs and URLs](../Concepts/data-sources-and-content.md).
 * **When you want to provide the same answer to a request, question, or command** - when different users submit the same question, the same answer is returned.
 * **When you want to filter static information based on meta-information** - add [metadata](../how-to/metadata-generateanswer-usage.md) tags to provide additional filtering options relevant to your client application's users and the information. Common metadata information includes [chit-chat](../how-to/chit-chat-knowledge-base.md), content type or format, content purpose, and content freshness.
-* **When you want to manage a bot conversation that includes static information** - your knowledge base takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with [multi-turn context](../how-to/multiturn-conversation.md), the bot can easily provide this flow.
+* **When you want to manage a bot conversation that includes static information** - your knowledge base takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with [multi-turn context](../how-to/multi-turn.md), the bot can easily provide this flow.
 
 ## What is a knowledge base?
 

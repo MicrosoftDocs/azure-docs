@@ -1,104 +1,84 @@
 ---
-title: Azure Virtual Desktop RDP Shortpath (preview)
+title: Azure Virtual Desktop RDP Shortpath for managed networks
 titleSuffix: Azure
-description: How to set up RDP Shortpath (preview) for Azure Virtual Desktop.
-author: gundarev
+description: How to set up RDP Shortpath for managed networks for Azure Virtual Desktop.
+author: femila
 ms.topic: conceptual
-ms.date: 11/16/2020
-ms.author: denisgun
+ms.date: 03/08/2022
+ms.author: femila
 ---
 
-# Azure Virtual Desktop RDP Shortpath (preview)
+# Azure Virtual Desktop RDP Shortpath for managed networks
 
-> [!IMPORTANT]
-> RDP Shortpath is currently in public preview.
-> This preview is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-RDP Shortpath is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between Remote Desktop Client and Session host. RDP uses this transport to deliver Remote Desktop and RemoteApp while offering better reliability and consistent latency.
+RDP Shortpath for managed networks is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between Remote Desktop Client and Session host. RDP uses this transport to deliver Remote Desktop and RemoteApp while offering better reliability and consistent latency.
 
 ## Key benefits
 
-* RDP Shortpath transport is based on top of highly efficient  [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/en-us/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed by Remote Desktop. URCP achieves the best performance by dynamically learning network parameters and providing protocol with a rate control mechanism.
-* RDP Shortpath establishes the direct connectivity between Remote Desktop client and Session Host. Direct connectivity reduces the dependency on the Azure Virtual Desktop gateways, improves the connection's reliability, and increases the bandwidth available for each user session.
-* The removal of additional relay reduces the round-trip time, which improves user experience with latency-sensitive applications and input methods.
-* RDP Shortpath brings support for [configuring Quality of Service (QoS)](./rdp-quality-of-service-qos.md) priority for RDP connections through a Differentiated Services Code Point (DSCP) marks
-* RDP Shortpath transport allows [limiting outbound network traffic](./rdp-bandwidth.md#limit-network-bandwidth-use-with-throttle-rate) by specifying a throttle rate for each session.
+- RDP Shortpath transport is based on the [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/en-us/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed by Remote Desktop. URCP achieves the best performance by dynamically learning network parameters and providing protocol with a rate control mechanism.
+- RDP Shortpath establishes the direct connectivity between the Remote Desktop client and the session host. Direct connectivity reduces dependency on the Azure Virtual Desktop gateways, improves the connection's reliability, and increases available bandwidth for each user session.
+- The removal of extra relay reduces round-trip time, which improves user experience with latency-sensitive applications and input methods.
+- RDP Shortpath brings support for [configuring Quality of Service (QoS)](./rdp-quality-of-service-qos.md) priority for RDP connections through Differentiated Services Code Point (DSCP) marks
+- RDP Shortpath transport allows [limiting outbound network traffic](./rdp-bandwidth.md#limit-network-bandwidth-use-with-throttle-rate) by specifying a throttle rate for each session.
 
 ## Connection security
 
 RDP Shortpath is extending RDP multi-transport capabilities. It doesn't replace reverse connect transport but complements it. All of the initial session brokering is managed through the Azure Virtual Desktop infrastructure.
 
-UDP port 3390 is used only for the incoming Shortpath traffic that is authenticated over reverse connect transport. RDP Shortpath listener ignores all connection attempts to the listener unless they match the reverse connect session.
+Your deployment will only use the user-configured UDP port for incoming Shortpath traffic authenticated over reverse connect transport. The RDP Shortpath listener will ignore all connection attempts unless they match the reverse connect session.
 
 RDP Shortpath uses a TLS connection between the client and the session host using the session host's certificates. By default, the certificate used for RDP encryption is self-generated by the OS during the deployment. If desired, customers may deploy centrally managed certificates issued by the enterprise certification authority. For more information about certificate configurations, see [Windows Server documentation](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 
 ## RDP Shortpath connection sequence
 
-After installing the [reverse connect transport](./network-connectivity.md), the client and session host establish the RDP connection and negotiate multi-transport capabilities. Additional steps described below:
+After establishing the [reverse connect transport](./network-connectivity.md), the client and session host starts the RDP connection and negotiates the multi-transport capabilities.
+
+Here's how the session host negotiates multi-transport capabilities:
 
 1. The session host sends the list of its private and public IPv4 and IPv6 addresses to the client.
 2. The client starts the background thread to establish a parallel UDP-based transport directly to one of the host's IP addresses.
 3. While the client is probing the provided IP addresses, it continues the initial connection establishment over the reverse connect transport to ensure no delay in the user connection.
-4. If the client has a direct line of sight and the firewall configuration is correct, the client establishes a secure TLS connection with session host.
-5. After establishing the Shortpath transport, RDP moves all Dynamic Virtual Channels (DVCs), including remote graphics, input, and device redirection to the new transport.
+4. If the client has a direct line of sight, the client establishes a secure TLS connection with the session host.
+5. After establishing the Shortpath transport, RDP moves all Dynamic Virtual Channels (DVCs), including remote graphics, input, and device redirection, to the new transport.
 6. If a firewall or network topology prevents the client from establishing direct UDP connectivity, RDP continues with a reverse connect transport.
 
-The diagram below gives a high-level overview of the RDP Shortpath network connection.
+The following diagram gives a high-level overview of the RDP Shortpath network connection.
 
 :::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagram of RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-connections.svg":::
 
 ## Requirements
 
-To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line of sight to the session host. You can get a direct line of sight by using one of the following technologies:
+To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line of sight to the session host. You can get a direct line of sight by using one of these methods:
 
-* The remote client machines must be running either Windows 10 or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. Currently, the web client is not supported.
-* [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
-* [Site-to-Site VPN (IPsec based)](../vpn-gateway/tutorial-site-to-site-portal.md)
-* [Point-to-Site VPN (IPsec based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-* [Public IP address assignment](../virtual-network/virtual-network-public-ip-address.md)
+- Make sure the remote client machines are running Windows 11, Windows 10, or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. Currently, non-Windows clients aren't supported.
+- Use [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
+- Use a [Site-to-Site virtual private network (VPN) (IPsec-based)](../vpn-gateway/tutorial-site-to-site-portal.md)
+- Use a [Point-to-Site VPN (IPsec-based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+- Use a [public IP address assignment](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 
-If you're using other VPN types to connect to the Azure virtual network, we recommend using UDP-based VPN for the best results. While the majority of TCP-based VPN solutions encapsulate all IP packets, including UDP, they add inherited overhead of TCP congestion control that would slow down RDP performance.
+If you're using other VPN types to connect to the Azure portal, we recommend using a User Datagram Protocol (UDP)-based VPN. While most Transmission Control Protocol (TCP)-based VPN solutions support nested UDP, they add inherited overhead of TCP congestion control, which slows down RDP performance.
 
-The direct line of sight means that firewalls aren't blocking UDP port 3390 and the client can connect directly to the session host.
+Having a direct line of sight means that the client can connect directly to the session host without being blocked by firewalls.
 
-## Enabling RDP Shortpath preview
+## Configure RDP Shortpath for managed networks
 
-To participate in the preview of RDP Shortpath, you need to enable RDP Shortpath listener on the session host. You can enable RDP Shortpath on any number of session hosts used in your environment. There's no requirement to enable RDP Shortpath on all hosts in the pool.
-To enable Shortpath listener, you need to configure the following registry values:
+To enable RDP Shortpath for managed networks, you need to enable the RDP Shortpath listener on the session host. You can enable RDP Shortpath on any number of session hosts used in your environment. However, there's no requirement to enable RDP Shortpath on all hosts in your host pool.
 
-> [!WARNING]
-> Serious problems might occur if you modify the registry incorrectly using Registry Editor or by using another method. These problems might require that you reinstall your operating system. Microsoft cannot guarantee that these problems can be solved. Modify the registry at your own risk.
+To enable the RDP Shortpath listener:
 
-1. On the session host, Start Regedit.exe, and then navigate to the following location:
+1. First, install administrative templates that add rules and settings for Azure Virtual Desktop. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (AVDGPTemplate.cab) and extract the contents of the .cab file and .zip archive.
+2. Copy the **terminalserver-avd.admx** file, then paste it into the **%windir%\PolicyDefinitions** folder.
+3. Copy the **en-us\terminalserver-avd.adml** file, then paste it into the **%windir%\PolicyDefinitions\en-us** folder.
+4. To confirm the files copied correctly, open the **Group Policy Editor** and go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**.
+5. You should see one or more Azure Virtual Desktop policies, as shown in the following screenshot
 
-    ```cmd
-    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations
-    ```
+   :::image type="content" source="media/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor" lightbox="media/azure-virtual-desktop-gpo.png":::
 
-2. Create a new **DWORD** value named **fUseUdpPortRedirector** and set it to **1** (decimal)
-3. Create a new **DWORD** value named **UdpPortNumber** and set it to **3390** (decimal)
-4. Quit Registry Editor.
-5. Restart session host
+   > [!NOTE]
+   > You can also install administrative templates to the group policy Central Store in your Active Directory domain.
+   > For more information about Central Store for Group Policy Administrative Templates, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
-You can also run the following cmdlets in an elevated PowerShell window to set these registry values:
-
-```powershell
-$WinstationsKey = 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations'
-New-ItemProperty -Path $WinstationsKey -Name 'fUseUdpPortRedirector' -ErrorAction:SilentlyContinue -PropertyType:dword -Value 1 -Force
-New-ItemProperty -Path $WinstationsKey -Name 'UdpPortNumber' -ErrorAction:SilentlyContinue -PropertyType:dword -Value 3390 -Force
-```
-
-You can also use PowerShell to configure Group policy
-
-```powershell
-# Replace $domainName value with the name of your Active Directory domain
-# Replace $policyName value with the name of existing Group Policy Object
-$domainName = "contoso.com"
-$policyName = "RDP Shortpath Policy"
-Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'fUseUdpPortRedirector' -Value 1 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
-Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'UdpPortNumber' -Value 3390 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
-```
+6. Open the **"Enable RDP Shortpath for managed networks"** policy and set it to **"Enabled"**. If you enable this policy setting, you can also configure the port number that the Azure Virtual Desktop session host will use to listen for incoming connections. The default port is 3390.
+7. Restart  your session host to apply the changes.
 
 ## Configure Windows Defender Firewall with Advanced Security
 
@@ -108,19 +88,20 @@ To allow inbound network traffic for RDP Shortpath, use the Windows Defender Fir
 2. In the navigation pane, select **Inbound Rules**.
 3. Select **Action**, and then select **New rule**.
 4. On the **Rule Type** page of the New Inbound Rule Wizard, select **Custom**, and then select **Next**.
-5. On the **Program** page, select **This program path**, and type "%SystemRoot%\system32\svchost.exe' then select **Next**.
-6. On the **Protocol and Ports** page, select the UDP protocol type. In the **Local port**, select "Specific ports" and type in 3390.
+5. On the **Program** page, select **This program path**, enter **"%SystemRoot%\system32\svchost.exe"**, then select **Next**.
+6. On the **Protocol and Ports** page, select the UDP protocol type. In the **Local port**, select "Specific ports" and enter the configured UDP port. If you've left the default settings on, the port number will be 3390.
 7. On the **Scope** page, you can specify that the rule applies only to network traffic to or from the IP addresses entered on this page. Configure as appropriate for your design, and then select **Next**.
 8. On the **Action** page, select **Allow the connection**, and then select **Next**.
 9. On the **Profile** page, select the network location types to which this rule applies, and then select **Next**.
-10. On the **Name** page, type a name and description for your rule, and then select **Finish**.
+10. On the **Name** page, enter a name and description for your rule, then select **Finish**.
 
-You can verify that the new rule matches the screenshots below:
-:::image type="content" source="media/rdp-shortpath-firewall-general-tab.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
+When you're done, verify that the new rule matches the format in the following screenshots.
 
-:::image type="content" source="media/rdp-shortpath-firewall-service-settings.png" alt-text="Screenshot of the Programs and Services tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-service-settings.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-general-tab.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections with Allow the connection option selected" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
 
-:::image type="content" source="media/rdp-shortpath-firewall-protocol-and-ports.png" alt-text="Screenshot of the Protocols and Ports tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-protocol-and-ports.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-service-settings.png" alt-text="Screenshot of the Programs and Services tab for Firewall configuration for RDP Shortpath Network Connections with Remote Desktop Services selected" lightbox="media/rdp-shortpath-firewall-service-settings.png":::
+
+:::image type="content" source="media/rdp-shortpath-firewall-protocol-and-ports.png" alt-text="Screenshot of the Protocols and Ports tab for Firewall configuration for RDP Shortpath Network Connections with UDP port 3390 configured" lightbox="media/rdp-shortpath-firewall-protocol-and-ports.png":::
 
 You can also use PowerShell to configure Windows Firewall:
 
@@ -130,7 +111,7 @@ New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action 
 
 ### Using PowerShell to configure Windows Defender Firewall
 
-You can also use PowerShell to configure Group policy
+You can also use PowerShell to configure the group policy by running the following cmdlet.
 
 ```powershell
 # Replace $domainName value with the name of your Active Directory domain
@@ -158,13 +139,15 @@ Follow the [network security group documentation](../virtual-machines/windows/ns
 
 ### Disabling RDP Shortpath for a specific subnet
 
-If you need to block specific subnets from using the RDP Shortpath transport, you can configure additional network security groups specifying the Source IP ranges.
+If you need to block specific subnets from using the RDP Shortpath transport, you can configure another network security group that specifies the correct Source IP ranges.
 
-## Verifying the connectivity
+## Verify your network connectivity
 
-### Using Connection Information dialog
+Next, you'll need to make sure your network is using RDP Shortpath. You can do this with either a "Connection Information" dialog or by using Log Analytics.
 
-To verify that connections are using RDP Shortpath, open the “Connection Information” dialog by clicking on the antenna icon in the connection toolbar.
+### Connection Information dialog
+
+Make sure connections are using RDP Shortpath, open the "Connection Information" dialog by going to the **Connection** tool bar on the top of the screen and selecting the antenna icon, as shown in the following screenshot.
 
 :::image type="content" source="media/rdp-shortpath-connection-bar.png" alt-text="Image of Remote Desktop Connection Bar":::
 
@@ -172,19 +155,19 @@ To verify that connections are using RDP Shortpath, open the “Connection Infor
 
 ### Using event logs
 
-To verify that session is using RDP Shortpath transport:
+To make sure your session is using RDP Shortpath transport:
 
-1. Connect to the desktop of the VM using Azure Virtual Desktop client.
-2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operational**
-3. To determine if RDP Shortpath transport is used, look for event ID 131.
+1. Use the Azure Virtual Desktop client of your choice to connect to your VM desktop.
+2. Open **Event Viewer**, then go to **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operational**.
+3. If you can see Event ID 131, then your network is using RDP Shortpath transport.
 
-### Using Log Analytics to verify Shortpath connectivity
+### Use Log Analytics
 
-If you are using [Azure Log Analytics](./diagnostics-log-analytics.md), you can monitor connections by querying the [WVDConnections table](/azure/azure-monitor/reference/tables/wvdconnections). A column named UdpUse, indicates whether Azure Virtual Desktop RDP Stack uses UDP protocol on current user connection.
+If you're using [Azure Log Analytics](./diagnostics-log-analytics.md), you can monitor connections by querying the [WVDConnections table](/azure/azure-monitor/reference/tables/wvdconnections). A column named UdpUse indicates whether Azure Virtual Desktop RDP Stack is using UDP protocol on the current user connection.
 The possible values are:
 
-* **0** - user connection isn't using RDP Shortpath
-* **1** - user connection is using RDP Shortpath
+* **0** - user connection isn't using RDP Shortpath.
+- **1** - THe user connection is using RDP Shortpath for managed networks.
   
 The following query list lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
 
@@ -211,7 +194,7 @@ To verify that UDP listener is enabled, use the following PowerShell command on 
 Get-NetUDPEndpoint -OwningProcess ((Get-WmiObject win32_service -Filter "name = 'TermService'").ProcessId)  -LocalPort 3390
 ```
 
-If enabled, you'll see the output like the following
+If enabled, you'll see the output like the following:
 
 ```dos
 LocalAddress                             LocalPort
@@ -220,7 +203,7 @@ LocalAddress                             LocalPort
 0.0.0.0                                  3390
 ```
 
-If there is a conflict, you can identify the process occupying the port using the following command
+If there's a conflict, you can identify the process that's blocking the port by running the following command:
 
 ```powershell
 Get-Process -id (Get-NetUDPEndpoint  -LocalPort 3390 -LocalAddress 0.0.0.0).OwningProcess
@@ -234,24 +217,19 @@ In some cases, you may need to disable RDP Shortpath transport. You can disable 
 
 To disable RDP Shortpath for a specific client, you can use the following Group Policy to disable the UDP support:
 
-1. On the client, Run **gpedit.msc**.
-2. Navigate to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Connection Client**.
-3. Set the **“Turn Off UDP On Client”** setting to **Enabled**
+1. On the client, run **gpedit.msc**.
+2. Go to **Computer Configuration** > **Administration Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
+3. Set the **"Turn Off UDP On Client"** setting to **Enabled**
 
-### Disabling RDP Shortpath on the session host
+### Disable RDP Shortpath on the session host
 
 To disable RDP Shortpath for a specific session host, you can use the following Group Policy to disable the UDP support:
 
-1. On the Session Host Run **gpedit.msc**.
-2. Navigate to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Connection Host > Connections**.
-3. Set the **“Select RDP Transport Protocols”** setting to **TCP Only**
-
-## Public preview feedback
-
-We'd like to hear from you about your experiences with this public preview!
-* For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/RDPShortpathFeedback).
+1. On the session host, run **gpedit.msc**.
+2. Go to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Connections**.
+3. Set the **"Select RDP Transport Protocols"** setting to **TCP Only**.
 
 ## Next steps
 
-* To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
-* To get started with Quality of Service (QoS) for Azure Virtual Desktop, see [Implement Quality of Service (QoS) for Azure Virtual Desktop](rdp-quality-of-service-qos.md).
+- To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
+- To get started with Quality of Service (QoS) for Azure Virtual Desktop, see [Implement Quality of Service (QoS) for Azure Virtual Desktop](rdp-quality-of-service-qos.md).

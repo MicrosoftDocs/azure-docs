@@ -1,19 +1,19 @@
 ---
 title: Managed container registries
-description: Introduction to the Azure Container Registry service, providing cloud-based, managed, private Docker registries.
+description: Introduction to the Azure Container Registry service, providing cloud-based, managed registries.
 author: stevelas
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: "seodec18, mvc"
 ---
-# Introduction to private Docker container registries in Azure
+# Introduction to Container registries in Azure
 
-Azure Container Registry is a managed, private Docker registry service based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your private Docker container images and related artifacts.
+Azure Container Registry is a managed registry service based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your container images and related artifacts.
 
 Use Azure container registries with your existing container development and deployment pipelines, or use Azure Container Registry Tasks to build container images in Azure. Build on demand, or fully automate builds with triggers such as source code commits and base image updates.
 
-For more about Docker and registry concepts, see the [Docker overview](https://docs.docker.com/engine/docker-overview/) and [About registries, repositories, and images](container-registry-concepts.md).
+Learn more about Docker and Registry concepts, see the [Docker overview](https://docs.docker.com/engine/docker-overview/), and [About registries, repositories, and images](container-registry-concepts.md).
 
 ## Use cases
 
@@ -26,7 +26,7 @@ Developers can also push to a container registry as part of a container developm
 
 Configure ACR Tasks to automatically rebuild application images when their base images are updated, or automate image builds when your team commits code to a Git repository. Create multi-step tasks to automate building, testing, and patching multiple container images in parallel in the cloud.
 
-Azure provides tooling including Azure Command-Line Interface, Azure portal, and API support to manage your Azure container registries. Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
+Azure provides tooling including the Azure CLI, the Azure portal, and API support to manage your Azure container registries. Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
 
 ## Key features
 
@@ -39,7 +39,7 @@ Azure provides tooling including Azure Command-Line Interface, Azure portal, and
 
   You [control access](container-registry-authentication.md) to a container registry using an Azure identity, an Azure Active Directory-backed [service principal](../active-directory/develop/app-objects-and-service-principals.md), or a provided admin account. Use Azure role-based access control (Azure RBAC) to assign users or systems fine-grained permissions to a registry.
 
-  Security features of the Premium service tier include [content trust](container-registry-content-trust.md) for image tag signing, and [firewalls and virtual networks (preview)](container-registry-vnet.md) to restrict access to the registry. Azure Security Center optionally integrates with Azure Container Registry to [scan images](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) whenever an image is pushed to a registry.
+  Security features of the Premium service tier include [content trust](container-registry-content-trust.md) for image tag signing, and [firewalls and virtual networks (preview)](container-registry-vnet.md) to restrict access to the registry. Microsoft Defender for Cloud optionally integrates with Azure Container Registry to [scan images](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) whenever an image is pushed to a registry.
 
 * **Supported images and artifacts** - Grouped in a repository, each image is a read-only snapshot of a Docker-compatible container. Azure container registries can include both Windows and Linux images. You control image names for all your container deployments. Use standard [Docker commands](https://docs.docker.com/engine/reference/commandline/) to push images into a repository, or pull an image from a repository. In addition to Docker container images, Azure Container Registry stores [related content formats](container-registry-image-formats.md) such as [Helm charts](container-registry-helm-repos.md) and images built to the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 

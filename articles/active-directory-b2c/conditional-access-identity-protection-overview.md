@@ -6,14 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 11/23/2021
 
-ms.author: mimart
-author: msmimart
-manager: celested
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 
 ms.collection: M365-identity-device-management
 ---
+
 # Identity Protection and Conditional Access for Azure AD B2C
 
 Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Azure AD Identity Protection and Conditional Access. The Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine actions and enforce organizational policies. Together, these capabilities give Azure AD B2C application owners greater control over risky authentications and access policies.
@@ -25,7 +26,7 @@ If you're already familiar with [Identity Protection](../active-directory/identi
 > [!NOTE]
 > Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Premium P1** tenants can create a policy that is based on location, application, user-based, or group-based policies. For more information, see [Change your Azure AD B2C pricing tier](billing.md#change-your-azure-ad-pricing-tier).
 
-## Benefits of Identity Protection and Conditional Access for Azure AD B2C  
+## Benefits of Identity Protection and Conditional Access for Azure AD B2C
 
 By pairing Conditional Access policies with Identity Protection risk detection, you can respond to risky authentications with the appropriate policy action.
 
@@ -38,16 +39,15 @@ By pairing Conditional Access policies with Identity Protection risk detection, 
 
 Identity Protection and Conditional Access in Azure AD B2C generally work the same way as in Azure AD, with the following exceptions:
 
-- The Security Center isn't available in Azure AD B2C.
+- Microsoft Defender for Cloud isn't available in Azure AD B2C.
 
 - Identity Protection and Conditional Access aren't supported for ROPC server-to-server flows in Azure AD B2C tenants.
 
-- In Azure AD B2C tenants, Identity Protection risk detections are available for local B2C accounts only, and not for social identities like Google or Facebook.
+- In Azure AD B2C tenants, Identity Protection risk detections are available for both local and social identities, such as Google or Facebook. For social identities, Conditional Access must be activated. Detection is limited because the social account credentials are managed by the external identity provider.
 
 - In Azure AD B2C tenants, a subset of the Identity Protection risk detections is available. See [Investigate risk with Identity Protection](identity-protection-investigate-risk.md), and [Add Conditional Access to user flows](conditional-access-user-flow.md).
 
 - The Conditional Access device compliance feature isn't available in Azure AD B2C tenants.
-
 
 ## Integrate Conditional Access with user flows and custom policies
 

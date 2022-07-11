@@ -2,26 +2,15 @@
 title: Monitor an Azure Kubernetes Service (AKS) cluster deployed | Microsoft Docs
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.custom: devx-track-terraform, devx-track-azurepowershell
+ms.date: 05/24/2022
+ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: aul
 ---
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
-
 This article describes how to set up Container insights to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that have already been deployed in your subscription.
 
-You can enable monitoring of an AKS cluster that's already deployed using one of the supported methods:
-
-* Azure CLI
-* Terraform
-* [From Azure Monitor](#enable-from-azure-monitor-in-the-portal) or [directly from the AKS cluster](#enable-directly-from-aks-cluster-in-the-portal) in the Azure portal
-* With the [provided Azure Resource Manager template](#enable-using-an-azure-resource-manager-template) by using the Azure PowerShell cmdlet `New-AzResourceGroupDeployment` or with Azure CLI.
-
 If you're connecting an existing AKS cluster to an Azure Log Analytics workspace in another subscription, the Microsoft.ContainerService resource provider must be registered in the subscription in which the Log Analytics workspace was created. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
-
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable using Azure CLI
 
@@ -71,7 +60,13 @@ If you would rather integrate with an existing workspace, perform the following 
 
     In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **id**.
 
-4. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
+4. Switch to the subscription hosting the cluster using the following command:
+
+    ```azurecli
+    az account set -s <subscriptionId of the cluster>
+    ```
+
+5. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
@@ -85,7 +80,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
 ## Enable using Terraform
 
-1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster)
 
    ```
    addon_profile {
@@ -96,7 +91,9 @@ If you would rather integrate with an existing workspace, perform the following 
    }
    ```
 
-2. Add the [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) following the steps in the Terraform documentation.
+2. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) following the steps in the Terraform documentation.
+
+3. The metrics are not collected by default through Terraform, so once onboarded, there is an additional step to assign the monitoring metrics publisher role, which is required to [enable the metrics](./container-insights-update-metrics.md#update-one-cluster-by-using-the-azure-cli). 
 
 ## Enable from Azure Monitor in the portal
 
@@ -155,7 +152,7 @@ This method includes two JSON templates. One template specifies the configuratio
 >The template needs to be deployed in the same resource group as the cluster.
 >
 
-The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
+The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
 
 If you are unfamiliar with the concept of deploying resources by using a template, see:
 

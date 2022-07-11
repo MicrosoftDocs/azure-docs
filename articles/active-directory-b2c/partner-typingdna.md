@@ -3,7 +3,7 @@ title: TypingDNA with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with TypingDNA to help with Identity verification and proofing based on user typing pattern, provides ID verification solutions forcing multi-factor authentication and helps to comply with SCA requirements for Payment Services Directive 2 (PSD2).
 author: gargi-sinha
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
@@ -57,7 +57,7 @@ The REST API calls are modeled with `validationTechnicalProfiles` within `LocalA
 
 ### Sign-in
 
-At subsequent sign-in's, the user's typing pattern is computed in the same manner as at sign up using the [custom HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Once the typing profile is within the Azure AD B2C claim bag, Azure AD B2C will call your API to call TypingDNA's REST API endpoint. The [check user](https://api.typingdna.com/index.html#api-API_Services-GetUser) endpoint is called to confirm the user exists. Next, [verify pattern](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) endpoint is called to return the `net_score`. This `net_score` is an indication of how close the typing pattern was to the original at sign up.
+At subsequent sign-in's, the user's typing pattern is computed in the same manner as at sign up using the [custom HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Once the typing profile is within the Azure AD B2C claim bag, Azure AD B2C will call your API to call the TypingDNA REST API endpoint. The [check user](https://api.typingdna.com/index.html#api-API_Services-GetUser) endpoint is called to confirm the user exists. Next, [verify pattern](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) endpoint is called to return the `net_score`. This `net_score` is an indication of how close the typing pattern was to the original at sign up.
 
 This typing pattern is modeled with `validationTechnicalProfiles` within `SelfAsserted-LocalAccountSignin-Email-TDNA`:
 

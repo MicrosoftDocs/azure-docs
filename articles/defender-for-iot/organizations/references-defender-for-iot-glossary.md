@@ -1,13 +1,13 @@
 ---
 title: Defender for IoT glossary for organizations
 description: This glossary provides a brief description of important Defender for IoT platform terms and concepts.
-ms.date: 05/27/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
 # Defender for IoT glossary for organizations
 
-This glossary provides a brief description of important terms and concepts for the Azure Defender for IoT platform. Select the **Learn more** links to go to related terms in the glossary. This will help you more quickly learn and use product tools.
+This glossary provides a brief description of important terms and concepts for the Microsoft Defender for IoT platform. Select the **Learn more** links to go to related terms in the glossary. This will help you more quickly learn and use product tools.
 
 <a name="glossary-a"></a>
 
@@ -44,17 +44,15 @@ This glossary provides a brief description of important terms and concepts for t
 |--|--|--|
 | **Data mining** | Generate comprehensive and granular reports about your network devices:<br /><br />- **SOC incident response**: Reports in real time to help deal with immediate incident response. For example, a report can list devices that might need patching.<br /><br />- **Forensics**: Reports based on historical data for investigative reports.<br /><br />- **IT network integrity**: Reports that help improve overall network security. For example, a report can list devices with weak authentication credentials.<br /><br />- **visibility**: Reports that cover all query items to view all baseline parameters of your network.<br /><br />Save data-mining reports for read-only users to view. | **[Baseline](#b)<br /><br />[Reports](#r)** |
 | **Defender for IoT platform** | The Defender for IoT solution installed on Defender for IoT sensors and the on-premises management console. | **[Sensor](#s)<br /><br />[On-premises management console](#o)** |
+| **Device inventories** | Device inventory data is available from Defender for IoT in the Azure portal, the OT sensor, and the on-premises management console. For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)| [**Device map**](#d)|
 | **Device map** | A graphical representation of network devices that Defender for IoT detects. It shows the connections between devices and information about each device. Use the map to:<br /><br />- Retrieve and control critical device information.<br /><br />- Analyze network slices.<br /><br />- Export device details and summaries. | **[Purdue layer group](#p)** |
-| **Device inventory - sensor** | The device inventory displays an extensive range of device attributes detected by Defender for IoT. Options are available to:<br /><br />- Filter displayed information.<br /><br />- Export this information to a CSV file.<br /><br />- Import Windows registry details. | **[Group](#g)** <br /><br />**[Device inventory- on-premises management console](#d)** |
-| **Device inventory - on-premises management console** | Device information from connected sensors can be viewed from the on-premises management console in the device inventory. This gives users of the on-premises management console a comprehensive view of all network information. | **[Device inventory - sensor](#d)<br /><br />[Device inventory - data integrator](#d)** |
-| **Device inventory - data integrator** | The data integration capabilities of the on-premises management console let you enhance the data in the device inventory with information from other enterprise resources. Example resources are CMDBs, DNS, firewalls, and Web APIs. | **[Device inventory - on-premises management console](#d)** |
 
 ## E
 
 | Term | Description | Learn more |
 |--|--|--|
 | **Engines** | The self-learning analytics engines in Defender for IoT eliminate the need for updating signatures or defining rules. The engines use ICS-specific behavioral analytics and data science to continuously analyze OT network traffic for anomalies, malware, operational problems, protocol violations, and deviations from baseline network activity.<br /><br />When an engine detects a deviation, an alert is triggered. Alerts can be viewed and managed from the **Alerts** screen or from a SIEM. | **[Alert](#glossary-a)** |
-| **Enterprise view** | A global map that presents business units, sites, and zones where Defenders for IoT sensors are installed. View geographical locations of malicious alerts, operational alerts, and more. | **[Business unit](#b)<br /><br />[Site](#s)<br /><br />[Zone](#z)** |
+| **Enterprise view** | A global map that presents business units, sites, and zones where Defender for IoT sensors are installed. View geographical locations of malicious alerts, operational alerts, and more. | **[Business unit](#b)<br /><br />[Site](#s)<br /><br />[Zone](#z)** |
 | **Event timeline** | A timeline of activity detected on your network, including:<br /><br />- Alerts triggered.<br /><br />- Network events (informational).<br /><br />- User operations such as sign in, user deletion, and user creation, and alert management operations such as mute, learn, and acknowledge. Available in the sensor consoles. | - |
 | **Exclusion rule** | Instruct Defender for IoT to ignore alert triggers based on time period, device address, and alert name, or by a specific sensor.<br /><br />For example, if you know that all the OT devices monitored by a specific sensor will go through a maintenance procedure between 6:30 and 10:15 in the morning, you can set an exclusion rule that states that this sensor should send no alerts in the predefined period. | **[Alert](#glossary-a)<br /><br />[Mute alert event](#m)** |
 
@@ -74,7 +72,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Horizon open development environment** | Secure IoT and ICS devices running proprietary and custom protocols or protocols that deviate from any standard. Use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins that decode network traffic based on defined protocols. Defenders for IoT services analyze traffic to provide complete monitoring, alerting, and reporting.<br /><br />Use Horizon to:<br /><br />- **Expand** visibility and control without the need to upgrade Defender for IoT platform versions.<br /><br />- **Secure** proprietary information by developing on-site as an external plug-in.<br /><br />- **Localize** text for alerts, events, and protocol parameters.<br /><br />Contact your customer success representative for details. | **[Protocol support](#p)<br /><br />[Localization](#l)** |
+| **Horizon open development environment** | Secure IoT and ICS devices running proprietary and custom protocols or protocols that deviate from any standard. Use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins that decode network traffic based on defined protocols. Defender for IoT services analyze traffic to provide complete monitoring, alerting, and reporting.<br /><br />Use Horizon to:<br /><br />- **Expand** visibility and control without the need to upgrade Defender for IoT platform versions.<br /><br />- **Secure** proprietary information by developing on-site as an external plug-in.<br /><br />- **Localize** text for alerts, events, and protocol parameters.<br /><br />Contact your customer success representative for details. | **[Protocol support](#p)<br /><br />[Localization](#l)** |
 | **Horizon custom alert** | Enhance alert management in your enterprise by triggering custom alerts for any protocol (based on Horizon Framework traffic dissectors).<br /><br />These alerts can be used to communicate information:<br /><br />- About traffic detections based on protocols and underlying protocols in a proprietary Horizon plug-in.<br /><br />- About a combination of protocol fields from all protocol layers. | **[Protocol support](#p)** |
 
 ## I
@@ -109,7 +107,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **On-premises management console** | The on-premises management console provides a centralized view and management of devices and threats that Defenders for IoT sensor deployments detect in your organization. | **[Defender for IoT platform](#d)<br /><br />[Sensor](#s)** |
+| **On-premises management console** | The on-premises management console provides a centralized view and management of devices and threats that Defender for IoT sensor deployments detect in your organization. | **[Defender for IoT platform](#d)<br /><br />[Sensor](#s)** |
 | **Operational alert** | Alerts that deal with operational network issues, such as a device that's suspected to be disconnected from the network. | **[Alert](#glossary-a)<br /><br />[Security alert](#s)** |
 
 ## P

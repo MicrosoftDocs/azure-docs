@@ -1,18 +1,18 @@
 ---
 title: Use and manage an App Service Environment
 description: Learn how to create, publish, and scale apps in an App Service Environment. Find all the common tasks in this article.
-author: ccompy
-
+author: madsd
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 9/22/2020
-ms.author: ccompy
+ms.date: 03/29/2022
+ms.author: madsd
 ms.custom: seodec18
 ---
-# Use an App Service Environment
-> [!NOTE]
-> This article is about the App Service Environment v2 which is used with Isolated App Service plans
-> 
+# Manage an App Service Environment
+
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
 
@@ -102,21 +102,21 @@ Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default fr
 
 ## App access
 
-In an External ASE, the domain suffix used for app creation is *.&lt;asename&gt;.p.azurewebsites.net*. If your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at these URLs:
+In an External ASE, the domain suffix used for app creation is *.&lt;asename&gt;.p.azurewebsites.net*. If your ASE is named *external-ase* and you host an app called *contoso* in that ASE, you reach it at these URLs:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
 For information about how to create an External ASE, see [Create an App Service Environment][MakeExternalASE].
 
-In an ILB ASE, the domain suffix used for app creation is *.&lt;asename&gt;.appserviceenvironment.net*. If your ASE is named _ilb-ase_ and you host an app called _contoso_ in that ASE, you reach it at these URLs:
+In an ILB ASE, the domain suffix used for app creation is *.&lt;asename&gt;.appserviceenvironment.net*. If your ASE is named *ilb-ase* and you host an app called *contoso* in that ASE, you reach it at these URLs:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
 
 For information about how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
-The SCM URL is used to access the Kudu console or for publishing your app by using Web Deploy. For information on the Kudu console, see [Kudu console for Azure App Service][Kudu]. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
+The SCM URL is used to access the Kudu console or for publishing your app by using Web Deploy. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
 
 ### DNS configuration 
 
@@ -139,7 +139,7 @@ To configure DNS in Azure DNS Private zones:
 
 The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
-The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
+The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration. If your ILB ASE V2 was created after May 2019, you do not need to manage the ILB default certificate as it is managed by Microsoft.
 
 ## Publishing
 
@@ -163,16 +163,26 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in the Isolated pricing SKU has a limit of 250 GB. In an ASE, 250 GB of storage is added per App Service plan up to the 1 TB limit. You can have more App Service plans than just four, but there is no more storage added beyond the 1 TB limit.
 
+## Monitoring
+
+As a customer, you should monitor the App Service plans and the individual apps running and take appropriate actions. For App Service Environment v2, you should also pay attention to the metrics around the platform infrastructure. These metrics will give you insights into how the platform infrastructure and frontend servers (multiRole) are doing, and you can take action if they're heavily utilized and you aren't getting maximum throughput.
+
+Through Azure portal and CLI, you can configure the scale ratio of your frontend servers between 5 and 15 (default 15) App Service plan instances per frontend server. An App Service Environment will always have a minimum of two frontend servers. You can also increase the size of the frontend servers.
+
+The [metrics scope](../../azure-monitor/essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools) used to monitor the platform infrastructure is called `Microsoft.Web/hostingEnvironments/multiRolePools`.
+
+You'll see a scope called `Microsoft.Web/hostingEnvironments/workerPools`. The metrics here are only applicable to App Service Environment v1.
+
 ## Logging
 
 You can integrate your ASE with Azure Monitor to send logs about the ASE to Azure Storage, Azure Event Hubs, or Log Analytics. These items are logged today:
 
 | Situation | Message |
 |---------|----------|
-| ASE is unhealthy | The specified ASE is unhealthy due to an invalid virtual network configuration. The ASE will be suspended if the unhealthy state continues. Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info. |
-| ASE subnet is almost out of space | The specified ASE is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the ASE will not be able to scale.  |
+| ASE is unhealthy | The specified ASE is unhealthy due to an invalid virtual network configuration. The ASE will be suspended if the unhealthy state continues. Ensure the guidelines defined here are followed: [Networking considerations for an App Service Environment](network-info.md). |
+| ASE subnet is almost out of space | The specified ASE is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the ASE won't be able to scale.  |
 | ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 201 instances. |
-| ASE is unable to reach a dependency | The specified ASE is not able to reach {0}.  Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info. |
+| ASE is unable to reach a dependency | The specified ASE isn't able to reach {0}.  Ensure the guidelines defined here are followed: [Networking considerations for an App Service Environment](network-info.md). |
 | ASE is suspended | The specified ASE is suspended. The ASE suspension may be due to an account shortfall or an invalid virtual network configuration. Resolve the root cause and resume the ASE to continue serving traffic. |
 | ASE upgrade has started | A platform upgrade to the specified ASE has begun. Expect delays in scaling operations. |
 | ASE upgrade has completed | A platform upgrade to the specified ASE has finished. |
@@ -190,7 +200,7 @@ To enable logging on your ASE:
 
 ![ASE diagnostic log settings][4]
 
-If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE does not have such an event, there will not be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with one of the App Service plans in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
+If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE doesn't have such an event, there won't be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with one of the App Service plans in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
 
 **Creating an alert**
 
@@ -205,22 +215,15 @@ To create an alert against your logs, follow the instructions in [Create, view, 
 
 ## Upgrade preference
 
-If you have multiple ASEs, you might want some ASEs to be upgraded before others. Within the ASE **HostingEnvironment Resource Manager** object, you can set a value for **upgradePreference**. The **upgradePreference** setting can be configured by using a template, ARMClient, or https://resources.azure.com. The three possible values are:
+If you have multiple ASEs, you might want some ASEs to be upgraded before others. This behavior can be enabled through your ASE portal.  Under **Configuration** you have the option to set **Upgrade preference**. The three possible values are:
 
 - **None**: Azure will upgrade your ASE in no particular batch. This value is the default.
 - **Early**: Your ASE will be upgraded in the first half of the App Service upgrades.
 - **Late**: Your ASE will be upgraded in the second half of the App Service upgrades.
 
-If you're using https://resources.azure.com, follow these steps to set the **upgradePreferences** value:
+Select the value desired and select **Save**.  The default for any ASE is **None**.
 
-1. Go to resources.azure.com and sign in with your Azure account.
-1. Go through the resources to subscriptions\/\[subscription name\]\/resourceGroups\/\[resource group name\]\/providers\/Microsoft.Web\/hostingEnvironments\/\[ASE name\].
-1. Select **Read/Write** at the top.
-1. Select **Edit**.
-1. Set **upgradePreference** to whichever one of the three values you want.
-1. Select **Patch**.
-
-![resources azure com display][5]
+![ASE configuration portal][5]
 
 The **upgradePreferences** feature makes the most sense when you have multiple ASEs because your "Early" ASEs will be upgraded before your "Late" ASEs. When you have multiple ASEs, you should set your development and test ASEs to be "Early" and your production ASEs to be "Late".
 
@@ -230,7 +233,7 @@ The pricing SKU called *Isolated* is for use only with ASEs. All App Service pla
 
 In addition to the price of your App Service plans, there's a flat rate for the ASE itself. The flat rate doesn't change with the size of your ASE. It pays for the ASE infrastructure at a default scale rate of one additional front end for every 15 App Service plan instances.
 
-If the default scale rate of one front end for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front ends are added or the size of the front ends. When you adjust the ratio or size, you pay for the front-end cores that would not be added by default.
+If the default scale rate of one front end for every 15 App Service plan instances isn't fast enough, you can adjust the ratio at which front ends are added or the size of the front ends. When you adjust the ratio or size, you pay for the front-end cores that wouldn't be added by default.
 
 For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 App Service plan instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
 
@@ -252,7 +255,7 @@ To delete an ASE:
 
 ## ASE CLI
 
-There are command line capabilities to administer to an ASE.  The az cli commands are noted below.
+There are command line capabilities to administer to an ASE. The Azure CLI commands are noted below.
 
 ```azurecli
 C:\>az appservice ase --help
@@ -297,8 +300,7 @@ For more specific examples, use: az find "az appservice ase"
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
-[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md
+[ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md

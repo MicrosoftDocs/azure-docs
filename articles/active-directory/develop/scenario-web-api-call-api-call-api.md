@@ -1,6 +1,5 @@
 ---
-title: Web API that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Web API that calls web APIs
 description: Learn how to build a web API that calls web APIs.
 services: active-directory
 author: jmprieur
@@ -123,7 +122,7 @@ If you've decided to acquire a token manually by using the `ITokenAcquisition` s
 private async Task CallTodoListService(string accessToken)
 {
   // After the token has been returned by Microsoft.Identity.Web, add it to the HTTP authorization header before making the call to access the todolist service.
-  _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+  _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
   // Call the todolist service.
   HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");

@@ -4,7 +4,7 @@ description: In this quickstart, you'll learn how to set up and configure an att
 services: attestation
 author: msmbaldwin
 ms.service: attestation
-ms.topic: overview
+ms.topic: quickstart
 ms.date: 08/31/2020
 ms.author: mbaldwin
 

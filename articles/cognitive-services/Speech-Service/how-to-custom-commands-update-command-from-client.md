@@ -1,15 +1,16 @@
 ---
-title: 'Update a command from a client app'                             
+title: 'Update a command parameter from a client app'                             
 titleSuffix: Azure Cognitive Services
 description: Learn how to update a command from a client application.
 services: cognitive-services
-author: nitinme
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2020
-ms.author: nitinme
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Update a command from a client app
@@ -48,7 +49,8 @@ Let's review the key attributes of this activity:
 
 | Attribute | Explanation |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **type** | The activity is of type `"event"`, and the name of the event needs to be `"RemoteUpdate"`. |
+| **type** | The activity is of type `"event"`. |
+| **name** | The name of the event needs to be `"RemoteUpdate"`. |
 | **value** | The attribute `"value"` contains the attributes required to update the current command. |
 | **updatedCommand** | The attribute `"updatedCommand"` contains the name of the command. Within that attribute, `"updatedParameters"` is a map with the names of the parameters and their updated values. |
 | **cancel** | If the ongoing command needs to be canceled, set the attribute `"cancel"` to `true`. |

@@ -14,6 +14,8 @@ ms.author: haroldw
 
 # Common prerequisites for deploying OpenShift Container Platform 3.11 in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article describes common prerequisites for deploying OpenShift Container Platform or OKD in Azure.
 
 The installation of OpenShift uses Ansible playbooks. Ansible uses Secure Shell (SSH) to connect to all cluster hosts to complete installation steps.
