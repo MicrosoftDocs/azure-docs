@@ -1,7 +1,7 @@
 ---
-title: Fill map in Azure Maps Power BI Visual
+title: Filled map in Azure Maps Power BI Visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you'll learn about the Fill map feature in Azure Maps Power BI Visual.
+description: In this article, you'll learn about the Filled map feature in Azure Maps Power BI Visual.
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 04/11/2022
@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Fill map in Azure Maps Power BI Visual (Preview)
+# Filled map in Azure Maps Power BI Visual (Preview)
 
 Filled maps use varying degrees of shading, tinting or different patterns to provide a visual display that quickly shows differences in values across a geography or region. Showing these relative differences with shading that ranges from light (less-frequent/lower) to dark (more-frequent/more) is a useful way to quickly convey pertinent information to viewers.
 
@@ -26,12 +26,12 @@ The image above shows an example of a filled map. The map of America shows each 
 
 Filled maps can be a great choice:
 
-* to display quantitative information on a map.
-* to show spatial patterns and relationships.
-* when your data is standardized.
-* when working with socioeconomic data.
-* when defined regions are important.
-* to get an overview of the distribution across geographic locations.
+* To display quantitative information on a map.
+* To show spatial patterns and relationships.
+* When your data is standardized.
+* When working with socioeconomic data.
+* When defined regions are important.
+* To get an overview of the distribution across geographic locations.
 
 Some common uses for filled maps include:
 
@@ -45,7 +45,7 @@ This article uses [Sales and Marketing Sample PBIX](https://download.microsoft.c
 
 ## Filled map settings
 
-There are two places where you can adjust a filled maps settings: Build and format visuals. Both are located in the **Visualizations** pane.
+There are two places where you can adjust filled maps settings: Build and format visuals. Both are located in the **Visualizations** pane.
 
 ### Build visuals
 
@@ -65,9 +65,9 @@ There are two places where you can adjust a filled maps settings: Build and form
 
 | Bucket               | Description                                                                                     |
 |----------------------|-------------------------------------------------------------------------------------------------|
-| Location             | Geospatial area with a boundary, such as country, state, city, county or postal code. Street and address are not supported in filled map. |
+| Location             | Geospatial area with a boundary, such as country, state, city, county or postal code. Street and address aren't supported in filled map. |
 | Legend               | Categorical data that will be used to shade the map.                                            |
-| Tool Tips (optional) | Determined the data/columns that would be showed in tool tips                                   |
+| Tool Tips (optional) | Determined the data/columns that would be shown in tool tips                                    |
 
 ## Create a filled map
 
@@ -107,7 +107,7 @@ There are two places where you can adjust a filled maps settings: Build and form
 
 1. Set the **Minimum** color to white then select the **OK** button.
 
-    > The map should appear with varying degrees of shading depicting the relative sales. Since this data only includes numbers for the contental United States, you can filter out Alaska if you wish.
+    > The map should appear with varying degrees of shading depicting the relative sales. Since this data only includes numbers for the continental United States, you can filter out Alaska if you wish.
 
 1. Filter the map to display only the continental United States.
 
