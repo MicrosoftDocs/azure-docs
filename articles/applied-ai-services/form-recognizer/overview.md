@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 06/27/2022
+ms.date: 07/11/2022
 ms.author: lajanuar
 recommendations: false
 keywords: automated data processing, document processing, automated data entry, forms processing
@@ -35,14 +35,16 @@ This section helps you decide which Form Recognizer v3.0 supported feature you s
 |**Unstructured document** like a contract or letter.|You want to extract primarily text lines, words, locations, and detected languages from a text-based document (not tables, selection marks, and/or structure).|</li></ul>The document is _printed_ in a [supported language](language-support.md#read-layout-and-custom-form-template-model).| <ul><li>Use the [**Read (preview)**](concept-read.md) model for text-only extraction.<li>Use the [**Layout**](concept-layout.md) model if you also need structure information.</li></ul>
 |**Structured document** like an invoice or questionnaire.|You want to extract key-value pairs, selection marks, and tables from a structured document.|The document is mostly structured and contains fields and values that may not be covered by the other prebuilt models.|<ul><li>Use the [**General document (preview)**](concept-general-document.md) model for a typical structured document.</li><li> Train and build a [**Custom**](how-to-guides/build-custom-model-v3.md) model if the document fields and values are complex and highly variable.</li></ul>
 |**Industry-standard form or document**, like a credit application.|You want to extract text, tables, selection marks, and structure information from customary documents.|The form or document is a standardized format commonly used in your business or industry.| <ul><li>Use the [**Layout**](concept-layout.md) model to extract basic elements like pages, tables, barcodes and element location.</li><li>Use the [**General document (preview)**](concept-general-document.md) model to extract the fields found in the layout model as well as key-value pairs.</li><li>[**Train and build a custom model**](quickstarts/try-sample-label-tool.md#train-a-custom-form-model) if you need a model tailored to your specific document.
-|**U.S. W-2 form.**|You want to extract key information such as salary, wages, and taxes withheld from US W2 tax forms.</li></ul> |The W-2 document is composed in United States English (en-US) text.|<ul><li>Use the [**W-2 Form**](concept-w2.md) model</li></ul>.
+|**U.S. W-2 form**|You want to extract key information such as salary, wages, and taxes withheld from US W2 tax forms.</li></ul> |The W-2 document is composed in United States English (en-US) text.|<ul><li>Use the [**W-2 Form**](concept-w2.md) model</li></ul>.
 |**Invoice**|You want to extract key information such as customer name, billing address, and amount due from invoices.</li></ul> |The invoice document is formatted in a [supported language](language-support.md#invoice-model).|<ul><li>Use the [**Invoice**](concept-invoice.md) model.</li></ul>
  |**Receipt**|You want to extract key information such as merchant name, merchant phone number, transaction date, and transaction total from a sales or single-page hotel receipt.</li></ul> |The receipt is formatted in English text|<ul><li> Use the [**Receipt**](concept-receipt.md) model.</li></ul>|
 |**Business card**|You want to extract key information such as first name, last name, company name, email address, and phone number  from business cards.</li></ul>|The business card document formatted in English or Japanese text. | <ul><li>Use the [**Business Card**](concept-business-card.md) model.</li></ul>|
 |**ID document**|You want to extract key information such as first name, last name, and date of birth from US drivers' licenses or international passports. |Your ID document is a US driver's license or the biographical page from an international passport (not a visa).| Use the [**ID document**](concept-id-document.md) model.</li></ul>|
 
 >[!Tip]
-> If you're still unsure try the General document model. The General document model is extracts all the fields of the layout model (pages, tables, styles) as well as key-value pairs and is powered by the Read OCR model to detect lines, words, locations, and languages.
+>
+> * If you're still unsure as to which model to use, try the General document model. 
+> * The General document model extracts all the same fields as the layout model (pages, tables, styles) as well as key-value pairs It's powered by the Read OCR model to detect lines, words, locations, and languages.
 
 ## Form Recognizer features and development options
 
