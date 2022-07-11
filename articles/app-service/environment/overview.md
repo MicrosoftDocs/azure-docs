@@ -97,39 +97,40 @@ Reserved Instance pricing for Isolated v2 is available and is described in [How 
 App Service Environment v3 is available in the following regions:
 
 | Normal and dedicated host regions | Availability zone regions |
-|---|---|
-| Australia East | Australia East |
-| Australia Southeast | Brazil South |
-| Brazil South | Canada Central |
-| Canada Central | Central India |
-| Canada East | Central US |
-| Central India | East Asia |
-| Central US | East US |
-| East Asia | East US 2 |
-| East US | France Central |
-| East US 2 | Germany West Central |
-| France Central | Japan East |
-| Germany West Central | Korea Central |
-| Japan East | North Europe |
-| Korea Central | Norway East |
-| North Central US | South Africa North |
-| North Europe | South Central US |
-| Norway East | Southeast Asia |
-| South Africa North | UK South |
-| South Central US | West Europe |
-| Southeast Asia | West US 2 |
-| Switzerland North | West US 3 |
-| UAE North |  |
-| UK South |  |
-| UK West |  |
-| West Central US |  |
-| West Europe |  |
-| West US |  |
-| West US 2 |  |
-| West US 3 |  |
-| US Gov Texas |  |
-| US Gov Arizona |  |
-| US Gov Virginia |  |
+| --------------------------------- | ------------------------- |
+| Australia East                    | Australia East            |
+| Australia Southeast               | Brazil South              |
+| Brazil South                      | Canada Central            |
+| Canada Central                    | Central India             |
+| Canada East                       | Central US                |
+| Central India                     | East Asia                 |
+| Central US                        | East US                   |
+| East Asia                         | East US 2                 |
+| East US                           | France Central            |
+| East US 2                         | Germany West Central      |
+| France Central                    | Japan East                |
+| Germany West Central              | Korea Central             |
+| Japan East                        | North Europe              |
+| Korea Central                     | Norway East               |
+| North Central US                  | South Africa North        |
+| North Europe                      | South Central US          |
+| Norway East                       | Southeast Asia            |
+| South Africa North                | Sweden Central            |
+| South Central US                  | UK South                  |
+| Southeast Asia                    | West Europe               |
+| Sweden Central                    | West US 2                 |
+| Switzerland North                 | West US 3                 |
+| UAE North                         ||
+| UK South                          ||
+| UK West                           ||
+| West Central US                   ||
+| West Europe                       ||
+| West US                           ||
+| West US 2                         ||
+| West US 3                         ||
+| US Gov Texas                      ||
+| US Gov Arizona                    ||
+| US Gov Virginia                   ||
 
 ## App Service Environment v2
 
