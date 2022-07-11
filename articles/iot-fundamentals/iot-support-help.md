@@ -25,9 +25,8 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 * [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
-    > [!NOTE]
-    > If you are asking about an issue on a new support request that happened more than a certain period ago, it is unlikely that we will still have logs to investigate. Please let us know more quickly in the future if you observe the issue again.
-
+> [!NOTE]
+> Azure IoT solutions depend on services which may have different log retention periods. To help resolve your issue, please open a support request as soon as possible to help with troubleshooting.
 
 ## Post a question on Microsoft Q&A
 
