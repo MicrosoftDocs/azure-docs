@@ -93,11 +93,9 @@ Select **Job Summary** at the top-right of the job diagram to see properties and
 
 ## Limitations
 
-* Live output sinks aren't supported in local run.
-
 * Run job locally with JavaScript function is only supported on the Windows operating system.
 
-* C# custom code and Azure Machine Learning functions aren't supported. 
+* Azure Machine Learning functions aren't supported. 
 
 * Only cloud input options have [time policies](./stream-analytics-time-handling.md) support, while local input options don't.
 
