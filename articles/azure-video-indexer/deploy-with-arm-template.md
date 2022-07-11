@@ -13,7 +13,7 @@ In this tutorial, you'll create an Azure Video Indexer account by using the Azur
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to a Resource Manager-based Azure Video Indexer account.
 >
-> For full documentation on Azure Video Indexer API, visit the [developer portal](https://aka.ms/avam-dev-portal). For the latest API version for *Microsoft.VideoIndexer*, see the [template reference](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep).
+> For full documentation on the Azure Video Indexer API, visit the [developer portal](https://aka.ms/avam-dev-portal). For the latest API version for *Microsoft.VideoIndexer*, see the [template reference](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep).
 
 ## Prerequisites
 
