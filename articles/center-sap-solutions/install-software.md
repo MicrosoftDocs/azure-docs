@@ -6,15 +6,16 @@ ms.topic: how-to
 ms.date: 07/01/2022
 author: lauradolan
 ms.author: ladolan
+#Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
 ---
 
 # Install SAP software (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-After you've created infrastructure for your new SAP system using Azure Center for SAP solutions (ACSS), install the SAP software.
+After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions (ACSS)*, you need to install the SAP software.
 
-To install the SAP software, you first need to upload all the required components to your Azure account. You can either [run a pre-installation script to automate the upload process](#upload-components-with-script) or [manually upload the components](#upload-components-manually). Then, you can [run the software installation wizard](#install-software).
+In this how-to guide, you'll learn how to upload and install all the required components in your Azure account. You can either [run a pre-installation script to automate the upload process](#upload-components-with-script) or [manually upload the components](#upload-components-manually). Then, you can [run the software installation wizard](#install-software).
 
 ## Prerequisites
 
