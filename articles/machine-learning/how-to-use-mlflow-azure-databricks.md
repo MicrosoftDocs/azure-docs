@@ -89,6 +89,8 @@ If you prefer to manage your tracked experiments in a centralized location, you 
 You have to configure the MLflow tracking URI to point exclusively to Azure Machine Learning, as it is demonstrated in the following example:
 
    # [Using the Azure ML SDK v2](#tab/azuremlsdk)
+   
+   [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v2.md)]
 
    You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
