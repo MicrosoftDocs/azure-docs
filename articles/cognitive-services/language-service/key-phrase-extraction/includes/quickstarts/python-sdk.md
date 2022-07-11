@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 * [Python 3.x](https://www.python.org/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
 > [!div class="nextstepaction"]
@@ -62,7 +62,7 @@ client = authenticate_client()
 def key_phrase_extraction_example(client):
 
     try:
-        documents = ["My cat might need to see a veterinarian."]
+        documents = ["Dr. Smith has a very modern medical office, and she has great staff."]
 
         response = client.extract_key_phrases(documents = documents)[0]
 
@@ -86,6 +86,7 @@ key_phrase_extraction_example(client)
 
 ```console
 Key Phrases:
-    cat
-    veterinarian
+    modern medical office
+    Dr. Smith
+    great staff
 ```
