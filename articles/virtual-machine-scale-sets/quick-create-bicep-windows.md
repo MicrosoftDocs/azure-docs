@@ -12,7 +12,8 @@ ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 
 # Quickstart: Create a Windows virtual machine scale set with Bicep
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+> [!NOTE]
+> This quickstart uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the virtual machine scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the virtual machine scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with Bicep.
 
