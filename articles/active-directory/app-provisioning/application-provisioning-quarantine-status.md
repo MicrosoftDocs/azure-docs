@@ -47,6 +47,8 @@ There are three ways to check whether an application is in quarantine:
 
 ## Why is my application in quarantine?
 
+Below are the common reasons your application may go into quarantine
+
 |Description|Recommended Action|
 |---|---|
 |**SCIM Compliance issue:** An HTTP/404 Not Found response was returned rather than the expected HTTP/200 OK response. In this case, the Azure AD provisioning service has made a request to the target application and received an unexpected response.|Check the admin credentials section. See if the application requires specifying the tenant URL and that the URL is correct. If you don't see an issue, contact the application developer to ensure that their service is SCIM-compliant. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
@@ -78,10 +80,11 @@ After the first failure, the first retry happens within the next 2 hours (usuall
 - The third retry happens 12 hours after the first failure.
 - The fourth retry happens 24 hours after the first failure.
 - The fifth retry happens 48 hours after the first failure.
-- The sixth retry happens 96 hours after the first failure
-- The seventh retry happens 168 hours after the first failure.
+- The sixth retry happens 72 hours after the first failure.
+- The seventh retry happens 96 hours after the first failure.
+- The eigth retry happens 120 hours after the first failure.
 
-After the 7th failure, entry is flagged and no further retries are run.
+This cycle is repeated every 24 hours until the 30th day when retries are stopped and the job is disabled. 
 
 
 ## How do I get my application out of quarantine?

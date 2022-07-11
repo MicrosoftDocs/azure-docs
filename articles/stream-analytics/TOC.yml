@@ -71,6 +71,12 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json
+  - name: Metrics in job monitoring
+    items:
+    - name: Stream Analytics metrics
+      href: stream-analytics-job-metrics.md
+    - name: Stream Analytics metrics dimensions
+      href: stream-analytics-job-metrics-dimensions.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -277,13 +283,13 @@
       href: geospatial-scenarios.md
   - name: Monitor
     items:
-    - name: Monitor jobs- Azure portal
+    - name: Monitor jobs - Azure portal
       href: stream-analytics-monitoring.md
-    - name: Monitor jobs- PowerShell
+    - name: Monitor jobs - PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Monitor jobs- Azure .NET SDK
+    - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
-    - name: Monitor jobs- Visual Studio
+    - name: Monitor jobs - Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
   - name: Automate
     items:
@@ -347,6 +353,8 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
+    - name: Watermark delay increase
+      href: stream-analytics-job-analysis-with-metric-dimensions.md
     - name: Activity and resource logs
       href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors

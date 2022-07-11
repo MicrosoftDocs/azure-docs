@@ -93,48 +93,6 @@ The following sections show you how to approve or reject a private endpoint conn
 5. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
     :::image type="content" source="./media/configure-private-endpoints/device-update-approval.png" alt-text="Screenshot showing a Pending Connection in the Networking tab in Device Update account.":::
 
-## Use Azure CLI
-
-### Create a private endpoint
-
-To create a private endpoint, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) method as shown in the following example:
-
-```azurecli-interactive
-az network private-endpoint create \
-    -g <RESOURCE GROUP NAME> \
-    -n <PRIVATE ENDPOINT NAME> \
-    --vnet-name <VIRTUAL NETWORK NAME> \
-    --subnet <SUBNET NAME> \
-    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.DeviceUpdate/account/<ACCOUNT NAME> \
-    --connection-name <PRIVATE LINK SERVICE CONNECTION NAME> \
-    --location <LOCATION> \
-    --group-id DeviceUpdate
-    --request-message "Optional message"
-    --manual-request
-```
-
-For descriptions of the parameters used in the example, see documentation for [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). A few points to note in this example are: 
-
-- For `private-connection-resource-id`, specify the resource ID of the **account**. 
-- For `group-id`, specify `DeviceUpdate`.
-
-To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) method as shown in the following example:
-
-```azurecli-interactive
-az network private-endpoint delete -g <RESOURCE GROUP NAME> -n <PRIVATE ENDPOINT NAME>
-```
-
-### Approve/reject a private endpoint connection
-
-```azurecli-interactive
-az iot device-update account private-endpoint-connection set \
-    -n <ACCOUNT NAME> \
-    --cn <PRIVATE LINK SERVICE CONNECTION NAME> \
-    --status <Approved/Rejected> \
-    --desc 'Optional description'
-```
-
-
 ## Next steps
 
 * [Learn about network security concepts](network-security.md).

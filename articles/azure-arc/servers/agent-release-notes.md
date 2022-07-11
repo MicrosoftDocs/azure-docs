@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 06/06/2022
+ms.date: 07/05/2022
 ms.custom: references_regions
 ---
 
@@ -16,7 +16,31 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
+## Version 1.20 - July 2022
+
+### Known issues
+
+- Some systems may incorrectly report their cloud provider as Azure Stack HCI.
+
+### New features
+
+- Added support for Debian 10
+- Updates to the [instance metadata](agent-overview.md#instance-metadata) collected on each machine:
+  - GCP VM OS is no longer collected
+  - CPU logical core count is now collected
+- Improved error messages and colorization
+
+### Fixed
+
+- Agents configured to use private endpoints will now download extensions over the private endpoint
+- The `--use-private-link` flag on [azcmagent check](manage-agent.md#check) has been renamed to `--enable-pls-check` to more accurately represent its function
+
 ## Version 1.19 - June 2022
+
+### Known issues
+
+- Agents configured to use private endpoints will incorrectly try to download extensions from a public endpoint. [Upgrade the agent](manage-agent.md#upgrade-the-agent) to version 1.20 or later to restore correct functionality.
+- Some systems may incorrectly report their cloud provider as Azure Stack HCI.
 
 ### New features
 
@@ -36,7 +60,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Fixed
 
-- `systemd` is now an official prerequisite on Linux and your package manger will alert you if you try to install the Azure Connected Machine agent on a server without systemd.
+- `systemd` is now an official prerequisite on Linux and your package manager will alert you if you try to install the Azure Connected Machine agent on a server without systemd.
 - Guest configuration policies no longer create unnecessary files in the `/tmp` directory on Linux servers
 - Improved reliability when extracting extensions and guest configuration policy packages
 - Improved reliability for guest configuration policies that have child processes
@@ -70,29 +94,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### Fixed
 
 - The "Arc" proxy bypass keyword no longer includes Azure Active Directory endpoints on Linux. Azure Storage endpoints for extension downloads are now included with the "Arc" keyword.
-
-## Version 1.15 - February 2022
-
-### Known issues
-
-- The "Arc" proxy bypass feature on Linux includes some endpoints that belong to Azure Active Directory. As a result, if you only specify the "Arc" bypass rule, traffic destined for Azure Active Directory endpoints will not use the proxy server as expected. This issue will be fixed in an upcoming release.
-
-### New features
-
-- Network check improvements during onboarding:
-  - Added TLS 1.2 check
-  - Azure Arc network endpoints are now required, onboarding will abort if they are not accessible
-  - New `--skip-network-check` flag to override the new network check behavior
-  - On-demand network check now available using `azcmagent check`
-- [Proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) is now available for customers using private endpoints. This allows you to send Azure Active Directory and Azure Resource Manager traffic through a proxy server, but skip the proxy server for traffic that should stay on the local network to reach private endpoints.
-- Oracle Linux 8 is now supported
-
-### Fixed
-
-- Improved reliability when disconnecting the agent from Azure
-- Improved reliability when installing and uninstalling the agent on Active Directory Domain Controllers
-- Extended the device login timeout to 5 minutes
-- Removed resource constraints for Azure Monitor Agent to support high throughput scenarios
 
 ## Next steps
 
