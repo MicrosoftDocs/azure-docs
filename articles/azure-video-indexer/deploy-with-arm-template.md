@@ -37,15 +37,15 @@ You need an Azure Media Services account. You can create one for free through [C
 
    * Create a new resource group on the same location as your Azure Video Indexer account by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
 
-   ```powershell
-    New-AzResourceGroup -Name myResourceGroup -Location eastus
-   ```
+     ```powershell
+      New-AzResourceGroup -Name myResourceGroup -Location eastus
+     ```
 
    * Deploy the template to the resource group by using the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet.
 
-   ```powershell
-   New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./avam.template.json
-   ```
+     ```powershell
+     New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./avam.template.json
+     ```
 
 > [!NOTE]
 > If you want to work with Bicep format, see [Deploy by using Bicep](./deploy-with-bicep.md).
