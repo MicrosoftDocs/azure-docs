@@ -2,9 +2,7 @@
 title: Create custom security policies in Microsoft Defender for Cloud | Microsoft Docs
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
-ms.date: 12/23/2021
+ms.date: 07/11/2022
 zone_pivot_groups: manage-asc-initiatives
 ---
 
@@ -18,6 +16,8 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
 
 > [!TIP]
 > For an overview of the key concepts on this page, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
+
+Custom security policies, based on custom initiatives, can be combined into groups similar to how compliance standards are grouped. You can learn how to group your custom policies using [policy definitions groups](../governance/policy/concepts/initiative-definition-structure.md).  
 
 ::: zone pivot="azure-portal"
 
