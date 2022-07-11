@@ -1,6 +1,6 @@
 ---
 title: Configure a Virtual Instance for SAP solutions (preview)
-description: Learn how to configure a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP Solutions (ACSS) through the Azure portal.
+description: Learn how to configure a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: conceptual
 ms.date: 07/01/2022
@@ -12,7 +12,7 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-Every time that you create a new SAP system using *Azure Center for SAP Solutions (ACSS)*, or register an existing SAP system to ACSS, the process creates a *Virtual Instance for SAP solutions (VIS)*. A VIS is a logical representation of an SAP system in Azure. For more information, see the [explanation of a VIS](overview.md).
+Every time that you create a new SAP system using *Azure Center for SAP solutions (ACSS)*, or register an existing SAP system to ACSS, the process creates a *Virtual Instance for SAP solutions (VIS)*. A VIS is a logical representation of an SAP system in Azure. For more information, see the [explanation of a VIS](overview.md).
 
 This article explains how to view the VIS resource through the Azure portal. You can use these steps to find your SAP system's properties and connect parts of the VIS to other resources like databases.
 
