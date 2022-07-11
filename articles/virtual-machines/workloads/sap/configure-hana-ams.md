@@ -24,9 +24,6 @@ This article explains how to configure the SAP HANA provider for Azure Monitor f
 1. On the AMS creation page, enter your basic resource information on the **Basics** tab.
 1. On the **Providers** tab:
     1. Select **Add provider**.
-
-    ![Add Provider](https://user-images.githubusercontent.com/74435183/162337421-67c50f88-c5e8-4c5a-b9bc-ea0096b2827e.png)
-
     1. On the creation pane, for **Type**, select **SAP HANA**.
 
     ![Provider Details](https://user-images.githubusercontent.com/98498799/171365559-80de91c9-601b-41e6-a91a-4ec9b28e0958.png)
