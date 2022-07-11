@@ -27,7 +27,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
   - Windows Hybrid Runbook Worker: version 7.3.1125.0
   - Linux Hybrid Runbook Worker: version 1.7.4.0
 
-- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+- To add the user assigned managed identity you must have the ```Microsoft.ManagedIdentity/userAssignedIdentities/*/read``` and ```Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action``` permissions over the user assigned managed identity, which are granted to [Managed Identity Operator](../role-based-access-control/built-in-roles#managed-identity-operator) and [Managed Identity Contributor](../role-based-access-control/built-in-roles#managed-identity-contributor)
+
+
+- To assign an Azure role to the managed identity, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, which is granted to either to [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
  
 ## Enable a system-assigned managed identity for an Azure Automation account
