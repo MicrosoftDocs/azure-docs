@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 07/11/2022
 ms.author: tomfitz
 ---
 # Bicep deployment what-if operation
@@ -11,6 +11,8 @@ ms.author: tomfitz
 Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ### Microsoft Learn
 
