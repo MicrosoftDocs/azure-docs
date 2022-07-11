@@ -24,7 +24,7 @@ We've added following methods to AzureClient that will enable developers to reco
 
 `getContainerVersions` allows developers to view the previously generated versions of the container.
 
-[copyContainer(ID, containerSchema)](https://fluidframework.com/docs/apis/azure-client/azureclient#copycontainer-Method)
+[`copyContainer(ID, containerSchema)`](https://fluidframework.com/docs/apis/azure-client/azureclient#copycontainer-Method)
 
 `copyContainer` allows developers to generate a new detached container from a specific version of another container.
 
