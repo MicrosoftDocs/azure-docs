@@ -95,7 +95,7 @@ az vm update \
 In order to provision a VM with Trusted Launch, it first needs to be enabled with the `TrustedLaunch` using the `Set-AzVmSecurityProfile` cmdlet. Then you can use the Set-AzVmUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the values in this example with your own. 
 
 ```azurepowershell-interactive
-$resourceGroup = "myResourceGroup"
+$rgName = "myResourceGroup"
 $location = "West US"
 $vmName = "myTrustedVM"
 $vmSize = Standard_B2s
@@ -135,7 +135,7 @@ $vm = Set-AzVmUefi -VM $vm `
    -EnableVtpm $true `
    -EnableSecureBoot $true 
 
-New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vm 
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm 
 ```
  
 
@@ -288,13 +288,13 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig `
    -Name mySubnet `
    -AddressPrefix 192.168.1.0/24
 $vnet = New-AzVirtualNetwork `
-   -ResourceGroupName $resourceGroup `
+   -ResourceGroupName $rgName `
    -Location $location `
    -Name MYvNET `
    -AddressPrefix 192.168.0.0/16 `
    -Subnet $subnetConfig
 $pip = New-AzPublicIpAddress `
-   -ResourceGroupName $resourceGroup `
+   -ResourceGroupName $rgName `
    -Location $location `
   -Name "mypublicdns$(Get-Random)" `
   -AllocationMethod Static `
@@ -310,13 +310,13 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
    -DestinationPortRange 3389 `
    -Access Deny
 $nsg = New-AzNetworkSecurityGroup `
-   -ResourceGroupName $resourceGroup `
+   -ResourceGroupName $rgName `
    -Location $location `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP
 $nic = New-AzNetworkInterface `
    -Name myNic `
-   -ResourceGroupName $resourceGroup `
+   -ResourceGroupName $rgName `
    -Location $location `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
