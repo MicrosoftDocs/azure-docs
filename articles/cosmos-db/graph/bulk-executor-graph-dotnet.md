@@ -130,7 +130,7 @@ The */resources/application.properties* file defines the data that's required to
 
 ### Execute
 
-Once the configuration is modified as per your environment, then run the command:
+After you've modified the configuration according to your environment, run the following command:
 
 ```bash
 mvn clean package 
@@ -138,13 +138,13 @@ mvn clean package
 
 For added safety, you can also run the integration tests by changing the skipIntegrationTests value in the *pom.xml* file to *false*.
 
-If you've run the unit tests successfully, you can run the sample code:
+When you've run the unit tests successfully, you can run the sample code:
 
 ```bash
 java -jar target/azure-cosmos-graph-bulk-executor-1.0-jar-with-dependencies.jar -v 1000 -e 10 -d
 ```
 
-Running the preceding command executes the sample with a small batch (1,000 vertices and roughly 5,000 edges). Use the command lines arguments in the following sections to tweak the volumes that are run and which sample version to run.
+Running the preceding command executes the sample with a small batch (1,000 vertices and roughly 5,000 edges). Use the command-line arguments in the following sections to tweak the volumes that are run and which sample version to run.
 
 ### Command-line arguments
 
@@ -188,7 +188,7 @@ The console finishes its run with a JSON string that describes the run times of 
 | JSON string | Description |
 | --- | --- |
 | startTime |  The System.nanoTime() when the process started. |
-| endtime |  The System.nanoTime() when the process finished. |
+| endTime |  The System.nanoTime() when the process finished. |
 | durationInNanoSeconds |  The difference between the endTime and startTime values. |
 | durationInMinutes |  The durationInNanoSeconds value, converted into minutes. The durationInMinutes value is represented as a float number, not a time value. For example, a value of 2.5 represents 2 minutes and 30 seconds. |
 | vertexCount |  The volume of generated vertices, which should match the value that's passed into the command-line execution. |
@@ -212,7 +212,7 @@ Each state contains the following values:
 | --- | --- |
 | stateName |  The name of the state that's being reported. |
 | startTime |  The System.nanoTime() value when the state started. |
-| endtime |  The System.nanoTime() value when the state finished. |
+| endTime |  The System.nanoTime() value when the state finished. |
 | durationInNanoSeconds |  The difference between the endTime and startTime values. |
 | durationInMinutes |  The durationInNanoSeconds value, converted into minutes. The durationInMinutes value is represented as a float number, not a time value. For example, a value of 2.5 represents 2 minutes and 30 seconds. |
 
