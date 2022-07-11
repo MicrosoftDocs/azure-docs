@@ -84,7 +84,7 @@ The following output example resembles successful creation of the resource group
 Create an AKS cluster using the [az aks create][az-aks-create] command with the *--enable-addons monitoring* parameter to enable [Container insights][azure-monitor-containers]. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --node-count 1 --enable-addons monitoring
+az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.

@@ -48,7 +48,7 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
 
 ## Configure your Azure application offer setup details
 
-On the **Offer setup** tab, under **Setup details**, you’ll choose whether to configure a test drive. You’ll also connect your customer relationship management (CRM) system with your commercial marketplace offer.
+On the **Offer setup** tab, under **Setup details**, you’ll choose whether to configure a test drive. You can also choose whether to connect your customer relationship management (CRM) system with your commercial marketplace offer.
 
 ### Enable a test drive (optional)
 
@@ -84,8 +84,14 @@ You can also connect the product to your customer relationship management (CRM) 
 1. Select **Save draft** before continuing to the next tab: Properties.
 
 > [!NOTE]
-> Make sure the connection to the lead destination stays up to date so you don't lose any leads. Make sure you update these connections whenever something has changed.
+> Make sure the connection to the lead destination stays up to date so your CRM system doesn't lose any leads.
+
+Make sure you update these connections whenever something has changed. You can still access leads in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. If needed, you can  export leads from Partner Center in order to import them into your CRM.
 
 ## Next steps
 
 - [Configure Azure application properties](azure-app-properties.md)
+
+**Video tutorial**
+
+- [Configuring Partner Center for Azure Managed Applications - Demo](https://go.microsoft.com/fwlink/?linkid=2196410)

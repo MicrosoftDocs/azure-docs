@@ -95,6 +95,8 @@
         href: iot-hub-devguide-messaging.md
       - name: Create and read IoT Hub messages
         href: iot-hub-devguide-messages-construct.md
+      - name: Non-telemetry event schemas
+        href: iot-hub-non-telemetry-event-schema.md
       - name: Send cloud-to-device messages from IoT Hub
         href: iot-hub-devguide-messages-c2d.md
       - name: Choose a device communication protocol
