@@ -3,7 +3,7 @@ title: Azure PowerShell Samples - Networking
 description: Learn about Azure PowerShell samples for networking, including a sample for creating a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 manager: mtillman
 
 tags:

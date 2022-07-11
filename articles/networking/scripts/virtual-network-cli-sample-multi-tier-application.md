@@ -3,7 +3,7 @@ title: Azure CLI script sample - Create a network for multi-tier applications
 description: Azure CLI script sample - Create a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli

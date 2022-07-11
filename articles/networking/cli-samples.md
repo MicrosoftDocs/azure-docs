@@ -3,7 +3,7 @@ title: Azure CLI Samples - Networking
 description: Learn about Azure CLI samples for networking, including samples for connectivity between Azure resources and samples for load balancing and traffic direction.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 manager: timlt
 
 tags:
