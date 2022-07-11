@@ -143,7 +143,7 @@ If your API Management instance is deployed in a virtual network in the primary 
 
 1.	In **Availability zones**, select one or more zones. The number of units selected must be distributed evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
 
-1. If your API Management instance is deployed in a [virtual network](api-management/api-management-using-with-vnet.md?tabs=stv2),select the virtual network, subnet, and public IP address that are available in the location. 
+1. If your API Management instance is deployed in a [virtual network](api-management/api-management-using-with-vnet.md?tabs=stv2), select the virtual network, subnet, and public IP address that are available in the location. 
 
 1. Select **Add**, and then select **Save**.
 
