@@ -14,7 +14,7 @@ ms.custom: devx-track-python, cliv2, sdkv2
 
 # Logging MLflow models
 
-The following article explains how to start logging your trained models (or artifacts) as MLflow models to achieve a simplier path to production. It explores the different methods to customize the way MLflow packages your models and hence how it runs them. 
+The following article explains how to start logging your trained models (or artifacts) as MLflow models. It explores the different methods to customize the way MLflow packages your models and hence how it runs them. 
 
 ## Why logging models instead of artifacts?
 
