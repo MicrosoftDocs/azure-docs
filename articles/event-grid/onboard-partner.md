@@ -130,6 +130,13 @@ If you selected **Channel name header** for **Partner topic routing mode**, crea
         1. Specify **source** information for the partner topic. Source is contextual information on the source of events provided by the partner that the end user can see. This information is helpful when end user is considering activating a partner topic, for example.
 
             :::image type="content" source="./media/onboard-partner/channel-partner-topic-basics.png" alt-text="Image showing the Create Channel - Basics page.":::
+        1. Select **event types definitions** checkbox if you want to add event types definitions to the channel, added event types will be visible to customers through the partner topic.
+
+            :::image type="content" source="./media/onboard-partner/event-type-definition-1.png" alt-text="Image showing the event type definition 1.":::
+
+            :::image type="content" source="./media/onboard-partner/event-type-definition-2.png" alt-text="Image showing the event type definition 2.":::
+            
+            :::image type="content" source="./media/onboard-partner/event-type-definition-3.png" alt-text="Image showing the event type definition 3.":::
     1. If you selected **Partner Destination**, enter the following details:
         1. **ID of the subscription** in which the partner topic will be created. 
         1. **Resource group** in which the partner topic will be created. 
@@ -156,7 +163,16 @@ If you selected **Channel name header** for **Partner topic routing mode**, crea
         **Partner destination** option:
         :::image type="content" source="./media/onboard-partner/create-channel-review-create-destination.png" alt-text="Image showing the Create Channel - Review + create page when the Partner Destination option is selected.":::            
         
-            
+## Manage a channel
+
+If you created a channel you may be interested to update the configuration once the resource has been created.
+
+1. Go to the **Configuration** page in the channel you created, and modify the attribute you want to update: message for partner topic activation, expiration time if not activated, and event types definitions.
+
+    :::image type="content" source="./media/onboard-partner/channel-configuration.png" alt-text="Image showing the channel configuration.":::
+
+> [!IMPORTANT]
+> Don't forget to save changes before leaving the configuration page.
     
 ## Create an event channel
 
