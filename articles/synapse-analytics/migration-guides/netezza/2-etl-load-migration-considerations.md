@@ -72,7 +72,7 @@ ins                   | 2015-06-16 17:47:14.430995
 
 This query uses the helper function `FORMAT_TABLE_ACCESS` and the digit at the end of the `$v_hist_table_access_3` view to match the installed query history version.
 
-#### What's the best migration approach to minimize risk and impact on users?
+#### What is the best migration approach to minimize risk and impact on users?
 
 This question comes up frequently because companies may want to lower the impact of changes on the data warehouse data model to improve agility. Companies often see an opportunity to further modernize or transform their data during an ETL migration. This approach carries a higher risk because it changes multiple factors simultaneously, making it difficult to compare the outcomes of the old system versus the new. Making data model changes here could also affect upstream or downstream ETL jobs to other systems. Because of that risk, it's better to redesign on this scale after the data warehouse migration.
 
