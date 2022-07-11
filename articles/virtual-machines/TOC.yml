@@ -425,8 +425,8 @@
         displayName: SSE, CMK, encrypt
         href: image-version-encryption.md
       - name: Export an image to a managed disk
-        desplayName: export, image version, disk, SIG, gallery
         href: managed-disk-from-image-version.md
+        desplayName: export, image version, disk, SIG, gallery
       - name: Purchase plan information
         href: marketplace-images.md
     - name: VM Applications
@@ -790,10 +790,12 @@
         href: ./linux/use-remote-desktop.md
     - name: Windows
       items:
-      - name: Remote Desktop for Windows
-        href: ./windows/connect-logon.md
+      - name: Remote Desktop
+        href: ./windows/connect-rdp.md
+      - name: SSH
+        href: ./windows/connect-ssh.md
       - name: WinRM
-        href: ./windows/winrm.md
+        href: ./windows/connect-winrm.md
   - name: Time sync
     items:
     - name: Linux
@@ -1555,8 +1557,6 @@
     - name: Windows using PowerShell
       displayName: Use multipe NICs
       href: ./windows/multiple-nics.md
-  - name: Find and delete unattached NICs
-    href: ./linux/find-unattached-nics.md
   - name: Assign public DNS name
     href: create-fqdn.md
   - name: Assign public DNS name
@@ -1680,8 +1680,8 @@
     displayName: aad, ssh, active directory
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?context=/azure/virtual-machines/context/context
   - name: Windows VMs and Azure AD
-    displayname: aad, active directory
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?context=/azure/virtual-machines/context/context
+    displayname: aad, active directory
 - name: Updates and maintenance
   items:
   - name: Overview

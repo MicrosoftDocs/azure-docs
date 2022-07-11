@@ -14,7 +14,7 @@ Legacy appliances are certified but aren't currently offered as preconfigured ap
 
 |Appliance characteristic  | Description|
 |---------|---------|
-|**Hardware profile** | Enterprise|
+|**Hardware profile** | E1800|
 |**Performance** | Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
 |**Physical Specifications** | Mounting: 1U<br>Ports: 8x RJ45 or 6x SFP (OPT)|
 |**Status** | Supported, not available as a preconfigured appliance|

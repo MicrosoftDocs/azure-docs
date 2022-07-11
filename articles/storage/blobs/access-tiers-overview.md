@@ -2,9 +2,9 @@
 title: Hot, Cool, and Archive access tiers for blob data
 titleSuffix: Azure Storage
 description: Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. Learn about the Hot, Cool, and Archive access tiers for Blob Storage.
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 06/16/2022
 ms.service: storage
 ms.subservice: blobs

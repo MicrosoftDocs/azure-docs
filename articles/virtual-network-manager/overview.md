@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 07/06/2022
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 #Customer intent: As an IT administrator, I want to learn about Azure Virtual Network Manager and what I can use it for.
@@ -13,7 +13,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 # What is Azure Virtual Network Manager (Preview)?
 
-Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once. 
+Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -38,7 +38,7 @@ A connectivity configuration enables you to create a mesh or a hub-and-spoke net
 
 * Highly scalable and highly available service with redundancy and replication across the globe.
 
-* Ability to create global network security rules that override network security group rules.
+* Ability to create network security rules that override network security group rules.
 
 * Low latency and high bandwidth between resources in different virtual networks using virtual network peering.
 

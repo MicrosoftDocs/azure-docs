@@ -71,6 +71,8 @@ landingContent:
         links:
           - text: Schedule a contact with NASA's AQUA public satellite
             url: howto-downlink-aqua.md
+          - text: Collect and Process AQUA satellite payload
+            url: satellite-imagery-with-orbital-ground-station.md
 
   # Card
   - title: Concepts

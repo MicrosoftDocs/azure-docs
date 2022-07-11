@@ -44,6 +44,7 @@ HDInsight clusters can currently be created using availability zones in the foll
  - US Gov Virginia
  - West Europe
  - West US 2
+ - Korea Central
 
 ## Overview of availability zones for HDInsight clusters
 

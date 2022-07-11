@@ -2,9 +2,9 @@
 title: Blob rehydration from the Archive tier
 description: While a blob is in the Archive access tier, it's considered to be offline and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier, either the Hot or Cool tier.
 services: storage
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 05/13/2022
 ms.service: storage
 ms.subservice: blobs

@@ -7,32 +7,32 @@ ms.topic: conceptual
 ms.custom: ga
 ms.date: 06/21/2022
 ms.author: hrshelar
-
+#Customer intent: As a satellite operator or user, I want to understand how to what the contact object is so I can manage my mission operations.
 ---
 
 # Ground station contact
 
-A contact occurs when the spacecraft is over a specified ground station. Azure Orbital lets the user find available passes on the system and schedule them for use. A contact and ground station pass are synonymous in meaning.
+A contact occurs when the spacecraft is over a specified ground station. You can find available passes on the system and schedule them for use through Azure Orbital GSaaS. A contact and ground station pass mean the same thing.
 
-When you schedule a contact, a contact object is created under your spacecraft object in your resource group. The contact that is booked on the service is only associated with this spacecraft and can't be transferred to another spacecraft, resource group, or region.
+When you schedule a contact, a contact object is created under your spacecraft object in your resource group. The contact only associated with this spacecraft and can't be transferred to another spacecraft, resource group, or region.
 
 ## Contact object
 
 The contact object contains the start time and end time of the pass and other parameters of interest related to pass operations. The full list is below.
 
-| Parameter                 | Description                                                                                                                             |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| Reservation Start Time    | Start time of pass in UTC.                                                                                                              |
-| Reservation End Time      | End time of pass in UTC.                                                                                                                |
+| Parameter                 | Description                                                                                                                    |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| Reservation Start Time    | Start time of pass in UTC.                                                                                                     |
+| Reservation End Time      | End time of pass in UTC.                                                                                                       |
 | Maximum Elevation Degrees | The maximum elevation the spacecraft will be in the sky relative to horizon in degrees, used to gauge the quality of the pass. |
-| TX Start Time             | Start time of permissible transmission window in UTC. This start time will be equal to or come after Reservation Start Time.                       |
-| TX End Time               | End time of permissible transmission window in UTC. This end time will be equal to or come before Reservation End Time.                          |
-| RX Start Time             | Start time of permissible reception window in UTC. This start time will be equal to or come after Reservation Start Time.                          |
-| RX End Time               | End time of permissible reception window in UTC. This end time will be equal to or come before Reservation End Time.                             |
-| Start Azimuth             | Starting azimuth position of the spacecraft measured clockwise from North in degrees.                                                   |
-| End Azimuth               | End azimuth position of the spacecraft measured clockwise from North in degrees.                                                        |
-| Start Elevation           | Starting elevation position of the spacecraft measured from the horizon up in degrees.                                                  |
-| End Elevation             | Starting elevation position of the spacecraft measured from the horizon up in degrees.                                                  |
+| TX Start Time             | Start time of permissible transmission window in UTC. This start time will be equal to or come after Reservation Start Time.   |
+| TX End Time               | End time of permissible transmission window in UTC. This end time will be equal to or come before Reservation End Time.        |
+| RX Start Time             | Start time of permissible reception window in UTC. This start time will be equal to or come after Reservation Start Time.      |
+| RX End Time               | End time of permissible reception window in UTC. This end time will be equal to or come before Reservation End Time.           |
+| Start Azimuth             | Starting azimuth position of the spacecraft measured clockwise from North in degrees.                                          |
+| End Azimuth               | End azimuth position of the spacecraft measured clockwise from North in degrees.                                               |
+| Start Elevation           | Starting elevation position of the spacecraft measured from the horizon up in degrees.                                         |
+| End Elevation             | Starting elevation position of the spacecraft measured from the horizon up in degrees.                                         |
 
 The RX and TX start/end times may differ depending on the individual station masks. Billing meters are engaged between the Reservation Start Time and Reservation End Time.
 

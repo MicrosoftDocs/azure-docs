@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/22/2022
+ms.date: 07/06/2022
 ms.author: barclayn
 
 #Customer intent: As a verifiable credentials administrator, I want to create a verifiable credential for self-asserted claims scenario. 
@@ -94,6 +94,12 @@ The JSON attestation definition should contain the **selfIssued** name and the c
       ],
       "required": false
     }
+  },
+  "validityInterval": 2592000,
+  "vc": {
+    "type": [
+      "VerifiedCredentialExpert"
+    ]
   }
 }
 ```

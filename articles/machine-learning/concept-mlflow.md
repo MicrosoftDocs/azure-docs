@@ -54,7 +54,7 @@ Azure Machine Learning uses MLflow Tracking for metric logging and artifact stor
 
 ## Model Registries with MLflow
 
-Azure Machine Learning supports MLflow for model management. This represents a convenient way to support the entire model lifecycle for users familiar with the MLFlow client. The following article describes the different capabilities and how it compares with other options.
+Azure Machine Learning supports MLflow for model management. This represents a convenient way to support the entire model lifecycle for users familiar with the MLFlow client.
 
 To learn more about how you can manage models using the MLflow API in Azure Machine Learning, view [Manage models registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md).
 
