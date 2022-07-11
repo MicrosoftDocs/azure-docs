@@ -703,7 +703,7 @@
           {
             "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-manage-scala-packages.md",
             "redirect_url": "/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries",
-            "redirect_document_id": true
+            "redirect_document_id": false
           }
     ]
 }
