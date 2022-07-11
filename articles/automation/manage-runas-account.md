@@ -106,20 +106,20 @@ To check the role assigned to the Automation Run As account Azure AD, follow the
 1. Go to your Automation account and in **Account Settings**, select **Run as accounts**.
 1. Select **Azure Run as Account** to view the **Application ID**.
 
-  :::image type="content" source="media/manage-runas-account/automation-runas-app-id.png" alt-text="Screenshot that describes on how to copy application ID.":::
+    :::image type="content" source="media/manage-runas-account/automation-runas-app-id.png" alt-text="Screenshot that describes on how to copy application ID.":::
 
 1. In [Azure portal](https://portal.azure.com/), search **Azure Active Directory**.
 1. On the **Active Directory Overview** page, in **Overview**, search, enter the Application id.  
 
-  :::image type="content" source="media/manage-runas-account/automation-active-directory-app-id-inline.png" alt-text="Screenshot that describes application ID copied in the Overview tab." lightbox="media/manage-runas-account/automation-active-directory-app-id-expanded.png":::
+    :::image type="content" source="media/manage-runas-account/active-directory-app-id-inline.png" alt-text="Screenshot that describes application ID copied in the Overview tab." lightbox="media/manage-runas-account/active-directory-app-id-expanded.png":::
 
-  In the **Enterprise applications** section, you will see the display name of your Run As Account.
+    In the **Enterprise applications** section, you will see the display name of your Run As Account.
 
 1. Select the application ID and in the properties page of that ID, in **Overview**, **Properties**, copy the name of the Enterprise application.
 1. In [Azure portal](https://portal.azure.com/), go to **Subscriptions** and select your subscription.
 1. Go to **Access Control (IAM)**, **Role Assignment** and paste the name of the Enterprise application in the search to view the App along with the role and scope assigned to it. For example: in the screenshot below, the Run As Account Azure AD App has the Contributor access at the subscription level.
 
-  :::image type="content" source="media/manage-runas-account/check-role-assignments-inline.png" alt-text="Screenshot that describes how to view the role and scope assigned to the enterprise application."  lightbox="media/manage-runas-account/check-role-assignments-expanded.png":::
+    :::image type="content" source="media/manage-runas-account/check-role-assignments-inline.png" alt-text="Screenshot that describes how to view the role and scope assigned to the enterprise application."  lightbox="media/manage-runas-account/check-role-assignments-expanded.png":::
 
 
 ## Limit Run As account permissions
