@@ -53,7 +53,7 @@ with mlflow.start_run():
 ```
 
 > [!TIP]
-> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb) demostrates how to log a model with preprocessing using pipelines.
+> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb) demostrates how to log a model with preprocessing using pipelines.
 
 ## Logging models with a custom signature, environment or samples
 
@@ -100,7 +100,7 @@ A solution to this scenario is to implement machine learning pipelines that move
 
 ## Logging custom models
 
-Mlflow supports a large variety of frameworks, including FastAI, MXNet Gluon, PyTorch, TensorFlow, XGBoost, CatBoost, h2o, Keras, LightGBM, MLeap, ONNX, Prophet, spaCy, Spark MLLib, Scikit-Learn, and statsmodels. However, they may be times where you need to change how a flavor works, log a model not natively supported by MLflow or even log a model that uses multiple elements from different frameworks. For those cases, you may need to create a custom model flavor.
+MLflow provides support for a variety of [machine learning frameworks](https://mlflow.org/docs/latest/models.html#built-in-model-flavors) including FastAI, MXNet Gluon, PyTorch, TensorFlow, XGBoost, CatBoost, h2o, Keras, LightGBM, MLeap, ONNX, Prophet, spaCy, Spark MLLib, Scikit-Learn, and statsmodels. However, they may be times where you need to change how a flavor works, log a model not natively supported by MLflow or even log a model that uses multiple elements from different frameworks. For those cases, you may need to create a custom model flavor.
 
 For this type of models, MLflow introduces a flavor called `pyfunc` (standing from Python function). Basically this flavor allows you to log any object you want as a model, as long as it satisfies two conditions:
 
