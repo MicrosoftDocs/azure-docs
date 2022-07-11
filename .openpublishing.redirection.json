@@ -37363,16 +37363,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#visualizations-for-application-change-analysis",
-      "redirect_url": "/azure/azure-monitor/app/change-analysis-visualizations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#troubleshoot",
-      "redirect_url": "/azure/azure-monitor/app/change-analysis-troubleshoot",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/personalizer/personalizer-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/personalizer/encrypt-data-at-rest",
       "redirect_document_id": false
