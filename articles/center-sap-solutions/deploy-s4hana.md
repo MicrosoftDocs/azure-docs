@@ -1,18 +1,19 @@
 ---
-title: Create S/4HANA infrastructure deployment (preview)
-description: Learn how to create a Highly Available (HA) S/4HANA infrastructure deployment with Azure Center for SAP solutions (ACSS) through the Azure portal.
+title: Deploy S/4HANA infrastructure (preview)
+description: Learn how to deploy S/4HANA infrastructure with Azure Center for SAP solutions (ACSS) through the Azure portal. You can deploy High Availability (HA), non-HA, and single-server configurations.
 ms.service: azure-center-sap-solutions
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 07/01/2022
 ms.author: ladolan
 author: lauradolan
+#Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
 ---
 
-# Create S/4HANA infrastructure deployment (preview)
+# Deploy S/4HANA infrastructure with Azure Center for SAP solutions (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-With Azure Center for SAP solutions (ACSS), you can create S4/HANA infrastructure deployment through the Azure portal. There are [three deployment options](#deployment-types): High Availability (HA), non-HA, and single server. 
+In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions (ACSS)*. There are [three deployment options](#deployment-types): High Availability (HA), non-HA, and single server. 
 
 ## Prerequisites
 
@@ -49,7 +50,7 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. For **Region**, select the Azure region into which you're deploying the resources.
 
-    1. For **Environment type**, select whether your environment is production or non-production. If you select **Production**, you can deploy a distributed HA or non-HA S/4 HANA system. It's recommended to use distributed HA deployments for production systems. If you select **Non-production**, you can use a single-server deployment.
+    1. For **Environment type**, select whether your environment is production or non-production. If you select **Production**, you can deploy a distributed HA or non-HA S/4HANA system. It's recommended to use distributed HA deployments for production systems. If you select **Non-production**, you can use a single-server deployment.
 
     1. For **SAP product**, keep the selection as **S/4HANA**.
 
@@ -97,7 +98,7 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. To change the Application server count, enter a new count for **Number of VMs** under **Application virtual machines**.
     
-        VM counts for ASCS and Database instances aren't editable and have defaults of **2**.
+        The number of VMs for ASCS and Database instances aren't editable. The default number for each is **2**.
 
     1. Under **Database virtual machines**, ACSS automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure a VM SKU is selected. Then, select **View disk configuration**. If there are more than one database servers, the layout applies to each server. 
 

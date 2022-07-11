@@ -6,15 +6,16 @@ ms.topic: how-to
 ms.date: 07/01/2022
 author: lauradolan
 ms.author: ladolan
+#Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
 ---
 
 # Install SAP software (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-After you've created infrastructure for your new SAP system using Azure Center for SAP solutions (ACSS), install the SAP software.
+After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions (ACSS)*, you need to install the SAP software.
 
-To install the SAP software, you first need to upload all the required components to your Azure account. You can either [run a pre-installation script to automate the upload process](#upload-components-with-script) or [manually upload the components](#upload-components-manually). Then, you can [run the software installation wizard](#install-software).
+In this how-to guide, you'll learn how to upload and install all the required components in your Azure account. You can either [run a pre-installation script to automate the upload process](#upload-components-with-script) or [manually upload the components](#upload-components-manually). Then, you can [run the software installation wizard](#install-software).
 
 ## Prerequisites
 
@@ -237,7 +238,7 @@ You also can [run scripts to automate this process](#upload-components-with-scri
     1. [S41909SPS03_v0011ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-scsha-inifile-param.j2)
     1. [S41909SPS03_v0011ms-web-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-web-inifile-param.j2)
 1. Go back to the **sapfiles** folder, then go to the **archives** subfolder.
-1. Download all packages that aren't labeled as `download: false` in the [S/4 HANA 1909 BOM](https://github.com/Azure/sap-automation/blob/BPaaS-preview/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml). You can use the URL given in the BOM to download each package. Make sure to download the exact package versions listed in each BOM. Repeat this step for the main and dependent BOM files.
+1. Download all packages that aren't labeled as `download: false` in the [S/4HANA 1909 BOM](https://github.com/Azure/sap-automation/blob/BPaaS-preview/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml). You can use the URL given in the BOM to download each package. Make sure to download the exact package versions listed in each BOM. Repeat this step for the main and dependent BOM files.
     1. [HANA_2_00_059_v0002ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/HANA_2_00_059_v0002ms/HANA_2_00_059_v0002ms.yaml)
     1. [SWPM20SP12_latest.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/SWPM20SP12_latest/SWPM20SP12_latest.yaml)
     1. [SUM20SP14_latest.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/SUM20SP14_latest/SUM20SP14_latest.yaml)
@@ -269,7 +270,7 @@ To install the SAP software on Azure, use the ACSS installation wizard.
 
     1. For **Have you uploaded the software to an Azure storage account?**, select **Yes**.
 
-    1. For **Software version**, use the default **SAP S/4 HANA 1909 SPS03**.
+    1. For **Software version**, use the default **SAP S/4HANA 1909 SPS03**.
 
     1. For **BOM directory location**, select **Browse** and find the path to your BOM file. For example, `/sapfiles/boms/S41909SPS03_v0010ms.yaml`.
 

@@ -31,7 +31,7 @@ landingContent:
             url: install-software.md
           - text: Configure Virtual Instance for SAP solutions
             url: configure-virtual-instance.md
-          - text: Deploy S/4 HANA infrastructure
+          - text: Deploy S/4HANA infrastructure
             url: deploy-s4hana.md
           - text: Register existing SAP system
             url: register-existing-system.md

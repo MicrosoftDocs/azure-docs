@@ -1,18 +1,19 @@
 ---
 title: Register existing SAP system (preview)
-description: Learn how to register an existing SAP system in Azure Center for SAP solutions (ACSS). You can visualize, manage, and monitor your existing SAP system through ACSS.
+description: Learn how to register an existing SAP system in Azure Center for SAP solutions (ACSS) through the Azure portal. You can visualize, manage, and monitor your existing SAP system through ACSS.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
 ms.date: 07/01/2022
 ms.author: ladolan
 author: lauradolan
+#Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions (ACSS).
 ---
 
 # Register existing SAP system (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-You can register an existing SAP system with *Azure Center for SAP solutions (ACSS)* to use its visualization, management and monitoring capabilities with your system. After you register your SAP system with ACSS, you can:
+In this how-to guide, you'll learn how to register an existing SAP system with *Azure Center for SAP solutions (ACSS)*. After you register an SAP system with ACSS, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
 - View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP solutions (VIS)*.
 - Get recommendations for your SAP infrastructure, based on quality checks that evaluate best practices for SAP on Azure.
@@ -148,7 +149,7 @@ The process of registering an SAP system in ACSS might fail for the following re
 - The user trying to register the SAP system doesn't have **Contributor** role permissions. For more information, see the [prerequisites for registering an SAP system](#prerequisites).
 - The ACSS service doesn't have **Contributor** role access to the Azure subscription or resource groups where the SAP system exists. For more information, see [how to enable ACSS resource permissions](#enable-acss-resource-permissions).
 
-There's also a known issue with registering *S/4 HANA 2021* version SAP systems. You might receive the error message: **Failed to discover details from the Db VM**. This error happens when the Database identifier is incorrectly configured on the SAP system. One possible cause is that the Application Server profile parameter `rsdb/dbid` has an incorrect identifier for the HANA Database. To fix the error:
+There's also a known issue with registering *S/4HANA 2021* version SAP systems. You might receive the error message: **Failed to discover details from the Db VM**. This error happens when the Database identifier is incorrectly configured on the SAP system. One possible cause is that the Application Server profile parameter `rsdb/dbid` has an incorrect identifier for the HANA Database. To fix the error:
 
 1. Stop the Application Server instance:
     
