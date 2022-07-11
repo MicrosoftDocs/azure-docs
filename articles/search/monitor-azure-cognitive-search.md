@@ -74,9 +74,11 @@ Metrics are collected [free of charge](/azure/azure-monitor/usage-estimated-cost
 
 1. See [Tutorial: Analyze metrics for an Azure resource](/azure/azure-monitor/essentials/tutorial-metrics) for general guidance on using metrics explorer.
 
-1. See [Microsoft.Search/searchServices (Azure Monitor)](/azure/azure-monitor/essentials/metrics-supported#microsoftsearchsearchservices) for the full list of platform metrics for Azure Cognitive Search.
+1. See [Microsoft.Search/searchServices (Azure Monitor)](/azure/azure-monitor/essentials/metrics-supported#microsoftsearchsearchservices) for the platform metrics of Azure Cognitive Search.
 
-1. See [Azure Cognitive Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md) for supplemental descriptions and dimensions.
+1. See [Monitoring data reference](monitor-azure-cognitive-search-data-reference.md) for supplemental descriptions and dimensions.
+
+1. See [Monitor queries](search-monitor-queries.md) for details about the query metrics.
 
 ## Set up alerts
 

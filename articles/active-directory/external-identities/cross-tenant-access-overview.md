@@ -50,6 +50,9 @@ You can configure organization-specific settings by adding an organization and m
 
 - For B2B collaboration with other Azure AD organizations, use cross-tenant access settings to manage inbound and outbound B2B collaboration and scope access to specific users, groups, and applications. You can set a default configuration that applies to all external organizations, and then create individual, organization-specific settings as needed. Using cross-tenant access settings, you can also trust multi-factor (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
+   > [!TIP]
+   >If you intend to trust inbound MFA for external users, make sure you don't have an [Identity Protection policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) in place that requires external users to register for MFA. When both of these policies are present, external users won’t be able to satisfy the requirements for access. If you want to enforce the Identity Protection MFA registration policy, be sure to exclude external users.
+
 - For B2B direct connect, use organizational settings to set up a mutual trust relationship with another Azure AD organization. Both your organization and the external organization need to mutually enable B2B direct connect by configuring inbound and outbound cross-tenant access settings.
 
 - You can use external collaboration settings to limit who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.

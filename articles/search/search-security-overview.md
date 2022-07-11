@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 07/11/2022
 
 ---
 
@@ -55,7 +55,7 @@ If your Azure resource is behind a firewall, you'll need to [create rules that a
 
 ### Internal traffic
 
-Internal requests are secured and managed by Microsoft. You cannot configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic is not customer-configurable.
+Internal requests are secured and managed by Microsoft. You can't configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic isn't customer-configurable.
 
 Internal traffic consists of:
 
@@ -116,9 +116,9 @@ If you're using Azure AD authentication, [use role assignments instead of API ke
 
 ### Controlling access to indexes
 
-In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
+In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. In a query request, there's no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
-If you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
+However, if you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
 
 For key-based authentication scenarios, administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update the objects managed by the service. Anyone with an [admin key](search-security-api-keys.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the solution for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it doesn't store or execute your proprietary code used to create or load indexes.
 
@@ -145,8 +145,14 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 [Three basic roles](search-security-rbac.md) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
 
-> [!Note]
+> [!NOTE]
 > Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
+
+## Data residency
+
+Azure Cognitive Search won't store data outside of your specified region without your authorization. Specifically, the following features write to an Azure Storage resource: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md).
+
+The storage account is one that you provide, and it could be in any region. If you put storage and search in the same region, and you also need network security, be aware of the [IP firewall restrictions](search-indexer-howto-access-ip-restricted.md) that prevent service connections in this scenario. When network security is a requirement, consider using the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) as a firewall alternative.
 
 <a name="encryption"></a>
 
