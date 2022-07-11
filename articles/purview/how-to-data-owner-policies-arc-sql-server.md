@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 07/11/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -24,7 +24,11 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 
 **Enforcement of policies for this data source is available only in the following regions for Microsoft Purview**
 - East US
+- West US 3
+- Canada Central
+- West Europe
 - UK South
+- France Central
 - Australia East
 
 ## Security considerations
