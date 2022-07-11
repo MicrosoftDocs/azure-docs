@@ -64,7 +64,7 @@ The detailed specifications of the available server types are as follows:
 |Standard_D32ds_v4	|32	|128	|20000	|21845
 |Standard_D48ds_v4	|48	|192	|20000	|32768
 |Standard_D64ds_v4	|64	|256	|20000	|43691
-|**Memory Optimized** |	
+|**Business Critical** |	
 |Standard_E2ds_v4	|	2	|	16	|	5000	|	2731
 |Standard_E4ds_v4	|	4	|	32	|	10000	|	5461
 |Standard_E8ds_v4	|	8	|	64	|	18000	|	10923
