@@ -93,6 +93,7 @@ If your existing BI tools run on-premises, ensure they can connect to Azure Syna
 
 There's a lot to think about here, so let's take a closer look.
 
+<a id="minimize-the-impact-of-data-warehouse-migration-on-bi-tools-and-reports-by-using-data-virtualization"></a>
 ## Use data virtualization to minimize the impact of migration on BI tools and reports
 
 During migration, you might be tempted to fulfill long-term requirements like opening business requests, adding missing data, or implementing new features. However, such changes can affect BI tool access to your data warehouse, especially if the change involves structural changes to your data model. If you want to adopt an agile data modeling technique or implement structural changes, do so *after* migration.
