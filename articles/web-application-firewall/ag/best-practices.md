@@ -11,7 +11,7 @@ ms.author: jodowns
 
 # Best practices for Web Application Firewall on Application Gateway
 
-[!INCLUDE [Shared best practices](../includes/best-practice.md)]
+[!INCLUDE [Shared best practices](../includes/best-practices.md)]
 
 ## Application Gateway WAF best practices
 

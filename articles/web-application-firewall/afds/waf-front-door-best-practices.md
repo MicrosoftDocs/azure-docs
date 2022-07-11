@@ -12,4 +12,4 @@ ms.author: jodowns
 
 # Best practices for Web Application Firewall on Azure Front Door
 
-[!INCLUDE [Shared best practices](../includes/best-practice.md)]
+[!INCLUDE [Shared best practices](../includes/best-practices.md)]
