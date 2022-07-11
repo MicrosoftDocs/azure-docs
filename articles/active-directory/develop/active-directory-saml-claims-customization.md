@@ -56,7 +56,7 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 | **Unspecified** | Microsoft identity platform will use Unspecified as the NameID format. |
 |**Windows domain qualified name**| Microsoft identity platform will use the WindowsDomainQualifiedName format.|
 
-Transient NameID is also supported, but isn't available in the dropdown and can't be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
+Transient NameID is also supported, but isn't available in the dropdown and can't be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
 ### Attributes
 
