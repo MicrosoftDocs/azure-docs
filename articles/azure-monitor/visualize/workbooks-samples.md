@@ -13,7 +13,7 @@ ms.reviewer: gardnerjr
 This article includes sample Azure Workbooks.
 
 
-## JSON Path parameter sample workbook\
+## Sample JSON Path parameter workbook
 ```json
 {
   "version": "Notebook/1.0",
@@ -48,7 +48,7 @@ This article includes sample Azure Workbooks.
   "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
 }
 ```
-## ARM template for creating workbook template
+## Sample ARM template for creating a workbook template
 ```json
 {
 	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
