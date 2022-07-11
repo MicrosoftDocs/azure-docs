@@ -40240,12 +40240,12 @@
     },    
     {
       "source_path_from_root": "/articles/virtual-machines/windows/connect-logon.md",
-      "redirect_url": "/articles/virtual-machines/windows/connect-rdp",
+      "redirect_url": "/azure/virtual-machines/windows/connect-rdp",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
-      "redirect_url": "/articles/virtual-machines/windows/connect-winrm",
+      "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
       "redirect_document_id": false
     }
   ]
