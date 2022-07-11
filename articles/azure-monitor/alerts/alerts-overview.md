@@ -87,8 +87,8 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 
 ## Manage your alerts programmatically
 
-You can query you alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
-We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For an sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
+You can query your alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
+We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For a sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
 
 You can use Azure Resource Graphs:
  - with [Azure PowerShell](/powershell/module/az.monitor/)
