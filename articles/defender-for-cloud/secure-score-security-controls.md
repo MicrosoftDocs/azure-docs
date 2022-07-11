@@ -1,10 +1,8 @@
 ---
 title: Security posture for Microsoft Defender for Cloud
-description: Description of Microsoft Defender for Cloud's secure score and its security controls 
-author: bmansheim
-ms.author: benmansheim
+description: Description of Microsoft Defender for Cloud's secure score and its security controls
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 07/11/2022
 ---
 
 # Security posture for Microsoft Defender for Cloud
@@ -136,6 +134,12 @@ Even though Defender for Cloud's default security initiative is based on industr
 
 ## FAQ - Secure score
 
+- [If I address only three out of four recommendations in a security control, will my secure score change?](#if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change)
+- [If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?](#if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated)
+- [If a security control offers me zero points towards my secure score, should I ignore it?](#if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it)
+- [I have remediated recommendations, but Defender for Cloud is not refreshing my secure score, why not?](#i-have-remediated-recommendations-but-defender-for-cloud-is-not-refreshing-my-secure-score-why-not)
+- [Why are deleted resources are affecting my secure score and are still present in the security vulnerability scan results?](#why-are-deleted-resources-are-affecting-my-secure-score-and-are-still-present-in-the-security-vulnerability-scan-results)
+
 ### If I address only three out of four recommendations in a security control, will my secure score change?
 
 No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations for all resources.
@@ -147,6 +151,18 @@ Yes. We recommend disabling recommendations when they're inapplicable in your en
 ### If a security control offers me zero points towards my secure score, should I ignore it?
 
 In some cases, you'll see a control max score greater than zero, but the impact is zero. When the incremental score for fixing resources is negligible, it's rounded to zero. Don't ignore these recommendations because they still bring security improvements. The only exception is the "Additional Best Practice" control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
+
+### I have remediated recommendations, but Defender for Cloud is not refreshing my secure score, why not?
+
+If you have remediated recommendation(s), and Defender for Cloud has not refreshed your secure score, you should ensure the following has occured: 
+
+- Wait 8-24 hours for the full policy compliance status to be updated.
+- Verify that you executed the recommended remediation steps.
+- Verify that the resource has not been exempted. Exempted resources appear under the Not-Applicable recommendation tab, and do not affect your secure score.
+
+### Why are deleted resources are affecting my secure score and are still present in the security vulnerability scan results?
+
+Deleted virtual machines will stop affecting your secure score and will no longer appear in your scan results after seven days. Other resources will no longer be present after 8-24 hours.
 
 ## Next steps
 
