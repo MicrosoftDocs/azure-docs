@@ -6312,6 +6312,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption-java.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-java.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption-python.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-python.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
+      "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
       "redirect_url": "/azure/storage/common/storage-account-overview",
       "redirect_document_id": false
@@ -22867,11 +22907,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
-      "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/storage/storage-https-custom-domain-cdn.md",
       "redirect_url": "/azure/storage/blobs/storage-https-custom-domain-cdn",
       "redirect_document_id": true
@@ -23265,21 +23300,6 @@
     {
       "source_path_from_root": "/articles/storage/common/storage-moving-data.md",
       "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption-java.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption-java",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption-python.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption-python",
       "redirect_document_id": true
     },
     {
