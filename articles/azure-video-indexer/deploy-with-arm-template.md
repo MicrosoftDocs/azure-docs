@@ -8,11 +8,11 @@ ms.author: juliako
 
 # Tutorial: Deploy Azure Video Indexer by using an ARM template
 
-In this tutorial, you will create an Azure Video Indexer account by using the Azure Resource Manager template (preview). The resource will be deployed to your subscription and will create the Azure Video Indexer resource based on parameters defined in the *avam.template* file.
+In this tutorial, you'll create an Azure Video Indexer account by using the Azure Resource Manager template (ARM template, which is in preview). The resource will be deployed to your subscription and will create the Azure Video Indexer resource based on parameters defined in the *avam.template* file.
 
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to a Resource Manager-based Azure Video Indexer account.
-
+>
 > For full documentation on Azure Video Indexer API, visit the [developer portal](https://aka.ms/avam-dev-portal). For the latest API version for *Microsoft.VideoIndexer*, see the [template reference](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep).
 
 ## Prerequisites
@@ -55,13 +55,13 @@ You need an Azure Media Services account. You can create one for free through [C
 ### name
 
 * Type: string
-* Description: Specifies the name of the new Azure Video Indexer account.
+* Description: The name of the new Azure Video Indexer account.
 * Required: true
 
 ### location
 
 * Type: string
-* Description: Specifies the Azure location where the Azure Video Indexer account should be created.
+* Description: The Azure location where the Azure Video Indexer account should be created.
 * Required: false
 
 > [!NOTE]
@@ -70,19 +70,19 @@ You need an Azure Media Services account. You can create one for free through [C
 ### mediaServiceAccountResourceId
 
 * Type: string
-* Description: Specifies the resource ID of the Azure Media Services resource.
+* Description: The resource ID of the Azure Media Services resource.
 * Required: true
 
 ### managedIdentityId
 
 * Type: string
-* Description: Specifies the resource ID of the managed identity that's used to grant access between Azure Media Services resource and the Azure Video Indexer account.
+* Description: The resource ID of the managed identity that's used to grant access between Azure Media Services resource and the Azure Video Indexer account.
 * Required: true
 
 ### tags
 
 * Type: object
-* Description: Specifies the array of objects that represents custom user tags on the Azure Video Indexer account.
+* Description: The array of objects that represents custom user tags on the Azure Video Indexer account.
 * Required: false
 
 ## Reference documentation
