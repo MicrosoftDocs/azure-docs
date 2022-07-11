@@ -4,12 +4,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 07/11/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
 [Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples)
+
+Use this quickstart to create a Named Entity Recognition (NER) application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify [recognized entities](../../concepts/named-entity-categories.md) in text.
 
 ## Prerequisites
 

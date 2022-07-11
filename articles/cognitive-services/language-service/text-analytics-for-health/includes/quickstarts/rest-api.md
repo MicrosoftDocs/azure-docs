@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 
 [Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
 
+Use this quickstart to send language detection requests using the REST API. In the following example, you will use cURL to identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
+
 
 ## Prerequisites
 
