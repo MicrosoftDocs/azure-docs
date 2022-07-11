@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/16/2022
+ms.date: 07/06/2022
 ms.author: barclayn
 
 #Customer intent: As a verifiable credentials administrator, I want to create a verifiable credential for the ID token hint scenario. 
@@ -105,9 +105,16 @@ The expected JSON for the rules definitions is the inner content of the rules at
             "required": false
           }
         ]
+      },
+      "validityInterval":  2592000,
+      "vc": {
+        "type": [
+          "VerifiedCredentialExpert"
+        ]
       }
 }
 ```
+
 
 ## Configure the samples to issue and verify your custom credential
 

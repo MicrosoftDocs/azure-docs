@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government)
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 06/16/2022
+ms.date: 07/06/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -295,9 +295,9 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Disconnections should be logged for PostgreSQL database servers.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb6f77b9-bd53-4e35-a23d-7f65d5f0e446) |This policy helps audit any PostgreSQL databases in your environment without log_disconnections enabled. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableLogDisconnections_Audit.json) |
 
-### Ensure server parameter 'log_disconnections' is set to 'ON' for PostgreSQL Database Server
+### Ensure server parameter 'connection_throttling' is set to 'ON' for PostgreSQL Database Server
 
-**ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.15
+**ID**: CIS Microsoft Azure Foundations Benchmark recommendation 4.17
 **Ownership**: Customer
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
