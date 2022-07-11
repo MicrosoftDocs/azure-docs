@@ -115,11 +115,11 @@ private static void executeWithPOJO(Stream<GremlinVertex> vertices,
 
 To run the sample, refer to the following configuration and modify it as needed.
 
-The */resources/application.properties* file defines the data that's required to configure Azure Cosmos DB. The required values are:
+The */resources/application.properties* file defines the data that's required to configure Azure Cosmos DB. The required values are described in the following table:
 
 | Property | Description |
 | --- | --- |
-|sample.sql.host | It's the value provided by the Azure Cosmos DB. Ensure you use the ".NET SDK URI", which can be located on the Overview section of the Azure Cosmos DB Account.|
+|sample.sql.host | The value provided by the Azure Cosmos DB. Ensure you use the ".NET SDK URI", which can be located on the Overview section of the Azure Cosmos DB Account.|
 | sample.sql.key |  You can get the primary or secondary key from the Keys section of the Azure Cosmos DB Account. |
 | sample.sql.database.name |  The name of the database within the Azure Cosmos DB account to run the sample against. If the database isn't found, the sample code will create it. |
 | sample.sql.container.name |  The name of the container within the database to run the sample against. If the container isn't found, the sample code will create it. |
@@ -145,78 +145,77 @@ java -jar target/azure-cosmos-graph-bulk-executor-1.0-jar-with-dependencies.jar 
 
 Running the above commands will execute the sample with a small batch (1k Vertices and roughly 5k Edges). Use the following command lines arguments to tweak the volumes run and which sample version to run.
 
-### Command line arguments
+### Command-line arguments
 
-There are several command line arguments are available while running this sample, which is detailed as:
+Several command-line arguments are available while you're running this sample, as described in the following table:
 
 | Argument&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
 | --- | --- |
 | --vertexCount (-v) |  Tells the application how many person vertices to generate. |
-| --edgeMax (-e) |  Tells the application what the maximum number of edges to generate for each Vertex. The generator will randomly select a number between 1 and the value provided here. |
-| --domainSample (-d) |  Tells the application to run the sample using the Person and Relationship domain structures instead of the GraphBulkExecutors GremlinVertex and GremlinEdge POJOs. |
-| --createDocuments (-c) |  Tells the application to use create operations. If not present, the application will default to using upsert operations. |
+| --edgeMax (-e) |  Tells the application the maximum number of edges to generate for each vertex. The generator randomly selects a number from 1 to the value you provide. |
+| --domainSample (-d) |  Tells the application to run the sample by using the Person and Relationship domain structures instead of the GraphBulkExecutors, GremlinVertex, and GremlinEdge POJOs (plain old Java objects). |
+| --createDocuments (-c) |  Tells the application to use `create` operations. If the argument isn't present, the application defaults to using `upsert` operations. |
 
-### Details about the sample
+### Detailed sample information
 
-#### Person Vertex
+#### Person vertex
 
-The Person class is a fairly simple domain object that has been decorated with several annotations to help the
-transformation into the GremlinVertex class. They are as follows:
+The Person class is a simple domain object that's been decorated with several annotations to help a transformation into the GremlinVertex class, as described in the following table:
 
-| Class | Description |
+| Class annotation | Description |
 | --- | --- |
-| GremlinVertex |  Notice how we're using the optional "label" parameter to define all Vertices created using this class. |
-| GremlinId |  Being used to define which field will be used as the ID value. While the field name on the Person class is ID, it isn't required. |
-| GremlinProperty |  Is being used on the email field to change the name of the property when stored in the database.
-| GremlinPartitionKey |  Is being used to define which field on the class contains the partition key. The field name provided here should match the value defined by the partition path on the container. |
-| GremlinIgnore |  Is being used to exclude the isSpecial field from the property being written to the database. |
+| GremlinVertex |  Uses the optional "label" parameter to define all vertices that you create by using this class. |
+| GremlinId |  Used to define which field will be used as the ID value. The field name on the Person class is ID, but it isn't required. |
+| GremlinProperty |  Used on the email field to change the name of the property when it's stored in the database.
+| GremlinPartitionKey |  Used to define which field on the class contains the partition key. The field name you provide should match the value that's defined by the partition path on the container. |
+| GremlinIgnore |  Used to exclude the isSpecial field from the property that's being written to the database. |
 
 #### Relationship Edge
 
-The RelationshipEdge is a fairly versatile domain object. Using the field level label annotation allows for a dynamic collection of edge types to be created. The following annotations are represented in this sample domain edge:
+The RelationshipEdge class is a versatile domain object. By using the field level label annotation, you can create a dynamic collection of edge types, as shown in the following table:
 
-| Annotation | Description |
+| Class annotation | Description |
 | --- | --- |
-| GremlinEdge |  The GremlinEdge decoration on the class, defines the name of the field for the specified partition key. The value assigned, when the edge document is created, will come from the source vertex information. |
-| GremlinEdgeVertex |  Notice that there are two instances of GremlinEdgeVertex defined. One for each side of the edge (Source and Destination).  Our sample has the field's data type as GremlinEdgeVertexInfo. The information provided by GremlinEdgeVertex class is required for the edge to be created correctly in the database. Another option would be to have the data type of the vertices be a class that has been decorated with the GremlinVertex annotations. |
-| GremlinLabel |  The sample edge is using a field to define what the label value is. It allows different labels to  be defined while still using the same base domain class. |
+| GremlinEdge |  The GremlinEdge decoration on the class defines the name of the field for the specified partition key. When you create an edge document, the assigned value comes from the source vertex information. |
+| GremlinEdgeVertex |  Two instances of GremlinEdgeVertex are defined, one for each side of the edge (Source and Destination). Our sample has the field's data type as GremlinEdgeVertexInfo. The information provided by GremlinEdgeVertex class is required for the edge to be created correctly in the database. Another option would be to have the data type of the vertices be a class that has been decorated with the GremlinVertex annotations. |
+| GremlinLabel |  The sample edge uses a field to define the label value. It allows various labels to be defined as it uses the same base domain class. |
 
 ### Output explained
 
-The console will finish its run with a JSON string describing the run times of the sample. The json string contains the following information.
+The console finishes its run with a JSON string that describes the run times of the sample. The JSON string contains the following information:
 
 | JSON string | Description |
 | --- | --- |
 | startTime |  The System.nanoTime() when the process started. |
-| endtime |  The System.nanoTime() when the process completed. |
-| durationInNanoSeconds |  The difference between the endTime and the startTime. |
-| durationInMinutes |  The durationInNanoSeconds converted into minutes. Important to note that durationInMinutes is represented as a float number, not a time value. For example,  a value 2.5 would be 2 minutes and 30 seconds. |
-| vertexCount |  The volume of vertices generated which should match the value passed into the command line execution. |
-| edgeCount |  The volume of edges generated which isn't static and it's built with an element of randomness. |
-| exception |  Only populated when there was an exception thrown when attempting to make the run. |
+| endtime |  The System.nanoTime() when the process finished. |
+| durationInNanoSeconds |  The difference between the endTime and startTime values. |
+| durationInMinutes |  The durationInNanoSeconds value, converted into minutes. The durationInMinutes value is represented as a float number, not a time value. For example, a value of 2.5 represents 2 minutes and 30 seconds. |
+| vertexCount |  The volume of generated vertices, which should match the value that's passed into the command-line execution. |
+| edgeCount |  The volume of generated edges, which isn't static and is built with an element of randomness. |
+| exception |  Populated only if an exception is thrown when you attempt to make the run. |
 
-#### States Array
+#### States array
 
-The states array gives insight into how long each step within the execution takes. The steps that occur are:
+The states array gives insight into how long each step within the execution takes. The steps are described in the following table:
 
 | Execution&nbsp;step | Description |
 | --- | --- |
-| Build&nbsp;sample&nbsp;vertices |  The time it takes to fabricate the requested volume of Person objects. |
-| Build sample edges |  The time it takes to fabricate the Relationship objects. |
-| Configure database |  The amount of time it took to get the database configured based on the values provided in the application.properties. |
-| Write documents |  The total time it took to write the documents to the database. |
+| Build&nbsp;sample&nbsp;vertices |  The amount of time it takes to fabricate the requested volume of Person objects. |
+| Build sample edges |  The amount of time it takes to fabricate the Relationship objects. |
+| Configure database |  The amount of time it takes to get the database configured, based on the values that are provided in application.properties. |
+| Write documents |  The amount of time it takes to write the documents to the database. |
 
-Each state will contain the following values:
+Each state contains the following values:
 
 | State value | Description |
 | --- | --- |
-| stateName |  The name of the state being reported. |
-| startTime |  The System.nanoTime() when the state started. |
-| endtime |  The System.nanoTime() when the state completed. |
-| durationInNanoSeconds |  The difference between the endTime and the startTime. |
-| durationInMinutes |  The durationInNanoSeconds converted into minutes. Important to note that durationInMinutes is represented as a float number, not a time value. for example, a value 2.5 would be 2 minutes and 30 seconds. |
+| stateName |  The name of the state that's being reported. |
+| startTime |  The System.nanoTime() value when the state started. |
+| endtime |  The System.nanoTime() value when the state finished. |
+| durationInNanoSeconds |  The difference between the endTime and startTime values. |
+| durationInMinutes |  The durationInNanoSeconds value, converted into minutes. The durationInMinutes value is represented as a float number, not a time value. For example, a value of 2.5 represents 2 minutes and 30 seconds. |
 
 ## Next steps
 
-* Review the [BulkExecutor Java, which is Open Source](https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor/tree/main/java/src/main/java/com/azure/graph/bulk/impl) for more details about the classes and methods defined in this namespace.
-* Review the [BulkMode, which is part of .NET V3 SDK](../sql/tutorial-sql-api-dotnet-bulk-import.md)
+* For more information about the classes and methods that are defined in this namespace, review the [BulkExecutor Java open source documentation](https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor/tree/main/java/src/main/java/com/azure/graph/bulk/impl).
+* Review the bulk mode documentation, which is part of the .NET V3 SDK, in the [Bulk import data to the Azure Cosmos DB SQL API account by using the .NET SDK](../sql/tutorial-sql-api-dotnet-bulk-import.md) article.
