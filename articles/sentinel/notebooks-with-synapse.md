@@ -44,7 +44,7 @@ To use Azure Synapse with Microsoft Sentinel notebooks, you must have the follow
 
 ## Connect to an Azure Machine Learning workspace
 
-To use Microsoft Sentinel notebooks with Azure Synapse, you must first connect an  Azure Machine Learning (ML) workspaces. If you aren't already connected, see [Create an Azure ML workspace from Microsoft Sentinel](notebooks-hunt.md#create-an-azure-ml-workspace-from-microsoft-sentinel).
+To use Microsoft Sentinel notebooks with Azure Synapse, you must first connect an Azure Machine Learning workspace. If you aren't already connected, see [Create an Azure Machine Learning workspace from Microsoft Sentinel](notebooks-hunt.md#create-an-azure-ml-workspace-from-microsoft-sentinel).
 
 ## Create an Azure Synapse workspace
 
@@ -65,7 +65,7 @@ You only need to run this notebook once to configure your Azure Synapse integrat
 
 ### Launch the notebook
 
-To launch the Azure Synapse - Configure Azure ML and Azure Synapse Analytics notebook:
+To launch the **Azure Synapse - Configure Azure ML and Azure Synapse Analytics** notebook:
 
 1. In Microsoft Sentinel, select **Notebooks**.
 1. Select the **Templates** tab.
@@ -78,17 +78,17 @@ To launch the Azure Synapse - Configure Azure ML and Azure Synapse Analytics not
 
 1. After your notebook is deployed, select **Launch Notebook** to open it.
 
-    The notebook opens in your Azure ML workspace, inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks-hunt.md#launch-a-notebook-in-your-azure-ml-workspace).
+    The notebook opens in your Azure Machine Learning workspace, inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure Machine Learning workspace](notebooks-hunt.md#launch-a-notebook-in-your-azure-ml-workspace).
 
 ### Configure the integration
 
-To integrate Azure ML and Azure Synapse Analytics:
+To integrate Azure Machine Learning and Azure Synapse Analytics:
 
 1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
 
 1. Run the cells in step 4, **Configure Azure Synapse Spark Pool**, to create a new [Azure Synapse Apache Spark Pool](../synapse-analytics/spark/apache-spark-pool-configurations.md) to use when running your big data queries.
 
-1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure ML workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](../machine-learning/how-to-link-synapse-ml-workspaces.md).
+1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure Machine Learning workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](../machine-learning/how-to-link-synapse-ml-workspaces.md).
 
 1. Run the cells in step 6, **Export Data from Azure Log Analytics to Azure Data Lake Storage Gen2**, to export your data you want to use for your queries from Azure Log Analytics to Azure Data Lake Storage.
 
@@ -96,7 +96,7 @@ After your data is in Azure Data Lake Storage, you're ready to start running big
 
 ## Manage your Azure Synapse session from Microsoft Sentinel
 
-When not in an Azure Synapse session, Microsoft Sentinel defaults to the Azure ML compute selected in the **Compute** field at the top of the **Notebooks** page.
+When not in an Azure Synapse session, Microsoft Sentinel defaults to the Azure Machine Learning compute selected in the **Compute** field at the top of the **Notebooks** page.
 
 Use the following code, which you can copy from here or the notebook **Azure Synapse - Detect potential network beaconing using Apache Spark**, to start and stop your Azure Synapse session.
 
@@ -162,14 +162,14 @@ Run the following code:
 
 To manage or select a different Synapse workspace than the one you're currently signed in to, use one of the following methods:
 
-- **If you've already created a linked service between your Azure ML and the new Azure Synapse workspace**:
+- **If you've already created a linked service between your Azure Machine Learning and the new Azure Synapse workspace**:
 
     1. Enter the name for the `linkservice` parameter in the following code cell, then rerun the cell and the subsequent cells:
 
         ```python
-        amlworkspace = "<aml workspace name>"  # fill in your AML workspace name
+        amlworkspace = "<workspace name>"  # fill in your Azure Machine Learning workspace name
         subscription_id = "<subscription id>" # fill in your subscription id
-        resource_group = '<resource group of AML workspace>' # fill in your resource groups for AML workspace
+        resource_group = '<resource group of workspace>' # fill in your resource groups for your Azure Machine Learning workspace
         linkedservice = '<linked service name>' # fill in your linked service created to connect to synapse workspace
         ```
 
@@ -179,7 +179,7 @@ To manage or select a different Synapse workspace than the one you're currently 
         synapse_spark_compute = "<synapse spark compute>"
         ```
 
-- **If you don't yet have a linked service between your Azure ML and Azure Synapse workspaces**, make sure to run the **Azure Synapse – Configure Azure ML and Azure Synapse Analytics** notebook to configure the linked service before running the **Azure Synapse – Detect potential network beaconing using Apache Spark** notebook.
+- **If you don't yet have a linked service between your Azure Machine Learning and Azure Synapse workspaces**, make sure to run the **Azure Synapse – Configure Azure ML and Azure Synapse Analytics** notebook to configure the linked service before running the **Azure Synapse – Detect potential network beaconing using Apache Spark** notebook.
 
 ## Next steps
 

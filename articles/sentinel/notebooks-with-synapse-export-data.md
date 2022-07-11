@@ -46,20 +46,20 @@ Find the notebook template to save a copy to your Azure Machine Learning workspa
 1. In the **Clone notebook** pane, change the notebook name as appropriate.
 1. Select your Azure Machine Learning workspace.
 1. Select **Save**.
-1. After your notebook is deployed, select **Launch Notebook**. The notebook opens in your Azure ML workspace, from inside Microsoft Sentinel.
-1. At the top of the page Azure ML workspace, select a **Compute** instance to use for your notebook server.
+1. After your notebook is deployed, select **Launch Notebook**. The notebook opens in your Azure Machine Learning workspace, from inside Microsoft Sentinel.
+1. At the top of the page in your Azure Machine Learning workspace, select a **Compute** instance to use for your notebook server.
 
     - If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#create).
     - If you're creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
-    - If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning Studio](../machine-learning/how-to-run-jupyter-notebooks.md).
+    - If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
     - Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
-    - The kernel is shown at the top right of your Azure ML window. If the kernel you need isn't selected, select a different version from the dropdown list.
+    - The kernel is shown at the top right of your Azure Machine Learning window. If the kernel you need isn't selected, select a different version from the dropdown list.
 
 When your notebook server is created and started, you can start running your notebook cells. For more information, see [Run a notebook or Python script](../machine-learning/how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script).
 
 If your notebook hangs or you want to start over, restart the kernel and rerun the notebook cells from the beginning. If you restart the kernel, variables and other state are deleted. Rerun any initialization and authentication cells after you restart. To start over, go to the select **Kernel operations** > **Restart kernel**.
 
-:::image type="content" source="media/notebooks-with-synapse-export-data/export-notebook-restart-kernel.png" alt-text="Screenshot of menu option to restart kernel in Azure Machine Learning Studio.":::
+:::image type="content" source="media/notebooks-with-synapse-export-data/export-notebook-restart-kernel.png" alt-text="Screenshot of menu option to restart kernel in Azure Machine Learning studio.":::
 
 ## Configure the data to export
 
@@ -103,7 +103,7 @@ In order to run code on a Synapse Spark pool, specify the name of the linked Azu
 
 :::image type="content" source="media/notebooks-with-synapse-export-data/export-notebook-add-linked-service.png" alt-text="Screenshot of the cell where you enter the names of the workspace and Spark pool.":::
 
- For `linkedservice`, get the Spark pool name by going to **Linked Services** in the left-hand side menu  in Azure Machine Learning Studio.
+ For `linkedservice`, get the Spark pool name by going to **Linked Services** in the left-hand side menu  in Azure Machine Learning studio.
 
 Start the Spark session by running the cell in the  **Start Spark Session** notebook section.
 

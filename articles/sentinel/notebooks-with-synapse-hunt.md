@@ -43,15 +43,15 @@ Find a notebook template to save a copy to your Azure Machine Learning workspace
 1. Select **Save**.
 1. After your notebook is deployed, select **Launch Notebook**.
 
-    The notebook opens in your Azure ML workspace, from inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks-hunt.md#launch-a-notebook-in-your-azure-ml-workspace).
+    The notebook opens in your Azure Machine Learning workspace, from inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure Machine Learning workspace](notebooks-hunt.md#launch-a-notebook-in-your-azure-ml-workspace).
 
-1. At the top of the page Azure ML workspace, select a **Compute** instance to use for your notebook server.
+1. At the top of the page in your Azure Machine Learning workspace, select a **Compute** instance to use for your notebook server.
 
     - If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#create).
     - If you're creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
     - If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
     - Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
-    - The kernel is shown at the top right of your Azure ML window. If the kernel you need isn't selected, select a different version from the dropdown list.
+    - The kernel is shown at the top right of your Azure Machine Learning window. If the kernel you need isn't selected, select a different version from the dropdown list.
 
 When your notebook server is created and started, you can start running your notebook cells. For more information, see [Run a notebook or Python script](../machine-learning/how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script).
 
@@ -63,7 +63,7 @@ Review and run the cells in the notebook to start hunting.
 
 1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
 
-1. When you get to the cell labeled **Start a Spark Session**, run the cell to start using your Azure Synapse session. Use your Apache Spark pool as the compute for your data preparation and data wrangle tasks instead of using your Azure ML compute.
+1. When you get to the cell labeled **Start a Spark Session**, run the cell to start using your Azure Synapse session. Use your Apache Spark pool as the compute for your data preparation and data wrangle tasks instead of using your Azure Machine Learning compute.
 
 1. Run the subsequent cells to configure and run your queries on the data that's now stored in your Azure Data Lake Storage. For example, [update your look back period](notebooks-with-synapse.md#define-your-data-look-back-period) to include data from a specific time range.
 
@@ -78,7 +78,7 @@ Review and run the cells in the notebook to start hunting.
     csl_beacon_pd = csl_beacon_df.coalesce(1).write.format("json").save(new_path)
     ```
 
-1. After you've exported your data, you can stop your Spark session. After you've stopped your Spark session, and subsequent queries are run using the default Azure ML compute indicated in the **Compute** field at the top of the page.
+1. After you've exported your data, you can stop your Spark session. After you've stopped your Spark session, and subsequent queries are run using the default Azure Machine Learning compute indicated in the **Compute** field at the top of the page.
 
     Run the cell in the **Stop Spark Session** step:
 
