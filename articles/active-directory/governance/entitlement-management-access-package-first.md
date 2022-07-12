@@ -69,7 +69,7 @@ A resource directory has one or more resources to share. In this step, you creat
     | **Admin1** | Global administrator<br/>-or-<br/>User administrator |
     | **Requestor1** | User |
 
-1. Create an Azure AD security group named **Marketing resources** with a membership type of **Assigned**.
+4. Create an Azure AD security group named **Marketing resources** with a membership type of **Assigned**.
 
     This group will be the target resource for entitlement management. The group should be empty of members to start.
 
