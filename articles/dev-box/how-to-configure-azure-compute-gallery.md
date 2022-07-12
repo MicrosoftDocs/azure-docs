@@ -60,6 +60,7 @@ To allow the services to perform these actions, you must provide permissions to 
 1. Select **Identity** from the left menu.
 1. On the **User assigned** tab, select **+ Add**.
 1. In Add user assigned managed identity, select the user-assigned managed identity that you created in step 1 and then select **Add**.
+
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/assign-managed-id.png" alt-text="Screenshot showing the Add user assigned managed identity pane, with the managed ID highlighted."::: 
 1. Open the Gallery resource you wish to attach to the DevCenter from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can use the search bar to search for Azure compute galleries to find your gallery easily.
 1. Select **Access Control (IAM)** from the left menu.
@@ -78,20 +79,24 @@ In order to use the images from a Gallery in Dev Box Definitions, you must first
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
 
 2. Open the DevCenter you want to attach the gallery to.
-:::image type="content" source="media/how-to-configure-azure-compute-gallery/devcenter-grid.png" alt-text="List of DevCenters":::
+ 
+:::image type="content" source="media/how-to-configure-azure-compute-gallery/devcenter-grid.png" alt-text="Screenshot showing the list of existing DevCenters.":::
 
 3. From the left menu, select **Azure compute galleries** to list the galleries attached to this DevCenter.
-:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid-empty.png" alt-text="Gallery Grid Empty":::
+ 
+:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid-empty.png" alt-text="Screenshot showing the Azure compute galleries page. There are no existing Azure compute galleries.":::
 
 4. Select **+ Add** to select a Gallery to attach.
 
 5. In Add Azure compute gallery, select your Gallery. If you have access to more than one Gallery with the same name, the Subscription name is shown in parentheses.
-:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-add.png" alt-text="Select a Gallery to add.":::
+ 
+:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-add.png" alt-text="Screenshot showing the Select a Gallery to add option.":::
 
 6. If there is a name conflict in the DevCenter, then you must provide a unique name to use for this Gallery.
 
-7. Select **Add**. 
-:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid.png" alt-text="Populated Gallery Grid.":::
+7. Select **Add**.
+  
+:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid.png" alt-text="Screenshot showing the Azure compute galleries page with example galleries listed.":::
 
 After successful addition, the images in the Gallery will be available to select from when creating and updating Dev Box Definitions.
 
@@ -105,11 +110,12 @@ You can detach Galleries from DevCenters so that their images can no longer be u
 3. From the left menu, select **Azure compute galleries** to list the galleries attached to this DevCenter.
 
 4. Select the Gallery you wish to remove, and then select **Remove**.
-   :::image type="content" source="media/how-to-configure-azure-compute-gallery/remove-gallery-from-devcenter.png" alt-text="Remove Populated Gallery Grid.":::
+
+   :::image type="content" source="media/how-to-configure-azure-compute-gallery/remove-gallery-from-devcenter.png" alt-text="Screenshot showing the Azure compute galleries page with a gallery selected and the Remove button highlighted.":::
 
 6. Select **Continue** from the confirmation dialog.
 
 The Gallery will be detached from the DevCenter. The Gallery and its images won't be deleted, and can be added back if you wish. 
 
-## Next Steps
+## Next steps
 - [Create a Dev Box Pool](./quickstart-configure-dev-box-service.md)
