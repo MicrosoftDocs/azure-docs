@@ -1987,10 +1987,14 @@
     items:
     - name: Overview
       href: virtual-machines-create-restore-points.md
+    - name: Support for VM restore points
+      href: concepts-restore-points.md
     - name: Quickstarts
       items:
       - name: Create VM restore points
         href: create-restore-points.md
+    - name: Manage VM restore points
+      href: manage-restore-points.md 
     - name: Tutorials
       items: 
       - name: CLI
@@ -1999,14 +2003,6 @@
         href: virtual-machines-create-restore-points-powershell.md
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
-    - name: Concepts
-      items:
-      - name: Support for VM restore points
-        href: concepts-restore-points.md
-    - name: How-to guides
-      items:
-      - name: Manage VM restore points
-        href: manage-restore-points.md 
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group

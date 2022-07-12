@@ -46,4 +46,5 @@ VM restore points are incremental. The first restore point stores a full copy of
 ## Next steps
 
 - [Create a VM restore point](create-restore-points.md).
+- [Review](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#step-by-step-guide-to-troubleshoot-backup-failures) the troubleshooting steps for backup failures. 
 - [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
