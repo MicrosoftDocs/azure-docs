@@ -2,9 +2,9 @@
 title: Hot, Cool, and Archive access tiers for blob data
 titleSuffix: Azure Storage
 description: Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. Learn about the Hot, Cool, and Archive access tiers for Blob Storage.
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 06/16/2022
 ms.service: storage
 ms.subservice: blobs
@@ -194,16 +194,7 @@ Changing the access tier for a blob when versioning is enabled, or if the blob h
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| [Standard general-purpose v2](../common/storage-account-overview.md#types-of-storage-accounts) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| [Premium block blobs](../common/storage-account-overview.md#types-of-storage-accounts) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
-
-For information about feature support by region, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

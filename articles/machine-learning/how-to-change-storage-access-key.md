@@ -25,7 +25,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create workspace resources](quickstart-create-resources.md) article.
 
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 

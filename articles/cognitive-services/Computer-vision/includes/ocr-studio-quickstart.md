@@ -17,7 +17,7 @@ ms.author: pafarley
 
 * Sign in to [Vision Studio](https://portal.vision.cognitive.azure.com/) with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
 
-## Analyze an image
+## Read printed and handwritten text
 
 1. Select the **Extract text** tab, and select panel titled **Extract text from images**.
 1. To use the try-it-out experience, you'll need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/).

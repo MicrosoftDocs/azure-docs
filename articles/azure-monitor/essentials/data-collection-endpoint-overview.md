@@ -4,6 +4,7 @@ description: Overview of data collection endpoints (DCEs) in Azure Monitor inclu
 ms.topic: conceptual
 ms.date: 03/16/2022
 ms.custom: references_region
+ms.reviwer: nikeist
 
 ---
 

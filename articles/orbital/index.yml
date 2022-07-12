@@ -53,11 +53,11 @@ landingContent:
             url: delete-contact.md
 
   # Card
-  - title: Azure Space Partner Program
+  - title: Azure Space Partner Community
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Space Partner Program?
+          - text: What is the Space Partner Community?
             url: space-partner-program-overview.md
             
   # Card
@@ -67,6 +67,8 @@ landingContent:
         links:
           - text: Schedule a contact with NASA's AQUA public satellite
             url: howto-downlink-aqua.md
+          - text: Collect and Process AQUA satellite payload
+            url: satellite-imagery-with-orbital-ground-station.md
 
   # Card
   - title: Concepts
