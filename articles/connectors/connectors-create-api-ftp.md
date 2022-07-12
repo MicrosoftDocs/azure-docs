@@ -80,7 +80,9 @@ For example, suppose you have managed connector trigger named **When a file is a
 
 ## Add an FTP trigger
 
-A Consumption logic app workflow has only the FTP managed connector. However, a Standard logic app workflow can use the FTP managed connector *and* the FTP built-in connector. The FTP managed connector and built-in connector each have only one trigger available:
+A Consumption logic app workflow has only the FTP managed connector. However, a Standard logic app workflow can use the FTP managed connector *and* the FTP built-in connector. In a Standard logic app workflow, managed connectors are also labeled as **Azure** connectors.
+
+The FTP managed connector and built-in connector each have only one trigger available:
 
 * Managed connector trigger: The FTP trigger named **When a file is added or modified (properties only)** starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. 
 
@@ -246,65 +248,51 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
    ![Screenshot shows Consumption workflow designer and FTP connection profile for an action.](./media/connectors-create-api-ftp/ftp-action-connection-consumption.png)
 
-1. After the **Get file metadata** action information box appears, complete the following steps:
-
-   1. Click in the **File** box so that the dynamic content list appears.
+1. After the **Get file metadata** action information box appears, click inside the **File** box so that the dynamic content list opens.
    
-      You can now select outputs from the preceding trigger.
+   You can now select outputs from the preceding trigger.
 
-   1. From the dynamic content list, under **When a file is added or modified**, select **List of Files Id**.
+1. In the dynamic content list, under **When a file is added or modified**, select **List of Files Id**.
 
-      ![Screenshot shows Consumption workflow designer, "Get file metadata" action, dynamic content list opened, and "List of Files Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-id-output-consumption.png)
+   ![Screenshot shows Consumption workflow designer, "Get file metadata" action, dynamic content list opened, and "List of Files Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-id-output-consumption.png)
+
+   The **File** property now references the **List of Files Id** trigger output.
 
 1. In the designer, under the **Get file metadata** action, select **New step**.
 
-1. Find and select the action named **Get file content**.
+1. On the designer, under the **Choose an operation** search box, select **All**.
 
-   1. On the designer, under the **Choose an operation** search box, select **All**.
+1. In the search box, enter **ftp get file content**.
 
-   1. In the search box, enter **ftp get file content**.
-
-   1. From the actions list, select the action named **Get file content**.
+1. From the actions list, select the action named **Get file content**.
 
    ![Screenshot shows the Azure portal, Consumption workflow designer, search box with "ftp get file content" entered, and "Get file content" action selected.](./media/connectors-create-api-ftp/ftp-get-file-content-action-consumption.png)
 
-1. After the **Get file content** action information box appears, complete the following steps:
+1. After the **Get file content** action information box appears, click inside the **File** box so that the dynamic content list opens.
 
-   1. Click in the **File** box so that the dynamic content list appears.
-   
-      You can now select outputs from the preceding trigger and any other actions.
+   You can now select outputs from the preceding trigger and any other actions.
 
-   1. From the dynamic content list, under **Get file metadata**, select **Id**, which references the file that was added or updated.
+1. In the dynamic content list, under **Get file metadata**, select **Id**, which references the file that was added or updated.
 
-      ![Screenshot shows Consumption workflow designer, "Get file content" action, and "File" property with dynamic content list opened and "Id" property selected.](./media/connectors-create-api-ftp/ftp-get-file-content-id-output-consumption.png)
+   ![Screenshot shows Consumption workflow designer, "Get file content" action, and "File" property with dynamic content list opened and "Id" property selected.](./media/connectors-create-api-ftp/ftp-get-file-content-id-output-consumption.png)
 
-      The **Id** property now appears in the **File** box.
+   The **File** property now references the **Id** action output.
 
-      ![Screenshot shows Consumption workflow designer, "Get file content" action, and "File" property with "Id" entered.](./media/connectors-create-api-ftp/ftp-get-file-content-id-entered-consumption.png)
+   ![Screenshot shows Consumption workflow designer, "Get file content" action, and "File" property with "Id" entered.](./media/connectors-create-api-ftp/ftp-get-file-content-id-entered-consumption.png)
 
 1. When you're done, save your logic app workflow.
 
 ### [Standard](#tab/standard)
 
-The steps to add and use an FTP action differ based on whether you used a managed connector trigger or a built-in connector trigger to start your workflow.
+The steps to add and use an FTP action differ based on whether your workflow uses an "Azure" managed connector trigger or a built-in connector trigger.
 
 * [**Workflows with a built-in trigger**](#built-in-trigger-workflows): Describes the steps for workflows that start with a built-in trigger.
 
-  If you use the FTP built-in trigger named **When a file is added or updated** and the FTP built-in action named **Get file content**. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
+  If you used the FTP built-in trigger and want the content from a newly added or updated file, you can use only the **Get file content** action without any other intermediary actions. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
 
-  If you use the FTP built-in trigger in your workflow, you only need to use the **Get file content** action.
+* [**Workflows with a managed trigger**](#managed-trigger-workflows): Describes the steps for workflows that start with a managed trigger.
 
-* [**Workflows with a managed trigger**](#managed-trigger-workflows): Describes the steps for workflows that start with a managed trigger. Due to the **Split On** setting's current behavior, 
-
-However, if you use the FTP managed connector trigger in your workflow, and you want to get the content from a newly added or modified file, you have to use the FTP action named **Get file metadata** followed by **Get file content**.
-
-  This example uses the FTP managed trigger named **When a file is added or modified (properties only)** and the FTP managed actions named **Get file metadata** and **Get file content**. For more information about FTP managed connector operations, review [FTP managed connector operations](/connectors/create-api-ftp).
-
-  This 
-
-   
-
-For example, if you used the FTP managed connector trigger in your workflow, and you want to get the content from a newly added or modified file, you have to use the FTP action named **Get file metadata** followed by **Get file content**. However, if you used the FTP built-in trigger, you only need to use the **Get file content** action.
+ If you used the FTP managed connector trigger and want the content from a newly added or modified file, you have to use intermediary actions such as the FTP action named **Get file metadata** before you use the **Get file content** action. Or, you can use a **For each** loop to iterate through the array returned by the trigger.
 
 <a name="built-in-trigger-workflows"></a>
 
@@ -329,15 +317,15 @@ For example, if you used the FTP managed connector trigger in your workflow, and
 
    ![Screenshot shows Standard workflow designer, FTP built-in action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-built-in-standard.png)
 
-1. In the action information pane that appears, click inside the **File path** box so that the dynamic content list appears.
+1. In the action information pane that appears, click inside the **File path** box so that the dynamic content list opens.
 
    You can now select outputs from the preceding trigger.
 
-1. From the dynamic content list, under **When a file is added or updated**, select **File path**.
+1. In the dynamic content list, under **When a file is added or updated**, select **File path**.
 
    ![Screenshot shows Standard workflow designer, "Get file content" action, dynamic content list opened, and "File path" selected.](./media/connectors-create-api-ftp/ftp-action-get-file-content-file-path-built-in-standard.png)
 
-   The action's **File path** property now references the **File path** trigger output.
+   The **File path** property now references the **File path** trigger output.
 
    ![Screenshot shows Standard workflow designer and "Get file content" action complete.](./media/connectors-create-api-ftp/ftp-action-get-file-content-complete-built-in-standard.png)
 
@@ -351,9 +339,9 @@ For example, if you used the FTP managed connector trigger in your workflow, and
 
 1. On the designer, under the trigger or any other actions, select the plus sign (**+**) > **Add an action**.
 
-   The **Choose an operation** box appears with the **Add an action** pane on the right side.
+1. On the **Add an action** pane, under the **Choose an operation** search box, select **Azure**.
 
-1. In the **Choose an operation** search box, enter **ftp get file metadata**. Under the search box, select **Azure**. From the actions list, select the **Get file metadata** action.
+1. In the search box, enter **ftp get file metadata**. From the actions list, select the **Get file metadata** action.
 
    ![Screenshot shows Azure portal, Standard workflow designer, search box with "Azure" selected underneath, and "Get file metadata" action selected.](./media/connectors-create-api-ftp/ftp-action-get-file-metadata-azure-standard.png)
 
@@ -366,33 +354,35 @@ For example, if you used the FTP managed connector trigger in your workflow, and
 
    ![Screenshot shows Standard workflow designer, FTP managed connector action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-azure-standard.png)
 
-1. In the action information pane that appears, click inside the **File** box so that the dynamic content list appears.
+1. In the action information pane that appears, click inside the **File** box so that the dynamic content list opens.
 
    You can now select outputs from the preceding trigger.
 
-1. From the dynamic content list, under **When a file is added or modified (properties only)**, select **List of Files Id**.
+1. In the dynamic content list, under **When a file is added or modified (properties only)**, select **List of Files Id**.
 
    ![Screenshot shows Standard workflow designer, "Get file metadata" action, dynamic content list opened, and "List of Files Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-azure-standard.png)
 
-   The action's **File** property now references the **List of Files Id** trigger output.
+   The **File** property now references the **List of Files Id** trigger output.
 
    ![Screenshot shows Standard workflow designer, "Get file metadata" action, and "File" property set to "List of Files Id" trigger output.](./media/connectors-create-api-ftp/ftp-get-file-metadata-complete-azure-standard.png)
 
 1. In the designer, under the **Get file metadata** action, select the plus sign (**+**) > **Add an action**. 
 
-1. In the **Choose an operation** search box, enter **ftp get file content**. Under the search box, select **Azure**. From the actions list, select the **Get file content** action.
+1. In the **Add an action** pane, under the **Choose an operation** search box, select **Azure**.
+
+1. In the search box, enter **ftp get file content**. From the actions list, select the **Get file content** action.
 
    ![Screenshot shows Standard workflow designer, "Get file content" action, and "File" property set to "Id" trigger output.](./media/connectors-create-api-ftp/ftp-get-file-content-azure-standard.png)
 
-1. In the action information pane that appears, click inside the **File** box so that the dynamic content list appears.
+1. In the action information pane that appears, click inside the **File** box so that the dynamic content list opens.
 
    You can now select outputs from the preceding trigger or actions.
 
-1. From the dynamic content list, under **Get file metadata**, select **Id**.
+1. In the dynamic content list, under **Get file metadata**, select **Id**.
 
    ![Screenshot shows Standard workflow designer, "Get file content" action, dynamic content list opened, and "Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-content-file-id-azure-standard.png)
 
-   The action's **File** property now references the **Id** action output.
+   The **File** property now references the **Id** action output.
 
    ![Screenshot shows Standard workflow designer, "Get file content" action, and "File" property set to "Id" action output.](./media/connectors-create-api-ftp/ftp-get-file-content-complete-azure-standard.png)
 
@@ -402,17 +392,69 @@ For example, if you used the FTP managed connector trigger in your workflow, and
 
 ## Test your workflow
 
-To check that your workflow returns the content that you expect, add another action that sends you the content from the uploaded or updated file.
+To check that your workflow returns the content that you expect, add another action that sends you the content from the added or updated file. This example uses the Office 365 Outlook action named **Send an email**.
 
-1. Under the **Get file content** action, add an action that can send you the file's contents. This example adds the **Send an email** action for the Office 365 Outlook.
+### [Consumption](#tab/consumption)
 
-   ![Add an action for sending email](./media/connectors-create-api-ftp/select-send-email-action.png)
+1. Under the **Get file content** action, add the Office 365 Outlook action named **Send an email**.
 
-1. After the action appears, provide the information and include the properties that you want to test. For example, include the **File content** property, which appears in the dynamic content list after you select **See more** in the **Get file content** section.
+   ![Screenshot shows Consumption workflow designer and "Send an email" action under all the other actions.](./media/connectors-create-api-ftp/send-email-action-consumption.png)
 
-   ![Provide information about email action](./media/connectors-create-api-ftp/selected-send-email-action.png)
+1. In the action information box, provide the required values and include any other parameters or properties that you want to test.
 
-1. Save your logic app. To run and trigger the logic app, on the toolbar, select **Run**, and then add a file to the FTP folder that your logic app now monitors.
+   For example, you can include the **File content** output from the **Get file content** action. To find this output, follow these steps:
+
+   1. In the **Get file content** action, click inside the **Body** box so that the dynamic content list opens.
+
+   1. In the dynamic contest list, next to **Get file content**, select **See more**.
+
+      ![Screenshot shows Consumption workflow designer, "Send an email" action, and dynamic content list opened with "See more" selected next to "Get file content".](./media/connectors-create-api-ftp/send-email-action-body-see-more-consumption.png)
+
+   1. In the dynamic contest list, under **Get file content**, select **File Content**.
+
+      The **Body** property now references the **File Content** action output.
+
+      ![Screenshot shows Consumption workflow designer, "Send an email" action, dynamic content list opened, and "File Content" action output selected.](./media/connectors-create-api-ftp/send-email-body-file-content-output-consumption.png)
+
+1. Save your logic app workflow.
+
+1. To run and trigger the workflow, on the designer toolbar, select **Run Trigger** > **Run**. Add a file to the FTP folder that your workflow monitors.
+
+### [Standard](#tab/standard)
+
+#### Workflow with built-in trigger and actions
+
+1. Under the **Get file content** action, add the Office 365 Outlook action named **Send an email**.
+
+   ![Screenshot shows Standard workflow designer and "Send an email" action under all the other actions.](./media/connectors-create-api-ftp/send-email-action-with-built-in-standard.png)
+
+1. In the action information box, provide the required values and include any other parameters or properties that you want to test.
+
+   For example, you can include the **File content** output from the **Get file content** action. To find this output, follow these steps:
+
+   1. In the **Get file content** action, click inside the **Body** box so that the dynamic content list opens. In the dynamic contest list, next to **Get file content**, select **See more**.
+
+      ![Screenshot shows Standard workflow designer, "Send an email" action, and dynamic content list opened with "See more" selected next to "Get file content".](./media/connectors-create-api-ftp/send-email-action-body-see-more-built-in-standard.png)
+
+   1. In the dynamic content list, under **Get file content**, select **File content**.
+
+      The **Body** property now references the **File content** action output.
+
+      ![Screenshot shows Standard workflow designer and "Send an email" action with "File content" action output.](./media/connectors-create-api-ftp/send-email-action-complete-built-in-standard.png)
+
+1. Save your logic app workflow.
+
+1. To run and trigger the workflow, follow these steps:
+
+   1. On workflow menu, select **Overview**.
+
+   1. On the **Overview** pane toolbar, select **Run Trigger** > **Run**.
+
+   1. Add a file to the FTP folder that your workflow monitors.
+
+#### Workflow with managed trigger and actions
+
+---
 
 <a name="built-in-operations"></a>
 
