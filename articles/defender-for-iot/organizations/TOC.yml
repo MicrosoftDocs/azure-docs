@@ -51,6 +51,8 @@
           href: ot-virtual-appliances.md
       - name: Supported OT protocols
         href: concept-supported-protocols.md
+    - name: Device inventories
+      href: 
 - name: How-to guides
   items:
   - name: Visualize devices
@@ -211,6 +213,10 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
+  - name: Device inventory view options
+    href: device-inventory.md
+  - name: Alert reference
+    href: alert-engine-messages.md
   - name: OT monitoring appliances
     items:
     - name: Corporate environments
@@ -247,11 +253,9 @@
         href: appliance-catalog/hpe-edgeline-el300.md
       - name: Neousys Nuvo-500LP (SMB rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
-  - name: Alert reference
-    href: alert-engine-messages.md
-  - name: Work with Defender for IoT APIs
+  - name: Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
-  - name: Work with Defender for IoT CLI commands
+  - name: Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
   - name: Frequently asked questions - service
     displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 

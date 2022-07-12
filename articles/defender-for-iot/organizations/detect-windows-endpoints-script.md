@@ -1,7 +1,7 @@
 ---
 title: Detect Windows workstations and servers with a local script
 description: Learn about how to detect Windows workstations and servers on your network using a local script.
-ms.date: 06/12/2022
+ms.date: 07/12/2022
 ms.topic: how-to
 ---
 

@@ -98,6 +98,9 @@ The following device fields are supported for editing in the **Device inventory*
 |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
 |**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
 
+> [!TIP]
+> For a full reference of data available from the **Device inventory** page, see [Device inventories](device-inventory.md#data-visible-from-the-azure-portal).
+
 ## Export the device inventory to CSV
 
 Export your device inventory to a CSV file to manage or share data outside of the Azure portal. You can export a maximum of 30,000 devices at a time.
@@ -123,49 +126,6 @@ In the **Device inventory** page, select the device you want to delete, and then
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
 
-## Device inventory column reference
-
-The following table describes the device properties shown in the device inventory table.
-
-| Parameter | Description |
-|--|--|
-| **Application** | The application that exists on the device. |
-| **Class** | The class of the device. <br>Default: `IoT`|
-| **Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
-| **Description** | The description of the device. |
-| **Firmware vendor** | The vendor of the device's firmware. |
-| **Firmware version** | The version of the firmware. |
-| **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
-| **Importance** | The level of importance of the device. |
-| **IPv4 Address** | The IPv4 address of the device. |
-| **IPv6 Address** | The IPv6 address of the device. |
-| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
-| **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
-| **Location** | The physical location of the device. |
-| **MAC Address** | The MAC address of the device. |
-| **Model** | The device's model. |
-| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
-| **OS architecture** | The architecture of the operating system. |
-| **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. |
-| **OS platform** | The OS of the device, if detected. |
-| **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. |
-| **PLC mode** | The PLC operating mode that includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |
-| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state can be either `Program`, or `Remote`. |
-| **Programming time** | The last time the device was programmed.  |
-| **Protocols** | The protocols that the device uses. |
-| **Purdue level** | The Purdue level in which the device exists. |
-| **Scanner** | Whether the device performs scanning-like activities in the network. |
-| **Sensor** | The sensor the device is connected to.  |
-| **Site** | The site that contains this device. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.|
-| **Slots** | The number of slots the device has.  |
-| **Subtype** | The subtype of the device, such as speaker and smart tv. <br>**Default**: `Managed Device` |
-| **Tags** | Tagging data for each device. |
-| **Type** | The type of device, such as communication, and industrial. <br>**Default**: `Miscellaneous` |
-| **Underlying devices** | Any relevant underlying devices for the device |
-| **Underlying device region** | The region for an underlying device |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **VLAN** | The VLAN of the device. |
-| **Zone** | The zone that contains this device. |
 
 ## Next steps
 
