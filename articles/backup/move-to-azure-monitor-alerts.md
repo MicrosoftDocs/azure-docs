@@ -8,7 +8,7 @@ ms.service: backup
 ms.author: v-amallick
 ---
 
-# Moving to Azure Monitor based alerts for Azure Backup
+# Switch to Azure Monitor based alerts for Azure Backup
 
 Azure Backup now provides new and improved alerting capabilities via Azure Monitor. If you're using the older [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault) for Recovery Services vaults, we recommend you to move to Azure Monitor alerts, as it has the following benefits:
 
@@ -63,11 +63,11 @@ Follow these steps:
 
 1. On the next screen, two recommended actions appear:
 
-  - **Create rule**: This action creates an alert processing rule attached to an action group to enable you to receive notifications for Azure Monitor alerts. Once selected, it leads you to a template deployment experience.
+   - **Create rule**: This action creates an alert processing rule attached to an action group to enable you to receive notifications for Azure Monitor alerts. Once selected, it leads you to a template deployment experience.
 
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-one.png" alt-text="Screenshot showing recommended alert migration action Create rule for Recovery Services vaults":::
+     :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-one.png" alt-text="Screenshot showing recommended alert migration action Create rule for Recovery Services vaults":::
 
-   The template is set up to deploy two resources:
+     The template is set up to deploy two resources:
 
    - **Alert Processing Rule**: A rule that specifies alert types to be routed to each notification channel. This template deploys alert processing rules that span all Azure Monitor based alerts on all Recovery Services vaults in the subscription that the rule is created in.
    - **Action Group**: The notification channel to which alerts should be sent. This template deploys an email action group so that alerts are routed to the email ID(s) specified while deploying the template.
