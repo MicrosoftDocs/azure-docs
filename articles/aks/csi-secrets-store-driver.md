@@ -183,19 +183,19 @@ az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault
 Or update an existing cluster with the add-on enabled:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --enable-secret-rotation
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation
 ```
 
 To specify a custom rotation interval, use the `rotation-poll-interval` flag:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --enable-secret-rotation --rotation-poll-interval 5m
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
 ```
 
 To disable autorotation, use the flag `disable-secret-rotation`:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --disable-secret-rotation
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --disable-secret-rotation
 ```
 
 ### Sync mounted content with a Kubernetes secret
