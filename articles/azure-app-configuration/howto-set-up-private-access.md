@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 06/28/2022
+ms.date: 07/12/2022
 ms.custom: template-how-to
 ---
 
@@ -64,15 +64,15 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     | Network Interface Name | This field is completed automatically. Optionally edit the name of the network interface.                                                                                   | *MyPrivateEndpoint-nic* |
     | Region                 | Select a region. Your private endpoint must be in the same region as your virtual network.                                                                                  | *Central US*            |
 
-   :::image type="content" source="./media/private-endpoint/private-endpoint-basics.png" alt-text="Screenshot of the Azure portal, create a private endpoint, basics tab.":::
+   :::image type="content" source="./media/private-endpoint/basics.png" alt-text="Screenshot of the Azure portal, create a private endpoint, basics tab.":::
 
 1. Select **Next : Resource >**. Private Link offers options to create private endpoints for different types of Azure resources, such as SQL servers, Azure storage accounts or App Configuration stores. Review the information displayed to ensure that the correct App Configuration store is selected.
 
-   1. The resource type **Contoso.AppConfiguration/configurationStores** and the target subresource **configurationStores** indicate that you're creating an endpoint for an App Configuration store.
+   1. The resource type **Microsoft.AppConfiguration/configurationStores** and the target subresource **configurationStores** indicate that you're creating an endpoint for an App Configuration store.
 
    1. The name of your configuration store is listed under **Resource**.
 
-   :::image type="content" source="./media/private-endpoint/private-endpoint-resource.png" alt-text="Screenshot of the Azure portal, create a private endpoint, resource tab.":::
+   :::image type="content" source="./media/private-endpoint/resource.png" alt-text="Screenshot of the Azure portal, create a private endpoint, resource tab.":::
 
 1. Select **Next : Virtual Network >**.
 
@@ -82,29 +82,29 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
    1. Leave the box **Enable network policies for all private endpoints in this subnet** checked.
 
-   1. Under **Private IP configuration**, select the option to allocate IP addresses dynamically.
+   1. Under **Private IP configuration**, select the option to allocate IP addresses dynamically. For more information, refer to [Using private endpoints for Azure App Configuration](concept-private-endpoint.md)
 
    1. Optionally, you can select or create an **Application security group**. Application security groups allow you to group virtual machines and define network security policies based on those groups.
 
-    :::image type="content" source="./media/private-endpoint/private-endpoint-virtual-network.png" alt-text="Screenshot of the Azure portal, create a private endpoint, virtual network tab.":::
+    :::image type="content" source="./media/private-endpoint/virtual-network.png" alt-text="Screenshot of the Azure portal, create a private endpoint, virtual network tab.":::
 
-1. Select **Next : DNS >** to choose a DNS record.
+1. Select **Next : DNS >** to choose a DNS record. If you don't want to make changes to the default settings, you can move forward to the next tab.
 
    1. For **Integrate with private DNS zone**, select **Yes** to integrate your private endpoint with a private DNS zone. You may also use your own DNS servers or create DNS records using the host files on your virtual machines. [Learn more](https://go.microsoft.com/fwlink/?linkid=2100445).
 
    1. A subscription and resource group for your private DNS zone are preselected. You can change them optionally.
 
-    :::image type="content" source="./media/private-endpoint/private-endpoint-dns.png" alt-text="Screenshot of the Azure portal, create a private endpoint, DNS tab.":::
+    :::image type="content" source="./media/private-endpoint/dns.png" alt-text="Screenshot of the Azure portal, create a private endpoint, DNS tab.":::
 
 1. Select **Next : Tags >** and optionally create tags. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
-    :::image type="content" source="./media/private-endpoint/private-endpoint-tags.png" alt-text="Screenshot of the Azure portal, create a private endpoint, tags tab.":::
+    :::image type="content" source="./media/private-endpoint/tags.png" alt-text="Screenshot of the Azure portal, create a private endpoint, tags tab.":::
 
-1. Select **Next : Review + create >** to review information about your App Configuration store, private endpoint, virtual network and DNS. You can also select Download a template for automation to reuse JSON data from this form later.
+1. Select **Next : Review + create >** to review information about your App Configuration store, private endpoint, virtual network and DNS. You can also select **Download a template for automation** to reuse JSON data from this form later.
 
-    :::image type="content" source="./media/private-endpoint/private-endpoint-review.png" alt-text="Screenshot of the Azure portal, create a private endpoint, review tab.":::
+    :::image type="content" source="./media/private-endpoint/review.png" alt-text="Screenshot of the Azure portal, create a private endpoint, review tab.":::
 
-1. Select **Create**. You can access, remove or add more private endpoints by going back to **Networking** > **Private Access** in your App Configuration store.
+1. Select **Create**.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -146,7 +146,46 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     > | `<connection-name>`                | Enter a connection name.                                                                                                         |`MyConnection`                                                                                                                |
     > | `<location>`                       | Enter an Azure region. Your private endpoint must be in the same region as your virtual network.                                 |`centralus`                                                                                                                   |  
 
+---
+
+## Review private endpoints
+
+### [Portal](#tab/azure-portal)
+
+Go back to **Networking** > **Private Access** in your App Configuration store to access the private endpoints linked to your App Configuration store and check their connection state.
+
+On this page, you can also manually approve or reject a connection, and remove existing endpoints. To do so, select the checkbox next to the endpoint you want to edit and select an action item from the top menu.
+
+:::image type="content" source="./media/private-endpoint/review-endpoints.png" alt-text="Screenshot of the Azure portal, review existing endpoints.":::
+
+Click on the name of the private endpoint to open the private endpoint resource and access more information and to edit the private endpoint.
+
+### [Azure CLI](#tab/azure-cli)
+
+Run the  [az appconfig show](/cli/azure/appconfig/#az-appconfig-show) command to review all private endpoints linked to your App Configuration store and check their connection state.
+
+Replace the placeholder `name` with the name or the App Configuration store.
+
+```azurecli-interactive
+az appconfig show --name <name>
+```
+
+To get the details of a private endpoint, use the [az network private-endpoint show](/cli/azure/network/private-endpoint#az-network-private-endpoint-show) command. Replace the placeholder texts `resource-group` and `name` with the name of the private endpoint resource group, and the name of the private endpoint.
+
+```azurecli-interactive
+az network private-endpoint show --resource-group <resource-group> --name <name>
+```
+
+To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint#az-network-private-endpoint-delete) command. Replace the placeholder texts `resource-group` and `name` with the name of the private endpoint resource group, and the name of the private endpoint.
+
+```azurecli-interactive
+az network private-endpoint delete --resource-group <resource-group> --name <name>
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Azure App Configuration resiliency and disaster recovery](./concept-disaster-recovery.md)
+>[Using private endpoints for Azure App Configuration](concept-private-endpoint.md)
+
+> [!div class="nextstepaction"]
+>[Disable public access in Azure App Configuration](howto-disable-public-access.md)

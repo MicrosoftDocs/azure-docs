@@ -173,6 +173,8 @@
       href: howto-recover-deleted-stores-in-azure-app-configuration.md
     - name: Disable public access
       href: howto-disable-public-access.md
+    - name: Set up private access
+      href: howto-set-up-private-access.md
 - name: Reference
   items:
     - name: Client libraries
