@@ -36,6 +36,9 @@ Additional resources:
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
+- Your user account should have one of the following permission levels to [Authenticate](#authenticate-the-app-to-azure):
+    - If you plan to use the `DefaultAzureCredential` approach you will need `Storage Account Contributor` and `User Access Administrator` roles or higher.
+    - If you plan to use connection strings, you will need the `Storage Account Contributor` role or higher. You can also use any account with the `Microsoft.Storage/storageAccounts/listkeys/action` permission.
 
 ## Setting up
 

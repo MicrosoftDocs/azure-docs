@@ -60,18 +60,7 @@ You can authenticate your local app to the Blob Storage account you created usin
 
 ## [Connection String](#tab/connection-string)
 
-### Retrieve your credentials from the Azure portal
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Locate your storage account.
-3. In the storage account menu pane, under **Security + networking**, select **Access keys**. Here, you can view the account access keys and the complete connection string for each key.
-
-    ![Screenshot that shows where the access key settings are in the Azure portal](./media/storage-access-keys-portal/portal-access-key-settings.png)
- 
-1. In the **Access keys** pane, select **Show keys**.
-1. In the **key1** section, locate the **Connection string** value. Select the **Copy to clipboard** icon to copy the connection string. You'll add the connection string value to an environment variable in the next section.
-
-    ![Screenshot showing how to copy a connection string from the Azure portal](./media/storage-copy-connection-string-portal/portal-connection-string.png)
+[!INCLUDE [retrieve credentials](retrieve-credentials.md)]
 
 ### Configure your storage connection string
 

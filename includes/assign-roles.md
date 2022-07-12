@@ -5,7 +5,7 @@ When developing locally, make sure the user you want to connect to your Storage 
 * Subscription
 * Management group
 
-In this scenario, you'll assign permissions to your user account at the resource group level. A resource group can be useful if you want to grant a user a specific role across multiple resources. However, in a production environment you should also always follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) by giving users only the minimum permissions needed.
+In this scenario, you'll assign permissions to your user account at the resource level to follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
 The following example will assign the `Storage Blob Data Contributor` role to your user account, which is a useful general purpose role for working with storage.
 
@@ -31,22 +31,34 @@ The following example will assign the `Storage Blob Data Contributor` role to yo
 
 ### [Azure CLI](#tab/roles-azure-cli)
 
-You can assign roles using the [az role](/cli/azure/role) command of the Azure CLI.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource id using the `az storage account show` command. You can filter the output properties using the `--query` parameter. 
+
+```azurecli
+az storage account show --resource-group '<your-resource-group-name>' --name '<your-storage-account-name>' --query id
+```
+
+Copy the output `Id` from the preceding command. You can then assign roles using the [az role](/cli/azure/role) command of the Azure CLI.
 
 ```azurecli
 az role assignment create --assignee "<your-username>" \
 --role "Storage Blob Data Contributor" \
---resource-group "<your-resource-group-name>"
+--scope "<your-resource-id>"
 ```
 
 ### [PowerShell](#tab/roles-powershell)
 
-You can assign roles using the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command of the Azure CLI.
+To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource id using the `Get-AzResource` command.
+
+```azurepowershell
+Get-AzResource -ResourceGroupName "<yourResourceGroupname>" -Name "<yourStorageAccountName>"
+```
+
+Copy the `Id` value from the preceding command output. You can then assign roles using the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command of the Azure CLI.
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <yourUserName> `
 -RoleDefinitionName "Storage Blob Data Contributor" `
--ResourceGroupName <yourResourceGroupName>
+-Scope <yourStorageAccountId>
 ```
 
 --- 
