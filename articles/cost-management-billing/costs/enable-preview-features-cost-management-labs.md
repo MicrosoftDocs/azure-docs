@@ -164,7 +164,7 @@ Charts are enabled on the [Try preview](https://aka.ms/costmgmt/trypreview) page
 
 ## View cost for your resources
 
-Cost analysis is available from every management group, subscription, resource group, and billing scope in the Azure portal as well as the Microsoft 365 admin center.  In an effort to make cost data more readily accessible for resource owners, you can now find a **View cost** link at the top-right of every resource overview screen, in **Essentials**. Clicking the link will open classic cost analysis with a resource filter applied.
+Cost analysis is available from every management group, subscription, resource group, and billing scope in the Azure portal and the Microsoft 365 admin center.  To make cost data more readily accessible for resource owners, you can now find a **View cost** link at the top-right of every resource overview screen, in **Essentials**. Clicking the link will open classic cost analysis with a resource filter applied.
 
 The view cost link is enabled by default in the [Azure preview portal](https://preview.portal.azure.com).
 
