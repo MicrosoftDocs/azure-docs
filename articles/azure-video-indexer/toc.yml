@@ -172,12 +172,10 @@
   - name: Regions
     displayName: location
     href: regions.md
-  - name: Q&A
-    items:
-      - name: Questions & suggestions
-        href: https://docs.microsoft.com/answers/topics/azure-video-indexer.html
-      - name: FAQ
-        href: faq.yml
+  - name: Microsoft Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-video-indexer.html
+  - name: FAQ
+    href: faq.yml
   - name: Compliance
     href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
   - name: Release notes
