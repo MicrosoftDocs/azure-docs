@@ -127,7 +127,7 @@ If a model is defined using gamma space, then these options should be set to tru
 * `gammaToLinearVertex` - Convert :::no-loc text="vertex"::: colors from gamma space to linear space
 
 > [!NOTE]
-> For FBX files these settings are set to `true` by default. For all other file types, the default is `false`.
+> For FBX, E57, PLY and XYZ files these settings are set to `true` by default. For all other file types, the default is `false`.
 
 ### Scene parameters
 
@@ -252,7 +252,8 @@ The properties that do have an effect on point cloud conversion are:
 * `scaling` - same meaning as for triangular meshes.
 * `recenterToOrigin` - same meaning as for triangular meshes.
 * `axis` - same meaning as for triangular meshes. Default values are `["+x", "+y", "+z"]`, however most point cloud data will be rotated compared to renderer's own coordinate system. To compensate, in most cases `["+x", "+z", "-y"]` fixes the rotation.
-* `gammaToLinearVertex` - similar to triangular meshes, this flag can be used when point colors are expressed in gamma space. In practice, when enabled, makes the point cloud appear darker.
+* `gammaToLinearVertex` - similar to triangular meshes, this flag indicates whether point colors should be converted from gamma space to linear space. Default value for point cloud formats (E57, PLY and XYZ) is true.
+
 * `generateCollisionMesh` - similar to triangular meshes, this flag needs to be enabled to support [spatial queries](../../overview/features/spatial-queries.md). But unlike for triangular meshes, this flag doesn't incurs longer conversion times, larger output file sizes, or longer runtime loading times. So disabling this flag can't be considered an optimization.
 
 ## Memory optimizations
