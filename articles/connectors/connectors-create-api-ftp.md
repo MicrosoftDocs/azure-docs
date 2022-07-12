@@ -74,7 +74,7 @@ However, when the **Split On** setting is enabled, *managed* connector triggers 
 
 You have to apply this approach only for *managed* connector triggers, not built-in connector triggers that return outputs for one array item at a time when the **Split On** setting is enabled.
 
-For example, suppose you have managed connector trigger named **When a file is added or modified (properties only)** that returns the metadata or properties for the new or updated files as arrays. To get the metadata separately for each file, you might use a **For each** loop that iterates through the array. In this loop, use the following FTP managed connector actions:
+For example, suppose you have managed connector trigger named **When a file is added or modified (properties only)** that returns the metadata or properties for the new or updated files as arrays. To get the metadata separately for each file, you might use a **For each** loop that iterates through the array. In this loop, use the following FTP managed connector actions in the specified order:
 
 1. **Get file metadata** to get each file's metadata.
 
