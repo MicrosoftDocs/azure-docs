@@ -34,7 +34,7 @@ The five states have exit criteria to help you determine where your environment 
 
 The content then provides more detailed guidance organized to help with intentional changes to people, process, and technology to:
 
-* Establish Azure AD capabilities
+* Establish Azure AD footprint
 
 * Implement a cloud-first approach
 
@@ -51,6 +51,9 @@ For customers with established on-premises IT capability, the transformation pro
 In enterprise-sized organizations, IAM transformation, or even transformation from AD to Azure AD is typically a multi-year effort with multiple states. You analyze your environment to determine your current state, and then set a goal for your next state. Your goal might remove the need for AD entirely, or you might decide not to migrate some capability to Azure AD and leave it in place. The states are meant to logically group initiatives into projects towards completing a transformation. During the state transitions, interim solutions are put in place. The interim solutions enable the IT environment to support IAM operations in both AD and Azure AD. The interim solutions must also enable the two environments to interoperate. The following diagram shows the five states:
 
 [ ![Diagram that shows five elements, each depicting a possible network architecture. Options include cloud attached, hybrid, cloud first, AD minimized, and 100% cloud.](media/road-to-cloud-posture/road-to-the-cloud-five-states.png) ](media/road-to-cloud-posture/road-to-the-cloud-five-states.png#lightbox)
+
+>[!NOTE]
+> The states in this diagram represent a logical progression of cloud transformation.
 
 **State 1 Cloud attached** - In this state, organizations have created an Azure AD tenant to enable user productivity and collaboration tools and the tenant is fully operational. Most companies that use Microsoft products and services in their IT environment are already in or beyond this state. In this state operational costs may be higher because there's an on-premises environment and cloud environment to maintain and make interactive. Also, people must have expertise in both environments to support their users and the organization. In this state:
 
@@ -101,7 +104,7 @@ In enterprise-sized organizations, IAM transformation, or even transformation fr
 
 The transformation between the states is similar to moving locations:
 
-* **Establish new location** - You purchase your destination and establish connectivity between the current location and the new location. This enables you to maintain your productivity and ability to operate. In this content, the activities are described in **[Establish Azure AD capabilities](road-to-the-cloud-establish.md)**. The results transition you to State 2.
+* **Establish new location** - You purchase your destination and establish connectivity between the current location and the new location. This enables you to maintain your productivity and ability to operate. In this content, the activities are described in **[Establish Azure AD footprint](road-to-the-cloud-establish.md)**. The results transition you to State 2.
 
 * **Limit new items in old location** - You stop investing in the old location and set policy to stage new items in new location. In this content, the activities are described in **[Implement cloud-first approach](road-to-the-cloud-implement.md)**. The activities set the foundation to migrate at scale and reach State 3.
 
@@ -122,17 +125,11 @@ As a migration of IAM to Azure AD is started, organizations must determine the p
 
 :::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-migration.png" alt-text="Table depicting three major milestones that organizations move through when implementing an AD to Azure AD migration. These include Establish Azure AD capabilities, Implement cloud-first approach, and Move workloads to the cloud." border="false":::
 
-## Establish Azure AD capabilities
+* **Establish Azure AD footprint**: Initialize your new Azure AD tenant to supports the vision for your end-state deployment. Adopt a [Zero Trust](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/) approach and a security model that [protects your tenant from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md) early in your journey.
 
-* **Initialize tenant** - Create your new Azure AD tenant that supports the vision for your end-state deployment.
+* **Implement cloud-first approach**: Establish a policy that mandates all new devices, apps and services should be cloud-first. New applications and services using legacy protocols (NTLM, Kerberos, LDAP etc.) should be by exception only.
 
-* **Secure tenant** - Adopt a [Zero Trust](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/) approach and a security model that [protects your tenant from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md) early in your journey.
-
-## Implement cloud-first approach
-Establish a policy that mandates all new devices, apps and services should be cloud-first. New applications and services using legacy protocols (NTLM, Kerberos, LDAP etc.) should be by exception only.
-
-## Transition to the cloud
-Shift the management and integration of users, apps and devices away from on-premises and over to cloud-first alternatives. Optimize user provisioning by taking advantage of [cloud-first provisioning capabilities](../governance/what-is-provisioning.md) that integrate with Azure AD.
+* **Transition to the cloud**: Shift the management and integration of users, apps and devices away from on-premises and over to cloud-first alternatives. Optimize user provisioning by taking advantage of [cloud-first provisioning capabilities](../governance/what-is-provisioning.md) that integrate with Azure AD. 
 
 The transformation changes how users accomplish tasks and how support teams provide end-user support. Initiatives or projects should be designed and implemented in a manner that minimizes the impact on user productivity. As part of the transformation, self-service IAM capabilities are introduced. Some portions of the workforce more easily adapt to the self-service user environment prevalent in cloud-based businesses.
 

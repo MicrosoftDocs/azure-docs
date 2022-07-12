@@ -44,8 +44,8 @@ You may want to use the Partner Events feature if you've one or more of the foll
 
 ### For partners as a subscriber
 
-- You want your service to react to customer events that originate in Microsoft/Azure.
-- You want your customer to react to Microsoft/Azure service events using their applications hosted by your platform. You use your platform's event routing capabilities to deliver events to the right customer solution.
+- You want your service to react to customer events that originate in Microsoft Azure.
+- You want your customer to react to Microsoft Azure service events using their applications hosted by your platform. You use your platform's event routing capabilities to deliver events to the right customer solution.
 - You want a simple model where your customers just select your service name as a destination without the need for them to know technical details like your platform endpoints.
 - Your system/platform supports [Cloud Events 1.0](https://cloudevents.io/) schema.
 
@@ -59,21 +59,21 @@ Registrations are global. That is, they aren't associated with a particular Azur
   
 ### Channel
 A Channel is a nested resource to a Partner Namespace. A channel has two main purposes:
-  - It's the resource type that allows you to create partner resources on a customer's Azure subscription.  When you create a channel of type `partner topic`, a partner topic is created on a customer's Azure subscription. A partner topic is the customer's resource where events from a partner system. Similarly, when a channel of type `partner destination` is created, a partner destination is created on a customer's Azure subscription. Partner destinations are resources that represent a partner system endpoint to where events are delivered. A channel is the kind of resource, along with partner topics and partner destinations that enable bi-directional event integration.
+  - It's the resource type that allows you to create partner resources on a customer's Azure subscription.  When you create a channel of type `partner topic`, a partner topic is created on a customer's Azure subscription. A partner topic is a customer's resource to which events are routed when a partner system publishes events. Similarly, when a channel of type `partner destination` is created, a partner destination is created on a customer's Azure subscription. Partner destinations are resources that represent a partner system endpoint to where events are delivered. A channel is the kind of resource, along with partner topics and partner destinations that enable bi-directional event integration.
   
       A channel has the same lifecycle as its associated customer partner topic or destination. When a channel of type `partner topic` is deleted, for example, the associated customer's partner topic is deleted. Similarly, if the partner topic is deleted by the customer, the associated channel on your Azure subscription is deleted.
   - It's a resource that is used to route events. A channel of type ``partner topic`` is used to route events to a customer's partner topic. It supports two types of routing modes. 
       - **Channel name routing**. With this kind of routing, you publish events using an http header called `aeg-channel-name` where you provide the name of the channel to which events should be routed. As channels are a partner's representation of partner topics, the events routed to the channel show on the customer's parter topic. This kind of routing is a new capability not present in `event channels`, which support only source-based routing. Channel name routing enables more use cases than the source-based routing and it's the recommended routing mode to choose. For example, with channel name routing a customer can request events that originate in different event sources to land on a single partner topic.
       - **Source-based routing**. This routing approach is based on the value of the `source` context attribute in the event. Sources are mapped to channels and when an event comes with a source, say, of value "A" that event is routed to the partner topic associated to the channel that contains "A" in its source property.
 
+      You may want to declare the event types that are routed to the channel and to its associated partner topic. Event types are shown to customers when creating event subscriptions on the partner topic and are used to select the specific event types to send to an event handler destination. [Learn more](onboard-partner.md#create-a-channel).
+
+      >[!IMPORTANT]
+      >Event types can be managed on the channel and once the values are updated, changes are reflected immediately on the associated partner topic.
+
       A channel of type ``partner destination`` is used to route events to a partner system. When creating a channel of this type, you provide your webhook URL where you receive the events published by Azure Event Grid. Once the channel is created, a customer can use the partner destination resource when creating an [event subscription](subscribe-through-portal.md) as the destination to deliver events to the partner system. Event Grid publishes events with the request including an http header `aeg-channel-name` too. Its value can be used to associate the incoming events with a specific user who in the first place requested the partner destination.
  
       A customer can use your partner destination to send your service any kind of events available to [Event Grid](overview.md).
-
-    - A channel can store definitions for event types. These definitions can be added during the creation of a channel or once the channel is created in the configuration. The event type definitions allow a customer to subscribe to these events when using partner topics. [Learn more](concepts.md#inline-event-type-definitions).
-
-      >[!IMPORTANT]
-      >Event types can be managed in the channel and once the values are updated, changes will be reflected immediately in the associated partner topic.
 
 ### Partner namespace
 A partner namespace is a regional resource that has an endpoint to publish events to Azure Event Grid. Partner namespaces contain either channels or event channels (legacy resource). You must create partner namespaces in regions where customers request partner topics or destinations because channels and their corresponding partner resources must reside in the same region. You can't have a channel in a given region with its related partner topic, for example, located in a different region. 
