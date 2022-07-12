@@ -61,7 +61,7 @@ The following limitations apply when you create an Azure Spring Apps Service ins
 ## Create an Azure Spring Apps instance with zone redundancy enabled
 
 > [!NOTE]
-> You can only enable zone redundancy when creating your spring app instance. You can't change your zone redundant property after creation.
+> You can enable zone redundancy only when creating your Azure Spring Apps service instance. You can't change the zone redundancy property after creation.
 
 You can enable zone redundancy in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
