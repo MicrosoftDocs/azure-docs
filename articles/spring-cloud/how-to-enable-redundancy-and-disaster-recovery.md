@@ -79,7 +79,7 @@ az spring create \
 
 ### [Azure portal](#tab/portal)
 
-To create a service in Azure Spring Apps with zone redundancy enabled using the Azure portal, select the Zone Redundant option when you create the instance.
+To create a service in Azure Spring Apps with zone redundancy enabled using the Azure portal, select the **Zone Redundant** option when you create the instance.
 
 :::image type="content" source="media/spring-cloud-availability-zone/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="media/spring-cloud-availability-zone/availability-zone-portal.png":::
 
