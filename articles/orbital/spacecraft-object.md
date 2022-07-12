@@ -26,12 +26,12 @@ The spacecraft object captures three types of information:
 
 Make sure to capture each link that you wish to use with Azure Orbital when you create the spacecraft object. The following details are required:
 
-|  | **Field**        | **Values**                     |
-|--|------------------|--------------------------------|
-|  | Direction        | Uplink or Downlink             |
-|  | Center Frequency | Center frequency in MHz        |
-|  | Bandwidth        | Bandwidth in MHz               |
-|  | Polarization     | RHCP, LHCP, or Linear Vertical |
+| **Field**        | **Values**                     |
+|------------------|--------------------------------|
+| Direction        | Uplink or Downlink             |
+| Center Frequency | Center frequency in MHz        |
+| Bandwidth        | Bandwidth in MHz               |
+| Polarization     | RHCP, LHCP, or Linear Vertical |
 
 Dual polarization schemes are represented by two individual links with their respective LHCP and RHCP polarizations.
 
