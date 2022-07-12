@@ -1,5 +1,5 @@
 ---
-title: Zone redundancy and customer-managed geo-disaster recovery
+title: Enable redundancy and disaster recovery for Azure Spring Apps
 description: Learn how to protect your Spring Apps application from zonal and regional outages
 author: karlerickson
 ms.author: wenhaozhang
