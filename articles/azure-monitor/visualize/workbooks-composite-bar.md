@@ -79,7 +79,7 @@ Aggregations are useful for Tree/Group By visualizations. The data for a column 
 To add Group By settings:
 
 1. In column settings, go to the column you want to add settings to.
-1. In **Tree/Group By Settings** under **Tree type**, select **Group By**.
+1. In **Tree/Group By Settings**, under **Tree type**, select **Group By**.
 1. Select the field you want to group by.
 
    ![Screenshot that shows Group By settings.](./media/workbooks-composite-bar/group-by-settings.png)
