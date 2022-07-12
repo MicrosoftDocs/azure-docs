@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 03/18/2022
+ms.date: 07/11/2022
 ms.author: danlep
 ---
 
@@ -38,6 +38,24 @@ Deploying self-hosted gateways into the same environments where the backend API 
 ## Packaging and features
 
 The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
+
+### Comparison of managed and self-hosted gateways
+
+|  | Managed   | Self-hosted  |
+| --- | ----- | ---------- |
+| [Service tiers](api-management-features.md) | All | Developer, Premium |
+| On-premises deployment | ❌ |  ✔️ |
+| [API analytics](howto-use-analytics.md) | ✔️ |  ❌ |
+| [Built-in cache](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-cache.md) | ✔️ |  ❌ |
+| [CA root certificates](api-management-howto-ca-certificates.md) |  ✔️ |  ❌ |
+| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ |
+| [Synthetic GraphQL APIs](graphql-schema-resolve-api.md) |  ✔️ |  ❌ |
+| [Websocket APIs](websocket-api.md) |  ✔️ |  ❌ |
+| [Service Fabric integration](..//service-fabric/service-fabric-api-management-overview.md) |  ✔️ |  ❌ |
+| [Authorizations](authorizations-overview.md) |  ✔️ |  ❌ |
+| [Private endpoints](private-endpoint.md)  |  ✔️ |  ❌ |
+| [Availability zones](zone-redundancy.md)  |  ✔️ |  ❌ |
+
 
 ### Known limitations
 
