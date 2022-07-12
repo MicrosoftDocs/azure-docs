@@ -143,10 +143,8 @@
     href: microsoft-365-defender-sentinel-integration.md
   - name: Integrate SAP
     items:
-    - name: Deployment overview
-      href: sap/deployment-overview.md
-    - name: Deployment prerequisites
-      href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
+    - name: Solution overview
+      href: sap/solution-overview.md
 - name: How-tos
   items:
   - name: Plan architecture
@@ -342,8 +340,12 @@
         href: notebooks-troubleshoot.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
-      - name: Large-scale security analytics with Azure Synapse
+      - name: Configure big data analytics settings
         href: notebooks-with-synapse.md
+      - name: Export and transform historical log data
+        href: notebooks-with-synapse-export-data.md
+      - name: Hunt on large historical datasets
+        href: notebooks-with-synapse-hunt.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream
@@ -370,6 +372,8 @@
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
+    - name: Migrate alert playbooks to automation rules
+      href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
   - name: Manage Microsoft Sentinel
@@ -394,12 +398,18 @@
     items: 
     - name: Deployment guide
       items: 
+      - name: Deployment overview
+        href: sap/deployment-overview.md
+      - name: Deployment prerequisites
+        href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
       - name: Prepare SAP environment
         href: sap/preparing-sap.md
       - name: Deploy data connector agent
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
+      - name: Configure Threat Monitoring for SAP solution
+        href: sap/deployment-solution-configuration.md
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
@@ -496,8 +506,8 @@
       href: top-workbooks.md
     - name: Entities reference
       href: entities-reference.md
-    - name: UEBA enrichments
-      href: ueba-enrichments.md
+    - name: UEBA reference
+      href: ueba-reference.md
     - name: Anomalies reference
       href: anomalies-reference.md
     - name: Multistage attack detection scenarios
@@ -530,11 +540,13 @@
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   - name: Feature availability for US Government clouds
     href: ../security/fundamentals/feature-availability.md
-  - name: Build your skills with Microsoft Learn training
+  - name: Build your skills for Microsoft Sentinel
     items: 
-    - name: Microsoft Sentinel training 
+    - name: Microsoft Sentinel skill-up training  
+      href: skill-up-resources.md
+    - name: Microsoft Learn modules for Microsoft Sentinel
       href: /learn/browse/?expanded=azure&products=azure-sentinel
-    - name: Kusto Query Language (KQL) training 
+    - name: Microsoft Learn modules for Kusto Query Language (KQL)
       href: /learn/browse/?expanded=azure&terms=kusto%20query%20language
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md

@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 06/23/2022
 
-ms.author: baselden
-author: BarbaraSelden
+ms.author: gasinh
+author: gargi-sinha
 manager: martinco
 ms.reviewer: dawoo
 
@@ -22,7 +22,7 @@ Passwords are a primary attack vector. Bad actors use social engineering, phishi
 
 Microsoft offers the following [three passwordless authentication options](concept-authentication-passwordless.md) that integrate with Azure Active Directory (Azure AD):
 
-* [Microsoft Entra Authenticator app](./concept-authentication-passwordless.md#microsoft-entra-authenticator-app) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
+* [Microsoft Authenticator](./concept-authentication-passwordless.md#microsoft-authenticator) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
 
 * [FIDO2-compliant security keys](./concept-authentication-passwordless.md#fido2-security-keys) - useful for users who sign in to shared machines like kiosks, in situations where use of phones is restricted, and for highly privileged identities. 
 
@@ -43,12 +43,12 @@ The following table lists the passwordless authentication methods by device type
 
 | Device types| Passwordless authentication method |
 | - | - |
-| Dedicated non-windows devices| <li> **Microsoft Entra Authenticator app** <li> Security keys |
+| Dedicated non-windows devices| <li> **Microsoft Authenticator** <li> Security keys |
 | Dedicated Windows 10 computers (version 1703 and later)| <li> **Windows Hello for Business** <li> Security keys |
-| Dedicated Windows 10 computers (before version 1703)| <li> **Windows Hello for Business** <li> Microsoft Entra Authenticator app |
-| Shared devices: tablets, and mobile devices| <li> **Microsoft Entra Authenticator app** <li> One-time password sign-in |
-| Kiosks (Legacy)| **Microsoft Entra Authenticator app** |
-| Kiosks and shared computers ‎(Windows 10)| <li> **Security keys** <li> Microsoft Entra Authenticator app |
+| Dedicated Windows 10 computers (before version 1703)| <li> **Windows Hello for Business** <li> Microsoft Authenticator app |
+| Shared devices: tablets, and mobile devices| <li> **Microsoft Authenticator** <li> One-time password sign-in |
+| Kiosks (Legacy)| **Microsoft Authenticator** |
+| Kiosks and shared computers ‎(Windows 10)| <li> **Security keys** <li> Microsoft Authenticator app |
 
 
 ## Prerequisites 
@@ -72,7 +72,7 @@ As part of this deployment plan, we recommend that passwordless authentication b
 
 The prerequisites are determined by your selected passwordless authentication methods.
 
-| Prerequisite| Microsoft Entra Authenticator app| FIDO2 Security Keys|
+| Prerequisite| Microsoft Authenticator| FIDO2 Security Keys|
 | - | -|-|
 | [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|
 | [Users can perform Azure AD MFA](howto-mfa-getstarted.md)| √| √|
@@ -107,9 +107,9 @@ Your communications to end users should include the following information:
 
 * [Guidance on combined registration for both Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)
 
-* [Downloading the Microsoft Entra Authenticator app](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
+* [Downloading Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
 
-* [Registering in the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md)
+* [Registering in Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 
 * [Signing in with your phone](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c)
 
@@ -126,24 +126,24 @@ This method can also be used for easy recovery when the user has lost or forgott
 >[!NOTE] 
 > If you can't use the security key or the Authenticator app for some scenarios, multifactor authentication with a username and password along with another registered method can be used as a fallback option.
 
-## Plan for and deploy the Authenticator app
+## Plan for and deploy Microsoft Authenticator
 
-The [Authenticator app](concept-authentication-passwordless.md) turns any iOS or Android phone into a strong, passwordless credential. It's a free download from Google Play or the Apple App Store. Have users [download the Microsoft Entra Authenticator app](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) and follow the directions to enable phone sign-in.
+[Microsoft Authenticator](concept-authentication-passwordless.md) turns any iOS or Android phone into a strong, passwordless credential. It's a free download from Google Play or the Apple App Store. Have users [download Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) and follow the directions to enable phone sign-in.
 
 ### Technical considerations
 
 **Active Directory Federation Services (AD FS) Integration** - When a user enables the Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential.
 
-**Azure MFA server** - End users enabled for multi-factor authentication through an organization's on-premises Azure MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Authenticator app with the credential, this change may result in an error.
+**MFA server** - End users enabled for multi-factor authentication through an organization's on-premises MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Authenticator app with the credential, this change may result in an error.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication. Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual. We recommend moving from Azure MFA Server to Azure Active Directory MFA.
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication. Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual. We recommend moving from MFA Server to Azure AD MFA.
 
 **Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Authenticator app.
 
 ### Deploy phone sign-in with the Authenticator app
 
-Follow the steps in the article, [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md) to enable the Authenticator app as a passwordless authentication method in your organization.
+Follow the steps in the article, [Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md) to enable the Authenticator app as a passwordless authentication method in your organization.
 
 ### Testing Authenticator app
 

@@ -45,6 +45,7 @@ This model of high availability deployment enables Flexible server to be highly 
 Automatic backups are performed periodically from the primary database server, while the transaction logs are continuously archived to the backup storage from the standby replica. If the region supports availability zones, then backup data is stored on zone-redundant storage (ZRS). In regions that doesn't support availability zones, backup data is stored on local redundant storage (LRS).   
 :::image type="content" source="./media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Same-zone high availability"::: 
 
+
 ## Components and workflow
 
 ### Transaction completion

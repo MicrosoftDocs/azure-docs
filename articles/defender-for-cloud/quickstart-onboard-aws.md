@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 06/19/2022
+ms.date: 06/29/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -29,7 +29,8 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Four AWS projects listed on Defender for Cloud's overview dashboard" lightbox="./media/quickstart-onboard-aws/aws-account-in-overview.png":::
 
-You can learn more from the product manager about Microsoft Defender for Cloud's new AWS connector by watching [New AWS connector](episode-one.md).
+You can learn more by watching this video from the Defender for Cloud in the Field video series: 
+- [New AWS connector](episode-one.md)
 
 
 ::: zone pivot="env-settings"
@@ -54,7 +55,7 @@ You can learn more from the product manager about Microsoft Defender for Cloud's
 
 - **To enable the Defender for SQL plan**, you'll need:
 
-    - Microsoft Defender for SQL enabled on your subscription. Learn how to [enable protection on all of your databases](defender-for-sql-enable-azure-sql-protections.md).
+    - Microsoft Defender for SQL enabled on your subscription. Learn how to [enable protection on all of your databases](quickstart-enable-database-protections.md).
 
     - An active AWS account, with EC2 instances running SQL server or RDS Custom for SQL Server.
 

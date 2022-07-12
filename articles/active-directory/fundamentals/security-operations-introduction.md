@@ -2,14 +2,14 @@
 title: Azure Active Directory security operations guide
 description: Learn to monitor, identify, and alert on security issues with accounts, applications, devices, and infrastructure in Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 04/29/2022
-ms.author: baselden
+ms.author: jricketts
 ms.custom:
   - it-pro
   - seodec18

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/23/2022
+ms.date: 07/04/2022
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -26,11 +26,15 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
-This Azure Cosmos DB (SQL API) connector is supported for the following activities:
+This Azure Cosmos DB (SQL API) connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For Copy activity, this Azure Cosmos DB (SQL API) connector supports:
 

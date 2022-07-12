@@ -77,14 +77,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Reply URL** textbox, type the URL:
-    `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`
+    a. In the **Identifier** textbox, enter this value:
+    `https://samlsp.datava.com`
 
-    b. In the **Sign-on URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** textbox, type the URL:
+    `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/<TENANT_NAME>-sp`
+
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://go.datava.com/<TENANT_NAME>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Datava Enterprise Service Platform Client support team](mailto:support@datava.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Contact [Datava Enterprise Service Platform Client support team](mailto:support@datava.com) to get the TENANT_NAME value.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

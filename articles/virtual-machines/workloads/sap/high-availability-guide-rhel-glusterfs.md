@@ -109,12 +109,10 @@ You first need to create the virtual machines for this cluster.
 1. Create an Availability Set  
    Set max update domain
 1. Create Virtual Machine 1  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Add one data disk for each SAP system to both virtual machines.
 

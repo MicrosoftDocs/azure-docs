@@ -79,7 +79,7 @@ This section helps you configure the native VPN client on your Windows computer 
 
 Unzip the configuration file to view the following folders:
 
-* **WindowsAmd64** and **WindowsX86**, which contain the Windows 32-bit and 64-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
+* **WindowsAmd64** and **WindowsX86**, which contain the Windows 64-bit and 32-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
 * **Generic**, which contains general information used to create your own VPN client configuration. The Generic folder is provided if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder isn’t present.
 
 ### <a name="install"></a>Configure VPN client profile
