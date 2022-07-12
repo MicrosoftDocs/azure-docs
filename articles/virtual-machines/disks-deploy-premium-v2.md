@@ -10,9 +10,9 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Premium SSD v2 (preview)
+# Deploy a Premium SSD v2 (preview)
 
-Azure premium SSD v2 (preview) is designed for a broad range of IO-Intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput at a low cost. General purpose transaction-sensitive workloads such as SQL server, Oracle, Cassandra, and Mongo DB and high-throughput Big-Data applications like Cloudera/Hadoop can advantage of Premium SSD v2. 
+Azure premium SSD v2 (preview) is designed for a broad range of IO-Intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput at a low cost. General purpose transaction-sensitive workloads such as SQL server, Oracle, Cassandra, and Mongo DB and high-throughput Big-Data applications like Cloudera/Hadoop can advantage of Premium SSD v2. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#premium-ssd-v2-preview).
 
 ## Limitations
 

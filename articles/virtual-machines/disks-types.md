@@ -33,6 +33,7 @@ The following table provides a comparison of the five disk types to help you dec
 | **Max disk size** | 65,536 gibibyte (GiB) | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
 | **Max throughput** | 4,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
 | **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000 |
+| **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
 
 ## Ultra disks
 
@@ -110,16 +111,6 @@ Currently only available in the following regions:
 
 Unlike other disk types, you can individually set the capacity, throughput, and IOPS of a premium SSD v2. Each of these values determine the cost of your disk. There is no dedicated sizes with premium SSD v2, but there are some limitations with how much performance is available to a disk of a particular capacity.
 
-The following table provides a comparison of disk capacities and performance maximums to help you decide which to use.
-
-|Disk Size (GiB)  |Maximum available IOPS  |Maximum available throughput (MB/s)  |
-|---------|---------|---------|
-|1-6     |3,000        |750         |
-|7     |3,500         |875         |
-|8     |4,000         |1,000         |
-|9     |4,500         |1,125         |
-|10 GiB - 62 TiB     |The maximum available IOPS increases by 500 per GiB, up to 80,000         |1200         |
-
 #### Premium SSD v2 capacities
 
 Premium SSD v2 can have a capacity ranging from 1 GiB to 64 TiB. You're billed on a per GiB ratio, see the pricing page for details.
@@ -134,6 +125,19 @@ Each premium SSD v2 has 3,000 IOPS as an initial maximum. The capacity of a disk
 
 Each premium SSD v2 must have at least 125 MBps throughput. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximium throughput a 6 GiB disk can set is 750 MB/s, whereas the maximum throughput an 8 GiB disk can set is 1,000 MB/s. The maximum throughput a 10 GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
 
+#### Summary
+
+The following table provides a comparison of disk capacities and performance maximums to help you decide which to use.
+
+|Disk Size (GiB)  |Maximum available IOPS  |Maximum available throughput (MB/s)  |
+|---------|---------|---------|
+|1-6     |3,000        |750         |
+|7     |3,500         |875         |
+|8     |4,000         |1,000         |
+|9     |4,500         |1,125         |
+|10 GiB - 62 TiB     |The maximum available IOPS increases by 500 per GiB, up to 80,000         |1200         |
+
+To deploy a premium SSD v2, see [Deploy a Premium SSD v2 (preview)](disks-deploy-premium-v2.md).
 
 ## Premium SSDs
 
