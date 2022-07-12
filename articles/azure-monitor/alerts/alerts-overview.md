@@ -81,7 +81,7 @@ For stateful alerts, the alert is considered resolved when:
 |Alert type  |The alert is resolved when |
 |---------|---------|
 |Metric alerts|The alert condition isn't met for three consecutive checks.|
-|Log alerts| In log alerts, the alert is resolved at different rates based on the frequency of the alert:<br> * **1 minute**: The alert condition isn't met for 10 minutes.<br> * **5-15 minutes**: The alert condition isn't met for three frequency periods.<br> * **15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.<br> * **11 to 12 hours**: The alert condition isn't met for one frequency period.|
+|Log alerts| In log alerts, the alert is resolved at different rates based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5-15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 When the alert is considered resolved, the alert rule sends out a resolved notification using webhooks or email and the monitor state in the Azure portal is set to resolved.
 
