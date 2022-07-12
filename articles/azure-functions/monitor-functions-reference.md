@@ -30,7 +30,7 @@ These metrics are used specifically when [estimating Consumption plan costs](fun
 
 ### General App Service metrics
 
-Aside from Azure Functions specific metrics, the App Service platform implements more metrics, which you can use to monitor function apps. For the complete list, see [metrics available to App Service apps](../app-service/web-sites-monitor.md#understand-metrics) and [Monitoring *App Service* data reference](../app-service/monitor-app-service-reference.md#metrics).
+Aside from Azure Functions specific metrics, the App Service platform implements more metrics, which you can use to monitor function apps. For the complete list, see [metrics available to App Service apps](../app-service/web-sites-monitor.md#understand-metrics) and [Monitoring App Service data reference](../app-service/monitor-app-service-reference.md#metrics).
 
 ## Metric Dimensions
 
