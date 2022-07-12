@@ -282,6 +282,29 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 docker run -it --rm -e SSL_VALIDATE=false -e SSL_VERSION=TLSv1_2 cassandra:3.11 cqlsh <account_name>.cassandra.cosmos.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
 ```
 
+**Manual installation in Windows:**
+1. Install [Python 3.7](https://www.python.org/downloads/release/python-370/)
+1. Install PIP
+    1. Before install PIP, download the get-pip.py file.
+    1. Launch a command prompt if it isn't already open. To do so, open the Windows search bar, type cmd and select the icon.
+    1. Then, run the following command to download the get-pip.py file:
+    ```bash
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 
+    ```
+1. Install PIP on Windows
+```bash
+python get-pip.py
+```
+4. Verify the PIP installation (look for a message from step 3 to confirm which folder PIP was installed in and then navigate to that folder and run the command pip help).
+1. Install CQLSH using PIP
+```bash
+pip3 install cqlsh==5.0.3
+```
+6. Run the [CQLSH using the authentication mechanism](manage-data-cqlsh.md#update-connection-string).
+
+> [!NOTE]
+> If you get an error while running cqlsh about a syntax error in cqlsh, this would require downgrading Python to v2.7, which is a simple installation from [here](https://www.python.org/downloads/release/python-270/) followed by changing the environment variables on your machine to point to the Python27 folder instead.
+
 All CRUD operations that are executed through a CQL v4 compatible SDK will return extra information about error and request units consumed. The DELETE and UPDATE commands should be handled with resource governance taken into consideration, to ensure the most efficient use of the provisioned throughput.
 
 * Note  gc_grace_seconds value must be zero if specified.
