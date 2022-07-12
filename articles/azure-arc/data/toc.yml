@@ -72,6 +72,8 @@ items:
           href: delete-azure-resources.md
         - name: Uninstall Azure Arc data controller
           href: uninstall-azure-arc-data-controller.md
+        - name: Clean up past installations
+          href: clean-up-past-installation.md
     - name: Manage
       items:
         - name: Upload usage data
