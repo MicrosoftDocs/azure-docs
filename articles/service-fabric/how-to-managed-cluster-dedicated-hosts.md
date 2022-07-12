@@ -161,4 +161,5 @@ New-AzResourceGroupDeployment `
                 }
 
 ## Next steps
+> [!div class="nextstepaction"]
 > [Read about Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
