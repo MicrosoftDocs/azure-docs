@@ -109,7 +109,7 @@ To verify the zone redundancy property of an Azure Spring Apps instance using th
 
 ## Pricing
 
-There's no additional cost associated with enabling zone redundancy. You only need to pay for the tier that includes zone redundancy.
+There's no additional cost associated with enabling zone redundancy. You only need to pay for Standard or Enterprise tier, which is required to enable zone redundancy.
 
 ## Customer-managed geo-disaster recovery
 
