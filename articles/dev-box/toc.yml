@@ -22,6 +22,13 @@
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
 - name: How-to guides
   expanded: true
+  items:
+    - name: How to manage Dev Box projects
+      href: how-to-project-admin.md
+    - name: Provide access to Dev Box Users
+      href: how-to-dev-box-user.md
+    - name: Configure an Azure Compute Gallery
+      href: how-to-configure-azure-compute-gallery.md
 - name: Reference
   items:
       - name: Microsoft Dev Box concepts
