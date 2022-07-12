@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
-ms.date: 07/05/2022
+ms.date: 07/11/2022
 ms.topic: overview
 ---
 
@@ -11,7 +11,7 @@ ms.topic: overview
 Defender for Cloud provides real-time threat protection for your Azure Kubernetes Service (AKS) containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
 Threat protection at the cluster level is provided by the analysis of the Kubernetes audit logs. 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
+Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent isn't currently supported.
 
 ## Availability
 
@@ -41,7 +41,7 @@ Our global team of security researchers constantly monitor the threat landscape.
 
 In addition, Microsoft Defender for Kubernetes provides **cluster-level threat protection** by monitoring your clusters' logs. This means that security alerts are only triggered for actions and deployments that occur *after* you've enabled Defender for Kubernetes on your subscription.
 
-Examples of security events that Microsoft Defender for Kubernetes monitors include:
+Examples of security events that Microsoft Defenders for Kubernetes monitors include:
 
 - Exposed Kubernetes dashboards
 - Creation of high privileged roles
@@ -68,15 +68,13 @@ No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsof
 
 ### Does the new plan reflect a price increase?
 
-The new comprehensive Container security plan combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. Pricing is dependant on your container architecture and coverage. For example, your price may change depending on the number of images in your Container Registry, or the number of Kubernetes nodes among other reasons.
+The new comprehensive Container security plan combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. The price for the service may change and is dependent on your container architecture and coverage. The cost may increase or decrease, depending on the number of images in your Container Registry, or the number of Kubernetes nodes among other reasons.
 
 ### How can I calculate my potential price change?
 
 In order to help you understand your costs, Defender for Cloud offers the Price Estimation workbook as part of its published Workbooks. The Price Estimation workbook allows you to estimate the expected price for Defender for Cloud plans before enabling them.
 
-Your price is dependant on your container architecture and coverage. For example, your price may change depending on the number of images in your Container Registry, or the number of Kubernetes nodes among other reasons.
-
-You can learn [how to enable and use](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-price-estimation-dashboard/ba-p/3247622) the Price Estimation workbook.
+Your price is dependent on your container architecture and coverage. Learn [how to enable and use](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-price-estimation-dashboard/ba-p/3247622) the Price Estimation workbook.
 
 ## Next steps
 
