@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 06/03/2022
+ms.date: 07/12/2022
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -173,18 +173,21 @@ You're ready to [create diagnostic settings](../active-directory/reports-monitor
 To configure monitoring settings for Azure AD B2C activity logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure AD B2C administrative account. This account must be a member of the security group you specified in the [Select a security group](#32-select-a-security-group) step.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant:
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select **Azure Active Directory**
 1. Under **Monitoring**, select **Diagnostic settings**.
-1. If there are existing settings for the resource, you'll see a list of settings already configured. Either select **Add diagnostic setting** to add a new setting, or select **Edit** to edit an existing setting. Each setting can have no more than one of each of the destination types.
+1. If there are existing settings for the resource, you'll see a list of settings already configured. Either select **Add diagnostic setting** to add a new setting, or select **Edit settings** to edit an existing setting. Each setting can have no more than one of each of the destination types.
 
-   ![Diagnostics settings pane in Azure portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
+   ![Screenshot of diagnostics settings pane in Azure portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
 1. Give your setting a name if it doesn't already have one.
-1. Check the box for each destination to send the logs. Select **Configure** to specify their settings **as described in the following table**.
-1. Select **Send to Log Analytics**, and then select the **Name of workspace** you created earlier (`AzureAdB2C`).
 1. Select **AuditLogs** and **SignInLogs**.
+1. Select **Send to Log Analytics Workspace**, and then:
+    1. Under **Subscription**, select your subscription. 
+    2. Under **Log Analytics Workspace**, select the name of the workspace you created earlier such as `AzureAdB2C`.
+
 
    > [!NOTE]
    > Only the **AuditLogs** and **SignInLogs** diagnostic settings are currently supported for Azure AD B2C tenants.
@@ -204,7 +207,7 @@ Now you can configure your Log Analytics workspace to visualize your data and co
 
 Log queries help you to fully use the value of the data collected in Azure Monitor Logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
-1. From **Log Analytics workspace**, select **Logs**
+1. From **Log Analytics workspace** window, select **Logs**
 1. In the query editor, paste the following [Kusto Query Language](/azure/data-explorer/kusto/query/) query. This query shows policy usage by operation over the past x days. The default duration is set to 90 days (90d). Notice that the query is focused only on the operation where a token/code is issued by policy.
 
    ```kusto
@@ -253,7 +256,7 @@ Workbooks provide a flexible canvas for data analysis and the creation of rich v
 
 Follow the instructions below to create a new workbook using a JSON Gallery Template. This workbook provides a **User Insights** and **Authentication** dashboard for Azure AD B2C tenant.
 
-1. From the **Log Analytics workspace**, select **Workbooks**.
+1. From the **Log Analytics workspace** window, select **Workbooks**.
 1. From the toolbar, select **+ New** option to create a new workbook.
 1. On the **New workbook** page, select the **Advanced Editor** using the **</>** option on the toolbar.
 
