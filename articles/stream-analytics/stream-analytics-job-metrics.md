@@ -45,6 +45,13 @@ Azure Stream Analytics provides the following metrics for you to monitor your jo
 
 You can use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
 
+|Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
+|-|-|-|-|-|
+|SU% Utilization|Greater than|Average|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units. For more information, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
+|SU% Utilization|Greater than|Average|90|This likely means that there are some operations such as UDFs, UDAs or complex input deserialization which is requiring a lot of CPU cycles. This is usually overcome by increasing number of Streaming Units of the job.|
+|Runtime errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the inputs, query, or outputs.|
+|Watermark delay|Greater than|Average|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query. For more information on SUs, see [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). For more information on parallelizing your query, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
+|Input deserialization errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the input. For more information on resource logs, see [Troubleshoot Azure Stream Analytics using resource logs](stream-analytics-job-diagnostic-logs.md)|
 
 ## Get help
 For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
