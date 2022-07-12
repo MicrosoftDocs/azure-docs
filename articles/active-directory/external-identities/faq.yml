@@ -199,9 +199,9 @@ sections:
           3. Instructing the user to redeem/sign-in using their UPN.
           To avoid this issue entirely, administrators should ensure users’ UPN and email are the same value.
 
-          ![Screenshot shows the flow for guest redemption](media/user-invitation-different-email-upn/guest-redemption.png)
+          ![Screenshot shows the flow for guest redemption.](media/user-invitation-different-email-upn/guest-redemption.png)
 
-          ![Screeshot shows the flow for subsequest sign-ins](media/user-invitation-different-email-upn/subsequent-sign-in.png)
+          ![Screeshot shows the flow for subsequest sign-ins.](media/user-invitation-different-email-upn/subsequent-sign-in.png)
 
       - question: |
           Instant-on: What can cause replication latency?
