@@ -258,7 +258,12 @@ sections:
           - Form Recognizer has a commitment-based pricing model for large workloads.
 
          Learn more about [Azure Form Recognizer pricing options](https://azure.microsoft.com/pricing/details/form-recognizer/#pricing).
-
+      
+      - question: |
+         How to check my Form Recognizer usage and estimate the price?
+        answer: |
+          You need to sign in to Azure portal and use pricing calculator to check how many pages are processed by Azure Form Recognizer and estimate the price spent on the resource. Follow [this document](/how-to-guides/estimate-cost.md) for detaild instructions. 
+      
       - question: |
           What are best practices to mitigate throttling?
         answer: |
