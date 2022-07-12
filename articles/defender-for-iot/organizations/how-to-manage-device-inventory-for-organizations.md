@@ -110,7 +110,7 @@ The following device fields are supported for editing in the **Device inventory*
 
 ## Export the device inventory to CSV
 
-Export your device inventory to a CSV file to manage or share data outside of the Azure portal.
+Export your device inventory to a CSV file to manage or share data outside of the Azure portal. You can export a maximum of 30,000 devices at a time.
 
 **To export device inventory data**:
 

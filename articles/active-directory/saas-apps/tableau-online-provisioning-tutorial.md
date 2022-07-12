@@ -81,6 +81,23 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
+### Recommendations
+Tableau Cloud will only store the highest privileged role that is assigned to a user. In other words, if a user is assigned to two groups, the user’s role will reflect the highest privileged role.
+
+
+To keep track of role assignments, you can create two purpose-specific groups for role assignments. For example, you can create groups such as Tableau – Creator, and Tableau – Explorer, etc. Assignment would then look like:
+* Tableau – Creator: Creator
+* Tableau – Explorer: Explorer
+* Etc.
+
+Once provisioning is set up, you will want to edit role changes directly in Azure Active Directory. Otherwise, you may end up with role inconsistencies between Tableau Cloud and Azure Active Directory.
+
+### Valid Tableau site role values
+On the **Select a Role** page in your Azure Active Directory portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
+
+
+If you select a role that is not in the above list, such as a legacy (pre-v2018.1) role, you will experience an error.
+
 
 ## Step 5. Configure automatic user provisioning to Tableau Cloud 
 
@@ -171,22 +188,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
 
-### Recommendations
-Tableau Cloud will only store the highest privileged role that is assigned to a user. In other words, if a user is assigned to two groups, the user’s role will reflect the highest privileged role.
-
-
-To keep track of role assignments, you can create two purpose-specific groups for role assignments. For example, you can create groups such as Tableau – Creator, and Tableau – Explorer, etc. Assignment would then look like:
-* Tableau – Creator: Creator
-* Tableau – Explorer: Explorer
-* Etc.
-
-Once provisioning is set up, you will want to edit role changes directly in Azure Active Directory. Otherwise, you may end up with role inconsistencies between Tableau Cloud and Azure Active Directory.
-
-### Valid Tableau site role values
-On the **Select a Role** page in your Azure Active Directory portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
-
-
-If you select a role that is not in the above list, such as a legacy (pre-v2018.1) role, you will experience an error.
 
 
 ### Update a Tableau Cloud application to use the Tableau Cloud SCIM 2.0 endpoint

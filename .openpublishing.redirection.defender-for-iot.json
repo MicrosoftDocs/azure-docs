@@ -1,23 +1,15 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-device-inventory-for-organizations&pivots=experience-cm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-investigate-sensor-detections-in-a-device-inventory.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-device-inventory-for-organizations&pivots=experience-sensor",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-identify-required-appliances.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-appliance-sizing",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/plan-network-monitoring.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/best-practices/plan-network-monitoring",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-identify-required-appliances.md",
             "redirect_url": "/azure/defender-for-iot/organizations/ot-appliance-sizing",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/defender-for-iot/organizations/resources-manage-proprietary-protocols.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/overview#extend-support-to-proprietary-protocols",
             "redirect_document_id": false
         },
         {

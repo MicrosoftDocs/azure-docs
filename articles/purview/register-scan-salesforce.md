@@ -18,8 +18,8 @@ This article outlines how to register Salesforce, and how to authenticate and in
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No|
 
 When scanning Salesforce source, Microsoft Purview supports extracting technical metadata including:
