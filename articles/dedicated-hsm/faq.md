@@ -30,6 +30,10 @@ A Hardware Security Module (HSM) is a physical computing device used to safeguar
 
 Azure Dedicated HSM is a cloud-based service that provides HSMs hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSMs are dedicated [Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) network appliances. They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSMs. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSMs help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, HIPAA, PCI-DSS, and eIDAS and many others.
 
+### Q: What are the onboarding and use restrictions for Dedicated HSM?
+
+Customers must have a assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM.  
+
 ### Q: What hardware is used for Dedicated HSM?
 
 Microsoft has partnered with Thales to deliver the Azure Dedicated HSM service. The specific device used is the [Thales Luna 7 HSM model A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). This device not only provides [FIPS 140-2 Level-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validated firmware, but also offers low-latency, high performance, and high capacity via 10 partitions. 
@@ -71,7 +75,7 @@ Microsoft only offers the Thales Luna 7 HSM model A790 via the Dedicated HSM ser
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
-As of late March 2019, Dedicated HSM is available in the 14 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
+As of January 2022, Dedicated HSM is available in the 23 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
 
 * East US
 * East US 2
