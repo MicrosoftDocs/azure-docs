@@ -205,7 +205,7 @@
     - name: Enable HCX access over the internet
       href: enable-hcx-access-over-internet.md
     - name: Enable SQL Azure hybrid benefit for Azure VMware Solution (Preview)
-      href: enable-sql-az-hybrid-benefit.md
+      href: enable-sql-azure-hybrid-benefit.md
     - name: Upgrade the VMware HCX appliance
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
 - name: Resources
