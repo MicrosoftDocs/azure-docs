@@ -1326,7 +1326,7 @@ items:
   - name: Insights
     items:
     - name: Azure Cache for Redis
-      href: insights/redis-cache-insights-overview.md
+      href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
