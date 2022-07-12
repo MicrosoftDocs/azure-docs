@@ -43,7 +43,7 @@ Azure Stream Analytics provides the following metrics for you to monitor your jo
 | SU (Memory) % Utilization       | The percentage of memory utilized by your job. If SU % utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units. High utilization indicates that the job is using close to the maximum allocated resources. |
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 
-You can use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-monitoring.md#scenarios-to-monitor). 
+## Scenarios to monitor
 
 |Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
 |-|-|-|-|-|
