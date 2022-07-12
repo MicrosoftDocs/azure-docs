@@ -39,13 +39,13 @@ You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a co
 **Example**
 
 ```azcopy
-https://mystorageaccount.blob.core.windows.net/mycontainer
+azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'
 ```
 
 **Example (hierarchical namespace)**
 
 ```azcopy
-https://mystorageaccount.dfs.core.windows.net/mycontainer
+azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'
 ```
 
 For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
