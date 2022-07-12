@@ -182,7 +182,7 @@ You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/
 
 ## Cost savings insights in the cost analysis preview
 
-Cost insights surfaces important details about your subscriptions, like potential anomalies or top cost contributors. To support your cost optimization goals, cost insights now includes the total cost savings available from Azure Advisor for your subscription.
+Cost insights surface important details about your subscriptions, like potential anomalies or top cost contributors. To support your cost optimization goals, cost insights now include the total cost savings available from Azure Advisor for your subscription.
 
 You can enable cost savings insights for subscriptions from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
 
