@@ -39,8 +39,6 @@ Due to a security vulnerability discovered in the Queue Storage client library's
 
 - If you need to use client-side encryption, then migrate your applications from client-side encryption v1 to client-side encryption v2.
 
-    Client-side encryption v2 is available only in version 12.11.0 and later of the Azure Queue Storage client libraries for .NET and Python. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.11.0 or later, and then decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use version 12.11.0 side-by-side with an earlier version of the client library while you are migrating your code.
-
 The following table summarizes the steps you'll need to take if you choose to migrate your applications to client-side encryption v2:
 
 | Client-side encryption status | Recommended actions |
