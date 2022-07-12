@@ -126,7 +126,7 @@ To plan your application, it's helpful to understand the following information a
 
 Most Azure regions are paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair is updated at a time. In the event of an outage affecting multiple regions, at least one region in each pair is prioritized for recovery.
 
-To ensure high availability and protection from disasters, deploy your Spring Apps applications to multiple regions. Azure provides a list of paired regions so that you can plan your Spring app deployments accordingly. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md)
+To ensure high availability and protection from disasters, deploy your applications hosted in Azure Spring Apps to multiple regions. Azure provides a list of paired regions so that you can plan your app deployments accordingly. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
  Consider three key factors when you design your architecture: 
 
