@@ -18,8 +18,6 @@ zone_pivot_groups: programming-languages-text-analytics
 
 # Quickstart: Sentiment analysis and opinion mining  
 
-Use this article to get started detecting sentiment and opinions in text. Follow these steps to try out examples code for mining text:
-
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]

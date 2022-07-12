@@ -12,7 +12,7 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 [Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
 
-Use this quickstart to send Personally Identifying Information (PII) detection requests using the REST API. In the following example, you will use cURL to identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
+Use this quickstart to send Personally Identifiable Information (PII) detection requests using the REST API. In the following example, you will use cURL to identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
 
 
 ## Prerequisites

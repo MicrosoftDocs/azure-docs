@@ -10,7 +10,7 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 [Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-Use this quickstart to create a Personally Identifying Information (PII) detection application with the client library for Python. In the following example, you will create a Python application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
+Use this quickstart to create a Personally Identifiable Information (PII) detection application with the client library for Python. In the following example, you will create a Python application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
 
 ## Prerequisites
 

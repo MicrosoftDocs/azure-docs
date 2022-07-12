@@ -17,8 +17,6 @@ zone_pivot_groups: programming-languages-text-analytics
 
 # Quickstart: using document summarization and conversation summarization (preview)
 
-Use this article to get started with document summarization and conversation summarization using the client library and REST API. Follow these steps to try out examples code for mining text:
-
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]

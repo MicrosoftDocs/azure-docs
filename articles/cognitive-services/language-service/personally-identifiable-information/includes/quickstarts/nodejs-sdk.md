@@ -11,7 +11,7 @@ ms.custom: devx-track-js, ignite-fall-2021
 
 [Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples)
 
-Use this quickstart to create a Personally Identifying Information (PII) detection application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
+Use this quickstart to create a Personally Identifiable Information (PII) detection application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
 
 ## Prerequisites
 
