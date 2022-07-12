@@ -230,12 +230,10 @@ az storage blob copy start \
 
 To copy a blob from an online tier to the Archive tier with AzCopy, specify the URI for the source blob and the URI for the destination blob. The destination blob should have a different name from the source blob, and should not already exist.
 
-When the copy source is a blob, you must provide an account SAS token on the source blob. If you are using Azure Active Directory (Azure AD) to authorize the copy operation, then the SAS is required only on the source blob, as shown in the following example. If you are using the account access key to authorize the copy operation, then you must provide a SAS token on both the source and destination blobs. For more information, see [Copy blobs between Azure storage accounts by using AzCopy](../common/storage-use-azcopy-blobs-copy.md).
-
 Remember to replace placeholders in angle brackets with your own values:
 
 ```azcopy
-azcopy copy "https://<source-account>.blob.core.windows.net/sample-container/blob1.txt?sv=2020-08-04&ss=b&srt=sco&sp=r&se=2022-03-02T05:21:32Z&st=2022-03-01T21:21:32Z&spr=https&sig=<signature>" "https://<dest-account>.blob.core.windows.net/sample-container/blob1-archived.txt" --blob-type BlockBlob --block-blob-tier Archive
+azcopy copy "https://<source-account>.blob.core.windows.net/sample-container/blob1.txt" "https://<dest-account>.blob.core.windows.net/sample-container/blob1-archived.txt" --blob-type BlockBlob --block-blob-tier Archive
 ```
 
 ---

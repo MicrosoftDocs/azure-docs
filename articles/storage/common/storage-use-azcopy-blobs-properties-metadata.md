@@ -79,7 +79,7 @@ To replace the metadata for all blobs in a virtual directory, refer to the virtu
 **Example**
 
 ```azcopy
-azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myvirtualdirectory' --metadata=mykey1=myvalue1;mykey2=myvalue2
+azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myvirtualdirectory' --metadata=mykey1=myvalue1;mykey2=myvalue2 --recursive=true
 ```
 
 To clear metadata, omit the tags and append `--metadata=clear` to the end of the command.

@@ -258,7 +258,7 @@ Use PowerShell, Azure CLI, AzCopy v10, or one of the Azure Storage client librar
 
 ### Change a blob's tier
 
-When you change a blob's tier, you move that blob and all of its data to the target tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation (either directly or via a [lifecycle management](access-tiers-overview.md#blob-lifecycle-management) policy, or by using the [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md) command with AzCopy. This option is typically the best when you are changing a blob's tier from a hotter tier to a cooler one.
+When you change a blob's tier, you move that blob and all of its data to the target tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation (either directly or via a [lifecycle management](access-tiers-overview.md#blob-lifecycle-management) policy), or by using the [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md) command with AzCopy. This option is typically the best when you are changing a blob's tier from a hotter tier to a cooler one.
 
 #### [Portal](#tab/azure-portal)
 
@@ -319,12 +319,6 @@ azcopy make 'https://<storage-account-name>.blob.core.windows.net/<container-nam
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 
 ```azcopy
-azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myvirtualdirectory' --block-blob-tier=hot --recursive=true
-```
-
-**Example**
-
-```azcopy
 azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/myvirtualdirectory' --block-blob-tier=<access-tier> --recursive=true
 ```
 
@@ -382,7 +376,7 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy a blob from Cool to Hot with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the ``--block-blob-tier` parameter to `cool`.
+To copy a blob from Cool to Hot with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to `cool`.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
