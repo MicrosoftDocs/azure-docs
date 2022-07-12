@@ -16,64 +16,47 @@ This article summarizes the support matrix and limitations of using [VM restore 
 
 ## VM restore points support matrix
 
-The following table summarizes the support matrix for local region VM restore points.
+The following table summarizes the support matrix for VM restore points.
 
-**Feature/Operation/Configuration/Scenario** | **Support for Local region VM restore points**
+**Scenarios** | **Supported by VM restore points**
 --- | ---
 **VMs using Managed disks** | Yes
-**VMs using unmanaged disks** | No
-**VMs using Ultra Disks** | No
-**VMs using Ephemeral OS Disks** | No
-**VMs using Azure Disk Encryption - Platform managed keys** | Yes
-**VMs using Azure Disk Encryption - Customer managed keys** | Yes
-**VMs using shared disks** | No
+**VMs using unmanaged disks** | No. Exclude these disks and create a VM restore point.
+**VMs using Ultra Disks** | No. Exclude these disks and create a VM restore point.
+**VMs using Ephemeral OS Disks** | No. Exclude these disks and create a VM restore point.
+**VMs using shared disks** | No. Exclude these disks and create a VM restore point.
 **VMs with extensions** | Yes
 **VMs with trusted enabled** | Yes
 **Confidential VMs** | Yes
 **Generation 2 VMs (UEFI boot)** | Yes
 **VMs with NVMe disks (Storage optimized - Lsv2-series)** | Yes
 **VMs in Proximity placement groups** | Yes
-**XIO Collocated VMs** | Yes
-**VMs in an availability set** | Yes
-**Reserved VM instances (Azure reservations) - Not a feature but a billing model** | Yes
-**VMSS unified** | No
-**VMSS Flex** | Yes
+**VMs in an availability set** | Yes. You can create VM restore points for individual VMs within an availability set. You need to create restore points for all the VMs within an availability set to protect an entire availability set instance.
+**Reserved VM instances (Azure reservations)** | Yes
+**VMs inside VMSS unified** | No
+**VMs inside VMSS Flex** | Yes. You can create VM restore points for individual VMs within the virtual machine scale set flex. However, you need to create restore points for all the VMs within the virtual machine scale set flex to protect an entire virtual machine scale set flex instance.
 **Spot VMs (Low priority VMs)** | Yes
 **VMs with dedicated hosts** | Yes
 **VMs with Host caching enabled** | Yes
 **VMs with pinned nodes** | Yes
 **VMs created from marketplace images** | Yes
 **VMs created from custom images** | Yes
-**VMs using classic deployment model** | No
-**VMs using ARM (Azure Resource Manager)** | Yes
-**VM with HUB (Hybrid Use Benefit) license - Not a feature but a licensing model** | Yes
+**VM with HUB (Hybrid Use Benefit) license** | Yes
 **VMs migrated from on-prem using Azure Migrate** | Yes
 **VMs with RBAC policies** | Yes
-**Temporary disk in VMs** | No
-**VMs with different disk type (standard and premium)** | Yes
-**Redundancies - LRS** | Yes
-**Redundancies - GRS** | Yes
-**Redundancies - GZRS** | Yes
-**Redundancies - ZRS** | Yes
-**VMs with cool, hot and archive storage** | Yes
-**VMs with Encryption at rest (SSE - Azure Storage Service Encryption) storage accounts** | Yes
-**VMs with Encryption at rest (CMK) storage accounts** | Yes
+**Temporary disk in VMs** | Yes. You can create VM restore point for VMs with temporary disks. However, the restore points created do not contain the data from the temporary disks.
+**VMs with standard HDDs** | Yes
+**VMs with standard SSDs** | Yes
+**VMs with premium SSDs** | Yes
+**VMs with ZRS disks** | Yes
+**VMs with server-side encryption using service-managed keys** | Yes
+**VMs with server-side encryption using customer-managed keys** | Yes
 **VMs with double encryption at rest** | Yes
 **VMs with Host based encryption enabled with PMK/CMK/Double encryption** | Yes
 **VMs with ADE (Azure Disk Encryption)** | Yes
-**VMs with keys in Key Vault** | Yes
 **VMs using Accelerated Networking** | Yes
-**Pre-Provisioning Service (PPS) VMs** | Yes
-**VMs using Azure Backup** | Yes
-**VMs using ASR** | Yes
-**VMs using Monitor** | Yes
 **VMs that are live migrated** | Yes
 **VMs that are service healed** | Yes
-**VMs that are part of AKS with managed disks** | Yes
-**VMs that are part of AKS without managed disks** | No
-**VMs that are part of Azure Batch** | Yes
-**VMs that are part of Service Fabric Mesh** | Yes
-**VMs that are part of App Service** | Yes
 
 ## Limitations
 
