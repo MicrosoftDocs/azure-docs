@@ -20,10 +20,10 @@ In this how-to guide, you'll learn how to upload and install all the required co
 ## Prerequisites
 
 - An Azure subscription.
-- An Azure account with **Contributor** and **User Access Administrator** role access to the subscriptions and resource groups in which the VIS exists.
+- An Azure account with **Contributor** role access to the subscriptions and resource groups in which the VIS exists.
 - A [network set up for your infrastructure deployment](create-network.md).
 - A deployment of S/4HANA infrastructure.
-- The username and password for the SAP system that you created.
+- The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
 - An [installation of the Azure Command-Line Interface (Azure CLI)](/cli/azure/install-azure-cli) on your local computer.
 
 ## Supported software
@@ -66,7 +66,7 @@ You can use the following method to upload the SAP components to your Azure acco
 
 You also can [upload the components manually](#upload-components-manually) instead.
 
-### Set up storage account
+### Download components
 
 Before you can download the software, set up an Azure Storage account for the downloads.
 
@@ -207,6 +207,7 @@ You can use the following method to download and upload the SAP components to yo
 You also can [run scripts to automate this process](#upload-components-with-script) instead.
 
 1. Create a new Azure storage account for the SAP components.
+1. Grant the ACSS application *Azure SAP Workloads Management* **Storage Blob Data Reader** and **Reader and Data Access** role access to this storage account.
 1. Create a container within the storage account. You can choose any container name; for example, **sapbits**. 
 1. Create two folders within the contained, named **deployervmpackages** and **sapfiles**. 
     > [!WARNING]
