@@ -71,6 +71,10 @@ Here are typical examples where a container is a good choice:
 
 Service Fabric supports the deployment of Docker containers on Linux, and Windows Server containers on Windows Server 2016 and later, along with support for Hyper-V isolation mode.
 
+Container runtimes supported in ServiceFabric:
+- Mirantis Container Runtime
+- Moby
+
 > [!NOTE]
 > A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted applications**, please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 
