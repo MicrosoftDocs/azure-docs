@@ -86,7 +86,6 @@ New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $R
 
 >[!NOTE] 
 > 1) To do role assignments in a host group, the user needs to have admin access to the host group. Please see this doc [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
-
 > 2) Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
 
@@ -103,14 +102,15 @@ $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 ```
 
 2) Provide your own values for the following template parameters:
-	a) Subscription: Select an Azure subscription. 
-	b) Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK. 
-	c) Location: Select a location. 
-	d) Cluster Name: Enter a unique name for your cluster, such as mysfcluster. 
-	e) Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster. 
-	f) Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster. 
-	g) Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate. 
-	h) Node Type Name: Enter a unique name for your node type, such as nt1.
+
+   a) Subscription: Select an Azure subscription. 
+   b) Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
+   c) Location: Select a location.
+   d) Cluster Name: Enter a unique name for your cluster, such as mysfcluster. 
+   e) Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster. 
+   f) Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster. 
+   g) Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate.
+   h) Node Type Name: Enter a unique name for your node type, such as nt1.
    
 ```powershell
 New-AzResourceGroupDeployment ` 
