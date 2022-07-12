@@ -66,7 +66,7 @@ For Event Hubs partitioning best practices, review [How many partitions do I nee
 Whether you're creating a new hub for your Azure Time Series Insights Gen2 environment or using an existing one, you'll need to calculate your per partition ingestion rate to determine if it's within the limits.
 
 Azure Time Series Insights Gen2 currently has a general **per partition limit of 0.5 MBps or 500 events per second**. Depending on how you've modeled your data, arrays of objects can be split into multiple events, [How to know if my array of objects will produce multiple events
-](./concepts-json-flattening-escaping-rules#how-to-know-if-my-array-of-objects-will-produce-multiple-events).
+.](./concepts-json-flattening-escaping-rules#how-to-know-if-my-array-of-objects-will-produce-multiple-events)
 
 ### IoT Hub-specific considerations
 
