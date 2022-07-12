@@ -64,7 +64,6 @@ In this step, you'll create the Mobile Network resource representing your privat
 
     Select **Go to resource group**, and then check that your new resource group contains the correct **Mobile Network** resource. It may also contain the following, depending on the choices you made during the procedure. 
 
-    - One or more **SIM** resources (if you provisioned any). 
     - A **SIM group** resource (if you provisioned SIMs).
     - **Service**, **SIM Policy**, **Data Network**, and **Slice** resources (if you decided to use the default service and SIM policy).
 

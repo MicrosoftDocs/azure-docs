@@ -67,9 +67,7 @@ Prepare the JSON file using the information you collected for your SIMs in [Coll
   "authenticationKey": "00112233445566778899AABBCCDDEEFF",
   "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88737d",
   "deviceType": "Cellphone",
-  "simPolicy": {
-      "id": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy1"
-    }
+  "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy1"
  },
  {
   "simName": "SIM2",
@@ -78,9 +76,7 @@ Prepare the JSON file using the information you collected for your SIMs in [Coll
   "authenticationKey": "11112233445566778899AABBCCDDEEFF",
   "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88738d",
   "deviceType": "Sensor",
-  "simPolicy": {
-      "id": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy2"
-    }
+  "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy2"
  }
 ]
 ```

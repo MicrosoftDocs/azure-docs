@@ -49,7 +49,8 @@ The following Azure resources are defined in the template.
 - [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane Network Functions of the packet core instance, including IP configuration for the user plane interface on the access network.
 - [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes): a resource providing configuration for the control plane Network Functions of the packet core instance, including IP configuration for the control plane interface on the access network.
 - [**Microsoft.MobileNetwork/mobileNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks): a resource representing the private mobile network as a whole.
-- [**Microsoft.MobileNetwork/sims:**](/azure/templates/microsoft.mobilenetwork/sims) a resource representing a physical SIM or eSIM.
+- [**Microsoft.MobileNetwork/simGroups**](/azure/templates/microsoft.mobilenetwork/simGroups): a resource representing a SIM group.
+- [**Microsoft.MobileNetwork/simGroups/sims**](/azure/templates/microsoft.mobilenetwork/simGroups/sims): a resource representing a physical SIM or eSIM.
 
 ## Deploy the template
 
@@ -72,9 +73,10 @@ The following Azure resources are defined in the template.
     |**Mobile Network Code**     | Enter the mobile network code for the private mobile network.        |
     |**Site Name**     | Enter a name for your site.        |
     |**Service Name**     | Leave this field unchanged.        |
-    |**SIM Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Leave this field unchanged.        |
+    |**Sim Group Name**     | If you want to provision SIMs, enter the name of the SIM group to which the SIMs will be added.        |
+    |**SIM Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     |**Control Plane Access Interface Name**     | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.        |
     |**Control Plane Access Ip Address**    | Enter the IP address for the control plane interface on the access network.        |
     |**User Plane Access Interface Name**     | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.        |
@@ -87,6 +89,7 @@ The following Azure resources are defined in the template.
     |**User Plane Data Interface Gateway**  | Enter the data subnet default gateway. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
+    |**Data Network Name**  | Enter the name of the data network. |    
     |**Core Network Technology**  | Enter `5GC` for 5G, or `EPC` for 4G. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
@@ -115,7 +118,6 @@ The following Azure resources are defined in the template.
     - An **Attached Data Network** resource representing the site's view of the data network.
     - A **Service** resource representing the default service. 
     - A **SIM Policy** resource representing the default SIM policy.
-    - One or more **SIM** resources representing physical SIMs or eSIMs (if you provisioned any).
     - A **SIM Group** resource (if you provisioned any SIMs). 
 
     :::image type="content" source="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing the resources for a full Azure Private 5G Core deployment." lightbox="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png":::
