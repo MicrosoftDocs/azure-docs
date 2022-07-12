@@ -12,7 +12,7 @@ ms.subservice: common
 
 # Replace blob properties and metadata by using AzCopy v10
 
-You replace (overwrite) metadata, index tags, and the assigned access tier of one or more blobs by using the AzCopy v10 command-line utility. 
+You can use AzCopy to change the [access tier](../blobs/access-tiers-overview.md) of one or more blobs as well as replace (_overwrite_) the metadata, and index tags of one or more blobs. 
 
 ## Get started
 
@@ -114,17 +114,6 @@ To _rehydrate_ a blob from the archive tier to an online tier, set the `--rehydr
 ```azcopy
 azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot --rehydrate-priority=high
 ```
-
-## Optional flags
-
-You can tweak your upload operation by using optional flags. Here's a few examples.
-
-|Scenario|Flag|
-|---|---|
-|Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-|Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
-
-For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Next steps
 
