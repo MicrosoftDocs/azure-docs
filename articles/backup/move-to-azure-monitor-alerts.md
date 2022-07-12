@@ -65,7 +65,7 @@ Follow these steps:
 
   - **Create rule**: This action creates an alert processing rule attached to an action group to enable you to receive notifications for Azure Monitor alerts. Once selected, it leads you to a template deployment experience.
 
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-one.png" alt-text="Screenshot showing recommended alert migration actions for Recovery Services vaults":::
+   :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-one.png" alt-text="Screenshot showing recommended alert migration action Create rule for Recovery Services vaults":::
 
    The template is set up to deploy two resources:
 
@@ -88,7 +88,7 @@ Follow these steps:
 
    Select **Manage Alerts** to view the vaults for which classic alerts are currently enabled.
 
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-two.png" alt-text="Screenshot showing recommended alert migration actions for Recovery Services vaults":::
+   :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-two.png" alt-text="Screenshot showing recommended alert migration action Manage Alerts for Recovery Services vaults":::
 
 1. Select **Update** -> **Use only Azure Monitor alerts** checkbox.
 
@@ -130,7 +130,7 @@ To create a suppression alert processing rule, follow these steps:
 
 1. Under **Scheduling**, select the window of time for which the alert processing rule will apply.
 
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-scheduling.png" alt-text="Screenshot showing alert processing rules scheduling":::
+   :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-schedule.png" alt-text="Screenshot showing alert processing rules scheduling":::
 
 1. Under **Details**, specify the subscription, resource group, and name under that the alert processing rule should be created.
 
@@ -162,7 +162,7 @@ You can also leverage programmatic methods to opt-out of classic alerts and mana
 You can use the following standard programmatic interfaces supported by Azure Monitor to manage action groups and alert processing rules.
 
 - [Azure Monitor REST API reference](/rest/api/monitor/)
-- [Azure Monitor PowerShell reference](/powershell/module/az.monitor/?view=azps-8.0.0)
+- [Azure Monitor PowerShell reference](/powershell/module/az.monitor/?view=azps-8.0.0&preserve-view=true)
 - [Azure Monitor CLI reference](/cli/azure/monitor?view=azure-cli-latest)
 
 ## Next steps
