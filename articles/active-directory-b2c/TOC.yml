@@ -168,6 +168,14 @@
         href: enable-authentication-angular-spa-app.md
       - name: Authentication options
         href: enable-authentication-angular-spa-app-options.md
+    - name: React single-page application
+      items:
+      - name: Configure a sample React app
+        href: configure-authentication-sample-react-spa-app.md
+      - name: Enable authentication in your React app
+        href: enable-authentication-react-spa-app.md
+      - name: Authentication options
+        href: enable-authentication-react-spa-app-options.md
     - name: Android mobile app
       items:
       - name: Configure a sample Android app
