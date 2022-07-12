@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 07/12/2022
 ms.author: anfdocs
 ---
 # Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes
