@@ -201,7 +201,7 @@ sections:
 
           ![Screenshot shows the flow for guest redemption.](media/user-invitation-different-email-upn/guest-redemption.png)
 
-          ![Screeshot shows the flow for subsequest sign-ins.](media/user-invitation-different-email-upn/subsequent-sign-in.png)
+          ![Screenshot shows the flow for subsequent sign-ins.](media/user-invitation-different-email-upn/subsequent-sign-in.png)
 
       - question: |
           Instant-on: What can cause replication latency?
