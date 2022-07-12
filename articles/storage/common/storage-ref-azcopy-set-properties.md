@@ -28,13 +28,7 @@ azcopy set-properties [resourceURL] [flags]
 
 ## Examples
 
-Example explanation:
-
-`azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"`
-
-Example 2 explation:
-
-`azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true`
+Examples go here.
 
 ## Options
 
