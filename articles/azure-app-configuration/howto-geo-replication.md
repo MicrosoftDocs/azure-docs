@@ -69,15 +69,15 @@ To create a replica of your configuration store, follow the steps below.
 
 1. In the CLI, run the following code to create a replica of your configuration store. 
 
-  ```azurecli-interactive
-  az appconfig replica create --store-name MyConfigStoreName --name MyNewReplicaName --location MyNewReplicaLocation
-    ```
+```azurecli-interactive
+az appconfig replica create --store-name MyConfigStoreName --name MyNewReplicaName --location MyNewReplicaLocation
+```
 
 1. Verify that the replica was created successfully by listing all replicas of your configuration store. 
 
-    ```azurecli-interactive
+```azurecli-interactive
   az appconfig replica list --store-name MyConfigStoreName 
-    ```
+```
 ---
 
 
@@ -106,9 +106,9 @@ az appconfig replica delete --store-name MyConfigStoreName --name MyNewReplica
 ```
 1. Verify that the replica was deleted successfully by listing all replicas of your configuration store. 
 
-    ```azurecli-interactive
-  az appconfig replica list --store-name MyConfigStoreName 
-    ```
+```azurecli-interactive
+az appconfig replica list --store-name MyConfigStoreName 
+```
 
 ---
 
