@@ -196,7 +196,8 @@ sections:
           This issue can be mitigated by:
           1. [Enabling email as an alternate login ID](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-use-email-signin) in the invited/home Azure AD tenant
           2. Enabling the federated identity provider to support email as login ID (if Azure AD is federated to another identity provider) or
-          3. Instructing the user to redeem/sign-in using their UPN. To avoid this issue entirely, administrators should ensure users’ UPN and email are the same value.
+          3. Instructing the user to redeem/sign-in using their UPN.
+          To avoid this issue entirely, administrators should ensure users’ UPN and email are the same value.
 
           ![Screenshot shows the flow for guest redemption](media/user-invitation-different-email-upn/guest-redemption.png)
 
