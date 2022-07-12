@@ -142,39 +142,39 @@ The resourceGroup and subscription properties are only allowed on modules. These
 
 The following example shows how to apply a lock on a storage account that resides in a different resource group.
 
-main.bicep:
+* **main.bicep:**
 
-```bicep
-param resourceGroup2Name string
-param storageAccountName string
+    ```bicep
+    param resourceGroup2Name string
+    param storageAccountName string
 
-module applyStoreLock './storageLock.bicep' = {
-  name: 'addStorageLock'
-  scope: resourceGroup(resourceGroup2Name)
-  params: {
-    storageAccountName: storageAccountName
-  }
-}
-```
+    module applyStoreLock './storageLock.bicep' = {
+      name: 'addStorageLock'
+      scope: resourceGroup(resourceGroup2Name)
+      params: {
+        storageAccountName: storageAccountName
+      }
+    }
+    ```
 
-storageLock.bicep
+* **storageLock.bicep:**
 
-```bicep
-param storageAccountName string
+    ```bicep
+    param storageAccountName string
 
-resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' existing = {
-  name: storageAccountName
-}
+    resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' existing = {
+      name: storageAccountName
+    }
 
-resource storeLock 'Microsoft.Authorization/locks@2017-04-01' = {
-  scope: storage
-  name: 'storeLock'
-  properties: {
-    level: 'CanNotDelete'
-    notes: 'Storage account should not be deleted.'
-  }
-}
-```
+    resource storeLock 'Microsoft.Authorization/locks@2017-04-01' = {
+      scope: storage
+      name: 'storeLock'
+      properties: {
+        level: 'CanNotDelete'
+        notes: 'Storage account should not be deleted.'
+      }
+    }
+    ```
 
 ## Next steps
 
