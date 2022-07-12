@@ -59,7 +59,7 @@ Then, make sure all resources within the virtual network can connect to each oth
 - Set the **Destination port ranges** to **\***.
 - Set the **Action** to **Allow**
 
-If it's not possible to allow the resources within the virtual network to connect to each other, allow connections between teh application and database subnets, and [open important SAP ports in the virtual network](#open-important-sap-ports) instead.
+If it's not possible to allow the resources within the virtual network to connect to each other, allow connections between the application and database subnets, and [open important SAP ports in the virtual network](#open-important-sap-ports) instead.
 
 ### Allowlist SUSE or Red Hat endpoints
 
