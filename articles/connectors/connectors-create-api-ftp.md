@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/11/2022
+ms.date: 07/13/2022
 tags: connectors
 ---
 
@@ -733,4 +733,4 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Connectors overview for Azure Logic Apps](../connectors/apis-list.md)
