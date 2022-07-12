@@ -235,7 +235,7 @@
           displayName: secure, ssl
         - name: Security baseline
           href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
-    - name: Monitoring
+    - name: Monitor function executions
       href: functions-monitoring.md
       displayName: App Insights, Application Insights, logs, logging
     - name: Diagnostics

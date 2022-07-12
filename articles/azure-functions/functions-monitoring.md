@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Functions
-description: Learn how to use Azure Application Insights with Azure Functions to monitor function execution.
+title: Monitor function executions in Azure Functions
+description: Learn how to use Azure Application Insights with Azure Functions to monitor function executions.
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 07/05/2022
@@ -8,7 +8,7 @@ ms.custom: "devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js"
 # Customer intent: As a developer, I want to understand what facilities are provided to help me monitor my functions so I can know if they're running correctly.
 ---
 
-# Monitor Azure Functions
+# Monitor function executions in Azure Functions
 
 [Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions executions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions.
 
