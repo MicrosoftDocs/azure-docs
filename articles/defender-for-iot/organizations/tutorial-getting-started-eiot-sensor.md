@@ -144,7 +144,7 @@ Run the command that you received and saved when you registered the Enterprise I
 
     - In the **What is the name of the monitored interface?** screen, use the SPACEBAR to select the interfaces you want to monitor with your sensor, and then select OK.
 
-    - In the **Set up proxy server** screen, select whether to set up a proxy server for your sensor (**Yes** / **No**)/
+    - In the **Set up proxy server** screen, select whether to set up a proxy server for your sensor (**Yes** / **No**).
 
         (Optional) If you're setting up a proxy server, define the following values, selecting **Ok** after each option:
 
