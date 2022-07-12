@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Azure AD Connect:  ADConnectivityTools PowerShell Reference
 
-The following documentation provides reference information for the ADConnectivityTools.psm1 PowerShell Module that is included with Azure AD Connect.
+The following documentation provides reference information for the ADConnectivityTools PowerShell Module that is included with Azure AD Connect in `C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ADConnectivityTool.psm1`.
 
 ## Confirm-DnsConnectivity
 
