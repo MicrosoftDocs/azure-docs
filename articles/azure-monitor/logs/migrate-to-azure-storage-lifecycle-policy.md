@@ -12,7 +12,7 @@ date: 07/10/2022
 
 # Migrate from Diagnostic Settings Storage Retention to Azure Storage Lifecycle Policy
 
-This guide walks you through migrating from using the Diagnostic Settings Storage Retention feature to using Azure Storage Lifecycle Policy for retention.
+This guide walks you through migrating from using the Diagnostic Settings Storage Retention feature to using[ Azure Storage Lifecycle Policy](azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal) for retention.
 
 The Diagnostic Settings Storage Retention feature is being deprecated. To configure retention for logs and metrics use [Azure Storage Lifecycle Management](azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal).
 
@@ -30,7 +30,7 @@ To migrate your diagnostics settings retention rules, followe the steps below:
 1. 	Go to the Diagnostic Settings page for your logging resource and locate the diagnostic setting you wish to migrate
 1.	Set the retention for your logged categories to *0*
 1. Select **Save**
- :::image type="content" source="./media/retention-migration/diagnostics-settingssss.png" alt-text="A screen shot showing a diagnostics setting page.":::
+ :::image type="content" source="./media/retention-migration/diagnostics-setting.png" alt-text="A screen shot showing a diagnostics setting page.":::
 
 1.	Navigate to the storage account you are logging to
 1.	**Under Data management**, select **Lifecycle Management** to view or change lifecycle management policies
@@ -45,8 +45,13 @@ To migrate your diagnostics settings retention rules, followe the steps below:
 1. Set your retention time, then select **Next**
 :::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-base-blobs.png" alt-text="A screen shot showing the Base blobs tab for adding a lifecycle rule.":::
 
-1.	On the **Filters** tab >>>>>>>>>>>>>>>>>>>, scope your rule to the container for the logs you wish to set the retention for.
-e.g. for all Function App logs, you could use container “insights-logs-functionapplogs” to set retention or all Function App logs, or “insights-logs-functionapplogs/resourceId=/SUBSCRIPTIONS/<SubscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.WEB/SITES/<FunctionAppName>”
+1.	On the **Filters** tab, under **Blob prefix** set path or prefix to the container or logs you want the retention rule to apply to.  
+For example, for all Function App logs, you could use the container: *insights-logs-functionapplogs* to set retention or all Function App logs
+To set rule for as specific subscription resource group and function app name use *insights-logs-functionapplogs/resourceId=/SUBSCRIPTIONS/<SubscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.WEB/SITES/<FunctionAppName>* 
 
-1.	Save the rule.
+1. Select **Add* to 
 :::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-filter-set.png" alt-text="A screen shot showing the filters tab tab for adding a lifecycle rule.":::
+
+## Next steps
+
+[Configure a lifecycle management policy](azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal)
