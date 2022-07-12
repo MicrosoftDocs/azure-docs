@@ -90,11 +90,13 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 1. Select **Next : DNS >** to choose a DNS record. If you don't want to make changes to the default settings, you can move forward to the next tab.
 
-   1. For **Integrate with private DNS zone**, select **Yes** to integrate your private endpoint with a private DNS zone. You may also use your own DNS servers or create DNS records using the host files on your virtual machines. [Learn more](https://go.microsoft.com/fwlink/?linkid=2100445).
+   1. For **Integrate with private DNS zone**, select **Yes** to integrate your private endpoint with a private DNS zone. You may also use your own DNS servers or create DNS records using the host files on your virtual machines.
 
    1. A subscription and resource group for your private DNS zone are preselected. You can change them optionally.
 
     :::image type="content" source="./media/private-endpoint/dns.png" alt-text="Screenshot of the Azure portal, create a private endpoint, DNS tab.":::
+
+    To learn more about DNS configuration, go to [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) and [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration).
 
 1. Select **Next : Tags >** and optionally create tags. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
