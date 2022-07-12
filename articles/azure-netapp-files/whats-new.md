@@ -12,13 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 06/28/2022
+ms.date: 07/12/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
-Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Snapshot volume revert in cross-region replication](snapshots-revert-volume.md)
 
 ## June 2022
 
