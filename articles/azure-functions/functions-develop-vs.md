@@ -235,7 +235,7 @@ To attach a remote debugger to a function app running in-process with the Functi
 
 + From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
 
-    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio":::
+    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio.":::
 
 Visual Studio connects to your function app and enables remote debugging, if it's not already enabled. It also locates and attaches the debugger to the host process for the app. At this point, you can debug your function app as normal. 
 
@@ -250,7 +250,7 @@ To attach a remote debugger to a function app running in a process separate from
 
 1. Again from the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
 
-    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio":::
+    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio.":::
 
     Visual Studio connects to your function app and enables remote debugging, if it's not already enabled. 
     
