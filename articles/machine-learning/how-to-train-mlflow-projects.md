@@ -34,7 +34,9 @@ In this article, learn how to enable MLflow's tracking URI and logging API, coll
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
  * Configure MLflow for tracking in Azure Machine Learning, as explained in the next section.
 
-### Configure tracking
+### Set up tracking environment
+
+To configure MLflow for working with Azure Machine Learning, you need to point your MLflow environment to the Azure Machine Learning MLflow Tracking URI. 
 
 > [!NOTE]
 > When running on Azure Compute (Azure Notebooks, Jupyter Notebooks hosted on Azure Compute Instances or Compute Clusters) you don't have to configure the tracking URI. It's automatically configured for you.
