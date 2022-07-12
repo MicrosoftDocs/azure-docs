@@ -16,7 +16,6 @@ Using Azure Dedicated Hosts for nodes with your SFMC cluster has the following b
 You can choose the SKU for Dedicated Hosts Virtual Machines based on your workload requirements. For information on pricing, see [Pricing - Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/). The following will take you step by step for how to add an Azure Dedicated Host to a Service Fabric managed cluster with an Azure Resource Manager template.
 
 
-
 ## Prerequisites
 This guide builds upon the managed cluster quick start guide: Deploy a Service Fabric managed cluster using Azure Resource Manager(../service-fabric/quickstart-managed-cluster-template.md)
 
@@ -34,29 +33,118 @@ Service Fabric managed clusters use a client certificate as a key for access con
 If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
 
 ## Deploy Dedicated Host Resources
-1) Create a dedicated host group pinned to one Availability Zone and five Fault Domains using the provided sample ARM deployment template. The sample will ensure there is at least one dedicated host per Fault Domain.
-```powershell
+1) Create a dedicated host group pinned to one Availability Zone and five Fault Domains using the provided sample ARM deployment template. The sample will ensure there    is at least one dedicated host per Fault Domain.
+   ```powershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $location
-   New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\hostTemplate_sample.json" -hostGroupName $hostGroupName -dedicatedHostNamePrefix $dedicatedHostNamePrefix -dedicatedHostSKU $dedicatedHostSKU -Debug –Verbose 
+   New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\hostTemplate_sample.json" -hostGroupName              $hostGroupName -dedicatedHostNamePrefix $dedicatedHostNamePrefix -dedicatedHostSKU $dedicatedHostSKU -Debug –Verbose 
    ```
-   
+
 >[!NOTE] 
-> Ensure you use the correct sku family that matches the one you are going to use for the node type vmSize. See [Azure Dedicated Host pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/) for more information.
+> Ensure you use the correct sku family that matches the one you are going to use for the node type vmSize. See [Azure Dedicated Host pricing]                       (https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/) for more information.
 
 2) Once the Host group is successfully created, provide access for the Host group to Azure Service Fabric managed clusters service.
 
-   a) Add a role assignment to the host group with the Service Fabric Resource Provider application. This assignment allows Service Fabric Resource Provider to 
-      deploy VMs on the Dedicated Hosts inside the host group, created on the previous step, to the managed cluster's virtual machine scale set. This is a one-time           action.
+   a) Add a role assignment to the host group with the Service Fabric Resource Provider application. This assignment allows Service Fabric Resource Provider to deploy     VMs on the Dedicated Hosts inside the host group, created on the previous step, to the managed cluster's virtual machine scale set. This is a one-time action.
+   
+>[!NOTE] 
+> To do role assignments in a host group, the user needs to have admin access to the host group. Please see this doc [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
+   
    b) Get SFRP provider id and Service Principal for Service Fabric Resource Provider application:
-   ```powershell
-   Login-AzAccount  
-   Select-AzSubscription -SubscriptionId <SubId>  
-   Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"  
-   ```
-   c) Add role assignment to host group with contributor access. This role assignment can be created via PowerShell using the principal ID and role definition name:  
-   ```powershell
-   New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
-   ```
+```powershell
+Login-AzAccount  
+Select-AzSubscription -SubscriptionId <SubId>  
+Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
+```
+>[!NOTE] 
+> Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
+
+   c) Add role assignment to host group with contributor access. This role assignment can be created via PowerShell using the Id of the previous output as principal ID    and role definition name as "Contributor" where applicable. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-    control/built-in-roles#all) for more information on Azure roles.
+      
+```powershell
+New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
+```
+
+   Alternatively, you can also use a template. This role assignment can be defined in the resources section template using the Principal ID and role definition ID: 
    
-   Alternatvely, you can also use template. it can be defined in resources section template using the Principal ID and role definition ID: 
+```JSON
+"variables": {  
+        "authorizationApiVersion": "2018-01-01-preview",  
+        "contributorRoleId": "b24988ac-6180-42a0-ab88-20f7382dd24c",  
+        "SFRPAadServicePrincipalId": " <Service Fabric Resource Provider ID> -"  
+    }, 
+{  
+            "apiVersion": "[variables('authorizationApiVersion')]",  
+            "type": "Microsoft.Compute/Hostgroups/providers/roleAssignments",  
+            "name": "[concat(concat(parameters('dhgNamePrefix'), '0'), '/Microsoft.Authorization/', parameters('hostGroupRoleAssignmentId'))]",  
+            "dependsOn": [  
+                "[resourceId('Microsoft.Compute/hostGroups', concat(parameters('dhgNamePrefix'), '0'))]"  
+            ],  
+            "properties": {  
+                "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', variables('contributorRoleId'))]",  
+                "principalId": "[variables('SFRPAadServicePrincipalId')]"  
+            }  
+          } 
+```
+
+## Deploy Azure Service Fabric managed cluster with Dedicated Host
+
+Create an Azure Service Fabric managed cluster with node type(s) configured to reference the Dedicated Host group ResourceId. The node type needs to be pinned to the same zone as the host group. 
+
+The template used in this guide is from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates). The template is too long to show here.
+
+1) Store the paths of your ARM template and parameter files in variables, then deploy the template.
+
+```powershell
+$templateFilePath = "<full path to azuredeploy.json>" 
+$parameterFilePath = "<full path to azuredeploy.parameters.json>" 
+```
+
+2) Provide your own values for the following template parameters:
+
+   a) Subscription: Select an Azure subscription. 
+   b) Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK. 
+   c) Location: Select a location. 
+   d) Cluster Name: Enter a unique name for your cluster, such as mysfcluster. 
+   e) Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster. 
+   f) Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster. 
+   g) Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a              certificate, follow set and retrieve a certificate to create a self-signed certificate. 
+   h) Node Type Name: Enter a unique name for your node type, such as nt1.
    
+```powershell
+New-AzResourceGroupDeployment ` 
+    -Name $DeploymentName ` 
+    -ResourceGroupName $resourceGroupName ` 
+    -TemplateFile $templateFilePath ` 
+    -TemplateParameterFile $parameterFilePath ` 
+    -Verbose
+```
+
+3) There are two straightforward ways to deploy an ARM template:
+   a) Through ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
+   b) Through ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/en-                     us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
+   
+4) Deploy the template through your chosen method. It takes a few minutes for your managed Service Fabric cluster to deploy. Wait for the deployment to be completed successfully.
+
+## Troubleshooting
+
+1) The following error is thrown when SFRP does not have access to the host group:
+
+{  
+      "code": "LinkedAuthorizationFailed",  
+      "message": "The client 'fbc587f2-66f5-4459-a027-bcd908b9d278' with object id 'fbc587f2-66f5-4459-a027-bcd908b9d278' has permission to perform action 'Microsoft.Compute/virtualMachineScaleSets/write' on scope '/subscriptions/21f993ff-292e-4f1e-99d5-92c7bb0b0a45/resourcegroups/SFC_542583ff-7a98-4958-b879-3ba77962da1f/providers/Microsoft.Compute/virtualMachineScaleSets/pnt'; however, it does not have permission to perform action 'write' on the linked scope(s) '/subscriptions/21f993ff-292e-4f1e-99d5-92c7bb0b0a45/resourceGroups/DEDICATEDHOSTSCUS2/providers/Microsoft.Compute/hostGroups/HostGroupscu0' or the linked scope(s) are invalid."  
+    }
+    
+2) If Host Group is in a different subscription than the clusters, then the following error is reported:
+
+{  
+      "code": "BadRequest",  
+      "message": "Entity subscriptionId in resource reference id /subscriptions/13ad2c84-84fa-4798-ad71-e70c07af873f/resourceGroups/DEDICATEDHOSTSCUS/providers/Microsoft.Compute/hostGroups/HostGroupeu2euap0 is invalid."  
+    }
+    
+3) If Quota for Host Group is not sufficient, following error is thrown:
+
+{  
+      "code": "QuotaExceeded",  
+      "message": "Operation could not be completed as it results in exceeding approved standardDSv3Family Cores quota.  
+Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase at https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/.. Please read more about quota limits at https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests” 
+    }
