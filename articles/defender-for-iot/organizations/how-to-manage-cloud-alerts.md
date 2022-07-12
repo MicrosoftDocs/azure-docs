@@ -56,7 +56,7 @@ The following alert details are displayed by default in the grid:
 | **Name** |  The alert title. |
 | **Site** |  The site associated with the sensor that detected the alert, as listed on the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).|
 | **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. For more information, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term *micro-agent* is displayed instead. |
-| **Last detection** | The last time the alert was detected. The alert traffic may occur several times after the first detection. If the alert Status is **New**, the detection time won't change. If the alert is **Closed** and the traffic is seen again, a new detection time will be displayed.|
+| **Last detection** | The last time the alert was detected. <br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.|
 | **Status** | The alert status: *New*, *Active*, *Closed* |
 | **Source device** | The IP address, MAC, or device name. |
 | **Tactics** | The MITRE ATT&CK stage. |
