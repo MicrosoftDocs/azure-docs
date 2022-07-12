@@ -6,6 +6,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
+ms.reviewer: Xema Pathak
 
 ---
 
@@ -37,16 +38,16 @@ Metric rules for virtual machines can use the following data:
 > When VM insights supports the Azure Monitor agent, which is currently in public preview, it sends performance data from the guest operating system to Metrics so that you can use metric alerts.
 
 ### Log alerts
-[Log alerts](../alerts/alerts-unified-log.md) can measure two different things, each of which supports distinct scenarios for monitoring virtual machines:
+[Log alerts](../alerts/alerts-unified-log.md) can measure two different things which can be used to monitor virtual machines in different scenarios:
 
-- [Result count](../alerts/alerts-unified-log.md#result-count): This measure counts the number of rows returned by the query, and can be used to work with events such as Windows event logs, syslog, application exceptions.
-- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): This measure is based on a numeric column and  can be used to include any number of resources. For example, CPU percentage.
+- [Result count](../alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query, and can be used to work with events such as Windows event logs, syslog, application exceptions.
+- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): Makes a calculation based on a numeric column, and can be used to include any number of resources. For example, CPU percentage.
 
 ### Targeting resources and dimensions
 
 You can monitor multiple instances’ values with one rule using dimensions. You would use dimensions if, for example, you want to monitor CPU usage on multiple instances running your web site or app for CPU usage over 80%. 
 
-To create resource-centric alerts at scale for a subscription or resource group, you can use the **Split by dimensions** section of the condition to split alerts into separate alerts by grouping unique combinations using numerical or string columns.  When you want to monitor the same condition on multiple Azure resources, splitting on Azure resource ID column will change the target of the alert to the specified resource.
+To create resource-centric alerts at scale for a subscription or resource group, you can **Split by dimensions**.  When you want to monitor the same condition on multiple Azure resources, splitting by dimensions splits the alerts into separate alerts by grouping unique combinations using numerical or string columns. Splitting on Azure resource ID column makes the specified resource into the alert target.
 
 You may also decide not to split when you want a condition on multiple resources in the scope, for example, if you want to alert if at least five machines in the resource group scope have CPU usage over 80%.
 
@@ -83,7 +84,7 @@ Use a rule with the following query.
 
 ```kusto
 Heartbeat
-| summarize TimeGenerated=max(TimeGenerated) by Computer
+| summarize TimeGenerated=max(TimeGenerated) by Computer, _ResourceId
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
 | summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m), _ResourceId
 ```

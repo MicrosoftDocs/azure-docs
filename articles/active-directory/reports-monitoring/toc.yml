@@ -2,17 +2,18 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure AD reports?
+  - name: Azure AD reports
     href: overview-reports.md
-  - name: What is Azure AD monitoring?
+  - name: Azure AD monitoring
     href: overview-monitoring.md
-  - name: What is the sign-in diagnostic?
-    href: overview-sign-in-diagnostics.md
-  - name: What are flagged sign-ins?
-    href: overview-flagged-sign-ins.md
-  - name: What is Azure AD recommendations?
+  - name: Azure AD recommendations
     href: overview-recommendations.md
-   
+  - name: Flagged sign-ins
+    href: overview-flagged-sign-ins.md
+  - name: Service Health notifications
+    href: overview-service-health-notifications.md
+  - name: Sign-in diagnostic
+    href: overview-sign-in-diagnostics.md
 - name: Quickstarts
   expanded: true
   items:
@@ -104,6 +105,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Azure Active Directory SLA performance
+    href: reference-azure-ad-sla-performance.md
   - name: Basic info in the sign-in logs
     href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
@@ -138,9 +141,13 @@
       href: workbook-sensitive-operations-report.md
 - name: Recommendations
   items:
-    - name: Convert from per-user MFA to conditional access MFA
-      href: recommendation-convert-to-conditional-access-mfa.md
+    - name: Convert to conditional access MFA
+      href: recommendation-turn-off-per-user-mfa.md
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
     - name: Migrate to Microsoft authenticator
       href: recommendation-migrate-to-authenticator.md
+    - name: Migrate apps from AD FS to Azure AD
+      href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
+    - name: Minimize MFA prompts from known devices
+      href: recommendation-mfa-from-known-devices.md

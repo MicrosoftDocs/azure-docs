@@ -5,12 +5,12 @@ description: Learn how to set up AutoML training runs without a single line of c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: nibaccam
-author: cartacioS
+ms.author: larryfr
+author: blackmist
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
 ms.topic: how-to
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
 ---
 
 # Set up no-code AutoML training with the studio UI 
@@ -27,7 +27,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
 ## Get started
 
@@ -101,7 +101,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Virtual machine priority| Low priority virtual machines are cheaper but don't guarantee the compute nodes. 
     Virtual machine type| Select CPU or GPU for virtual machine type.
     Virtual machine size| Select the virtual machine size for your compute.
-    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
+    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AzureML Compute.
     Advanced settings | These settings allow you to configure a user account and existing virtual network for your experiment. 
     
     Select **Create**. Creation of a new compute can take a few minutes.
@@ -131,7 +131,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
     Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
+    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child runs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
@@ -152,7 +152,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
         
         * Test data is considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
-        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset).         
+        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset).         
         * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
         * The test dataset should not be the same as the training dataset or the validation dataset.
         * Forecasting runs do not support train/test split.
@@ -293,7 +293,7 @@ The **Edit and submit** button opens the **Create a new Automated ML run** wizar
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
 
 >[!TIP]
-> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) to the workspace. 
+> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-job-1) to the workspace. 
 >
 > Once you're model is registered, find it in the studio by selecting **Models** on the left pane. Once you open your model, you can select the **Deploy** button at the top of the screen, and then follow the instructions as described in **step 2** of the **Deploy your model** section.
 

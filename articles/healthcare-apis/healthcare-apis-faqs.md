@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 03/15/2022
+ms.date: 06/15/2022
 ms.author: ginle
 ---
 
@@ -28,7 +28,7 @@ Azure Health Data Services enables you to:
 
 * Transform and ingest data into FHIR. For example, you can transform health data from legacy formats, such as HL7v2 or CDA, or from high frequency IoT data in device proprietary formats to FHIR.
 
-* Connect your data stored in Healthcare APIs with services across the Azure ecosystem, like Synapse, and products across Microsoft, like Teams, to derive new insights through analytics and machine learning and to enable new workflows as well as connection to SMART on FHIR applications.
+* Connect your data stored in Azure Health Data Services with services across the Azure ecosystem, like Synapse, and products across Microsoft, like Teams, to derive new insights through analytics and machine learning and to enable new workflows as well as connection to SMART on FHIR applications.
 
 * Manage advanced workloads with enterprise features that offer reliability, scalability, and security to ensure that your data is protected, meets privacy and compliance certifications required for the healthcare industry.
 
@@ -38,7 +38,7 @@ No, unfortunately we don't offer migration capabilities at this time.
 
 ### What is the pricing of Azure Health Data Services?
 
-At this time, Azure Health Data Services is available for you to use at no charge.
+For pricing information, see [Azure Health Data Services pricing](https://azure.microsoft.com/pricing/details/health-data-services/).
 
 ### What regions are Azure Health Data Services available?
 
@@ -48,16 +48,12 @@ Refer to the [Products by region](https://azure.microsoft.com/global-infrastruct
 
 For more information, see [Azure Health Data Services service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-health-data-services) for the most current information.
 
-### What is the backup and recovery policy for Azure Health Data Services?
-
-Data for the managed service is automatically backed up every 12 hours, and the backups are kept for seven days. Data can be restored by the support team. Customers can make a request to restore the data, or change the default data backup policy, through a support ticket.
-
 ## More frequently asked questions
 
 [FAQs about Azure Health Data Services FHIR service](./fhir/fhir-faq.md)
 
 [FAQs about Azure Health Data Services DICOM service](./dicom/dicom-services-faqs.yml)
 
-[FAQs about Azure Health Data Services IoT connector](./iot/iot-connector-faqs.md)
+[FAQs about Azure Health Data Services MedTech service](./iot/iot-connector-faqs.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

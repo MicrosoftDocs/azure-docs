@@ -18,28 +18,9 @@ The Azure Maps Web SDK provides a powerful canvas for rendering large spatial da
 
 Generally, when looking to improve performance of the map, look for ways to reduce the number of layers and sources, and the complexity of the data sets and rendering styles being used.
 
-## Security basics
+## Security best practices
 
-The single most important part of your application is its security. If your application isn't secure a hacker can ruin any application, no matter how good the user experience might be. The following are some tips to keep your Azure Maps application secure. When using Azure, be sure to familiarize yourself with the security tools available to you. See this document for an [introduction to Azure security](../security/fundamentals/overview.md).
-
-> [!IMPORTANT]
-> Azure Maps provides two methods of authentication.
->
-> * Subscription key-based authentication
-> * Azure Active Directory authentication
->
-> Use Azure Active Directory in all production applications.
-> Subscription key-based authentication is simple and what most mapping platforms use as a light way method to measure your usage of the platform for billing purposes. However, this is not a secure form of authentication and should only be used locally when developing apps. Some platforms provide the ability to restrict which IP addresses and/or HTTP referrer is in requests, however, this information can easily be spoofed. If you do use subscription keys, be sure to [rotate them regularly](how-to-manage-authentication.md#manage-and-rotate-shared-keys).
-> Azure Active Directory is an enterprise identity service that has a large selection of security features and settings for all sorts of application scenarios. Microsoft recommends that all production applications using Azure Maps use Azure Active Directory for authentication.
-> Learn more about [managing authentication in Azure Maps](how-to-manage-authentication.md) in this document.
-
-### Secure your private data
-
-When data is added to the Azure Maps interactive map SDKs, it is rendered locally on the end user's device and is never sent back out to the internet for any reason.
-
-If your application is loading data that should not be publicly accessible, make sure that the data is stored in a secure location, is accessed in a secure manner, and that the application itself is locked down and only available to your desired users. If any of these steps are skipped, an unauthorized person has the potential to access this data. Azure Active Directory can assist you with locking this down.
-
-See this tutorial on [adding authentication to your web app running on Azure App Service](../app-service/scenario-secure-app-authentication-app-service.md)
+For security best practices, see [Authentication and authorization best practices](authentication-best-practices.md).
 
 ### Use the latest versions of Azure Maps
 
@@ -236,7 +217,7 @@ If your data meets one of the following criteria, be sure to specify the min and
 * If the data is coming from a vector tile source, often source layers for different data types are only available through a range of zoom levels.
 * If using a tile layer that doesn't have tiles for all zoom levels 0 through 24 and you want it to only rendering at the levels it has tiles, and not try to fill in missing tiles with tiles from other zoom levels.
 * If you only want to render a layer at certain zoom levels.
-All layers have a `minZoom` and `maxZoom` option where the layer will be rendered when between these zoom levels based on this logic ` maxZoom > zoom >= minZoom`.
+All layers have a `minZoom` and `maxZoom` option where the layer will be rendered when between these zoom levels based on this logic `maxZoom > zoom >= minZoom`.
 
 **Example**
 
@@ -292,7 +273,7 @@ var layer = new atlas.layer.HeatMapLayer(source, null, {
 });
 ```
 
-Learn more in the [Clustering and heat maps in this document](clustering-point-data-web-sdk.md #clustering-and-the-heat-maps-layer)
+Learn more in the [Clustering and heat maps in this document](clustering-point-data-web-sdk.md#clustering-and-the-heat-maps-layer)
 
 ### Keep image resources small
 

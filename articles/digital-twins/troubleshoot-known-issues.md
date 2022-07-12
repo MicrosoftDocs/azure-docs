@@ -1,5 +1,5 @@
 ---
-title: "Troubleshooting: Known issues"
+title: "Troubleshoot known issues"
 titleSuffix: Azure Digital Twins
 description: Get help recognizing and mitigating known issues with Azure Digital Twins.
 author: baanders
@@ -10,7 +10,7 @@ ms.date: 02/28/2022
 ms.custom: contperf-fy21q2
 ---
 
-# Troubleshooting Azure Digital Twins: Known issues
+# Azure Digital Twins known issues
 
 This article provides information about known issues associated with Azure Digital Twins.
 

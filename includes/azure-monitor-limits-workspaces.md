@@ -13,20 +13,21 @@ ms.custom: "include file"
 
 **Data collection volume and retention** 
 
-| Tier | Limit per day | Data retention | Comment |
+| Pricing tier | Limit per day | Data retention | Comment |
 |:---|:---|:---|:---|
-| Current Per GB pricing tier<br>(introduced April 2018) | No limit | 30 - 730 days | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). |
-| Legacy Free tiers<br>(introduced April 2016) | 500 MB | 7 days | When your workspace reaches the 500 MB per day limit, data ingestion stops and resumes at the start of the next day. A day is based on UTC. Data collected by Microsoft Defender for Cloud isn't included in this 500 MB per day limit and will continue to be collected above this limit.  |
-| Legacy Standalone Per GB tier<br>(introduced April 2016) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). |
-| Legacy Per Node (OMS)<br>(introduced April 2016) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). |
-| Legacy Standard tier | No limit | 30 days  | Retention can't be adjusted |
-| Legacy Premium tier | No limit | 365 days  | Retention can't be adjusted |
+| [Pay-as-you-go](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#pricing-model)<br>(introduced April 2018) | No limit | up to 730 days interactive retention /<br> up to 7 years [data archive](https://docs.microsoft.com/azure/azure-monitor/logs/data-retention-archive) | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). |
+| [Commitment tiers](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers)<br>(introduced November 2019) | No limit | up to 730 days interactive retention /<br> up to 7 years [data archive](https://docs.microsoft.com/azure/azure-monitor/logs/data-retention-archive) | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). |
+| [Legacy Per Node (OMS)](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#per-node-pricing-tier)<br>(introduced April 2016) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). Access to use tier is limited to subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active.  |
+| [Legacy Standalone tier](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#standalone-pricing-tier)<br>(introduced April 2016) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). Access to use tier is limited to subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active.|
+| [Legacy Free tier](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#free-trial-pricing-tier)<br>(introduced April 2016) | 500 MB | 7 days | When your workspace reaches the 500 MB per day limit, data ingestion stops and resumes at the start of the next day. A day is based on UTC. Data collected by Microsoft Defender for Cloud isn't included in this 500 MB per day limit and will continue to be collected above this limit. Creating new workspaces in, or moving existing workspaces into, the legacy Free Trial pricing tier is possible only until July 1, 2022.  |
+| [Legacy Standard tier](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#standard-and-premium-pricing-tiers) | No limit | 30 days  | Retention can't be adjusted. This tier has not been available to any new workspaces since October 1, 2016.|
+| [Legacy Premium tier](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#standard-and-premium-pricing-tiers) | No limit | 365 days  | Retention can't be adjusted. This tier has not been available to any new workspaces since October 1, 2016.|
 
 **Number of workspaces per subscription.**
 
 | Pricing tier    | Workspace limit | Comments
 |:---|:---|:---|
-| Free tier  | 10 | This limit can't be increased. |
+| Legacy Free tier  | 10 | This limit can't be increased. Creating new workspaces in, or moving existing workspaces into, the legacy Free Trial pricing tier is possible only until July 1, 2022. |
 | All other tiers | No limit | You're limited by the number of resources within a resource group and the number of resource groups per subscription. |
 
 **Azure portal**
@@ -50,7 +51,7 @@ ms.custom: "include file"
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned in a single query | 500,000 | |
-| Maximum size of data returned | ~104 MB (~100 MiB)|The API returns up to 64 MB of binary data, which translates to up to 100 MB of text. |
+| Maximum size of data returned | ~104 MB (~100 MiB)|The API returns up to 64 MB of compressed data, which translates to up to 100 MB of raw data. |
 | Maximum query running time | 10 minutes | See [Timeouts](../articles/azure-monitor/logs/api/timeouts.md) for details.|
 | Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Log queries and language](../articles/azure-monitor/service-limits.md#log-queries-and-language).|
 
@@ -82,4 +83,4 @@ When data sent to your workspace is at a volume rate higher than 80% of the thre
 See [Monitor health of Log Analytics workspace in Azure Monitor](../articles/azure-monitor/logs/monitor-workspace.md) to create alert rules to be proactively notified when you reach any ingestion limits.
 
 >[!NOTE]
->Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](../articles/azure-monitor/logs/manage-cost-storage.md#legacy-pricing-tiers).
+>Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](../articles/azure-monitor/logs/cost-logs.md#legacy-pricing-tiers).

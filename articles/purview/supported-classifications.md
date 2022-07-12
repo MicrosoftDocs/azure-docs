@@ -1,6 +1,6 @@
 ---
 title: List of supported classifications
-description: This page lists the supported system classifications in Azure Purview.
+description: This page lists the supported system classifications in Microsoft Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -10,14 +10,14 @@ ms.date: 09/27/2021
 #Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
-# System classifications in Azure Purview
+# System classifications in Microsoft Purview
 
-This article lists the supported system classifications in Azure Purview. To learn more about classification, see [Classification](concept-classification.md).
+This article lists the supported system classifications in Microsoft Purview. To learn more about classification, see [Classification](concept-classification.md).
 
-Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expression) and [Bloom Filter](https://wikipedia.org/wiki/Bloom_filter). The following lists describe the format, pattern, and keywords for the Azure Purview defined system classifications. Each classification name is prefixed by *MICROSOFT*.
+Microsoft Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expression) and [Bloom Filter](https://wikipedia.org/wiki/Bloom_filter). The following lists describe the format, pattern, and keywords for the Microsoft Purview defined system classifications. Each classification name is prefixed by *MICROSOFT*.
 
 > [!Note]
-> Azure Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Azure Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
+> Microsoft Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Microsoft Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
 
 > [!Note]
 > **Minimum match threshold**: It is the minimum percentage of data value matches in a column that must be found by the scanner for the classification to be applied. For system classification minimum match threshold value is set at 60% and cannot be changed. For custom classification, this value is configurable.
@@ -36,7 +36,7 @@ Person Name bloom filter has been prepared using the below two datasets.
 - [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
 
 > [!NOTE]
-> Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
+> Microsoft Purview classifies columns only when the data contains first/last names. Microsoft Purview doesn't classify columns that contain full names.
 
 ## RegEx Classifications
 

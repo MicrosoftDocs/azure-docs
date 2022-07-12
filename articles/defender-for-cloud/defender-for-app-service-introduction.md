@@ -7,9 +7,7 @@ ms.author: benmansheim
 author: bmansheim
 ---
 
-# Protect your web apps and APIs
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+# Overview of Defender for App Service to protect your Azure App Service web apps and APIs
 
 ## Prerequisites
 
@@ -32,7 +30,7 @@ To protect your Azure App Service plan with Microsoft Defender for App Service, 
 | Pricing:                     | Microsoft Defender for App Service is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)<br>Billing is according to total compute instances in all plans       |
 | Supported App Service plans: | [The supported App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are:<br>• Free plan<br>• Basic Service plan<br>• Standard Service plan<br>• Premium v2 Service Plan<br>• Premium v3 Service Plan<br>• App Service Environment v1<br>• App Service Environment v2<br>• App Service Environment v3|
 | Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)                                                     |
-|                              |                                                                                                                                                                                                |
+
 
 ## What are the benefits of Microsoft Defender for App Service?
 
@@ -53,7 +51,6 @@ When you enable Microsoft Defender for App Service, you immediately benefit from
 As a cloud-native solution, Defender for App Service can identify attack methodologies applying to multiple targets. For example, from a single host it would be difficult to identify a distributed attack from a small subset of IPs, crawling to similar endpoints on multiple hosts.
 
 The log data and the infrastructure together can tell the story: from a new attack circulating in the wild to compromises in customer machines. Therefore, even if Microsoft Defender for App Service is deployed after a web app has been exploited, it might be able to detect ongoing attacks.
-
 
 ## What threats can Defender for App Service detect?
 

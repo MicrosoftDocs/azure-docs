@@ -1,5 +1,5 @@
 ---
-title: Remove a virtual machine scale set association from a Capacity Reservation group (preview)
+title: Remove a virtual machine scale set association from a Capacity Reservation group
 description: Learn how to remove a virtual machine scale set from a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
@@ -12,6 +12,8 @@ ms.custom: template-how-to
 
 # Remove a virtual machine scale set association from a Capacity Reservation group 
 
+**Applies to:** :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
+
 This article walks you through removing a virtual machine scale set association from a Capacity Reservation group. To learn more about capacity reservations, see the [overview article](capacity-reservation-overview.md). 
 
 Because both the VM and the underlying Capacity Reservation logically occupy capacity, Azure imposes some constraints on this process to avoid ambiguous allocation states and unexpected errors.  
@@ -20,10 +22,6 @@ There are two ways to change an association:
 - Option 1: Deallocate the Virtual machine scale set, change the Capacity Reservation group property at the scale set level, and then update the underlying VMs
 - Option 2: Update the reserved quantity to zero and then change the Capacity Reservation group property
 
-> [!IMPORTANT]
-> Capacity Reservation is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Deallocate the Virtual machine scale set
 

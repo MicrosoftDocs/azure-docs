@@ -1,14 +1,12 @@
 ---
 title: Implement security recommendations in Microsoft Defender for Cloud | Microsoft Docs
 description: This article explains how to respond to recommendations in Microsoft Defender for Cloud to protect your resources and satisfy security policies.
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: benmansheim
 author: bmansheim
 ms.date: 11/09/2021
 ---
 # Implement security recommendations in Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.
 
@@ -32,14 +30,14 @@ To simplify remediation and improve your environment's security (and increase yo
 
 > [!TIP]
 > The **Fix** feature is only available for specific recommendations. To find recommendations that have an available fix, use the **Response actions** filter for the list of recommendations:
-> 
+>
 > :::image type="content" source="media/implement-security-recommendations/quick-fix-filter.png" alt-text="Use the filters above the recommendations list to find recommendations that have the Fix option.":::
 
 To implement a **Fix**:
 
-1. From the list of recommendations that have the **Fix** action icon, :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::, select a recommendation.
+1. From the list of recommendations that have the **Fix** action icon :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::, select a recommendation.
 
-    :::image type="content" source="./media/implement-security-recommendations/security-center-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/security-center-recommendations-fix-action.png":::
+    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
 
 1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Remediate**.
 
@@ -48,7 +46,7 @@ To implement a **Fix**:
 
 1. In the confirmation box, read the remediation details and implications.
 
-    ![Quick fix.](./media/implement-security-recommendations/security-center-quick-fix-view.png)
+    ![Quick fix.](./media/implement-security-recommendations/microsoft-defender-for-cloud-quick-fix-view.png)
 
     > [!NOTE]
     > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the **Fix**.
@@ -63,7 +61,6 @@ To implement a **Fix**:
 ## Fix actions logged to the activity log <a name="activity-log"></a>
 
 The remediation operation uses a template deployment or REST API `PATCH` request to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-monitor/essentials/activity-log.md).
-
 
 ## Next steps
 

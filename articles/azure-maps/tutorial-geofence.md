@@ -23,7 +23,7 @@ Azure Maps provides a number of services to support the tracking of equipment en
 > [!div class="checklist"]
 >
 > * Create an Azure Maps account with a global region.
-> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data-v2/upload-preview) to upload geofences as polygon coordinates to your Azure Maps account.
+> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload geofences as polygon coordinates to your Azure Maps account.
 > * Set up two [logic apps](../event-grid/handler-webhooks.md#logic-apps) that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
 > * Use [Azure Event Grid](../event-grid/overview.md) to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
 > * Use [Search Geofence Get API](/rest/api/maps/spatial/getgeofence) to receive notifications when a piece of equipment exits and enters the geofence areas.
@@ -51,14 +51,14 @@ New-AzMapsAccount -ResourceGroupName your-Resource-Group -Name name-of-maps-acco
 
 ### Use Azure CLI to create an Azure Maps account with a global region
 
-The Azure CLI command [az maps account create](/cli/azure/maps/account?view=azure-cli-latest#az-maps-account-create) doesn’t have a location property, but defaults to “global”, making it useful for creating an Azure Maps account with a global region setting for use with the Geofence API async event.
+The Azure CLI command [az maps account create](/cli/azure/maps/account?view=azure-cli-latest&preserve-view=true#az-maps-account-create) doesn’t have a location property, but defaults to “global”, making it useful for creating an Azure Maps account with a global region setting for use with the Geofence API async event.
 
 ## Upload geofencing GeoJSON data
 
 In this tutorial, you''ll upload geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second can only be queried against during business hours (9:00 AM-5:00 PM in the Pacific Time zone), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [Geofencing GeoJSON data](geofence-geojson.md).
 
 >[!TIP]
->You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data-v2/upload-preview).
+>You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data-v2/upload).
 
 To upload the geofencing GeoJSON data:
 

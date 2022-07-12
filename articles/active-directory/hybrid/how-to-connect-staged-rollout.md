@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 06/15/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Migrate to cloud authentication using staged rollout
 
-Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
+Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
     
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
@@ -33,9 +33,10 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   You have an Azure Active Directory (Azure AD) tenant with federated domains.
 
--   You have decided to move to either of two options:
-    - **Option A** - *password hash synchronization (sync)*.  For more information, see [What is password hash sync](whatis-phs.md) 
-    - **Option B** - *pass-through authentication*.  For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
+-   You have decided to move one of the following options:
+    - **Password hash synchronization (sync)**. For more information, see [What is password hash sync](whatis-phs.md) 
+    - **Pass-through authentication**. For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
+    - **Azure AD Certificate-based authentication (CBA) settings**. For more information, see [What is pass-through authentication](../authentication/concept-certificate-based-authentication.md) 
     
     For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
     For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
@@ -164,11 +165,12 @@ To roll out a specific feature (*pass-through authentication*, *password hash sy
 
 ### Enable a staged rollout of a specific feature on your tenant
 
-You can roll out one of these options:
+You can roll out these options:
 
-- **Option A** - *password hash sync* + *seamless SSO*
-- **Option B** - *pass-through authentication* + *seamless SSO*
-- **Not supported** - *password hash sync* + *pass-through authentication* + *seamless SSO*
+- **Password hash sync** + **Seamless SSO**
+- **Pass-through authentication** + **Seamless SSO**
+- **Not supported** - **Password hash sync** + **Pass-through authentication** + **Seamless SSO**
+- **Certificate-based authentication settings**
 
 Do the following:
 
@@ -176,7 +178,7 @@ Do the following:
 
 2. Select the **Enable staged rollout for managed user sign-in** link.
 
-   For example, if you want to enable *Option A*, slide the **Password Hash Sync** and **Seamless single sign-on** controls to **On**, as shown in the following images.
+   For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
 
    
 
@@ -239,6 +241,9 @@ To test sign-in with *seamless SSO*:
 1. Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
    To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
+   
+    >[!NOTE]
+    >While users are in Staged rollout with PHS, changing passwords might take up to 2 minutes to take effect due to sync time. Make sure to set expectations with your users to avoid helpdesk calls after they changed their password.
 
 ## Monitoring
 You can monitor the users and groups added or removed from staged rollout and users sign-ins while in staged rollout, using the new Hybrid Auth workbooks in the Azure portal.

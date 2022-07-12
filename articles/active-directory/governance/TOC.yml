@@ -24,20 +24,22 @@
         href: entitlement-management-group-licenses.md
       - name: Onboard external users to Azure AD through an approval process
         href: entitlement-management-onboard-external-user.md
-      - name: Automate identity governance tasks
-        href: identity-governance-automation.md
     - name: API tutorials
       items:
       - name: Manage access to resources - Microsoft Graph
         href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Manage access to resources - PowerShell
-        href: /powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta
+        href: /powershell/microsoftgraph/tutorial-entitlement-management
       - name: Review access to Microsoft 365 groups - Microsoft Graph
         href: /graph/tutorial-accessreviews-m365group
       - name: Review access to security groups - Microsoft Graph
         href: /graph/tutorial-accessreviews-securitygroup
       - name: Review access to privileged roles - Microsoft Graph
         href: /graph/tutorial-accessreviews-roleassignments
+      - name: Automate identity governance tasks - PowerShell
+        href: identity-governance-automation.md
+      - name: Governing an application's existing users - PowerShell
+        href: identity-governance-applications-existing-users.md
 - name: Concepts
   expanded: true
   items:
@@ -58,6 +60,16 @@
 - name: How-to guides
   expanded: true
   items:
+  - name: Govern access to applications
+    items:
+    - name: Prepare
+      href: identity-governance-applications-prepare.md
+    - name: Define
+      href: identity-governance-applications-define.md
+    - name: Integrate
+      href: identity-governance-applications-integrate.md
+    - name: Deploy
+      href: identity-governance-applications-deploy.md
   - name: Entitlement management
     items:
     - name: Common scenarios
@@ -134,6 +146,8 @@
 
     - name: Groups and apps
       items:
+      - name: Prepare for an app access review
+        href: access-reviews-application-preparation.md
       - name: Create an access review
         href: create-access-review.md
       - name: Review access

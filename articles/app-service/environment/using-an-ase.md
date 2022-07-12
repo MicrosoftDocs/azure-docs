@@ -4,14 +4,14 @@ description: Learn how to create, publish, and scale apps in an App Service Envi
 author: madsd
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 03/15/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: seodec18
 ---
 # Manage an App Service Environment
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. App Service Environment v2 will be retired on 31 August 2024. There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
 >
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
@@ -116,7 +116,7 @@ In an ILB ASE, the domain suffix used for app creation is *.&lt;asename&gt;.apps
 
 For information about how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
-The SCM URL is used to access the Kudu console or for publishing your app by using Web Deploy. For information on the Kudu console, see [Kudu console for Azure App Service][Kudu]. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
+The SCM URL is used to access the Kudu console or for publishing your app by using Web Deploy. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
 
 ### DNS configuration 
 
@@ -139,7 +139,7 @@ To configure DNS in Azure DNS Private zones:
 
 The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
-The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
+The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration. If your ILB ASE V2 was created after May 2019, you do not need to manage the ILB default certificate as it is managed by Microsoft.
 
 ## Publishing
 
@@ -300,7 +300,6 @@ For more specific examples, use: az find "az appservice ase"
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
-[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md

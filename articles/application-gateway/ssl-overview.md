@@ -6,7 +6,7 @@ author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/03/2021
-ms.author: victorh
+ms.author: greglin
 
 ---
 # Overview of TLS termination and end to end TLS with Application Gateway
@@ -77,7 +77,7 @@ In this example, requests using TLS1.2 are routed to backend servers in Pool1 us
 
 ## End to end TLS and allow listing of certificates
 
-Application Gateway only communicates with known backend instances that have allow listed their certificate with the application gateway. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
+Application Gateway only communicates with those backend servers that have either allow listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
 
 ## End-to-end TLS with the v1 SKU
 

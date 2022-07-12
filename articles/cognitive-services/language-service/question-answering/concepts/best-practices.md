@@ -3,10 +3,10 @@ title: Best practices - question answering
 description: Use these best practices to improve your project and provide better results to your application/chat bot's end users.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 06/03/2022
 ms.custom: language-service-question-answering
 ---
 
@@ -190,7 +190,7 @@ Question answering allows users to collaborate on a project/knowledge base. User
 
 ## Active learning
 
-[Active learning](../tutorials/active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It’s important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the Language Studio portal, you can review and accept or reject those suggestions.
+[Active learning](../tutorials/active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It’s important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in Language Studio, you can review and accept or reject those suggestions.
 
 ## Next steps
 

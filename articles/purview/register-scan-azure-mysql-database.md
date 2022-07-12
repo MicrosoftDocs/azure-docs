@@ -1,6 +1,6 @@
 ---
 title: 'Connect to and manage Azure Database for MySQL'
-description: This guide describes how to connect to Azure Database for MySQL in Azure Purview, and use Azure Purview's features to scan and manage your Azure Database for MySQL source.
+description: This guide describes how to connect to Azure Database for MySQL in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Database for MySQL source.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
@@ -10,34 +10,34 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 
-# Connect to and manage Azure Database for MySQL in Azure Purview
+# Connect to and manage Azure Database for MySQL in Microsoft Purview
 
-This article outlines how to register a database in Azure Database for MySQL, and how to authenticate and interact with Azure Database for MySQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register a database in Azure Database for MySQL, and how to authenticate and interact with Azure Database for MySQL in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes*](#scan) | [Yes](#scan) | [Yes](#scan) | No | No** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| [Yes*](#scan) | [Yes](#scan) | [Yes](#scan) | No | Limited** | No |
 
-\* Azure Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scans. In some cases, this field might not persist in the database and a full scan is performed. For more information, see [The INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL.
+\* Microsoft Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scans. In some cases, this field might not persist in the database and a full scan is performed. For more information, see [The INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL.
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 > [!Important]
->  Azure Purview only supports single server deployment option for Azure Database for MySQL. 
+>  Microsoft Purview only supports single server deployment option for Azure Database for MySQL. 
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview account](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register an Azure Database for MySQL in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register an Azure Database for MySQL in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -49,14 +49,14 @@ Follow the instructions in [CREATE DATABASES AND USERS](../mysql/howto-create-us
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Database
 1. Select **Create** to complete
-1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) of type SQL authentication using the **username** and **password** to set up your scan.
 
 ### Steps to register
 
 To register a new Azure Database for MySQL in your data catalog, do the following:
 
-1. Navigate to your Azure Purview account.
+1. Navigate to your Microsoft Purview account.
 
 1. Select **Data Map** on the left navigation.
 
@@ -82,7 +82,7 @@ Follow the steps below to scan Azure Database for MySQL to automatically identif
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Database for MySQL source that you registered.
 
@@ -112,8 +112,8 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

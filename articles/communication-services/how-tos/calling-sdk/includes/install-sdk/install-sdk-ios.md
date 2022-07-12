@@ -81,7 +81,7 @@ Pass the `CommunicationTokenCredential` object that you created to `CallClient`,
 ```swift
 self.callClient = CallClient()
 let callAgentOptions = CallAgentOptions()
-options.displayName = " iOS ACS User"
+options.displayName = " iOS Azure Communication Services User"
 
 self.callClient!.createCallAgent(userCredential: userCredential!,
     options: callAgentOptions) { (callAgent, error) in

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/02/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
@@ -22,7 +22,7 @@ Events are a notification and subscription feature in the Azure Health Data Serv
 > 
 > For more information about the features, configurations, and to learn about the use cases of the Azure Event Grid service, see [Azure Event Grid](../../event-grid/overview.md)
 
-:::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to an F H I R service and then into the Events pipeline." lightbox="media/events-overview/events-overview-flow.png":::
+:::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline." lightbox="media/events-overview/events-overview-flow.png":::
 
 > [!IMPORTANT]
 > 
@@ -34,7 +34,7 @@ Events are a notification and subscription feature in the Azure Health Data Serv
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 > 
-> For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+> For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 ## Scalable
 
@@ -53,7 +53,7 @@ Use Events to send FHIR resource change messages to services like [Azure Event H
  
 ## Secure
 
-Built on a platform that supports protected health information (PHI) and personal identifiable information (PII) data compliance with privacy, safety, and security in mind, the Events messages do not transmit sensitive data as part of the message payload.
+Built on a platform that supports protected health information and customer content data compliance with privacy, safety, and security in mind, the Events messages do not transmit sensitive data as part of the message payload.
 
 Use [Azure Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from your Event Grid system topic to the Events message receiving endpoints of your choice. 
 
@@ -62,7 +62,7 @@ Use [Azure Managed identities](../../active-directory/managed-identities-azure-r
 For more information about deploying Events, see
 
 >[!div class="nextstepaction"]
->[Deploying Events in the Azure portal](./events-deploy-portal.md)
+>[Deploying Events using the Azure portal](./events-deploy-portal.md)
 
 For frequently asks questions (FAQs) about Events, see
 
@@ -74,4 +74,4 @@ For Events troubleshooting resources, see
 >[!div class="nextstepaction"]
 >[Events troubleshooting guide](./events-troubleshooting-guide.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

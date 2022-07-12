@@ -5,6 +5,7 @@ ms.topic: article
 ms.author: jukullam
 author: juliakm
 ms.date: 03/15/2022
+ms.custom: devops-pipelines-deploy
 zone_pivot_groups: pipelines-version
 ---
 
@@ -21,7 +22,7 @@ In this article, you'll learn how to create a pipeline that continuously builds 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Resource Manager service connection. [Create an Azure Resource Manager service connection](/azure/devops/library/connect-to-azure#create-an-azure-resource-manager-service-connection-using-automated-security).     
+* An Azure Resource Manager service connection. [Create an Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-using-automated-security).     
 * A GitHub account. Create a free [GitHub account](https://github.com/join) if you don't have one already.
 
 ## Get the code
@@ -34,7 +35,7 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner.
 
 
 ### Create a container registry
@@ -87,7 +88,9 @@ Within your selected organization, create a _project_. If you don't have any pro
 
 1. Select the name of your container registry.
 
-1. You can leave the image name and the service port set to the defaults.
+1. You can leave the image name set to the default.
+
+1. Set the service port to 8080.
 
 1. Set the **Enable Review App for Pull Requests** checkbox for [review app](/azure/devops/pipelines/process/environments-kubernetes) related configuration to be included in the pipeline YAML auto-generated in subsequent steps.
 
@@ -121,7 +124,7 @@ After the pipeline run is finished, explore what happened and then go see your a
 
 1. Select **View environment**.
 
-1. Select the instance if your app for the namespace you deployed to. If you stuck to the defaults we mentioned above, then it will be the **myapp** app in the **default** namespace.
+1. Select the instance of your app for the namespace you deployed to. If you stuck to the defaults we mentioned above, then it will be the **myapp** app in the **default** namespace.
 
 1. Select the **Services** tab.
 
@@ -137,7 +140,7 @@ If you're building our sample app, then _Hello world_ appears in your browser.
 
 When you finished selecting options and then proceeded to validate and configure the pipeline Azure Pipelines created a pipeline for you, using the _Deploy to Azure Kubernetes Service_ template.
 
-The build stage uses the [Docker task](/azure/devops/tasks/build/docker) to build and push the image to the Azure Container Registry.
+The build stage uses the [Docker task](/azure/devops/pipelines/tasks/build/docker) to build and push the image to the Azure Container Registry.
 
 ```YAML
 - stage: Build
@@ -230,7 +233,7 @@ In this article, you'll learn how to create a pipeline that continuously builds 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Resource Manager service connection. [Create an Azure Resource Manager service connection](/azure/devops/library/connect-to-azure#create-an-azure-resource-manager-service-connection-using-automated-security).     
+* An Azure Resource Manager service connection. [Create an Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-using-automated-security).     
 * A GitHub account. Create a free [GitHub account](https://github.com/join) if you don't have one already.
 
 ## Get the code
@@ -244,7 +247,7 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner.
 
 ### Create a container registry
 
@@ -273,7 +276,7 @@ you must establish an authentication mechanism. This can be achieved in two ways
 1. Grant AKS access to ACR. See [Authenticate with Azure Container Registry from Azure Kubernetes Service](/azure/container-registry/container-registry-auth-aks).
 
 1. Use a [Kubernetes image pull secret](/azure/container-registry/container-registry-auth-aks).
-   An image pull secret can be created by using the [Kubernetes deployment task](/azure/devops/tasks/deploy/kubernetes).
+   An image pull secret can be created by using the [Kubernetes deployment task](/azure/devops/pipelines/tasks/deploy/kubernetes).
 
 ## Create a release pipeline
 
@@ -306,7 +309,7 @@ It also packaged and published a Helm chart as an artifact. In the release pipel
  
    - **Azure subscription**: Select a connection from the list under **Available Azure Service Connections** or create a more restricted permissions connection to your Azure subscription.
      If you see an **Authorize** button next to the input, use it to authorize the connection to your Azure subscription.
-     If you don't see the required Azure subscription in the list of subscriptions, see [Create an Azure service connection](/azure/devops/library/connect-to-azure) to manually set up the connection.
+     If you don't see the required Azure subscription in the list of subscriptions, see [Create an Azure service connection](/azure/devops/pipelines/library/connect-to-azure) to manually set up the connection.
 
    - **Resource group**: Enter or select the resource group containing your AKS cluster.  
    

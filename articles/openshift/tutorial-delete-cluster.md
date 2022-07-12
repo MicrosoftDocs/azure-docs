@@ -28,7 +28,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 If you're running the Azure CLI locally, run `az login` to sign in to Azure.
 
-```bash
+```azurecli
 az login
 ```
 
@@ -44,7 +44,7 @@ RESOURCEGROUP=yourresourcegroup
 
 Using this value, delete your cluster:
 
-```bash
+```azurecli
 az group delete --name $RESOURCEGROUP
 ```
 

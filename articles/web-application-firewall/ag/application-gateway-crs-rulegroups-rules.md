@@ -5,7 +5,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/04/2022
+ms.date: 06/21/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -16,32 +16,29 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.1 by default. But you can choose to use CRS 3.2, 3.0, or 2.2.9 instead.
+The Application Gateway WAF comes pre-configured with CRS 3.1 by default, but you can choose to use any other supported CRS version.
  
-
-CRS 3.2 (preview) offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, fixed false positives, and more. 
-
-CRS 3.1 offers reduced false positives compared with CRS 3.0 and 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
+CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
 > [!div class="mx-imgBorder"]
 > ![Manages rules](../media/application-gateway-crs-rulegroups-rules/managed-rules-01.png)
 
 The WAF protects against the following web vulnerabilities:
 
-- SQL-injection attacks
-- Cross-site scripting attacks
-- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
-- HTTP protocol violations
-- HTTP protocol anomalies, such as missing host user-agent and accept headers
-- Bots, crawlers, and scanners
-- Common application misconfigurations (for example, Apache and IIS)
+- SQL-injection attacks
+- Cross-site scripting attacks
+- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
+- HTTP protocol violations
+- HTTP protocol anomalies, such as missing host user-agent and accept headers
+- Bots, crawlers, and scanners
+- Common application misconfigurations (for example, Apache and IIS)
 
-### OWASP CRS 3.2 (preview)
+### OWASP CRS 3.2
 
 CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
-> CRS 3.2 is only available on the WAF_v2 SKU.
+> CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
 
 |Rule group|Description|
 |---|---|
@@ -109,6 +106,9 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 
 CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
+> [!NOTE]
+> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version.
+
 |Rule group|Description|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
@@ -124,19 +124,25 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
-# [OWASP 3.2 (preview)](#tab/owasp32)
+# [OWASP 3.2](#tab/owasp32)
 
 ## <a name="owasp32"></a> 3.2 rule sets
 
 ### <a name="general-32"></a> General
 |RuleId|Description|
 |---|---|
+|200002|Failed to Parse Request Body.|
+|200003|Multipart Request Body Strict Validation.|
 |200004|Possible Multipart Unmatched Boundary.|
 
 ### <a name="crs800-32"></a> KNOWN-CVES
 |RuleId|Description|
 |---|---|
 |800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
 ### <a name="crs911-32"></a> REQUEST-911-METHOD-ENFORCEMENT
 |RuleId|Description|
@@ -233,7 +239,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -378,6 +384,10 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
 
 ### <a name="crs911-31"></a> REQUEST-911-METHOD-ENFORCEMENT
@@ -486,7 +496,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|Remote Command Execution = Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution = Unix Shell Code Found|
@@ -626,6 +636,10 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
 
 ### <a name="crs911-30"></a> REQUEST-911-METHOD-ENFORCEMENT
@@ -729,7 +743,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|Remote Command Execution = Unix Shell Expression Found|
+|932130|**Application Gateway WAF v2**: Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found<br><br>**Application Gateway WAF v1**: Remote Command Execution: Unix Shell Expression|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932160|Remote Command Execution = Unix Shell Code Found|
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|

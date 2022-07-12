@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
@@ -19,9 +19,9 @@ In this article, you'll learn how to display Events metrics in the Azure portal.
 
 ## Display metrics
 
-1. Within your Azure Health Data Services Workspace, select the **Events** button. 
+1. Within your Azure Health Data Services workspace, select the **Events** button. 
 
-   :::image type="content" source="media\events-display-metrics\events-metrics-workspace-select.png" alt-text="Screenshot of select the events button from the Workspace." lightbox="media\events-display-metrics\events-metrics-workspace-select.png"::: 
+   :::image type="content" source="media\events-display-metrics\events-metrics-workspace-select.png" alt-text="Screenshot of select the events button from the workspace." lightbox="media\events-display-metrics\events-metrics-workspace-select.png"::: 
 
 2. The Events page displays the combined metrics for all Events Subscriptions. For example, we have one subscription named  **fhir-events** and one processed message. Select the subscription in the lower left-hand corner to view the metrics for that subscription.
 
@@ -42,4 +42,4 @@ To learn how to export Events Azure Event Grid system diagnostic logs and metric
 >[!div class="nextstepaction"]
 >[Configure Events diagnostic logs and metrics exporting](./events-export-logs-metrics.md)
 
-(FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

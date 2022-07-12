@@ -103,9 +103,9 @@ To add a new connection, select **Add** and select the Azure Monitor Private Lin
 ### Virtual networks access configuration - Managing access from outside of private links scopes
 The settings on the bottom part of this page control access from public networks, meaning networks not connected to the listed scopes (AMPLSs).
 
-If you set **Allow public network access for ingestion** to **No**, then clients (machines, SDKs, etc.) outside of the connected scopes can't upload data or send logs to the resource.
+If you set **Accept data ingestion from public networks not connected through a Private Link Scope** to **No**, then clients (machines, SDKs, etc.) outside of the connected scopes can't upload data or send logs to the resource.
 
-If you set **Allow public network access for queries** to **No**, then clients (machines, SDKs etc.) outside of the connected scopes can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked VNET.
+If you set **Accept queries from public networks not connected through a Private Link Scope** to **No**, then clients (machines, SDKs etc.) outside of the connected scopes can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked VNET.
 
 
 ## Use APIs and command line
@@ -239,7 +239,7 @@ $scope | Set-AzResource -Force
 ```
 
 ### Set resource access flags
-To manage the workspace or component access flags, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component).
+To manage the workspace or component access flags, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [az monitor log-analytics workspace](/cli/azure/monitor/log-analytics/workspace) or [az monitor app-insights component](/cli/azure/monitor/app-insights/component).
 
 
 ## Review and validate your Private Link setup
@@ -266,6 +266,7 @@ This zone covers the global endpoints used by Azure Monitor, meaning endpoints t
 * **live** - Application Insights live metrics endpoint
 * **profiler** - Application Insights profiler endpoint
 * **snapshot** - Application Insights snapshots endpoint
+* **diagservices-query** - Application Insights Profiler and Snapshot Debugger (used when accessing profiler/debugger results in the Azure Portal)
 
 This zone also covers the resource specific endpoints for [Data Collection Endpoints](../essentials/data-collection-endpoint-overview.md):
 * `<unique-dce-identifier>.<regionname>.handler.control` - Private configuration endpoint, part of a Data Collection Endpoint (DCE) resource 

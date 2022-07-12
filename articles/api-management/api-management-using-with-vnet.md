@@ -53,7 +53,7 @@ It can take 15 to 45 minutes to update the API Management instance. The Develope
 
 ### Enable connectivity using a Resource Manager template (`stv2` compute platform)
 
-* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip) (API version 2021-01-01-preview)
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip) (API version 2021-08-01)
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
 
@@ -82,11 +82,14 @@ The API Management service depends on several Azure services. When API Managemen
 
 ## Routing
 
-+ A load-balanced public IP address (VIP) is reserved to provide access to all service endpoints and resources outside the VNet.
++ A load-balanced public IP address (VIP) is reserved to provide access to the API Management endpoints and resources outside the VNet.
   + The public VIP can be found on the **Overview/Essentials** blade in the Azure portal.
-+ An IP address from a subnet IP range (DIP) is used to access resources within the VNet.
 
 For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+
+[!INCLUDE [api-management-virtual-network-vip-dip](../../includes/api-management-virtual-network-vip-dip.md)]
+
+[!INCLUDE [api-management-virtual-network-forced-tunneling](../../includes/api-management-virtual-network-forced-tunneling.md)]
 
 ## <a name="network-configuration-issues"> </a>Common network configuration issues
 

@@ -136,7 +136,7 @@ On the same settings page, under **Email domains** click **Contact support** to 
 
 After your email domains are approved and added, enable SAML SSO using the **Enable SAML** toggle.
 
-After successful testing, you may enforce SAML SSO using the **Enforce SAML** toggle. Please note that your Notion workspace administrastrators retain the ability to log in with email, but all other members will have to use SAML SSO to log in to Notion.
+After successful testing, you may enforce SAML SSO using the **Enforce SAML** toggle. Please note that your Notion workspace administrators retain the ability to log in with email, but all other members will have to use SAML SSO to log in to Notion.
 
 ### Create Notion test user
 

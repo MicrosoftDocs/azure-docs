@@ -3,17 +3,19 @@ title: Migrate from Estimators to ScriptRunConfig
 titleSuffix: Azure Machine Learning
 description: Migration guide for migrating from Estimators to ScriptRunConfig for configuring training jobs.
 services: machine-learning
-author: mx-iao
-ms.author: minxia
+author: blackmist
+ms.author: larryfr
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/14/2020
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Migrating from Estimators to ScriptRunConfig
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Up until now, there have been multiple methods for configuring a training job in Azure Machine Learning via the SDK, including Estimators, ScriptRunConfig, and the lower-level RunConfiguration.   To address this ambiguity and inconsistency, we are simplifying the job configuration process in Azure ML.  You should now use ScriptRunConfig as the recommended option for configuring training jobs. 
 

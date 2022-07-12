@@ -14,7 +14,7 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 
 Here are some videos on the common use cases of Azure Files:
 * [Replace your file server with a serverless Azure file share](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-* [Getting started with FSLogix profile containers on Azure Files in Windows Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
+* [Getting started with FSLogix profile containers on Azure Files in Azure Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
 ## Why Azure Files is useful
 Azure file shares can be used to:
@@ -44,6 +44,9 @@ Azure file shares can be used to:
 * **Scripting and tooling**. PowerShell cmdlets and Azure CLI  can be used to create, mount, and manage Azure file shares as part of the administration of Azure applications. You can create and manage Azure file shares using Azure portal and Azure Storage Explorer. 
 * **Resiliency**. Azure Files has been built from the ground up to be always available. Replacing on-premises file shares with Azure Files means you no longer have to wake up to deal with local power outages or network issues. 
 * **Familiar programmability**. Applications running in Azure can access data in the share via file [system I/O APIs](/dotnet/api/system.io.file). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use [Azure Storage Client Libraries](/previous-versions/azure/dn261237(v=azure.100)) or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
+
+## Case studies
+* Organizations across the world are leveraging Azure Files and Azure File Sync to optimize file access and storage. [Checkout their case studies here](azure-files-case-study.md).
 
 ## Next Steps
 * [Plan for an Azure Files deployment](storage-files-planning.md)

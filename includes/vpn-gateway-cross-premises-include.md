@@ -1,18 +1,14 @@
 ---
- title: include file
- description: include file
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/17/2020
+ ms.date: 06/08/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 |  | **Point-to-Site** | **Site-to-Site** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Azure Supported Services** |Cloud Services and Virtual Machines |Cloud Services and Virtual Machines |[Services list](../articles/expressroute/expressroute-faqs.md#supported-services) |
-| **Typical Bandwidths** |Based on the gateway SKU |Typically < 1 Gbps aggregate |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
+| **Typical Bandwidths** |Based on the gateway SKU |Typically < 10 Gbps aggregate |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps, 100 Gbps |
 | **Protocols Supported** |Secure Sockets Tunneling Protocol (SSTP), OpenVPN and IPsec |IPsec |Direct connection over VLANs, NSP's VPN technologies (MPLS, VPLS,...) |
 | **Routing** |RouteBased (dynamic) |We support PolicyBased (static routing) and RouteBased (dynamic routing VPN) |BGP |
 | **Connection resiliency** |active-passive |active-passive or active-active |active-active |

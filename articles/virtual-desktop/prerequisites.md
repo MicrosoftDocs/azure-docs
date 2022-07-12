@@ -23,14 +23,12 @@ At a high level, you'll need:
 
 ## Azure account with an active subscription
 
-You'll need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You'll need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Your account must be assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
 
-You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription.
+You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed:
 
 > [!IMPORTANT]
-> You must have permission to register a resource provider, which requires the `*/register/action` operation. This is included if you are assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
-
-To check the status of the resource provider and register if needed:
+> You must have permission to register a resource provider, which requires the `*/register/action` operation. This is included if your account is assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Subscriptions**.
@@ -75,7 +73,7 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 > [!IMPORTANT]
 > The user account must exist in the Azure AD tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
 >
-> The [UserPrincipalName (UPN)](../active-directory/hybrid/plan-connect-userprincipalname.md) you use to subscribe to Azure Virtual Desktop must exist in the Active Directory domain you're joining the session host to.
+> When using hybrid identities, either the UserPrincipalName (UPN) or the Security Identifier (SID) must match across Active Directory Domain Services and Azure Active Directory. For more information, see [Supported identities and authentication methods](authentication.md#hybrid-identity).
 
 ### Deployment parameters
 
@@ -94,10 +92,10 @@ You'll need to enter the following identity parameters when deploying session ho
 
 You have a choice of operating systems that you can use for session hosts to provide virtual desktops and remote apps. You can use different operating systems with different host pools to provide flexibility to your users. Supported dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/). We support the following 64-bit versions of these operating systems: 
 
-|Operating system |Applicable license|
+|Operating system |User access rights|
 |---|---|
-|<ul><li>Windows 11 Enterprise multi-session</li><li>Windows 11 Enterprise</li><li>Windows 10 Enterprise multi-session, version 1909 and later</li><li>Windows 10 Enterprise, version 1909 and later</li><li>Windows 7 Enterprise</li></ul>|<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>|
-|<ul><li>Windows Server 2022</li><li>Windows Server 2019</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li></ul>|<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses</li></ul>|
+|<ul><li>Windows 11 Enterprise multi-session</li><li>Windows 11 Enterprise</li><li>Windows 10 Enterprise multi-session, version 1909 and later</li><li>Windows 10 Enterprise, version 1909 and later</li><li>Windows 7 Enterprise</li></ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.</li></ul>|
+|<ul><li>Windows Server 2022</li><li>Windows Server 2019</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
 
 > [!NOTE]
 > Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table. In addition, Windows 7 doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.

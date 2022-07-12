@@ -3,11 +3,11 @@ title: 'Quickstart: Direct web traffic using CLI'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 06/14/2021
-ms.author: victorh
+ms.author: greglin
 ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 ---
 
@@ -66,7 +66,7 @@ az network public-ip create \
 
 ## Create the backend servers
 
-A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to test the application gateway.
+A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install NGINX on the virtual machines to test the application gateway.
 
 #### Create two virtual machines
 

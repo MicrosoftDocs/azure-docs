@@ -4,8 +4,8 @@
   items:
   - name: About Azure Video Analyzer
     href: overview.md
-  - name: About Video Analyzer for Media
-    href: ../video-analyzer-for-media-docs/video-indexer-overview.md
+  - name: About Video Indexer
+    href: ../../azure-video-indexer/video-indexer-overview.md
   - name: Terminology
     href: terminology.md
   - name: What's new
@@ -111,6 +111,8 @@
       href: continuous-video-recording.md
 - name: How-to guides
   items:
+  - name: Transition from Video Analyzer
+    href: transition-from-video-analyzer.md
   - name: Setup
     items:
     - name: Create a new account
@@ -225,7 +227,7 @@
     - name: Service FAQ
       href: cloud/faq.yml     
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/video-analyzer/
+    href: https://azure.microsoft.com/pricing/
   - name: Quotas and limitations
     href: quotas-limitations.md
   - name: Terraform resource

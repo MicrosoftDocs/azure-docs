@@ -1,15 +1,16 @@
 ---
-title: Use managed identities from a virtual machine to access Cosmos DB  | Microsoft Docs 
+title: Use managed identities from a virtual machine to access Cosmos DB
 description: Learn how to use managed identities with Windows VMs using the Azure portal, CLI, PowerShell, Azure Resource Manager template  
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: tutorial
-ms.date: 01/11/2022
+ms.date: 06/24/2022
 ms.author: barclayn
-ms.custom: ep-miar, devx-track-azurecli 
+ms.custom: ep-miar
+ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
 #Customer intent: As an administrator, I want to know how to access Cosmos DB from a virtual machine using a managed identity
 ---
@@ -27,7 +28,7 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 ## Create a resource group
 
-Create a resource group called **mi-test**. We will use this resource group for all resources used in this tutorial.
+Create a resource group called **mi-test**. We'll use this resource group for all resources used in this tutorial.
 
 - [Create a resource group using the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)
 - [Create a resource group using the CLI](../../azure-resource-manager/management/manage-resource-groups-cli.md#create-resource-groups)
@@ -80,7 +81,7 @@ New-AzVm `
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM named *myVM* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
+Create a VM using [Azure CLI vm create command](/cli/azure/vm/#az-vm-create). The following example creates a VM named *myVM* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -125,7 +126,7 @@ The steps below show you how to create a virtual machine with a user-assigned ma
 
 # [Portal](#tab/azure-portal)
 
-Today, the Azure portal does not support assigning a user-assigned managed identity during the creation of a VM. You should create a virtual machine and then assign a user assigned managed identity to it.
+Today, the Azure portal doesn't support assigning a user-assigned managed identity during the creation of a VM. You should create a virtual machine and then assign a user assigned managed identity to it.
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
 
@@ -164,8 +165,7 @@ New-AzVm `
 
 ```
 
-The user assigned managed identity should be specified using its [resourceID](how-manage-user-assigned-managed-identities.md
-). 
+The user assigned managed identity should be specified using its [resourceID](./how-manage-user-assigned-managed-identities.md).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -181,9 +181,9 @@ Depending on your API version, you have to take [different steps](qs-configure-t
 
 ```json
     "variables": {
-	 "identityName": "my-user-assigned"	
-		
-	},
+     "identityName": "my-user-assigned"    
+        
+    },
 ```
 
 Under the resources element, add the following entry to assign a user-assigned managed identity to your VM. Be sure to replace ```<identityName>``` with the name of the user-assigned managed identity you created.
@@ -211,7 +211,7 @@ Under the resources element, add the following entry to assign a user-assigned m
 
 ## Create a Cosmos DB account
 
-Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need a Cosmos DB account available where you have administrative rights. If you need to create a Cosmos DB account for this tutorial the [Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md) provides detailed steps on how to do that.
+Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need a Cosmos DB account available where you have administrative rights. If you need to create a Cosmos DB account for this tutorial, the [Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md) provides detailed steps on how to do that.
 
 >[!NOTE]
 > Managed identities may be used to access any Azure resource that supports Azure Active Directory authentication. This tutorial assumes that your Cosmos DB account will be configured as shown below.
@@ -259,7 +259,7 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
 
 When the role assignment step completes, you should see results similar to the ones shown below.
 
-:::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="This shows the results of the role assignment.":::
+:::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="screenshot shows the results of the role assignment.":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -297,7 +297,7 @@ Getting access to Cosmos using managed identities may be achieved using the Azur
 
 The ManagedIdentityCredential class attempts to authentication using a managed identity assigned to the deployment environment. The [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme) class goes through different authentication options in order. The second authentication option that DefaultAzureCredential attempts is Managed identities. 
 
-In the example shown below you create a database, a container, an item in the container, and read back the newly created item using the virtual machine's system assigned managed identity. If you want to use a user-assigned managed identity, you need to specify the user-assigned managed identity by specifying the managed identity's client ID. 
+In the example shown below, you create a database, a container, an item in the container, and read back the newly created item using the virtual machine's system assigned managed identity. If you want to use a user-assigned managed identity, you need to specify the user-assigned managed identity by specifying the managed identity's client ID. 
 
 ```csharp
 string userAssignedClientId = "<your managed identity client Id>";

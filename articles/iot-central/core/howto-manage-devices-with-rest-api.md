@@ -3,7 +3,7 @@ title: How to use the IoT Central REST API to manage devices
 description: How to use the IoT Central REST API to add devices in an application
 author: v-krishnag
 ms.author: v-krishnag
-ms.date: 12/18/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -17,6 +17,8 @@ The IoT Central REST API lets you develop client applications that integrate wit
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
+
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 ## Devices REST API
 
@@ -34,15 +36,15 @@ The IoT Central REST API lets you:
 Use the following request to create a new device.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
-The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI. 
+The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI.
 
 ```json
 {
-  "displayName": "CheckoutThermostatccc",
-  "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+  "displayName": "CheckoutThermostat",
+  "template": "dtmi:contoso:Thermostat;1",
   "simulated": true,
   "enabled": true
 }
@@ -56,16 +58,16 @@ The request body has some required fields:
 * `simulated`: Whether the device is simulated.
 * `template` : The device template definition for the device.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
     "id": "thermostat1",
     "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYTdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDIwMDAwMFwiIiwiZGF0YSI6IlwiMzMwMDQ1M2EtMDAwMC0wMzAwLTAwMDAtNjFiODFkMjAwMDAwXCIifQ",
-    "displayName": "CheckoutThermostatccc",
+    "displayName": "CheckoutThermostat",
     "simulated": true,
     "provisioned": false,
-    "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+    "template": "dtmi:contoso:Thermostat;1",
     "enabled": true
 }
 ```
@@ -75,7 +77,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -87,10 +89,10 @@ The response to this request looks like the following example:
 {
     "id": "5jcwskdwbm",
     "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-    "displayName": "RS40 Occupancy Sensor - 5jcwskdwbm",
+    "displayName": "Thermostat - 5jcwskdwbm",
     "simulated": false,
     "provisioned": false,
-    "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+    "template": "dtmi:contoso:Thermostat;1",
     "enabled": true
 }
 ```
@@ -100,7 +102,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve credentials of a device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}/credentials?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}/credentials?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -115,11 +117,10 @@ The response to this request looks like the following example:
 }
 ```
 
-
 ### Update a device
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -130,7 +131,7 @@ The sample request body looks like the following example which updates the `disp
 ```json
 {
   "displayName": "CheckoutThermostat5",
-  "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+  "template": "dtmi:contoso:Thermostat;1",
   "simulated": true,
   "enabled": true
 }
@@ -146,7 +147,7 @@ The response to this request looks like the following example:
     "displayName": "CheckoutThermostat5",
     "simulated": true,
     "provisioned": false,
-    "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+    "template": "dtmi:contoso:Thermostat;1",
     "enabled": true
 }
 ```
@@ -156,7 +157,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
+DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
 ### List devices
@@ -164,7 +165,7 @@ DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
 Use the following request to retrieve a list of devices from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example: 
@@ -175,68 +176,31 @@ The response to this request looks like the following example:
         {
             "id": "5jcwskdwbm",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-            "displayName": "RS40 Occupancy Sensor - 5jcwskdwbm",
+            "displayName": "Thermostat - 5jcwskdwbm",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
             "id": "ccc",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYjdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDJjMDAwMFwiIn0",
-            "displayName": "CheckoutThermostatccc",
+            "displayName": "CheckoutThermostat",
             "simulated": true,
             "provisioned": true,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         }
     ]
 }
 ```
-
-### List device groups
-
-Use the following request to retrieve a list of device groups from your application:
-
-```http
-GET https://{subdomain}.{baseDomain}/api/deviceGroups?api-version=1.1-preview
-```
-
-The response to this request looks like the following example: 
-
-```json
-{
-    "value": [
-        {
-            "id": "1dbb2610-04f5-47f8-81ca-ba38a24a6cf3",
-            "displayName": "Thermostat - All devices",
-            "organizations": [
-            "seattle"
-            ]
-        },
-        {
-            "id": "b37511ca-1beb-4781-ae09-c2d73c9104bf",
-            "displayName": "Cascade 500 - All devices",
-            "organizations": [
-            "redmond"
-            ]
-        },
-        {
-            "id": "788d08c6-2d11-4372-a994-71f63e108cef",
-            "displayName": "RS40 Occupancy Sensor - All devices"
-        }
-    ]
-}
-```
-
-The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
 
 ### Use ODATA filters
 
 You can use ODATA filters to filter the results returned by the list devices API.
 
 > [!NOTE]
-> Currently, ODATA support is only available for `api-version=1.1-preview`
+> Currently, ODATA support is only available for `api-version=1.2-preview`
 
 ### $top
 
@@ -245,7 +209,7 @@ Use the **$top** to set the result size, the maximum returned result size is 100
 Use the following request to retrieve a top 10 device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.1-preview&$top=10
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.2-preview&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -256,10 +220,10 @@ The response to this request looks like the following example:
         {
             "id": "5jcwskdwbm",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-            "displayName": "RS40 Occupancy Sensor - 5jcwskdwbm",
+            "displayName": "Thermostat - 5jcwskdwbm",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
@@ -273,7 +237,7 @@ The response to this request looks like the following example:
         },
         ...
     ],
-    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=1.1-preview&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
+    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=1.2-preview&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
 }
 ```
 
@@ -323,7 +287,7 @@ $filter=indexof(displayName, 'device1') ge 0
 The following example shows how to retrieve all the devices where the display name has index the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=index(displayName, 'thermostat')
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=index(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -337,7 +301,7 @@ The response to this request looks like the following example:
             "displayName": "thermostat1",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
@@ -346,7 +310,7 @@ The response to this request looks like the following example:
             "displayName": "thermostat2",
             "simulated": true,
             "provisioned": true,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         }
     ]
@@ -365,7 +329,7 @@ $orderby=displayName desc
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.1-preview&$orderby=displayName
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.2-preview&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -376,19 +340,19 @@ The response to this request looks like the following example:
         {
             "id": "ccc",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYjdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDJjMDAwMFwiIn0",
-            "displayName": "CheckoutThermostatccc",
+            "displayName": "CheckoutThermostat",
             "simulated": true,
             "provisioned": true,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
             "id": "5jcwskdwbm",
             "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-            "displayName": "RS40 Occupancy Sensor - 5jcwskdwbm",
+            "displayName": "Thermostat - 5jcwskdwbm",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         }
     ]
@@ -400,7 +364,7 @@ You can also combine two or more filters.
 The following example shows how to retrieve the top 2 device where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:
@@ -414,7 +378,7 @@ The response to this request looks like the following example:
             "displayName": "thermostat1",
             "simulated": false,
             "provisioned": false,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         },
         {
@@ -423,10 +387,164 @@ The response to this request looks like the following example:
             "displayName": "thermostat2",
             "simulated": true,
             "provisioned": true,
-            "template": "urn:modelDefinition:aqlyr1ulu:tz5rut2pvx",
+            "template": "dtmi:contoso:Thermostat;1",
             "enabled": true
         }
     ]
+}
+```
+
+## Device groups
+
+### Add a device group
+
+Use the following request to create a new device group.
+
+```http
+PUT https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+```
+
+When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true
+
+```json
+{
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+The request body has some required fields:
+
+* `@displayName`: Display name of the device group.
+* `@filter`: Query defining which devices should be in this group.
+* `@etag`: ETag used to prevent conflict in device updates.
+* `description`: Short summary of device group.
+
+The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
+
+The response to this request looks like the following example: 
+
+```json
+{
+  "id": "group1",
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+### Get a device group
+
+Use the following request to retrieve details of a device group from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+```
+
+* deviceGroupId - Unique ID for the device group.
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "475cad48-b7ff-4a09-b51e-1a9021385453",
+  "displayName": "DeviceGroupEntry1",
+  "description": "This is a default device group containing all the devices for this particular Device Template.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+### Update a device group
+
+```http
+PATCH https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+```
+
+The sample request body looks like the following example which updates the `displayName` of the device group:
+
+```json
+{
+  "displayName": "New group name"
+}
+
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "group1",
+  "displayName": "New group name",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+### Delete a device group
+
+Use the following request to delete a device group:
+
+```http
+DELETE https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+```
+
+### List device groups
+
+Use the following request to retrieve a list of device groups from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/deviceGroups?api-version=2022-05-31
+```
+
+The response to this request looks like the following example: 
+
+```json
+{
+  "value": [
+    {
+      "id": "475cad48-b7ff-4a09-b51e-1a9021385453",
+      "displayName": "DeviceGroupEntry1",
+      "description": "This is a default device group containing all the devices for this particular Device Template.",
+      "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+      "organizations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "c2d5ae1d-2cb7-4f58-bf44-5e816aba0a0e",
+      "displayName": "DeviceGroupEntry2",
+      "description": "This is a default device group containing all the devices for this particular Device Template.",
+      "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:model1\"",
+      "organizations": [
+        "redmond"
+      ]
+    },
+    {
+      "id": "241ad72b-32aa-4216-aabe-91b240582c8d",
+      "displayName": "DeviceGroupEntry3",
+      "description": "This is a default device group containing all the devices for this particular Device Template.",
+      "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:model2\" AND $simulated = true"
+    },
+    {
+      "id": "group4",
+      "displayName": "DeviceGroupEntry4",
+      "description": "This is a default device group containing all the devices for this particular Device Template.",
+      "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:model3\""
+    }
+  ]
 }
 ```
 

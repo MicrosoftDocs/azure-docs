@@ -86,7 +86,7 @@ Here are some licensing-related resources for Azure Maps:
 Here's an example of a high-level migration plan.
 
 1. Take inventory of what Bing Maps SDKs and services your application is using and verify that Azure Maps provides alternative SDKs and services for you to migrate to.
-2. Create an Azure subscription (if you don’t already have one) at <https://azure.com>.
+2. Create an Azure subscription (if you don’t already have one) at [azure.com](https://azure.com).
 3. Create an Azure Maps account ([documentation](./how-to-manage-account-keys.md))
     and authentication key or Azure Active Directory ([documentation](./how-to-manage-authentication.md)).
 4. Migrate your application code.
@@ -116,7 +116,7 @@ Here is a list of useful technical resources for Azure Maps.
 
 ## Migration support
 
-Developers can seek migration support through the [forums](/answers/topics/azure-maps.html) or through one of the many Azure support options: <https://azure.microsoft.com/support/options/>
+Developers can seek migration support through the [forums](/answers/topics/azure-maps.html) or through one of the many [Azure support options](https://azure.microsoft.com/support/options/).
 
 ## New terminology
 

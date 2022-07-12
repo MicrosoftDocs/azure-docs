@@ -34,7 +34,7 @@ The file has four sections:
 |---------|---------|
 |**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
 |**Connect** | 1. Connect to the machine learning workspace. <br /> 2. Connect to a compute target. |
-|**Run** | 1. Submit a training run. |
+|**Job** | 1. Submit a training job. |
 |**Deploy** | 1. Register model in Azure Machine Learning registry. 1. Deploy the model. |
 
 ## Create repository
@@ -50,7 +50,7 @@ Create a new repository off the [ML Ops with GitHub Actions and Azure Machine Le
 
 ## Generate deployment credentials
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \
@@ -112,7 +112,7 @@ Use the [Azure Machine Learning Compute action](https://github.com/Azure/aml-com
       with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
 ```
-## Submit training run
+## Submit training job
 
 Use the [Azure Machine Learning Training action](https://github.com/Azure/aml-run) to submit a ScriptRun, an Estimator or a Pipeline to Azure Machine Learning. 
 

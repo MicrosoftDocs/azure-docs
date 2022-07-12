@@ -91,7 +91,7 @@ Set up a new Azure Migrate project if you don't have one.
 
    ![Boxes for project name and region](./media/tutorial-discover-import/new-project.png)  
     > [!Note]
-    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](how-to-use-azure-migrate-with-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
+    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
 
 7. Select **Create**.
 8. Wait a few minutes for the Azure Migrate project to deploy.
@@ -106,7 +106,7 @@ Download the CSV template and add server information to it.
 
 ### Download the template
 
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
+1. In **Migration goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
 2. In **Discover machines**, select **Import using CSV**.
 3. Select **Download** to download the CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -202,7 +202,7 @@ Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux
 
 ## Assessment considerations
 
-- If you import serves by using a CSV file and creating an assessment with sizing criteria as "performance-based":
+- If you import servers by using a CSV file and creating an assessment with sizing criteria as "performance-based":
     - For Azure VM assessment, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information. 
     - For Azure VMware Solution assessment, the performance values you specify (CPU utilization, Memory utilization, Storage in use(GB)) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information. 
 - To get an accurate OS suitability/readiness in Azure VM and Azure VMware Solution assessment, please enter the Operating system version and architecture in the respective columns.

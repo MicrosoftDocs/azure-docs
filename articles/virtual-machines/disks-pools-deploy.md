@@ -29,7 +29,7 @@ To successfully deploy a disk pool, you must have:
 - A set of managed disks you want to add to a disk pool.
 - A virtual network with a dedicated subnet deployed for your disk pool.
     - Outbound ports 53, 443, and 5671 must be open.
-    - Ensure that your network setting don't block any of your disk pool's required outbound dependencies. You can use either the [Azure PowerShell module](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint) or [Azure CLI](/cli/azure/disk-pool#az_disk_pool_list_outbound_network_dependency_endpoint) to get the complete list of all outbound dependencies.
+    - Ensure that your network setting don't block any of your disk pool's required outbound dependencies. You can use either the [Azure PowerShell module](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint) or [Azure CLI](/cli/azure/disk-pool#az-disk-pool-list-outbound-network-dependency-endpoint) to get the complete list of all outbound dependencies.
 
 If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 
@@ -54,7 +54,7 @@ For your disk pool to work with your client machines, you must delegate a subnet
 1. Go to the virtual networks pane in the Azure portal and select the virtual network to use for the disk pool.
 1. Select **Subnets** from the virtual network pane and select **+Subnet**.
 1. Create a new subnet by completing the following required fields in the **Add subnet** pane:
-        - Subnet delegation: Select Microsoft.StoragePool
+        - Subnet delegation: Select Microsoft.StoragePool/diskPools
 
 For more information on subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
@@ -202,7 +202,7 @@ targetName='<desirediSCSITargetName>'
 lunName='<desiredLunName>'
 
 #You can skip this step if you have already created the disk and assigned permission in the prerequisite step. Below is an example for premium disks.
-az disk create --name $diskName --resource-group $resourceGroupName --zone $zone --location $location --sku Premium_LRS --max-shares 2 --size-gb 1024
+az disk create --name $diskName --resource-group $resourceGroupName --zone $zone --location $location --sku Premium-LRS --max-shares 2 --size-gb 1024
 
 #You can deploy all your disks into one resource group and assign StoragePool Resource Provider permission to the group
 storagePoolObjectId=$(az ad sp list --filter "displayName eq 'StoragePool Resource Provider'" --query "[0].objectId" -o json)

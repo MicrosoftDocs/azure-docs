@@ -13,8 +13,6 @@ ms.custom: mimckitt, devx-track-azurepowershell
 ---
 # Sequence extension provisioning in virtual machine scale sets
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 Azure virtual machine extensions provide capabilities such as post-deployment configuration and management, monitoring, security, and more. Production deployments typically use a combination of multiple extensions configured for the VM instances to achieve desired results.
 
 When using multiple extensions on a virtual machine, it's important to ensure that extensions requiring the same OS resources aren't trying to acquire these resources at the same time. Some extensions also depend on other extensions to provide required configurations such as environment settings and secrets. Without the correct ordering and sequencing in place, dependent extension deployments can fail.
@@ -221,7 +219,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 
 ### Azure CLI 2.0
-Use [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) to add the Application Health extension to the scale set model definition. Extension sequencing requires the use of Azure CLI 2.0.55 or above.
+Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition. Extension sequencing requires the use of Azure CLI 2.0.55 or above.
 
 The following example adds the [Application Health extension](virtual-machine-scale-sets-health-extension.md) to the scale set model of a Windows-based scale set. The Application Health extension will be provisioned after provisioning the [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md), already defined in the scale set.
 

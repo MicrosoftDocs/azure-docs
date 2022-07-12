@@ -6,10 +6,12 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: srranga
 author: sr-msft
-ms.date: 11/30/2021
+ms.date: 06/16/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Backups form an essential part of any business continuity strategy. They help protect data from accidental corruption or deletion. 
 
@@ -93,14 +95,15 @@ PITR is useful in scenarios like these:
 
 - A user accidentally deletes data, a table, or a database.
 - An application accidentally overwrites good data with bad data because of an application defect. 
+- You want to clone your server for test, development, or for data verification.
 
-With continuous backup of transaction logs, you'll be able to restore to the last transaction. You can choose between two restore options:
+With continuous backup of transaction logs, you'll be able to restore to the last transaction. You can choose between the following restore options:
 
 -   **Latest restore point (now)**: This is the default option. It allows you to restore the server to the latest point in time. 
 
 -   **Custom restore point**: This option allows you to choose any point in time within the retention period defined for this flexible server. By default, the latest time in UTC is automatically selected. Automatic selection is useful if you want to restore to the last committed transaction for test purposes. You can optionally choose other days and times. 
 
-The estimated time to recover depends on several factors, including the volume of transaction logs to process after the previous backup time, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to a few hours.
+For latest and custom restore point options, the estimated time to recover depends on several factors, including the volume of transaction logs to process after the previous backup time, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to a few hours.
 
 If you've configured your server within a virtual network, you can restore to the same virtual network or to a different virtual network. However, you can't restore to public access. Similarly, if you configured your server with public access, you can't restore to private virtual network access.
 
@@ -108,6 +111,7 @@ If you've configured your server within a virtual network, you can restore to th
 > A user can't restore deleted servers. If you delete a server, all databases that belong to the server are also deleted and can't be recovered. To help protect server resources from accidental deletion or unexpected changes after deployment, administrators can use [management locks](../../azure-resource-manager/management/lock-resources.md). 
 >
 >If you accidentally deleted your server, please reach out to support. In some cases, your server might be restored with or without data loss.
+
 
 ## Geo-redundant backup and restore (preview)
 
@@ -175,7 +179,7 @@ After you restore the database, you can perform the following tasks to get your 
   
     No. Currently, Flexible Server supports a maximum of 35 days of retention. You can use manual backups for a long-term retention requirement.
 
-* **How do I manually back up my Postgres servers?**
+* **How do I manually back up my PostgreSQL servers?**
   
     You can manually take a backup by using the PostgreSQL tool [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html). For examples, see [Migrate your PostgreSQL database by using dump and restore](../howto-migrate-using-dump-and-restore.md). 
     

@@ -3,11 +3,11 @@ title: Certificates required to allow backend servers
 titleSuffix: Azure Application Gateway
 description: This article provides examples of how a TLS/SSL certificate can be converted to authentication certificate and trusted root certificate that are required to allow backend instances in Azure Application Gateway
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/30/2021
-ms.author: victorh
+ms.author: greglin
 ---
 
 # Create certificates to allow the backend with Azure Application Gateway
@@ -22,7 +22,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-An existing backend certificate is required to generate the authentication certificates or trusted root certificates required for allowing backend instances with Application Gateway. The backend certificate can be the same as the TLS/SSL certificate or different for added security. Application Gateway doesn't provide you any mechanism to create or purchase an TLS/SSL certificate. For testing purposes, you can create a self-signed certificate but you shouldn't use it for production workloads. 
+An existing backend certificate is required to generate the authentication certificates or trusted root certificates required for allowing backend instances with Application Gateway. The backend certificate can be the same as the TLS/SSL certificate or different for added security. Application Gateway doesn't provide you any mechanism to create or purchase a TLS/SSL certificate. For testing purposes, you can create a self-signed certificate but you shouldn't use it for production workloads. 
 
 ## Export authentication certificate (for v1 SKU)
 

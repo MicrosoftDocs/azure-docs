@@ -7,12 +7,37 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 06/29/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
+
+## Release: June 2022
+
+* Support for [**PostgreSQL version 14**](./concepts-supported-versions.md).
+* Support for [minor versions](./concepts-supported-versions.md) 14.3, 13.7, 12.11, 11.16. <sup>$</sup>
+* Support for [Same-zone high availability](concepts-high-availability.md) deployment option. 
+* Support for choosing [standby availability zone](./how-to-manage-high-availability-portal.md) when deploying zone-redundant high availability.
+* Support for [extensions](concepts-extensions.md) PLV8, pgrouting with new servers<sup>$</sup> 
+* Version updates for [extension](concepts-extensions.md) PostGIS.
+* General availability of Azure Database for PostgreSQL - Flexible Server in Canada East and Jio India West regions. 
+
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
+
+## Release: May 2022
+
+* Support for [new regions](overview.md#azure-regions) Jio India West, Canada East.
+
+## Release: April 2022
+
+* Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.6, 12.10 and 11.15 with new server creates<sup>$</sup>.
+* Support for updating Private DNS Zone for [Azure Database for PostgreSQL - Flexible Server private networking](./concepts-networking.md) for existing servers<sup>$</sup>.
+
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
 
 ## Release: February 2022
 
@@ -27,7 +52,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: November 2021
 
-* Azure Database for PostgreSQL is [**Generally Available**](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/azure-database-for-postgresql-flexible-server-is-now-ga/ba-p/2987030)!!
+* Azure Database for PostgreSQL is [**Generally Available**](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/azure-database-for-postgresql-flexible-server-is-now-ga/ba-p/2987030).
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.4, 12.8 and 11.13 with new server creates<sup>$</sup>.
 * Support for [Geo-redundant backup and restore](concepts-backup-restore.md) feature in preview in selected paired regions - East US 2, Central US, North Europe, West Europe, Japan East, and Japan West.
 *  Support for [new regions](overview.md#azure-regions) North Central US, Sweden Central, and West US 3. 

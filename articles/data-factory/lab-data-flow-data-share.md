@@ -26,7 +26,7 @@ The data used in this lab is New York City taxi data. To import it into your dat
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-* **Azure SQL Database**: If you don't have a SQL DB, learn how to [create a SQL DB account](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
+* **Azure SQL Database**: If you don't have a SQL DB, learn how to [create a SQL DB account](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal)
 
 * **Azure Data Lake Storage Gen2 storage account**: If you don't have an ADLS Gen2 storage account, learn how to [create an ADLS Gen2 storage account](../storage/common/storage-account-create.md).
 

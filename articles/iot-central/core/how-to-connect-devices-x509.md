@@ -3,7 +3,7 @@ title: Connect devices with X.509 certificates in an Azure IoT Central applicati
 description: How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/30/2021
+ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -87,7 +87,7 @@ Make a note of the location of these files. You need it later.
 
 ### Create a group enrollment
 
-1. Open your IoT Central application and navigate to **Administration**  in the left pane and select **Device connection**.
+1. Open your IoT Central application and navigate to **Permissions**  in the left pane and select **Device connection groups**.
 
 1. Select **+ New**, and create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**.
 
@@ -415,9 +415,9 @@ Obtain new X.509 certificates from your certificate provider. You can create you
 
 To update a group enrollment in response to a security breach, you should use the following approach to update the current certificate immediately. Complete these steps for the primary and secondary certificates if both are compromised:
 
-1. Navigate to **Administration**  in the left pane and select **Device connection**.
+1. Navigate to **Permissions**  in the left pane and select **Device connection groups**.
 
-2. Select **Enrollment Groups**, and select the group name in the list.
+2. Select the group name in the list under Enrollment groups.
 
 3. For certificate update, select **Manage primary** or **Manage Secondary**.
 
@@ -439,9 +439,9 @@ If you're rolling certificates in response to a security breach, use the followi
 
 To handle certificate expirations, use the following approach to update the current certificate immediately:
 
-1. Navigate to **Administration**  in the left pane and select **Device connection**.
+1. Navigate to **Permissions**  in the left pane and select **Device connection groups**.
 
-2. Select **Enrollment Groups**, and select the group name in the list.
+2. Select the group name in the list under Enrollment groups.
 
 3. For certificate update, select **Manage Primary**.
 
