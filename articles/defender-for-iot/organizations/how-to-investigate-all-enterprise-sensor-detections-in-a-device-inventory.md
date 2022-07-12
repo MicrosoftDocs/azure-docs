@@ -2,13 +2,16 @@
 title: Manage your OT device inventory from an on-premises management console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on an on-premises management console.
 ms.topic: how-to
+ms.date: 07/12/2022
+
 ---
 
 # Manage your OT device inventory from an on-premises management console
 
 Use the **Device inventory** page from a on-premises management console to manage all OT and IT devices detected by sensors connected to that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+
 
 > [!TIP]
 > Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
@@ -130,6 +133,5 @@ For more information, see [Defender for IoT sensor and management console APIs](
 
 For more information, see:
 
-- [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)

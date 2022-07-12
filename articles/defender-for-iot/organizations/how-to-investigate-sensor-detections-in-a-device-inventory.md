@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Use the **Device inventory** page from a sensor console to manage all OT and IT devices detected by that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
 
 > [!TIP]
 > Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
@@ -33,13 +33,13 @@ This procedure describes how to view detected devices in the **Device inventory*
     | **Load a saved filter** | If you have predefined filters saved, load them by selecting the **show side pane** :::image type="icon" source="media/how-to-inventory-sensor/show-side-pane.png" border="false"::: button, and then select the filter you want to load. |
     |**Modify columns shown**     | Select **Edit Columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select **Add Column** to add new columns to the grid<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
 
-    For more information, see [Device inventory column reference](#device-inventory-column-reference).
-
 1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to drill down more.
 
     For example:
 
     :::image type="content" source="media/how-to-inventory-sensor/sensor-inventory-view-details.png" alt-text="Screenshot of the Device inventory page on an OT sensor console." lightbox="media/how-to-inventory-sensor/sensor-inventory-view-details.png":::
+
+For more information, see [Data visible from a sensor console](device-inventory.md#data-visible-from-a-sensor-console).
 
 ## Edit device details
 
@@ -111,6 +111,5 @@ Devices you delete from the Inventory are removed from the map and won't be calc
 
 For more information, see:
 
-- [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)

@@ -11,7 +11,7 @@ In addition to detecting OT devices on your network, use Defender for IoT to dis
 
 This article describes how to configure Defender for IoT to detect Windows workstations and servers with local surveying, performed by distributing and running a script on each device. While you can use active scanning and scheduled WMI scans to obtain this data, working with local scripts bypasses the risks of running WMI polling on an endpoint. Running a local script is also useful for regulated networks that have waterfalls and one-way elements.
 
-For more information, see [Configure Windows Endpoint Monitoring](how-to-control-what-traffic-is-monitored.md#configure-windows-endpoint-monitoring).
+For more information, see [Configure Windows Endpoint Monitoring](configure-windows-endpoint-monitoring.md).
 
 ## Supported operating systems
 

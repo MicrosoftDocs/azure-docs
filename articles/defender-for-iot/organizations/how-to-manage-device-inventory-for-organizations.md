@@ -9,8 +9,7 @@ ms.topic: how-to
 
 Use the **Device inventory** page in the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
-
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
 
 > [!NOTE]
 > The **Device inventory** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -34,13 +33,13 @@ This procedure describes how to view detected devices in the **Device inventory*
     |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
     | **Group devices** | From the **Group by** above the gird, select either **Type** or **Class** to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
-    For more information, see [Device inventory column reference](#device-inventory-column-reference).
-
 1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to drill down more.
 
     For example:
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
+
+For more information, see [Data visible from the Azure portal](device-inventory.md#data-visible-from-the-azure-portal).
 
 ### Identify devices that aren't connecting successfully
 
@@ -131,6 +130,5 @@ At the prompt, select **Yes** to confirm that you want to delete the device from
 
 For more information, see:
 
-- [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
