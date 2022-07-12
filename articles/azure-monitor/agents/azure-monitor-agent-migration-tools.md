@@ -19,26 +19,17 @@ Azure Monitor Agent (AMA) replaces the Log Analytics Agent (MMA/OMS) for Windows
 ![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
 
 > [!IMPORTANT]
-> Do not remove the legacy agents if being used by other [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) (like Microsoft Defender for Cloud, Sentinel, VM Insights, etc). You can use the migration helper to discover which solutions and services you use today that depend on the legacy agents.
+> Do not remove the legacy agents if being used by other [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features). Use the migration helper to discover which solutions/services you use today.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-## Installing and using AMA Migration Helper (preview)
+## Using AMA Migration Helper (preview)
 
 AMA Migration Helper is a workbook-based Azure Monitor solution that helps you **discover what to migrate** and **track progress** as you move from Log Analytics Agent to Azure Monitor Agent. Use this single pane of glass view to expedite and track the status of your agent migration journey. 
 
-To set up the AMA Migration Helper workbook in the Azure portal:
+You can access the workbook [here](https://ms.portal.azure.com/#view/AppInsightsExtension/UsageNotebookBlade/ComponentId/Azure%20Monitor/ConfigurationId/community-Workbooks%2FAzure%20Monitor%20-%20Agents%2FAgent%20Migration%20Tracker/Type/workbook/WorkbookTemplateName/AMA%20Migration%20Helper), or find it on the [Azure portal (preview)](https://portal.azure.com/?feature.includePreviewTemplates=true) under **Monitor** > **Workbooks** > **Public Templates** > **Azure Monitor essentials** > **AMA Migration Helper**.
 
-1. From the **Monitor** menu, select **Workbooks** > **+ New** > **Advanced Editor** (**</>**).
-1. Copy and paste the content from the [AMA Migration Helper file in the Azure Monitor Community GitHub repository](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/Migration%20Helper%20Workbook) into the editor.
-1. Select **Apply** to load the workbook. 
-1. Select **Done Editing**. 
-
-    You’re now ready to use the workbook.
-
-1. Select the **Subscriptions** and **Workspaces** dropdowns to view relevant information.
-
-    :::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the Subscription and Workspace dropdowns and shows the Azure Virtual Machines tab, on which you can track which agent is deployed on each virtual machine.":::
+:::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the Subscription and Workspace dropdowns and shows the Azure Virtual Machines tab, on which you can track which agent is deployed on each virtual machine.":::
 
 ## Installing and using DCR Config Generator (preview)
 Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) for configuration, whereas Log Analytics Agent inherits its configuration from Log Analytics workspaces. 
