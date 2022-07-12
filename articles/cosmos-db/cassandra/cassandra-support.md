@@ -300,7 +300,7 @@ python get-pip.py
 ```bash
 pip3 install cqlsh==5.0.3
 ```
-6. Run the [CQLSH using the authentication mechanism](manage-data-cqlsh.md#update-connection-string).
+6. Run the [CQLSH using the authentication mechanism](manage-data-cqlsh.md#update-your-connection-string).
 
 > [!NOTE]
 > If you get an error while running cqlsh about a syntax error in cqlsh, this would require downgrading Python to v2.7, which is a simple installation from [here](https://www.python.org/downloads/release/python-270/) followed by changing the environment variables on your machine to point to the Python27 folder instead.
