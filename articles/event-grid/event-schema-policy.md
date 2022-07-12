@@ -1,10 +1,10 @@
 ---
 title: Azure Policy as an Event Grid source
-description: This article describes how to use Azure Policy as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
+description: This article describes how to use Azure Policy as an Event Grid event source. It provides the schema and links to tutorial and how-to articles.
 ms.topic: conceptual
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 09/15/2021
+author: timwarner-msft
+ms.author: timwarner
+ms.date: 07/12/2022
 ---
 
 # Azure Policy as an Event Grid source
@@ -14,111 +14,7 @@ events. For an introduction to event schemas, see
 [Azure Event Grid event schema](./event-schema.md). It also gives you a list of quick starts and
 tutorials to use Azure Policy as an event source.
 
-## Available event types
-
-Azure Policy emits the following event types:
-
-| Event type | Description |
-| ---------- | ----------- |
-| Microsoft.PolicyInsights.PolicyStateCreated | Raised when a policy compliance state is created. |
-| Microsoft.PolicyInsights.PolicyStateChanged | Raised when a policy compliance state is changed. |
-| Microsoft.PolicyInsights.PolicyStateDeleted | Raised when a policy compliance state is deleted. |
-
-## Example event
-
-# [Event Grid event schema](#tab/event-grid-event-schema)
-The following example shows the schema of a policy state created event: 
-
-```json
-[{
-    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
-    "topic": "/subscriptions/<SubscriptionID>",
-    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
-    "data": {
-        "timestamp": "2021-03-27T18:37:42.4496956Z",
-        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
-        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
-        "policyDefinitionReferenceId": "",
-        "complianceState": "NonCompliant",
-        "subscriptionId": "<subscription-id>",
-        "complianceReasonCode": ""
-    },
-    "eventType": "Microsoft.PolicyInsights.PolicyStateCreated",
-    "eventTime": "2021-03-27T18:37:42.5241536Z",
-    "dataVersion": "1",
-    "metadataVersion": "1"
-}]
-```
-
-The schema for a policy state changed event is similar: 
-
-```json
-[{
-    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
-    "topic": "/subscriptions/<SubscriptionID>",
-    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
-    "data": {
-        "timestamp": "2021-03-27T18:37:42.4496956Z",
-        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
-        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
-        "policyDefinitionReferenceId": "",
-        "complianceState": "NonCompliant",
-        "subscriptionId": "<subscription-id>",
-        "complianceReasonCode": ""
-    },
-    "eventType": "Microsoft.PolicyInsights.PolicyStateChanged",
-    "eventTime": "2021-03-27T18:37:42.5241536Z",
-    "dataVersion": "1",
-    "metadataVersion": "1"
-}]
-```
-# [Cloud event schema](#tab/cloud-event-schema)
-
-The following example shows the schema of a policy state created event: 
-
-```json
-[{
-    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
-    "source": "/subscriptions/<SubscriptionID>",
-    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
-    "data": {
-        "timestamp": "2021-03-27T18:37:42.4496956Z",
-        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
-        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
-        "policyDefinitionReferenceId": "",
-        "complianceState": "NonCompliant",
-        "subscriptionId": "<subscription-id>",
-        "complianceReasonCode": ""
-    },
-    "type": "Microsoft.PolicyInsights.PolicyStateCreated",
-    "time": "2021-03-27T18:37:42.5241536Z",
-    "specversion": "1.0"
-}]
-```
-
-The schema for a policy state changed event is similar: 
-
-```json
-[{
-    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
-    "source": "/subscriptions/<SubscriptionID>",
-    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
-    "data": {
-        "timestamp": "2021-03-27T18:37:42.4496956Z",
-        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
-        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
-        "policyDefinitionReferenceId": "",
-        "complianceState": "NonCompliant",
-        "subscriptionId": "<subscription-id>",
-        "complianceReasonCode": ""
-    },
-    "type": "Microsoft.PolicyInsights.PolicyStateChanged",
-    "time": "2021-03-27T18:37:42.5241536Z",
-    "specversion": "1.0"
-}]
-```
-
----
+[!INCLUDE [policy-events.md](../../includes/policy/policy-events.md)]
 
 ## Event properties
 

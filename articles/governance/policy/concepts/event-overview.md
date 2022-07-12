@@ -1,8 +1,10 @@
 ---
 title: Reacting to Azure Policy state change events
-description: Use Azure Event Grid to subscribe to App Policy events, which allow applications to react to state changes without the need for complicated code.
-ms.date: 08/17/2021
+description: Use Azure Event Grid to subscribe to Azure Policy events, which allow applications to react to state changes without the need for complicated code.
+ms.date: 07/12/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Reacting to Azure Policy state change events
 
@@ -32,16 +34,7 @@ for a full tutorial.
 
 :::image type="content" source="../../../event-grid/media/overview/functional-model.png" alt-text="Event Grid model of sources and handlers" lightbox="../../../event-grid/media/overview/functional-model-big.png":::
 
-## Available Azure Policy events
-
-Event Grid uses [event subscriptions](../../../event-grid/concepts.md#event-subscriptions) to route
-event messages to subscribers. Azure Policy event subscriptions can include three types of events:
-
-| Event type | Description |
-| ---------- | ----------- |
-| Microsoft.PolicyInsights.PolicyStateCreated | Raised when a policy compliance state is created. |
-| Microsoft.PolicyInsights.PolicyStateChanged | Raised when a policy compliance state is changed. |
-| Microsoft.PolicyInsights.PolicyStateDeleted | Raised when a policy compliance state is deleted. |
+[!INCLUDE [policy-events.md](../../../includes/policy-events.md)]
 
 ## Event schema
 
