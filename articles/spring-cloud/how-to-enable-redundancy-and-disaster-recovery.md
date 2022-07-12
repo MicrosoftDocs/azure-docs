@@ -101,7 +101,7 @@ az spring show \
 
 ### [Azure portal](#tab/portal)
 
-To verify the Zone Redundant property of an Azure Spring Apps instance using the Azure portal, verify the setting on the service Overview page.
+To verify the zone redundancy property of an Azure Spring Apps instance using the Azure portal, check the setting on the service instance **Overview** page.
 
 :::image type="content" source="media/spring-cloud-availability-zone/availability-zone-verify-portal.png" alt-text="Screenshot of the Azure portal Overview page showing the Zone Redundant property." lightbox="media/spring-cloud-availability-zone/availability-zone-verify-portal.png":::
 
