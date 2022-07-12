@@ -34,7 +34,7 @@ The five states have exit criteria to help you determine where your environment 
 
 The content then provides more detailed guidance organized to help with intentional changes to people, process, and technology to:
 
-* Establish Azure AD capabilities
+* Establish Azure AD footprint
 
 * Implement a cloud-first approach
 
@@ -101,7 +101,7 @@ In enterprise-sized organizations, IAM transformation, or even transformation fr
 
 The transformation between the states is similar to moving locations:
 
-* **Establish new location** - You purchase your destination and establish connectivity between the current location and the new location. This enables you to maintain your productivity and ability to operate. In this content, the activities are described in **[Establish Azure AD capabilities](road-to-the-cloud-establish.md)**. The results transition you to State 2.
+* **Establish new location** - You purchase your destination and establish connectivity between the current location and the new location. This enables you to maintain your productivity and ability to operate. In this content, the activities are described in **[Establish Azure AD footprint](road-to-the-cloud-establish.md)**. The results transition you to State 2.
 
 * **Limit new items in old location** - You stop investing in the old location and set policy to stage new items in new location. In this content, the activities are described in **[Implement cloud-first approach](road-to-the-cloud-implement.md)**. The activities set the foundation to migrate at scale and reach State 3.
 
@@ -122,7 +122,7 @@ As a migration of IAM to Azure AD is started, organizations must determine the p
 
 :::image type="content" source="media/road-to-cloud-posture/road-to-the-cloud-migration.png" alt-text="Table depicting three major milestones that organizations move through when implementing an AD to Azure AD migration. These include Establish Azure AD capabilities, Implement cloud-first approach, and Move workloads to the cloud." border="false":::
 
-## Establish Azure AD capabilities
+## Establish Azure AD footprint
 
 * **Initialize tenant** - Create your new Azure AD tenant that supports the vision for your end-state deployment.
 
