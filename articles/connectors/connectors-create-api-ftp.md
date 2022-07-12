@@ -676,7 +676,7 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 
 <a name="list-files-subfolders-folder"></a>
 
-### List the files and subfolders in a folder
+### List files and subfolders in a folder
 
 Operation ID: `listFilesInFolder`
 
