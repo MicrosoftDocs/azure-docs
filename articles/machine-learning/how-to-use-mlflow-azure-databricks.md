@@ -40,10 +40,13 @@ In the **Package** field, type azureml-mlflow and then select install. Repeat th
 
  ![Azure DB install mlflow library](./media/how-to-use-mlflow-azure-databricks/install-libraries.png)
 
+## Track Azure Databricks runs with MLflow
 
-## Connect your Azure Databricks and Azure Machine Learning workspaces
+Azure Databricks can be configured to track experiments using MLflow in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking), or exclusively on Azure Machine Learning. By default, dual-tracking is configured for you when you linked your Azure Databricks workspace.
 
-Linking your ADB workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace.
+### Dual-tracking on Azure Databricks and Azure Machine Learning
+
+Linking your ADB workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace and Azure Databricks workspace at the same time. This is referred as Dual-tracking.
 
 To link your ADB workspace to a new or existing Azure Machine Learning workspace, 
 1. Sign in to [Azure portal](https://portal.azure.com).
@@ -52,34 +55,25 @@ To link your ADB workspace to a new or existing Azure Machine Learning workspace
 
  ![Link Azure DB and Azure Machine Learning workspaces](./media/how-to-use-mlflow-azure-databricks/link-workspaces.png)
  
-> [!NOTE]
-> MLflow Tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) is not supported.
-
-## Track Azure Databricks runs with MLflow
-
-Azure Databricks can be configured to track experiments using MLflow in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking), or exclusively on Azure Machine Learning. By default, dual-tracking is configured for you when you linked your Azure Databricks workspace.
-
-### Dual-tracking on Azure Databricks and Azure Machine Learning
+> [!WARNING]
+> Dual-tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) is not supported by the moment. Configure [exclusive tracking with your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace) instead.
 
 After you link your Azure Databricks workspace with your Azure Machine Learning workspace, MLflow Tracking is automatically set to be tracked in all of the following places:
 
 * The linked Azure Machine Learning workspace.
 * Your original ADB workspace. 
 
-You can use then MLflow in Azure Databricks in the same way as you're used to. The following example sets the experiment name as it is usually done in Azure Databricks:
+You can use then MLflow in Azure Databricks in the same way as you're used to. The following example sets the experiment name as it is usually done in Azure Databricks and start logging some parameters:
 
 ```python
 import mlflow 
 
-#Set MLflow experiment. 
 experimentName = "/Users/{user_name}/{experiment_folder}/{experiment_name}" 
 mlflow.set_experiment(experimentName) 
-```
-In your training script, import `mlflow` to use the MLflow logging APIs, and start logging your run metrics. The following example, logs the epoch loss metric. 
 
-```python
-import mlflow 
-mlflow.log_metric('epoch_loss', loss.item()) 
+with mlflow.start_run():
+   mlflow.log_param('epochs', 20)
+   pass
 ```
 
 > [!NOTE] 
@@ -88,6 +82,9 @@ mlflow.log_metric('epoch_loss', loss.item())
 ### Tracking exclusively on Azure Machine Learning workspace
 
 If you prefer to manage your tracked experiments in a centralized location, you can set MLflow tracking  to **only** track in your Azure Machine Learning workspace. This configuration has the advantage of enabling easier path to deployment using Azure Machine Learning deployment options.
+
+> [!WARNING]
+> For [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md), you have to [deploy Azure Databricks in your own network (VNet injection)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.md) to ensure proper connectivity.
 
 You have to configure the MLflow tracking URI to point exclusively to Azure Machine Learning, as it is demonstrated in the following example:
 
@@ -153,7 +150,7 @@ After your model is trained, you can log it to the tracking server with the `mlf
 mlflow.spark.log_model(model, artifact_path = "model")
 ```
 
-It's worth to mention that the flavor `spark` doesn't correspond to the fact that we are training a model in a Spark cluster but because of the training framework it was used (you can perfectly train a model using TensorFlow with Spark and hence the flavor to use would be `tensorflow`.
+It's worth to mention that the flavor `spark` doesn't correspond to the fact that we are training a model in a Spark cluster but because of the training framework it was used (you can perfectly train a model using TensorFlow with Spark and hence the flavor to use would be `tensorflow`).
 
 Models are logged inside of the run being tracked. That means that models are available in either both Azure Databricks and Azure Machine Learning (default) or exclusively in Azure Machine Learning if you configured the tracking URI to point to it.
 
