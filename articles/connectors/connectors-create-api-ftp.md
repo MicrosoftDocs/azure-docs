@@ -498,7 +498,7 @@ To check that your workflow returns the content that you expect, add another act
 
    1. In the search box, enter **office 365 outlook send an email**. From the actions list, select the Office 365 Outlook action named **Send an email**.
 
-   ![Screenshot shows Standard workflow designer and "Send an email" action under all the other actions.](./media/connectors-create-api-ftp/send-email-action-with-azure-standard.png)
+   ![Screenshot shows Standard workflow designer and "Send an email" action under all the other managed actions.](./media/connectors-create-api-ftp/send-email-action-with-azure-standard.png)
 
 1. If necessary, sign in to your email account.
 
@@ -508,13 +508,13 @@ To check that your workflow returns the content that you expect, add another act
 
    1. In the **Get file content** action, click inside the **Body** box so that the dynamic content list opens. In the dynamic content list, next to **Get file content**, select **See more**.
 
-      ![Screenshot shows Standard workflow designer, "Send an email" action, and dynamic content list opened with "See more" selected next to "Get file content".](./media/connectors-create-api-ftp/send-email-action-body-see-more-azure-standard.png)
+      ![Screenshot shows Standard workflow designer, "Send an email" action, and dynamic content list opened with "See more" selected next to "Get file content" managed action section.](./media/connectors-create-api-ftp/send-email-action-body-see-more-azure-standard.png)
 
    1. In the dynamic content list, under **Get file content**, select **File content**.
 
       The **Body** property now references the **File content** action output.
 
-      ![Screenshot shows Standard workflow designer and "Send an email" action with "File content" action output.](./media/connectors-create-api-ftp/send-email-action-complete-azure-standard.png)
+      ![Screenshot shows Standard workflow designer and "Send an email" action with "File content" managed action output.](./media/connectors-create-api-ftp/send-email-action-complete-azure-standard.png)
 
 1. Save your logic app workflow.
 
