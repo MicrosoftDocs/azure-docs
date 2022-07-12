@@ -25,7 +25,7 @@ the roles must manually be granted to the managed identity. The _location_ of th
 doesn't impact its operation with Azure Policy.
 
    > [!NOTE]
-   > Changing a a policy definition does not automatically update the assignment or the associated managed identity.
+   > Changing a policy definition does not automatically update the assignment or the associated managed identity.
 
 Remediation security can be configured through the following steps:
 - [Configure the policy definition](#configure-the-policy-definition)
@@ -269,7 +269,7 @@ the **Remediation** tab of the wizard offers a _Create a remediation task_ optio
 
 1. From the assignment wizard in the portal, navigate to the **Remediation** tab. Select the check box for **Create a remediation task**. 
 
-1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop down.
+1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop-down.
 
 1. Configure the [managed identity](#configure-the-managed-identity) and fill out the rest of the wizard. The remediation task will be created when the assignment is created.
 
@@ -277,12 +277,12 @@ the **Remediation** tab of the wizard offers a _Create a remediation task_ optio
 
 This step is only applicable when using [Option 1](#option-1-create-a-remediation-task-from-the-remediation-page) or [Option 2](#option-2-create-a-remediation-task-from-a-non-compliant-policy-assignment) to initiate remediation task creation.
 
-1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop down. One **deployIfNotExists** or **modify** policy can be remediated through a single Remediation task at a time. 
+1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop-down. One **deployIfNotExists** or **modify** policy can be remediated through a single Remediation task at a time. 
 
 1. Optionally modify remediation settings on the **New remediation task** page: 
 
     - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
-    - **Resource Count** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number of is 50,000 resources.
+    - **Resource Count** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
     - **Parallel Deployments** - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
 
    > [!NOTE]
@@ -327,9 +327,9 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 ```
 
 You may also choose to adjust remediation settings through these optional parameters:
-- **-FailureThreshold** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
-- **-ParallelDeploymentCount** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number of is 50,000 resources.
-- **-ResourceCount** - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
+- `-FailureThreshold` - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
+- `-ParallelDeploymentCount` - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
+- `-ResourceCount` - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
 
 For more remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.
