@@ -3,7 +3,7 @@ title: Monitor SAP system from the Azure portal (preview)
 description: Learn how to monitor the health and status of your SAP system, along with important SAP metrics, using the Azure Center for SAP solutions (ACSS) within the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 07/01/2022
+ms.date: 07/19/2022
 author: lauradolan
 ms.author: ladolan
 #Customer intent: As a developer, I want to set up monitoring for my Virtual Instance for SAP solutions, so that I can monitor the health and status of my SAP system in Azure Center for SAP solutions.
