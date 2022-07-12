@@ -3,7 +3,7 @@ title: "Azure Arc-enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
 ms.custom: event-tier1-build-2022
-ms.date: 05/24/2022
+ms.date: 07/12/2022
 ms.topic: article
 description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes"
 ---
@@ -50,6 +50,8 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 ## Currently available extensions
 
+The following extensions are currently available.
+
 | Extension | Description |
 | --------- | ----------- |
 | [Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
@@ -64,6 +66,16 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
 | [Flux (GitOps)](./conceptual-gitops-flux2.md) | Use GitOps with Flux to manage cluster configuration and application deployment. |
 | [Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes](../../aks/dapr.md)| Eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters. |
+
+### Extension scope
+
+Extension installations on the Arc-enabled Kubernetes cluster are either *cluster-scoped* or *namespace-scoped*. 
+
+A cluster-scoped extension will be installed in the `release-namespace` specified during extension creation. Typically, only one instance of the cluster-scoped extension and its components such pods, operators, Custom Resource Definitions (CRDs)) are installed in the release namespace on the cluster.
+
+A namespace-scoped extension can be installed in a given namespace provided using the `–namespace` property. Since the extension can be deployed at a namespace scope, multiple instances of the namespace-scoped extension and its components can run on the cluster.  Each extension instance has permissions on the namespace where it is deployed to. All the above extensions are cluster-scoped except Event Grid on Kubernetes.
+
+All of the extensions listed above are cluster-scoped, except for [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) .
 
 ## Usage of cluster extensions
 
@@ -112,8 +124,9 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 ```
 
 > [!NOTE]
-> * The service is unable to retain sensitive information for more than 48 hours. If Azure Arc-enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
-> * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
+> The service is unable to retain sensitive information for more than 48 hours. If Azure Arc-enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
+>
+> Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
 
 **Required parameters**
 

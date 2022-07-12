@@ -2,7 +2,7 @@
 title: Azure Arc-enabled Open Service Mesh
 description: Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
 ms.service: azure-arc
-ms.date: 05/25/2022
+ms.date: 07/11/2022
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
