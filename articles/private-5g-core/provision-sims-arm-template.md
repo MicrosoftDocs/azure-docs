@@ -110,7 +110,7 @@ The following Azure resources are defined in the template.
 
     :::image type="content" source="media/template-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
 
-1. Confirm that your SIMs have been created in the resource group.
+1. Confirm that your SIMs and SIM group have been created in the resource group.
 
     :::image type="content" source="media/provision-sims-arm-template/sims-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing newly provisioned SIMs.":::
 
