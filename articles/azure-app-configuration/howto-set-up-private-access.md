@@ -158,7 +158,7 @@ On this page, you can also manually approve or reject a connection, and remove e
 
 :::image type="content" source="./media/private-endpoint/review-endpoints.png" alt-text="Screenshot of the Azure portal, review existing endpoints.":::
 
-Click on the name of the private endpoint to open the private endpoint resource and access more information and to edit the private endpoint.
+Click on the name of the private endpoint to open the private endpoint resource and access more information or to edit the private endpoint.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -170,22 +170,24 @@ Replace the placeholder `name` with the name or the App Configuration store.
 az appconfig show --name <name>
 ```
 
-To get the details of a private endpoint, use the [az network private-endpoint show](/cli/azure/network/private-endpoint#az-network-private-endpoint-show) command. Replace the placeholder texts `resource-group` and `name` with the name of the private endpoint resource group, and the name of the private endpoint.
+To get the details of a private endpoint, use the [az network private-endpoint show](/cli/azure/network/private-endpoint#az-network-private-endpoint-show) command. Replace the placeholder texts `resource-group` and `name` with the name of the resource group and the name of the private endpoint.
 
 ```azurecli-interactive
 az network private-endpoint show --resource-group <resource-group> --name <name>
 ```
 
-To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint#az-network-private-endpoint-delete) command. Replace the placeholder texts `resource-group` and `name` with the name of the private endpoint resource group, and the name of the private endpoint.
+To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint#az-network-private-endpoint-delete) command. Replace the placeholder texts `resource-group` and `name` with the name of the resource group and the name of the private endpoint.
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <resource-group> --name <name>
 ```
 
+---
+
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Using private endpoints for Azure App Configuration](concept-private-endpoint.md)
+>[Use private endpoints for Azure App Configuration](concept-private-endpoint.md)
 
 > [!div class="nextstepaction"]
 >[Disable public access in Azure App Configuration](howto-disable-public-access.md)
