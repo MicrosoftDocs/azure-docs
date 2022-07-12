@@ -561,9 +561,9 @@ This trigger starts a logic app workflow run when a file is added or updated in 
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **Folder path** | `folderPath` | True | String | The folder path, relative to the root directory. |
-| **Number of files to return** | `maxFileCount` | False | Integer | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: By default, the **Split On** setting is enabled and forces this trigger to process each file individually in parallel. |
-| **Cutoff timestamp to ignore older files** | `oldFileCutOffTimestamp` | False | DateTime | The cutoff time to use for ignoring older files. Use the timestamp format `YYYY-MM-DDTHH:MM:SS`. To disable this feature, leave this property empty. |
+| **Folder path** | `folderPath` | True | `string` | The folder path, relative to the root directory. |
+| **Number of files to return** | `maxFileCount` | False | `integer` | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: By default, the **Split On** setting is enabled and forces this trigger to process each file individually in parallel. |
+| **Cutoff timestamp to ignore older files** | `oldFileCutOffTimestamp` | False | `dateTime` | The cutoff time to use for ignoring older files. Use the timestamp format `YYYY-MM-DDTHH:MM:SS`. To disable this feature, leave this property empty. |
 ||||||
 
 #### Returns
@@ -594,8 +594,8 @@ This action creates a file using the specified file path and file content.
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **File path** | `filePath` | True | String | The file path, including the file name extension if any, relative to the root directory. |
-| **File content** | `fileContent` | True | string | The content for the file |
+| **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
+| **File content** | `fileContent` | True | `string` | The content for the file |
 ||||||
 
 #### Returns
@@ -619,7 +619,7 @@ This action deletes a file using the specified file path.
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **File path** | `filePath` | True | String | The file path, including the file name extension if any, relative to the root directory. |
+| **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
 ||||||
 
 #### Returns
@@ -638,7 +638,7 @@ This action gets the content of a file using the specified file path.
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **File path** | `path` | True | String | The file path, including the file name extension if any, relative to the root directory. |
+| **File path** | `path` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
 ||||||
 
 #### Returns
@@ -662,7 +662,7 @@ This action gets the metadata or properties of a file using the specified file p
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **File path** | `path` | True | String | The file path, including the file name extension if any, relative to the root directory. |
+| **File path** | `path` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
 ||||||
 
 #### Returns
@@ -686,8 +686,8 @@ This action gets a list of files and subfolders in the specified folder.
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **Folder path** | `folderPath` | True | The folder path, relative to the root directory. |
-| **File content** | `fileContent` | True | string | The content for the file |
+| **Folder path** | `folderPath` | True | `string` | The folder path, relative to the root directory. |
+| **File content** | `fileContent` | True | `string` | The content for the file |
 ||||||
 
 #### Returns
@@ -718,8 +718,8 @@ This action updates a file using the specified file path and file content.
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **File path** | `filePath` | True | The file path, including the file name extension if any, relative to the root directory. |
-| **File content** | `fileContent` | True | string | The content for the file |
+| **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
+| **File content** | `fileContent` | True | `string` | The content for the file |
 ||||||
 
 #### Returns
