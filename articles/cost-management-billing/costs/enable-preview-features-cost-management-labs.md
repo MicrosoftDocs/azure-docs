@@ -175,7 +175,7 @@ Charts can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview)
 
 Every service tracks different usage attributes of the resources you've deployed. Each of these usage attributes is tracked via a "meter" in your cost data. Meters are grouped into categories and include other metadata to help you understand the charges. We’re testing new columns in the Resources and Services views in the cost analysis preview for Microsoft Customer Agreement. You may see a single Product column instead of the Service, Tier, and Meter columns.
 
-You can also enable this from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Note it is only applicable for Microsoft Customer Agreement accounts.
+You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Note this preview is only applicable for Microsoft Customer Agreement accounts.
 
 
 <a name="resourceessentials"></a>
