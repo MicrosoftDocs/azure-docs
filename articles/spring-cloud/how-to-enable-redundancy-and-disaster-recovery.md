@@ -113,7 +113,7 @@ There's no additional cost associated with enabling zone redundancy. You only ne
 
 ## Customer-managed geo-disaster recovery
 
-Azure Spring Apps don't provide geo-disaster recovery, but careful planning can protect customers from experiencing downtime.
+The Azure Spring Apps service doesn't provide geo-disaster recovery, but careful planning can help protect you from experiencing downtime.
 
 ### Planning your application deployment
 
