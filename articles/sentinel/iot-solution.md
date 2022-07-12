@@ -151,7 +151,7 @@ The following table describes the Defender for IoT alert timestamp fields, with 
 
 In Defender for IoT on the Azure portal and the sensor console, the **Last detection** column is shown by default. Edit the columns on the **Alerts** page to show the **First detection** and **Last activity** columns as needed.
 
-For more information, see [View alerts on the Defender for IoT portal](../defender-for-iot/organizations/how-to-manage-cloud-alerts) and [View alerts on your sensor](../defender-for-iot/organizations/how-to-view-alerts.md).
+For more information, see [View alerts on the Defender for IoT portal](../defender-for-iot/organizations/how-to-manage-cloud-alerts.md) and [View alerts on your sensor](../defender-for-iot/organizations/how-to-view-alerts.md).
 
 ## Install the Defender for IoT solution
 
