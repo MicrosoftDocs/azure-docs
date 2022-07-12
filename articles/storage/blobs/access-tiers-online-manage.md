@@ -307,19 +307,19 @@ az storage blob set-tier \
 
 #### [AzCopy](#tab/azcopy)
 
-Use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to `hot`, `cool`, or `archive`. 
+To change a blob's tier from Hot to Cool, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to `cool`. 
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ```azcopy
-azcopy make 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<access-tier>
+azcopy make 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=cool
 ```
 
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 
 ```azcopy
-azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/myvirtualdirectory' --block-blob-tier=<access-tier> --recursive=true
+azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/myvirtualdirectory' --block-blob-tier=cool --recursive=true
 ```
 
 ---
@@ -376,14 +376,14 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy a blob from Cool to Hot with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to `cool`.
+To copy a blob from Cool to Hot with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to `hot`.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 
 ```azcopy
-azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=cool
+azcopy copy 'https://mystorageeaccount.blob.core.windows.net/mysourcecontainer/myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mydestinationcontainer/myTextFile.txt' --block-blob-tier=hot
 ```
 
 The copy operation is synchronous so when the command returns, that indicates that all files have been copied.

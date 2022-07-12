@@ -87,6 +87,20 @@ az storage blob copy start \
     --auth-mode login
 ```
 
+#### [AzCopy](#tab/azcopy)
+
+To copy an archived blob to an online tier with with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
+
+```azcopy
+azcopy copy 'https://mystorageeaccount.blob.core.windows.net/mysourcecontainer/myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mydestinationcontainer/myTextFile.txt' --block-blob-tier=hot
+```
+
+The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+
 ---
 
 ### Rehydrate a blob to a different storage account in the same region
@@ -168,6 +182,20 @@ az storage blob copy start \
     --auth-mode login
 ```
 
+#### [AzCopy](#tab/azcopy)
+
+To copy an archived blob to a blob in an online tier in a different storage account with with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
+
+```azcopy
+azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot
+```
+
+The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+
 ---
 
 ## Rehydrate a blob by changing its tier
@@ -223,6 +251,17 @@ az storage blob set-tier \
     --auth-mode login
 ```
 
+### [AzCopy](#tab/azcopy)
+
+To change a blob's tier from Archive to Hot or Cool with AzCopy, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to the desired tier, and the the `--rehydrate-priority` to `standard` or `high`. By default, this parameter is set to `standard`. To learn more about the trade offs of each option, see [Rehydration priority](archive-rehydrate-overview.md#rehydration-priority). 
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
+```azcopy
+azcopy make 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=hot --rehydrate-priority=high
+```
+
 ---
 
 ## Bulk rehydrate a set of blobs
@@ -268,6 +307,10 @@ az storage blob show \
     --output tsv \
     --auth-mode login
 ```
+
+### [AzCopy](#tab/azcopy)
+
+N/A
 
 ---
 
@@ -345,6 +388,10 @@ az storage blob show \
     --auth-mode login
 ```
 
+#### [AzCopy](#tab/azcopy)
+
+N/A
+
 ---
 
 ### Change the rehydration priority for a pending Copy Blob operation
@@ -414,6 +461,11 @@ az storage blob show \
 ```
 
 Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command with the `--rehydrate-priority` parameter set to *High*, as described in [Change the rehydration priority for a pending Set Blob Tier operation](#change-the-rehydration-priority-for-a-pending-set-blob-tier-operation). The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Check the properties again to verify that the blob is now rehydrating with High priority.
+
+
+#### [AzCopy](#tab/azcopy)
+
+N/A
 
 ---
 
