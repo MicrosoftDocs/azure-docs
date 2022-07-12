@@ -142,9 +142,7 @@ If you have applications in Azure Spring Apps running in multiple regions, Azure
 
 Use the following steps to create an Azure Traffic Manager instance for Azure Spring Apps instances:
 
-1. Create Azure Spring Apps in two different regions.
-
-   Create two service instances of Azure Spring Apps deployed in two different regions (East US and West Europe). Launch an existing application in Azure Spring Apps using the Azure portal to create two service instances. Each serves as a primary and fail-over endpoint for traffic.
+1. Create Azure Spring Apps instances in two different regions. For example, create service instances in East US and West Europe, as shown in the following table. Each instance serves as a primary and fail-over endpoint for traffic.
 
    | Service name | Location | Application |
    |--|--|--|
