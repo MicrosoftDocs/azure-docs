@@ -38,10 +38,10 @@ Azure Dedicated HSM is not currently available in the Azure portal. All interact
 
 Assumptions:
 
-- You completed the Azure Dedicated HSM registration process
-- You have been approved for use of the service. If not, contact your Microsoft account representative for details.
-- You created a Resource Group for these resources and the new ones deployed in this tutorial will join that group.
-- You already created the necessary virtual network, subnet, and virtual machines as per the diagram above and now want to integrate 2 HSMs into that deployment.
+- You have a assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM.
+- You have been through the Azure Dedicated HSM registration process and been approved for use of the service. If not, then contact your Microsoft account representative for details. 
+- You have created a Resource Group for these resources and the new ones deployed in this tutorial will join that group.
+- You have already created the necessary virtual network, subnet, and virtual machines as per the diagram above and now want to integrate 2 HSMs into that deployment.
 
 All instructions below assume that you have already navigated to the Azure portal and you have opened the Cloud Shell (select "\>\_" towards the top right of the portal).
 
