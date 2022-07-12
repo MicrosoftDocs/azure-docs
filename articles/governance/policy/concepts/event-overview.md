@@ -34,7 +34,7 @@ for a full tutorial.
 
 :::image type="content" source="../../../event-grid/media/overview/functional-model.png" alt-text="Event Grid model of sources and handlers" lightbox="../../../event-grid/media/overview/functional-model-big.png":::
 
-[!INCLUDE [policy-events.md](../../../includes/policy/policy-events.md)]
+[!INCLUDE [policy-events.md](../../includes/policy/policy-events.md)]
 
 ## Event schema
 
