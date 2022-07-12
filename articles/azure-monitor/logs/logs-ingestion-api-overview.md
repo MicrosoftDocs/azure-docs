@@ -1,5 +1,5 @@
 ---
-title: Send data to Azure Monitor Logs with REST API
+title: Logs ingestion API in Azure Monitor (Preview)
 description: Send data to Log Analytics workspace using REST API.
 ms.topic: conceptual
 ms.date: 06/27/2022
