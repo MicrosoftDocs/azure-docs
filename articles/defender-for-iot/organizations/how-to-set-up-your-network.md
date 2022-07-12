@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes how to set up your OT network to work with Microsoft Defender for IoT components, including the OT network sensors, the Azure portal, and an optional on-premises management console.
 
-OT network sensors use agentless, patented technology to discover, learn, and continuously monitor network devices for a deep visibility into OT/ICS/IoT risks. Sensors carry out data collection, analysis and alerting on-site, making them ideal for locations with low bandwidth or high latency.
+OT network sensors use agentless, patented technology to discover, learn, and continuously monitor network devices for a deep visibility into OT/ICS/IoT risks. Sensors carry out data collection, analysis, and alerting on-site, making them ideal for locations with low bandwidth or high latency.
 
 This article is intended for personnel experienced in operating and managing OT and IoT networks, such as automation engineers, plant managers, OT network infrastructure service providers, cybersecurity teams, CISOs, and CIOs.
 
@@ -19,7 +19,7 @@ For assistance or support, contact [Microsoft Support](https://support.microsoft
 
 ## Prerequisites
 
-Before performing the procedures in this article, make sure that you understand your own network architecture and how you'll connect to Defender for IoT. For more information, see:
+Before performing the procedures in this article, make sure you understand your own network architecture and how you'll connect to Defender for IoT. For more information, see:
 
 - [Microsoft Defender for IoT system architecture](architecture.md)
 - [Sensor connection methods](architecture-connections.md)
@@ -27,7 +27,7 @@ Before performing the procedures in this article, make sure that you understand 
 
 ## On-site deployment tasks
 
-Perform the steps in this section before deploying Defender for IoT on your network. 
+Perform the steps in this section before deploying Defender for IoT on your network.
 
 Make sure to perform each step methodologically, requesting the information and reviewing the data you receive. Prepare and configure your site and then validate your configuration.
 
@@ -47,7 +47,7 @@ Record the following site information:
 
 - Configuration workstation.
 
-- SSL certificates (optional but recommended).
+- TLS/SSL certificates (optional but recommended).
 
 - SMTP authentication (optional). To use the SMTP server with authentication, prepare the credentials required for your server.
 
@@ -59,22 +59,19 @@ Record the following site information:
 
 - Make sure that you can connect to the sensor management interface.
 
-- Make sure that you have a supported browser. Supported browsers include terminal software, such as PuTTY, or the latest versions of Microsoft Edge, Chrome, Firefox, or Safari (Mac only).
+- Make sure that you have terminal software (like PuTTY) or a supported browser. Supported browsers include the latest versions of Microsoft Edge, Chrome, Firefox, or Safari (Mac only).
 
     For more information, see [recommended browsers for the Azure portal](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
-- <a name="networking-requirements"></a>Make sure the required firewall rules are open on the workstation. Verify that your organizational security policy allows access as required. For more information, see [Networking requirements](#networking-requirements).
-
+- Make sure the required firewall rules are open on the workstation. Verify that your organizational security policy allows access as required. For more information, see [Networking requirements](#networking-requirements).
 
 ### Set up certificates
 
-After you've installed Defender for IoT sensor and/or on-premises management console software, a local, self-signed certificate is generated
-and used to access the sensor web application.
+After you've installed the Defender for IoT sensor or on-premises management console software, a local, self-signed certificate is generated, and used to access the sensor web application.
 
-The first time you sign in to Defender for IoT, administrator users are  prompted to provide an SSL/TLS certificate. Optional certificate validation is enabled by default.
+The first time they sign in to Defender for IoT, administrator users are prompted to provide an SSL/TLS certificate. Optional certificate validation is enabled by default.
 
 We recommend having your certificates ready before you start your deployment. For more information, see [Defender for IoT installation](how-to-install-software.md) and [About Certificates](how-to-deploy-certificates.md).
-
 
 ### Plan rack installation
 
@@ -123,6 +120,7 @@ For example:
 ## Networking requirements
 
 Use the following tables to ensure that required firewalls are open on your workstation and verify that your organization security policy allows required access.
+
 ### User access to the sensor and management console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
@@ -142,7 +140,7 @@ Use the following tables to ensure that required firewalls are open on your work
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the NTP to the on-premises management console | Sensor | On-premises management console |
-| SSL | TCP | In/Out | 443 | Give the sensor access to the on-premises management console. | The connection between the sensor, and the on-premises management console | Sensor | On-premises management console |
+| TLS/SSL | TCP | In/Out | 443 | Give the sensor access to the on-premises management console. | The connection between the sensor, and the on-premises management console | Sensor | On-premises management console |
 
 ### Other firewall rules for external services (optional)
 
@@ -159,7 +157,7 @@ Open these ports to allow extra services for Defender for IoT.
 | Proxy | TCP/UDP | In/Out | 443 | Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor | Proxy server |
 | Syslog | UDP | Out | 514 | LEEF | The logs that are sent from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
 | LDAPS | TCP | In/Out | 636 | Active Directory | Allows Active Directory management of users that have access, to sign in to the system | On-premises management console and Sensor | LDAPS server |
-| Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console </br></br> Port 22 from the sensor to the on-premises management console | Monitoring | Tunneling | Endpoint, Sensor | On-premises management console |
+| Tunneling | TCP | In | 9000 </br></br> In addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console </br></br> Port 22 from the sensor to the on-premises management console | Monitoring | Tunneling | Endpoint, Sensor | On-premises management console |
 
 ## Choose a cloud connection method
 
@@ -176,7 +174,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
 ### Can't connect by using a web interface
 
-1. Verify that the computer that you're trying to connect is on the same network as the appliance.
+1. Verify that the computer you're trying to connect is on the same network as the appliance.
 
 2. Verify that the GUI network is connected to the management port on the sensor.
 
@@ -208,7 +206,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
     1. To apply the settings, select **Y**.
 
-5. After you restart, connect with user support and use the **network list** command to verify that the parameters were changed.
+5. After you restart, connect with user support, and use the **network list** command to verify that the parameters were changed.
 
 6. Try to ping and connect from the GUI again.
 
