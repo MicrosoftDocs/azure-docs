@@ -67,7 +67,7 @@ You can enable zone redundancy in Azure Spring Apps using the [Azure CLI](/cli/a
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a service in Azure Spring Apps with zone redundancy enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service:
+To create a service in Azure Spring Apps with zone redundancy enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service, as shown in the following example:
 
 ```azurecli
 az spring create \
