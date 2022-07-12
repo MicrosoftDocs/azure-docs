@@ -22,7 +22,7 @@ Azure Policy emits the following event types:
 Azure Policy events contain all the information you need to respond to changes in your data. You can
 identify an Azure Policy event when the `eventType` property starts with "Microsoft.PolicyInsights".
 Additional information about the usage of Event Grid event properties is documented in
-[Event Grid event schema](../../../event-grid/event-schema.md).
+[Event Grid event schema](../../articles/event-grid/event-schema.md).
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -65,7 +65,7 @@ Here's an example of a policy state change event:
 }]
 ```
 
-For more information, see [Azure Policy events schema](../../../event-grid/event-schema-policy.md).
+For more information, see [Azure Policy events schema](../../articles/event-grid/event-schema-policy.md).
 
 ## Example event
 
