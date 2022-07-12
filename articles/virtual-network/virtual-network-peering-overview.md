@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/10/2022
 ms.author: mbender
-#customer intent: 
+#customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
 ---
 # Virtual network peering
 
@@ -43,21 +43,17 @@ The traffic between virtual machines in peered virtual networks is routed direct
 You can apply network security groups in either virtual network to block access to other virtual networks or subnets.
 When you configure virtual network peering, either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks, you can apply network security groups to block or deny specific access. Full connectivity is the default option. To learn more about network security groups, see [Security groups](./network-security-groups-overview.md).
 
-## Resize the address of Azure virtual networks that are peered
+## Resize the address space of Azure virtual networks that are peered
 
-You can resize the address of Azure virtual networks that are peered without incurring any downtime. This feature is useful when you need to grow or resize the virtual networks in Azure after scaling your workloads. With this feature, existing peerings on the virtual network don't need to be deleted before adding or deleting an address prefix on the virtual network. This feature can work for both IPv4 and IPv6 address spaces. 
+You can resize the address space of Azure virtual networks that are peered without incurring any downtime on the currently peered address space. When resized, existing peerings on the virtual network don't need to be deleted before adding or deleting an address prefix on the virtual network. All that is required is for peers to be re-synced with the new changes. his feature is useful when you need resize the virtual network's address space after scaling your workloads, and works for both IPv4 and IPv6 address spaces. 
 
-Note:
+Addresses can be resized in the following ways:
 
-This feature doesn't support scenarios where the virtual network to be updated is peered with: 
+- Modifying the address range prefix of an existing address range (ie 10.1.0.0/16 to 10.1.0.0/24)
+- Adding address ranges to a virtual network
+- Deleting address ranges from a virtual network
 
-* A classic virtual network
-* A managed virtual network such as the Azure VWAN hub
-
-## Adding or removing address space on peered virtual networks
-
-You can add or remove address spaces on a virtual network that is peered with another virtual network without incurring any downtime. Virtual network peers can be in the same or a different Azure region, or can span subscriptions. This feature is useful when you need to add or remove virtual networks in Azure after scaling your workloads. 
-
+# Learn how to resize address ranges in the Azure portal [here](linktofuturePortalHowTo). 
 With this feature, two new properties on the virtual networks's `virtualNetworkPeerings` object include: 
 
 - **remoteVirtualNetworkAddressSpace**: Contains the most current address space of the peered virtual network. This address may or may not be the same as the peered address contained in the `remoteAddressSpace` property. 
@@ -70,12 +66,12 @@ When the address space on a virtual network is updated, the corresponding peerin
 
 - **RemoteNotInSync**: This peering status appears on the link from the first virtual network to the second virtual network. A sync operation on the peering link from the second virtual network to the first virtual network will synchronize the address space across the peering. 
 
-Note:
+Re-synching virtual network peers can be performed through the Azure portal or with Azure PowerShell. 
 
-This feature doesn't support scenarios where the virtual network to be updated is peered with:  
-
-* A classic virtual network
-* A managed virtual network such as the Azure VWAN hub 
+> [!Important]
+> This feature doesn't support scenarios where the virtual network to be updated is peered with: 
+> * A classic virtual network
+> * A managed virtual network such as the Azure VWAN hub
 
 ## Service chaining
 
