@@ -1,11 +1,11 @@
 ---
 title: How to configure Azure Cache for Redis
-description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
+description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances.
 author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 07/12/2022
 ms.author: franlanglois 
 
 ---
@@ -36,7 +36,7 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Scale](#scale)
   - [Cluster size](#cluster-size)
   - [Data persistence](#data-persistence)
-  - (Preview)Identity <!-- Need some text for this.  -->
+  - (Preview) Identity <!-- Need some text for this.  -->
   - [Schedule updates](#schedule-updates)
   - [Geo-replication](#geo-replication)
   - [Virtual Network](#virtual-network)
@@ -61,7 +61,6 @@ You can view and configure the following settings using the **Resource Menu**. T
 - Support & troubleshooting settings
   - [Resource health](#resource-health)
   - [New support request](#new-support-request)
-
 
 ## Overview
 
@@ -307,7 +306,12 @@ The settings in the **Administration** section allow you to perform the followin
 
 Import/Export is an Azure Cache for Redis data management operation that allows you to import and export data in the cache. You can import and export an Azure Cache for Redis Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. Use Import/Export to migrate between different Azure Cache for Redis instances or populate the cache with data before use.
 
-Import can be used to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory, and then inserts the keys into the cache.
+You can use import with Redis-compatible RDB files from any Redis server running in any cloud or environment:
+- including Redis running on Linux 
+- Windows
+- any cloud provider such as Amazon Web Services and others 
+
+Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory, and then inserts the keys into the cache.
 
 Export allows you to export the data stored in Azure Cache for Redis to Redis compatible RDB files. You can use this feature to move data from one Azure Cache for Redis instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Cache for Redis server instance. The temporary file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
@@ -326,7 +330,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 
 :::image type="content" source="media/cache-configure/redis-cache-reboot-cluster.png" alt-text="Screenshot that shows where to select which shards of the cache to reboot.":::
 
-To reboot one or more nodes of your cache, select the desired nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then select **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
+To reboot one or more nodes of your cache, select the desired nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shards to reboot, and then select **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 > [!IMPORTANT]
 > Reboot is not yet available for the Enterprise tier. Reboot is available for all other tiers. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
@@ -370,7 +374,7 @@ The **Advisor recommendations** on the left displays recommendations for your ca
 
 :::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the recommendations are displayed.":::
 
-If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed on the in the **Overview** of the Resource menu.
+If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed in the **Overview** of the Resource menu.
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in the Azure Cache for Redis section.":::
 <!-- Might want a better recommendation in the image. -->
@@ -523,4 +527,4 @@ For more information about Redis commands, see [https://redis.io/commands](https
 ## Next steps
 
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
-- 
+- [Monitor Azure Cache for Redis](cache-how-to-monitor.md)
