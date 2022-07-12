@@ -1,15 +1,15 @@
 ---
-title: Prepare network to send and receive data
-description: Learn how to deliver and receive data from Orbital.
+title: Prepare network to send and receive data - Azure Orbital
+description: Learn how to deliver and receive data from  Azure Orbital.
 author: hrshelar
 ms.service: orbital
 ms.topic: how-to
 ms.custom: ga
-ms.date: 07/07/2022
+ms.date: 07/12/2022
 ms.author: hrshelar
 ---
 
-# Prepare network for Orbital GSaaS integration
+# Prepare the network for Azure Orbital GSaaS integration
 
 The Orbital GSaaS platform interfaces with your resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Orbital GSaaS objects are configured correctly.
 
