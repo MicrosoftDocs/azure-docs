@@ -117,7 +117,7 @@ The Azure Spring Apps service doesn't provide geo-disaster recovery, but careful
 
 ### Plan your application deployment
 
-To plan your application, it is helpful to understand Azure regions and geographies:
+To plan your application, it's helpful to understand the following information about Azure regions and geographies:
 
 - Azure Spring Apps applications run in a specific region.
 - Azure operates in multiple geographies around the world.
