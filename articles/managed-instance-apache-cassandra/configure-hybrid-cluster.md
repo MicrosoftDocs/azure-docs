@@ -212,7 +212,13 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > ```azurecli-interactive
    >     az managed-cassandra cluster update --cluster-name --resource-group--repair-enabled false
    > ```
-   > Then run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required). After everyhting is done and the old datacenter decommissioned you can enable automatic repair again).
+   > Then run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this **only after all of the prior steps have been taken**. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required). After these steps are completed, you can enable automatic repair again. 
+   > 
+   > Finally, to decommission your old data center:
+   > 
+   > 1. Run `ALTER KEYSPACE` for each keyspace, removing the old data center. 
+   > 2. Run `nodetool repair` for each keyspace.
+   > 2. Run [nodetool decommision](https://cassandra.apache.org/doc/latest/cassandra/operating/topo_changes.html#removing-nodes) for each node. 
 
    > [!NOTE]
    > To speed up repairs we advise (if system load permits it) to increase both stream throughput and compaction throughput as in the example below:
