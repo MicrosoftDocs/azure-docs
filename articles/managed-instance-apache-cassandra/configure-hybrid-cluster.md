@@ -216,9 +216,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > 
    > Finally, to decommission your old data center:
    > 
-   > 1. Run `ALTER KEYSPACE` for each keyspace, removing the old data center.
-   > 1. We recommend running `nodetool repair` for each keyspace as well, before the below step.
-   > 1. Run [nodetool decommision](https://cassandra.apache.org/doc/latest/cassandra/operating/topo_changes.html#removing-nodes) for each on premise data center node. 
+   > - Run `ALTER KEYSPACE` for each keyspace, removing the old data center.
+   > - We recommend running `nodetool repair` for each keyspace as well, before the below step.
+   > - Run [nodetool decommision](https://cassandra.apache.org/doc/latest/cassandra/operating/topo_changes.html#removing-nodes) for each on premise data center node. 
 
    > [!NOTE]
    > To speed up repairs we advise (if system load permits it) to increase both stream throughput and compaction throughput as in the example below:
