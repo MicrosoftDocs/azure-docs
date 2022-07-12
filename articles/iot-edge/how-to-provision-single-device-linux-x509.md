@@ -329,7 +329,7 @@ sudo apt-get remove iotedge
 sudo apt-get autoremove --purge aziot-edge
 ```
 
-Use the `--purge` flag if you want to delete all the files associated with IoT Edge, including your configuration files. Leave this flag out if you want to reinstall IoT Edge and use the same configuration information in the future.
+Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flags deletes all the files associated with IoT Edge, including your configuration files. 
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 ```bash
