@@ -52,14 +52,14 @@ To create a replica of your configuration store, follow the steps below.
 ### [Portal](#tab/azure-portal)
 
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
-1. Under **Replica(s)**, select **Create**. Select the location of your new replica in the dropdown, then assign the replica a name. Note that this name must be unique. 
+1. Under **Replica(s)**, select **Create**. Select the location of your new replica in the dropdown, then assign the replica a name. This replica name must be unique. 
 
     <!-- PLACEHOLDER FOR SCREENSHOT
     :::image type="content" source="./media/how-to-soft-delete-app-config-4.png" alt-text="On App Configuration stores, the Manage deleted stores option is highlighted."::: 
     -->
 
 1. Select **Create**. 
-1. On the **Geo-replication** blade, you should now see your new replica listed. Check that the status of the replica is "Succeeded".  
+1. You should now see your new replica listed under Replica(s). Check that the status of the replica is "Succeeded".  
 
     <!-- PLACEHOLDER FOR SCREENSHOT
     :::image type="content" source="media/disable-public-access.png" alt-text="Screenshot of the Azure portal disabling public access.":::
@@ -78,8 +78,8 @@ To create a replica of your configuration store, follow the steps below.
     ```azurecli-interactive
   az appconfig replica list --store-name MyConfigStoreName 
     ```
-
 ---
+
 
 ## Delete a replica
 
