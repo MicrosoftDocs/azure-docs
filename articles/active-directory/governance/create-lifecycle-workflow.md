@@ -13,8 +13,8 @@ ms.custom: template-how-to
 
 # Create a Lifecycle workflow (Preview)
 Lifecycle Workflows allows for tasks associated with the lifecycle process to be run automatically for users as they move through their life cycle in your organization. Workflows are made up of:
- - tasks - actions taken when a workflow is triggered.
- - execution conditions -  define the who and when of a workflow. That is, who (scope) should this workflow run against, and when (trigger) should it run.
+ - tasks - Actions taken when a workflow is triggered.
+ - execution conditions - Define the who and when of a workflow. That is, who (scope) should this workflow run against, and when (trigger) should it run.
 
 
 
