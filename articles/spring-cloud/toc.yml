@@ -244,7 +244,7 @@ items:
       href: github-actions-key-vault.md
   - name: Disaster recovery
     items:
-    - name: High availability
+    - name: Redundancy and high availability
       href: how-to-enable-redundancy-and-disaster-recovery.md
   - name: Troubleshoot
     items:
