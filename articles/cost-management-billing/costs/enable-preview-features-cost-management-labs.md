@@ -160,6 +160,15 @@ Charts in the cost analysis preview include a chart of daily or monthly charges 
 Charts are enabled on the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** Option at the bottom of the page to share feedback about the preview.
 
 
+<a name="productscolumn"></a>
+
+## Product column in the cost analysis preview
+
+Every service tracks different usage attributes of the resources you have deployed. Each of these usage attributes is tracked via a "meter" in your cost data. Meters are grouped into categories and include additional metadata to help you understand the charges. We’re testing new columns in the Resources and Services views in the cost analysis preview for Microsoft Customer Agreement. You may see a single Product column instead of the Service, Tier, and Meter columns.
+
+You can also enable this from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Note it is only applicable for Microsoft Customer Agreement accounts.
+
+
 <a name="resourceessentials"></a>
 
 ## View cost for your resources
