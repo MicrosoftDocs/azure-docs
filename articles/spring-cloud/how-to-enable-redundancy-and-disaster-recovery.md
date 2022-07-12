@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Enable redundancy and disaster recovery for Azure Spring Apps
 
-**The zone redundancy applies to:** ✔️ Standard tier ✔️ Enterprise tier
+**Zone redundancy applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
 **The customer-managed disaster recovery applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
