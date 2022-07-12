@@ -19,23 +19,33 @@ landingContent:
           - text: What is Azure Center for SAP solutions?
             url: overview.md
 
-  - title: Get started
+  - title: Deploy and register
     linkLists:
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
           - text: Create network infrastructure
             url: create-network.md
-          - text: Monitor SAP system in Azure portal
-            url: monitor-portal.md
           - text: Install SAP software in ACSS
             url: install-software.md
-          - text: Configure Virtual Instance for SAP solutions
-            url: configure-virtual-instance.md
           - text: Deploy S/4HANA infrastructure
             url: deploy-s4hana.md
           - text: Register existing SAP system
             url: register-existing-system.md
-          - text: Get Quality Insights for VIS
-            url: get-quality-insights-vis.md
+
+  - title: Configure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
           - text: Start and stop SAP systems
             url: start-stop-sap-systems.md
+          - text: Configure Virtual Instance resource
+            url: configure-virtual-instance.md
+
+  - title: Monitor
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor SAP system in Azure portal
+            url: monitor-portal.md
+          - text: Get Quality Insights for VIS
+            url: get-quality-insights-vis.md
