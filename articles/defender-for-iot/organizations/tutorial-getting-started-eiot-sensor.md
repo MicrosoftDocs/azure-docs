@@ -56,7 +56,7 @@ Before you deploy your Enterprise IoT sensor, you'll need to configure your serv
     Make sure that your server or VM also has:
 
     - Two network adapters
-    - Ubuntu 18.04 operating system.
+    - Ubuntu 18.04 operating system
 
 1. Connect a NIC to a switch as follows:
 
@@ -140,18 +140,18 @@ Run the command that you received and saved when you registered the Enterprise I
 
 1. Run the command that you saved from [setting up an Enterprise IoT sensor](#set-up-an-enterprise-iot-sensor).
 
-    The installation wizard appears when the command process completes.
+    The installation wizard appears when the command process completes:
 
-1. In the **What is the name of the monitored interface?** screen, use the SPACEBAR to select the interfaces you want to monitor with your sensor, and then select OK.
+    - In the **What is the name of the monitored interface?** screen, use the SPACEBAR to select the interfaces you want to monitor with your sensor, and then select OK.
 
-1. In the **Set up proxy server** screen, select whether to set up a proxy server for your senor (**Yes** / **No**)/
+    - In the **Set up proxy server** screen, select whether to set up a proxy server for your senor (**Yes** / **No**)/
 
-    (Optional) If you are setting up a proxy server, define the following values, selecting **Ok** after each option:
+        (Optional) If you are setting up a proxy server, define the following values, selecting **Ok** after each option:
 
-    - Proxy server host
-    - Proxy server port
-    - Proxy server username
-    - Proxy server password
+        - Proxy server host
+        - Proxy server port
+        - Proxy server username
+        - Proxy server password
 
 The installation process completes.
 

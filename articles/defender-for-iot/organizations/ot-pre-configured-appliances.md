@@ -62,4 +62,4 @@ Then, use any of the following procedures to continue:
 - [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
 
-Our OT monitoring appliance reference articles also include installation procedures in case you need to install software on your own appliances, or re-install software on preconfigured appliances. For more information, see [OT monitoring appliance reference](appliance-catalog/appliance-catalog-overview.md).
+Our OT monitoring appliance reference articles also include additional installation procedures in case you need to install software on your own appliances, or re-install software on preconfigured appliances. For more information, see [OT monitoring appliance reference](appliance-catalog/appliance-catalog-overview.md).
