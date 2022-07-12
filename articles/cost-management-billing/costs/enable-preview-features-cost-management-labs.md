@@ -178,6 +178,15 @@ Cost analysis is available from every management group, subscription, resource g
 The view cost link is enabled by default in the [Azure preview portal](https://preview.portal.azure.com).
 
 
+<a name="whatsnew"></a>
+
+## What's new in Cost Management
+
+Learn about new and updated features or other announcements directly from within the Cost Management experience in the Azure portal. You can also follow along using the [Cost Management updates on the Azure blog](https://aka.ms/costmgmt/blog).
+
+What's new can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
+
+
 <a name="onlyinconfig"></a>
 
 ## Streamlined menu
