@@ -103,9 +103,7 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 #### Regional availability
 
-Currently only available in the following regions:
-- US East
-- West Europe
+[!INCLUDE [disks-premv2-regions](../../includes/disks-premv2-regions.md)]
 
 ### Premium SSD v2 performance
 
