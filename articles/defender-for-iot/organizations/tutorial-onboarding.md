@@ -205,7 +205,7 @@ Before continuing, make sure that your sensor can access the cloud using HTTP on
 
 ## Onboard and activate the virtual sensor
 
-Before you can start using your Defender for IoT sensor, you'll need to onboard the created virtual sensor to your Azure subscription and download the virtual sensor's activation file to activate the sensor.
+Before you can start using your Defender for IoT sensor, you'll need to onboard your new virtual sensor to your Azure subscription, and download the virtual sensor's activation file to activate the sensor.
 
 ### Onboard the virtual sensor
 
@@ -269,7 +269,7 @@ Your sensor is activated and onboarded to Defender for IoT. In the **Sites and s
 
 ## Next steps
 
-After your OT sensor is connection, continue with any of the following to start analyzing your data:
+After your OT sensor is connected, continue with any of the following to start analyzing your data:
 
 - [View assets from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 

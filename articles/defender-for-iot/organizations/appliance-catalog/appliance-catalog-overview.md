@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 This article provides an overview of the OT monitoring appliances supported with Microsoft Defender for IoT.
 
-Each article provides details about the appliance and any additional software installation procedures required. For more information, see [Install OT system software](../how-to-install-software.md) and [Update Defender for IoT OT monitoring software](../update-ot-software.md).
+Each article provides details about the appliance and any extra software installation procedures required. For more information, see [Install OT system software](../how-to-install-software.md) and [Update Defender for IoT OT monitoring software](../update-ot-software.md).
 
 ## Corporate environments
 

@@ -149,7 +149,7 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 ### Add a secondary NIC (optional)
 
-You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. By adding a secondary NIC, the first will be dedicated for end-users, and the secondary will support the configuration of a gateway for routed networks.
+You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
 
 :::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC." border="false":::
 
@@ -198,7 +198,7 @@ This command will cause the light on the port to flash for the specified time pe
 
 After you've finished installing OT monitoring software on your appliance, test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 
-System health validations are supported via the sensor or on-premises management console UI or CLI, and is available for both the **Support** and **CyberX** users.
+System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the **Support** and **CyberX** users.
 
 After installing OT monitoring software, make sure to run the following tests:
 

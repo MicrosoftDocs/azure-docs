@@ -50,8 +50,8 @@ Before you deploy your Enterprise IoT sensor, you'll need to configure your serv
 
     | Tier | Requirements |
     |--|--|
-    | **Minimum** | To support up to 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16 GB RAM of DDR4 or better<br>- 250 GB HDD |
-    | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32 GB RAM of DDR4 or better<br>- 500 GB HDD |
+    | **Minimum** | To support up to 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
+    | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
 
     Make sure that your server or VM also has:
 
@@ -144,9 +144,9 @@ Run the command that you received and saved when you registered the Enterprise I
 
     - In the **What is the name of the monitored interface?** screen, use the SPACEBAR to select the interfaces you want to monitor with your sensor, and then select OK.
 
-    - In the **Set up proxy server** screen, select whether to set up a proxy server for your senor (**Yes** / **No**)/
+    - In the **Set up proxy server** screen, select whether to set up a proxy server for your sensor (**Yes** / **No**)/
 
-        (Optional) If you are setting up a proxy server, define the following values, selecting **Ok** after each option:
+        (Optional) If you're setting up a proxy server, define the following values, selecting **Ok** after each option:
 
         - Proxy server host
         - Proxy server port
@@ -213,7 +213,7 @@ For more information, see:
 
 ## Microsoft Defender for Endpoint integration
 
-Once you’ve onboarded a plan and set up your sensor, your device data integrates automatically with Microsoft Defender for Endpoint. Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals, extending security analytics capabilities for your Enterprise IoT devices and providing complete coverage.
+Once you’ve onboarded a plan and set up your sensor, your device data integrates automatically with Microsoft Defender for Endpoint. Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals. Use this integration to extend security analytics capabilities for your Enterprise IoT devices and providing complete coverage.
 
 In Defender for Endpoint, you can view discovered IoT devices and related alerts, vulnerabilities, and recommendations. For more information, see:
 
