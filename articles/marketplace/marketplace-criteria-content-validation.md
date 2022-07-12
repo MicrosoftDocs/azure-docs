@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 12/06/2021
+ms.date: 07/15/2022
 ---
 
 # Azure Marketplace listing guidelines
@@ -25,19 +25,19 @@ This article explains the requirements and guidelines for listing new offers and
 | 6 | Videos | <ul><li>No video is required but, if provided, it must play back without any errors.</li><li>If provided, it may not refer to competitor companies *unless* it is demonstrating a migration solution. |<ul><li>Ideally, the length is 3 min. or more.</li><li>The solution offer is easily understood through video content.</li><li>Provides demo of solution capabilities. |
 | 7 | List status (listing options) | <ul><li>Must be labeled as one of the following types: <ul><li>*Contact Me*</li><li>*Trial*/*Get Trial Now*/*Start Trial*/*Test Drive*</li><li>*Buy Now*/*Get It Now*</li></ul></ul> | Customer can readily understand what the next steps are: <ol><li>Try the Trial.</li><li>Buy Now.</li><li>Contact via email or phone number to arrange for Proof of Concept (POC), Assessment, or Briefing.</li></ol> | 
 | 8 | Solution pricing | Must have solution pricing tab/details, and pricing must be in the local currency of the partner solution offering. | Multiple billing options should be available with tier pricing to give customer options. |
-| 9 | Learn more | Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. | 
-| 10 | Solution support and help | Link to at least one of the following: <ul><li>Telephone numbers</li><li>Email support</li><li>Chat agents</li><li>Community forums |<ul><li>All support methods are listed.</li><li>Paid support is offered free during the *Trial* or *Test Drive* period. |
+| 9 | Learn more | Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. |
+| 10 | Solution support and help | Provide the following: <ul><li>Telephone numbers</li><li>Email support</li><li>Chat agents</li><li>Community forums |<ul><li>All support methods are listed.</li><li>Paid support is offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal | Policies or terms are available via a public URL. |  |
 
 ## Trial offer requirements
 
-| No. | Listing element | Base requirement | Optimal requirement | 
+| No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
-|  | List status (Listing option) | The link must lead to a customer-led *Trial* experience. | Other listing options (for example, *Buy Now*) are also available. | 
+|  | List status (Listing option) | The link must lead to a customer-led *Trial* experience. | Other listing options (for example, *Buy Now*) are also available. |
 
 ## SaaS application requirements
 
-| No. | Listing element | Base requirement | Optimal requirement | 
+| No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title |<ul><li>Must consist only of lowercase letters, alphanumeric characters, dashes, or underscores. The title can't be modified after it's published.</li><li>Describes solution offering.</li><li>Matches online promotion of solution on partner's website. | Contains key search words. |
 | 2 | Technical information: Configuration |<ul><li>For software as a service (SaaS) apps, choose whether you want only to list your app or to enable customers to purchase your app through Azure.</li><li>Select the text that you want on your offer's acquisition button: *Free*, *Free Trial*, or *Contact Me*.</li><li>In the pop-up window, select only one applicable product if your app utilizes the technology: Cortana Intelligence, Power BI Solution Templates, or Power Apps. |  |
