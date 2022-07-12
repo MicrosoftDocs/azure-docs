@@ -17,8 +17,7 @@ With time parameters, you can set the time context of analysis, which is used by
 ## Create a time parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
-1. Select **Add Parameter**.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     - **Parameter name**: `TimeRange`
     - **Parameter type**: `Time range picker`
@@ -36,7 +35,7 @@ You can reference time parameters with bindings, KQL, or text.
 
 ### Reference a time parameter with bindings
 
-1. Add a query control to the workbook, and select an Application Insights resource.
+1. Select **Add query** to add a query control, and then select an Application Insights resource.
 1. Most workbook controls support a **Time Range** scope picker. Open the **Time Range** dropdown list and select the `{TimeRange}` in the **Time Range Parameters** group at the bottom:
 
    * This control binds the time range parameter to the time range of the chart.
@@ -47,7 +46,7 @@ You can reference time parameters with bindings, KQL, or text.
 
 ### Reference a time parameter with KQL
 
-1. Add a query control to the workbook, and select an Application Insights resource.
+1. Select **Add query** to add a query control, and then select an Application Insights resource.
 1. In the KQL, enter a time scope filter by using the parameter `| where timestamp {TimeRange}`:
 
    * This parameter expands on the query evaluation time to `| where timestamp > ago(1d)`.

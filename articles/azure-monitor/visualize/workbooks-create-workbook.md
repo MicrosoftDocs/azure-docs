@@ -1,6 +1,6 @@
 ---
 title: Create an Azure workbook
-description: Learn how to create an Azure workbook.
+description: Learn how to create a workbook in Azure Workbooks.
 services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -11,17 +11,17 @@ ms.reviewer: gardnerjr
 
 # Create an Azure workbook
 
-This article describes how to create a new workbook and how to add components to your Azure workbook.
+This article describes how to create a new workbook and how to add components to it.
 
 This video walks you through creating workbooks.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
-## Create a new Azure workbook
+## Create a new workbook
 
-To create a new Azure workbook:
+To create a new workbook:
 
-1. On the **Azure Workbooks** page, select an empty template or select **New** on the top toolbar.
+1. On the **Azure Workbooks** page, select an empty template or select **New**.
 1. Combine any of these elements to add to your workbook:
    - [Text](#add-text)
    - [Queries](#add-queries)
@@ -45,9 +45,9 @@ Edit mode:
 Preview mode:
    :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" alt-text="Screenshot that shows adding text to a workbook in preview mode.":::
 
-### Add text to an Azure workbook
+### Add text to a workbook
 
-1. Make sure you're in edit mode by selecting **Edit** on the toolbar.
+1. Make sure you're in edit mode by selecting **Edit**.
 1. Add text by doing one of these steps:
 
    * Select **Add** > **Add text** below an existing element or at the bottom of the workbook.
@@ -91,9 +91,9 @@ You can query any of the supported workbook [data sources](workbooks-data-source
 
 For example, you can query Azure Resource Health to help you view any service problems affecting your resources. You can also query Azure Monitor metrics, which is numeric data collected at regular intervals. Azure Monitor metrics provide information about an aspect of a system at a particular time.
 
-### Add a query to an Azure workbook
+### Add a query to a workbook
 
-1. Make sure you're in edit mode by selecting the **Edit** button on the toolbar.
+1. Make sure you're in edit mode by selecting **Edit**.
 1. Add a query by doing one of these steps:
     - Select **Add** > **Add query** below an existing element or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add query**.
@@ -105,6 +105,8 @@ For example, you can query Azure Resource Health to help you view any service pr
 1. When you're sure you have the query you want in your workbook, select **Done Editing**.
 
 ## Add parameters
+
+This section discusses how to add parameters.
 
 ### Best practices for using resource-centric log queries
 
@@ -161,9 +163,9 @@ Resources
 
 You can control how your parameter controls are presented to consumers with workbooks. Examples include text box versus dropdown list, single- versus multi-select, or values from text, JSON, KQL, or Azure Resource Graph.
 
-### Add a parameter to an Azure workbook
+### Add a parameter to a workbook
 
-1. Make sure you're in edit mode by selecting **Edit** on the toolbar.
+1. Make sure you're in edit mode by selecting **Edit**.
 1. Add a parameter by doing one of these steps:
     - Select **Add** > **Add parameter** below an existing element or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add parameter**.
@@ -186,9 +188,9 @@ The following example shows the number of transactions in a storage account over
 
   :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" alt-text="Screenshot that shows a metric area chart for storage transactions in a workbook.":::
 
-### Add a metric chart to an Azure workbook
+### Add a metric chart to a workbook
 
-1. Make sure you're in edit mode by selecting **Edit** on the toolbar.
+1. Make sure you're in edit mode by selecting **Edit**.
 1. Add a metric chart by doing one of these steps:
     - Select **Add** > **Add metric** below an existing element or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add metric**.
@@ -304,7 +306,7 @@ Use the toolbar style to have your links appear styled as a toolbar. In toolbar 
 
 If any required parameters are used in button text, tooltip text, or value fields, and the required parameter is unset, the toolbar button will be disabled. For example, this functionality can be used to disable toolbar buttons when no value is selected in another parameter/control.
 
-A sample workbook with toolbars, global parameters, and Azure Resource Manager actions is available in [sample Azure workbooks with links](workbooks-sample-links.md#sample-workbook-with-toolbar-links).
+A sample workbook with toolbars, global parameters, and Azure Resource Manager actions is available in [sample workbooks with links](workbooks-sample-links.md#sample-workbook-with-toolbar-links).
 
 ## Add groups
 
@@ -318,7 +320,7 @@ Groups in workbooks are useful for several things:
 
 ### Add a group to your workbook
 
-1. Make sure you're in edit mode by selecting **Edit** on the toolbar.
+1. Make sure you're in edit mode by selecting **Edit**.
 1. Add a group by doing one of these steps:
     - Select **Add** > **Add group** below an existing element or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add group**.
@@ -363,7 +365,7 @@ In this mode, a button is displayed where the group would be. No content is retr
 
 This screenshot shows explicit load settings with a configured **Load More** button:
 
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded.png" alt-text="Screenshot that shows explicit load settings for a group in workbooks.":::
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded.png" alt-text="Screenshot that shows explicit load settings for a group in the workbook.":::
 
 This screenshot shows the group before being loaded in the workbook:
 
@@ -428,4 +430,4 @@ To turn a larger template into multiple subtemplates:
 
 ## Next steps
 
-[Common Workbook use cases](workbooks-commonly-used-components.md)
+[Common Azure Workbooks use cases](workbooks-commonly-used-components.md)

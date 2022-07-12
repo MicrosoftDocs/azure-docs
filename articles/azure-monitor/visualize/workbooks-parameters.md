@@ -18,16 +18,16 @@ When you use workbooks, you can control how your parameter controls are presente
 
 Supported parameter types include:
 
-* [Time](workbooks-time.md): Allows a user to select from pre-populated time ranges or select a custom range
-* [Drop down](workbooks-dropdowns.md): Allows a user to select from a value or set of values
-* [Options group](workbooks-options-group.md)
-* [Text](workbooks-text.md): Allows a user to enter arbitrary text
-* [Criteria](workbooks-criteria.md)
-* [Resource](workbooks-resources.md): Allows a user to select one or more Azure resources
-* [Subscription](workbooks-resources.md): Allows a user to select one or more Azure subscription resources
-* [Multi-value](workbooks-multi-value.md)
-* Resource type: Allows a user to select one or more Azure resource type values
-* Location: Allows a user to select one or more Azure location values
+* [Time](workbooks-time.md): Allows you to select from pre-populated time ranges or select a custom range
+* [Drop down](workbooks-dropdowns.md): Allows you to select from a value or set of values
+* [Options group](workbooks-options-group.md): Allows you to select one value from a known set
+* [Text](workbooks-text.md): Allows you to enter arbitrary text
+* [Criteria](workbooks-criteria.md): Allows you to define a set of criteria based on previously specified parameters, which will be evaluated to provide a dynamic value
+* [Resource](workbooks-resources.md): Allows you to select one or more Azure resources
+* [Subscription](workbooks-resources.md): Allows you to select one or more Azure subscription resources
+* [Multi-value](workbooks-multi-value.md): Allows you to set one or more arbitrary text values
+* Resource type: Allows you to select one or more Azure resource type values
+* Location: Allows you to select one or more Azure location values
 
 ## Reference a parameter
 
@@ -37,7 +37,7 @@ You can reference parameter values from other parts of workbooks either by using
 
 This example shows how to reference a time range parameter with bindings:
 
-1. Add a query control to the workbook, and select an Application Insights resource.
+1. Select **Add query** to add a query control, and then select an Application Insights resource.
 1. Open the **Time Range** dropdown list and select the **Time Range** option from the **Parameters** section at the bottom:
    - This option binds the time range parameter to the time range of the chart.
    - The time scope of the sample query is now **Last 24 hours**.
@@ -49,13 +49,13 @@ This example shows how to reference a time range parameter with bindings:
 
 This example shows how to reference a time range parameter with KQL:
 
-1. Add a query control to the workbook, and select an Application Insights resource.
+1. Select **Add query** to add a query control, and then select an Application Insights resource.
 1. In the KQL, enter a time scope filter by using the parameter `| where timestamp {TimeRange}`:
    - This parameter expands on query evaluation time to `| where timestamp > ago(1d)`.
    - This option is the time range value of the parameter.
 1. Run the query to see the results.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-time-in-code.png" alt-text="Screenshot that shows a time range referenced in the K Q L query."::: 
+   :::image type="content" source="media/workbooks-parameters/workbooks-time-in-code.png" alt-text="Screenshot that shows a time range referenced in the KQL query.":::
 
 ### Reference a parameter with text
 
@@ -72,7 +72,7 @@ Each parameter type has its own formatting options. Use the **Previews** section
 
    :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot that shows time range parameter options.":::
 
-You can use these options to format all parameter types except for **Time range picker**. For examples of formatting times, see [Time parameter options](workbooks-time.md#time-parameter-options). 
+You can use these options to format all parameter types except for **Time range picker**. For examples of formatting times, see [Time parameter options](workbooks-time.md#time-parameter-options).
 
 Other parameter types include:
 
@@ -83,7 +83,7 @@ Other parameter types include:
 
 **Syntax**: `{param:tomltojson}`
 
-**Original value**: 
+**Original value**:
 
 ```
 name = "Sam Green"
@@ -109,7 +109,7 @@ country = "USA"
 
 **Syntax**: `{param:escapejson}`
 
-**Original value**: 
+**Original value**:
 
 ```
 {
@@ -131,7 +131,7 @@ country = "USA"
 
 **Syntax**: `{param:base64}`
 
-**Original value**: 
+**Original value**:
 
 ```
 Sample text to test base64 encoding
@@ -153,7 +153,7 @@ For example, you might have a string parameter named `selection` that was the re
 { "series":"Failures", "x": 5, "y": 10 }
 ```
 
-Using JSONPath, you could get individual values from that object:
+By using JSONPath, you could get individual values from that object:
 
 Format | Result
 ---|---
@@ -172,27 +172,27 @@ The following styles are available for the parameters.
 
 Pills style is the default style. The parameters look like text and require the user to select them once to go into the edit mode.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-pills-read-mode.png" alt-text="Screenshot that shows Workbooks pills-style read mode.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-pills-read-mode.png" alt-text="Screenshot that shows Azure Workbooks pills-style read mode.":::
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-pills-edit-mode.png" alt-text="Screenshot that shows Workbooks pills-style edit mode."::: 
+   :::image type="content" source="media/workbooks-parameters/workbooks-pills-edit-mode.png" alt-text="Screenshot that shows Azure Workbooks pills-style edit mode.":::
 
 ### Standard
 
 In standard style, the controls are always visible, with a label above the control.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-standard.png" alt-text="Screenshot that shows Workbooks standard style.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-standard.png" alt-text="Screenshot that shows Azure Workbooks standard style.":::
 
 ### Form horizontal
 
-In horizontal style form, the controls are always visible, with the label on the left side of the control.
+In form horizontal style, the controls are always visible, with the label on the left side of the control.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-form-horizontal.png" alt-text="Screenshot that shows Workbooks form horizontal style.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-form-horizontal.png" alt-text="Screenshot that shows Azure Workbooks form horizontal style.":::
 
 ### Form vertical
 
-In vertical style form, the controls are always visible, with the label above the control. Unlike standard style, there's only one label or control in one row.
+In form vertical style, the controls are always visible, with the label above the control. Unlike standard style, there's only one label or control in one row.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-form-vertical.png" alt-text="Screenshot that shows Workbooks form vertical style.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-form-vertical.png" alt-text="Screenshot that shows Azure Workbooks form vertical style.":::
  
 > [!NOTE]
 > In standard, form horizontal, and form vertical layouts, there's no concept of inline editing. The controls are always in edit mode.
@@ -220,7 +220,7 @@ Common uses of global parameters:
 
 When you create the parameter in a parameters step, use the **Treat this parameter as a global** option in **Advanced Settings**. The only way to make a global parameter is to declare it with a parameters step. The other methods of creating parameters, via selections, brushing, links, buttons, and tabs, can only update a global parameter. They can't declare one themselves.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-parameters-global-setting.png" alt-text="Screenshot that shows setting global parameters in Workbooks."::: 
+   :::image type="content" source="media/workbooks-parameters/workbooks-parameters-global-setting.png" alt-text="Screenshot that shows setting global parameters in a workbook.":::
 
 The parameter will be available and function as normal parameters do.
 
@@ -230,7 +230,7 @@ For the chart example, the most common way to update a global parameter is by us
 
 In this example, the **timerange** parameter is declared as global. In a query step below that, create and run a query that uses that **timerange** parameter in the query and returns a time chart result. In **Advanced Settings** for the query step, enable the time range brushing setting. Use the same parameter name as the output for the time brush parameter. Also, select the **Only export the parameter when a range is brushed** option.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-global-time-range-brush.png" alt-text="Screenshot that shows global time brush setting in Workbooks.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-global-time-range-brush.png" alt-text="Screenshot that shows the global time brush setting in a workbook.":::
 
 Whenever a time range is brushed in this chart, it also updates the **timerange** parameter above this query, and the query step itself, because it also depends on **timerange**.
 
@@ -239,14 +239,14 @@ Whenever a time range is brushed in this chart, it also updates the **timerange*
     - The time range is shown as **Last hour**.
     - The chart shows the last hour of data.
 
-    :::image type="content" source="media/workbooks-parameters/workbooks-global-before-brush.png" alt-text="Screenshot that shows setting global parameters before brushing."::: 
+    :::image type="content" source="media/workbooks-parameters/workbooks-global-before-brush.png" alt-text="Screenshot that shows setting global parameters before brushing.":::
 
  1. During brushing:
  
     - The time range is still the last hour, and the brushing outlines are drawn.
     - No parameters have changed. After you let go of the brush, the time range is updated.
 
-    :::image type="content" source="media/workbooks-parameters/workbooks-global-during-brush.png" alt-text="Screenshot that shows setting global parameters during brushing."::: 
+    :::image type="content" source="media/workbooks-parameters/workbooks-global-during-brush.png" alt-text="Screenshot that shows setting global parameters during brushing.":::
 
    
  1. After brushing:
@@ -255,7 +255,7 @@ Whenever a time range is brushed in this chart, it also updates the **timerange*
     - Because the global value at the top has changed, and because this chart depends on **timerange** as an input, the time range of the query used in the chart also updates. As a result, the query and the chart will update.
      - Any other steps in the workbook that depend on **timerange** will also update.
 
-    :::image type="content" source="media/workbooks-parameters/workbooks-global-after-brush.png" alt-text="Screenshot that shows setting global parameters after brushing."::: 
+    :::image type="content" source="media/workbooks-parameters/workbooks-global-after-brush.png" alt-text="Screenshot that shows setting global parameters after brushing.":::
 
     > [!NOTE]
     > If you don't use a global parameter, the **timerange** parameter value will only change below this query step. Things above this step or this item itself won't update.

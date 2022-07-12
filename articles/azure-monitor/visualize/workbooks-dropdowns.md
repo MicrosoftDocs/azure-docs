@@ -19,8 +19,7 @@ The easiest way to specify a dropdown parameter is by providing a static list in
 ## Create a static dropdown parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
-1. Select the **Add Parameter** button.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `Environment`
     1. **Parameter type**: `Drop down`
@@ -36,8 +35,9 @@ The easiest way to specify a dropdown parameter is by providing a static list in
         { "value":"prod", "label":"Production", "selected":true }
     ]
     ```
+
 1. Select **Update**.
-1. Select **Save** on the toolbar to create the parameter.
+1. Select **Save** to create the parameter.
 1. The **Environment** parameter will be a dropdown list with the three values.
 
     ![Screenshot that shows the creation of a static dropdown parameter.](./media/workbooks-dropdowns/dropdown-create.png)
@@ -62,8 +62,7 @@ If your query result/JSON contains a `group` field, the dropdown list will displ
 ## Create a dynamic dropdown parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links within the workbook.
-1. Select the **Add Parameter** button.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `RequestName`
     1. **Parameter type**: `Drop down`
@@ -79,7 +78,7 @@ If your query result/JSON contains a `group` field, the dropdown list will displ
     ```
 
 1. Select **Run Query**.
-1. Select **Save** on the toolbar to create the parameter.
+1. Select **Save** to create the parameter.
 1. The **RequestName** parameter will be a dropdown list with the names of all requests in the app.
 
     ![Screenshot that shows the creation of a dynamic dropdown parameter.](./media/workbooks-dropdowns/dropdown-dynamic.png)
@@ -90,7 +89,7 @@ You can reference dropdown parameters.
 
 ### In KQL
 
-1. Add a query control to the workbook, and select an Application Insights resource.
+1. Select **Add query** to add a query control, and then select an Application Insights resource.
 1. In the KQL editor, enter this snippet:
 
     ```kusto
