@@ -15,7 +15,7 @@ zone_pivot_groups: acs-csharp-java
 ---
 # Quickstart: Create and manage a room resource
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This quickstart will help you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a pre-determined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and potential use cases for `rooms`.
 
@@ -34,9 +34,10 @@ The table below lists the main properties of `room` objects:
 | Name                  | Description                               |
 |-----------------------|-------------------------------------------|
 | `roomId`              | Unique `room` identifier.                  |
-| `ValidFrom`           | Earliest time a `room` can be used. | 
-| `ValidUntil`          | Latest time a `room` can be used. |
-| `Participants`        | List of pre-existing participant IDs.       | 
+| `validFrom`           | Earliest time a `room` can be used. | 
+| `validUntil`          | Latest time a `room` can be used. |
+| `roomJoinPolicy`      | Specifies which user identities are allowed to join room calls. Valid options are `InviteOnly` and `CommunicationServiceUsers`. | 
+| `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. | 
 
 ## Next steps
 
@@ -45,9 +46,9 @@ In this section you learned how to:
 > - Create a new room
 > - Get the properties of a room
 > - Update the properties of a room
-> - Join a room call
 > - Delete a room
-
+  - Join a room call
+>
 You may also want to:
  - Learn about [rooms concept](../../concepts/rooms/room-concept.md)
  - Learn about [voice and video calling concepts](../../concepts/voice-video-calling/about-call-types.md)

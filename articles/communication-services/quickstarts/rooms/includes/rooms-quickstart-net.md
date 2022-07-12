@@ -52,10 +52,9 @@ RoomsClient roomsClient = new RoomsClient(connectionString);
 Create a new `room` with default properties using the code snippet below:
 
 ```csharp
-CreateRoomRequest createRoomRequest = new CreateRoomRequest();
-Response<CommunicationRoom> createRoomResponse = await roomsClient.CreateRoomAsync(createRoomRequest);
-CommunicationRoom createCommunicationRoom = createRoomResponse.Value;
-string roomId = createCommunicationRoom.Id;
+RoomRequest request = new RoomRequest();
+Response<RoomModel> createRoomResponse = await roomsClient.CreateRoomAsync(validFrom, validUntil, RoomJoinPolicy.InviteOnly, participants);
+RoomModel createCommunicationRoom = createRoomResponse.Value;
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object. 
@@ -65,8 +64,8 @@ Since `rooms` are server-side entities, you may want to keep track of and persis
 Retrieve the details of an existing `room` by referencing the `roomId`:
 
 ```csharp
-Response<CommunicationRoom> getRoomResponse = await roomsClient.GetRoomAsync(roomId)
-CommunicationRoom getCommunicationRoom = getRoomResponse.Value;
+Response<RoomModel> getRoomResponse = await roomsClient.GetRoomAsync(createdRoomId)
+RoomModel getCommunicationRoom = getRoomResponse.Value;
 ```
 
 ### Update the lifetime of a room
@@ -94,13 +93,13 @@ var communicationUser1 = "<CommunicationUserId1>";
 var communicationUser2 = "<CommunicationUserId2>";
 var communicationUser3 = "<CommunicationUserId3>";
 
-UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
-updateRoomRequest.Participants.Add(communicationUser1, new RoomParticipant());
-updateRoomRequest.Participants.Add(communicationUser2, new RoomParticipant());
-updateRoomRequest.Participants.Add(communicationUser3, new RoomParticipant());
+List<RoomParticipant> toAddCommunicationUsers = new List<RoomParticipant>();
+toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser1), "Presenter"));
+toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser2), "Attendee"));
+toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser3), "Attendee"));
 
-Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(roomId, updateRoomRequest);
-CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
+Response<RoomModel> addParticipantResponse = await roomsClient.AddParticipantsAsync(createdRoomId, toAddCommunicationUsers);
+RoomModel addedParticipantsRoom = addParticipantResponse.Value;
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -110,34 +109,18 @@ Participants that have been added to a `room` become eligible to join calls.
 To remove a participant from a `room` and revoke their access, update the `Participants` list:
 
 ```csharp
-var communicationUser1 = "<CommunicationUserId1>";
-var communicationUser2 = "<CommunicationUserId2>";
-var communicationUser3 = "<CommunicationUserId3>";
+var communicationUser = "<CommunicationUserId1>";
 
-UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
-updateRoomRequest.Participants.Add(communicationUser1, null);
-updateRoomRequest.Participants.Add(communicationUser2, null);
-updateRoomRequest.Participants.Add(communicationUser3, null);
+ List<CommunicationIdentifier> toRemoveCommunicationUsers = new List<CommunicationIdentifier>();
+toRemoveCommunicationUsers.Add(new CommunicationUserIdentifier(communicationUser));
 
-Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(roomId, updateRoomRequest);
-CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
-```
-
-### Join a room call
-
-To join a room call, set up your web application using the [Add voice calling to your client app](../../voice-video-calling/getting-started-with-calling.md) guide. Once you have an initialized and authenticated `callAgent`, you may specify a context object with the `roomId` property as the `room` identifier. To join the call, use the `join` method and pass the context instance.
-
-```js
-
-const context = { roomId: '<RoomId>' }
-
-const call = callAgent.join(context);
-
+Response<RoomModel> removeParticipantResponse = await roomsClient.RemoveParticipantsAsync(createdRoomId, toRemoveCommunicationUsers);
+RoomModel removeParticipantsRoom = removeParticipantResponse.Value;
 ```
 
 ### Delete room
 If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
 
 ```csharp
-Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(roomId)
+Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId);
 ```
