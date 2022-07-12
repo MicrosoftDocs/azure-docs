@@ -46,34 +46,34 @@ If you haven’t already, read [Plan a SaaS offer](plan-saas-offer.md). It will 
 1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
 
     > [!NOTE]
-    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+    > The selected publisher must be enrolled in the [**Commercial marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
 
 1. To generate the offer and continue, select **Create**.
 
 ## Configure your SaaS offer set-up details
 
-On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_, which means that Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. For more information on these options, see [Listing options](plan-saas-offer.md#listing-options) and [Determine your publishing option](determine-your-listing-type.md).
+On the **Offer setup** tab, under **Setup details**, choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_, which means that Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. For more information on these options, see [Listing options](plan-saas-offer.md#listing-options) and [Determine your publishing option](determine-your-listing-type.md).
 
-1. To sell through Microsoft and have us facilitate transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
-1. To list your offer through the commercial marketplace and process transactions independently, select **No**, and then do one of the following:
-   + To provide a free subscription for your offer, select **Get it now (Free)**. Then in the **Offer URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example, `https://contoso.com/saas-app`.
-   + To provide a 30-day free trial, select **Free trial**, and then in the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example, `https://contoso.com/trial/saas-app`.
+1. To sell through Microsoft and have Microsoft facilitate transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
+1. To list your offer through the commercial marketplace and process transactions independently, select **No**, then do one of the following:
+   + To provide a free subscription for your offer, select **Get it now (Free)**. In the **Offer URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can get a trial through [one-click authentication using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example, `https://contoso.com/saas-app`.
+   + To provide a 30-day free trial, select **Free trial**. In the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example, `https://contoso.com/trial/saas-app`.
    + To have potential customers contact you to purchase your offer, select **Contact me**.
 
     > [!NOTE]
-    > You can convert a published listing-only offer to a sell through the commercial marketplace offer if your circumstances change, but you cannot convert a published transactable offer to a listing-only offer. Instead, you must create a new listing-only offer and stop distribution of the published transactable offer.
+    > You can convert a published listing-only offer to sell through the commercial marketplace offer if your circumstances change, but you cannot convert a published transactable offer to a listing-only offer. Instead, you must create a new listing-only offer and stop distribution of the published transactable offer.
 
 ## Enable a test drive (optional)
 
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To Learn more about test drives, see [What is a test drive?](./what-is-test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more about test drives, see [What is a test drive?](./what-is-test-drive.md).
 
 > [!TIP]
-> A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
+> A test drive is different from a free trial. You can offer either a test drive, a free trial, or both. Both provide customers with your solution for a fixed period, but a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits demonstrated in a real-world implementation scenario.
 
 ### To enable a test drive
 
-1. Under **Test drive**, select the **Enable a test drive** check box.
-1. Select the test drive type from the list that appears.
+1. Under **Test drive**, select **Enable a test drive**.
+1. Select the test drive type from the list.
 
 ## Configure lead management
 
@@ -90,7 +90,7 @@ You can also connect the product to your customer relationship management (CRM) 
 
 To configure the lead management in Partner Center:
 
-1. In Partner Center, go to the **Offer setup** tab.
+1. Go to the **Offer setup** tab.
 1. Under **Customer leads**, select the **Connect** link.
 1. In the **Connection details** dialog box, select a lead destination from the list.
 4. Complete the fields that appear. For detailed steps, see the following articles:
@@ -110,22 +110,23 @@ To configure the lead management in Partner Center:
 
 You can light up [unified discovery and delivery](plan-SaaS-offer.md) of your SaaS offer and any related Microsoft 365 App consumption by linking them.
 
-### Integrate with Microsoft API
+### Integrate with Microsoft Graph API
 
-1. If your SaaS offer does not integrate with Microsoft Graph API, select **No**. Continue to Link published Microsoft 365 App consumption clients.  
-1. If your SaaS offer integrates with Microsoft Graph API, select **Yes**, and then provide the Azure Active Directory App ID you have created and registered to integrate with Microsoft Graph API.
+- If your SaaS offer does not integrate with Microsoft Graph API, select **No**. Continue to Link published Microsoft 365 App consumption clients.  
+- If your SaaS offer integrates with Microsoft Graph API, select **Yes**, and then provide the Azure Active Directory App ID you have created and registered to integrate with Microsoft Graph API.
 
 ### Link published Microsoft 365 App consumption clients
 
-1. If you do not have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **No**.
-1. If you have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **Yes**, then select **+Add another AppSource link** to add new links.  
+1. If you do not have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **No**.
+
+    If you have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **Yes**, then select **+Add another AppSource link** to add new links.  
 1. Provide a valid AppSource link.
-1. Continue adding all the links by select **+Add another AppSource link** and provide valid AppSource links.  
-1. The order the linked products are shown on the listing page of the SaaS offer is indicated by the Rank value, you can change it by select, hold, and move the = icon up and down the list. 
-1. You can delete a linked product by select **Delete** in the product row.  
+1. Continue adding all valid AppSource links by selecting **+Add another AppSource link**.
+1. The order that the linked products are shown in on the SaaS offer listing page is indicated by the Rank value. To change the order, select, hold, and move the = icon up and down the list.
+1. To delete a linked product, by select **Delete** in the product row.  
 
 > [!IMPORTANT]
-> If you stop-sell a linked product, it won’t be automatically unlinked on the SaaS offer, you must delete it from the list of linked products and resubmit the SaaS offer.  
+> If you stop-sell a linked product, it won’t be automatically unlinked on the SaaS offer. You must delete it from the list of linked products and resubmit the SaaS offer.  
 
 ## Next steps
 

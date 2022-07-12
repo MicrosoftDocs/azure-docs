@@ -1,6 +1,6 @@
 ---
-title: Align your business with our e-commerce platform and Azure Marketplace
-description: Align your business with our e-commerce platform (Azure Marketplace).
+title: Align your business with our eCommerce platform and Azure Marketplace
+description: Align your business with our eCommerce platform (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
