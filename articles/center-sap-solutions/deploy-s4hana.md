@@ -100,7 +100,7 @@ There are three deployment options that you can select for your infrastructure, 
     
         The number of VMs for ASCS and Database instances aren't editable. The default number for each is **2**.
 
-    1. Under **Database virtual machines**, ACSS automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure a VM SKU is selected. Then, select **View disk configuration**. If there are more than one database servers, the layout applies to each server. 
+        ACSS automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure to select a VM SKU. Then, select **View disk configuration**. If there's more than one database server, the layout applies to each server. 
 
     1. Select **Next: Tags**.
 
