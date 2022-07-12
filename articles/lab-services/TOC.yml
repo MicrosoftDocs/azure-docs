@@ -53,7 +53,11 @@
   - name: Capacity limits
     href: capacity-limits.md  
   - name: Cost management for labs
-    href: cost-management-guide.md        
+    href: cost-management-guide.md
+  - name: Resiliency
+    items:
+    - name: Resiliency in Azure Lab Services
+      href: resiliency-in-azure-lab-services.md      
 - name: Scenarios
   items:  
   - name: Use Lab Services for conducting classes
@@ -240,7 +244,7 @@
       - name: Schedules and settings
         href: how-to-create-schedules-within-teams.md
       - name: Access a VM (student view)
-        href: how-to-access-vm-for-students-within-teams.md
+        href: how-to-access-vm-for-students-within-teams.md 
   - name: Earlier releases
     items:
     - name: Labs architecture fundamentals
