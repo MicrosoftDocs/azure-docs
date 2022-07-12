@@ -1,6 +1,6 @@
 ---
 title: Operate Azure Arc-enabled data services with least privileges
-description: Explains how to operating Azure Arc-enabled data services with least privileges
+description: Explains how to operate Azure Arc-enabled data services with least privileges
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
