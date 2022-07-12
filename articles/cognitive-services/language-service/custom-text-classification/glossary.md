@@ -22,7 +22,7 @@ Use this article to learn about some of the definitions and terms you may encoun
 A class is a user-defined category that indicates the overall classification of the text. Developers label their data with their classes before they pass it to the model for training.
 
 ## F1 score
-The F1 score is a function of Precision and Recall. It's needed when you seek a balance between [precision](#precision) and [recall](#recall].
+The F1 score is a function of Precision and Recall. It's needed when you seek a balance between [precision](#precision) and [recall](#recall).
 
 ## Model
 

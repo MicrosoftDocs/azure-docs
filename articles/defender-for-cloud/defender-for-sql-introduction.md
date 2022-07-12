@@ -1,12 +1,12 @@
 ---
 title: Microsoft Defender for SQL - the benefits and features
-description: Learn about the benefits and features of Microsoft Defender for SQL.
+description: Learn about the benefits and features of Microsoft Defender for Azure SQL .
 ms.date: 06/01/2022
 ms.topic: overview
 ms.custom: references_regions
 ---
 
-# Introduction to Microsoft Defender for SQL
+# Overview of Microsoft Defender for SQL
 
 Microsoft Defender for SQL includes two Microsoft Defender plans that extend Microsoft Defender for Cloud's [data security package](/azure/azure-sql/database/azure-defender-for-sql) to protect your SQL estate regardless of where it is located (Azure, multicloud or Hybrid environments). Microsoft Defender for SQL includes functions that can be used to discover and mitigate potential database vulnerabilities. Defender for SQL can also detect anomalous activities that may be an indication of a threat to your databases.
 

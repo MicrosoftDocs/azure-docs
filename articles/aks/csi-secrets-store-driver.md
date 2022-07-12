@@ -17,6 +17,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Before you start, ensure that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
+- If restricting Ingress to the cluster, ensure Ports 9808 and 8095 are open. 
 
 ### Supported Kubernetes versions
 
@@ -182,19 +183,19 @@ az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault
 Or update an existing cluster with the add-on enabled:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --enable-secret-rotation
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation
 ```
 
 To specify a custom rotation interval, use the `rotation-poll-interval` flag:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --enable-secret-rotation --rotation-poll-interval 5m
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
 ```
 
 To disable autorotation, use the flag `disable-secret-rotation`:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --disable-secret-rotation
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --disable-secret-rotation
 ```
 
 ### Sync mounted content with a Kubernetes secret

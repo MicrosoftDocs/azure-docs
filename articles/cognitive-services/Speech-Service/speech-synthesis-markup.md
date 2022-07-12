@@ -392,7 +392,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
 <voice name="en-US-JennyNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
@@ -708,7 +708,39 @@ Pitch changes can be applied at the sentence level.
     </voice>
 </speak>
 ```
-## say-as element
+
+## Adjust emphasis
+
+The optional `emphasis` element is used to add or remove word-level stress for the text. This element can only contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, `sub`, and `voice`.
+
+> [!NOTE]
+> The word-level emphasis tuning is only available for these neural voices: `en-US-GuyNeural`, `en-US-DavisNeural`, and `en-US-JaneNeural`.
+
+**Syntax**
+
+```xml
+<emphasis level="value"></emphasis>
+```
+
+**Attribute**
+
+| Attribute | Description | Required or optional |
+|-----------|-------------|---------------------|
+| `level` | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>When the `level` attribute is not specified, the default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2)| Optional|
+
+**Example**
+
+This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings". 
+    
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US"> 
+    <voice name="en-US-GuyNeural">   
+    I can help you join your <emphasis level="moderate">meetings</emphasis> fast. 
+    </voice> 
+</speak> 
+```
+
+## Add say-as element
 
 The `say-as` element is optional. It indicates the content type, such as number or date, of the element's text. This element provides guidance to the speech synthesis engine about how to pronounce the text.
 
@@ -771,6 +803,9 @@ Any audio included in the SSML document must meet these requirements:
 * The combined total time for all text and audio files in a single response can't exceed 600 seconds.
 * The audio must not contain any customer-specific or other sensitive information.
 
+> [!NOTE]
+> The 'audio' element is not supported by the Long Audio API.
+
 **Syntax**
 
 ```xml
@@ -806,6 +841,9 @@ You can use the `mstts:backgroundaudio` element to add background audio to your 
 If the background audio provided is shorter than the text-to-speech or the fade out, it loops. If it's longer than the text-to-speech, it stops when the fade out has finished.
 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
+
+> [!NOTE]
+> The `mstts:backgroundaudio` element is not supported by the Long Audio API.
 
 **Syntax**
 

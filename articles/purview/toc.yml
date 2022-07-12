@@ -1,5 +1,5 @@
 items:
-- name: Microsoft Purview documentation
+- name: Microsoft Purview governance documentation
   href: index.yml
 - name: Overview
   items:
@@ -8,7 +8,7 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Microsoft Purview account
+  - name: Create an account
     items:
     - name: Create an account - Azure portal
       href: create-catalog-portal.md
@@ -18,13 +18,17 @@ items:
       href: create-azure-purview-dotnet.md
     - name: Create an account - Python
       href: create-azure-purview-python.md
+    - name: Create an account - Bicep
+      href: quickstart-bicep-create-azure-purview.md
     - name: Create an account - ARM
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
+  - name: Share and receive data
+    href: quickstart-data-share.md
 - name: Tutorials
   items:
-  - name: Microsoft Purview deployment checklist
+  - name: Deployment checklist
     href: tutorial-azure-purview-checklist.md
   - name: Data owner policies for Azure Storage
     href: tutorial-data-owner-policies-storage.md
@@ -34,7 +38,7 @@ items:
     items:
     - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
-    - name: Microsoft Purview MSI configuration at scale
+    - name: MSI configuration at scale
       href: tutorial-msi-configuration.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
@@ -54,7 +58,7 @@ items:
     items:
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default Microsoft Purview account 
+      - name: Accounts - Default account 
         href: concept-default-purview-account.md
       - name: Asset lifecycle best practices
         href: concept-best-practices-asset-lifecycle.md
@@ -76,8 +80,14 @@ items:
         href: concept-best-practices-lineage-azure-data-factory.md
       - name: Network architecture best practices
         href: concept-best-practices-network.md
-      - name: Pricing guidelines 
-        href: concept-guidelines-pricing.md
+      - name: Pricing guidelines
+        items:
+        - name: Pricing guidelines overview 
+          href: concept-guidelines-pricing.md
+        - name: Data map pricing
+          href: concept-guidelines-pricing-data-map.md
+        - name: Data Estate Insights pricing
+          href: concept-guidelines-pricing-data-estate-insights.md
       - name: Scanning best practices 
         href: concept-best-practices-scanning.md
       - name: Security best practices
@@ -104,6 +114,8 @@ items:
       href: concept-asset-normalization.md
     - name: Workflows
       href: concept-workflow.md
+  - name: Data Sharing
+    href: concept-data-share.md
   - name: Data policies
     items:
     - name: Data owner policies
@@ -123,7 +135,7 @@ items:
   - name: Manage sources
     items: 
     - name: Supported sources
-      href: azure-purview-connector-overview.md
+      href: microsoft-purview-connector-overview.md
     - name: Manage data sources
       href: manage-data-sources.md
     - name: Manage credentials
@@ -279,8 +291,18 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
+  - name: Data sharing
+    items:
+    - name: Share data
+      href: how-to-share-data.md
+    - name: Receive share
+      href: how-to-receive-share.md
+    - name: Data sharing FAQ
+      href: how-to-data-share-faq.md
   - name: Data Estate Insights
     items:
+    - name: Disable or enable Data Estate Insights
+      href: enable-disable-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights
@@ -309,7 +331,7 @@ items:
         href: catalog-private-link-troubleshoot.md                     
       - name: Private endpoint and Managed VNets FAQ
         href: catalog-private-link-faqs.md
-    - name: Microsoft Purview deployment exceptions
+    - name: Deployment exceptions
       href: create-azure-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
@@ -351,13 +373,13 @@ items:
     href: how-to-integrate-with-azure-security-products.md
 - name: Reference
   items:
-    - name: Microsoft Purview product glossary
+    - name: Product glossary reference
       href: reference-azure-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
     - name: Supported classifications
       href: supported-classifications.md
-    - name: Microsoft Purview limits
+    - name: Limits
       href: how-to-manage-quotas.md
     - name: Java
       href: /samples/browse/?products=azure&languages=java&terms=purview
@@ -369,9 +391,9 @@ items:
       href: /python/api/azure-mgmt-purview/
     - name: REST
       href: /rest/api/purview/
-    - name: Microsoft Purview open-source tools utilities
+    - name: Open-source tools utilities
       href: tutorial-azure-purview-tools.md
-    - name: Microsoft Purview Audit Events and Diagnostics Logs
+    - name: Audit Events and Diagnostics Logs
       href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md

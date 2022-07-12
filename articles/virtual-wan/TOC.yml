@@ -157,6 +157,8 @@
           href: virtual-wan-point-to-site-azure-ad.md
     - name: Generate certificates
       href: certificates-point-to-site.md
+    - name: Install client certificates
+      href: install-client-certificates.md
     - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
     - name: VPN client profiles
@@ -169,18 +171,22 @@
         href: vpn-profile-intune.md
     - name: VPN clients
       items:
-        - name: OpenVPN
-          href: howto-openvpn-clients.md
         - name: Azure AD authentication
           items:
-            - name: Windows 10
+            - name: Windows
               href: openvpn-azure-ad-client.md
             - name: macOS
               href: openvpn-azure-ad-client-mac.md
+        - name: OpenVPN client software configuration
+          href: howto-openvpn-clients.md
     - name: Multi-Factor Authentication(MFA)
       href: openvpn-azure-ad-mfa.md   
     - name: Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md
+    - name: Azure VPN Client optional settings
+      items:
+      - name: Windows
+        href: azure-vpn-client-optional-configurations-windows.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel

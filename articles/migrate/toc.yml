@@ -76,6 +76,8 @@
       href: tutorial-migrate-aws-virtual-machines.md
     - name: Migrate GCP instances
       href: tutorial-migrate-gcp-virtual-machines.md
+    - name: Migrate ASP.NET web apps
+      href: tutorial-migrate-webapps.md
   - name: Containerize
     items:
     - name: Containerize ASP.NET apps and migrate to AKS
@@ -145,6 +147,8 @@
       href: hyper-v-migration-architecture.md
     - name: VMware agent-based migration architecture
       href: agent-based-migration-architecture.md
+    - name: Web apps migration support
+      href: concepts-migration-webapps.md
 - name: How-to guides
   items:
   - name: Create and manage Azure Migrate projects
@@ -273,6 +277,8 @@
     items:
     - name: Troubleshoot replication issues in agentless VMware migration
       href: troubleshoot-changed-block-tracking-replication.md
+    - name: Troubleshoot web app migration issues
+      href: troubleshoot-webapps-migration.md  
 - name: Reference
   items:
   - name: Azure CLI

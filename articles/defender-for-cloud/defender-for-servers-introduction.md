@@ -1,10 +1,10 @@
 ---
 title: Microsoft Defender for Servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Servers.
-ms.date: 05/11/2022
+ms.date: 06/29/2022
 ms.topic: overview
 ---
-# Introduction to Microsoft Defender for Servers
+# Overview of Microsoft Defender for Servers
 
 Microsoft Defender for Servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, and on-premises environment.
 
@@ -14,6 +14,11 @@ To protect machines in hybrid and multicloud environments, Defender for Cloud us
 
 > [!TIP]
 > For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers).
+
+You can learn more by watching these videos from the Defender for Cloud in the Field video series:
+- [Microsoft Defender for Servers](episode-five.md)
+- [Enhanced workload protection features in Defender for Servers](episode-twelve.md)
+- [Deploy in Defender for Servers in AWS and GCP](episode-fourteen.md)
 
 ## What are the Microsoft Defender for server plans?
 
@@ -46,6 +51,7 @@ The following table describes what's included in each plan at a high level.
 | Microsoft threat and vulnerability management | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Integration of Microsoft Defender for Cloud and Microsoft Defender for Endpoint (alerts, software inventory, Vulnerability Assessment) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Security Policy and Regulatory Compliance | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Log-analytics (500 MB free) | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Vulnerability Assessment using Qualys | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Threat detections: OS level, network layer, control plane | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
@@ -128,9 +134,7 @@ You can simulate alerts by downloading one of the following playbooks:
 
 ## Learn more
 
-If you would like to learn more from the product manager about Defender for Servers, check out [Microsoft Defender for Servers](episode-five.md). You can also learn about the [Enhanced workload protection features in Defender for Servers](episode-twelve.md).
-
-You can also check out the following blogs:
+You can check out the following blogs:
 
 - [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
 

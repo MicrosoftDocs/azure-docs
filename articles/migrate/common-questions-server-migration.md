@@ -58,7 +58,7 @@ While you can create assessments for multiple regions in an Azure Migrate projec
 
 Yes, you can migrate to multiple subscriptions (same Azure tenant) in the same target region for an Azure Migrate project. You can select the target subscription while enabling replication for a machine or a set of machines. The target region is locked post first replication for agentless VMware migrations and during the replication appliance and Hyper-V provider installation for agent-based migrations and agentless Hyper-V migrations respectively.
 
-### How is the data transmitted from on-prem environment to Azure? Is it encrypted before transmission?
+### How is the data transmitted from on-premises environment to Azure? Is it encrypted before transmission?
 
 The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).
 
@@ -76,7 +76,7 @@ The applications can continue to run at the source while letting you perform tes
 ### Is there a Rollback option for Azure Migrate?
 
 You can use the Test Migration option to validate your application functionality and performance in Azure. You can perform any number of test migrations and can execute the final migration after establishing confidence through the test migration operation.
-A test migration doesn’t impact the on-premises machine, which remains operational and continues replicating until you perform the actual migration. If there were any errors during the test migration UAT, you can choose to postpone the final migration and keep your source VM/server running and replicating to Azure. You can reattempt the final migration once you resolve the errors.
+A test migration doesn’t affect the on-premises machine, which remains operational and continues replicating until you perform the actual migration. If there were any errors during the test migration UAT, you can choose to postpone the final migration and keep your source VM/server running and replicating to Azure. You can reattempt the final migration once you resolve the errors.
 Note: Once you have performed a final migration to Azure and the on-premises source machine was shut down, you cannot perform a rollback from Azure to your on-premises environment.
 
 ### Can I select the Virtual Network and subnet to use for test migrations?
@@ -128,7 +128,7 @@ Azure Migrate: Server Migration tool migrates all the UEFI-based machines to Azu
 
 ### Can I migrate Active Directory domain-controllers using Azure Migrate?
 
-The Server Migration tool is application agnostic and works for most applications. When you migrate a server using the Server Migration tool, all the applications installed on the server are migrated along with it. However, for some applications, alternate migration methods other than server migration may be better suited for the migration.  For Active Directory, in the case of hybrid environments where the on-premises site is connected to your Azure environment, you can extend your Directory into Azure by adding extra domain controllers in Azure and setting up Active Directory replication. If you are migrating into an isolated environment in Azure requiring its own domain controllers (or testing applications in a sandbox environment), you can migrate servers using the server migration tool.
+The Server Migration tool is application agnostic and works for most applications. When you migrate a server using the Server Migration tool, all the applications installed on the server are migrated along with it. However, for some applications, alternate migration methods other than server migration may be better suited for the migration.  For Active Directory, if hybrid environments where the on-premises site is connected to your Azure environment, you can extend your Directory into Azure by adding extra domain controllers in Azure and setting up Active Directory replication. If you are migrating into an isolated environment in Azure requiring its own domain controllers (or testing applications in a sandbox environment), you can migrate servers using the server migration tool.
 
 
 ### Can I upgrade my OS while migrating?
@@ -163,7 +163,7 @@ Azure Migrate: Server Migration provides agentless replication options for the m
 The agentless replication option works by using mechanisms provided by the virtualization provider (VMware, Hyper-V). In the case of VMware virtual machines, the agentless replication mechanism uses VMware snapshots and VMware changed block tracking technology to replicate data from virtual machine disks. This mechanism is similar to the one used by many backup products. In the case of Hyper-V virtual machines, the agentless replication mechanism uses VM snapshots and the change tracking capability of the Hyper-V replica to replicate data from virtual machine disks.
 
 When replication is configured for a virtual machine, it first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks are replicated to managed disks in your subscription. After initial replication for the VM is complete, the replication process transitions to an incremental replication (delta replication) phase. In the incremental replication phase, data changes that have occurred since the last completed replication cycle are periodically replicated and applied to the replica managed disks, thus keeping replication in sync with changes happening on the VM. In the case of VMware virtual machines, VMware changed block tracking technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. That way only data that has changed since the last completed replication cycle needs to be replicated to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the virtual machine. Similarly, in the case of Hyper-V virtual machines, the Hyper-V replica change tracking engine is used to keep track of changes between consecutive replication cycles.
-When you perform the migrate operation on a replicating virtual machine, you have the option to shutdown the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migrate option, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
+When you perform the migrate operation on a replicating virtual machine, you have the option to shut down the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migration, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
 
 To get started, refer the [VMware agentless migration](./tutorial-migrate-vmware.md) and [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorials.
 
@@ -251,6 +251,10 @@ If there are multiple appliances set up, it is required there is no overlap amon
 
 Agentless replication results in some performance impact on VMware vCenter Server and VMware ESXi hosts. Because agentless replication uses snapshots, it consumes IOPS on storage, so some IOPS storage bandwidth is required. We don't recommend using agentless replication if you have constraints on storage or IOPs in your environment.
 
+### Can I use Azure Migrate to migrate my web apps to Azure App Service?
+
+You can perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](./tutorial-migrate-webapps.md)
+
 
 ## Agent-based Migration
 
@@ -293,7 +297,7 @@ The agentless replication option works by using mechanisms provided by the virtu
 
 When replication is configured for a virtual machine, it first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks are replicated to managed disks in your subscription. After initial replication for the VM is complete, the replication process transitions to an incremental replication (delta replication) phase. In the incremental replication phase, data changes that have occurred since the last completed replication cycle are periodically replicated and applied to the replica managed disks, thus keeping replication in sync with changes happening on the VM. In the case of VMware virtual machines, VMware changed block tracking technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. That way only data that has changed since the last completed replication cycle needs to be replicated to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the virtual machine. Similarly, in the case of Hyper-V virtual machines, the Hyper-V replica change tracking engine is used to keep track of changes between consecutive replication cycles.
 
-When you perform the migrate operation on a replicating virtual machine, you have the option to shutdown the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migrate option, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
+When you perform the migrate operation on a replicating virtual machine, you have the option to shut down the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migration, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
 
 To get started, refer the [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorial.
 

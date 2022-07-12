@@ -170,7 +170,7 @@
     href: how-to-mfa-additional-context.md
   - name: Use Microsoft managed settings 
     href: how-to-mfa-microsoft-managed.md
-  - name: Use a Temporary Access Pass (Preview)
+  - name: Use a Temporary Access Pass
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication
     href: howto-authentication-sms-signin.md

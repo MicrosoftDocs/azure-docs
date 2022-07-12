@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 04/05/2022
+ms.reviewer: robb
 ---
 
 # What is monitored by Azure Monitor?

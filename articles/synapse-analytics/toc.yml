@@ -728,14 +728,18 @@ items:
       href: ./spark/apache-spark-delta-lake-overview.md
     - name: Manage packages
       items:
-      - name: Manage Python packages
-        href: ./spark/apache-spark-manage-python-packages.md
-      - name: Manage Scala packages
-        href: ./spark/apache-spark-manage-scala-packages.md
+      - name: Manage Workspace packages
+        href: ./spark/apache-spark-manage-workspace-packages.md
+      - name: Manage Spark pool packages
+        href: ./spark/apache-spark-manage-pool-packages.md
+      - name: Manage Notebook session packages
+        href: ./spark/apache-spark-manage-session-packages.md
       - name: Troubleshoot Python package installation errors 
         href: ./spark/apache-spark-troubleshoot-library-errors.md
       - name: Create a Conda private channel
         href: ./spark/apache-spark-custom-conda-channel.md
+      - name: Manage your package outside Synapse Studio portal
+        href: ./spark/apache-spark-manage-packages-outside-ui.md
     - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks
@@ -1403,6 +1407,8 @@ items:
           href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: SharePoint Online list
           href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Snowflake
+          href: ../data-factory/connector-troubleshoot-snowflake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: XML format
           href: ../data-factory/connector-troubleshoot-xml.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Continuous Integration and Deployment
