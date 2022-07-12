@@ -23,7 +23,7 @@ Configure a contact profile with Azure Orbital to save and reuse contact configu
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
+Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
 ## Create a contact profile resource
 
@@ -74,6 +74,6 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Next steps
 
-- [How-to Receive real-time telemetry](howto-realtime-telem.md)
+- [How-to Receive real-time telemetry](receive-real-time-telemetry.md)
 - [Quickstart: Schedule a contact](schedule-contact.md)
 - [Tutorial: Cancel a contact](delete-contact.md)

@@ -22,7 +22,7 @@ See [how to configure a contact profile](contact-profile.md) for the full list o
 
 ## Prerequisites 
 
-- Subnet that is created in the VNET and resource group you desire. See [Prepare network for Orbital GSaaS integration.](howto-prepare-network.md)
+- Subnet that is created in the VNET and resource group you desire. See [Prepare network for Orbital GSaaS integration.](prepare-network.md)
 
 ## Creating a contact profile 
 
