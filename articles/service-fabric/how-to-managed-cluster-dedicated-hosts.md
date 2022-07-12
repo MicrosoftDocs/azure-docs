@@ -87,7 +87,7 @@ New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleD
           } 
 ```
 
-## Deploy Azure Service Fabric managed cluster with Dedicated Host
+## Deploy Service Fabric managed cluster with Dedicated Host
 
 Create an Azure Service Fabric managed cluster with node type(s) configured to reference the Dedicated Host group ResourceId. The node type needs to be pinned to the same zone as the host group. 
 The template used in this guide is from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates). The template is too long to show here.
@@ -131,14 +131,14 @@ New-AzResourceGroupDeployment `
 
 {  
       "code": "LinkedAuthorizationFailed",  
-      "message": "The client 'fbc587f2-66f5-4459-a027-bcd908b9d278' with object id 'fbc587f2-66f5-4459-a027-bcd908b9d278' has permission to perform action 'Microsoft.Compute/virtualMachineScaleSets/write' on scope '/subscriptions/21f993ff-292e-4f1e-99d5-92c7bb0b0a45/resourcegroups/SFC_542583ff-7a98-4958-b879-3ba77962da1f/providers/Microsoft.Compute/virtualMachineScaleSets/pnt'; however, it does not have permission to perform action 'write' on the linked scope(s) '/subscriptions/21f993ff-292e-4f1e-99d5-92c7bb0b0a45/resourceGroups/DEDICATEDHOSTSCUS2/providers/Microsoft.Compute/hostGroups/HostGroupscu0' or the linked scope(s) are invalid."  
+      "message": "The client '<clientId>' with object id '<objectId>' has permission to perform action 'Microsoft.Compute/virtualMachineScaleSets/write' on scope '/subscriptions/<Subs-Id>/resourcegroups/<ResGrp-Id>/providers/Microsoft.Compute/virtualMachineScaleSets/pnt'; however, it does not have permission to perform action 'write' on the linked scope(s) '/subscriptions/<Subs-Id>/resourceGroups/<ResGrp-Id>/providers/Microsoft.Compute/hostGroups/HostGroupscu0' or the linked scope(s) are invalid."
     }
     
 2) If Host Group is in a different subscription than the clusters, then the following error is reported:
 
 {  
       "code": "BadRequest",  
-      "message": "Entity subscriptionId in resource reference id /subscriptions/13ad2c84-84fa-4798-ad71-e70c07af873f/resourceGroups/DEDICATEDHOSTSCUS/providers/Microsoft.Compute/hostGroups/HostGroupeu2euap0 is invalid."  
+      "message": "Entity subscriptionId in resource reference id /subscriptions/<Subs-Id>/resourceGroups/<ResGrp-Id>/providers/Microsoft.Compute/hostGroups/<HostGroup> is invalid."  
     }
     
 3) If Quota for Host Group is not sufficient, following error is thrown:
