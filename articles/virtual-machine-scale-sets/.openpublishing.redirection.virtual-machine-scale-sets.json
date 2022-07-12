@@ -292,7 +292,7 @@
           },	  
         {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets.md",
-            "redirect_url": "/articles/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets",
             "redirect_document_id": false
         }                                                                                                                                                             
     ]
