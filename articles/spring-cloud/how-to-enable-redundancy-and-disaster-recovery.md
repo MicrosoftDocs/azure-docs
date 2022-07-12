@@ -151,19 +151,15 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
  
 1. Set up a custom domain for the service instances. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md). After successful set up, both service instances will bind to the same custom domain, such as `bcdr-test.contoso.com`.
 
-1. Create a traffic manager and two endpoints.
-
-   For instructions, see [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
-
-   Here is the traffic manager profile:
+1. Create a traffic manager and two endpoints. For instructions, see [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md), which produces the following Traffic Manager profile:
 
    - Traffic Manager DNS Name: `http://asa-bcdr.trafficmanager.net`
-   * Endpoint Profiles:
+   - Endpoint Profiles:
 
-     |-Profile | Type | Target | Priority | Custom Header Settings |
+     | Profile | Type | Target | Priority | Custom header settings |
      |--|--|--|--|--|
-     | Endpoint A Profile | External Endpoint | service-sample-a.azuremicroservices.io | 1 | host: bcdr-test.contoso.com |
-     | Endpoint B Profile | External Endpoint | service-sample-b.azuremicroservices.io | 2 | host: bcdr-test.contoso.com |
+     | Endpoint A Profile | External Endpoint | `service-sample-a.azuremicroservices.io` | 1 | `host: bcdr-test.contoso.com` |
+     | Endpoint B Profile | External Endpoint | `service-sample-b.azuremicroservices.io` | 2 | `host: bcdr-test.contoso.com` |
 
 1. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net.
 
