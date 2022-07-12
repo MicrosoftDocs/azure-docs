@@ -41,32 +41,60 @@ To complete the steps in this tutorial, you must have the following resources an
 
   |Build-in Role  |Scope  |Reason  |
   |---------|---------|---------|
-  |- [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles)</br>- [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles)     |  Virtual machines</br>Scale sets</br>Arc-enabled servers        |   To deploy the agent      |
-  |Row2     |         |         |
-  |Row3     |         |         |
-
-
-- <!-- prerequisite n -->
+  |- [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles)</br>- [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
+  |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription and/or</br>- Resource group and/or</br>- An existing data collection rule       |  To deploy ARM templates       |
+  |[Monitoring Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
 
 <!-- 5. H2s
 Required. Give each H2 a heading that sets expectations for the content that follows. 
 Follow the H2 headings with a sentence about how the section contributes to the whole.
 -->
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
+## Create a data collection rule
 
-1. Sign in to the [<service> portal](url).
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+Create a date collection rule in the same region as your Microsoft Sentinel workspace.
+A data collection rule (DCR) is an Azure resource that allows you to define the way  data should be handled as it's ingested into Microsoft Sentinel.
 
-## [Section 2 heading]
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and open **Monitor**.
+1. Under **Settings**, select **Data Collection Rules**.
+1. Select **Create**.
+1. Enter the following information:
+
+   |Field   |Value |
+   |---------|---------|
+   |Rule Name     | Enter a name like   dcr-syslog     |
+   |Subscription     | Select the appropriate subscription        |
+   |Resource group     |    Select the appropriate resource group     |
+   |Region     |  Select the same region that your Microsoft Sentinel workspace is located      |
+   |Platform Type     |    Linux     |
+1. Select **Next: Resources** > **Add resources**.
+1. Filter items to find and select the virtual machine that you'll use to collect logs.  
+1. Select **Apply**.
+1. Select **Next: Collect and deliver** > **Add data source**.
+1. For **Data source type**, select **Linux syslog**.
+1. For **Minimum log level**, leave the default value **LOG_DEBUG**.
+1. Select **Next: Destination** > **Add destination**.
+1. Enter the following values:
+
+   |Field   |Value |
+   |---------|---------|
+   |Destination type     | Azure Monitor Logs    |
+   |Subscription     | Select the appropriate subscription        |
+   |Account or namespace    |Select the appropriate Microsoft Sentinel workspace|
+
+1. Select **Add data source**.
+1. Select **Next: Review + create** > **Create**.
+
+
+
+## Verify Azure Monitor agent is running
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
-## [Section n heading]
+## Enable log reception on port 514
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
@@ -93,11 +121,6 @@ customer can do.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+For more information, see:
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
