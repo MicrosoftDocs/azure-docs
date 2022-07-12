@@ -120,31 +120,39 @@ Optionally, you can create SSL/TLS certificates for the logs and metrics dashboa
 
 Edit the data controller configuration as needed:
 
-**REQUIRED**
-- **location**: Change this to be the Azure location where the _metadata_ about the data controller will be stored.  Review the [list of available regions](overview.md#supported-regions).
-- **logsui-certificate-secret**: The name of the secret created on the Kubernetes cluster for the logs UI certificate.
-- **metricsui-certificate-secret**: The name of the secret created on the Kubernetes cluster for the metrics UI certificate.
+#### REQUIRED
 
-**RECOMMENDED TO REVIEW AND POSSIBLY CHANGE DEFAULTS**
+- `location`: Change this to be the Azure location where the _metadata_ about the data controller will be stored.  Review the [list of available regions](overview.md#supported-regions).
+- `logsui-certificate-secret`: The name of the secret created on the Kubernetes cluster for the logs UI certificate.
+- `metricsui-certificate-secret`: The name of the secret created on the Kubernetes cluster for the metrics UI certificate.
 
-- storage..className: the storage class to use for the data controller data and log files. If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: kubectl get storageclass. The default is default which assumes there is a storage class that exists and is named default not that there is a storage class that is the default. Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
-- serviceType: Change the service type to NodePort if you are not using a LoadBalancer.
+#### Recommended: review and possibly change defaults
+
+Review these values, and update for your deployment:
+
+- `storage..className`: the storage class to use for the data controller data and log files. If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`. The default is default which assumes there is a storage class that exists and is named default not that there is a storage class that is the default. Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
+- `serviceType`: Change the service type to NodePort if you are not using a LoadBalancer.
 - Security For Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, replace the security: settings with the following values in the data controller yaml file.
-  security:
+
+   ```yml
+   security:
     allowDumps: false
     allowNodeMetricsCollection: false
     allowPodMetricsCollection: false
+   ```
 
-**OPTIONAL**
+#### Optional
 
-- name: The default name of the data controller is arc, but you can change it if you want.
-- displayName: Set this to the same value as the name attribute at the top of the file.
-- registry: The Microsoft Container Registry is the default. If you are pulling the images from the Microsoft Container Registry and pushing them to a private container registry, enter the IP address or DNS name of your registry here.
--dockerRegistry: The secret to use to pull the images from a private container registry if required.
-- repository: The default repository on the Microsoft Container Registry is arcdata. If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
-- imageTag: The current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
-- logsui-certificate-secret: The name of the secret created on the Kubernetes cluster for the logs UI certificate.
-- metricsui-certificate-secret: The name of the secret created on the Kubernetes cluster for the metrics UI certificate.
+The following settings are optional. 
+
+- `name`: The default name of the data controller is arc, but you can change it if you want.
+- `displayName`: Set this to the same value as the name attribute at the top of the file.
+- `registry`: The Microsoft Container Registry is the default. If you are pulling the images from the Microsoft Container Registry and pushing them to a private container registry, enter the IP address or DNS name of your registry here.
+- `dockerRegistry`: The secret to use to pull the images from a private container registry if required.
+- `repository`: The default repository on the Microsoft Container Registry is arcdata. If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
+- `imageTag`: The current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
+- `logsui-certificate-secret`: The name of the secret created on the Kubernetes cluster for the logs UI certificate.
+- `metricsui-certificate-secret`: The name of the secret created on the Kubernetes cluster for the metrics UI certificate.
 
 The following example shows a completed data controller yaml.
 
@@ -198,4 +206,4 @@ You have several additional options for creating the Azure Arc data controller:
 - [Create a data controller in indirect connectivity mode with CLI](create-data-controller-indirect-cli.md)
 - [Create a data controller in indirect connectivity mode with Azure Data Studio](create-data-controller-indirect-azure-data-studio.md)
 - [Create a data controller in indirect connectivity mode from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-indirect-azure-portal.md)
-- [Create a data controller in indirect connectivity mode with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)
+- [Create a data controller in indirect connectivity mode with Kubernetes tools such as `kubectl` or `oc`](create-data-controller-using-kubernetes-native-tools.md)
