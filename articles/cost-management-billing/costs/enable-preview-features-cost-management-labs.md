@@ -228,7 +228,7 @@ You can enable **Open config items in the menu** on the [Try preview](https://ak
 
 ## Change scope from menu
 
-If you manage many subscriptions and need to switch between subscriptions or resource groups often, you might want to include the **Change scope from menu** option.
+If you manage many subscriptions, resource groups, or management groups and need to switch between them often, you might want to include the **Change scope from menu** option.
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-change-scope-menu.png" alt-text="Screenshot showing the Change scope option added to the menu after selecting the Change menu from scope preview option." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-change-scope-menu.png" :::
 
