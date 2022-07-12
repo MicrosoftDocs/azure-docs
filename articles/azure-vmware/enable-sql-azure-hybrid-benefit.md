@@ -38,4 +38,4 @@ After creating the placement policy, you can review, manage, or edit the policy 
 
 By checking the Azure hybrid benefit checkbox in the configuration setting, you can also enable existing host-VM affinity policies with the SQL Azure hybrid benefit.
 
-:::image type="content" source="media/sql-azure-hybrid-benefit/placement-policies.png" alt-text="Diagram that shows how to configure virtual machine placement policies":::
+:::image type="content" source="media/sql-azure-hybrid-benefit/placement-policies.png" alt-text="Diagram that shows how to configure virtual machine placement policies.":::
