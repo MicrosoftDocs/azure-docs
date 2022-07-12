@@ -18,18 +18,22 @@
         href: quick-create-confidential-vm-arm-amd.md
       - name: Create confidential VM with Azure portal
         href: quick-create-confidential-vm-portal-amd.md
-  - name: Confidential VMs with enclaves
+  - name: VMs with confidential app enclaves
     items:
-      - name: Deploy Intel SGX
+      - name: Deploy Intel SGX enclaves
         items:
           - name: Create Intel SGX VM with Azure Portal
             href: quick-create-portal.md
           - name: Create Intel SGX VM with Marketplace
             href: quick-create-marketplace.md
-  - name: Confidential containers with enclaves
+  - name: Confidential containers
     items:
       - name: Create Intel SGX AKS with CLI
         href: confidential-enclave-nodes-aks-get-started.md
+      - name: Create confidential node pools in AKS
+        # href: insert link to SNP on AKS
+      - name: Create serverless containers with ACI
+      # href: insert link for ACI
 - name: Concepts
   expanded: true
   items:
@@ -45,11 +49,7 @@
       href: confidential-vm-faq-amd.yml
     - name: AMD processor options for confidential VMs
       href: virtual-machine-solutions-amd.md
-    - name: DCasv5 and DCadsv5-series
-      href: ../virtual-machines/dcasv5-dcadsv5-series.md
-    - name: ECasv5 and ECadsv5-series
-      href: ../virtual-machines/ecasv5-ecadsv5-series.md
-  - name: Build with enclaves
+  - name: Build VMs with confidential app enclaves
     items:
     - name: Enclaves overview
       href: confidential-computing-enclaves.md
