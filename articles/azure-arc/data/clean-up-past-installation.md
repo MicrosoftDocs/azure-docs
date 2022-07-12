@@ -49,10 +49,12 @@ kubectl delete clusterrole arc:cr-arc-metricsdc-reader
 kubectl delete clusterrole arc:cr-arc-dc-watch
 kubectl delete clusterrole cr-arc-webhook-job
 kubectl delete clusterrole {namespace}:cr-upgrade-worker
+kubectl delete clusterrole arcdata-deployer-cluster-role
 kubectl delete clusterrolebinding {namespace}:crb-arc-metricsdc-reader
 kubectl delete clusterrolebinding {namespace}:crb-arc-dc-watch
 kubectl delete clusterrolebinding crb-arc-webhook-job
 kubectl delete clusterrolebinding {namespace}:crb-upgrade-worker
+kubectl delete clusterrolebinding arcdata-deployer-cluster-role-binding 
 
 # Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
 
