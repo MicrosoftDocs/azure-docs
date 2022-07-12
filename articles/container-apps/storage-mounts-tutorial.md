@@ -16,7 +16,7 @@ manage secrets
 
 ## Prerequisites
 
-- Latest version of the [Azure CLI](/cli/azure/install-azure-cli)
+- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Set up
 
@@ -26,7 +26,7 @@ manage secrets
     az login
     ```
 
-1. Set up environment variables.
+1. Set up environment variables used in various commands to follow.
 
     ```bash
     RESOURCE_GROUP="my-storage-group"
@@ -49,6 +49,8 @@ manage secrets
       --query "properties.provisioningState"
     ```
 
+    Once created, the command returns a "Succeeded" message.
+
     At the end of this tutorial, you can delete the resource group to remove all the services created during this article.
 
 1. Create a Container Apps environment.
@@ -60,6 +62,8 @@ manage secrets
       --location $LOCATION \
       --query "properties.provisioningState"
     ```
+
+    Once created, the command returns a "Succeeded" message.
 
     Storage mounts are associated with a Container Apps environment and configured within individual container apps.
 
@@ -84,7 +88,7 @@ manage secrets
       --query provisioningState
     ```
 
-    Once created, the command returns a "Success" message.
+    Once created, the command returns a "Succeeded" message.
 
 1. Define a file share name.
 
@@ -155,7 +159,7 @@ manage secrets
 
     This command displays a table once the application in deployed.
 
-1. Copy the FQDN value from the `containerapp create` output table to paste into your web browser to navigate to the website.
+1. Copy the FQDN value from the `containerapp create` output table and paste into your web browser to navigate to the website.
 
     Once the page loads, you'll see the "Welcome to nginx!" message.
 
@@ -170,15 +174,11 @@ manage secrets
       --output yaml > app.yaml
     ```
 
-    When you export an app's configuration, the values for secrets are not included in the generated YAML. The next steps demonstrate how work with secrets as you update your container app.
+    While this application does not have any secrets defined, many apps you encounter will. When you export an app's configuration, the values for secrets are not included in the generated YAML.
+
+    If you don't need to change secret values, then you can remove this section and your secrets are unaltered. Alternatively, if you need to change a secret's value, make sure to provide both the `name` and `value` in the file before attempting to update the app.
 
 1. Open *app.yaml* in a code editor.
-
-1. Remove the `secrets` section from the configuration.
-
-    If you don't need to change secret values, then you can remove this section and your secrets are unaltered.
-
-    If you need to change a secret's value, make sure to provide both the `name` and `value` in the file before attempting to update the app.
 
 1. Add a reference to the storage volumes to the `template` and configure the storage mount in the `containers` definition.
 
@@ -188,12 +188,12 @@ manage secrets
       - name: my-azure-file-volume
         storageName: my-storage-mount
         storageType: AzureFile
-      volumeMounts:
-      - volumeName: mystoragevolume
-        mountPath: /usr/share/nginx/html
       containers:
       - image: nginx
         name: my-container-app
+        volumeMounts:
+        - volumeName: mystoragevolume
+          mountPath: /usr/share/nginx/html
     ```
 
     The new `volumes` section includes the following properties.
