@@ -69,7 +69,7 @@ You can use the following method to upload the SAP components to your Azure acco
 
 You also can [upload the components manually](#upload-components-manually) instead.
 
-### Download components
+### Set up storage account
 
 Before you can download the software, set up an Azure Storage account for the downloads.
 
