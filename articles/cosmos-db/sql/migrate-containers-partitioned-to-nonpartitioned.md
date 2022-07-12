@@ -133,10 +133,11 @@ static class Family {
 CosmosDatabase cosmosDatabase = cosmosClient.getDatabase("testdb");
 CosmosContainer cosmosContainer = cosmosDatabase.getContainer("testcontainer");
 
-
+//  Create single item
 Family family = new Family("id-1", "John", "Doe", "Doe");
 cosmosContainer.createItem(family, new PartitionKey(family._partitionKey), new CosmosItemRequestOptions());
 
+//  Create items through bulk operations
 family = new Family("id-2", "Jane", "Doe", "Doe");
 CosmosItemOperation createItemOperation = CosmosBulkOperations.getCreateItemOperation(family,
     new PartitionKey(family._partitionKey));
@@ -154,10 +155,13 @@ While the container definition is enhanced with a partition key property, the do
 Applications can access the existing documents that don’t have a partition key by using the special system property called "PartitionKey.None", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
 
 ```java
-CosmosItemResponse<JsonNode> cosmosItemResponse = cosmosContainer.readItem("itemId", PartitionKey.NONE, JsonNode.class);
+CosmosItemResponse<JsonNode> cosmosItemResponse = 
+  cosmosContainer.readItem("itemId", PartitionKey.NONE, JsonNode.class);
 ```
 
 For the complete sample on how to repartition the documents, see the [Java samples][2] GitHub repository.
+
+---
 
 ## Compatibility with SDKs
 
