@@ -36,6 +36,6 @@ For example, if each host in AVS has 36 cores and you signal that two hosts run 
 
 After the placement policy is created, you can review, manage, or edit the policy by going to the Placement policies menu in the Azure VMware Solution private cloud. 
 
-You can also enable existing host-VM affinity policies with the SQL Azure hybrid benefit by checking the Azure hybrid benefit checkbox in the configuration setting.
+By checking the Azure hybrid benefit checkbox in the configuration setting, you can also enable existing host-VM affinity policies with the SQL Azure hybrid benefit .
 
 :::image type="content" source="media/Sql-azure-hybrid-benefit/placement-policies.png" alt-text="Diagram that shows how to configure virtual machine placement policies":::
