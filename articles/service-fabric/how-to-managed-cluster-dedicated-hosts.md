@@ -59,7 +59,7 @@ Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
 >[!NOTE] 
 > Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
-   c) Add role assignment to host group with contributor access. This role assignment can be created via PowerShell using the Id of the previous output as principal ID    and role definition name as "Contributor" where applicable. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-    control/built-in-roles#all) for more information on Azure roles.
+   c) Add role assignment to host group with contributor access. This role assignment can be created via PowerShell using the Id of the previous output as principal ID    and role definition name as "Contributor" where applicable. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles.
       
 ```powershell
 New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
@@ -146,7 +146,7 @@ New-AzResourceGroupDeployment `
 {  
       "code": "QuotaExceeded",  
       "message": "Operation could not be completed as it results in exceeding approved standardDSv3Family Cores quota.  
-Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase at https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/.. Please read more about quota limits at https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests” 
+Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests)” 
     }
 
 ## Next steps
