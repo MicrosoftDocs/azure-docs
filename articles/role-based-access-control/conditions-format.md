@@ -86,7 +86,7 @@ else
 
 ### Suboperations
 
-Some actions have suboperations. For example, the "Read a blob" data action has the suboperation "Read content from a blob with tag conditions". Conditions with suboperations have the following format.
+Some actions have suboperations. For example, the "All read operations" data action has the suboperation "List blobs". Conditions with suboperations have the following format.
 
 ![Format for an action with a suboperation.](./media/conditions-format/format-suboperation.png)
 
@@ -317,7 +317,7 @@ This section lists the logical operators that are available to construct conditi
 > | --- | --- |
 > | **Operators** | `AND`<br/>`&&` |
 > | **Description** | And operator. |
-> | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})` |
+> | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})` |
 
 ### Or
 
