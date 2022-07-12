@@ -163,7 +163,7 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
 
 1. Create a CNAME record in a DNS Zone similar to the following example: `bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net`.
 
-The environment is now set up. Customers should be able to access the app using bcdr-test.contoso.com.
+The environment is now set up. If you used the example values in the linked articles, you should be able to access the app using `https://bcdr-test.contoso.com`.
 
 ## Next steps
 
