@@ -1,7 +1,6 @@
 ---
 title: Monitoring Azure Functions
-description: Start here to learn how to monitor Azure Functions
-author: vraposo
+description: Start here to learn how to monitor function apps running in Azure Functions using Azure Monitor
 ms.topic: how-to
 ms.service: azure-functions
 ms.custom: subject-monitoring
