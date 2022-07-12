@@ -20,8 +20,7 @@ In this tutorial, you'll learn the configuration required in your API Management
 
 > [!IMPORTANT]
 > * This article has been updated with steps to configure an Azure AD B2C app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)) v2.0. 
-> * If you previously configured an Azure AD B2C app for developer account authorization using the Azure AD Authentication Library, learn about [migration to MSAL v2.0](../active-directory/develop/migrate-spa-implicit-to-auth-code.md). You must republish the developer portal after any configuration change.
-
+> * If you previously configured an Azure AD B2C app for user sign-in using the Azure AD Authentication Library, we recommend that you [migrate to MSAL v2.0](#migrate-to-msal-v2.0).
 
 For information about enabling access to the developer portal by using classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory](api-management-howto-aad.md).
 
@@ -52,7 +51,9 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 
 1. In a separate [Azure portal](https://portal.azure.com) tab, navigate to your API Management instance.
 1. Under **Developer portal**, select **Identities** > **+ Add**.
-1. In the **Add identity provider** page, select **Azure Active Directory B2C**.
+1. In the **Add identity provider** page, select **Azure Active Directory B2C**. Once selected, you'll be able to enter other necessary information. 
+    * In the **Client library** dropdown, select **MSAL v2**.
+    * To add other settings, see steps later in the article.
 1. In the **Add identity provider** window, copy the **Redirect URL**.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-identity-provider-redirect-url.png" alt-text="Copy redirect URL":::    
@@ -90,6 +91,17 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 1. Republish the developer portal for the Azure AD B2C configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**.
 
 After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.
+
+## Migrate to MSAL v2.0
+
+If you previously configured an Azure AD B2C app for user sign-in using the Azure AD Authentication Library, you can use the portal to migrate the app to MSAL v2.0.
+
+1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
+1. Select **Azure Active Directory B2C** from the list.
+4. In the **Client library** dropdown, select **MSAL v2**.
+5. Select **Update**.
+6. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+
 
 ## Developer portal - add Azure Active Directory B2C account authentication
 
@@ -143,6 +155,7 @@ The **Sign-up form: OAuth** widget represents a form used for signing up with OA
 
 *  [Azure Active Directory B2C overview]
 *  [Azure Active Directory B2C: Extensible policy framework]
+* Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL v2](../active-directory/develop/msal-migration.md)
 *  [Use a Microsoft account as an identity provider in Azure Active Directory B2C]
 *  [Use a Google account as an identity provider in Azure Active Directory B2C]
 *  [Use a LinkedIn account as an identity provider in Azure Active Directory B2C]
