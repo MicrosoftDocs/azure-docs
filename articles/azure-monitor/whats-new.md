@@ -41,7 +41,7 @@ This article lists significant changes to Azure Monitor documentation.
 | [Tools for migrating to Azure Monitor Agent from legacy agents](agents/azure-monitor-agent-migration-tools.md) | New article that explains how to install and use tools for migrating from legacy agents to the new Azure Monitor agent (AMA).|
 
 ### Visualizations
-Azure Monitor Workbooks documentation previously resided on an external github repository. We have migrated all Azure Workbooks content to the same repo as all other Azure Monitor content. 
+Azure Monitor Workbooks documentation previously resided on an external GitHub repository. We have migrated all Azure Workbooks content to the same repo as all other Azure Monitor content. 
 
 
 
