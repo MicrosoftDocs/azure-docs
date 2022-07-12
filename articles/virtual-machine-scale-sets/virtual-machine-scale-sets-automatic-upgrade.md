@@ -13,8 +13,6 @@ ms.custom: devx-track-azurepowershell
 ---
 # Azure virtual machine scale set automatic OS image upgrades
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 Enabling automatic OS image upgrades on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set.
 
 Automatic OS upgrade has the following characteristics:
@@ -78,8 +76,8 @@ The following platform SKUs are currently supported (and more are added periodic
 | Canonical               | UbuntuServer  | 18.04-LTS-Gen2     |                   
 | Canonical               | UbuntuServer  | 20.04-LTS          |                   
 | Canonical               | UbuntuServer  | 20.04-LTS-Gen2     | 
-| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-1                       
-| MicrosoftCblMariner     | Cbl-Mariner   | 1-Gen2                                
+| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-1      |                 
+| MicrosoftCblMariner     | Cbl-Mariner   | 1-Gen2             |                   
 | MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2                        
 | MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2-Gen2                  
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
@@ -96,6 +94,7 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |                   
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-containers-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk |

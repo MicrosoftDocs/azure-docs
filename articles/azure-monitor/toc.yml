@@ -1356,11 +1356,9 @@ items:
           href: visualize/workbooks-templates.md
         - name: Creating a new workbook
           href: visualize/workbooks-create-workbook.md
-        - name: Workbook configuration options
-          href: visualize/workbooks-configurations.md
-        - name: Data sources
+        - name: Working with data sources
           href: visualize/workbooks-data-sources.md         
-        - name: Visualizations
+        - name: Working with visualizations
           items:
           - name: Overview
             href: visualize/workbooks-visualizations.md         
@@ -1404,6 +1402,10 @@ items:
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
             href: visualize/workbooks-multi-value.md               
+        - name: Workbook configuration options
+          href: visualize/workbooks-configurations.md
+        - name: Commonly used components
+          href: visualize/workbooks-commonly-used-components.md
         - name: Workbook result limits
           href: visualize/workbooks-limits.md   
     - name: Integrating with other Azure services
@@ -1419,9 +1421,7 @@ items:
       - name: Move Workbook templates to another region
         href: visualize/workbook-templates-move-region.md
     - name: Workbook Samples
-      items:
-        - name: Sample Workbooks
-          href: visualize/workbooks-sample-links.md
+      href: visualize/workbooks-sample-links.md          
   - name: Other visualizations
     items:
     - name: Monitoring solutions

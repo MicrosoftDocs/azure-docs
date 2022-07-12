@@ -10,8 +10,8 @@ ms.topic: conceptual
 ms.date: 07/05/2022
 ---
 
-# Workbook Configuration Options
-There are several ways you can configure Workbooks to suit your needs.
+# Workbook configuration options
+There are several ways you can configure Workbooks to suit your needs using the settings in the **Settings** tab. When query or metrics steps are displaying time based data, more settings are available in the **Advanced settings** tab.
 
 ## Workbook settings
 The workbooks settings has these tabs to help you configure your workbook.
@@ -22,7 +22,7 @@ The workbooks settings has these tabs to help you configure your workbook.
 |Resources|This tab contains the resources that appear as default selections in this workbook.<br>The resource marked as the **Owner** resource is where the workbook will be saved, and the location of the workbooks and templates you'll see when browsing. The owner resource can't be removed.<br> You can add a default resource by selecting **Add Resources**. You can remove resources by selecting a resource or several resources, and selecting **Remove Selected Resources**. When you're done adding and removing resources, select **Apply Changes**.|
 |Versions| This tab contains a list of all the available versions of this workbook. Select a version and use the toolbar to compare, view, or restore versions. Previous workbook versions are available for 90 days.<br><ul><li>**Compare**: Compare the JSON of the previous workbook to the most recently saved version.</li><li>**View**: Opens the selected version of the workbook in a context pane.</li><li>**Restore**: Saves a new copy of the workbook with the contents of the selected version and overwrites any existing current content. You'll be prompted to confirm this action.</li></ul><br>|
 |Style     |In this tab, you can set a padding and spacing style for the whole workbook. The possible options are `Wide`, `Standard`, `Narrow`, `None`. `Standard` is the default style setting.|
-|Pin     |While in pin mode, you can select **Pin Workbook** to pin an component from this workbook to a dashboard. Select **Link to Workbook**, to pin a static link to this workbook on your dashboard. You can choose a specific component in your workbook to pin.|
+|Pin     |While in pin mode, you can select **Pin Workbook** to pin a component from this workbook to a dashboard. Select **Link to Workbook**, to pin a static link to this workbook on your dashboard. You can choose a specific component in your workbook to pin.|
 |Trusted hosts     |In this tab, you can enable a trusted source or mark this workbook as trusted in this browser. See [trusted hosts](#trusted-hosts) for detailed information. |
 
 > [!NOTE]
@@ -42,6 +42,36 @@ Enable trusted source or mark this workbook as trusted in this browser.
 | ----------- | ----------- |
 | Mark Workbook as trusted      | If enabled, this Workbook will be able to call any endpoint, whether the host is marked as trusted or not. A workbook is trusted if it's a new workbook, an existing workbook is saved, or it's explicitly marked as a trusted workbook   |
 | URL grid   | A grid to explicitly add trusted hosts.        |
+
+## Time brushing
+
+Time range brushing allows a user to "brush" or "scrub" a range on a chart, and have that range be output as a parameter value.
+
+:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-metrics-settings.png" alt-text="Screenshot showing Workbooks timebrush settings.":::
+
+You can also choose to only export a parameter when a range is explicitly brushed. 
+ - If this setting is unchecked (default), the parameter always has a value. When the parameter is not brushed, the value is the full time range displayed in the chart.
+ - If this setting is checked, the parameter has no value before the user brushes the parameter, and is only set after a user brushes the parameter.
+
+### Brushing in a metrics chart
+
+When time brushing is enabled on a metrics chart, the user can "brush" a time by dragging the mouse on the time chart:
+
+:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-metrics-brushing.png" alt-text="Screenshot of a metrics timebrush in progress.":::
+
+Once the brush has stopped, the metrics chart zooms in to that range, and exports that range as a time range parameter.
+An icon in the toolbar in the upper right corner is active, to reset the time range back to its original, un-zoomed time range.
+
+
+### Brushing in a query chart
+
+When time brushing is enabled on a query chart, indicators appear that the user can drag, or the user can "brush" a range on the time chart:
+
+:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-query-brushing.png" alt-text="Screenshot of timebrushing a query chart.":::
+
+Once the brush has stopped, the query chart shows that range as a time range parameter, but will not zoom in. This behavior is different than the behavior of metrics charts. Because of the complexity of user written queries, it may not be possible for workbooks to correctly update the range used by the query in the query content directly. If the query is using a time range parameter, it is possible to get this behavior by using a [global parameter](workbooks-parameters.md#global-parameters) instead.
+
+An icon in the toolbar in the upper right corner is active, to reset the time range back to its original, un-zoomed time range.
 
 ## Interactivity
 
@@ -73,11 +103,11 @@ There are several ways that you can create interactive reports and experiences i
     - **Field to export**: `Request`
     - **Parameter name**: `SelectedRequest`
     - **Default value**: `All requests`
-1. [Optional.]If you want to export the entire contents of the selected row instead of just a particular column, leave the `Field to export` property unset. The entire row contents is exported as json to the parameter. On the referencing KQL control, use the `todynamic` function to parse the json and access the individual columns.
-1. Select **Save**.
-   
-   :::image type="content" source="media/workbooks-configurations/workbooks-export-parameters-add.png" alt-text="Screenshot showing the advanced workbooks editor with settings for exporting fields as parameters.":::
     
+     :::image type="content" source="media/workbooks-configurations/workbooks-export-parameters-add.png" alt-text="Screenshot showing the advanced workbooks editor with settings for exporting fields as parameters.":::
+
+1. (Optional.) If you want to export the entire contents of the selected row instead of just a particular column, leave the `Field to export` property unset. The entire row contents is exported as json to the parameter. On the referencing KQL control, use the `todynamic` function to parse the json and access the individual columns.
+1. Select **Save**.   
 1. Select **Done Editing**.
 1. Add another query control as in the steps above.
 1. Use the Query editor to enter the KQL for your analysis.
@@ -126,19 +156,7 @@ The following image shows a more elaborate interactive report in read mode based
     :::image type="content" source="media/workbooks-configurations/workbooks-grid-link-details.png" alt-text="Screenshot showing the detail pane of the sampled request in workbooks.":::
 
 ### Link Renderer Actions
-
-| Link action | Action on click |
-|:------------- |:-------------|
-|Generic Details| Shows the row values in a property grid context tab |
-|Cell Details| Shows the cell value in a property grid context tab. Useful when the cell contains a dynamic type with information (for example, json with request properties like location, role instance, etc.). |
-|Cell Details| Shows the cell value in a property grid context tab. Useful when the cell contains a dynamic type with information (for example, json with request properties like location, role instance, etc.). |
-|Custom Event Details| Opens the Application Insights search details with the custom event ID (`itemId`) in the cell |
-|Details| Similar to Custom Event Details, except for dependencies, exceptions, page views, requests, and traces. |
-|Custom Event User Flows| Opens the Application Insights User Flows experience pivoted on the custom event name in the cell |
-|User Flows| Similar to Custom Event User Flows except for exceptions, page views and requests |
-|User Timeline| Opens the user timeline with the user ID (user_Id) in the cell |
-|Session Timeline| Opens the Application Insights search experience for the value in the cell (for example, search for text 'abc' where abc is the value in the cell) |
-|Resource overview| Open the resource's overview in the portal based on the resource ID value in the cell |
+Learn about how [Link actions](workbooks-link-actions.md) work to enhance workbook interactivity.
 
 ### Set conditional visibility
 
