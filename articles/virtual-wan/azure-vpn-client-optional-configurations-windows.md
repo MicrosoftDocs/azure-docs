@@ -100,7 +100,7 @@ Modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<d
 </azvpnprofile>
 ```
 
-### <a name="forced-tunneling"></a>Direct all traffic to the VPN tunnel (force tunnel)
+### <a name="forced-tunneling"></a>Direct all traffic to the VPN tunnel (forced tunneling)
 
 You can include 0/0 if you're using the Azure VPN Client version 2.1900:39.0 or higher. Modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags. Make sure to update the version number to **2**.
 
