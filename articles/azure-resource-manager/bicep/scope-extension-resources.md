@@ -138,7 +138,7 @@ The same requirements apply to extension resources as other resource when target
 * [Management group deployments](deploy-to-management-group.md)
 * [Tenant deployments](deploy-to-tenant.md)
 
-The resourceGroup and subscription properties are only allowed on modules. These properties are not allowed on individual resources. If you want to deploy an extension resource with the scope set to a resource in a different resource group, You must use module.
+The resourceGroup and subscription properties are only allowed on modules. These properties are not allowed on individual resources. Use modules if you want to deploy an extension resource with the scope set to a resource in a different resource group.
 
 The following example shows how to apply a lock on a storage account that resides in a different resource group.
 

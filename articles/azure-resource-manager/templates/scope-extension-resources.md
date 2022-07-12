@@ -79,7 +79,7 @@ The following example creates a storage account and applies a role to it.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/storageandrole.json" highlight="56":::
 
-The resourceGroup and subscription properties are only allowed on nested or linked deployments. These properties are not allowed on individual resources. If you want to deploy an extension resource with the scope set to a resource in a different resource group, You must use nested of linked deployments.
+The resourceGroup and subscription properties are only allowed on nested or linked deployments. These properties are not allowed on individual resources. Use nested or linked deployments if you want to deploy an extension resource with the scope set to a resource in a different resource group.
 
 ## Next steps
 
