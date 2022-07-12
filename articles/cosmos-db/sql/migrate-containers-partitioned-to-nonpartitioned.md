@@ -48,7 +48,8 @@ The following example shows a sample code to create a document with the system d
 
 **JSON representation of the document**
 
-# [.NET SDK V3](#tab/dotnetv3)
+### [.NET SDK V3](#tab/dotnetv3)
+
 ```csharp
 DeviceInformationItem = new DeviceInformationItem
 {
@@ -91,7 +92,26 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-# [Java SDK V4](#tab/javav4)
+For the complete sample, see the [.Net samples][1] GitHub repository.
+                      
+## Migrate the documents
+
+While the container definition is enhanced with a partition key property, the documents within the container aren’t auto migrated. Which means the system partition key property `/_partitionKey` path is not automatically added to the existing documents. You need to repartition the existing documents by reading the documents that were created without a partition key and rewrite them back with `_partitionKey` property in the documents.
+
+## Access documents that don't have a partition key
+
+Applications can access the existing documents that don’t have a partition key by using the special system property called "PartitionKey.None", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
+
+```csharp
+CosmosItemResponse<DeviceInformationItem> readResponse = 
+await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
+  partitionKey: PartitionKey.None, 
+  id: device.Id
+); 
+
+```
+
+### [Java SDK V4](#tab/javav4)
 
 ```java
 static class Family {
@@ -133,24 +153,11 @@ While the container definition is enhanced with a partition key property, the do
 
 Applications can access the existing documents that don’t have a partition key by using the special system property called "PartitionKey.None", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
 
-# [.NET SDK V3](#tab/dotnetv3)
-
-```csharp
-CosmosItemResponse<DeviceInformationItem> readResponse = 
-await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
-  partitionKey: PartitionKey.None, 
-  id: device.Id
-); 
-
-```
-
-# [Java SDK V4](#tab/javav4)
-
 ```java
 CosmosItemResponse<JsonNode> cosmosItemResponse = cosmosContainer.readItem("itemId", PartitionKey.NONE, JsonNode.class);
 ```
 
-For the complete sample on how to repartition the documents, see the [.Net samples][1] / [Java samples][2] GitHub repository.
+For the complete sample on how to repartition the documents, see the [Java samples][2] GitHub repository.
 
 ## Compatibility with SDKs
 
@@ -177,4 +184,4 @@ If new items are inserted with different values for the partition key, querying 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration
-[2]: https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples
+[2]: https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/nonpartitioncontainercrud
