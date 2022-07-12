@@ -119,7 +119,7 @@ You can light up [unified discovery and delivery](plan-SaaS-offer.md) of your Sa
 
 1. If you do not have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **No**.
 
-    If you have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **Yes**, then select **+Add another AppSource link** to add new links.  
+   If you have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **Yes**, then select **+Add another AppSource link** to add new links.  
 1. Provide a valid AppSource link.
 1. Continue adding all valid AppSource links by selecting **+Add another AppSource link**.
 1. The order that the linked products are shown in on the SaaS offer listing page is indicated by the Rank value. To change the order, select, hold, and move the = icon up and down the list.
