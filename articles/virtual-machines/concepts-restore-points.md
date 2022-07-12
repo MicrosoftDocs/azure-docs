@@ -31,10 +31,10 @@ The following table summarizes the support matrix for VM restore points.
 **Generation 2 VMs (UEFI boot)** | Yes
 **VMs with NVMe disks (Storage optimized - Lsv2-series)** | Yes
 **VMs in Proximity placement groups** | Yes
-**VMs in an availability set** | Yes. You can create VM restore points for individual VMs within an AvSet. You need to create restore points for all the VMs within an AvSet to protect an entire AvSet instance.
+**VMs in an availability set** | Yes. You can create VM restore points for individual VMs within an availability set. You need to create restore points for all the VMs within an availability set to protect an entire availability set instance.
 **Reserved VM instances (Azure reservations)** | Yes
 **VMs inside VMSS unified** | No
-**VMs inside VMSS Flex** | Yes. You can create VM restore points for individual VMs within the VMSS flex. However, you need to create restore points for all the VMs within the VMSS flex to protect an entire VMSS flex instance.
+**VMs inside VMSS Flex** | Yes. You can create VM restore points for individual VMs within the virtual machine scale set flex. However, you need to create restore points for all the VMs within the virtual machine scale set flex to protect an entire virtual machine scale set flex instance.
 **Spot VMs (Low priority VMs)** | Yes
 **VMs with dedicated hosts** | Yes
 **VMs with Host caching enabled** | Yes
