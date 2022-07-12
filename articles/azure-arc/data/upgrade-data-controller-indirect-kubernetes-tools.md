@@ -86,10 +86,10 @@ You'll need to connect and authenticate to a Kubernetes cluster and have an exis
    > [!IMPORTANT]
    > Requires Kubernetes permissions for creating service account, role binding, cluster role, cluster role binding, and all the RBAC permissions being granted to the service account.
 
-Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace of the data controller, for example: `arc`. Run the following command to create the deployer service account with the edited file.
+Save a copy of [arcdata-upgrader.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/upgrade/yaml/arcdata-upgrader.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace of the data controller, for example: `arc`. Run the following command to create the deployer service account with the edited file.
 
 ```console
-kubectl apply --namespace arc -f arcdata-deployer.yaml
+kubectl apply --namespace arc -f arcdata-upgrader.yaml
 ```
 
 
