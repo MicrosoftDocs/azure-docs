@@ -53,19 +53,6 @@ Addresses can be resized in the following ways:
 - Adding address ranges to a virtual network
 - Deleting address ranges from a virtual network
 
-# Learn how to resize address ranges in the Azure portal [here](linktofuturePortalHowTo). 
-With this feature, two new properties on the virtual networks's `virtualNetworkPeerings` object include: 
-
-- **remoteVirtualNetworkAddressSpace**: Contains the most current address space of the peered virtual network. This address may or may not be the same as the peered address contained in the `remoteAddressSpace` property. 
-
-- **peeringSyncLevel**: Indicates if the address contained in the `remoteVirtualNetworkAddressSpace` property is the same as the address that is peered with the virtual network. 
-
-When the address space on a virtual network is updated, the corresponding peering links on the remote virtual networks need to be synced with the new address space. The status of the peering links between the two virtual networks indicates which side of the peering link needs to be synced with the new address space. The status values are:
-
-- **LocalNotInSync**: This peering status appears on the link from the second virtual network to the first virtual network. At this stage, while the peering is active across the old address space of the virtual network, the new address space hasn't peered and requires synching with the remote virtual network. 
-
-- **RemoteNotInSync**: This peering status appears on the link from the first virtual network to the second virtual network. A sync operation on the peering link from the second virtual network to the first virtual network will synchronize the address space across the peering. 
-
 Re-synching virtual network peers can be performed through the Azure portal or with Azure PowerShell. 
 
 > [!Important]
