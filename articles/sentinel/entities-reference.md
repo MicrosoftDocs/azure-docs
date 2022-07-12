@@ -443,74 +443,74 @@ Strong identifiers of a SubmissionMail entity:
 
 The following list defines identifiers for known cloud applications. The App ID value is used as a [cloud application](#cloud-application) entity identifier.
 
-|App ID|Name|
-|------|----|
-|10026|DocuSign|
-|10395|Anaplan|
-|10489|Box|
-|10549|Cisco Webex|
-|10618|Atlassian|
-|10915|Cornerstone OnDemand|
-|10921|Zendesk|
-|10980|Okta|
-|11042|Jive Software|
-|11114|Salesforce|
-|11161|Office 365|
-|11162|Microsoft OneNote Online|
-|11394|Microsoft Online Services|
-|11522|Yammer|
-|11599|Amazon Web Services|
-|11627|Dropbox|
-|11713|Expensify|
-|11770|G Suite|
-|12005|SuccessFactors|
-|12260|Microsoft Azure|
-|12275|Workday|
-|13843|LivePerson|
-|13979|Concur|
-|14509|ServiceNow|
-|15570|Tableau|
-|15600|Microsoft OneDrive for Business|
-|15782|Citrix ShareFile|
-|17152|Amazon|
-|17865|Ariba Inc|
-|18432|Zscaler|
-|19688|Xactly|
-|20595|Microsoft Defender for Cloud Apps|
-|20892|Microsoft SharePoint Online|
-|20893|Microsoft Exchange Online|
-|20940|Active Directory|
-|20941|Adallom CPanel|
-|22110|Google Cloud Platform|
-|22930|Gmail|
-|23004|Autodesk Fusion Lifecycle|
-|23043|Slack|
-|23233|Microsoft Office Online|
-|25275|Microsoft Skype for Business|
-|25988|Google Docs|
-|26055|Microsoft Office 365 admin center|
-|26060|OPSWAT Gears|
-|26061|Microsoft Word Online|
-|26062|Microsoft PowerPoint Online|
-|26063|Microsoft Excel Online|
-|26069|Google Drive|
-|26206|Workiva|
-|26311|Microsoft Dynamics|
-|26318|Microsoft Azure AD|
-|26320|Microsoft Office Sway|
-|26321|Microsoft Delve|
-|26324|Microsoft Power BI|
-|27548|Microsoft Forms|
-|27592|Microsoft Flow|
-|27593|Microsoft PowerApps|
-|28353|Workplace by Facebook|
-|28373|CAS Proxy Emulator|
-|28375|Microsoft Teams|
-|32780|Microsoft Dynamics 365|
-|33626|Google|
-|34127|Microsoft AppSource|
-|34667|HighQ|
-|35395|Microsoft Dynamics Talent|
+| App ID | Name                              |
+| ------ | --------------------------------- |
+| 10026  | DocuSign                          |
+| 10395  | Anaplan                           |
+| 10489  | Box                               |
+| 10549  | Cisco Webex                       |
+| 10618  | Atlassian                         |
+| 10915  | Cornerstone OnDemand              |
+| 10921  | Zendesk                           |
+| 10980  | Okta                              |
+| 11042  | Jive Software                     |
+| 11114  | Salesforce                        |
+| 11161  | Office 365                        |
+| 11162  | Microsoft OneNote Online          |
+| 11394  | Microsoft Online Services         |
+| 11522  | Yammer                            |
+| 11599  | Amazon Web Services               |
+| 11627  | Dropbox                           |
+| 11713  | Expensify                         |
+| 11770  | G Suite                           |
+| 12005  | SuccessFactors                    |
+| 12260  | Microsoft Azure                   |
+| 12275  | Workday                           |
+| 13843  | LivePerson                        |
+| 13979  | Concur                            |
+| 14509  | ServiceNow                        |
+| 15570  | Tableau                           |
+| 15600  | Microsoft OneDrive for Business   |
+| 15782  | Citrix ShareFile                  |
+| 17152  | Amazon                            |
+| 17865  | Ariba Inc                         |
+| 18432  | Zscaler                           |
+| 19688  | Xactly                            |
+| 20595  | Microsoft Defender for Cloud Apps |
+| 20892  | Microsoft SharePoint Online       |
+| 20893  | Microsoft Exchange Online         |
+| 20940  | Active Directory                  |
+| 20941  | Adallom CPanel                    |
+| 22110  | Google Cloud Platform             |
+| 22930  | Gmail                             |
+| 23004  | Autodesk Fusion Lifecycle         |
+| 23043  | Slack                             |
+| 23233  | Microsoft Office Online           |
+| 25275  | Microsoft Skype for Business      |
+| 25988  | Google Docs                       |
+| 26055  | Microsoft Office 365 admin center |
+| 26060  | OPSWAT Gears                      |
+| 26061  | Microsoft Word Online             |
+| 26062  | Microsoft PowerPoint Online       | 
+| 26063  | Microsoft Excel Online            |
+| 26069  | Google Drive                      |
+| 26206  | Workiva                           |
+| 26311  | Microsoft Dynamics                |
+| 26318  | Microsoft Azure AD                |
+| 26320  | Microsoft Office Sway             |
+| 26321  | Microsoft Delve                   |
+| 26324  | Microsoft Power BI                |
+| 27548  | Microsoft Forms                   |
+| 27592  | Microsoft Flow                    |
+| 27593  | Microsoft PowerApps               |
+| 28353  | Workplace by Facebook             |
+| 28373  | CAS Proxy Emulator                |
+| 28375  | Microsoft Teams                   |
+| 32780  | Microsoft Dynamics 365            |
+| 33626  | Google                            |
+| 34127  | Microsoft AppSource               |
+| 34667  | HighQ                             |
+| 35395  | Microsoft Dynamics Talent         |
 
 ## Next steps
 
