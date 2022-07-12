@@ -344,7 +344,7 @@ The request body has some required fields:
 * `@etag`: ETag used to prevent conflict in device updates.
 * `simulated`: Whether the device is simulated.
 * `template` : The device template definition for the device.
-* `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single orgnaization.
+* `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single organization.
 
 The response to this request looks like the following example:
 
@@ -390,7 +390,7 @@ The request body has some required fields:
 * `@displayName`: Display name of the device group.
 * `@filter`: Query defining which devices should be in this group.
 * `description`: Short summary of device group.
-* `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single orgnaization.
+* `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single organization.
 
 The response to this request looks like the following example: 
 
