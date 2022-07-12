@@ -74,7 +74,11 @@ However, when the **Split On** setting is enabled, *managed* connector triggers 
 
 You have to apply this approach only for *managed* connector triggers, not built-in connector triggers that return outputs for one array item at a time when the **Split On** setting is enabled.
 
-For example, suppose you have managed connector trigger named **When a file is added or modified (properties only)** that returns the metadata or properties for the new or updated files as arrays. To get the metadata separately for each file, you might use a **For each** loop to process the array, the **Get file metadata** action to get each file's metadata, and then the **Get file content** action to get each file's content.
+For example, suppose you have managed connector trigger named **When a file is added or modified (properties only)** that returns the metadata or properties for the new or updated files as arrays. To get the metadata separately for each file, you might use a **For each** loop that iterates through the array. In this loop, use the following FTP managed connector actions:
+
+1. **Get file metadata** to get each file's metadata.
+
+1. **Get file content** action to get each file's content.
 
 <a name="add-ftp-trigger"></a>
 
@@ -123,7 +127,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. After the trigger information box appears, in the **Folder** box, select the folder icon so that a list appears. 
 
-   To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+   To find the folder that you want to monitor for new or edited files, select the right angle arrow (**>**). Browse to the folder, and then select the folder.
 
    ![Screenshot shows Consumption workflow designer, FTP trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-select-folder-consumption.png)
 
@@ -139,7 +143,7 @@ This section shows the steps for the FTP built-in connector trigger named **When
 
 * If you use the FTP managed trigger **When a file is added or modified (properties only)**, you have to later use the **Get file metadata** action first to get a single array item before you use any other action on the file that was added or modified. This workaround results from the [known issue around the **Split On** setting](#known-issues) described earlier in this article.
 
-* If you use the FTP built-in trigger named **When a file is added or updated**, you can subsequently get the file content by using the FTP built-in action named **Get file content** without using the **Get file metadata** action first, unlike if you use the FTP managed trigger. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
+* If you use the FTP built-in trigger named **When a file is added or updated**, you can get the file content by using the FTP built-in action named **Get file content** without using the **Get file metadata** action first, unlike if you use the FTP managed trigger. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
 
 <a name="built-in-connector-trigger"></a>
 
@@ -160,7 +164,7 @@ This section shows the steps for the FTP built-in connector trigger named **When
 
    ![Screenshot shows Standard workflow designer, FTP built-in trigger, and connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-built-in-standard.png)
 
-1. After the trigger information box appears, in the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+1. After the trigger information box appears, in the **Folder** box, select the folder icon so that a list appears. To find the folder that you want to monitor for new or edited files, select the right angle arrow (**>**). Browse to that folder, and then select the folder.
 
    ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-built-in-select-folder-standard.png)
 
@@ -189,7 +193,7 @@ This section shows the steps for the FTP built-in connector trigger named **When
 
    ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-azure-standard.png)
 
-1. After the trigger information box appears, in the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+1. After the trigger information box appears, in the **Folder** box, select the folder icon so that a list appears. To find the folder that you want to monitor for new or edited files, select the right angle arrow (**>**). Browse to that folder, and then select the folder.
 
    ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-azure-select-folder-standard.png)
 
@@ -288,11 +292,11 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
 * [**Workflows with a built-in trigger**](#built-in-trigger-workflows): Describes the steps for workflows that start with a built-in trigger.
 
-  If you used the FTP built-in trigger and want the content from a newly added or updated file, you can use only the **Get file content** action without any other intermediary actions. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
+  If you used the FTP built-in trigger, and you want the content from a newly added or updated file, you can use a **For each** loop to iterate through the array that's returned by the trigger. You can then use just the **Get file content** action without any other intermediary actions. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
 
 * [**Workflows with a managed trigger**](#managed-trigger-workflows): Describes the steps for workflows that start with a managed trigger.
 
- If you used the FTP managed connector trigger and want the content from a newly added or modified file, you have to use intermediary actions such as the FTP action named **Get file metadata** before you use the **Get file content** action. Or, you can use a **For each** loop to iterate through the array returned by the trigger.
+ If you used the FTP managed connector trigger, and want the content from a newly added or modified file, you can use a **For each** loop to iterate through the array that's returned by the trigger. You then have to use intermediary actions such as the FTP action named **Get file metadata** before you use the **Get file content** action.
 
 <a name="built-in-trigger-workflows"></a>
 
@@ -490,13 +494,13 @@ This trigger starts a logic app workflow run when a file is added or updated in 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Folder path** | `folderPath` | True | String | The folder path, relative to the root directory. |
-| **Number of files to return** | `maxFileCount` | False | Integer | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: Enabled by default, the **Split On** setting forces this trigger to process each file individually. |
+| **Number of files to return** | `maxFileCount` | False | Integer | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: By default, the **Split On** setting is enabled and forces this trigger to process each file individually in parallel. |
 | **Cutoff timestamp to ignore older files** | `oldFileCutOffTimestamp` | False | DateTime | The cutoff time to use for ignoring older files. Use the timestamp format `YYYY-MM-DDTHH:MM:SS`. To disable this feature, leave this property empty. |
 ||||||
 
 #### Returns
 
-When the trigger's **Split On** setting is enabled, the trigger returns the metadata or properties for one file at a time. Otherwise, the trigger returns a list with each file's metadata.
+When the trigger's **Split On** setting is enabled, the trigger returns the metadata or properties for one file at a time. Otherwise, the trigger returns an array that contains each file's metadata.
 
 | Name | Type |
 |------|------|
