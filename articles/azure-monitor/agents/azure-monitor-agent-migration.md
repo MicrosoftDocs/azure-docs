@@ -31,8 +31,8 @@ Your migration plan to the Azure Monitor agent should include the following cons
 
 |Consideration  |Description  |
 |---------|---------|
-|**Environment requirements**     | Verify that your environment is currently supported by the AMA. For more information, see [Supported operating systems](./agents-overview.md#supported-operating-systems).         |
-|**Current and new feature requirements**     | While the AMA provides [several new features](#current-capabilities), such as filtering, scoping, and multihoming, it is not yet at parity with the legacy Log Analytics agent.As you plan your migration, make sure that the features your organization requires are already supported by the AMA. You may decide to continue using the Log Analytics agent for now, and migrate at a later date. See [Supported services and features](./azure-monitor-agent-overview.md#supported-services-and-features) for a current status of features that are supported and that may be in preview. | 
+|**Environment requirements**     | Verify that AMA currently supports your environment. For more information, see [Supported operating systems](./agents-overview.md#supported-operating-systems).         |
+|**Current and new feature requirements**     | While AMA provides [several new features](#current-capabilities), such as filtering, scoping, and multihoming, it is not yet at parity with the legacy Log Analytics agent. As you plan your migration, make sure that the features your organization requires are already supported by the AMA. You may decide to continue using the Log Analytics agent for now, and migrate at a later date. See [Supported services and features](./azure-monitor-agent-overview.md#supported-services-and-features) for a current status of features that are supported and that may be in preview. | 
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are currently using the Log Analytics agent with Azure Monitor or other supported features and services, you should start planning your migration to the Azure Monitor agent using the information in this article.
@@ -43,7 +43,7 @@ Azure Monitor agent currently supports the following core functionality:
 
 - **Collect guest logs and metrics** from any machine in Azure, in other clouds, or on-premises. [Azure Arc-enabled servers](../../azure-arc/servers/overview.md) are required for machines outside of Azure.
 - **Centrally manage data collection configuration** using [data collection rules](/azure/azure-monitor/agents/data-collection-rule-overview), and management configuration using Azure Resource Manager (ARM) templates or policies.
-- **Use Windows event filtering or multi-homing** for Windows or Linux logs.
+- **Use Windows event filtering or multihoming** for Windows or Linux logs.
 - **Improved extension management.** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
 
 > [!NOTE]
@@ -85,11 +85,10 @@ The following tables show gap analyses for the **log types** that are currently 
 | **Multi-homing** | Yes | No |
 
 
-## Test migration by using the Azure portal
-To ensure safe deployment during migration, you should begin testing with a few resources in your nonproduction environment that are running the existing Log Analytics agent. After you can validate the data collected on these test resources, roll out to production by following the same steps.
+## Test migration
+To ensure safe deployment during migration, begin testing with few resources running the existing Log Analytics agent in your nonproduction environment. After you validate the data collected on these test resources, roll out to production by following the same steps.
 
 See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) to start collecting some of the existing data types. Once you validate data is flowing as expected with the Azure Monitor agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
-
 
 ## At-scale migration using Azure Policy
 [Azure Policy](../../governance/policy/overview.md) and [Resource Manager templates](../resource-manager-samples.md) provide scalability to migrate a large number of agents. 
