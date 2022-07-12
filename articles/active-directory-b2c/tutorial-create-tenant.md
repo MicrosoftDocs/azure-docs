@@ -51,7 +51,7 @@ You learn how to register an application in the next tutorial.
 
     1. Find the directory that contains your subscription and select the **Switch** button next to it. Switching a directory reloads the portal. If the directory that contains your subscription has the **Current** label next to it, you don't need to do anything. 
 
-        ![Screenshot of Directories + subscriptions window](media/tutorial-create-tenant/switch-directory.png)
+        ![Screenshot of the directories and subscriptions window.](media/tutorial-create-tenant/switch-directory.png)
 
 1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription you're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
