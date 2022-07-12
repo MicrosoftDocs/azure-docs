@@ -1,6 +1,6 @@
 ---
-title:  Add Azure Dedicated Host to a Service Fabric managed cluster (SFMC) <Configure autoscaling for Service Fabric managed cluster nodes>
-description: Learn how to add Azure Dedicated Host to a Service Fabric managed cluster (SFMC) <Learn how to configure autoscaling policies on Service Fabric managed cluster.>
+title:  Add Azure Dedicated Host to a Service Fabric managed cluster (SFMC)
+description: Learn how to add Azure Dedicated Host to a Service Fabric managed cluster (SFMC)
 ms.topic: how-to
 ms.date: 6/14/2022
 ---
@@ -31,13 +31,32 @@ The template used in this guide is from [Azure Samples - Service Fabric cluster 
 ## Create a client certificate
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step. 
 
-If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal.md). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
+If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
 
 ## Deploy Dedicated Host Resources
 1) Create a dedicated host group pinned to one Availability Zone and five Fault Domains using the provided sample ARM deployment template. The sample will ensure there is at least one dedicated host per Fault Domain.
 ```powershell
-   $rgName = "testHostGroupRG"
-   $location = "southcentralus" 
-   New-AzResourceGroup -Name $rgName -Location $location
+   New-AzResourceGroup -Name $ResourceGroupName -Location $location
+   New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\hostTemplate_sample.json" -hostGroupName $hostGroupName -dedicatedHostNamePrefix $dedicatedHostNamePrefix -dedicatedHostSKU $dedicatedHostSKU -Debug –Verbose 
    ```
-2) 
+   
+>[!NOTE] 
+> Ensure you use the correct sku family that matches the one you are going to use for the node type vmSize. See [Azure Dedicated Host pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/) for more information.
+
+2) Once the Host group is successfully created, provide access for the Host group to Azure Service Fabric managed clusters service.
+
+   a) Add a role assignment to the host group with the Service Fabric Resource Provider application. This assignment allows Service Fabric Resource Provider to 
+      deploy VMs on the Dedicated Hosts inside the host group, created on the previous step, to the managed cluster's virtual machine scale set. This is a one-time           action.
+   b) Get SFRP provider id and Service Principal for Service Fabric Resource Provider application:
+   ```powershell
+   Login-AzAccount  
+   Select-AzSubscription -SubscriptionId <SubId>  
+   Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"  
+   ```
+   c) Add role assignment to host group with contributor access. This role assignment can be created via PowerShell using the principal ID and role definition name:  
+   ```powershell
+   New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
+   ```
+   
+   Alternatvely, you can also use template. it can be defined in resources section template using the Principal ID and role definition ID: 
+   
