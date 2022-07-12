@@ -81,7 +81,7 @@ landingContent:
             url: concepts-contact.md
           - text: Contact profile
             url: concepts-contact-profile.md
-          - text: Geospatial Reference Architecture
+          - text: Geospatial reference architecture
             url: geospatial-reference-architecture.md
           - text: Spacecraft object
             url: spacecraft-object.md
