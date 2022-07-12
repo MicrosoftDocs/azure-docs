@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/14/2022
 ms.custom: devx-track-java
 ---
+
 # Enable redundancy and disaster recovery for Azure Spring Apps
 
 **The zone redundancy applies to:** ✔️ Standard tier ✔️ Enterprise tier
