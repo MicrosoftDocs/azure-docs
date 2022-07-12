@@ -32,8 +32,8 @@ Use the REST API v3.1 to:
 ### Batch transcription changes:
 - In **Create Transcription** the following three new fields were added to properties:
     - **displayFormWordLevelTimestampsEnabled** can be used to enable the reporting of word-level timestamps on the display form of the transcription results.
-    - **diarization** allows to specify hints for the minimum and maximum number of speaker labels to generate when performing optional diarization (speaker separation). With this feature, the service is now able to generate speaker labels for more than two speakers.
-    - **languageIdentification** allows to specify settings for optional language identification on the input prior to transcription. Up to 10 candidate locales are supported for language identification. For the preview API, transcription can only be performed with base models for the respective locales. The ability to use custom models for transcription will be added for the GA version.
+    - **diarization** can be used to specify hints for the minimum and maximum number of speaker labels to generate when performing optional diarization (speaker separation). With this feature, the service is now able to generate speaker labels for more than two speakers.
+    - **languageIdentification** can be used specify settings for optional language identification on the input prior to transcription. Up to 10 candidate locales are supported for language identification. For the preview API, transcription can only be performed with base models for the respective locales. The ability to use custom models for transcription will be added for the GA version.
 - **Get Transcriptions**, **Get Transcription Files**, **Get Transcriptions For Project** now include a new optional parameter to simplify finding the right resource:
     - **filter** can be used to provide a filtering expression for selecting a subset of the available resources. You can filter by displayName, description, createdDateTime, lastActionDateTime, status and locale. Example: filter=createdDateTime gt 2022-02-01T11:00:00Z
 
