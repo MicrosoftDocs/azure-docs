@@ -74,7 +74,6 @@ The following platform SKUs are currently supported (and more are added periodic
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS-Gen2     |                   
 | Canonical               | UbuntuServer  | 20.04-LTS          |                   
