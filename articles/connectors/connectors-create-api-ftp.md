@@ -64,21 +64,17 @@ The FTP connector has different versions, based on [logic app type and host envi
 
 * For more requirements that apply to both the FTP managed connector and built-in connector, review the [FTP managed connector reference - Requirements](/connectors/ftp/#requirements).
 
+<a name="known-issues"></a>
+
 ## Known issues
 
-By default, triggers that return an array have a **Split On** setting that's already enabled. With this setting enabled, the trigger automatically *debatches* the array. Each array item gets a separate workflow instance for processing, but these workflow instances run in parallel so that the array items are processed at the same time.
+By default, triggers that return an array have a **Split On** setting that's already enabled. With this setting enabled, the trigger automatically *debatches* the array by internally creating a separate workflow instance to process each array item. All the workflow instances run in parallel so that the array items are processed at the same time.
 
-However, with *managed* connector triggers, the **Split On** setting behavior is currently reversed. With the setting enabled, the trigger *doesn't debatch* the array. So, array items don't get processed with separate workflow instances. The trigger returns outputs as arrays, not individual items. Any subsequent actions that use these outputs have to handle the outputs as arrays first.
+However, when the **Split On** setting is enabled, *managed* connector triggers return the outputs for all the array items as lists. Any subsequent actions that reference these outputs have to first handle these outputs as lists. To handle each array item individually, you can add extra actions. For example, to iterate through these array items, you can use a **For each** loop. For triggers that return only metadata or properties, use an action that gets the array item's metadata first, and then use an action to get the items contents.
 
-No timeline is currently available for fixing this issue. However, as a workaround, you can add extra actions to handle the array items individually. You only need to apply this workaround with *managed* connector triggers, not built-in connector triggers, which work as expected with the **Split On** setting enabled.
+You have to apply this approach only for *managed* connector triggers, not built-in connector triggers that return outputs for one array item at a time when the **Split On** setting is enabled.
 
-For example, the FTP managed connector trigger named **When a file is added or modified (properties only)** returns the metadata or properties for the new or updated files as arrays. To get the metadata separately for each file, you might use a **For each** loop to process the array, the **Get file metadata** action to get each file's metadata, and then follow with the **Get file content** action to get each file's content. For more information about these actions, review the following documentation:
-
-* [Create loops that repeat workflow actions or process arrays in Azure Logic Apps](../logic-apps/logic-apps-control-flow-loops.md)
-* [Get file metadata - managed connector version](/connectors/ftp/#get-file-metadata)
-* [Get file metadata - built-in connector version](#get-file-metadata)
-* [Get file content - managed connector version](/connectors/ftp/#get-file-content)
-* [Get file content - built-in connector version](#get-file-content)
+For example, suppose you have managed connector trigger named **When a file is added or modified (properties only)** that returns the metadata or properties for the new or updated files as arrays. To get the metadata separately for each file, you might use a **For each** loop to process the array, the **Get file metadata** action to get each file's metadata, and then the **Get file content** action to get each file's content.
 
 <a name="add-ftp-trigger"></a>
 
@@ -86,7 +82,9 @@ For example, the FTP managed connector trigger named **When a file is added or m
 
 A Consumption logic app workflow has only the FTP managed connector. However, a Standard logic app workflow can use the FTP managed connector *and* the FTP built-in connector. The FTP managed connector and built-in connector each have only one trigger available:
 
-* Managed connector trigger: The FTP trigger named **When a file is added or modified (properties only)** starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. For more information about this trigger, review [When a file is added or modified (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
+* Managed connector trigger: The FTP trigger named **When a file is added or modified (properties only)** starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. 
+
+  For more information about this trigger, review [When a file is added or modified (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
 
 * Built-in connector trigger: The FTP trigger named **When a file is added or updated** starts a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. For more information about this trigger, review [When a file is added or updated](#when-file-added-updated).
 
@@ -114,7 +112,10 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
 
-   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, turn on the **Binary Transport** option named **Enable Binary Transport**.
+   > [!NOTE]
+   >
+   > By default, this connector transfers files in text format. To transfer files in binary format, 
+   > for example, where and when encoding is used, select the binary transport option.
 
    ![Screenshot shows Consumption workflow designer and FTP connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-consumption.png)
 
@@ -132,55 +133,67 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Standard](#tab/standard)
 
+This section shows the steps for the FTP built-in connector trigger named **When a file is added or updated** and the FTP managed connector trigger named **When a file is added or modified (properties only)**.
+
+* If you use the FTP managed trigger **When a file is added or modified (properties only)**, you have to later use the **Get file metadata** action first to get a single array item before you use any other action on the file that was added or modified. This workaround results from the [known issue around the **Split On** setting](#known-issues) described earlier in this article.
+
+* If you use the FTP built-in trigger named **When a file is added or updated**, you can subsequently get the file content by using the FTP built-in action named **Get file content** without using the **Get file metadata** action first, unlike if you use the FTP managed trigger. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
+
+<a name="built-in-connector-trigger"></a>
+
+#### Built-in connector trigger
+
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
-1. Find and select the FTP trigger that you want to use.
+1. On the designer, select **Choose an operation**. In the search box, enter **ftp**. Under the search box, select **Built-in**. From the triggers list, select the trigger named **When a filed is added or updated**.
 
-   This example continues with selecting either the FTP built-in trigger named **When a file is added or updated** or the FTP managed connector trigger named **When a file is added or modified (properties only)**.
+   ![Screenshot shows the Azure portal, Standard workflow designer, search box with "Built-in" selected underneath, and FTP trigger selected.](./media/connectors-create-api-ftp/ftp-select-trigger-built-in-standard.png)
 
-   1. On the designer, select **Choose an operation**. In the search box, enter **ftp**. Under the search box, select either of the following options:
+1. Provide the information for your connection. When you're done, select **Create**.
 
-      * **Built-in** when you want to use the [FTP built-in connector trigger](#ftp-built-in-connector-operations). From the triggers list, select the trigger that you want.
+   > [!NOTE]
+   >
+   > By default, this connector transfers files in text format. To transfer files in binary format, 
+   > for example, where and when encoding is used, select the binary transport option.
 
-        This example continues with the trigger named **When a filed is added or updated**.
-
-        ![Screenshot shows the Azure portal, Standard workflow designer, search box with "Built-in" selected underneath, and FTP trigger selected.](./media/connectors-create-api-ftp/ftp-select-trigger-built-in-standard.png)
-
-      * **Azure** when you want to use the [FTP managed connector trigger](/connectors/ftp/). From the triggers list, select the trigger that you want.
-
-        This example continues with the trigger named **When a filed is added or modified (properties only)**.
-
-        ![Screenshot shows the Azure portal, Standard workflow designer, search box with "Azure" selected underneath, and FTP trigger selected.](./media/connectors-create-api-ftp/ftp-select-trigger-azure-standard.png)
-
-1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
-
-   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, turn on the **Binary Transport** option named **Enable Binary Transport**.
-
-   * **Built-in**
-
-     ![Screenshot shows Standard workflow designer, FTP built-in trigger, and connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-built-in-standard.png)
-
-   * **Azure**
-
-     ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-azure-standard.png)
+   ![Screenshot shows Standard workflow designer, FTP built-in trigger, and connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-built-in-standard.png)
 
 1. After the trigger information box appears, in the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
 
-   * **Built-in**
+   ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-built-in-select-folder-standard.png)
 
-     ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-built-in-select-folder-standard.png)
+   Your selected folder appears in the **Folder** box.
 
-     Your selected folder appears in the **Folder** box.
+   ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-built-in-selected-folder-standard.png)
 
-     ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-built-in-selected-folder-standard.png)
+1. When you're done, save your logic app workflow.
 
-   * **Azure**
+<a name="managed-connector-trigger"></a>
 
-     ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-azure-select-folder-standard.png)
+#### Managed connector trigger
 
-     Your selected folder appears in the **Folder** box.
+1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
-     ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-azure-selected-folder-standard.png)
+1. On the designer, select **Choose an operation**. In the search box, enter **ftp**. Under the search box, select **Azure**. From the triggers list, select the trigger named **When a filed is added or modified (properties only)**.
+
+   ![Screenshot shows the Azure portal, Standard workflow designer, search box with "Azure" selected underneath, and FTP trigger selected.](./media/connectors-create-api-ftp/ftp-select-trigger-azure-standard.png)
+
+1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
+
+   > [!NOTE]
+   >
+   > By default, this connector transfers files in text format. To transfer files in binary format, 
+   > for example, where and when encoding is used, select the binary transport option.
+
+   ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-azure-standard.png)
+
+1. After the trigger information box appears, in the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+
+   ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-azure-select-folder-standard.png)
+
+   Your selected folder appears in the **Folder** box.
+
+   ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-azure-selected-folder-standard.png)
 
 1. When you're done, save your logic app workflow.
 
@@ -212,7 +225,7 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
 1. Find and select the [FTP action](/connectors/ftp/) that you want to use.
 
-   This example continues with the action named **Get file metadata**.
+   This example continues with the action named **Get file metadata** so you can get the metadata for a single array item.
 
    1. On the designer, under the trigger or any other actions, select **New step**.
 
@@ -226,7 +239,10 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
 1. If necessary, provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
 
-   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, turn on the **Binary Transport** option named **Enable Binary Transport**.
+   > [!NOTE]
+   >
+   > By default, this connector transfers files in text format. To transfer files in binary format, 
+   > for example, where and when encoding is used, select the binary transport option.
 
    ![Screenshot shows Consumption workflow designer and FTP connection profile for an action.](./media/connectors-create-api-ftp/ftp-action-connection-consumption.png)
 
@@ -272,16 +288,19 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
 The steps to add and use an FTP action differ based on whether you used a managed connector trigger or a built-in connector trigger to start your workflow.
 
-* [**Workflows with a built-in trigger**](#built-in-trigger-workflows): Describes the steps for workflows that start with a built-in trigger. This example uses the FTP built-in trigger named **When a file is added or updated** and the FTP built-in action named **Get file content**. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
+* [**Workflows with a built-in trigger**](#built-in-trigger-workflows): Describes the steps for workflows that start with a built-in trigger.
+
+  If you use the FTP built-in trigger named **When a file is added or updated** and the FTP built-in action named **Get file content**. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
+
+  If you use the FTP built-in trigger in your workflow, you only need to use the **Get file content** action.
 
 * [**Workflows with a managed trigger**](#managed-trigger-workflows): Describes the steps for workflows that start with a managed trigger. Due to the **Split On** setting's current behavior, 
 
-If you used the FTP managed connector trigger in your workflow, and you want to get the content from a newly added or modified file, you have to use the FTP action named **Get file metadata** followed by **Get file content**. However, if you used the FTP built-in trigger, you only need to use the **Get file content** action.
+However, if you use the FTP managed connector trigger in your workflow, and you want to get the content from a newly added or modified file, you have to use the FTP action named **Get file metadata** followed by **Get file content**.
 
   This example uses the FTP managed trigger named **When a file is added or modified (properties only)** and the FTP managed actions named **Get file metadata** and **Get file content**. For more information about FTP managed connector operations, review [FTP managed connector operations](/connectors/create-api-ftp).
 
-
-   This 
+  This 
 
    
 
@@ -293,88 +312,91 @@ For example, if you used the FTP managed connector trigger in your workflow, and
 
 1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
 
-1. Follow these steps to find and select the FTP action that you want:
+1. On the designer, under the trigger or any other actions, select the plus sign (**+**) > **Add an action**.
 
-   1. On the designer, under the trigger or any other actions, select the plus sign (**+**) > **Add an action**.
+1. On the **Add an action** pane, under the **Choose an operation** search box, select **Built-in**.
 
-   1. On the **Add an action** pane, under the **Choose an operation** search box, select **Built-in**.
-
-   1. In the search box, enter **ftp get file content**. From the actions list, select **Get file content**.
+1. In the search box, enter **ftp get file content**. From the actions list, select **Get file content**.
 
    ![Screenshot shows Azure portal, Standard workflow designer, search box with "Built-in" selected underneath, and "Get file content" selected.](./media/connectors-create-api-ftp/ftp-action-get-file-content-built-in-standard.png)
 
-1. If necessary, provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
+1. If necessary, provide the information for your connection. When you're done, select **Create**.
 
-   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, make sure to select the binary transport setting.
+   > [!NOTE]
+   >
+   > By default, this connector transfers files in text format. To transfer files in binary format, 
+   > for example, where and when encoding is used, select the binary transport option.
+
+   ![Screenshot shows Standard workflow designer, FTP built-in action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-built-in-standard.png)
+
+1. In the action information pane that appears, click inside the **File path** box so that the dynamic content list appears.
+
+   You can now select outputs from the preceding trigger.
+
+1. From the dynamic content list, under **When a file is added or updated**, select **File path**.
+
+   ![Screenshot shows Standard workflow designer, "Get file content" action, dynamic content list opened, and "File path" selected.](./media/connectors-create-api-ftp/ftp-action-get-file-content-file-path-built-in-standard.png)
+
+   The action's **File path** property now references the **File path** trigger output.
+
+   ![Screenshot shows Standard workflow designer and "Get file content" action complete.](./media/connectors-create-api-ftp/ftp-action-get-file-content-complete-built-in-standard.png)
+
+1. Add any other actions that your workflow needs. When you're done, save your logic app workflow.
 
 <a name="managed-trigger-workflows"></a>
 
 #### Workflows with a managed trigger
 
-   ![Screenshot shows Azure portal, Standard workflow designer, search box with "Built-in" selected underneath, and "Get file metadata" selected.](./media/connectors-create-api-ftp/ftp-action-get-file-metadata-built-in-standard.png)
-
 1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
 
-1. Find and select the FTP action that you want to use.
+1. On the designer, under the trigger or any other actions, select the plus sign (**+**) > **Add an action**.
 
-   1. On the designer, under the trigger or any other actions, select the plus sign (**+**) > **Add an action**.
+   The **Choose an operation** box appears with the **Add an action** pane on the right side.
 
-      The **Choose an operation** box appears with the **Add an action** pane on the right side.
+1. In the **Choose an operation** search box, enter **ftp get file metadata**. Under the search box, select **Azure**. From the actions list, select the **Get file metadata** action.
 
-   1. In the **Choose an operation** search box, enter **ftp get file metadata**. Under the search box, select either of the following options:
-
-
-      * **Azure** when you want to use the [FTP managed connector action](/connectors/ftp/). From the actions list, select the action that you want.
-
-        This example continues with the action named **Get file metadata**.
-
-        ![Screenshot shows Azure portal, Standard workflow designer, search box with "Azure" selected underneath, and "Get file metadata" action selected.](./media/connectors-create-api-ftp/ftp-action-get-file-metadata-azure-standard.png)
+   ![Screenshot shows Azure portal, Standard workflow designer, search box with "Azure" selected underneath, and "Get file metadata" action selected.](./media/connectors-create-api-ftp/ftp-action-get-file-metadata-azure-standard.png)
 
 1. If necessary, provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
 
-   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, make sure to select the binary transport setting.
+   > [!NOTE]
+   >
+   > By default, this connector transfers files in text format. To transfer files in binary format, 
+   > for example, where and when encoding is used, select the binary transport option.
 
-   * **Built-in**
+   ![Screenshot shows Standard workflow designer, FTP managed connector action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-azure-standard.png)
 
-     ![Screenshot shows Standard workflow designer, FTP built-in action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-built-in-standard.png)
+1. In the action information pane that appears, click inside the **File** box so that the dynamic content list appears.
 
-   * **Azure**
+   You can now select outputs from the preceding trigger.
 
-     ![Screenshot shows Standard workflow designer, FTP managed connector action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-azure-standard.png)
+1. From the dynamic content list, under **When a file is added or modified (properties only)**, select **List of Files Id**.
 
-1. After the action information box appears, complete the following steps:
+   ![Screenshot shows Standard workflow designer, "Get file metadata" action, dynamic content list opened, and "List of Files Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-azure-standard.png)
 
-   1. Click in the **File** box so that the dynamic content list appears.
-   
-      You can now select outputs from the preceding trigger.
+   The action's **File** property now references the **List of Files Id** trigger output.
 
-   1. From the dynamic content list, under **When a file is added or modified**, select **List of Files Id**.
+   ![Screenshot shows Standard workflow designer, "Get file metadata" action, and "File" property set to "List of Files Id" trigger output.](./media/connectors-create-api-ftp/ftp-get-file-metadata-complete-azure-standard.png)
 
-      * **Built-in**
+1. In the designer, under the **Get file metadata** action, select the plus sign (**+**) > **Add an action**. 
 
-        ![Screenshot shows Standard workflow designer, "Get the file metadata" action, dynamic content list opened, and "List of Files Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-id-output-standard.png)
+1. In the **Choose an operation** search box, enter **ftp get file content**. Under the search box, select **Azure**. From the actions list, select the **Get file content** action.
 
-      * **Azure**
+   ![Screenshot shows Standard workflow designer, "Get file content" action, and "File" property set to "Id" trigger output.](./media/connectors-create-api-ftp/ftp-get-file-content-azure-standard.png)
 
-        ![Screenshot shows Standard workflow designer, "Get file metadata" action, dynamic content list opened, and "List of Files Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-id-standard.png)
+1. In the action information pane that appears, click inside the **File** box so that the dynamic content list appears.
 
-1. In the designer, under the **Get file metadata** action, select the plus sign (**+**) > **Add an action**.
+   You can now select outputs from the preceding trigger or actions.
 
-   * **Built-in**
+1. From the dynamic content list, under **Get file metadata**, select **Id**.
 
-     ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-built-in-select-folder-standard.png)
+   ![Screenshot shows Standard workflow designer, "Get file content" action, dynamic content list opened, and "Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-content-file-id-azure-standard.png)
 
-     ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-built-in-selected-folder-standard.png)
+   The action's **File** property now references the **Id** action output.
 
-   * **Azure**
+   ![Screenshot shows Standard workflow designer, "Get file content" action, and "File" property set to "Id" action output.](./media/connectors-create-api-ftp/ftp-get-file-content-complete-azure-standard.png)
 
-     ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-azure-select-folder-standard.png)
-
-     Your selected folder appears in the **Folder** box.
-
-     ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-azure-selected-folder-standard.png)
-
-1. When you're done, save your logic app workflow.
+1. Add any other actions that your workflow needs. When you're done, save your logic app workflow.
 
 ---
 
