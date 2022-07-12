@@ -316,7 +316,7 @@ Remove the IoT Edge runtime.
 ::: moniker range="iotedge-2018-06"
 
 ```bash
-sudo apt-get remove iotedge
+sudo apt-get autoremove iotedge
 ```
 
 ::: moniker-end
