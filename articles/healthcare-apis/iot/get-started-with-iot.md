@@ -39,11 +39,11 @@ Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) a
 
 ## Assign roles to allow MedTech service to access Event Hubs
 
-By design, the MedTech service retrieves data from the specified event hub using the system-managed identity. For more information on how to assign the role to the MedTech service from [Event Hubs](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access).
+By design, the MedTech service retrieves data from the specified event hub using the system-assigned managed identity. For more information on how to assign the role to the MedTech service from [Event Hubs](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-device-message-event-hub).
 
 ## Assign roles to allow MedTech service to access FHIR service
 
-The MedTech service persists the data to the FHIR store using the system-managed identity. See details on how to assign the role to the MedTech service from the [FHIR service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service).
+The MedTech service persists the data to the FHIR store using the system-managed identity. See details on how to assign the role to the MedTech service from the [FHIR service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service).
 
 ## Sending data to the MedTech service
 

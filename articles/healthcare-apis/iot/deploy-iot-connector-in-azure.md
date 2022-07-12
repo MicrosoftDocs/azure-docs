@@ -1,11 +1,11 @@
 ---
-title: Deploy the MedTech service in the Azure portal - Azure Health Data Services
-description: In this article, you'll learn how to deploy the MedTech service in the Azure portal using either a quickstart template or manually.
+title: Deploy the MedTech service using the Azure portal - Azure Health Data Services
+description: In this article, you'll learn how to deploy the MedTech service in the Azure portal using either a quickstart template or manual steps.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/07/2022
+ms.date: 07/12/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -173,7 +173,7 @@ Under the **Destination** tab, enter the destination properties associated with 
 
    **Create**
 
-     The MedTech service destination attempts to retrieve a device resource from the FHIR Server using the device identifier included in the event hub message. It also attempts to retrieve a patient resource from the FHIR service using the patient identifier included in the event hub message. If either resource isn't found, new resources will be created (device, patient, or both) containing just the identifier contained in the event hub message. When you use the **Create** option, both a device identifier and a patient identifier can be configured in the device mapping. In other words, when the MedTech service destination is in **Create** mode, it can function normally **without** adding device and patient resources to the FHIR service.
+     The MedTech service destination attempts to retrieve a device resource from the FHIR service using the device identifier included in the event hub message. It also attempts to retrieve a patient resource from the FHIR service using the patient identifier included in the event hub message. If either resource isn't found, new resources will be created (device, patient, or both) containing just the identifier contained in the event hub message. When you use the **Create** option, both a device identifier and a patient identifier can be configured in the device mapping. In other words, when the MedTech service destination is in **Create** mode, it can function normally **without** adding device and patient resources to the FHIR service.
 
    **Lookup**
 
@@ -226,7 +226,7 @@ You should notice a **Validation success** message like what's shown in the imag
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\display-medtech-service-configurations.png" alt-text="Screenshot of the MedTech service main configuration page." lightbox="media\iot-deploy-manual-in-portal\display-medtech-service-configurations.png":::
 
-## Granting the MedTech service system-assigned managed identity access
+## Granting the MedTech service system-assigned managed identity access to the event hub and FHIR service
 
 To ensure that your MedTech service works properly, it's system-assigned managed identity must be granted access permissions to the device message event hub and FHIR service. 
 
