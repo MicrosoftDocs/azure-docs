@@ -23,6 +23,40 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
+## Change the access tier
+
+Use the [azcopy set-properties](storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to the name of the access tier. 
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
+**Syntax**
+
+`azcopy make 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<access-tier>`
+
+**Example**
+
+```azcopy
+azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot
+
+```
+
+To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
+
+**Example**
+
+```azcopy
+azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myvirtualdirectory' --block-blob-tier=hot --recursive=true
+```
+
+To _rehydrate_ a blob from the archive tier to an online tier, set the `--rehydrate-priority` to `standard` or `high`. By default, this parameter is set to `standard`. To learn more about the trade offs of each option, see [Rehydration priority](../blobs/archive-rehydrate-overview.md#rehydration-priority). 
+
+**Example**
+
+```azcopy
+azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot --rehydrate-priority=high
+```
+
 ## Replace metadata
 
 Use the [azcopy set-properties](storage-ref-azcopy-set-properties.md) command and set the `--metadata` parameter to one or more key-value pairs.
@@ -58,7 +92,7 @@ azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontaine
 
 ## Replace index tags
 
-Use the [azcopy set-properties](storage-ref-azcopy-set-properties.md) command and set the `--blob-tags` parameter to one or more key-value pairs. 
+Use the [azcopy set-properties](storage-ref-azcopy-set-properties.md) command and set the `--blob-tags` parameter to one or more key-value pairs. Setting blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission). In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permission can perform this operation.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -79,40 +113,6 @@ To replace the index tags for all blobs in a virtual directory, , refer to the v
 
 ```azcopy
 azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myvirtualdirectory' --blob-tags=mytag1=mytag1value;mytag2=mytag2value
-```
-
-## Change the access tier
-
-Use the [azcopy set-properties](storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to the name of the access tier. 
-
-> [!TIP]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
-
-**Syntax**
-
-`azcopy make 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<access-tier>`
-
-**Example**
-
-```azcopy
-azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot
-
-```
-
-To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
-
-**Example**
-
-```azcopy
-azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myvirtualdirectory' --block-blob-tier=hot --recursive=true
-```
-
-To _rehydrate_ a blob from the archive tier to an online tier, set the `--rehydrate-priority` to `standard` or `high`. To learn more about the trade offs of each option, see [Rehydration priority](../blobs/archive-rehydrate-overview#rehydration-priority.md).
-
-**Example**
-
-```azcopy
-azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot --rehydrate-priority=high
 ```
 
 ## Next steps
