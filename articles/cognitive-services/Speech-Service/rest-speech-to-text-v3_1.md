@@ -3,7 +3,7 @@ title: Speech-to-text REST API v3.1 Public Preview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Get reference documentation for Speech-to-text REST API v3.1 (Public Preview).
 services: cognitive-services
-author: heiko-rahmel
+author: heikora
 manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 
 The Speech-to-text REST API v3.1 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). It is currently in Public Preview. 
 
-> See the [Speech to Text API v3.1 preview1](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/) reference documentation for details. This is an updated version of the [Speech to Text API v3.0](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-speech-to-text)
+> See the [Speech to Text API v3.1 preview1](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/) reference documentation for details. This is an updated version of the [Speech to Text API v3.0](./rest-speech-to-text.md)
 
 Use the REST API v3.1 to:
 - Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
