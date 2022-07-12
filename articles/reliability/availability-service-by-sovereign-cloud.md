@@ -23,7 +23,7 @@ Azure regional services are presented in the following tables by sovereign cloud
 
 | Product | CH-East |  CH-East-2 | CH-North | CH-North-2  |CH-North-3|
 |---------|---------|------------|----------|-------------|-----------|
-|Machine learning|  |&#9745;|:heavy_check_mark:||
+|Machine learning| Partial availability |&#x2705;| Not available| Not available| &#x2705;
 
 ## US Government
 
