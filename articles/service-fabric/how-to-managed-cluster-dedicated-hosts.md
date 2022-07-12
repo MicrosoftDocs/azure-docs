@@ -161,5 +161,5 @@ Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request fo
     }
 
 ## Next steps
->[!div class="nextstepaction"]
->[Read about Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
+> [!div class="nextstepaction"]
+> [Read about Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
