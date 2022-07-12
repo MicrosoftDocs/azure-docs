@@ -5,7 +5,7 @@ author: DaniBunny
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 06/29/2022
+ms.date: 07/12/2022
 ms.author: dacoelho 
 ms.reviewer: martinle
 ---
@@ -49,7 +49,7 @@ The following table lists the runtime name, Apache Spark version, and release da
 | ----- | ----- | ----- | ----- | ----- |
 | [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | GA | July 8, 2023 | July 8, 2024 |
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | LTS | January 26, 2023 | January 26, 2024 |
-| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __End of Life to be announced__ | __July 15, 2022__ | July 14, 2023 |
+| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __LTS<br/>End of Life to be announced__ | __July 15, 2022__ | July 14, 2023 |
 
 ## Runtime release stages
 
