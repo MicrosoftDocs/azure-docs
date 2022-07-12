@@ -2,7 +2,7 @@
 title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 07/12/2022
 ---
 
 # Set scope for extension resources in Bicep
@@ -137,6 +137,43 @@ The same requirements apply to extension resources as other resource when target
 * [Subscription deployments](deploy-to-subscription.md)
 * [Management group deployments](deploy-to-management-group.md)
 * [Tenant deployments](deploy-to-tenant.md)
+
+The resourceGroup and subscription properties are only allowed on modules. These properties are not allowed on individual resources. If you want to deploy an extension resource with the scope set to a resource in a different resource group, You must use module.
+
+The following example shows how to apply a lock on a storage account that resides in a different resource group.
+
+main.bicep:
+
+```bicep
+param resourceGroup2Name string
+param storageAccountName string
+
+module applyStoreLock './storageLock.bicep' = {
+  name: 'addStorageLock'
+  scope: resourceGroup(resourceGroup2Name)
+  params: {
+    storageAccountName: storageAccountName
+  }
+}
+
+storageLock.bicep
+
+```bicep
+param storageAccountName string
+
+resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' existing = {
+  name: storageAccountName
+}
+
+resource storeLock 'Microsoft.Authorization/locks@2017-04-01' = {
+  scope: storage
+  name: 'storeLock'
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Storage account should not be deleted.'
+  }
+}
+```
 
 ## Next steps
 
