@@ -1987,7 +1987,7 @@
     items:
     - name: Overview
       href: virtual-machines-create-restore-points.md
-    - name: Support for VM restore points
+    - name: Support matrix
       href: concepts-restore-points.md
     - name: Quickstarts
       items:

@@ -43,8 +43,10 @@ VM restore points are incremental. The first restore point stores a full copy of
  > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 
  > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
 
+## Troubleshoot VM restore points
+Most common restore points failures are attributed to the communication with the VM agent and extension, and can be resolved by following the troubleshooting steps listed in the [troubleshooting](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#step-by-step-guide-to-troubleshoot-backup-failures) article.
+
 ## Next steps
 
 - [Create a VM restore point](create-restore-points.md).
-- [Review](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#step-by-step-guide-to-troubleshoot-backup-failures) the troubleshooting steps for backup failures. 
 - [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
