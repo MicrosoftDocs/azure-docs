@@ -933,6 +933,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-cosmos-db-table-dotnet-v12",
+      "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
+      "branch": "v12",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-cosmos-mongodb-dotnet",
       "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples",
       "branch": "quickstart-test",
@@ -956,6 +962,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.azure-arc-data.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.azure-attestation.json",
     ".openpublishing.redirection.azure-blob.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",

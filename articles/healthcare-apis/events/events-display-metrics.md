@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
@@ -42,4 +42,4 @@ To learn how to export Events Azure Event Grid system diagnostic logs and metric
 >[!div class="nextstepaction"]
 >[Configure Events diagnostic logs and metrics exporting](./events-export-logs-metrics.md)
 
-(FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
