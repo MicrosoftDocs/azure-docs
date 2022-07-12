@@ -26,6 +26,9 @@ ms.custom: ignite-fall-2021, mode-ui
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 * A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
+> [!TIP]
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+
 ## Prebuilt models
 
 Prebuilt models help you add Form Recognizer features to your apps without having to build, train, and publish your own models. You can choose from several prebuilt models, each of which has its own set of supported data fields. The choice of model to use for the analyze operation depends on the type of document to be analyzed. The following prebuilt models are currently supported by Form Recognizer:
@@ -49,7 +52,7 @@ In the following example, we use the General Documents feature. The steps to use
 
 1. This step is a one-time process unless you've already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
 
-1. Select the Analyze command to run analysis on the sample document or try your document by using the Add command.
+1. Select the Analyze button to run analysis on the sample document or try your document by using the Add command.
 
 1. Use the controls at the bottom of the screen to zoom in and out and rotate the document view.
 

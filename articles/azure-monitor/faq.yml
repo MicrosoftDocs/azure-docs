@@ -123,7 +123,7 @@ sections:
       - question: |
           Can I delete data from a Log Analytics workspace?
         answer: |
-          Data is removed from a workspace according to its [retention period](logs/data-retention-archive.md). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+          Data is removed from a workspace according to its [retention period](logs/data-retention-archive.md). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#exporting-and-deleting-personal-data) for more information.
           
       - question: |
           Is Log Analytics storage immutable?
@@ -939,7 +939,7 @@ sections:
       - question: |
           What is the status of OpenTelemetry?
         answer: |
-          A complete observability solution includes all three pillars of observability. The OpenTelemetry community has been committing heavily to [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) and the specifications as well as supported language implementations have been marked as stable. [Metrics](https://medium.com/opentelemetry/opentelemetry-metrics-roadmap-f4276fd070cf) and [Logs](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/overview.md) are still in progress. Azure Monitor is working on an OpenTelemetry-based supported telemetry solution that includes Distributed Tracing only with plans to add the other pillars as they mature in the OpenTelemetry community.
+          A complete observability solution includes all three pillars of observability. The OpenTelemetry community has been committing heavily to [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) and the specifications as well as supported language implementations have been marked as stable. [Metrics](https://medium.com/opentelemetry/opentelemetry-metrics-roadmap-f4276fd070cf) and [Logs](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/logs) are still in progress. Azure Monitor is working on an OpenTelemetry-based supported telemetry solution that includes Distributed Tracing only with plans to add the other pillars as they mature in the OpenTelemetry community.
 
       - question: |
           How can I test out OpenTelemetry?

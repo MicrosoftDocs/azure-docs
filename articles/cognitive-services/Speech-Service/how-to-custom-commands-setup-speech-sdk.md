@@ -51,7 +51,7 @@ You'll also need:
 
 ## Step 2: Create a Visual Studio project
 
-Create a Visual Studio project for UWP development and [install the Speech SDK](/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=uwp).
+Create a Visual Studio project for UWP development and [install the Speech SDK](/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=uwp).
 
 ## Step 3: Add sample code
 

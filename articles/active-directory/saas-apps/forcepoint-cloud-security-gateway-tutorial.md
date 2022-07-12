@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/26/2022
+ms.date: 06/30/2022
 ms.author: jeedes
 
 ---
@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://proxy-login.blackspider.com/`
 
     c. In the **Sign-on URL** text box, type the URL:
-    `https://mailcontrol.com`
+    `https://forcepoint.com`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
