@@ -1,6 +1,6 @@
 ---
 title: Azure Workbooks criteria parameters
-description: Learn about adding criteria parameters to your Azure workbook.
+description: Learn about adding criteria parameters to your workbook.
 services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -13,7 +13,7 @@ ms.reviewer: gardnerjr
 
 When a query depends on many parameters, the query will be stalled until each of its parameters has been resolved. Sometimes a parameter could have a simple query that concatenates a string or performs a conditional evaluation. These queries still make network calls to services that perform these basic operations, and that process increases the time it takes for a parameter to resolve a value. The result is long load times for complex workbooks.
 
-Criteria text parameters solve this issue because you can define a set of criteria based on previously specified parameters, which will be evaluated to provide a dynamic value. The main benefit of using criteria parameters is that they can resolve values of previously specified parameters and perform simple conditional operations without making any network calls. The following example illustrates such a use case.
+When you use criteria parameters, you can define a set of criteria based on previously specified parameters that will be evaluated to provide a dynamic value. The main benefit of using criteria parameters is that criteria parameters can resolve values of previously specified parameters and perform simple conditional operations without making any network calls. The following example is a criteria-parameters use case.
 
 ## Example
 
@@ -37,28 +37,27 @@ In the preceding screenshot, the conditions will be evaluated from top to bottom
 ## Set up criteria
 
 1. Start with a workbook with at least one existing parameter in edit mode.
-    1. Select **Add parameters** from the links in the workbook.
-    1. Select the **Add Parameter** button.
+    1. Select **Add parameters** > **Add Parameter**.
     1. In the new parameter pane that opens, enter:
         - **Parameter name**: `rand`
         - **Parameter type**: `Text`
         - **Required**: `checked`
         - **Get data from**: `Query`
         - Enter `print rand(0-1)` in the query editor. This parameter will output a value between 0-1.
-    1. Choose **Save** from the toolbar to create the parameter.
+    1. Select **Save** to create the parameter.
 
     > [!NOTE]
     > The first parameter in the workbook won't show the **Criteria** tab.
 
      :::image type="content" source="media/workbooks-criteria/workbooks-criteria-first-param.png" alt-text="Screenshot that shows the first parameter.":::
 
-1. In the table with the `rand` parameter, select the **Add Parameter** button.
+1. In the table with the `rand` parameter, select **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     - **Parameter name**: `randCriteria`
     - **Parameter type**: `Text`
     - **Required**: `checked`
     - **Get data from**: `Criteria`
-1. A grid should appear. Select **Edit** next to the blank text box to open a **Criteria Settings** form. For a description of each field, see [Criteria Settings form](#criteria-settings-form).
+1. A grid appears. Select **Edit** next to the blank text box to open the **Criteria Settings** form. For a description of each field, see [Criteria Settings form](#criteria-settings-form).
 
    :::image type="content" source="media/workbooks-criteria/workbooks-criteria-setting.png" alt-text="Screenshot that shows the Criteria Settings form.":::
 
@@ -81,10 +80,10 @@ In the preceding screenshot, the conditions will be evaluated from top to bottom
     - **Value from**: Static Value
     - **Result is**: is 0.25 or under
 
-   :::image type="content" source="media/workbooks-criteria/workbooks-criteria-default.png" alt-text="Screenshot that shows the criteria settings default form filled.":::
+   :::image type="content" source="media/workbooks-criteria/workbooks-criteria-default.png" alt-text="Screenshot that shows the Criteria Settings default form filled.":::
 
 1. Save the parameter.
-1. Select the refresh button on the workbook to see the `randCriteria` parameter in action. Its value will be based on the value of `rand`.
+1. Refresh the workbook to see the `randCriteria` parameter in action. Its value will be based on the value of `rand`.
 
 ## Criteria Settings form
 

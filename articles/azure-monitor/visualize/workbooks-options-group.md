@@ -23,8 +23,7 @@ You can specify the list by:
 ## Create a static options group parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links in the workbook.
-1. Select the **Add Parameter** button.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     - **Parameter name**: `Environment`
     - **Parameter type**: `Options Group`
@@ -42,7 +41,7 @@ You can specify the list by:
 
     You aren't limited to JSON. You can use any query provider to provide initial values, but you'll be limited to the first 100 results.
 1. Select **Update**.
-1. Select **Save** on the toolbar to create the parameter.
+1. Select **Save** to create the parameter.
 1. The **Environment** parameter will be an options group control with the three values.
 
    :::image type="content" source="media/workbooks-options-group/workbooks-options-group-create.png" alt-text="Screenshot that shows the creation of a static options group in a workbook.":::

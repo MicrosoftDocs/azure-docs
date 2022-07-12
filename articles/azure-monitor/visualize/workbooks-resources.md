@@ -2,7 +2,7 @@
 title: Azure Monitor workbook resource parameters
 description: Learn how to use resource parameters to allow picking of resources in workbooks. Use the resource parameters to set the scope from which to get the data.
 services: azure-monitor
-ms.tgt**pltfrm: ibiza
+ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/05/2022
 ---
@@ -16,8 +16,7 @@ Values from resource pickers can come from the workbook context, static list, or
 ## Create a resource parameter (workbook resources)
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links in the workbook.
-1. Select the **Add Parameter** button.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `Applications`
     1. **Parameter type**: `Resource picker`
@@ -25,15 +24,14 @@ Values from resource pickers can come from the workbook context, static list, or
     1. **Allow multiple selections**: `checked`
     1. **Get data from**: `Workbook Resources`
     1. **Include only resource types**: `Application Insights`
-1. Select **Save** on the toolbar to create the parameter.
+1. Select **Save** to create the parameter.
 
-   ![Screenshot that shows the creation of a resource parameter using workbook resources.](./media/workbooks-resources/resource-create.png)
+   ![Screenshot that shows the creation of a resource parameter by using workbook resources.](./media/workbooks-resources/resource-create.png)
 
 ## Create an Azure Resource Graph resource parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links in the workbook.
-1. Select the **Add Parameter** button.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `Applications`
     1. **Parameter type**: `Resource picker`
@@ -49,9 +47,9 @@ Values from resource pickers can come from the workbook context, static list, or
     | project value = id, label = name, selected = false, group = resourceGroup
     ```
 
-1. Select **Save** on the toolbar to create the parameter.
+1. Select **Save** to create the parameter.
 
-   ![Screenshot that shows the creation of a resource parameter using Azure Resource Graph.](./media/workbooks-resources/resource-query.png)
+   ![Screenshot that shows the creation of a resource parameter by using Azure Resource Graph.](./media/workbooks-resources/resource-query.png)
 
 > [!NOTE]
 > Azure Resource Graph isn't yet available in all clouds. Ensure that it's supported in your target cloud if you choose this approach.
@@ -61,8 +59,7 @@ For more information on Azure Resource Graph, see [What is Azure Resource Graph?
 ## Create a JSON list resource parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links in the workbook.
-1. Select the **Add Parameter** button.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `Applications`
     1. **Parameter type**: `Resource picker`
@@ -78,13 +75,13 @@ For more information on Azure Resource Graph, see [What is Azure Resource Graph?
         ]
         ```
 
-    1. Select the **Update** button.
+    1. Select **Update**.
 1. Optionally, set `Include only resource types` to **Application Insights**.
-1. Select **Save** on the toolbar to create the parameter.
+1. Select **Save** to create the parameter.
 
 ## Reference a resource parameter
 
-1. Add a query control to the workbook and select an Application Insights resource.
+1. Select **Add query** to add a query control, and then select an Application Insights resource.
 1. Use the **Application Insights** dropdown list to bind the parameter to the control. This step sets the scope of the query to the resources returned by the parameter at runtime.
 1. In the KQL control, add this snippet:
 

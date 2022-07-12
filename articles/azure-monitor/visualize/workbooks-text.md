@@ -18,14 +18,13 @@ A common use of text boxes is as internal variables used by other workbook contr
 ## Create a text parameter
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links in the workbook.
-1. Select the **Add Parameter** button.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `SlowRequestThreshold`
     1. **Parameter type**: `Text`
     1. **Required**: `checked`
     1. **Get data from**: `None`
-1. Select **Save** on the toolbar to create the parameter.
+1. Select **Save** to create the parameter.
 
     :::image type="content" source="./media/workbooks-text/text-create.png" alt-text="Screenshot that shows the creation of a text parameter.":::
 
@@ -61,7 +60,7 @@ The text parameter supports the following field styles:
 
 ## Reference a text parameter
 
-1. Add a query control to the workbook by selecting the `Add query` link, and select an Application Insights resource.
+1. Select **Add query** to add a query control, and then select an Application Insights resource.
 1. In the KQL box, add this snippet:
 
     ```kusto
@@ -90,8 +89,7 @@ The text parameter supports the following field styles:
 ## Set default values by using queries
 
 1. Start with an empty workbook in edit mode.
-1. Select **Add parameters** from the links in the workbook.
-1. Select the **Add Parameter** button.
+1. Select **Add parameters** > **Add Parameter**.
 1. In the new parameter pane that opens, enter:
     1. **Parameter name**: `SlowRequestThreshold`
     1. **Parameter type**: `Text`
@@ -106,7 +104,7 @@ The text parameter supports the following field styles:
 
     This query sets the default value of the text box to the 95th percentile duration for all requests in the app.
 1. Run the query to see the results.
-1. Select **Save** on the toolbar to create the parameter.
+1. Select **Save** to create the parameter.
 
     :::image type="content" source="./media/workbooks-text/text-default-value.png" alt-text="Screenshot that shows a text parameter with a default value from KQL.":::
 

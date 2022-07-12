@@ -96,7 +96,7 @@ sections:
           
       - question: Can Windows 10 Enterprise multi-session and 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
         answer: |
-          Yes. You can update Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session with the corresponding Windows client updates. For example, you can update Windows 10 Enterprise multi-session, version 21H2 by installing the client updates for Windows 10, version 21H2.
+          Yes. You can update Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session with the appropriate feature updates published to WSUS.
                    
           
 additionalContent: |
