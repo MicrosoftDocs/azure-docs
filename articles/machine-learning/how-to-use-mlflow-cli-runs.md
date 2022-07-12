@@ -81,7 +81,7 @@ You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning S
     > 2. Click on the uper-right corner of the page -> Download config file.
     > 3. Save the file `config.json` in the same directory where you are working on.
 
-1. Using the subscription ID, esource group name and workspace name:
+1. Using the subscription ID, resource group name and workspace name:
 
     ```Python
     from azure.ai.ml import MLClient
