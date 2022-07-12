@@ -115,16 +115,12 @@ CosmosContainer cosmosContainer = cosmosDatabase.getContainer("testcontainer");
 
 
 Family family = new Family("id-1", "John", "Doe", "Doe");
-logger.info("Creating Item");
 cosmosContainer.createItem(family, new PartitionKey(family._partitionKey), new CosmosItemRequestOptions());
-logger.info("Item created");
 
-logger.info("Creating items through bulk");
 family = new Family("id-2", "Jane", "Doe", "Doe");
 CosmosItemOperation createItemOperation = CosmosBulkOperations.getCreateItemOperation(family,
     new PartitionKey(family._partitionKey));
 cosmosContainer.executeBulkOperations(Collections.singletonList(createItemOperation));
-logger.info("Items through bulk created");
 ```
 
 For the complete sample, see the [.Net samples][1] GitHub repository.
@@ -152,7 +148,6 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```java
 CosmosItemResponse<JsonNode> cosmosItemResponse = cosmosContainer.readItem("itemId", PartitionKey.NONE, JsonNode.class);
-logger.info("Cosmos Item response is : {}", cosmosItemResponse.getItem().toPrettyString());
 ```
 
 For the complete sample on how to repartition the documents, see the [.Net samples][1] / [Java samples][2] GitHub repository.
