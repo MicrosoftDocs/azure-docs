@@ -500,6 +500,8 @@
     items:
     - name: Overview
       href: monitoring-and-alerts-overview.md
+    - name: Move to Azure Monitor alerts
+      href: move-to-azure-monitor-alerts.md
     - name: Using Backup Explorer
       href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
