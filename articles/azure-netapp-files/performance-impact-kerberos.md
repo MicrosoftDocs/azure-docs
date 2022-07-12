@@ -46,19 +46,13 @@ There are two areas of focus: light load and upper limit. The following lists de
 * All comparisons are made against the `sec=sys` security parameter.
 * The test was done on a single volume, using a single client. 
 
-<!-- sys baseline of -
-Avg. IOPS: ~241102
-Avg. throughput: ~753 MB/s
-Avg. latency ~0.5 ms
-->
-
 **Performance impact of krb5:**
 
 <!-- 
 Average IOPS: ~11351 / -53%
 Average throughput: ~355 MB/s / -53%
 Average latency: ~3.2 ms / +540%
--->
+
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.3 ms.
@@ -68,6 +62,7 @@ Average latency: ~3.2 ms / +540%
     * Maximum sequential throughput was unimpacted by krb5.
     * Maximum random I/O decreased by 30% for pure read workloads with the overall impact dropping to zero as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
+-->
 
 **Performance impact of krb5i:**
 
@@ -75,7 +70,6 @@ Average latency: ~3.2 ms / +540%
 Average IOPS: ~10856 / -55%
 Average throughput: ~338 MB/s / -55%
 Average latency: ~1.1 ms / +120%
--->
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.5 ms.
@@ -85,6 +79,11 @@ Average latency: ~1.1 ms / +120%
     * Maximum sequential throughput decreased by 70% overall regardless of the workload mixture.
     * Maximum random I/O decreased by 50% for pure read workloads with the overall impact decreasing to 25% as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
+-->
+
+* Average IOPS decreased by 55%
+* Average throughput decreased by 55% 
+* Average latency increased by 0.6 ms
 
 **Performance impact of krb5p:**
 
@@ -92,7 +91,6 @@ Average latency: ~1.1 ms / +120%
 Average IOPS: ~5579 / -77%
 Average throughput: ~174 MB/s / -77%
 Average latency: ~2.1 ms / +320%
--->
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.8 ms.
@@ -102,6 +100,11 @@ Average latency: ~2.1 ms / +320%
     * Maximum sequential throughput decreased by 85% overall regardless of the workload mixture. 
     * Maximum random I/O decreased by 65% for pure read workloads with the overall impact decreasing to 43% as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
+-->
+
+* Average IOPS decreased by 77%
+* Average throughput decreased by 77% 
+* Average latency increased by 1.6 ms
 
 ## Next steps  
 
