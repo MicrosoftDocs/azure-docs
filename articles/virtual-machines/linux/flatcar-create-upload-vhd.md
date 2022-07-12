@@ -1,7 +1,7 @@
 ---
 title: Create and upload a Flatcar Container Linux VHD for use in Azure 
 description: Learn to create and upload a VHD that contains a Flatcar Container Linux operating system.
-author: marga-kinvolk
+author: mimckitt
 ms.author: danis
 ms.service: virtual-machines
 ms.collection: linux
