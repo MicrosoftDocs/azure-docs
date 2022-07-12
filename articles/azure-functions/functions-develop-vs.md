@@ -217,21 +217,11 @@ This section assumes you've already published to your function app using a relea
 
 ### Remote debugging considerations
 
-* If you didn't originally publish a debug configuration of your project, you have to republish a debug version of the app.  
 * Remote debugging isn't recommended on a production service.
 * If you have [Just My Code debugging](/visualstudio/debugger/just-my-code#BKMK_Enable_or_disable_Just_My_Code) enabled, disable it. 
 * Avoid long stops at breakpoints when remote debugging. Azure treats a process that is stopped for longer than a few minutes as an unresponsive process, and shuts it down.
 * While you're debugging, the server is sending data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Azure Pricing](https://azure.microsoft.com/pricing/calculator/).
-
-### Republish debug build
-
-To republish a debug configured project to your function app in Azure:
-
-1. In the Solution Explorer, right-click your project and select **Publish**.
-
-1. Under **Settings** select **Show all settings** and change **Configuration** to a **Debug** configuration. 
-
-1. Choose **Save** and then select **Publish** to republish a debug configured version of your project to your existing function app.  
+* Remote debugging is automatically disabled in your function app after 48 hours. After 48 hours, you'll need to reenable remote debugging.
 
 ### Attach the debugger
 
@@ -287,13 +277,13 @@ To attach a remote debugger to a function app running in a process separate from
 
 ### Disable remote debugging
 
-After you're done remote debugging your code, you should disable remote debugging in the Azure portal. You can use this same process to enable remote debugging outside of Visual Studio.
+After you're done remote debugging your code, you should disable remote debugging in the [Azure portal](https://portal.azure.com). Remote debugging is automatically disabled after 48 hours, in case you forget. 
 
 1. In the **Publish** tab in your project, select the ellipses (**...**) in the **Hosting** section, and choose **Open in Azure portal**. This action opens the function app in the Azure portal to which your project is deployed. 
 
 1. In the functions app, select **Configuration** under **settings**, choose **General Settings**, set **Remote Debugging** to **Off**, and select **Save** then **Continue**.
 
-After the function app restarts, you can no longer remotely connect to your remote processes. You might also want to republish a release configuration of your project.
+After the function app restarts, you can no longer remotely connect to your remote processes. You can use this same tab in the Azure portal to enable remote debugging outside of Visual Studio.
 
 ## Monitoring functions
 
