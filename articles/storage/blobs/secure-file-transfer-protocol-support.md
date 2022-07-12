@@ -25,17 +25,17 @@ Blob storage now supports the SSH File Transfer Protocol (SFTP). This support pr
 
 Azure allows secure data transfer to Blob Storage accounts using Azure Blob service REST API, Azure SDKs, and tools such as AzCopy. However, legacy workloads often use traditional file transfer protocols such as SFTP. You could update custom applications to use the REST API and Azure SDKs, but only by making significant code changes.
 
-Prior to the release of this feature, if you wanted to use SFTP to transfer data to Azure Blob Storage you would have to either purchase a third party product or orchestrate your own solution. You would have to create a virtual machine (VM) in Azure to host an SFTP server, and then figure out a way to move data into the storage account. 
+Prior to the release of this feature, if you wanted to use SFTP to transfer data to Azure Blob Storage you would have to either purchase a third party product or orchestrate your own solution. For custom solutions, you would have to create virtual machines (VMs) in Azure to host an SFTP server, and then update, patch, manage, scale, and maintain a complex architecture.
 
-Now, with SFTP support for Azure Blob Storage, you can enable an SFTP endpoint for Blob Storage accounts with a single setting. Then you can set up local user identities for authentication to transfer data securely without the need to do any more work. 
+Now, with SFTP support for Azure Blob Storage, you can enable an SFTP endpoint for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22. 
 
 This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md).
 
 ## SFTP and the hierarchical namespace
 
-SFTP support requires blobs to be organized into on a hierarchical namespace. The ability to use a hierarchical namespace was introduced by Azure Data Lake Storage Gen2. It organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized. The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. 
+SFTP support requires hierarchical namespace to enabled. Hierarchical namespace organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized. The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. 
 
-Different protocols extend from the hierarchical namespace. The SFTP is one of these available protocols.
+Different protocols are supported by the hierarchical namespace. SFTP is one of these available protocols.
 
 > [!div class="mx-imgBorder"]
 > ![hierarchical namespace](./media/secure-file-transfer-protocol-support/hierarchical-namespace-and-sftp-support.png)
@@ -51,9 +51,9 @@ To set up access permissions, you'll create a local user, and choose authenticat
 > [!CAUTION]
 > Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control), ABAC (attribute based access control), and ACLs (access control lists). 
 >
-> For example, user A has an Azure AD identity with only read permission for file _foo.txt_ and a local user identity with delete permission for container _con1_ in which _foo.txt_ is stored. In this case, User A could login in via SFTP using their local user identity and delete _foo.txt_.
+> For example, Jeff has read only permission (can be controlled via RBAC, ABAC, or ACLs) via their Azure AD identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the the storage account via NFS (when not mounted as root/superuser), Blob REST, or ADLS Gen2 REST protocols, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, he can delete _foo.txt_ via SFTP using the local user identity.
 
-For SFTP enabled storage accounts, you can use the full breadth of Azure Blob Storage security settings, to authenticate and authorize users accessing Blob Storage via Azure portal, Azure CLI, Azure PowerShell commands, AzCopy, as well as Azure SDKS, and Azure REST APIs. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)
+For SFTP enabled storage accounts, you can use the full breadth of Azure Blob Storage security settings, to authenticate and authorize users accessing Blob Storage via Azure portal, Azure CLI, Azure PowerShell commands, AzCopy, as well as Azure SDKs, and Azure REST APIs. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 ## Authentication methods
 
@@ -61,7 +61,7 @@ You can authenticate local users connecting via SFTP by using a password or a Se
 
 #### Passwords
 
-Passwords are generated for you. If you choose password authentication, then your password will be provided after you finish configuring a local user. Make sure to copy that password and save it in a location where you can find it later. You won't be able to retrieve that password from Azure again. If you lose the password, you'll have to generate a new one. For security reasons, you can't set the password yourself.   
+Passwords are generated by Azure and cannot be user supplied. If you choose password authentication, then your password will be provided after you finish configuring a local user. Make sure to copy that password and save it in a location where you can find it later. You won't be able to retrieve that password from Azure again. If you lose the password, you'll have to generate a new one. For security reasons, you can't set the password yourself.   
 
 #### SSH key pairs
 
@@ -75,14 +75,13 @@ In the current release, you can specify only container-level permissions. Direct
 
 | Permission | Symbol | Description |
 |---|---|---|
-| Read | r | <li>Read file contents</li> |
-| Write | w | <li>Upload file</li><li>Create directory</li><li>Upload directories</li> |
-| List | l | <li>List contents within container</li><li>List contents within directories</li> |
-| Delete | d | <li>Delete files/directories</li> |
-| Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if it doesn't exist</li> |
+| Read | r | <li>Read file content</li> |
+| Write | w | <li>Upload file</li><li>Create directory</li><li>Upload directory</li> |
+| List | l | <li>List content within container</li><li>List content within directory</li> |
+| Delete | d | <li>Delete file/directory</li> |
+| Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if directory doesn't exist</li> |
 
-> [!IMPORTANT]
-> When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
+When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
 
 ## Home directory
 
@@ -108,10 +107,10 @@ put logfile.txt
 
 You can use many different SFTP clients to securely connect and then transfer files. Connecting clients must use algorithms specified in table below. 
 
-| Host key | Key exchange | Ciphers/encryption | Integrity/MAC | Public key |
+| Host key <sup>1</sup> | Key exchange | Ciphers/encryption | Integrity/MAC | Public key |
 |----------|--------------|--------------------|---------------|------------|
-| rsa-sha2-256 <sup>1</sup> | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa <sup>1</sup> |
-| rsa-sha2-512 <sup>1</sup> | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
+| rsa-sha2-256 <sup>2</sup> | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa <sup>2</sup> |
+| rsa-sha2-512 <sup>2</sup> | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
 | ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| hmac-sha2-256-etm@openssh.com | ecdsa-sha2-nistp384 |
 | ecdsa-sha2-nistp384 | diffie-hellman-group16-sha512 | aes192-cbc | hmac-sha2-512-etm@openssh.com | 
 || diffie-hellman-group-exchange-sha256 | aes256-cbc ||
@@ -119,14 +118,16 @@ You can use many different SFTP clients to securely connect and then transfer fi
 ||| aes192-ctr ||
 ||| aes256-ctr ||
 
-<sup>1</sup>    Requires minimum key length of 2048 bits.
+<sup>1</sup>    Host keys are published [here](secure-file-transfer-protocol-host-keys.md).
+<sup>2</sup>    RSA keys must be minimum 2048 bits in length.
 
 SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize [Microsoft Security Development Lifecycle (SDL) approved algorithms](/security/sdl/cryptographic-recommendations) to securely access their data.
 
-> [!IMPORTANT]
-> At this time, we do not plan on supporting the following: `ssh-dss`, `diffie-hellman-group14-sha1`, `diffie-hellman-group1-sha1`, `hmac-sha1`, `hmac-sha1-96`.
+At this time, in accordance with the Microsoft Security SDL, we do not plan on supporting the following: `ssh-dss`, `diffie-hellman-group14-sha1`, `diffie-hellman-group1-sha1`, `hmac-sha1`, `hmac-sha1-96`. Algorithm support is subject to change in the future.
 
-Algorithm support is subject to change in the future.
+## Connecting with SFTP
+
+To get started, enable SFTP support, create a local user, and assign permissions for that local user. Then, you can use any SFTP client to securely connect and then transfer files. For step-by-step guidance, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
 
 ### Known supported clients
 
@@ -153,12 +154,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - Workday
 - XFB.Gateway
 
-> [!NOTE]
-> The supported client list above is not exhaustive and may change over time.
-
-## Connecting with SFTP
-
-To get started, enable SFTP support, create a local user, and assign permissions for that local user. Then, you can use any SFTP client to securely connect and then transfer files. For step-by-step guidance, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
+The supported client list above is not exhaustive and may change over time.
 
 ## Limitations and known issues
 
