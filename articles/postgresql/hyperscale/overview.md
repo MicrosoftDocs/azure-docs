@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Database for PostgreSQL - Hyperscale (Citus)
-description: Provides an overview of the Hyperscale (Citus) deployment option
+description: A guide to running Hyperscale (Citus) on Azure
 ms.author: jonels
 author: jonels-msft
 ms.custom: mvc
@@ -8,14 +8,20 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 recommendations: false
-ms.date: 04/20/2022
+ms.date: 07/12/2022
 ---
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD026 -->
 
-# What is Hyperscale (Citus)?
+# Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+## Introduction to Hyperscale (Citus)
 
-## The superpower of distributed tables
+<!-- markdownlint-disable MD034 -->
+
+> [!VIDEO https://www.youtube.com/embed/Q30KQ5wRGxU]
+
+<!-- markdownlint-enable MD034 -->
 
 Hyperscale (Citus) is PostgreSQL extended with the superpower of "distributed
 tables." This superpower enables you to build highly scalable relational apps.
@@ -31,8 +37,25 @@ operational analytics apps, and high throughput transactional apps. These apps
 span various verticals such as sales & marketing automation, healthcare,
 IOT/telemetry, finance, logistics, and search.
 
-> [!div class="nextstepaction"]
-> [Try the quickstart >](quickstart-create-portal.md)
+## Implementation checklist
+
+As you're looking to create applications with Hyperscale (Citus), ensure you're
+reviewed the following topics:
+
+<!-- markdownlint-disable MD032 -->
+
+> [!div class="checklist"]
+> - Learn how to [build scalable apps](howto-build-scalable-apps-overview.md)
+> - Connect and query with your [app stack](howto-app-stacks-overview.md)
+> - See how the [Hyperscale (Citus) API](reference-overview.md) extends
+>   PostgreSQL, and try [useful diagnostic
+>   queries](howto-useful-diagnostic-queries.md)
+> - Pick the best [server group size](howto-scale-initial.md) for your workload
+> - [Monitor](howto-monitoring.md) server group performance
+> - Ingest data efficiently with [Azure Stream Analytics](howto-ingest-azure-stream-analytics.md)
+>   and [Azure Data Factory](howto-ingest-azure-data-factory.md)
+
+<!-- markdownlint-enable MD032 -->
 
 ## Fully managed, resilient database
 
@@ -47,6 +70,9 @@ worry-free operation in production. Features include:
 * private endpoints
 * encryption
 * and more
+
+> [!div class="nextstepaction"]
+> [Try the quickstart >](quickstart-create-portal.md)
 
 ## Always the latest PostgreSQL features
 
@@ -68,10 +94,6 @@ most cost-effective way to experience Hyperscale (Citus). Later, if your
 application requires greater scale, you can add nodes and rebalance your data.
 
 ![graduating to standard tier](../media/overview-hyperscale/graduate.png)
-
-## Watch a demo
-
-> [!VIDEO https://www.youtube.com/embed/Q30KQ5wRGxU]
 
 ## Next steps
 
