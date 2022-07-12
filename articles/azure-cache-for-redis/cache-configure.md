@@ -49,15 +49,15 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Export data](#importexport)
   - [Reboot](#reboot)
 - [Monitoring](#monitoring)
-  - Insights
+  - [Insights](#insights) <!-- Need some text for this.  -->
   - [Alerts](#alerts)
   - [Metrics](#metrics)
   - [Diagnostic settings](#diagnostic-settings)
-  - Advisor recommendations
-  - Workbooks
+  - [Advisor recommendations](#advisor-recommendations)
+  - [Workbooks](#workbooks)
 - Automation
-  - Tasks (preview)
-  - Export template
+  - Tasks (preview) <!-- Need some text for this.  -->
+  - Export template <!-- Need some text for this.  -->
 - Support & troubleshooting settings
   - [Resource health](#resource-health)
   - [New support request](#new-support-request)
@@ -386,6 +386,8 @@ Each pricing tier has different limits for client connections, memory, and bandw
 | Memory usage |[Cache performance - size](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
+
+### Workbooks
 
 ## Automation
 
