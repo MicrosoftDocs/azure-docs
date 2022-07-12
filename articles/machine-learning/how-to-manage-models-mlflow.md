@@ -25,6 +25,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 | Registering models in MLflow format | **&check;** | **&check;** | **&check;** | **&check;** |
 | Registering models not in MLflow format |  |  | **&check;** | **&check;** |
 | Registering models from runs outputs/artifacts | **&check;** | **&check;**<sup>1</sup> | **&check;**<sup>2</sup> | **&check;** |
+| Registering models from runs outputs/artifacts in a different tracking server/workspace | **&check;** |  |  |  |
 | Listing registered models | **&check;** | **&check;** | **&check;** | **&check;** |
 | Retrieving details of registered model's versions | **&check;** | **&check;** | **&check;** | **&check;** |
 | Editing registered model's versions description | **&check;** | **&check;** | **&check;** | **&check;** |
@@ -43,6 +44,11 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 > - <sup>3</sup> Registered models are immutable objects in Azure ML.
 > - <sup>4</sup> Use search box in Azure ML Studio. Partial match supported.
 
+### Prerequisites
+
+* Install the `azureml-mlflow` package.
+* If you are running outside an Azure ML compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. For more information about how to Set up tracking environment, see [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+
 ## Registering new models in the registry
 
 ### Creating models from an existing run 
@@ -52,6 +58,9 @@ If you have an MLflow model logged inside of a run and you want to register it i
 ```python
 mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
 ```
+
+> [!NOTE]
+> Models can only be registered to the registry in the same workspace where the run was tracked. Cross-workspace operations are not supported by the moment in Azure Machine Learning.
 
 ### Creating models from assets
 
@@ -67,7 +76,7 @@ mlflow.sklearn.save_model(reg, "./regressor")
 ```
 
 > [!TIP]
-> The method `save_model` works in the same way as `log_model`. While the latter requires an MLflow run to be active so the model can be logged there, the former uses the local file system for the stage of the model's artifacts.
+> The method `save_model()` works in the same way as `log_model()`. While `log_model()` saves the model inside on an active run, `save_model()` uses the local file system for saving the model.
 
 You can now register the model from the local path:
 
@@ -131,15 +140,15 @@ client.get_model_version_stages(model_name, version="latest")
 
 You can see what model's version is on each stage by getting the model from the registry. The following example gets the model's version currently in the stage `Staging`.
 
-> [!WARNING]
-> Stage names are case sensitive.
-
 ```python
 client.get_latest_versions(model_name, stages=["Staging"])
 ```
 
 > [!NOTE]
 > Multiple versions can be in the same stage at the same time in Mlflow, however, this method returns the latest version (greater version) among all of them.
+
+> [!WARNING]
+> Stage names are case sensitive.
 
 ### Transitioning models
 
