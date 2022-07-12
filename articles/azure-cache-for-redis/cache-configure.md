@@ -92,9 +92,7 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 
 > [!IMPORTANT]
 >
->- The Redis Console does not work with [VNet](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
-
-
+> The Redis Console does not work with [VNet](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
 >
 
 To access the Redis Console, select **Console** tab in the working pane of Resource menu.
@@ -108,6 +106,7 @@ To issue commands against your cache instance, type the command you want into th
 > [!NOTE]
 >
 > Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
+>
 
 ### Using the Redis Console with a premium clustered cache
 
@@ -350,7 +349,7 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 
 Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
 
-## Metrics
+### Metrics
 
 Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
 
@@ -401,6 +400,8 @@ Organize your metrics into groups so that you display metric information in a co
 ## Automation
 
 ### Tasks
+
+<!-- need content -->
 
 ### Export template
 
@@ -474,7 +475,6 @@ For more information about databases, see [What are Redis databases?](cache-deve
 > [!NOTE]
 > The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 >
->
 
 <a name="maxclients"></a>
 
@@ -522,4 +522,5 @@ For more information about Redis commands, see [https://redis.io/commands](https
 
 ## Next steps
 
-- For more information on working with Redis commands, see [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
+- [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
+- 
