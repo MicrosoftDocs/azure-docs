@@ -40,7 +40,8 @@ If you need to create a new client certificate, follow the steps in [set and ret
    ```
 
 >[!NOTE] 
-> Ensure you use the correct sku family that matches the one you are going to use for the node type vmSize. See [Azure Dedicated Host pricing]                       (https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/) for more information.
+> 1) At least 5 dedicated hosts should be present in each dedicated host group.
+> 2) Ensure you use the correct sku family that matches the one you are going to use for the node type vmSize. See [Azure Dedicated Host pricing]                   (https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/) for more information.
 
 2) Once the Host group is successfully created, provide access for the Host group to Azure Service Fabric managed clusters service.
 
@@ -89,7 +90,6 @@ New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleD
 ## Deploy Azure Service Fabric managed cluster with Dedicated Host
 
 Create an Azure Service Fabric managed cluster with node type(s) configured to reference the Dedicated Host group ResourceId. The node type needs to be pinned to the same zone as the host group. 
-
 The template used in this guide is from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates). The template is too long to show here.
 
 1) Store the paths of your ARM template and parameter files in variables, then deploy the template.
@@ -148,3 +148,7 @@ New-AzResourceGroupDeployment `
       "message": "Operation could not be completed as it results in exceeding approved standardDSv3Family Cores quota.  
 Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase at https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/.. Please read more about quota limits at https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests” 
     }
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Read about Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
