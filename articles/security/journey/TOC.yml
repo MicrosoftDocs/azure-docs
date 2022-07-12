@@ -45,6 +45,8 @@
     items:
     - name: Firmware security
       href: ../fundamentals/firmware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Code integrity
+      href: ../fundamentals/code-integrity.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Secure Boot
       href: ../fundamentals/secure-boot.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Measured boot & host attestation
@@ -58,9 +60,9 @@
   - name: Isolation in the Azure cloud
     href: ../fundamentals/isolation-choices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: AWS to Azure security services comparison
-    href: /azure/architecture/aws-professional/services#security-identity-and-access?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /azure/architecture/aws-professional/services?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: GCP to Azure security services comparison
-    href: /azure/architecture/gcp-professional/services#security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /azure/architecture/gcp-professional/services?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: Plan for migration
   items:
@@ -85,7 +87,7 @@
   - name: Zero Trust
     href: ../fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Design for zero trust model
-    href: /azure/architecture/framework/mission-critical/mission-critical-security.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /azure/architecture/framework/mission-critical/mission-critical-security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: Detect and mitigate threats
   items:
@@ -162,11 +164,15 @@
       href: /azure/architecture/framework/security/design-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   - name: Data security, encryption, and storage
-    items: 
+    items:
+    - name: Azure Certificate Authority details
+      href: ../fundamentals/azure-CA-details.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Data security and encryption
       href: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Double encryption
       href: ../fundamentals/double-encryption.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Sunset for SHA-1 OCSP signing?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: ../fundamentals/ocsp-sha-1-sunset.md
     - name: TLS certificate changes
       href: ../fundamentals/tls-certificate-changes.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Disk encryption
@@ -189,6 +195,8 @@
         href: ../fundamentals/database-security-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Storage security guide
       href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Key management in Azure
+      href: ../fundamentals/key-management.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Key and secret management 
       href: /azure/architecture/framework/security/design-storage-keys?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Customer Lockbox
@@ -270,6 +278,8 @@
 
 - name: Resources
   items:
+  - name: Feature availability for US Government clouds
+    href: ../fundamentals/feature-availability.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security white papers
     href: https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource
   - name: Best practices
@@ -280,3 +290,5 @@
     href: ../fundamentals/event-support-ticket.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Pen testing
     href: ../fundamentals/pen-testing.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Azure domains
+    href: /azure/architecture/framework/mission-critical/mission-critical-security

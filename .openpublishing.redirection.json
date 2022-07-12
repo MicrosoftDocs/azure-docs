@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/find-unattached-nics.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/find-unattached-nics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/germany/germany-developer-guide.md",
       "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
       "redirect_document_id": false
@@ -170,7 +175,7 @@
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/login-using-aad",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
       "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
@@ -430,6 +435,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/openai/concepts/engines.md",
+      "redirect_url": "/azure/cognitive-services/openai/concepts/models",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/conversational-language-understanding/fail-over.md",
       "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
       "redirect_document_id": true
@@ -611,22 +621,22 @@
     },
     {
       "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
-      "redirect_url": "/articles/load-balancer/concepts",
+      "redirect_url": "/azure/load-balancer/concepts",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/resource-manager-template-samples.md",
-      "redirect_url": "/articles/frontdoor/front-door-quickstart-template-samples",
+      "redirect_url": "/azure/frontdoor/front-door-quickstart-template-samples",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/concept-health-probes.md",
-      "redirect_url": "/articles/frontdoor/front-door-health-probes",
+      "redirect_url": "/azure/frontdoor/front-door-health-probes",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/concept-ddos.md",
-      "redirect_url": "/articles/frontdoor/front-door-ddos",
+      "redirect_url": "/azure/frontdoor/front-door-ddos",
       "redirect_document_id": false
     },
     {
@@ -641,7 +651,7 @@
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
-      "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
+      "redirect_url": "/azure/frontdoor/front-door-geo-filtering",
       "redirect_document_id": false
     },
     {
@@ -2564,7 +2574,7 @@
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/analysis-services/tutorials/aas-lesson-13-deploy.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
@@ -5155,7 +5165,7 @@
       "redirect_url": "/azure/architecture/cloud-adoption-guide/subscription-governance-examples",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/guidance/guidance-elasticsearch.md",
       "redirect_url": "/azure/architecture/elasticsearch",
@@ -6302,6 +6312,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption-java.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-java.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption-python.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-python.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
+      "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
       "redirect_url": "/azure/storage/common/storage-account-overview",
       "redirect_document_id": false
@@ -6859,6 +6909,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/monitor-metrics.md",
+      "redirect_url": "/azure/azure-functions/monitor-functions",
       "redirect_document_id": false
     },
     {
@@ -18941,7 +18996,7 @@
       "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-designer-model.md",
       "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/LinguisticAnalysisAPI/AnalyzeMethod.md",
       "redirect_url": "/azure/machine-learning/classic-module-reference/text-analytics",
@@ -18982,7 +19037,7 @@
       "redirect_url": "/azure/machine-learning/classic-module-reference/text-analytics",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/event-grid/cli-samples.md",
       "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
@@ -19013,19 +19068,19 @@
       "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
       "redirect_url": "/azure/machine-learning/samples-notebooks",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/open-datasets/tutorial-opendatasets-automl.md",
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
@@ -21372,6 +21427,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/ueba-enrichments.md",
+      "redirect_url": "/azure/sentinel/ueba-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sentinel/import-threat-intelligence.md",
       "redirect_url": "/azure/sentinel/understand-threat-intelligence",
       "redirect_document_id": false
@@ -22202,9 +22262,9 @@
       "redirect_document_id": false
     },
     {
-       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
-       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet",
-       "redirect_document_id": false
+      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md",
@@ -22234,6 +22294,11 @@
     {
       "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-get-started-provision.md",
       "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/overview",
       "redirect_document_id": false
     },
     {
@@ -22847,11 +22912,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
-      "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/storage/storage-https-custom-domain-cdn.md",
       "redirect_url": "/azure/storage/blobs/storage-https-custom-domain-cdn",
       "redirect_document_id": true
@@ -22916,7 +22976,7 @@
       "redirect_url": "/azure/storage/blobs/storage-properties-metadata",
       "redirect_document_id": true
     },
-    
+
     {
       "source_path_from_root": "/articles/storage/storage-python-how-to-use-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-python-how-to-use-blob-storage",
@@ -23245,21 +23305,6 @@
     {
       "source_path_from_root": "/articles/storage/common/storage-moving-data.md",
       "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption-java.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption-java",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption-python.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption-python",
       "redirect_document_id": true
     },
     {
@@ -23687,7 +23732,7 @@
       "redirect_url": "/azure/storage/common/storage-use-azcopy-linux",
       "redirect_document_id": true
     },
-    
+
     {
       "source_path_from_root": "/articles/storage/common/storage-use-azcopy.md",
       "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
@@ -24932,7 +24977,7 @@
       "source_path_from_root": "/articles/virtual-wan/high-availability-vpn-client.md",
       "redirect_url": "/azure/virtual-wan/global-hub-profile",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path_from_root": "/articles/virtual-wan/virtual-wan-site-to-site-packet-capture.md",
       "redirect_url": "/azure/virtual-wan/packet-capture-site-to-site-powershell",
@@ -29363,7 +29408,7 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/python-how-to-install.md",
       "redirect_url": "/python/azure/python-sdk-azure-install",
@@ -30009,7 +30054,7 @@
       "redirect_url": "create-manage-projects",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/migrate/how-to-tag-v-center.md",
       "redirect_url": "how-to-create-a-group",
@@ -30032,42 +30077,42 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/support.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/faq-text-to-speech.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-test-model.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-studio-overview",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-studio-overview",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/whats-new.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/overview",
+      "redirect_url": "/azure/cognitive-services/speech-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-gating-overview.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-guidelines-responsible-deployment-synthetic.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-disclosure-guidelines.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-disclosure-patterns.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns",
       "redirect_document_id": false
     },
     {
@@ -30150,7 +30195,7 @@
       "redirect_url": "https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/virtual-machines/linux/containers.md",
       "redirect_url": "https://azure.microsoft.com/overview/containers/",
@@ -30221,7 +30266,7 @@
       "redirect_url": "https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/security/fundamentals/channel-nine.md",
       "redirect_url": "/teamblog/channel9joinedmicrosoftlearn/",
@@ -30332,7 +30377,7 @@
       "redirect_url": "/azure/active-directory/fundamentals/support-help-options",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/container-registry/container-registry-headers.md",
       "redirect_url": "https://github.com/Azure/acr/blob/master/docs/http-headers.md",
@@ -31238,7 +31283,7 @@
       "redirect_url": "https://portal.azure.com/#create/WordPress.WordPress",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/billing-troubleshoot-azure-sign-up-issues.md",
       "redirect_url": "https://support.microsoft.com/help/4042959",
@@ -31629,7 +31674,7 @@
       "redirect_url": "hyper-v-vmm-test-failover",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/migrate/concepts-collector.md",
       "redirect_url": "migrate-appliance",
@@ -31825,7 +31870,7 @@
       "redirect_url": "tutorial-assess-vmware-azure-vm",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/migrate/tutorial-prepare-hyper-v.md",
       "redirect_url": "tutorial-discover-hyper-v",
@@ -32936,7 +32981,7 @@
       "redirect_url": "/azure/cognitive-services/cognitive-services-container-support",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/QuickStarts/curl-disk.md",
       "redirect_url": "/azure/cognitive-services/computer-vision",
@@ -37348,16 +37393,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#visualizations-for-application-change-analysis",
-      "redirect_url": "/articles/azure-monitor/app/change-analysis-visualizations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#troubleshoot",
-      "redirect_url": "/articles/azure-monitor/app/change-analysis-troubleshoot",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/personalizer/personalizer-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/personalizer/encrypt-data-at-rest",
       "redirect_document_id": false
@@ -38892,7 +38927,7 @@
       "redirect_url": "/azure/cognitive-services/form-recognizer/label-tool",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-features.md",
       "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-use-cases",
@@ -38993,13 +39028,13 @@
       "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path": "articles/load-balancer/load-balancer-monitor-log.md",
       "redirect_url": "/azure/load-balancer/monitor-load-balancer",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path": "articles/sentinel/tutorial-investigate-cases.md",
       "redirect_url": "/azure/sentinel/investigate-cases",
@@ -39105,7 +39140,7 @@
       "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": true
     },
-    
+
     {
       "source_path_from_root": "/articles/partner-twilio-cloud-services-dotnet-phone-call-web-role.md",
       "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
@@ -39166,7 +39201,7 @@
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/store-sendgrid-nodejs-how-to-send-email.md",
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
@@ -39967,7 +40002,7 @@
       "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
       "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
@@ -40217,11 +40252,21 @@
       "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-overview.md",
       "redirect_url": "/azure/azure-sql/database/sql-insights-overview",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-troubleshoot.md",
       "redirect_url": "/azure/azure-sql/database/sql-insights-troubleshoot",
       "redirect_document_id": false
-    }    
+    },    
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/connect-logon.md",
+      "redirect_url": "/azure/virtual-machines/windows/connect-rdp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
+      "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
+      "redirect_document_id": false
+    }
   ]
 }

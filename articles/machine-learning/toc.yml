@@ -109,6 +109,9 @@
         - name: Deep learning
           displayName: deep learning vs machine learning, deep learning, vs, versus
           href: concept-deep-learning-vs-machine-learning.md
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
         - name: AutoML
           items: 
             - name: Automated ML overview
@@ -214,99 +217,97 @@
           href: concept-customer-managed-keys.md
         - name: Vulnerability management
           href: concept-vulnerability-management.md
+- name: Infrastructure & security
+  items:
+    - name: Identity & access management
+      items: 
+        - name: Set up authentication
+          displayName: authentication, auth, oauth
+          href: how-to-setup-authentication.md
+        - name: Manage users and roles
+          href: how-to-assign-roles.md
+        - name: Use managed identities for access control
+          href: how-to-use-managed-identities.md
+        - name: Use Azure AD identity in AKS deployments
+          href: how-to-use-azure-ad-identity.md
+    - name: Network security
+      items: 
+        - name: Virtual network overview
+          displayName: vnet, blob
+          href: how-to-network-security-overview.md
+        - name: Secure workspace resources
+          displayName: vnet, workspace, container instance, container registry
+          href: how-to-secure-workspace-vnet.md
+        - name: Secure training environment
+          displayName: vnet, No public IP
+          href: how-to-secure-training-vnet.md
+        - name: Use studio in a virtual network
+          displayName: vnet
+          href: how-to-enable-studio-virtual-network.md
+        - name: Use private endpoint
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
+        - name: Use custom DNS
+          href: how-to-custom-dns.md
+        - name: Configure required network traffic
+          displayName: firewall, user-defined route, udr
+          href: how-to-access-azureml-behind-firewall.md
+        - name: Configure network isolation with v2
+          href: how-to-configure-network-isolation-with-v2.md
+    - name: Data protection
+      items: 
+        - name: Failover & disaster recovery
+          displayName: high availability
+          href: how-to-high-availability-machine-learning.md
+        - name: Regenerate storage access keys
+          href: how-to-change-storage-access-key.md
+    - name: Create & manage workspaces
+      items:
+        - name: Use Azure portal or Python SDK
+          href: how-to-manage-workspace.md
+        - name: Use Azure CLI
+          href: how-to-manage-workspace-cli.md
+        - name: Use Resource Manager template
+          displayName: arm
+          href: how-to-create-workspace-template.md
+        - name: Use Terraform
+          href: how-to-manage-workspace-terraform.md
+        - name: Use REST
+          href: how-to-manage-rest.md
+        - name: How to move a workspace
+          href: how-to-move-workspace.md
+        - name: Link to Azure Synapse Analytics workspace
+          href: how-to-link-synapse-ml-workspaces.md
+        - name: Securely integrate Azure Synapse & Azure Machine Learning
+          href: how-to-private-endpoint-integration-synapse.md
+        - name: Workspace Diagnostics
+          href: how-to-workspace-diagnostic-api.md
+        - name: Customer-managed keys
+          href: how-to-setup-customer-managed-keys.md
+    - name: Create & manage compute resources
+      items:
+        - name: Compute instance
+          displayName: compute target, No public IP
+          href: how-to-create-manage-compute-instance.md
+        - name: Compute cluster
+          displayName: compute target, low priority, managed identity
+          href: how-to-create-attach-compute-cluster.md
+        - name: Kubernetes cluster
+          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
+          href: how-to-attach-kubernetes-anywhere.md
+        - name: Use studio
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
+          href: how-to-create-attach-compute-studio.md
+    - name: Monitor Azure Machine Learning
+      href: monitor-azure-machine-learning.md
+    - name: Secure coding
+      displayName: security threat
+      href: concept-secure-code-best-practice.md
+    - name: Audit and manage
+      displayName: policy
+      href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items: 
-    - name: Security
-      items: 
-        - name: Identity & access management
-          items: 
-            - name: Set up authentication
-              displayName: authentication, auth, oauth
-              href: how-to-setup-authentication.md
-            - name: Manage users and roles
-              href: how-to-assign-roles.md
-            - name: Use managed identities for access control
-              href: how-to-use-managed-identities.md
-            - name: Use Azure AD identity in AKS deployments
-              href: how-to-use-azure-ad-identity.md
-        - name: Network security
-          items: 
-            - name: Virtual network overview
-              displayName: vnet, blob
-              href: how-to-network-security-overview.md
-            - name: Secure workspace resources
-              displayName: vnet, workspace, container instance, container registry
-              href: how-to-secure-workspace-vnet.md
-            - name: Secure training environment
-              displayName: vnet, No public IP
-              href: how-to-secure-training-vnet.md
-            - name: Use studio in a virtual network
-              displayName: vnet
-              href: how-to-enable-studio-virtual-network.md
-            - name: Use private endpoint
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
-            - name: Use custom DNS
-              href: how-to-custom-dns.md
-            - name: Configure required network traffic
-              displayName: firewall, user-defined route, udr
-              href: how-to-access-azureml-behind-firewall.md
-            - name: Configure network isolation with v2
-              href: how-to-configure-network-isolation-with-v2.md
-        - name: Data protection
-          items: 
-            - name: Failover & disaster recovery
-              displayName: high availability
-              href: how-to-high-availability-machine-learning.md
-            - name: Regenerate storage access keys
-              href: how-to-change-storage-access-key.md
-        - name: Monitor Azure Machine Learning
-          href: monitor-azure-machine-learning.md
-        - name: Secure coding
-          displayName: security threat
-          href: concept-secure-code-best-practice.md
-        - name: Audit and manage
-          displayName: policy
-          href: how-to-integrate-azure-policy.md
-    - name: Workspaces & compute resources
-      items:
-          - name: Create & manage workspaces
-            items:
-              - name: Use Azure portal or Python SDK
-                href: how-to-manage-workspace.md
-              - name: Use Azure CLI
-                href: how-to-manage-workspace-cli.md
-              - name: Use Resource Manager template
-                displayName: arm
-                href: how-to-create-workspace-template.md
-              - name: Use Terraform
-                href: how-to-manage-workspace-terraform.md
-              - name: Use REST
-                href: how-to-manage-rest.md
-              - name: How to move a workspace
-                href: how-to-move-workspace.md
-              - name: Link to Azure Synapse Analytics workspace
-                href: how-to-link-synapse-ml-workspaces.md
-              - name: Securely integrate Azure Synapse & Azure Machine Learning
-                href: how-to-private-endpoint-integration-synapse.md
-              - name: Workspace Diagnostics
-                href: how-to-workspace-diagnostic-api.md
-          - name: Create & manage compute resources
-            items:
-              - name: Compute instance
-                displayName: compute target, No public IP
-                href: how-to-create-manage-compute-instance.md
-              - name: Compute cluster
-                displayName: compute target, low priority, managed identity
-                href: how-to-create-attach-compute-cluster.md
-              - name: Kubernetes cluster
-                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
-                href: how-to-attach-kubernetes-anywhere.md
-              - name: Use studio
-                displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
-                href: how-to-create-attach-compute-studio.md
-          - name: Customer-managed keys
-            href: how-to-setup-customer-managed-keys.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments
@@ -413,21 +414,20 @@
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
           - name: Reinforcement learning
             href: how-to-use-reinforcement-learning.md
-          - name: Train experiments with MLflow Projects
-            displayName: log, monitor, metrics, model registry, register
-            href: how-to-train-mlflow-projects.md
           - name: Track & monitor training
             items:
-              - name: Track, monitor, and analyze runs
+              - name: Monitor training jobs
                 displayName: cancel, fail, status, child run
                 href: how-to-track-monitor-analyze-runs.md
-              - name: Log & view metrics and log files
+              - name: Log & view metrics, parameters and files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
+              - name: Log MLflow models
+                href: how-to-log-mlflow-models.md
               - name: Visualize runs with TensorBoard
                 displayName: log, monitor, metrics
                 href: how-to-monitor-tensorboard.md
-              - name: Migrate from SDK v1 logging to SDK v2
+              - name: Migrate from SDK v1 logging to MLflow
                 href: reference-migrate-sdk-v1-mlflow-tracking.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
@@ -444,8 +444,16 @@
             - name: Track Azure Databricks runs with MLflow
               displayName: log, monitor, deploy, metrics, databricks
               href: how-to-use-mlflow-azure-databricks.md
+            - name: Track Azure Synapse Analytics runs with MLflow
+              displayName: log, monitor, deploy, metrics, synapse, analytics
+              href: how-to-use-mlflow-azure-synapse.md
+            - name: Train experiments with MLflow Projects
+              displayName: log, monitor, metrics, model registry, register
+              href: how-to-train-mlflow-projects.md
             - name: Manage experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
+            - name: Migrate from SDK v1 logging to MLflow
+              href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items: 
@@ -557,6 +565,8 @@
               - name: Deploy MLflow models
                 displayName: mlflow models deployment plugin
                 href: how-to-deploy-mlflow-models.md
+              - name: Using MLflow models for no-code deployment
+                href: how-to-log-mlflow-models.md
               - name: Convert custom model to MLflow model
                 displayName: ncd, no code deploy, no-code deployment
                 href: how-to-convert-custom-model-to-mlflow.md
