@@ -68,7 +68,7 @@ The following table compares metrics and logs in Azure Monitor.
 | Structure | Standard set of properties including sample time, resource being monitored, a numeric value. Some metrics include multiple dimensions for further definition. | Unique set of properties depending on the log type. |
 | Collection | Collected at regular intervals. | May be collected sporadically as events trigger a record to be created. |
 | Analyze in Azure portal | Metrics Explorer | Log Analytics |
-| Data sources include | Platform metrics collected from Azure resources<br>Applications monitored by Application Insights<br>Azure Monitor agent<br>Custom defined by application or API | Application and resource logs<br>Azure Monitor agent<br>Application requests and exceptions<br>Custom logs API<br>Azure Sentinel<br>Microsoft Defender for Cloud |
+| Data sources include | Platform metrics collected from Azure resources<br>Applications monitored by Application Insights<br>Azure Monitor agent<br>Custom defined by application or API | Application and resource logs<br>Azure Monitor agent<br>Application requests and exceptions<br>Logs ingestion API<br>Azure Sentinel<br>Microsoft Defender for Cloud |
 
 ## Collect monitoring data
 Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 

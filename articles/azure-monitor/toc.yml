@@ -1331,11 +1331,11 @@ items:
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
       href: insights/troubleshoot-workbooks.md
-  - name: Data ingestion API
+  - name: Logs ingestion API
     items:
     - name: Overview
       displayName: data ingestion
-      href: logs/data-ingestion-api-overview.md
+      href: logs/logs-ingestion-api-overview.md
     - name: Tutorial (portal)
       href: logs/tutorial-data-ingestion-portal.md
     - name: Tutorial (API)

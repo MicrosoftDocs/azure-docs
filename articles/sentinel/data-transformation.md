@@ -15,7 +15,7 @@ Log Analytics' custom data ingestion process gives you a high level of control o
 
 Microsoft Sentinel gives you two tools to control this process:
 
-- The [**custom logs API**](../azure-monitor/logs/custom-logs-overview.md) allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You have full control over the creation of these custom tables, down to specifying the column names and types. You create [**Data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define, configure, and apply transformations to these data flows.
+- The [**logs ingestion API**](../azure-monitor/logs/custom-logs-overview.md) allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You have full control over the creation of these custom tables, down to specifying the column names and types. You create [**Data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define, configure, and apply transformations to these data flows.
 
 - [**Ingestion-time data transformation**](../azure-monitor/logs/ingestion-time-transformations.md) uses DCRs to apply basic KQL queries to incoming standard logs (and certain types of custom logs) before they're stored in your workspace. These transformations can filter out irrelevant data, enrich existing data with analytics or external data, or mask sensitive or personal information.
 
@@ -48,7 +48,7 @@ Ingestion-time transformations can also be used to mask or remove personal infor
 
 The following image shows where ingestion-time data transformation enters the data ingestion flow into Microsoft Sentinel.
 
-Microsoft Sentinel collects data into the Log Analytics workspace from multiple sources. Data from built-in data connectors is processed in Log Analytics using some combination of hardcoded workflows and ingestion-time transformations, and data ingested directly into the custom logs API endpoint is , and then stored in either standard or custom tables.
+Microsoft Sentinel collects data into the Log Analytics workspace from multiple sources. Data from built-in data connectors is processed in Log Analytics using some combination of hardcoded workflows and ingestion-time transformations, and data ingested directly into the logs ingestion API endpoint is , and then stored in either standard or custom tables.
 
 :::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture.":::
 
@@ -58,7 +58,7 @@ In Log Analytics, data collection rules (DCRs) determine the data flow for diffe
 
 Support for DCRs in Microsoft Sentinel includes:
 
-- *Standard DCRs*, currently supported only for AMA-based connectors and workflows using the new [custom logs API](../azure-monitor/logs/custom-logs-overview.md). 
+- *Standard DCRs*, currently supported only for AMA-based connectors and workflows using the new [logs ingestion API](../azure-monitor/logs/custom-logs-overview.md). 
 
     Each connector or log source workflow can have its own dedicated *standard DCR*, though multiple connectors or sources can share a common *standard DCR* as well.
 
@@ -123,5 +123,5 @@ Learn more about Microsoft Sentinel data connector types. For more information, 
 For more in-depth information on ingestion-time transformation, the Custom Logs API, and data collection rules, see the following articles in the Azure Monitor documentation:
 
 - [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
-- [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
+- [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)

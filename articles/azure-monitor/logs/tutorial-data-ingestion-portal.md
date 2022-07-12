@@ -6,7 +6,7 @@ ms.date: 01/19/2022
 ---
 
 # Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)
-[Custom logs](data-ingestion-api-overview.md) in Azure Monitor allow you to send external data to a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor.
+[Custom logs](logs-ingestion-api-overview.md) in Azure Monitor allow you to send external data to a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor.
 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
@@ -30,7 +30,7 @@ To complete this tutorial, you need the following:
 
 
 ## Overview of tutorial
-In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the data will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
+In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor logs ingestion API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the data will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
 
 
 ## Configure application
@@ -73,7 +73,7 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 
 ## Generate sample data
-The following PowerShell script both generates sample data to configure the custom table and sends sample data to the custom logs API to test the configuration. 
+The following PowerShell script both generates sample data to configure the custom table and sends sample data to the logs ingestion API to test the configuration. 
 
 1. Run the following PowerShell command which adds a required assembly for the script.
 
@@ -181,7 +181,7 @@ The following PowerShell script both generates sample data to configure the cust
 
 3. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called `sample_access.log`. 
 
-4. To read the data in the file and create a JSON file called `data_sample.json` that you can send to the custom logs API, run:
+4. To read the data in the file and create a JSON file called `data_sample.json` that you can send to the logs ingestion API, run:
 
     ```PowerShell
     .\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
@@ -206,7 +206,7 @@ Before you can send data to the workspace, you need to create the custom table t
 
 
 ## Parse and filter sample data
-Instead of directly configuring the schema of the table, the portal allows you to upload sample data so that Azure Monitor can determine the schema. The sample is expected to be a JSON file containing one or multiple log records structured in the same way they will be sent in the body of HTTP request of the custom logs API call.
+Instead of directly configuring the schema of the table, the portal allows you to upload sample data so that Azure Monitor can determine the schema. The sample is expected to be a JSON file containing one or multiple log records structured in the same way they will be sent in the body of HTTP request of the logs ingestion API call.
 
 1. Click **Browse for files** and locate *data_sample.json* that you previously created. 
 
@@ -856,5 +856,5 @@ Following is sample data that you can use for the tutorial. Alternatively, you c
 ## Next steps
 
 - [Complete a similar tutorial using the Azure portal.](tutorial-data-ingestion-api.md)
-- [Read more about custom logs.](data-ingestion-api-overview.md)
+- [Read more about custom logs.](logs-ingestion-api-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)

@@ -7,7 +7,7 @@ ms.date: 02/15/2022
 ---
 
 # Sample data collection rule - custom logs
-The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [custom logs](../logs/data-ingestion-api-overview.md). It has the following details:
+The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [custom logs](../logs/logs-ingestion-api-overview.md). It has the following details:
 
 - Sends data to a table called MyTable_CL in a workspace called my-workspace.
 - Applies a [transformation](../essentials//data-collection-transformations.md) to the incoming data.
@@ -65,4 +65,4 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 
 - [Walk through a tutorial on configuring custom logs using resource manager templates.](tutorial-data-ingestion-api.md)
 - [Get details on the structure of data collection rules.](../essentials/data-collection-rule-structure.md)
-- [Get an overview on custom logs](data-ingestion-api-overview.md).
+- [Get an overview on custom logs](logs-ingestion-api-overview.md).

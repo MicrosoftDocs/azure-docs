@@ -6,7 +6,7 @@ ms.date: 01/19/2022
 ---
 
 # Tutorial: Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)
-[Custom logs](data-ingestion-api-overview.md) in Azure Monitor allow you to send custom data to tables in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using Resource Manager templates.
+[Custom logs](logs-ingestion-api-overview.md) in Azure Monitor allow you to send custom data to tables in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using Resource Manager templates.
 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
@@ -445,5 +445,5 @@ The cache that drives IntelliSense may take up to 24 hours to update.
 ## Next steps
 
 - [Complete a similar tutorial using the Azure portal.](tutorial-data-ingestion-portal.md)
-- [Read more about custom logs.](data-ingestion-api-overview.md)
+- [Read more about custom logs.](logs-ingestion-api-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)

@@ -7,13 +7,13 @@ ms.date: 01/06/2022
 ---
 
 # Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs
-This article describes how to migrate from [Data Collector API](data-collector-api.md) or [custom fields](custom-fields.md) in Azure Monitor to [DCR-based custom logs](data-ingestion-api-overview.md). It includes configuration required for tables in your Log Analytics workspace and applies to both [direct ingestion](data-ingestion-api-overview.md) and [transformations](../essentials/data-collection-transformations.md).
+This article describes how to migrate from [Data Collector API](data-collector-api.md) or [custom fields](custom-fields.md) in Azure Monitor to [DCR-based custom logs](logs-ingestion-api-overview.md). It includes configuration required for tables in your Log Analytics workspace and applies to both [direct ingestion](logs-ingestion-api-overview.md) and [transformations](../essentials/data-collection-transformations.md).
 
 > [!IMPORTANT]
-> You do not need to follow this article if you are defining your DCR-based custom logs using the Azure Portal. This article only applies if you are using Resource Manager templates and the custom logs API.
+> You do not need to follow this article if you are defining your DCR-based custom logs using the Azure Portal. This article only applies if you are using Resource Manager templates and the logs ingestion API.
 
 ## Background
-To use a table with the [direct ingestion](data-ingestion-api-overview.md), and [ingestion-time transformations](ingestion-time-transformations.md), it must be configured to support these new features. When you complete the process described in this article, the following actions are taken:
+To use a table with the [direct ingestion](logs-ingestion-api-overview.md), and [ingestion-time transformations](ingestion-time-transformations.md), it must be configured to support these new features. When you complete the process described in this article, the following actions are taken:
 
 - The table will be reconfigured to enable all DCR-based custom logs features. This includes DCR and DCE support and management with the new Tables control plane.
 - Any previously defined custom fields will stop populating.
@@ -25,7 +25,7 @@ This article is only applicable if all of the following criteria apply:
 
 - You need to use the DCR-based custom logs functionality to send data to an existing table, preserving both schema and historical data in that table.
 - The table in question was either created using the Data Collector API, or has custom fields defined in it  
-- You want to migrate using the custom logs API instead of the Azure portal.
+- You want to migrate using the logs ingestion API instead of the Azure portal.
 
 If all of these conditions aren't true, then you can use DCR-based custom logs without following the procedure described here.
 
@@ -42,7 +42,7 @@ If the table that you're targeting with DCR-based custom logs does indeed falls 
     POST /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-03-01-privatepreview
     ```
 
-1. Discontinue use of the Data Collector API and start using the new custom logs API.
+1. Discontinue use of the Data Collector API and start using the new logs ingestion API.
 
 ## Next steps
 

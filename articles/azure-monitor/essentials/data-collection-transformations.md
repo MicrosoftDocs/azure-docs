@@ -43,7 +43,7 @@ Transformations may be applied to the following tables in a Log Analytics worksp
 
 - Any built-in table listed in [Tables that support time transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md).
 
-- Any custom table created by the [data ingestion API](../logs/data-ingestion-api-overview.md) or the [data collector API](../logs/data-collector-api.md).
+- Any custom table created by the [logs ingestion API](../logs/logs-ingestion-api-overview.md) or the [data collector API](../logs/data-collector-api.md).
 
 
 ## How transformations work
@@ -55,9 +55,9 @@ For example, a DCR that collects data from a virtual machine using Azure Monitor
 
 :::image type="content" source="media/data-collection-transformations/transformation-azure-monitor-agent.png" lightbox="media/data-collection-transformations/transformation-azure-monitor-agent.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent." border="false":::
 
-Another example is data sent from a custom application using the [data ingestion API](../logs/data-ingestion-api-overview.md). In this case, the application sends the data to a [data collection endpoint](data-collection-endpoint-overview.md) and specifies a data collection rule in the REST API call. The DCR includes the transformation and the destination workspace and table.
+Another example is data sent from a custom application using the [logs ingestion API](../logs/logs-ingestion-api-overview.md). In this case, the application sends the data to a [data collection endpoint](data-collection-endpoint-overview.md) and specifies a data collection rule in the REST API call. The DCR includes the transformation and the destination workspace and table.
 
-:::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using data ingestion API." border="false":::
+:::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using logs ingestion API." border="false":::
 
 ### Workspace transformation DCR
 

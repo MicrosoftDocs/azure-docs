@@ -22,9 +22,9 @@ Azure Monitor data collection is defined by a [data collection Rule (DCR)](essen
 
 DCRs are objects that can be created and managed on their own. Create a library of DCRs for different functionality and apply common DCRs to multiple Azure resources. 
 
-Some data sources specify a particular DCR to use. For example, when using the [data ingestion API](logs/data-ingestion-api-overview.md), the API call connects to a [data collection endpoint (DCE))](essentials/data-collection-endpoint-overview.md) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data and specifies the destination.
+Some data sources specify a particular DCR to use. For example, when using the [logs ingestion API](logs/logs-ingestion-api-overview.md), the API call connects to a [data collection endpoint (DCE))](essentials/data-collection-endpoint-overview.md) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data and specifies the destination.
 
-:::image type="content" source="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using data ingestion API." border="false":::
+:::image type="content" source="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using logs ingestion API." border="false":::
 
 Other workflows use a data collection rule association (DCRA), which associates a data collection rule with a resource. For example, to collect data from virtual machines using the Azure Monitor agent, you create a data rule association (DCRA) between the one or more DCRs and one or more virtual machines. The DCRs specify the data to collect on the agent and where that data should be sent.
 
@@ -35,7 +35,7 @@ Other workflows use a data collection rule association (DCRA), which associates 
 When implementation is complete, all data collected by Azure Monitor will use the new data collection process and be managed by data collection rules. Currently, only certain data sources send data to the ingestion pipeline, and they may have limited configuration options. Data sources that currently use the Azure Monitor data collection pipeline include the following. This list will be modified as others are added.
 
 - [Azure Monitor agent](agents/azure-monitor-agent-overview.md) 
-- [Data ingestion API](logs/data-ingestion-api-overview.md)
+- [Logs ingestion API](logs/logs-ingestion-api-overview.md)
 
 
 There's no difference between data collected with the new ingestion pipeline and data collected using other methods. The data is all stored together as [Logs](logs/data-platform-logs.md) and [Metrics](essentials/data-platform-metrics.md), supporting Azure Monitor features such as log queries, alerts, and workbooks. The only difference is in the method of collection.

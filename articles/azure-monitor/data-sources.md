@@ -196,7 +196,7 @@ In addition to the standard tiers of an application, you may need to monitor oth
 
 | Destination | Method | Description | Reference |
 |:---|:---|:---|:---|
-| Azure Monitor Logs | Data ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Data ingestion API in Azure Monitor (preview)](logs/data-ingestion-api-overview.md) |
+| Azure Monitor Logs | Logs ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Logs ingestion API in Azure Monitor (preview)](logs/logs-ingestion-api-overview.md) |
 |                    | Data Collector API | Collect log data from any REST client and store in Log Analytics workspace. | [Send log data to Azure Monitor with the HTTP Data Collector API (preview)](logs/data-collector-api.md) |
 | Azure Monitor Metrics | Custom Metrics API | Collect metric data from any REST client and store in Azure Monitor metrics database. | [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) |
 

@@ -22,7 +22,7 @@ Before you start configuring DCRs for data transformation:
 - **Learn more about data transformation and DCRs in Azure Monitor and Microsoft Sentinel**. For more information, see:
 
     - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
-    - [Data ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/data-ingestion-api-overview.md)
+    - [Data ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
     - [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
     - [Data transformation in Microsoft Sentinel (preview)](data-transformation.md)
 
@@ -45,7 +45,7 @@ Before you start configuring DCRs for data transformation:
 
 Use the following procedures from the Log Analytics and Azure Monitor documentation to configure your data transformation DCRs:
 
-[Direct ingestion through the DCR-based Custom Logs API](../azure-monitor/logs/data-ingestion-api-overview.md):
+[Direct ingestion through the DCR-based Custom Logs API](../azure-monitor/logs/logs-ingestion-api-overview.md):
 - Walk through a tutorial for [ingesting logs using the Azure portal](../azure-monitor/logs/tutorial-data-ingestion-api-logs.md).
 - Walk through a tutorial for [ingesting logs using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-data-ingestion-api-portal.md).
 

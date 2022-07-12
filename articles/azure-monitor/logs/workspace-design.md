@@ -179,7 +179,7 @@ In a hybrid model, each tenant has its own workspace, and some mechanism is used
 
 There are two options to implement logs in a central location:
 
-- Central workspace. The service provider creates a workspace in its tenant and use a script that utilizes the [Query API](api/overview.md) with the [custom logs API](data-ingestion-api-overview.md) to bring the data from the tenant workspaces to this central location. Another option is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to copy data to the central workspace.
+- Central workspace. The service provider creates a workspace in its tenant and use a script that utilizes the [Query API](api/overview.md) with the [logs ingestion API](logs-ingestion-api-overview.md) to bring the data from the tenant workspaces to this central location. Another option is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to copy data to the central workspace.
 
 - Power BI. The tenant workspaces export data to Power BI using the integration between the [Log Analytics workspace and Power BI](log-powerbi.md). 
 

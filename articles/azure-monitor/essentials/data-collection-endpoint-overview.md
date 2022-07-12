@@ -15,7 +15,7 @@ Data Collection Endpoints (DCEs)  provide a connection for certain data sources 
 The following data sources currently use DCEs:
 
 - [Azure Monitor agent when network isolation is required](../agents/azure-monitor-agent-data-collection-endpoint.md)
-- [Custom logs](../logs/data-ingestion-api-overview.md)
+- [Custom logs](../logs/logs-ingestion-api-overview.md)
 
 ## Components of a data collection endpoint
 A data collection endpoint includes the following components.

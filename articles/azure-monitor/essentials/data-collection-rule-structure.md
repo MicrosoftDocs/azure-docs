@@ -16,7 +16,7 @@ ms.reviwer: nikeist
 
 
 ## Custom logs
-A DCR for  [custom logs](../logs/data-ingestion-api-overview.md) contains the sections below. For a sample, see [Sample data collection rule - custom logs](../logs/data-collection-rule-sample-custom-logs.md).
+A DCR for  [custom logs](../logs/logs-ingestion-api-overview.md) contains the sections below. For a sample, see [Sample data collection rule - custom logs](../logs/data-collection-rule-sample-custom-logs.md).
 
 ### streamDeclarations
 This section contains the declaration of all the different types of data that will be sent via the HTTP endpoint directly into Log Analytics. Each stream is an object whose key represents the stream name (Must begin with *Custom-*) and whose value is the full list of top-level properties that the JSON data that will be sent will contain. Note that the shape of the data you send to the endpoint doesn't need to match that of the destination table. Rather, the output of the transform that is applied on top of the input data needs to match the destination shape. The possible data types that can be assigned to the properties are `string`, `int`, `long`, `real`, `boolean`, `dynamic`, and `datetime`. 

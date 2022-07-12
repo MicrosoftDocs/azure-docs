@@ -17,7 +17,7 @@ Setting a table's [log data plan](log-analytics-workspace-overview.md#log-data-p
 By default, all tables in your Log Analytics are Analytics tables, and available for query and alerts. 
 You can currently configure the following tables for Basic Logs:
 
-- All tables created with the [Data Collection Rule (DCR)-based custom logs API.](data-ingestion-api-overview.md) 
+- All tables created with the [Data Collection Rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) 
 - [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 
