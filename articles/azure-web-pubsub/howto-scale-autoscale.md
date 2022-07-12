@@ -1,6 +1,6 @@
 ---
-title: Auto scale Azure Web PubSub Service
-description: Learn how to autoscale Azure WebPubSub Service.
+title: Auto scale Azure Web PubSub service
+description: Learn how to autoscale Azure WebPubSub service.
 author: zackliu
 ms.service: azure-web-pubsub
 ms.topic: conceptual
@@ -8,18 +8,18 @@ ms.date: 07/12/2022
 ms.author: chenyl
 ---
 
-# Automatically scale units of an Azure WebPubSub Service
+# Automatically scale units of an Azure WebPubSub service
 
 > [!IMPORTANT]
-> Autoscaling is only available in Azure WebPubSub Service Premium tier.
+> Autoscaling is only available in Azure WebPubSub service Premium tier.
 
-Azure WebPubSub Service Premium tier supports an *autoscale* feature, which is an implementation of [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md). Autoscale allows you to automatically scale the unit count for your WebPubSub Service to match the actual load on the service. Autoscale can help you optimize performance and cost for your application.
+Azure WebPubSub service Premium tier supports an *autoscale* feature, which is an implementation of [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md). Autoscale allows you to automatically scale the unit count for your WebPubSub service to match the actual load on the service. Autoscale can help you optimize performance and cost for your application.
 
-Azure WebPubSub adds its own [service metrics](concept-metrics.md). However, most of the user interface is shared and common to other [Azure services that support autoscaling](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md) before digging into WebPubSub Service Metrics.
+Azure WebPubSub adds its own [service metrics](concept-metrics.md). However, most of the user interface is shared and common to other [Azure services that support autoscaling](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md) before digging into WebPubSub service Metrics.
 
-## Understanding autoscale in WebPubSub Service
+## Understanding autoscale in WebPubSub service
 
-Autoscale allows you to set conditions that will dynamically change the units allocated to WebPubSub Service while the service is running. Autoscale conditions are based on metrics, such as **Server Load**. Autoscale can also be configured to run on a schedule, such as every day between certain hours.
+Autoscale allows you to set conditions that will dynamically change the units allocated to WebPubSub service while the service is running. Autoscale conditions are based on metrics, such as **Server Load**. Autoscale can also be configured to run on a schedule, such as every day between certain hours.
 
 For example, you can implement the following scaling scenarios using autoscale.
 
@@ -27,7 +27,7 @@ For example, you can implement the following scaling scenarios using autoscale.
 - Decrease units when the **Server Load** is below 20%.
 - Create a schedule to add more units during peak hours and reduce units during off hours.
 
-Multiple factors affect the performance of WebPubSub Service. No one metric provides a complete view of system performance. For example, if you're sending a large number of messages you might need to scale out even though the connection quota is relatively low. The combination of both **Connection Quota Utilization** and **Server Load** gives an indication of overall system load. The following guidelines apply.
+Multiple factors affect the performance of WebPubSub service. No one metric provides a complete view of system performance. For example, if you're sending a large number of messages you might need to scale out even though the connection quota is relatively low. The combination of both **Connection Quota Utilization** and **Server Load** gives an indication of overall system load. The following guidelines apply.
 
 - Scale out if the connection count is over 80-90%. Scaling out before your connection count is exhausted ensures that you'll have sufficient buffer to accept new connections before scale-out takes effect.
 - Scale out if the **Server Load** is over 80-90%. Scaling early ensures that the service has enough capacity to maintain performance during the scale-out operation.
