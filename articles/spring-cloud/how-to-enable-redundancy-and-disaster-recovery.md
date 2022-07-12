@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 **Zone redundancy applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
-**The customer-managed disaster recovery applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**Customer-managed disaster recovery applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article describes the resiliency strategy for Azure Spring Apps, including implementing zone redundancy and customer-managed geo-disaster recovery.
 
