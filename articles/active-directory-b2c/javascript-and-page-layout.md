@@ -233,6 +233,21 @@ function addTermsOfUseLink() {
 
 In the code, replace `termsOfUseUrl` with the link to your terms of use agreement. For your directory, create a new user attribute called **termsOfUse** and then include **termsOfUse** as a user attribute.
 
+Alternatively, you can add a link to the bottom of self-asserted pages, without the use of Javascript, using the following localization.
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <!-- The following elements will display a link at the bottom of the page. -->
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_text">Terms of use</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">termsOfUseUrl</LocalizedString>
+    </LocalizedStrings>
+</LocalizedResources>
+```
+
+In the code, replace `termsOfUseUrl` with the link to your organization's privacy statement and terms and conditions. 
+
+
 ## Next steps
 
 Find more information about how to [Customize the user interface of your application in Azure Active Directory B2C](customize-ui-with-html.md).
