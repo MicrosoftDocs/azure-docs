@@ -1,5 +1,5 @@
 ---
-title: Migrate from legacy agents to the new Azure Monitor agent
+title: Migrate from legacy agents to Azure Monitor agent
 description: This article provides guidance for migrating from the existing legacy agents to the new Azure Monitor agent (AMA) and data collection rules (DCR).
 ms.topic: conceptual
 author: guywild
@@ -7,25 +7,24 @@ ms.author: guywild
 ms.reviewer: shseth
 ms.date: 6/22/2022 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics agent to Azure Monitor Agent and track the status of the migration in my account.    
+# Customer intent: As an IT manager, I want to undertstand if and when I should move from using legacy agents to Azure Monitor agent.    
 ---
 
 # Migrate to Azure Monitor agent from Log Analytics agent
-The [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor where it can be used by different features, insights, and other services such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). All of the data collection configuration is handled via [Data Collection Rules](../essentials/data-collection-rule-overview.md). The Azure Monitor agent is meant to replace the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines. This article provides high-level guidance on when and how to migrate to the new Azure Monitor agent (AMA) and the data collection rules (DCR) that define the data the agent should collect.
+[Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md).  Azure Monitor agent replaces the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines Azure Monitor and introduces a simplified, flexible method of configuring collection configuration called [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md). This article provides high-level guidance on when and how to migrate to the new Azure Monitor agent (AMA) based on the agent's benefits and limitations.
 
 ## Why should I migrate to the Azure Monitor agent?
 - **Security and performance**
-  - AMA uses Managed Identity or Azure Active Directory (Azure AD) tokens (for clients) which are much more secure than the legacy authentication methods. 
-  - AMA can provide higher events per second (EPS) upload rate compared to legacy agents
-- **Cost savings** via efficient data collection [using Data Collection Rules](data-collection-rule-azure-monitor-agent.md). This is one of the most useful advantages of using AMA.
-  - DCRs allow granular targeting of machines connected to a workspace to collect data from as compared to the “all or nothing” mode that legacy agents have.
-  - Using DCRs, you can filter out data to remove unused events and save additional costs.  
-
+  - AMA uses Managed Identity or Azure Active Directory (Azure AD) tokens (for clients), which are much more secure than the legacy authentication methods. 
+  - AMA provides a higher events per second (EPS) upload rate compared to legacy agents.
+- **Cost savings** using data collection [using Data Collection Rules](data-collection-rule-azure-monitor-agent.md). This is one of the most useful advantages of using AMA.
+  - DCRs lets you configure data collection for specific machines connected to a workspace as compared to the “all or nothing” mode that legacy agents have.
+  - Using DCRs you can define which data to ingest and which data to filter out to reduce workspace clutter and save on costs.  
 - **Simpler management** of data collection, including ease of troubleshooting
-  - **Multihoming** on both Windows and Linux is possible easily
-  - Every action across the data collection lifecycle, from onboarding/setup to deployment to updates and changes over time, is significantly easier and scalable thanks to agent configuration becoming centralized and ‘in the cloud’ as compared to configuring things on every machine.
-  - Enabling/disabling of additional capabilities or services (Sentinel, Defender for Cloud, VM Insights, etc.) is more transparent and controlled, using the extensibility architecture of AMA.
-- **A single agent** that will consolidate all the features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11) as compared to running various different monitoring agents. This is the eventual goal, though AMA is currently converging with the Log Analytics agents.
+  - Easy **multihoming** on Windows and Linux.
+  - Centralized, ‘in the cloud’ agent configuration makes every action, across the data collection lifecycle, simpler and more easily scalable, from onboarding to deployment to updates and changes over time.
+  - More transparency and control of additional capabilities and services, such as Sentinel, Defender for Cloud, and VM Insights, etc.
+- **A single agent** that consolidates all features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11). This is goal, though AMA is currently converging with the Log Analytics agents.
 
 ## When should I migrate to the Azure Monitor agent?
 Your migration plan to the Azure Monitor agent should include the following considerations:
