@@ -169,9 +169,8 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // flush is not blocking when not using InMemoryChannel so wait a bit. There is an active issue regarding the need for `Sleep`/`Delay`
-            // which is tracked here: https://github.com/microsoft/ApplicationInsights-dotnet/issues/407
-            Task.Delay(5000).Wait();
+            // Flush() is synchronous when using InMemoryChannel; otherwise a short delay is required.
+            // Task.Delay(5000).Wait();
 
         }
 
