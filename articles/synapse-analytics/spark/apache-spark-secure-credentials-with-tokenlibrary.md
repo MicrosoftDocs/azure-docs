@@ -92,8 +92,8 @@ Synapse allows users to set the linked service for a particular storage account.
 val sc = spark.sparkContext
 val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
 spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<LINKED SERVICE NAME>")
-spark.conf.set("fs.azure.account.auth.type", "SAS")
-spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
+spark.conf.set(f"fs.azure.account.auth.type.{source_full_storage_account_name}", "SAS")
+spark.conf.set(f"fs.azure.sas.token.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
 
 val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
 
@@ -109,8 +109,8 @@ display(df.limit(10))
 # Python code
 val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
 spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<lINKED SERVICE NAME>")
-spark.conf.set("fs.azure.account.auth.type", "SAS")
-spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
+spark.conf.set(f"fs.azure.account.auth.type.{source_full_storage_account_name}", "SAS")
+spark.conf.set(f"fs.azure.sas.token.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
 
 df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>')
 
@@ -128,7 +128,7 @@ When the linked service authentication method is set to **Managed Identity** or 
 val sc = spark.sparkContext
 val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
 spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<LINKED SERVICE NAME>")
-spark.conf.set("fs.azure.account.oauth.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider") 
+spark.conf.set(f"fs.azure.account.oauth.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider") 
 val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
 
 display(df.limit(10))
