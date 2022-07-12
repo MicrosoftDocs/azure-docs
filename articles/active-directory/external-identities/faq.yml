@@ -190,7 +190,7 @@ sections:
 
       - question: |
           What happens if I invite a user whose email and UPN don’t match?
-        answer: |[
+        answer: |
           It depends. By default, Azure AD only allows UPN for login ID. When UPN and email are the same, Azure AD B2B invitations and subsequent sign-ins work as expected. However, issues can arise when a user’s email and UPN don’t match, and the email is used instead of the UPN to login.
           When a user is invited with a non-UPN email, they will be able to redeem the invitation if they redeem using the [email invitation link](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#redemption-through-the-invitation-email), but redemptions via a [direct link](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#redemption-through-a-direct-link) will fail. However, even if the user successfully redeems the invitation, subsequent sign-in attempts using the non-UPN email will fail unless the identity provider (either Azure AD or a federated identity provider) is configured to allow email as an alternative login ID. 
           This issue can be mitigated by:
