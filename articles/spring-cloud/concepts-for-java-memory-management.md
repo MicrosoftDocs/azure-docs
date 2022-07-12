@@ -1,12 +1,12 @@
 ---
 title: Java memory management
 titleSuffix: Azure Spring Apps
-description: Introduces concepts for Java memory management to help understand Java applications in Azure Spring Apps.
+description: Introduces concepts for Java memory management to help you understand Java applications in Azure Spring Apps.
 author: karlerickson
 ms.author: kaiqianyang
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 07/15/2022
 ms.custom: devx-track-java
 ---
 
@@ -17,22 +17,22 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This doc introduces concepts for Java memory management to help understand Java applications in Azure Spring Apps.
+This article describes various concepts related to Java memory management to help you understand the behavior of Java applications hosted in Azure Spring Apps.
 
 ## Java memory model
 
-A Java application's memory has several parts, and there are different ways to divide the parts. We here divide Java memory into 3 parts: 1.heap memory, 2.non-heap memory, 3.direct memory.
+A Java application's memory has several parts, and there are different ways to divide the parts. This article discusses Java memory as divided into heap memory, non-heap memory, and direct memory.
 
 ### Heap memory
 
-Heap memory stores all class instances and arrays. Per JVM only have one heap area which is shared among threads.
+Heap memory stores all class instances and arrays. Each Java virtual machine (JVM) has only one heap area, which is shared among threads.
 
-Spring-boot actuator can observe the value of heap memory, it takes heap value as part of [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax).
+Spring-boot actuator can observe the value of heap memory, it takes heap value as part of [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#jvmmemoryusedcommittedmax).
 
 Heap memory is divided into young generation and old generation.
 
 - Young Generation: all new objects are allocated and aged in young generation.
--
+
   - Eden Space: new objects are allocated in Eden Space.
   - Survivor Space: objects will be moved from Eden to Survivor Space after surviving one garbage collection cycle. Survivor Space can be divided to two parts, s1 and s2.
 
@@ -44,7 +44,7 @@ Before Java 8, another section called permanent generation was also part of heap
 
 Here we divide non-heap memory into two parts:
 
-1. The part that replaced permanent generation(permGen) starting from Java 8. Spring-boot actuator observes this section and takes it as part of [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax). In other words, [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#2-jvmmemoryusedcommittedmax) is the sum of heap memory and the former permGen part of non-heap memory.
+1. The part that replaced permanent generation(permGen) starting from Java 8. Spring-boot actuator observes this section and takes it as part of [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#jvmmemoryusedcommittedmax). In other words, [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#jvmmemoryusedcommittedmax) is the sum of heap memory and the former permGen part of non-heap memory.
 
 1. The part of other memory such as thread stack, which isn't observed by spring-boot actuator.
 
@@ -64,7 +64,7 @@ Spring-boot actuator doesn't observe the value of direct memory.
 
 In conclusion, Java memory model is like following layout.
 
-:::image type="content" source="media/concepts-for-java-memory-management/java-memory-model.png" alt-text="java memory model":::
+:::image type="content" source="media/concepts-for-java-memory-management/java-memory-model.png" alt-text="Diagram of Java memory model." border="false":::
 
 ## Java garbage collection
 
@@ -94,52 +94,50 @@ Applications in Azure Spring Apps run in container environments. For more inform
 
 Max size of each part of memory can be configured in JVM options. It can be set through Azure CLI or on portal (refer to [the doc for configuring memory settings in JVM options](tools-to-troubleshoot-memory-issues.md#configure-memory-settings-in-jvm-options))
 
-- Heap size configurations
+- Heap size configuration
 
-  - "-Xms" setts initial Heap size by absolute value.
-  - "-Xmx" setts maximum Heap size by absolute value.
-  - "-XX:InitialRAMPercentage" setts initial Heap size by the percentage of heap size / app memory size.
-  - "-XX:MaxRAMPercentage" setts maximum Heap size by the percentage of heap size / app memory size.
+  - `-Xms` sets initial heap size by absolute value.
+  - `-Xmx` sets maximum heap size by absolute value.
+  - `-XX:InitialRAMPercentage` sets initial heap size by the percentage of heap size / app memory size.
+  - `-XX:MaxRAMPercentage` sets the maximum heap size by the percentage of heap size / app memory size.
 
 - Direct memory size configuration
 
-  - "-XX:[MaxDirectMemorySize](https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-3B1CE181-CD30-4178-9602-230B800D4FAE)" setts maximum direct memory size by absolute value.
+  - `-XX:MaxDirectMemorySize` sets the maximum direct memory size by absolute value. For more information, see [MaxDirectMemorySize](https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-3B1CE181-CD30-4178-9602-230B800D4FAE__GUID-2E02B495-5C36-4C93-8597-0020EFDC9A9C) in the Oracle documentation.
 
-- Metaspace Size configuration
+- Metaspace size configuration
 
-  - "-XX:MaxMetaspaceSize" setts maximum Metaspace size by absolute value.
+  - `-XX:MaxMetaspaceSize` sets the maximum metaspace size by absolute value.
 
 ### Default max memory size
 
 #### Default max heap size
 
-Azure Spring Apps set default max heap memory size about 50%-80% of app memory for Java apps, specifically:
+Azure Spring Apps sets the default max heap memory size to about 50%-80% of app memory for Java apps. Specifically, Azure Spring Apps uses the following settings:
 
-- If the app memory < 1 GB, default max heap size will be 50% of app memory.
-- If 1 GB <= the app memory < 2 GB, default max heap size will be 60% of app memory.
-- If 2 GB <= the app memory < 3 GB, default max heap size will be 70% of app memory.
-- If 3 GB <= the app memory, default max heap size will be 80% of app memory.
+- If the app memory < 1 GB, the default max heap size will be 50% of app memory.
+- If 1 GB <= the app memory < 2 GB, the default max heap size will be 60% of app memory.
+- If 2 GB <= the app memory < 3 GB, the default max heap size will be 70% of app memory.
+- If 3 GB <= the app memory, the default max heap size will be 80% of app memory.
 
 #### Default max direct memory size
 
-When max direct memory size isn't set in JVM options, JVM automatically setts max direct memory size = [`Runtime.getRuntime.maxMemory()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#maxMemory--) ~= max heap memory size (refer to [jdk8](http://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/a71d26266469/src/share/classes/sun/misc/VM.java#l282&gt;%20jdk8)).
+When the max direct memory size isn't set in the JVM options, the JVM automatically sets the max direct memory size = [`Runtime.getRuntime.maxMemory()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#maxMemory--) ~= max heap memory size (refer to [jdk8](http://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/a71d26266469/src/share/classes/sun/misc/VM.java#l282&gt;%20jdk8)).
 
 ### Memory usage layout
 
-Heap size is influenced by your throughput. Basically when configuring, you can keep the default max heap size, which leaves reasonable memory for other parts.
+Heap size is influenced by your throughput. Basically, when configuring, you can keep the default max heap size, which leaves reasonable memory for other parts.
 
 The metaspace size depends on the complexity of your code, such as the number of classes.
 
 Direct memory size depends on your use of third party libraries like nio, gzip, and also depend on your throughput.
 
-Here is a typical memory layout sample for 2 GB apps. Numbers in grey are reference values of daily memory usage. You can refer to this to configure your memory size settings.
+Here's a typical memory layout sample for 2 GB apps. Numbers in grey are reference values of daily memory usage. You can refer to this to configure your memory size settings.
 
-:::image type="content" source="media/concepts-for-java-memory-management/2-gb-sample.png" alt-text="2G-sample":::
+:::image type="content" source="media/concepts-for-java-memory-management/2-gb-sample.png" alt-text="Diagram of typical memory layout for 2 G B apps." border="false":::
 
 Overall, when configuring max memory sizes, you should consider the usage of each part in memory, and the sum of all max sizes shouldn't exceed total available memory.
 
 ## Java OOM
 
-OOM means the application is out of memory. There are two different concepts: 1. container OOM, 2. JVM OOM.
-
-For more information, see [How to fix app restart issues caused by out of memory issues](./how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
+OOM means the application is out of memory. There are two different concepts: container OOM and JVM OOM. For more information, see [How to fix app restart issues caused by out of memory issues](./how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
