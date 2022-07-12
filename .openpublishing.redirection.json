@@ -5908,12 +5908,12 @@
     },
     {
       "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
-      "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
+      "redirect_url": "/azure/reliability/cross-region-replication-azure",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/availability-zones/index.md",
-      "redirect_url": "/azure/availability-zones/az-overview",
+      "redirect_url": "/azure/reliablity/index.md",
       "redirect_document_id": false
     },
     {
@@ -40225,12 +40225,12 @@
     },
     {
       "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
-      "redirect_url": "/azure/availability-zones/migrate-app-service-environment",
+      "redirect_url": "/azure/reliability/migrate-app-service-environment",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/app-service/how-to-zone-redundancy.md",
-      "redirect_url": "/azure/availability-zones/migrate-app-service",
+      "redirect_url": "/azure/reliability/migrate-app-service",
       "redirect_document_id": true
     },
     {
@@ -40262,71 +40262,6 @@
       "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
       "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "azure-docs-pr/availability-zones/az-overview.md",
-      "redirect_URL": "/azure-docs-pr/reliability/az-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "azure-docs-pr/availability-zones/az-region.md",
-      "redirect_URL": "/azure-docs-pr/reliability/az-region",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "azure-docs-pr/availability-zones/business-continuity-management-program.md",
-      "redirect_URL": "/azure-docs-pr/reliability/business-continuity-management-program",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "azure-docs-pr/availability-zones/cross-region-replication-azure.md",
-      "redirect_URL": "/azure-docs-pr/reliability/cross-region-replication-azure",
-      "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/glossary.md",
-        "redirect_URL": "/azure-docs-pr/reliability/glossary",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/migrate-app-service-environment.md",
-        "redirect_URL": "/azure-docs-pr/reliability/migrate-app-service-environment",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/migrate-app-service.md",
-        "redirect_URL": "/azure-docs-pr/reliability/migrate-app-service",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/migrate-cache-redis.md",
-        "redirect_URL": "/azure-docs-pr/reliability/migrate-cache-redis",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/migrate-recovery-services-vault.md",
-        "redirect_URL": "/azure-docs-pr/reliability/migrate-recovery-services-vault",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/migrate-storage.md",
-        "redirect_URL": "/azure-docs-pr/reliability/migrate-storage",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/migrate-vm.md",
-        "redirect_URL": "/azure-docs-pr/reliability/migrate-vm",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/overview.md",
-        "redirect_URL": "/azure-docs-pr/reliability/overview-resiliency",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "azure-docs-pr/availability-zones/region-types-service-categories-azure.md",
-        "redirect_URL": "/azure-docs-pr/reliability/region-types-service-categories-azure",
-        "redirect_document_id": false
     },
     {
         "source_path": "/articles/availability-zones/az-overview.md",
@@ -40385,7 +40320,7 @@
     },
     {
         "source_path": "/articles/availability-zones/overview.md",
-        "redirect_URL": "/azure/reliability/overview",
+        "redirect_URL": "/azure/reliability/overview-resiliency",
         "redirect_document_id": false
     },
     {
