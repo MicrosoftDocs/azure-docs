@@ -9,8 +9,6 @@ items:
     href: space-partner-program-overview.md
 - name: Quickstart
   items:
-  - name: Onboard to the Azure Orbital Preview
-    href: orbital-preview.md
   - name: Register a spacecraft
     href: register-spacecraft.md
   - name: Configure a contact profile
