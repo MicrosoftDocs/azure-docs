@@ -103,7 +103,6 @@ $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 ```
 
 2) Provide your own values for the following template parameters:
-
    a) Subscription: Select an Azure subscription. 
    b) Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK. 
    c) Location: Select a location. 
@@ -134,14 +133,14 @@ New-AzResourceGroupDeployment `
 
 {  
       "code": "LinkedAuthorizationFailed",  
-      "message": "The client '<clientId>' with object id '<objectId>' has permission to perform action 'Microsoft.Compute/virtualMachineScaleSets/write' on scope '/subscriptions/<Subs-Id>/resourcegroups/<ResGrp-Id>/providers/Microsoft.Compute/virtualMachineScaleSets/pnt'; however, it does not have permission to perform action 'write' on the linked scope(s) '/subscriptions/<Subs-Id>/resourceGroups/<ResGrp-Id>/providers/Microsoft.Compute/hostGroups/HostGroupscu0' or the linked scope(s) are invalid."
+      "message": "The client '[<clientId>]' with object id '[<objectId>]' has permission to perform action 'Microsoft.Compute/virtualMachineScaleSets/write' on scope '/subscriptions/[<Subs-Id>]/resourcegroups/[<ResGrp-Id>]/providers/Microsoft.Compute/virtualMachineScaleSets/pnt'; however, it does not have permission to perform action 'write' on the linked scope(s) '/subscriptions/[<Subs-Id>]/resourceGroups/[<ResGrp-Id>]/providers/Microsoft.Compute/hostGroups/HostGroupscu0' or the linked scope(s) are invalid."
     }
     
 2) If Host Group is in a different subscription than the clusters, then the following error is reported:
 
 {  
       "code": "BadRequest",  
-      "message": "Entity subscriptionId in resource reference id /subscriptions/<Subs-Id>/resourceGroups/<ResGrp-Id>/providers/Microsoft.Compute/hostGroups/<HostGroup> is invalid."  
+      "message": "Entity subscriptionId in resource reference id /subscriptions/[<Subs-Id>]/resourceGroups/[<ResGrp-Id>]/providers/Microsoft.Compute/hostGroups/[<HostGroup>] is invalid."  
     }
     
 3) If Quota for Host Group is not sufficient, following error is thrown:
@@ -153,5 +152,5 @@ Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request fo
     }
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Read about Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
+>[!div class="nextstepaction"]
+>[Read about Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
