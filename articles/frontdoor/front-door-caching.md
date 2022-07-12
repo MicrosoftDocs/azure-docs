@@ -171,6 +171,12 @@ The following request headers won't be forwarded to a backend when using caching
 - Transfer-Encoding
 - Accept-Language
 
+## Response headers
+
+The following response headers will be stripped if the origin response is cacheable e.g. Cache control header has max-age value.
+
+- Set-Cookie
+
 ## Cache behavior and duration
 
 ::: zone pivot="front-door-standard-premium"
