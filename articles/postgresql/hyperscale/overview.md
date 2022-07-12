@@ -15,7 +15,7 @@ ms.date: 07/12/2022
 
 # Azure Database for PostgreSQL - Hyperscale (Citus)
 
-## Introduction to Hyperscale (Citus)
+## The superpower of distributed tables
 
 <!-- markdownlint-disable MD034 -->
 
@@ -30,12 +30,12 @@ would with PostgreSQL. As your app's scalability and performance requirements
 grow, you can seamlessly scale to multiple nodes by transparently distributing
 your tables.
 
-![distributed architecture](../media/overview-hyperscale/distributed.png)
-
 Real-world customer applications built on Citus include SaaS apps, real-time
 operational analytics apps, and high throughput transactional apps. These apps
 span various verticals such as sales & marketing automation, healthcare,
 IOT/telemetry, finance, logistics, and search.
+
+![distributed architecture](../media/overview-hyperscale/distributed.png)
 
 ## Implementation checklist
 
