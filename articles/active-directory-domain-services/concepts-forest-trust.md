@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 07/05/2022
 ms.author: justinha
 ---
 
@@ -280,11 +280,8 @@ Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nlte
 
 ## Next steps
 
-To learn more about forest trusts, see [How do forest trusts work in Azure AD DS?][concepts-trust]
-
 To get started with creating a managed domain with a forest trust, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
-[concepts-trust]: concepts-forest-trust.md
 [tutorial-create-advanced]: tutorial-create-instance-advanced.md
 [create-forest-trust]: tutorial-create-forest-trust.md

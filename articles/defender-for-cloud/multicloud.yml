@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Introduction to hybrid and multicloud
+          - text: Overview of hybrid and multicloud
             url: /azure/cloud-adoption-framework/scenarios/hybrid/
           - text: Why protect multicloud resources with Microsoft Defender for Cloud
             url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/protect-your-google-cloud-workloads-with-microsoft-defender-for/ba-p/3073360

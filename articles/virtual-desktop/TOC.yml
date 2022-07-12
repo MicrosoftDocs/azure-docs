@@ -35,7 +35,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Getting started with Azure Virtual Desktop
+  - name: Getting started feature
     href: getting-started-feature.md
 - name: Tutorials
   items:
@@ -289,7 +289,7 @@
     href: set-up-mfa.md
   - name: Configure AD FS single sign-on
     href: configure-adfs-sso.md
-  - name: Configure automatic updates
+  - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
     href: multimedia-redirection.md
@@ -317,9 +317,11 @@
     href: drain-mode.md
   - name: Network connectivity
     items:
+    - name: Check access to required URLs
+      href: required-url-check-tool.md
     - name: Use Azure Firewall to protect Azure Virtual Desktop
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
-  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+  - name: Azure Virtual Desktop for Azure Stack HCI
     href: azure-stack-hci.md
 - name: Troubleshoot
   items:

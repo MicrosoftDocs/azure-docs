@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 06/20/2022
 ---
 
 # Migrate Amazon RDS for MySQL to Azure Database for MySQL using MySQL Workbench

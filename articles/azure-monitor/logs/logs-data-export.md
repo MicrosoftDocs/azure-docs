@@ -29,7 +29,7 @@ Data is exported without a filter. For example, when you configure a data export
 Log Analytics workspace data export continuously exports data that is sent to your Log Analytics workspace. There are other options to export data for particular scenarios:
 
 - Configure Diagnostic Settings in Azure resources. Logs is sent to destination directly and has lower latency compared to data export in Log Analytics.
-- Scheduled export from a log query using a Logic App. This is similar to the data export feature, but allows you to export historical data from your workspace, using filters and aggregation. This method is subject to [log query limits](../service-limits.md#log-analytics-workspaces) and not intended for scale. See [Archive data from Log Analytics workspace to Azure Storage Account using Logic App](logs-export-logic-app.md).
+- Schedule export of data based on a log query you define with the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query/execute). Use services such as Azure Data Factory, Azure Functions, or Azure Logic App to orchestrate queries in your workspace and export data to a destination. This is similar to the data export feature, but allows you to export historical data from your workspace, using filters and aggregation. This method is subject to [log query limits](../service-limits.md#log-analytics-workspaces) and not intended for scale. See [Archive data from Log Analytics workspace to Azure Storage Account using Logic App](logs-export-logic-app.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## Limitations

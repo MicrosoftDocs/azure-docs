@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 06/16/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -164,7 +164,7 @@ Now that you've created the VM, you need to configure Azure RBAC policy to deter
 - **Virtual Machine User Login**: Users with this role assigned can log in to an Azure virtual machine with regular user privileges.
 
 > [!NOTE]
-> To allow a user to log in to the VM over RDP, you must assign either the Virtual Machine Administrator Login or Virtual Machine User Login role. An Azure user with the Owner or Contributor roles assigned for a VM do not automatically have privileges to log in to the VM over RDP. This is to provide audited separation between the set of people who control virtual machines versus the set of people who can access virtual machines.
+> To allow a user to log in to the VM over RDP, you must assign either the Virtual Machine Administrator Login or Virtual Machine User Login role to the Resource Group containing the VM and its associated Virtual Network, Network Interface, Public IP Address or Load Balancer resources. An Azure user with the Owner or Contributor roles assigned for a VM do not automatically have privileges to log in to the VM over RDP. This is to provide audited separation between the set of people who control virtual machines versus the set of people who can access virtual machines.
 
 There are multiple ways you can configure role assignments for VM:
 
@@ -177,6 +177,8 @@ There are multiple ways you can configure role assignments for VM:
 ### Using Azure AD Portal experience
 
 To configure role assignments for your Azure AD enabled Windows Server 2019 Datacenter VMs:
+
+1. Select the **Resource Group** containing the VM and its associated Virtual Network, Network Interface, Public IP Address or Load Balancer resource.
 
 1. Select **Access control (IAM)**.
 
@@ -197,12 +199,12 @@ The following example uses [az role assignment create](/cli/azure/role/assignmen
 
 ```AzureCLI
 $username=$(az account show --query user.name --output tsv)
-$vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
+$rg=$(az group show --resource-group myResourceGroup --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \
     --assignee $username \
-    --scope $vm
+    --scope $rg
 ```
 
 > [!NOTE]
@@ -425,6 +427,27 @@ If you haven't deployed Windows Hello for Business and if that isn't an option f
 > Windows Hello for Business PIN authentication with RDP has been supported by Windows 10 for several versions, however support for Biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is only available for deployments that use cert trust model and currently not available for key trust model.
  
 Share your feedback about this feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
+
+### Missing application
+
+If the Azure Windows VM Sign-In application is missing from Conditional Access, use the following steps to remediate the issue:
+
+1. Check to make sure the application isn't in the tenant by:
+   1. Sign in to the **Azure portal**.
+   1. Browse to **Azure Active Directory** > **Enterprise applications**
+   1. Remove the filters to see all applications, and search for "VM". If you don't see Azure Windows VM Sign-In as a result, the service principal is missing from the tenant.
+
+Another way to verify it is via Graph PowerShell:
+
+1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
+1. `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`
+1. Sign-in with a Global Admin account
+1. Consent to permission prompt
+1. `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Windows VM Sign-In"'`
+   1. If this command results in no output and returns you to the PowerShell prompt, you can create the Service Principal with the following Graph PowerShell command:
+   1. `New-MgServicePrincipal -AppId 372140e0-b3b7-4226-8ef9-d57986796201`
+   1. Successful output will show that the AppID and the Application Name Azure Windows VM Sign-In was created.
+1. Sign out of Graph PowerShell when complete with the following command: `Disconnect-MgGraph`
 
 ## Next steps
 

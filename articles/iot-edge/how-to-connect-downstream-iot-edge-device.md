@@ -227,11 +227,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
     pk = "file:///var/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
-01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.2. For example:
+01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.3. For example:
 
     ```toml
     [agent.config]
-    image: "mcr.microsoft.com/azureiotedge-agent:1.2"
+    image: "mcr.microsoft.com/azureiotedge-agent:1.3"
     ```
 
 01. The beginning of your parent configuration file should look similar to the following example.
@@ -281,8 +281,8 @@ To verify the *hostname*, you need to inspect the environment variables of the *
     ```output
     NAME                        STATUS           DESCRIPTION      CONFIG
     SimulatedTemperatureSensor  running          Up 5 seconds     mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.2
-    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.2
+    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.3
+    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.3
     ```
 01. Inspect the *edgeHub* container.
 
@@ -385,11 +385,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
     pk = "file:///var/secrets/iot-edge-device-ca-downstream.key.pem"
     ```
 
-01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.2. For example:
+01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.3. For example:
 
     ```toml
     [agent.config]
-    image: "mcr.microsoft.com/azureiotedge-agent:1.2"
+    image: "mcr.microsoft.com/azureiotedge-agent:1.3"
     ```
 
 01. The beginning of your child configuration file should look similar to the following example.
@@ -654,14 +654,14 @@ The API proxy module was designed to be customized to handle most common gateway
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.3",
                                "createOptions": "{}"
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.3",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -729,7 +729,7 @@ name = "edgeAgent"
 type = "docker"
 
 [agent.config]
-image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2"
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.3"
 ```
 
 If you are using a local container registry, or providing the container images manually on the device, update the config file accordingly.

@@ -1,202 +1,55 @@
 ---
-title: Disaster recovery for custom topics in Azure Event Grid
+title: Build your own disaster recovery plan for Azure Event Grid topics and domains
 description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
 ms.topic: tutorial
-ms.date: 04/22/2021
+ms.date: 06/14/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Build your own disaster recovery for custom topics in Event Grid
-Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
+# Build your own disaster recovery plan for Azure Event Grid topics and domains
 
-In this tutorial, you'll learn how to create an active-passive failover architecture for custom topics in Event Grid. You'll accomplish failover by mirroring your topics and subscriptions across two regions and then managing a failover when a topic becomes unhealthy. The architecture in this tutorial fails over all new traffic. it's important to be aware, with this setup, events already in flight won't be recovered until the compromised region is healthy again.
+If you have decided not to replicate any data to a paired region, you'll need to invest in some practices to build your own disaster recovery scenario and recover from a severe loss of application functionality.
 
-> [!NOTE]
-> Event Grid supports automatic geo disaster recovery (GeoDR) on the server side now. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
+## Build your scripts for automation
 
-## Create a message endpoint
+Keep your deployment pipelines automated, handcrafted processes can cause delays when a failover occurs. Ensure all your Azure deployments are backed up in scripts or templates so that deployments can be easily replicated in one or multiple regions if needed. Don't try to reinvent the wheel, use what it's already proven and works, there are a many automation tools capable to solve issues around cloud deployment automation like [Azure DevOps](/azure/devops/) or [GitHub Actions](https://docs.github.com/en/actions), there are more tools out there that can help you during the deployment phase, use the one you feel more comfortable to work with and use this how-to guide just a checklist reference.
 
-To test your failover configuration, you'll need an endpoint to receive your events at. The endpoint isn't part of your failover infrastructure, but will act as our event handler to make it easier to test.
+## Define the regions in your plan
 
-To simplify testing, deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+To create a recovery plan, you'll need to choose which regions will be used in your plan. When you choose the regions, you also need to consider the possible latency between your users and the cloud resources. Try to get the closest region to your primary region.
 
-1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
+## Selecting a cross-region router
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../media/template-deployments/deploy-to-azure.svg" alt="Button to deploy to Azure."></a>
+Once you already defined the regions, you'll need to define the cross-region router that will help you to distribute the traffic across the regions if needed. [Traffic Manager](../traffic-manager/traffic-manager-overview.md) is a DNS-based traffic load balancer that allows you to distribute traffic to your public facing applications across the global Azure regions. Traffic Manager also provides your public endpoints with high availability and quick responsiveness, in case you need additional features like cross-region redirection and availability, reverse proxy, static content cache, WAF policies you may be interested to see [Front Door](../frontdoor/front-door-overview.md).
+ 
+## Deploy your Azure Event Grid resources
 
-1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
-`https://<your-site-name>.azurewebsites.net`
-Make sure to note this URL as you'll need it later.
+Now it's time to create your Azure Event Grid topic resources, use the following [Bicep sample](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid) to create a topic with a webhook event subscription.
 
-1. You see the site but no events have been posted to it yet.
+Repeat the topic deployment process for the secondary region you have chosen.
 
-   ![View new site](./media/blob-event-quickstart-portal/view-site.png)
+Note: Once you have deployed resources in Azure you'll need to ensure changes made in the configuration of the topic and event subscriptions are reflected in the template, to continue the practice: create and recreate.
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+Save in some place the topic endpoints URLs for each resource you have created, you'll see something like this: 
 
+Region 1: `https://my-primary-topic.my-region-1.eventgrid.azure.net/api/events` 
 
-## Create your primary and secondary topics
+Region 2: `https://my-secondary-topic.my-secondary-1.eventgrid.azure.net/api/events` 
 
-First, create two Event Grid topics. These topics will act as your primary and secondary. By default, your events will flow through your primary topic. If there is a service outage in the primary region, your secondary will take over.
+## Create a Traffic Manager for Azure Event Grid endpoints
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+The previously created Azure Event Grid resources endpoints will be used when we create and configure the Traffic Manager profile in Azure, see the following [Quickstart: Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md) for more information.
 
-1. From the upper left corner of the main Azure menu, 
-   choose **All services** > search for **Event Grid** > select **Event Grid Topics**.
+Traffic Manager it's a global resource that provides a unique DNS name, like: `https://myeventgridtopic.trafficmanager.net`. Once you configure both Azure Event Grid topic endpoints in the Traffic Manager, it will automatically redirect the traffic to the second region once the primary region becomes unavailable.
 
-   ![Event Grid Topics menu](./media/custom-disaster-recovery/select-topics-menu.png)
+At this moment you have your resources deployed and running, and can start sending events to your traffic manager endpoint, in case you don't want to keep active the secondary endpoint in your traffic manager you may be interested to [disable the endpoint](../traffic-manager/traffic-manager-manage-endpoints.md#to-disable-an-endpoint).
 
-    Select the star next to Event Grid Topics to add it to resource menu for easier access in the future.
+## Integrate deployment scripts in your CI/CD process
 
-1. In the Event Grid Topics Menu, select **+ADD** to create your primary topic.
+Now that you ensure your configuration is working as expected and your events are delivered to the regions you defined, you'll need to integrate your template with an automation tool, see [Quickstart: Integrate Bicep with Azure Pipelines](../azure-resource-manager/bicep/add-template-to-azure-pipelines.md) or [Quickstart: Deploy Bicep files by using GitHub Actions](../azure-resource-manager/bicep/deploy-github-actions.md) for more information.
 
-   * Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
-   * This topic's region will be your primary region.
-
-     ![Event Grid Topic primary create dialogue](./media/custom-disaster-recovery/create-primary-topic.png)
-
-1. Once the Topic has been created, navigate to it and copy the **Topic Endpoint**. you'll need the URI later.
-
-    ![Event Grid Primary Topic](./media/custom-disaster-recovery/get-primary-topic-endpoint.png)
-
-1. Get the access key for the topic, which you'll also need later. Click on **Access keys** in the resource menu and copy Key 1.
-
-    ![Get Primary Topic Key](./media/custom-disaster-recovery/get-primary-access-key.png)
-
-1. In the Topic blade, click **+Event Subscription** to create a subscription connecting your subscribing the event receiver website you made in the pre-requisites to the tutorial.
-
-   * Give the event subscription a logical name and add "-primary" as a suffix to make it easy to track.
-   * Select Endpoint Type Web Hook.
-   * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
-
-     ![Screenshot that shows the "Create Event Subscription - Basic" page with the "Name", "Endpoint Type", and "Endpoint" values highlighted.](./media/custom-disaster-recovery/create-primary-es.png)
-
-1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a different Azure Region. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../availability-zones/cross-region-replication-azure.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
-
-You should now have:
-
-   * An event receiver website for testing.
-   * A primary topic in your primary region.
-   * A primary event subscription connecting your primary topic to the event receiver website.
-   * A secondary topic in your secondary region.
-   * A secondary event subscription connecting your primary topic to the event receiver website.
-
-## Implement client-side failover
-
-Now that you have a regionally redundant pair of topics and subscriptions setup, you're ready to implement client-side failover. There are several ways to accomplish it, but all failover implementations will have a common feature: if one topic is no longer healthy, traffic will redirect to the other topic.
-
-### Basic client-side implementation
-
-The following sample code is a simple .NET publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
-
-> [!NOTE]
-> The following sample code is only for demonstration purposes and is not intended for production use. 
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Azure;
-using Azure.Messaging.EventGrid;
-
-namespace EventGridFailoverPublisher
-{
-    // This captures the "Data" portion of an EventGridEvent on a custom topic
-    class FailoverEventData
-    {
-        public string TestStatus { get; set; }
-    }
-
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            // TODO: Enter the endpoint each topic. You can find this topic endpoint value
-            // in the "Overview" section in the "Event Grid Topics" blade in Azure Portal..
-            string primaryTopic = "https://<primary-topic-name>.<primary-topic-region>.eventgrid.azure.net/api/events";
-            string secondaryTopic = "https://<secondary-topic-name>.<secondary-topic-region>.eventgrid.azure.net/api/events";
-
-            // TODO: Enter topic key for each topic. You can find this in the "Access Keys" section in the
-            // "Event Grid Topics" blade in Azure Portal.
-            string primaryTopicKey = "<your-primary-topic-key>";
-            string secondaryTopicKey = "<your-secondary-topic-key>";
-
-            Uri primaryTopicUri = new Uri(primaryTopic);
-            Uri secondaryTopicUri = new Uri(secondaryTopic);
-
-            Uri primaryTopicHealthProbe = new Uri($"https://{primaryTopicUri.Host}/api/health");
-            Uri secondaryTopicHealthProbe = new Uri($"https://{secondaryTopicUri.Host}/api/health");
-
-            var httpClient = new HttpClient();
-
-            try
-            {
-                var client = new EventGridPublisherClient(primaryTopicUri, new AzureKeyCredential(primaryTopicKey));
-
-                await client.SendEventsAsync(GetEventsList());
-                Console.Write("Published events to primary Event Grid topic.");
-
-                HttpResponseMessage health = httpClient.GetAsync(secondaryTopicHealthProbe).Result;
-                Console.Write("\n\nSecondary Topic health " + health);
-            }
-            catch (RequestFailedException ex)
-            {
-                var client = new EventGridPublisherClient(secondaryTopicUri, new AzureKeyCredential(secondaryTopicKey));
-
-                await client.SendEventsAsync(GetEventsList());
-                Console.Write("Published events to secondary Event Grid topic. Reason for primary topic failure:\n\n" + ex);
-
-                HttpResponseMessage health = await httpClient.GetAsync(primaryTopicHealthProbe);
-                Console.WriteLine($"Primary Topic health {health}");
-            }
-
-            Console.ReadLine();
-        }
-
-        static IList<EventGridEvent> GetEventsList()
-        {
-            List<EventGridEvent> eventsList = new List<EventGridEvent>();
-
-            for (int i = 0; i < 5; i++)
-            {
-                eventsList.Add(new EventGridEvent(
-                    subject: "test" + i,
-                    eventType: "Contoso.Failover.Test",
-                    dataVersion: "2.0",
-                    data: new FailoverEventData
-                    {
-                        TestStatus = "success"
-                    }));
-            }
-
-            return eventsList;
-        }
-    }
-}
-```
-
-### Try it out
-
-Now that you have all of your components in place, you can test out your failover implementation. Run the above sample in Visual Studio code, or your favorite environment. Replace the following four values with the endpoints and keys from your topics:
-
-   * primaryTopic - the endpoint for your primary topic.
-   * secondaryTopic - the endpoint for your secondary topic.
-   * primaryTopicKey - the key for your primary topic.
-   * secondaryTopicKey - the key for your secondary topic.
-
-Try running the event publisher. You should see your test events land in your Event Grid viewer like below.
-
-![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/event-grid-viewer.png)
-
-To make sure your failover is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you'll see that they are now being published via the secondary topic.
-
-### Possible extensions
-
-There are many ways to extend this sample based on your needs. For high-volume scenarios, you may want to regularly check the topic's health api independently. That way, if a topic were to go down, you don't need to check it with every single publish. Once you know a topic isn't healthy, you can default to publishing to the secondary topic.
-
-Similarly, you may want to implement failback logic based on your specific needs. If publishing to the closest data center is critical for you to reduce latency, you can periodically probe the health api of a topic that has failed over. Once it's healthy again, you'll know it's safe to failback to the closer data center.
+Having a regularly tested automated process will provide confidence that dependencies used in your scripts and tools aren't outdated, and the recovery process can be triggered in a couple of minutes after any possible failure in the region.
 
 ## Next steps
 

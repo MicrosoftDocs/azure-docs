@@ -116,7 +116,7 @@ CLU offers the option to upload your utterance directly to the project rather th
         "intent": "{intent}",
         "entities": [
             {
-                "entityName": "{entity}",
+                "category": "{entity}",
                 "offset": 19,
                 "length": 10
             }
@@ -129,12 +129,12 @@ CLU offers the option to upload your utterance directly to the project rather th
         "intent": "{intent}",
         "entities": [
             {
-                "entityName": "{entity}",
+                "category": "{entity}",
                 "offset": 20,
                 "length": 10
             },
             {
-                "entityName": "{entity}",
+                "category": "{entity}",
                 "offset": 31,
                 "length": 5
             }

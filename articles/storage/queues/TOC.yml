@@ -168,13 +168,7 @@
       - name: Enable infrastructure encryption for the account
         href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configure client-side encryption
-      items:
-      - name: .NET
-        href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Java
-        href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Python
-        href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: client-side-encryption.md
     - name: Configure network security
       items:         
       - name: Configure firewalls and virtual networks

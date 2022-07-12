@@ -133,7 +133,8 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 - Accept pipeline input: False
 - Accept wildcard characters: False
 
-[User Access Administrators](../../role-based-access-control/built-in-roles.md#user-access-administrator) can add the users to Reservation Administrator and Reservation Reader roles.
+## Tenant-level access
+[User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservation Administrator and Reservation Reader roles at the tenant level.
 
 ## Add a Reservation Administrator role at the tenant level
 

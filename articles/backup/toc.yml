@@ -58,6 +58,10 @@
     href: multi-user-authorization-tutorial.md
 - name: Concepts
   items:
+  - name: Resiliency
+    items:
+    - name: Migrate to availability zone support
+      href: ../availability-zones/migrate-recovery-services-vault.md
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
@@ -220,6 +224,14 @@
         href: restore-sql-database-azure-vm.md
       - name: Manage
         href: manage-monitor-sql-database-backup.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-azure-sql-backup-cli.md
+      - name: Restore
+        href: backup-azure-sql-restore-cli.md
+      - name: Manage
+        href: backup-azure-sql-manage-cli.md
     - name: With REST API
       items:
       - name: Backup
@@ -654,7 +666,7 @@
   - name: Azure Data Protection - PowerShell
     href: /powershell/module/az.dataprotection/
   - name: PowerShell – Azure Backup agent
-    href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+    href: /powershell/module/msonlinebackup/
   - name: REST - Azure Data Protection
     href: /rest/api/dataprotection/
   - name: REST - Backup

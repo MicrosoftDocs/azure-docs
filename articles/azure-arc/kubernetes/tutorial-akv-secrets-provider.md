@@ -244,15 +244,18 @@ You should see output similar to the example below.
 
 Next, specify the Azure Key Vault to use with your connected cluster. If you don't already have one, create a new Key Vault by using the following commands. Keep in mind that the name of your Key Vault must be globally unique.
 
-```azurecli
-az keyvault create -n $AZUREKEYVAULT_NAME -g $AKV_RESOURCE_GROUP -l $AZUREKEYVAULT_LOCATION
 
-Next, set the following environment variables:
+Set the following environment variables:
 
 ```azurecli-interactive
 export AKV_RESOURCE_GROUP=<resource-group-name>
 export AZUREKEYVAULT_NAME=<AKV-name>
 export AZUREKEYVAULT_LOCATION=<AKV-location>
+```
+Next, run the following command
+
+```azurecli
+az keyvault create -n $AZUREKEYVAULT_NAME -g $AKV_RESOURCE_GROUP -l $AZUREKEYVAULT_LOCATION
 ```
 
 Azure Key Vault can store keys, secrets, and certificates. For this example, you can set a plain text secret called `DemoSecret` by using the following command:
@@ -293,7 +296,7 @@ Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed 
    apiVersion: secrets-store.csi.x-k8s.io/v1
    kind: SecretProviderClass
    metadata:
-   name: akvprovider-demo
+     name: akvprovider-demo
    spec:
      provider: azure
      parameters:
