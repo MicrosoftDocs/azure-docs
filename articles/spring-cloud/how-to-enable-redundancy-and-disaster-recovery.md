@@ -129,9 +129,9 @@ To ensure high availability and protection from disasters, deploy your Spring Ap
 
  Consider three key factors when you design your architecture: 
 
-- **Region availability**. Choose a region that supports Spring App zone redundancy, or a geographic area close to your users to minimize network lag and transmission time.
-- **Azure paired regions**. Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
-- **Service availability**. Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
+- Region availability. Choose a region that supports Spring App zone redundancy, or a geographic area close to your users to minimize network lag and transmission time.
+- Azure paired regions. Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
+- Service availability. Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
 
 ### Using Azure Traffic Manager to route traffic
 

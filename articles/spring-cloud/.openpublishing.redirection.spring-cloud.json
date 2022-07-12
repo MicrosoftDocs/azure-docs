@@ -371,12 +371,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "disaster-recovery.md",
+            "source_path": "quickstart-setup-application-configuration-service-enterprise",
             "redirect_url": "/azure/spring-cloud/quickstart-deploy-apps-enterprise",
             "redirect_document_id": false
         },
         {
-            "source_path": "quickstart-setup-application-configuration-service-enterprise.md",
+            "source_path": "disaster-recovery.md",
             "redirect_url": "/azure/spring-cloud/how-to-enable-redundancy-and-disaster-recovery",
             "redirect_document_id": false
         },
