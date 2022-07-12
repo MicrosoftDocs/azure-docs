@@ -64,7 +64,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - To access the storage account using SFTP, your network must allow traffic on port 22.
  
-- Static IP addresses are not supported for storage accounts. This is not an SFTP specific limitation.
+- Static IP addresses aren't supported for storage accounts. This is not an SFTP specific limitation.
   
 - Internet routing is not supported. Use Microsoft network routing.
 
@@ -74,15 +74,15 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
   
-- Special containers such as $logs, $blobchangefeed, $root, $web are not accessible via the SFTP endpoint. 
+- Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 
-- Symbolic links are not supported.
+- Symbolic links aren't supported.
 
-- SSH and SCP commands that aren't SFTP are not supported.
+- SSH and SCP commands that aren't SFTP aren't supported.
 
-- FTPS and FTP are not supported.
+- FTPS and FTP aren't supported.
   
-- TLS and SSL are not related to SFTP.
+- TLS and SSL aren't related to SFTP.
 
 ## Troubleshooting
 
