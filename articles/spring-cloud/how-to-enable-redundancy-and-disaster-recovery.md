@@ -56,7 +56,7 @@ The following limitations apply when you create an Azure Spring Apps Service ins
 - You can enable zone redundancy only when you create a new Azure Spring Apps Service instance.
 - If you enable your own resource in Azure Spring Apps, such as your own persistent storage, make sure to enable zone redundancy for the resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md).
 - Zone redundancy ensures that underlying VM nodes are distributed evenly across all availability zones but does not guarantee even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app in another available zone.
-- Geo-disaster recovery is not the purpose of zone redundancy. To protect your service from regional outages, see [Customer-managed geo-disaster recovery](#customer-managed-geo-disaster-recovery). 
+- Geo-disaster recovery is not the purpose of zone redundancy. To protect your service from regional outages, see the [Customer-managed geo-disaster recovery](#customer-managed-geo-disaster-recovery) section later in this article. 
 
 ## Creating an Azure Spring Apps instance with zone redundancy enabled
 
