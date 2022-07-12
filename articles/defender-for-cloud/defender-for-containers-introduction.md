@@ -13,12 +13,11 @@ Defender for Containers assists you with the three core aspects of container sec
 
 - [**Environment hardening**](#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. Defender for Containers continuously assesses clusters to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
 
-- [**Vulnerability assessment**](#vulnerability-assessment) - Vulnerability assessment and management tools for images **stored** in ACR registries and **running** in Azure Kubernetes Service.
+- [**Vulnerability assessment**](#vulnerability-assessment) - Vulnerability assessment and management tools for images stored in ACR registries and running in Azure Kubernetes Service.
 
 - [**Run-time threat protection for nodes and clusters**](#run-time-protection-for-kubernetes-nodes-and-clusters) - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities.
 
-You can learn more by watching this video from the Defender for Cloud in the Field video series:
-- [Microsoft Defender for Containers](episode-three.md)
+You can learn more by watching this video from the Defender for Cloud in the Field video series: [Microsoft Defender for Containers](episode-three.md).
 
 ## Microsoft Defender for Containers plan availability
 
@@ -50,7 +49,7 @@ With the add-on on your AKS cluster, every request to the Kubernetes API server 
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Kubernetes data plane hardening](kubernetes-workload-protections.md).
+You can learn more about [Kubernetes data plane hardening](kubernetes-workload-protections.md).
 
 ## Vulnerability assessment
 
@@ -58,10 +57,10 @@ Learn more in [Kubernetes data plane hardening](kubernetes-workload-protections.
 
 Defender for Containers includes an integrated vulnerability scanner for scanning images in Azure Container Registry registries. The vulnerability scanner runs on an image:
 
-- When you push the image to your registry
-- Weekly on any image that was pulled within the last 30
-- When you import the image to your Azure Container Registry
-- Continuously in specific situations
+  - When you push the image to your registry
+  - Weekly on any image that was pulled within the last 30
+  - When you import the image to your Azure Container Registry
+  - Continuously in specific situations
 
 Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
@@ -69,7 +68,7 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 ### View vulnerabilities for running images
 
-The recommendation **Running container images should have vulnerability findings resolved** shows vulnerabilities for running images by using the scan results from ACR registries and information on running images from the Defender security profile/extension. Images that are deployed from a non-ACR registry, will appear under the **Not applicable** tab.
+The recommendation `Running container images should have vulnerability findings resolved` shows vulnerabilities for running images by using the scan results from ACR registries and information on running images from the Defender security profile/extension. Images that are deployed from a non-ACR registry, will appear under the Not applicable tab.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
