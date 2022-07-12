@@ -48,6 +48,7 @@ The following example shows a sample code to create a document with the system d
 
 **JSON representation of the document**
 
+# [.NET SDK V3](#tab/dotnetv3)
 ```csharp
 DeviceInformationItem = new DeviceInformationItem
 {
@@ -90,6 +91,42 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
+# [Java SDK V4](#tab/javav4)
+
+```java
+static class Family {
+  public String id;
+  public String firstName;
+  public String lastName;
+  public String _partitionKey;
+
+  public Family(String id, String firstName, String lastName, String _partitionKey) {
+      this.id = id;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this._partitionKey = _partitionKey;
+  }
+}
+
+...
+
+CosmosDatabase cosmosDatabase = cosmosClient.getDatabase("testdb");
+CosmosContainer cosmosContainer = cosmosDatabase.getContainer("testcontainer");
+
+
+Family family = new Family("id-1", "John", "Doe", "Doe");
+logger.info("Creating Item");
+cosmosContainer.createItem(family, new PartitionKey(family._partitionKey), new CosmosItemRequestOptions());
+logger.info("Item created");
+
+logger.info("Creating items through bulk");
+family = new Family("id-2", "Jane", "Doe", "Doe");
+CosmosItemOperation createItemOperation = CosmosBulkOperations.getCreateItemOperation(family,
+    new PartitionKey(family._partitionKey));
+cosmosContainer.executeBulkOperations(Collections.singletonList(createItemOperation));
+logger.info("Items through bulk created");
+```
+
 For the complete sample, see the [.Net samples][1] GitHub repository.
                       
 ## Migrate the documents
@@ -100,6 +137,8 @@ While the container definition is enhanced with a partition key property, the do
 
 Applications can access the existing documents that don’t have a partition key by using the special system property called "PartitionKey.None", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
 
+# [.NET SDK V3](#tab/dotnetv3)
+
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
 await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
@@ -109,7 +148,14 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-For the complete sample on how to repartition the documents, see the [.Net samples][1] GitHub repository. 
+# [Java SDK V4](#tab/javav4)
+
+```java
+CosmosItemResponse<JsonNode> cosmosItemResponse = cosmosContainer.readItem("itemId", PartitionKey.NONE, JsonNode.class);
+logger.info("Cosmos Item response is : {}", cosmosItemResponse.getItem().toPrettyString());
+```
+
+For the complete sample on how to repartition the documents, see the [.Net samples][1] / [Java samples][2] GitHub repository.
 
 ## Compatibility with SDKs
 
@@ -136,3 +182,4 @@ If new items are inserted with different values for the partition key, querying 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration
+[2]: https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples
