@@ -132,11 +132,11 @@ If you selected **Channel name header** for **Partner topic routing mode**, crea
             :::image type="content" source="./media/onboard-partner/channel-partner-topic-basics.png" alt-text="Image showing the Create Channel - Basics page.":::
         1. Select **Add event type definitions** to declare the kind of events that are sent to the channel and to its associated partner topic. Event types are shown to customers when creating event subscriptions on the partner topic and are used to select the specific event types to send to an event handler destination.
 
-            :::image type="content" source="./media/onboard-partner/event-type-definition-1.png" alt-text="Image showing the event type definition 1.":::
+            :::image type="content" source="./media/onboard-partner/event-type-definition-1.png" alt-text="Screenshot that shows the Event Types Definitions section with Add event types definitions option selected.":::
 
-            :::image type="content" source="./media/onboard-partner/event-type-definition-2.png" alt-text="Image showing the event type definition 2.":::
+            :::image type="content" source="./media/onboard-partner/event-type-definition-2.png" alt-text="Screenshot that shows the definition of a sample event type.":::
             
-            :::image type="content" source="./media/onboard-partner/event-type-definition-3.png" alt-text="Image showing the event type definition 3.":::
+            :::image type="content" source="./media/onboard-partner/event-type-definition-3.png" alt-text="Screenshot that shows a list with the event type definition that was added.":::
     1. If you selected **Partner Destination**, enter the following details:
         1. **ID of the subscription** in which the partner topic will be created. 
         1. **Resource group** in which the partner topic will be created. 
@@ -169,7 +169,7 @@ If you created a channel you may be interested to update the configuration once 
 
 1. Go to the **Configuration** on the channel. You may update message for partner topic activation, expiration time if not activated, and event type definitions.
 
-    :::image type="content" source="./media/onboard-partner/channel-configuration.png" alt-text="Image showing the channel configuration.":::
+    :::image type="content" source="./media/onboard-partner/channel-configuration.png" alt-text="Screenshot that shows the Configuration page of a channel.":::
 
 > [!IMPORTANT]
 > Don't forget to save changes before leaving the configuration page.

@@ -44,8 +44,8 @@ You may want to use the Partner Events feature if you've one or more of the foll
 
 ### For partners as a subscriber
 
-- You want your service to react to customer events that originate in Microsoft/Azure.
-- You want your customer to react to Microsoft/Azure service events using their applications hosted by your platform. You use your platform's event routing capabilities to deliver events to the right customer solution.
+- You want your service to react to customer events that originate in Microsoft Azure.
+- You want your customer to react to Microsoft Azure service events using their applications hosted by your platform. You use your platform's event routing capabilities to deliver events to the right customer solution.
 - You want a simple model where your customers just select your service name as a destination without the need for them to know technical details like your platform endpoints.
 - Your system/platform supports [Cloud Events 1.0](https://cloudevents.io/) schema.
 
