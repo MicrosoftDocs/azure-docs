@@ -17,8 +17,8 @@ This guide walks you through migrating from using the Diagnostic Settings Storag
 
 The Diagnostic Settings Storage Retention feature is being deprecated. To configure retention for logs and metrics use [Azure Storage Lifecycle Management](azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal).
 
-+ On September 30 2023, the Diagnostic Settings Storage Retention feature will no longer be available to configure new retention rules for log data. If you have configured retention setting, you will still be able to see them and change them.
-+ On September 30 2024, you will no longer be able to use the API or Azure portal to configure retention setting unless you are change them to *0*.
++ On September 30 2023, the Diagnostic Settings Storage Retention feature will no longer be available to configure new retention rules for log data. If you have configured retention settings, you'll still be able to see and change them.
++ On September 30 2024, you'll no longer be able to use the API or Azure portal to configure retention setting unless you're changing them to *0*.
 + On September 30, 2025 – All retention functionality for the Diagnostic Settings Storage Retention feature will be disabled across all environments.
 
 ## Prerequisites 
@@ -26,32 +26,32 @@ An existing diagnostic setting logging to a storage account.
 
 ## Migration Procedures
 
-To migrate your diagnostics settings retention rules, followe the steps below:
+To migrate your diagnostics settings retention rules, follow the steps below:
 
 1. 	Go to the Diagnostic Settings page for your logging resource and locate the diagnostic setting you wish to migrate
 1.	Set the retention for your logged categories to *0*
 1. Select **Save**
- :::image type="content" source="./media/retention-migration/diagnostics-setting.png" alt-text="A screen shot showing a diagnostics setting page.":::
+ :::image type="content" source="./media/retention-migration/diagnostics-setting.png" alt-text="A screenshot showing a diagnostics setting page.":::
 
-1.	Navigate to the storage account you are logging to
+1.	Navigate to the storage account you're logging to
 1.	**Under Data management**, select **Lifecycle Management** to view or change lifecycle management policies
 1.	Select List View, and select **Add a rule**
-:::image type="content" source="./media/retention-migration/lifecycle-management.png" alt-text="A screen shot showing the lifecycle management screen for a storage account.":::
+:::image type="content" source="./media/retention-migration/lifecycle-management.png" alt-text="A screenshot showing the lifecycle management screen for a storage account.":::
 1. Enter a **Rule name**
 1. Under **Rule Scope**, select **Limit blobs with filters**
 1. Under **Blob Type**, select  **Append Blobs** and **Base blobs** under **Blob subtype**.
 1. Select **Next**
-:::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-details.png" alt-text="A screen shot showing the details tab for adding a lifecycle rule.":::
+:::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-details.png" alt-text="A screenshot showing the details tab for adding a lifecycle rule.":::
 
 1. Set your retention time, then select **Next**
-:::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-base-blobs.png" alt-text="A screen shot showing the Base blobs tab for adding a lifecycle rule.":::
+:::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-base-blobs.png" alt-text="A screenshot showing the Base blobs tab for adding a lifecycle rule.":::
 
 1.	On the **Filters** tab, under **Blob prefix** set path or prefix to the container or logs you want the retention rule to apply to.  
-For example, for all Function App logs, you could use the container: *insights-logs-functionapplogs* to set retention or all Function App logs
-To set rule for as specific subscription resource group and function app name use *insights-logs-functionapplogs/resourceId=/SUBSCRIPTIONS/<SubscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.WEB/SITES/<FunctionAppName>* 
+For example, for all Function App logs, you could use the container *insights-logs-functionapplogs* to set the retention for all Function App logs.
+To set the rule for a specific subscription, resource group, and function app name, use *insights-logs-functionapplogs/resourceId=/SUBSCRIPTIONS/<SubscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.WEB/SITES/<FunctionAppName>* 
 
 1. Select **Add* to 
-:::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-filter-set.png" alt-text="A screen shot showing the filters tab tab for adding a lifecycle rule.":::
+:::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-filter-set.png" alt-text="A screenshot showing the filters tab for adding a lifecycle rule.":::
 
 ## Next steps
 
