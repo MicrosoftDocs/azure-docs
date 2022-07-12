@@ -18,8 +18,8 @@ This article provides guidance for a new class of silicon based micro-architectu
 - [ADV180018 - Microsoft Guidance to mitigate L1TF variant](https://msrc.microsoft.com/update-guide/vulnerability/ADV180018)
 - [ADV190013 - Microsoft Guidance to mitigate Microarchitectural Data Sampling vulnerabilities](https://msrc.microsoft.com/update-guide/vulnerability/ADV190013)
 - [ADV220002 - Microsoft Guidance on Intel Processor MMIO Stale Data Vulnerabilities](https://msrc.microsoft.com/update-guide/vulnerability/ADV220002)
-- [CVE-2022-23825]()
-- [CVE-2022-21123]()
+- [CVE-2022-23816](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23816)
+- [CVE-2022-21123](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23825)
 
 
 The disclosure of these CPU vulnerabilities has resulted in questions from customers seeking more clarity.  
@@ -107,6 +107,11 @@ CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
 If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled. If you are running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled. Once hyper-threading is disabled, support will require a full VM reboot. Refer to [Core count](#core-count) to understand why your VM core count decreased.
+
+### Option 3
+
+For [CVE-2022-23816](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23816) and [CVE-2022-21123](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23825) (AMD CPU Branch Type Confusion), follow both **Option 1** and **Option 2** above.
+
 
 
 ### Linux
