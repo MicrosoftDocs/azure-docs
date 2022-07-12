@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.date: 06/25/2021
 ms.author: anfdocs
 ---
 # Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes
@@ -46,7 +46,19 @@ There are two areas of focus: light load and upper limit. The following lists de
 * All comparisons are made against the `sec=sys` security parameter.
 * The test was done on a single volume, using a single client. 
 
+<!-- sys baseline of -
+Avg. IOPS: ~241102
+Avg. throughput: ~753 MB/s
+Avg. latency ~0.5 ms
+->
+
 **Performance impact of krb5:**
+
+<!-- 
+Average IOPS: ~11351 / -53%
+Average throughput: ~355 MB/s / -53%
+Average latency: ~3.2 ms / +540%
+-->
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.3 ms.
@@ -59,6 +71,12 @@ There are two areas of focus: light load and upper limit. The following lists de
 
 **Performance impact of krb5i:**
 
+<!-- 
+Average IOPS: ~10856 / -55%
+Average throughput: ~338 MB/s / -55%
+Average latency: ~1.1 ms / +120%
+-->
+
 * Low concurrency (r/w):
     * Sequential latency increased 0.5 ms.
     * Random I/O latency increased 0.2 ms.
@@ -69,6 +87,12 @@ There are two areas of focus: light load and upper limit. The following lists de
     * Maximum metadata workload decreased 30%.
 
 **Performance impact of krb5p:**
+
+<!-- 
+Average IOPS: ~5579 / -77%
+Average throughput: ~174 MB/s / -77%
+Average latency: ~2.1 ms / +320%
+-->
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.8 ms.
