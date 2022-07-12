@@ -18,7 +18,7 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 ## Prerequisites
 
 - An Azure subscription.
-- An Azure account with **Contributor** and **User Access Administrator** role access to the subscriptions and resource groups in which the VIS exists.
+- An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource. 
 - A [network set up for your infrastructure deployment](create-network.md).
 
 ## Deployment types
@@ -36,9 +36,9 @@ There are three deployment options that you can select for your infrastructure, 
 
 1. In the search bar, enter and select **Azure Center for SAP solutions**.
 
-1. On the ACSS landing page, select **Create**.
+1. On the ACSS landing page, select **Create a new SAP system**.
 
-1. On the **Create SAP Virtual Instance** page, on the **Basics** tab, fill in the details for your project.
+1. On the **Create Virtual Instance for SAP solutions** page, on the **Basics** tab, fill in the details for your project.
 
     1. For **Subscription**, select the Azure subscription into which you're deploying the infrastructure.
 
@@ -100,7 +100,7 @@ There are three deployment options that you can select for your infrastructure, 
     
         The number of VMs for ASCS and Database instances aren't editable. The default number for each is **2**.
 
-    1. Under **Database virtual machines**, ACSS automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure a VM SKU is selected. Then, select **View disk configuration**. If there are more than one database servers, the layout applies to each server. 
+        ACSS automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure to select a VM SKU. Then, select **View disk configuration**. If there's more than one database server, the layout applies to each server. 
 
     1. Select **Next: Tags**.
 

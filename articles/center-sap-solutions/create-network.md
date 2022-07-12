@@ -19,7 +19,11 @@ In this how-to guide, you'll learn how to create a virtual network to deploy S/4
 
 - An Azure subscription.
 - [Review the quotas for your Azure subscription](../azure-portal/supportability/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
-
+- It's recommended to have multiple IP addresses in the subnet or subnets before you begin deployment. For example, it's always better to have a `/26` mask instead of `/29`. 
+- Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow ACSS to size your SAP system. If you're not sure, you can also select the VMs. There are:
+    - A single or cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
+    - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
+    - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
 
 ## Create network
 
@@ -27,7 +31,7 @@ You must create a network for the infrastructure deployment on Azure. Make sure 
 
 Some of the required network components are:
 
-- A virtual network (VNet)
+- A virtual network
 - Subnets for the Application Servers and Database Servers. Your configuration needs to allow communication between these subnets.
 - Azure network security groups
 - Azure application security groups
@@ -39,7 +43,7 @@ For more information, see the [example network configuration](#example-network-c
 
 ## Connect network
 
-At a minimum, the network needs to have outbound internet connectivity for successful infrastructure deployment and software installation. 
+At a minimum, the network needs to have outbound internet connectivity for successful infrastructure deployment and software installation. The application and database subnets also need to be able to communicate with each other.
 
 If internet connectivity isn't possible, allowlist the IP addresses for the following areas:
 
@@ -49,13 +53,14 @@ If internet connectivity isn't possible, allowlist the IP addresses for the foll
 - [Allowlist Azure Active Directory (Azure AD)](#allowlist-azure-ad)
 - [Allowlist Azure Resource Manager](#allowlist-azure-resource-manager)
 
-Then, make sure all resources within the VNet can connect to each other. For example, [configure a network security group](../virtual-network/manage-network-security-group.md#work-with-network-security-groups) to allow resources within the VNet to communicate by listening on all ports.
+Then, make sure all resources within the virtual network can connect to each other. For example, [configure a network security group](../virtual-network/manage-network-security-group.md#work-with-network-security-groups) to allow resources within the virtual network to communicate by listening on all ports.
 
 - Set the **Source port ranges** to **\***.
 - Set the **Destination port ranges** to **\***.
 - Set the **Action** to **Allow**
 
-If it's not possible to allow the resources within the VNet to connect to each other, [open important SAP ports in the VNet](#open-important-sap-ports) instead.
+If it's not possible to allow the resources within the virtual network to connect to each other, allow connections between the application and database subnets, and [open important SAP ports in the virtual network](#open-important-sap-ports) instead.
+
 ### Allowlist SUSE or Red Hat endpoints
 
 If you're using SUSE for the VMs, [allowlist the SUSE endpoints](https://www.suse.com/c/azure-public-cloud-update-infrastructure-101/). For example:
@@ -67,6 +72,7 @@ If you're using SUSE for the VMs, [allowlist the SUSE endpoints](https://www.sus
 1. Allowlist all these IP addresses on the firewall or network security group where you're planning to attach the subnets.
 
 If you're using Red Hat for the VMs, [allowlist the Red Hat endpoints](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) as needed. The default allowlist is the Azure Global IP addresses. Depending on your use case, you might also need to allowlist Azure US Government or Azure Germany IP addresses. Configure all IP addresses from your list on the firewall or the network security group where you want to attach the subnets.
+
 ### Allowlist storage accounts
 
 ACSS needs access to the following storage accounts to install SAP software correctly:
@@ -105,15 +111,7 @@ ACSS uses a managed identity for software installation. Managed identity authent
 
 ### Open important SAP ports
 
-If you're unable to [allow connection between all resources in the VNet](#connect-network) as previously described, you can open important SAP ports in the VNet instead. This method allows resources within the VNet to listen on these ports for communication purposes. If you're using more than one subnet, these settings also allow connectivity within the subnets.
-
-It's recommended to have multiple IP addresses in the subnet or subnets before you begin deployment. For example, it's always better to have a `/26` mask instead of `/29`. 
-
-Before you begin, make sure  you know the SAP Application Performance Standard (SAPS) and database memory size that you need to allow ACSS to size your SAP system. If you're not sure, you can also select the VMs. There are:
-
-- A single or cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
-- A single or cluster of Database VMs, which make up a single Database instance in the VIS.
-- A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
+If you're unable to [allow connection between all resources in the virtual network](#connect-network) as previously described, you can open important SAP ports in the virtual network instead. This method allows resources within the virtual network to listen on these ports for communication purposes. If you're using more than one subnet, these settings also allow connectivity within the subnets.
 
 Open the SAP ports listed in the following table. Replace the placeholder values (`xx`) in applicable ports with your SAP instance number. For example, if your SAP instance number is `01`, then `32xx` becomes `3201`.
 
@@ -139,9 +137,9 @@ Open the SAP ports listed in the following table. Replace the placeholder values
 
 The configuration process for an example network might include:
 
-1. Create a VNet, or use an existing VNet.
+1. Create a virtual network, or use an existing virtual network.
 
-1. Create the following subnets inside the VNet:
+1. Create the following subnets inside the virtual network:
 
     1. An application tier subnet.
 
@@ -151,7 +149,7 @@ The configuration process for an example network might include:
 
 1. Create a new firewall resource:
 
-    1. Attach the firewall to the VNet.
+    1. Attach the firewall to the virtual network.
 
     1. Create a rule to allowlist RHEL or SUSE endpoints. Make sure to allow all source IP addresses (`*`), set the source port to **Any**, allow the destination IP addresses for RHEL or SUSE, and set the destination port to **Any**.
 
@@ -165,11 +163,11 @@ The configuration process for an example network might include:
 
 1. Update the subnets for the application and database tiers to use the new route table.
 
-1. If you're using a network security group with the VNet, add the following inbound rule. This rule provides connectivity between the subnets for the application and database tiers.
+1. If you're using a network security group with the virtual network, add the following inbound rule. This rule provides connectivity between the subnets for the application and database tiers.
 
     | Priority | Port | Protocol | Source | Destination | Action |
     | -------- | ---- | -------- | ------ | ----------- | ------ |
-    | 100 | Any | Any | VNet | VNet | Allow |
+    | 100 | Any | Any | virtual network | virtual network | Allow |
 
 1. If you're using a network security group instead of a firewall, add outbound rules to allow installation.
 
@@ -180,7 +178,7 @@ The configuration process for an example network might include:
     | 116 | Any | Any | Any | Azure AD | Allow |
     | 117 | Any | Any | Any | Storage accounts | Allow |
     | 118 | 8080 | Any | Any | Key vault | Allow |
-    | 119 | Any | Any | Any | VNet | Allow |
+    | 119 | Any | Any | Any | virtual network | Allow |
     
 ## Next steps
 
