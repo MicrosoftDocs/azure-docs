@@ -117,16 +117,11 @@ Devices might be inactive because of misconfigured SPAN ports, changes in networ
 
 Delete inactive devices to maintain a correct representation of current network activity, better understand your committed devices when managing your Defender for IoT plans, and to reduce clutter on your screen.
 
-> [!NOTE]
-> Devices must be inactive for 14 days or more in order for you to be able to delete them. If your device has had activity in the past 14 days, it isn't considered inactive, and the **Delete** button will be inactive.
->
-
 **To delete a device**:
 
 In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
-
 
 ## Device inventory column reference
 
