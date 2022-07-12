@@ -12,7 +12,7 @@ The logs ingestion API in Azure Monitor lets you send data to a Log Analytics wo
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
 > [!NOTE]
-> The logs ingestion API was previously referred to as the logs ingestion API.
+> The logs ingestion API was previously referred to as the custom logs API.
 
 
 ## Basic operation
