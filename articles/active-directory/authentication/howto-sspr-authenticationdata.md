@@ -160,7 +160,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ### Use Microsoft Graph PowerShell
 
-To get started, [download and install the Microsoft Graph PowerShell module](powershell/microsoftgraph/overview).
+To get started, [download and install the Microsoft Graph PowerShell module](/powershell/microsoftgraph/overview).
 
 To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
 
