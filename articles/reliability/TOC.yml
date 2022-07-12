@@ -1,20 +1,22 @@
-- name: Azure Resiliency
+- name: Azure Services Reliability Documentation
+  href: index.yml
+- name: Overview
   items:
-  - name: Azure Resiliency feature page
-    href: https://azure.microsoft.com/features/
-  - name: Resiliency in Azure
-    href: overview.md
-  - name: Design resilient applications for Azure
-    href: /azure/architecture/framework/resiliency/app-design
-- name: Availability Zones fundamentals
+  - name: About Reliability
+    href: overview-reliability.md
+  - name: Availability
+    href: overview-availability.md
+  - name: Resiliency 
+    href: overview-resiliency.md
+- name: Availability of services by region type
+  href: availability-service-by-category.md
+- name: Availability of services by sovereign cloud
+  href: availability-service-by-category.md
+- name: Availability zones
   items:
-  - name: Regions and Availability Zones in Azure
-    href: az-overview.md
-  - name: Azure Services
-    href: region-types-service-categories-azure.md
-  - name: Azure Services that support Availability Zones
-    href: az-region.md
-  - name: Migration Guidance
+  - name: Azure services that support availability zones
+    href: availability-zones-region.md
+  - name: Azure service availability zone migration guides
     items:
     - name: App Service Environment
       href: migrate-app-service-environment.md
@@ -26,11 +28,7 @@
       href: migrate-vm.md
     - name: Storage accounts
       href: migrate-storage.md
-  - name: Terminology
-    href: glossary.md
-- name: High Availability
-  items:
-  - name: Quickstart guides
+  - name: Azure service availability zone quickstart guides
     items:
     - name: Virtual machines
       items:
@@ -110,8 +108,10 @@
     - name: Identity
       items:
       - name: Create an Azure Active Directory Domain Services instance
-        href: ../active-directory-domain-services/tutorial-create-instance.md 
-- name: Disaster Recovery
+        href: ../active-directory-domain-services/tutorial-create-instance.md
+  - name: Terminology
+    href: glossary.md
+- name: Resiliency
   items:  
   - name: Business continuity management in Azure
     href: business-continuity-management-program.md
