@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-**Applies to:** ![IoT Edge 1.2 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2, ![IoT Edge 1.3 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.3
+**Applies to:** ![IoT Edge 1.2 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2 ![IoT Edge 1.3 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.3

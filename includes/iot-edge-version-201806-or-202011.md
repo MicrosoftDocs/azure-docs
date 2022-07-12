@@ -21,7 +21,7 @@
 <!-- 1.3 -->
 ::: moniker range="iotedge-2020-11"
 
-**Applies to:** ![IoT Edge 1.2 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2, ![IoT Edge 1.3 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.3
+**Applies to:** ![IoT Edge 1.2 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2 ![IoT Edge 1.3 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.3
 **Other versions:**  [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true)
 
 ::: moniker-end
