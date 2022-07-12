@@ -57,6 +57,27 @@ If multiple NVA instances are used for in an active/active fashion for better re
 
 Multiple NVA instances can be deployed in an active/passive setup as well, for example if one of them advertises worse routes (with a longer AS path) than the other. In this case, Azure Route Server will only inject the preferred route in the VNet virtual machines, and the less preferred route will only be used when the primary NVA instance stops advertising over BGP.
 
+## Different Route Servers to advertise routes to Virtual Network Gateways and to VNets
+
+As the previous sections have shown, Azure Route Server has a double role:
+
+1. It learns and advertises routes to/from Virtual Network Gateways (VPN and ExpressRoute)
+2. It configures learnt routes on its VNet, and on directly peered VNets
+
+This dual functionality often is interesting, but at times it can be detrimental to certain requirements. For example, if the Route Server is deployed in a VNet with an NVA advertising a 0.0.0.0/0 route and an ExpressRoute gateway advertising prefixes from on-premises, it will configure all routes (both the 0.0.0.0/0 from the NVA and the on-premises prefixes) on the virtual machines in its VNet and directly peered VNets. As a consequence, since the on-premises prefixes will be more specific than 0.0.0.0/0, traffic between on-premises and Azure will bypass the NVA. Is this is not desired, the previous sections in this article have shown how to disable BGP propagation in the VM subnets and configure UDRs.
+
+However, there is an alternative, more dynamic approach. It is possible using different Azure Route Servers for different functionality: one of them will be responsible for interacting with the Virtual Network Gateways, and the other one for interacting with the Virtual Network routing. The following diagram shows a possible design for this:
+
+:::image type="content" source="./media/scenarios/route-injection-split-route-server.png" alt-text="This network diagram shows a basic hub and spoke topology with on-premises connectivity via ExpressRoute and different Route Servers for ExpressRoute and Virtual Network interaction.":::
+
+In the figure above, Azure Route Server 1 in the hub is used to inject the prefixes from the SDWAN into ExpressRoute. Since the spokes are peered with the hub VNet without the "Use Remote Gateways" and "Allow Gateway Transit" VNet peering options, the spokes will not learn these routes (neither the SDWAN prefixes nor the ExpressRoute prefixes).
+
+To propagate routes to the spokes the NVA leverages a second Azure Route Server 2, deployed in a new auxiliary VNet. The NVA will only propagate a single `0.0.0.0/0` route to this Azure Route Server 2. Since the spokes are peered with this auxiliary VNet with "Use Remote Gateways" and "Allow Gateway Transit" VNet peering options, this `0.0.0.0/0` route will be learnt by all the Virtual Machines in the spokes.
+
+Note that the next hop for this `0.0.0.0/0` route will be the NVA, so the spokes still need to be peered to the hub VNet. Another important aspect to notice is that the hub VNet needs to be peered to the VNet where the new Azure Route Server 2 is deployed, otherwise it will not be able to create the BGP adjacency.
+
+This design allows automatic injection of routes in a spoke VNets without interference from other routes learnt from ExpressRoute, VPN or an SDWAN environment.
+
 ## Next steps
 
 * [Learn how Azure Route Server works with ExpressRoute](expressroute-vpn-support.md)
