@@ -173,7 +173,7 @@
       items:
         - name: Azure AD authentication
           items:
-            - name: Windows 10
+            - name: Windows
               href: openvpn-azure-ad-client.md
             - name: macOS
               href: openvpn-azure-ad-client-mac.md
