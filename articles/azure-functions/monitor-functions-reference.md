@@ -58,22 +58,22 @@ Azure Functions uses Kusto tables from Azure Monitor Logs. You can query the [Fu
 
 ## Activity log
 
-The following table lists the operations related to Azure Functions that may be created in the Activity log.
+The following table lists the operations related to Azure Functions that may be created in the Activity log. 
 
 | Operation | Description |
 |:---|:---|
-|List Web Apps Functions Keys | Return the [keys for the function]functions-bindings-http-webhook-trigger.md#authorization-keys.|
-|List Web Apps Functions Host Keys | Return the [host keys for the function app]functions-bindings-http-webhook-trigger.md#authorization-keys.|
-|Start Web App| Function app started. |
-|Stop Web App| Function app stopped.|
-|Sync Web Apps Function Triggers | [Sync triggers](functions-deployment-technologies.md#trigger-syncing) operation.|
-|Update website| Change a function app setting, such as runtime version or enable remote debugging.|
+|Microsoft.web/sites/functions/listkeys/action | Return the [keys for the function]functions-bindings-http-webhook-trigger.md#authorization-keys.|
+|Microsoft.Web/sites/host/listkeys/action | Return the [host keys for the function app]functions-bindings-http-webhook-trigger.md#authorization-keys.|
+|Microsoft.Web/sites/host/sync/action | [Sync triggers](functions-deployment-technologies.md#trigger-syncing) operation.|
+|Microsoft.Web/sites/start/action| Function app started. |
+|Microsoft.Web/sites/stop/action| Function app stopped.|
+|Microsoft.Web/sites/write| Change a function app setting, such as runtime version or enable remote debugging.|
 
-You may also find logged operations that relate to the underlying App Service behaviors. For more information, see the [Monitoring App Service reference](../app-service/monitor-app-service-reference.md#activity-log).
+You may also find logged operations that relate to the underlying App Service behaviors. For a more complete list, see [Resource Provider Operations](/azure/role-based-access-control/resource-provider-operations#microsoftweb).
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
 ## See Also
 
-- See [Monitoring Azure Functions](monitor-functions.md) for a description of monitoring Azure Functions.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+* See [Monitoring Azure Functions](monitor-functions.md) for a description of monitoring Azure Functions.
+* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
