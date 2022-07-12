@@ -73,6 +73,13 @@ In the following tables, the term alphanumeric refers to:
 > | service / templates | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 > | service / users | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 
+## Microsoft.App
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | containerApps | resource group | 2-32 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+
 ## Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
