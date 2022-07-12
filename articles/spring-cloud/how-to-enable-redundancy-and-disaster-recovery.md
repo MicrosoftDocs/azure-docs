@@ -134,7 +134,7 @@ To ensure high availability and protection from disasters, deploy your applicati
 - **Azure paired regions**. Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
 - **Service availability**. Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
 
-### Using Azure Traffic Manager to route traffic
+### Use Azure Traffic Manager to route traffic
 
 Azure Traffic Manager provides DNS-based traffic load-balancing and can distribute network traffic across multiple regions. Use Azure Traffic Manager to direct customers to the closest Azure Spring Apps service instance to them. For best performance and redundancy, direct all application traffic through Azure Traffic Manager before sending it to your Azure Spring Apps service. For more information, see the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
 
