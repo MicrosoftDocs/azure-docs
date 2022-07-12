@@ -138,7 +138,7 @@ To ensure high availability and protection from disasters, deploy your applicati
 
 Azure Traffic Manager provides DNS-based traffic load-balancing and can distribute network traffic across multiple regions. Use Azure Traffic Manager to direct customers to the closest Azure Spring Apps service instance. For best performance and redundancy, direct all application traffic through Azure Traffic Manager before sending it to your Azure Spring Apps service instance. For more information, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-If you have applications in Azure Spring Apps running in multiple regions, Azure Traffic Manager can control the flow of traffic to your applications in each region. Define an Azure Traffic Manager endpoint for each service using the service IP. Customers should connect to an Azure Traffic Manager DNS name pointing to the Azure Spring Apps service. Azure Traffic Manager load balances traffic across the defined endpoints. If a disaster strikes a data center, Azure Traffic Manager directs traffic from that region to its pair, ensuring service continuity.
+If you have applications in Azure Spring Apps running in multiple regions, Azure Traffic Manager can control the flow of traffic to your applications in each region. Define an Azure Traffic Manager endpoint for each service instance using the instance IP. You should connect to an Azure Traffic Manager DNS name pointing to the Azure Spring Apps service instance. Azure Traffic Manager load balances traffic across the defined endpoints. If a disaster strikes a data center, Azure Traffic Manager directs traffic from that region to its pair, ensuring service continuity.
 
 To create an Azure Traffic Manager for Azure Spring Apps:
 
