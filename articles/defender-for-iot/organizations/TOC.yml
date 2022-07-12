@@ -53,14 +53,20 @@
         href: concept-supported-protocols.md
 - name: How-to guides
   items:
-  - name: Visualize network devices
+  - name: Visualize devices
     displayName: assets
     items:
-    - name: Viewing the Device inventory
-      href: how-to-manage-device-inventory-for-organizations.md
-    - name: View the Device map on an OT sensor
+    - name: Manage device inventory
+      items:
+      - name: Manage device inventory from the Azure portal
+        href: how-to-manage-device-inventory-for-organizations.md
+      - name: Manage device inventory from a sensor console
+        href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+      - name: Manage device inventory from an on-premises management console
+        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+    - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
-    - name: View OT devices on a sensor per zone
+    - name: View OT devices per zone
       href: how-to-view-information-per-zone.md
   - name: Manage alerts
     items:
