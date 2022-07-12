@@ -21,7 +21,8 @@ Creating the data controller has the following high level steps:
 1. Create the data controller
 
 > [!NOTE]
-> For simplicity, the steps below assume that you are a Kubernetes cluster administrator. For production deployments or more secure environments, it is recommended to follow the security best practices of "least privilege" when deploying the data controller by granting only specific permissions to users and service accounts involved in the deployment process. See the topic [Operating Arc-enabled data services with least privileges](least-privilege.md) for detailed instructions.
+> For simplicity, the steps below assume that you are a Kubernetes cluster administrator. For production deployments or more secure environments, it is recommended to follow the security best practices of "least privilege" when deploying the data controller by granting only specific permissions to users and service accounts involved in the deployment process. 
+
 
 ## Prerequisites
 
