@@ -1,5 +1,5 @@
 ---
-title: Track, monitor, and analyze jobs in studio
+title: Monitor and analyze jobs in studio
 titleSuffix: Azure Machine Learning 
 description: Learn how to start, monitor, and track your machine learning experiment jobs with the Azure Machine Learning studio. 
 services: machine-learning
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Start, monitor, and track job history in studio
+# Monitor and analyze jobs in studio
 
 You can use [Azure Machine Learning studio](https://ml.azure.com) to monitor, organize, and track your jobs for training and experimentation. Your ML job history is an important part of an explainable and repeatable ML development process.
 

@@ -34,8 +34,8 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 ### Anomali
 
-- [Learn how to import threat intelligence from Anoamli Threatstream into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-anomali-threatstream-feed-into-microsoft-sentinel/ba-p/3561742#M3787)
-- [See what you need to connect to Anomali Limo feed](https://www.anomali.com/resources/limo).
+- [Learn how to import threat intelligence from Anomali ThreatStream into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-anomali-threatstream-feed-into-microsoft-sentinel/ba-p/3561742#M3787)
+- [See what you need to connect to Anomali's Limo feed](https://www.anomali.com/resources/limo).
 
 ### Cybersixgill Darkfeed
 

@@ -174,7 +174,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | `REVOKE` | No |
 | `SELECT` | Yes |
 | `UPDATE` | Yes |
-| `TRUNCATE` | No |
+| `TRUNCATE` | Yes |
 | `USE` | Yes |
 
 ## Lightweight Transactions (LWT)

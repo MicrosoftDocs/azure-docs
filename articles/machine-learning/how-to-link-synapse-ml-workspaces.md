@@ -31,7 +31,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 
 ## Prerequisites
 
-* [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=python).
+* [Create an Azure Machine Learning workspace](quickstart-create-resources.md).
 
 * [Create a Synapse workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
 

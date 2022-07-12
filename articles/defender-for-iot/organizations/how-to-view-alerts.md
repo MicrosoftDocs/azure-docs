@@ -1,7 +1,7 @@
 ---
 title: View alerts details on the sensor Alerts page 
 description: View alerts detected by your Defender for IoT sensor.
-ms.date: 06/30/2022
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
@@ -168,7 +168,7 @@ If your deployment was set up to work with cloud-connected sensors, Alert detect
 Viewing alerts in the portal provides significant advantages. For example, it lets you:
 
 - Display an aggregated  view of alert activity in all enterprise sensors
-- learn about related MITRE ATT&CK techniques, tactics and stages
+- Understand related MITRE ATT&CK techniques, tactics and stages
 - View alerts based on the site
 - Change the severity of an alert
 
@@ -180,7 +180,7 @@ You can manage an alert incident by:
 
 - Changing the status of an alert.
 
-- Instructing sensors to learn, acknowledge or mute activity detected.
+- Instructing sensors to learn, close, or mute activity detected.
 
 - Create alert groups for display at SOC solutions.
 

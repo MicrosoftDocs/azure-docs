@@ -52,7 +52,7 @@ In contrast, when working with locally managed sensors:
 
 - Sensor names can be updated in the sensor console.
 
-### Devices monitored by Defender for IoT
+### What is a Defender for IoT committed device?
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
