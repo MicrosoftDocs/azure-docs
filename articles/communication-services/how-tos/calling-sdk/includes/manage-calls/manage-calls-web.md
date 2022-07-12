@@ -34,7 +34,7 @@ When you call a PSTN number, specify your alternate caller ID. An alternate call
 For a 1:1 call to a PSTN number, use the following code:
 ```js
 const pstnCallee = { phoneNumber: '<ACS_USER_ID>' }
-const alternateCallerId = {alternateCallerId: '<ALTERNATE_CALLER_ID>'};
+const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const oneToOneCall = callAgent.startCall([pstnCallee], {alternateCallerId});
 ```
 
@@ -43,7 +43,7 @@ For a 1:n call to a user and a PSTN number, use the following code:
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const pstnCallee = { phoneNumber: '<PHONE_NUMBER>'};
-const alternateCallerId = {alternateCallerId: '<ALTERNATE_CALLER_ID>'};
+const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
 ```
 
