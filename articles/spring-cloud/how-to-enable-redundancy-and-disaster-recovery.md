@@ -85,7 +85,7 @@ To create a service in Azure Spring Apps with zone redundancy enabled using the 
 
 ---
 
-## Verifying the Zone Redundant property setting
+## Verify the Zone Redundant property setting
 
 You can verify the Zone Redundant property setting in an Azure Spring Apps instance using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure portal](https://portal.azure.com).
 
