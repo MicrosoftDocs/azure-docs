@@ -249,7 +249,7 @@ There are three ways to create a remediation task through the portal.
    
 1. Follow steps to [specify remediation task details](#step-2-specify-remediation-task-details).
 
-#### Option 2. Create a remediation task from a non-compliant policy assignment
+#### Option 2: Create a remediation task from a non-compliant policy assignment
 
 1. Select **Compliance** on the left side of the Azure Policy page.
 
@@ -259,7 +259,7 @@ There are three ways to create a remediation task through the portal.
 
 1. Follow steps to [specify remediation task details](#step-2-specify-remediation-task-details).
 
-#### Option 3. Create a remediation task during policy assignment
+#### Option 3: Create a remediation task during policy assignment
 
 If the policy or initiative definition to assign has a **deployIfNotExists** or a **Modify** effect,
 the **Remediation** tab of the wizard offers a _Create a remediation task_ option, which creates a remediation task at the same time as the policy assignment.
