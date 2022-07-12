@@ -178,7 +178,7 @@ You can control how your parameter controls are presented to consumers with work
 
 1. Select **Done Editing**.
 
-  :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot that shows the creation of a time range parameter.":::
+      :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot that shows the creation of a time range parameter.":::
 
 ## Add metric charts
 
