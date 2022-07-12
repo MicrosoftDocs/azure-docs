@@ -53,42 +53,42 @@ New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $R
 
 
    b) Get SFRP provider id and Service Principal for Service Fabric Resource Provider application:
-```powershell
-Login-AzAccount  
-Select-AzSubscription -SubscriptionId <SubId>  
-Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
-```
+   ```powershell
+   Login-AzAccount  
+   Select-AzSubscription -SubscriptionId <SubId>  
+   Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
+   ```
 
 >[!NOTE] 
 > Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
    c) Add role assignment to host group with contributor access. This role assignment can be created via PowerShell using the Id of the previous output as principal ID    and role definition name as "Contributor" where applicable. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles.
-      
-```powershell
-New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
-```
 
-   Alternatively, you can also use a template. This role assignment can be defined in the resources section template using the Principal ID and role definition ID: 
-   
-```JSON
-"variables": {  
-        "authorizationApiVersion": "2018-01-01-preview",
-        "contributorRoleId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-        "SFRPAadServicePrincipalId": " <Service Fabric Resource Provider ID> -"
-    },
-{  
-            "apiVersion": "[variables('authorizationApiVersion')]",  
-            "type": "Microsoft.Compute/Hostgroups/providers/roleAssignments",  
-            "name": "[concat(concat(parameters('dhgNamePrefix'), '0'), '/Microsoft.Authorization/', parameters('hostGroupRoleAssignmentId'))]",  
-            "dependsOn": [  
-                "[resourceId('Microsoft.Compute/hostGroups', concat(parameters('dhgNamePrefix'), '0'))]"  
-            ],  
-            "properties": {  
-                "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', variables('contributorRoleId'))]",  
-                "principalId": "[variables('SFRPAadServicePrincipalId')]"  
-            }  
-          } 
-```
+   ```powershell
+   New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
+   ```
+
+      Alternatively, you can also use a template. This role assignment can be defined in the resources section template using the Principal ID and role definition ID: 
+
+   ```JSON
+   "variables": {  
+           "authorizationApiVersion": "2018-01-01-preview",
+           "contributorRoleId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+           "SFRPAadServicePrincipalId": " <Service Fabric Resource Provider ID> -"
+       },
+   {  
+               "apiVersion": "[variables('authorizationApiVersion')]",  
+               "type": "Microsoft.Compute/Hostgroups/providers/roleAssignments",  
+               "name": "[concat(concat(parameters('dhgNamePrefix'), '0'), '/Microsoft.Authorization/', parameters('hostGroupRoleAssignmentId'))]",  
+               "dependsOn": [  
+                   "[resourceId('Microsoft.Compute/hostGroups', concat(parameters('dhgNamePrefix'), '0'))]"  
+               ],  
+               "properties": {  
+                   "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', variables('contributorRoleId'))]",  
+                   "principalId": "[variables('SFRPAadServicePrincipalId')]"  
+               }  
+             } 
+   ```
 
 ## Deploy Service Fabric managed cluster with Dedicated Host
 
@@ -103,14 +103,14 @@ $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 ```
 
 2) Provide your own values for the following template parameters:
-   a) Subscription: Select an Azure subscription. 
-   b) Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK. 
-   c) Location: Select a location. 
-   d) Cluster Name: Enter a unique name for your cluster, such as mysfcluster. 
-   e) Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster. 
-   f) Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster. 
-   g) Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate. 
-   h) Node Type Name: Enter a unique name for your node type, such as nt1.
+      a) Subscription: Select an Azure subscription. 
+      b) Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK. 
+      c) Location: Select a location. 
+      d) Cluster Name: Enter a unique name for your cluster, such as mysfcluster. 
+      e) Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster. 
+      f) Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster. 
+      g) Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate. 
+      h) Node Type Name: Enter a unique name for your node type, such as nt1.
    
 ```powershell
 New-AzResourceGroupDeployment ` 
@@ -122,8 +122,8 @@ New-AzResourceGroupDeployment `
 ```
 
 3) There are two straightforward ways to deploy an ARM template:
-   a) Through ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
-   b) Through ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
+      a) Through ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
+      b) Through ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
    
 4) Deploy the template through your chosen method. It takes a few minutes for your managed Service Fabric cluster to deploy. Wait for the deployment to be completed successfully.
 
