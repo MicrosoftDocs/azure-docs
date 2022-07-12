@@ -38,7 +38,7 @@ This article lists significant changes to Azure Monitor documentation.
 | Article | Description |
 |:---|:---|
 | [Collect text and IIS logs with Azure Monitor agent (preview)](agents/data-collection-text-log.md) | Added troubleshooting section.|
-| [Tools for migrating to Azure Monitor Agent from legacy agents](agents/azure-monitor-agent-migration-tools) | New article that explains how to install and use tools for migrating from legacy agents to the new Azure Monitor agent (AMA).|
+| [Tools for migrating to Azure Monitor Agent from legacy agents](agents/azure-monitor-agent-migration-tools.md) | New article that explains how to install and use tools for migrating from legacy agents to the new Azure Monitor agent (AMA).|
 
 ### Visualizations
 Azure Monitor Workbooks documentation previously resided on an external github repository. We have migrated all Azure Workbooks content to the same repo as all other Azure Monitor content. 
