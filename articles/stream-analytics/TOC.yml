@@ -178,6 +178,7 @@
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
   - name: Event ordering
+    items:
     - name: Event ordering overview
       href: event-ordering.md
     - name: Time handling considerations
