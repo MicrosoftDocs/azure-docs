@@ -124,6 +124,7 @@ If you don't have a budget yet, you'll see a link to create a new budget. Budget
 
 Group related resources, like disks under VMs or web apps under App Service plans, by adding a “cm-resource-parent” tag to the child resources with a value of the parent resource ID. Wait 24 hours for tags to be available in usage and your resources will be grouped. Leave feedback to let us know how we can improve this experience further for you.
 
+
 Some resources have related dependencies that aren't explicit children or nested under the logical parent in Azure Resource Manager. Examples include disks used by a virtual machine or web apps assigned to an App Service plan. Unfortunately, Cost Management isn't aware of these relationships and can't group them automatically. This experimental feature uses tags to summarize the total cost of your related resources together. You'll see a single row with the parent resource. When you expand the parent resource, you'll see each linked resource listed individually with their respective cost.
  
 As an example, let's say you have an Azure Virtual Desktop host pool configured with two VMs. Tagging the VMs and corresponding network/disk resources groups them under the host pool, giving you the total cost of the session host VMs in your host pool deployment. This example gets even more interesting if you want to also include the cost of any cloud solutions made available via your host pool.
@@ -157,6 +158,15 @@ Charts in the cost analysis preview include a chart of daily or monthly charges 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-charts.png" alt-text="Screenshot showing a chart in cost analysis preview." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-charts.png" :::
 
 Charts are enabled on the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** Option at the bottom of the page to share feedback about the preview.
+
+
+<a name="cav3forecast"></a>
+
+## Forecast in the cost analysis preview
+
+Show the forecast for the current period at the top of the cost analysis preview.
+
+Charts can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** Option at the bottom of the page to share feedback about the preview.
 
 
 <a name="productscolumn"></a>
