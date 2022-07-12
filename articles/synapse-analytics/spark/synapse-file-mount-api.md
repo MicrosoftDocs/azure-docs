@@ -6,7 +6,7 @@ services: synapse-analytics
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 11/18/2021
+ms.date: 07/12/2022
 ms.author: ruxu
 ms.reviewer: wiassaf
 ms.custom: subject-rbac-steps
@@ -30,7 +30,7 @@ The document will show you how to use mount/unmount API in your workspace, mainl
 > + Azure Data Lake storage Gen1 storage is not supported, you can migrate to ADLS Gen2 following the [Migration gudiance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using mount APIs.
 
 
-<a id="How-to-mount-Gen2/blob-Storage">
+<a id="How-to-mount-Gen2/blob-Storage"></a>
 ## How to mount storage
 
 Here we will illustrate how to mount Azure Data Lake Storage (ADLS) Gen2 or Azure Blob Storage step by step as an example, mounting blob storage works similarly. 
