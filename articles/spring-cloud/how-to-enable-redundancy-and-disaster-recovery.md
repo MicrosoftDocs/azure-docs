@@ -91,7 +91,7 @@ You can verify the Zone Redundant property setting in an Azure Spring Apps insta
 
 ### [Azure CLI](#tab/azure-cli)
 
-To verify the Zone Redundant property setting using the Azure CLI, use the following command to show the details of the Azure Spring Apps instance, including the Zone Redundant property.
+To verify the zone redundancy property setting using the Azure CLI, use the following command to show the details of the Azure Spring Apps instance, including the zone redundancy property.
 
 ```azurecli
 az spring show \
