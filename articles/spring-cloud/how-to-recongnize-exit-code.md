@@ -38,9 +38,9 @@ The exit codes indicate the termination reasons of the application. The detail i
   
   Common problems are as follows:
   * If the app is a java app, please check the quota of jvm params, it maybe exceed the limitation of your app.
-  * Check whether your appication supplies a port corresponding to the configuration of azure app.
   
 * 143 - The application exited because it failed to respond to health probing, please make sure the application listens to some port, configure the port for health probing on the hosting platform, or turn off health probing.
 
   Common problems are as follows:
-  * Usuallly your application maybe exit with OOM, please check detail logs in your app.
+  * Usuallly your application maybe exit with OOM, please check detail logs in your app.  
+  * Check whether your appication supplies a port to be checked by azure platform.
