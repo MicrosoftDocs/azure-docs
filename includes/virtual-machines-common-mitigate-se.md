@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-This article provides guidance for a new class of silicon based micro-architectural and speculative execution side-channel vulnerabilities that affect many modern processors and operating systems. This includes Intel, AMD, and ARM. Specific details for these silicon-based vulnerabilities can be found in the following security advisories: 
+This article provides guidance for a new class of silicon based micro-architectural and speculative execution side-channel vulnerabilities that affect many modern processors and operating systems. This includes Intel, AMD, and ARM. Specific details for these silicon-based vulnerabilities can be found in the following security advisories and CVEs: 
 - [ADV180002 - Guidance to mitigate speculative execution side-channel vulnerabilities](https://msrc.microsoft.com/update-guide/vulnerability/ADV180002)
 - [ADV180012 - Microsoft Guidance for Speculative Store Bypass](https://msrc.microsoft.com/update-guide/vulnerability/ADV180012)
 - [ADV180013 - Microsoft Guidance for Rogue System Register Read](https://msrc.microsoft.com/update-guide/vulnerability/ADV180013)
@@ -18,6 +18,8 @@ This article provides guidance for a new class of silicon based micro-architectu
 - [ADV180018 - Microsoft Guidance to mitigate L1TF variant](https://msrc.microsoft.com/update-guide/vulnerability/ADV180018)
 - [ADV190013 - Microsoft Guidance to mitigate Microarchitectural Data Sampling vulnerabilities](https://msrc.microsoft.com/update-guide/vulnerability/ADV190013)
 - [ADV220002 - Microsoft Guidance on Intel Processor MMIO Stale Data Vulnerabilities](https://msrc.microsoft.com/update-guide/vulnerability/ADV220002)
+- [CVE-2022-23825]()
+- [CVE-2022-21123]()
 
 
 The disclosure of these CPU vulnerabilities has resulted in questions from customers seeking more clarity.  
