@@ -161,7 +161,7 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
      | Endpoint A Profile | External Endpoint | `service-sample-a.azuremicroservices.io` | 1 | `host: bcdr-test.contoso.com` |
      | Endpoint B Profile | External Endpoint | `service-sample-b.azuremicroservices.io` | 2 | `host: bcdr-test.contoso.com` |
 
-1. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net.
+1. Create a CNAME record in a DNS Zone similar to the following example: `bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net`.
 
 The environment is now set up. Customers should be able to access the app using bcdr-test.contoso.com.
 
