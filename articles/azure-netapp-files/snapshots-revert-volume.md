@@ -47,9 +47,6 @@ type the name of the volume, and click **Revert**.
 
 ![Screenshot that shows the Revert Volume to Snapshot window.](../media/azure-netapp-files/snapshot-revert-volume.png) 
 
-
-## Considerations
-
 ## Next steps
 
 * [Learn more about snapshots](snapshots-introduction.md)
