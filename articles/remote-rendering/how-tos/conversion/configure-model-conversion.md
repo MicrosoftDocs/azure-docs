@@ -13,7 +13,7 @@ This chapter documents the options for the model conversion.
 
 ## Settings file
 
-If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used to provide additional configuration for the model conversion process.
+If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used to provide extra configuration for the model conversion process.
 For example, `box.ConversionSettings.json` would be used when converting `box.gltf`.
 
 The contents of the file should satisfy the following json schema:
@@ -258,7 +258,7 @@ The properties that do have an effect on point cloud conversion are:
 
 ## Memory optimizations
 
-Memory consumption of loaded content may become a bottleneck on the rendering system. If the memory payload becomes too large, it may compromise rendering performance or cause the model to not load altogether. This paragraph discusses some important strategies to reduce the memory footprint.
+Memory consumption of loaded content may become a bottleneck on the rendering system. If the memory payload becomes too large, it may compromise rendering performance, or cause the model to not load altogether. This paragraph discusses some important strategies to reduce the memory footprint.
 
 > [!NOTE]
 > The following optimizations apply to triangular meshes. There is no way to optimize the output of point clouds through conversion settings.
