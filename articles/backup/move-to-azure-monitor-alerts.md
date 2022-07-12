@@ -142,7 +142,7 @@ To create a suppression alert processing rule, follow these steps:
 
 ## Programmatic options
 
-You can also leverage programmatic methods to opt-out of classic alerts and manage Azure Monitor notifications.
+You can also use programmatic methods to opt-out of classic alerts and manage Azure Monitor notifications.
 
 - **Opting out of classic backup alerts**: There's now a **monitoringSettings** vault property that helps you specify whether you want to disable classic alerts. You can create a custom ARM/Bicep template or Azure Policy to modify this setting for your vaults. Below is an example of this property for a vault where classic alerts are disabled and built-in Azure Monitor alerts are enabled for all job failures.
 
