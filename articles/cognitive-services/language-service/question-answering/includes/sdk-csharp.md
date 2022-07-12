@@ -4,7 +4,7 @@ description: This quickstart shows how to get started with the question answerin
 author: jboback
 ms.author: jboback
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 07/12/2022
 ---
 
 Use this quickstart for the question answering client library for .NET to:
@@ -13,7 +13,7 @@ Use this quickstart for the question answering client library for .NET to:
 * Get an answer from a body of text that you send along with your question.
 * Get the confidence score for the answer to your question.
 
- [API reference documentation][questionanswering_refdocs]|[Source code][questionanswering_client_src] | [Package (NuGet)][questionanswering_nuget_package]  | [Samples][questionanswering_samples] |
+ [Reference documentation][questionanswering_refdocs] | [Package (NuGet)][questionanswering_nuget_package]  | [Additional samples][questionanswering_samples] | [Library source code][questionanswering_client_src]
 
 [questionanswering_nuget_package]: https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering/
 [questionanswering_refdocs]: /dotnet/api/Azure.AI.Language.QuestionAnswering/
