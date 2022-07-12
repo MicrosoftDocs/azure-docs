@@ -34,17 +34,15 @@ Use the REST API v3.1 to:
     - **displayFormWordLevelTimestampsEnabled** can be used to enable the reporting of word-level timestamps on the display form of the transcription results.
     - **diarization** allows to specify hints for the minimum and maximum number of speaker labels to generate when performing optional diarization (speaker separation). With this feature, the service is now able to generate speaker labels for more than two speakers.
     - **languageIdentification** allows to specify settings for optional language identification on the input prior to transcription. Up to 10 candidate locales are supported for language identification. For the preview API, transcription can only be performed with base models for the respective locales. The ability to use custom models for transcription will be added for the GA version.
-- **Get Transcriptions**, **Get Transcription Files**, **Get Transcriptions For Project** now include 2 new optional parameters to simplify finding the right resource:
+- **Get Transcriptions**, **Get Transcription Files**, **Get Transcriptions For Project** now include a new optional parameter to simplify finding the right resource:
+    - **filter** can be used to provide a filtering expression for selecting a subset of the available resources. You can filter by displayName, description, createdDateTime, lastActionDateTime, status and locale. Example: filter=createdDateTime gt 2022-02-01T11:00:00Z
 
 ### Custom Speech changes
 -	**Create Dataset** now supports a new data type of **LanguageMarkdown** to support upload of the new structured text data.
     It also now supports uploading data in multiple blocks for which the following new operations were added:
-    - **Create Upload Session** - Creates an upload session for chunked upload of data.
     - **Upload Data Block** - Upload a block of data for the dataset. The maximum size of the block is 8MiB.
-    - **Upload Data Chunk** - Uploads a chunk of data.
-    - **Commit Block List** - Commit block list to complete the upload of the dataset.
-    - **Get Upload Session** - Gets the upload session identified by the given ID.
     - **Get Uploaded Blocks** - Get the list of uploaded blocks for this dataset.
+    - **Commit Block List** - Commit block list to complete the upload of the dataset.
 - **Get Base Models** and **Get Base Model** now provide information on the type of adaptation supported by a base model:
  ```json 
  "features": {
@@ -64,10 +62,9 @@ Use the REST API v3.1 to:
 |Language |Supports adapting with Plain Text. |
 |LanguageMarkdown |Supports adapting with Structured Text. |
 |Pronunciation |Supports adapting with a Pronunciation File. |
-- **Create Model** has a new optional parameter under **properties** called **customModelWeightPercentage** that lets you specify the weight used when the Custom Language Model (trained from plain or structured text data) is combined with the Base Language Model. Valid values are between 0.1 and 0.9. The default value is currently 0.3.
-- **Get Base Models**, **Get Datasets**, **Get Datasets For Project**, **Get Data Set Files**, **Get Endpoints**, **Get Endpoints For Project**, **Get Evaluations**, **Get Evaluations For Project**, **Get Evaluation Files**, **Get Models**, **Get Models For Project**, **Get Projects** now include 2 new optional parameters to simplify finding the right resource:
-    - **orderBy** can be used to provide a sorting expression for determining the order in which the resources will be returned.
-    - **filter** can be used to provide a filtering expression for selecting a subset of the available resources.
+- **Create Model** has a new optional parameter under **properties** called **customModelWeightPercent** that lets you specify the weight used when the Custom Language Model (trained from plain or structured text data) is combined with the Base Language Model. Valid values are integers between 1 and 100. The default value is currently 30.
+- **Get Base Models**, **Get Datasets**, **Get Datasets For Project**, **Get Data Set Files**, **Get Endpoints**, **Get Endpoints For Project**, **Get Evaluations**, **Get Evaluations For Project**, **Get Evaluation Files**, **Get Models**, **Get Models For Project**, **Get Projects** now include a new optional parameter to simplify finding the right resource:
+    - **filter** can be used to provide a filtering expression for selecting a subset of the available resources.  You can filter by displayName, description, createdDateTime, lastActionDateTime, status, locale and kind. Example: filter=locale eq 'en-US'
 
 - Added a new **Get Model Files** operation to get the files of the model identified by the given ID as well as a new **Get Model File** operation to get one specific file (identified with fileId) from a model (identified with id). This lets you retrieve a **ModelReport** file that provides information on the data processed during training. 
 
