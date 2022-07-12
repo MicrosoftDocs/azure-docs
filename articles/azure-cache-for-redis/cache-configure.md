@@ -57,17 +57,15 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Workbooks](#workbooks)
 - Automation
   - Tasks (preview) <!-- Need some text for this.  -->
-  - Export template <!-- Need some text for this.  -->
+  - [Export template](#export-template)
 - Support & troubleshooting settings
   - [Resource health](#resource-health)
   - [New support request](#new-support-request)
 
-[Automation script](#automation-script)
- <!-- was this replaced by tasks? -->
 
 ## Overview
 
-**Overview** provides you with basic information about your cache, such as name, ports, pricing tier, and selected cache metrics.
+The **Overview** section provides you with basic information about your cache, such as name, ports, pricing tier, and selected cache metrics.
 
 ### Activity log
 
@@ -86,6 +84,7 @@ The **Tags** section helps you organize your resources. For more information, se
 Select **Diagnose and solve problems** to be provided with common issues and strategies for resolving them.
 
 ### Events
+<!-- Need contents -->
 
 ## Redis console
 
@@ -94,7 +93,8 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 > [!IMPORTANT]
 >
 >- The Redis Console does not work with [VNet](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
->- Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
+
+
 >
 
 To access the Redis Console, select **Console** tab in the working pane of Resource menu.
@@ -104,6 +104,10 @@ To access the Redis Console, select **Console** tab in the working pane of Resou
 To issue commands against your cache instance, type the command you want into the console.
 
 :::image type="content" source="media/cache-configure/redis-console.png" alt-text="Screenshot that shows the Redis Console with the input command and results.":::
+
+> [!NOTE]
+>
+> Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 
 ### Using the Redis Console with a premium clustered cache
 
@@ -146,7 +150,6 @@ The **Settings** section allows you to access and configure the following settin
 - [Firewall](#firewall)
 - [Properties](#properties)
 - [Locks](#locks)
-- [Automation script](#automation-script)
 
 ### Access keys
 
@@ -260,8 +263,10 @@ For more information and instructions, see [Azure Cache for Redis administration
 
 The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
 
+<!-- only premium caches? What about Enterprise? -->
+
 > [!IMPORTANT]
-> Virtual network settings are only available for premium caches that were configured with VNET support during cache creation.
+> Virtual network settings are only available for premium caches that were configured with VNet support during cache creation.
 
 ### Private endpoint
 <!-- Need content -->
@@ -343,13 +348,15 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 
 ### Insights
 
-### Metrics
+Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
 
-Select **Metrics** to [view metrics](cache-how-to-monitor.md#view-cache-metrics) for your cache.
+## Metrics
+
+Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
 
 ### Alerts
 
-Select **Alert rules** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+Select **Alerts** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
 
 ### Diagnostic settings
 
@@ -367,12 +374,12 @@ The **Advisor recommendations** on the left displays recommendations for your ca
 If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed on the in the **Overview** of the Resource menu.
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in the Azure Cache for Redis section.":::
-<!-- Might want a better recommendation. -->
+<!-- Might want a better recommendation in the image. -->
 
 Further information can be found on the **Recommendations** in the working pane of the Azure portal.
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Recommendations":::
-<!-- How do we trigger an event that causes a good recommendation -->
+<!-- How do we trigger an event that causes a good recommendation for the image? -->
 
 You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu.
 
@@ -389,15 +396,15 @@ To upgrade your cache, select **Upgrade now** to change the pricing tier and [sc
 
 ### Workbooks
 
+Organize your metrics into groups so that you display metric information in a coherent and effective way.
+
 ## Automation
 
 ### Tasks
 
 ### Export template
 
-### Automation script
-
-Select **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
+Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Support & troubleshooting settings
 

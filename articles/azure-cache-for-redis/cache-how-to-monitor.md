@@ -45,8 +45,8 @@ The other options under **Monitoring**, provide other ways to view and use the m
 | [**Insights**](#use-insights-for-predefined-charts)   |   A group of predefined tiles and charts to use as starting point for your cache metrics.     |
 | [**Alerts**](#create-alerts)     |   Configure alerts based on metrics and activity logs.      |
 | [**Metrics**](#create-your-own-metrics)     |   Create your own custom chart to track the metrics you want to see.       |
-| [**Advisor Recommendations**](cache-configure.md#azure-cache-for-redis-advisor) |  Helps you follow best practices to optimize your Azure deployments.       |
-| [**Workbooks**](#organize-with-workbooks)     |    Organize your metrics into groups that provide the information in coherent way.     |
+| [**Advisor Recommendations**](cache-configure.md#advisor-recommendations)) |  Helps you follow best practices to optimize your Azure deployments.       |
+| [**Workbooks**](#organize-with-workbooks)     |    Organize your metrics into groups so that you display metric information in a coherent and effective way.     |
 
 ## View metrics charts with Azure Monitor for Azure Cache for Redis
 
