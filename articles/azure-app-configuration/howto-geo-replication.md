@@ -25,7 +25,7 @@ To learn more about the concept of geo-replication, see [Geo-replication in Azur
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
-## Sign in to Azure
+## Sign in to Azure 
 
 You will need to sign in to Azure first to access the App Configuration service.
 
@@ -41,7 +41,7 @@ Sign in to Azure using the `az login` command in the [Azure CLI](/cli/azure/inst
 az login
 ```
 
-This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ---
 
@@ -52,14 +52,14 @@ To create a replica of your configuration store, follow the steps below.
 ### [Portal](#tab/azure-portal)
 
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
-1. Under **Replica(s)**, select **Create**. Select the location of your new replica in the dropdown, then assign the replica a name. This replica name must be unique. 
+1. Under **Replica(s)**, select **Create**. Choose the location of your new replica in the dropdown, then assign the replica a name. This replica name must be unique. 
 
     <!-- PLACEHOLDER FOR SCREENSHOT
     :::image type="content" source="./media/how-to-soft-delete-app-config-4.png" alt-text="On App Configuration stores, the Manage deleted stores option is highlighted."::: 
     -->
 
 1. Select **Create**. 
-1. You should now see your new replica listed under Replica(s). Check that the status of the replica is "Succeeded".  
+1. You should now see your new replica listed under Replica(s). Check that the status of the replica is "Succeeded", which indicates that it was created successfully.   
 
     <!-- PLACEHOLDER FOR SCREENSHOT
     :::image type="content" source="media/disable-public-access.png" alt-text="Screenshot of the Azure portal disabling public access.":::
@@ -69,15 +69,15 @@ To create a replica of your configuration store, follow the steps below.
 
 1. In the CLI, run the following code to create a replica of your configuration store. 
 
-```azurecli-interactive
-az appconfig replica create --store-name MyConfigStoreName --name MyNewReplicaName --location MyNewReplicaLocation
-```
+    ```azurecli-interactive
+    az appconfig replica create --store-name MyConfigStoreName --name MyNewReplicaName --location MyNewReplicaLocation
+    ```
 
 1. Verify that the replica was created successfully by listing all replicas of your configuration store. 
 
-```azurecli-interactive
-  az appconfig replica list --store-name MyConfigStoreName 
-```
+    ```azurecli-interactive
+      az appconfig replica list --store-name MyConfigStoreName 
+    ```
 ---
 
 
@@ -94,21 +94,21 @@ To delete a replica, follow the steps below.
     :::image type="content" source="./media/how-to-soft-delete-app-config-4.png" alt-text="On App Configuration stores, the Manage deleted stores option is highlighted."::: 
     -->
 
-1. Verify that the name of the replica to be deleted and select **OK** to confirm. 
-1. Once the process if complete, check the list of replicas that the correct replica has been deleted. 
+1. Verify the name of the replica to be deleted and select **OK** to confirm. 
+1. Once the process is complete, check the list of replicas that the correct replica has been deleted. 
 
 ### [Azure CLI](#tab/azure-cli)
 
 1. In the CLI, run the following code. 
 
-```azurecli-interactive
-az appconfig replica delete --store-name MyConfigStoreName --name MyNewReplicaName 
-```
+    ```azurecli-interactive
+    az appconfig replica delete --store-name MyConfigStoreName --name MyNewReplicaName 
+    ```
 1. Verify that the replica was deleted successfully by listing all replicas of your configuration store. 
 
-```azurecli-interactive
-az appconfig replica list --store-name MyConfigStoreName 
-```
+    ```azurecli-interactive
+    az appconfig replica list --store-name MyConfigStoreName 
+    ```
 
 ---
 
