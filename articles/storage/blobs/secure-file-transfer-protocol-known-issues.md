@@ -48,7 +48,7 @@ The unsupported client list above is not exhaustive and may change over time.
 | Capacity Information | `df` - usage info for filesystem |
 | Extensions | Unsupported extensions include but aren't limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
 | SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of key exchange will fail. |
-| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, ADLS Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
+| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
 
 ## Authentication and authorization
   
