@@ -5,7 +5,7 @@ description: This article answers common questions about virtual hub settings an
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/30/2022
+ms.date: 07/12/2022
 ms.author: cherylmc
 ---
 
@@ -36,10 +36,6 @@ Capacity is configured on the **Basics** tab **Virtual hub capacity** setting wh
 Adjust the virtual hub capacity when you need to support additional virtual machines and the aggregate throughput of the virtual hub router.
 
 To add additional virtual hub capacity, go to the virtual hub in the Azure portal. On the **Overview** page, click **Edit virtual hub**. Adjust the **Virtual hub capacity** using the dropdown, then **Confirm**.
-
-> [!NOTE]
-> When you edit virtual hub capacity, there will be data path disruption if the change in scale units has resulted in an underlying VPN GW SKU change.
-> 
 
 ### Routing infrastructure unit table
 
