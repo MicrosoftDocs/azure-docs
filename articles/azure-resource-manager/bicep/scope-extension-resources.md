@@ -155,6 +155,7 @@ module applyStoreLock './storageLock.bicep' = {
     storageAccountName: storageAccountName
   }
 }
+```
 
 storageLock.bicep
 
