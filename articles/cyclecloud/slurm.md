@@ -135,7 +135,7 @@ While the built-in CycleCloud "KeepAlive" feature does not currently work for Sl
 
 ### Excluding a node
 
-To exclude a node or multiple nodes from autoscale, add `SuspendExcNodes=<listofnodes>` to the Slurm configuration file. For example, to exclude nodes 1 and 2 from the hpc partition, add the following to `/etc/slurm/slurm.conf`:
+To exclude a node or multiple nodes from autoscale, add `SuspendExcNodes=<listofnodes>` to the Slurm configuration file. For example, to exclude nodes 1 and 2 from the hpc partition, add the following to `/sched/slurm.conf`:
 
 ```bash
 SuspendExcNodes=hpc-pg0-[1-2]
@@ -143,7 +143,7 @@ SuspendExcNodes=hpc-pg0-[1-2]
 
 Then restart the `slurmctld` service for the new configuration to take effect.
 ### Excluding a partition
-Excluding entire partitions from autoscale is similar to excluding nodes. To exclude the entire `hpc` partition, add the following to `/etc/slurm/slurm.conf`
+Excluding entire partitions from autoscale is similar to excluding nodes. To exclude the entire `hpc` partition, add the following to `/sched/slurm.conf`
 
 ```bash
 SuspendExcParts=hpc
