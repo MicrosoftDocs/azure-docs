@@ -106,6 +106,10 @@
       href: howto-troubleshoot-resource-logs.md
   - name: Move across regions
     href: howto-move-across-regions.md
+  - name: Scale
+    items:
+    - name: Autoscale
+      href: howto-scale-autoscale.md
 
 - name: Concepts
   expanded: true
