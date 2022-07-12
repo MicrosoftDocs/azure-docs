@@ -719,13 +719,13 @@
     - name: Remove a VM
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm.md
-    - name: Associate a virtual machine scale set with uniform orchestration
-      displayName: on-demand capacity reservation
-      href: capacity-reservation-associate-virtual-machine-scale-set.md
-    - name: Associate a virtual machine scale set
+    - name: Associate a VM scale set - Flexible 
       displayName: on-demand capacity reservation with flexible orchestration
       href: capacity-reservation-associate-virtual-machine-scale-set-flex.md
-    - name: Remove a virtual machine scale set
+    - name: Associate a VM scale set - Uniform 
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-associate-virtual-machine-scale-set.md
+    - name: Remove a VM scale set
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-virtual-machine-scale-set.md
   - name: Create Virtual Machines

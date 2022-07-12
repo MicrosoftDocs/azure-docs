@@ -101,8 +101,8 @@ Once the migration is initiated, you can track the status using the Azure Resour
 
 Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s): 
 
-- [Map existing custom DNS name](/azure/app-service/app-service-web-tutorial-custom-domain.md).
-- [Secure a custom DNS with a TLS/SSL binding](/azure/app-service/configure-ssl-bindings.md).
+- [Map existing custom DNS name](/azure/app-service/app-service-web-tutorial-custom-domain).
+- [Secure a custom DNS with a TLS/SSL binding](/azure/app-service/configure-ssl-bindings).
 - [Securely connect to Azure resources](/azure/app-service/tutorial-connect-overview)
 - [Deployment best practices](/azure/app-service/deploy-best-practices).
 - [Security recommendations](/azure/app-service/security-recommendations).
@@ -114,4 +114,4 @@ Once you have successfully completed migration, you may explore the following st
 ## Next steps
 
 - Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
-- [Review best practices](/azure/app-service/deploy-best-practices.md) for deploying to Azure App service.
+- [Review best practices](/azure/app-service/deploy-best-practices) for deploying to Azure App service.

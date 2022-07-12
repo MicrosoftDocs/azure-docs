@@ -173,7 +173,7 @@
       items:
         - name: Azure AD authentication
           items:
-            - name: Windows 10
+            - name: Windows
               href: openvpn-azure-ad-client.md
             - name: macOS
               href: openvpn-azure-ad-client-mac.md
@@ -183,6 +183,10 @@
       href: openvpn-azure-ad-mfa.md   
     - name: Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md
+    - name: Azure VPN Client optional settings
+      items:
+      - name: Windows
+        href: azure-vpn-client-optional-configurations-windows.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel
