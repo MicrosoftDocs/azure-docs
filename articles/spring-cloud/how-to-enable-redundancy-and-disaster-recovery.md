@@ -96,7 +96,7 @@ To verify the zone redundancy property setting using the Azure CLI, use the foll
 ```azurecli
 az spring show \
     --resource-group <your-resource-group-name> \
-    --name <your-Azure-Spring-Cloud-instance-name> \
+    --name <your-Azure-Spring-Cloud-instance-name>
 ```
 
 ### [Azure portal](#tab/portal)
