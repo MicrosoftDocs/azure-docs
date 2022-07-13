@@ -1,7 +1,7 @@
 ---
 title: Install OT network monitoring software - Microsoft Defender for IoT
 description: Learn how to install agentless monitoring software for an OT sensor and an on-premises management console for Microsoft Defender for IoT. Use this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
-ms.date: 07/11/2022
+ms.date: 07/13/2022
 ms.topic: how-to
 ---
 
@@ -13,7 +13,7 @@ This article describes how to install agentless monitoring software for OT senso
 
 Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
 
-Make sure that you've completed the procedures as instructed in the **Reference > OT monitoring appliance** section of our documentation before installing Defender for IoT software.
+Make sure that you've completed the procedures for your appliance, as instructed in the [OT monitoring appliance reference](appliance-catalog/appliance-catalog-overview.md) section of our documentation before installing Defender for IoT software.
 
 For more information, see:
 
@@ -29,9 +29,63 @@ You can obtain the latest versions of our OT sensor and on-premises management c
 
 Mount the ISO file using one of the following options:
 
-- **Physical media** – burn the ISO file to a DVD or USB, and boot from the media.
+- **Physical media** – burn the ISO file to a DVD or USB, and boot from the media. TBD find this in old cyberx docs. From the boot screen, select the interface where you've connected the media, such as a specific USB port.
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
+
+https://microsoft.sharepoint.com/:w:/r/teams/CyberXDefenderforIoTProductSpace/_layouts/15/Doc.aspx?sourcedoc=%7BDB28A582-A678-47A2-863A-E19B3B810988%7D&file=CyberX_Install_Guide%20_3.1.docm&action=default&mobileredirect=true&share=IQGCpSjbeKaiR4Y64Zs7gQmIAZDpwCgBCSTJBBO5jwqeZWY
+
+Before the Image Installation 
+
+The installation image is provided by CyberX on a DVD or Disk on Key. 
+
+Before the installation, ensure you have: 
+
+a portable DVD drive with the USB connector, or a USB drive for Preparing a Disk-on-Key. 
+
+Notes: 
+
+For the portable DVD, burn the CyberX sensor software to a DVD as “Image”: Insert a portable CD drive into your computer and right click on the CyberX image ISO file and choose “Burn to disk”. 
+
+For the USB drive, use software for creating a bootable Disk on Key, for example, RUFUS. To copy the image to the Disk on Key. Refer to Preparing a Disk-on-Key for instructions on how to prepare your Disk on Key. 
+
+a Disk on Key with the USB version 3.0 and later, min size 4GB 
+
+appliance software provided by CyberX 
+
+Before the installation, perform the following: 
+
+Burn the image to a DVD/prepare a Disk on Key. 
+
+Connect the DVD/Disk on Key and configure the appliance to boot from DVD/Disk on Key. 
+
+Preparing a Disk-on-Key 
+
+You can keep the installation image on a Disk on Key. This appendix explains how to prepare a Disk on Key before you use it for the install process. 
+
+Before you begin: 
+
+Download RUFUS. 
+
+Download XSENSE/CM ISO image. 
+
+A USB Disk on Key that you want to use, size 4GB. 
+
+Note: The Disk on Key will be erased in this process. 
+
+ 
+
+ 
+
+To prepare a Disk on Key: 
+
+Run Rufus and select XSENSE ISO. 
+
+ 
+
+Connect the Disk on Key to the to the front panel. 
+
+Set the BIOS of the server to boot from the USB. 
 
 ## Install OT monitoring software
 
@@ -41,32 +95,36 @@ Select one of the following tabs, depending on which type of software you're ins
 
 # [OT sensor](#tab/sensor)
 
-This procedure describes how to install OT sensor software on a physical or virtual appliance.
+This procedure describes how to install OT sensor software on a physical or virtual appliance after you've booted the ISO file on your appliance.
 
 > [!Note]
-> At the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
+> Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
 
 **To install the sensor's software**:
 
-1. Select the installation language.
+1. When the installation boots, you're first prompted to select the hardware profile you want to install.
 
-    :::image type="content" source="media/tutorial-install-components/language-select.png" alt-text="Screenshot of the sensor's language select screen.":::
+    :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's hardware profile options.":::
 
-1. Select the sensor's architecture. For example:
+    For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
 
-    :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's architecture select screen.":::
+    System files are installed, the sensor reboots, and then sensor files are installed. This process can take a few minutes.
 
-1. The sensor will reboot, and the **Package configuration** screen will appear. Press the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
-
-1. Select the monitor interface. For example:
+    When the installation steps are complete, the **Package configuration** screen appears, with a prompt to **Select monitor interfaces**. For example:
 
     :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
 
-1. If one of the monitoring ports is for ERSPAN, select it. For example:
+1. Select the interfaces you want to monitor. Press the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
+
+    By default, eno1 is reserved for the management interface. We recommend that you leave this option unselected.
+
+1. If you have any ERSPAN monitoring ports, select them. For example:
 
     :::image type="content" source="media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
-1. Select the interface to be used as the management interface. For example:
+    Note - you'll still have interfaces listed, even if you don't actually have any in your system. you'll need to know this or not.
+
+1. Keep the default - eno1. Select the interface to be used as the management interface. For example:
 
     :::image type="content" source="media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
 
@@ -74,25 +132,41 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
 
-1. Enter the path of the mounted logs folder. We recommend using the default path. For example:
+1. Enter the path of the mounted backups folder. We recommend using the default path. For example:
 
     :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
 
 1. Enter the Subnet Mask IP address. For example:
 
-1. Enter the default gateway IP address.
+1. Enter the default gateway IP address. For example:
 
-1. Enter the DNS Server IP address.
+1. Enter the DNS Server IP address. For example:
 
 1. Enter the sensor hostname. For example:
 
     :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
 
-    The installation process runs.
+1. If you want to configure a proxy, select yes when prompted. The default is to select `No`. For example:
 
-1. When the installation process completes, save the appliance ID, and passwords. Copy these credentials to a safe place as you'll need them to access the platform the first time you use it.
+    For more information, see our squid procedure. 
+
+1. The installation process starts running and then shows the credentials screen.
+
+When the installation process completes, save the appliance ID, and passwords. Copy these credentials to a safe place as you'll need them to access the platform the first time you use it. For example:
 
     :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
+
+The installation continues running again, and then reboots when the installation is complete.
+
+When prompted, enter your username and password. If the prompt dissapears, enter to have it shown again. When entering your password, the password will not display on the screen.
+
+After logging in, and the sensor is ready to access, the following screen appears:
+
+microsoft screen
+
+Make sure that your sensor is connected to the network, and then you can log in via a browser. For more information, see
+
+Change system passwords
 
 # [On-premises management console](#tab/on-prem)
 
@@ -108,6 +182,12 @@ During the installation process, you can add a secondary NIC. If you choose not 
 1. Select your preferred language for the installation process.
 
    :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::
+
+1. Select your location. For example:
+
+1. Detect keyboard layout?  default no, then select a keyboard layout 
+
+1. Configure the network - your system has detected multiple interfaces. 
 
 1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
 
