@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A workspace with log data.
-## Create a time series of data from the Usage table 
+## Create a time series based on data in the Usage table 
 
 The KQL operator for creating a time series is `make-series`. You can use the `make-series` operator to create a sequence of data points indexed over a specific interval of time.
 
@@ -42,7 +42,7 @@ The KQL operator for creating a time series is `make-series`. You can use the `m
 
 The `Usage` table holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data ingestion.
 
-Let's use `make-series` to chart the total amount of billable data ingested by each table in the workspace each day, over 21 days:
+Let's use `make-series` to chart the total amount of billable data ingested by each table in the workspace each day, over the past 21 days:
  
 1. Create a time series chart for all billable data:
 
@@ -57,11 +57,11 @@ Let's use `make-series` to chart the total amount of billable data ingested by e
     | render timechart // Renders results in a timechart
     ``` 
 
-    :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="m./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+    :::image type="content" source="/media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="m./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
 
     Looking at the chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types. However, not all anomalies are easy to detect visually on a chart. 
 
-2. Let's modify our query to return all anomalies for all data types. 
+2. Not all anomalies are easy to detect visually on a chart, so let's modify our query to return all anomalies for all data types using the `anomalies` operator. 
     
     Replace the `render` operator in the last line of our previous query with the following lines of KQL:
 
