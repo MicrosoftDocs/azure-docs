@@ -55,7 +55,8 @@ The piloting scenario involves the existence of both Azure AD Connect and Azure 
 
 For an example of this scenario see [Tutorial: Pilot Azure AD Connect cloud sync in an existing synced AD forest](tutorial-pilot-aadc-aadccp.md)
 
-## Merging objects from disconnected sources (Public Preview)
+## Merging objects from disconnected sources 
+### (Public Preview)
 ![Diagram for merging objects from disconnected sources](media/plan-cloud-provisioning-topologies/attributes-multiple-sources.png)
 In this scenario, the attributes of a user are contributed to by two disconnected Active Directory forests. 
 
