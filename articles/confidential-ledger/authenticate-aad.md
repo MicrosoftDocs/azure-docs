@@ -28,13 +28,15 @@ flow above (and much more). See, for example, the [Python client library](https:
 
 The main authenticating scenarios are:
 
-- **A client application authenticating a signed-in user**: In this scenario, an interactive (client) application triggers an Azure AD prompt to the user for credentials (such as username and password). See [user authentication](#user-authentication),
+- **A client application authenticating a signed-in user**: In this scenario, an interactive (client) application triggers an Azure AD prompt to the user for credentials (such as username and password). See [user authentication](#user-authentication).
 
 - **A "headless" application**: In this scenario, an application is running with no user present to provide credentials. Instead the application authenticates as "itself" to Azure AD using some credentials it has been configured with. See [application authentication](#application-authentication).
 
 - **On-behalf-of authentication**. In this scenario, sometimes called the "web service" or "web app" scenario, the application gets an Azure AD access token from another application, and then "converts" it to another Azure AD access token that can be used with Azure confidential ledger. In other words, the application acts as a mediator between the user or application that provided credentials and the Azure confidential ledger service. See [on-behalf-of authentication](#on-behalf-of-authentication).
 
-## Specifying the Azure AD resource for Azure confidential ledger
+## Azure AD parameters
+
+## The Azure AD resource for Azure confidential ledger
 
 When acquiring an access token from Azure AD, the client must indicate which *Azure AD resource* the token should be issued to. The Azure AD resource of an Azure confidential ledger endpoint is the URI of the endpoint, barring the port information and the path. For example:
 
@@ -42,13 +44,13 @@ When acquiring an access token from Azure AD, the client must indicate which *Az
 https://myACL.confidential-ledger.azure.com
 ```
 
-## Specifying the Azure AD tenant ID
+## The Azure AD tenant ID
 
 Azure AD is a multi-tenant service, and every organization can create an object called **directory** in Azure AD. The directory object holds security-related objects such as user accounts, applications, and groups. Azure AD often refers to the directory as a **tenant**. Azure AD tenants are identified by a GUID (**tenant ID**). In many cases, Azure AD tenants can also be identified by the domain name of the organization.
 
 For example, an organization called "Contoso" might have the tenant ID `4da81d62-e0a8-4899-adad-4349ca6bfe24` and the domain name `contoso.com`.
 
-## Specifying the Azure AD authority endpoint
+## The Azure AD authority endpoint
 
 Azure AD has many endpoints for authentication:
 
@@ -61,12 +63,6 @@ Azure AD has many endpoints for authentication:
 >
 > The Azure AD service endpoint changes in national clouds. When working with an Azure confidential ledger service deployed in a national cloud, please set the corresponding national cloud Azure AD service endpoint. To change the endpoint, set an environment variable `AadAuthorityUri` to the required URI.
 
-## Azure AD local token cache
-
-While using the Azure confidential ledger SDK, the Azure AD tokens are stored on the local machine in a per-user token cache. The cache is inspected for tokens before prompting the user for credentials, reducing the number of times a user is prompted for credentials.
-
-> [!NOTE]
-> The Azure AD token cache reduces the number of interactive prompts that a user would be presented with accessing Azure confidential ledger, but doesn't reduce them completely. Additionally, users cannot anticipate in advance when they will be prompted for credentials. This means that one must not attempt to use a user account to access Azure confidential ledger if there's a need to support non-interactive logons (such as when scheduling tasks for example), because when the time comes for prompting the logged on user for credentials that prompt will fail if running under non-interactive logon.
 
 ## User authentication
 
