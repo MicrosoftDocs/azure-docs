@@ -9,7 +9,7 @@ ms.date: 07/12/2022
 ms.author: mbaldwin
 
 ---
-# Azure confidential ledger with Azure Active Directory (Azure AD)
+# Azure confidential ledger authentication with Azure Active Directory (Azure AD)
 
 The recommended way to access Azure confidential ledger is by authenticating to the **Azure Active Directory (Azure AD)** service; doing so guarantees that Azure confidential ledger never gets the accessing principal's directory credentials.
 
