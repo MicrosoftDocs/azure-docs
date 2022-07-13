@@ -50,7 +50,7 @@ This feature currently supports the following Windows distributions:
 - Windows 10 1809 and later
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM. 
+> Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM. 
 
 This feature is now available in the following Azure clouds:
 
@@ -215,7 +215,7 @@ az role assignment create \
 > [!NOTE]
 > If your Azure AD domain and login username domain don't match, you must specify the object ID of your user account by using `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account by using [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
+For more information about how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
 
 - [Assign Azure roles by using the Azure CLI](../../role-based-access-control/role-assignments-cli.md)
 - [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
@@ -236,7 +236,7 @@ You can enforce Conditional Access policies, such as multifactor authentication 
 ## Log in by using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is allowed only from Windows 10 or later PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the *same* directory as the VM. Additionally, to RDP by using Azure AD credentials, the user must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. 
+> Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the *same* directory as the VM. Additionally, to RDP by using Azure AD credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. 
 >
 > If you're using an Azure AD-registered Windows 10 or later PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, you can use Azure Bastion to log in with Azure AD authentication [via the Azure CLI and the native RDP client mstsc](../../bastion/connect-native-client-windows.md). 
 
@@ -284,7 +284,7 @@ The AADLoginForWindows extension must be installed successfully for the VM to co
    | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
-   > You can decode the access token by using a tool like [calebb.net](http://calebb.net/). Verify that the `oid` value in the access token matches the managed identity assigned to the VM.
+   > You can decode the access token by using a tool like [calebb.net](http://calebb.net/). Verify that the `oid` value in the access token matches the managed identity that's assigned to the VM.
 
 1. Ensure that the required endpoints are accessible from the VM via PowerShell:
    
@@ -331,14 +331,14 @@ Exit code -2145648607 translates to `DSREG_AUTOJOIN_DISC_FAILED`. The extension 
    >
    > Attempts to connect to `enterpriseregistration.windows.net` might return 404 Not Found, which is expected behavior. Attempts to connect to `pas.windows.net` might prompt for PIN credentials or might return 404 Not Found. (You don't need to enter the PIN.) Either one is sufficient to verify that the URL is reachable.
 
-1. If any of the commands fails with "Could not resolve host `<URL>`", try running this command to determine which DNS server the VM is using:
+1. If any of the commands fails with "Could not resolve host `<URL>`," try running this command to determine which DNS server the VM is using:
    
    `nslookup <URL>`
 
    > [!NOTE] 
    > Replace `<URL>` with the fully qualified domain names that the endpoints use, such as `login.microsoftonline.com`.
 
-1. See if specifying a public DNS server allows the command to succeed:
+1. See whether specifying a public DNS server allows the command to succeed:
 
    `nslookup <URL> 208.67.222.222`
 
@@ -364,7 +364,7 @@ You might get the following error message when you initiate a remote desktop con
 
 ![Screenshot of the message that says your account is configured to prevent you from using this device.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verify that you have [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grants the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
+Verify that you've [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grant the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
 
 > [!NOTE]
 > If you're having problems with Azure role assignments, see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
@@ -451,4 +451,4 @@ Another way to verify it is via Graph PowerShell:
 
 ## Next steps
 
-For more information on Azure Active Directory, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
