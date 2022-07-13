@@ -46,7 +46,7 @@ With MLflow Tracking you can connect Azure Machine Learning as the backend of yo
   + Azure Machine Learning also supports remote tracking of experiments by configuring MLflow to point to the Azure Machine Learning workspace. By doing so, you can leverage the capabilities of Azure Machine Learning while keeping your experiments where they are.
 + Lift and shift existing MLflow experiments to Azure Machine Learning. The workspace provides a centralized, secure, and scalable location to store training metrics and models.
 
-Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiment via the Azure Machine Learning Python SDK, Azure Machine Learning CLI or the Azure Machine Learning studio. Learn more at [Track experiments with MLflow](how-to-use-mlflow-cli-runs.md).
+Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiment via the Azure Machine Learning Python SDK, Azure Machine Learning CLI or the Azure Machine Learning studio. Learn more at [Log & view metrics and log files with MLflow](how-to-log-view-metrics.md).
 
 > [!IMPORTANT]
 > - MLflow in R support is limited to tracking experiment's metrics and parameters on Azure Machine Learning jobs. RStudio or Jupyter Notebooks with R kernels are not supported. View the following [R example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r).
@@ -54,7 +54,7 @@ Azure Machine Learning uses MLflow Tracking for metric logging and artifact stor
 
 ## Model Registries with MLflow
 
-Azure Machine Learning supports MLflow for model management. This represents a convenient way to support the entire model lifecycle for users familiar with the MLFlow client. The following article describes the different capabilities and how it compares with other options.
+Azure Machine Learning supports MLflow for model management. This represents a convenient way to support the entire model lifecycle for users familiar with the MLFlow client.
 
 To learn more about how you can manage models using the MLflow API in Azure Machine Learning, view [Manage models registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md).
 
