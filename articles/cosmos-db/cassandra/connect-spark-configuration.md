@@ -23,7 +23,7 @@ This article is one among a series of articles on Azure Cosmos DB Cassandra API 
 
 ## Dependencies for connectivity
 * **Spark connector for Cassandra:**
-  Spark connector is used to connect to Azure Cosmos DB Cassandra API.  Identify and use the version of the connector located in [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that is compatible with the Spark and Scala versions of your Spark environment. We recommend an environment which supports Spark 3.0 or higher, and the spark connector available at maven coordinates `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0`. If using Spark 2.x, we recommend an environment with Spark version 2.4.5, using spark connector at maven coordinates `com.datastax.spark:spark-cassandra-connector_2.11:2.4.3`.
+  Spark connector is used to connect to Azure Cosmos DB Cassandra API.  Identify and use the version of the connector located in [Maven central](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector-assembly) that is compatible with the Spark and Scala versions of your Spark environment. We recommend an environment which supports Spark 3.2.1 or higher, and the spark connector available at maven coordinates `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.0`. If using Spark 2.x, we recommend an environment with Spark version 2.4.5, using spark connector at maven coordinates `com.datastax.spark:spark-cassandra-connector_2.11:2.4.3`.
 
 
 * **Azure Cosmos DB helper library for Cassandra API:**
@@ -121,22 +121,22 @@ import com.microsoft.azure.cosmosdb.cassandra
 #### Spark session configuration:
 
 ```scala
-//Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
-spark.conf.set("spark.cassandra.connection.port","10350")
-spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
-spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
-spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")
-spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
+ spark.cassandra.connection.host  YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com  
+ spark.cassandra.connection.port  10350  
+ spark.cassandra.connection.ssl.enabled  true  
+ spark.cassandra.auth.username  YOUR_ACCOUNT_NAME  
+ spark.cassandra.auth.password  YOUR_ACCOUNT_KEY  
+// if using Spark 2.x
+// spark.cassandra.connection.factory  com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory  
 
-//Throughput-related. You can adjust the values as needed
-spark.conf.set("spark.cassandra.output.batch.size.rows", "1")
-//spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10") // Spark 2.x
-spark.conf.set("spark.cassandra.connection.remoteConnectionsPerExecutor", "10") // Spark 3.x
-spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")
-spark.conf.set("spark.cassandra.concurrent.reads", "512")
-spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
-spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
+//Throughput-related...adjust as needed
+ spark.cassandra.output.batch.size.rows  1  
+// spark.cassandra.connection.connections_per_executor_max  10   // Spark 2.x
+ spark.cassandra.connection.remoteConnectionsPerExecutor  10   // Spark 3.x
+ spark.cassandra.output.concurrent.writes  1000  
+ spark.cassandra.concurrent.reads  512  
+ spark.cassandra.output.batch.grouping.buffer.size  1000  
+ spark.cassandra.connection.keep_alive_ms  600000000 
 ```
 
 ## Next steps
