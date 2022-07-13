@@ -145,7 +145,7 @@ You have two options to add activities to your iteration and conditional activit
 ### Monitoring experimental view
 
 UI (user interfaces) changes have been made to the monitoring page. These changes were made to simplify and streamline your monitoring experience.
-The monitoring experience remains the same as detailed [here]([https://docs.microsoft.com/en-us/azure/data-factory/monitor-visually]), except for items detailed below. 
+The monitoring experience remains the same as detailed [here](monitor-visually.md), except for items detailed below. 
 
 #### Simplified default monitoring view
 
@@ -180,3 +180,9 @@ Add columns by clicking **Add column** or remove columns by clicking the trashca
 We want to hear from you! If you see this pop-up, please let us know your thoughts by providing feedback on the updates you've tested.  
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-19.png" alt-text="Screenshot of the feedback survey where user can select between one and five stars.":::
+
+
+## Next steps
+
+- [What's New in Azure Data Factory](whats-new.md)
+- [How to manage Azure Data Factory Settings](how-to-manage-settings.md)
