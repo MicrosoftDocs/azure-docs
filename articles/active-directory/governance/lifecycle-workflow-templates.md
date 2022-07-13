@@ -10,7 +10,7 @@ ms.date: 07/06/2022
 ms.custom: template-concept
 ---
 
-# Lifecycle Workflow templates and categories
+# Lifecycle Workflow templates
 
 
 Lifecycle Workflows allows you to automate the lifecycle management process for your organization by creating workflows that contain both built-in tasks, and custom task extensions. These workflows, and the tasks within them, all fall into categories based on the Joiner-Mover-Leaver(JML) model of lifecycle management. To make this process even more efficient, Lifecycle Workflows also provide you templates, which you can use to quickly automate common parts of the lifecycle management process. These templates can be run out of the box as is, or you can customize them even further to match the requirements for users within your organization. In this article you'll get the complete list of workflow templates, common template parameters, default template parameters, and the list of compatible tasks for each template. For full task definitions, see [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md).

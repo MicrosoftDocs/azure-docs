@@ -77,7 +77,7 @@
       href: lifecycle-workflow-extensibility.md
     - name: Versioning (Preview)
       href: lifecycle-workflow-versioning.md
-    - name: Templates and categories (Preview)
+    - name: Templates (Preview)
       href: lifecycle-workflow-templates.md        
 - name: How-to guides
   expanded: true
