@@ -32,7 +32,6 @@ The following are the types of quotas based on the targets that they apply to fo
 
 To understand considerations and manage user and group quotas for Azure NetApp Files volumes, see [Manage default and individual user and group quotas for a volume](manage-default-individual-user-group-quotas.md).
 
-
 ## Next steps
 
 * [Manage default and individual user and group quotas for a volume](manage-default-individual-user-group-quotas.md)

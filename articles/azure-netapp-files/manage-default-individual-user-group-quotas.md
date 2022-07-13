@@ -7,7 +7,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 07/13/2022
 ---
 # Manage default and individual user and group quotas for a volume 
 
@@ -25,6 +25,8 @@ Quota rules will only come into effect on the CRR destination volume after the r
 * Deleting a volume results in deleting all the associated quota rules for that volume. 
 * You can create a maximum number of 100 quota rules for a volume. You can [request limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) through the portal.
 * Individual group quota and default group quota aren't supported for SMB and dual protocol volumes.
+* Group quotas track the consumption of disk space for files owned by a particular group. A file can only be owned by exactly one group. 
+* Auxiliary groups only help in permission checks and cannot be used to restrict the quota (disk space) for a file.
 * In a cross-region replication (CRR) setting:
     * Currently, syncing quota rules to the destination (data protection) volume isn't supported.   
     * You can’t create quota rules on the destination volume until the [replication is deleted](cross-region-replication-delete.md).  
