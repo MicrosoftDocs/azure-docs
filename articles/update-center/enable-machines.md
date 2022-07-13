@@ -1,6 +1,7 @@
 ---
 title: Enable update management center (preview) for periodic assessment and scheduled patching
 description: This article describes how to enable the periodic assessment and scheduled patching features using update management center (preview) for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers.
+ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
