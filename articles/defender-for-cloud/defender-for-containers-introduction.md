@@ -33,7 +33,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
 ### Continuous monitoring of your Kubernetes clusters - wherever they're hosted
 
-Defender for Cloud continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations which are available on Defender for Cloud's **recommendations page**. The recommendations allow you to investigate and remediate issues. For details on the recommendations that might appear for this feature, check out the [compute section](recommendations-reference.md#recs-container) of the recommendations reference table.
+Defender for Cloud continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations that are available on Defender for Cloud's Recommendations page. The recommendations allow you to investigate and remediate issues. For details on the recommendations that might appear for this feature, check out the [compute section](recommendations-reference.md#recs-container) of the recommendations reference table.
 
 For Kubernetes clusters on EKS, you'll need to [connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md) and ensure you've enabled the CSPM plan.
 
@@ -43,9 +43,9 @@ You can use the resource filter to review the outstanding recommendations for yo
 
 ### Kubernetes data plane hardening
 
-To protect the workloads of your Kubernetes containers with tailored recommendations, you can install the **Azure Policy for Kubernetes**. You can also auto deploy this component as explained in [enable auto provisioning of agents and extensions](enable-data-collection.md#auto-provision-mma).
+To protect the workloads of your Kubernetes containers with tailored recommendations, you can install the [Azure Policy for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md). You can also auto deploy this component as explained in [enable auto provisioning of agents and extensions](enable-data-collection.md#auto-provision-mma).
 
-With the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure it to **enforce** the best practices and mandate them for future workloads.
+With the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure it to enforce the best practices and mandate them for future workloads.
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
@@ -89,7 +89,7 @@ This solution monitors the growing attack surface of multicloud Kubernetes deplo
 
 ### What are the options to enable the new plan at scale?
 
-You can use the Azure Policy `Configure Microsoft Defender for Containers to be enabled`, to enable Defender for Containers at scale. You can see all of the options to [enable Microsoft Defender for Containers](defender-for-containers-enable.md).
+You can use the Azure Policy `Configure Microsoft Defender for Containers to be enabled`, to enable Defender for Containers at scale. You can also see all of the options that are available to [enable Microsoft Defender for Containers](defender-for-containers-enable.md).
 
 ### Does Microsoft Defender for Containers support AKS clusters with virtual machines scale sets?
 
