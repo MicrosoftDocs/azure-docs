@@ -39,7 +39,7 @@ After Azure AD is aware of a user's assignment, it can send updates to the appli
 
 In the second scenario, an application doesn't solely rely on Azure AD as its identity provider. 
 
-In some cases, an application might support multiple identity providers or have its own built-in credential storage. This scenario is described as Pattern C in [Preparing for an access review of user's access to an application](access-reviews-application-preparation.md). 
+In some cases, an application might support multiple identity providers or have its own built-in credential storage. This scenario is described as Pattern C in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md). 
 
 It might not be feasible to remove other identity providers or local credential authentication from the application. In that case, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent:
 
@@ -219,7 +219,7 @@ The first time your organization uses these cmdlets for this scenario, you need 
    $dbusers = Import-Csv -Path $filename -Encoding UTF8
    ```
 
-1. Pick the column of the *users.csv* file that will match with an attribute of a user in Azure AD.
+1. Choose the column of the *users.csv* file that will match with an attribute of a user in Azure AD.
 
    For example, you might have users in the database where the value in the column named `EMail` is the same value as in the Azure AD attribute `mail`:
 
@@ -399,7 +399,7 @@ The previous steps have confirmed that all the users in the application's data s
 Before you create new assignments, configure [provisioning of Azure AD users](/azure/active-directory/app-provisioning/user-provisioning) to the application. Configuring provisioning will enable Azure AD to match up the users in Azure AD with the application role assignments to the users already in the application's data store.
 
 1. Ensure that the application is configured to require users to have application role assignments, so that only selected users will be provisioned to the application.
-1. If [provisioning](/azure/active-directory/app-provisioning/user-provisioning) hasn't been configured for the application, configure it now, but don't start it.
+1. If provisioning hasn't been configured for the application, configure it now (but don't start provisioning):
 
    * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure).
    * If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](/azure/active-directory/app-provisioning/on-premises-sql-connector-configure).
@@ -416,11 +416,11 @@ Before you create new assignments, configure [provisioning of Azure AD users](/a
 
 For Azure AD to match the users in the application with the users in Azure AD, you need to create application role assignments in Azure AD.
 
-When an application role assignment is created in Azure AD for a user to application, then:
+When an application role assignment is created in Azure AD for a user to an application, then:
 
 - Azure AD will query the application to determine if the user already exists.
 - Subsequent updates to the user's attributes in Azure AD will be sent to the application.
-- Users will remain in the application indefinitely unless they're updated outside Azure AD, or until the assignment in Azure AD is removed.
+- The user will remain in the application indefinitely unless they're updated outside Azure AD, or until the assignment in Azure AD is removed.
 - On the next review of that application's role assignments, the user will be included in the review.
 - If the user is denied in an access review, their application role assignment will be removed. Azure AD will notify the application that the user is blocked from sign-in.
 
