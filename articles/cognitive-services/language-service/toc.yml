@@ -685,7 +685,7 @@ items:
           href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
-- name: Personally Identifying Information (PII) detection
+- name: Personally Identifiable Information (PII) detection
   items:
   - name: PII overview
     href: personally-identifiable-information/overview.md

@@ -78,7 +78,7 @@ To transform groups and distribution lists:
 
 * Upgrade your [distribution lists to Microsoft 365 groups in Outlook](https://support.microsoft.com/office/7fb3d880-593b-4909-aafa-950dd50ce188) and [decommission your on-premises Exchange server](/exchange/decommission-on-premises-exchange).
 
-### Move application provisioning
+### Move provisioning of users and groups to applications
 
 This workstream will help you to simplify your environment by removing application provisioning flows from on-premises IDM systems such as Microsoft Identity Manager. Based on your application discovery, categorize your application based on the following:
 
@@ -262,23 +262,15 @@ Legacy applications have different areas of dependencies to AD:
 
 To reduce or eliminate the dependencies above, there are three main approaches, listed below in order of preference:
 
-**Approach 1** Replace with SaaS alternatives that use modern authentication. In this approach, undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Azure AD directly.
+* **Approach 1** Replace with SaaS alternatives that use modern authentication. In this approach, undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Azure AD directly.
 
-**Approach 2** Replatform (for example, adopt serverless/PaaS) to support modern hosting without servers and/or update the code to support modern authentication. In this approach, undertake projects to update authentication code for applications that will be modernized or replatform on serverless/PaaS to eliminate the need for underlying server management. Enable the app to use modern authentication and integrate to Azure AD directly. [Learn about MSAL - Microsoft identity platform](../develop/msal-overview.md).
+* **Approach 2** Replatform (for example, adopt serverless/PaaS) to support modern hosting without servers and/or update the code to support modern authentication. In this approach, undertake projects to update authentication code for applications that will be modernized or replatform on serverless/PaaS to eliminate the need for underlying server management. Enable the app to use modern authentication and integrate to Azure AD directly. [Learn about MSAL - Microsoft identity platform](../develop/msal-overview.md).
 
-**Approach 3** Leave the applications as legacy applications for the foreseeable future or sunset the applications and opportunity arises. We recommend that this is considered as a last resort.
+* **Approach 3** Leave the applications as legacy applications for the foreseeable future or sunset the applications and opportunity arises. We recommend that this is considered as a last resort.
 
 Based on the app dependencies, you have three migration options:
 
-#### Migration option #1
-
-* Utilize Azure AD Domain Services if the dependencies are aligned with [Common deployment scenarios for Azure AD Domain Services](../../active-directory-domain-services/scenarios.md). 
-
-* To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
-
-* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
-
-##### Option 1 steps
+#### Implement approach #1
 
 1. Deploy Azure AD Domain Services into an Azure virtual network
 
@@ -288,11 +280,14 @@ Based on the app dependencies, you have three migration options:
 
 4. As legacy apps retire through attrition, eventually decommission Azure AD Domain Services running in the Azure virtual network
 
-#### Migration option #2
+>[!NOTE]
+>* Utilize Azure AD Domain Services if the dependencies are aligned with [Common deployment scenarios for Azure AD Domain Services](../../active-directory-domain-services/scenarios.md). 
+>* To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
+>* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
+
+#### Implement approach #2
 
 Extend on-premises AD to Azure IaaS. If #1 isn't possible and an application has a strong dependency on AD
-
-##### Option 2 steps
 
 1. Connect an Azure virtual network to the on-premises network via VPN or ExpressRoute
 
@@ -306,11 +301,9 @@ Extend on-premises AD to Azure IaaS. If #1 isn't possible and an application has
 
 6. As legacy apps retire through attrition, eventually decommission the Active Directory running in the Azure virtual network
 
-#### Migration option #3
+#### Implement approach #3
 
 Deploy a new AD to Azure IaaS. If migration option #1 isn't possible and an application has a strong dependency on AD. This approach enables you to decouple the app from the existing AD to reduce surface area.
-
-##### Option 3 steps
 
 1. Deploy a new Active Directory as virtual machines into an Azure virtual network
 

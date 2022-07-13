@@ -24,9 +24,7 @@ You can enrich user attributes in Azure AD to make more user attributes availabl
 
 * App provisioning - The data source of app provisioning is Azure AD and necessary user attributes must be in there.
 
-* Application authorization - Token issued by Azure AD can include claims generated from user attributes. 
-
-* Application can make authorization decision based on the claims in token.
+* Application authorization - Token issued by Azure AD can include claims generated from user attributes so that applications can make authorization decision based on the claims in token.
 
 * Group membership population and maintenance - Dynamic groups enables dynamic population of group membership based on user attributes such as department information.
 
@@ -45,6 +43,8 @@ These links provide additional information on this topic but are not specific to
 * [Tutorial - Customize Azure Active Directory attribute mappings in Application Provisioning](../app-provisioning/customize-application-attributes.md)
 
 * [Provide optional claims to Azure AD apps - Microsoft identity platform](../develop/active-directory-optional-claims.md)
+
+These links provide additional information relevant to groups:
 
 * [Create or edit a dynamic group and get status - Azure AD](../enterprise-users/groups-create-rule.md)
 
