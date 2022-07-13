@@ -66,7 +66,7 @@ For  Windows service pack updates, we check for 20 minutes + 10 minutes for rebo
 More details can be found by reviewing the logs in the file path provided in the error message of the deployment run.
 
 >[!NOTE]
-> For [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), it can take up to five minutes to trigger a deployment job on the machine. If you have configured 30 minutes as the maximum duration, there is a high chance that the scan for missing updates will not occur. At least 25 minutes is required in the maintenance window to start the operation. 
+> For [Azure Arc-enabled servers](../azure-arc/servers/overview.md), it can take up to five minutes to trigger a deployment job on the machine. If you have configured 30 minutes as the maximum duration, there is a high chance that the scan for missing updates will not occur. At least 25 minutes is required in the maintenance window to start the operation. 
 
 #### Resolution
 

@@ -1886,7 +1886,7 @@
         href: ../azure-monitor/vm/vminsights-performance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Analyze data with log queries
         displayName: Azure monitor, monitoring
-        href: /azure/azure-monitor/vm/vminsights-log-query
+        href: ../azure-monitor/vm/vminsights-log-query.md
       - name: Visualize data with workbooks
         displayName: Azure monitor, monitoring
         href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext

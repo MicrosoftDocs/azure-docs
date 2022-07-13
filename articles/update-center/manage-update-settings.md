@@ -36,12 +36,12 @@ To configure update settings on your machines on a single VM, follow these steps
 
    - **Periodic assessment** - enable periodic **Assessment** to run every 24 hours.
 
-   - **Hot patching** - for Azure VMs, you can enable [hot patching](/azure/automanage/automanage-hotpatch) on supported Windows Server Azure Edition Virtual Machines (VMs) don't require a reboot after installation. You can use update management center (preview) to install patches with other patch classifications or to schedule patch installation when you require immediate critical patch deployment.
+   - **Hot patching** - for Azure VMs, you can enable [hot patching](../automanage/automanage-hotpatch.md) on supported Windows Server Azure Edition Virtual Machines (VMs) don't require a reboot after installation. You can use update management center (preview) to install patches with other patch classifications or to schedule patch installation when you require immediate critical patch deployment.
 
     - **Patch orchestration** option provides the following:
 
         - **Automatic by operating system** - When the workload running on the VM doesn't have to meet availability targets, operating system updates are automatically downloaded and installed. Machines are rebooted as needed.
-        - **Azure-orchestrated (preview)** - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+        - **Azure-orchestrated (preview)** - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
         - **Manual updates** - Configures the Windows Update agent by setting [configure automatic updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates).
         - **Image Default** - Only supported for Linux Virtual Machines, this mode honors the default patching configuration in the image used to create the VM.
 
