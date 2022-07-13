@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Microsoft Azure Attestation
             url: ../attestation/overview.md
-           - text: Azure Confidential Ledger
+          - text: Azure Confidential Ledger
             url: ../confidential-ledger/overview.md
           - text: Trusted launch
             url: ../virtual-machines/trusted-launch.md
