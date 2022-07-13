@@ -36,7 +36,7 @@ The main authenticating scenarios are:
 
 ## Azure AD parameters
 
-## Azure AD resource for Azure confidential ledger
+### Azure AD resource for Azure confidential ledger
 
 When acquiring an access token from Azure AD, the client must indicate which *Azure AD resource* the token should be issued to. The Azure AD resource of an Azure confidential ledger endpoint is the URI of the endpoint, barring the port information and the path.
 
@@ -46,13 +46,13 @@ For example, if you had an Azure confidential ledger called "myACL", the URI wou
 https://myACL.confidential-ledger.azure.com
 ```
 
-## Azure AD tenant ID
+### Azure AD tenant ID
 
 Azure AD is a multi-tenant service, and every organization can create an object called **directory** in Azure AD. The directory object holds security-related objects such as user accounts, applications, and groups. Azure AD often refers to the directory as a **tenant**. Azure AD tenants are identified by a GUID (**tenant ID**). In many cases, Azure AD tenants can also be identified by the domain name of the organization.
 
 For example, an organization called "Contoso" might have the tenant ID `4da81d62-e0a8-4899-adad-4349ca6bfe24` and the domain name `contoso.com`.
 
-## Azure AD authority endpoint
+### Azure AD authority endpoint
 
 Azure AD has many endpoints for authentication:
 
