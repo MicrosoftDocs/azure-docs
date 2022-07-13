@@ -18,7 +18,7 @@ Use Cloud Backup for VMs to:
 
 ## Requirements and considerations
 
-Before you can install Cloud Backup for Virtual Machines, you must have created an Azure service principle with the required Azure NetApp Files privileges. 
+Before you can install Cloud Backup for Virtual Machines, you need to create an Azure service principle with the required Azure NetApp Files privileges. If you've already created one, you can skip to the installation steps below.
 
 ## Install Cloud Backup for Virtual Machines
 
