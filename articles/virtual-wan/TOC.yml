@@ -147,25 +147,27 @@
         href: nat-rules-vpn-gateway-powershell.md
   - name: User VPN (point-to-site)
     items:
-    - name: Server configuration
+    - name: P2S server configuration
       items:
       - name: Certificate or RADIUS authentication
-        items: 
-        - name: Azure portal
-          href: virtual-wan-point-to-site-portal.md
-        - name: PowerShell
-          href: virtual-wan-point-to-site-powershell.md
+        items:
+        - name: Configure a P2S VPN
+          items: 
+          - name: Azure portal
+            href: virtual-wan-point-to-site-portal.md
+          - name: PowerShell
+            href: virtual-wan-point-to-site-powershell.md
+        - name: Generate self-signed certificates
+          href: certificates-point-to-site.md
       - name: Azure AD authentication
         items:
-        - name: Azure portal
+        - name: Configure a P2S VPN
           href: virtual-wan-point-to-site-azure-ad.md
-        - name: Configure Azure AD tenant
+        - name: Configure a tenant
           href: openvpn-azure-ad-tenant.md
-        - name: Multi-Factor Authentication(MFA)
+        - name: Configure Multi-Factor Authentication(MFA)
           href: openvpn-azure-ad-mfa.md   
-      - name: Generate certificates
-        href: certificates-point-to-site.md
-    - name: Client configuration
+    - name: P2S client configuration
       items:
       - name: Azure AD authentication
         items:
