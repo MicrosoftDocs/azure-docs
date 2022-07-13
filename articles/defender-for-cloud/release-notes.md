@@ -31,7 +31,7 @@ The new security agent is a Kubernetes DaemonSet, based on eBPF technology and i
 
 The security agent enablement is available through auto-provisioning, recommendations flow, AKS RP or at scale using Azure Policy.
 
-You can [deploy the Defender profile](/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#deploy-the-defender-profile) today on your AKS clusters.
+You can [deploy the Defender profile](./defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#deploy-the-defender-profile) today on your AKS clusters.
 
 With this announcement, the runtime protection - threat detection (workload) is now also generally available.
 
