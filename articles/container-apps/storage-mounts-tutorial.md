@@ -20,7 +20,7 @@ manage secrets
 
 ## Set up
 
-1. Login to the Azure CLI.
+1. Log in to the Azure CLI.
 
     ```azurecli
     az login
@@ -114,11 +114,15 @@ manage secrets
     STORAGE_ACCOUNT_KEY=`az storage account keys list -n $STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv`
     ```
 
-1. Define the storage volume name.
+    The storage account key is required to create the storage link in your Container Apps environment.
+
+1. Define the storage mount name.
 
     ```bash
     STORAGE_MOUNT_NAME="my-storage-mount"
     ```
+
+    This value is the name used to define the storage mount link from your Container Apps environment to your Azure Storage account.
 
 1. Create the storage link in the environment.
 
@@ -136,7 +140,7 @@ manage secrets
 
     This command creates a link between container app environment and the file share created with the `az storage share-rm` command.
 
-    Now that the storage account and environment are linked, you can created a container app to use the storage mount.
+    Now that the storage account and environment are linked, you can create a container app that uses the storage mount.
 
 1. Define the container app name.
 
@@ -154,16 +158,16 @@ manage secrets
       --image nginx \
       --target-port 80 \
       --ingress external \
-      --output table
+      --query properties.configuration.ingress.fqdn
     ```
 
-    This command displays a table once the application in deployed.
+    This command displays the URL of your new container app.
 
-1. Copy the FQDN value from the `containerapp create` output table and paste into your web browser to navigate to the website.
+1. Copy the URL and paste into your web browser to navigate to the website.
 
     Once the page loads, you'll see the "Welcome to nginx!" message.
 
-    Now that you've verified the container app is deployed you can update the app to with a storage mount definition.
+    Now that you've verified the container app is configured, you can update the app to with a storage mount definition.
 
 1. Export the container app's configuration.
 
@@ -174,9 +178,10 @@ manage secrets
       --output yaml > app.yaml
     ```
 
-    While this application does not have any secrets defined, many apps you encounter will. When you export an app's configuration, the values for secrets are not included in the generated YAML.
-
-    If you don't need to change secret values, then you can remove this section and your secrets are unaltered. Alternatively, if you need to change a secret's value, make sure to provide both the `name` and `value` in the file before attempting to update the app.
+    > [!NOTE]
+    > While this application doesn't have secrets, many apps do feature secrets. By default, when you export an app's configuration, the values for secrets aren't included in the generated YAML.
+    >
+    > If you don't need to change secret values, then you can remove this section and your secrets are unaltered. Alternatively, if you need to change a secret's value, make sure to provide both the `name` and `value` in the file before attempting to update the app.
 
 1. Open *app.yaml* in a code editor.
 
@@ -192,19 +197,27 @@ manage secrets
       - image: nginx
         name: my-container-app
         volumeMounts:
-        - volumeName: mystoragevolume
+        - volumeName: my-azure-file-volume
           mountPath: /usr/share/nginx/html
     ```
 
-    The new `volumes` section includes the following properties.
+    The new `template.volumes` section includes the following properties.
 
     | Property | Description |
     |--|--|
-    | `volumes.name` | This value matches the volume created by calling the `az containerapp env storage set` command. |
-    | `volumes.storageName` | This value defines the name used by containers in the environment to access the storage volume. |
-    | `volumes.storageType` | This value determines the type of storage volume defined for the environment. In this case, Azure Storage file mount is declared. |
+    | `name` | This value matches the volume created by calling the `az containerapp env storage set` command. |
+    | `storageName` | This value defines the name used by containers in the environment to access the storage volume. |
+    | `storageType` | This value determines the type of storage volume defined for the environment. In this case, Azure Storage file mount is declared. |
 
-1. Update the container app with the storage mount configuration.
+    The `volumes` section defines volumes at the app level that your application container or sidecar containers can reference via a `volumeMounts` section associated with a container.
+
+    The new `volumeMounts` section under the *nginx* container includes the following properties:
+
+    | Property | Description |
+    | `volumeName` | This value must match the name defined in the `volumes` definition. |
+    | `mountPath` | This value defines the path in your container where the storage is mounted. |
+
+1. Update the container app with the new storage mount configuration.
 
     ```azurecli
     az containerapp update \
@@ -214,9 +227,7 @@ manage secrets
       --output table
     ```
 
-show fqdn in browser
-
-1. Open an interactive shell inside the container app.
+1. Open an interactive shell inside the container app to test the storage mount.
 
     ```azurecli
     az containerapp exec \
@@ -224,52 +235,38 @@ show fqdn in browser
       --resource-group $RESOURCE_GROUP
     ```
 
-    This command may take a moment to open the shell.
+    This command may take a moment to open the shell. Once the shell is ready, then you can interact with the storage mount via file system commands.
 
-1. Change into the *html* folder.
+1. Change into the nginx *html* folder.
 
     ```bash
-    cd /var/www/html
+    cd /usr/share/nginx/html
     ```
 
-1. 
+1. Create a test file.
 
-```bash
-ls
+    ```bash
+    echo "hello" > file-mount.html
+    ```
+
+1. Return to your browser and navigate to the *file-mount.html* file from the nginx website.
+
+    Verify you see the *hello* message in the browser.
+
+## Clean up resources
+
+If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this article.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az group delete \
+  --name $RESOURCE_GROUP
 ```
 
-> nothing
+# [PowerShell](#tab/powershell)
 
-```bash
-touch text.txt
-```
-
-```bash
-exit
-````
-
-```yml
-template:
-volumes:
-- name: mystoragevolume
-storageName: ourshare
-storageType: AzureFile
-- name: myemptyvolume
-storageType: EmptyDir
-```
-
-```yml
-  volumeMounts:
-  - volumeName: mystoragevolume
-    mountPath: /usr/share/nginx/html
-```
-
-```bash
-cd /usr/share/nginx/html
-echo "hello" > file-mount.html
-```
-
-```bash
-cd /var/www/empty
-touch replica-data.txt
+```powershell
+az group delete `
+  --name $RESOURCE_GROUP
 ```
