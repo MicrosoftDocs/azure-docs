@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 07/15/2022
 ms.author: kgremban
 ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
@@ -140,11 +140,11 @@ The `moduleId` is passed along with the `deviceId` in the request URI when using
 
 ## Handle a direct method on a device
 
-On an IoT device, direct methods can be received over MQTT, AMQP, or either of these protocols over WebSockets.
+On an IoT device, direct methods can be received over MQTT, AMQP, or either of these protocols over WebSockets. The [IoT Hub device SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) help you receive and respond to direct methods on devices without having to worry about the underlying protocol details.
 
 ### MQTT
 
-The following section is for the MQTT protocol.
+The following section is for the MQTT protocol. To learn more about using the MQTT protocol directly with IoT Hub, see [MQTT protocol support](iot-hub-mqtt-support.md).
 
 #### Method invocation
 
@@ -173,7 +173,7 @@ The body is set by the device and can be any status.
 
 ### AMQP
 
-The following section is for the AMQP protocol.
+The following section is for the AMQP protocol. To learn more about using the AMQP protocol directly with IoT Hub, see [AMQP protocol support](iot-hub-amqp-support.md).
 
 #### Method invocation
 
