@@ -1,7 +1,8 @@
 ---
 title: Troubleshoot known issues with update management center (preview)
 description: The article provides details on the known issues and troubleshooting any problems with update management center (preview).
-ms.service: update-management-center
+ms.service: automation
+ms.subservice: update-management
 ms.date: 04/21/2022
 ms.topic: conceptual
 ms.author: sudhirsneha
