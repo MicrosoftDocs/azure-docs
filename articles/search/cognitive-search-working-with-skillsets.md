@@ -16,13 +16,17 @@ This article is for developers who need a deeper understanding of skillset conce
 
 A skillset is a reusable resource in Azure Cognitive Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
 
-The following diagram illustrates the basic data flow of skillset execution. From the onset of skillset processing to its conclusion, skills read from and write to an *enriched document*. Initially, an enriched document is just the raw content extracted from a data source (articulated as the root `/document` node). With each skill execution, the enriched document gains structure and substance as each skill writes its output as nodes in the graph. After skillset execution is finished the output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred intact, from source to an index, is defined through *field mappings*.
+The following diagram illustrates the basic data flow of skillset execution. 
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-1.png" alt-text="Diagram showing skillset data flows, with focus on inputs, outputs, and mappings." border="true":::
 
+From the onset of skillset processing to its conclusion, skills read from and write to an [*enriched document*](#enrichment-tree). Initially, an enriched document is just the raw content extracted from a data source (articulated as the root `/document` node). With each skill execution, the enriched document gains structure and substance as each skill writes its output as nodes in the graph. 
+
+After skillset execution is finished, the output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred intact, from source to an index, is defined through *field mappings*.
+
 To configure enrichment, you'll specify settings in a skillset and indexer.
 
-### Skillset definition
+## Skillset definition
 
 A skillset is an array of one or more *skills* that perform an enrichment, such as translating text or OCR on an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) for processing logic that you host externally. A skillset produces enriched documents that are either consumed during indexing or projected to a knowledge store.
 
@@ -36,21 +40,26 @@ Skills have a context, inputs, and an output:
 
 + Output is sent back to the enriched document as a new node. Values are the node "name" and node content. If a node name is duplicated, you can set a target name for disambiguation.
 
-### Indexer definition
+### Skill context
 
-An indexer has properties and parameters used to configure indexer execution. Among those properties are mappings that set the path to fields in an index.
+Each skill has a context, which can be the entire document (`/document`) or a node lower in the tree (`/document/countries/*`). A context determines:
 
-:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" alt-text="Diagram showing which properties of indexers establish the data path to fields in an index." lightbox="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" border="true":::
++ The number of times the skill executes, over a single value (once per field, per document), or for context values of type collection, where adding an `/*` results in skill invocation, once for each instance in the collection. 
 
-+ Field mappings assign the content of a given source field to a field in a search index.
++ Output declaration, or where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node.
 
-+ Output field mappings get content out of the enriched document and into fields in a search index.
++ Shape of the inputs. For multi-level collections, setting the context to the parent collection will affect the shape of the input for the skill. For example if you have an enrichment tree with a list of countries/regions, each enriched with a list of states containing a list of ZIP codes, how you set the context will determine how the input is interpreted.
 
-### Working with multiple skills
+|Context|Input|Shape of Input|Skill Invocation|
+|-------|-----|--------------|----------------|
+|`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |A list of all ZIP codes in the country/region |Once per country/region |
+|`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*` |A list of ZIP codes in the state | Once per combination of country/region and state|
+
+## Skill dependencies
 
 Skills can execute independently and in parallel, or with dependencies if you feed the output of one skill into another skill. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together. 
 
-+ Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes during natural language processing.
++ Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes for skills like sentiment detection.
 
 + Skill #2 is a [Sentiment Detection skill](cognitive-search-skill-sentiment.md) accepts "pages" as input, and produces a new field called "Sentiment" as output that contains the results of sentiment analysis.
 
@@ -111,11 +120,11 @@ For more detail about how inputs and outputs are formulated, see [How to referen
 
 ## Enrichment tree
 
-An enriched document is a temporary tree-like data structure created during skillset execution that collects all of the changes introduced through skills, and represents them in a hierarchy of addressable nodes. Nodes also include any un-enriched fields that are passed in verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be cached or persisted to a knowledge store. 
+An enriched document is a temporary, tree-like data structure created during skillset execution that collects all of the changes introduced through skills. Collectively, enrichments are represented as a hierarchy of addressable nodes. Nodes also include any un-enriched fields that are passed in verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be [cached](cognitive-search-incremental-indexing-conceptual) or persisted to a [knowledge store](knowledge-store-concept-intro). 
 
 Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. 
 
-The initial content is the *root node* (`document\content`) and is usually a whole document or a normalized image that is extracted from a data source during document cracking. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
+The initial content is metadata and the *root node* (`document\content`). The root node is usually a whole document or a normalized image that is extracted from a data source during document cracking. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
 
 |Data Source\Parsing Mode|Default|JSON, JSON Lines & CSV|
 |---|---|---|
@@ -123,33 +132,28 @@ The initial content is the *root node* (`document\content`) and is usually a who
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
-As skills execute, output is added  to the enrichment tree as new nodes. These nodes can then be used as inputs for downstream skills, and will eventually be projected into a knowledge store, or mapped to index fields. Skills that create content, such as translated strings, will write their output to the enriched document. Likewise, skills that consume the output of upstream skills will read from the enriched document to get the necessary inputs.
+As skills execute, output is added to the enrichment tree as new nodes. If skill execution is over the entire document, nodes are added at the first level under the root.
+
+Nodes can be used as inputs for downstream skills. For example, skills that create content, such as translated strings, could become input for skills that recognize entities or extract key phrases.
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
 
-An enrichment tree consists of extracted content and metadata pulled from the source, plus any new nodes that are created by a skill, such as `translated_text` from the [Text Translation skill](cognitive-search-skill-text-translation.md), `locations` from [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md), or `keyPhrases` from the [Key Phrase Extraction skill](cognitive-search-skill-keyphrases.md). Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
+Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
 
-Enrichments aren't mutable: once created, nodes can't be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist just a subset of the enrichment outputs so that you're only keeping what you intend to use.
-
-Because a skill's inputs and outputs are reading from and writing to enrichment trees, one of tasks you'll complete as part of skillset design is creating [output field mappings](cognitive-search-output-field-mapping.md) that move content out of the enrichment tree and into a field in a search index. Likewise, if you're creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
+Enrichments are immutable: once created, nodes can't be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist just a subset of the enrichment outputs so that you're only keeping what you intend to use. The [output field mappings](cognitive-search-output-field-mapping.md) in your indexer definition will determine what content actually gets ingested in the search index. Likewise, if you're creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
 
 > [!NOTE]
 > The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types. The metadata won't be a valid JSON object, but can be projected into a valid JSON format in projection definitions in a knowledge store. For more information, see [Shaper skill](cognitive-search-skill-shaper.md).
 
-## Context
+## Indexer definition
 
-Each skill has a context, which can be the entire document (`/document`) or a node lower in the tree (`/document/countries/*`). A context determines:
+An indexer has properties and parameters used to configure indexer execution. Among those properties are mappings that set the path to fields in an index.
 
-+ The number of times the skill executes, over a single value (once per field, per document), or for context values of type collection, where adding an `/*` results in skill invocation, once for each instance in the collection. 
+:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" alt-text="Diagram showing which properties of indexers establish the data path to fields in an index." lightbox="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" border="true":::
 
-+ Output declaration, or where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node.
++ Field mappings assign the content of a given source field to a field in a search index.
 
-+ Shape of the inputs. For multi-level collections, setting the context to the parent collection will affect the shape of the input for the skill. For example if you have an enrichment tree with a list of countries/regions, each enriched with a list of states containing a list of ZIP codes, how you set the context will determine how the input is interpreted.
-
-|Context|Input|Shape of Input|Skill Invocation|
-|-------|-----|--------------|----------------|
-|`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |A list of all ZIP codes in the country/region |Once per country/region |
-|`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*` |A list of ZIP codes in the state | Once per combination of country/region and state|
++ Output field mappings get content out of the enriched document and into fields in a search index.
 
 ## Enrichment example
 
