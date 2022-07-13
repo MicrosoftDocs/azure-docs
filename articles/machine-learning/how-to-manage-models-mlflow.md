@@ -90,7 +90,7 @@ mlflow.register_model(f"file://{model_local_path}", "local-model-test")
 > [!NOTE]
 > Notice how the model URI schema `file:/` requires absolute paths.
 
-## Querying models
+## Querying model registries
 
 ### Querying all the models in the registry
 
@@ -122,6 +122,17 @@ If you need a specific version of the model, you can indicate so:
 ```python
 client.get_model_version(model_name, version=2)
 ```
+
+## Loading models from registry
+
+You can load models directly from the registry to restore the models objects that were logged. Use the functions `mlflow.<flavor>.load_model()` or `mlflow.pyfunc.load_model()` indicating the URI of the model you want to load using the following syntax:
+
+* `models:/<model-name>/latest`, to load the last version of the model.
+* `models:/<model-name>/<version-number>`, to load an specific version of the model.
+* `models:/<model-name>/<stage-name>`, to load an specific version in a given stage for a model. View [Model stages](#model-stages) for details.
+
+> [!TIP]
+> Review [Loading MLflow models back](concept-mlflow-models.md#loading-mlflow-models-back) for learning about the difference between `mlflow.<flavor>.load_model()` and `mlflow.pyfunc.load_model()`.
 
 ## Model stages
 
