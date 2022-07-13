@@ -34,7 +34,7 @@ Skills have a context, inputs, and an output:
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-2.png" alt-text="Diagram showing which properties of skillsets establish the data path." border="true":::
 
-+ ["context"](#context) is scope of the operation, which could be once per document or once for each item in a collection.
++ context refers to the scope of the operation, which could be once per document or once for each item in a collection.
 
 + Inputs originate from nodes in an enriched document, where a "source" and "name" identify a given node.
 
@@ -55,7 +55,7 @@ Each skill has a context, which can be the entire document (`/document`) or a no
 |`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |A list of all ZIP codes in the country/region |Once per country/region |
 |`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*` |A list of ZIP codes in the state | Once per combination of country/region and state|
 
-## Skill dependencies
+### Skill dependencies
 
 Skills can execute independently and in parallel, or with dependencies if you feed the output of one skill into another skill. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together. 
 
@@ -120,7 +120,7 @@ For more detail about how inputs and outputs are formulated, see [How to referen
 
 ## Enrichment tree
 
-An enriched document is a temporary, tree-like data structure created during skillset execution that collects all of the changes introduced through skills. Collectively, enrichments are represented as a hierarchy of addressable nodes. Nodes also include any un-enriched fields that are passed in verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be [cached](cognitive-search-incremental-indexing-conceptual) or persisted to a [knowledge store](knowledge-store-concept-intro). 
+An enriched document is a temporary, tree-like data structure created during skillset execution that collects all of the changes introduced through skills. Collectively, enrichments are represented as a hierarchy of addressable nodes. Nodes also include any un-enriched fields that are passed in verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be [cached](cognitive-search-incremental-indexing-conceptual.md) or persisted to a [knowledge store](knowledge-store-concept-intro.md). 
 
 Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. 
 
