@@ -38,8 +38,10 @@ landingContent:
         links:
           - text: Start and stop SAP systems
             url: start-stop-sap-systems.md
-          - text: Configure Virtual Instance resource
-            url: configure-virtual-instance.md
+          - text: Manage Virtual Instance for SAP solutions
+            url: manage-virtual-instance.md
+          - text: Get Quality Insights for VIS
+            url: get-quality-insights-vis.md
 
   - title: Monitor
     linkLists:
@@ -47,5 +49,4 @@ landingContent:
         links:
           - text: Monitor SAP system in Azure portal
             url: monitor-portal.md
-          - text: Get Quality Insights for VIS
-            url: get-quality-insights-vis.md
+          

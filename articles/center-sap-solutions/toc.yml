@@ -23,19 +23,19 @@ items:
     - name: Register existing SAP system
       href: register-existing-system.md
 
-  - name: Configuration
+  - name: Management
     items:
-    - name: Configure Virtual Instance resource
-      href: configure-virtual-instance.md
+    - name: Manage Virtual Instance for SAP solutions
+      href: manage-virtual-instance.md
     - name: Start and stop SAP systems
       href: start-stop-sap-systems.md
+    - name: Get quality insights for VIS
+      href: get-quality-insights-vis.md
 
   - name: Monitoring
     items:
     - name: Monitor SAP system in Azure portal
       href: monitor-portal.md
-    - name: Get Quality Insights for VIS
-      href: get-quality-insights-vis.md
 
 
 - name: Resources
