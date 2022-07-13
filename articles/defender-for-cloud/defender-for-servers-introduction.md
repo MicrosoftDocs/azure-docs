@@ -20,7 +20,7 @@ You can learn more by watching these videos from the Defender for Cloud in the F
 
 ## Available Defender for Server plans
 
-Defender for Servers offers you a choice between 2 paid plans:
+Defender for Servers offers you a choice between two paid plans:
 
 | Feature | [Defender for Servers Plan 1](#plan-1) | [Defender for Servers Plan 2](#plan-2-formerly-defender-for-servers) |
 |:---|:---:|:---:|
@@ -44,7 +44,7 @@ Plan 1 includes the following benefits:
 - Automatic onboarding for resources in Azure, AWS, GCP
 - Microsoft threat and vulnerability management
 - Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal
-- A Microsoft Defender for Endpoint subscription which includes access to alerts, software inventory, Vulnerability Assessment and an automatic integration with Microsoft Defender for Cloud.
+- A Microsoft Defender for Endpoint subscription that includes access to alerts, software inventory, Vulnerability Assessment and an automatic integration with Microsoft Defender for Cloud.
 
 The subscription to Microsoft Defender for Endpoint allows you to deploy Defender for Endpoint to your servers. Defender for Endpoint includes the following capabilities:
 
@@ -59,50 +59,41 @@ Plan 2 includes all of the benefits included with Plan 1. However, plan 2 also i
 For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 
+You can select your plan when you [Enable enhanced security features on your subscriptions and workspaces:](enable-enhanced-security.md#enable-enhanced-security-features-on-your-subscriptions-and-workspaces). By default, plan 2 is selected when you set the Defender for Servers plan to On.
 
+If at any point, you want to change the Defender for Servers plan, you can change it on the Defender plans page by selecting **Change plan**.
 
+:::image type="content" source="media/defender-for-servers-introduction/change-plan.png" alt-text="Screenshot that shows you where the option to select your plan is located on the Defender plans page." lightbox="media/defender-for-servers-introduction/change-plan.png":::
 
+## Benefits of the Defender for Servers plan
 
-To enable the Microsoft Defender for Servers plans:
+Defender for Servers offers both threat detection and protection capabilities that consist of:
 
-1. Go to **Environment settings** and select your subscription.
-2. If Microsoft Defender for Servers isn't enabled, set it to **On**.
-    Plan 2 is selected by default.
+- **Integrated license for Microsoft Defender for Endpoint** - Defender for Servers includes [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. When you enable Defender for Servers, Defender for Cloud gains access to the Defender for Endpoint data that is related to vulnerabilities, installed software, and alerts for your endpoints.
 
-    If you want to change the Defender for Servers plan:
-   1. In the **Plan/Pricing** column, select **Change plan**.
-   2. Select the plan that you want and select **Confirm**.
+    When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown on Defender for Cloud's Recommendation page. From Defender for Cloud, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. Learn how to [Protect your endpoints](integration-defender-for-endpoint.md).
 
-## What are the benefits of Defender for Servers?
+- **Vulnerability assessment tools for machines** - Defender for Servers includes a selection of vulnerability discovery and management tools for your machines. You can select which tools to deploy to your machines. The discovered vulnerabilities are shown in a security recommendation.
 
-The threat detection and protection capabilities provided with Microsoft Defender for Servers include:
+    - **Microsoft threat and vulnerability management** - Discovers vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, and without the need of other agents or periodic scans. [Threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt) prioritizes vulnerabilities according to the threat landscape, detections in your organization, sensitive information on vulnerable devices, and the business context. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
 
-- **Integrated license for Microsoft Defender for Endpoint** - Microsoft Defender for Servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. When you enable Microsoft Defender for Servers, Defender for Cloud gets access to the Microsoft Defender for Endpoint data that is related to vulnerabilities, installed software, and alerts for your endpoints.
-
-    When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Defender for Cloud. From Defender for Cloud, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. For more information, see [Protect your endpoints](integration-defender-for-endpoint.md).
-
-- **Vulnerability assessment tools for machines** - Microsoft Defender for Servers includes a choice of  vulnerability discovery and management tools for your machines. From Defender for Cloud's settings pages, you can select the tools to deploy to your machines. The discovered vulnerabilities are shown in a security recommendation.
-
-    - **Microsoft threat and vulnerability management** - Discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, and without the need of other agents or periodic scans. [Threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt) prioritizes vulnerabilities according to the threat landscape, detections in your organization, sensitive information on vulnerable devices, and the business context. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
-
-    - **Vulnerability scanner powered by Qualys** - The Qualys scanner is one of the leading tools for real-time identification of vulnerabilities in your Azure and hybrid virtual machines. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. Learn more in [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
+    - **Vulnerability scanner powered by Qualys** - The Qualys scanner is one of the leading tools for real-time identification of vulnerabilities in your Azure and hybrid virtual machines. You don't need a Qualys license or a Qualys account - everything's handled seamlessly inside Defender for Cloud. You can learn more about [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
 
 - **Just-in-time (JIT) virtual machine (VM) access** - Threat actors actively hunt accessible machines with open management ports, like RDP or SSH. All of your virtual machines are potential targets for an attack. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.
 
-    When you enable Microsoft Defender for Servers, you can use just-in-time VM access to lock down the inbound traffic to your VMs. This reduces exposure to attacks and provides easy access to connect to VMs when needed. For more information, see [Understanding JIT VM access](just-in-time-access-overview.md).
+    When you enable Microsoft Defender for Servers, you can use just-in-time VM access to lock down the inbound traffic to your VMs. This reduces exposure to attacks and provides easy access to connect to VMs when needed. Learn more about [JIT VM access](just-in-time-access-overview.md).
 
 - **File integrity monitoring (FIM)** - File integrity monitoring (FIM), also known as change monitoring, examines files and registries of operating system, application software, and others for changes that might indicate an attack. A comparison method is used to determine if the current state of the file is different from the last scan of the file. You can use this comparison to determine if valid or suspicious modifications have been made to your files.
 
-    When you enable Microsoft Defender for Servers, you can use FIM to validate the integrity of Windows files, your Windows registries, and Linux files. For more information, see [File integrity monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).
+    When you enable Defender for Servers, you can use FIM to validate the integrity of Windows files, your Windows registries, and Linux files. Learn more about [File integrity monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).
 
 - **Adaptive application controls (AAC)** - Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines.
 
-    After you enable and configure adaptive application controls, you get security alerts if any application runs other than the ones you defined as safe. For more information, see [Use adaptive application controls to reduce your machines' attack surfaces](adaptive-application-controls.md).
+    After you enable and configure adaptive application controls, you get security alerts if any application runs other than the ones you defined as safe. Learn how to [use adaptive application controls to reduce your machines' attack surfaces](adaptive-application-controls.md).
 
 - **Adaptive network hardening (ANH)** - Applying network security groups (NSG) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
 
-    Adaptive network hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise. ANH then provides recommendations to allow traffic only from specific IP and port tuples. For more information, see [Improve your network security posture with adaptive network hardening](adaptive-network-hardening.md).
-
+    Adaptive network hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise. ANH then provides recommendations to allow traffic only from specific IP and port tuples. Learn how to [improve your network security posture with adaptive network hardening](adaptive-network-hardening.md).
 
 - **Docker host hardening** -  Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Defender for Cloud continuously assesses the configurations of these containers. It then compares them with the Center for Internet Security (CIS) Docker Benchmark. Defender for Cloud includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. For more information, see [Harden your Docker hosts](harden-docker-hosts.md).
 
@@ -110,11 +101,11 @@ The threat detection and protection capabilities provided with Microsoft Defende
 
   With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of processes. Specific insights include the identification of: 
 
-  - Well-known toolkits and crypto mining software 
+      - Well-known toolkits and crypto mining software 
 
-  - Shellcode - a small piece of code typically used as the payload in the exploitation of a software vulnerability.
+      - Shellcode - a small piece of code typically used as the payload in the exploitation of a software vulnerability.
 
-  - Injected malicious executable in process memory
+      - Injected malicious executable in process memory
 
   Fileless attack detection generates detailed security alerts that include descriptions with process metadata such as network activity. These details accelerate alert triage, correlation, and downstream response time. This approach complements event-based EDR solutions, and provides increased detection coverage.
 
@@ -145,11 +136,16 @@ You can simulate alerts by downloading one of the following playbooks:
 
 ## Learn more
 
-You can check out the following blogs:
+To learn more about Defender for Servers, you can check out the following blogs:
 
 - [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
 
 - [Microsoft Defender for Cloud Server Monitoring Dashboard](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-server-monitoring-dashboard/ba-p/2869658)
+
+
+For related material, see the following page:
+
+- Whether Defender for Cloud generates an alert or receives an alert from a different security product, you can export alerts from Defender for Cloud. To export your alerts to Microsoft Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Exporting alerts to a SIEM](continuous-export.md).
 
 ## Next steps
 
@@ -157,7 +153,3 @@ In this article, you learned about Microsoft Defender for Servers.
 
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)
-
-For related material, see the following page:
-
-- Whether Defender for Cloud generates an alert or receives an alert from a different security product, you can export alerts from Defender for Cloud. To export your alerts to Microsoft Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Exporting alerts to a SIEM](continuous-export.md).
