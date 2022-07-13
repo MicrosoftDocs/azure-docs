@@ -409,23 +409,23 @@
   - name: AMS providers
     href: azure-monitor-providers.md
   - name: Network Considerations
-    href: Monitor-SAP-on-Azure-Network-considerations.md
+    href: create-network-ams.md
   - name: Configure AMS - Portal
     href: azure-monitor-sap-quickstart.md
   - name: Configure AMS - providers
     items: 
      - name: Configure NetWeaver Provider
-       href: azure-monitor-SAP-NetWeaver-provider.md
+       href: configure-Netweaver-ams.md
      - name: Configure SAP HANA Provider
-       href: azure-monitor-SAP-HANA-provider.md
+       href: configure-hana-ams.md
      - name: Configure Microsoft SQL Server Provider
-       href: azure-monitor-Microsoft-SQL-Server-provider.md
+       href: configure-sql-server-ams.md
      - name: Configure Configure High-availability cluster (Pacemaker) provider
-       href: azure-monitor-sap-High-availability-(pacemaker)-cluster-provider.md
+       href: configure-hacluster-ams.md
      - name: Configure OS (Linux) Provider
-       href: azure-monitor-sap-OS-(Linux)-provider.md
+       href: configure-hacluster-ams.md
      - name: Configure IBM Db2 Provider
-       href: azure-monitor-sap-IBM-Db2-provider.md
+       href: configure-db2-ams.md
   - name: Configure Alerts in AMS - Portal
     href: azure-monitor-alerts-portal.md
   - name: Configure AMS - Azure PowerShell

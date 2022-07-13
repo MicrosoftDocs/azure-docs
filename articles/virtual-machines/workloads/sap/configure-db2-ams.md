@@ -1,5 +1,5 @@
 ---
-title: Create IBM Db2 provider for Azure Monitor for SAP solutions
+title: Create IBM Db2 provider for Azure Monitor for SAP solutions(preview)
 description: This article provides details to configure an IBM DB2 provider for Azure Monitor for SAP solutions (AMS).
 author: MightySuz
 ms.service: virtual-machines-sap

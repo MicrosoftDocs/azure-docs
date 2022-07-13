@@ -1,5 +1,5 @@
 ---
-title: Configure Alerts in Azure Monitor for SAP Solutions by using the Azure portal
+title: Configure Alerts in Azure Monitor for SAP Solutions by using the Azure portal(Preview)
 description: Learn how to use a browser method for configuring alerts in Azure Monitor for SAP Solutions.
 author: sameeksha91
 ms.author: sakhare
