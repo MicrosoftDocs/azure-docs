@@ -7,7 +7,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/10/2022
+ms.date: 07/12/2022
 ---
 
 # Index data from Azure Cosmos DB using the MongoDB API
@@ -15,7 +15,7 @@ ms.date: 06/10/2022
 > [!IMPORTANT] 
 > MongoDB API support is currently in public preview under [supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Cosmos DB and makes it searchable in Azure Cognitive Search. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content using the MongoDB API from Azure Cosmos DB. 
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB [MongoDB API](../cosmos-db/choose-api.md#api-for-mongodb). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
@@ -32,6 +32,14 @@ Because terminology can be confusing, it's worth noting that [Cosmos DB indexing
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
 
 + A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
+
+## Limitations
+
+These are the limitations of this feature:
+
++ Custom queries are not supported for specifying the data set.
+
++ The column name `_ts` is a reserved word. If you need this field, consider alternative solutions for populating an index. You could use the [push API](search-what-is-data-import.md). Or, you could use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) with an Azure Cognitive Search index as the sink.
 
 ## Define the data source
 
@@ -107,7 +115,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
     {
         "name": "mysearchindex",
         "fields": [{
-            "name": "id",
+            "name": "doc_id",
             "type": "Edm.String",
             "key": true,
             "retrievable": true,
@@ -124,7 +132,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
     }
     ```
 
-1. Create a document key field ("key": true). For MongoDB collections, Azure Cognitive Search automatically renames the `_id` property to `id` because field names can’t start with an underscore character. If `_id` contains characters that are invalid for search document keys, the `id` values are Base64 encoded.
+1. Create a document key field ("key": true). For a search index based on a MongoDB collection, the document key can be "doc_id", "rid", or some other string field that contains unique values. Your search index should specify the key field name exactly as it's defined in the collection (as "doc_id" or "rid"). As long as field names and data types are the same on both sides, no field mappings are required.
 
 1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
 
@@ -281,15 +289,6 @@ api-key: [Search service admin key]
     }
 }
 ```
-
-## Limitations
-
-These are the limitations of this feature:
-
-+ Custom queries are not supported.
-
-+ In this feature, the column name `_ts` is a reserved word. If there is a column called `_ts` in the Mongo database, the indexer will fail. If this is the case, it is recommended an alternate method to index is used, such as [Push API](search-what-is-data-import.md) or through [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) by selecting an Azure Cognitive Search index sink.
-
 
 ## Next steps
 
