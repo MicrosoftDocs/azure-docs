@@ -46,7 +46,7 @@ landingContent:
     linkLists:
       - linkListType: About
         links:
-        - text: Azure Confidential VM options on AMD
+          - text: Azure Confidential VM options on AMD
             url: virtual-machine-solutions-amd.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: confidential-vm-overview.md
@@ -72,12 +72,12 @@ landingContent:
     linkLists:
       - linkListType: About
         links: 
-         -  text: Confidential containers
-            url: confidential-containers.md
-         -  text: App enclave-aware containers
-            url: enclave-aware-containers.md
-         -  text: Confidential Node Pools on AKS
-            url: confidential-nodes-aks-addon.md
+          -  text: Confidential containers
+             url: confidential-containers.md
+          -  text: App enclave-aware containers
+             url: enclave-aware-containers.md
+          -  text: Confidential Node Pools on AKS
+             url: confidential-nodes-aks-addon.md
           # - text: Confidential computing nodes on AKS (Azure Kubernetes Service)
           #   url: confidential-nodes-aks-overview.md
       - linkListType: quickstart
@@ -104,7 +104,7 @@ landingContent:
         links: 
           - text: App Enclave Development
             url: application-development.md
-         - text: Intel SGX App Enclaves
+          - text: Intel SGX App Enclaves
             url: confidential-computing-enclaves.md
       - linkListType: quickstart
         links:
