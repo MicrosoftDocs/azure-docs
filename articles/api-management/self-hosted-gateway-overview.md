@@ -13,6 +13,8 @@ ms.author: danlep
 
 # Self-hosted gateway overview
 
+The self-hosted gatewayis a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. 
+
 This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its capabilities.
 
 ## Hybrid and multi-cloud API management
@@ -35,26 +37,60 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 :::image type="content" source="media/self-hosted-gateway-overview/with-gateways.png" alt-text="API traffic flow with self-hosted gateways":::
 
-## Packaging and features
+## Feature comparison of managed and self-hosted gateways
 
-The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
+* Some feature of managed gateways are supported only in certain [service tiers](api-management-features.md). 
+* Some features of managed and self-hosted gateways require more configuration.
+* See [Limitations](#limitations) for other limitations of self-hosted gateways.
 
-### Comparison of managed and self-hosted gateways
+### Infrastructure
 
 |  | Managed   | Self-hosted  |
 | --- | ----- | ---------- |
 | [Service tiers](api-management-features.md) | All | Developer, Premium |
 | On-premises deployment | ❌ |  ✔️ |
-| [API analytics](howto-use-analytics.md) | ✔️ |  ❌ |
-| [Built-in cache](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-cache.md) | ✔️ |  ❌ |
-| [CA root certificates](api-management-howto-ca-certificates.md) |  ✔️ |  ❌ |
-| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ |
-| [Synthetic GraphQL APIs](graphql-schema-resolve-api.md) |  ✔️ |  ❌ |
-| [Websocket APIs](websocket-api.md) |  ✔️ |  ❌ |
-| [Service Fabric integration](..//service-fabric/service-fabric-api-management-overview.md) |  ✔️ |  ❌ |
-| [Authorizations](authorizations-overview.md) |  ✔️ |  ❌ |
+| [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌ |
+| [Virtual network injection](virtual-network-concepts.md)  |  ✔️ |  ❌ |
 | [Private endpoints](private-endpoint.md)  |  ✔️ |  ❌ |
 | [Availability zones](zone-redundancy.md)  |  ✔️ |  ❌ |
+| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  ✔️ |  ❌ |
+| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ |
+| [CA root certificates](api-management-howto-ca-certificates.md) |  ✔️ |  ❌ |
+
+
+### Backend APIs
+
+Managed and self-hosted gateways can host the same API types with the following differences.
+
+|  | Managed   | Self-hosted  |
+| --- | ----- | ---------- |
+| [Synthetic GraphQL APIs](graphql-schema-resolve-api.md) |  ✔️ |  ❌ |
+| [Websocket APIs](websocket-api.md) |  ✔️ |  ❌ |
+| [Service Fabric integration](../service-fabric/service-fabric-api-management-overview.md) |  ✔️ |  ❌ |
+
+### Policies
+Managed and self-hosted gateways support the same policies in policy definitions with the following differences.
+
+|  | Managed   | Self-hosted  |
+| --- | ----- | ---------- |
+| [set-graphql-resolver](graphql-policies.md#set-graphql-resolver) |  ✔️ |  ❌ |
+| [get-authorization-context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ |
+| [Rate limit policies](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>1</sup> |
+<sup>1</sup>By default, rate limit counts are per-gateway, per-node.
+
+### Monitoring
+
+|  | Managed   | Self-hosted  |
+| --- | ----- | ---------- |
+| [Request logs in Azure Monitor](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ |  ❌ |
+| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ |  ✔️ |
+| [Application Insights](api-management-howto-app-insights.md) | ✔️ |  ✔️ |
+| [API analytics](howto-use-analytics.md) | ✔️ |  ❌ |
+| [Request tracing](api-management-howto-api-inspector.md) | ✔️ |  ✔️ |
+
+### Authentication and authorization
+
+| [Authorizations](authorizations-overview.md) |  ✔️ |  ❌ |
 
 
 ### Known limitations
@@ -69,6 +105,10 @@ The following functionality found in the managed gateways is **not available** i
 - Client certificate renegotiation. This means that for [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) to work, API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname.
 - Built-in cache. Learn about using an [external Redis-compatible cache](api-management-howto-cache-external.md) in self-hosted gateways.
 
+## Packaging
+
+ The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
+
 ### Container images
 
 We provide a variety of container images for self-hosted gateways to meet your needs:
@@ -82,7 +122,7 @@ We provide a variety of container images for self-hosted gateways to meet your n
 
 You can find a full list of available tags [here](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
 
-#### Use of tags in our official deployment options
+### Use of tags in our official deployment options
 
 Our deployment options in the Azure portal use the `v2` tag that allows customers to use the most recent version of the self-hosted gateway v2 container image with all feature updates and patches.
 
@@ -93,7 +133,7 @@ When installing with our Helm chart, image tagging is optimized for you. The Hel
 
 Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
-#### Risk of using rolling tags
+### Risk of using rolling tags
 
 Rolling tags are tags that are potentially updated when a new version of the container image is released. This allows container users to receive updates to the container image without having to update their deployments.
 
