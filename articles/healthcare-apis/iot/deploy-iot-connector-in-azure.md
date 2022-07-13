@@ -86,57 +86,59 @@ It's important that you have the following prerequisites completed before you be
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\deploy-medtech-service-basics.png" alt-text="Screenshot of create MedTech services basics information with red boxes around the required information." lightbox="media\iot-deploy-manual-in-portal\deploy-medtech-service-basics.png":::
 
-2. Enter the **MedTech service name**.
+   1. Enter the **MedTech service name**.
 
-   The **MedTech service name** is a friendly, unique name for your MedTech service. For this example, we'll name the MedTech service `mt-azuredocsdemo`.
+      The **MedTech service name** is a friendly, unique name for your MedTech service. For this example, we'll name the MedTech service `mt-azuredocsdemo`.
 
-3. Enter the **Event Hubs Namespace**.
+   2. Enter the **Event Hubs Namespace**.
 
-   The Event Hubs Namespace is the name of the **Event Hubs Namespace** that you've previously deployed. For this example, we'll use `eh-azuredocsdemo` for use with our MedTech service device messages. 
+      The Event Hubs Namespace is the name of the **Event Hubs Namespace** that you've previously deployed. For this example, we'll use `eh-azuredocsdemo` for use with our MedTech service device messages. 
 
-   > [!TIP]
-   > For information about deploying an Azure Event Hubs Namespace, see [Create an Event Hubs Namespace](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
-   >
-   > For more information about Azure Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
+      > [!TIP]
+      > For information about deploying an Azure Event Hubs Namespace, see [Create an Event Hubs Namespace](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
+      >
+      > For more information about Azure Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
 
-4. Enter the **Events Hubs name**.
+   3. Enter the **Events Hubs name**.
 
-   The Event Hubs name is the event hub that you previously deployed within the Event Hubs Namespace. For this example, we'll use `devicedata` for use with our MedTech service device messages.  
+      The Event Hubs name is the event hub that you previously deployed within the Event Hubs Namespace. For this example, we'll use `devicedata` for use with our MedTech service device messages.  
    
-   > [!TIP]
-   >
-   > For information about deploying an Azure event hub, see [Create an event hub](../../event-hubs/event-hubs-create.md#create-an-event-hub).
+      > [!TIP]
+      >
+      > For information about deploying an Azure event hub, see [Create an event hub](../../event-hubs/event-hubs-create.md#create-an-event-hub).
 
-5. Enter the **Consumer group**.
+   4. Enter the **Consumer group**.
 
-   The Consumer group name is located by going to the **Overview** page of the Event Hubs Namespace and selecting the event hub to be used for the MedTech service device messages. In this example, the event hub is named `devicedata`.
+      The Consumer group name is located by going to the **Overview** page of the Event Hubs Namespace and selecting the event hub to be used for the MedTech service device messages. In this example, the event hub is named `devicedata`.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png" alt-text="Screenshot of Event Hubs overview and red box around the event hub to be used for the MedTech service device messages." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png":::
+      :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png" alt-text="Screenshot of Event Hubs overview and red box around the event hub to be used for the MedTech service device messages." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png":::
 
-6. Once inside of the event hub, select the **Consumer groups** button on the middle right hand side of the screen under **Entities** to display the name of the consumer group to be used by your MedTech service. 
+      Once inside of the event hub, select the **Consumer groups** button on the middle right hand side of the screen under **Entities** to display the name of the consumer group to be used by your MedTech service. 
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png" alt-text="Screenshot of event hub overview and red box around the consumer groups button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png":::
+      :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png" alt-text="Screenshot of event hub overview and red box around the consumer groups button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png":::
 
-7. By default, a consumer group named **$Default** is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
+      By default, a consumer group named **$Default** is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\display-event-hub-consumer-group.png" alt-text="Screenshot of event hub consumer groups with red box around the consumer group to be used with the MedTech service." lightbox="media\iot-deploy-manual-in-portal\display-event-hub-consumer-group.png":::
+      :::image type="content" source="media\iot-deploy-manual-in-portal\display-event-hub-consumer-group.png" alt-text="Screenshot of event hub consumer groups with red box around the consumer group to be used with the MedTech service." lightbox="media\iot-deploy-manual-in-portal\display-event-hub-consumer-group.png":::
 
-   > [!IMPORTANT]
-   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
-   >
-   > Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
-   >
-   > Examples: 
-   > * Two MedTech services accessing the same device message event hub.
-   > * A MedTech service and a storage writer application accessing the same device message event hub. 
+      > [!IMPORTANT]
+      >
+      > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
+      >
+      > Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
+      >
+      > Examples: 
+      > * Two MedTech services accessing the same device message event hub.
+      > * A MedTech service and a storage writer application accessing the same device message event hub. 
     
-8. Select **Next: Device mapping**. 
+2. Select **Next: Device mapping**. 
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-device-mapping-button.png" alt-text="Screenshot of MedTech services basics information filled out and a red box around the Device mapping button." lightbox="media\iot-deploy-manual-in-portal\select-device-mapping-button.png":::
   
 ## Configure the Device mapping properties
 
 > [!TIP]
+>
 > The IoMT Connector Data Mapper is an open source tool to visualize the mapping configuration for normalizing a device's input data, and then transforming it into FHIR resources. You can use this tool to edit and test Device and FHIR destination mappings, and to export the mappings to be uploaded to a MedTech service in the Azure portal. This tool also helps you understand your device's Device and FHIR destination mapping configurations.
 >
 > For more information regarding Device mappings, see our GitHub open source and Azure Docs documentation:
@@ -178,11 +180,11 @@ It's important that you have the following prerequisites completed before you be
 
     **Create**
 
-      The MedTech service destination attempts to retrieve a device resource from the FHIR service using the device identifier included in the event hub message. It also attempts to retrieve a patient resource from the FHIR service using the patient identifier included in the event hub message. If either resource isn't found, new resources will be created (device, patient, or both) containing just the identifier contained in the event hub message. When you use the **Create** option, both a device identifier and a patient identifier can be configured in the device mapping. In other words, when the MedTech service destination is in **Create** mode, it can function normally **without** adding device and patient resources to the FHIR service.
+      The MedTech service destination attempts to retrieve a device resource from the FHIR service using the [device identifier](https://www.hl7.org/fhir/device-definitions.html#Device.identifier) included in the normalized message. It also attempts to retrieve a patient resource from the FHIR service using the [patient identifier](https://www.hl7.org/fhir/patient-definitions.html#Patient.identifier) included in the normalized message. If either resource isn't found, new resources will be created (device, patient, or both) containing just the identifier contained in the normalized message. When you use the **Create** option, both a device identifier and a patient identifier can be configured in the device mapping. In other words, when the MedTech service destination is in **Create** mode, it can function normally **without** adding device and patient resources to the FHIR service.
 
     **Lookup**
 
-      The MedTech service destination attempts to retrieve a device resource from the FHIR service using the device identifier included in the event hub message. If the device resource isn't found, an error will occur, and the data won't be processed. For **Lookup** to function properly, a device resource with an identifier matching the device identifier included in the event hub message **must** exist and the device resource **must** have a reference to a patient resource that also exists. In other words, when the MedTech service destination is in the Lookup mode, device and patient resources **must** be added to the FHIR service before data can be processed.
+      The MedTech service destination attempts to retrieve a device resource from the FHIR service using the device identifier included in the normalized message. If the device resource isn't found, an error will occur, and the data won't be processed. For **Lookup** to function properly, a device resource with an identifier matching the device identifier included in the normalized message **must** exist and the device resource **must** have a reference to a patient resource that also exists. In other words, when the MedTech service destination is in the Lookup mode, device and patient resources **must** be added to the FHIR service before data can be processed. If the MedTech service attempts to look up resources that don't exist on the FHIR service, a **DeviceNotFoundException** and/or a **PatientNotFoundException** error(s) will be generated based on which resources aren't present.
 
    > [!TIP]
    > 
@@ -337,6 +339,7 @@ The **FHIR Data Writer** role provides read and write access to your FHIR servic
 In this article, you've learned how to deploy a MedTech service using the Azure portal. To learn more about the Device and FHIR destination mappings for the MedTech service, see
 
 > [!div class="nextstepaction"]
+>
 > [How to use Device mappings](how-to-use-device-mappings.md)
 >
 > [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
