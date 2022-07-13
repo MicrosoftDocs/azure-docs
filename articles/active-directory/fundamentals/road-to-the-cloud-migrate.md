@@ -46,7 +46,7 @@ To enable self-service capabilities, your authentication methods must be updated
 
 ### To scale out
 
-Gradually register and enable SSPR. For example, roll out by region, subsidiary, department, etc. for all users. This enables both MFA and SSPR. Refer to [Sample SSPR rollout materials](/download/details.aspx?id=56768) to assist with required end-user communications and evangelizing.
+Gradually register and enable SSPR. For example, roll out by region, subsidiary, department, etc. for all users. This enables both MFA and SSPR. Refer to [Sample SSPR rollout materials](https://www.microsoft.com/download/details.aspx?id=56768) to assist with required end-user communications and evangelizing.
 
 **Key points:**
 
@@ -148,7 +148,7 @@ This project has two primary initiatives. The first is to plan and implement a V
 
 For more information, see:
 
-* [Deploy Azure AD joined VMs in Azure Virtual Desktop - Azure](/virtual-desktop/deploy-azure-ad-joined-vm)
+* [Deploy Azure AD joined VMs in Azure Virtual Desktop - Azure](/azure/virtual-desktop/deploy-azure-ad-joined-vm)
 
 * [Windows 365 planning guide](/windows-365/enterprise/planning-guide)
 
@@ -200,7 +200,7 @@ The following tools can help you to discover applications that use LDAP.
 
 * [Event1644Reader](/troubleshoot/windows-server/identity/event1644reader-analyze-ldap-query-performance) : Sample tool for collecting data on LDAP Queries made to Domain Controllers using Field Engineering Logs.
 
-* [Microsoft Microsoft 365 Defender for Identity](/ATPDocs/monitored-activities.md): Utilize the sign in Operations monitoring capability (note captures binds using LDAP, but not Secure LDAP.
+* [Microsoft Microsoft 365 Defender for Identity](/defender-for-identity/monitored-activities): Utilize the sign in Operations monitoring capability (note captures binds using LDAP, but not Secure LDAP.
 
 * [PSLDAPQueryLogging](https://github.com/RamblingCookieMonster/PSLDAPQueryLogging) : GitHub tool for reporting on LDAP queries.
 
@@ -276,7 +276,7 @@ Based on the app dependencies, you have three migration options:
 
 * To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
 
-* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
+* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 
 ##### Option 1 steps
 
