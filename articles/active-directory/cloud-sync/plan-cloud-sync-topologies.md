@@ -42,7 +42,7 @@ The simplest topology is a single on-premises forest, with one or multiple domai
 ## Multi-forest, single Azure AD tenant
 ![Topology for a multi-forest and a single tenant](media/plan-cloud-provisioning-topologies/multi-forest-2.png)
 
-A common topology is a multiple AD forests, with one or multiple domains, and a single Azure AD tenant.  
+Multiple AD forests is a common topology, with one or multiple domains, and a single Azure AD tenant.  
 
 ## Existing forest with Azure AD Connect, new forest with cloud Provisioning
 ![Diagram that shows the topology for an existing forest and a new forest.](media/tutorial-existing-forest/existing-forest-new-forest-2.png)
@@ -64,7 +64,7 @@ An example would be:
  - one forest (1) contains most of the attributes
  - a second forest (2) contains a few attributes
 
- Since the second forest does not have network connectivity to the Azure AD Connect server, the object cannot be merged through Azure AD Connect. Using Cloud Sync in the second forest, the attribute value can be retrieved from the second forest. The value can then be merged with the object in Azure AD that is synced by Azure AD Connect. 
+ Since the second forest does not have network connectivity to the Azure AD Connect server, the object cannot be merged through Azure AD Connect. Cloud Sync in the second forest allows the attribute value to be retrieved from the second forest. The value can then be merged with the object in Azure AD that is synced by Azure AD Connect. 
 
 This configuration is advanced and there are a few caveats to this topology: 
 
