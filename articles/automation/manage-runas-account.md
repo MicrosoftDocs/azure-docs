@@ -98,7 +98,7 @@ For detailed steps for how to add role assignments, check out the following arti
 
 After assigning the Run As account to the role, in your runbook specify `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` to set the subscription context to use. For more information, see [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
-## Check role assignment for the Azure Automation Run As account
+## Check role assignment for Azure Automation Run As account
 
 To check the role assigned to the Automation Run As account Azure AD, follow these steps:
 
