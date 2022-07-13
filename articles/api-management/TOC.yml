@@ -68,10 +68,6 @@
         href: self-hosted-gateway-overview.md
       - name: Networking
         href: virtual-network-concepts.md
-      - name: Resiliency
-        items: 
-            - name: Migrate to availability zone support
-              href: ../availability-zones/migrate-api-mgt.md
       - name: Security
         items:
             - name: Security controls by Azure Policy
