@@ -116,7 +116,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
     
     # [VM's system-assigned managed identity](#tab/sa-mi)
    
-    1. [Configure](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-vm) a System Managed Identity for the VM.
+    1. [Configure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#enable-system-assigned-managed-identity-on-an-existing-vm) a System Managed Identity for the VM.
     1. Grant this identity the [required permissions](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager) within the subscription to perform its tasks.
     1. Update the runbook to use the [Connect-Az-Account](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As Account and perform the associated account management.
 
@@ -137,8 +137,8 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
      
     # [VM's user-assigned managed identity](#tab/ua-mi)
 
-    1. [Configure](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) a User Managed Identity for the VM.
-    1. Grant this identity the [required permissions](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal) within the Subscription to perform its tasks.
+    1. [Configure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) a User Managed Identity for the VM.
+    1. Grant this identity the [required permissions](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) within the Subscription to perform its tasks.
     1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity ` and `AccountID` parameters to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
     ```powershell
