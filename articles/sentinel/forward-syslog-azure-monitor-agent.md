@@ -36,7 +36,7 @@ To complete the steps in this tutorial, you must have the following resources an
 - Linux server that's running an operating system that supports Azure Monitor agent.
 
    - [Supported Linux operating systems for Azure Monitor agent](/azure/azure-monitor/agents/agents-overview#linux)  
-   - [Create a Linux VM with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm) or
+   - [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or
    - Onboard an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)
 
 - Device that generates event log data like a firewall network device
@@ -140,7 +140,7 @@ state that there are no resources to clean up in this section.
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-<resources> with the following steps:
+your resources with the following steps:
 
 1. From the left-hand menu...
 1. ...click Delete, type...and then click Delete
