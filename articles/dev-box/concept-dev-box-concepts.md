@@ -30,15 +30,15 @@ A DevCenter is a top-level resource that serves as an organizational construct, 
 
 A Project is a resource associated with a DevCenter. Projects serve as an organizational construct, reflecting the workgroups within an organizational unit in an enterprise. 
 
-## Dev Box Definition
+## Dev box definition
 
-A Dev Box Definition is a resource associated with a DevCenter. Dev Box Definitions detail the configuration of the source image and VM size, including compute size and storage size. DevCenter Owners can use Dev Box Definitions across Projects in a DevCenter. 
+A dev box definition is a resource associated with a DevCenter. Dev box definitions detail the configuration of the source image and virtual machine size, including compute size and storage size. DevCenter owners can use dev box definitions across projects in a DevCenter. 
 
 ## Network connection 
-A Network Connection is a top-level resource that provides Dev Box Pools with required information to connect to network-based resources. Network Connections attached to a DevCenter can be used within it. The information required in a Network Connection includes:
+A network connection is a top-level resource that provides dev box pools with the information required to connect to network-based resources. Network connections attached to a DevCenter can be used within it. The information required in a network connection includes:
 
 - **Network details**: The virtual network and subnet that the dev box will be associated with. Dev boxes are created in the Microsoft hosted Azure subscription. To connect to a customers on-premises network, a virtual network interface card (vNic) is injected into a customer-provided Azure virtual network (vNet).
-- **Active Directory domain**: The Active Directory domain to join, an Organizational Unit (OU) destination for the computer object, and Active Directory user credentials with sufficient permissions to perform the domain join. When a dev box is created, it is joined to this Active Directory domain.
+- **Active Directory domain**: The Active Directory domain to join, an Organizational Unit (OU) destination for the computer object, and Active Directory user credentials with sufficient permissions to perform the domain join. When a dev box is created, it's joined to this Active Directory domain.
 
 During provisioning, the dev box is connected to the Azure subnet and joined to a domain (either Windows Server Active Directory or Azure Active Directory (Azure AD)). This process results in a dev box that is:
 
@@ -48,10 +48,10 @@ During provisioning, the dev box is connected to the Azure subnet and joined to 
 - Enrolled into Microsoft Endpoint Manager.
 - Ready to accept user sign-in requests.
 
-The Network Connection settings are applied to the dev box only at the time of provisioning.
+The network connection settings are applied to the dev box only at the time of provisioning.
 
-## Dev Box Pool 
-A Dev Box Pool is a resource associated with a Project. It consists of the configuration and network information for a given group of dev boxes. It is defined as the 'Type' of the dev box as well as the container for managing dev boxes. A user given access to a Pool can create dev boxes from it, adhering to the Pool's settings. 
+## Dev box pool 
+A dev box pool is a resource associated with a project. It consists of the configuration and network information for a given group of dev boxes. It's defined as the 'Type' of the dev box and the container for managing dev boxes. A user given access to a pool can create dev boxes from it, adhering to the pool's settings. 
 
-## Dev Box 
-A dev box is an instance of a virtual machine configured for developer use. It is built on [Windows 365 Cloud PC](/windows-365/enterprise/overview) and managed by Microsoft Intune.
+## Dev box 
+A dev box is an instance of a virtual machine configured for developer use. It's built on [Windows 365 Cloud PC](/windows-365/enterprise/overview) and managed by Microsoft Intune.

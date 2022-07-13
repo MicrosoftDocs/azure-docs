@@ -9,16 +9,18 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Configure the Microsoft Dev Box service
+    - name: Configure the Microsoft Dev Box service (DevCenter owner)
       href: quickstart-configure-dev-box-service.md
-    - name: Create a Dev Box
+    - name: Manage Dev Box projects (Project admin)
+      href: quickstart-configure-dev-box-project.md
+    - name: Create a Dev Box (Dev Box user)
       href: quickstart-create-dev-box.md
 - name: Tutorials
   expanded: true
   items: 
     - name: Connect to a Microsoft Dev Box by using a remote desktop app
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-- name: How-tos
+- name: How-to guides
   expanded: true
   items:
     - name: How to manage Dev Box projects

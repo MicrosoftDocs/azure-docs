@@ -1,6 +1,6 @@
 ---
 title: Create a Microsoft Dev Box
-description: This quickstart shows you how to create a Microsoft Dev Box and connect to it through RDP.
+description: This quickstart shows you how to create a Microsoft Dev Box and connect to it through a browser.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -10,30 +10,28 @@ ms.date: 04/15/2022
 ---
 <!-- 
   Customer intent:
-	As a dev box user I want to understand how to create and access a Dev Box so that I can start work.
+	As a Dev Box User I want to understand how to create and access a Dev Box so that I can start work.
  -->
 
-# Quickstart: Create a dev box by using the developer portal
+# Quickstart: Create a Dev Box by using the developer portal
 
 Get started with Microsoft Dev Box by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through the Microsoft Remote Desktop app. 
 
-You can create and manage multiple dev boxes as a dev box user. Create a dev box for each project that you have access to, and create multiple dev boxes within a single project to help streamline work workflow. 
+You can create and manage multiple Dev Boxes as a Dev Box User. Create a Dev Box for each task that you're working on, and create multiple dev boxes within a single project to help streamline work workflow. 
 
 In this quickstart, you will:
 
-* [Create a dev box](#create-a-dev-box)
-* [Connect to a dev box](#connect-to-a-dev-box)
+* [Create a Dev Box](#create-a-dev-box)
+* [Connect to a Dev Box](#connect-to-a-dev-box)
 
 ## Prerequisites
 
-- Permissions as a Dev Box User <!-- [Dev Box User](./how-to-dev-box-user.md)--> on the Project that has a configured Dev Box Pool. If you don't have an available pool, follow the steps in the [Create Dev Box Pool Quickstart](./quickstart-configure-dev-box-service.md).
+- An available Dev Box Pool. If you don't have an available pool, follow the steps in the [Quickstart: Configure a Microsoft Dev Box Project](./quickstart-configure-dev-box-project.md).
+- Permissions as a [Dev Box User](./quickstart-configure-dev-box-project.md#provide-access-to-a-dev-box-project) for the Project that has a configured Dev Box Pool.
 
-## Create a dev box
+## Create a Dev Box
 
 1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
-
-<!-- 1. Verify that you've logged on successfully by selecting your profile picture on the top right of the screen and viewing the user profile menu.
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-profile.png" alt-text="Screenshot of the developer portal showing the user profile menu."::: -->
 
 2. Select **+ Add dev box**.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal showing the Add dev box button.":::
@@ -56,7 +54,7 @@ In this quickstart, you will:
    >The dev box creation can take between 60 and 90 minutes.
 
 ## Connect to a dev box
-Once provisioned successfully, your dev box will be running. You can access it in multiple ways. 
+Once you've provisioned your dev box, you can access it in multiple ways. 
 
 ### Browser
 
