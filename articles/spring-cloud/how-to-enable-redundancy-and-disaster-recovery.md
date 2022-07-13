@@ -81,7 +81,7 @@ az spring create \
 
 To create a service in Azure Spring Apps with zone redundancy enabled using the Azure portal, select the **Zone Redundant** option when you create the instance.
 
-:::image type="content" source="media/spring-cloud-availability-zone/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="media/spring-cloud-availability-zone/availability-zone-portal.png":::
+:::image type="content" source="media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-portal.png":::
 
 ---
 
@@ -103,7 +103,7 @@ az spring show \
 
 To verify the zone redundancy property of an Azure Spring Apps instance using the Azure portal, check the setting on the service instance **Overview** page.
 
-:::image type="content" source="media/spring-cloud-availability-zone/availability-zone-verify-portal.png" alt-text="Screenshot of the Azure portal Overview page showing the Zone Redundant property." lightbox="media/spring-cloud-availability-zone/availability-zone-verify-portal.png":::
+:::image type="content" source="media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-verify-portal.png" alt-text="Screenshot of the Azure portal Overview page showing the Zone Redundant property." lightbox="media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-verify-portal.png":::
 
 ---
 
