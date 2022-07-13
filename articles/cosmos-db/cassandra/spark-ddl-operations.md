@@ -153,3 +153,4 @@ After creating the keyspace and the table, proceed to the following articles for
 * [Delete operations](spark-delete-operation.md)  
 * [Aggregation operations](spark-aggregation-operations.md)  
 * [Table copy operations](spark-table-copy-operations.md)  
+
